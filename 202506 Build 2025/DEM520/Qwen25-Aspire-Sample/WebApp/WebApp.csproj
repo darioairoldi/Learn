@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAspireServiceProject>true</IsAspireServiceProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Aspire service defaults -->
+    <PackageReference Include="Aspire.Microsoft.Extensions.ServiceDefaults" Version="9.0.0" />
+    
+    <!-- Azure AI Inference integration for Aspire -->
+    <PackageReference Include="Aspire.Azure.AI.Inference" Version="9.0.0-preview" />
+    
+    <!-- Microsoft Extensions AI -->
+    <PackageReference Include="Microsoft.Extensions.AI" Version="9.0.0-preview.9.24556.5" />
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.0.0-preview.9.24556.5" />
+  </ItemGroup>
+
+</Project>

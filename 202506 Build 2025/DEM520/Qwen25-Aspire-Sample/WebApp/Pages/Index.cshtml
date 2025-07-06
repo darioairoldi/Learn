@@ -1,0 +1,247 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Qwen2.5 Local AI Chat";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chat-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            height: 500px;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            background-color: #f8f9fa;
+        }
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            max-width: 80%;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+        .ai-message {
+            background-color: white;
+            border: 1px solid #dee2e6;
+        }
+        .chat-input {
+            border-top: 1px solid #dee2e6;
+            padding: 1rem;
+            background-color: white;
+        }
+        .loading {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center mb-4">
+            <h1 class="display-4">Qwen2.5 Local AI Chat</h1>
+            <p class="lead">Powered by Foundry Local and .NET Aspire</p>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai-message">
+                    <strong>AI Assistant:</strong> Hello! I'm running locally on your device using Foundry Local. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="messageInput" placeholder="Type your message here..." 
+                           onkeypress="handleKeyPress(event)">
+                    <button class="btn btn-primary" type="button" onclick="sendMessage()" id="sendButton">
+                        Send
+                    </button>
+                </div>
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" id="streamingMode" checked>
+                    <label class="form-check-label" for="streamingMode">
+                        Enable streaming responses
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Local AI Benefits</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>✅ <strong>Privacy:</strong> Data stays on your device</li>
+                            <li>✅ <strong>Cost:</strong> No cloud API charges</li>
+                            <li>✅ <strong>Offline:</strong> Works without internet</li>
+                            <li>✅ <strong>Control:</strong> Full control over processing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Technology Stack</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>🤖 <strong>Model:</strong> Qwen2.5-0.5B</li>
+                            <li>🏗️ <strong>Runtime:</strong> Foundry Local</li>
+                            <li>🔧 <strong>Orchestration:</strong> .NET Aspire</li>
+                            <li>🌐 <strong>Interface:</strong> OpenAI-compatible API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            const sendButton = document.getElementById('sendButton');
+            const isStreaming = document.getElementById('streamingMode').checked;
+            
+            if (!message) return;
+
+            // Add user message to chat
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Disable input while processing
+            input.disabled = true;
+            sendButton.disabled = true;
+            sendButton.textContent = 'Sending...';
+
+            try {
+                if (isStreaming) {
+                    await handleStreamingResponse(message);
+                } else {
+                    await handleRegularResponse(message);
+                }
+            } catch (error) {
+                addMessage('Error: ' + error.message, 'ai');
+            } finally {
+                // Re-enable input
+                input.disabled = false;
+                sendButton.disabled = false;
+                sendButton.textContent = 'Send';
+                input.focus();
+            }
+        }
+
+        async function handleRegularResponse(message) {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to get response');
+            }
+
+            const data = await response.json();
+            addMessage(data.response, 'ai');
+        }
+
+        async function handleStreamingResponse(message) {
+            const response = await fetch('/api/chat/stream', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to get streaming response');
+            }
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let aiResponse = '';
+            const messageElement = addMessage('', 'ai');
+
+            try {
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    const chunk = decoder.decode(value);
+                    const lines = chunk.split('\n');
+
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            if (data === '[DONE]') {
+                                return;
+                            }
+                            aiResponse += data;
+                            messageElement.innerHTML = '<strong>AI Assistant:</strong> ' + aiResponse;
+                            scrollToBottom();
+                        }
+                    }
+                }
+            } finally {
+                reader.releaseLock();
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = '<strong>You:</strong> ' + text;
+            } else {
+                messageDiv.innerHTML = '<strong>AI Assistant:</strong> ' + text;
+            }
+            
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+            return messageDiv;
+        }
+
+        function scrollToBottom() {
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Focus on input when page loads
+        window.onload = function() {
+            document.getElementById('messageInput').focus();
+        };
+    </script>
+</body>
+</html>
