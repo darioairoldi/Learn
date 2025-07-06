@@ -1,0 +1,63 @@
+# Microsoft Build 2025 - Session Articles
+
+This directory contains detailed notes and summaries from Microsoft Build 2025 sessions, focusing on .NET Aspire, AI development, testing, and modern development practices.
+
+## Table of Contents
+
+### 📋 [BRK106 - Elevating Development with .NET Aspire: AI, Cloud, and Beyond](./BRK106/Elevating%20Development%20with%20.NET%20Aspire%20AI,%20Cloud,%20and%20Beyond.md)
+
+**Summary:** This breakout session explores the evolution of .NET Aspire from a local development tool to a comprehensive platform for building, testing, and deploying modern applications. The session covers significant advances in AI integration, multi-language support, and developer productivity enhancements.
+
+**Speakers:** Damian Edwards, David Fowler, Maddy Montaquila, Devis Lucato
+
+---
+
+### 🧪 [DEM508 - Streamlining Application Testing with .NET Aspire and Playwright](./DEM508/Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright.md)
+
+**Summary:** A comprehensive demonstration showing how to combine .NET Aspire with Playwright for robust end-to-end testing of distributed applications. The session provides practical examples and real-world scenarios for implementing effective testing workflows.
+
+**Speaker:** Jeff Fritz
+
+---
+
+### 🔗 [DEM517 - Build, Deploy, & Use Your First Model Context Protocol (MCP) Server](./DEM517/Build,%20Deploy,%20&%20Use%20Your%20First%20Model%20Context%20Protocol%20(MCP)%20Server.md)
+
+**Summary:** An in-depth exploration of Model Context Protocol (MCP), Microsoft's open standard for connecting AI applications to external data sources and tools. The session covers architecture, deployment options, and practical implementation strategies.
+
+**Speakers:** James Montemagno, Katie Savage
+
+---
+
+### 🤖 [DEM520 - Local AI Development with Foundry Local and .NET Aspire](./DEM520/Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire.md)
+
+**Summary:** A focused demonstration on local AI development using Microsoft's Foundry Local platform integrated with .NET Aspire. The session addresses the challenges and benefits of running AI models locally versus cloud-based solutions.
+
+**Duration:** ~13 minutes live demonstration
+
+---
+
+## Session Formats
+
+- **BRK106**: Breakout session with multiple speakers and comprehensive coverage
+- **DEM508**: Technical demonstration with practical code examples
+- **DEM517**: Deep-dive technical session with architecture focus
+- **DEM520**: Short-format live demonstration with hands-on coding
+
+## Common Themes
+
+All sessions emphasize:
+
+- **Developer productivity** and modern development workflows
+- **Integration patterns** between Microsoft technologies
+- **Real-world applications** and practical implementation
+- **Future-forward** approaches to software development
+- **Enterprise-scale** solutions and best practices
+
+## Additional Resources
+
+Each session folder contains:
+
+- Detailed markdown notes with code examples
+- Supporting images and diagrams
+- Links to official Microsoft Build sessions
+- References to related documentation and tools
