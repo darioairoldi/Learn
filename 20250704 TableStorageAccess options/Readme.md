@@ -142,22 +142,153 @@ The `TableClient` class abstracts the complexity of direct HTTP REST API calls b
 
 
 ### Define Your Entity
+
+Azure Table Storage supports two primary approaches for defining entities: implementing the `ITableEntity` interface for strongly-typed entities, or using the built-in `TableEntity` class for dynamic/flexible scenarios.
+
+#### ITableEntity Interface
+
+The `ITableEntity` interface is the **modern, recommended approach** for defining strongly-typed entities. It provides compile-time safety, IntelliSense support, and explicit control over your data model.
+
+<img src="images/002.00 ITableEntity.png" alt="ITableEntity Interface Diagram" style="border: 2px solid #0078d4; border-radius: 8px; padding: 10px; background-color: #f8f9fa; display: block; margin: 20px auto; max-width: 100%;">
+
+**Key Characteristics of ITableEntity:**
+- **Strongly-typed**: Compile-time safety with custom properties
+- **Interface-based**: Flexible implementation without inheritance constraints
+- **Required properties**: Must implement PartitionKey, RowKey, Timestamp, and ETag
+- **Performance**: Optimized serialization/deserialization
+- **Validation**: Custom validation and business logic in your entity class
+- **Migration-friendly**: Easy to evolve schema over time
+
+**When to use ITableEntity:**
+- Well-defined, stable entity schemas
+- Need compile-time safety and IntelliSense
+- Custom business logic in entity classes
+- Performance-critical applications
+- Large development teams requiring type safety
+
 ```csharp
 using Azure.Data.Tables;
 
 public class EmployeeEntity : ITableEntity
 {
-    public string PartitionKey { get; set; } = default!;
-    public string RowKey { get; set; } = default!;
-    public DateTimeOffset? Timestamp { get; set; }
-    public ETag ETag { get; set; }
+    // Required ITableEntity properties
+    public string PartitionKey { get; set; } = default!;  // Logical grouping (e.g., Department)
+    public string RowKey { get; set; } = default!;        // Unique identifier within partition
+    public DateTimeOffset? Timestamp { get; set; }        // System-managed last modified time
+    public ETag ETag { get; set; }                        // Optimistic concurrency control
     
-    // Custom properties
+    // Custom business properties
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string Department { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public DateTime HireDate { get; set; }
+    public decimal Salary { get; set; }
+    public bool IsActive { get; set; } = true;
+
+    // Optional: Custom business logic
+    public string FullName => $"{FirstName} {LastName}";
+    public int YearsOfService => DateTime.UtcNow.Year - HireDate.Year;
+}
+```
+
+#### TableEntity Class
+
+The `TableEntity` class is a **built-in implementation** that provides dynamic property access through a dictionary-like interface. It's perfect for scenarios where the schema is unknown, evolving, or when working with heterogeneous data.
+
+**Key Characteristics of TableEntity:**
+- **Dynamic**: Properties accessed via dictionary-like syntax (`entity["PropertyName"]`)
+- **Flexible**: No predefined schema required
+- **Built-in**: Ready to use without custom classes
+- **Type conversion**: Built-in methods for type safety (`GetString()`, `GetInt32()`, etc.)
+- **Schema evolution**: Easy to handle changing data structures
+- **Polymorphic**: Can store different entity types in the same table
+
+**When to use TableEntity:**
+- Unknown or evolving schemas
+- Rapid prototyping and development
+- Working with external/legacy data
+- Multiple entity types in same table
+- Schema migration scenarios
+- JSON-like flexible data storage
+
+```csharp
+using Azure.Data.Tables;
+
+// Create TableEntity with constructor
+var employee = new TableEntity("Sales", "001")
+{
+    ["FirstName"] = "John",
+    ["LastName"] = "Doe",
+    ["Department"] = "Sales",
+    ["Email"] = "john.doe@company.com",
+    ["HireDate"] = DateTime.UtcNow,
+    ["Salary"] = 75000.00m,
+    ["IsActive"] = true
+};
+
+// Access properties dynamically
+var firstName = employee.GetString("FirstName");
+var salary = employee.GetDouble("Salary");
+var hireDate = employee.GetDateTime("HireDate");
+var isActive = employee.GetBoolean("IsActive");
+
+// Check if property exists
+if (employee.TryGetValue("Department", out var department))
+{
+    Console.WriteLine($"Department: {department}");
+}
+
+// Add properties dynamically
+employee["LastReview"] = DateTime.UtcNow.AddMonths(-6);
+employee["PerformanceRating"] = "Excellent";
+```
+
+#### Comparison: ITableEntity vs TableEntity
+
+| Feature | **ITableEntity Implementation** | **TableEntity Class** |
+|---------|--------------------------------|----------------------|
+| **Type Safety** | ✅ Compile-time safety | ⚠️ Runtime type checking |
+| **IntelliSense** | ✅ Full property support | ❌ Dictionary-style access |
+| **Performance** | ✅ Optimized serialization | ⚠️ Slight overhead for type conversion |
+| **Schema Flexibility** | ❌ Fixed at compile time | ✅ Dynamic schema changes |
+| **Code Maintenance** | ✅ Easy refactoring | ⚠️ Property name typos possible |
+| **Business Logic** | ✅ Custom methods/properties | ❌ External logic required |
+| **Learning Curve** | ⚠️ Requires interface knowledge | ✅ Simple dictionary-like usage |
+| **Multiple Entity Types** | ❌ One class per type | ✅ Single class for all types |
+
+#### Hybrid Approach: Custom Entity with Dynamic Properties
+
+You can also create a hybrid approach that combines the benefits of both patterns:
+
+```csharp
+public class FlexibleEmployeeEntity : ITableEntity
+{
+    // Required ITableEntity properties
+    public string PartitionKey { get; set; } = default!;
+    public string RowKey { get; set; } = default!;
+    public DateTimeOffset? Timestamp { get; set; }
+    public ETag ETag { get; set; }
+    
+    // Core strongly-typed properties
+    public string FirstName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    
+    // Dynamic properties for extensibility
+    private readonly Dictionary<string, object> _dynamicProperties = new();
+    
+    public void SetDynamicProperty(string key, object value)
+    {
+        _dynamicProperties[key] = value;
+    }
+    
+    public T? GetDynamicProperty<T>(string key)
+    {
+        return _dynamicProperties.TryGetValue(key, out var value) && value is T typedValue 
+            ? typedValue 
+            : default;
+    }
 }
 ```
 

@@ -314,47 +314,32 @@ The key takeaway is that Aspire is not just a development tool but a comprehensi
 
 ## References
 
-### 1. [.NET Aspire Documentation](https://learn.microsoft.com/en-us/dotnet/aspire/)
-**Relevance:** Official Microsoft documentation for .NET Aspire, providing comprehensive guides, tutorials, and API references. Essential for understanding core concepts, getting started guides, and implementation details discussed in the session.
+- [.NET Aspire Documentation](https://learn.microsoft.com/en-us/dotnet/aspire/) - Official Microsoft documentation for .NET Aspire, providing comprehensive guides, tutorials, and API references. Essential for understanding core concepts, getting started guides, and implementation details discussed in the session.
 
-### 2. [Semantic Kernel GitHub Repository](https://github.com/microsoft/semantic-kernel)
-**Relevance:** Open-source project mentioned by Devis Lucato as the foundation for his AI work. Demonstrates the evolution from multi-language SDK maintenance to web service-based architecture that Aspire enables.
+- [Semantic Kernel GitHub Repository](https://github.com/microsoft/semantic-kernel) - Open-source project mentioned by Devis Lucato as the foundation for his AI work. Demonstrates the evolution from multi-language SDK maintenance to web service-based architecture that Aspire enables.
 
-### 3. [Azure Container Apps Documentation](https://learn.microsoft.com/en-us/azure/container-apps/)
-**Relevance:** Primary deployment target for Aspire applications, featured prominently in the session's deployment demonstrations. Understanding Container Apps is crucial for implementing the deployment strategies discussed.
+- [Azure Container Apps Documentation](https://learn.microsoft.com/en-us/azure/container-apps/) - Primary deployment target for Aspire applications, featured prominently in the session's deployment demonstrations. Understanding Container Apps is crucial for implementing the deployment strategies discussed.
 
-### 4. [Azure App Service Documentation](https://learn.microsoft.com/en-us/azure/app-service/)
-**Relevance:** Alternative deployment target showcased in the multi-environment deployment demo. Represents the flexibility of Aspire's compute environment abstraction.
+- [Azure App Service Documentation](https://learn.microsoft.com/en-us/azure/app-service/) - Alternative deployment target showcased in the multi-environment deployment demo. Represents the flexibility of Aspire's compute environment abstraction.
 
-### 5. [OpenTelemetry .NET Documentation](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/observability-with-otel)
-**Relevance:** Fundamental observability framework integrated into Aspire by default. Critical for understanding the telemetry and monitoring capabilities demonstrated in the session.
+- [OpenTelemetry .NET Documentation](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/observability-with-otel) - Fundamental observability framework integrated into Aspire by default. Critical for understanding the telemetry and monitoring capabilities demonstrated in the session.
 
-### 6. [Azure Developer CLI (azd) Documentation](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/)
-**Relevance:** Deployment tool that integrates with Aspire for Azure deployments. Essential for understanding the deployment pipeline and infrastructure-as-code generation shown in the demos.
+- [Azure Developer CLI (azd) Documentation](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/) - Deployment tool that integrates with Aspire for Azure deployments. Essential for understanding the deployment pipeline and infrastructure-as-code generation shown in the demos.
 
-### 7. [Docker Compose Documentation](https://docs.docker.com/compose/)
-**Relevance:** Alternative orchestration approach mentioned in Devis's presentation. Provides context for understanding why Aspire's approach is superior for complex multi-service applications.
+- [Docker Compose Documentation](https://docs.docker.com/compose/) - Alternative orchestration approach mentioned in Devis's presentation. Provides context for understanding why Aspire's approach is superior for complex multi-service applications.
  
-### 8. [Microsoft Extensions AI Documentation](https://learn.microsoft.com/en-us/dotnet/ai/)
-**Relevance:** AI integration framework demonstrated in the session's image processing demo. Shows how Aspire facilitates AI-powered application development.
+- [Microsoft Extensions AI Documentation](https://learn.microsoft.com/en-us/dotnet/ai/) - AI integration framework demonstrated in the session's image processing demo. Shows how Aspire facilitates AI-powered application development.
 
-### 9. [Polly Resilience Framework](https://github.com/App-vNext/Polly)
-**Relevance:** Resilience patterns and retry mechanisms built into Aspire's service defaults. Important for understanding the built-in reliability features mentioned in the session.
+- [Polly Resilience Framework](https://github.com/App-vNext/Polly) - Resilience patterns and retry mechanisms built into Aspire's service defaults. Important for understanding the built-in reliability features mentioned in the session.
 
-### 10. [.NET Generic Host Documentation](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host)
-**Relevance:** Foundation for Aspire's app host pattern. Understanding the generic host model is crucial for comprehending how Aspire orchestrates application services.
+- [.NET Generic Host Documentation](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host) - Foundation for Aspire's app host pattern. Understanding the generic host model is crucial for comprehending how Aspire orchestrates application services.
 
-### 11. [Azure Resource Manager (ARM) Templates](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/)
-**Relevance:** Infrastructure-as-code output generated by Aspire deployments. Understanding ARM/Bicep is helpful for customizing and troubleshooting deployment outputs.
+- [Azure Resource Manager (ARM) Templates](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/) - Infrastructure-as-code output generated by Aspire deployments. Understanding ARM/Bicep is helpful for customizing and troubleshooting deployment outputs.
 
-### 12. [Container Registry Documentation](https://learn.microsoft.com/en-us/azure/container-registry/)
-**Relevance:** Container image management for Aspire applications using containerized services. Important for understanding the container deployment pipeline.
+- [Container Registry Documentation](https://learn.microsoft.com/en-us/azure/container-registry/) - Container image management for Aspire applications using containerized services. Important for understanding the container deployment pipeline.
 
-### 13. [GitHub Actions for .NET](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net)
-**Relevance:** CI/CD integration mentioned as part of Aspire's development workflow. Essential for implementing automated deployment pipelines.
+- [GitHub Actions for .NET](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net) - CI/CD integration mentioned as part of Aspire's development workflow. Essential for implementing automated deployment pipelines.
 
-### 14. [Visual Studio Code C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-**Relevance:** Development environment showcased in the session, including new launch project selection features. Important for developers using VS Code with Aspire.
+- [Visual Studio Code C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) - Development environment showcased in the session, including new launch project selection features. Important for developers using VS Code with Aspire.
 
-### 15. [Microsoft Learn - Cloud-Native Application Development](https://learn.microsoft.com/en-us/training/paths/dotnet-microservices/)
-**Relevance:** Educational content related to cloud-native development patterns that Aspire facilitates. Provides broader context for understanding modern application architecture principles discussed in the session.
+- [Microsoft Learn - Cloud-Native Application Development](https://learn.microsoft.com/en-us/training/paths/dotnet-microservices/) - Educational content related to cloud-native development patterns that Aspire facilitates. Provides broader context for understanding modern application architecture principles discussed in the session.
