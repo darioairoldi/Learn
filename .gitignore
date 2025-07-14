@@ -417,4 +417,10 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+# Quarto
+.quarto/
+/.quarto/
+_freeze/
+# Note: docs/ folder is included for GitHub Pages deployment
+
 .fake

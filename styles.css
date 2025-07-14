@@ -1,0 +1,108 @@
+/* Custom styles for Learning Journey site */
+
+/* Brand colors and theming */
+:root {
+  --primary-color: #0366d6;
+  --secondary-color: #6f42c1;
+  --accent-color: #28a745;
+  --text-muted: #6c757d;
+  --border-color: #e1e4e8;
+}
+
+/* Header and navigation styling */
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Content styling */
+.lead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* Card-like containers for content sections */
+.content-card {
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Code block improvements */
+.sourceCode {
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+/* Callout styling enhancements */
+.callout {
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Table improvements */
+.table {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Figure captions */
+.figure-caption {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .grid {
+    gap: 1rem;
+  }
+  
+  .content-card {
+    padding: 1rem;
+  }
+}
+
+/* Search enhancements */
+.aa-Form {
+  border-radius: 6px;
+}
+
+/* Footer styling */
+.page-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+  margin-top: 3rem;
+  color: var(--text-muted);
+}
+
+/* Sidebar improvements */
+.sidebar {
+  border-right: 1px solid var(--border-color);
+}
+
+.sidebar .nav-link {
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #f8f9fa;
+}
+
+/* Emoji spacing */
+.nav-link .emoji {
+  margin-right: 0.5rem;
+}

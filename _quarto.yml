@@ -1,0 +1,192 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Dario's Learning Journey"
+  description: "Technical learning notes, conference insights, and development guides"
+  site-url: "https://darioairoldi.github.io/Learn"
+  repo-url: "https://github.com/darioairoldi/Learn"
+  repo-actions: [edit, issue]
+  
+  page-navigation: true
+  search: true
+  
+  # Make README.md the homepage
+  reader-mode: true
+  
+  navbar:
+    background: primary
+    search: true
+    title: "Learning Hub"
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "Build 2025 Conference"
+        menu:
+          - href: "202506 Build 2025/Readme.md"
+            text: "Overview"
+          - text: "Sessions"
+          - href: "202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.md"
+            text: "BRK106: .NET Aspire AI & Cloud"
+          - href: "202506 Build 2025/BRK122/README.md"
+            text: "BRK122: ASP.NET Core & Blazor"
+          - href: "202506 Build 2025/BRK123/README.md"
+            text: "BRK123: .NET MAUI AI Development"
+          - href: "202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.md"
+            text: "DEM508: Testing with Aspire & Playwright"
+          - href: "202506 Build 2025/DEM517/Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md"
+            text: "DEM517: Model Context Protocol"
+          - href: "202506 Build 2025/DEM520/README.md"
+            text: "DEM520: Local AI with Foundry"
+      - text: "Azure Topics"
+        menu:
+          - href: "20250702 Azure Naming conventions/Azure-Samples-Naming-Convention.md"
+            text: "Azure Naming Conventions"
+          - href: "20250704 TableStorageAccess options/Readme.md"
+            text: "Table Storage Access Options"
+          - href: "20250706 CosmosDB Access options/README.md"
+            text: "CosmosDB Access Options"
+      - text: "Development Tools"
+        menu:
+          - href: "20250709 Manage GitRepo from commandline/README.md"
+            text: "Git Command Line Management"
+          - href: "20250711 Use http files for easy and repeatable test/README.md"
+            text: "HTTP Files for Testing"
+          - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
+            text: "Quarto Documentation Guide"
+          - href: "20250713 Use http files for easy and repeatable test/README.md"
+            text: "HTTP Files (Extended Guide)"
+      - text: "Issues & Solutions"
+        menu:
+          - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
+            text: "Visual Studio Clone Error"
+          - href: "_ISSUES/20250710 sample/README.md"
+            text: "Sample Issue"
+    right:
+      - icon: github
+        href: "https://github.com/darioairoldi/Learn"
+        aria-label: "GitHub Repository"
+
+  sidebar:
+    style: "floating"
+    search: true
+    collapse-level: 2
+    contents:
+      - href: index.qmd
+        text: "🏠 Home"
+      
+      - section: "🚀 Build 2025 Conference"
+        contents:
+          - href: "202506 Build 2025/Readme.md"
+            text: "Conference Overview"
+          - section: "Sessions"
+            contents:
+              - href: "202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.md"
+                text: "BRK106: .NET Aspire AI & Cloud"
+              - href: "202506 Build 2025/BRK122/README.md" 
+                text: "BRK122: ASP.NET Core & Blazor"
+              - href: "202506 Build 2025/BRK123/README.md"
+                text: "BRK123: .NET MAUI AI"
+              - href: "202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.md"
+                text: "DEM508: Testing with Aspire"
+              - href: "202506 Build 2025/DEM517/Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md"
+                text: "DEM517: MCP Server"
+              - href: "202506 Build 2025/DEM520/README.md"
+                text: "DEM520: Local AI Development"
+      
+      - section: "☁️ Azure Topics"
+        contents:
+          - href: "20250702 Azure Naming conventions/Azure-Samples-Naming-Convention.md"
+            text: "Naming Conventions"
+          - href: "20250704 TableStorageAccess options/Readme.md"
+            text: "Table Storage Access"
+          - href: "20250706 CosmosDB Access options/README.md"
+            text: "CosmosDB Access Options"
+      
+      - section: "🛠️ Development Tools"
+        contents:
+          - href: "20250709 Manage GitRepo from commandline/README.md"
+            text: "Git Command Line"
+          - href: "20250711 Use http files for easy and repeatable test/README.md"
+            text: "HTTP Files Testing"
+          - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
+            text: "Quarto Documentation"
+          - href: "20250713 Use http files for easy and repeatable test/README.md"
+            text: "HTTP Files (Extended)"
+      
+      - section: "🔧 Issues & Solutions"
+        contents:
+          - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
+            text: "VS Clone Error Fix"
+          - href: "_ISSUES/20250710 sample/README.md"
+            text: "Sample Issue"
+
+  page-footer:
+    left: |
+      Built with [Quarto](https://quarto.org/) by Dario Airoldi
+    center: |
+      Learning Journey - Technical Notes & Insights
+    right: |
+      Last updated: {{< meta date >}}
+
+format:
+  html:
+    theme: 
+      - cosmo
+      - custom.scss
+    css: 
+      - styles.css
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+    code-fold: false
+    code-tools: true
+    code-copy: true
+    highlight-style: github
+    fig-width: 8
+    fig-height: 6
+    fig-cap-location: bottom
+    callout-appearance: default
+    citations-hover: true
+    footnotes-hover: true
+    crossref:
+      fig-title: "Figure"
+      tbl-title: "Table"
+      eq-title: "Equation"
+    date-format: "MMMM D, YYYY"
+    lang: en
+    page-layout: article
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 200px
+
+execute:
+  cache: true
+  freeze: auto
+  echo: true
+  warning: false
+  error: false
+
+metadata:
+  author: "Dario Airoldi"
+  date: last-modified
+  description: "Technical learning notes, conference insights, and development guides"
+  keywords:
+    - learning
+    - development
+    - azure
+    - dotnet
+    - conference
+    - documentation
+  image: "images/logo.png"  # Add if you have a logo
+
+language:
+  title-block-banner: true
+  search-box-placeholder: "Search documentation..."
+  search-more-text: "More matches"
+  search-clear-button-title: "Clear search"

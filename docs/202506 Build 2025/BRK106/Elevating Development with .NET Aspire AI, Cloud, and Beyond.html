@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dario Airoldi">
+<meta name="dcterms.date" content="2025-07-06">
+<meta name="keywords" content="learning, development, azure, dotnet, conference, documentation">
+<meta name="description" content="Technical learning notes, conference insights, and development guides">
+
+<title>elevating-development-with-.net-aspire-ai-cloud-and-beyond – Dario's Learning Journey</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../202506 Build 2025/BRK122/README.md" rel="next">
+<link href="../../202506 Build 2025/Readme.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear search",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Learning Hub</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-build-2025-conference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Build 2025 Conference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-build-2025-conference">    
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/Readme.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li class="dropdown-header">Sessions</li>
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">
+ <span class="dropdown-text">BRK106: .NET Aspire AI &amp; Cloud</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK122/README.md">
+ <span class="dropdown-text">BRK122: ASP.NET Core &amp; Blazor</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK123/README.md">
+ <span class="dropdown-text">BRK123: .NET MAUI AI Development</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.html">
+ <span class="dropdown-text">DEM508: Testing with Aspire &amp; Playwright</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM517/Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html">
+ <span class="dropdown-text">DEM517: Model Context Protocol</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM520/README.md">
+ <span class="dropdown-text">DEM520: Local AI with Foundry</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-azure-topics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Azure Topics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-azure-topics">    
+        <li>
+    <a class="dropdown-item" href="../../20250702 Azure Naming conventions/Azure-Samples-Naming-Convention.html">
+ <span class="dropdown-text">Azure Naming Conventions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250704 TableStorageAccess options/Readme.html">
+ <span class="dropdown-text">Table Storage Access Options</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250706 CosmosDB Access options/README.md">
+ <span class="dropdown-text">CosmosDB Access Options</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-development-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Development Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-development-tools">    
+        <li>
+    <a class="dropdown-item" href="../../20250709 Manage GitRepo from commandline/README.md">
+ <span class="dropdown-text">Git Command Line Management</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250711 Use http files for easy and repeatable test/README.md">
+ <span class="dropdown-text">HTTP Files for Testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250712 Use QUARTO doc for Github repos doc/README.md">
+ <span class="dropdown-text">Quarto Documentation Guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250713 Use http files for easy and repeatable test/README.md">
+ <span class="dropdown-text">HTTP Files (Extended Guide)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-issues--solutions" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Issues &amp; Solutions</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-issues--solutions">    
+        <li>
+    <a class="dropdown-item" href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md">
+ <span class="dropdown-text">Visual Studio Clone Error</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../_ISSUES/20250710 sample/README.md">
+ <span class="dropdown-text">Sample Issue</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/darioairoldi/Learn"> <i class="bi bi-github" role="img" aria-label="GitHub Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">🚀 Build 2025 Conference</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">Sessions</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">BRK106: .NET Aspire AI &amp; Cloud</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🏠 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">🚀 Build 2025 Conference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conference Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">BRK106: .NET Aspire AI &amp; Cloud</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/BRK122/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BRK122: ASP.NET Core &amp; Blazor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/BRK123/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BRK123: .NET MAUI AI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DEM508: Testing with Aspire</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/DEM517/Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DEM517: MCP Server</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/DEM520/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DEM520: Local AI Development</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">☁️ Azure Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250702 Azure Naming conventions/Azure-Samples-Naming-Convention.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Naming Conventions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250704 TableStorageAccess options/Readme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Table Storage Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250706 CosmosDB Access options/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CosmosDB Access Options</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">🛠️ Development Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250709 Manage GitRepo from commandline/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Command Line</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250711 Use http files for easy and repeatable test/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTTP Files Testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto Documentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250713 Use http files for easy and repeatable test/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTTP Files (Extended)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">🔧 Issues &amp; Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VS Clone Error Fix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../_ISSUES/20250710 sample/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample Issue</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#elevating-development-with-.net-aspire-ai-cloud-and-beyond" id="toc-elevating-development-with-.net-aspire-ai-cloud-and-beyond" class="nav-link active" data-scroll-target="#elevating-development-with-.net-aspire-ai-cloud-and-beyond">Elevating Development with .NET Aspire: AI, Cloud, and Beyond</a>
+  <ul class="collapse">
+  <li><a href="#session-overview" id="toc-session-overview" class="nav-link" data-scroll-target="#session-overview">Session Overview</a></li>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a></li>
+  <li><a href="#key-concepts-and-analysis" id="toc-key-concepts-and-analysis" class="nav-link" data-scroll-target="#key-concepts-and-analysis">Key Concepts and Analysis</a>
+  <ul class="collapse">
+  <li><a href="#developer-experience-revolution" id="toc-developer-experience-revolution" class="nav-link" data-scroll-target="#developer-experience-revolution">1. Developer Experience Revolution</a></li>
+  <li><a href="#ai-integration-and-multi-language-support" id="toc-ai-integration-and-multi-language-support" class="nav-link" data-scroll-target="#ai-integration-and-multi-language-support">2. AI Integration and Multi-Language Support</a></li>
+  <li><a href="#deployment-strategy-evolution" id="toc-deployment-strategy-evolution" class="nav-link" data-scroll-target="#deployment-strategy-evolution">3. Deployment Strategy Evolution</a></li>
+  <li><a href="#command-line-interface-cli-introduction" id="toc-command-line-interface-cli-introduction" class="nav-link" data-scroll-target="#command-line-interface-cli-introduction">4. Command Line Interface (CLI) Introduction</a></li>
+  <li><a href="#version-management-and-maintenance" id="toc-version-management-and-maintenance" class="nav-link" data-scroll-target="#version-management-and-maintenance">5. Version Management and Maintenance</a></li>
+  <li><a href="#observability-and-debugging" id="toc-observability-and-debugging" class="nav-link" data-scroll-target="#observability-and-debugging">6. Observability and Debugging</a></li>
+  <li><a href="#community-and-open-source" id="toc-community-and-open-source" class="nav-link" data-scroll-target="#community-and-open-source">7. Community and Open Source</a></li>
+  </ul></li>
+  <li><a href="#technical-deep-dive" id="toc-technical-deep-dive" class="nav-link" data-scroll-target="#technical-deep-dive">Technical Deep Dive</a>
+  <ul class="collapse">
+  <li><a href="#architecture-patterns" id="toc-architecture-patterns" class="nav-link" data-scroll-target="#architecture-patterns">Architecture Patterns</a></li>
+  <li><a href="#configuration-management" id="toc-configuration-management" class="nav-link" data-scroll-target="#configuration-management">Configuration Management</a></li>
+  <li><a href="#deployment-flexibility" id="toc-deployment-flexibility" class="nav-link" data-scroll-target="#deployment-flexibility">Deployment Flexibility</a></li>
+  </ul></li>
+  <li><a href="#best-practices-and-recommendations" id="toc-best-practices-and-recommendations" class="nav-link" data-scroll-target="#best-practices-and-recommendations">Best Practices and Recommendations</a>
+  <ul class="collapse">
+  <li><a href="#starting-new-projects" id="toc-starting-new-projects" class="nav-link" data-scroll-target="#starting-new-projects">1. Starting New Projects</a></li>
+  <li><a href="#migration-strategy" id="toc-migration-strategy" class="nav-link" data-scroll-target="#migration-strategy">2. Migration Strategy</a></li>
+  <li><a href="#multi-language-integration" id="toc-multi-language-integration" class="nav-link" data-scroll-target="#multi-language-integration">3. Multi-Language Integration</a></li>
+  <li><a href="#version-management" id="toc-version-management" class="nav-link" data-scroll-target="#version-management">4. Version Management</a></li>
+  </ul></li>
+  <li><a href="#future-roadmap-and-implications" id="toc-future-roadmap-and-implications" class="nav-link" data-scroll-target="#future-roadmap-and-implications">Future Roadmap and Implications</a>
+  <ul class="collapse">
+  <li><a href="#near-term-developments" id="toc-near-term-developments" class="nav-link" data-scroll-target="#near-term-developments">Near-Term Developments</a></li>
+  <li><a href="#strategic-direction" id="toc-strategic-direction" class="nav-link" data-scroll-target="#strategic-direction">Strategic Direction</a></li>
+  </ul></li>
+  <li><a href="#challenges-and-considerations" id="toc-challenges-and-considerations" class="nav-link" data-scroll-target="#challenges-and-considerations">Challenges and Considerations</a>
+  <ul class="collapse">
+  <li><a href="#current-limitations" id="toc-current-limitations" class="nav-link" data-scroll-target="#current-limitations">Current Limitations</a></li>
+  <li><a href="#mitigation-strategies" id="toc-mitigation-strategies" class="nav-link" data-scroll-target="#mitigation-strategies">Mitigation Strategies</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">🚀 Build 2025 Conference</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">Sessions</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">BRK106: .NET Aspire AI &amp; Cloud</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+<div>
+  <div class="description">
+    Technical learning notes, conference insights, and development guides
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dario Airoldi </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 6, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>learning, development, azure, dotnet, conference, documentation</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="elevating-development-with-.net-aspire-ai-cloud-and-beyond" class="level1">
+<h1>Elevating Development with .NET Aspire: AI, Cloud, and Beyond</h1>
+<section id="session-overview" class="level2">
+<h2 class="anchored" data-anchor-id="session-overview">Session Overview</h2>
+<p><strong>Session Code:</strong> BRK106<br>
+<strong>Date:</strong> Microsoft Build 2025 (May 19-22, 2025)<br>
+<strong>Speakers:</strong></p>
+<ul>
+<li>Damian Edwards (Microsoft)</li>
+<li>David Fowler (Microsoft)</li>
+<li>Maddy Montaquila (PM, Aspire Team)</li>
+<li>Devis Lucato (Office of the CTO)</li>
+</ul>
+<p>This session presented the <strong>evolution and advancement of .NET Aspire</strong> over the past year, focusing on its role in modern <strong>development workflows</strong>, <strong>AI integration</strong>, <strong>cloud deployment</strong> strategies, and <strong>developer productivity</strong> enhancements.</p>
+</section>
+<section id="executive-summary" class="level2">
+<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
+<p>.NET Aspire has transformed from a <strong>local development orchestration tool</strong> to a <strong>comprehensive platform for building, testing, and deploying modern applications</strong>.<br></p>
+<p>The session highlighted significant progress in <strong>AI integration</strong>, <strong>multi-language support</strong>, <strong>deployment flexibility</strong>, and developer experience improvements.<br> With over <strong>60,000 developers</strong> and <strong>70% adoption</strong> among top .NET customers at Microsoft, Aspire has proven its value as a cornerstone of modern .NET development.</p>
+</section>
+<section id="key-concepts-and-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="key-concepts-and-analysis">Key Concepts and Analysis</h2>
+<section id="developer-experience-revolution" class="level3">
+<h3 class="anchored" data-anchor-id="developer-experience-revolution">1. Developer Experience Revolution</h3>
+<p><strong>Core Problem Addressed:</strong> Modern application development has become increasingly complex, with developers managing multiple services, databases, authentication systems, and deployment targets.<br> The traditional onboarding process can take 2-3 weeks before developers can contribute meaningfully to a codebase.</p>
+<p><strong>Aspire’s Solution:</strong> - <strong>Unified Development Environment:</strong> <strong>Single point of orchestration</strong> for all application components - <strong>F5 Experience:</strong> <strong>Clone repository, hit F5, and start developing immediately</strong> - <strong>Integrated Observability:</strong> <strong>OpenTelemetry, logging</strong>, and resiliency built-in by default - <strong>Standardized Patterns:</strong> Consistent approach to configuration, dependency injection, and service discovery</p>
+<p><strong>Real-World Impact:</strong> The session mentioned a customer achieving same-day productivity - developers could clone a repository and start contributing by lunch on their first day.</p>
+</section>
+<section id="ai-integration-and-multi-language-support" class="level3">
+<h3 class="anchored" data-anchor-id="ai-integration-and-multi-language-support">2. AI Integration and Multi-Language Support</h3>
+<p><strong>Devis Lucato’s Journey:</strong> Devis presented a compelling case study of migrating from <strong>Semantic Kernel</strong> to a more maintainable, <strong>Aspire-based architecture</strong>:</p>
+<p><strong>Original Challenge:</strong></p>
+<ul>
+<li>Maintaining identical <strong>SDKs in .NET, Python, Java, and TypeScript</strong></li>
+<li>Complex configuration files mixing business logic with infrastructure</li>
+<li>Manual resource management and orchestration</li>
+</ul>
+<p><strong>Aspire-Enabled Solution:</strong></p>
+<ul>
+<li><strong>Microservices Architecture:</strong> Each AI component as a separate service</li>
+<li><strong>Multi-Language Support:</strong> Python (LangChain, LlamaIndex), Node.js, and .NET components</li>
+<li><strong>Unified Configuration:</strong> Single app host managing all dependencies</li>
+<li><strong>Container-First Approach:</strong> Docker containers for each service with automatic orchestration</li>
+</ul>
+<p><strong>Technical Implementation:</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Example of multi-language service orchestration</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> builder <span class="op">=</span> DistributedApplication<span class="op">.</span><span class="fu">CreateBuilder</span><span class="op">(</span>args<span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> postgres <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddPostgres</span><span class="op">(</span><span class="st">"postgres"</span><span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> redis <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddRedis</span><span class="op">(</span><span class="st">"redis"</span><span class="op">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> ollama <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddOllama</span><span class="op">(</span><span class="st">"ollama"</span><span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// .NET service</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">WebApp</span><span class="op">&gt;(</span><span class="st">"webapp"</span><span class="op">)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>postgres<span class="op">)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>redis<span class="op">);</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Python service in container</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddContainer</span><span class="op">(</span><span class="st">"python-service"</span><span class="op">,</span> <span class="st">"myapp/python-processor"</span><span class="op">)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>postgres<span class="op">)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>ollama<span class="op">);</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Node.js service</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddNpmApp</span><span class="op">(</span><span class="st">"frontend"</span><span class="op">,</span> <span class="st">"../frontend"</span><span class="op">)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span><span class="st">"webapp"</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="deployment-strategy-evolution" class="level3">
+<h3 class="anchored" data-anchor-id="deployment-strategy-evolution">3. Deployment Strategy Evolution</h3>
+<p><strong>From Single-Target to Multi-Environment:</strong> The session demonstrated Aspire’s evolution from supporting only Azure Container Apps to a flexible, multi-target deployment system.</p>
+<p><strong>Key Innovations:</strong></p>
+<section id="compute-environments" class="level4">
+<h4 class="anchored" data-anchor-id="compute-environments">Compute Environments</h4>
+<p>A new abstraction layer that separates application intent from deployment mechanics:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Single environment (traditional)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddAzureContainerAppEnvironment</span><span class="op">(</span><span class="st">"myenv"</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Multi-environment (new capability)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> frontendEnv <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddAzureAppServiceEnvironment</span><span class="op">(</span><span class="st">"frontend"</span><span class="op">);</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> backendEnv <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddAzureContainerAppEnvironment</span><span class="op">(</span><span class="st">"backend"</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">WebApp</span><span class="op">&gt;(</span><span class="st">"webapp"</span><span class="op">)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithEnvironment</span><span class="op">(</span>frontendEnv<span class="op">);</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">ImageProcessor</span><span class="op">&gt;(</span><span class="st">"processor"</span><span class="op">)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithEnvironment</span><span class="op">(</span>backendEnv<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="intent-vs.-mechanics" class="level4">
+<h4 class="anchored" data-anchor-id="intent-vs.-mechanics">Intent vs.&nbsp;Mechanics</h4>
+<ul>
+<li><strong>Intent:</strong> Application structure, dependencies, and communication patterns</li>
+<li><strong>Mechanics:</strong> Where and how applications are deployed</li>
+<li><strong>Benefit:</strong> Same application definition can target multiple deployment environments</li>
+</ul>
+</section>
+</section>
+<section id="command-line-interface-cli-introduction" class="level3">
+<h3 class="anchored" data-anchor-id="command-line-interface-cli-introduction">4. Command Line Interface (CLI) Introduction</h3>
+<p><strong>New Capability:</strong> Aspire CLI provides command-line access to Aspire functionality, expanding beyond Visual Studio dependency:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Template management</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> new update</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> new aspire</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Project operations</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">aspire</span> new</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">aspire</span> run</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">aspire</span> add</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">aspire</span> publish  <span class="co"># New deployment verb</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Strategic Importance:</strong> - Enables CI/CD integration - Supports developers who prefer command-line workflows - Facilitates automation and scripting scenarios</p>
+</section>
+<section id="version-management-and-maintenance" class="level3">
+<h3 class="anchored" data-anchor-id="version-management-and-maintenance">5. Version Management and Maintenance</h3>
+<p><strong>Current State:</strong> - Release cycle: Every 6 weeks - Latest version: 9.3 (as of session date) - Distribution: NuGet packages (no longer workload-based)</p>
+<p><strong>Update Process:</strong> 1. <strong>Template Updates:</strong> <code>dotnet new update</code> 2. <strong>Package Updates:</strong> Standard NuGet update procedures 3. <strong>SDK Updates:</strong> Manual project file editing required</p>
+<p><strong>Challenge Highlighted:</strong> Many developers are not updating to latest versions, missing bug fixes and new features.</p>
+</section>
+<section id="observability-and-debugging" class="level3">
+<h3 class="anchored" data-anchor-id="observability-and-debugging">6. Observability and Debugging</h3>
+<p><strong>Built-in Capabilities:</strong> - <strong>Distributed Tracing:</strong> End-to-end request flow visualization - <strong>Centralized Logging:</strong> Unified log viewing across all services - <strong>Performance Monitoring:</strong> Real-time metrics and diagnostics - <strong>Console Integration:</strong> Direct access to service console logs</p>
+<p><strong>Developer Experience Enhancement:</strong> Instead of managing multiple terminal windows for different services, developers can view all logs and metrics from a single dashboard interface.</p>
+</section>
+<section id="community-and-open-source" class="level3">
+<h3 class="anchored" data-anchor-id="community-and-open-source">7. Community and Open Source</h3>
+<p><strong>Growth Metrics:</strong> - 60,000+ developers using Aspire - 700+ community PRs (approximately 2 per day) - 70% adoption rate among top .NET customers at Microsoft</p>
+<p><strong>Open Source First Approach:</strong> - All development happens in the open - Community contributions actively encouraged - Transparent roadmap and feature development</p>
+</section>
+</section>
+<section id="technical-deep-dive" class="level2">
+<h2 class="anchored" data-anchor-id="technical-deep-dive">Technical Deep Dive</h2>
+<section id="architecture-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="architecture-patterns">Architecture Patterns</h3>
+<section id="app-host-pattern" class="level4">
+<h4 class="anchored" data-anchor-id="app-host-pattern">App Host Pattern</h4>
+<p>The App Host serves as the central configuration point for the entire application:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> builder <span class="op">=</span> DistributedApplication<span class="op">.</span><span class="fu">CreateBuilder</span><span class="op">(</span>args<span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Infrastructure dependencies</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> postgres <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddPostgres</span><span class="op">(</span><span class="st">"postgres"</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> redis <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddRedis</span><span class="op">(</span><span class="st">"redis"</span><span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> storage <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddAzureStorage</span><span class="op">(</span><span class="st">"storage"</span><span class="op">);</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Application services</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> api <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">Api</span><span class="op">&gt;(</span><span class="st">"api"</span><span class="op">)</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>postgres<span class="op">)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>redis<span class="op">);</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> web <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">Web</span><span class="op">&gt;(</span><span class="st">"web"</span><span class="op">)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>api<span class="op">)</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>storage<span class="op">);</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">Build</span><span class="op">().</span><span class="fu">Run</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="service-defaults" class="level4">
+<h4 class="anchored" data-anchor-id="service-defaults">Service Defaults</h4>
+<p>Standardized configuration applied to all services: - OpenTelemetry integration - Health checks - Resilience patterns (Polly) - Service discovery - Configuration management</p>
+</section>
+</section>
+<section id="configuration-management" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-management">Configuration Management</h3>
+<p><strong>Traditional Approach Problems:</strong> - Mixed business and infrastructure configuration - Hard-coded API keys and connection strings - Environment-specific configuration files - Manual resource coordination</p>
+<p><strong>Aspire Solution:</strong> - <strong>Parameterized Configuration:</strong> External parameters for sensitive data - <strong>Connection String Injection:</strong> Automatic connection string management - <strong>Managed Identity Support:</strong> Seamless authentication token handling - <strong>Environment-Specific Overrides:</strong> Different configurations per deployment target</p>
+</section>
+<section id="deployment-flexibility" class="level3">
+<h3 class="anchored" data-anchor-id="deployment-flexibility">Deployment Flexibility</h3>
+<section id="multi-target-support" class="level4">
+<h4 class="anchored" data-anchor-id="multi-target-support">Multi-Target Support</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Azure Container Apps</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddAzureContainerAppEnvironment</span><span class="op">(</span><span class="st">"production"</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Azure App Service</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddAzureAppServiceEnvironment</span><span class="op">(</span><span class="st">"staging"</span><span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Docker Compose (Preview)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddDockerComposeEnvironment</span><span class="op">(</span><span class="st">"development"</span><span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Kubernetes (Community)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddKubernetesEnvironment</span><span class="op">(</span><span class="st">"cluster"</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="cross-environment-communication" class="level4">
+<h4 class="anchored" data-anchor-id="cross-environment-communication">Cross-Environment Communication</h4>
+<p>Aspire automatically handles service-to-service communication across different compute environments: - Network configuration - Service discovery - Load balancing - Security policies</p>
+</section>
+</section>
+</section>
+<section id="best-practices-and-recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices-and-recommendations">Best Practices and Recommendations</h2>
+<section id="starting-new-projects" class="level3">
+<h3 class="anchored" data-anchor-id="starting-new-projects">1. Starting New Projects</h3>
+<p><strong>Recommendation:</strong> Begin with Aspire from day one rather than retrofitting existing applications.</p>
+<p><strong>Benefits:</strong> - Immediate productivity gains - Consistent development patterns - Built-in observability and resilience - Simplified deployment pipeline</p>
+</section>
+<section id="migration-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="migration-strategy">2. Migration Strategy</h3>
+<p>For existing applications, focus on: 1. <strong>Authentication Patterns:</strong> Move from API keys to managed identities 2. <strong>Configuration Management:</strong> Externalize configuration from code 3. <strong>Service Boundaries:</strong> Identify natural service boundaries for containerization 4. <strong>Dependency Management:</strong> Catalog external dependencies (databases, message queues, etc.)</p>
+</section>
+<section id="multi-language-integration" class="level3">
+<h3 class="anchored" data-anchor-id="multi-language-integration">3. Multi-Language Integration</h3>
+<p>When incorporating non-.NET components: - Use container-based integration - Maintain consistent configuration patterns - Leverage Aspire’s orchestration capabilities - Document service contracts and APIs</p>
+</section>
+<section id="version-management" class="level3">
+<h3 class="anchored" data-anchor-id="version-management">4. Version Management</h3>
+<ul>
+<li>Update Aspire regularly (every 6 weeks)</li>
+<li>Use <code>dotnet new update</code> for template updates</li>
+<li>Implement automated dependency updates in CI/CD</li>
+<li>Monitor for breaking changes in preview features</li>
+</ul>
+</section>
+</section>
+<section id="future-roadmap-and-implications" class="level2">
+<h2 class="anchored" data-anchor-id="future-roadmap-and-implications">Future Roadmap and Implications</h2>
+<section id="near-term-developments" class="level3">
+<h3 class="anchored" data-anchor-id="near-term-developments">Near-Term Developments</h3>
+<ul>
+<li><strong>Enhanced Multi-Language Support:</strong> Continued improvement of JavaScript, Python, and Go integration</li>
+<li><strong>Deployment Target Expansion:</strong> Additional cloud providers and deployment platforms</li>
+<li><strong>Visual Studio Integration:</strong> Improved template update experience</li>
+<li><strong>CLI Enhancements:</strong> Extended command-line functionality</li>
+</ul>
+</section>
+<section id="strategic-direction" class="level3">
+<h3 class="anchored" data-anchor-id="strategic-direction">Strategic Direction</h3>
+<ul>
+<li><strong>Cloud-Agnostic Deployment:</strong> Support for AWS, Google Cloud, and other platforms</li>
+<li><strong>Enterprise Integration:</strong> Advanced CI/CD pipeline integration</li>
+<li><strong>AI/ML Workflow Support:</strong> Enhanced patterns for AI/ML application development</li>
+<li><strong>Performance Optimization:</strong> Continued focus on development and runtime performance</li>
+</ul>
+</section>
+</section>
+<section id="challenges-and-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="challenges-and-considerations">Challenges and Considerations</h2>
+<section id="current-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="current-limitations">Current Limitations</h3>
+<ol type="1">
+<li><strong>Preview Features:</strong> Many advanced features still in preview</li>
+<li><strong>Learning Curve:</strong> Developers need to understand new patterns and concepts</li>
+<li><strong>Enterprise Integration:</strong> Some enterprise scenarios require custom solutions</li>
+<li><strong>Multi-Cloud Complexity:</strong> Cross-cloud deployments add complexity</li>
+</ol>
+</section>
+<section id="mitigation-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="mitigation-strategies">Mitigation Strategies</h3>
+<ul>
+<li><strong>Gradual Adoption:</strong> Start with local development, expand to deployment</li>
+<li><strong>Team Training:</strong> Invest in developer education and training</li>
+<li><strong>Community Engagement:</strong> Participate in open source community</li>
+<li><strong>Feedback Loop:</strong> Actively provide feedback to Microsoft team</li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>.NET Aspire represents a significant evolution in .NET development tooling, addressing the complexity of modern application development through unified orchestration, simplified deployment, and enhanced developer experience. The session demonstrated maturity in AI integration, multi-language support, and deployment flexibility while maintaining the core promise of reducing developer friction.</p>
+<p>The combination of strong community adoption, active open source development, and Microsoft’s internal usage validates Aspire’s approach to modern application development. As the platform continues to evolve, it positions itself as an essential tool for teams building cloud-native applications with .NET.</p>
+<p>The key takeaway is that Aspire is not just a development tool but a comprehensive platform that bridges the gap between local development and production deployment, making it possible for developers to focus on business logic rather than infrastructure complexity.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><p><a href="https://learn.microsoft.com/en-us/dotnet/aspire/">.NET Aspire Documentation</a> - Official Microsoft documentation for .NET Aspire, providing comprehensive guides, tutorials, and API references. Essential for understanding core concepts, getting started guides, and implementation details discussed in the session.</p></li>
+<li><p><a href="https://github.com/microsoft/semantic-kernel">Semantic Kernel GitHub Repository</a> - Open-source project mentioned by Devis Lucato as the foundation for his AI work. Demonstrates the evolution from multi-language SDK maintenance to web service-based architecture that Aspire enables.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/azure/container-apps/">Azure Container Apps Documentation</a> - Primary deployment target for Aspire applications, featured prominently in the session’s deployment demonstrations. Understanding Container Apps is crucial for implementing the deployment strategies discussed.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/azure/app-service/">Azure App Service Documentation</a> - Alternative deployment target showcased in the multi-environment deployment demo. Represents the flexibility of Aspire’s compute environment abstraction.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/dotnet/core/diagnostics/observability-with-otel">OpenTelemetry .NET Documentation</a> - Fundamental observability framework integrated into Aspire by default. Critical for understanding the telemetry and monitoring capabilities demonstrated in the session.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/">Azure Developer CLI (azd) Documentation</a> - Deployment tool that integrates with Aspire for Azure deployments. Essential for understanding the deployment pipeline and infrastructure-as-code generation shown in the demos.</p></li>
+<li><p><a href="https://docs.docker.com/compose/">Docker Compose Documentation</a> - Alternative orchestration approach mentioned in Devis’s presentation. Provides context for understanding why Aspire’s approach is superior for complex multi-service applications.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/dotnet/ai/">Microsoft Extensions AI Documentation</a> - AI integration framework demonstrated in the session’s image processing demo. Shows how Aspire facilitates AI-powered application development.</p></li>
+<li><p><a href="https://github.com/App-vNext/Polly">Polly Resilience Framework</a> - Resilience patterns and retry mechanisms built into Aspire’s service defaults. Important for understanding the built-in reliability features mentioned in the session.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host">.NET Generic Host Documentation</a> - Foundation for Aspire’s app host pattern. Understanding the generic host model is crucial for comprehending how Aspire orchestrates application services.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/">Azure Resource Manager (ARM) Templates</a> - Infrastructure-as-code output generated by Aspire deployments. Understanding ARM/Bicep is helpful for customizing and troubleshooting deployment outputs.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/azure/container-registry/">Container Registry Documentation</a> - Container image management for Aspire applications using containerized services. Important for understanding the container deployment pipeline.</p></li>
+<li><p><a href="https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net">GitHub Actions for .NET</a> - CI/CD integration mentioned as part of Aspire’s development workflow. Essential for implementing automated deployment pipelines.</p></li>
+<li><p><a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp">Visual Studio Code C# Dev Kit</a> - Development environment showcased in the session, including new launch project selection features. Important for developers using VS Code with Aspire.</p></li>
+<li><p><a href="https://learn.microsoft.com/en-us/training/paths/dotnet-microservices/">Microsoft Learn - Cloud-Native Application Development</a> - Educational content related to cloud-native development patterns that Aspire facilitates. Provides broader context for understanding modern application architecture principles discussed in the session.</p></li>
+</ul>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/darioairoldi\.github\.io\/Learn");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../202506 Build 2025/Readme.html" class="pagination-link" aria-label="Conference Overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Conference Overview</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../202506 Build 2025/BRK122/README.md" class="pagination-link" aria-label="BRK122: ASP.NET Core &amp; Blazor">
+        <span class="nav-page-text">BRK122: ASP.NET Core &amp; Blazor</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Elevating Development with .NET Aspire: AI, Cloud, and Beyond</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Session Overview</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>**Session Code:** BRK106  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>**Date:** Microsoft Build 2025 (May 19-22, 2025)  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>**Speakers:**</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Damian Edwards (Microsoft)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>David Fowler (Microsoft)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Maddy Montaquila (PM, Aspire Team)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Devis Lucato (Office of the CTO)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>This session presented the **evolution and advancement of .NET Aspire** over the past year, focusing on its role in modern **development workflows**, **AI integration**, **cloud deployment** strategies, and **developer productivity** enhancements.</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Executive Summary </span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>.NET Aspire has transformed from a **local development orchestration tool** to a **comprehensive platform for building, testing, and deploying modern applications**.&lt;br&gt; </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>The session highlighted significant progress in **AI integration**, **multi-language support**, **deployment flexibility**, and developer experience improvements.&lt;br&gt;</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>With over **60,000 developers** and **70% adoption** among top .NET customers at Microsoft, Aspire has proven its value as a cornerstone of modern .NET development.</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Concepts and Analysis</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Developer Experience Revolution</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>**Core Problem Addressed:**</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>Modern application development has become increasingly complex, with developers managing multiple services, databases, authentication systems, and deployment targets.&lt;br&gt;</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>The traditional onboarding process can take 2-3 weeks before developers can contribute meaningfully to a codebase.</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>**Aspire's Solution:**</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Unified Development Environment:** **Single point of orchestration** for all application components</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**F5 Experience:** **Clone repository, hit F5, and start developing immediately**</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Integrated Observability:** **OpenTelemetry, logging**, and resiliency built-in by default</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Standardized Patterns:** Consistent approach to configuration, dependency injection, and service discovery</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>**Real-World Impact:**</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>The session mentioned a customer achieving same-day productivity - developers could clone a repository and start contributing by lunch on their first day.</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. AI Integration and Multi-Language Support</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>**Devis Lucato's Journey:**</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>Devis presented a compelling case study of migrating from **Semantic Kernel** to a more maintainable, **Aspire-based architecture**:</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>**Original Challenge:**</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Maintaining identical **SDKs in .NET, Python, Java, and TypeScript**</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complex configuration files mixing business logic with infrastructure</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Manual resource management and orchestration</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>**Aspire-Enabled Solution:**</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Microservices Architecture:** Each AI component as a separate service</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Multi-Language Support:** Python (LangChain, LlamaIndex), Node.js, and .NET components</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Unified Configuration:** Single app host managing all dependencies</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Container-First Approach:** Docker containers for each service with automatic orchestration</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>**Technical Implementation:**</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="co">// Example of multi-language service orchestration</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> builder <span class="op">=</span> DistributedApplication<span class="op">.</span><span class="fu">CreateBuilder</span><span class="op">(</span>args<span class="op">);</span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> postgres <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddPostgres</span><span class="op">(</span><span class="st">"postgres"</span><span class="op">);</span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> redis <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddRedis</span><span class="op">(</span><span class="st">"redis"</span><span class="op">);</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> ollama <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddOllama</span><span class="op">(</span><span class="st">"ollama"</span><span class="op">);</span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="co">// .NET service</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">WebApp</span><span class="op">&gt;(</span><span class="st">"webapp"</span><span class="op">)</span></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>postgres<span class="op">)</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>redis<span class="op">);</span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="co">// Python service in container</span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddContainer</span><span class="op">(</span><span class="st">"python-service"</span><span class="op">,</span> <span class="st">"myapp/python-processor"</span><span class="op">)</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>postgres<span class="op">)</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>ollama<span class="op">);</span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="co">// Node.js service</span></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddNpmApp</span><span class="op">(</span><span class="st">"frontend"</span><span class="op">,</span> <span class="st">"../frontend"</span><span class="op">)</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span><span class="st">"webapp"</span><span class="op">);</span></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Deployment Strategy Evolution</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>**From Single-Target to Multi-Environment:**</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>The session demonstrated Aspire's evolution from supporting only Azure Container Apps to a flexible, multi-target deployment system.</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>**Key Innovations:**</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Compute Environments</span></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>A new abstraction layer that separates application intent from deployment mechanics:</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="co">// Single environment (traditional)</span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddAzureContainerAppEnvironment</span><span class="op">(</span><span class="st">"myenv"</span><span class="op">);</span></span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="co">// Multi-environment (new capability)</span></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> frontendEnv <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddAzureAppServiceEnvironment</span><span class="op">(</span><span class="st">"frontend"</span><span class="op">);</span></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> backendEnv <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddAzureContainerAppEnvironment</span><span class="op">(</span><span class="st">"backend"</span><span class="op">);</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">WebApp</span><span class="op">&gt;(</span><span class="st">"webapp"</span><span class="op">)</span></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithEnvironment</span><span class="op">(</span>frontendEnv<span class="op">);</span></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">ImageProcessor</span><span class="op">&gt;(</span><span class="st">"processor"</span><span class="op">)</span></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithEnvironment</span><span class="op">(</span>backendEnv<span class="op">);</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Intent vs. Mechanics</span></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Intent:** Application structure, dependencies, and communication patterns</span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mechanics:** Where and how applications are deployed</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Benefit:** Same application definition can target multiple deployment environments</span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Command Line Interface (CLI) Introduction</span></span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>**New Capability:**</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>Aspire CLI provides command-line access to Aspire functionality, expanding beyond Visual Studio dependency:</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="co"># Template management</span></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> new update</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> new aspire</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="co"># Project operations</span></span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="ex">aspire</span> new</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="ex">aspire</span> run</span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="ex">aspire</span> add</span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="ex">aspire</span> publish  <span class="co"># New deployment verb</span></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>**Strategic Importance:**</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Enables CI/CD integration</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Supports developers who prefer command-line workflows</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Facilitates automation and scripting scenarios</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. Version Management and Maintenance</span></span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>**Current State:**</span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Release cycle: Every 6 weeks</span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Latest version: 9.3 (as of session date)</span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Distribution: NuGet packages (no longer workload-based)</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>**Update Process:**</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Template Updates:** <span class="in">`dotnet new update`</span></span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Package Updates:** Standard NuGet update procedures</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**SDK Updates:** Manual project file editing required</span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>**Challenge Highlighted:**</span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>Many developers are not updating to latest versions, missing bug fixes and new features.</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6. Observability and Debugging</span></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>**Built-in Capabilities:**</span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Distributed Tracing:** End-to-end request flow visualization</span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Centralized Logging:** Unified log viewing across all services</span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Performance Monitoring:** Real-time metrics and diagnostics</span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Console Integration:** Direct access to service console logs</span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>**Developer Experience Enhancement:**</span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>Instead of managing multiple terminal windows for different services, developers can view all logs and metrics from a single dashboard interface.</span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="fu">### 7. Community and Open Source</span></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>**Growth Metrics:**</span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>60,000+ developers using Aspire</span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>700+ community PRs (approximately 2 per day)</span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>70% adoption rate among top .NET customers at Microsoft</span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>**Open Source First Approach:**</span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>All development happens in the open</span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Community contributions actively encouraged</span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transparent roadmap and feature development</span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Technical Deep Dive</span></span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a><span class="fu">### Architecture Patterns</span></span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a><span class="fu">#### App Host Pattern</span></span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>The App Host serves as the central configuration point for the entire application:</span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> builder <span class="op">=</span> DistributedApplication<span class="op">.</span><span class="fu">CreateBuilder</span><span class="op">(</span>args<span class="op">);</span></span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a><span class="co">// Infrastructure dependencies</span></span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> postgres <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddPostgres</span><span class="op">(</span><span class="st">"postgres"</span><span class="op">);</span></span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> redis <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddRedis</span><span class="op">(</span><span class="st">"redis"</span><span class="op">);</span></span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> storage <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddAzureStorage</span><span class="op">(</span><span class="st">"storage"</span><span class="op">);</span></span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a><span class="co">// Application services</span></span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> api <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">Api</span><span class="op">&gt;(</span><span class="st">"api"</span><span class="op">)</span></span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>postgres<span class="op">)</span></span>
+<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>redis<span class="op">);</span></span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> web <span class="op">=</span> builder<span class="op">.</span><span class="fu">AddProject</span><span class="op">&lt;</span>Projects<span class="op">.</span><span class="fu">Web</span><span class="op">&gt;(</span><span class="st">"web"</span><span class="op">)</span></span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>api<span class="op">)</span></span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">WithReference</span><span class="op">(</span>storage<span class="op">);</span></span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">Build</span><span class="op">().</span><span class="fu">Run</span><span class="op">();</span></span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Service Defaults</span></span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>Standardized configuration applied to all services:</span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>OpenTelemetry integration</span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Health checks</span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Resilience patterns (Polly)</span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Service discovery</span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Configuration management</span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuration Management</span></span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a>**Traditional Approach Problems:**</span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mixed business and infrastructure configuration</span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Hard-coded API keys and connection strings</span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Environment-specific configuration files</span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Manual resource coordination</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>**Aspire Solution:**</span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Parameterized Configuration:** External parameters for sensitive data</span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Connection String Injection:** Automatic connection string management</span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Managed Identity Support:** Seamless authentication token handling</span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Environment-Specific Overrides:** Different configurations per deployment target</span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deployment Flexibility</span></span>
+<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Multi-Target Support</span></span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a><span class="co">// Azure Container Apps</span></span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddAzureContainerAppEnvironment</span><span class="op">(</span><span class="st">"production"</span><span class="op">);</span></span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a><span class="co">// Azure App Service</span></span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddAzureAppServiceEnvironment</span><span class="op">(</span><span class="st">"staging"</span><span class="op">);</span></span>
+<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a><span class="co">// Docker Compose (Preview)</span></span>
+<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddDockerComposeEnvironment</span><span class="op">(</span><span class="st">"development"</span><span class="op">);</span></span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a><span class="co">// Kubernetes (Community)</span></span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddKubernetesEnvironment</span><span class="op">(</span><span class="st">"cluster"</span><span class="op">);</span></span>
+<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Cross-Environment Communication</span></span>
+<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a>Aspire automatically handles service-to-service communication across different compute environments:</span>
+<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Network configuration</span>
+<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Service discovery</span>
+<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Load balancing</span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Security policies</span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Practices and Recommendations</span></span>
+<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Starting New Projects</span></span>
+<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a>**Recommendation:** Begin with Aspire from day one rather than retrofitting existing applications.</span>
+<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a>**Benefits:**</span>
+<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Immediate productivity gains</span>
+<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consistent development patterns</span>
+<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Built-in observability and resilience</span>
+<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Simplified deployment pipeline</span>
+<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Migration Strategy</span></span>
+<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a>For existing applications, focus on:</span>
+<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Authentication Patterns:** Move from API keys to managed identities</span>
+<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Configuration Management:** Externalize configuration from code</span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Service Boundaries:** Identify natural service boundaries for containerization</span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Dependency Management:** Catalog external dependencies (databases, message queues, etc.)</span>
+<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Multi-Language Integration</span></span>
+<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a>When incorporating non-.NET components:</span>
+<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use container-based integration</span>
+<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Maintain consistent configuration patterns</span>
+<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Leverage Aspire's orchestration capabilities</span>
+<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Document service contracts and APIs</span>
+<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Version Management</span></span>
+<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Update Aspire regularly (every 6 weeks)</span>
+<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`dotnet new update`</span> for template updates</span>
+<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement automated dependency updates in CI/CD</span>
+<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor for breaking changes in preview features</span>
+<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a><span class="fu">## Future Roadmap and Implications</span></span>
+<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a><span class="fu">### Near-Term Developments</span></span>
+<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enhanced Multi-Language Support:** Continued improvement of JavaScript, Python, and Go integration</span>
+<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Deployment Target Expansion:** Additional cloud providers and deployment platforms</span>
+<span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Visual Studio Integration:** Improved template update experience</span>
+<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**CLI Enhancements:** Extended command-line functionality</span>
+<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a><span class="fu">### Strategic Direction</span></span>
+<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloud-Agnostic Deployment:** Support for AWS, Google Cloud, and other platforms</span>
+<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enterprise Integration:** Advanced CI/CD pipeline integration</span>
+<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**AI/ML Workflow Support:** Enhanced patterns for AI/ML application development</span>
+<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Performance Optimization:** Continued focus on development and runtime performance</span>
+<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenges and Considerations</span></span>
+<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a><span class="fu">### Current Limitations</span></span>
+<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Preview Features:** Many advanced features still in preview</span>
+<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Learning Curve:** Developers need to understand new patterns and concepts</span>
+<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Enterprise Integration:** Some enterprise scenarios require custom solutions</span>
+<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Multi-Cloud Complexity:** Cross-cloud deployments add complexity</span>
+<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mitigation Strategies</span></span>
+<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Gradual Adoption:** Start with local development, expand to deployment</span>
+<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Team Training:** Invest in developer education and training</span>
+<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Community Engagement:** Participate in open source community</span>
+<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Feedback Loop:** Actively provide feedback to Microsoft team</span>
+<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a>.NET Aspire represents a significant evolution in .NET development tooling, addressing the complexity of modern application development through unified orchestration, simplified deployment, and enhanced developer experience. The session demonstrated maturity in AI integration, multi-language support, and deployment flexibility while maintaining the core promise of reducing developer friction.</span>
+<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a>The combination of strong community adoption, active open source development, and Microsoft's internal usage validates Aspire's approach to modern application development. As the platform continues to evolve, it positions itself as an essential tool for teams building cloud-native applications with .NET.</span>
+<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a>The key takeaway is that Aspire is not just a development tool but a comprehensive platform that bridges the gap between local development and production deployment, making it possible for developers to focus on business logic rather than infrastructure complexity.</span>
+<span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">.NET Aspire Documentation</span><span class="co">](https://learn.microsoft.com/en-us/dotnet/aspire/)</span> - Official Microsoft documentation for .NET Aspire, providing comprehensive guides, tutorials, and API references. Essential for understanding core concepts, getting started guides, and implementation details discussed in the session.</span>
+<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Semantic Kernel GitHub Repository</span><span class="co">](https://github.com/microsoft/semantic-kernel)</span> - Open-source project mentioned by Devis Lucato as the foundation for his AI work. Demonstrates the evolution from multi-language SDK maintenance to web service-based architecture that Aspire enables.</span>
+<span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Azure Container Apps Documentation</span><span class="co">](https://learn.microsoft.com/en-us/azure/container-apps/)</span> - Primary deployment target for Aspire applications, featured prominently in the session's deployment demonstrations. Understanding Container Apps is crucial for implementing the deployment strategies discussed.</span>
+<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Azure App Service Documentation</span><span class="co">](https://learn.microsoft.com/en-us/azure/app-service/)</span> - Alternative deployment target showcased in the multi-environment deployment demo. Represents the flexibility of Aspire's compute environment abstraction.</span>
+<span id="cb6-324"><a href="#cb6-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">OpenTelemetry .NET Documentation</span><span class="co">](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/observability-with-otel)</span> - Fundamental observability framework integrated into Aspire by default. Critical for understanding the telemetry and monitoring capabilities demonstrated in the session.</span>
+<span id="cb6-326"><a href="#cb6-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Azure Developer CLI (azd) Documentation</span><span class="co">](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/)</span> - Deployment tool that integrates with Aspire for Azure deployments. Essential for understanding the deployment pipeline and infrastructure-as-code generation shown in the demos.</span>
+<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Docker Compose Documentation</span><span class="co">](https://docs.docker.com/compose/)</span> - Alternative orchestration approach mentioned in Devis's presentation. Provides context for understanding why Aspire's approach is superior for complex multi-service applications.</span>
+<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Microsoft Extensions AI Documentation</span><span class="co">](https://learn.microsoft.com/en-us/dotnet/ai/)</span> - AI integration framework demonstrated in the session's image processing demo. Shows how Aspire facilitates AI-powered application development.</span>
+<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Polly Resilience Framework</span><span class="co">](https://github.com/App-vNext/Polly)</span> - Resilience patterns and retry mechanisms built into Aspire's service defaults. Important for understanding the built-in reliability features mentioned in the session.</span>
+<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">.NET Generic Host Documentation</span><span class="co">](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host)</span> - Foundation for Aspire's app host pattern. Understanding the generic host model is crucial for comprehending how Aspire orchestrates application services.</span>
+<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Azure Resource Manager (ARM) Templates</span><span class="co">](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/)</span> - Infrastructure-as-code output generated by Aspire deployments. Understanding ARM/Bicep is helpful for customizing and troubleshooting deployment outputs.</span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Container Registry Documentation</span><span class="co">](https://learn.microsoft.com/en-us/azure/container-registry/)</span> - Container image management for Aspire applications using containerized services. Important for understanding the container deployment pipeline.</span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Actions for .NET</span><span class="co">](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net)</span> - CI/CD integration mentioned as part of Aspire's development workflow. Essential for implementing automated deployment pipelines.</span>
+<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Visual Studio Code C# Dev Kit</span><span class="co">](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)</span> - Development environment showcased in the session, including new launch project selection features. Important for developers using VS Code with Aspire.</span>
+<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Microsoft Learn - Cloud-Native Application Development</span><span class="co">](https://learn.microsoft.com/en-us/training/paths/dotnet-microservices/)</span> - Educational content related to cloud-native development patterns that Aspire facilitates. Provides broader context for understanding modern application architecture principles discussed in the session.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Built with <a href="https://quarto.org/">Quarto</a> by Dario Airoldi</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Learning Journey - Technical Notes &amp; Insights</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Last updated: July 6, 2025</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

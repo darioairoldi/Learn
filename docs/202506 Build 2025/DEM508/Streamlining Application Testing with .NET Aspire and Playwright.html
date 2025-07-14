@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dario Airoldi">
+<meta name="dcterms.date" content="2025-07-06">
+<meta name="keywords" content="learning, development, azure, dotnet, conference, documentation">
+<meta name="description" content="Technical learning notes, conference insights, and development guides">
+
+<title>streamlining-application-testing-with-.net-aspire-and-playwright – Dario's Learning Journey</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../202506 Build 2025/DEM517/Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html" rel="next">
+<link href="../../202506 Build 2025/BRK123/README.md" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear search",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Learning Hub</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-build-2025-conference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Build 2025 Conference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-build-2025-conference">    
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/Readme.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li class="dropdown-header">Sessions</li>
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">
+ <span class="dropdown-text">BRK106: .NET Aspire AI &amp; Cloud</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK122/README.md">
+ <span class="dropdown-text">BRK122: ASP.NET Core &amp; Blazor</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK123/README.md">
+ <span class="dropdown-text">BRK123: .NET MAUI AI Development</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.html">
+ <span class="dropdown-text">DEM508: Testing with Aspire &amp; Playwright</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM517/Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html">
+ <span class="dropdown-text">DEM517: Model Context Protocol</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM520/README.md">
+ <span class="dropdown-text">DEM520: Local AI with Foundry</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-azure-topics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Azure Topics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-azure-topics">    
+        <li>
+    <a class="dropdown-item" href="../../20250702 Azure Naming conventions/Azure-Samples-Naming-Convention.html">
+ <span class="dropdown-text">Azure Naming Conventions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250704 TableStorageAccess options/Readme.html">
+ <span class="dropdown-text">Table Storage Access Options</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250706 CosmosDB Access options/README.md">
+ <span class="dropdown-text">CosmosDB Access Options</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-development-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Development Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-development-tools">    
+        <li>
+    <a class="dropdown-item" href="../../20250709 Manage GitRepo from commandline/README.md">
+ <span class="dropdown-text">Git Command Line Management</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250711 Use http files for easy and repeatable test/README.md">
+ <span class="dropdown-text">HTTP Files for Testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250712 Use QUARTO doc for Github repos doc/README.md">
+ <span class="dropdown-text">Quarto Documentation Guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250713 Use http files for easy and repeatable test/README.md">
+ <span class="dropdown-text">HTTP Files (Extended Guide)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-issues--solutions" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Issues &amp; Solutions</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-issues--solutions">    
+        <li>
+    <a class="dropdown-item" href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md">
+ <span class="dropdown-text">Visual Studio Clone Error</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../_ISSUES/20250710 sample/README.md">
+ <span class="dropdown-text">Sample Issue</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/darioairoldi/Learn"> <i class="bi bi-github" role="img" aria-label="GitHub Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">🚀 Build 2025 Conference</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">Sessions</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.html">DEM508: Testing with Aspire</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🏠 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">🚀 Build 2025 Conference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conference Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BRK106: .NET Aspire AI &amp; Cloud</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/BRK122/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BRK122: ASP.NET Core &amp; Blazor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/BRK123/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BRK123: .NET MAUI AI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">DEM508: Testing with Aspire</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/DEM517/Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DEM517: MCP Server</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202506 Build 2025/DEM520/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DEM520: Local AI Development</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">☁️ Azure Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250702 Azure Naming conventions/Azure-Samples-Naming-Convention.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Naming Conventions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250704 TableStorageAccess options/Readme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Table Storage Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250706 CosmosDB Access options/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CosmosDB Access Options</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">🛠️ Development Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250709 Manage GitRepo from commandline/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Command Line</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250711 Use http files for easy and repeatable test/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTTP Files Testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto Documentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250713 Use http files for easy and repeatable test/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTTP Files (Extended)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">🔧 Issues &amp; Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VS Clone Error Fix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../_ISSUES/20250710 sample/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sample Issue</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#streamlining-application-testing-with-.net-aspire-and-playwright" id="toc-streamlining-application-testing-with-.net-aspire-and-playwright" class="nav-link active" data-scroll-target="#streamlining-application-testing-with-.net-aspire-and-playwright">Streamlining Application Testing with .NET Aspire and Playwright</a>
+  <ul class="collapse">
+  <li><a href="#session-overview" id="toc-session-overview" class="nav-link" data-scroll-target="#session-overview">Session Overview</a></li>
+  <li><a href="#key-technologies" id="toc-key-technologies" class="nav-link" data-scroll-target="#key-technologies">Key Technologies</a>
+  <ul class="collapse">
+  <li><a href="#net-aspire" id="toc-net-aspire" class="nav-link" data-scroll-target="#net-aspire">.NET Aspire</a></li>
+  <li><a href="#playwright" id="toc-playwright" class="nav-link" data-scroll-target="#playwright">Playwright</a></li>
+  </ul></li>
+  <li><a href="#integration-architecture" id="toc-integration-architecture" class="nav-link" data-scroll-target="#integration-architecture">Integration Architecture</a>
+  <ul class="collapse">
+  <li><a href="#infrastructure-components" id="toc-infrastructure-components" class="nav-link" data-scroll-target="#infrastructure-components">Infrastructure Components</a></li>
+  <li><a href="#test-workflow" id="toc-test-workflow" class="nav-link" data-scroll-target="#test-workflow">Test Workflow</a></li>
+  </ul></li>
+  <li><a href="#practical-implementation" id="toc-practical-implementation" class="nav-link" data-scroll-target="#practical-implementation">Practical Implementation</a>
+  <ul class="collapse">
+  <li><a href="#example-application-weather-hub" id="toc-example-application-weather-hub" class="nav-link" data-scroll-target="#example-application-weather-hub">Example Application: Weather Hub</a></li>
+  <li><a href="#test-example-city-search-validation" id="toc-test-example-city-search-validation" class="nav-link" data-scroll-target="#test-example-city-search-validation">Test Example: City Search Validation</a></li>
+  </ul></li>
+  <li><a href="#advanced-testing-scenarios" id="toc-advanced-testing-scenarios" class="nav-link" data-scroll-target="#advanced-testing-scenarios">Advanced Testing Scenarios</a>
+  <ul class="collapse">
+  <li><a href="#exploratory-testing-with-playwright-mcp" id="toc-exploratory-testing-with-playwright-mcp" class="nav-link" data-scroll-target="#exploratory-testing-with-playwright-mcp">Exploratory Testing with Playwright MCP</a></li>
+  <li><a href="#feature-development-testing" id="toc-feature-development-testing" class="nav-link" data-scroll-target="#feature-development-testing">Feature Development Testing</a></li>
+  </ul></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a>
+  <ul class="collapse">
+  <li><a href="#test-organization" id="toc-test-organization" class="nav-link" data-scroll-target="#test-organization">Test Organization</a></li>
+  <li><a href="#configuration-management" id="toc-configuration-management" class="nav-link" data-scroll-target="#configuration-management">Configuration Management</a></li>
+  <li><a href="#error-handling" id="toc-error-handling" class="nav-link" data-scroll-target="#error-handling">Error Handling</a></li>
+  <li><a href="#performance-optimization" id="toc-performance-optimization" class="nav-link" data-scroll-target="#performance-optimization">Performance Optimization</a></li>
+  </ul></li>
+  <li><a href="#development-workflow-integration" id="toc-development-workflow-integration" class="nav-link" data-scroll-target="#development-workflow-integration">Development Workflow Integration</a>
+  <ul class="collapse">
+  <li><a href="#visual-studio-code-integration" id="toc-visual-studio-code-integration" class="nav-link" data-scroll-target="#visual-studio-code-integration">Visual Studio Code Integration</a></li>
+  <li><a href="#continuous-integration" id="toc-continuous-integration" class="nav-link" data-scroll-target="#continuous-integration">Continuous Integration</a></li>
+  </ul></li>
+  <li><a href="#benefits-of-integration" id="toc-benefits-of-integration" class="nav-link" data-scroll-target="#benefits-of-integration">Benefits of Integration</a>
+  <ul class="collapse">
+  <li><a href="#comprehensive-testing" id="toc-comprehensive-testing" class="nav-link" data-scroll-target="#comprehensive-testing">Comprehensive Testing</a></li>
+  <li><a href="#development-efficiency" id="toc-development-efficiency" class="nav-link" data-scroll-target="#development-efficiency">Development Efficiency</a></li>
+  <li><a href="#quality-assurance" id="toc-quality-assurance" class="nav-link" data-scroll-target="#quality-assurance">Quality Assurance</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
+  <ul class="collapse">
+  <li><a href="#net-aspire-official-documentation" id="toc-net-aspire-official-documentation" class="nav-link" data-scroll-target="#net-aspire-official-documentation">1. .NET Aspire Official Documentation</a></li>
+  <li><a href="#playwright-for-.net-documentation" id="toc-playwright-for-.net-documentation" class="nav-link" data-scroll-target="#playwright-for-.net-documentation">2. Playwright for .NET Documentation</a></li>
+  <li><a href="#microsoft-build-2025-session-repository" id="toc-microsoft-build-2025-session-repository" class="nav-link" data-scroll-target="#microsoft-build-2025-session-repository">3. Microsoft Build 2025 Session Repository</a></li>
+  <li><a href="#end-to-end-testing-best-practices" id="toc-end-to-end-testing-best-practices" class="nav-link" data-scroll-target="#end-to-end-testing-best-practices">4. End-to-End Testing Best Practices</a></li>
+  <li><a href="#playwright-cross-browser-testing-guide" id="toc-playwright-cross-browser-testing-guide" class="nav-link" data-scroll-target="#playwright-cross-browser-testing-guide">5. Playwright Cross-Browser Testing Guide</a></li>
+  <li><a href="#distributed-application-testing-patterns" id="toc-distributed-application-testing-patterns" class="nav-link" data-scroll-target="#distributed-application-testing-patterns">6. Distributed Application Testing Patterns</a></li>
+  <li><a href="#visual-studio-code-testing-extensions" id="toc-visual-studio-code-testing-extensions" class="nav-link" data-scroll-target="#visual-studio-code-testing-extensions">7. Visual Studio Code Testing Extensions</a></li>
+  <li><a href="#azure-openai-integration-for-testing" id="toc-azure-openai-integration-for-testing" class="nav-link" data-scroll-target="#azure-openai-integration-for-testing">8. Azure OpenAI Integration for Testing</a></li>
+  <li><a href="#xunit-testing-framework" id="toc-xunit-testing-framework" class="nav-link" data-scroll-target="#xunit-testing-framework">9. xUnit Testing Framework</a></li>
+  <li><a href="#container-integration-testing" id="toc-container-integration-testing" class="nav-link" data-scroll-target="#container-integration-testing">10. Container Integration Testing</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">🚀 Build 2025 Conference</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK106/Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">Sessions</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.html">DEM508: Testing with Aspire</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+<div>
+  <div class="description">
+    Technical learning notes, conference insights, and development guides
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dario Airoldi </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 6, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>learning, development, azure, dotnet, conference, documentation</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="streamlining-application-testing-with-.net-aspire-and-playwright" class="level1">
+<h1>Streamlining Application Testing with .NET Aspire and Playwright</h1>
+<section id="session-overview" class="level2">
+<h2 class="anchored" data-anchor-id="session-overview">Session Overview</h2>
+<p><strong>Session Code:</strong> DEM508<br>
+<strong>Speaker:</strong> Jeff Fritz<br>
+<strong>Topic:</strong> Streamlining Application Testing with .NET Aspire and Playwright<br>
+<strong>Event:</strong> Microsoft Build 2025</p>
+<p>This session demonstrates how to effectively combine <strong>.NET Aspire</strong> and <strong>Playwright</strong> to create robust, end-to-end testing solutions for distributed applications.<br> The presentation provides practical examples, source code, and real-world scenarios to help developers implement these technologies in their testing workflows.</p>
+</section>
+<section id="key-technologies" class="level2">
+<h2 class="anchored" data-anchor-id="key-technologies">Key Technologies</h2>
+<section id="net-aspire" class="level3">
+<h3 class="anchored" data-anchor-id="net-aspire">.NET Aspire</h3>
+<p><img src="images/000.00 dnetaspire.png" class="img-fluid" alt="alt text"> <strong>.NET Aspire</strong> is a comprehensive set of libraries, frameworks, and tools designed for building observable, production-ready distributed application systems.<br> It provides: - <strong>Smart Defaults</strong>: Pre-configured settings that follow best practices for distributed systems - <strong>Application Orchestration</strong>: Simplified management of multiple services and components - <strong>Developer Dashboard</strong>: A centralized interface for monitoring and managing applications - <strong>Service Discovery</strong>: Automated service registration and discovery capabilities - <strong>Container Integrations</strong>: Seamless integration with various databases and services through containers</p>
+</section>
+<section id="playwright" class="level3">
+<h3 class="anchored" data-anchor-id="playwright">Playwright</h3>
+<p><img src="images/001.01 playwright.png" class="img-fluid" alt="alt text"> Playwright is a modern, cross-platform testing framework that enables reliable end-to-end testing across multiple browsers and operating systems:</p>
+<ul>
+<li><strong>Cross-Browser Support</strong>: Works with <strong>Chromium</strong>, <strong>Firefox</strong>, and <strong>WebKit</strong></li>
+<li><strong>Multi-Platform</strong>: Supports Windows, macOS, and Linux</li>
+<li><strong>Fast and Reliable</strong>: Optimized for speed and consistency</li>
+<li><strong>Language Support</strong>: APIs available for multiple programming languages, including .NET and C#</li>
+<li><strong>End-to-End Testing</strong>: Simulates real user interactions for comprehensive application validation</li>
+</ul>
+</section>
+</section>
+<section id="integration-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="integration-architecture">Integration Architecture</h2>
+<section id="infrastructure-components" class="level3">
+<h3 class="anchored" data-anchor-id="infrastructure-components">Infrastructure Components</h3>
+<p>The integration between <strong>.NET Aspire</strong> and <strong>Playwright</strong> requires several infrastructure components:</p>
+<section id="playwright-manager" class="level4">
+<h4 class="anchored" data-anchor-id="playwright-manager">1. Playwright Manager</h4>
+<ul>
+<li>Manages <strong>browser interactions</strong> and configurations</li>
+<li>Handles <strong>timeout settings and browser initialization</strong></li>
+<li>Provides options for headless or visible browser execution</li>
+<li>Creates and manages browser contexts for test isolation</li>
+</ul>
+</section>
+<section id="aspire-manager" class="level4">
+<h4 class="anchored" data-anchor-id="aspire-manager">2. Aspire Manager</h4>
+<ul>
+<li><strong>Configures distributed applications</strong> for testing</li>
+<li>Manages application lifecycle (startup, shutdown)</li>
+<li><strong>Provides service discovery</strong> and <strong>URL management</strong></li>
+<li>Handles integration with the <strong>.NET Aspire dashboard</strong></li>
+</ul>
+</section>
+<section id="base-test-class" class="level4">
+<h4 class="anchored" data-anchor-id="base-test-class">3. Base Test Class</h4>
+<ul>
+<li>Abstract foundation for all Playwright tests</li>
+<li>Combines Aspire and Playwright managers</li>
+<li>Provides common test infrastructure and utilities</li>
+<li>Handles test setup and teardown operations</li>
+</ul>
+</section>
+</section>
+<section id="test-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="test-workflow">Test Workflow</h3>
+<p>The testing workflow follows this pattern:</p>
+<ol type="1">
+<li><strong>Initialize</strong>: Start .NET Aspire application and Playwright browser</li>
+<li><strong>Navigate</strong>: Direct browser to application endpoints</li>
+<li><strong>Interact</strong>: Perform user actions (clicks, form inputs, navigation)</li>
+<li><strong>Validate</strong>: Assert expected outcomes and behaviors</li>
+<li><strong>Cleanup</strong>: Shut down services and close browser sessions</li>
+</ol>
+</section>
+</section>
+<section id="practical-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="practical-implementation">Practical Implementation</h2>
+<section id="example-application-weather-hub" class="level3">
+<h3 class="anchored" data-anchor-id="example-application-weather-hub">Example Application: Weather Hub</h3>
+<p>The demonstration uses a Weather Hub application that:</p>
+<ul>
+<li>Integrates with the United States National Weather Service APIs</li>
+<li>Displays current weather information</li>
+<li>Provides search functionality for different cities</li>
+<li>Uses QuickGrid for data presentation</li>
+</ul>
+</section>
+<section id="test-example-city-search-validation" class="level3">
+<h3 class="anchored" data-anchor-id="test-example-city-search-validation">Test Example: City Search Validation</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>Theory<span class="op">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"Seattle"</span><span class="op">,</span> <span class="st">"Seattle"</span><span class="op">)]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"Portland"</span><span class="op">,</span> <span class="st">"Portland"</span><span class="op">)]</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"San Francisco"</span><span class="op">,</span> <span class="st">"San Francisco"</span><span class="op">)]</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"Los Angeles"</span><span class="op">,</span> <span class="st">"Los Angeles"</span><span class="op">)]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"Denver"</span><span class="op">,</span> <span class="st">"Denver"</span><span class="op">)]</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> async Task <span class="fu">SearchForCity</span><span class="op">(</span><span class="dt">string</span> searchTerm<span class="op">,</span> <span class="dt">string</span> expectedLocation<span class="op">)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    await <span class="fu">WithPageAsync</span><span class="op">(</span>async page <span class="op">=&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        await page<span class="op">.</span><span class="fu">GotoAsync</span><span class="op">(</span><span class="st">"/"</span><span class="op">);</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        await page<span class="op">.</span><span class="fu">ClickAsync</span><span class="op">(</span><span class="st">"column-options"</span><span class="op">);</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        await page<span class="op">.</span><span class="fu">SearchAndValidateAsync</span><span class="op">(</span>searchTerm<span class="op">,</span> expectedLocation<span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">});</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This test:</p>
+<ul>
+<li>Uses xUnit Theory with InlineData for parameterized testing</li>
+<li>Navigates to the root of the Weather Hub application</li>
+<li>Interacts with the column options in the QuickGrid</li>
+<li>Searches for specific cities and validates the results</li>
+</ul>
+</section>
+</section>
+<section id="advanced-testing-scenarios" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-testing-scenarios">Advanced Testing Scenarios</h2>
+<section id="exploratory-testing-with-playwright-mcp" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-testing-with-playwright-mcp">Exploratory Testing with Playwright MCP</h3>
+<p>The session introduces the concept of using Playwright MCP (Model Context Protocol) for exploratory testing:</p>
+<ul>
+<li><strong>Discovery Capabilities</strong>: Automatically explore application functionality</li>
+<li><strong>Dynamic Interaction</strong>: Adapt test behavior based on application state</li>
+<li><strong>Enhanced Validation</strong>: Perform comprehensive checks beyond predefined test cases</li>
+</ul>
+</section>
+<section id="feature-development-testing" class="level3">
+<h3 class="anchored" data-anchor-id="feature-development-testing">Feature Development Testing</h3>
+<p>The demonstration includes adding new features to the application:</p>
+<ul>
+<li><strong>Weather Summarization</strong>: Integration with Azure OpenAI services</li>
+<li><strong>Background Images</strong>: Dynamic UI enhancements based on weather data</li>
+<li><strong>Real-time Validation</strong>: Testing new features as they’re developed</li>
+</ul>
+</section>
+</section>
+<section id="best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices">Best Practices</h2>
+<section id="test-organization" class="level3">
+<h3 class="anchored" data-anchor-id="test-organization">Test Organization</h3>
+<ul>
+<li>Use abstract base classes for common test infrastructure</li>
+<li>Implement proper resource management (IDisposable pattern)</li>
+<li>Separate concerns between application management and test execution</li>
+</ul>
+</section>
+<section id="configuration-management" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-management">Configuration Management</h3>
+<ul>
+<li>Use environment-specific configurations</li>
+<li>Implement flexible timeout settings</li>
+<li>Support both headless and visible browser modes for different scenarios</li>
+</ul>
+</section>
+<section id="error-handling" class="level3">
+<h3 class="anchored" data-anchor-id="error-handling">Error Handling</h3>
+<ul>
+<li>Implement proper cleanup in case of test failures</li>
+<li>Use try-finally blocks for resource management</li>
+<li>Provide meaningful error messages for debugging</li>
+</ul>
+</section>
+<section id="performance-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="performance-optimization">Performance Optimization</h3>
+<ul>
+<li>Reuse browser instances where possible</li>
+<li>Implement parallel test execution strategies</li>
+<li>Use appropriate wait strategies for dynamic content</li>
+</ul>
+</section>
+</section>
+<section id="development-workflow-integration" class="level2">
+<h2 class="anchored" data-anchor-id="development-workflow-integration">Development Workflow Integration</h2>
+<section id="visual-studio-code-integration" class="level3">
+<h3 class="anchored" data-anchor-id="visual-studio-code-integration">Visual Studio Code Integration</h3>
+<ul>
+<li>Utilize built-in testing capabilities</li>
+<li>Real-time test execution and results viewing</li>
+<li>Integrated debugging support for failed tests</li>
+</ul>
+</section>
+<section id="continuous-integration" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-integration">Continuous Integration</h3>
+<ul>
+<li>Automated test execution in CI/CD pipelines</li>
+<li>Headless browser execution for server environments</li>
+<li>Test result reporting and artifact collection</li>
+</ul>
+</section>
+</section>
+<section id="benefits-of-integration" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-of-integration">Benefits of Integration</h2>
+<section id="comprehensive-testing" class="level3">
+<h3 class="anchored" data-anchor-id="comprehensive-testing">Comprehensive Testing</h3>
+<ul>
+<li>End-to-end validation of entire application workflows</li>
+<li>Testing of microservices interactions</li>
+<li>Database and external service integration testing</li>
+</ul>
+</section>
+<section id="development-efficiency" class="level3">
+<h3 class="anchored" data-anchor-id="development-efficiency">Development Efficiency</h3>
+<ul>
+<li>Rapid feedback on application changes</li>
+<li>Automated regression testing</li>
+<li>Simplified test environment setup</li>
+</ul>
+</section>
+<section id="quality-assurance" class="level3">
+<h3 class="anchored" data-anchor-id="quality-assurance">Quality Assurance</h3>
+<ul>
+<li>Consistent testing across different environments</li>
+<li>Reliable cross-browser compatibility validation</li>
+<li>Automated user experience testing</li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The integration of .NET Aspire and Playwright provides a powerful foundation for modern application testing. By combining Aspire’s distributed application management capabilities with Playwright’s robust browser automation, developers can create comprehensive testing solutions that validate entire application workflows.</p>
+<p>This approach is particularly valuable for:</p>
+<ul>
+<li>Distributed microservices architectures</li>
+<li>Complex user interfaces with multiple interaction points</li>
+<li>Applications requiring cross-browser compatibility</li>
+<li>Systems with multiple integrated services and databases</li>
+</ul>
+<p>The session demonstrates that with proper infrastructure setup, teams can achieve reliable, maintainable, and efficient end-to-end testing that scales with application complexity.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<section id="net-aspire-official-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="net-aspire-official-documentation">1. .NET Aspire Official Documentation</h3>
+<p><strong>Link:</strong> <a href="https://learn.microsoft.com/en-us/dotnet/aspire/">Microsoft .NET Aspire Documentation</a><br>
+<strong>Relevance:</strong> This is the primary resource for understanding .NET Aspire’s architecture, components, and implementation patterns. Essential for developers wanting to implement distributed application orchestration and understand the framework’s capabilities demonstrated in the session.</p>
+</section>
+<section id="playwright-for-.net-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="playwright-for-.net-documentation">2. Playwright for .NET Documentation</h3>
+<p><strong>Link:</strong> <a href="https://playwright.dev/dotnet/">Playwright for .NET</a><br>
+<strong>Relevance:</strong> Comprehensive guide to Playwright’s .NET implementation, covering installation, API usage, and advanced testing scenarios. Critical for understanding the browser automation capabilities showcased in the session and implementing similar testing strategies.</p>
+</section>
+<section id="microsoft-build-2025-session-repository" class="level3">
+<h3 class="anchored" data-anchor-id="microsoft-build-2025-session-repository">3. Microsoft Build 2025 Session Repository</h3>
+<p><strong>Link:</strong> <a href="https://github.com/csharpfritz">Jeff Fritz’s GitHub Repository</a><br>
+<strong>Relevance:</strong> Contains the actual source code demonstrated in the session, providing practical examples of integrating .NET Aspire with Playwright. Valuable for hands-on learning and understanding the implementation details discussed.</p>
+</section>
+<section id="end-to-end-testing-best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="end-to-end-testing-best-practices">4. End-to-End Testing Best Practices</h3>
+<p><strong>Link:</strong> <a href="https://learn.microsoft.com/en-us/dotnet/core/testing/">Microsoft Testing Guidelines</a><br>
+<strong>Relevance:</strong> Covers testing methodologies and best practices for .NET applications, providing context for the testing strategies demonstrated in the session and helping developers implement effective testing workflows.</p>
+</section>
+<section id="playwright-cross-browser-testing-guide" class="level3">
+<h3 class="anchored" data-anchor-id="playwright-cross-browser-testing-guide">5. Playwright Cross-Browser Testing Guide</h3>
+<p><strong>Link:</strong> <a href="https://playwright.dev/docs/browsers">Playwright Cross-Browser Testing</a><br>
+<strong>Relevance:</strong> Detailed information about Playwright’s cross-browser capabilities mentioned in the session, including setup instructions for different browsers and platforms. Essential for implementing the multi-browser testing scenarios discussed.</p>
+</section>
+<section id="distributed-application-testing-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="distributed-application-testing-patterns">6. Distributed Application Testing Patterns</h3>
+<p><strong>Link:</strong> <a href="https://learn.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/test-aspnet-core-services">Microservices Testing Strategies</a><br>
+<strong>Relevance:</strong> Provides architectural guidance for testing distributed applications, complementing the .NET Aspire and Playwright integration demonstrated in the session. Helps developers understand when and how to apply these testing approaches.</p>
+</section>
+<section id="visual-studio-code-testing-extensions" class="level3">
+<h3 class="anchored" data-anchor-id="visual-studio-code-testing-extensions">7. Visual Studio Code Testing Extensions</h3>
+<p><strong>Link:</strong> <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp">VS Code Testing Extensions</a><br>
+<strong>Relevance:</strong> Information about the testing capabilities in Visual Studio Code that were demonstrated in the session, including test discovery, execution, and debugging features that enhance the development workflow.</p>
+</section>
+<section id="azure-openai-integration-for-testing" class="level3">
+<h3 class="anchored" data-anchor-id="azure-openai-integration-for-testing">8. Azure OpenAI Integration for Testing</h3>
+<p><strong>Link:</strong> <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/">Azure OpenAI Service Documentation</a><br>
+<strong>Relevance:</strong> Covers the Azure OpenAI services integration mentioned in the session’s advanced scenarios, providing context for testing applications that incorporate AI capabilities and dynamic content generation.</p>
+</section>
+<section id="xunit-testing-framework" class="level3">
+<h3 class="anchored" data-anchor-id="xunit-testing-framework">9. xUnit Testing Framework</h3>
+<p><strong>Link:</strong> <a href="https://xunit.net/">xUnit.net Documentation</a><br>
+<strong>Relevance:</strong> Documentation for the testing framework used in the session examples, including Theory and InlineData attributes demonstrated in the parameterized testing scenarios. Essential for understanding the test structure and execution patterns.</p>
+</section>
+<section id="container-integration-testing" class="level3">
+<h3 class="anchored" data-anchor-id="container-integration-testing">10. Container Integration Testing</h3>
+<p><strong>Link:</strong> <a href="https://learn.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/integration-tests">Testing with Docker Containers</a><br>
+<strong>Relevance:</strong> Covers testing strategies for containerized applications, which aligns with .NET Aspire’s container integration capabilities discussed in the session. Valuable for understanding how to test distributed applications with multiple service dependencies.</p>
+
+
+<!-- -->
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/darioairoldi\.github\.io\/Learn");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../202506 Build 2025/BRK123/README.md" class="pagination-link" aria-label="BRK123: .NET MAUI AI">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">BRK123: .NET MAUI AI</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../202506 Build 2025/DEM517/Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html" class="pagination-link" aria-label="DEM517: MCP Server">
+        <span class="nav-page-text">DEM517: MCP Server</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Streamlining Application Testing with .NET Aspire and Playwright</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Session Overview</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>**Session Code:** DEM508  </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>**Speaker:** Jeff Fritz  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>**Topic:** Streamlining Application Testing with .NET Aspire and Playwright  </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>**Event:** Microsoft Build 2025  </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>This session demonstrates how to effectively combine **.NET Aspire** and **Playwright** to create robust, end-to-end testing solutions for distributed applications.&lt;br&gt; The presentation provides practical examples, source code, and real-world scenarios to help developers implement these technologies in their testing workflows.</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Technologies</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### .NET Aspire</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/000.00 dnetaspire.png&gt;)</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>**.NET Aspire** is a comprehensive set of libraries, frameworks, and tools designed for building observable, production-ready distributed application systems.&lt;br&gt; </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>It provides:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Smart Defaults**: Pre-configured settings that follow best practices for distributed systems</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Application Orchestration**: Simplified management of multiple services and components</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Developer Dashboard**: A centralized interface for monitoring and managing applications</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Service Discovery**: Automated service registration and discovery capabilities</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Container Integrations**: Seamless integration with various databases and services through containers</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Playwright</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/001.01 playwright.png&gt;)</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>Playwright is a modern, cross-platform testing framework that enables reliable end-to-end testing across multiple browsers and operating systems:</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cross-Browser Support**: Works with **Chromium**, **Firefox**, and **WebKit**</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Multi-Platform**: Supports Windows, macOS, and Linux</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Fast and Reliable**: Optimized for speed and consistency</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Language Support**: APIs available for multiple programming languages, including .NET and C#</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**End-to-End Testing**: Simulates real user interactions for comprehensive application validation</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Integration Architecture</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infrastructure Components</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>The integration between **.NET Aspire** and **Playwright** requires several infrastructure components:</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 1. Playwright Manager</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Manages **browser interactions** and configurations</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Handles **timeout settings and browser initialization**</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Provides options for headless or visible browser execution</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Creates and manages browser contexts for test isolation</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2. Aspire Manager</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Configures distributed applications** for testing</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Manages application lifecycle (startup, shutdown)</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Provides service discovery** and **URL management**</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Handles integration with the **.NET Aspire dashboard**</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 3. Base Test Class</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Abstract foundation for all Playwright tests</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Combines Aspire and Playwright managers</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Provides common test infrastructure and utilities</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Handles test setup and teardown operations</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Test Workflow</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>The testing workflow follows this pattern:</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Initialize**: Start .NET Aspire application and Playwright browser</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Navigate**: Direct browser to application endpoints</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Interact**: Perform user actions (clicks, form inputs, navigation)</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Validate**: Assert expected outcomes and behaviors</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Cleanup**: Shut down services and close browser sessions</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical Implementation</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example Application: Weather Hub</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>The demonstration uses a Weather Hub application that:</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Integrates with the United States National Weather Service APIs</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Displays current weather information</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Provides search functionality for different cities</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Uses QuickGrid for data presentation</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### Test Example: City Search Validation</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>Theory<span class="op">]</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"Seattle"</span><span class="op">,</span> <span class="st">"Seattle"</span><span class="op">)]</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"Portland"</span><span class="op">,</span> <span class="st">"Portland"</span><span class="op">)]</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"San Francisco"</span><span class="op">,</span> <span class="st">"San Francisco"</span><span class="op">)]</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"Los Angeles"</span><span class="op">,</span> <span class="st">"Los Angeles"</span><span class="op">)]</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="fu">InlineData</span><span class="op">(</span><span class="st">"Denver"</span><span class="op">,</span> <span class="st">"Denver"</span><span class="op">)]</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> async Task <span class="fu">SearchForCity</span><span class="op">(</span><span class="dt">string</span> searchTerm<span class="op">,</span> <span class="dt">string</span> expectedLocation<span class="op">)</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    await <span class="fu">WithPageAsync</span><span class="op">(</span>async page <span class="op">=&gt;</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>        await page<span class="op">.</span><span class="fu">GotoAsync</span><span class="op">(</span><span class="st">"/"</span><span class="op">);</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>        await page<span class="op">.</span><span class="fu">ClickAsync</span><span class="op">(</span><span class="st">"column-options"</span><span class="op">);</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>        await page<span class="op">.</span><span class="fu">SearchAndValidateAsync</span><span class="op">(</span>searchTerm<span class="op">,</span> expectedLocation<span class="op">);</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    <span class="op">});</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>This test:</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Uses xUnit Theory with InlineData for parameterized testing</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Navigates to the root of the Weather Hub application</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interacts with the column options in the QuickGrid</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Searches for specific cities and validates the results</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Advanced Testing Scenarios</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exploratory Testing with Playwright MCP</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>The session introduces the concept of using Playwright MCP (Model Context Protocol) for exploratory testing:</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Discovery Capabilities**: Automatically explore application functionality</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Dynamic Interaction**: Adapt test behavior based on application state</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enhanced Validation**: Perform comprehensive checks beyond predefined test cases</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="fu">### Feature Development Testing</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>The demonstration includes adding new features to the application:</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Weather Summarization**: Integration with Azure OpenAI services</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Background Images**: Dynamic UI enhancements based on weather data</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Real-time Validation**: Testing new features as they're developed</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Practices</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### Test Organization</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use abstract base classes for common test infrastructure</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement proper resource management (IDisposable pattern)</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Separate concerns between application management and test execution</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuration Management</span></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use environment-specific configurations</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement flexible timeout settings</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Support both headless and visible browser modes for different scenarios</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="fu">### Error Handling</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement proper cleanup in case of test failures</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use try-finally blocks for resource management</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Provide meaningful error messages for debugging</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### Performance Optimization</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reuse browser instances where possible</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement parallel test execution strategies</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use appropriate wait strategies for dynamic content</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="fu">## Development Workflow Integration</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visual Studio Code Integration</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilize built-in testing capabilities</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Real-time test execution and results viewing</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Integrated debugging support for failed tests</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a><span class="fu">### Continuous Integration</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Automated test execution in CI/CD pipelines</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Headless browser execution for server environments</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Test result reporting and artifact collection</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## Benefits of Integration</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comprehensive Testing</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>End-to-end validation of entire application workflows</span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Testing of microservices interactions</span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Database and external service integration testing</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a><span class="fu">### Development Efficiency</span></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rapid feedback on application changes</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Automated regression testing</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Simplified test environment setup</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quality Assurance</span></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consistent testing across different environments</span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reliable cross-browser compatibility validation</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Automated user experience testing</span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>The integration of .NET Aspire and Playwright provides a powerful foundation for modern application testing. By combining Aspire's distributed application management capabilities with Playwright's robust browser automation, developers can create comprehensive testing solutions that validate entire application workflows.</span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>This approach is particularly valuable for:</span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Distributed microservices architectures</span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complex user interfaces with multiple interaction points</span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Applications requiring cross-browser compatibility</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Systems with multiple integrated services and databases</span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>The session demonstrates that with proper infrastructure setup, teams can achieve reliable, maintainable, and efficient end-to-end testing that scales with application complexity.</span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. .NET Aspire Official Documentation</span></span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">Microsoft .NET Aspire Documentation</span><span class="co">](https://learn.microsoft.com/en-us/dotnet/aspire/)</span>  </span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>**Relevance:** This is the primary resource for understanding .NET Aspire's architecture, components, and implementation patterns. Essential for developers wanting to implement distributed application orchestration and understand the framework's capabilities demonstrated in the session.</span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Playwright for .NET Documentation</span></span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">Playwright for .NET</span><span class="co">](https://playwright.dev/dotnet/)</span>  </span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>**Relevance:** Comprehensive guide to Playwright's .NET implementation, covering installation, API usage, and advanced testing scenarios. Critical for understanding the browser automation capabilities showcased in the session and implementing similar testing strategies.</span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Microsoft Build 2025 Session Repository</span></span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">Jeff Fritz's GitHub Repository</span><span class="co">](https://github.com/csharpfritz)</span>  </span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>**Relevance:** Contains the actual source code demonstrated in the session, providing practical examples of integrating .NET Aspire with Playwright. Valuable for hands-on learning and understanding the implementation details discussed.</span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. End-to-End Testing Best Practices</span></span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">Microsoft Testing Guidelines</span><span class="co">](https://learn.microsoft.com/en-us/dotnet/core/testing/)</span>  </span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a>**Relevance:** Covers testing methodologies and best practices for .NET applications, providing context for the testing strategies demonstrated in the session and helping developers implement effective testing workflows.</span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. Playwright Cross-Browser Testing Guide</span></span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">Playwright Cross-Browser Testing</span><span class="co">](https://playwright.dev/docs/browsers)</span>  </span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>**Relevance:** Detailed information about Playwright's cross-browser capabilities mentioned in the session, including setup instructions for different browsers and platforms. Essential for implementing the multi-browser testing scenarios discussed.</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6. Distributed Application Testing Patterns</span></span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">Microservices Testing Strategies</span><span class="co">](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/test-aspnet-core-services)</span>  </span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>**Relevance:** Provides architectural guidance for testing distributed applications, complementing the .NET Aspire and Playwright integration demonstrated in the session. Helps developers understand when and how to apply these testing approaches.</span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a><span class="fu">### 7. Visual Studio Code Testing Extensions</span></span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">VS Code Testing Extensions</span><span class="co">](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)</span>  </span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>**Relevance:** Information about the testing capabilities in Visual Studio Code that were demonstrated in the session, including test discovery, execution, and debugging features that enhance the development workflow.</span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### 8. Azure OpenAI Integration for Testing</span></span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">Azure OpenAI Service Documentation</span><span class="co">](https://learn.microsoft.com/en-us/azure/ai-services/openai/)</span>  </span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>**Relevance:** Covers the Azure OpenAI services integration mentioned in the session's advanced scenarios, providing context for testing applications that incorporate AI capabilities and dynamic content generation.</span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="fu">### 9. xUnit Testing Framework</span></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">xUnit.net Documentation</span><span class="co">](https://xunit.net/)</span>  </span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>**Relevance:** Documentation for the testing framework used in the session examples, including Theory and InlineData attributes demonstrated in the parameterized testing scenarios. Essential for understanding the test structure and execution patterns.</span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a><span class="fu">### 10. Container Integration Testing</span></span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>**Link:** <span class="co">[</span><span class="ot">Testing with Docker Containers</span><span class="co">](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/integration-tests)</span>  </span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>**Relevance:** Covers testing strategies for containerized applications, which aligns with .NET Aspire's container integration capabilities discussed in the session. Valuable for understanding how to test distributed applications with multiple service dependencies.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Built with <a href="https://quarto.org/">Quarto</a> by Dario Airoldi</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Learning Journey - Technical Notes &amp; Insights</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/DEM508/Streamlining Application Testing with .NET Aspire and Playwright.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Last updated: July 6, 2025</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
