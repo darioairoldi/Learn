@@ -63,6 +63,9 @@ jobs:
     - name: Render Quarto Project
       run: quarto render
       
+    - name: Add .nojekyll to docs
+      run: touch docs/.nojekyll
+      
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
