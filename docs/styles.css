@@ -1,18 +1,42 @@
 /* Custom styles for Learning Journey site */
 
-/* Brand colors and theming */
+/* Pastel colors for light and dark backgrounds */
 :root {
-  --primary-color: #0366d6;
-  --secondary-color: #6f42c1;
-  --accent-color: #28a745;
-  --text-muted: #6c757d;
-  --border-color: #e1e4e8;
+  --primary-color: #7B9FE0;
+  --primary-dark: #5A7BC7;
+  --secondary-color: #A78BFA;
+  --secondary-dark: #8B5CF6;
+  --accent-color: #86EFAC;
+  --accent-dark: #4ADE80;
+  --text-muted: #94A3B8;
+  --text-muted-dark: #64748B;
+  --border-color: #E2E8F0;
+  --border-color-dark: #334155;
+  
+  /* Pastel background colors */
+  --bg-pastel-blue: #EFF6FF;
+  --bg-pastel-purple: #F3E8FF;
+  --bg-pastel-green: #F0FDF4;
+  --bg-pastel-pink: #FDF2F8;
+  --bg-pastel-yellow: #FFFBEB;
+  --bg-pastel-gray: #F8FAFC;
+  
+  /* Dark mode pastel variants */
+  --bg-dark-blue: #1E293B;
+  --bg-dark-purple: #2D1B69;
+  --bg-dark-green: #14532D;
+  --bg-dark-pink: #4C1D95;
+  --bg-dark-yellow: #451A03;
+  --bg-dark-gray: #1F2937;
 }
 
 /* Header and navigation styling */
 .navbar-brand {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* Content styling */
@@ -23,32 +47,67 @@
 
 /* Card-like containers for content sections */
 .content-card {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-gray) 100%);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(123, 159, 224, 0.1);
+  transition: all 0.3s ease;
+}
+
+.content-card:hover {
+  box-shadow: 0 4px 16px rgba(123, 159, 224, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Pastel callout styling enhancements */
+.callout {
+  border-radius: 12px;
+  margin: 1rem 0;
+  border-width: 2px;
+  box-shadow: 0 3px 12px rgba(123, 159, 224, 0.1);
+}
+
+.callout.callout-note {
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-gray) 100%);
+  border-color: var(--primary-color);
+}
+
+.callout.callout-tip {
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+  border-color: var(--accent-color);
+}
+
+.callout.callout-warning {
+  background: linear-gradient(135deg, var(--bg-pastel-yellow) 0%, var(--bg-pastel-pink) 100%);
+  border-color: #FCD34D;
+}
+
+.callout.callout-important {
+  background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-blue) 100%);
+  border-color: var(--secondary-color);
 }
 
 /* Code block improvements */
 .sourceCode {
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid var(--border-color);
-}
-
-/* Callout styling enhancements */
-.callout {
-  border-radius: 6px;
-  margin: 1rem 0;
+  background: linear-gradient(135deg, var(--bg-pastel-gray) 0%, var(--bg-pastel-blue) 100%);
+  box-shadow: 0 2px 8px rgba(123, 159, 224, 0.1);
 }
 
 /* Link styling */
 a {
+  color: var(--primary-color);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
+  color: var(--primary-dark);
   text-decoration: underline;
+  text-decoration-color: var(--secondary-color);
 }
 
 /* Table improvements */
@@ -102,7 +161,120 @@ a:hover {
   background-color: #f8f9fa;
 }
 
+/* Enhanced sidebar section styling */
+.sidebar-section > .nav-link {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #374151 !important;
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-purple) 100%);
+  border: 2px solid var(--primary-color);
+  margin: 0.75rem 0 0.5rem 0;
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 0 1px 2px rgba(123, 159, 224, 0.3);
+  box-shadow: 0 3px 8px rgba(123, 159, 224, 0.2);
+}
+
+.sidebar-section > .nav-link:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-pink) 100%);
+  transform: translateX(4px) translateY(-1px);
+  box-shadow: 0 6px 16px rgba(167, 139, 250, 0.3);
+  color: #1F2937 !important;
+  border-color: var(--secondary-color);
+}
+
+/* Regular nav items under sections */
+.sidebar-section .nav-item .nav-link {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #4B5563 !important;
+  background: transparent;
+  border: none;
+  margin: 0.15rem 0;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-section .nav-item .nav-link:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-green) 100%);
+  color: var(--primary-dark) !important;
+  transform: translateX(6px);
+  box-shadow: 0 2px 8px rgba(134, 239, 172, 0.3);
+}
+
+/* Active states */
+.sidebar-section > .nav-link.active {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  color: white !important;
+  box-shadow: 0 6px 16px rgba(167, 139, 250, 0.4);
+  border-color: var(--secondary-color);
+}
+
+.sidebar-section .nav-item .nav-link.active {
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+  color: white !important;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(134, 239, 172, 0.4);
+}
+
+/* Home link special styling */
+.sidebar .nav-link[href="index.qmd"] {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--accent-dark) !important;
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+  border: 2px solid var(--accent-color);
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(134, 239, 172, 0.2);
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link[href="index.qmd"]:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-yellow) 0%, var(--bg-pastel-pink) 100%);
+  transform: translateX(3px) translateY(-1px);
+  box-shadow: 0 6px 16px rgba(134, 239, 172, 0.3);
+  border-color: var(--accent-dark);
+}
+
 /* Emoji spacing */
 .nav-link .emoji {
   margin-right: 0.5rem;
+}
+
+/* Enhanced grid cards with pastel backgrounds */
+.grid .g-col-12 {
+  padding: 0.75rem;
+}
+
+.grid .g-col-12 > div,
+.grid .g-col-12 > section {
+  background: linear-gradient(135deg, var(--bg-pastel-gray) 0%, var(--bg-pastel-blue) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(123, 159, 224, 0.08);
+}
+
+.grid .g-col-12:nth-child(even) > div,
+.grid .g-col-12:nth-child(even) > section {
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+}
+
+.grid .g-col-12:nth-child(3n) > div,
+.grid .g-col-12:nth-child(3n) > section {
+  background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-pink) 100%);
+}
+
+.grid .g-col-12 > div:hover,
+.grid .g-col-12 > section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(123, 159, 224, 0.15);
 }

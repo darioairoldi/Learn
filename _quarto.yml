@@ -20,8 +20,9 @@ website:
     search: true
     title: "Learning Hub"
     left:
-      - href: index.qmd
-        text: Home
+      - icon: house-fill
+        href: index.qmd
+        text: "Home"
       - text: "Build 2025 Conference"
         menu:
           - href: "202506 Build 2025/Readme.md"
@@ -133,8 +134,8 @@ website:
 format:
   html:
     theme: 
-      - cosmo
-      - custom.scss
+      - Material
+      - Material.scss
     css: 
       - styles.css
     toc: true

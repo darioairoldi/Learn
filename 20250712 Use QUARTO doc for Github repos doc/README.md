@@ -32,7 +32,11 @@
   - [Performance](#3-performance)
 - [Conclusion](#conclusion)
 - [References](#references)
-- [Additional References](#additional-references)
+- [APPENDIXES](#appendixes)
+  - [APPENDIX A: Quarto.yml Document Structure](#appendix-a-quartoyml-document-structure---complete-reference-guide)
+  - [APPENDIX B: Quarto Specific Markdown Features](#appendix-b-quarto-specific-markdown-features---complete-guide)
+  - [APPENDIX C: Quarto Theming and Styling](#appendix-c-quarto-theming-and-styling---complete-guide)
+  - [APPENDIX D: Configuring Your Learn Repository for Quarto](#appendix-d-configuring-your-learn-repository-for-quarto)
 
 ## Overview
 
@@ -382,20 +386,28 @@ Essential for understanding how to properly exclude temporary Quarto files from 
 
 Best practices for creating maintainable, community-friendly documentation projects. Relevant for establishing contribution guidelines, documentation standards, and collaborative workflows when building documentation as part of open-source projects.
 
-## Additional References
-
-### [Quarto.yml Document Structure - Complete Reference Guide](002.01.%20Quarto.yml%20document%20structure.md)
-
-An in-depth technical reference covering every aspect of the `_quarto.yml` configuration file. This companion article provides detailed explanations of all configuration sections including project settings, website configuration, format options, metadata, engines, filters, and advanced features. Essential for understanding the full capabilities of Quarto configuration and implementing complex documentation setups with custom navigation, themes, and publishing workflows.
-
-## Resources
+### Additional Resources
 
 - [Quarto Documentation](https://quarto.org/)
 - [GitHub Pages Documentation](https://docs.github.com/en/pages)
 - [Quarto GitHub Actions](https://github.com/quarto-dev/quarto-actions)
 - [Markdown Guide](https://www.markdownguide.org/)
 
-## Configuring Your Learn Repository for Quarto
+## APPENDIXES
+
+### APPENDIX A: [Quarto.yml Document Structure - Complete Reference Guide](002.01.%20Quarto.yml%20document%20structure.md)
+
+An in-depth technical reference covering every aspect of the `_quarto.yml` configuration file. This companion article provides detailed explanations of all configuration sections including project settings, website configuration, format options, metadata, engines, filters, and advanced features. Essential for understanding the full capabilities of Quarto configuration and implementing complex documentation setups with custom navigation, themes, and publishing workflows.
+
+### APPENDIX B: [Quarto Specific Markdown Features - Complete Guide](002.02.%20Quarto%20specific%20markdown%20features.md)
+
+A comprehensive guide to Quarto's extended markdown syntax and features that go beyond standard Markdown. This technical reference covers div blocks, CSS styling, grid layouts, callout blocks, interactive elements, and advanced formatting options. Essential for creating rich, interactive documentation with sophisticated layouts, highlighting messages, and custom styling using Quarto's unique markdown extensions.
+
+### APPENDIX C: [Quarto Theming and Styling - Complete Guide](002.03.%20Quarto%20Theming%20and%20Styling.md)
+
+An extensive guide to Quarto's theming and styling capabilities, covering built-in themes, custom CSS integration, SCSS customization, Bootstrap integration, and responsive design. This technical reference includes practical examples of color schemes, typography, layout customization, dark mode support, and brand integration. Essential for creating professionally designed documentation websites that reflect your organization's visual identity and design standards.
+
+### APPENDIX D: Configuring Your Learn Repository for Quarto
 
 To publish your existing Learn repository with Quarto, you would:
 
