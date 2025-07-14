@@ -29,16 +29,29 @@ jobs:
       with:
         version: pre-release
         
+    - name: Check for Python requirements
+      id: check-python
+      run: |
+        if [ -f requirements.txt ] || [ -f pyproject.toml ]; then
+          echo "python-needed=true" >> $GITHUB_OUTPUT
+        else
+          echo "python-needed=false" >> $GITHUB_OUTPUT
+        fi
+        
     - name: Setup Python (if needed for computations)
+      if: steps.check-python.outputs.python-needed == 'true'
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
         cache: 'pip'
         
     - name: Install Python dependencies (if needed)
+      if: steps.check-python.outputs.python-needed == 'true'
       run: |
         if [ -f requirements.txt ]; then
           pip install -r requirements.txt
+        elif [ -f pyproject.toml ]; then
+          pip install -e .
         fi
         
     - name: Setup R (if needed for computations)
