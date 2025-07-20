@@ -11,7 +11,7 @@
 <meta name="keywords" content="learning, development, azure, dotnet, conference, documentation">
 <meta name="description" content="Technical learning notes, conference insights, and development guides">
 
-<title>passkey-authentication-information – Dario's Learning Journey</title>
+<title>summary – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -430,23 +430,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#passkey-authentication-information" id="toc-passkey-authentication-information" class="nav-link active" data-scroll-target="#passkey-authentication-information">Passkey Authentication Information</a>
-  <ul class="collapse">
-  <li><a href="#what-are-passkeys" id="toc-what-are-passkeys" class="nav-link" data-scroll-target="#what-are-passkeys">What are Passkeys?</a></li>
-  <li><a href="#how-passkeys-work" id="toc-how-passkeys-work" class="nav-link" data-scroll-target="#how-passkeys-work">How Passkeys Work</a>
-  <ul class="collapse">
-  <li><a href="#core-technology" id="toc-core-technology" class="nav-link" data-scroll-target="#core-technology">Core Technology</a></li>
-  <li><a href="#security-features" id="toc-security-features" class="nav-link" data-scroll-target="#security-features">Security Features</a></li>
-  <li><a href="#passkeys-vs.-jwt-bearer-tokens-a-common-comparison" id="toc-passkeys-vs.-jwt-bearer-tokens-a-common-comparison" class="nav-link" data-scroll-target="#passkeys-vs.-jwt-bearer-tokens-a-common-comparison">Passkeys vs.&nbsp;JWT Bearer Tokens: A Common Comparison</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/BRK122/01. Passkey Authentication Information.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
@@ -492,81 +477,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="passkey-authentication-information" class="level1">
-<h1>Passkey Authentication Information</h1>
-<section id="what-are-passkeys" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-passkeys">What are Passkeys?</h2>
-<p>Passkeys are a modern, secure authentication method that <strong>completely replaces traditional passwords with cryptographic credentials</strong>.<br> They represent a revolutionary approach to user authentication, leveraging public-key cryptography to provide a <strong>more secure</strong>, <strong>user-friendly</strong>, and <strong>phishing-resistant</strong> authentication experience.</p>
-</section>
-<section id="how-passkeys-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-passkeys-work">How Passkeys Work</h2>
-<section id="core-technology" class="level3">
-<h3 class="anchored" data-anchor-id="core-technology">Core Technology</h3>
-<p>Passkeys are built on the <mark style="background-color: lightyellow;"><strong>FIDO2/WebAuthn standard</strong></mark> and use <strong>public-key cryptography</strong> principles:</p>
-<ol type="1">
-<li><strong>Key Pair Generation</strong>: When you create a passkey, your device generates a unique cryptographic key pair:
-<ul>
-<li><strong>Private Key</strong>: Stored securely on your device (never leaves the device)</li>
-<li><strong>Public Key</strong>: Shared with the service you’re registering with</li>
-</ul></li>
-<li><strong>Authentication Process</strong>:
-<ul>
-<li>The service sends a <mark style="background-color: lightyellow;">challenge to your device</mark></li>
-<li>Your <mark style="background-color: lightyellow;">device uses the private key to sign the challenge</mark></li>
-<li>The <mark style="background-color: lightyellow;">service verifies the signature using the stored public key</mark></li>
-<li>If verification succeeds, you’re authenticated</li>
-</ul></li>
-</ol>
-</section>
-<section id="security-features" class="level3">
-<h3 class="anchored" data-anchor-id="security-features">Security Features</h3>
-<section id="phishing-resistance" class="level4">
-<h4 class="anchored" data-anchor-id="phishing-resistance">Phishing Resistance</h4>
-<ul>
-<li><strong>Domain Binding</strong>: Passkeys are cryptographically bound to specific domains</li>
-<li><strong>No Shared Secrets</strong>: Unlike passwords, there’s no secret that can be intercepted or stolen</li>
-<li><strong>Challenge-Response</strong>: Each authentication uses a unique challenge, preventing replay attacks</li>
-</ul>
-</section>
-<section id="application-scoping" class="level4">
-<h4 class="anchored" data-anchor-id="application-scoping">Application Scoping</h4>
-<ul>
-<li><strong>Site-Specific</strong>: Each <mark style="background-color: lightyellow;">passkey is unique to the specific website or application</mark></li>
-<li><strong>No Cross-Application Sharing</strong>: A passkey for one service cannot be used for another</li>
-<li><strong>Isolation</strong>: Compromising one service doesn’t affect other services</li>
-</ul>
-<p><strong>Important Clarification</strong>: While each site requires its own unique passkey, this doesn’t mean you need to authenticate every time you visit that site. The passkey is just the “key” - once you use it to unlock the door (authenticate), you stay “inside” (logged in) until the session expires.</p>
-</section>
-</section>
-<section id="passkeys-vs.-jwt-bearer-tokens-a-common-comparison" class="level3">
-<h3 class="anchored" data-anchor-id="passkeys-vs.-jwt-bearer-tokens-a-common-comparison">Passkeys vs.&nbsp;JWT Bearer Tokens: A Common Comparison</h3>
-<section id="how-passkeys-are-similar-to-jwt-bearer-tokens" class="level4">
-<h4 class="anchored" data-anchor-id="how-passkeys-are-similar-to-jwt-bearer-tokens">How Passkeys Are Similar to JWT Bearer Tokens</h4>
-<p>Many developers compare <mark style="background-color: lightyellow;">passkeys to JWT bearer tokens</mark>, and there are indeed some similarities:</p>
-<ul>
-<li><strong>Site-Specific</strong>: Like JWT tokens, each passkey is unique to a specific site/application</li>
-<li><strong>No Cross-Site Usage</strong>: Just like you can’t use a JWT from Site A to authenticate to Site B</li>
-<li><strong>Authentication Proof</strong>: Both prove identity to the target service</li>
-<li><strong>Stateless Authentication</strong>: Both enable authentication without storing sensitive data server-side</li>
-</ul>
-<p>however please consider they are fundamentally different in how they in their purpose and usage: : | Aspect | JWT Bearer Tokens | Passkeys | |——–|——————|———-| | <strong>Storage</strong> | Often stored in browser/app memory | Stored securely in device hardware/OS | | <strong>Generation</strong> | Generated by server after login | Generated by device during registration (and used during login) | | <strong>Transmission</strong> | Sent with every API request | Only used during authentication ceremony | | <strong>Lifetime</strong> | Have expiration times (minutes/hours) | Permanent until manually revoked | | <strong>Security</strong> | Can be intercepted if not secured | Cryptographically impossible to intercept | | <strong>Usage Pattern</strong> | Continuous usage for API calls | One-time usage for session establishment |</p>
-</section>
-<section id="the-authentication-flow-comparison" class="level4">
-<h4 class="anchored" data-anchor-id="the-authentication-flow-comparison">The Authentication Flow Comparison</h4>
-<p><strong>JWT Bearer Token Flow:</strong> 1. Login with username/password → Server generates JWT 2. Store JWT in browser/app 3. Send JWT with every subsequent API request 4. Server validates JWT on each request</p>
-<p><strong>Passkey Flow:</strong> 1. One-time registration → Device generates key pair 2. Store private key securely on device 3. Authentication challenge → Sign with private key 4. Server validates signature → Creates normal web session (cookies)</p>
-</section>
-<section id="passkeys-jwt-tokens-working-together" class="level4">
-<h4 class="anchored" data-anchor-id="passkeys-jwt-tokens-working-together">Passkeys + JWT Tokens: Working Together</h4>
-<p><strong>Key Point</strong>: Passkeys replace passwords for authentication, but servers can still generate JWT tokens afterward for API access - giving you secure login plus efficient ongoing communication.</p>
+<p>.NET MAUI allows you to create multi-platform apps for iOS, Android, macOS, and Windows. See how you can boost your productivity with AI enhancements in GitHub Copilot and Visual Studio and learn how the entire development lifecycle is being transformed with .NET Aspire. Join us and see how intelligent productivity tools and beautiful controls and components come together to build native and hybrid apps with .NET MAUI’s latest features.</p>
+<p>AI Summary <strong>Introduction to WebVTT and Interaction:</strong> The session begins with a friendly greeting and casual conversation, where the speaker acknowledges the audience and sets a relaxed tone for the discussion.</p>
+<p><strong>Overview of Presentation and Topics:</strong> The session aims to cover the integration of AI into mobile and desktop applications, specifically focusing on .NET MAUI. The discussion includes insights on app development strategies and the influence of AI technologies in enhancing app functionalities.</p>
+<p><strong>Interactive Engagement and Guest Introductions:</strong> The speaker involves the audience by asking about their previous night’s activities and introduces other guests who contribute to the conversation on app development and AI.</p>
+<p><strong>Technical Insights and AI Integration:</strong> Delving into the technical aspects, the speaker explores the approach to building intelligent apps by incorporating AI, which allows apps to perform complex tasks that go beyond deterministic functions. Examples and strategies for embedding AI within apps are discussed.</p>
+<p><strong>Audience Interaction and Future Directions:</strong> The speaker maintains engagement with the audience, inviting questions and comments while introducing emerging themes and advancements in app development with AI.</p>
+<p><strong>Conclusion and Resource Sharing:</strong> The session wraps up by summarizing key points and sharing resources for further learning or action, emphasizing community building and continual improvement in AI-infused app development.</p>
 
 
 <!-- -->
 
-</section>
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1040,81 +961,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Passkey Authentication Information</span></span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.NET MAUI allows you to create multi-platform apps for iOS, Android, macOS, and Windows. See how you can boost your productivity with AI enhancements in GitHub Copilot and Visual Studio and learn how the entire development lifecycle is being transformed with .NET Aspire. Join us and see how intelligent productivity tools and beautiful controls and components come together to build native and hybrid apps with .NET MAUI's latest features. </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## What are Passkeys?</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Passkeys are a modern, secure authentication method that **completely replaces traditional passwords with cryptographic credentials**.&lt;br&gt;</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>They represent a revolutionary approach to user authentication, leveraging public-key cryptography to provide a **more secure**, **user-friendly**, and **phishing-resistant** authentication experience.</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## How Passkeys Work</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">### Core Technology</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Passkeys are built on the &lt;mark style="background-color: lightyellow;" &gt;**FIDO2/WebAuthn standard**&lt;/mark&gt; and use **public-key cryptography** principles:</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Key Pair Generation**: When you create a passkey, your device generates a unique cryptographic key pair:</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Private Key**: Stored securely on your device (never leaves the device)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>**Public Key**: Shared with the service you're registering with</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Authentication Process**: </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>The service sends a &lt;mark style="background-color: lightyellow;"&gt;challenge to your device&lt;/mark&gt;</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Your &lt;mark style="background-color: lightyellow;"&gt;device uses the private key to sign the challenge</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>The &lt;mark style="background-color: lightyellow;"&gt;service verifies the signature using the stored public key</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>If verification succeeds, you're authenticated</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Security Features</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Phishing Resistance</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Domain Binding**: Passkeys are cryptographically bound to specific domains</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**No Shared Secrets**: Unlike passwords, there's no secret that can be intercepted or stolen</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Challenge-Response**: Each authentication uses a unique challenge, preventing replay attacks</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Application Scoping</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Site-Specific**: Each &lt;mark style="background-color: lightyellow;"&gt;passkey is unique to the specific website or application</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**No Cross-Application Sharing**: A passkey for one service cannot be used for another</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Isolation**: Compromising one service doesn't affect other services</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**Important Clarification**: While each site requires its own unique passkey, this doesn't mean you need to authenticate every time you visit that site. The passkey is just the "key" - once you use it to unlock the door (authenticate), you stay "inside" (logged in) until the session expires.</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### Passkeys vs. JWT Bearer Tokens: A Common Comparison</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">#### How Passkeys Are Similar to JWT Bearer Tokens</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Many developers compare &lt;mark style="background-color: lightyellow;"&gt;passkeys to JWT bearer tokens&lt;/mark&gt;, and there are indeed some similarities:</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Site-Specific**: Like JWT tokens, each passkey is unique to a specific site/application</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**No Cross-Site Usage**: Just like you can't use a JWT from Site A to authenticate to Site B</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Authentication Proof**: Both prove identity to the target service</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Stateless Authentication**: Both enable authentication without storing sensitive data server-side</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>however please consider they are fundamentally different in how they in their purpose and usage:</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>:</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>| Aspect | JWT Bearer Tokens | Passkeys |</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>|--------|------------------|----------|</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>| **Storage** | Often stored in browser/app memory | Stored securely in device hardware/OS |</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>| **Generation** | Generated by server after login | Generated by device during registration (and used during login) |</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>| **Transmission** | Sent with every API request | Only used during authentication ceremony |</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>| **Lifetime** | Have expiration times (minutes/hours) | Permanent until manually revoked |</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>| **Security** | Can be intercepted if not secured | Cryptographically impossible to intercept |</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>| **Usage Pattern** | Continuous usage for API calls | One-time usage for session establishment |</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">#### The Authentication Flow Comparison</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**JWT Bearer Token Flow:**</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Login with username/password → Server generates JWT</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Store JWT in browser/app</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Send JWT with every subsequent API request</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Server validates JWT on each request</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**Passkey Flow:**</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>One-time registration → Device generates key pair</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Store private key securely on device</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Authentication challenge → Sign with private key</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Server validates signature → Creates normal web session (cookies)</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Passkeys + JWT Tokens: Working Together</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>**Key Point**: Passkeys replace passwords for authentication, but servers can still generate JWT tokens afterward for API access - giving you secure login plus efficient ongoing communication.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>AI Summary</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>**Introduction to WebVTT and Interaction:** The session begins with a friendly greeting and casual conversation, where the speaker acknowledges the audience and sets a relaxed tone for the discussion.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>**Overview of Presentation and Topics:** The session aims to cover the integration of AI into mobile and desktop applications, specifically focusing on .NET MAUI. The discussion includes insights on app development strategies and the influence of AI technologies in enhancing app functionalities.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>**Interactive Engagement and Guest Introductions:** The speaker involves the audience by asking about their previous night's activities and introduces other guests who contribute to the conversation on app development and AI.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>**Technical Insights and AI Integration:** Delving into the technical aspects, the speaker explores the approach to building intelligent apps by incorporating AI, which allows apps to perform complex tasks that go beyond deterministic functions. Examples and strategies for embedding AI within apps are discussed.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>**Audience Interaction and Future Directions:** The speaker maintains engagement with the audience, inviting questions and comments while introducing emerging themes and advancements in app development with AI.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>**Conclusion and Resource Sharing:** The session wraps up by summarizing key points and sharing resources for further learning or action, emphasizing community building and continual improvement in AI-infused app development.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1124,7 +985,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p>Learning Journey - Technical Notes &amp; Insights</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/BRK122/01. Passkey Authentication Information.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/BRK123/SUMMARY.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Last updated: July 8, 2025</p>
 </div>
