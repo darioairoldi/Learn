@@ -1,6 +1,18 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "*/README.md"
+    - "**/README.md"
+    - "20250702 Azure Naming conventions/README.md"
+    - "20250704 TableStorageAccess options/README.md"
+    - "20250706 CosmosDB Access options/README.md"
+    - "20250709 Manage GitRepo from commandline/README.md"
+    - "20250711 Use http files for easy and repeatable test/README.md"
+    - "20250712 Use QUARTO doc for Github repos doc/README.md"
+    - "20250713 Use http files for easy and repeatable test/README.md"
 
 website:
   title: "Dario's Learning Journey"
