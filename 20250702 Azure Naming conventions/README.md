@@ -1,4 +1,15 @@
-# Azure Naming Conventions
+---
+title: "Azure Naming Conventions"
+description: "Standardized naming convention for Azure sample projects across multiple subscriptions"
+author: "Dario Airoldi"
+date: "July 2, 2025"
+date-modified: last-modified
+categories: [azure, naming, conventions, best-practices]
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
 
 ## Table of Contents
 
