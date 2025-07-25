@@ -30,7 +30,7 @@ Welcome to my technical learning hub! This repository documents my journey throu
 
 #### ☁️ Azure Development
 
-- **[Azure Naming Conventions Guide](20250702%20Azure%20Naming%20conventions/Azure-Samples-Naming-Convention.md)** ⭐️  
+- **[Azure Naming Conventions Guide](20250702%20Azure%20Naming%20conventions/README.md)** ⭐️  
   *Comprehensive naming standards for Azure resources across environments*
 - **[Table Storage Access Patterns](20250704%20TableStorageAccess%20options/README.md)**  
   *Best practices for Azure Table Storage implementation*

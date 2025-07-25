@@ -36,21 +36,24 @@
 ## Available Approaches
 
 ### 1. **SQL API (Core)**
-- **Native JSON document model** with rich SQL querying capabilities
+- **Native JSON document model** with rich <mark>SQL querying</mark> capabilities
 - Recommended for new applications with flexible schema requirements
-- **Primary C# SDK**: `Microsoft.Azure.Cosmos`
+- **Primary C# SDK**: <mark>`Microsoft.Azure.Cosmos`</mark>
 - Best performance and feature support
 
 ### 2. **MongoDB API**
-- MongoDB-compatible API for existing MongoDB applications
+- <mark>MongoDB-compatible API</mark> for existing MongoDB applications
 - Use standard MongoDB drivers and tools
 - No code changes required for MongoDB applications
 - **C# SDK**: MongoDB .NET Driver
 
 ### 3. **Other APIs**
-- **Cassandra API**: For existing Cassandra workloads (CqlClient)
-- **Gremlin API**: For graph databases (Gremlin.Net)
-- **Table API**: For Azure Table Storage applications (Azure.Data.Tables)
+- **Cassandra API**: For existing Cassandra workloads (<mark>CassandraCSharpDriver</mark>)
+- **Gremlin API**: For graph databases (<mark>Gremlin.Net</mark>)
+- **Table API**: For Table Storage compatibility
+  - **Recommended**: Use unified <mark>`Microsoft.Azure.Cosmos`</mark> SDK 
+  - **Alternative**: <mark>`Azure.Data.Tables`</mark> for Azure Table Storage
+  - **Deprecated (⚠️)**: <mark>`Microsoft.Azure.Cosmos.Table`</mark> (discontinued)
 
 ## Key Libraries
 
@@ -61,6 +64,21 @@
 
 <!-- For MongoDB API -->
 <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
+
+<!-- For Table API (if not using unified Cosmos SDK) -->
+<PackageReference Include="Azure.Data.Tables" Version="12.8.0" />
+```
+
+### **Deprecated Libraries ⚠️ (Do Not Use)**
+```xml
+<!-- DEPRECATED: Legacy SQL API SDK -->
+<!-- <PackageReference Include="Microsoft.Azure.DocumentDB" Version="2.x.x" /> -->
+
+<!-- DEPRECATED: Legacy Table API SDK -->
+<!-- <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.x.x" /> -->
+
+<!-- DEPRECATED: Original Table Storage SDK -->
+<!-- <PackageReference Include="WindowsAzure.Storage" Version="9.x.x" /> -->
 ```
 
 ### Supporting Libraries (Optional)
@@ -78,6 +96,8 @@
 ### Setting Up a Cosmos Client
 
 The **CosmosClient class** is the primary interface for interacting with Azure Cosmos DB SQL API. It provides a thread-safe client that manages connections, handles retries, and implements the Azure Cosmos DB protocol.
+
+![alt text](<images/001.01 CosmosClientClass.png>)
 
 ```csharp
 using Microsoft.Azure.Cosmos;
@@ -1366,46 +1386,61 @@ var resourceTokenCosmosClient = new CosmosClient(
 
 ## Migration from Legacy SDK
 
+Azure Cosmos DB has evolved significantly, and several legacy SDKs have been **deprecated and discontinued**. Understanding the migration path is crucial for maintaining secure, performant applications.
+
+### Legacy SDKs Overview
+
+#### **1. Microsoft.Azure.DocumentDB (SQL API Legacy)**
+The original SDK for Cosmos DB SQL API, discontinued in March 2020.
+
+#### **2. Microsoft.Azure.Cosmos.Table (Table API Legacy)**
+A specialized SDK for accessing Cosmos DB Table API, based on Azure Table Storage patterns. **Also deprecated** in favor of the unified `Microsoft.Azure.Cosmos` approach.
+
+#### **3. WindowsAzure.Storage (Azure Table Storage)**
+The original Azure Table Storage SDK that many developers used before Cosmos DB Table API existed.
+
 ### Why Legacy SDKs Were Discontinued
 
-The legacy `Microsoft.Azure.DocumentDB` SDK has been **deprecated and discontinued** for several important reasons:
-
 #### **1. Architecture & Design Issues**
-- **Callback-Based Patterns**: The legacy SDK was designed around callback patterns predating modern async/await
+- **Callback-Based Patterns**: Legacy SDKs were designed around callback patterns predating modern async/await
 - **Inadequate Error Handling**: Limited status code mapping and retry policies
 - **Complex Object Model**: Overly complex inheritance chains and abstractions
+- **Fragmented APIs**: Different SDKs for different APIs led to inconsistent developer experience
 
 #### **2. Modern Development Standards**
 - **Async/Await Patterns**: Modern applications require efficient async operations from the ground up
-- **Performance**: Legacy SDK had performance bottlenecks and inefficient memory usage
+- **Performance**: Legacy SDKs had performance bottlenecks and inefficient memory usage
 - **Target Framework Support**: Limited support for newer .NET versions and .NET Core
+- **Unified Experience**: Microsoft moved towards a single, unified SDK approach
 
 #### **3. Service Evolution**
-- **New Features**: Legacy SDK couldn't support newer features like change feed, bulk operations, and AAD auth
+- **New Features**: Legacy SDKs couldn't support newer features like change feed, bulk operations, and AAD auth
 - **Consistency**: Microsoft moved to consistent Azure SDK guidelines across all services
 - **Maintenance**: Supporting multiple SDKs was inefficient and led to inconsistencies
+- **Multi-Model Support**: Modern SDK supports multiple APIs from a single package
 
-### Key Differences Between Libraries
+### Comprehensive Library Comparison
 
-| Feature | `Microsoft.Azure.DocumentDB` (Legacy) | `Microsoft.Azure.Cosmos` (Current) |
-|---------|----------------------------------------|-------------------------------|
-| **Status** | ❌ Deprecated | ✅ Active & Recommended |
-| **API Design** | Callback-heavy, less intuitive | Modern async/await patterns |
-| **Object Model** | Complex inheritance hierarchy | Simpler, more intuitive API |
-| **Performance** | Less optimized | Better throughput and latency |
-| **Bulk Operations** | Limited support | Native support |
-| **Authentication** | Primary key only | AAD, Managed Identity, Resource Tokens |
-| **.NET Core Support** | Limited | Full support |
-| **Change Feed** | Basic | Comprehensive processor framework |
-| **Server-Side** | Complex | Simplified API |
-| **Serialization** | Custom JSON serializer | Newtonsoft.Json or System.Text.Json |
-| **Diagnostics** | Limited | Rich diagnostics and metrics |
+| Feature | `Microsoft.Azure.DocumentDB` | `Microsoft.Azure.Cosmos.Table` | `Azure.Data.Tables` | `Microsoft.Azure.Cosmos` |
+|---------|------------------------------|--------------------------------|---------------------|---------------------------|
+| **Status** | ❌ Deprecated (2020) | ❌ Deprecated (2021) | ✅ Active (Table Storage) | ✅ Active & Recommended |
+| **Target Service** | Cosmos DB SQL API | Cosmos DB Table API | Azure Table Storage | All Cosmos DB APIs |
+| **API Design** | Callback-heavy | Table Storage patterns | Modern async/await | Modern async/await |
+| **Performance** | Poor | Moderate | Good | Excellent |
+| **Bulk Operations** | Limited | Limited | Basic | Advanced |
+| **Authentication** | Primary key only | Primary key + SAS | AAD + SAS + Key | AAD + Managed Identity + Key |
+| **.NET Core Support** | Limited | Full | Full | Full |
+| **Multi-Model** | SQL only | Table only | Table only | SQL, Table, MongoDB, etc. |
+| **Change Feed** | Basic | ❌ Not supported | ❌ Not supported | Comprehensive |
+| **Global Distribution** | Basic | Basic | ❌ Limited | Advanced |
+| **Diagnostics** | Limited | Limited | Good | Excellent |
 
-### Migration Steps & Code Changes
+### Migration Paths & Code Examples
 
-If you're migrating from the legacy `Microsoft.Azure.DocumentDB` SDK:
+#### **Path 1: From Microsoft.Azure.DocumentDB (SQL API)**
 
-#### **1. Update Package References**
+**Step 1: Update Package References**
+
 ```xml
 <!-- REMOVE legacy package -->
 <!-- <PackageReference Include="Microsoft.Azure.DocumentDB" Version="2.x.x" /> -->
@@ -1414,7 +1449,8 @@ If you're migrating from the legacy `Microsoft.Azure.DocumentDB` SDK:
 <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.37.0" />
 ```
 
-#### **2. Update Namespace Imports**
+**Step 2: Update Namespace Imports**
+
 ```csharp
 // OLD namespaces
 // using Microsoft.Azure.Documents;
@@ -1424,7 +1460,8 @@ If you're migrating from the legacy `Microsoft.Azure.DocumentDB` SDK:
 using Microsoft.Azure.Cosmos;
 ```
 
-#### **3. Update Client Initialization**
+**Step 3: Update Client Initialization**
+
 ```csharp
 // OLD - DocumentDB
 /*
@@ -1440,62 +1477,28 @@ CosmosClient cosmosClient = new CosmosClient(
     "your-primary-key");
 ```
 
-#### **4. Update Database/Container Access**
+**Step 4: Update CRUD Operations**
+
 ```csharp
-// OLD - DocumentDB
-/*
-Database database = await client.CreateDatabaseIfNotExistsAsync(
-    new Database { Id = "MyDatabase" });
-
-DocumentCollection collection = await client.CreateDocumentCollectionIfNotExistsAsync(
-    UriFactory.CreateDatabaseUri("MyDatabase"),
-    new DocumentCollection { Id = "MyCollection" },
-    new RequestOptions { OfferThroughput = 400 });
-*/
-
-// NEW - Cosmos SDK
-Database database = await cosmosClient.CreateDatabaseIfNotExistsAsync("MyDatabase");
-
-Container container = await database.CreateContainerIfNotExistsAsync(
-    id: "MyContainer",
-    partitionKeyPath: "/partitionKey", 
-    throughput: 400);
-```
-
-#### **5. Update CRUD Operations**
-```csharp
-// OLD - Create
+// OLD - Create Document
 /*
 Document document = await client.CreateDocumentAsync(
     UriFactory.CreateDocumentCollectionUri("MyDatabase", "MyCollection"),
     new { id = "item1", name = "Item 1", partitionKey = "pk1" });
 */
 
-// NEW - Create
+// NEW - Create Item
 ItemResponse<dynamic> response = await container.CreateItemAsync<dynamic>(
     new { id = "item1", name = "Item 1", partitionKey = "pk1" },
     new PartitionKey("pk1"));
 
-// OLD - Read
-/*
-Document document = await client.ReadDocumentAsync(
-    UriFactory.CreateDocumentUri("MyDatabase", "MyCollection", "item1"),
-    new RequestOptions { PartitionKey = new PartitionKey("pk1") });
-*/
-
-// NEW - Read
-ItemResponse<dynamic> response = await container.ReadItemAsync<dynamic>(
-    "item1", 
-    new PartitionKey("pk1"));
-
-// OLD - Query
+// OLD - Query Documents
 /*
 FeedOptions options = new FeedOptions { EnableCrossPartitionQuery = true };
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery<dynamic>(
     UriFactory.CreateDocumentCollectionUri("MyDatabase", "MyCollection"),
     "SELECT * FROM c WHERE c.name = 'Item 1'", 
-    options)
-    .AsDocumentQuery();
+    options).AsDocumentQuery();
     
 while (query.HasMoreResults)
 {
@@ -1507,16 +1510,13 @@ while (query.HasMoreResults)
 }
 */
 
-// NEW - Query
+// NEW - Query Items
 QueryDefinition queryDefinition = new QueryDefinition(
     "SELECT * FROM c WHERE c.name = 'Item 1'");
     
 FeedIterator<dynamic> resultSet = container.GetItemQueryIterator<dynamic>(
     queryDefinition,
-    requestOptions: new QueryRequestOptions
-    {
-        MaxItemCount = 10
-    });
+    requestOptions: new QueryRequestOptions { MaxItemCount = 10 });
     
 while (resultSet.HasMoreResults)
 {
@@ -1528,23 +1528,241 @@ while (resultSet.HasMoreResults)
 }
 ```
 
+#### **Path 2: From Microsoft.Azure.Cosmos.Table (Table API)**
+
+**Step 1: Update Package References**
+
+```xml
+<!-- REMOVE legacy Table API package -->
+<!-- <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.x.x" /> -->
+
+<!-- ADD modern unified package -->
+<PackageReference Include="Microsoft.Azure.Cosmos" Version="3.37.0" />
+```
+
+**Step 2: Update Namespace Imports**
+
+```csharp
+// OLD namespaces
+// using Microsoft.Azure.Cosmos.Table;
+// using Microsoft.Azure.Cosmos.Table.Protocol;
+
+// NEW namespace
+using Microsoft.Azure.Cosmos;
+```
+
+**Step 3: Client & Container Setup**
+
+```csharp
+// OLD - Table Client
+/*
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+CloudTable table = tableClient.GetTableReference("MyTable");
+await table.CreateIfNotExistsAsync();
+*/
+
+// NEW - Cosmos Container (Table API via SQL API)
+CosmosClient cosmosClient = new CosmosClient(endpoint, key);
+Database database = await cosmosClient.CreateDatabaseIfNotExistsAsync("MyDatabase");
+Container container = await database.CreateContainerIfNotExistsAsync(
+    id: "MyTable",
+    partitionKeyPath: "/PartitionKey", // Note: PartitionKey is the property name
+    throughput: 400);
+```
+
+**Step 4: Entity Model Changes**
+
+```csharp
+// OLD - Table Entity
+/*
+public class CustomerEntity : TableEntity
+{
+    public CustomerEntity(string lastName, string firstName)
+    {
+        this.PartitionKey = lastName;
+        this.RowKey = firstName;
+    }
+    
+    public CustomerEntity() { }
+    
+    public string Email { get; set; }
+    public string PhoneNumber { get; set; }
+}
+*/
+
+// NEW - Cosmos Document Model
+public class Customer
+{
+    [JsonProperty("id")]
+    public string Id { get; set; } // Combination of PartitionKey + RowKey
+
+    [JsonProperty("PartitionKey")] 
+    public string PartitionKey { get; set; } // Same as Table PartitionKey
+    
+    public string LastName { get; set; }
+    public string FirstName { get; set; }
+    public string Email { get; set; }
+    public string PhoneNumber { get; set; }
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+    
+    // Constructor to maintain Table API compatibility
+    public Customer(string lastName, string firstName)
+    {
+        PartitionKey = lastName;
+        LastName = lastName;
+        FirstName = firstName;
+        Id = $"{lastName}#{firstName}"; // Composite key
+    }
+    
+    public Customer() { }
+}
+```
+
+**Step 5: CRUD Operations Migration**
+
+```csharp
+// OLD - Insert Entity
+/*
+CustomerEntity customer = new CustomerEntity("Doe", "John")
+{
+    Email = "john.doe@example.com",
+    PhoneNumber = "555-1234"
+};
+
+TableOperation insertOperation = TableOperation.Insert(customer);
+TableResult result = await table.ExecuteAsync(insertOperation);
+*/
+
+// NEW - Create Item
+Customer customer = new Customer("Doe", "John")
+{
+    Email = "john.doe@example.com",
+    PhoneNumber = "555-1234"
+};
+
+ItemResponse<Customer> response = await container.CreateItemAsync(
+    customer,
+    new PartitionKey(customer.PartitionKey));
+
+// OLD - Retrieve Entity
+/*
+TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Doe", "John");
+TableResult retrievedResult = await table.ExecuteAsync(retrieveOperation);
+CustomerEntity customer = retrievedResult.Result as CustomerEntity;
+*/
+
+// NEW - Read Item
+ItemResponse<Customer> response = await container.ReadItemAsync<Customer>(
+    "Doe#John", // Composite ID
+    new PartitionKey("Doe"));
+Customer customer = response.Resource;
+
+// OLD - Query Entities
+/*
+TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
+    .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Doe"));
+
+TableContinuationToken token = null;
+var customers = new List<CustomerEntity>();
+
+do
+{
+    TableQuerySegment<CustomerEntity> segment = await table.ExecuteQuerySegmentedAsync(query, token);
+    customers.AddRange(segment.Results);
+    token = segment.ContinuationToken;
+} while (token != null);
+*/
+
+// NEW - Query Items
+QueryDefinition query = new QueryDefinition(
+    "SELECT * FROM c WHERE c.PartitionKey = @partitionKey")
+    .WithParameter("@partitionKey", "Doe");
+
+FeedIterator<Customer> resultSet = container.GetItemQueryIterator<Customer>(
+    query,
+    requestOptions: new QueryRequestOptions
+    {
+        PartitionKey = new PartitionKey("Doe")
+    });
+
+List<Customer> customers = new List<Customer>();
+while (resultSet.HasMoreResults)
+{
+    FeedResponse<Customer> response = await resultSet.ReadNextAsync();
+    customers.AddRange(response);
+}
+```
+
+#### **Path 3: From WindowsAzure.Storage to Modern Options**
+
+If you're coming from Azure Table Storage and want to access Cosmos DB:
+
+**Option A: Stay with Table Storage using Azure.Data.Tables**
+
+```xml
+<PackageReference Include="Azure.Data.Tables" Version="12.8.0" />
+```
+
+**Option B: Migrate to Cosmos DB with Microsoft.Azure.Cosmos**
+
+```xml
+<PackageReference Include="Microsoft.Azure.Cosmos" Version="3.37.0" />
+```
+
+The migration from `WindowsAzure.Storage` to `Azure.Data.Tables` is straightforward and maintains Table API semantics. However, migrating to Cosmos DB provides global distribution, better performance, and additional features.
+
+### Migration Decision Matrix
+
+| Current SDK | Target Service | Recommended Path | Complexity | Benefits |
+|-------------|----------------|------------------|------------|----------|
+| **Microsoft.Azure.DocumentDB** | Cosmos DB SQL | → `Microsoft.Azure.Cosmos` | Medium | Modern API, Performance, Features |
+| **Microsoft.Azure.Cosmos.Table** | Cosmos DB Table | → `Microsoft.Azure.Cosmos` | High | Unified SDK, Better Performance |
+| **Microsoft.Azure.Cosmos.Table** | Azure Table Storage | → `Azure.Data.Tables` | Low | Modern Table API, Simpler Migration |
+| **WindowsAzure.Storage** | Azure Table Storage | → `Azure.Data.Tables` | Low | Modern SDK, Better Performance |
+| **WindowsAzure.Storage** | Cosmos DB | → `Microsoft.Azure.Cosmos` | High | Global Distribution, Advanced Features |
+
+### Key Migration Considerations
+
+#### **1. Data Model Changes**
+
+- **Table API → SQL API**: Convert `PartitionKey/RowKey` to composite `id` field
+- **Entity inheritance**: Replace `TableEntity` base class with POCO models
+- **Property mapping**: Handle special Table Storage types (byte arrays, etc.)
+
+#### **2. Performance Implications**
+
+- **Throughput provisioning**: Cosmos DB uses RU/s instead of storage-based pricing
+- **Indexing**: SQL API provides richer indexing than Table API
+- **Query patterns**: SQL queries vs Table queries have different performance characteristics
+
+#### **3. Feature Migration**
+
+- **Authentication**: Migrate from connection strings to AAD/Managed Identity
+- **Error handling**: Update exception handling for new exception types
+- **Batch operations**: Leverage bulk operations in modern SDKs
+- **Monitoring**: Implement RU consumption monitoring
+
 ### Migration Benefits
 
 Moving to `Microsoft.Azure.Cosmos` provides:
 
+✅ **Unified Experience** - Single SDK for all Cosmos DB APIs  
 ✅ **Better Performance** - Optimized for modern async patterns  
-✅ **Advanced Features** - Support for bulk operations, change feed processor, AAD auth  
-✅ **Improved Error Handling** - Detailed exceptions with diagnostic info  
-✅ **Enhanced Diagnostics** - Better visibility into RU consumption and performance  
-✅ **Future-Proof** - Active development and feature updates  
-✅ **Better Development Experience** - More intuitive API design  
+✅ **Advanced Features** - Bulk operations, change feed, global distribution  
+✅ **Enhanced Authentication** - AAD, Managed Identity, fine-grained access  
+✅ **Rich Diagnostics** - Detailed metrics and performance insights  
+✅ **Future-Proof** - Active development and new feature support  
 
-### Timeline & Support
+### Support Timeline
 
-| SDK | Last Update | Support Status | Recommendation |
-|-----|-------------|----------------|----------------|
-| `Microsoft.Azure.DocumentDB` | March 2020 | ❌ Deprecated | Migrate immediately |
-| `Microsoft.Azure.Cosmos` | Current | ✅ Active Development | ✅ Use for all new projects |
+| SDK | Final Version | End of Support | Security Updates | Recommendation |
+|-----|---------------|----------------|------------------|----------------|
+| `Microsoft.Azure.DocumentDB` | 2.18.0 | March 2020 | ❌ None | ⚠️ Migrate immediately |
+| `Microsoft.Azure.Cosmos.Table` | 1.0.8 | August 2021 | ❌ None | ⚠️ Migrate immediately |
+| `WindowsAzure.Storage` | 9.3.3 | November 2023 | ❌ None | ⚠️ Migrate immediately |
+| `Azure.Data.Tables` | Current | ✅ Active | ✅ Yes | ✅ Use for Table Storage |
+| `Microsoft.Azure.Cosmos` | Current | ✅ Active | ✅ Yes | ✅ Use for Cosmos DB |
 
 > **⚠️ Important**: Microsoft will not provide security updates or bug fixes for legacy SDKs. Migration to `Microsoft.Azure.Cosmos` is strongly recommended for security and compatibility reasons.
 
