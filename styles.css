@@ -39,6 +39,26 @@
   gap: 0.5rem;
 }
 
+/* Make navbar icons white */
+.navbar .nav-link i,
+.navbar .nav-link .bi {
+  color: white !important;
+}
+
+.navbar .nav-link[href="index.qmd"] i,
+.navbar .nav-link[href="index.qmd"] .bi {
+  color: white !important;
+}
+
+/* Make navbar text white */
+.navbar .nav-link {
+  color: white !important;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: white !important;
+}
+
 /* Content styling */
 .lead {
   font-size: 1.1rem;
@@ -229,7 +249,7 @@ a:hover {
 .sidebar .nav-link[href="index.qmd"] {
   font-weight: 600;
   font-size: 1.1rem;
-  color: var(--accent-dark) !important;
+  color: white !important;
   background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
   border: 2px solid var(--accent-color);
   margin-bottom: 1rem;
