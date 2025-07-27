@@ -161,6 +161,10 @@ a:hover {
   background-color: #f8f9fa;
 }
 
+.sidebar-section {
+    padding-left: 1.75em;
+}
+
 /* Enhanced sidebar section styling */
 .sidebar-section > .nav-link {
   font-weight: 800;
