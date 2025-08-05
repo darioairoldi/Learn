@@ -3,7 +3,13 @@
 **Session Date:** May 19-22, 2025  
 **Duration:** ~45 minutes  
 **Venue:** Microsoft Build 2025  
-**Speakers:** Jeremy Likness (Principal Product Manager, .NET AI), Jon Galloway (Principal Tech PM), Brady Gaster, Ed Charbeneau  
+**Speakers:** 
+- **Ed Charbeneau**  
+- **Jeremy Likness**: Principal Product Manager responsible for AI and .NET experience
+- **Jon Galloway**: Principal Tech PM on DevDiv Community team
+- **Brady Gaster**: Developer and creative technologist
+
+
 **Link:** [Session Recording](https://build.microsoft.com/sessions/BRK104)
 
 ## Table of Contents
@@ -48,19 +54,13 @@
 
 **00:00:00** *(5m 30s)* - **Speakers:** Jeremy Likness, Jon Galloway
 
-The session opened with an overview of the rapid evolution of AI technologies since 2022. Jeremy Likness highlighted the unprecedented adoption of ChatGPT, which reached 100 million users in just five days. The discussion emphasized the exponential pace of AI development, with task completion capabilities doubling every seven months when AI achieves 50% accuracy.
+The session opened with an overview of the rapid evolution of AI technologies since 2022. Jeremy Likness highlighted the unprecedented **adoption of ChatGPT**, which reached **100 million users in just five days**. The discussion emphasized the exponential pace of AI development, with **task completion capabilities** doubling every seven months when AI achieves 50% accuracy.
 
 Key statistics presented:
 
-- ChatGPT's record-breaking user adoption (100M users in 5 days)
-- Exponential growth in AI capabilities
+- ChatGPT's record-breaking user adoption (**100M users in 5 days**)
+- **Exponential growth in AI capabilities**
 - Tasks that previously required specialized libraries can now be accomplished through generative AI
-
-The speakers introduced themselves:
-
-- **Jeremy Likness**: Principal Product Manager responsible for AI and .NET experience
-- **Jon Galloway**: Principal Tech PM on DevDiv Community team
-- **Brady Gaster**: Developer and creative technologist
 
 ## Microsoft's .NET AI Ecosystem
 

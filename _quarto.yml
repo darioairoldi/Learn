@@ -13,6 +13,7 @@ project:
     - "20250711 Use http files for easy and repeatable test/README.md"
     - "20250712 Use QUARTO doc for Github repos doc/README.md"
     - "20250713 Use http files for easy and repeatable test/README.md"
+    - "Travel/Paris 2025/README.md"
 
 website:
   title: "Dario's Learning Journey"
@@ -70,6 +71,10 @@ website:
             text: "Quarto Documentation Guide"
           - href: "20250713 Use http files for easy and repeatable test/README.md"
             text: "HTTP Files (Extended Guide)"
+      - text: "Culture & Travel"
+        menu:
+          - href: "Travel/Paris 2025/README.md"
+            text: "Paris Cultural Journey 2025"
       - text: "Issues & Solutions"
         menu:
           - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
@@ -125,6 +130,11 @@ website:
             text: "Quarto Documentation"
           - href: "20250713 Use http files for easy and repeatable test/README.md"
             text: "HTTP Files (Extended)"
+      
+      - section: "🎭 Culture & Travel"
+        contents:
+          - href: "Travel/Paris 2025/README.md"
+            text: "Paris Cultural Journey 2025"
       
       - section: "🔧 Issues & Solutions"
         contents:
