@@ -1,4 +1,4 @@
-name: Render and Deploy Quarto Site
+name: Render and Deploy Quarto Site to GitHub Pages
 
 on:
   push:
@@ -63,8 +63,8 @@ jobs:
     - name: Render Quarto Project
       run: quarto render
       
-    - name: Add .nojekyll to docs
-      run: touch docs/.nojekyll
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
       
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
