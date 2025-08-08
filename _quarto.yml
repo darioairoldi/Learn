@@ -90,14 +90,14 @@ website:
   sidebar:
     style: "floating"
     search: true
-    collapse-level: 1
+    collapse-level: 3
     contents:
       - href: index.qmd
         text: "🏠 Home"
       
       - section: "🎉 Events"
         contents:
-          - text: "Build Conference 2025"
+          - section: "Build Conference 2025"
             href: "202506 Build 2025/Readme.md"
             contents:
               - href: "202506 Build 2025/Readme.md"
@@ -117,7 +117,7 @@ website:
       
       - section: "💻 Technologies"
         contents:
-          - text: "☁️ Azure"
+          - section: "☁️ Azure"
             href: "20250702 Azure Naming conventions/README.md"
             contents:
               - href: "20250702 Azure Naming conventions/README.md"
@@ -129,7 +129,7 @@ website:
       
       - section: "🛠️ Tools"
         contents:
-          - text: "Development Tools"
+          - section: "Development Tools"
             href: "20250709 Manage GitRepo from commandline/README.md"
             contents:
               - href: "20250709 Manage GitRepo from commandline/README.md"
@@ -143,7 +143,7 @@ website:
       
       - section: "🔧 Issues & Solutions"
         contents:
-          - text: "Development Issues"
+          - section: "Development Issues"
             href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
             contents:
               - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
