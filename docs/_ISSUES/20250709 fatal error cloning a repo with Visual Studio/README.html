@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-07-20">
+<meta name="dcterms.date" content="2025-07-14">
 <meta name="keywords" content="learning, development, azure, dotnet, conference, documentation">
 <meta name="description" content="Technical learning notes, conference insights, and development guides">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+q { quotes: "“" "”" "‘" "’"; }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { line-height: 1.25; }
@@ -61,24 +62,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html" rel="next">
-<link href="../index.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../_ISSUES/20250710 sample/README.md" rel="next">
+<link href="../../Travel/Paris 2025/README.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -119,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Learning Hub</span>
     </a>
   </div>
@@ -130,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> <i class="bi bi-house-fill" role="img">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> <i class="bi bi-house-fill" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -140,32 +144,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-events">    
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/Readme.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/Readme.html">
  <span class="dropdown-text">Build 2025: Conference Overview</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">
  <span class="dropdown-text">Build 2025: BRK106 - .NET Aspire AI &amp; Cloud</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">
  <span class="dropdown-text">Build 2025: BRK122 - ASP.NET Core &amp; Blazor</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK123/00. AI infused mobile &amp; desktop app development with .NET MAUI.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK123/00. AI infused mobile &amp; desktop app development with .NET MAUI.html">
  <span class="dropdown-text">Build 2025: BRK123 - .NET MAUI AI Development</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.html">
  <span class="dropdown-text">Build 2025: DEM508 - Testing with Aspire &amp; Playwright</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM517/00. Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM517/00. Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html">
  <span class="dropdown-text">Build 2025: DEM517 - Model Context Protocol</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.html">
  <span class="dropdown-text">Build 2025: DEM520 - Local AI with Foundry</span></a>
   </li>  
     </ul>
@@ -177,21 +181,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technologies">    
         <li class="dropdown-header">Azure</li>
         <li>
-    <a class="dropdown-item" href="../20250702 Azure Naming conventions/README.html">
+    <a class="dropdown-item" href="../../20250702 Azure Naming conventions/README.html">
  <span class="dropdown-text">Azure: Naming Conventions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250704 TableStorageAccess options/README.html">
+    <a class="dropdown-item" href="../../20250704 TableStorageAccess options/README.html">
  <span class="dropdown-text">Azure: Table Storage Access Options</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250706 CosmosDB Access options/README.html">
+    <a class="dropdown-item" href="../../20250706 CosmosDB Access options/README.html">
  <span class="dropdown-text">Azure: CosmosDB Access Options</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Issues &amp; Solutions</li>
         <li>
-    <a class="dropdown-item" href="../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html">
+    <a class="dropdown-item" href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html">
  <span class="dropdown-text">Visual Studio Clone Error</span></a>
   </li>  
     </ul>
@@ -202,36 +206,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
         <li>
-    <a class="dropdown-item" href="../20250709 Manage GitRepo from commandline/README.html">
+    <a class="dropdown-item" href="../../20250709 Manage GitRepo from commandline/README.html">
  <span class="dropdown-text">Git Command Line Management</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250711 Use http files for easy and repeatable test/README.html">
+    <a class="dropdown-item" href="../../20250711 Use http files for easy and repeatable test/README.html">
  <span class="dropdown-text">HTTP Files for Testing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250712 Use QUARTO doc for Github repos doc/README.html">
+    <a class="dropdown-item" href="../../20250712 Use QUARTO doc for Github repos doc/README.html">
  <span class="dropdown-text">Quarto Documentation Guide</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250713 Use http files for easy and repeatable test/README.html">
+    <a class="dropdown-item" href="../../20250713 Use http files for easy and repeatable test/README.html">
  <span class="dropdown-text">HTTP Files (Extended Guide)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-culture--travel" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Culture &amp; Travel</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-culture--travel">    
+        <li>
+    <a class="dropdown-item" href="../../Travel/Paris 2025/README.html">
+ <span class="dropdown-text">Paris Cultural Journey 2025</span></a>
   </li>  
     </ul>
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-culture--travel" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Culture &amp; Travel</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-culture--travel">    
-        <li>
-    <a class="dropdown-item" href="../Travel/Paris 2025/README.html">
- <span class="dropdown-text">Paris Cultural Journey 2025</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/darioairoldi/Learn"> <i class="bi bi-github" role="img" aria-label="GitHub Repository">
 </i> 
@@ -253,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">🎉 Events</li><li class="breadcrumb-item"><a href="../202506 Build 2025/Readme.html">Build Conference 2025</a></li><li class="breadcrumb-item"><a href="../202506 Build 2025/Readme.html">Conference Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html">🔧 Issues &amp; Solutions</a></li><li class="breadcrumb-item"><a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html">VS Clone Error Fix</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -275,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🏠 Home</span></a>
   </div>
 </li>
@@ -290,52 +294,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
  <span class="menu-text">Build Conference 2025</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conference Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">BRK106: .NET Aspire AI &amp; Cloud</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">BRK122: ASP.NET Core &amp; Blazor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK123/00. AI infused mobile &amp; desktop app development with .NET MAUI.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK123/00. AI infused mobile &amp; desktop app development with .NET MAUI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">BRK123: .NET MAUI AI</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DEM508: Testing with Aspire</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM517/00. Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM517/00. Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DEM517: MCP Server</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DEM520: Local AI Development</span></a>
   </div>
 </li>
@@ -346,87 +350,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">💻 Technologies</span></a>
+ <span class="menu-text">☁️ Azure Topics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
- <span class="menu-text">☁️ Azure</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250702 Azure Naming conventions/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250702 Azure Naming conventions/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Naming Conventions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250704 TableStorageAccess options/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250704 TableStorageAccess options/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Table Storage Access</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250706 CosmosDB Access options/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250706 CosmosDB Access options/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CosmosDB Access Options</span></a>
   </div>
 </li>
       </ul>
   </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">🛠️ Tools</span></a>
+ <span class="menu-text">🛠️ Development Tools</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
- <span class="menu-text">Development Tools</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git Command Line</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250711 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250711 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HTTP Files Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Documentation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250713 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250713 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HTTP Files (Extended)</span></a>
   </div>
 </li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -438,23 +420,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
- <span class="menu-text">Travel Experiences</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Paris Cultural Journey 2025</span></a>
   </div>
 </li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -466,29 +437,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
- <span class="menu-text">Development Issues</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">VS Clone Error Fix</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../_ISSUES/20250710 sample/README.md" class="sidebar-item-text sidebar-link">
+  <a href="../../_ISSUES/20250710 sample/README.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Issue</span></a>
   </div>
 </li>
-      </ul>
-  </li>
       </ul>
   </li>
     </ul>
@@ -501,26 +461,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#microsoft-build-2025---session-articles" id="toc-microsoft-build-2025---session-articles" class="nav-link active" data-scroll-target="#microsoft-build-2025---session-articles">Microsoft Build 2025 - Session Articles</a>
+  <li><a href="#problem-description" id="toc-problem-description" class="nav-link active" data-scroll-target="#problem-description">PROBLEM DESCRIPTION</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">ANALYSIS</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">SOLUTION</a></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">ADDITIONAL INFORMATION</a></li>
+  <li><a href="#root-cause" id="toc-root-cause" class="nav-link" data-scroll-target="#root-cause">ROOT CAUSE</a></li>
+  <li><a href="#why-alternatives-work" id="toc-why-alternatives-work" class="nav-link" data-scroll-target="#why-alternatives-work">WHY ALTERNATIVES WORK</a></li>
+  <li><a href="#recommended-solutions" id="toc-recommended-solutions" class="nav-link" data-scroll-target="#recommended-solutions">RECOMMENDED SOLUTIONS</a>
   <ul class="collapse">
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
-  <li><a href="#build-presentations" id="toc-build-presentations" class="nav-link" data-scroll-target="#build-presentations">Build Presentations</a>
-  <ul class="collapse">
-  <li><a href="#dem520---local-ai-development-with-foundry-local-and-.net-aspire" id="toc-dem520---local-ai-development-with-foundry-local-and-.net-aspire" class="nav-link" data-scroll-target="#dem520---local-ai-development-with-foundry-local-and-.net-aspire">1. 🤖 DEM520 - Local AI Development with Foundry Local and .NET Aspire</a></li>
-  <li><a href="#dem508---streamlining-application-testing-with-.net-aspire-and-playwright" id="toc-dem508---streamlining-application-testing-with-.net-aspire-and-playwright" class="nav-link" data-scroll-target="#dem508---streamlining-application-testing-with-.net-aspire-and-playwright">2. 🧪 DEM508 - Streamlining Application Testing with .NET Aspire and Playwright</a></li>
-  <li><a href="#brk122---the-future-of-web-development-with-asp.net-core-blazor" id="toc-brk122---the-future-of-web-development-with-asp.net-core-blazor" class="nav-link" data-scroll-target="#brk122---the-future-of-web-development-with-asp.net-core-blazor">3. 🌐 BRK122 - The Future of Web Development with ASP.NET Core &amp; Blazor</a></li>
-  <li><a href="#dem517---build-deploy-use-your-first-model-context-protocol-mcp-server" id="toc-dem517---build-deploy-use-your-first-model-context-protocol-mcp-server" class="nav-link" data-scroll-target="#dem517---build-deploy-use-your-first-model-context-protocol-mcp-server">4. 🔗 DEM517 - Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server</a></li>
-  <li><a href="#brk106---elevating-development-with-.net-aspire-ai-cloud-and-beyond" id="toc-brk106---elevating-development-with-.net-aspire-ai-cloud-and-beyond" class="nav-link" data-scroll-target="#brk106---elevating-development-with-.net-aspire-ai-cloud-and-beyond">5. 📋 BRK106 - Elevating Development with .NET Aspire: AI, Cloud, and Beyond</a></li>
+  <li><a href="#short-term-workarounds" id="toc-short-term-workarounds" class="nav-link" data-scroll-target="#short-term-workarounds">Short-term Workarounds:</a></li>
+  <li><a href="#long-term-solutions" id="toc-long-term-solutions" class="nav-link" data-scroll-target="#long-term-solutions">Long-term Solutions:</a></li>
+  <li><a href="#alternative-approach" id="toc-alternative-approach" class="nav-link" data-scroll-target="#alternative-approach">Alternative Approach:</a></li>
   </ul></li>
-  <li><a href="#session-formats" id="toc-session-formats" class="nav-link" data-scroll-target="#session-formats">Session Formats</a></li>
-  <li><a href="#common-themes" id="toc-common-themes" class="nav-link" data-scroll-target="#common-themes">Common Themes</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">REFERENCES</a>
+  <ul class="collapse">
+  <li><a href="#known-issues-and-bug-reports" id="toc-known-issues-and-bug-reports" class="nav-link" data-scroll-target="#known-issues-and-bug-reports">Known Issues and Bug Reports</a></li>
+  <li><a href="#solution-documentation" id="toc-solution-documentation" class="nav-link" data-scroll-target="#solution-documentation">Solution Documentation</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/Readme.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">🎉 Events</li><li class="breadcrumb-item"><a href="../202506 Build 2025/Readme.html">Build Conference 2025</a></li><li class="breadcrumb-item"><a href="../202506 Build 2025/Readme.html">Conference Overview</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html">🔧 Issues &amp; Solutions</a></li><li class="breadcrumb-item"><a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html">VS Clone Error Fix</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -545,7 +507,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 20, 2025</p>
+      <p class="date">July 14, 2025</p>
     </div>
   </div>
   
@@ -563,87 +525,134 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="microsoft-build-2025---session-articles" class="level1">
-<h1>Microsoft Build 2025 - Session Articles</h1>
-<p>This directory contains detailed notes and summaries from Microsoft Build 2025 sessions, focusing on .NET Aspire, AI development, testing, and modern development practices.</p>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
+<section id="problem-description" class="level2">
+<h2 class="anchored" data-anchor-id="problem-description">PROBLEM DESCRIPTION</h2>
+<p>cloning a repository with Visual Studio fails with the following error:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Clone repo</th>
+<th>Fatal error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/001.01 clonerepo.png" class="img-fluid" alt="Clone Repository"></td>
+<td><img src="images/001.02 fatal error.png" class="img-fluid" alt="Fatal Error"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">ANALYSIS</h2>
+<p>Visual studio has grants to the folder as I could create a file <img src="images/002.01 visual studio file access.png" alt="Visual Studio file access" width="600"></p>
+<p>the issue also happens running visual studio with admin rights <img src="images/002.02 admin rights.png" alt="Admin rights" width="600"></p>
+<p>cloning the repo unders the user profile WORKS!<br> <img src="images/002.03 clone under user profile.png" alt="Clone under user profile" width="600"></p>
+<p>cloning it under drive e: fails as shown above.</p>
+</section>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">SOLUTION</h2>
+<p>cloning the repo from the command line or by means of Visual studio code works fine!<br> <img src="images/003.01a clone with vscode.png" class="img-fluid" alt="alt text"></p>
+</section>
+<section id="additional-information" class="level2">
+<h2 class="anchored" data-anchor-id="additional-information">ADDITIONAL INFORMATION</h2>
+<p><strong>File System</strong>: E: drive is formatted with ReFS (Resilient File System)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/visual studio version.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="alt text"><img src="images/visual studio version.png" class="img-fluid figure-img" alt="alt text"></a></p>
+<figcaption>alt text</figcaption>
+</figure>
+</div>
+</section>
+<section id="root-cause" class="level2">
+<h2 class="anchored" data-anchor-id="root-cause">ROOT CAUSE</h2>
+<p>The issue is caused by <strong>ReFS compatibility problems</strong> with Visual Studio’s Git integration:</p>
+<ul>
+<li><strong>ReFS vs NTFS</strong>: Visual Studio’s Git wrapper has known issues with ReFS file system</li>
+<li><strong>File System Calls</strong>: VS Git may use older Win32 APIs that don’t handle ReFS metadata correctly</li>
+<li><strong>File Locking</strong>: ReFS’s different file locking behavior conflicts with VS Git operations</li>
+<li><strong>Symbolic Links</strong>: ReFS handles symbolic links differently, which can confuse VS Git</li>
+</ul>
+</section>
+<section id="why-alternatives-work" class="level2">
+<h2 class="anchored" data-anchor-id="why-alternatives-work">WHY ALTERNATIVES WORK</h2>
+<ul>
+<li><strong>Command Line Git</strong>: Uses standard Git binary with better ReFS support</li>
+<li><strong>VS Code</strong>: Uses standard Git binary, not Visual Studio’s wrapper</li>
+<li><strong>User Profile (C: drive)</strong>: Typically formatted with NTFS, not ReFS</li>
+</ul>
+</section>
+<section id="recommended-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-solutions">RECOMMENDED SOLUTIONS</h2>
+<section id="short-term-workarounds" class="level3">
+<h3 class="anchored" data-anchor-id="short-term-workarounds">Short-term Workarounds:</h3>
 <ol type="1">
-<li><a href="#1-dem520---local-ai-development-with-foundry-local-and-net-aspire">🤖 DEM520 - Local AI Development with Foundry Local and .NET Aspire</a></li>
-<li><a href="#2-dem508---streamlining-application-testing-with-net-aspire-and-playwright">🧪 DEM508 - Streamlining Application Testing with .NET Aspire and Playwright</a></li>
-<li><a href="#3-brk122---the-future-of-web-development-with-aspnet-core--blazor">🌐 BRK122 - The Future of Web Development with ASP.NET Core &amp; Blazor</a></li>
-<li><a href="#4-dem517---build-deploy--use-your-first-model-context-protocol-mcp-server">🔗 DEM517 - Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server</a></li>
-<li><a href="#5-brk106---elevating-development-with-net-aspire-ai-cloud-and-beyond">📋 BRK106 - Elevating Development with .NET Aspire: AI, Cloud, and Beyond</a></li>
+<li><strong>Use VS Code or Command Line</strong> for Git operations on ReFS drives</li>
+<li><strong>Clone to NTFS drive first</strong>, then copy to ReFS if needed</li>
+<li><strong>Use Git Bash or PowerShell</strong> instead of Visual Studio’s integrated Git</li>
 </ol>
-<hr>
 </section>
-<section id="build-presentations" class="level2">
-<h2 class="anchored" data-anchor-id="build-presentations">Build Presentations</h2>
-<section id="dem520---local-ai-development-with-foundry-local-and-.net-aspire" class="level3">
-<h3 class="anchored" data-anchor-id="dem520---local-ai-development-with-foundry-local-and-.net-aspire">1. 🤖 <a href="../202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.html">DEM520 - Local AI Development with Foundry Local and .NET Aspire</a></h3>
-<p><strong>Summary:</strong> A focused demonstration on local AI development using Microsoft’s Foundry Local platform integrated with .NET Aspire. The session addresses the challenges and benefits of running AI models locally versus cloud-based solutions.</p>
-<p><strong>Duration:</strong> ~13 minutes live demonstration</p>
-<hr>
+<section id="long-term-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="long-term-solutions">Long-term Solutions:</h3>
+<ol type="1">
+<li><strong>File a bug report</strong> with Microsoft Visual Studio team about ReFS compatibility</li>
+<li><strong>Format drive as NTFS</strong> if ReFS features aren’t essential for your use case</li>
+<li><strong>Wait for Visual Studio updates</strong> that improve ReFS compatibility</li>
+</ol>
 </section>
-<section id="dem508---streamlining-application-testing-with-.net-aspire-and-playwright" class="level3">
-<h3 class="anchored" data-anchor-id="dem508---streamlining-application-testing-with-.net-aspire-and-playwright">2. 🧪 <a href="../202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.html">DEM508 - Streamlining Application Testing with .NET Aspire and Playwright</a></h3>
-<p><strong>Summary:</strong> A comprehensive demonstration showing how to combine .NET Aspire with Playwright for robust end-to-end testing of distributed applications. The session provides practical examples and real-world scenarios for implementing effective testing workflows.</p>
-<p><strong>Speaker:</strong> Jeff Fritz</p>
-<hr>
-</section>
-<section id="brk122---the-future-of-web-development-with-asp.net-core-blazor" class="level3">
-<h3 class="anchored" data-anchor-id="brk122---the-future-of-web-development-with-asp.net-core-blazor">3. 🌐 <a href="../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">BRK122 - The Future of Web Development with ASP.NET Core &amp; Blazor</a></h3>
-<p><strong>Summary:</strong> A comprehensive overview of the future direction of web development using ASP.NET Core and Blazor. This session covers major focus areas for .NET 10, including performance improvements, developer productivity enhancements, AI integration, and modern development workflows.</p>
-<p><strong>Speakers:</strong> Daniel Roth, Mike Kistler</p>
-<hr>
-</section>
-<section id="dem517---build-deploy-use-your-first-model-context-protocol-mcp-server" class="level3">
-<h3 class="anchored" data-anchor-id="dem517---build-deploy-use-your-first-model-context-protocol-mcp-server">4. 🔗 <a href="../202506 Build 2025/DEM517/00. Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html">DEM517 - Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server</a></h3>
-<p><strong>Summary:</strong> An in-depth exploration of Model Context Protocol (MCP), Microsoft’s open standard for connecting AI applications to external data sources and tools. The session covers architecture, deployment options, and practical implementation strategies.</p>
-<p><strong>Speakers:</strong> James Montemagno, Katie Savage</p>
-<hr>
-</section>
-<section id="brk106---elevating-development-with-.net-aspire-ai-cloud-and-beyond" class="level3">
-<h3 class="anchored" data-anchor-id="brk106---elevating-development-with-.net-aspire-ai-cloud-and-beyond">5. 📋 <a href="../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">BRK106 - Elevating Development with .NET Aspire: AI, Cloud, and Beyond</a></h3>
-<p><strong>Summary:</strong> This breakout session explores the evolution of .NET Aspire from a local development tool to a comprehensive platform for building, testing, and deploying modern applications. The session covers significant advances in AI integration, multi-language support, and developer productivity enhancements.</p>
-<p><strong>Speakers:</strong> Damian Edwards, David Fowler, Maddy Montaquila, Devis Lucato</p>
-<hr>
-</section>
-</section>
-<section id="session-formats" class="level2">
-<h2 class="anchored" data-anchor-id="session-formats">Session Formats</h2>
+<section id="alternative-approach" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-approach">Alternative Approach:</h3>
 <ul>
-<li><strong>BRK106</strong>: Breakout session with multiple speakers and comprehensive coverage</li>
-<li><strong>BRK122</strong>: Breakout session focusing on web development future and ASP.NET Core/Blazor</li>
-<li><strong>DEM508</strong>: Technical demonstration with practical code examples</li>
-<li><strong>DEM517</strong>: Deep-dive technical session with architecture focus</li>
-<li><strong>DEM520</strong>: Short-format live demonstration with hands-on coding</li>
+<li>Keep source code on NTFS drive (C:)</li>
+<li>Use ReFS drive (E:) for data/build outputs that benefit from ReFS features</li>
 </ul>
 </section>
-<section id="common-themes" class="level2">
-<h2 class="anchored" data-anchor-id="common-themes">Common Themes</h2>
-<p>All sessions emphasize:</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">REFERENCES</h2>
+<section id="known-issues-and-bug-reports" class="level3">
+<h3 class="anchored" data-anchor-id="known-issues-and-bug-reports">Known Issues and Bug Reports</h3>
 <ul>
-<li><strong>Developer productivity</strong> and modern development workflows</li>
-<li><strong>Integration patterns</strong> between Microsoft technologies</li>
-<li><strong>Real-world applications</strong> and practical implementation</li>
-<li><strong>Future-forward</strong> approaches to software development</li>
-<li><strong>Enterprise-scale</strong> solutions and best practices</li>
+<li><strong>Visual Studio Developer Community</strong>: <a href="https://developercommunity.visualstudio.com/search?space=8&amp;q=ReFS+Git">Git clone fails on ReFS drives</a></li>
+<li><strong>GitHub Issues</strong>: Search for <q>Visual Studio ReFS Git</q> issues in microsoft/visualstudio repository</li>
+<li><strong>Stack Overflow</strong>: <a href="https://stackoverflow.com/search?q=visual+studio+git+refs+drive">Visual Studio Git operations on ReFS drives</a></li>
+<li><strong>Microsoft Tech Community</strong>: <a href="https://techcommunity.microsoft.com/search?q=ReFS%20Visual%20Studio%20Git">ReFS compatibility issues with Visual Studio</a></li>
 </ul>
 </section>
-<section id="additional-resources" class="level2">
-<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
-<p>Each session folder contains:</p>
+<section id="solution-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="solution-documentation">Solution Documentation</h3>
+<section id="alternative-git-clients-recommended" class="level4">
+<h4 class="anchored" data-anchor-id="alternative-git-clients-recommended">Alternative Git Clients (Recommended)</h4>
 <ul>
-<li>Detailed markdown notes with code examples</li>
-<li>Supporting images and diagrams</li>
-<li>Links to official Microsoft Build sessions</li>
-<li>References to related documentation and tools</li>
+<li><strong>Git for Windows</strong>: <a href="https://gitforwindows.org/">Official Git for Windows</a> - Works correctly with ReFS</li>
+<li><strong>VS Code Git Integration</strong>: <a href="https://code.visualstudio.com/docs/sourcecontrol/overview">Using Git source control in VS Code</a></li>
+<li><strong>Git Command Line</strong>: <a href="https://git-scm.com/doc">Git Documentation</a> - Standard Git binary with ReFS support</li>
+</ul>
+</section>
+<section id="visual-studio-git-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="visual-studio-git-documentation">Visual Studio Git Documentation</h4>
+<ul>
+<li><strong>Visual Studio Git Experience</strong>: <a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio">Git experience in Visual Studio | Microsoft Learn</a></li>
+<li><strong>Git Settings in VS</strong>: <a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-settings">Git settings and preferences | Microsoft Learn</a></li>
+</ul>
+</section>
+<section id="refs-technical-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="refs-technical-documentation">ReFS Technical Documentation</h4>
+<ul>
+<li><strong>ReFS Overview</strong>: <a href="https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview">Resilient File System (ReFS) overview | Microsoft Learn</a></li>
+<li><strong>ReFS vs NTFS</strong>: <a href="https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview#comparison-of-refs-and-ntfs">ReFS vs.&nbsp;NTFS | Microsoft Learn</a></li>
+<li><strong>ReFS Architecture</strong>: <a href="https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview#refs-architecture">ReFS architecture and performance | Microsoft Learn</a></li>
+<li><strong>ReFS Features</strong>: <a href="https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview#feature-comparison">ReFS features | Microsoft Learn</a></li>
 </ul>
 
 
 <!-- -->
 
+</section>
 </section>
 </section>
 
@@ -1128,99 +1137,105 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="🏠 Home">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">🏠 Home</span>
+      <a href="../../Travel/Paris 2025/README.html" class="pagination-link" aria-label="Paris Cultural Journey 2025">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Paris Cultural Journey 2025</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html" class="pagination-link" aria-label="BRK106: .NET Aspire AI &amp; Cloud">
-        <span class="nav-page-text">BRK106: .NET Aspire AI &amp; Cloud</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../_ISSUES/20250710 sample/README.md" class="pagination-link" aria-label="Sample Issue">
+        <span class="nav-page-text">Sample Issue</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Microsoft Build 2025 - Session Articles</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>This directory contains detailed notes and summaries from Microsoft Build 2025 sessions, focusing on .NET Aspire, AI development, testing, and modern development practices.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table of Contents</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">🤖 DEM520 - Local AI Development with Foundry Local and .NET Aspire</span><span class="co">](#1-dem520---local-ai-development-with-foundry-local-and-net-aspire)</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">🧪 DEM508 - Streamlining Application Testing with .NET Aspire and Playwright</span><span class="co">](#2-dem508---streamlining-application-testing-with-net-aspire-and-playwright)</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">🌐 BRK122 - The Future of Web Development with ASP.NET Core &amp; Blazor</span><span class="co">](#3-brk122---the-future-of-web-development-with-aspnet-core--blazor)</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span><span class="co">[</span><span class="ot">🔗 DEM517 - Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server</span><span class="co">](#4-dem517---build-deploy--use-your-first-model-context-protocol-mcp-server)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span><span class="co">[</span><span class="ot">📋 BRK106 - Elevating Development with .NET Aspire: AI, Cloud, and Beyond</span><span class="co">](#5-brk106---elevating-development-with-net-aspire-ai-cloud-and-beyond)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Build Presentations</span></span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## PROBLEM DESCRIPTION</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cloning a repository with Visual Studio fails with the following error:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>| Clone repo | Fatal error |</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>|--------|--------|</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>| <span class="al">![Clone Repository](&lt;images/001.01 clonerepo.png&gt;)</span> | <span class="al">![Fatal Error](&lt;images/001.02 fatal error.png&gt;)</span> |</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## ANALYSIS</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Visual studio has grants </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>to the folder as I could create a file </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/002.01 visual studio file access.png" alt="Visual Studio file access" width="600"&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>the issue also happens running visual studio with admin rights </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/002.02 admin rights.png" alt="Admin rights" width="600"&gt;</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 🤖 [DEM520 - Local AI Development with Foundry Local and .NET Aspire](./DEM520/00.%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire.md)</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Summary:** A focused demonstration on local AI development using Microsoft's Foundry Local platform integrated with .NET Aspire. The session addresses the challenges and benefits of running AI models locally versus cloud-based solutions.</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Duration:** ~13 minutes live demonstration</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 🧪 [DEM508 - Streamlining Application Testing with .NET Aspire and Playwright](./DEM508/00.%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright.md)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>cloning the repo unders the user profile WORKS!&lt;br&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/002.03 clone under user profile.png" alt="Clone under user profile" width="600"&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>cloning it under drive e: fails as shown above.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## SOLUTION</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>cloning the repo from the command line or by means of Visual studio code works fine!&lt;br&gt;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/003.01a clone with vscode.png&gt;)</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>**Summary:** A comprehensive demonstration showing how to combine .NET Aspire with Playwright for robust end-to-end testing of distributed applications. The session provides practical examples and real-world scenarios for implementing effective testing workflows.</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>**Speaker:** Jeff Fritz</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. 🌐 [BRK122 - The Future of Web Development with ASP.NET Core &amp; Blazor](./BRK122/00.%20The%20Future%20of%20Web%20Development%20with%20ASP.NET%20Core%20&amp;%20Blazor.md)</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>**Summary:** A comprehensive overview of the future direction of web development using ASP.NET Core and Blazor. This session covers major focus areas for .NET 10, including performance improvements, developer productivity enhancements, AI integration, and modern development workflows.</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>**Speakers:** Daniel Roth, Mike Kistler</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. 🔗 [DEM517 - Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server](./DEM517/00.%20Build,%20Deploy,%20&amp;%20Use%20Your%20First%20Model%20Context%20Protocol%20(MCP)%20Server.md)</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## ADDITIONAL INFORMATION</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>**File System**: E: drive is formatted with ReFS (Resilient File System)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/visual studio version.png&gt;)</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROOT CAUSE</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>The issue is caused by **ReFS compatibility problems** with Visual Studio's Git integration:</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**ReFS vs NTFS**: Visual Studio's Git wrapper has known issues with ReFS file system</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**File System Calls**: VS Git may use older Win32 APIs that don't handle ReFS metadata correctly</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**File Locking**: ReFS's different file locking behavior conflicts with VS Git operations</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Symbolic Links**: ReFS handles symbolic links differently, which can confuse VS Git</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>**Summary:** An in-depth exploration of Model Context Protocol (MCP), Microsoft's open standard for connecting AI applications to external data sources and tools. The session covers architecture, deployment options, and practical implementation strategies.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## WHY ALTERNATIVES WORK</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>**Speakers:** James Montemagno, Katie Savage</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. 📋 [BRK106 - Elevating Development with .NET Aspire: AI, Cloud, and Beyond](./BRK106/00.%20Elevating%20Development%20with%20.NET%20Aspire%20AI,%20Cloud,%20and%20Beyond.md)</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>**Summary:** This breakout session explores the evolution of .NET Aspire from a local development tool to a comprehensive platform for building, testing, and deploying modern applications. The session covers significant advances in AI integration, multi-language support, and developer productivity enhancements.</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>**Speakers:** Damian Edwards, David Fowler, Maddy Montaquila, Devis Lucato</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Command Line Git**: Uses standard Git binary with better ReFS support</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**VS Code**: Uses standard Git binary, not Visual Studio's wrapper</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**User Profile (C: drive)**: Typically formatted with NTFS, not ReFS</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## RECOMMENDED SOLUTIONS</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Short-term Workarounds:</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Use VS Code or Command Line** for Git operations on ReFS drives</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Clone to NTFS drive first**, then copy to ReFS if needed</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Use Git Bash or PowerShell** instead of Visual Studio's integrated Git</span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Session Formats</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**BRK106**: Breakout session with multiple speakers and comprehensive coverage</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**BRK122**: Breakout session focusing on web development future and ASP.NET Core/Blazor</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**DEM508**: Technical demonstration with practical code examples</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**DEM517**: Deep-dive technical session with architecture focus</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**DEM520**: Short-format live demonstration with hands-on coding</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Common Themes</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>All sessions emphasize:</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Developer productivity** and modern development workflows</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Integration patterns** between Microsoft technologies</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Real-world applications** and practical implementation</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Future-forward** approaches to software development</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enterprise-scale** solutions and best practices</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">### Long-term Solutions:</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**File a bug report** with Microsoft Visual Studio team about ReFS compatibility</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Format drive as NTFS** if ReFS features aren't essential for your use case</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Wait for Visual Studio updates** that improve ReFS compatibility</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Alternative Approach:</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keep source code on NTFS drive (C:)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use ReFS drive (E:) for data/build outputs that benefit from ReFS features</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## REFERENCES</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Known Issues and Bug Reports</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Visual Studio Developer Community**: <span class="co">[</span><span class="ot">Git clone fails on ReFS drives</span><span class="co">](https://developercommunity.visualstudio.com/search?space=8&amp;q=ReFS+Git)</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GitHub Issues**: Search for "Visual Studio ReFS Git" issues in microsoft/visualstudio repository</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Stack Overflow**: <span class="co">[</span><span class="ot">Visual Studio Git operations on ReFS drives</span><span class="co">](https://stackoverflow.com/search?q=visual+studio+git+refs+drive)</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Microsoft Tech Community**: <span class="co">[</span><span class="ot">ReFS compatibility issues with Visual Studio</span><span class="co">](https://techcommunity.microsoft.com/search?q=ReFS%20Visual%20Studio%20Git)</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution Documentation</span></span>
 <span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Additional Resources</span></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>Each session folder contains:</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Detailed markdown notes with code examples</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Supporting images and diagrams</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Links to official Microsoft Build sessions</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>References to related documentation and tools</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Alternative Git Clients (Recommended)</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Git for Windows**: <span class="co">[</span><span class="ot">Official Git for Windows</span><span class="co">](https://gitforwindows.org/)</span> - Works correctly with ReFS</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**VS Code Git Integration**: <span class="co">[</span><span class="ot">Using Git source control in VS Code</span><span class="co">](https://code.visualstudio.com/docs/sourcecontrol/overview)</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Git Command Line**: <span class="co">[</span><span class="ot">Git Documentation</span><span class="co">](https://git-scm.com/doc)</span> - Standard Git binary with ReFS support</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Visual Studio Git Documentation</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Visual Studio Git Experience**: <span class="co">[</span><span class="ot">Git experience in Visual Studio | Microsoft Learn</span><span class="co">](https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio)</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Git Settings in VS**: <span class="co">[</span><span class="ot">Git settings and preferences | Microsoft Learn</span><span class="co">](https://learn.microsoft.com/en-us/visualstudio/version-control/git-settings)</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="fu">#### ReFS Technical Documentation</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**ReFS Overview**: <span class="co">[</span><span class="ot">Resilient File System (ReFS) overview | Microsoft Learn</span><span class="co">](https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview)</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**ReFS vs NTFS**: <span class="co">[</span><span class="ot">ReFS vs. NTFS | Microsoft Learn</span><span class="co">](https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview#comparison-of-refs-and-ntfs)</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**ReFS Architecture**: <span class="co">[</span><span class="ot">ReFS architecture and performance | Microsoft Learn</span><span class="co">](https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview#refs-architecture)</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**ReFS Features**: <span class="co">[</span><span class="ot">ReFS features | Microsoft Learn</span><span class="co">](https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview#feature-comparison)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1230,15 +1245,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p>Learning Journey - Technical Notes &amp; Insights</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/Readme.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Last updated: July 20, 2025</p>
+<p>Last updated: July 14, 2025</p>
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

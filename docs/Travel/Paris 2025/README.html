@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+q { quotes: "“" "”" "‘" "’"; }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { line-height: 1.25; }
@@ -68,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md" rel="next">
+<link href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" rel="next">
 <link href="../../20250713 Use http files for easy and repeatable test/README.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -79,6 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -135,64 +139,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-build-2025-conference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Build 2025 Conference</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-events" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Events</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-build-2025-conference">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-events">    
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/Readme.html">
- <span class="dropdown-text">Overview</span></a>
+ <span class="dropdown-text">Build 2025: Conference Overview</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">
- <span class="dropdown-text">BRK106: .NET Aspire AI &amp; Cloud</span></a>
+ <span class="dropdown-text">Build 2025: BRK106 - .NET Aspire AI &amp; Cloud</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">
- <span class="dropdown-text">BRK122: ASP.NET Core &amp; Blazor</span></a>
+ <span class="dropdown-text">Build 2025: BRK122 - ASP.NET Core &amp; Blazor</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/BRK123/00. AI infused mobile &amp; desktop app development with .NET MAUI.html">
- <span class="dropdown-text">BRK123: .NET MAUI AI Development</span></a>
+ <span class="dropdown-text">Build 2025: BRK123 - .NET MAUI AI Development</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.html">
- <span class="dropdown-text">DEM508: Testing with Aspire &amp; Playwright</span></a>
+ <span class="dropdown-text">Build 2025: DEM508 - Testing with Aspire &amp; Playwright</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/DEM517/00. Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html">
- <span class="dropdown-text">DEM517: Model Context Protocol</span></a>
+ <span class="dropdown-text">Build 2025: DEM517 - Model Context Protocol</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.html">
- <span class="dropdown-text">DEM520: Local AI with Foundry</span></a>
+ <span class="dropdown-text">Build 2025: DEM520 - Local AI with Foundry</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-azure-topics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Azure Topics</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technologies" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Technologies</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-azure-topics">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-technologies">    
+        <li class="dropdown-header">Azure</li>
         <li>
     <a class="dropdown-item" href="../../20250702 Azure Naming conventions/README.html">
- <span class="dropdown-text">Azure Naming Conventions</span></a>
+ <span class="dropdown-text">Azure: Naming Conventions</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../20250704 TableStorageAccess options/README.html">
- <span class="dropdown-text">Table Storage Access Options</span></a>
+ <span class="dropdown-text">Azure: Table Storage Access Options</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../20250706 CosmosDB Access options/README.html">
- <span class="dropdown-text">CosmosDB Access Options</span></a>
+ <span class="dropdown-text">Azure: CosmosDB Access Options</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Issues &amp; Solutions</li>
+        <li>
+    <a class="dropdown-item" href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html">
+ <span class="dropdown-text">Visual Studio Clone Error</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-development-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Development Tools</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-development-tools">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
         <li>
     <a class="dropdown-item" href="../../20250709 Manage GitRepo from commandline/README.html">
  <span class="dropdown-text">Git Command Line Management</span></a>
@@ -211,34 +223,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-culture--travel" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Culture &amp; Travel</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-culture--travel">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-culture--travel">    
         <li>
     <a class="dropdown-item" href="../../Travel/Paris 2025/README.html">
  <span class="dropdown-text">Paris Cultural Journey 2025</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-issues--solutions" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Issues &amp; Solutions</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-issues--solutions">    
-        <li>
-    <a class="dropdown-item" href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md">
- <span class="dropdown-text">Visual Studio Clone Error</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../_ISSUES/20250710 sample/README.md">
- <span class="dropdown-text">Sample Issue</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/darioairoldi/Learn"> <i class="bi bi-github" role="img" aria-label="GitHub Repository">
 </i> 
@@ -260,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Travel/Paris 2025/README.html">🎭 Culture &amp; Travel</a></li><li class="breadcrumb-item"><a href="../../Travel/Paris 2025/README.html">Paris Cultural Journey 2025</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">🎭 Culture &amp; Travel</li><li class="breadcrumb-item"><a href="../../Travel/Paris 2025/README.html">Travel Experiences</a></li><li class="breadcrumb-item"><a href="../../Travel/Paris 2025/README.html">Paris Cultural Journey 2025</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -289,12 +286,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">🚀 Build 2025 Conference</span></a>
+ <span class="menu-text">🎉 Events</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
+ <span class="menu-text">Build Conference 2025</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
@@ -339,15 +345,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">☁️ Azure Topics</span></a>
+ <span class="menu-text">💻 Technologies</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
+ <span class="menu-text">☁️ Azure</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250702 Azure Naming conventions/README.html" class="sidebar-item-text sidebar-link">
@@ -368,15 +385,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">🛠️ Development Tools</span></a>
+ <span class="menu-text">🛠️ Tools</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
+ <span class="menu-text">Development Tools</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
@@ -403,6 +431,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -412,12 +442,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true">
+ <span class="menu-text">Travel Experiences</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Paris Cultural Journey 2025</span></a>
   </div>
 </li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -429,9 +470,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false">
+ <span class="menu-text">Development Issues</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md" class="sidebar-item-text sidebar-link">
+  <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VS Clone Error Fix</span></a>
   </div>
 </li>
@@ -441,6 +491,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Sample Issue</span></a>
   </div>
 </li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -483,7 +535,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/Travel/Paris 2025/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Travel/Paris 2025/README.html">🎭 Culture &amp; Travel</a></li><li class="breadcrumb-item"><a href="../../Travel/Paris 2025/README.html">Paris Cultural Journey 2025</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">🎭 Culture &amp; Travel</li><li class="breadcrumb-item"><a href="../../Travel/Paris 2025/README.html">Travel Experiences</a></li><li class="breadcrumb-item"><a href="../../Travel/Paris 2025/README.html">Paris Cultural Journey 2025</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -563,7 +615,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Place Blanche</strong>: Incontro con la guida Marco (09:00)</li>
 <li><strong>Rue Lepic</strong>: Arteria storica con architettura haussmanniana</li>
-<li><strong>Café des Deux Moulins</strong>: Location del film “Il favoloso mondo di Amélie”</li>
+<li><strong>Café des Deux Moulins</strong>: Location del film <q>Il favoloso mondo di Amélie</q></li>
 <li><strong>Appartamento di van Gogh</strong>: Rue Lepic 54, periodo parigino dell’artista</li>
 <li><strong>Place des Abbesses</strong>: Muro dell’Amore (Je t’aime) e stazione Art Nouveau</li>
 <li><strong>Bateau-Lavoir</strong>: Laboratorio di Picasso e nascita del Cubismo</li>
@@ -651,7 +703,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La prima giornata ha seguito un percorso classico dal <strong>cuore storico di Parigi</strong> fino al suo simbolo più iconico.<br> Partendo dall’<strong>Île de la Cité</strong> con <strong>Notre-Dame</strong>, abbiamo attraversato il Quartiere Latino, camminato lungo la Senna ammirando i suoi ponti storici, per concludere alla Torre Eiffel al tramonto.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.00 Ile de la cité.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.00 Ile de la cité.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="alt text"><img src="images/001.00 Ile de la cité.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -661,7 +713,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La <strong>Sainte-Chapelle</strong>, costruita tra il <strong>1241 e il 1248</strong> per volere di <strong>Luigi IX</strong> (San Luigi), era la cappella palatina del palazzo reale medievale che sorgeva sull’Île de la Cité. <br> Faceva parte del complesso del <strong>Palais de la Cité</strong>, residenza dei <strong>re di Francia fino al XIV secolo</strong>. Le sue vetrate, alte 15 metri, narrano la storia biblica dall’Antico al Nuovo Testamento in 1.113 scene.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.01 SainteChapelle.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.01 SainteChapelle.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="alt text"><img src="images/001.01 SainteChapelle.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -672,21 +724,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="conciergerie" class="level4">
 <h4 class="anchored" data-anchor-id="conciergerie">Conciergerie</h4>
-<p>La <strong>Conciergerie</strong>, antica prigione del palazzo reale, è tristemente famosa per aver ospitato <strong>Maria Antonietta</strong> prima della sua esecuzione durante la Rivoluzione Francese.<br> Originariamente era parte del Palais de la Cité e serviva come residenza del <strong>“concierge” (governatore)</strong> del palazzo. Le sue sale gotiche testimoniano il potere reale medievale. <img src="images/001.02 Conciergerie.jpg" class="img-fluid" alt="alt text"></p>
+<p>La <strong>Conciergerie</strong>, antica prigione del palazzo reale, è tristemente famosa per aver ospitato <strong>Maria Antonietta</strong> prima della sua esecuzione durante la Rivoluzione Francese.<br> Originariamente era parte del Palais de la Cité e serviva come residenza del <strong><q>concierge</q> (governatore)</strong> del palazzo. Le sue sale gotiche testimoniano il potere reale medievale. <img src="images/001.02 Conciergerie.jpg" class="img-fluid" alt="alt text"></p>
 </section>
 <section id="passeggiata-lungo-la-senna---pont-neuf-e-pont-au-change" class="level4">
 <h4 class="anchored" data-anchor-id="passeggiata-lungo-la-senna---pont-neuf-e-pont-au-change">Passeggiata lungo la Senna - Pont Neuf e Pont au Change</h4>
-<p>Dopo la visita alla Conciergerie, abbiamo camminato lungo le <strong>banchine della Senna</strong> verso il <strong>Pont Neuf</strong>, il ponte più antico di Parigi nonostante il nome (“Ponte Nuovo”). Costruito tra il <strong>1578 e il 1607</strong> sotto Enrico IV, è il primo ponte parigino costruito senza case sopra, offrendo una vista libera sul fiume. <img src="images/001.02a pont Neuf.jpg.jpg" class="img-fluid" alt="alt text"></p>
-<p>Dal Pont Neuf abbiamo attraversato per raggiungere il <strong>Pont au Change</strong> (“Ponte del Cambio”), che prende il nome dalle botteghe di cambiavalute che vi si trovavano nel Medioevo. L’attuale struttura in pietra risale al <strong>1860</strong> e sostituì il ponte medievale che collegava l’Île de la Cité al quartiere commerciale della riva destra. Questo ponte offre una prospettiva privilegiata sulla Conciergerie e sul complesso del Palais de Justice.</p>
+<p>Dopo la visita alla Conciergerie, abbiamo camminato lungo le <strong>banchine della Senna</strong> verso il <strong>Pont Neuf</strong>, il ponte più antico di Parigi nonostante il nome (<q>Ponte Nuovo</q>). Costruito tra il <strong>1578 e il 1607</strong> sotto Enrico IV, è il primo ponte parigino costruito senza case sopra, offrendo una vista libera sul fiume. <img src="images/001.02a pont Neuf.jpg.jpg" class="img-fluid" alt="alt text"></p>
+<p>Dal Pont Neuf abbiamo attraversato per raggiungere il <strong>Pont au Change</strong> (<q>Ponte del Cambio</q>), che prende il nome dalle botteghe di cambiavalute che vi si trovavano nel Medioevo. L’attuale struttura in pietra risale al <strong>1860</strong> e sostituì il ponte medievale che collegava l’Île de la Cité al quartiere commerciale della riva destra. Questo ponte offre una prospettiva privilegiata sulla Conciergerie e sul complesso del Palais de Justice.</p>
 </section>
 <section id="pont-notre-dame" class="level4">
 <h4 class="anchored" data-anchor-id="pont-notre-dame">Pont Notre-Dame</h4>
 <p>Il <strong>Pont Notre-Dame</strong>, ricostruito più volte nella sua storia, è uno dei ponti più antichi di Parigi. L’attuale struttura in pietra risale al 1919, ma qui sorgeva già un ponte nel XII secolo. Il ponte offre una vista privilegiata sulla facciata orientale di Notre-Dame e collega l’Île de la Cité alla riva destra della Senna. <img src="images/001.03 pont notre dame.jpg" class="img-fluid" alt="alt text"></p>
-<p><strong>Aneddoto sui Ponti di Parigi</strong>: <br> Attualmente Parigi conta <strong>37 ponti</strong> che attraversano la Senna all’interno dei confini della città. L’ultimo ponte costruito è il <strong>Pont Charles de Gaulle</strong> (2006), seguito dal <strong>Pont Simone de Beauvoir</strong> (inaugurato nel 2006), una passerella pedonale e ciclabile che collega la Bibliothèque Nationale de France al Parc de Bercy. Il <strong>primo ponte</strong> di Parigi fu il <strong>Petit Pont</strong> (esistente già in epoca romana), ma il <strong>Pont Neuf</strong> che abbiamo attraversato rimane il <strong>più antico ancora esistente</strong> nella sua forma originale, nonostante il nome “nuovo”.</p>
+<p><strong>Aneddoto sui Ponti di Parigi</strong>: <br> Attualmente Parigi conta <strong>37 ponti</strong> che attraversano la Senna all’interno dei confini della città. L’ultimo ponte costruito è il <strong>Pont Charles de Gaulle</strong> (2006), seguito dal <strong>Pont Simone de Beauvoir</strong> (inaugurato nel 2006), una passerella pedonale e ciclabile che collega la Bibliothèque Nationale de France al Parc de Bercy. Il <strong>primo ponte</strong> di Parigi fu il <strong>Petit Pont</strong> (esistente già in epoca romana), ma il <strong>Pont Neuf</strong> che abbiamo attraversato rimane il <strong>più antico ancora esistente</strong> nella sua forma originale, nonostante il nome <q>nuovo</q>.</p>
 <p>Durante la nostra passeggiata abbiamo notato i caratteristici <strong>bateaux parisiens</strong> che navigano in continuazione sulla Senna: questi battelli turistici possono trasportare fino a <strong>500-800 passeggeri</strong> a seconda del modello, offrendo crociere panoramiche che permettono di ammirare i monumenti da una prospettiva unica. Curiosamente, Parigi ha più ponti per chilometro quadrato di qualsiasi altra capitale europea!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.03b bateaux parisiens.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.03b bateaux parisiens.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="alt text"><img src="images/001.03b bateaux parisiens.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -696,7 +748,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La <strong>Tour Saint-Jacques</strong>, alta 54 metri, è tutto ciò che rimane della chiesa di Saint-Jacques-la-Boucherie, demolita nel 1797. Questa torre gotica flamboyant del XVI secolo è famosa per essere stata un punto di partenza per i pellegrini diretti a Santiago de Compostela. Oggi ospita una stazione meteorologica e offre una vista panoramica su Parigi.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.04 tour saint Jaques.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.04 tour saint Jaques.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="alt text"><img src="images/001.04 tour saint Jaques.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -706,7 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>L’<strong>Hôtel de Ville</strong> (Municipio di Parigi) è un magnifico esempio di architettura neo-rinascimentale francese. L’edificio attuale fu ricostruito tra il 1874 e il 1882 dopo essere stato distrutto durante la Comune di Parigi nel 1871. La sua facciata elaborata è decorata con 136 statue che rappresentano personalità illustri della storia francese.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.05 hotel de ville.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.05 hotel de ville.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="alt text"><img src="images/001.05 hotel de ville.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -717,7 +769,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dal ponte si intravede la <strong>Place Louis Aragon</strong> sull’<strong>Île Saint-Louis</strong>, l’isola adiacente all’Île de la Cité.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.06 place louis aragon.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.06 place louis aragon.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="alt text"><img src="images/001.06 place louis aragon.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -727,7 +779,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>L’<strong>Île Saint-Louis</strong> è una delle perle nascoste di Parigi, un’isola residenziale del XVII secolo che ha mantenuto intatto il suo carattere aristocratico. Originariamente formata da due isolotti separati (<strong>Île aux Vaches</strong> e <strong>Île Notre-Dame</strong>), fu unificata e urbanizzata tra il <strong>1614 e il 1664</strong> dall’architetto <strong>Louis Le Vau</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.06a Ile saint louis.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.06a Ile saint louis.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="alt text"><img src="images/001.06a Ile saint louis.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -739,7 +791,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La <strong>Cathédrale Notre-Dame de Paris</strong>, capolavoro dell’architettura gotica francese, fu costruita tra il 1163 e il 1345. Nonostante i gravi danni dell’incendio del 15 aprile 2019, la cattedrale rimane un simbolo immortale di Parigi. Le sue torri, i rosoni, i doccioni e la celebre guglia (in ricostruzione) rappresentano otto secoli di storia e fede.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.07 Notre Dame.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.07 Notre Dame.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="alt text"><img src="images/001.07 Notre Dame.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -749,13 +801,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dopo la visita a Notre-Dame, ci siamo concessi una deliziosa pausa alla <strong>Crème de Paris</strong>, una caratteristica creperia parigina famosa per i suoi waffle salati. Il locale, situato nel cuore del quartiere turistico, offre un’esperienza culinaria autentica con waffle preparati al momento e farciti con ingredienti di qualità. Una perfetta combinazione tra la tradizione francese del waffle e l’innovazione gastronomica contemporanea, ideale per riprendere le forze durante l’esplorazione della città.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.08 Creme de Paris.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.08 Creme de Paris.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="alt text"><img src="images/001.08 Creme de Paris.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.08a saluti da la creme.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.08a saluti da la creme.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="alt text"><img src="images/001.08a saluti da la creme.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -766,7 +818,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dopo il pranzo, abbiamo ripreso il nostro itinerario in direzione del <strong>Palazzo del Louvre</strong>, uno dei monumenti più emblematici di Parigi e testimone di quasi mille anni di storia francese.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.09a palazzo del louvre.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.09a palazzo del louvre.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="alt text"><img src="images/001.09a palazzo del louvre.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -775,36 +827,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Dalle Origini Medievali (XII secolo)</strong> Il Louvre nasce come <strong>fortezza medievale</strong> costruita da <strong>Filippo Augusto</strong> intorno al <strong>1190</strong> per difendere Parigi dalle invasioni normanne. La struttura originaria era un castello fortificato con un <strong>donjon</strong> (torre principale) circondato da mura e un fossato. I resti di questa fortezza sono ancora visibili nelle fondamenta dell’attuale museo.</p>
 <p><strong>Trasformazione in Residenza Reale (XIV-XVI secolo)</strong> Nel <strong>1364</strong>, <strong>Carlo V</strong> trasformò la fortezza in residenza reale, abbandonando l’Île de la Cité. Il castello divenne il centro del potere monarchico francese. <strong>Francesco I</strong> (1515-1547) diede avvio alla grande trasformazione rinascimentale, demolendo il donjon medievale e iniziando la costruzione del palazzo moderno sotto la direzione dell’architetto <strong>Pierre Lescot</strong>.</p>
 <p><strong>L’Era di Luigi XIV e l’Espansione (XVII secolo)</strong> <strong>Luigi XIV</strong> ampliò significativamente il complesso, creando la <strong>Grande Galerie</strong> che collega il Louvre alle Tuileries (1595-1610). Tuttavia, nel <strong>1682</strong>, il Re Sole trasferì definitivamente la corte a <strong>Versailles</strong>, lasciando il Louvre parzialmente abbandonato ma continuando i lavori architettonici.</p>
-<p><strong>Dalla Rivoluzione al Museo (XVIII-XIX secolo)</strong> Durante la <strong>Rivoluzione Francese</strong> (1793), il Louvre fu trasformato in <strong>museo pubblico</strong>. <strong>Napoleone I</strong> lo ribattezzò <strong>“Musée Napoléon”</strong> e arricchì enormemente le collezioni con le opere conquistate durante le campagne militari. <strong>Napoleone III</strong> completò il progetto del <strong>“Grand Louvre”</strong> collegando definitivamente tutti gli edifici.</p>
-<p><strong>L’Era Moderna (XX-XXI secolo)</strong> La trasformazione più rivoluzionaria avvenne sotto <strong>François Mitterrand</strong> con il progetto del <strong>“Grand Louvre”</strong> (1981-1999). L’architetto <strong>Ieoh Ming Pei</strong> progettò la famosa <strong>Piramide di vetro</strong> (inaugurata nel 1989), creando un nuovo ingresso che combina modernità e tradizione. Oggi il Louvre è il <strong>museo più visitato al mondo</strong> con oltre 9 milioni di visitatori annui.</p>
+<p><strong>Dalla Rivoluzione al Museo (XVIII-XIX secolo)</strong> Durante la <strong>Rivoluzione Francese</strong> (1793), il Louvre fu trasformato in <strong>museo pubblico</strong>. <strong>Napoleone I</strong> lo ribattezzò <strong><q>Musée Napoléon</q></strong> e arricchì enormemente le collezioni con le opere conquistate durante le campagne militari. <strong>Napoleone III</strong> completò il progetto del <strong><q>Grand Louvre</q></strong> collegando definitivamente tutti gli edifici.</p>
+<p><strong>L’Era Moderna (XX-XXI secolo)</strong> La trasformazione più rivoluzionaria avvenne sotto <strong>François Mitterrand</strong> con il progetto del <strong><q>Grand Louvre</q></strong> (1981-1999). L’architetto <strong>Ieoh Ming Pei</strong> progettò la famosa <strong>Piramide di vetro</strong> (inaugurata nel 1989), creando un nuovo ingresso che combina modernità e tradizione. Oggi il Louvre è il <strong>museo più visitato al mondo</strong> con oltre 9 milioni di visitatori annui.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.10 era moderna.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.10 era moderna.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="alt text"><img src="images/001.10 era moderna.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>Curiosità Architettonica</strong>: Il Louvre attuale copre <strong>72.735 m²</strong> e le sue collezioni spaziano dall’antichità al 1848. La <strong>Gioconda di Leonardo da Vinci</strong> rimane l’opera più famosa, ma il museo custodisce oltre <strong>35.000 opere</strong> esposte tra le sue 403 sale.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.10a era moderna.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.10a era moderna.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="alt text"><img src="images/001.10a era moderna.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.11 piazza della piramide.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.11 piazza della piramide.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="alt text"><img src="images/001.11 piazza della piramide.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.12 corridoi.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.12 corridoi.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="alt text"><img src="images/001.12 corridoi.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.13 Pavillons.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.13 Pavillons.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="alt text"><img src="images/001.13 Pavillons.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -815,7 +867,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dopo aver esplorato il Palazzo del Louvre, abbiamo concluso la nostra giornata con un <strong>percorso in bicicletta lungo la Senna</strong>, un modo ideale per ammirare Parigi da una prospettiva diversa e raggiungere la Torre Eiffel al tramonto.</p>
 <section id="il-tragitto-ciclistico" class="level4">
 <h4 class="anchored" data-anchor-id="il-tragitto-ciclistico">Il Tragitto Ciclistico</h4>
-<p><strong>Partenza</strong>: Dalle <strong>Tuileries</strong> adiacenti al Louvre, abbiamo imboccato le <strong>piste ciclabili lungo la Senna</strong>, parte del progetto “<strong>Paris Respire</strong>” che ha trasformato le banchine del fiume in spazi pedonali e ciclabili durante i weekend.</p>
+<p><strong>Partenza</strong>: Dalle <strong>Tuileries</strong> adiacenti al Louvre, abbiamo imboccato le <strong>piste ciclabili lungo la Senna</strong>, parte del progetto <q><strong>Paris Respire</strong></q> che ha trasformato le banchine del fiume in spazi pedonali e ciclabili durante i weekend.</p>
 <p><strong>Percorso panoramico</strong>: Pedalando lungo il <strong>Quai des Tuileries</strong> e successivamente il <strong>Quai d’Orsay</strong>, abbiamo goduto di viste spettacolari sui monumenti che si affacciano sulla Senna. Il percorso ciclistico di circa <strong>4 chilometri</strong> ci ha permesso di attraversare il cuore di Parigi ammirando:</p>
 <ul>
 <li><strong>Pont Alexandre III</strong>: Il ponte più decorato di Parigi con le sue statue dorate</li>
@@ -829,14 +881,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Il percorso si conclude spettacolarmente con l’<strong>apparizione graduale della Torre Eiffel</strong>, che si staglia sempre più imponente all’orizzonte. Arrivando al <strong>Champ de Mars</strong> proprio al tramonto, abbiamo potuto ammirare la torre nella sua luce dorata, momento perfetto per concludere una giornata ricca di storia e cultura.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.14 percorso in bici.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.14 percorso in bici.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="alt text"><img src="images/001.14 percorso in bici.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>Aneddoto Ciclistico</strong>: Parigi ha oltre <strong>1.000 km di piste ciclabili</strong> e il sistema <strong>Vélib’</strong> con più di 20.000 biciclette disponibili in 1.800 stazioni. Le banchine della Senna sono state pedonalizzate definitivamente nel 2016, creando uno dei percorsi urbani più belli d’Europa per ciclisti e pedoni.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.15a Torre Eiffel tramonto.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.15a Torre Eiffel tramonto.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="alt text"><img src="images/001.15a Torre Eiffel tramonto.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -849,10 +901,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="il-palais-de-chaillot-e-le-terrazze-del-trocadéro">Il Palais de Chaillot e le Terrazze del Trocadéro</h4>
 <p>Il <strong>Palais de Chaillot</strong>, costruito per l’<strong>Esposizione Universale del 1937</strong>, sostituì il precedente Palazzo del Trocadéro (1878). Le sue <strong>terrazze panoramiche</strong> offrono una vista frontale perfetta sulla Torre Eiffel, creando l’inquadratura fotografica più iconica di Parigi.</p>
 <p><strong>La prospettiva perfetta</strong>: Dalle terrazze del Trocadéro, la Torre Eiffel si erge in tutta la sua maestosità di <strong>324 metri</strong>, incorniciata dai <strong>Jardins du Trocadéro</strong> con le loro fontane che creano giochi d’acqua spettacolari, specialmente illuminate al tramonto. È il punto di osservazione preferito dai fotografi di tutto il mondo.</p>
-<p><strong>Aneddoto del Trocadéro</strong>: Il nome “Trocadéro” deriva dalla <strong>battaglia di Trocadero</strong> (1823) in Spagna, vinta dalle truppe francesi. Le terrazze del Chaillot sono anche famose per essere state il palcoscenico di eventi storici, come la proclamazione della <strong>Dichiarazione Universale dei Diritti dell’Uomo</strong> da parte dell’ONU nel 1948, proprio di fronte alla Torre Eiffel illuminata.</p>
+<p><strong>Aneddoto del Trocadéro</strong>: Il nome <q>Trocadéro</q> deriva dalla <strong>battaglia di Trocadero</strong> (1823) in Spagna, vinta dalle truppe francesi. Le terrazze del Chaillot sono anche famose per essere state il palcoscenico di eventi storici, come la proclamazione della <strong>Dichiarazione Universale dei Diritti dell’Uomo</strong> da parte dell’ONU nel 1948, proprio di fronte alla Torre Eiffel illuminata.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.16 vista dal Trocadero.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.16 vista dal Trocadero.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="alt text"><img src="images/001.16 vista dal Trocadero.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -869,7 +921,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Aneddoto del Moulin Rouge</strong>: Il celebre cabaret fu immortalato dai dipinti di <strong>Henri de Toulouse-Lautrec</strong>, che frequentava assiduamente il locale e ne ritrasse ballerine e artisti. Il <strong>French Cancan</strong>, la danza caratteristica del Moulin Rouge, fu creata proprio qui e divenne simbolo di libertà e trasgressione nella Parigi di fine Ottocento.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.17 Moulin Rouge sera.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/001.17 Moulin Rouge sera.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="alt text"><img src="images/001.17 Moulin Rouge sera.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -883,15 +935,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="text"><code>09:00 (start)
 11h 00m (duration)</code></pre>
 <p>Seconda giornata dedicata alla scoperta di Montmartre con la Basilica del Sacré-Cœur, visita allo storico Stade Roland Garros, esplorazione approfondita del Quartiere Latino, visita al Panthéon e relax nei giardini del Luxembourg.</p>
-<p><strong>Aneddoto</strong>: Montmartre deve il suo nome al “Monte dei Martiri” dove San Dionigi fu decapitato. La leggenda narra che dopo la decapitazione, il santo raccolse la sua testa e camminò per sei chilometri predicando, fino al luogo dove ora sorge la Basilica di Saint-Denis.</p>
+<p><strong>Aneddoto</strong>: Montmartre deve il suo nome al <q>Monte dei Martiri</q> dove San Dionigi fu decapitato. La leggenda narra che dopo la decapitazione, il santo raccolse la sua testa e camminò per sei chilometri predicando, fino al luogo dove ora sorge la Basilica di Saint-Denis.</p>
 <section id="incontro-con-marco---place-blanche-0900" class="level4">
 <h4 class="anchored" data-anchor-id="incontro-con-marco---place-blanche-0900">Incontro con Marco - Place Blanche (09:00)</h4>
 <p>La seconda giornata inizia proprio dove avevamo concluso la sera precedente: alla stazione <strong>Place Blanche</strong>, di fronte al leggendario Moulin Rouge. Qui incontriamo <strong>Marco</strong>, la nostra guida locale specializzata nella storia di <strong>Montmartre</strong>, che ci accompagnerà alla scoperta di questo quartiere bohémien ricco di arte e tradizioni.</p>
 <p>Marco, con la sua profonda conoscenza del quartiere e delle sue leggende, ci accoglie con un sorriso.<br> Ci racconta come Montmartre, in passato, fosse un <strong>villaggio indipendente</strong> situato su una collina fuori Parigi, annesso alla città solo nel <strong>1860</strong> durante i grandi lavori di ristrutturazione urbana del <strong>barone Haussmann</strong>.</p>
-<p><strong>Lo Stile Haussmanniano</strong>: È proprio al <strong>barone Georges-Eugène Haussmann</strong> (1809-1891), prefetto della Senna sotto Napoleone III dal 1853 al 1870, che si deve il nome dello <strong>“stile haussmanniano”</strong> caratteristico di Parigi. Haussmann trasformò radicalmente la capitale francese con i suoi grandi boulevard rettilinei, gli edifici in pietra chiara di 6-7 piani con balconi in ferro battuto al secondo e quinto piano, le mansarde tipiche e le facciate uniformi che conferiscono a Parigi la sua identità architettonica unica al mondo.</p>
+<p><strong>Lo Stile Haussmanniano</strong>: È proprio al <strong>barone Georges-Eugène Haussmann</strong> (1809-1891), prefetto della Senna sotto Napoleone III dal 1853 al 1870, che si deve il nome dello <strong><q>stile haussmanniano</q></strong> caratteristico di Parigi. Haussmann trasformò radicalmente la capitale francese con i suoi grandi boulevard rettilinei, gli edifici in pietra chiara di 6-7 piani con balconi in ferro battuto al secondo e quinto piano, le mansarde tipiche e le facciate uniformi che conferiscono a Parigi la sua identità architettonica unica al mondo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.01 palazzi hausmaniani.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.01 palazzi hausmaniani.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="alt text"><img src="images/002.01 palazzi hausmaniani.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -901,30 +953,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="rue-lepic---larteria-storica-di-montmartre" class="level4">
 <h4 class="anchored" data-anchor-id="rue-lepic---larteria-storica-di-montmartre">Rue Lepic - L’Arteria Storica di Montmartre</h4>
 <p>Da Place Blanche ci dirigiamo lungo la celebre <strong>Rue Lepic</strong>, una delle strade più caratteristiche e storiche di Montmartre. Questa strada serpeggiante, che prende il nome dal generale napoleonico <strong>Louis Lepic</strong> (1765-1827), ci conduce attraverso il cuore del quartiere bohémien, offrendo scorci autentici della vita parigina.</p>
-<p><strong>Storia di Rue Lepic</strong>: Originariamente chiamata <strong>“Chemin des Brouillards”</strong> (Sentiero delle Nebbie), la strada fu rinominata in onore del generale Lepic durante il periodo haussmanniano. Lungo i suoi 400 metri di lunghezza, la via ospitò residenze e atelier di numerosi artisti celebri, mantenendo ancora oggi il suo carattere pittoresco con botteghe tradizionali, bistrot autentici e l’atmosfera bohémien che rese famoso Montmartre.</p>
+<p><strong>Storia di Rue Lepic</strong>: Originariamente chiamata <strong><q>Chemin des Brouillards</q></strong> (Sentiero delle Nebbie), la strada fu rinominata in onore del generale Lepic durante il periodo haussmanniano. Lungo i suoi 400 metri di lunghezza, la via ospitò residenze e atelier di numerosi artisti celebri, mantenendo ancora oggi il suo carattere pittoresco con botteghe tradizionali, bistrot autentici e l’atmosfera bohémien che rese famoso Montmartre.</p>
 </section>
 <section id="café-des-deux-moulins---sosta-cinematografica" class="level4">
 <h4 class="anchored" data-anchor-id="café-des-deux-moulins---sosta-cinematografica">Café des Deux Moulins - Sosta Cinematografica</h4>
-<p>Durante la nostra passeggiata lungo Rue Lepic, facciamo una sosta imperdibile al famoso <strong>Café des Deux Moulins</strong>, situato al numero 15 della strada. Questo caratteristico bistrot parigino è diventato celebre in tutto il mondo grazie al film <strong>“Il favoloso mondo di Amélie”</strong> (2001) di Jean-Pierre Jeunet, dove la protagonista Audrey Tautou lavorava come cameriera.</p>
+<p>Durante la nostra passeggiata lungo Rue Lepic, facciamo una sosta imperdibile al famoso <strong>Café des Deux Moulins</strong>, situato al numero 15 della strada. Questo caratteristico bistrot parigino è diventato celebre in tutto il mondo grazie al film <strong><q>Il favoloso mondo di Amélie</q></strong> (2001) di Jean-Pierre Jeunet, dove la protagonista Audrey Tautou lavorava come cameriera.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.02 Cafe des Deux Moulins.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.02 Cafe des Deux Moulins.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="alt text"><img src="images/002.02 Cafe des Deux Moulins.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>L’Atmosfera di Amélie</strong>: Il café conserva ancora oggi l’arredamento originale del film: i tipici tavoli in formica verde, le sedie in paglia, i lampadari vintage e l’atmosfera retrò che ha conquistato milioni di spettatori. Marco ci racconta come il locale sia diventato un vero <strong>pellegrinaggio cinematografico</strong>, visitato quotidianamente da turisti che cercano di rivivere la magia del film.</p>
-<p><strong>Curiosità Cinematografica</strong>: Il nome “Deux Moulins” (Due Mulini) deriva dai due mulini storici che si trovavano nelle vicinanze: il <strong>Moulin Rouge</strong> e il <strong>Moulin de la Galette</strong>. Sebbene il film abbia reso il café internazionalmente famoso, esso mantiene il suo carattere di <strong>bistrot de quartier</strong> autentico, frequentato anche dai residenti locali di Montmartre.</p>
+<p><strong>Curiosità Cinematografica</strong>: Il nome <q>Deux Moulins</q> (Due Mulini) deriva dai due mulini storici che si trovavano nelle vicinanze: il <strong>Moulin Rouge</strong> e il <strong>Moulin de la Galette</strong>. Sebbene il film abbia reso il café internazionalmente famoso, esso mantiene il suo carattere di <strong>bistrot de quartier</strong> autentico, frequentato anche dai residenti locali di Montmartre.</p>
 </section>
 <section id="lappartamento-dei-fratelli-van-gogh" class="level4">
 <h4 class="anchored" data-anchor-id="lappartamento-dei-fratelli-van-gogh">L’Appartamento dei Fratelli van Gogh</h4>
 <p>Proseguendo lungo Rue Lepic, Marco ci indica uno dei luoghi più significativi per la storia dell’arte: l’<strong>appartamento al numero 54</strong> dove vissero i fratelli <strong>Vincent e Theo van Gogh</strong> dal <strong>giugno 1886 al febbraio 1888</strong>. Questo periodo parigino fu cruciale per l’evoluzione artistica di Vincent, che qui scoprì l’impressionismo e il post-impressionismo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.02 maison des freres van gogh.png" class="img-fluid figure-img"></p>
+<p><a href="images/002.02 maison des freres van gogh.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="alt text"><img src="images/002.02 maison des freres van gogh.png" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>Il Periodo Parigino di Vincent</strong>: Durante i due anni trascorsi a Montmartre, Vincent van Gogh dipinse oltre <strong>200 opere</strong>, trasformando radicalmente il suo stile. Abbandonò i toni scuri del periodo olandese per abbracciare i colori vivaci dell’impressionismo francese. In questo appartamento creò celebri autoritratti e vedute di Montmartre, tra cui <strong>“Vista da Montmartre”</strong> e <strong>“Mulini a vento di Montmartre”</strong>.</p>
+<p><strong>Il Periodo Parigino di Vincent</strong>: Durante i due anni trascorsi a Montmartre, Vincent van Gogh dipinse oltre <strong>200 opere</strong>, trasformando radicalmente il suo stile. Abbandonò i toni scuri del periodo olandese per abbracciare i colori vivaci dell’impressionismo francese. In questo appartamento creò celebri autoritratti e vedute di Montmartre, tra cui <strong><q>Vista da Montmartre</q></strong> e <strong><q>Mulini a vento di Montmartre</q></strong>.</p>
 <p><strong>Theo van Gogh, il Fratello Marchante</strong>: <strong>Theo</strong>, mercante d’arte presso la galleria <strong>Boussod &amp; Valadon</strong> (successore di <strong>Goupil &amp; Cie</strong>), sostenne economicamente Vincent per tutta la vita. Il loro appartamento in Rue Lepic divenne un punto di incontro per artisti come <strong>Émile Bernard</strong>, <strong>Henri de Toulouse-Lautrec</strong> e <strong>Paul Gauguin</strong>, creando un vero cenacolo artistico nel cuore di Montmartre.</p>
 <p><strong>Eredità Artistica</strong>: Marco ci racconta come questo periodo parigino abbia influenzato definitivamente l’arte di Vincent, preparandolo per i capolavori che avrebbe creato ad Arles e Saint-Paul-de-Mausole. Oggi una <strong>targa commemorativa</strong> ricorda il soggiorno dei fratelli van Gogh in questa casa che ha fatto la storia dell’arte mondiale.</p>
 </section>
@@ -933,24 +985,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dopo la pausa al Café des Deux Moulins, continuiamo la nostra ascesa lungo Rue Lepic fino a raggiungere la suggestiva <strong>Place des Abbesses</strong>, una delle piazze più caratteristiche e romantiche di Montmartre. Questa piccola piazza, che prende il nome dall’antica <strong>Abbazia delle Dame di Montmartre</strong> (fondata nel 1133), ospita uno dei simboli d’amore più famosi al mondo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.02 Dame di montmartre.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.02 Dame di montmartre.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="alt text"><img src="images/002.02 Dame di montmartre.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>Il Mur des Je t’aime (Muro dell’Amore)</strong>: Nel giardino <strong>Square Jehan Rictus</strong>, adiacente alla piazza, si trova il celebre <strong>“Mur des Je t’aime”</strong>, creato nel <strong>2000</strong> dall’artista <strong>Frédéric Baron</strong> e dalla calligrafa <strong>Claire Kito</strong>. Questo muro di <strong>40 m²</strong> riporta la frase “Ti amo” scritta in <strong>più di 300 lingue e dialetti diversi</strong>, rappresentando un messaggio universale di pace e amore.</p>
+<p><strong>Il Mur des Je t’aime (Muro dell’Amore)</strong>: Nel giardino <strong>Square Jehan Rictus</strong>, adiacente alla piazza, si trova il celebre <strong><q>Mur des Je t’aime</q></strong>, creato nel <strong>2000</strong> dall’artista <strong>Frédéric Baron</strong> e dalla calligrafa <strong>Claire Kito</strong>. Questo muro di <strong>40 m²</strong> riporta la frase <q>Ti amo</q> scritta in <strong>più di 300 lingue e dialetti diversi</strong>, rappresentando un messaggio universale di pace e amore.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.03a Muro dell'amore.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.03a Muro dell'amore.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="alt text"><img src="images/002.03a Muro dell'amore.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>L’Opera d’Arte</strong>: Il muro è composto da <strong>612 piastrelle di porcellana smaltata blu scuro</strong> su cui sono incise 1.500 volte le parole “Ti amo” in caratteri bianchi e rossi. Le macchie rosse sparse sulla superficie rappresentano i <strong>frammenti di un cuore spezzato</strong>, simboleggiando l’umanità divisa che trova unità nell’amore universale.</p>
-<p><strong>Curiosità Linguistiche</strong>: Marco ci mostra come individuare “Ti amo” in diverse lingue: dall’italiano “Ti amo”, al francese “Je t’aime”, dall’inglese “I love you”, al giapponese “愛してる” (Aishiteru), dal cinese “我爱你” (Wo ai ni), dall’arabo “أحبك” (Uhibbuka). Il progetto nacque dall’idea di Baron di raccogliere tutte le espressioni d’amore del mondo dopo aver sentito suo fratello sussurrare “Je t’aime” alla fidanzata.</p>
-<p><strong>La Stazione Art Nouveau</strong>: Nella piazza ammiriamo anche l’ingresso della <strong>metropolitana Abbesses</strong>, uno dei due ingressi originali <strong>Art Nouveau</strong> di Hector Guimard rimasti a Parigi (l’altro si trova a Porte Dauphine). Questo capolavoro del 1900, con le sue caratteristiche forme organiche e la scritta “Métropolitain”, è stato dichiarato <strong>monumento storico</strong> nel 1978.</p>
+<p><strong>L’Opera d’Arte</strong>: Il muro è composto da <strong>612 piastrelle di porcellana smaltata blu scuro</strong> su cui sono incise 1.500 volte le parole <q>Ti amo</q> in caratteri bianchi e rossi. Le macchie rosse sparse sulla superficie rappresentano i <strong>frammenti di un cuore spezzato</strong>, simboleggiando l’umanità divisa che trova unità nell’amore universale.</p>
+<p><strong>Curiosità Linguistiche</strong>: Marco ci mostra come individuare <q>Ti amo</q> in diverse lingue: dall’italiano <q>Ti amo</q>, al francese <q>Je t’aime</q>, dall’inglese <q>I love you</q>, al giapponese <q>愛してる</q> (Aishiteru), dal cinese <q>我爱你</q> (Wo ai ni), dall’arabo <q>أحبك</q> (Uhibbuka). Il progetto nacque dall’idea di Baron di raccogliere tutte le espressioni d’amore del mondo dopo aver sentito suo fratello sussurrare <q>Je t’aime</q> alla fidanzata.</p>
+<p><strong>La Stazione Art Nouveau</strong>: Nella piazza ammiriamo anche l’ingresso della <strong>metropolitana Abbesses</strong>, uno dei due ingressi originali <strong>Art Nouveau</strong> di Hector Guimard rimasti a Parigi (l’altro si trova a Porte Dauphine). Questo capolavoro del 1900, con le sue caratteristiche forme organiche e la scritta <q>Métropolitain</q>, è stato dichiarato <strong>monumento storico</strong> nel 1978.</p>
 <p><strong>Curiosità sulla Profondità</strong>: La stazione Abbesses è la <strong>stazione della metropolitana più profonda di Parigi</strong>, situata a <strong>36 metri sotto il livello stradale</strong>. Questa profondità eccezionale è dovuta alla necessità di scavare sotto la collina di Montmartre per raggiungere un terreno stabile. Per questo motivo, la stazione è dotata di due ascensori e di una scala elicoidale di <strong>285 gradini</strong> che pochi turisti osano affrontare a piedi!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.04 Metro Art Nouveau.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.04 Metro Art Nouveau.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="alt text"><img src="images/002.04 Metro Art Nouveau.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -966,21 +1018,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Arriviamo finalmente al celebre <strong>Bateau-Lavoir</strong>, situato al <strong>13 di Place Émile Goudeau</strong>. Questo edificio, che deve il suo nome alla sua forma che ricordava i battelli-lavatoi della Senna, è considerato la <strong>culla dell’arte moderna</strong> e il luogo di nascita del <strong>movimento cubista</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.05 Bateau Lavoir.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.05 Bateau Lavoir.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="alt text"><img src="images/002.05 Bateau Lavoir.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>Gli Anni Eroici (1904-1909)</strong>: Il Bateau-Lavoir ospitò negli atelier più spartani alcuni dei nomi più illustri dell’arte mondiale. <strong>Pablo Picasso</strong> vi si stabilì nel <strong>1904</strong> nell’atelier numero 7, dove dipinse le celebri <strong>“Demoiselles d’Avignon”</strong> (1907), opera considerata l’atto di nascita del cubismo. Qui lavorarono anche <strong>Georges Braque</strong>, <strong>Juan Gris</strong>, <strong>Amedeo Modigliani</strong>, e il poeta <strong>Guillaume Apollinaire</strong>. <img src="images/Demoiselles d'Avignon.jpg" class="img-fluid" alt="alt text"></p>
+<p><strong>Gli Anni Eroici (1904-1909)</strong>: Il Bateau-Lavoir ospitò negli atelier più spartani alcuni dei nomi più illustri dell’arte mondiale. <strong>Pablo Picasso</strong> vi si stabilì nel <strong>1904</strong> nell’atelier numero 7, dove dipinse le celebri <strong><q>Demoiselles d’Avignon</q></strong> (1907), opera considerata l’atto di nascita del cubismo. Qui lavorarono anche <strong>Georges Braque</strong>, <strong>Juan Gris</strong>, <strong>Amedeo Modigliani</strong>, e il poeta <strong>Guillaume Apollinaire</strong>. <img src="images/Demoiselles d'Avignon.jpg" class="img-fluid" alt="alt text"></p>
 <p><strong>La Vita Bohémien</strong>: Marco ci descrive le condizioni spartane in cui vivevano questi artisti: atelier freddi d’inverno, senza acqua corrente, illuminati solo da lucernari. Nonostante le difficoltà economiche, il Bateau-Lavoir divenne un <strong>laboratorio creativo</strong> dove nacquero le avanguardie artistiche che avrebbero rivoluzionato l’arte del XX secolo.</p>
 <p><strong>L’Incendio e la Ricostruzione</strong>: L’edificio originale fu distrutto da un incendio nel <strong>1970</strong>, ma è stato ricostruito nel <strong>1978</strong> mantenendo l’aspetto esteriore originale. Oggi ospita ancora atelier d’artista, continuando la tradizione creativa del luogo.</p>
-<p><strong>Curiosità Storica</strong>: Il nome “Bateau-Lavoir” fu coniato dal poeta <strong>Max Jacob</strong> per la forma dell’edificio e i rumori che produceva quando gli artisti camminavano sui pavimenti di legno, che ricordavano il dondolio di un battello. Qui, in condizioni di estrema povertà, nacque un movimento artistico che avrebbe cambiato per sempre la percezione dell’arte mondiale.</p>
+<p><strong>Curiosità Storica</strong>: Il nome <q>Bateau-Lavoir</q> fu coniato dal poeta <strong>Max Jacob</strong> per la forma dell’edificio e i rumori che produceva quando gli artisti camminavano sui pavimenti di legno, che ricordavano il dondolio di un battello. Qui, in condizioni di estrema povertà, nacque un movimento artistico che avrebbe cambiato per sempre la percezione dell’arte mondiale.</p>
 </section>
 <section id="verso-il-moulin-de-la-galette---rue-dorchampt-e-la-maison-de-dalida" class="level4">
 <h4 class="anchored" data-anchor-id="verso-il-moulin-de-la-galette---rue-dorchampt-e-la-maison-de-dalida">Verso il Moulin de la Galette - Rue d’Orchampt e la Maison de Dalida</h4>
 <p>Lasciando il Bateau-Lavoir, Marco ci guida attraverso le stradine caratteristiche di Montmartre verso il <strong>Moulin de la Galette</strong>, uno degli ultimi mulini a vento storici di Parigi. Il nostro percorso ci porta attraverso la pittoresca <strong>Rue d’Orchampt</strong>, una delle strade più affascinanti e meno turistiche del quartiere.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.05a mulin de la galette.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.05a mulin de la galette.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="alt text"><img src="images/002.05a mulin de la galette.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -991,21 +1043,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Al <strong>numero 11 bis di Rue d’Orchampt</strong> si trova la <strong>casa di Dalida</strong> (1933-1987), la celebre cantante franco-italiana che visse qui per oltre vent’anni fino alla sua tragica morte. La villa, nascosta da una vegetazione rigogliosa, divenne il rifugio privato dell’artista che vendette oltre <strong>170 milioni di dischi</strong> in tutto il mondo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.06 Maison de Dalida.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.06 Maison de Dalida.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="alt text"><img src="images/002.06 Maison de Dalida.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>La Diva di Montmartre</strong>: <strong>Iolanda Cristina Gigliotti</strong>, questo il vero nome di Dalida, scelse Montmartre come sua dimora parigina dal <strong>1962</strong>. La casa divenne teatro delle sue gioie e dei suoi dolori, ospitando feste memorabili ma anche i momenti più difficili della sua vita privata. Marco ci racconta come Dalida amasse passeggiare per le stradine del quartiere, spesso riconosciuta e salutata affettuosamente dai residenti.</p>
-<p><strong>Il Legame con Montmartre</strong>: Dalida considerava Montmartre la sua <strong>“montagna magica”</strong>, un luogo dove poteva vivere lontano dal clamore del successo. La cantante, che parlava perfettamente <strong>sette lingue</strong> (italiano, francese, arabo, inglese, tedesco, spagnolo e giapponese), trovava in questo quartiere bohémien l’ispirazione per le sue canzoni e la serenità per la sua anima tormentata.</p>
+<p><strong>Il Legame con Montmartre</strong>: Dalida considerava Montmartre la sua <strong><q>montagna magica</q></strong>, un luogo dove poteva vivere lontano dal clamore del successo. La cantante, che parlava perfettamente <strong>sette lingue</strong> (italiano, francese, arabo, inglese, tedesco, spagnolo e giapponese), trovava in questo quartiere bohémien l’ispirazione per le sue canzoni e la serenità per la sua anima tormentata.</p>
 <p><strong>Il Mito e la Memoria</strong>: Oggi la casa rimane proprietà privata, ma la zona è diventata meta di pellegrinaggio per i fan di tutto il mondo. Nel <strong>1997</strong>, a dieci anni dalla morte, fu eretta una <strong>statua in bronzo</strong> di Dalida in Place Dalida (poco distante), dove i fan lasciano fiori e messaggi d’amore. La scultura, opera di <strong>Aslan Alain Bourdain</strong>, rappresenta l’artista in una posa elegante con il suo caratteristico sorriso.</p>
-<p><strong>Aneddoto Musicale</strong>: Marco ci rivela che molte delle canzoni più famose di Dalida, come <strong>“Bambino”</strong>, <strong>“Il Silenzio”</strong> e <strong>“Gigi l’Amoroso”</strong>, furono composte o perfezionate proprio in questa casa di Rue d’Orchampt. La villa aveva un pianoforte a coda dove l’artista amava esercitarsi e sperimentare nuove melodie, spesso fino a tarda notte.</p>
+<p><strong>Aneddoto Musicale</strong>: Marco ci rivela che molte delle canzoni più famose di Dalida, come <strong><q>Bambino</q></strong>, <strong><q>Il Silenzio</q></strong> e <strong><q>Gigi l’Amoroso</q></strong>, furono composte o perfezionate proprio in questa casa di Rue d’Orchampt. La villa aveva un pianoforte a coda dove l’artista amava esercitarsi e sperimentare nuove melodie, spesso fino a tarda notte.</p>
 </section>
 <section id="square-suzanne-buisson---san-dionigi-e-il-martirio-di-montmartre" class="level4">
 <h4 class="anchored" data-anchor-id="square-suzanne-buisson---san-dionigi-e-il-martirio-di-montmartre">Square Suzanne Buisson - San Dionigi e il Martirio di Montmartre</h4>
 <p>Prima di dirigerci verso Rue de l’Abreuvoir, Marco ci conduce attraverso il suggestivo <strong>Square Suzanne Buisson</strong>, un piccolo giardino pubblico che nasconde uno dei monumenti più significativi per comprendere le origini cristiane di Montmartre. Questo spazio verde, dedicato alla <strong>Resistente francese Suzanne Buisson</strong> (1883-1946), ospita una delle statue più impressionanti e cariche di storia sacra di tutto il quartiere.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.06b Square Suzanne Buisson.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.06b Square Suzanne Buisson.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="alt text"><img src="images/002.06b Square Suzanne Buisson.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1014,25 +1066,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="la-statua-di-saint-denis---il-patrono-decapitato">La Statua di Saint Denis - Il Patrono Decapitato</h4>
 <p>Al centro del giardino si erge la <strong>statua di Saint Denis</strong> (San Dionigi), primo vescovo di Parigi e <strong>patrono della Francia</strong>, rappresentato nel momento più drammatico del suo martirio. La scultura, opera dello scultore <strong>Hippolyte Lefèbvre</strong> (1895), raffigura il santo <strong>con la propria testa decapitata tenuta tra le mani</strong>, una delle iconografie più potenti e inquietanti dell’arte sacra cristiana.</p>
 <p><strong>La Leggenda del Martirio</strong>: Marco ci racconta la straordinaria leggenda di <strong>Saint Denis</strong> (Denis de Paris), martirizzato intorno al <strong>250 d.C.</strong> durante le persecuzioni dell’imperatore romano <strong>Decio</strong>. Secondo la tradizione, dopo essere stato decapitato proprio sulla collina di Montmartre insieme ai suoi compagni <strong>Eleuthère</strong> e <strong>Rustique</strong>, il santo raccolse miracolosamente la sua testa e <strong>camminò per sei chilometri</strong> predicando, fino al luogo dove desiderava essere sepolto e dove oggi sorge la <strong>Basilica di Saint-Denis</strong>.</p>
-<p><strong>Il Nome di Montmartre</strong>: Questa leggenda spiega l’origine del nome <strong>“Montmartre”</strong>, che deriva dal latino <strong>“Mons Martyrum”</strong> (Monte dei Martiri). La collina divenne così il luogo sacro dove iniziò la cristianizzazione di Parigi, trasformando quello che era un sito di culto pagano gallo-romano dedicato al dio <strong>Mercurio</strong> in un simbolo della fede cristiana.</p>
-<p><strong>L’Arte della Cefaloforia</strong>: La rappresentazione di Saint Denis che porta la propria testa è chiamata <strong>“cefaloforia”</strong> e costituisce un soggetto artistico unico nell’iconografia cristiana. Marco ci spiega come questa immagine simboleggi la <strong>vittoria della fede sulla morte</strong> e la capacità dello spirito di trascendere la distruzione fisica. La statua di Lefèbvre cattura magistralmente questo momento mistico, con il santo che cammina serenamente nonostante la decapitazione.</p>
+<p><strong>Il Nome di Montmartre</strong>: Questa leggenda spiega l’origine del nome <strong><q>Montmartre</q></strong>, che deriva dal latino <strong><q>Mons Martyrum</q></strong> (Monte dei Martiri). La collina divenne così il luogo sacro dove iniziò la cristianizzazione di Parigi, trasformando quello che era un sito di culto pagano gallo-romano dedicato al dio <strong>Mercurio</strong> in un simbolo della fede cristiana.</p>
+<p><strong>L’Arte della Cefaloforia</strong>: La rappresentazione di Saint Denis che porta la propria testa è chiamata <strong><q>cefaloforia</q></strong> e costituisce un soggetto artistico unico nell’iconografia cristiana. Marco ci spiega come questa immagine simboleggi la <strong>vittoria della fede sulla morte</strong> e la capacità dello spirito di trascendere la distruzione fisica. La statua di Lefèbvre cattura magistralmente questo momento mistico, con il santo che cammina serenamente nonostante la decapitazione.</p>
 <p><strong>Il Luogo del Martirio</strong>: Secondo la tradizione, il martirio di Saint Denis avvenne esattamente nel luogo dove oggi sorge la <strong>Basilica del Sacré-Cœur</strong>, che raggiungeremo a breve. Questo legame tra il sacrificio del primo vescovo di Parigi e la moderna basilica votiva crea un ponte simbolico tra la Parigi cristiana delle origini e quella contemporanea.</p>
-<p><strong>Curiosità Storica</strong>: Saint Denis non è solo il patrono di Parigi ma dell’intera <strong>Francia</strong>. Il grido di guerra dei re francesi era <strong>“Montjoie Saint Denis!”</strong>, invocando la protezione del santo martire. La <strong>Basilica di Saint-Denis</strong>, costruita nel luogo della sua sepoltura, divenne la necropoli reale francese, ospitando le tombe di quasi tutti i re di Francia da Dagoberto I a Luigi XVIII.</p>
+<p><strong>Curiosità Storica</strong>: Saint Denis non è solo il patrono di Parigi ma dell’intera <strong>Francia</strong>. Il grido di guerra dei re francesi era <strong><q>Montjoie Saint Denis!</q></strong>, invocando la protezione del santo martire. La <strong>Basilica di Saint-Denis</strong>, costruita nel luogo della sua sepoltura, divenne la necropoli reale francese, ospitando le tombe di quasi tutti i re di Francia da Dagoberto I a Luigi XVIII.</p>
 <p><strong>L’Eredità Spirituale</strong>: Marco ci fa notare come il Square Suzanne Buisson rappresenti perfettamente la stratificazione storica di Montmartre: da sito pagano a luogo di martirio cristiano, da villaggio rurale a quartiere artistico, mantenendo sempre un carattere <strong>spirituale e trascendente</strong> che attira pellegrini, artisti e visitatori da tutto il mondo.</p>
 </section>
 <section id="rue-de-labreuvoir---la-strada-più-fotografata-di-montmartre" class="level4">
 <h4 class="anchored" data-anchor-id="rue-de-labreuvoir---la-strada-più-fotografata-di-montmartre">Rue de l’Abreuvoir - La Strada più Fotografata di Montmartre</h4>
-<p>Continuando il nostro percorso verso il Moulin de la Galette, Marco ci conduce attraverso la celebre <strong>Rue de l’Abreuvoir</strong>, considerata una delle <strong>strade più belle e fotografate</strong> di tutto Montmartre. Questa piccola via acciottolata, il cui nome significa “strada dell’abbeveratoio”, evoca l’epoca in cui Montmartre era ancora un villaggio rurale e qui si abbeveravano gli animali.</p>
+<p>Continuando il nostro percorso verso il Moulin de la Galette, Marco ci conduce attraverso la celebre <strong>Rue de l’Abreuvoir</strong>, considerata una delle <strong>strade più belle e fotografate</strong> di tutto Montmartre. Questa piccola via acciottolata, il cui nome significa <q>strada dell’abbeveratoio</q>, evoca l’epoca in cui Montmartre era ancora un villaggio rurale e qui si abbeveravano gli animali.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.07a Rue de l'Abreuvoir.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.07a Rue de l'Abreuvoir.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="alt text"><img src="images/002.07a Rue de l'Abreuvoir.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>L’Atmosfera da Cartolina</strong>: La Rue de l’Abreuvoir conserva perfettamente l’atmosfera della <strong>Montmartre d’epoca</strong>, con le sue case basse dai colori pastello, i giardini nascosti dietro cancelletti di ferro battuto, e le vigne che ancora oggi crescono sui versanti della collina. Camminando sui suoi sampietrini irregolari, si ha la sensazione di essere tornati indietro nel tempo, quando artisti come <strong>Maurice Utrillo</strong> immortalavano queste stradine nei loro dipinti.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.08 Rue de l'Abreuvoir.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.08 Rue de l'Abreuvoir.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-32" title="alt text"><img src="images/002.08 Rue de l'Abreuvoir.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1043,37 +1095,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Al termine di Rue de l’Abreuvoir, nella piccola <strong>Place Marcel Aymé</strong> (dedicata al celebre scrittore francese), ci imbattiamo nel <strong>busto commemorativo di Dalida</strong>, una delle attrazioni più visitate di Montmartre. Questo busto in bronzo, inaugurato nel <strong>1997</strong> nel decimo anniversario della sua morte, è diventato un vero luogo di pellegrinaggio per i fan di tutto il mondo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.08 Busto di Dalida.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.08 Busto di Dalida.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-33" title="alt text"><img src="images/002.08 Busto di Dalida.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>L’Opera Commemorativa</strong>: Il busto, realizzato dallo scultore <strong>Aslan Alain Bourdain</strong>, ritrae Dalida con il suo inconfondibile sorriso e la caratteristica pettinatura degli anni ’70. L’opera cattura l’essenza dell’artista nel momento della sua massima fama, quando dominava le classifiche europee e internazionali con hits come <strong>“Gigi l’Amoroso”</strong> e <strong>“Monday Tuesday”</strong>.</p>
+<p><strong>L’Opera Commemorativa</strong>: Il busto, realizzato dallo scultore <strong>Aslan Alain Bourdain</strong>, ritrae Dalida con il suo inconfondibile sorriso e la caratteristica pettinatura degli anni ’70. L’opera cattura l’essenza dell’artista nel momento della sua massima fama, quando dominava le classifiche europee e internazionali con hits come <strong><q>Gigi l’Amoroso</q></strong> e <strong><q>Monday Tuesday</q></strong>.</p>
 <p><strong>Il Rituale dei Fan</strong>: Marco ci racconta di una tradizione curiosa: migliaia di fan ogni anno vengono qui per <strong>toccare il seno del busto</strong>, credendo che questo gesto porti fortuna in amore. Nel corso degli anni, questa zona del bronzo si è lucidată per il continuo contatto, creando un contrasto visibile con il resto della scultura. I fan lasciano anche fiori, biglietti d’amore e piccoli omaggi ai piedi del monumento.</p>
 <p><strong>Dalida e Montmartre</strong>: La scelta di questa ubicazione non è casuale. Place Marcel Aymé si trova a pochi passi dalla casa di Dalida in Rue d’Orchampt e lungo uno dei percorsi che la cantante amava fare durante le sue passeggiate quotidiane nel quartiere. Da qui si gode anche una vista panoramica su Parigi, la città che adottò la giovane Iolanda Gigliotti trasformandola in <strong>Dalida</strong>, una delle voci più amate del XX secolo.</p>
-<p><strong>Curiosità Linguistica</strong>: Il busto riporta la scritta <strong>“Dalida 1933-1987”</strong> e spesso i visitatori notano come questa semplice iscrizione racchiuda una vita straordinaria che ha attraversato culture, lingue e continenti. Dalida infatti cantò in <strong>sette lingue diverse</strong>, vendendo oltre <strong>170 milioni di dischi</strong> e diventando un’icona mondiale partita dall’Egitto per conquistare il cuore di Parigi.</p>
+<p><strong>Curiosità Linguistica</strong>: Il busto riporta la scritta <strong><q>Dalida 1933-1987</q></strong> e spesso i visitatori notano come questa semplice iscrizione racchiuda una vita straordinaria che ha attraversato culture, lingue e continenti. Dalida infatti cantò in <strong>sette lingue diverse</strong>, vendendo oltre <strong>170 milioni di dischi</strong> e diventando un’icona mondiale partita dall’Egitto per conquistare il cuore di Parigi.</p>
 </section>
 <section id="la-maison-rose---licona-di-montmartre" class="level4">
 <h4 class="anchored" data-anchor-id="la-maison-rose---licona-di-montmartre">La Maison Rose - L’Icona di Montmartre</h4>
 <p>Proseguendo la nostra passeggiata attraverso le stradine di Montmartre, arriviamo finalmente alla celebre <strong>Maison Rose</strong>, situata all’angolo tra <strong>Rue de l’Abreuvoir</strong> e <strong>Rue des Saules</strong>. Questo piccolo ristorante dalle pareti rosa shocking è diventato uno dei <strong>simboli più fotografati</strong> di tutto Montmartre e una tappa obbligata per chiunque visiti il quartiere.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.09 Maison Rose.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.09 Maison Rose.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="alt text"><img src="images/002.09 Maison Rose.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>Storia della Maison Rose</strong>: La <strong>Maison Rose</strong> deve il suo nome e la sua fama al colore caratteristico delle sue pareti, dipinte di rosa sin dal <strong>1908</strong>. Originariamente chiamata <strong>“Cabaret de la Consigne”</strong>, il locale fu trasformato dalla sua proprietaria <strong>Germaine Gargallo</strong>, modella e musa di <strong>Pablo Picasso</strong> durante il suo periodo del <strong>“Periodo Rosa”</strong> (1904-1906). La donna decise di dipingere l’edificio dello stesso colore che Picasso utilizzava nei suoi dipinti di quel periodo.</p>
+<p><strong>Storia della Maison Rose</strong>: La <strong>Maison Rose</strong> deve il suo nome e la sua fama al colore caratteristico delle sue pareti, dipinte di rosa sin dal <strong>1908</strong>. Originariamente chiamata <strong><q>Cabaret de la Consigne</q></strong>, il locale fu trasformato dalla sua proprietaria <strong>Germaine Gargallo</strong>, modella e musa di <strong>Pablo Picasso</strong> durante il suo periodo del <strong><q>Periodo Rosa</q></strong> (1904-1906). La donna decise di dipingere l’edificio dello stesso colore che Picasso utilizzava nei suoi dipinti di quel periodo.</p>
 <p><strong>L’Epoca d’Oro</strong>: Durante la <strong>Belle Époque</strong> e negli anni ’20, la Maison Rose divenne il <strong>ritrovo preferito</strong> degli artisti di Montmartre. Tra i suoi clienti abituali si contavano <strong>Pablo Picasso</strong>, <strong>Georges Braque</strong>, <strong>Henri de Toulouse-Lautrec</strong>, <strong>Maurice Utrillo</strong> (che la immortalò in numerosi dipinti), <strong>Suzanne Valadon</strong> e molti altri protagonisti dell’avanguardia artistica parigina.</p>
-<p><strong>Maurice Utrillo e la Maison Rose</strong>: <strong>Maurice Utrillo</strong> (1883-1955), figlio della pittrice <strong>Suzanne Valadon</strong>, dipinse la Maison Rose in almeno <strong>una dozzina di quadri</strong> tra il 1912 e il 1914, durante il suo celebre <strong>“Periodo Bianco”</strong>. I suoi dipinti catturavano l’atmosfera malinconica e poetica di Montmartre, e la Maison Rose divenne uno dei suoi soggetti preferiti, rappresentando l’anima bohémien del quartiere.</p>
+<p><strong>Maurice Utrillo e la Maison Rose</strong>: <strong>Maurice Utrillo</strong> (1883-1955), figlio della pittrice <strong>Suzanne Valadon</strong>, dipinse la Maison Rose in almeno <strong>una dozzina di quadri</strong> tra il 1912 e il 1914, durante il suo celebre <strong><q>Periodo Bianco</q></strong>. I suoi dipinti catturavano l’atmosfera malinconica e poetica di Montmartre, e la Maison Rose divenne uno dei suoi soggetti preferiti, rappresentando l’anima bohémien del quartiere.</p>
 <p><strong>L’Atmosfera Autentica</strong>: Marco ci racconta come la Maison Rose sia riuscita a <strong>mantenere il suo carattere autentico</strong> nonostante il turismo di massa. Il locale conserva ancora oggi l’arredamento d’epoca, con le sue sedie di paglia, i tavoli di legno usurato dal tempo, le fotografie in bianco e nero degli artisti che lo frequentavano, e naturalmente le sue iconiche <strong>pareti rosa</strong> che sembrano brillare sotto il sole di Montmartre.</p>
-<p><strong>Curiosità Gastronomica</strong>: Oltre alla sua importanza storica e artistica, la Maison Rose è anche famosa per la sua <strong>cucina tradizionale francese</strong>. Il ristorante propone piatti tipici della <strong>bistrotteria parigina</strong>: coq au vin, bouillabaisse, escargots e i celebri <strong>crêpes suzette</strong> che vengono flambé direttamente al tavolo. Marco ci suggerisce di provare il loro <strong>“Menu des Artistes”</strong>, un omaggio culinario agli artisti che hanno reso famoso il locale.</p>
-<p><strong>Il Fenomeno Instagram</strong>: Negli ultimi anni, la Maison Rose è diventata una delle location più <strong>“instagrammate”</strong> di Parigi. Migliaia di turisti ogni giorno si fotografano davanti alla sua facciata rosa, spesso creando lunghe code. Tuttavia, Marco ci consiglia di visitarla <strong>al mattino presto</strong> o <strong>al tramonto</strong>, quando la luce naturale esalta il colore delle pareti e l’atmosfera è più autentica e rilassata.</p>
+<p><strong>Curiosità Gastronomica</strong>: Oltre alla sua importanza storica e artistica, la Maison Rose è anche famosa per la sua <strong>cucina tradizionale francese</strong>. Il ristorante propone piatti tipici della <strong>bistrotteria parigina</strong>: coq au vin, bouillabaisse, escargots e i celebri <strong>crêpes suzette</strong> che vengono flambé direttamente al tavolo. Marco ci suggerisce di provare il loro <strong><q>Menu des Artistes</q></strong>, un omaggio culinario agli artisti che hanno reso famoso il locale.</p>
+<p><strong>Il Fenomeno Instagram</strong>: Negli ultimi anni, la Maison Rose è diventata una delle location più <strong><q>instagrammate</q></strong> di Parigi. Migliaia di turisti ogni giorno si fotografano davanti alla sua facciata rosa, spesso creando lunghe code. Tuttavia, Marco ci consiglia di visitarla <strong>al mattino presto</strong> o <strong>al tramonto</strong>, quando la luce naturale esalta il colore delle pareti e l’atmosfera è più autentica e rilassata.</p>
 </section>
 <section id="rue-de-mont-cenis-e-i-vicoli-degli-artisti" class="level4">
 <h4 class="anchored" data-anchor-id="rue-de-mont-cenis-e-i-vicoli-degli-artisti">Rue de Mont-Cenis e i Vicoli degli Artisti</h4>
 <p>Lasciando la celebre Maison Rose, Marco ci conduce attraverso la <strong>Rue de Mont-Cenis</strong>, una delle arterie storiche che ci porta verso la sommità della collina di Montmartre. Questa strada, che prende il nome dall’antico <strong>Monte Cenisio</strong> (riferimento alle montagne alpine), ci offre l’opportunità di attraversare i caratteristici <strong>vicoli degli artisti</strong> che hanno reso famoso questo quartiere bohémien.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.11 vicoli degli artisti.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.11 vicoli degli artisti.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="alt text"><img src="images/002.11 vicoli degli artisti.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1086,7 +1138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Al termine della nostra salita attraverso i vicoli, arriviamo alla <strong>Église Saint-Pierre de Montmartre</strong>, una delle chiese più antiche di Parigi e il <strong>cuore spirituale originario</strong> della collina sacra. Questa piccola chiesa, spesso oscurata dalla vicinanza con la maestosa Basilica del Sacré-Cœur, rappresenta in realtà la <strong>continuità storica</strong> tra la Montmartre medievale e quella contemporanea.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.11 Église Saint-Pierre.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.11 Église Saint-Pierre.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="alt text"><img src="images/002.11 Église Saint-Pierre.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1103,14 +1155,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dalla piazzetta della Église Saint-Pierre, bastano pochi passi per trovarsi di fronte alla <strong>Basilique du Sacré-Cœur</strong>, la maestosa basilica che corona la collina di Montmartre e rappresenta uno dei simboli più riconoscibili di Parigi. Questo capolavoro dell’architettura sacra del XIX secolo conclude magnificamente il nostro percorso attraverso la storia, l’arte e la spiritualità di Montmartre.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.12 Basilique du Sacré-Cœur.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.12 Basilique du Sacré-Cœur.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-37" title="alt text"><img src="images/002.12 Basilique du Sacré-Cœur.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>Storia della Costruzione</strong>: La <strong>Basilica del Sacré-Cœur</strong> fu costruita come <strong>voto nazionale</strong> dopo la sconfitta francese nella Guerra Franco-Prussiana (1870-1871) e la tragica Comune di Parigi. Il progetto, iniziato nel <strong>1875</strong> su disegno dell’architetto <strong>Paul Abadie</strong>, fu completato solo nel <strong>1914</strong>, richiedendo quasi quarant’anni di lavori. La basilica fu consacrata definitivamente nel <strong>1919</strong>, dopo la vittoria nella Prima Guerra Mondiale.</p>
 <p><strong>Architettura Romano-Bizantina</strong>: Marco ci illustra lo <strong>stile architettonico unico</strong> della basilica, che combina elementi <strong>romano-bizantini</strong> ispirati alle basiliche di Ravenna e Costantinopoli. Le <strong>cupole bianche</strong> in pietra di Château-Landon si distinguono nettamente dal panorama parigino, conferendo alla basilica un aspetto orientaleggiante che richiama le chiese ortodosse e i santuari dell’Impero Bizantino.</p>
 <p><strong>La Cupola Centrale</strong>: L’imponente <strong>cupola centrale</strong>, alta <strong>83 metri</strong>, è una delle più grandi d’Europa e offre una vista panoramica mozzafiato su Parigi. Marco ci spiega come la sua struttura innovativa, realizzata con tecniche ingegneristiche all’avanguardia per l’epoca, permetta di sostenere il peso enorme della costruzione sul terreno instabile della collina di Montmartre.</p>
-<p><strong>Il Campanile e la Savoyarde</strong>: Nel <strong>campanile alto 84 metri</strong> è ospitata la <strong>“Savoyarde”</strong>, una delle <strong>campane più grandi del mondo</strong> con i suoi <strong>18.835 chilogrammi</strong> di peso. Marco ci racconta come questa campana, donata dalle diocesi di Savoia nel 1895, produca un suono così potente da essere udibile fino a <strong>10 chilometri di distanza</strong>, facendo risuonare la sua voce solenne su tutta Parigi.</p>
+<p><strong>Il Campanile e la Savoyarde</strong>: Nel <strong>campanile alto 84 metri</strong> è ospitata la <strong><q>Savoyarde</q></strong>, una delle <strong>campane più grandi del mondo</strong> con i suoi <strong>18.835 chilogrammi</strong> di peso. Marco ci racconta come questa campana, donata dalle diocesi di Savoia nel 1895, produca un suono così potente da essere udibile fino a <strong>10 chilometri di distanza</strong>, facendo risuonare la sua voce solenne su tutta Parigi.</p>
 <p><strong>L’Interno della Basilica</strong>: Varcando la soglia, ci troviamo immersi in un’atmosfera di <strong>raccoglimento e spiritualità</strong>. L’interno, lungo 85 metri e largo 35, può accogliere fino a <strong>3.000 fedeli</strong>. Marco ci indica il magnifico <strong>mosaico absidale</strong> di <strong>Luc-Olivier Merson</strong> (1922), uno dei più grandi mosaici del mondo, che rappresenta il <strong>Sacro Cuore di Gesù</strong> in gloria, circondato da santi e figure allegoriche della Francia.</p>
 <p><strong>L’Adorazione Perpetua</strong>: La basilica è famosa per l’<strong>Adorazione Eucaristica Perpetua</strong>, iniziata nel <strong>1885</strong> e mai interrotta da allora. Marco ci spiega come questa tradizione spirituale, che si prolunga da oltre <strong>130 anni ininterrotti</strong>, faccia del Sacré-Cœur un centro di preghiera e meditazione unico al mondo, dove giorno e notte si alternano fedeli in preghiera davanti al Santissimo Sacramento.</p>
 <p><strong>La Vista Panoramica</strong>: Dalle terrazze e dalla scalinata antistante la basilica si gode della <strong>vista più spettacolare di Parigi</strong>. Marco ci indica i principali monumenti visibili dall’alto: la Torre Eiffel che si staglia elegante all’orizzonte, il Panthéon sulla collina di Sainte-Geneviève, gli Invalides con la sua cupola dorata, Notre-Dame in fase di ricostruzione, e l’intera distesa urbana che si estende fino ai grattacieli de La Défense.</p>
@@ -1120,14 +1172,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Conclusione del Percorso</strong>: Con la visita alla Basilique du Sacré-Cœur si conclude magnificamente il nostro viaggio attraverso Montmartre, dalle origini pagane e cristiane (Saint Denis, Saint-Pierre) all’arte moderna (Picasso, van Gogh), dalla musica (Dalida) al cinema (Amélie), fino alla spiritualità contemporanea di questo santuario che veglia eternamente su Parigi.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.13 vista da sacre coeur.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.13 vista da sacre coeur.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-38" title="alt text"><img src="images/002.13 vista da sacre coeur.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p>la vista dalla basilica è impagabile</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.14 vista da sacre coeur.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.14 vista da sacre coeur.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-39" title="alt text"><img src="images/002.14 vista da sacre coeur.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1137,7 +1189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dopo la visita spirituale e artistica di Montmartre, il pomeriggio ci porta in una dimensione completamente diversa: il mondo del <strong>calcio moderno parigino</strong>. Lasciamo la collina sacra per dirigerci verso il <strong>16° arrondissement</strong> e il leggendario <strong>Parc des Princes</strong>, casa del <strong>Paris Saint-Germain</strong> e tempio del calcio francese.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.15 Parc des Princes.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.15 Parc des Princes.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-40" title="alt text"><img src="images/002.15 Parc des Princes.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1159,14 +1211,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La visita si conclude al <strong>PSG Store ufficiale</strong>, il più grande negozio dedicato al Paris Saint-Germain, situato all’interno dello stadio.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.16 PSG Store.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.16 PSG Store.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-41" title="alt text"><img src="images/002.16 PSG Store.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p>Daniela e Giulio al PSG Store si sono sfogati <img src="images/002.17 PSG Store.jpg" class="img-fluid" alt="alt text"></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.17a PSG Store.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.17a PSG Store.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-42" title="alt text"><img src="images/002.17a PSG Store.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1187,7 +1239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Viaggio verso il Quartiere Latino</strong>: Dal Parc des Princes prendiamo la <strong>Linea 9</strong> fino a <strong>Châtelet</strong>, poi cambiamo con la <strong>Linea 4</strong> direzione <strong>Porte de Clignancourt</strong> fino a <strong>Saint-Germain-des-Prés</strong>. Una breve passeggiata attraverso le caratteristiche stradine del <strong>6° arrondissement</strong> ci conduce al cuore del Quartiere Latino e alla leggendaria <strong>Università della Sorbona</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.19 Sorbona.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.19 Sorbona.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-43" title="alt text"><img src="images/002.19 Sorbona.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1197,7 +1249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Maggio ’68 e l’Eredità Studentesca</strong>: Marco ci racconta come la Sorbona sia stata <strong>l’epicentro della rivoluzione studentesca del Maggio ’68</strong>, quando gli studenti parigini scossero non solo la Francia ma l’intero mondo occidentale. Le sue aule e cortili furono teatro di assemblee storiche che cambiarono per sempre la società francese ed europea.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.19a Sorbona.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.19a Sorbona.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-44" title="alt text"><img src="images/002.19a Sorbona.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1207,17 +1259,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dalla Sorbona, una breve passeggiata lungo <strong>Rue Soufflot</strong> ci conduce al maestoso <strong>Panthéon</strong>, che si erge imponente sulla <strong>Montagna di Sainte-Geneviève</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.20 Panthéon.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.20 Panthéon.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-45" title="alt text"><img src="images/002.20 Panthéon.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>Architettura Neoclassica</strong>: Il <strong>Panthéon</strong>, progettato da <strong>Jacques-Germain Soufflot</strong> e completato nel <strong>1790</strong>, rappresenta uno dei capolavori dell’<strong>architettura neoclassica</strong> francese. La sua cupola alta <strong>83 metri</strong>, ispirata a quella di San Pietro a Roma, domina la skyline del Quartiere Latino e offre una vista panoramica eccezionale su Parigi.</p>
-<p><strong>Tempio della Memoria Nazionale</strong>: Originariamente concepito come chiesa dedicata a <strong>Santa Geneviève</strong>, patrona di Parigi, il Panthéon fu trasformato durante la Rivoluzione Francese in <strong>mausoleo laico</strong> destinato ad ospitare le spoglie dei “grandi uomini” che hanno onorato la Francia.</p>
+<p><strong>Tempio della Memoria Nazionale</strong>: Originariamente concepito come chiesa dedicata a <strong>Santa Geneviève</strong>, patrona di Parigi, il Panthéon fu trasformato durante la Rivoluzione Francese in <strong>mausoleo laico</strong> destinato ad ospitare le spoglie dei <q>grandi uomini</q> che hanno onorato la Francia.</p>
 <p><strong>Le Illustri Sepolture</strong>: Nel Panthéon riposano alcune delle personalità più illustri della storia francese: <strong>Voltaire</strong> e <strong>Rousseau</strong> (filosofi dell’Illuminismo), <strong>Marie e Pierre Curie</strong> (pionieri della radioattività), <strong>Jean Moulin</strong> (eroe della Resistenza), <strong>Alexandre Dumas</strong> (autore dei Tre Moschettieri), <strong>Émile Zola</strong> (scrittore e difensore di Dreyfus), e molti altri grandi della cultura, scienza e politica francese.</p>
 <p><strong>Il Pendolo di Foucault</strong>: All’interno ammiriamo una riproduzione del celebre <strong>Pendolo di Foucault</strong>, che nel 1851 dimostrò per la prima volta la rotazione terrestre attraverso un esperimento meccanico. Questo strumento scientifico aggiunge una dimensione di scoperta e innovazione al carattere commemorativo del monumento.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.20a Panthéon.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.20a Panthéon.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-46" title="alt text"><img src="images/002.20a Panthéon.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1227,7 +1279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Concludiamo la nostra giornata nei <strong>Jardins du Luxembourg</strong>, considerati tra i più belli e romantici di Parigi.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.21 Jardins du Luxembourg.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.21 Jardins du Luxembourg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-47" title="alt text"><img src="images/002.21 Jardins du Luxembourg.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1238,32 +1290,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>La Vista Panoramica</strong>: Dal belvedere dei giardini si gode una vista spettacolare che abbraccia il <strong>Panthéon</strong>, <strong>Notre-Dame</strong>, la <strong>Torre Eiffel</strong> e l’<strong>Osservatorio di Parigi</strong>. Questo panorama sintetizza perfettamente la grandezza architettonica e culturale della capitale francese.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.21a Jardins du Luxembourg.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.21a Jardins du Luxembourg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-48" title="alt text"><img src="images/002.21a Jardins du Luxembourg.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>Conclusione della Giornata</strong>: Con il tramonto sui Jardins du Luxembourg si conclude una giornata straordinaria che ci ha portato dalle vette spirituali di Montmartre (Sacré-Cœur), attraverso lo sport moderno (PSG), fino al cuore intellettuale di Parigi (Sorbona, Panthéon). Questa varietà di esperienze rappresenta perfettamente l’anima multiforme di Parigi: città di fede e di sapere, di tradizione e di modernità, di arte e di vita quotidiana.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.21b Jardins du Luxembourg.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.21b Jardins du Luxembourg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-49" title="alt text"><img src="images/002.21b Jardins du Luxembourg.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.21c Jardins du Luxembourg.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.21c Jardins du Luxembourg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-50" title="alt text"><img src="images/002.21c Jardins du Luxembourg.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.21d Jardins du Luxembourg.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.21d Jardins du Luxembourg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-51" title="alt text"><img src="images/002.21d Jardins du Luxembourg.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.21e Jardins du Luxembourg.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/002.21e Jardins du Luxembourg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-52" title="alt text"><img src="images/002.21e Jardins du Luxembourg.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1281,7 +1333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La terza giornata inizia alle <strong>9:00</strong> con la visita al simbolo per eccellenza della <strong>gloria militare francese</strong>: l’<strong>Arc de Triomphe</strong>. Questo monumento, che domina la <strong>Place Charles de Gaulle</strong> (ex Place de l’Étoile), rappresenta l’apoteosi dell’architettura commemorativa napoleonica e il cuore simbolico della Francia moderna.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.01 Arc de Triomphe.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.01 Arc de Triomphe.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-53" title="alt text"><img src="images/003.01 Arc de Triomphe.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1289,33 +1341,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>L’Ironia della Storia</strong>: Napoleone, che commissionò l’opera per celebrare le sue vittorie, non vide mai il monumento completato. I lavori, iniziati nel <strong>1806</strong>, furono completati solo nel <strong>1836</strong> sotto il regno di <strong>Luigi Filippo</strong>, ben quindici anni dopo la morte dell’Imperatore a Sant’Elena. Per il suo matrimonio con <strong>Maria Luisa d’Austria</strong> nel <strong>1810</strong>, Napoleone fece costruire un arco di trionfo temporaneo in legno e tela dipinta nello stesso luogo.</p>
 <p><strong>I Quattro Gruppi Scultorei</strong>: I pilastri dell’arco ospitano quattro capolavori della scultura francese del XIX secolo:</p>
 <ul>
-<li><p><strong>“La Marseillaise” (1833-1836)</strong> di <strong>François Rude</strong>: il gruppo scultoreo più famoso, raffigura il <strong>Genio della Libertà</strong> che guida il popolo in guerra. È considerato uno dei massimi capolavori dell’arte romantica francese.</p></li>
-<li><p><strong>“Il Trionfo del 1810”</strong> di <strong>Jean-Pierre Cortot</strong>: celebra i trattati di pace firmati da Napoleone nel 1810.</p></li>
-<li><p><strong>“La Resistenza del 1814”</strong> di <strong>Antoine Étex</strong>: rappresenta la resistenza francese contro le forze della coalizione anti-napoleonica.</p></li>
-<li><p><strong>“La Pace del 1815”</strong> di <strong>Antoine Étex</strong>: simboleggia il ritorno della pace dopo le guerre napoleoniche.</p></li>
+<li><p><strong><q>La Marseillaise</q> (1833-1836)</strong> di <strong>François Rude</strong>: il gruppo scultoreo più famoso, raffigura il <strong>Genio della Libertà</strong> che guida il popolo in guerra. È considerato uno dei massimi capolavori dell’arte romantica francese.</p></li>
+<li><p><strong><q>Il Trionfo del 1810</q></strong> di <strong>Jean-Pierre Cortot</strong>: celebra i trattati di pace firmati da Napoleone nel 1810.</p></li>
+<li><p><strong><q>La Resistenza del 1814</q></strong> di <strong>Antoine Étex</strong>: rappresenta la resistenza francese contro le forze della coalizione anti-napoleonica.</p></li>
+<li><p><strong><q>La Pace del 1815</q></strong> di <strong>Antoine Étex</strong>: simboleggia il ritorno della pace dopo le guerre napoleoniche.</p></li>
 </ul>
 <p><strong>La Tomba del Milite Ignoto</strong>: Dal <strong>1920</strong>, sotto l’arco arde la <strong>Fiamma del Ricordo</strong> sulla <strong>Tomba del Milite Ignoto</strong>, dedicata ai soldati francesi caduti durante la <strong>Prima Guerra Mondiale</strong>. Ogni sera alle <strong>18:30</strong> si svolge la cerimonia del <strong>ravvivamento della fiamma</strong>, una tradizione solenne che mantiene viva la memoria dei caduti.</p>
-<p><strong>La Terrazza Panoramica</strong>: Saliamo i <strong>284 gradini</strong> (o prendiamo l’ascensore per i primi 4 piani) per raggiungere la <strong>terrazza panoramica</strong>. Da qui si gode di una vista spettacolare a <strong>360 gradi</strong> su Parigi: le <strong>dodici avenue</strong> che si irradiano dalla Place de l’Étoile (oggi Charles de Gaulle) creano la famosa <strong>“stella”</strong>, mentre lo sguardo spazia dagli <strong>Champs-Élysées</strong> verso il <strong>Louvre</strong> a est, fino alla <strong>Défense</strong> e alla sua moderna <strong>Grande Arche</strong> a ovest.</p>
+<p><strong>La Terrazza Panoramica</strong>: Saliamo i <strong>284 gradini</strong> (o prendiamo l’ascensore per i primi 4 piani) per raggiungere la <strong>terrazza panoramica</strong>. Da qui si gode di una vista spettacolare a <strong>360 gradi</strong> su Parigi: le <strong>dodici avenue</strong> che si irradiano dalla Place de l’Étoile (oggi Charles de Gaulle) creano la famosa <strong><q>stella</q></strong>, mentre lo sguardo spazia dagli <strong>Champs-Élysées</strong> verso il <strong>Louvre</strong> a est, fino alla <strong>Défense</strong> e alla sua moderna <strong>Grande Arche</strong> a ovest.</p>
 <p><strong>Le Iscrizioni Storiche</strong>: Sulle pareti interne dell’arco sono incisi i nomi di <strong>558 generali</strong> dell’epoca napoleonica e delle principali <strong>battaglie</strong> dell’Impero. I nomi sottolineati indicano i generali morti in battaglia, trasformando il monumento in un libro di pietra della storia militare francese.</p>
 <p><strong>Haussmann e la Prospettiva Urbana</strong>: La posizione dell’Arc de Triomphe nel progetto urbanistico del <strong>Barone Haussmann</strong> (1853-1870) è strategica: il monumento chiude la prospettiva degli <strong>Champs-Élysées</strong> verso ovest e apre quella verso il <strong>Louvre</strong> a est, creando l’<strong>Axe historique</strong> (Asse storico) di Parigi, una linea retta lunga oltre <strong>8 chilometri</strong> che attraversa la città da est a ovest.</p>
 <p><strong>Curiosità Architettonica</strong>: L’Arc de Triomphe è perfettamente allineato con il tramonto del sole durante i <strong>solstizi d’estate</strong>, creando un effetto scenografico straordinario quando il sole scompare esattamente al centro dell’arco visto dagli Champs-Élysées.</p>
 </section>
 <section id="gli-champs-élysées---la-più-bella-avenue-del-mondo" class="level4">
-<h4 class="anchored" data-anchor-id="gli-champs-élysées---la-più-bella-avenue-del-mondo">Gli Champs-Élysées - “La Più Bella Avenue del Mondo”</h4>
+<h4 class="anchored" data-anchor-id="gli-champs-élysées---la-più-bella-avenue-del-mondo">Gli Champs-Élysées - <q>La Più Bella Avenue del Mondo</q></h4>
 <p>Dopo aver ammirato Parigi dall’alto dell’Arc de Triomphe, iniziamo la nostra discesa lungo i leggendari <strong>Champs-Élysées</strong>, l’avenue più famosa al mondo che si estende per <strong>1,9 chilometri</strong> dalla Place Charles de Gaulle alla Place de la Concorde.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.02 Champs-Élysées.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.02 Champs-Élysées.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-54" title="alt text"><img src="images/003.02 Champs-Élysées.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>Storia dell’Avenue</strong>: I <strong>Champs-Élysées</strong> (letteralmente “Campi Elisi”) furono creati nel <strong>1667</strong> da <strong>André Le Nôtre</strong>, l’architetto paesaggista di Luigi XIV e creatore dei giardini di Versailles. Originariamente era un semplice viale alberato che collegava il <strong>Palazzo delle Tuileries</strong> ai boschi circostanti. Il nome deriva dalla mitologia greca e si riferisce al luogo dove, secondo gli antichi, riposavano le anime dei virtuosi dopo la morte.</p>
+<p><strong>Storia dell’Avenue</strong>: I <strong>Champs-Élysées</strong> (letteralmente <q>Campi Elisi</q>) furono creati nel <strong>1667</strong> da <strong>André Le Nôtre</strong>, l’architetto paesaggista di Luigi XIV e creatore dei giardini di Versailles. Originariamente era un semplice viale alberato che collegava il <strong>Palazzo delle Tuileries</strong> ai boschi circostanti. Il nome deriva dalla mitologia greca e si riferisce al luogo dove, secondo gli antichi, riposavano le anime dei virtuosi dopo la morte.</p>
 <p><strong>L’Evoluzione Urbana</strong>: Durante il <strong>Secondo Impero</strong> (1852-1870), il <strong>Barone Haussmann</strong> trasformò radicalmente l’avenue: la larghezza fu portata agli attuali <strong>70 metri</strong>, furono piantati <strong>platani</strong> che creano la caratteristica volta verde, e nacquero i primi café e teatri che diedero inizio alla vocazione commerciale e mondana del viale.</p>
 <p><strong>La Maison Ladurée - Il Tempio del Macaron</strong></p>
 <p>La nostra prima tappa è la storica <strong>Maison Ladurée</strong> al numero <strong>75</strong>, una delle pasticcerie più prestigiose al mondo e birthplace del <strong>macaron</strong> moderno.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.03 Ladurée.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.03 Ladurée.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-55" title="alt text"><img src="images/003.03 Ladurée.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1327,32 +1379,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Proseguiamo verso il <strong>numero 101</strong>, dove si trova il <strong>flagship store</strong> di <strong>Louis Vuitton</strong>, il tempio mondiale del lusso francese in un palazzo storico di <strong>4.000 metri quadrati</strong> distribuiti su sei piani.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.04 Louis Vuitton.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.04 Louis Vuitton.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-56" title="alt text"><img src="images/003.04 Louis Vuitton.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>L’Eredità di Louis Vuitton</strong>: Fondato nel <strong>1854</strong> da <strong>Louis Vuitton</strong>, il marchio nacque come <strong>malletier</strong> (produttore di bauli) per l’aristocrazia e la borghesia dell’epoca. Le celebri <strong>trunk</strong> (bauli da viaggio) con la tela <strong>Monogram Canvas</strong> (1896) rivoluzionarono l’arte della pelletteria e divennero simbolo di eleganza e savoir-faire francese.</p>
 <p><strong>L’Architettura del Negozio</strong>: Il palazzo, risalente al <strong>1913</strong>, fu completamente rinnovato nel <strong>2005</strong> dall’architetto <strong>Peter Marino</strong>. L’interno combina <strong>elementi classici parigini</strong> (parquet in rovere, molding decorativi) con <strong>installazioni artistiche contemporanee</strong>, creando un’esperienza che va oltre il semplice shopping.</p>
-<p><strong>Le Collezioni Esclusive</strong>: Nel negozio troviamo: - <strong>Pelletteria</strong>: dalle iconiche <strong>Speedy</strong> e <strong>Neverfull</strong> alle esclusive <strong>Capucines</strong> (il “it-bag” preferito dalle celebrities) - <strong>Haute Maroquinerie</strong>: creazioni artigianali uniche realizzate nei laboratori francesi - <strong>Prêt-à-porter</strong>: le collezioni firmate dai direttori artistici <strong>Nicolas Ghesquiere</strong> (donna) e <strong>Pharrell Williams</strong> (uomo) - <strong>Arte e Collaborazioni</strong>: pezzi limitati frutto di collaborazioni con artisti contemporanei</p>
+<p><strong>Le Collezioni Esclusive</strong>: Nel negozio troviamo: - <strong>Pelletteria</strong>: dalle iconiche <strong>Speedy</strong> e <strong>Neverfull</strong> alle esclusive <strong>Capucines</strong> (il <q>it-bag</q> preferito dalle celebrities) - <strong>Haute Maroquinerie</strong>: creazioni artigianali uniche realizzate nei laboratori francesi - <strong>Prêt-à-porter</strong>: le collezioni firmate dai direttori artistici <strong>Nicolas Ghesquiere</strong> (donna) e <strong>Pharrell Williams</strong> (uomo) - <strong>Arte e Collaborazioni</strong>: pezzi limitati frutto di collaborazioni con artisti contemporanei</p>
 <p><strong>Galeries Lafayette Champs-Élysées - Il Grande Magazzino Parigino</strong></p>
 <p>Al <strong>numero 60</strong> troviamo il prestigioso <strong>Galeries Lafayette</strong>, il più famoso grande magazzino francese, che rappresenta l’arte del shopping parigino dal <strong>1893</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.05 Galeries Lafayette.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.05 Galeries Lafayette.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-57" title="alt text"><img src="images/003.05 Galeries Lafayette.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>L’Art de Vivre Français</strong>: Su <strong>4 piani</strong> e <strong>6.000 metri quadrati</strong>, Galeries Lafayette offre una selezione dei migliori marchi francesi e internazionali: da <strong>Chanel</strong> e <strong>Dior</strong> per la haute couture, a <strong>Hermès</strong> e <strong>Goyard</strong> per la pelletteria, fino ai gioielli <strong>Cartier</strong> e <strong>Van Cleef &amp; Arpels</strong>.</p>
 <p><strong>La Terrazza Panoramica</strong>: Il <strong>roof-top</strong> (accesso gratuito) offre una vista privilegiata sull’Arc de Triomphe e sui tetti hausmanniani, perfetta per una pausa durante lo shopping con vista su Parigi.</p>
 <p><strong>Pierre Hermé - Il Picasso della Pasticceria</strong></p>
-<p>Una sosta obbligatoria al <strong>numero 72</strong> per la boutique di <strong>Pierre Hermé</strong>, considerato il <strong>“Picasso della pasticceria”</strong> e rivoluzionario del macaron contemporaneo.</p>
+<p>Una sosta obbligatoria al <strong>numero 72</strong> per la boutique di <strong>Pierre Hermé</strong>, considerato il <strong><q>Picasso della pasticceria</q></strong> e rivoluzionario del macaron contemporaneo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.06 Pierre Hermé.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.06 Pierre Hermé.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-58" title="alt text"><img src="images/003.06 Pierre Hermé.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>L’Innovazione Dolciaria</strong>: <strong>Pierre Hermé</strong>, formatosi presso <strong>Lenôtre</strong> e <strong>Fauchon</strong>, ha rivoluzionato l’arte pasticciera francese introducendo <strong>sapori inediti</strong> e <strong>tecniche innovative</strong>. I suoi macarons non sono semplici dolci, ma vere <strong>“haute couture culinarie”</strong>.</p>
+<p><strong>L’Innovazione Dolciaria</strong>: <strong>Pierre Hermé</strong>, formatosi presso <strong>Lenôtre</strong> e <strong>Fauchon</strong>, ha rivoluzionato l’arte pasticciera francese introducendo <strong>sapori inediti</strong> e <strong>tecniche innovative</strong>. I suoi macarons non sono semplici dolci, ma vere <strong><q>haute couture culinarie</q></strong>.</p>
 <p><strong>I Signature Macarons</strong>: Le creazioni più celebri includono: - <strong>Ispahan</strong> (rosa, litchi e lampone - la sua signature più famosa) - <strong>Mogador</strong> (cioccolato e frutto della passione) - <strong>Infiniment Vanille</strong> (intensissima vaniglia del Madagascar) - <strong>Satine</strong> (ricotta e pere Williams con pepe nero di Sarawak) - <strong>2000 Feuilles</strong> (croccante pralinato e vaniglia)</p>
 <p><strong>Hugo Boss e i Marchi Tedeschi di Lusso</strong></p>
 <p>Al <strong>numero 50</strong>, il flagship <strong>Hugo Boss</strong> rappresenta l’eleganza tedesca contemporanea con le sue collezioni <strong>Boss</strong> (business) e <strong>Hugo</strong> (casual chic), in un ambiente dalle linee minimaliste che contrasta elegantemente con lo sfarzo francese circostante.</p>
@@ -1365,7 +1417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Avvicinandoci alla fine degli Champs-Élysées, verso <strong>Place de la Concorde</strong>, ci troviamo di fronte a uno dei panorami architettonici più spettacolari di Parigi: i maestosi <strong>Grand Palais</strong> e <strong>Petit Palais</strong>, due capolavori gemelli che si ergono come guardiani monumentali all’ingresso dei <strong>Jardins des Champs-Élysées</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.07 Grand Palais.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.07 Grand Palais.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-59" title="alt text"><img src="images/003.07 Grand Palais.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1376,7 +1428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Architettura Rivoluzionaria</strong>: Il <strong>Grand Palais</strong>, progettato dagli architetti <strong>Henri Deglane</strong>, <strong>Albert Louvet</strong> e <strong>Albert Thomas</strong>, rappresenta un perfetto equilibrio tra <strong>architettura classica</strong> e <strong>innovazione industriale</strong>. La facciata in pietra nasconde una struttura rivoluzionaria in <strong>ferro e acciaio</strong> con la più grande <strong>verrière</strong> (copertura in vetro) d’Europa.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.08 Grand Palais Interior.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.08 Grand Palais Interior.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-60" title="alt text"><img src="images/003.08 Grand Palais Interior.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1389,7 +1441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dall’altra parte dell’<strong>Avenue Winston Churchill</strong>, il <strong>Petit Palais</strong> si presenta come un gioiello di eleganza e raffinatezza architettonica.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.09 Petit Palais.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.09 Petit Palais.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-61" title="alt text"><img src="images/003.09 Petit Palais.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1397,7 +1449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Il Peristilio e il Giardino</strong>: L’elemento più suggestivo del Petit Palais è il <strong>peristilio semicircolare</strong> che abbraccia un <strong>giardino interno</strong> con fontane e sculture. Questo spazio, ispirato alle ville italiane rinascimentali, offre un’oasi di pace nel cuore di Parigi e crea un perfetto raccordo tra architettura e natura.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.09a Petit Palais.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.09a Petit Palais.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-62" title="alt text"><img src="images/003.09a Petit Palais.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1411,14 +1463,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>La Vista dai Giardini</strong>: Dai <strong>Jardins des Champs-Élysées</strong>, la vista sui due palazzi è particolarmente suggestiva: le cupole e le quadrighe si stagliano contro il cielo parigino, mentre i <strong>platani secolari</strong> incorniciando questo panorama monumentale che cambia colore e atmosfera ad ogni ora del giorno.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.10 pl louvre.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.10 pl louvre.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-63" title="alt text"><img src="images/003.10 pl louvre.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
 <p><strong>Curiosità Belle Époque</strong>: Durante l’Esposizione del 1900, il Grand Palais ospitò la prima <strong>gara olimpica di golf</strong> nella storia moderna, mentre il Petit Palais accoglieva le <strong>arti decorative francesi</strong>. Entrambi furono visitati da <strong>50 milioni di persone</strong> in soli 6 mesi, un record assoluto per l’epoca che testimonia il successo straordinario di questo evento internazionale.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.11 senne &amp; t eiffel.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.11 senne &amp; t eiffel.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-64" title="alt text"><img src="images/003.11 senne &amp; t eiffel.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1428,7 +1480,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Per concludere in bellezza questa giornata ricca di cultura, storia e shopping, ci dirigiamo verso i <strong>Jardins des Tuileries</strong> per un momento di relax al celebre <strong>Pallone Generali</strong>, l’aerostato vincolato che è diventato uno dei simboli più romantici e tecnologici di Parigi.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.12 Pallone Generali.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.12 Pallone Generali.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-65" title="alt text"><img src="images/003.12 Pallone Generali.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1437,7 +1489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Un’Esperienza Sensoriale Unica</strong>: La salita nel <strong>Pallone Generali</strong> dura circa <strong>10-15 minuti</strong> e può ospitare fino a <strong>30 passeggeri</strong> per volo. L’ascensione è lenta e silenziosa, permettendo di ammirare gradualmente Parigi che si allontana sotto i nostri piedi: dai <strong>tetti hausmanniani</strong> alle cupole dorate degli <strong>Invalides</strong>, dalla <strong>Torre Eiffel</strong> al <strong>Sacré-Cœur</strong>, ogni angolo della capitale si svela in una prospettiva completamente nuova.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.12a Pallone Generali.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.12a Pallone Generali.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-66" title="alt text"><img src="images/003.12a Pallone Generali.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1445,7 +1497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Il Rilassamento nei Giardini</strong>: Dopo l’emozione del volo, ci rilassiamo nei <strong>Jardins des Tuileries</strong>, passeggiando tra le <strong>sculture di Maillol</strong> e le aiuole geometriche alla francese. Questi giardini, creati nel <strong>XVI secolo</strong> per <strong>Caterina de’ Medici</strong>, offrono un’oasi di tranquillità nel cuore di Parigi.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.13 Jardins Tuileries Relax.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.13 Jardins Tuileries Relax.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-67" title="alt text"><img src="images/003.13 Jardins Tuileries Relax.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1458,35 +1510,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="al-termine-dei-giardini-larc-de-triomphe-du-carrousel---il-piccolo-gioiello-napoleonico" class="level4">
 <h4 class="anchored" data-anchor-id="al-termine-dei-giardini-larc-de-triomphe-du-carrousel---il-piccolo-gioiello-napoleonico">Al Termine dei Giardini: L’Arc de Triomphe du Carrousel - Il Piccolo Gioiello Napoleonico</h4>
-<p>Procedendo verso la fine della nostra passeggiata nei Jardins des Tuileries, ci troviamo di fronte a uno dei gioielli più eleganti e meno conosciuti di Parigi: l’<strong>Arc de Triomphe du Carrousel</strong>, il “piccolo fratello” del più famoso Arc de Triomphe degli Champs-Élysées.</p>
+<p>Procedendo verso la fine della nostra passeggiata nei Jardins des Tuileries, ci troviamo di fronte a uno dei gioielli più eleganti e meno conosciuti di Parigi: l’<strong>Arc de Triomphe du Carrousel</strong>, il <q>piccolo fratello</q> del più famoso Arc de Triomphe degli Champs-Élysées.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/003.14 Arc Triomphe Carrousel.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/003.14 Arc Triomphe Carrousel.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-68" title="alt text"><img src="images/003.14 Arc Triomphe Carrousel.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
-<p><strong>Storia e Commissione Napoleonica</strong>: L’<strong>Arc de Triomphe du Carrousel</strong> fu commissionato da <strong>Napoleone I</strong> nel <strong>1806</strong> per celebrare le vittorie del <strong>1805</strong>, in particolare la battaglia di <strong>Austerlitz</strong>. Progettato dagli architetti <strong>Charles Percier</strong> e <strong>Pierre-François-Léonard Fontaine</strong>, fu completato in soli <strong>2 anni</strong> (1808), molto prima del suo “fratello maggiore” degli Champs-Élysées.</p>
+<p><strong>Storia e Commissione Napoleonica</strong>: L’<strong>Arc de Triomphe du Carrousel</strong> fu commissionato da <strong>Napoleone I</strong> nel <strong>1806</strong> per celebrare le vittorie del <strong>1805</strong>, in particolare la battaglia di <strong>Austerlitz</strong>. Progettato dagli architetti <strong>Charles Percier</strong> e <strong>Pierre-François-Léonard Fontaine</strong>, fu completato in soli <strong>2 anni</strong> (1808), molto prima del suo <q>fratello maggiore</q> degli Champs-Élysées.</p>
 <p><strong>Ispirazione Antica</strong>: L’arco si ispira direttamente all’<strong>Arco di Costantino</strong> a Roma (315 d.C.), mantenendo le stesse proporzioni classiche ma adattandole al gusto neoclassico dell’epoca napoleonica. Con i suoi <strong>19 metri di altezza</strong> e <strong>23 metri di larghezza</strong>, presenta dimensioni più contenute ma proporzioni perfette che si integrano armoniosamente con l’architettura circostante.</p>
 <p><strong>Architettura e Decorazioni</strong>: L’arco presenta <strong>tre arcate</strong> (una centrale e due laterali) e <strong>otto colonne corinzie</strong> in marmo rosa del Languedoc. I <strong>bassorilievi</strong> furono realizzati dai più importanti scultori dell’epoca napoleonica, tra cui <strong>Antoine-Denis Chaudet</strong>, <strong>Charles-Antoine Bridan</strong> e <strong>François-Joseph Bosio</strong>.</p>
 <p><strong>I Bassorilievi Storici</strong>: Le decorazioni narrano le campagne napoleoniche:</p>
 <ul>
-<li><strong>Facciata Est</strong> (verso il Louvre): “<strong>L’Entrata di Napoleone a Vienna</strong>” e “<strong>La Battaglia di Austerlitz</strong>”</li>
-<li><strong>Facciata Ovest</strong> (verso i Giardini): “<strong>La Pace di Presburgo</strong>” e “<strong>L’Entrata dell’Armata Francese a Monaco</strong>”</li>
+<li><strong>Facciata Est</strong> (verso il Louvre): <q><strong>L’Entrata di Napoleone a Vienna</strong></q> e <q><strong>La Battaglia di Austerlitz</strong></q></li>
+<li><strong>Facciata Ovest</strong> (verso i Giardini): <q><strong>La Pace di Presburgo</strong></q> e <q><strong>L’Entrata dell’Armata Francese a Monaco</strong></q></li>
 <li><strong>Lati Nord e Sud</strong>: Allegoriche figure di <strong>Fame</strong> e <strong>Storia</strong> che celebrano le gesta imperiali</li>
 </ul>
-<p><strong>La Quadriga Perduta e Ritrovata</strong>: Originariamente l’arco era sormontato dalla famosa <strong>Quadriga di San Marco</strong>, i quattro cavalli di bronzo dorato che Napoleone aveva “preso in prestito” dalla Basilica di San Marco a Venezia nel <strong>1797</strong>. Dopo la caduta dell’Imperatore nel <strong>1815</strong>, i cavalli furono restituiti a Venezia e sostituiti dall’attuale <strong>quadriga</strong> opera dello scultore <strong>François-Joseph Bosio</strong>.</p>
+<p><strong>La Quadriga Perduta e Ritrovata</strong>: Originariamente l’arco era sormontato dalla famosa <strong>Quadriga di San Marco</strong>, i quattro cavalli di bronzo dorato che Napoleone aveva <q>preso in prestito</q> dalla Basilica di San Marco a Venezia nel <strong>1797</strong>. Dopo la caduta dell’Imperatore nel <strong>1815</strong>, i cavalli furono restituiti a Venezia e sostituiti dall’attuale <strong>quadriga</strong> opera dello scultore <strong>François-Joseph Bosio</strong>.</p>
 <p><strong>La Nuova Quadriga</strong>: La quadriga attuale (1828) rappresenta la <strong>Restaurazione della Pace</strong> e mostra una <strong>figura femminile</strong> (la Pace) che guida un cocchio trainato da quattro cavalli. Questa sostituzione simboleggia il passaggio dall’epoca napoleonica alla Restaurazione borbonica, pur mantenendo la grandezza artistica del monumento.</p>
 <p><strong>L’Asse Storico di Parigi</strong>: L’Arc de Triomphe du Carrousel occupa una posizione strategica nell’<strong>Axe historique</strong> parigino. Perfettamente allineato con la <strong>Piramide del Louvre</strong>, l’<strong>Obélisque di Place de la Concorde</strong>, l’<strong>Arc de Triomphe degli Champs-Élysées</strong> e la <strong>Grande Arche de la Défense</strong>, crea una prospettiva monumentale unica al mondo lunga oltre <strong>8 chilometri</strong>.</p>
 <p><strong>La Vista verso il Louvre</strong>: Attraversando l’arco, si apre la vista spettacolare sulla <strong>Cour Napoléon</strong> del Louvre con la celebre <strong>Piramide di vetro</strong> di <strong>Ieoh Ming Pei</strong> (1989). Questo contrasto tra <strong>architettura neoclassica</strong> e <strong>modernità contemporanea</strong> rappresenta perfettamente l’evoluzione di Parigi attraverso i secoli.</p>
 <p><strong>Dettagli Artistici</strong>: Le <strong>colonne corinzie</strong> sono decorate con capitelli finemente scolpiti, mentre i <strong>medaglioni</strong> sui pilastri riportano i nomi delle principali battaglie napoleoniche. Le <strong>iscrizioni latine</strong> celebrano le vittorie imperiali con la solennità tipica dell’arte commemorativa romana.</p>
 <p><strong>Il Giardino del Carrousel</strong>: L’arco si trova al centro del <strong>Giardino del Carrousel</strong>, uno spazio verde geometrico che un tempo ospitava il <strong>Palazzo delle Tuileries</strong> (distrutto durante la Comune di Parigi nel 1871). Oggi questo spazio crea una perfetta cornice verde che esalta la bellezza dell’arco e offre una transizione armoniosa tra i giardini e il palazzo del Louvre.</p>
-<p><strong>Simbolismo e Significato</strong>: Più intimo e raccolto rispetto al “fratello maggiore”, l’Arc de Triomphe du Carrousel rappresenta l’aspetto più raffinato e artistico della celebrazione napoleonica. Mentre l’Arc de Triomphe degli Champs-Élysées esprime <strong>potenza</strong> e <strong>grandeur</strong>, questo piccolo gioiello esprime <strong>eleganza</strong> e <strong>raffinatezza</strong>, incarnando perfettamente l’arte neoclassica francese del primo Impero.</p>
+<p><strong>Simbolismo e Significato</strong>: Più intimo e raccolto rispetto al <q>fratello maggiore</q>, l’Arc de Triomphe du Carrousel rappresenta l’aspetto più raffinato e artistico della celebrazione napoleonica. Mentre l’Arc de Triomphe degli Champs-Élysées esprime <strong>potenza</strong> e <strong>grandeur</strong>, questo piccolo gioiello esprime <strong>eleganza</strong> e <strong>raffinatezza</strong>, incarnando perfettamente l’arte neoclassica francese del primo Impero.</p>
 <p><strong>L’Ora Magica</strong>: Il momento più suggestivo per ammirare l’arco è durante il <strong>tramonto</strong>, quando la luce dorata del sole illumina il marmo rosa delle colonne e crea giochi di ombre attraverso le arcate. La vista dalla <strong>Piramide del Louvre</strong> verso l’arco, inquadrata dai platani dei giardini, offre una delle prospettive più fotografate e romantiche di Parigi.</p>
 <p><strong>Curiosità Architettonica</strong>: L’arco fu progettato per essere visto sia <strong>da vicino</strong> (per apprezzare i dettagli scultorei) sia <strong>da lontano</strong> (come elemento della prospettiva monumentale). Questa doppia funzione lo rende unico nell’architettura commemorativa parigina, funzionando sia come <strong>opera d’arte indipendente</strong> sia come <strong>elemento di un grande progetto urbanistico</strong>.</p>
 <p><strong>Conclusione delle Tre Giornate</strong>: Con questa esperienza aerea che ci permette di abbracciare con lo sguardo tutta Parigi, si concludono tre giorni indimenticabili che ci hanno portato dalle <strong>vette spirituali</strong> di Montmartre alle <strong>profondità culturali</strong> del Louvre, dallo <strong>sport moderno</strong> del PSG alle <strong>tradizioni artigiane</strong> delle pasticcerie, dalla <strong>grandezza imperiale</strong> dell’Arc de Triomphe alla <strong>tecnologia sostenibile</strong> del Pallone Generali. Parigi si rivela così in tutta la sua complessità: città di storia e innovazione, di tradizione e modernità, di arte e vita quotidiana, un crogiolo di esperienze che rimarranno per sempre nel cuore e nella memoria.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/20250803_175654.jpg" class="img-fluid figure-img"></p>
+<p><a href="images/20250803_175654.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-69" title="alt text"><img src="images/20250803_175654.jpg" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1696,6 +1748,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -2017,7 +2076,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md" class="pagination-link" aria-label="VS Clone Error Fix">
+      <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="pagination-link" aria-label="VS Clone Error Fix">
         <span class="nav-page-text">VS Clone Error Fix</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -2996,6 +3055,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

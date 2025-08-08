@@ -14,6 +14,7 @@ project:
     - "20250712 Use QUARTO doc for Github repos doc/README.md"
     - "20250713 Use http files for easy and repeatable test/README.md"
     - "Travel/Paris 2025/README.md"
+    - "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
 
 website:
   title: "Dario's Learning Journey"
@@ -36,32 +37,38 @@ website:
       - icon: house-fill
         href: index.qmd
         text: "Home"
-      - text: "Build 2025 Conference"
+      - text: "Events"
         menu:
           - href: "202506 Build 2025/Readme.md"
-            text: "Overview"
-          # - text: "Sessions"
+            text: "Build 2025: Conference Overview"
+          - text: "---"
           - href: "202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md"
-            text: "BRK106: .NET Aspire AI & Cloud"
+            text: "Build 2025: BRK106 - .NET Aspire AI & Cloud"
           - href: "202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md"
-            text: "BRK122: ASP.NET Core & Blazor"
+            text: "Build 2025: BRK122 - ASP.NET Core & Blazor"
           - href: "202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md"
-            text: "BRK123: .NET MAUI AI Development"
+            text: "Build 2025: BRK123 - .NET MAUI AI Development"
           - href: "202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md"
-            text: "DEM508: Testing with Aspire & Playwright"
+            text: "Build 2025: DEM508 - Testing with Aspire & Playwright"
           - href: "202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md"
-            text: "DEM517: Model Context Protocol"
+            text: "Build 2025: DEM517 - Model Context Protocol"
           - href: "202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md"
-            text: "DEM520: Local AI with Foundry"
-      - text: "Azure Topics"
+            text: "Build 2025: DEM520 - Local AI with Foundry"
+      - text: "Technologies"
         menu:
+          - text: "Azure"
           - href: "20250702 Azure Naming conventions/README.md"
-            text: "Azure Naming Conventions"
+            text: "Azure: Naming Conventions"
           - href: "20250704 TableStorageAccess options/README.md"
-            text: "Table Storage Access Options"
+            text: "Azure: Table Storage Access Options"
           - href: "20250706 CosmosDB Access options/README.md"
-            text: "CosmosDB Access Options"
-      - text: "Development Tools"
+            text: "Azure: CosmosDB Access Options"
+          - text: "---"
+          - text: "Issues & Solutions"
+          # - text: "---"
+          - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
+            text: "Visual Studio Clone Error"
+      - text: "Tools"
         menu:
           - href: "20250709 Manage GitRepo from commandline/README.md"
             text: "Git Command Line Management"
@@ -71,17 +78,11 @@ website:
             text: "Quarto Documentation Guide"
           - href: "20250713 Use http files for easy and repeatable test/README.md"
             text: "HTTP Files (Extended Guide)"
+    right:
       - text: "Culture & Travel"
         menu:
           - href: "Travel/Paris 2025/README.md"
             text: "Paris Cultural Journey 2025"
-      - text: "Issues & Solutions"
-        menu:
-          - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
-            text: "Visual Studio Clone Error"
-          - href: "_ISSUES/20250710 sample/README.md"
-            text: "Sample Issue"
-    right:
       - icon: github
         href: "https://github.com/darioairoldi/Learn"
         aria-label: "GitHub Repository"
@@ -94,54 +95,64 @@ website:
       - href: index.qmd
         text: "🏠 Home"
       
-      - section: "🚀 Build 2025 Conference"
+      - section: "🎉 Events"
         contents:
-          - href: "202506 Build 2025/Readme.md"
-            text: "Conference Overview"
-          - href: "202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md"
-            text: "BRK106: .NET Aspire AI & Cloud"
-          - href: "202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md" 
-            text: "BRK122: ASP.NET Core & Blazor"
-          - href: "202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md"
-            text: "BRK123: .NET MAUI AI"
-          - href: "202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md"
-            text: "DEM508: Testing with Aspire"
-          - href: "202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md"
-            text: "DEM517: MCP Server"
-          - href: "202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md"
-            text: "DEM520: Local AI Development"
+          - text: "Build Conference 2025"
+            contents:
+              - href: "202506 Build 2025/Readme.md"
+                text: "Conference Overview"
+              - href: "202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md"
+                text: "BRK106: .NET Aspire AI & Cloud"
+              - href: "202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md" 
+                text: "BRK122: ASP.NET Core & Blazor"
+              - href: "202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md"
+                text: "BRK123: .NET MAUI AI"
+              - href: "202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md"
+                text: "DEM508: Testing with Aspire"
+              - href: "202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md"
+                text: "DEM517: MCP Server"
+              - href: "202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md"
+                text: "DEM520: Local AI Development"
       
-      - section: "☁️ Azure Topics"
+      - section: "💻 Technologies"
         contents:
-          - href: "20250702 Azure Naming conventions/README.md"
-            text: "Naming Conventions"
-          - href: "20250704 TableStorageAccess options/README.md"
-            text: "Table Storage Access"
-          - href: "20250706 CosmosDB Access options/README.md"
-            text: "CosmosDB Access Options"
+          - text: "☁️ Azure"
+            contents:
+              - href: "20250702 Azure Naming conventions/README.md"
+                text: "Naming Conventions"
+              - href: "20250704 TableStorageAccess options/README.md"
+                text: "Table Storage Access"
+              - href: "20250706 CosmosDB Access options/README.md"
+                text: "CosmosDB Access Options"
       
-      - section: "🛠️ Development Tools"
+      - section: "🛠️ Tools"
         contents:
-          - href: "20250709 Manage GitRepo from commandline/README.md"
-            text: "Git Command Line"
-          - href: "20250711 Use http files for easy and repeatable test/README.md"
-            text: "HTTP Files Testing"
-          - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
-            text: "Quarto Documentation"
-          - href: "20250713 Use http files for easy and repeatable test/README.md"
-            text: "HTTP Files (Extended)"
+          - text: "Development Tools"
+            contents:
+              - href: "20250709 Manage GitRepo from commandline/README.md"
+                text: "Git Command Line"
+              - href: "20250711 Use http files for easy and repeatable test/README.md"
+                text: "HTTP Files Testing"
+              - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
+                text: "Quarto Documentation"
+              - href: "20250713 Use http files for easy and repeatable test/README.md"
+                text: "HTTP Files (Extended)"
       
       - section: "🎭 Culture & Travel"
         contents:
-          - href: "Travel/Paris 2025/README.md"
-            text: "Paris Cultural Journey 2025"
+          - text: "Travel Experiences"
+            contents:
+              - href: "Travel/Paris 2025/README.md"
+                text: "Paris Cultural Journey 2025"
       
       - section: "🔧 Issues & Solutions"
         contents:
-          - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
-            text: "VS Clone Error Fix"
-          - href: "_ISSUES/20250710 sample/README.md"
-            text: "Sample Issue"
+          - text: "Development Issues"
+            contents:
+              - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
+                text: "VS Clone Error Fix"
+              - href: "_ISSUES/20250710 sample/README.md"
+                text: "Sample Issue"
 
   page-footer:
     left: |
@@ -185,9 +196,22 @@ format:
       sidebar-width: 300px
       body-width: 900px
       margin-width: 200px
-    # Ensure UTF-8 encoding
+    # Enhanced markdown rendering
     html-table-processing: none
+    html-math-method: katex
     strip-comments: false
+    link-external-newwindow: true
+    link-external-icon: true
+    embed-resources: false
+    html-q-tags: true
+    # Better markdown support
+    from: markdown+emoji+tex_math_dollars+fenced_divs+bracketed_spans+pipe_tables+grid_tables+simple_tables+multiline_tables
+    # Image processing
+    fig-responsive: true
+    lightbox: true
+    # Enhanced text processing
+    smart: true
+    preserve-tabs: true
 
 execute:
   cache: true
