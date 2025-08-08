@@ -336,8 +336,8 @@
     "text": "Document Information\nExecutive Summary\nCore Naming Pattern\nEnvironment Identifiers\nSample Categories\nAzure Resource Types and Naming Rules\nSample-Specific Examples\nCross-Environment Examples\nSpecial Naming Considerations\nResource Tagging Strategy\nImplementation Guidelines\nMaintenance and Updates\nQuick Reference",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -348,8 +348,8 @@
     "text": "Document Information\nExecutive Summary\nCore Naming Pattern\nEnvironment Identifiers\nSample Categories\nAzure Resource Types and Naming Rules\nSample-Specific Examples\nCross-Environment Examples\nSpecial Naming Considerations\nResource Tagging Strategy\nImplementation Guidelines\nMaintenance and Updates\nQuick Reference",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -360,8 +360,8 @@
     "text": "Document Information\n\nVersion: 1.0\nDate: July 2, 2025\nPurpose: Standardized naming convention for Azure sample projects across multiple subscriptions",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -372,8 +372,8 @@
     "text": "Executive Summary\nThis document establishes a consistent naming convention for Azure sample resources across multiple Azure subscriptions. The convention prioritizes business context over resource types while maintaining compliance with Azure naming restrictions.",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -381,11 +381,11 @@
     "href": "20250702 Azure Naming conventions/README.html#core-naming-pattern",
     "title": "Azure Naming Conventions",
     "section": "Core Naming Pattern",
-    "text": "Core Naming Pattern\n\n📋 Standard Pattern: samples-{projectname}-{environment}-{type}-{##}\n\n\n📋 Optional Category Pattern: samples-{category}-{projectname}-{environment}-{type}-{##}\n\nComponents:\n\nsamples - Identifies resources as learning/sample projects\n{projectname} - Actual project/solution name (e.g., cosmosdbsample, servicebussample)\n{environment} - Environment context identifier (may span multiple subscriptions)\n{type} - Azure resource type abbreviation (2-3 letter standard)\n{##} - Instance number (01, 02, etc.)\n{category} - Optional domain category prefix for complex scenarios\n\n\nUnderstanding the Pattern with Examples\nLet’s break down the naming convention using real examples:\n\nExample 1: CosmosDB Sample\nsamples-cosmosdbsample-testpersonal-cdb-01\n   │         │            │          │   │\n   │         │            │          │   └─ Instance number\n   │         │            │          └───── Resource type (cdb)\n   │         │            └──────────────── Environment (testpersonal)\n   │         └───────────────────────────── Project name (cosmosdbsample)\n   └─────────────────────────────────────── Always \"samples\"\n\n\nExample 2: Service Bus Sample\nsamples-servicebussample-testms-sbn-01\n   │         │              │     │   │\n   │         │              │     │   └─ Instance number\n   │         │              │     └───── Resource type (sbn)\n   │         │              └─────────── Environment (testms)\n   │         └────────────────────────── Project name (servicebussample)\n   └──────────────────────────────────── Always \"samples\"\n\n\nExample 3: Optional Category Usage (Complex Scenarios)\nsamples-data-cosmosdbsample-testms-cdb-01\n   │     │         │            │          │   │\n   │     │         │            │          │   └─ Instance number\n   │     │         │            │          └───── Resource type (cdb)\n   │     │         │            └──────────────── Environment (testms)\n   │     │         └───────────────────────────── Project name (cosmosdbsample)\n   │     └─────────────────────────────────────── Optional category (data)\n   └───────────────────────────────────────────── Always \"samples\"\n\n\n\nKey Components Explained\n\nsamples - Always constant, identifies these as learning projects\ncosmosdbsample/servicebussample - Actual project/solution name (matches your code)\ntestpersonal/testms - Which environment you’re deploying to\ncdb/sbn/stg/vm/rg - Azure resource type (2-3 letter abbreviation)\n01/02/03 - Instance number for multiple deployments\ndata/messaging/storage - Optional category prefix for complex scenarios\n\n\n\nWhen to Use Categories\nUse simplified pattern (recommended):\n\nSingle-purpose samples\nClear project names\nDirect code-to-resource mapping\n\nUse category prefix when:\n\nMultiple samples share similar names\nLarge-scale multi-domain projects\nOrganizational requirements for grouping\n\n\n\n📋 Full Reference Tables (Click to expand)\n\n\n\nEnvironment Identifiers\n\n\n\nEnvironment\nIdentifier\nDescription\n\n\n\n\nPersonal\ntestpersonal\nPersonal learning environment\n\n\nMicrosoft\ntestms\nMicrosoft/corporate environment\n\n\nCustomer A\ntestab\nCustomer A testing environment\n\n\nCustomer B\ntestacme\nCustomer “Acme” testing environment\n\n\nGeneric Customer\ntestcustomer\nGeneric customer environment\n\n\n\n\n\nSample Categories\n\n\n\n\n\n\n\n\nCategory\nDescription\nSample Numbers\n\n\n\n\nstorage\nAzure Storage services\n03.00 AzureStorage\n\n\ndata\nDatabase and data services\n03.01 CosmosDB, 03.02 AzureSql, 03.03 DataExplorer\n\n\nmessaging\nMessaging and event services\n03.05 ServiceBus, 03.06 EventHub\n\n\ncompute\nCompute services\nVM, Container Apps, Functions\n\n\nnetwork\nNetworking services\nVNet, Load Balancer, Application Gateway\n\n\nsecurity\nSecurity services\nKey Vault, Managed Identity\n\n\nai\nAI and Cognitive services\nOpenAI, Cognitive Services",
+    "text": "Core Naming Pattern\n\n📋 Standard Pattern: samples-{projectname}-{environment}-{type}-{##}\n\n\n📋 Optional Category Pattern: samples-{category}-{projectname}-{environment}-{type}-{##}\n\nComponents:\n\nsamples - Identifies resources as learning/sample projects\n{projectname} - Actual project/solution name (e.g., cosmosdbsample, servicebussample)\n{environment} - Environment context identifier (may span multiple subscriptions)\n{type} - Azure resource type abbreviation (2-3 letter standard)\n{##} - Instance number (01, 02, etc.)\n{category} - Optional domain category prefix for complex scenarios\n\n\nUnderstanding the Pattern with Examples\nLet’s break down the naming convention using real examples:\n\nExample 1: CosmosDB Sample\nsamples-cosmosdbsample-testpersonal-cdb-01\n   │         │            │          │   │\n   │         │            │          │   └─ Instance number\n   │         │            │          └───── Resource type (cdb)\n   │         │            └──────────────── Environment (testpersonal)\n   │         └───────────────────────────── Project name (cosmosdbsample)\n   └─────────────────────────────────────── Always \"samples\"\n\n\nExample 2: Service Bus Sample\nsamples-servicebussample-testms-sbn-01\n   │         │              │     │   │\n   │         │              │     │   └─ Instance number\n   │         │              │     └───── Resource type (sbn)\n   │         │              └─────────── Environment (testms)\n   │         └────────────────────────── Project name (servicebussample)\n   └──────────────────────────────────── Always \"samples\"\n\n\nExample 3: Optional Category Usage (Complex Scenarios)\nsamples-data-cosmosdbsample-testms-cdb-01\n   │     │         │            │          │   │\n   │     │         │            │          │   └─ Instance number\n   │     │         │            │          └───── Resource type (cdb)\n   │     │         │            └──────────────── Environment (testms)\n   │     │         └───────────────────────────── Project name (cosmosdbsample)\n   │     └─────────────────────────────────────── Optional category (data)\n   └───────────────────────────────────────────── Always \"samples\"\n\n\n\nKey Components Explained\n\nsamples - Always constant, identifies these as learning projects\ncosmosdbsample/servicebussample - Actual project/solution name (matches your code)\ntestpersonal/testms - Which environment you’re deploying to\ncdb/sbn/stg/vm/rg - Azure resource type (2-3 letter abbreviation)\n01/02/03 - Instance number for multiple deployments\ndata/messaging/storage - Optional category prefix for complex scenarios\n\n\n\nWhen to Use Categories\nUse simplified pattern (recommended):\n\nSingle-purpose samples\nClear project names\nDirect code-to-resource mapping\n\nUse category prefix when:\n\nMultiple samples share similar names\nLarge-scale multi-domain projects\nOrganizational requirements for grouping\n\n\n\n📋 Full Reference Tables (Click to expand)\n\n\n\nEnvironment Identifiers\n\n\n\nEnvironment\nIdentifier\nDescription\n\n\n\n\nPersonal\ntestpersonal\nPersonal learning environment\n\n\nMicrosoft\ntestms\nMicrosoft/corporate environment\n\n\nCustomer A\ntestab\nCustomer A testing environment\n\n\nCustomer B\ntestacme\nCustomer Acme testing environment\n\n\nGeneric Customer\ntestcustomer\nGeneric customer environment\n\n\n\n\n\nSample Categories\n\n\n\n\n\n\n\n\nCategory\nDescription\nSample Numbers\n\n\n\n\nstorage\nAzure Storage services\n03.00 AzureStorage\n\n\ndata\nDatabase and data services\n03.01 CosmosDB, 03.02 AzureSql, 03.03 DataExplorer\n\n\nmessaging\nMessaging and event services\n03.05 ServiceBus, 03.06 EventHub\n\n\ncompute\nCompute services\nVM, Container Apps, Functions\n\n\nnetwork\nNetworking services\nVNet, Load Balancer, Application Gateway\n\n\nsecurity\nSecurity services\nKey Vault, Managed Identity\n\n\nai\nAI and Cognitive services\nOpenAI, Cognitive Services",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -396,8 +396,8 @@
     "text": "Azure Resource Types and Naming Rules\n\n⚠️ Important: Each Azure resource type has specific naming restrictions. Always verify your names comply with Azure requirements.\n\n\nCore Infrastructure\n\n\n\n\n\n\n\n\n\n\n\nResource Type\nAbbreviation\nScope\nLength\nValid Characters\nExample\n\n\n\n\nResource Group\nrg\nSubscription\n1-90\nAlphanumerics, underscores, parentheses, hyphens, periods\nsamples-azurestoragesample-testpersonal-rg-01\n\n\nVirtual Network\nvnt\nResource Group\n2-64\nAlphanumerics, underscores, periods, hyphens\nsamples-networksample-testpersonal-vnt-01\n\n\nSubnet\nsnt\nVirtual Network\n1-80\nAlphanumerics, underscores, periods, hyphens\nsamples-networksample-testpersonal-snt-01\n\n\nNetwork Security Group\nnsg\nResource Group\n1-80\nAlphanumerics, underscores, periods, hyphens\nsamples-networksample-testpersonal-nsg-01\n\n\n\n\n\nStorage Services\n\n\n\n\n\n\n\n\n\n\n\nResource Type\nAbbreviation\nScope\nLength\nValid Characters\nExample\n\n\n\n\nStorage Account\nstg\nGlobal\n3-24\nLowercase letters and numbers\nsamplesazurestoragesampletestpers01\n\n\nFile Share\nshr\nStorage Account\n3-63\nLowercase letters, numbers, hyphens\nsamples-azurestoragesample-testpersonal-shr-01\n\n\n\nNote: Storage account names cannot contain hyphens and must be globally unique. Use concatenated format without hyphens.\n\n\n\nData Services\n\n\n\n\n\n\n\n\n\n\n\nResource Type\nAbbreviation\nScope\nLength\nValid Characters\nExample\n\n\n\n\nCosmos DB Account\ncdb\nGlobal\n3-44\nLowercase letters, numbers, hyphens\nsamples-cosmosdbsample-testpersonal-cdb-01\n\n\nSQL Server\nsql\nGlobal\n1-63\nLowercase letters, numbers, hyphens\nsamples-azuresqlsample-testpersonal-sql-01\n\n\nSQL Database\nsdb\nSQL Server\n1-128\nVarious characters allowed\nsamples-azuresqlsample-testpersonal-sdb-01\n\n\nAzure Cache for Redis\nrds\nGlobal\n1-63\nAlphanumerics and hyphens\nsamples-redissample-testpersonal-rds-01\n\n\nMySQL Server\nmys\nGlobal\n3-63\nLowercase letters, numbers, hyphens\nsamples-mysqlsample-testpersonal-mys-01\n\n\nPostgreSQL Server\npgs\nGlobal\n3-63\nLowercase letters, numbers, hyphens\nsamples-postgresqlsample-testpersonal-pgs-01\n\n\n\n\n\nMessaging Services\n\n\n\n\n\n\n\n\n\n\n\nResource Type\nAbbreviation\nScope\nLength\nValid Characters\nExample\n\n\n\n\nService Bus Namespace\nsbn\nGlobal\n6-50\nAlphanumerics and hyphens, start with letter\nsamples-servicebussample-testpersonal-sbn-01\n\n\nEvent Hub Namespace\nehn\nGlobal\n6-50\nAlphanumerics and hyphens, start with letter\nsamples-eventhubsample-testpersonal-ehn-01\n\n\nEvent Hub\nevh\nEvent Hub Namespace\n1-256\nAlphanumerics, periods, hyphens, underscores\nsamples-eventhubsample-testpersonal-evh-01\n\n\nEvent Grid Topic\negt\nResource Group\n3-50\nAlphanumerics and hyphens\nsamples-eventgridsample-testpersonal-egt-01\n\n\nEvent Grid System Topic\negt\nResource Group\n3-50\nAlphanumerics and hyphens\nsamples-tablestoragesample-testpersonal-egt-01\n\n\n\n\n\nCompute Services\n\n\n\n\n\n\n\n\n\n\n\nResource Type\nAbbreviation\nScope\nLength\nValid Characters\nExample\n\n\n\n\nVirtual Machine\nvm\nResource Group\n1-15 (Win), 1-64 (Linux)\nLimited special chars\nsamples-vmsample-testpersonal-vm-01\n\n\nApp Service Plan\nasp\nResource Group\n1-60\nAlphanumerics and hyphens\nsamples-webappsample-testpersonal-asp-01\n\n\nWeb App\napp, api, aps, or feapp\nGlobal\n2-60\nAlphanumerics and hyphens\nsamples-webappsample-testpersonal-app-01, samples-apisample-testpersonal-api-01, samples-webappsample-testpersonal-aps-01, or samples-frontendappsample-testpersonal-feapp-01\n\n\nFunction App\nfap\nGlobal\n2-60\nAlphanumerics and hyphens\nsamples-functionssample-testpersonal-fap-01\n\n\nContainer App\ncap\nResource Group\n2-32\nLowercase letters, numbers, hyphens\nsamples-containerappsample-testpersonal-cap-01\n\n\nContainer Apps Environment\ncae\nResource Group\n2-32\nLowercase letters, numbers, hyphens\nsamples-containerappsample-testpersonal-cae-01\n\n\nContainer Registry\ncrg\nGlobal\n5-50\nAlphanumerics only\nsamplescontainerregistrytestpers01\n\n\n\nNote: Use app for general web applications, api for API-only services, aps for app services, or feapp for frontend applications to better reflect the purpose.\n\n\nAI and Cognitive Services\n\n\n\n\n\n\n\n\n\n\n\nResource Type\nAbbreviation\nScope\nLength\nValid Characters\nExample\n\n\n\n\nOpenAI Service\noai\nGlobal\n2-64\nAlphanumerics, underscores, periods, hyphens\nsamples-openaisample-testpersonal-oai-01\n\n\nCognitive Services\ncgs\nGlobal\n2-64\nAlphanumerics, underscores, periods, hyphens\nsamples-cognitivesample-testpersonal-cgs-01\n\n\nAI Search\nais\nGlobal\n2-60\nLowercase letters, numbers, hyphens\nsamples-aisearchsample-testpersonal-ais-01\n\n\n\n\n\nSecurity Services\n\n\n\n\n\n\n\n\n\n\n\nResource Type\nAbbreviation\nScope\nLength\nValid Characters\nExample\n\n\n\n\nApp Registration\nappr\nGlobal\n1-120\nVarious characters allowed\nsamples-appsample-testpersonal-appr-01\n\n\nKey Vault\nkvt\nGlobal\n3-24\nAlphanumerics and hyphens\nsamples-keyvaultsample-testpersonal-kvt-01\n\n\nManaged Identity\nappi or mi\nResource Group\n3-128\nAlphanumerics, underscores, hyphens\nsamples-identitysample-testpersonal-appi-01 or samples-identitysample-testpersonal-mi-01",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -408,8 +408,8 @@
     "text": "Sample-Specific Examples\n\n💡 Real-world examples showing how the simplified naming convention applies to your specific samples.\n\n\n03.00 Azure Storage Sample (azurestoragesample)\n# Resource Group\nsamples-azurestoragesample-testpersonal-rg-01\n\n# Storage Account (no hyphens, globally unique)\nsamplesazurestoragesampletestpers01\n\n# Related Resources\nsamples-azurestoragesample-testpersonal-vnt-01\nsamples-azurestoragesample-testpersonal-nsg-01\n\n\n03.01 CosmosDB Sample (cosmosdbsample)\n# Resource Group\nsamples-cosmosdbsample-testpersonal-rg-01\n\n# Cosmos DB Account\nsamples-cosmosdbsample-testpersonal-cdb-01\n\n# Related Resources\nsamples-cosmosdbsample-testpersonal-vnt-01\nsamples-cosmosdbsample-testpersonal-kvt-01\n\n\n03.02 Azure SQL Sample (azuresqlsample)\n# Resource Group\nsamples-azuresqlsample-testms-rg-01\n\n# SQL Server\nsamples-azuresqlsample-testms-sql-01\n\n# SQL Database\nsamples-azuresqlsample-testms-sdb-01\n\n\n03.05 Service Bus Sample (servicebussample)\n# Resource Group\nsamples-servicebussample-testab-rg-01\n\n# Service Bus Namespace\nsamples-servicebussample-testab-sbn-01\n\n\n03.06 Event Hub Sample (eventhubsample)\n# Resource Group\nsamples-eventhubsample-testcustomer-rg-01\n\n# Event Hub Namespace\nsamples-eventhubsample-testcustomer-ehn-01\n\n# Event Hub\nsamples-eventhubsample-testcustomer-evh-01",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -420,8 +420,8 @@
     "text": "Cross-Environment Examples\n\n🔄 Multi-environment deployment showing consistency across different environments and subscriptions.\n\n\nSame Sample Across Different Environments\n# Personal Environment\nsamples-azurestoragesample-testpersonal-rg-01\nsamplesazurestoragesampletestpers01\n\n# Microsoft Environment  \nsamples-azurestoragesample-testms-rg-01\nsamplesazurestoragesampletestms01\n\n# Customer Environment\nsamples-azurestoragesample-testab-rg-01\nsamplesazurestoragesampletestab01\n\n\nBenefits of Simplified Naming\nCode-to-Resource Traceability:\n\nProject name azurestoragesample maps directly to resources\nEasy to identify which resources belong to which sample\nSimplified CI/CD pipeline configuration\n\nReduced Complexity:\n\nFewer naming components to manage\nMore intuitive for developers\nLess prone to naming conflicts",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -432,8 +432,8 @@
     "text": "Special Naming Considerations\n\n⚠️ Critical constraints that affect resource naming in Azure.\n\n\nGlobal Uniqueness Requirements\nResources with global scope need unique names across all Azure:\n\nStorage accounts\nWeb apps, Function apps\nKey Vaults\nCosmos DB accounts\nSQL servers\nService Bus namespaces\nEvent Hub namespaces\n\nStrategy: Use abbreviated environment identifiers to maintain uniqueness while keeping names readable.\n\n\nCharacter Restrictions\n\nStorage Accounts: No hyphens, lowercase only, 3-24 characters\nContainer Registry: Alphanumerics only, 5-50 characters\nVirtual Machines: Limited special characters, length varies by OS\nContainer Apps: Lowercase only, 2-32 characters\n\n\n\nLength Limitations\nAlways verify resource name length against Azure limits. When names exceed limits:\n\nAbbreviate category names\nShorten specific sample names\nUse shorter environment identifiers\nReduce instance numbers to single digits",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -444,8 +444,8 @@
     "text": "Resource Tagging Strategy\n\n🏷️ Complement naming with standardized resource tags for better organization and cost tracking.\n\nComplement naming convention with standardized tags:\n{\n  \"Environment\": \"testpersonal\",\n  \"Project\": \"azure-samples\",\n  \"Owner\": \"your-name\",\n  \"Category\": \"storage\",\n  \"Sample\": \"azurestorage\", \n  \"CostCenter\": \"learning\",\n  \"CreatedDate\": \"2025-07-02\",\n  \"Purpose\": \"learning-sample\"\n}",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -456,8 +456,8 @@
     "text": "Implementation Guidelines\n\n🚀 Practical steps for implementing and maintaining the naming convention.\n\n\n1. Validation Checklist\n\nResource name meets Azure length requirements\nCharacters are valid for the resource type\nGlobal resources have unique names\nNaming pattern is consistent across resources\nTags are applied consistently\n\n\n\n2. Automation Considerations\n\nUse naming templates in ARM/Bicep templates\nImplement validation in deployment scripts\nCreate PowerShell/CLI functions for name generation\nDocument exceptions and special cases\n\n\n\n3. Documentation Requirements\n\nDocument any deviations from the standard\nMaintain environment identifier mappings\nKeep category definitions updated\nVersion control naming convention changes",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -468,8 +468,8 @@
     "text": "Maintenance and Updates\n\nReview Schedule\n\nQuarterly: Review naming convention effectiveness\nAs needed: Update when new Azure services are added\nBefore major deployments: Validate naming compliance\n\n\n\nChange Management\n\nDocument proposed changes\nAssess impact on existing resources\nUpdate templates and automation\nCommunicate changes to team\nUpdate this document",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -480,8 +480,8 @@
     "text": "Summary\nThis naming convention prioritizes simplicity and code-to-resource alignment:\n\nPrimary Pattern (Recommended)\nsamples-{projectname}-{environment}-{type}-{##}\nExample: samples-cosmosdbsample-testpersonal-cdb-01\n\n\nBenefits\n\nDirect Code Mapping: Resource names match project/solution names\nSimplified Management: Fewer naming components to maintain\nBetter Traceability: Easy to identify resources by project name\nFlexible Environments: Environment identifiers work across subscriptions\n\n\n\nOptional Category Pattern\nUse samples-{category}-{projectname}-{environment}-{type}-{##} only when:\n\nManaging multiple similar project names\nOrganizational requirements demand grouping\nLarge-scale deployments need additional categorization",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -492,8 +492,8 @@
     "text": "Quick Reference\n\n📚 Quick lookup for common abbreviations and identifiers.\n\n\nCommon Abbreviations\n\n\n\nService\nAbbreviation\nService\nAbbreviation\n\n\n\n\nResource Group\nrg\nStorage Account\nstg\n\n\nVirtual Network\nvnt\nCosmos DB\ncdb\n\n\nNetwork Security Group\nnsg\nSQL Database\nsdb\n\n\nApp Registration\nappr\nService Bus\nsbn\n\n\nKey Vault\nkvt\nEvent Hub Namespace\nehn\n\n\nVirtual Machine\nvm\nEvent Grid Topic\negt\n\n\nWeb App\napp, api, aps, feapp\nContainer App\ncap\n\n\nFunction App\nfap\nApp Service Plan\nasp\n\n\nManaged Identity\nappi or mi\n\n\n\n\n\n\n\nEnvironment Reference\n\ntestpersonal - Personal environment\ntestms - Microsoft/corporate environment\n\ntestab - Customer A environment\ntest{customername} - Named customer environment\n\n\nDocument Owner: IT Architecture Team\nNext Review: October 2, 2025\nVersion History: 1.0 - Initial creation (July 2, 2025)",
     "crumbs": [
       "Home",
-      "☁️ Azure Topics",
-      "Naming Conventions"
+      "💻 Technologies",
+      "☁️ Azure"
     ]
   },
   {
@@ -613,12 +613,11 @@
     "href": "202506 Build 2025/Readme.html",
     "title": "",
     "section": "",
-    "text": "🎉 EventsBuild Conference 2025Conference Overview Code",
+    "text": "🎉 EventsBuild Conference 2025 Code",
     "crumbs": [
       "Home",
       "🎉 Events",
-      "Build Conference 2025",
-      "Conference Overview"
+      "Build Conference 2025"
     ]
   },
   {
@@ -630,8 +629,7 @@
     "crumbs": [
       "Home",
       "🎉 Events",
-      "Build Conference 2025",
-      "Conference Overview"
+      "Build Conference 2025"
     ]
   },
   {
@@ -643,8 +641,7 @@
     "crumbs": [
       "Home",
       "🎉 Events",
-      "Build Conference 2025",
-      "Conference Overview"
+      "Build Conference 2025"
     ]
   },
   {
@@ -656,8 +653,7 @@
     "crumbs": [
       "Home",
       "🎉 Events",
-      "Build Conference 2025",
-      "Conference Overview"
+      "Build Conference 2025"
     ]
   },
   {
@@ -669,8 +665,7 @@
     "crumbs": [
       "Home",
       "🎉 Events",
-      "Build Conference 2025",
-      "Conference Overview"
+      "Build Conference 2025"
     ]
   },
   {
@@ -682,8 +677,7 @@
     "crumbs": [
       "Home",
       "🎉 Events",
-      "Build Conference 2025",
-      "Conference Overview"
+      "Build Conference 2025"
     ]
   },
   {
@@ -2481,11 +2475,11 @@
     "href": "20250709 Manage GitRepo from commandline/README.html",
     "title": "",
     "section": "",
-    "text": "🛠️ Development ToolsGit Command Line Code",
+    "text": "🛠️ ToolsDevelopment Tools Code",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2496,8 +2490,8 @@
     "text": "Table of Contents\n\nBasic Repository Operations\nViewing History\nManaging Changes\nWorking with Branches\nStashing Changes\nCommon Workflows\nBest Practices\nQuick Reference\nAppendix A: Inside Basic Operations\nAppendix B: Inside Viewing History\nAppendix C: Inside Managing Changes\nAppendix D: Inside Working with Branches\nAppendix E: Inside Stashing Changes",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2508,8 +2502,8 @@
     "text": "Basic Repository Operations\nThese are the fundamental operations you’ll use to interact with Git repositories. They form the foundation of your daily Git workflow, allowing you to obtain, synchronize, and manage your code repositories.\n\n\n\n\n\n\n\n\nOperation\nCommand/Example\nDescription\n\n\n\n\nClone\ngit clone &lt;repository-url&gt;git clone https://github.com/darioairoldi/Learn.git\nCreates a local copy of a remote repository on your machine\n\n\nStatus\ngit status\nShows the current state of your working directory and staging area\n\n\nList Branches\ngit branch -agit branch -a\nShows all local and remote branches available\n\n\nCheckout Branch\ngit checkout &lt;branch-name&gt;git checkout main\nSwitch to an existing branch\n\n\nFetch\ngit fetchgit fetch origin\nDownloads changes from remote repository without merging them into your local branch\n\n\nPull\ngit pullgit pull origin main\nFetches and merges changes from the remote repository into your current branch\n\n\nPush\ngit pushgit push origin main\nUploads your local commits to the remote repository\n\n\nAdd\ngit add .git add &lt;filename&gt;\nStages changes for the next commit\n\n\nCommit\ngit commit -m \"message\"git commit -m \"Add new feature\"\nRecords changes to the repository with a descriptive message\n\n\nStash All Changes\ngit stash -ugit stash -u\nTemporarily save all changes including untracked files\n\n\nUndo All Changes\ngit reset --hard HEADgit reset --hard HEAD\n⚠️ Permanently discard all uncommitted changes",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2520,8 +2514,8 @@
     "text": "Viewing History\nUnderstanding your project’s history is crucial for tracking changes, debugging issues, and collaborating with others. Git provides powerful tools to explore commits, authors, and file changes over time.\n\n\n\n\n\n\n\n\nOperation\nCommand/Example\nDescription\n\n\n\n\nShow History\ngit loggit log --oneline\nDisplay commit history in various formats\n\n\nLimit Results\ngit log -5git log -10\nShow only the last N commits\n\n\nShow Changes\ngit log --statgit log --stat --oneline\nDisplay commits with file change statistics\n\n\nGraph View\ngit log --graphgit log --oneline --graph --all\nShow commit history as a visual graph\n\n\nFilter by Author\ngit log --author=\"Name\"git log --author=\"John Doe\"\nShow commits by a specific author\n\n\nFilter by Date\ngit log --since=\"date\"git log --since=\"2024-01-01\"\nShow commits within a date range\n\n\nShow Specific Commit\ngit show &lt;commit-hash&gt;git show HEAD\nDisplay detailed information about a specific commit",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2532,8 +2526,8 @@
     "text": "Managing Changes\nGit allows you to undo changes and return to previous states in your repository. These operations are powerful but should be used carefully, especially when working with shared repositories.\n\n\n\n\n\n\n\n\nOperation\nCommand/Example\nDescription\n\n\n\n\nSoft Reset\ngit reset --soft &lt;commit-hash&gt;git reset --soft HEAD~1\nUndo commits but keep changes staged\n\n\nMixed Reset\ngit reset &lt;commit-hash&gt;git reset HEAD~1\nUndo commits and unstage changes (default)\n\n\nHard Reset\ngit reset --hard &lt;commit-hash&gt;git reset --hard HEAD~1\n⚠️ Permanently discard all changes\n\n\nReset to HEAD\ngit reset --hard HEADgit reset --hard HEAD\nDiscard all uncommitted changes\n\n\nRevert Commit\ngit revert &lt;commit-hash&gt;git revert HEAD\nCreate new commit that undoes previous commit\n\n\nUndo Last Commit\ngit reset --soft HEAD~1git reset --soft HEAD~1\nKeep changes but undo last commit\n\n\n\n⚠️ Warning: Hard reset permanently discards changes. Use with caution!",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2544,8 +2538,8 @@
     "text": "Working with Branches\nBranches allow you to work on different features or experiments in parallel without affecting the main codebase. This is essential for collaborative development and organizing your work.\n\n\n\n\n\n\n\n\nOperation\nCommand/Example\nDescription\n\n\n\n\nCreate & Switch\ngit checkout -b &lt;branch-name&gt;git checkout -b feature/login\nCreate new branch and switch to it\n\n\nCreate Fix Branch\ngit checkout -b fix/&lt;issue&gt;git checkout -b fix/login-bug\nCreate fix branch from current branch\n\n\nCreate & Switch (New)\ngit switch -c &lt;branch-name&gt;git switch -c feature/login\nModern syntax for creating new branch\n\n\nSwitch Branch\ngit checkout &lt;branch-name&gt;git checkout main\nSwitch to existing branch\n\n\nSwitch Branch (New)\ngit switch &lt;branch-name&gt;git switch main\nModern syntax for switching branches\n\n\nDelete Branch\ngit branch -d &lt;branch-name&gt;git branch -d feature/login\nDelete a merged branch\n\n\nForce Delete\ngit branch -D &lt;branch-name&gt;git branch -D feature/login\nForce delete unmerged branch\n\n\nRename Branch\ngit branch -m &lt;new-name&gt;git branch -m feature/authentication\nRename current branch\n\n\nCherry-pick Commit\ngit cherry-pick &lt;commit-hash&gt;git cherry-pick abc1234\nApply specific commit from another branch\n\n\nCherry-pick Range\ngit cherry-pick &lt;start&gt;..&lt;end&gt;git cherry-pick abc1234..def5678\nApply multiple commits from another branch\n\n\nCreate Fix Branch\ngit checkout development && git pull && git checkout -b fix/&lt;issue-name&gt;git checkout development && git pull && git checkout -b fix/login-bug\nCreate a fix branch from latest development",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2556,8 +2550,8 @@
     "text": "Stashing Changes\nStashing temporarily saves your uncommitted changes so you can work on something else and come back later. This is essential when you need to quickly switch contexts without losing your work.\n\n\n\n\n\n\n\n\nOperation\nCommand/Example\nDescription\n\n\n\n\nStash Changes\ngit stashgit stash\nSave uncommitted changes temporarily\n\n\nStash with Message\ngit stash push -m \"message\"git stash push -m \"WIP: login form\"\nStash with descriptive message\n\n\nStash All Files\ngit stash -ugit stash -u\nInclude untracked files in stash\n\n\nApply Latest Stash\ngit stash popgit stash pop\nApply most recent stash and remove it\n\n\nApply Specific Stash\ngit stash apply stash@{0}git stash apply stash@{1}\nApply specific stash without removing it\n\n\nList Stashes\ngit stash listgit stash list\nShow all saved stashes\n\n\nShow Stash Contents\ngit stash showgit stash show stash@{0}\nDisplay what’s in a stash\n\n\nDrop Stash\ngit stash drop stash@{0}git stash drop stash@{0}\nDelete a specific stash\n\n\nClear All Stashes\ngit stash cleargit stash clear\nRemove all stashes",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2568,8 +2562,8 @@
     "text": "Common Workflows\n\nDaily Development Workflow\n# Start of day - sync with remote\ngit pull\n\n# Work on your changes...\n# Stage and commit your work\ngit add .\ngit commit -m \"Implement user login validation\"\n\n# Push your changes\ngit push\n\n\nFeature Branch Workflow\n# Create feature branch\ngit checkout -b feature/user-dashboard\n\n# Work and commit changes\ngit add .\ngit commit -m \"Add user dashboard layout\"\n\n# Push feature branch\ngit push -u origin feature/user-dashboard\n\n# When ready to merge, switch to main and pull latest\ngit checkout main\ngit pull\n\n# Merge feature branch\ngit merge feature/user-dashboard\ngit push\n\n# Clean up\ngit branch -d feature/user-dashboard\n\n\nEmergency Fix Workflow\n# You're working on something but need to make an urgent fix\ngit stash push -m \"WIP: new feature development\"\n\n# Switch to main and create hotfix branch\ngit checkout main\ngit pull\ngit checkout -b hotfix/critical-bug\n\n# Make your fix and commit\ngit add .\ngit commit -m \"Fix critical security vulnerability\"\ngit push -u origin hotfix/critical-bug\n\n# After fix is deployed, restore your work\ngit checkout feature/your-feature\ngit stash pop\n\n\nCherry-pick Workflow (IntegrationFeature → Development)\n# Step 1: Find the commits you want to cherry-pick\ngit checkout IntegrationFeature\ngit log --oneline\n# Note the commit hashes you want to pick\n\n# Step 2: Switch to target branch (development)\ngit checkout development\ngit pull  # Make sure development is up to date\n\n# Step 3: Cherry-pick specific commits\ngit cherry-pick &lt;commit-hash&gt;\n# Example: git cherry-pick abc1234\n\n# Step 4: Cherry-pick multiple commits (if needed)\ngit cherry-pick &lt;commit1&gt; &lt;commit2&gt; &lt;commit3&gt;\n# Example: git cherry-pick abc1234 def5678 ghi9012\n\n# Step 5: Cherry-pick a range of commits\ngit cherry-pick &lt;start-commit&gt;..&lt;end-commit&gt;\n# Example: git cherry-pick abc1234..def5678\n\n# Step 6: Push the changes\ngit push origin development\n\n\nCherry-pick with Conflict Resolution\n# If conflicts occur during cherry-pick\ngit cherry-pick abc1234\n# Git will pause and show conflicts\n\n# Resolve conflicts in your editor, then:\ngit add .\ngit cherry-pick --continue\n\n# If you want to abort the cherry-pick\ngit cherry-pick --abort\n\n# If you want to skip this commit\ngit cherry-pick --skip\n\n\nCreate Fix Branch from Development\n# Step 1: Switch to development branch and update it\ngit checkout development\ngit pull origin development\n\n# Step 2: Create and switch to new fix branch from development\ngit checkout -b fix/issue-description\n# Example: git checkout -b fix/login-validation-bug\n\n# Step 3: Make your fixes and commit\ngit add .\ngit commit -m \"Fix login validation bug\"\n\n# Step 4: Push the fix branch\ngit push -u origin fix/issue-description\n\n# Step 5: When ready, merge back to development\ngit checkout development\ngit pull origin development  # Get latest changes\ngit merge fix/issue-description\ngit push origin development\n\n# Step 6: Clean up (optional)\ngit branch -d fix/issue-description  # Delete local branch\ngit push origin --delete fix/issue-description  # Delete remote branch",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2580,8 +2574,8 @@
     "text": "Best Practices\n\nCommit Often: Make small, focused commits with descriptive messages\nPull Before Push: Always pull the latest changes before pushing\nUse Branches: Create feature branches for new work\nStash Wisely: Use stash to temporarily save work when switching contexts\nBe Careful with Reset: Hard reset permanently loses changes\nReview Before Push: Use git status and git diff to review changes",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2592,8 +2586,8 @@
     "text": "Quick Reference\n\n\n\nCommand\nDescription\n\n\n\n\ngit clone &lt;url&gt;\nClone repository\n\n\ngit fetch\nDownload changes without merging\n\n\ngit pull\nFetch and merge changes\n\n\ngit push\nUpload commits to remote\n\n\ngit log --oneline\nShow commit history\n\n\ngit reset --hard &lt;commit&gt;\nReset to previous commit\n\n\ngit checkout -b &lt;branch&gt;\nCreate new branch\n\n\ngit stash\nTemporarily save changes\n\n\ngit stash pop\nRestore stashed changes\n\n\ngit status\nShow working directory status\n\n\n\nRemember: Git is powerful but can be destructive. Always make sure you understand what a command does before running it, especially commands like reset --hard and push --force.",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2604,8 +2598,8 @@
     "text": "Appendix A: Inside Basic Operations\nThis section provides detailed explanations and examples for each of the basic Git operations covered in the main guide.\n\nClone a Repository\nClone creates a local copy of a remote repository on your machine.\n# Clone a repository\ngit clone &lt;repository-url&gt;\n\n# Clone to a specific directory\ngit clone &lt;repository-url&gt; &lt;directory-name&gt;\n\n# Clone a specific branch\ngit clone -b &lt;branch-name&gt; &lt;repository-url&gt;\nExample:\ngit clone https://github.com/darioairoldi/Learn.git\ngit clone https://github.com/darioairoldi/Learn.git E:\\dev\\darioairoldi\\Learn\n\n\nFetch Changes\nFetch downloads changes from the remote repository without merging them into your local branch.\n# Fetch changes from origin\ngit fetch\n\n# Fetch from a specific remote\ngit fetch origin\n\n# Fetch all remotes\ngit fetch --all\n\n\nPull Changes\nPull fetches and merges changes from the remote repository into your current branch.\n# Pull changes from the current branch's upstream\ngit pull\n\n# Pull from a specific remote and branch\ngit pull origin main\n\n# Pull with rebase instead of merge\ngit pull --rebase\n\n\nPush Changes\nPush uploads your local commits to the remote repository.\n# Push to the current branch's upstream\ngit push\n\n# Push to a specific remote and branch\ngit push origin main\n\n# Push a new branch and set upstream\ngit push -u origin &lt;branch-name&gt;\n\n# Force push (use with caution)\ngit push --force\n\n\nSync Repository\nTo fully synchronize your repository with the remote:\n# Complete sync workflow\ngit fetch --all\ngit pull\ngit push\n\n\nStatus, Add, and Commit\nThese commands form the core of staging and committing changes:\n# Check current status\ngit status\n\n# Stage all changes\ngit add .\n\n# Stage specific files\ngit add &lt;filename&gt;\n\n# Commit with message\ngit commit -m \"Your commit message\"\n\n# Add and commit in one step\ngit commit -am \"Your commit message\"\nExample workflow:\n# Check what's changed\ngit status\n\n# Stage your changes\ngit add .\n\n# Commit with a descriptive message\ngit commit -m \"Add user authentication feature\"\n\n# Push to remote\ngit push",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2616,8 +2610,8 @@
     "text": "Appendix B: Inside Viewing History\nThis section provides detailed explanations and examples for viewing and exploring your repository’s history.\n\nList Commits\nView the commit history of your repository.\n# Show commit history\ngit log\n\n# Show one-line commit history\ngit log --oneline\n\n# Show last 5 commits\ngit log -5\n\n# Show commits with file changes\ngit log --stat\n\n# Show commits in a graph format\ngit log --oneline --graph --all\n\n# Show commits by a specific author\ngit log --author=\"Author Name\"\n\n# Show commits in a date range\ngit log --since=\"2024-01-01\" --until=\"2024-12-31\"\nExample output:\ncommit abc1234 (HEAD -&gt; main, origin/main)\nAuthor: John Doe &lt;john@example.com&gt;\nDate:   Wed Jul 9 10:30:00 2025 +0100\n\n    Add new feature for user authentication\n\ncommit def5678\nAuthor: Jane Smith &lt;jane@example.com&gt;\nDate:   Tue Jul 8 15:45:00 2025 +0100\n\n    Fix bug in payment processing\n\n\nShow Specific Commit\nDisplay detailed information about a specific commit:\n# Show details of a specific commit\ngit show &lt;commit-hash&gt;\n\n# Show the last commit\ngit show HEAD\n\n# Show the commit before last\ngit show HEAD~1\n\n# Show changes in a specific file for a commit\ngit show &lt;commit-hash&gt;:&lt;filename&gt;",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2628,8 +2622,8 @@
     "text": "Appendix C: Inside Managing Changes\nThis section provides detailed explanations for undoing changes and managing your repository state.\n\nReset to a Previous Commit\nReset allows you to undo changes and return to a previous state.\n# Soft reset (keeps changes in staging area)\ngit reset --soft &lt;commit-hash&gt;\n\n# Mixed reset (keeps changes in working directory, default)\ngit reset &lt;commit-hash&gt;\n\n# Hard reset (discards all changes - USE WITH CAUTION)\ngit reset --hard &lt;commit-hash&gt;\n\n# Reset to the last commit\ngit reset --hard HEAD\n\n# Reset to 3 commits ago\ngit reset --hard HEAD~3\n\n\nRevert vs Reset\nUnderstanding the difference between revert and reset:\n# Revert creates a new commit that undoes changes\ngit revert &lt;commit-hash&gt;\n\n# Reset changes history (dangerous for shared repos)\ngit reset --hard &lt;commit-hash&gt;\nWhen to use each: - Revert: When working on shared branches (safe) - Reset: When working on local branches only (destructive)\n⚠️ Warning: Hard reset permanently discards changes. Make sure you want to lose those changes before using it.",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2640,8 +2634,8 @@
     "text": "Appendix D: Inside Working with Branches\nThis section provides detailed explanations for branch management and workflows.\n\nCreate a New Branch with Current Changes\nCreate and switch to a new branch while preserving your current work.\n# Create a new branch and switch to it\ngit checkout -b &lt;new-branch-name&gt;\n\n# Alternative syntax (Git 2.23+)\ngit switch -c &lt;new-branch-name&gt;\n\n# Create branch from a specific commit\ngit checkout -b &lt;new-branch-name&gt; &lt;commit-hash&gt;\nExample workflow:\n# You're working on main with uncommitted changes\ngit status\n# shows modified files\n\n# Create new branch with current changes\ngit checkout -b feature/new-feature\n# Your changes are now on the new branch\n\n\nBranch Management Operations\n# List all branches\ngit branch -a\n\n# Switch to an existing branch\ngit checkout &lt;branch-name&gt;\ngit switch &lt;branch-name&gt;  # Git 2.23+\n\n# Delete a branch\ngit branch -d &lt;branch-name&gt;\n\n# Force delete unmerged branch\ngit branch -D &lt;branch-name&gt;\n\n# Rename current branch\ngit branch -m &lt;new-name&gt;\n\n# Push new branch to remote\ngit push -u origin &lt;branch-name&gt;\n\n\nMerging Branches\n# Merge a branch into current branch\ngit merge &lt;branch-name&gt;\n\n# Merge with no fast-forward (creates merge commit)\ngit merge --no-ff &lt;branch-name&gt;\n\n# Abort a merge in progress\ngit merge --abort\n\n\nCherry-picking Changes Between Branches\nCherry-pick allows you to apply specific commits from one branch to another without merging the entire branch.\n# Basic cherry-pick (single commit)\ngit cherry-pick &lt;commit-hash&gt;\n\n# Cherry-pick multiple specific commits\ngit cherry-pick &lt;commit1&gt; &lt;commit2&gt; &lt;commit3&gt;\n\n# Cherry-pick a range of commits (exclusive of start, inclusive of end)\ngit cherry-pick &lt;start-commit&gt;..&lt;end-commit&gt;\n\n# Cherry-pick a range including the start commit\ngit cherry-pick &lt;start-commit&gt;^..&lt;end-commit&gt;\n\n# Cherry-pick without committing (stage changes only)\ngit cherry-pick --no-commit &lt;commit-hash&gt;\n\n# Cherry-pick and edit the commit message\ngit cherry-pick --edit &lt;commit-hash&gt;\nReal-world example: IntegrationFeature → Development\n# 1. First, identify the commits you want from IntegrationFeature\ngit checkout IntegrationFeature\ngit log --oneline -10\n# Output might show:\n# abc1234 Add user authentication API\n# def5678 Fix login validation bug  \n# ghi9012 Update user profile endpoint\n\n# 2. Switch to development branch\ngit checkout development\ngit pull origin development  # Ensure it's up to date\n\n# 3. Cherry-pick specific commits\ngit cherry-pick def5678  # Pick the bug fix\ngit cherry-pick ghi9012  # Pick the profile update\n\n# 4. Or pick multiple commits at once\ngit cherry-pick abc1234 def5678 ghi9012\n\n# 5. Push the changes\ngit push origin development\nHandling conflicts during cherry-pick:\n# If conflicts occur\ngit cherry-pick abc1234\n# Git will show: error: could not apply abc1234...\n\n# View the conflicted files\ngit status\n\n# Edit files to resolve conflicts, then\ngit add &lt;resolved-files&gt;\ngit cherry-pick --continue\n\n# If you want to abandon the cherry-pick\ngit cherry-pick --abort\n\n# If you want to skip this particular commit\ngit cherry-pick --skip",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2652,8 +2646,8 @@
     "text": "Appendix E: Inside Stashing Changes\nThis section provides detailed explanations for stashing and managing temporary changes.\n\nStash Operations\n# Stash current changes\ngit stash\n\n# Stash with a message\ngit stash push -m \"Work in progress on feature X\"\n\n# Stash including untracked files\ngit stash -u\n\n# Stash including ignored files\ngit stash -a\n\n# Stash only specific files\ngit stash push -m \"message\" -- &lt;file1&gt; &lt;file2&gt;\n\n\nStash Restoration\n# Apply the most recent stash\ngit stash pop\n\n# Apply a specific stash\ngit stash apply stash@{0}\n\n# Apply stash without removing it from stash list\ngit stash apply\n\n# List all stashes\ngit stash list\n\n# Show stash contents\ngit stash show\n\n# Show detailed stash contents\ngit stash show -p\n\n# Drop a specific stash\ngit stash drop stash@{0}\n\n# Clear all stashes\ngit stash clear\nExample stash workflow:\n# You're working on a feature but need to switch branches\ngit stash push -m \"Half-completed login form\"\ngit checkout main\n# Do some work on main\ngit checkout feature/login\ngit stash pop  # Restore your work\n\n\nAdvanced Stashing\n# Create a branch from stash\ngit stash branch &lt;branch-name&gt; stash@{0}\n\n# Stash only staged changes\ngit stash --staged\n\n# Stash everything except staged changes\ngit stash --keep-index",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2664,8 +2658,8 @@
     "text": "5. Create Fix Branch from Development\nWhen you need to create a fix branch from the development branch to work on a specific issue:\n\n5.1 Switch to Development and Update\n# Switch to development branch\ngit checkout development\n\n# Pull latest changes\ngit pull origin development\n\n\n5.2 Create Fix Branch\n# Create and switch to fix branch\ngit checkout -b fix/login-bug\n\n# Or use switch (Git 2.23+)\ngit switch -c fix/login-bug\n\n\n5.3 Work on the Fix\n# Make your changes\n# ... edit files ...\n\n# Stage changes\ngit add .\n\n# Commit the fix\ngit commit -m \"Fix: Resolve login authentication issue\"\n\n\n5.4 Push Fix Branch\n# Push fix branch to remote\ngit push origin fix/login-bug\n\n\n5.5 Create Pull Request\nCreate a pull request to merge your fix back into the development branch through your Git hosting platform (GitHub, GitLab, etc.).\n\n\n5.6 Clean Up After Merge\n# Switch back to development\ngit checkout development\n\n# Pull the merged changes\ngit pull origin development\n\n# Delete local fix branch\ngit branch -d fix/login-bug\n\n# Delete remote fix branch (optional)\ngit push origin --delete fix/login-bug",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2676,8 +2670,8 @@
     "text": "6. Cherry-pick Commits Between Branches\nCherry-pick allows you to apply specific commits from one branch to another without merging the entire branch.\n\n6.1 Basic Cherry-pick\n# Cherry-pick a single commit\ngit cherry-pick &lt;commit-hash&gt;\n\n# Cherry-pick multiple specific commits\ngit cherry-pick &lt;commit1&gt; &lt;commit2&gt; &lt;commit3&gt;\n\n\n6.2 Cherry-pick a Range of Commits\n# Cherry-pick a range of commits (exclusive of start, inclusive of end)\ngit cherry-pick &lt;start-commit&gt;..&lt;end-commit&gt;\n\n# Cherry-pick a range including the start commit\ngit cherry-pick &lt;start-commit&gt;^..&lt;end-commit&gt;\n\n\n6.3 Cherry-pick Options\n# Cherry-pick without committing (stage changes only)\ngit cherry-pick --no-commit &lt;commit-hash&gt;\n\n# Cherry-pick and edit the commit message\ngit cherry-pick --edit &lt;commit-hash&gt;\n\n\n6.4 Handling Conflicts During Cherry-pick\nIf conflicts occur during cherry-pick:\n# Start cherry-pick\ngit cherry-pick &lt;commit-hash&gt;\n\n# Git will pause and show conflicts\n\n# Resolve conflicts in your editor, then:\ngit add &lt;resolved-files&gt;\ngit cherry-pick --continue\n\n# If you want to abort the cherry-pick\ngit cherry-pick --abort\n\n# If you want to skip this commit\ngit cherry-pick --skip",
     "crumbs": [
       "Home",
-      "🛠️ Development Tools",
-      "Git Command Line"
+      "🛠️ Tools",
+      "Development Tools"
     ]
   },
   {
@@ -2829,11 +2823,10 @@
     "href": "Travel/Paris 2025/README.html",
     "title": "",
     "section": "",
-    "text": "🎭 Culture & TravelTravel ExperiencesParis Cultural Journey 2025 Code",
+    "text": "🎭 Culture & TravelParis Cultural Journey 2025 Code",
     "crumbs": [
       "Home",
       "🎭 Culture & Travel",
-      "Travel Experiences",
       "Paris Cultural Journey 2025"
     ]
   },
@@ -2846,7 +2839,6 @@
     "crumbs": [
       "Home",
       "🎭 Culture & Travel",
-      "Travel Experiences",
       "Paris Cultural Journey 2025"
     ]
   },
@@ -2859,7 +2851,6 @@
     "crumbs": [
       "Home",
       "🎭 Culture & Travel",
-      "Travel Experiences",
       "Paris Cultural Journey 2025"
     ]
   },
@@ -2872,7 +2863,6 @@
     "crumbs": [
       "Home",
       "🎭 Culture & Travel",
-      "Travel Experiences",
       "Paris Cultural Journey 2025"
     ]
   },
@@ -2885,7 +2875,6 @@
     "crumbs": [
       "Home",
       "🎭 Culture & Travel",
-      "Travel Experiences",
       "Paris Cultural Journey 2025"
     ]
   },
@@ -2898,7 +2887,6 @@
     "crumbs": [
       "Home",
       "🎭 Culture & Travel",
-      "Travel Experiences",
       "Paris Cultural Journey 2025"
     ]
   },
@@ -2907,11 +2895,11 @@
     "href": "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html",
     "title": "",
     "section": "",
-    "text": "🔧 Issues & SolutionsVS Clone Error Fix Code",
+    "text": "🔧 Issues & SolutionsDevelopment Issues Code",
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   },
   {
@@ -2923,7 +2911,7 @@
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   },
   {
@@ -2935,7 +2923,7 @@
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   },
   {
@@ -2947,7 +2935,7 @@
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   },
   {
@@ -2959,7 +2947,7 @@
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   },
   {
@@ -2971,7 +2959,7 @@
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   },
   {
@@ -2983,7 +2971,7 @@
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   },
   {
@@ -2995,7 +2983,7 @@
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   },
   {
@@ -3007,7 +2995,7 @@
     "crumbs": [
       "Home",
       "🔧 Issues & Solutions",
-      "VS Clone Error Fix"
+      "Development Issues"
     ]
   }
 ]

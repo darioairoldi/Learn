@@ -90,7 +90,7 @@ website:
   sidebar:
     style: "floating"
     search: true
-    collapse-level: 2
+    collapse-level: 1
     contents:
       - href: index.qmd
         text: "🏠 Home"
@@ -98,6 +98,7 @@ website:
       - section: "🎉 Events"
         contents:
           - text: "Build Conference 2025"
+            href: "202506 Build 2025/Readme.md"
             contents:
               - href: "202506 Build 2025/Readme.md"
                 text: "Conference Overview"
@@ -117,6 +118,7 @@ website:
       - section: "💻 Technologies"
         contents:
           - text: "☁️ Azure"
+            href: "20250702 Azure Naming conventions/README.md"
             contents:
               - href: "20250702 Azure Naming conventions/README.md"
                 text: "Naming Conventions"
@@ -128,6 +130,7 @@ website:
       - section: "🛠️ Tools"
         contents:
           - text: "Development Tools"
+            href: "20250709 Manage GitRepo from commandline/README.md"
             contents:
               - href: "20250709 Manage GitRepo from commandline/README.md"
                 text: "Git Command Line"
@@ -138,21 +141,23 @@ website:
               - href: "20250713 Use http files for easy and repeatable test/README.md"
                 text: "HTTP Files (Extended)"
       
-      - section: "🎭 Culture & Travel"
-        contents:
-          - text: "Travel Experiences"
-            contents:
-              - href: "Travel/Paris 2025/README.md"
-                text: "Paris Cultural Journey 2025"
-      
       - section: "🔧 Issues & Solutions"
         contents:
           - text: "Development Issues"
+            href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
             contents:
               - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
                 text: "VS Clone Error Fix"
-              - href: "_ISSUES/20250710 sample/README.md"
-                text: "Sample Issue"
+              # - href: "_ISSUES/20250710 sample/README.md"
+              #   text: "Sample Issue"
+      - text: "---"
+      - section: "🎭 Culture & Travel"
+        contents:
+          - text: "Paris Cultural Journey 2025"
+            href: "Travel/Paris 2025/README.md"
+            # contents:
+            #   - href: "Travel/Paris 2025/README.md"
+            #     text: "Paris Cultural Journey 2025"
 
   page-footer:
     left: |
