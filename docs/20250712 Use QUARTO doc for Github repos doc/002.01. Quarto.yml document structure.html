@@ -6,10 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-07-14">
-<meta name="keywords" content="learning, development, azure, dotnet, conference, documentation">
-<meta name="description" content="Technical learning notes, conference insights, and development guides">
 
 <title>quarto.yml-document-structure – Dario's Learning Journey</title>
 <style>
@@ -99,13 +95,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-hide-matches-text": "Hide additional matches",
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear search",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -424,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
+ <span class="menu-text">Using Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -590,47 +587,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../20250709 Manage GitRepo from commandline/README.html">🛠️ Tools</a></li><li class="breadcrumb-item"><a href="../20250709 Manage GitRepo from commandline/README.html">Development Tools</a></li><li class="breadcrumb-item"><a href="../20250712 Use QUARTO doc for Github repos doc/README.html">Quarto Documentation</a></li><li class="breadcrumb-item"><a href="../20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.html">Quarto.yml document structure</a></li></ol></nav>
-<div class="quarto-title">
-</div>
-
-<div>
-  <div class="description">
-    Technical learning notes, conference insights, and development guides
-  </div>
-</div>
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../20250709 Manage GitRepo from commandline/README.html">🛠️ Tools</a></li><li class="breadcrumb-item"><a href="../20250709 Manage GitRepo from commandline/README.html">Development Tools</a></li><li class="breadcrumb-item"><a href="../20250712 Use QUARTO doc for Github repos doc/README.html">Quarto Documentation</a></li><li class="breadcrumb-item"><a href="../20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.html">Quarto.yml document structure</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dario Airoldi </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 14, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-<div>
-  <div class="keywords">
-    <div class="block-title">Keywords</div>
-    <p>learning, development, azure, dotnet, conference, documentation</p>
-  </div>
-</div>
-
-</header>
 
 
 <section id="quarto.yml-document-structure---complete-reference-guide" class="level1">
@@ -1218,12 +1177,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This comprehensive reference covers all major aspects of the <code>_quarto.yml</code> configuration file. Use it as a guide to customize your Quarto projects according to your specific needs and requirements.</p>
 
 
+<!-- -->
+
 </section>
 </section>
 </section>
 
 </main> <!-- /main -->
-<div id="custom-right-nav" class="toc-right" style="display: none;">
+<div id="custom-right-nav" style="display: none;">
 
   <div class="toc-title">Related Pages</div>
 
@@ -1291,41 +1252,79 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const navStructure = {
 
-    "🛠️ Tools": {
+    '🎉 Events': {
 
-      "Development Tools": {
-
-        href: "20250709 Manage GitRepo from commandline/README.md",
+      'Build Conference 2025': {
 
         pages: [
 
-          { href: "20250709 Manage GitRepo from commandline/README.md", text: "Git Command Line" },
+          { text: 'Conference Overview', href: '202506 Build 2025/Readme.md' },
 
-          { href: "20250711 Use http files for easy and repeatable test/README.md", text: "HTTP Files Testing" }
+          { text: '.NET Aspire AI & Cloud', href: '202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md' },
+
+          { text: 'ASP.NET Core & Blazor', href: '202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md' },
+
+          { text: '.NET MAUI AI Development', href: '202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md' },
+
+          { text: 'Testing with Aspire & Playwright', href: '202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md' },
+
+          { text: 'Model Context Protocol', href: '202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md' },
+
+          { text: 'Local AI Development', href: '202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md' }
+
+        ]
+
+      }
+
+    },
+
+    '💻 Technologies': {
+
+      '☁️ Azure': {
+
+        pages: [
+
+          { text: 'Azure Naming Conventions', href: '20250702 Azure Naming conventions/README.md' },
+
+          { text: 'Table Storage Access', href: '20250704 TableStorageAccess options/README.md' },
+
+          { text: 'CosmosDB Access Options', href: '20250706 CosmosDB Access options/README.md' },
+
+          { text: 'EventHub Access Options', href: '20250723 EventHub Access options/README.md' }
+
+        ]
+
+      }
+
+    },
+
+    '🛠️ Tools': {
+
+      'Development Tools': {
+
+        pages: [
+
+          { text: 'Git Command Line Management', href: '20250709 Manage GitRepo from commandline/README.md' },
+
+          { text: 'HTTP Testing with .http Files', href: '20250711 Use http files for easy and repeatable test/README.md' },
+
+          { text: 'Enhanced HTTP Testing', href: '20250713 Use http files for easy and repeatable test/README.md' }
 
         ]
 
       },
 
-      "Quarto Documentation": {
-
-        href: "20250712 Use QUARTO doc for Github repos doc/README.md",
+      'Quarto Documentation': {
 
         pages: [
 
-          { href: "20250712 Use QUARTO doc for Github repos doc/README.md", text: "Quarto Documentation Overview" }
+          { text: 'Using Quarto for Documentation', href: '20250712 Use QUARTO doc for Github repos doc/README.md' },
 
-        ]
+          { text: 'Quarto.yml Document Structure', href: '20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md' },
 
-      },
+          { text: 'Quarto Specific Markdown Features', href: '20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md' },
 
-      "HTTP Files (Extended)": {
-
-        href: "20250713 Use http files for easy and repeatable test/README.md",
-
-        pages: [
-
-          { href: "20250713 Use http files for easy and repeatable test/README.md", text: "HTTP Files (Extended)" }
+          { text: 'Quarto Theming and Styling', href: '20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md' }
 
         ]
 
@@ -1333,27 +1332,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     },
 
-    "🎉 Events": {
+    '🎭 Culture & Travel': {
 
-      "Build Conference 2025": {
-
-        href: "202506 Build 2025/Readme.md",
+      'Travel Experiences': {
 
         pages: [
 
-          { href: "202506 Build 2025/Readme.md", text: "Conference Overview" },
-
-          { href: "202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md", text: "BRK106: .NET Aspire AI & Cloud" },
-
-          { href: "202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md", text: "BRK122: ASP.NET Core & Blazor" },
-
-          { href: "202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md", text: "BRK123: .NET MAUI AI" },
-
-          { href: "202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md", text: "DEM508: Testing with Aspire" },
-
-          { href: "202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md", text: "DEM517: MCP Server" },
-
-          { href: "202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md", text: "DEM520: Local AI Development" }
+          { text: 'Paris 2025 Travel Guide', href: 'Travel/Paris 2025/README.md' }
 
         ]
 
@@ -1361,35 +1346,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     },
 
-    "💻 Technologies": {
+    '🔧 Issues & Solutions': {
 
-      "☁️ Azure": {
-
-        href: "20250702 Azure Naming conventions/README.md",
+      'Development Issues': {
 
         pages: [
 
-          { href: "20250702 Azure Naming conventions/README.md", text: "Naming Conventions" },
-
-          { href: "20250704 TableStorageAccess options/README.md", text: "Table Storage Access" },
-
-          { href: "20250706 CosmosDB Access options/README.md", text: "CosmosDB Access Options" }
-
-        ]
-
-      }
-
-    },
-
-    "🎭 Culture & Travel": {
-
-      "Travel Experiences": {
-
-        href: "Travel/Paris 2025/README.md",
-
-        pages: [
-
-          { href: "Travel/Paris 2025/README.md", text: "Paris Cultural Journey 2025" }
+          { text: 'VS Clone Error Fix', href: '_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md' }
 
         ]
 
@@ -1407,29 +1370,191 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!customNav) return;
 
-
-
-    const screenWidth = window.innerWidth;
-
     
 
-    if (screenWidth <= 800) {
+    const isMobile = window.innerWidth <= 800;
 
-      // Small screen: add mobile styling
+    if (isMobile) {
 
-      customNav.classList.add('mobile-layout');
-
-      customNav.classList.remove('desktop-layout');
+      customNav.style.display = 'none';
 
     } else {
 
-      // Large screen: add desktop styling
-
-      customNav.classList.add('desktop-layout');
-
-      customNav.classList.remove('mobile-layout');
+      customNav.style.display = 'block';
 
     }
+
+  }
+
+
+
+  function renderRightNav() {
+
+    console.log('renderRightNav called'); // Debug log
+
+    const customNav = document.querySelector('#custom-right-nav');
+
+    if (!customNav) {
+
+      console.log('Custom nav element not found'); // Debug log
+
+      return;
+
+    }
+
+    console.log('Custom nav element found:', !!customNav); // Debug log
+
+
+
+    const currentPath = getCurrentPagePath();
+
+    const currentSection = findCurrentSection(currentPath);
+
+
+
+    if (!currentSection) {
+
+      // Hide if no relevant section found
+
+      customNav.style.display = 'none';
+
+      if (window.innerWidth <= 800) {
+
+        // On mobile, show a simple overview
+
+        const navList = customNav.querySelector('ul');
+
+        navList.innerHTML = `
+
+          <li>- 🎉 Events → Build Conference 2025</li>
+
+          <li>- 💻 Technologies → ☁️ Azure</li>
+
+          <li>- 🎭 Culture & Travel → Travel Experiences</li>
+
+        `;
+
+      }
+
+      return;
+
+    }
+
+
+
+    console.log('Found section for path:', currentSection); // Debug log
+
+    
+
+    const { sectionName, subsectionName, subsectionData } = currentSection;
+
+    const navList = customNav.querySelector('ul');
+
+    
+
+    if (!navList) {
+
+      console.log('Nav list not found'); // Debug log
+
+      return;
+
+    }
+
+
+
+    // Show the custom nav
+
+    customNav.style.display = 'block';
+
+    customNav.classList.add('has-content');
+
+
+
+    // Clear existing content
+
+    navList.innerHTML = '';
+
+
+
+    // Add section header
+
+    const sectionHeader = document.createElement('li');
+
+    sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
+
+    sectionHeader.style.cssText = 'color: #2780e3; margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px;';
+
+    navList.appendChild(sectionHeader);
+
+
+
+    // Add pages
+
+    subsectionData.pages.forEach((page, index) => {
+
+      const li = document.createElement('li');
+
+      const a = document.createElement('a');
+
+      a.href = page.href.replace('.md', '.html');
+
+      a.textContent = page.text || page.title || 'Untitled';
+
+      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
+
+      
+
+      // Hover effect
+
+      a.addEventListener('mouseenter', () => {
+
+        a.style.color = '#2780e3';
+
+        a.style.textDecoration = 'underline';
+
+      });
+
+      a.addEventListener('mouseleave', () => {
+
+        a.style.color = '#666';
+
+        a.style.textDecoration = 'none';
+
+      });
+
+
+
+      // Highlight current page
+
+      const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
+
+      const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
+
+      if (pageBasePath === currentBasePath || 
+
+          currentPath.includes(page.href.replace('.md', '')) || 
+
+          page.href.includes(currentPath.replace('.html', ''))) {
+
+        a.style.fontWeight = 'bold';
+
+        a.style.color = '#2780e3';
+
+        a.style.backgroundColor = '#ffffff';
+
+        a.style.padding = '4px 8px';
+
+        a.style.borderRadius = '4px';
+
+      }
+
+      
+
+      li.appendChild(a);
+
+      navList.appendChild(li);
+
+    });
 
   }
 
@@ -1549,8 +1674,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let path = window.location.pathname;
 
-    console.log('Raw pathname:', path); // Debug log
-
     
 
     // Handle different URL structures
@@ -1579,31 +1702,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
         path = pageId;
 
-        console.log('Found page ID:', pageId); // Debug log
-
       }
 
     }
 
     
 
-    // Remove URL encoding
+    // Remove leading slash and decode URI components
 
-    path = decodeURIComponent(path);
+    path = path.replace(/^\//, '');
 
-    // Remove leading slash and Learn prefix
+    try {
 
-    path = path.replace(/^\/Learn\//, '').replace(/^\//, '');
+      path = decodeURIComponent(path);
 
-    // Convert .html to .md
+    } catch (e) {
 
-    path = path.replace(/\.html$/, '.md');
+      // If decoding fails, use original path
+
+    }
 
     
 
-    // If still empty, try to extract from document title or URL hash
+    // Try alternative methods for path detection
 
     if (!path || path === '') {
+
+      // Check document title
 
       const title = document.title;
 
@@ -1611,9 +1736,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
 
-      // Try to extract from current URL hash or query params
+      // Check URL hash and search params
 
-      const hash = window.location.hash.replace('#', '');
+      const hash = window.location.hash;
 
       const search = window.location.search;
 
@@ -1621,15 +1746,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
 
-      // Last resort: check if we can extract from the page content
+      // If we still don't have a path, try to extract from URL
 
-      const pageHeader = document.querySelector('h1, .title');
+      const fullPath = window.location.href;
 
-      if (pageHeader && pageHeader.textContent.includes('Quarto')) {
+      const match = fullPath.match(/\/([^?#]+)/);
 
-        path = '20250712 Use QUARTO doc for Github repos doc/README.md';
+      if (match) {
 
-        console.log('Detected Quarto page from header'); // Debug log
+        path = match[1];
 
       }
 
@@ -1715,9 +1840,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
           
 
-          // Check if paths contain each other (for URL encoded vs decoded)
+          // Check if current path contains the page path (without extension)
 
-          if (currentPath.includes(page.href) || page.href.includes(currentPath.replace(/\.md$/, ''))) {
+          const pagePathWithoutExt = page.href.replace('.md', '').replace('.html', '');
+
+          const currentPathWithoutExt = currentPath.replace('.md', '').replace('.html', '');
+
+          
+
+          if (currentPathWithoutExt.includes(pagePathWithoutExt) || 
+
+              pagePathWithoutExt.includes(currentPathWithoutExt)) {
 
             console.log(`Contains match: ${page.href} matches ${currentPath}`); // Debug log
 
@@ -1726,22 +1859,6 @@ document.addEventListener('DOMContentLoaded', function() {
           }
 
           
-
-          // Check URL encoded versions
-
-          if (normalizedCurrentPath.includes(normalizedPagePath.replace(/\.md$/, '')) || 
-
-              normalizedPagePath.includes(normalizedCurrentPath.replace(/\.md$/, ''))) {
-
-            console.log(`URL encoded match: ${page.href} matches ${currentPath}`); // Debug log
-
-            return true;
-
-          }
-
-          
-
-          console.log(`No match: ${page.href} vs ${currentPath}`); // Debug log
 
           return false;
 
@@ -1761,199 +1878,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+    
+
     return null;
-
-  }
-
-
-
-  function renderRightNav() {
-
-    console.log('renderRightNav called'); // Debug log
-
-    const currentPath = getCurrentPagePath();
-
-    const currentSection = findCurrentSection(currentPath);
-
-    
-
-    const customNav = document.querySelector('#custom-right-nav');
-
-    console.log('Custom nav element found:', !!customNav); // Debug log
-
-    
-
-    if (!customNav) {
-
-      console.log('Custom nav element not found'); // Debug log
-
-      return;
-
-    }
-
-    
-
-    // Always show for debugging
-
-    customNav.style.display = 'block';
-
-    
-
-    if (!currentSection) {
-
-      console.log('No section found for current path'); // Debug log
-
-      // Show debug info instead of hiding
-
-      const navList = customNav.querySelector('ul');
-
-      if (navList) {
-
-        navList.innerHTML = `
-
-          <li><strong>Debug Info:</strong></li>
-
-          <li>Path: "${currentPath}"</li>
-
-          <li>No matching section found</li>
-
-          <li><em>Available sections:</em></li>
-
-          <li>- 🛠️ Tools → Development Tools</li>
-
-          <li>- 🛠️ Tools → Quarto Documentation</li>
-
-          <li>- 🎉 Events → Build Conference 2025</li>
-
-          <li>- 💻 Technologies → ☁️ Azure</li>
-
-          <li>- 🎭 Culture & Travel → Travel Experiences</li>
-
-        `;
-
-      }
-
-      return;
-
-    }
-
-
-
-    console.log('Found section for path:', currentSection); // Debug log
-
-    
-
-    const { sectionName, subsectionName, subsectionData } = currentSection;
-
-    const navList = customNav.querySelector('ul');
-
-    
-
-    if (!navList) {
-
-      console.log('Nav list not found'); // Debug log
-
-      return;
-
-    }
-
-
-
-    // Show the custom nav
-
-    customNav.style.display = 'block';
-
-    customNav.classList.add('has-content');
-
-
-
-    // Clear existing content
-
-    navList.innerHTML = '';
-
-
-
-    // Add section header
-
-    const sectionHeader = document.createElement('li');
-
-    sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
-
-    sectionHeader.style.cssText = 'color: #2780e3; margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px;';
-
-    navList.appendChild(sectionHeader);
-
-
-
-    // Add pages
-
-    subsectionData.pages.forEach((page, index) => {
-
-      const li = document.createElement('li');
-
-      const a = document.createElement('a');
-
-      a.href = page.href.replace('.md', '.html');
-
-      a.textContent = page.text || page.title || 'Untitled';
-
-      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
-
-      
-
-      // Hover effect
-
-      a.addEventListener('mouseenter', () => {
-
-        a.style.color = '#2780e3';
-
-        a.style.textDecoration = 'underline';
-
-      });
-
-      a.addEventListener('mouseleave', () => {
-
-        a.style.color = '#666';
-
-        a.style.textDecoration = 'none';
-
-      });
-
-      
-
-      // Highlight current page
-
-      const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
-
-      const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
-
-      if (pageBasePath === currentBasePath || 
-
-          currentPath.includes(page.href.replace('.md', '')) || 
-
-          page.href.includes(currentPath.replace('.html', ''))) {
-
-        a.style.fontWeight = 'bold';
-
-        a.style.color = '#2780e3';
-
-        a.style.backgroundColor = '#ffffff';
-
-        a.style.padding = '4px 8px';
-
-        a.style.borderRadius = '4px';
-
-      }
-
-      
-
-      li.appendChild(a);
-
-      navList.appendChild(li);
-
-    });
-
-  }
 
   }
 
@@ -2091,110 +2018,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 }
 
-
-
-#custom-right-nav li:first-child {
-
-  margin-bottom: 0.5rem;
-
-}
-
-
-
-#custom-right-nav li:first-child strong {
-
-  font-size: 0.875rem;
-
-  color: var(--bs-body-color, #212529);
-
-  font-weight: 600;
-
-}
-
-
-
-/* Desktop layout (> 800px) - Separate columns */
-
-@media (min-width: 801px) {
-
-  #custom-right-nav.desktop-layout {
-
-    margin-top: 2rem;
-
-    position: static;
-
-  }
-
-}
-
-
-
-/* Mobile layout (<= 800px) - Same column, collapsed sidebar */
-
-@media (max-width: 800px) {
-
-  #custom-right-nav.mobile-layout {
-
-    margin-top: 1rem;
-
-    margin-bottom: 1rem;
-
-    padding: 1rem;
-
-    background: #f8f9fa;
-
-    border: 1px solid var(--bs-border-color, #dee2e6);
-
-    border-radius: 0.375rem;
-
-    position: relative;
-
-  }
-
-  
-
-  /* Make TOC and Related Pages stack nicely */
-
-  #custom-right-nav.mobile-layout .toc-title {
-
-    color: var(--bs-body-color, #212529);
-
-    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
-
-    padding-bottom: 0.5rem;
-
-    margin-bottom: 1rem;
-
-  }
-
-}
-
-
-
-/* Hide on very small screens */
-
-@media (max-width: 576px) {
-
-  #custom-right-nav {
-
-    display: none !important;
-
-  }
-
-}
-
-
-
-/* Ensure proper spacing in all layouts */
-
-.margin-sidebar #custom-right-nav,
-
-#quarto-margin-sidebar #custom-right-nav {
-
-  position: static;
-
-}
-
 </style>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2285,6 +2108,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -2634,7 +2508,707 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">Quarto specific markdown features</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quarto.yml Document Structure - Complete Reference Guide</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table of Contents</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Overview</span><span class="co">](#overview)</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Basic Structure</span><span class="co">](#basic-structure)</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Project Configuration</span><span class="co">](#project-configuration)</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Website Configuration</span><span class="co">](#website-configuration)</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Format Configuration</span><span class="co">](#format-configuration)</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Metadata Configuration</span><span class="co">](#metadata-configuration)</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Engine Configuration</span><span class="co">](#engine-configuration)</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Filters and Extensions</span><span class="co">](#filters-and-extensions)</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Environment and Variables</span><span class="co">](#environment-and-variables)</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Advanced Configuration</span><span class="co">](#advanced-configuration)</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Complete Example</span><span class="co">](#complete-example)</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Best Practices</span><span class="co">](#best-practices)</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Troubleshooting</span><span class="co">](#troubleshooting)</span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>The <span class="in">`_quarto.yml`</span> file is the central configuration file for Quarto projects. It defines how your content is processed, rendered, and published. This document provides a comprehensive reference for all configuration options available in the <span class="in">`_quarto.yml`</span> file.</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic Structure</span></span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>The <span class="in">`_quarto.yml`</span> file is written in YAML format and consists of several top-level sections:</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic structure</span></span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a><span class="co">  # Project-level settings</span></span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a><span class="co">  # Website-specific settings (for website projects)</span></span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a><span class="fu">book</span><span class="kw">:</span></span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a><span class="co">  # Book-specific settings (for book projects)</span></span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a><span class="co">  # Output format specifications</span></span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a><span class="co">  # Document metadata</span></span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a><span class="fu">engine</span><span class="kw">:</span></span>
+<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a><span class="co">  # Computational engine settings</span></span>
+<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
+<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a><span class="co">  # Pandoc filters</span></span>
+<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-50"><a href="#cb35-50" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb35-51"><a href="#cb35-51" aria-hidden="true" tabindex="-1"></a><span class="co">  # Code execution settings</span></span>
+<span id="cb35-52"><a href="#cb35-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-53"><a href="#cb35-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-54"><a href="#cb35-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project Configuration</span></span>
+<span id="cb35-55"><a href="#cb35-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-56"><a href="#cb35-56" aria-hidden="true" tabindex="-1"></a>The <span class="in">`project`</span> section defines fundamental project settings.</span>
+<span id="cb35-57"><a href="#cb35-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-58"><a href="#cb35-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### project.type</span></span>
+<span id="cb35-59"><a href="#cb35-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-60"><a href="#cb35-60" aria-hidden="true" tabindex="-1"></a>**Goal**: Specifies the type of Quarto project</span>
+<span id="cb35-61"><a href="#cb35-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-62"><a href="#cb35-62" aria-hidden="true" tabindex="-1"></a>**Options**:</span>
+<span id="cb35-63"><a href="#cb35-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-64"><a href="#cb35-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`website`</span> - Multi-page website</span>
+<span id="cb35-65"><a href="#cb35-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`book`</span> - Book with chapters</span>
+<span id="cb35-66"><a href="#cb35-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`manuscript`</span> - Academic manuscript</span>
+<span id="cb35-67"><a href="#cb35-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`default`</span> - Single document or collection</span>
+<span id="cb35-68"><a href="#cb35-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-69"><a href="#cb35-69" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-70"><a href="#cb35-70" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb35-71"><a href="#cb35-71" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb35-72"><a href="#cb35-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-73"><a href="#cb35-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-74"><a href="#cb35-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### project.output-dir</span></span>
+<span id="cb35-75"><a href="#cb35-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-76"><a href="#cb35-76" aria-hidden="true" tabindex="-1"></a>**Goal**: Defines where rendered output files are placed</span>
+<span id="cb35-77"><a href="#cb35-77" aria-hidden="true" tabindex="-1"></a>**Options**: Any valid directory path (relative or absolute)</span>
+<span id="cb35-78"><a href="#cb35-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-79"><a href="#cb35-79" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-80"><a href="#cb35-80" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb35-81"><a href="#cb35-81" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span><span class="co">        # For GitHub Pages</span></span>
+<span id="cb35-82"><a href="#cb35-82" aria-hidden="true" tabindex="-1"></a><span class="co">  # output-dir: _site     # Alternative</span></span>
+<span id="cb35-83"><a href="#cb35-83" aria-hidden="true" tabindex="-1"></a><span class="co">  # output-dir: public    # Alternative</span></span>
+<span id="cb35-84"><a href="#cb35-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-85"><a href="#cb35-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-86"><a href="#cb35-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### project.lib-dir</span></span>
+<span id="cb35-87"><a href="#cb35-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-88"><a href="#cb35-88" aria-hidden="true" tabindex="-1"></a>**Goal**: Specifies location for project libraries and dependencies</span>
+<span id="cb35-89"><a href="#cb35-89" aria-hidden="true" tabindex="-1"></a>**Options**: Directory path for storing project assets</span>
+<span id="cb35-90"><a href="#cb35-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-91"><a href="#cb35-91" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-92"><a href="#cb35-92" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb35-93"><a href="#cb35-93" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">lib-dir</span><span class="kw">:</span><span class="at"> libs</span></span>
+<span id="cb35-94"><a href="#cb35-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-95"><a href="#cb35-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-96"><a href="#cb35-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### project.preview</span></span>
+<span id="cb35-97"><a href="#cb35-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-98"><a href="#cb35-98" aria-hidden="true" tabindex="-1"></a>**Goal**: Configuration for preview server</span>
+<span id="cb35-99"><a href="#cb35-99" aria-hidden="true" tabindex="-1"></a>**Options**:</span>
+<span id="cb35-100"><a href="#cb35-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-101"><a href="#cb35-101" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-102"><a href="#cb35-102" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb35-103"><a href="#cb35-103" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">preview</span><span class="kw">:</span></span>
+<span id="cb35-104"><a href="#cb35-104" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">4200</span></span>
+<span id="cb35-105"><a href="#cb35-105" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">browser</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-106"><a href="#cb35-106" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">watch-inputs</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-107"><a href="#cb35-107" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">navigate</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-108"><a href="#cb35-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-109"><a href="#cb35-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-110"><a href="#cb35-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### project.render</span></span>
+<span id="cb35-111"><a href="#cb35-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-112"><a href="#cb35-112" aria-hidden="true" tabindex="-1"></a>**Goal**: Controls which files are rendered</span>
+<span id="cb35-113"><a href="#cb35-113" aria-hidden="true" tabindex="-1"></a>**Options**:</span>
+<span id="cb35-114"><a href="#cb35-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-115"><a href="#cb35-115" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-116"><a href="#cb35-116" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb35-117"><a href="#cb35-117" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">render</span><span class="kw">:</span></span>
+<span id="cb35-118"><a href="#cb35-118" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.qmd"</span></span>
+<span id="cb35-119"><a href="#cb35-119" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.md"</span></span>
+<span id="cb35-120"><a href="#cb35-120" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"!draft-*.qmd"</span><span class="co">  # Exclude drafts</span></span>
+<span id="cb35-121"><a href="#cb35-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-122"><a href="#cb35-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-123"><a href="#cb35-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## Website Configuration</span></span>
+<span id="cb35-124"><a href="#cb35-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-125"><a href="#cb35-125" aria-hidden="true" tabindex="-1"></a>The <span class="in">`website`</span> section is used when <span class="in">`project.type: website`</span>.</span>
+<span id="cb35-126"><a href="#cb35-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-127"><a href="#cb35-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.title</span></span>
+<span id="cb35-128"><a href="#cb35-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-129"><a href="#cb35-129" aria-hidden="true" tabindex="-1"></a>**Goal**: Sets the main title of the website</span>
+<span id="cb35-130"><a href="#cb35-130" aria-hidden="true" tabindex="-1"></a>**Options**: Any string value</span>
+<span id="cb35-131"><a href="#cb35-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-132"><a href="#cb35-132" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-133"><a href="#cb35-133" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-134"><a href="#cb35-134" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Documentation Site"</span></span>
+<span id="cb35-135"><a href="#cb35-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-136"><a href="#cb35-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-137"><a href="#cb35-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.description</span></span>
+<span id="cb35-138"><a href="#cb35-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-139"><a href="#cb35-139" aria-hidden="true" tabindex="-1"></a>**Goal**: Provides a description for SEO and metadata</span>
+<span id="cb35-140"><a href="#cb35-140" aria-hidden="true" tabindex="-1"></a>**Options**: String describing the website content</span>
+<span id="cb35-141"><a href="#cb35-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-142"><a href="#cb35-142" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-143"><a href="#cb35-143" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-144"><a href="#cb35-144" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Comprehensive documentation for my project"</span></span>
+<span id="cb35-145"><a href="#cb35-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-146"><a href="#cb35-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-147"><a href="#cb35-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.site-url</span></span>
+<span id="cb35-148"><a href="#cb35-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-149"><a href="#cb35-149" aria-hidden="true" tabindex="-1"></a>**Goal**: Specifies the canonical URL for the website</span>
+<span id="cb35-150"><a href="#cb35-150" aria-hidden="true" tabindex="-1"></a>**Options**: Full URL where the site will be hosted</span>
+<span id="cb35-151"><a href="#cb35-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-152"><a href="#cb35-152" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-153"><a href="#cb35-153" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-154"><a href="#cb35-154" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://username.github.io/repository"</span></span>
+<span id="cb35-155"><a href="#cb35-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-156"><a href="#cb35-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-157"><a href="#cb35-157" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.repo-url</span></span>
+<span id="cb35-158"><a href="#cb35-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-159"><a href="#cb35-159" aria-hidden="true" tabindex="-1"></a>**Goal**: Links to the source repository</span>
+<span id="cb35-160"><a href="#cb35-160" aria-hidden="true" tabindex="-1"></a>**Options**: URL to the source code repository</span>
+<span id="cb35-161"><a href="#cb35-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-162"><a href="#cb35-162" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-163"><a href="#cb35-163" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-164"><a href="#cb35-164" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">repo-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/username/repository"</span></span>
+<span id="cb35-165"><a href="#cb35-165" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">repo-actions</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">edit</span><span class="kw">,</span><span class="at"> issue</span><span class="kw">]</span></span>
+<span id="cb35-166"><a href="#cb35-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-167"><a href="#cb35-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-168"><a href="#cb35-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.navbar</span></span>
+<span id="cb35-169"><a href="#cb35-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-170"><a href="#cb35-170" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures the navigation bar</span>
+<span id="cb35-171"><a href="#cb35-171" aria-hidden="true" tabindex="-1"></a>**Options**: Complex structure for navigation elements</span>
+<span id="cb35-172"><a href="#cb35-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-173"><a href="#cb35-173" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-174"><a href="#cb35-174" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-175"><a href="#cb35-175" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb35-176"><a href="#cb35-176" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background</span><span class="kw">:</span><span class="at"> primary</span></span>
+<span id="cb35-177"><a href="#cb35-177" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-178"><a href="#cb35-178" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logo</span><span class="kw">:</span><span class="at"> </span><span class="st">"images/logo.png"</span></span>
+<span id="cb35-179"><a href="#cb35-179" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Site Title"</span></span>
+<span id="cb35-180"><a href="#cb35-180" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb35-181"><a href="#cb35-181" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb35-182"><a href="#cb35-182" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb35-183"><a href="#cb35-183" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> about.qmd</span></span>
+<span id="cb35-184"><a href="#cb35-184" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> About</span></span>
+<span id="cb35-185"><a href="#cb35-185" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Documentation"</span></span>
+<span id="cb35-186"><a href="#cb35-186" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb35-187"><a href="#cb35-187" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> guide.qmd</span></span>
+<span id="cb35-188"><a href="#cb35-188" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> User Guide</span></span>
+<span id="cb35-189"><a href="#cb35-189" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> reference.qmd</span></span>
+<span id="cb35-190"><a href="#cb35-190" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Reference</span></span>
+<span id="cb35-191"><a href="#cb35-191" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb35-192"><a href="#cb35-192" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> github</span></span>
+<span id="cb35-193"><a href="#cb35-193" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/username/repo"</span></span>
+<span id="cb35-194"><a href="#cb35-194" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb35-195"><a href="#cb35-195" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> github</span></span>
+<span id="cb35-196"><a href="#cb35-196" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb35-197"><a href="#cb35-197" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Source Code</span></span>
+<span id="cb35-198"><a href="#cb35-198" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/username/repo"</span></span>
+<span id="cb35-199"><a href="#cb35-199" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Report a Bug</span></span>
+<span id="cb35-200"><a href="#cb35-200" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/username/repo/issues"</span></span>
+<span id="cb35-201"><a href="#cb35-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-202"><a href="#cb35-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-203"><a href="#cb35-203" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.sidebar</span></span>
+<span id="cb35-204"><a href="#cb35-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-205"><a href="#cb35-205" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures sidebar navigation</span>
+<span id="cb35-206"><a href="#cb35-206" aria-hidden="true" tabindex="-1"></a>**Options**: Structure for hierarchical navigation</span>
+<span id="cb35-207"><a href="#cb35-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-208"><a href="#cb35-208" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-209"><a href="#cb35-209" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-210"><a href="#cb35-210" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span></span>
+<span id="cb35-211"><a href="#cb35-211" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">style</span><span class="kw">:</span><span class="at"> </span><span class="st">"docked"</span><span class="co">        # Options: docked, floating</span></span>
+<span id="cb35-212"><a href="#cb35-212" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-213"><a href="#cb35-213" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">collapse-level</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb35-214"><a href="#cb35-214" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">contents</span><span class="kw">:</span></span>
+<span id="cb35-215"><a href="#cb35-215" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb35-216"><a href="#cb35-216" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb35-217"><a href="#cb35-217" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">section</span><span class="kw">:</span><span class="at"> </span><span class="st">"Getting Started"</span></span>
+<span id="cb35-218"><a href="#cb35-218" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">contents</span><span class="kw">:</span></span>
+<span id="cb35-219"><a href="#cb35-219" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> installation.qmd</span></span>
+<span id="cb35-220"><a href="#cb35-220" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Installation</span></span>
+<span id="cb35-221"><a href="#cb35-221" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> quickstart.qmd</span></span>
+<span id="cb35-222"><a href="#cb35-222" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Quick Start</span></span>
+<span id="cb35-223"><a href="#cb35-223" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">section</span><span class="kw">:</span><span class="at"> </span><span class="st">"Advanced Topics"</span></span>
+<span id="cb35-224"><a href="#cb35-224" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">contents</span><span class="kw">:</span></span>
+<span id="cb35-225"><a href="#cb35-225" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> configuration.qmd</span></span>
+<span id="cb35-226"><a href="#cb35-226" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> deployment.qmd</span></span>
+<span id="cb35-227"><a href="#cb35-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-228"><a href="#cb35-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-229"><a href="#cb35-229" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.page-navigation</span></span>
+<span id="cb35-230"><a href="#cb35-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-231"><a href="#cb35-231" aria-hidden="true" tabindex="-1"></a>**Goal**: Controls page-level navigation</span>
+<span id="cb35-232"><a href="#cb35-232" aria-hidden="true" tabindex="-1"></a>**Options**: Boolean or detailed configuration</span>
+<span id="cb35-233"><a href="#cb35-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-234"><a href="#cb35-234" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-235"><a href="#cb35-235" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-236"><a href="#cb35-236" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">page-navigation</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-237"><a href="#cb35-237" aria-hidden="true" tabindex="-1"></a><span class="co">  # Or detailed configuration:</span></span>
+<span id="cb35-238"><a href="#cb35-238" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">page-navigation</span><span class="kw">:</span></span>
+<span id="cb35-239"><a href="#cb35-239" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">location</span><span class="kw">:</span><span class="at"> bottom</span></span>
+<span id="cb35-240"><a href="#cb35-240" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">align</span><span class="kw">:</span><span class="at"> center</span></span>
+<span id="cb35-241"><a href="#cb35-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-242"><a href="#cb35-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-243"><a href="#cb35-243" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.footer</span></span>
+<span id="cb35-244"><a href="#cb35-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-245"><a href="#cb35-245" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures the website footer</span>
+<span id="cb35-246"><a href="#cb35-246" aria-hidden="true" tabindex="-1"></a>**Options**: Text, links, and layout options</span>
+<span id="cb35-247"><a href="#cb35-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-248"><a href="#cb35-248" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-249"><a href="#cb35-249" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-250"><a href="#cb35-250" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">footer</span><span class="kw">:</span></span>
+<span id="cb35-251"><a href="#cb35-251" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span><span class="at"> </span><span class="st">"Copyright 2025, My Organization"</span></span>
+<span id="cb35-252"><a href="#cb35-252" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb35-253"><a href="#cb35-253" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> privacy.qmd</span></span>
+<span id="cb35-254"><a href="#cb35-254" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Privacy Policy</span></span>
+<span id="cb35-255"><a href="#cb35-255" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> terms.qmd</span></span>
+<span id="cb35-256"><a href="#cb35-256" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Terms of Use</span></span>
+<span id="cb35-257"><a href="#cb35-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-258"><a href="#cb35-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-259"><a href="#cb35-259" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.cookie-consent</span></span>
+<span id="cb35-260"><a href="#cb35-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-261"><a href="#cb35-261" aria-hidden="true" tabindex="-1"></a>**Goal**: Adds GDPR-compliant cookie consent</span>
+<span id="cb35-262"><a href="#cb35-262" aria-hidden="true" tabindex="-1"></a>**Options**: Configuration for cookie consent banner</span>
+<span id="cb35-263"><a href="#cb35-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-264"><a href="#cb35-264" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-265"><a href="#cb35-265" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-266"><a href="#cb35-266" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cookie-consent</span><span class="kw">:</span></span>
+<span id="cb35-267"><a href="#cb35-267" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> express</span></span>
+<span id="cb35-268"><a href="#cb35-268" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">style</span><span class="kw">:</span><span class="at"> headline</span></span>
+<span id="cb35-269"><a href="#cb35-269" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">palette</span><span class="kw">:</span><span class="at"> dark</span></span>
+<span id="cb35-270"><a href="#cb35-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-271"><a href="#cb35-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-272"><a href="#cb35-272" aria-hidden="true" tabindex="-1"></a><span class="fu">### website.google-analytics</span></span>
+<span id="cb35-273"><a href="#cb35-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-274"><a href="#cb35-274" aria-hidden="true" tabindex="-1"></a>**Goal**: Integrates Google Analytics tracking</span>
+<span id="cb35-275"><a href="#cb35-275" aria-hidden="true" tabindex="-1"></a>**Options**: Google Analytics tracking ID</span>
+<span id="cb35-276"><a href="#cb35-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-277"><a href="#cb35-277" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-278"><a href="#cb35-278" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-279"><a href="#cb35-279" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">google-analytics</span><span class="kw">:</span><span class="at"> </span><span class="st">"G-XXXXXXXXXX"</span></span>
+<span id="cb35-280"><a href="#cb35-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-281"><a href="#cb35-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-282"><a href="#cb35-282" aria-hidden="true" tabindex="-1"></a><span class="fu">## Format Configuration</span></span>
+<span id="cb35-283"><a href="#cb35-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-284"><a href="#cb35-284" aria-hidden="true" tabindex="-1"></a>The <span class="in">`format`</span> section defines output formats and their settings.</span>
+<span id="cb35-285"><a href="#cb35-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-286"><a href="#cb35-286" aria-hidden="true" tabindex="-1"></a><span class="fu">### HTML Format</span></span>
+<span id="cb35-287"><a href="#cb35-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-288"><a href="#cb35-288" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures HTML output</span>
+<span id="cb35-289"><a href="#cb35-289" aria-hidden="true" tabindex="-1"></a>**Options**: Extensive customization for web output</span>
+<span id="cb35-290"><a href="#cb35-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-291"><a href="#cb35-291" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-292"><a href="#cb35-292" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb35-293"><a href="#cb35-293" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb35-294"><a href="#cb35-294" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span><span class="co">                    # Built-in themes</span></span>
+<span id="cb35-295"><a href="#cb35-295" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span><span class="co">                 # Custom CSS</span></span>
+<span id="cb35-296"><a href="#cb35-296" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                       # Table of contents</span></span>
+<span id="cb35-297"><a href="#cb35-297" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span><span class="co">                    # TOC depth</span></span>
+<span id="cb35-298"><a href="#cb35-298" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-location</span><span class="kw">:</span><span class="at"> left</span><span class="co">              # left, right, body</span></span>
+<span id="cb35-299"><a href="#cb35-299" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # Number headings</span></span>
+<span id="cb35-300"><a href="#cb35-300" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span><span class="co">                 # Numbering depth</span></span>
+<span id="cb35-301"><a href="#cb35-301" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">highlight-style</span><span class="kw">:</span><span class="at"> github</span><span class="co">         # Code highlighting</span></span>
+<span id="cb35-302"><a href="#cb35-302" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                 # Collapsible code</span></span>
+<span id="cb35-303"><a href="#cb35-303" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-tools</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                # Code viewing tools</span></span>
+<span id="cb35-304"><a href="#cb35-304" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">smooth-scroll</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">             # Smooth scrolling</span></span>
+<span id="cb35-305"><a href="#cb35-305" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">anchor-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # Anchor links</span></span>
+<span id="cb35-306"><a href="#cb35-306" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">citations-hover</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # Citation previews</span></span>
+<span id="cb35-307"><a href="#cb35-307" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">footnotes-hover</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # Footnote previews</span></span>
+<span id="cb35-308"><a href="#cb35-308" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-width</span><span class="kw">:</span><span class="at"> </span><span class="dv">8</span><span class="co">                    # Figure width</span></span>
+<span id="cb35-309"><a href="#cb35-309" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-height</span><span class="kw">:</span><span class="at"> </span><span class="dv">6</span><span class="co">                   # Figure height</span></span>
+<span id="cb35-310"><a href="#cb35-310" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-cap-location</span><span class="kw">:</span><span class="at"> bottom</span><span class="co">        # Caption location</span></span>
+<span id="cb35-311"><a href="#cb35-311" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tbl-cap-location</span><span class="kw">:</span><span class="at"> top</span><span class="co">           # Table caption location</span></span>
+<span id="cb35-312"><a href="#cb35-312" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">callout-appearance</span><span class="kw">:</span><span class="at"> default</span><span class="co">     # Callout styling</span></span>
+<span id="cb35-313"><a href="#cb35-313" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">page-layout</span><span class="kw">:</span><span class="at"> article</span><span class="co">            # Page layout</span></span>
+<span id="cb35-314"><a href="#cb35-314" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">grid</span><span class="kw">:</span></span>
+<span id="cb35-315"><a href="#cb35-315" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">sidebar-width</span><span class="kw">:</span><span class="at"> 250px</span><span class="co">          # Sidebar width</span></span>
+<span id="cb35-316"><a href="#cb35-316" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">body-width</span><span class="kw">:</span><span class="at"> 900px</span><span class="co">             # Body width</span></span>
+<span id="cb35-317"><a href="#cb35-317" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">margin-width</span><span class="kw">:</span><span class="at"> 250px</span><span class="co">           # Margin width</span></span>
+<span id="cb35-318"><a href="#cb35-318" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">mainfont</span><span class="kw">:</span><span class="at"> </span><span class="st">"Source Sans Pro"</span><span class="co">     # Main font</span></span>
+<span id="cb35-319"><a href="#cb35-319" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monofont</span><span class="kw">:</span><span class="at"> </span><span class="st">"Source Code Pro"</span><span class="co">     # Code font</span></span>
+<span id="cb35-320"><a href="#cb35-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-321"><a href="#cb35-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-322"><a href="#cb35-322" aria-hidden="true" tabindex="-1"></a><span class="fu">### PDF Format</span></span>
+<span id="cb35-323"><a href="#cb35-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-324"><a href="#cb35-324" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures PDF output</span>
+<span id="cb35-325"><a href="#cb35-325" aria-hidden="true" tabindex="-1"></a>**Options**: LaTeX-based PDF generation settings</span>
+<span id="cb35-326"><a href="#cb35-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-327"><a href="#cb35-327" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-328"><a href="#cb35-328" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb35-329"><a href="#cb35-329" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb35-330"><a href="#cb35-330" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> article</span><span class="co">          # LaTeX document class</span></span>
+<span id="cb35-331"><a href="#cb35-331" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">geometry</span><span class="kw">:</span></span>
+<span id="cb35-332"><a href="#cb35-332" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span>top=30mm</span>
+<span id="cb35-333"><a href="#cb35-333" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span>left=20mm</span>
+<span id="cb35-334"><a href="#cb35-334" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span>heightrounded</span>
+<span id="cb35-335"><a href="#cb35-335" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fontfamily</span><span class="kw">:</span><span class="at"> libertinus</span><span class="co">          # Font family</span></span>
+<span id="cb35-336"><a href="#cb35-336" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 11pt</span><span class="co">                  # Font size</span></span>
+<span id="cb35-337"><a href="#cb35-337" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">linestretch</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.25</span><span class="co">               # Line spacing</span></span>
+<span id="cb35-338"><a href="#cb35-338" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # Number sections</span></span>
+<span id="cb35-339"><a href="#cb35-339" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">colorlinks</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                # Colored links</span></span>
+<span id="cb35-340"><a href="#cb35-340" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">lot</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                       # List of tables</span></span>
+<span id="cb35-341"><a href="#cb35-341" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">lof</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                       # List of figures</span></span>
+<span id="cb35-342"><a href="#cb35-342" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                       # Table of contents</span></span>
+<span id="cb35-343"><a href="#cb35-343" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span><span class="co">                    # TOC depth</span></span>
+<span id="cb35-344"><a href="#cb35-344" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span><span class="co">    # Bibliography file</span></span>
+<span id="cb35-345"><a href="#cb35-345" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">csl</span><span class="kw">:</span><span class="at"> apa.csl</span><span class="co">                    # Citation style</span></span>
+<span id="cb35-346"><a href="#cb35-346" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-347"><a href="#cb35-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-348"><a href="#cb35-348" aria-hidden="true" tabindex="-1"></a><span class="fu">### Word Format</span></span>
+<span id="cb35-349"><a href="#cb35-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-350"><a href="#cb35-350" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures Microsoft Word output</span>
+<span id="cb35-351"><a href="#cb35-351" aria-hidden="true" tabindex="-1"></a>**Options**: Word document generation settings</span>
+<span id="cb35-352"><a href="#cb35-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-353"><a href="#cb35-353" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-354"><a href="#cb35-354" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb35-355"><a href="#cb35-355" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb35-356"><a href="#cb35-356" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> template.docx</span><span class="co">    # Word template</span></span>
+<span id="cb35-357"><a href="#cb35-357" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # Number sections</span></span>
+<span id="cb35-358"><a href="#cb35-358" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">highlight-style</span><span class="kw">:</span><span class="at"> github</span><span class="co">         # Code highlighting</span></span>
+<span id="cb35-359"><a href="#cb35-359" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-width</span><span class="kw">:</span><span class="at"> </span><span class="dv">7</span><span class="co">                    # Figure width</span></span>
+<span id="cb35-360"><a href="#cb35-360" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-height</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span><span class="co">                   # Figure height</span></span>
+<span id="cb35-361"><a href="#cb35-361" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                       # Table of contents</span></span>
+<span id="cb35-362"><a href="#cb35-362" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span><span class="co">                    # TOC depth</span></span>
+<span id="cb35-363"><a href="#cb35-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-364"><a href="#cb35-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-365"><a href="#cb35-365" aria-hidden="true" tabindex="-1"></a><span class="fu">## Metadata Configuration</span></span>
+<span id="cb35-366"><a href="#cb35-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-367"><a href="#cb35-367" aria-hidden="true" tabindex="-1"></a>The <span class="in">`metadata`</span> section defines document-wide metadata.</span>
+<span id="cb35-368"><a href="#cb35-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-369"><a href="#cb35-369" aria-hidden="true" tabindex="-1"></a><span class="fu">### Basic Metadata</span></span>
+<span id="cb35-370"><a href="#cb35-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-371"><a href="#cb35-371" aria-hidden="true" tabindex="-1"></a>**Goal**: Sets fundamental document information</span>
+<span id="cb35-372"><a href="#cb35-372" aria-hidden="true" tabindex="-1"></a>**Options**: Standard metadata fields</span>
+<span id="cb35-373"><a href="#cb35-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-374"><a href="#cb35-374" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-375"><a href="#cb35-375" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb35-376"><a href="#cb35-376" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Document Title"</span></span>
+<span id="cb35-377"><a href="#cb35-377" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"Document Subtitle"</span></span>
+<span id="cb35-378"><a href="#cb35-378" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb35-379"><a href="#cb35-379" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"John Doe"</span></span>
+<span id="cb35-380"><a href="#cb35-380" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">email</span><span class="kw">:</span><span class="at"> </span><span class="st">"john@example.com"</span></span>
+<span id="cb35-381"><a href="#cb35-381" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">affiliation</span><span class="kw">:</span><span class="at"> </span><span class="st">"University Name"</span></span>
+<span id="cb35-382"><a href="#cb35-382" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jane Smith"</span></span>
+<span id="cb35-383"><a href="#cb35-383" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">email</span><span class="kw">:</span><span class="at"> </span><span class="st">"jane@example.com"</span></span>
+<span id="cb35-384"><a href="#cb35-384" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025-01-14"</span></span>
+<span id="cb35-385"><a href="#cb35-385" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">abstract</span><span class="kw">:</span><span class="at"> </span><span class="st">"This document provides..."</span></span>
+<span id="cb35-386"><a href="#cb35-386" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">keywords</span><span class="kw">:</span></span>
+<span id="cb35-387"><a href="#cb35-387" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span>documentation</span>
+<span id="cb35-388"><a href="#cb35-388" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span>quarto</span>
+<span id="cb35-389"><a href="#cb35-389" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span>publishing</span>
+<span id="cb35-390"><a href="#cb35-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-391"><a href="#cb35-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-392"><a href="#cb35-392" aria-hidden="true" tabindex="-1"></a><span class="fu">### Academic Metadata</span></span>
+<span id="cb35-393"><a href="#cb35-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-394"><a href="#cb35-394" aria-hidden="true" tabindex="-1"></a>**Goal**: Provides academic publication information</span>
+<span id="cb35-395"><a href="#cb35-395" aria-hidden="true" tabindex="-1"></a>**Options**: Scholarly metadata fields</span>
+<span id="cb35-396"><a href="#cb35-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-397"><a href="#cb35-397" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-398"><a href="#cb35-398" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb35-399"><a href="#cb35-399" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">doi</span><span class="kw">:</span><span class="at"> </span><span class="st">"10.1000/xyz123"</span></span>
+<span id="cb35-400"><a href="#cb35-400" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">arxiv</span><span class="kw">:</span><span class="at"> </span><span class="st">"2301.12345"</span></span>
+<span id="cb35-401"><a href="#cb35-401" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pmid</span><span class="kw">:</span><span class="at"> </span><span class="st">"12345678"</span></span>
+<span id="cb35-402"><a href="#cb35-402" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">citation</span><span class="kw">:</span></span>
+<span id="cb35-403"><a href="#cb35-403" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> article-journal</span></span>
+<span id="cb35-404"><a href="#cb35-404" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">container-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Journal Name"</span></span>
+<span id="cb35-405"><a href="#cb35-405" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volume</span><span class="kw">:</span><span class="at"> </span><span class="dv">42</span></span>
+<span id="cb35-406"><a href="#cb35-406" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">issue</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb35-407"><a href="#cb35-407" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">page</span><span class="kw">:</span><span class="at"> </span><span class="st">"123-145"</span></span>
+<span id="cb35-408"><a href="#cb35-408" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">issn</span><span class="kw">:</span><span class="at"> </span><span class="st">"1234-5678"</span></span>
+<span id="cb35-409"><a href="#cb35-409" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-410"><a href="#cb35-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-411"><a href="#cb35-411" aria-hidden="true" tabindex="-1"></a><span class="fu">### Custom Metadata</span></span>
+<span id="cb35-412"><a href="#cb35-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-413"><a href="#cb35-413" aria-hidden="true" tabindex="-1"></a>**Goal**: Allows custom metadata fields</span>
+<span id="cb35-414"><a href="#cb35-414" aria-hidden="true" tabindex="-1"></a>**Options**: Any key-value pairs</span>
+<span id="cb35-415"><a href="#cb35-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-416"><a href="#cb35-416" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-417"><a href="#cb35-417" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb35-418"><a href="#cb35-418" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">custom-field</span><span class="kw">:</span><span class="at"> </span><span class="st">"custom value"</span></span>
+<span id="cb35-419"><a href="#cb35-419" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">project-version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.0.0"</span></span>
+<span id="cb35-420"><a href="#cb35-420" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build-date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025-01-14"</span></span>
+<span id="cb35-421"><a href="#cb35-421" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-422"><a href="#cb35-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-423"><a href="#cb35-423" aria-hidden="true" tabindex="-1"></a><span class="fu">## Engine Configuration</span></span>
+<span id="cb35-424"><a href="#cb35-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-425"><a href="#cb35-425" aria-hidden="true" tabindex="-1"></a>The <span class="in">`engine`</span> section configures computational engines.</span>
+<span id="cb35-426"><a href="#cb35-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-427"><a href="#cb35-427" aria-hidden="true" tabindex="-1"></a><span class="fu">### Jupyter Engine</span></span>
+<span id="cb35-428"><a href="#cb35-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-429"><a href="#cb35-429" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures Jupyter notebook execution</span>
+<span id="cb35-430"><a href="#cb35-430" aria-hidden="true" tabindex="-1"></a>**Options**: Jupyter-specific settings</span>
+<span id="cb35-431"><a href="#cb35-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-432"><a href="#cb35-432" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-433"><a href="#cb35-433" aria-hidden="true" tabindex="-1"></a><span class="fu">engine</span><span class="kw">:</span></span>
+<span id="cb35-434"><a href="#cb35-434" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">jupyter</span><span class="kw">:</span></span>
+<span id="cb35-435"><a href="#cb35-435" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">kernel</span><span class="kw">:</span><span class="at"> python3</span></span>
+<span id="cb35-436"><a href="#cb35-436" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb35-437"><a href="#cb35-437" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">timeout</span><span class="kw">:</span><span class="at"> </span><span class="dv">300</span></span>
+<span id="cb35-438"><a href="#cb35-438" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow_errors</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb35-439"><a href="#cb35-439" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">error_on_missing_exec</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-440"><a href="#cb35-440" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-441"><a href="#cb35-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-442"><a href="#cb35-442" aria-hidden="true" tabindex="-1"></a><span class="fu">### Knitr Engine</span></span>
+<span id="cb35-443"><a href="#cb35-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-444"><a href="#cb35-444" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures R/Knitr execution</span>
+<span id="cb35-445"><a href="#cb35-445" aria-hidden="true" tabindex="-1"></a>**Options**: R-specific settings</span>
+<span id="cb35-446"><a href="#cb35-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-447"><a href="#cb35-447" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-448"><a href="#cb35-448" aria-hidden="true" tabindex="-1"></a><span class="fu">engine</span><span class="kw">:</span></span>
+<span id="cb35-449"><a href="#cb35-449" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">knitr</span><span class="kw">:</span></span>
+<span id="cb35-450"><a href="#cb35-450" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">opts_chunk</span><span class="kw">:</span></span>
+<span id="cb35-451"><a href="#cb35-451" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-452"><a href="#cb35-452" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb35-453"><a href="#cb35-453" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb35-454"><a href="#cb35-454" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">fig.width</span><span class="kw">:</span><span class="at"> </span><span class="dv">8</span></span>
+<span id="cb35-455"><a href="#cb35-455" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">fig.height</span><span class="kw">:</span><span class="at"> </span><span class="dv">6</span></span>
+<span id="cb35-456"><a href="#cb35-456" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-457"><a href="#cb35-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-458"><a href="#cb35-458" aria-hidden="true" tabindex="-1"></a><span class="fu">## Filters and Extensions</span></span>
+<span id="cb35-459"><a href="#cb35-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-460"><a href="#cb35-460" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pandoc Filters</span></span>
+<span id="cb35-461"><a href="#cb35-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-462"><a href="#cb35-462" aria-hidden="true" tabindex="-1"></a>**Goal**: Applies document transformations</span>
+<span id="cb35-463"><a href="#cb35-463" aria-hidden="true" tabindex="-1"></a>**Options**: List of filter names or configurations</span>
+<span id="cb35-464"><a href="#cb35-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-465"><a href="#cb35-465" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-466"><a href="#cb35-466" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
+<span id="cb35-467"><a href="#cb35-467" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span>lightbox<span class="co">                        # Built-in filter</span></span>
+<span id="cb35-468"><a href="#cb35-468" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span>custom-filter.py<span class="co">               # Custom filter</span></span>
+<span id="cb35-469"><a href="#cb35-469" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> tables</span></span>
+<span id="cb35-470"><a href="#cb35-470" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb35-471"><a href="#cb35-471" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">style</span><span class="kw">:</span><span class="at"> grid</span></span>
+<span id="cb35-472"><a href="#cb35-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-473"><a href="#cb35-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-474"><a href="#cb35-474" aria-hidden="true" tabindex="-1"></a><span class="fu">### Extensions</span></span>
+<span id="cb35-475"><a href="#cb35-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-476"><a href="#cb35-476" aria-hidden="true" tabindex="-1"></a>**Goal**: Adds functionality through extensions</span>
+<span id="cb35-477"><a href="#cb35-477" aria-hidden="true" tabindex="-1"></a>**Options**: Extension names and configurations</span>
+<span id="cb35-478"><a href="#cb35-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-479"><a href="#cb35-479" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-480"><a href="#cb35-480" aria-hidden="true" tabindex="-1"></a><span class="fu">extensions</span><span class="kw">:</span></span>
+<span id="cb35-481"><a href="#cb35-481" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span>quarto-ext/fontawesome</span>
+<span id="cb35-482"><a href="#cb35-482" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span>quarto-ext/lightbox</span>
+<span id="cb35-483"><a href="#cb35-483" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-484"><a href="#cb35-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-485"><a href="#cb35-485" aria-hidden="true" tabindex="-1"></a><span class="fu">## Environment and Variables</span></span>
+<span id="cb35-486"><a href="#cb35-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-487"><a href="#cb35-487" aria-hidden="true" tabindex="-1"></a><span class="fu">### Environment Variables</span></span>
+<span id="cb35-488"><a href="#cb35-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-489"><a href="#cb35-489" aria-hidden="true" tabindex="-1"></a>**Goal**: Sets environment variables for rendering</span>
+<span id="cb35-490"><a href="#cb35-490" aria-hidden="true" tabindex="-1"></a>**Options**: Key-value pairs</span>
+<span id="cb35-491"><a href="#cb35-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-492"><a href="#cb35-492" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-493"><a href="#cb35-493" aria-hidden="true" tabindex="-1"></a><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb35-494"><a href="#cb35-494" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">QUARTO_PYTHON</span><span class="kw">:</span><span class="at"> </span><span class="st">"/usr/bin/python3"</span></span>
+<span id="cb35-495"><a href="#cb35-495" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">CUSTOM_VAR</span><span class="kw">:</span><span class="at"> </span><span class="st">"value"</span></span>
+<span id="cb35-496"><a href="#cb35-496" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-497"><a href="#cb35-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-498"><a href="#cb35-498" aria-hidden="true" tabindex="-1"></a><span class="fu">### Project Variables</span></span>
+<span id="cb35-499"><a href="#cb35-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-500"><a href="#cb35-500" aria-hidden="true" tabindex="-1"></a>**Goal**: Defines reusable variables</span>
+<span id="cb35-501"><a href="#cb35-501" aria-hidden="true" tabindex="-1"></a>**Options**: Variable definitions</span>
+<span id="cb35-502"><a href="#cb35-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-503"><a href="#cb35-503" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-504"><a href="#cb35-504" aria-hidden="true" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb35-505"><a href="#cb35-505" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">github-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/username/repo"</span></span>
+<span id="cb35-506"><a href="#cb35-506" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.0.0"</span></span>
+<span id="cb35-507"><a href="#cb35-507" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">api-base</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://api.example.com"</span></span>
+<span id="cb35-508"><a href="#cb35-508" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-509"><a href="#cb35-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-510"><a href="#cb35-510" aria-hidden="true" tabindex="-1"></a><span class="fu">## Advanced Configuration</span></span>
+<span id="cb35-511"><a href="#cb35-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-512"><a href="#cb35-512" aria-hidden="true" tabindex="-1"></a><span class="fu">### Execute Configuration</span></span>
+<span id="cb35-513"><a href="#cb35-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-514"><a href="#cb35-514" aria-hidden="true" tabindex="-1"></a>**Goal**: Controls code execution behavior</span>
+<span id="cb35-515"><a href="#cb35-515" aria-hidden="true" tabindex="-1"></a>**Options**: Execution parameters</span>
+<span id="cb35-516"><a href="#cb35-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-517"><a href="#cb35-517" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-518"><a href="#cb35-518" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb35-519"><a href="#cb35-519" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">enabled</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                     # Enable execution</span></span>
+<span id="cb35-520"><a href="#cb35-520" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                       # Cache results</span></span>
+<span id="cb35-521"><a href="#cb35-521" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">                     # Freeze execution</span></span>
+<span id="cb35-522"><a href="#cb35-522" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">daemon</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">                     # Use daemon</span></span>
+<span id="cb35-523"><a href="#cb35-523" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">daemon-restart</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">             # Restart daemon</span></span>
+<span id="cb35-524"><a href="#cb35-524" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">debug</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">                      # Debug mode</span></span>
+<span id="cb35-525"><a href="#cb35-525" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">error</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">                      # Continue on error</span></span>
+<span id="cb35-526"><a href="#cb35-526" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                        # Evaluate code</span></span>
+<span id="cb35-527"><a href="#cb35-527" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                        # Show code</span></span>
+<span id="cb35-528"><a href="#cb35-528" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                      # Show output</span></span>
+<span id="cb35-529"><a href="#cb35-529" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                     # Show warnings</span></span>
+<span id="cb35-530"><a href="#cb35-530" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">include</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">                     # Include in output</span></span>
+<span id="cb35-531"><a href="#cb35-531" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-532"><a href="#cb35-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-533"><a href="#cb35-533" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bibliography Configuration</span></span>
+<span id="cb35-534"><a href="#cb35-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-535"><a href="#cb35-535" aria-hidden="true" tabindex="-1"></a>**Goal**: Manages citations and references</span>
+<span id="cb35-536"><a href="#cb35-536" aria-hidden="true" tabindex="-1"></a>**Options**: Bibliography settings</span>
+<span id="cb35-537"><a href="#cb35-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-538"><a href="#cb35-538" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-539"><a href="#cb35-539" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
+<span id="cb35-540"><a href="#cb35-540" aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> chicago-author-date.csl</span></span>
+<span id="cb35-541"><a href="#cb35-541" aria-hidden="true" tabindex="-1"></a><span class="fu">citation-style</span><span class="kw">:</span><span class="at"> author-year</span></span>
+<span id="cb35-542"><a href="#cb35-542" aria-hidden="true" tabindex="-1"></a><span class="fu">link-citations</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-543"><a href="#cb35-543" aria-hidden="true" tabindex="-1"></a><span class="fu">citeproc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-544"><a href="#cb35-544" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-545"><a href="#cb35-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-546"><a href="#cb35-546" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cross-Reference Configuration</span></span>
+<span id="cb35-547"><a href="#cb35-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-548"><a href="#cb35-548" aria-hidden="true" tabindex="-1"></a>**Goal**: Configures cross-referencing</span>
+<span id="cb35-549"><a href="#cb35-549" aria-hidden="true" tabindex="-1"></a>**Options**: Reference settings</span>
+<span id="cb35-550"><a href="#cb35-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-551"><a href="#cb35-551" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-552"><a href="#cb35-552" aria-hidden="true" tabindex="-1"></a><span class="fu">crossref</span><span class="kw">:</span></span>
+<span id="cb35-553"><a href="#cb35-553" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">fig-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Figure"</span></span>
+<span id="cb35-554"><a href="#cb35-554" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">tbl-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Table"</span></span>
+<span id="cb35-555"><a href="#cb35-555" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">eq-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Equation"</span></span>
+<span id="cb35-556"><a href="#cb35-556" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sec-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Section"</span></span>
+<span id="cb35-557"><a href="#cb35-557" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">chapters</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-558"><a href="#cb35-558" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-559"><a href="#cb35-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-560"><a href="#cb35-560" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete Example</span></span>
+<span id="cb35-561"><a href="#cb35-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-562"><a href="#cb35-562" aria-hidden="true" tabindex="-1"></a>Here's a comprehensive example showing many configuration options:</span>
+<span id="cb35-563"><a href="#cb35-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-564"><a href="#cb35-564" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-565"><a href="#cb35-565" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb35-566"><a href="#cb35-566" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb35-567"><a href="#cb35-567" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb35-568"><a href="#cb35-568" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">preview</span><span class="kw">:</span></span>
+<span id="cb35-569"><a href="#cb35-569" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">4200</span></span>
+<span id="cb35-570"><a href="#cb35-570" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">browser</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-571"><a href="#cb35-571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-572"><a href="#cb35-572" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb35-573"><a href="#cb35-573" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Documentation"</span></span>
+<span id="cb35-574"><a href="#cb35-574" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Comprehensive project documentation"</span></span>
+<span id="cb35-575"><a href="#cb35-575" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://username.github.io/project"</span></span>
+<span id="cb35-576"><a href="#cb35-576" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">repo-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/username/project"</span></span>
+<span id="cb35-577"><a href="#cb35-577" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb35-578"><a href="#cb35-578" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb35-579"><a href="#cb35-579" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background</span><span class="kw">:</span><span class="at"> primary</span></span>
+<span id="cb35-580"><a href="#cb35-580" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-581"><a href="#cb35-581" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb35-582"><a href="#cb35-582" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb35-583"><a href="#cb35-583" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb35-584"><a href="#cb35-584" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Documentation"</span></span>
+<span id="cb35-585"><a href="#cb35-585" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb35-586"><a href="#cb35-586" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> guide/index.qmd</span></span>
+<span id="cb35-587"><a href="#cb35-587" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> User Guide</span></span>
+<span id="cb35-588"><a href="#cb35-588" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> reference/index.qmd</span></span>
+<span id="cb35-589"><a href="#cb35-589" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> API Reference</span></span>
+<span id="cb35-590"><a href="#cb35-590" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb35-591"><a href="#cb35-591" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> github</span></span>
+<span id="cb35-592"><a href="#cb35-592" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/username/project"</span></span>
+<span id="cb35-593"><a href="#cb35-593" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb35-594"><a href="#cb35-594" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span></span>
+<span id="cb35-595"><a href="#cb35-595" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">style</span><span class="kw">:</span><span class="at"> </span><span class="st">"docked"</span></span>
+<span id="cb35-596"><a href="#cb35-596" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-597"><a href="#cb35-597" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">contents</span><span class="kw">:</span></span>
+<span id="cb35-598"><a href="#cb35-598" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb35-599"><a href="#cb35-599" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Home"</span></span>
+<span id="cb35-600"><a href="#cb35-600" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">section</span><span class="kw">:</span><span class="at"> </span><span class="st">"Getting Started"</span></span>
+<span id="cb35-601"><a href="#cb35-601" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">contents</span><span class="kw">:</span></span>
+<span id="cb35-602"><a href="#cb35-602" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> installation.qmd</span></span>
+<span id="cb35-603"><a href="#cb35-603" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> quickstart.qmd</span></span>
+<span id="cb35-604"><a href="#cb35-604" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">section</span><span class="kw">:</span><span class="at"> </span><span class="st">"Advanced"</span></span>
+<span id="cb35-605"><a href="#cb35-605" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">contents</span><span class="kw">:</span></span>
+<span id="cb35-606"><a href="#cb35-606" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> configuration.qmd</span></span>
+<span id="cb35-607"><a href="#cb35-607" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> deployment.qmd</span></span>
+<span id="cb35-608"><a href="#cb35-608" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb35-609"><a href="#cb35-609" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">footer</span><span class="kw">:</span></span>
+<span id="cb35-610"><a href="#cb35-610" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span><span class="at"> </span><span class="st">"© 2025 My Organization"</span></span>
+<span id="cb35-611"><a href="#cb35-611" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb35-612"><a href="#cb35-612" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> license.qmd</span></span>
+<span id="cb35-613"><a href="#cb35-613" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> License</span></span>
+<span id="cb35-614"><a href="#cb35-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-615"><a href="#cb35-615" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb35-616"><a href="#cb35-616" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb35-617"><a href="#cb35-617" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb35-618"><a href="#cb35-618" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb35-619"><a href="#cb35-619" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-620"><a href="#cb35-620" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb35-621"><a href="#cb35-621" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-622"><a href="#cb35-622" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">highlight-style</span><span class="kw">:</span><span class="at"> github</span></span>
+<span id="cb35-623"><a href="#cb35-623" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-624"><a href="#cb35-624" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-tools</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-625"><a href="#cb35-625" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">smooth-scroll</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-626"><a href="#cb35-626" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-width</span><span class="kw">:</span><span class="at"> </span><span class="dv">8</span></span>
+<span id="cb35-627"><a href="#cb35-627" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-height</span><span class="kw">:</span><span class="at"> </span><span class="dv">6</span></span>
+<span id="cb35-628"><a href="#cb35-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-629"><a href="#cb35-629" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb35-630"><a href="#cb35-630" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Name"</span></span>
+<span id="cb35-631"><a href="#cb35-631" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> last-modified</span></span>
+<span id="cb35-632"><a href="#cb35-632" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.0.0"</span></span>
+<span id="cb35-633"><a href="#cb35-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-634"><a href="#cb35-634" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb35-635"><a href="#cb35-635" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-636"><a href="#cb35-636" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> auto</span></span>
+<span id="cb35-637"><a href="#cb35-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-638"><a href="#cb35-638" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
+<span id="cb35-639"><a href="#cb35-639" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span>lightbox</span>
+<span id="cb35-640"><a href="#cb35-640" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-641"><a href="#cb35-641" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
+<span id="cb35-642"><a href="#cb35-642" aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> apa.csl</span></span>
+<span id="cb35-643"><a href="#cb35-643" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-644"><a href="#cb35-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-645"><a href="#cb35-645" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Practices</span></span>
+<span id="cb35-646"><a href="#cb35-646" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-647"><a href="#cb35-647" aria-hidden="true" tabindex="-1"></a><span class="fu">### Organization</span></span>
+<span id="cb35-648"><a href="#cb35-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-649"><a href="#cb35-649" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Group Related Settings**: Keep related configuration options together</span>
+<span id="cb35-650"><a href="#cb35-650" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Use Comments**: Document complex configurations with YAML comments</span>
+<span id="cb35-651"><a href="#cb35-651" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Consistent Formatting**: Maintain consistent indentation and structure</span>
+<span id="cb35-652"><a href="#cb35-652" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Version Control**: Track changes to <span class="in">`_quarto.yml`</span> in version control</span>
+<span id="cb35-653"><a href="#cb35-653" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-654"><a href="#cb35-654" aria-hidden="true" tabindex="-1"></a><span class="fu">### Performance</span></span>
+<span id="cb35-655"><a href="#cb35-655" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-656"><a href="#cb35-656" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Enable Caching**: Use <span class="in">`execute.cache: true`</span> for computational content</span>
+<span id="cb35-657"><a href="#cb35-657" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Optimize Images**: Configure appropriate figure dimensions</span>
+<span id="cb35-658"><a href="#cb35-658" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Selective Rendering**: Use <span class="in">`project.render`</span> to control what gets processed</span>
+<span id="cb35-659"><a href="#cb35-659" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-660"><a href="#cb35-660" aria-hidden="true" tabindex="-1"></a><span class="fu">### Maintenance</span></span>
+<span id="cb35-661"><a href="#cb35-661" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-662"><a href="#cb35-662" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Regular Updates**: Keep up with new Quarto features and options</span>
+<span id="cb35-663"><a href="#cb35-663" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Validate Configuration**: Use <span class="in">`quarto check`</span> to validate your configuration</span>
+<span id="cb35-664"><a href="#cb35-664" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Test Changes**: Preview locally before deploying changes</span>
+<span id="cb35-665"><a href="#cb35-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-666"><a href="#cb35-666" aria-hidden="true" tabindex="-1"></a><span class="fu">## Troubleshooting</span></span>
+<span id="cb35-667"><a href="#cb35-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-668"><a href="#cb35-668" aria-hidden="true" tabindex="-1"></a><span class="fu">### Common Issues</span></span>
+<span id="cb35-669"><a href="#cb35-669" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-670"><a href="#cb35-670" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**YAML Syntax Errors**: Use proper indentation and quotes when needed</span>
+<span id="cb35-671"><a href="#cb35-671" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Invalid Paths**: Ensure all file paths are correct and accessible</span>
+<span id="cb35-672"><a href="#cb35-672" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Missing Dependencies**: Install required themes, filters, or extensions</span>
+<span id="cb35-673"><a href="#cb35-673" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Execution Errors**: Check engine configuration and code execution settings</span>
+<span id="cb35-674"><a href="#cb35-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-675"><a href="#cb35-675" aria-hidden="true" tabindex="-1"></a><span class="fu">### Validation</span></span>
+<span id="cb35-676"><a href="#cb35-676" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-677"><a href="#cb35-677" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb35-678"><a href="#cb35-678" aria-hidden="true" tabindex="-1"></a><span class="co"># Check configuration</span></span>
+<span id="cb35-679"><a href="#cb35-679" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span>
+<span id="cb35-680"><a href="#cb35-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-681"><a href="#cb35-681" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview with verbose output</span></span>
+<span id="cb35-682"><a href="#cb35-682" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview <span class="at">--verbose</span></span>
+<span id="cb35-683"><a href="#cb35-683" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-684"><a href="#cb35-684" aria-hidden="true" tabindex="-1"></a><span class="co"># Render with debug information</span></span>
+<span id="cb35-685"><a href="#cb35-685" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="at">--debug</span></span>
+<span id="cb35-686"><a href="#cb35-686" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-687"><a href="#cb35-687" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-688"><a href="#cb35-688" aria-hidden="true" tabindex="-1"></a><span class="fu">### Debug Configuration</span></span>
+<span id="cb35-689"><a href="#cb35-689" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-690"><a href="#cb35-690" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb35-691"><a href="#cb35-691" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb35-692"><a href="#cb35-692" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">debug</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-693"><a href="#cb35-693" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-694"><a href="#cb35-694" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb35-695"><a href="#cb35-695" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">preview</span><span class="kw">:</span></span>
+<span id="cb35-696"><a href="#cb35-696" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">watch-inputs</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-697"><a href="#cb35-697" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-698"><a href="#cb35-698" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-699"><a href="#cb35-699" aria-hidden="true" tabindex="-1"></a>This comprehensive reference covers all major aspects of the <span class="in">`_quarto.yml`</span> configuration file. Use it as a guide to customize your Quarto projects according to your specific needs and requirements.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -2645,7 +3219,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Learning Journey - Technical Notes &amp; Insights</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Last updated: July 14, 2025</p>
+<p>Last updated: <strong>?meta:date</strong></p>
 </div>
   </div>
 </footer>
@@ -2653,4 +3227,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

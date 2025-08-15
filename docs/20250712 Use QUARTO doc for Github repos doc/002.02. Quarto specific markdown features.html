@@ -6,10 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-07-14">
-<meta name="keywords" content="learning, development, azure, dotnet, conference, documentation">
-<meta name="description" content="Technical learning notes, conference insights, and development guides">
 
 <title>quarto-specific-markdown-features – Dario's Learning Journey</title>
 <style>
@@ -101,13 +97,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-hide-matches-text": "Hide additional matches",
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear search",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -426,7 +423,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
+ <span class="menu-text">Using Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -591,47 +588,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../20250709 Manage GitRepo from commandline/README.html">🛠️ Tools</a></li><li class="breadcrumb-item"><a href="../20250709 Manage GitRepo from commandline/README.html">Development Tools</a></li><li class="breadcrumb-item"><a href="../20250712 Use QUARTO doc for Github repos doc/README.html">Quarto Documentation</a></li><li class="breadcrumb-item"><a href="../20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.html">Quarto specific markdown features</a></li></ol></nav>
-<div class="quarto-title">
-</div>
-
-<div>
-  <div class="description">
-    Technical learning notes, conference insights, and development guides
-  </div>
-</div>
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../20250709 Manage GitRepo from commandline/README.html">🛠️ Tools</a></li><li class="breadcrumb-item"><a href="../20250709 Manage GitRepo from commandline/README.html">Development Tools</a></li><li class="breadcrumb-item"><a href="../20250712 Use QUARTO doc for Github repos doc/README.html">Quarto Documentation</a></li><li class="breadcrumb-item"><a href="../20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.html">Quarto specific markdown features</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dario Airoldi </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 14, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-<div>
-  <div class="keywords">
-    <div class="block-title">Keywords</div>
-    <p>learning, development, azure, dotnet, conference, documentation</p>
-  </div>
-</div>
-
-</header>
 
 
 <section id="quarto-specific-markdown-features" class="level1">
@@ -1087,11 +1046,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This guide covers the essential Quarto-specific markdown features that extend beyond standard Markdown. These features enable the creation of sophisticated, interactive, and beautifully styled documentation websites.</p>
 
 
+<!-- -->
+
 </section>
 </section>
 
 </main> <!-- /main -->
-<div id="custom-right-nav" class="toc-right" style="display: none;">
+<div id="custom-right-nav" style="display: none;">
 
   <div class="toc-title">Related Pages</div>
 
@@ -1159,41 +1120,79 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const navStructure = {
 
-    "🛠️ Tools": {
+    '🎉 Events': {
 
-      "Development Tools": {
-
-        href: "20250709 Manage GitRepo from commandline/README.md",
+      'Build Conference 2025': {
 
         pages: [
 
-          { href: "20250709 Manage GitRepo from commandline/README.md", text: "Git Command Line" },
+          { text: 'Conference Overview', href: '202506 Build 2025/Readme.md' },
 
-          { href: "20250711 Use http files for easy and repeatable test/README.md", text: "HTTP Files Testing" }
+          { text: '.NET Aspire AI & Cloud', href: '202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md' },
+
+          { text: 'ASP.NET Core & Blazor', href: '202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md' },
+
+          { text: '.NET MAUI AI Development', href: '202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md' },
+
+          { text: 'Testing with Aspire & Playwright', href: '202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md' },
+
+          { text: 'Model Context Protocol', href: '202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md' },
+
+          { text: 'Local AI Development', href: '202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md' }
+
+        ]
+
+      }
+
+    },
+
+    '💻 Technologies': {
+
+      '☁️ Azure': {
+
+        pages: [
+
+          { text: 'Azure Naming Conventions', href: '20250702 Azure Naming conventions/README.md' },
+
+          { text: 'Table Storage Access', href: '20250704 TableStorageAccess options/README.md' },
+
+          { text: 'CosmosDB Access Options', href: '20250706 CosmosDB Access options/README.md' },
+
+          { text: 'EventHub Access Options', href: '20250723 EventHub Access options/README.md' }
+
+        ]
+
+      }
+
+    },
+
+    '🛠️ Tools': {
+
+      'Development Tools': {
+
+        pages: [
+
+          { text: 'Git Command Line Management', href: '20250709 Manage GitRepo from commandline/README.md' },
+
+          { text: 'HTTP Testing with .http Files', href: '20250711 Use http files for easy and repeatable test/README.md' },
+
+          { text: 'Enhanced HTTP Testing', href: '20250713 Use http files for easy and repeatable test/README.md' }
 
         ]
 
       },
 
-      "Quarto Documentation": {
-
-        href: "20250712 Use QUARTO doc for Github repos doc/README.md",
+      'Quarto Documentation': {
 
         pages: [
 
-          { href: "20250712 Use QUARTO doc for Github repos doc/README.md", text: "Quarto Documentation Overview" }
+          { text: 'Using Quarto for Documentation', href: '20250712 Use QUARTO doc for Github repos doc/README.md' },
 
-        ]
+          { text: 'Quarto.yml Document Structure', href: '20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md' },
 
-      },
+          { text: 'Quarto Specific Markdown Features', href: '20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md' },
 
-      "HTTP Files (Extended)": {
-
-        href: "20250713 Use http files for easy and repeatable test/README.md",
-
-        pages: [
-
-          { href: "20250713 Use http files for easy and repeatable test/README.md", text: "HTTP Files (Extended)" }
+          { text: 'Quarto Theming and Styling', href: '20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md' }
 
         ]
 
@@ -1201,27 +1200,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     },
 
-    "🎉 Events": {
+    '🎭 Culture & Travel': {
 
-      "Build Conference 2025": {
-
-        href: "202506 Build 2025/Readme.md",
+      'Travel Experiences': {
 
         pages: [
 
-          { href: "202506 Build 2025/Readme.md", text: "Conference Overview" },
-
-          { href: "202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md", text: "BRK106: .NET Aspire AI & Cloud" },
-
-          { href: "202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md", text: "BRK122: ASP.NET Core & Blazor" },
-
-          { href: "202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md", text: "BRK123: .NET MAUI AI" },
-
-          { href: "202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md", text: "DEM508: Testing with Aspire" },
-
-          { href: "202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md", text: "DEM517: MCP Server" },
-
-          { href: "202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md", text: "DEM520: Local AI Development" }
+          { text: 'Paris 2025 Travel Guide', href: 'Travel/Paris 2025/README.md' }
 
         ]
 
@@ -1229,35 +1214,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     },
 
-    "💻 Technologies": {
+    '🔧 Issues & Solutions': {
 
-      "☁️ Azure": {
-
-        href: "20250702 Azure Naming conventions/README.md",
+      'Development Issues': {
 
         pages: [
 
-          { href: "20250702 Azure Naming conventions/README.md", text: "Naming Conventions" },
-
-          { href: "20250704 TableStorageAccess options/README.md", text: "Table Storage Access" },
-
-          { href: "20250706 CosmosDB Access options/README.md", text: "CosmosDB Access Options" }
-
-        ]
-
-      }
-
-    },
-
-    "🎭 Culture & Travel": {
-
-      "Travel Experiences": {
-
-        href: "Travel/Paris 2025/README.md",
-
-        pages: [
-
-          { href: "Travel/Paris 2025/README.md", text: "Paris Cultural Journey 2025" }
+          { text: 'VS Clone Error Fix', href: '_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md' }
 
         ]
 
@@ -1275,29 +1238,191 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!customNav) return;
 
-
-
-    const screenWidth = window.innerWidth;
-
     
 
-    if (screenWidth <= 800) {
+    const isMobile = window.innerWidth <= 800;
 
-      // Small screen: add mobile styling
+    if (isMobile) {
 
-      customNav.classList.add('mobile-layout');
-
-      customNav.classList.remove('desktop-layout');
+      customNav.style.display = 'none';
 
     } else {
 
-      // Large screen: add desktop styling
-
-      customNav.classList.add('desktop-layout');
-
-      customNav.classList.remove('mobile-layout');
+      customNav.style.display = 'block';
 
     }
+
+  }
+
+
+
+  function renderRightNav() {
+
+    console.log('renderRightNav called'); // Debug log
+
+    const customNav = document.querySelector('#custom-right-nav');
+
+    if (!customNav) {
+
+      console.log('Custom nav element not found'); // Debug log
+
+      return;
+
+    }
+
+    console.log('Custom nav element found:', !!customNav); // Debug log
+
+
+
+    const currentPath = getCurrentPagePath();
+
+    const currentSection = findCurrentSection(currentPath);
+
+
+
+    if (!currentSection) {
+
+      // Hide if no relevant section found
+
+      customNav.style.display = 'none';
+
+      if (window.innerWidth <= 800) {
+
+        // On mobile, show a simple overview
+
+        const navList = customNav.querySelector('ul');
+
+        navList.innerHTML = `
+
+          <li>- 🎉 Events → Build Conference 2025</li>
+
+          <li>- 💻 Technologies → ☁️ Azure</li>
+
+          <li>- 🎭 Culture & Travel → Travel Experiences</li>
+
+        `;
+
+      }
+
+      return;
+
+    }
+
+
+
+    console.log('Found section for path:', currentSection); // Debug log
+
+    
+
+    const { sectionName, subsectionName, subsectionData } = currentSection;
+
+    const navList = customNav.querySelector('ul');
+
+    
+
+    if (!navList) {
+
+      console.log('Nav list not found'); // Debug log
+
+      return;
+
+    }
+
+
+
+    // Show the custom nav
+
+    customNav.style.display = 'block';
+
+    customNav.classList.add('has-content');
+
+
+
+    // Clear existing content
+
+    navList.innerHTML = '';
+
+
+
+    // Add section header
+
+    const sectionHeader = document.createElement('li');
+
+    sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
+
+    sectionHeader.style.cssText = 'color: #2780e3; margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px;';
+
+    navList.appendChild(sectionHeader);
+
+
+
+    // Add pages
+
+    subsectionData.pages.forEach((page, index) => {
+
+      const li = document.createElement('li');
+
+      const a = document.createElement('a');
+
+      a.href = page.href.replace('.md', '.html');
+
+      a.textContent = page.text || page.title || 'Untitled';
+
+      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
+
+      
+
+      // Hover effect
+
+      a.addEventListener('mouseenter', () => {
+
+        a.style.color = '#2780e3';
+
+        a.style.textDecoration = 'underline';
+
+      });
+
+      a.addEventListener('mouseleave', () => {
+
+        a.style.color = '#666';
+
+        a.style.textDecoration = 'none';
+
+      });
+
+
+
+      // Highlight current page
+
+      const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
+
+      const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
+
+      if (pageBasePath === currentBasePath || 
+
+          currentPath.includes(page.href.replace('.md', '')) || 
+
+          page.href.includes(currentPath.replace('.html', ''))) {
+
+        a.style.fontWeight = 'bold';
+
+        a.style.color = '#2780e3';
+
+        a.style.backgroundColor = '#ffffff';
+
+        a.style.padding = '4px 8px';
+
+        a.style.borderRadius = '4px';
+
+      }
+
+      
+
+      li.appendChild(a);
+
+      navList.appendChild(li);
+
+    });
 
   }
 
@@ -1417,8 +1542,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let path = window.location.pathname;
 
-    console.log('Raw pathname:', path); // Debug log
-
     
 
     // Handle different URL structures
@@ -1447,31 +1570,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
         path = pageId;
 
-        console.log('Found page ID:', pageId); // Debug log
-
       }
 
     }
 
     
 
-    // Remove URL encoding
+    // Remove leading slash and decode URI components
 
-    path = decodeURIComponent(path);
+    path = path.replace(/^\//, '');
 
-    // Remove leading slash and Learn prefix
+    try {
 
-    path = path.replace(/^\/Learn\//, '').replace(/^\//, '');
+      path = decodeURIComponent(path);
 
-    // Convert .html to .md
+    } catch (e) {
 
-    path = path.replace(/\.html$/, '.md');
+      // If decoding fails, use original path
+
+    }
 
     
 
-    // If still empty, try to extract from document title or URL hash
+    // Try alternative methods for path detection
 
     if (!path || path === '') {
+
+      // Check document title
 
       const title = document.title;
 
@@ -1479,9 +1604,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
 
-      // Try to extract from current URL hash or query params
+      // Check URL hash and search params
 
-      const hash = window.location.hash.replace('#', '');
+      const hash = window.location.hash;
 
       const search = window.location.search;
 
@@ -1489,15 +1614,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
 
-      // Last resort: check if we can extract from the page content
+      // If we still don't have a path, try to extract from URL
 
-      const pageHeader = document.querySelector('h1, .title');
+      const fullPath = window.location.href;
 
-      if (pageHeader && pageHeader.textContent.includes('Quarto')) {
+      const match = fullPath.match(/\/([^?#]+)/);
 
-        path = '20250712 Use QUARTO doc for Github repos doc/README.md';
+      if (match) {
 
-        console.log('Detected Quarto page from header'); // Debug log
+        path = match[1];
 
       }
 
@@ -1583,9 +1708,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
           
 
-          // Check if paths contain each other (for URL encoded vs decoded)
+          // Check if current path contains the page path (without extension)
 
-          if (currentPath.includes(page.href) || page.href.includes(currentPath.replace(/\.md$/, ''))) {
+          const pagePathWithoutExt = page.href.replace('.md', '').replace('.html', '');
+
+          const currentPathWithoutExt = currentPath.replace('.md', '').replace('.html', '');
+
+          
+
+          if (currentPathWithoutExt.includes(pagePathWithoutExt) || 
+
+              pagePathWithoutExt.includes(currentPathWithoutExt)) {
 
             console.log(`Contains match: ${page.href} matches ${currentPath}`); // Debug log
 
@@ -1594,22 +1727,6 @@ document.addEventListener('DOMContentLoaded', function() {
           }
 
           
-
-          // Check URL encoded versions
-
-          if (normalizedCurrentPath.includes(normalizedPagePath.replace(/\.md$/, '')) || 
-
-              normalizedPagePath.includes(normalizedCurrentPath.replace(/\.md$/, ''))) {
-
-            console.log(`URL encoded match: ${page.href} matches ${currentPath}`); // Debug log
-
-            return true;
-
-          }
-
-          
-
-          console.log(`No match: ${page.href} vs ${currentPath}`); // Debug log
 
           return false;
 
@@ -1629,199 +1746,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+    
+
     return null;
-
-  }
-
-
-
-  function renderRightNav() {
-
-    console.log('renderRightNav called'); // Debug log
-
-    const currentPath = getCurrentPagePath();
-
-    const currentSection = findCurrentSection(currentPath);
-
-    
-
-    const customNav = document.querySelector('#custom-right-nav');
-
-    console.log('Custom nav element found:', !!customNav); // Debug log
-
-    
-
-    if (!customNav) {
-
-      console.log('Custom nav element not found'); // Debug log
-
-      return;
-
-    }
-
-    
-
-    // Always show for debugging
-
-    customNav.style.display = 'block';
-
-    
-
-    if (!currentSection) {
-
-      console.log('No section found for current path'); // Debug log
-
-      // Show debug info instead of hiding
-
-      const navList = customNav.querySelector('ul');
-
-      if (navList) {
-
-        navList.innerHTML = `
-
-          <li><strong>Debug Info:</strong></li>
-
-          <li>Path: "${currentPath}"</li>
-
-          <li>No matching section found</li>
-
-          <li><em>Available sections:</em></li>
-
-          <li>- 🛠️ Tools → Development Tools</li>
-
-          <li>- 🛠️ Tools → Quarto Documentation</li>
-
-          <li>- 🎉 Events → Build Conference 2025</li>
-
-          <li>- 💻 Technologies → ☁️ Azure</li>
-
-          <li>- 🎭 Culture & Travel → Travel Experiences</li>
-
-        `;
-
-      }
-
-      return;
-
-    }
-
-
-
-    console.log('Found section for path:', currentSection); // Debug log
-
-    
-
-    const { sectionName, subsectionName, subsectionData } = currentSection;
-
-    const navList = customNav.querySelector('ul');
-
-    
-
-    if (!navList) {
-
-      console.log('Nav list not found'); // Debug log
-
-      return;
-
-    }
-
-
-
-    // Show the custom nav
-
-    customNav.style.display = 'block';
-
-    customNav.classList.add('has-content');
-
-
-
-    // Clear existing content
-
-    navList.innerHTML = '';
-
-
-
-    // Add section header
-
-    const sectionHeader = document.createElement('li');
-
-    sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
-
-    sectionHeader.style.cssText = 'color: #2780e3; margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px;';
-
-    navList.appendChild(sectionHeader);
-
-
-
-    // Add pages
-
-    subsectionData.pages.forEach((page, index) => {
-
-      const li = document.createElement('li');
-
-      const a = document.createElement('a');
-
-      a.href = page.href.replace('.md', '.html');
-
-      a.textContent = page.text || page.title || 'Untitled';
-
-      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
-
-      
-
-      // Hover effect
-
-      a.addEventListener('mouseenter', () => {
-
-        a.style.color = '#2780e3';
-
-        a.style.textDecoration = 'underline';
-
-      });
-
-      a.addEventListener('mouseleave', () => {
-
-        a.style.color = '#666';
-
-        a.style.textDecoration = 'none';
-
-      });
-
-      
-
-      // Highlight current page
-
-      const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
-
-      const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
-
-      if (pageBasePath === currentBasePath || 
-
-          currentPath.includes(page.href.replace('.md', '')) || 
-
-          page.href.includes(currentPath.replace('.html', ''))) {
-
-        a.style.fontWeight = 'bold';
-
-        a.style.color = '#2780e3';
-
-        a.style.backgroundColor = '#ffffff';
-
-        a.style.padding = '4px 8px';
-
-        a.style.borderRadius = '4px';
-
-      }
-
-      
-
-      li.appendChild(a);
-
-      navList.appendChild(li);
-
-    });
-
-  }
 
   }
 
@@ -1959,110 +1886,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 }
 
-
-
-#custom-right-nav li:first-child {
-
-  margin-bottom: 0.5rem;
-
-}
-
-
-
-#custom-right-nav li:first-child strong {
-
-  font-size: 0.875rem;
-
-  color: var(--bs-body-color, #212529);
-
-  font-weight: 600;
-
-}
-
-
-
-/* Desktop layout (> 800px) - Separate columns */
-
-@media (min-width: 801px) {
-
-  #custom-right-nav.desktop-layout {
-
-    margin-top: 2rem;
-
-    position: static;
-
-  }
-
-}
-
-
-
-/* Mobile layout (<= 800px) - Same column, collapsed sidebar */
-
-@media (max-width: 800px) {
-
-  #custom-right-nav.mobile-layout {
-
-    margin-top: 1rem;
-
-    margin-bottom: 1rem;
-
-    padding: 1rem;
-
-    background: #f8f9fa;
-
-    border: 1px solid var(--bs-border-color, #dee2e6);
-
-    border-radius: 0.375rem;
-
-    position: relative;
-
-  }
-
-  
-
-  /* Make TOC and Related Pages stack nicely */
-
-  #custom-right-nav.mobile-layout .toc-title {
-
-    color: var(--bs-body-color, #212529);
-
-    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
-
-    padding-bottom: 0.5rem;
-
-    margin-bottom: 1rem;
-
-  }
-
-}
-
-
-
-/* Hide on very small screens */
-
-@media (max-width: 576px) {
-
-  #custom-right-nav {
-
-    display: none !important;
-
-  }
-
-}
-
-
-
-/* Ensure proper spacing in all layouts */
-
-.margin-sidebar #custom-right-nav,
-
-#quarto-margin-sidebar #custom-right-nav {
-
-  position: static;
-
-}
-
 </style>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2153,6 +1976,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -2502,7 +2376,509 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">Quarto Theming and Styling</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb30" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quarto-Specific Markdown Features</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>Quarto extends standard Markdown with powerful features that enable rich, interactive content creation. This guide covers the unique Quarto markdown syntax that goes beyond traditional Markdown capabilities.</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table of Contents</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Overview</span><span class="co">](#overview)</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Div Blocks and Fenced Divs</span><span class="co">](#div-blocks-and-fenced-divs)</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">CSS Classes and Styling</span><span class="co">](#css-classes-and-styling)</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Grid Layouts</span><span class="co">](#grid-layouts)</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Callout Blocks</span><span class="co">](#callout-blocks)</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Code Execution</span><span class="co">](#code-execution)</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Cross-References</span><span class="co">](#cross-references)</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Figures and Tables</span><span class="co">](#figures-and-tables)</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Mathematical Expressions</span><span class="co">](#mathematical-expressions)</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Interactive Elements</span><span class="co">](#interactive-elements)</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Custom Shortcodes</span><span class="co">](#custom-shortcodes)</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Best Practices</span><span class="co">](#best-practices)</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Div Blocks and Fenced Divs</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>Quarto introduces fenced divs using <span class="in">`:::`</span> syntax, which allows you to apply CSS classes and attributes to blocks of content.</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Basic Div Syntax</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>::: {.class-name}</span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>Content goes here</span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Nested Divs</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>::::{.outer-container}</span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>:::{.inner-section}</span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>Nested content</span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a>:::{.another-section}</span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>More nested content</span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Multiple Classes and Attributes</span></span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a>::: {.warning .large-text #warning-section}</span>
+<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a>This is a warning with multiple classes and an ID</span>
+<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## CSS Classes and Styling</span></span>
+<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>Quarto supports extensive CSS integration through class application and custom styling.</span>
+<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a><span class="fu">### Applying CSS Classes</span></span>
+<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a>::: {.text-center}</span>
+<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a>This text will be centered</span>
+<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a>::: {.bg-primary .text-white .p-3}</span>
+<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a>Bootstrap-style classes for background, text color, and padding</span>
+<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### Custom CSS Integration</span></span>
+<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a>You can define custom CSS in your <span class="in">`_quarto.yml`</span> or in separate CSS files:</span>
+<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Inline Styling</span></span>
+<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">This text is highlighted</span><span class="co">]</span>{.highlight}</span>
+<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Red text</span><span class="co">]</span>{style="color: red;"}</span>
+<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-93"><a href="#cb30-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grid Layouts</span></span>
+<span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a>Quarto provides powerful grid layout capabilities using Bootstrap's grid system.</span>
+<span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Basic Grid Structure</span></span>
+<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a>::::{.grid}</span>
+<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12 .g-col-md-6}</span>
+<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Left Column</span></span>
+<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a>Content for the left side</span>
+<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12 .g-col-md-6}</span>
+<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a><span class="fu">### Right Column</span></span>
+<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a>Content for the right side</span>
+<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### Complex Grid Layouts</span></span>
+<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a>::::{.grid}</span>
+<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12}</span>
+<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### Full Width Header</span></span>
+<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a>This spans the entire width</span>
+<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12 .g-col-md-4}</span>
+<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### Column 1</span></span>
+<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a>First column content</span>
+<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12 .g-col-md-4}</span>
+<span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Column 2</span></span>
+<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a>Second column content</span>
+<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12 .g-col-md-4}</span>
+<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a><span class="fu">### Column 3</span></span>
+<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a>Third column content</span>
+<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a><span class="fu">### Responsive Breakpoints</span></span>
+<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12 .g-col-sm-6 .g-col-md-4 .g-col-lg-3}</span>
+<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a>Responsive column that adapts to screen size:</span>
+<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mobile: Full width (12 columns)</span>
+<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Small: Half width (6 columns)</span>
+<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medium: One-third width (4 columns)</span>
+<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Large: One-quarter width (3 columns)</span>
+<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-154"><a href="#cb30-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a><span class="in">## Callout Blocks</span></span>
+<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a><span class="in">Quarto provides built-in callout blocks for highlighting important information.</span></span>
+<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a><span class="in">### Standard Callout Types</span></span>
+<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-note}</span></span>
+<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a><span class="in">## Note</span></span>
+<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a><span class="in">This is a note callout block.</span></span>
+<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-167"><a href="#cb30-167" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-warning}</span></span>
+<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a><span class="in">## Warning</span></span>
+<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a><span class="in">This is a warning callout block.</span></span>
+<span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-important}</span></span>
+<span id="cb30-173"><a href="#cb30-173" aria-hidden="true" tabindex="-1"></a><span class="in">## Important</span></span>
+<span id="cb30-174"><a href="#cb30-174" aria-hidden="true" tabindex="-1"></a><span class="in">This is an important callout block.</span></span>
+<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-tip}</span></span>
+<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a><span class="in">## Tip</span></span>
+<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a><span class="in">This is a tip callout block.</span></span>
+<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-caution}</span></span>
+<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a><span class="in">## Caution</span></span>
+<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a><span class="in">This is a caution callout block.</span></span>
+<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### Customized Callouts</span></span>
+<span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-190"><a href="#cb30-190" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a>::: {.callout-note icon=false}</span>
+<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a><span class="fu">## Custom Note</span></span>
+<span id="cb30-193"><a href="#cb30-193" aria-hidden="true" tabindex="-1"></a>Note without an icon</span>
+<span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning collapse="true"}</span>
+<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## Collapsible Warning</span></span>
+<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a>This warning can be expanded/collapsed</span>
+<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Execution</span></span>
+<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a>Quarto supports executable code blocks with various engines.</span>
+<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Python Code Execution</span></span>
+<span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a><span class="in">````markdown</span></span>
+<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-213"><a href="#cb30-213" aria-hidden="true" tabindex="-1"></a><span class="co"># Create sample data</span></span>
+<span id="cb30-214"><a href="#cb30-214" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'x'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="st">'y'</span>: [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>]}</span>
+<span id="cb30-215"><a href="#cb30-215" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span>
+<span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-220"><a href="#cb30-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### R Code Execution</span></span>
+<span id="cb30-221"><a href="#cb30-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-222"><a href="#cb30-222" aria-hidden="true" tabindex="-1"></a><span class="in">````markdown</span></span>
+<span id="cb30-223"><a href="#cb30-223" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb30-224"><a href="#cb30-224" aria-hidden="true" tabindex="-1"></a><span class="co"># R code block</span></span>
+<span id="cb30-225"><a href="#cb30-225" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb30-226"><a href="#cb30-226" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb30-227"><a href="#cb30-227" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb30-228"><a href="#cb30-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-229"><a href="#cb30-229" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb30-230"><a href="#cb30-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-231"><a href="#cb30-231" aria-hidden="true" tabindex="-1"></a><span class="fu">### Code Block Options</span></span>
+<span id="cb30-232"><a href="#cb30-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-233"><a href="#cb30-233" aria-hidden="true" tabindex="-1"></a><span class="in">````markdown</span></span>
+<span id="cb30-234"><a href="#cb30-234" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb30-235"><a href="#cb30-235" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb30-236"><a href="#cb30-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb30-237"><a href="#cb30-237" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb30-238"><a href="#cb30-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-239"><a href="#cb30-239" aria-hidden="true" tabindex="-1"></a><span class="co"># This code runs but doesn't show the code, only output</span></span>
+<span id="cb30-240"><a href="#cb30-240" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, World!"</span>)</span>
+<span id="cb30-241"><a href="#cb30-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-242"><a href="#cb30-242" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb30-243"><a href="#cb30-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-244"><a href="#cb30-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cross-References</span></span>
+<span id="cb30-245"><a href="#cb30-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-246"><a href="#cb30-246" aria-hidden="true" tabindex="-1"></a>Quarto provides sophisticated cross-referencing capabilities.</span>
+<span id="cb30-247"><a href="#cb30-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-248"><a href="#cb30-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### Section References</span></span>
+<span id="cb30-249"><a href="#cb30-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-250"><a href="#cb30-250" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-251"><a href="#cb30-251" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction {#sec-intro}</span></span>
+<span id="cb30-252"><a href="#cb30-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-253"><a href="#cb30-253" aria-hidden="true" tabindex="-1"></a>As discussed in @sec-intro, we can reference sections.</span>
+<span id="cb30-254"><a href="#cb30-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-255"><a href="#cb30-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-256"><a href="#cb30-256" aria-hidden="true" tabindex="-1"></a><span class="fu">### Figure References</span></span>
+<span id="cb30-257"><a href="#cb30-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-258"><a href="#cb30-258" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-259"><a href="#cb30-259" aria-hidden="true" tabindex="-1"></a><span class="al">![Quarto Logo](logo.png)</span>{#fig-logo}</span>
+<span id="cb30-260"><a href="#cb30-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-261"><a href="#cb30-261" aria-hidden="true" tabindex="-1"></a>See @fig-logo for the Quarto logo.</span>
+<span id="cb30-262"><a href="#cb30-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-263"><a href="#cb30-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-264"><a href="#cb30-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### Table References</span></span>
+<span id="cb30-265"><a href="#cb30-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-267"><a href="#cb30-267" aria-hidden="true" tabindex="-1"></a>| Column 1 | Column 2 |</span>
+<span id="cb30-268"><a href="#cb30-268" aria-hidden="true" tabindex="-1"></a>|----------|----------|</span>
+<span id="cb30-269"><a href="#cb30-269" aria-hidden="true" tabindex="-1"></a>| Data 1   | Data 2   |</span>
+<span id="cb30-270"><a href="#cb30-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-271"><a href="#cb30-271" aria-hidden="true" tabindex="-1"></a>: Sample Table {#tbl-sample}</span>
+<span id="cb30-272"><a href="#cb30-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-273"><a href="#cb30-273" aria-hidden="true" tabindex="-1"></a>Refer to @tbl-sample for the data.</span>
+<span id="cb30-274"><a href="#cb30-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-275"><a href="#cb30-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-276"><a href="#cb30-276" aria-hidden="true" tabindex="-1"></a><span class="fu">## Figures and Tables</span></span>
+<span id="cb30-277"><a href="#cb30-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-278"><a href="#cb30-278" aria-hidden="true" tabindex="-1"></a>Enhanced figure and table capabilities with captions and styling.</span>
+<span id="cb30-279"><a href="#cb30-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-280"><a href="#cb30-280" aria-hidden="true" tabindex="-1"></a><span class="fu">### Enhanced Figures</span></span>
+<span id="cb30-281"><a href="#cb30-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-282"><a href="#cb30-282" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-283"><a href="#cb30-283" aria-hidden="true" tabindex="-1"></a><span class="al">![Caption text](image.png)</span>{#fig-example fig-align="center" width="50%"}</span>
+<span id="cb30-284"><a href="#cb30-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-285"><a href="#cb30-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a><span class="fu">### Figure Layouts</span></span>
+<span id="cb30-287"><a href="#cb30-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-288"><a href="#cb30-288" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a>::: {#fig-layout layout-ncol=2}</span>
+<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a><span class="al">![Image 1](img1.png)</span>{#fig-img1}</span>
+<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a><span class="al">![Image 2](img2.png)</span>{#fig-img2}</span>
+<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a>Two side-by-side images</span>
+<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a><span class="fu">### Enhanced Tables</span></span>
+<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a>| Feature | Standard Markdown | Quarto |</span>
+<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a>|---------|-------------------|--------|</span>
+<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a>| Styling | Limited | Extensive |</span>
+<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a>| Layout | Basic | Advanced |</span>
+<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a>: Comparison Table {#tbl-comparison .striped .hover}</span>
+<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mathematical Expressions</span></span>
+<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a>Quarto supports LaTeX math rendering with various display options.</span>
+<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a><span class="fu">### Inline Math</span></span>
+<span id="cb30-315"><a href="#cb30-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-316"><a href="#cb30-316" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a>The equation $E = mc^2$ is Einstein's famous formula.</span>
+<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a><span class="fu">### Display Math</span></span>
+<span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a>\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}</span>
+<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb30-326"><a href="#cb30-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-327"><a href="#cb30-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a><span class="fu">### Numbered Equations</span></span>
+<span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a>f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n</span>
+<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a>$$ {#eq-taylor}</span>
+<span id="cb30-334"><a href="#cb30-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-335"><a href="#cb30-335" aria-hidden="true" tabindex="-1"></a>Equation @eq-taylor shows the Taylor series.</span>
+<span id="cb30-336"><a href="#cb30-336" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interactive Elements</span></span>
+<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a>Quarto supports various interactive content types.</span>
+<span id="cb30-341"><a href="#cb30-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-342"><a href="#cb30-342" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tabsets</span></span>
+<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-344"><a href="#cb30-344" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-345"><a href="#cb30-345" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb30-346"><a href="#cb30-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tab 1</span></span>
+<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a>Content for tab 1</span>
+<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-350"><a href="#cb30-350" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tab 2</span></span>
+<span id="cb30-351"><a href="#cb30-351" aria-hidden="true" tabindex="-1"></a>Content for tab 2</span>
+<span id="cb30-352"><a href="#cb30-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-353"><a href="#cb30-353" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tab 3</span></span>
+<span id="cb30-354"><a href="#cb30-354" aria-hidden="true" tabindex="-1"></a>Content for tab 3</span>
+<span id="cb30-355"><a href="#cb30-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-356"><a href="#cb30-356" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-358"><a href="#cb30-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-359"><a href="#cb30-359" aria-hidden="true" tabindex="-1"></a><span class="fu">### Accordions</span></span>
+<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset group="accordion"}</span>
+<span id="cb30-363"><a href="#cb30-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-364"><a href="#cb30-364" aria-hidden="true" tabindex="-1"></a><span class="fu">## Section 1</span></span>
+<span id="cb30-365"><a href="#cb30-365" aria-hidden="true" tabindex="-1"></a>Accordion content 1</span>
+<span id="cb30-366"><a href="#cb30-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-367"><a href="#cb30-367" aria-hidden="true" tabindex="-1"></a><span class="fu">## Section 2</span></span>
+<span id="cb30-368"><a href="#cb30-368" aria-hidden="true" tabindex="-1"></a>Accordion content 2</span>
+<span id="cb30-369"><a href="#cb30-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-370"><a href="#cb30-370" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-371"><a href="#cb30-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-372"><a href="#cb30-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-373"><a href="#cb30-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## Custom Shortcodes</span></span>
+<span id="cb30-374"><a href="#cb30-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-375"><a href="#cb30-375" aria-hidden="true" tabindex="-1"></a>Quarto allows custom shortcodes for reusable content.</span>
+<span id="cb30-376"><a href="#cb30-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-377"><a href="#cb30-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### Built-in Shortcodes</span></span>
+<span id="cb30-378"><a href="#cb30-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-379"><a href="#cb30-379" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-380"><a href="#cb30-380" aria-hidden="true" tabindex="-1"></a>{{&lt; kbd Ctrl+C &gt;}}</span>
+<span id="cb30-381"><a href="#cb30-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-382"><a href="#cb30-382" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=dQw4w9WgXcQ &gt;}}</span>
+<span id="cb30-383"><a href="#cb30-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-384"><a href="#cb30-384" aria-hidden="true" tabindex="-1"></a>{{&lt; embed notebook.ipynb#fig-plot &gt;}}</span>
+<span id="cb30-385"><a href="#cb30-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-386"><a href="#cb30-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-387"><a href="#cb30-387" aria-hidden="true" tabindex="-1"></a><span class="fu">### Custom Shortcode Definition</span></span>
+<span id="cb30-388"><a href="#cb30-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-389"><a href="#cb30-389" aria-hidden="true" tabindex="-1"></a>Create <span class="in">`_extensions/shortcodes/highlight.lua`</span>:</span>
+<span id="cb30-390"><a href="#cb30-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-391"><a href="#cb30-391" aria-hidden="true" tabindex="-1"></a><span class="in">```lua</span></span>
+<span id="cb30-392"><a href="#cb30-392" aria-hidden="true" tabindex="-1"></a><span class="in">function highlight(args, kwargs, meta)</span></span>
+<span id="cb30-393"><a href="#cb30-393" aria-hidden="true" tabindex="-1"></a><span class="in">  local text = pandoc.utils.stringify(args[1])</span></span>
+<span id="cb30-394"><a href="#cb30-394" aria-hidden="true" tabindex="-1"></a><span class="in">  return pandoc.RawInline('html', '&lt;mark&gt;' .. text .. '&lt;/mark&gt;')</span></span>
+<span id="cb30-395"><a href="#cb30-395" aria-hidden="true" tabindex="-1"></a><span class="in">end</span></span>
+<span id="cb30-396"><a href="#cb30-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-397"><a href="#cb30-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-398"><a href="#cb30-398" aria-hidden="true" tabindex="-1"></a>Use in markdown:</span>
+<span id="cb30-399"><a href="#cb30-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-400"><a href="#cb30-400" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-401"><a href="#cb30-401" aria-hidden="true" tabindex="-1"></a>{{&lt; highlight "This text will be highlighted" &gt;}}</span>
+<span id="cb30-402"><a href="#cb30-402" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-403"><a href="#cb30-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-404"><a href="#cb30-404" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Practices</span></span>
+<span id="cb30-405"><a href="#cb30-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-406"><a href="#cb30-406" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Consistent Styling</span></span>
+<span id="cb30-407"><a href="#cb30-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-408"><a href="#cb30-408" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use semantic class names</span>
+<span id="cb30-409"><a href="#cb30-409" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Maintain consistent spacing with grid layouts</span>
+<span id="cb30-410"><a href="#cb30-410" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Apply responsive design principles</span>
+<span id="cb30-411"><a href="#cb30-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-412"><a href="#cb30-412" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Accessibility</span></span>
+<span id="cb30-413"><a href="#cb30-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-414"><a href="#cb30-414" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always include alt text for images</span>
+<span id="cb30-415"><a href="#cb30-415" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use proper heading hierarchy</span>
+<span id="cb30-416"><a href="#cb30-416" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ensure sufficient color contrast</span>
+<span id="cb30-417"><a href="#cb30-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-418"><a href="#cb30-418" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Performance</span></span>
+<span id="cb30-419"><a href="#cb30-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-420"><a href="#cb30-420" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimize images for web delivery</span>
+<span id="cb30-421"><a href="#cb30-421" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use lazy loading for heavy content</span>
+<span id="cb30-422"><a href="#cb30-422" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Minimize custom CSS and JavaScript</span>
+<span id="cb30-423"><a href="#cb30-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-424"><a href="#cb30-424" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Maintainability</span></span>
+<span id="cb30-425"><a href="#cb30-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-426"><a href="#cb30-426" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Document custom CSS classes</span>
+<span id="cb30-427"><a href="#cb30-427" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use variables for repeated styling</span>
+<span id="cb30-428"><a href="#cb30-428" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keep complex layouts modular</span>
+<span id="cb30-429"><a href="#cb30-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-430"><a href="#cb30-430" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. Cross-Platform Compatibility</span></span>
+<span id="cb30-431"><a href="#cb30-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-432"><a href="#cb30-432" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Test layouts on different screen sizes</span>
+<span id="cb30-433"><a href="#cb30-433" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ensure graceful degradation</span>
+<span id="cb30-434"><a href="#cb30-434" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use standard web technologies</span>
+<span id="cb30-435"><a href="#cb30-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-436"><a href="#cb30-436" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example: Complete Layout</span></span>
+<span id="cb30-437"><a href="#cb30-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-438"><a href="#cb30-438" aria-hidden="true" tabindex="-1"></a>Here's a comprehensive example combining multiple Quarto features:</span>
+<span id="cb30-439"><a href="#cb30-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-440"><a href="#cb30-440" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb30-441"><a href="#cb30-441" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb30-442"><a href="#cb30-442" aria-hidden="true" tabindex="-1"></a>title: "Project Dashboard"</span>
+<span id="cb30-443"><a href="#cb30-443" aria-hidden="true" tabindex="-1"></a>format:</span>
+<span id="cb30-444"><a href="#cb30-444" aria-hidden="true" tabindex="-1"></a>  html:</span>
+<span id="cb30-445"><a href="#cb30-445" aria-hidden="true" tabindex="-1"></a>    css: custom.css</span>
+<span id="cb30-446"><a href="#cb30-446" aria-hidden="true" tabindex="-1"></a>    grid:</span>
+<span id="cb30-447"><a href="#cb30-447" aria-hidden="true" tabindex="-1"></a>      sidebar-width: 250px</span>
+<span id="cb30-448"><a href="#cb30-448" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb30-449"><a href="#cb30-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-450"><a href="#cb30-450" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb30-451"><a href="#cb30-451" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project Status</span></span>
+<span id="cb30-452"><a href="#cb30-452" aria-hidden="true" tabindex="-1"></a>Current project metrics and updates</span>
+<span id="cb30-453"><a href="#cb30-453" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-454"><a href="#cb30-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-455"><a href="#cb30-455" aria-hidden="true" tabindex="-1"></a>::::{.grid}</span>
+<span id="cb30-456"><a href="#cb30-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-457"><a href="#cb30-457" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12 .g-col-md-8}</span>
+<span id="cb30-458"><a href="#cb30-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-459"><a href="#cb30-459" aria-hidden="true" tabindex="-1"></a><span class="fu">### Main Content</span></span>
+<span id="cb30-460"><a href="#cb30-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-461"><a href="#cb30-461" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb30-462"><a href="#cb30-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-463"><a href="#cb30-463" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb30-464"><a href="#cb30-464" aria-hidden="true" tabindex="-1"></a>Project overview content</span>
+<span id="cb30-465"><a href="#cb30-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-466"><a href="#cb30-466" aria-hidden="true" tabindex="-1"></a><span class="fu">## Metrics</span></span>
+<span id="cb30-467"><a href="#cb30-467" aria-hidden="true" tabindex="-1"></a>Performance metrics</span>
+<span id="cb30-468"><a href="#cb30-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-469"><a href="#cb30-469" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reports</span></span>
+<span id="cb30-470"><a href="#cb30-470" aria-hidden="true" tabindex="-1"></a>Detailed reports</span>
+<span id="cb30-471"><a href="#cb30-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-472"><a href="#cb30-472" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-473"><a href="#cb30-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-474"><a href="#cb30-474" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-475"><a href="#cb30-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-476"><a href="#cb30-476" aria-hidden="true" tabindex="-1"></a>:::{.g-col-12 .g-col-md-4}</span>
+<span id="cb30-477"><a href="#cb30-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-478"><a href="#cb30-478" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sidebar</span></span>
+<span id="cb30-479"><a href="#cb30-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-480"><a href="#cb30-480" aria-hidden="true" tabindex="-1"></a>::: {.card}</span>
+<span id="cb30-481"><a href="#cb30-481" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Quick Stats</span></span>
+<span id="cb30-482"><a href="#cb30-482" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Metric 1: 95%</span>
+<span id="cb30-483"><a href="#cb30-483" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Metric 2: 1,234</span>
+<span id="cb30-484"><a href="#cb30-484" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Metric 3: Active</span>
+<span id="cb30-485"><a href="#cb30-485" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-486"><a href="#cb30-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-487"><a href="#cb30-487" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-488"><a href="#cb30-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-489"><a href="#cb30-489" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb30-490"><a href="#cb30-490" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-491"><a href="#cb30-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-492"><a href="#cb30-492" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resources</span></span>
+<span id="cb30-493"><a href="#cb30-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-494"><a href="#cb30-494" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto Markdown Guide</span><span class="co">](https://quarto.org/docs/authoring/markdown-basics.html)</span></span>
+<span id="cb30-495"><a href="#cb30-495" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Bootstrap Grid Documentation</span><span class="co">](https://getbootstrap.com/docs/5.1/layout/grid/)</span></span>
+<span id="cb30-496"><a href="#cb30-496" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">CSS Reference</span><span class="co">](https://developer.mozilla.org/en-US/docs/Web/CSS)</span></span>
+<span id="cb30-497"><a href="#cb30-497" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Pandoc Manual</span><span class="co">](https://pandoc.org/MANUAL.html)</span></span>
+<span id="cb30-498"><a href="#cb30-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-499"><a href="#cb30-499" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb30-500"><a href="#cb30-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-501"><a href="#cb30-501" aria-hidden="true" tabindex="-1"></a>This guide covers the essential Quarto-specific markdown features that extend beyond standard Markdown. These features enable the creation of sophisticated, interactive, and beautifully styled documentation websites.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -2513,7 +2889,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Learning Journey - Technical Notes &amp; Insights</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Last updated: July 14, 2025</p>
+<p>Last updated: <strong>?meta:date</strong></p>
 </div>
   </div>
 </footer>
@@ -2521,4 +2897,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -1,4 +1,17 @@
-# Using Quarto for Documentation with GitHub Pages
+---
+title: "Using Quarto"
+description: "Using Quarto with GitHub Pages for Documentation"
+author: "Dario Airoldi"
+date: "July 2, 2025"
+date-modified: last-modified
+categories: [azure, best-practices]
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+# Using Quarto with GitHub Pages for Documentation
 
 ## Table of Contents
 

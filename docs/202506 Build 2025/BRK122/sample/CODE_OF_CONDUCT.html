@@ -6,10 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-07-08">
-<meta name="keywords" content="learning, development, azure, dotnet, conference, documentation">
-<meta name="description" content="Technical learning notes, conference insights, and development guides">
 
 <title>code_of_conduct – Dario's Learning Journey</title>
 <style>
@@ -23,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -63,13 +93,14 @@ ul.task-list li input[type="checkbox"] {
     "search-hide-matches-text": "Hide additional matches",
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear search",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -388,7 +419,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
+ <span class="menu-text">Using Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -482,47 +513,9 @@ ul.task-list li input[type="checkbox"] {
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/BRK122/sample/CODE_OF_CONDUCT.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-</div>
-
-<div>
-  <div class="description">
-    Technical learning notes, conference insights, and development guides
-  </div>
-</div>
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dario Airoldi </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 8, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-<div>
-  <div class="keywords">
-    <div class="block-title">Keywords</div>
-    <p>learning, development, azure, dotnet, conference, documentation</p>
-  </div>
-</div>
-
-</header>
 
 
 <section id="microsoft-open-source-code-of-conduct" class="level1">
@@ -536,10 +529,12 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+<!-- -->
+
 </section>
 
 </main> <!-- /main -->
-<div id="custom-right-nav" class="toc-right" style="display: none;">
+<div id="custom-right-nav" style="display: none;">
 
   <div class="toc-title">Related Pages</div>
 
@@ -607,41 +602,79 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const navStructure = {
 
-    "🛠️ Tools": {
+    '🎉 Events': {
 
-      "Development Tools": {
-
-        href: "20250709 Manage GitRepo from commandline/README.md",
+      'Build Conference 2025': {
 
         pages: [
 
-          { href: "20250709 Manage GitRepo from commandline/README.md", text: "Git Command Line" },
+          { text: 'Conference Overview', href: '202506 Build 2025/Readme.md' },
 
-          { href: "20250711 Use http files for easy and repeatable test/README.md", text: "HTTP Files Testing" }
+          { text: '.NET Aspire AI & Cloud', href: '202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md' },
+
+          { text: 'ASP.NET Core & Blazor', href: '202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md' },
+
+          { text: '.NET MAUI AI Development', href: '202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md' },
+
+          { text: 'Testing with Aspire & Playwright', href: '202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md' },
+
+          { text: 'Model Context Protocol', href: '202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md' },
+
+          { text: 'Local AI Development', href: '202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md' }
+
+        ]
+
+      }
+
+    },
+
+    '💻 Technologies': {
+
+      '☁️ Azure': {
+
+        pages: [
+
+          { text: 'Azure Naming Conventions', href: '20250702 Azure Naming conventions/README.md' },
+
+          { text: 'Table Storage Access', href: '20250704 TableStorageAccess options/README.md' },
+
+          { text: 'CosmosDB Access Options', href: '20250706 CosmosDB Access options/README.md' },
+
+          { text: 'EventHub Access Options', href: '20250723 EventHub Access options/README.md' }
+
+        ]
+
+      }
+
+    },
+
+    '🛠️ Tools': {
+
+      'Development Tools': {
+
+        pages: [
+
+          { text: 'Git Command Line Management', href: '20250709 Manage GitRepo from commandline/README.md' },
+
+          { text: 'HTTP Testing with .http Files', href: '20250711 Use http files for easy and repeatable test/README.md' },
+
+          { text: 'Enhanced HTTP Testing', href: '20250713 Use http files for easy and repeatable test/README.md' }
 
         ]
 
       },
 
-      "Quarto Documentation": {
-
-        href: "20250712 Use QUARTO doc for Github repos doc/README.md",
+      'Quarto Documentation': {
 
         pages: [
 
-          { href: "20250712 Use QUARTO doc for Github repos doc/README.md", text: "Quarto Documentation Overview" }
+          { text: 'Using Quarto for Documentation', href: '20250712 Use QUARTO doc for Github repos doc/README.md' },
 
-        ]
+          { text: 'Quarto.yml Document Structure', href: '20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md' },
 
-      },
+          { text: 'Quarto Specific Markdown Features', href: '20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md' },
 
-      "HTTP Files (Extended)": {
-
-        href: "20250713 Use http files for easy and repeatable test/README.md",
-
-        pages: [
-
-          { href: "20250713 Use http files for easy and repeatable test/README.md", text: "HTTP Files (Extended)" }
+          { text: 'Quarto Theming and Styling', href: '20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md' }
 
         ]
 
@@ -649,27 +682,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     },
 
-    "🎉 Events": {
+    '🎭 Culture & Travel': {
 
-      "Build Conference 2025": {
-
-        href: "202506 Build 2025/Readme.md",
+      'Travel Experiences': {
 
         pages: [
 
-          { href: "202506 Build 2025/Readme.md", text: "Conference Overview" },
-
-          { href: "202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md", text: "BRK106: .NET Aspire AI & Cloud" },
-
-          { href: "202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md", text: "BRK122: ASP.NET Core & Blazor" },
-
-          { href: "202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md", text: "BRK123: .NET MAUI AI" },
-
-          { href: "202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md", text: "DEM508: Testing with Aspire" },
-
-          { href: "202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md", text: "DEM517: MCP Server" },
-
-          { href: "202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md", text: "DEM520: Local AI Development" }
+          { text: 'Paris 2025 Travel Guide', href: 'Travel/Paris 2025/README.md' }
 
         ]
 
@@ -677,35 +696,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     },
 
-    "💻 Technologies": {
+    '🔧 Issues & Solutions': {
 
-      "☁️ Azure": {
-
-        href: "20250702 Azure Naming conventions/README.md",
+      'Development Issues': {
 
         pages: [
 
-          { href: "20250702 Azure Naming conventions/README.md", text: "Naming Conventions" },
-
-          { href: "20250704 TableStorageAccess options/README.md", text: "Table Storage Access" },
-
-          { href: "20250706 CosmosDB Access options/README.md", text: "CosmosDB Access Options" }
-
-        ]
-
-      }
-
-    },
-
-    "🎭 Culture & Travel": {
-
-      "Travel Experiences": {
-
-        href: "Travel/Paris 2025/README.md",
-
-        pages: [
-
-          { href: "Travel/Paris 2025/README.md", text: "Paris Cultural Journey 2025" }
+          { text: 'VS Clone Error Fix', href: '_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md' }
 
         ]
 
@@ -723,29 +720,191 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!customNav) return;
 
-
-
-    const screenWidth = window.innerWidth;
-
     
 
-    if (screenWidth <= 800) {
+    const isMobile = window.innerWidth <= 800;
 
-      // Small screen: add mobile styling
+    if (isMobile) {
 
-      customNav.classList.add('mobile-layout');
-
-      customNav.classList.remove('desktop-layout');
+      customNav.style.display = 'none';
 
     } else {
 
-      // Large screen: add desktop styling
-
-      customNav.classList.add('desktop-layout');
-
-      customNav.classList.remove('mobile-layout');
+      customNav.style.display = 'block';
 
     }
+
+  }
+
+
+
+  function renderRightNav() {
+
+    console.log('renderRightNav called'); // Debug log
+
+    const customNav = document.querySelector('#custom-right-nav');
+
+    if (!customNav) {
+
+      console.log('Custom nav element not found'); // Debug log
+
+      return;
+
+    }
+
+    console.log('Custom nav element found:', !!customNav); // Debug log
+
+
+
+    const currentPath = getCurrentPagePath();
+
+    const currentSection = findCurrentSection(currentPath);
+
+
+
+    if (!currentSection) {
+
+      // Hide if no relevant section found
+
+      customNav.style.display = 'none';
+
+      if (window.innerWidth <= 800) {
+
+        // On mobile, show a simple overview
+
+        const navList = customNav.querySelector('ul');
+
+        navList.innerHTML = `
+
+          <li>- 🎉 Events → Build Conference 2025</li>
+
+          <li>- 💻 Technologies → ☁️ Azure</li>
+
+          <li>- 🎭 Culture & Travel → Travel Experiences</li>
+
+        `;
+
+      }
+
+      return;
+
+    }
+
+
+
+    console.log('Found section for path:', currentSection); // Debug log
+
+    
+
+    const { sectionName, subsectionName, subsectionData } = currentSection;
+
+    const navList = customNav.querySelector('ul');
+
+    
+
+    if (!navList) {
+
+      console.log('Nav list not found'); // Debug log
+
+      return;
+
+    }
+
+
+
+    // Show the custom nav
+
+    customNav.style.display = 'block';
+
+    customNav.classList.add('has-content');
+
+
+
+    // Clear existing content
+
+    navList.innerHTML = '';
+
+
+
+    // Add section header
+
+    const sectionHeader = document.createElement('li');
+
+    sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
+
+    sectionHeader.style.cssText = 'color: #2780e3; margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px;';
+
+    navList.appendChild(sectionHeader);
+
+
+
+    // Add pages
+
+    subsectionData.pages.forEach((page, index) => {
+
+      const li = document.createElement('li');
+
+      const a = document.createElement('a');
+
+      a.href = page.href.replace('.md', '.html');
+
+      a.textContent = page.text || page.title || 'Untitled';
+
+      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
+
+      
+
+      // Hover effect
+
+      a.addEventListener('mouseenter', () => {
+
+        a.style.color = '#2780e3';
+
+        a.style.textDecoration = 'underline';
+
+      });
+
+      a.addEventListener('mouseleave', () => {
+
+        a.style.color = '#666';
+
+        a.style.textDecoration = 'none';
+
+      });
+
+
+
+      // Highlight current page
+
+      const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
+
+      const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
+
+      if (pageBasePath === currentBasePath || 
+
+          currentPath.includes(page.href.replace('.md', '')) || 
+
+          page.href.includes(currentPath.replace('.html', ''))) {
+
+        a.style.fontWeight = 'bold';
+
+        a.style.color = '#2780e3';
+
+        a.style.backgroundColor = '#ffffff';
+
+        a.style.padding = '4px 8px';
+
+        a.style.borderRadius = '4px';
+
+      }
+
+      
+
+      li.appendChild(a);
+
+      navList.appendChild(li);
+
+    });
 
   }
 
@@ -865,8 +1024,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let path = window.location.pathname;
 
-    console.log('Raw pathname:', path); // Debug log
-
     
 
     // Handle different URL structures
@@ -895,31 +1052,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
         path = pageId;
 
-        console.log('Found page ID:', pageId); // Debug log
-
       }
 
     }
 
     
 
-    // Remove URL encoding
+    // Remove leading slash and decode URI components
 
-    path = decodeURIComponent(path);
+    path = path.replace(/^\//, '');
 
-    // Remove leading slash and Learn prefix
+    try {
 
-    path = path.replace(/^\/Learn\//, '').replace(/^\//, '');
+      path = decodeURIComponent(path);
 
-    // Convert .html to .md
+    } catch (e) {
 
-    path = path.replace(/\.html$/, '.md');
+      // If decoding fails, use original path
+
+    }
 
     
 
-    // If still empty, try to extract from document title or URL hash
+    // Try alternative methods for path detection
 
     if (!path || path === '') {
+
+      // Check document title
 
       const title = document.title;
 
@@ -927,9 +1086,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
 
-      // Try to extract from current URL hash or query params
+      // Check URL hash and search params
 
-      const hash = window.location.hash.replace('#', '');
+      const hash = window.location.hash;
 
       const search = window.location.search;
 
@@ -937,15 +1096,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       
 
-      // Last resort: check if we can extract from the page content
+      // If we still don't have a path, try to extract from URL
 
-      const pageHeader = document.querySelector('h1, .title');
+      const fullPath = window.location.href;
 
-      if (pageHeader && pageHeader.textContent.includes('Quarto')) {
+      const match = fullPath.match(/\/([^?#]+)/);
 
-        path = '20250712 Use QUARTO doc for Github repos doc/README.md';
+      if (match) {
 
-        console.log('Detected Quarto page from header'); // Debug log
+        path = match[1];
 
       }
 
@@ -1031,9 +1190,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
           
 
-          // Check if paths contain each other (for URL encoded vs decoded)
+          // Check if current path contains the page path (without extension)
 
-          if (currentPath.includes(page.href) || page.href.includes(currentPath.replace(/\.md$/, ''))) {
+          const pagePathWithoutExt = page.href.replace('.md', '').replace('.html', '');
+
+          const currentPathWithoutExt = currentPath.replace('.md', '').replace('.html', '');
+
+          
+
+          if (currentPathWithoutExt.includes(pagePathWithoutExt) || 
+
+              pagePathWithoutExt.includes(currentPathWithoutExt)) {
 
             console.log(`Contains match: ${page.href} matches ${currentPath}`); // Debug log
 
@@ -1042,22 +1209,6 @@ document.addEventListener('DOMContentLoaded', function() {
           }
 
           
-
-          // Check URL encoded versions
-
-          if (normalizedCurrentPath.includes(normalizedPagePath.replace(/\.md$/, '')) || 
-
-              normalizedPagePath.includes(normalizedCurrentPath.replace(/\.md$/, ''))) {
-
-            console.log(`URL encoded match: ${page.href} matches ${currentPath}`); // Debug log
-
-            return true;
-
-          }
-
-          
-
-          console.log(`No match: ${page.href} vs ${currentPath}`); // Debug log
 
           return false;
 
@@ -1077,199 +1228,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+    
+
     return null;
-
-  }
-
-
-
-  function renderRightNav() {
-
-    console.log('renderRightNav called'); // Debug log
-
-    const currentPath = getCurrentPagePath();
-
-    const currentSection = findCurrentSection(currentPath);
-
-    
-
-    const customNav = document.querySelector('#custom-right-nav');
-
-    console.log('Custom nav element found:', !!customNav); // Debug log
-
-    
-
-    if (!customNav) {
-
-      console.log('Custom nav element not found'); // Debug log
-
-      return;
-
-    }
-
-    
-
-    // Always show for debugging
-
-    customNav.style.display = 'block';
-
-    
-
-    if (!currentSection) {
-
-      console.log('No section found for current path'); // Debug log
-
-      // Show debug info instead of hiding
-
-      const navList = customNav.querySelector('ul');
-
-      if (navList) {
-
-        navList.innerHTML = `
-
-          <li><strong>Debug Info:</strong></li>
-
-          <li>Path: "${currentPath}"</li>
-
-          <li>No matching section found</li>
-
-          <li><em>Available sections:</em></li>
-
-          <li>- 🛠️ Tools → Development Tools</li>
-
-          <li>- 🛠️ Tools → Quarto Documentation</li>
-
-          <li>- 🎉 Events → Build Conference 2025</li>
-
-          <li>- 💻 Technologies → ☁️ Azure</li>
-
-          <li>- 🎭 Culture & Travel → Travel Experiences</li>
-
-        `;
-
-      }
-
-      return;
-
-    }
-
-
-
-    console.log('Found section for path:', currentSection); // Debug log
-
-    
-
-    const { sectionName, subsectionName, subsectionData } = currentSection;
-
-    const navList = customNav.querySelector('ul');
-
-    
-
-    if (!navList) {
-
-      console.log('Nav list not found'); // Debug log
-
-      return;
-
-    }
-
-
-
-    // Show the custom nav
-
-    customNav.style.display = 'block';
-
-    customNav.classList.add('has-content');
-
-
-
-    // Clear existing content
-
-    navList.innerHTML = '';
-
-
-
-    // Add section header
-
-    const sectionHeader = document.createElement('li');
-
-    sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
-
-    sectionHeader.style.cssText = 'color: #2780e3; margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px;';
-
-    navList.appendChild(sectionHeader);
-
-
-
-    // Add pages
-
-    subsectionData.pages.forEach((page, index) => {
-
-      const li = document.createElement('li');
-
-      const a = document.createElement('a');
-
-      a.href = page.href.replace('.md', '.html');
-
-      a.textContent = page.text || page.title || 'Untitled';
-
-      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
-
-      
-
-      // Hover effect
-
-      a.addEventListener('mouseenter', () => {
-
-        a.style.color = '#2780e3';
-
-        a.style.textDecoration = 'underline';
-
-      });
-
-      a.addEventListener('mouseleave', () => {
-
-        a.style.color = '#666';
-
-        a.style.textDecoration = 'none';
-
-      });
-
-      
-
-      // Highlight current page
-
-      const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
-
-      const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
-
-      if (pageBasePath === currentBasePath || 
-
-          currentPath.includes(page.href.replace('.md', '')) || 
-
-          page.href.includes(currentPath.replace('.html', ''))) {
-
-        a.style.fontWeight = 'bold';
-
-        a.style.color = '#2780e3';
-
-        a.style.backgroundColor = '#ffffff';
-
-        a.style.padding = '4px 8px';
-
-        a.style.borderRadius = '4px';
-
-      }
-
-      
-
-      li.appendChild(a);
-
-      navList.appendChild(li);
-
-    });
-
-  }
 
   }
 
@@ -1407,110 +1368,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 }
 
-
-
-#custom-right-nav li:first-child {
-
-  margin-bottom: 0.5rem;
-
-}
-
-
-
-#custom-right-nav li:first-child strong {
-
-  font-size: 0.875rem;
-
-  color: var(--bs-body-color, #212529);
-
-  font-weight: 600;
-
-}
-
-
-
-/* Desktop layout (> 800px) - Separate columns */
-
-@media (min-width: 801px) {
-
-  #custom-right-nav.desktop-layout {
-
-    margin-top: 2rem;
-
-    position: static;
-
-  }
-
-}
-
-
-
-/* Mobile layout (<= 800px) - Same column, collapsed sidebar */
-
-@media (max-width: 800px) {
-
-  #custom-right-nav.mobile-layout {
-
-    margin-top: 1rem;
-
-    margin-bottom: 1rem;
-
-    padding: 1rem;
-
-    background: #f8f9fa;
-
-    border: 1px solid var(--bs-border-color, #dee2e6);
-
-    border-radius: 0.375rem;
-
-    position: relative;
-
-  }
-
-  
-
-  /* Make TOC and Related Pages stack nicely */
-
-  #custom-right-nav.mobile-layout .toc-title {
-
-    color: var(--bs-body-color, #212529);
-
-    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
-
-    padding-bottom: 0.5rem;
-
-    margin-bottom: 1rem;
-
-  }
-
-}
-
-
-
-/* Hide on very small screens */
-
-@media (max-width: 576px) {
-
-  #custom-right-nav {
-
-    display: none !important;
-
-  }
-
-}
-
-
-
-/* Ensure proper spacing in all layouts */
-
-.margin-sidebar #custom-right-nav,
-
-#quarto-margin-sidebar #custom-right-nav {
-
-  position: static;
-
-}
-
 </style>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1601,6 +1458,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1938,7 +1846,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Microsoft Open Source Code of Conduct</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>This project has adopted the <span class="co">[</span><span class="ot">Microsoft Open Source Code of Conduct</span><span class="co">](https://opensource.microsoft.com/codeofconduct/)</span>.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Resources:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Microsoft Open Source Code of Conduct</span><span class="co">](https://opensource.microsoft.com/codeofconduct/)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Microsoft Code of Conduct FAQ</span><span class="co">](https://opensource.microsoft.com/codeofconduct/faq/)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Contact <span class="co">[</span><span class="ot">opencode@microsoft.com</span><span class="co">](mailto:opencode@microsoft.com)</span> with questions or concerns</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1949,7 +1867,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Learning Journey - Technical Notes &amp; Insights</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/BRK122/sample/CODE_OF_CONDUCT.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Last updated: July 8, 2025</p>
+<p>Last updated: <strong>?meta:date</strong></p>
 </div>
   </div>
 </footer>
@@ -1957,4 +1875,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

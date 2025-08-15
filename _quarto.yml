@@ -137,14 +137,14 @@ website:
               - section: "Quarto Documentation"
                 href: "20250712 Use QUARTO doc for Github repos doc/README.md"
                 contents:
-                - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
-                  text: "Overview"
-                - href: "20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md"
-                  text: "Quarto.yml document structure"
-                - href: "20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md"
-                  text: "Quarto specific markdown features"
-                - href: "20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md"
-                  text: "Quarto Theming and Styling"
+                  - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
+                    text: "Using Quarto"
+                  - href: "20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md"
+                    text: "Quarto.yml document structure"
+                  - href: "20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md"
+                    text: "Quarto specific markdown features"
+                  - href: "20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md"
+                    text: "Quarto Theming and Styling"
               - href: "20250713 Use http files for easy and repeatable test/README.md"
                 text: "HTTP Files (Extended)"
       
@@ -181,17 +181,36 @@ format:
       - cerulean.scss
     css: 
       - styles.css
+    include-after-body: 
+      - _includes/right-nav.html
     toc: true
     toc-depth: 3
     toc-location: right
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+    code-fold: false
+    code-tools: true
+    code-copy: true
+    highlight-style: github
+    fig-width: 8
+    fig-height: 6
+    fig-cap-location: bottom
+    callout-appearance: default
+    citations-hover: true
+    footnotes-hover: true
+    crossref:
+      fig-title: "Figure"
+      tbl-title: "Table"
+      eq-title: "Equation"
+    date-format: "MMMM D, YYYY"
+    lang: en
+    page-layout: article
     toc-title: "On This Page"
-    # Include custom right navigation
-    include-after-body: _includes/right-nav.html
     grid:
       sidebar-width: 300px
       body-width: 900px
-      margin-width: 250px  # Increased for right sidebar space
-    # Enhanced markdown rendering
+      margin-width: 280px
     html-table-processing: none
     html-math-method: katex
     strip-comments: false
@@ -199,37 +218,8 @@ format:
     link-external-icon: true
     embed-resources: false
     html-q-tags: true
-    # Better markdown support
     from: markdown+emoji+tex_math_dollars+fenced_divs+bracketed_spans+pipe_tables+grid_tables+simple_tables+multiline_tables
-    # Image processing
     fig-responsive: true
     lightbox: true
-    # Enhanced text processing
     smart: true
     preserve-tabs: true
-
-execute:
-  cache: true
-  freeze: auto
-  echo: true
-  warning: false
-  error: false
-
-metadata:
-  author: "Dario Airoldi"
-  date: last-modified
-  description: "Technical learning notes, conference insights, and development guides"
-  keywords:
-    - learning
-    - development
-    - azure
-    - dotnet
-    - conference
-    - documentation
-  image: "images/logo.png"  # Add if you have a logo
-
-language:
-  title-block-banner: true
-  search-box-placeholder: "Search documentation..."
-  search-more-text: "More matches"
-  search-clear-button-title: "Clear search"

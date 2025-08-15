@@ -37,6 +37,13 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: white !important;
+}
+
+/* Keep navbar brand white on hover */
+.navbar-brand:hover {
+  color: white !important;
+  text-decoration: none !important;
 }
 
 /* Make navbar icons white */
@@ -359,36 +366,13 @@ a:hover {
   transform: translateX(3px);
 }
 
-/* Hide on mobile */
-@media (max-width: 1200px) {
-  .custom-right-nav {
-    display: none;
-  }
+/* Ensure right margin is wide enough for custom navigation */
+.page-columns .margin-sidebar {
+  width: 250px !important;
+  min-width: 250px !important;
 }
 
-/* Enhanced ToC integration */
-#quarto-margin-sidebar {
-  padding-top: 1rem;
-}
-
-#quarto-margin-sidebar .toc-active {
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--bg-pastel-gray) 0%, var(--bg-pastel-blue) 100%);
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(123, 159, 224, 0.1);
-}
-
-#quarto-margin-sidebar .toc-active h2 {
-  color: var(--primary-dark);
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  text-align: center;
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 0.5rem;
-}
-
-/* Add custom navigation widget after ToC */
+/* Custom right navigation positioning */
 .custom-toc-addition {
   margin-top: 1.5rem;
   background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-pink) 100%);
@@ -396,6 +380,35 @@ a:hover {
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 3px 12px rgba(167, 139, 250, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+/* Force custom navigation to appear in the right margin */
+.custom-toc-addition {
+  /* Remove from normal flow and position in margin */
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 250px;
+  z-index: 100;
+}
+
+/* Alternative: Try to inject into margin sidebar using JavaScript positioning */
+#quarto-margin-sidebar .custom-right-nav-container {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+#quarto-margin-sidebar .custom-right-nav-container .custom-toc-addition {
+  position: relative;
+  right: auto;
+  top: auto;
+  transform: none;
+  width: 100%;
+  z-index: auto;
 }
 
 .custom-toc-addition h3 {
@@ -435,4 +448,55 @@ a:hover {
   transform: translateX(3px);
   border-color: var(--accent-color);
   box-shadow: 0 2px 8px rgba(134, 239, 172, 0.3);
+}
+
+/* When not in margin sidebar, use fixed positioning */
+body > .custom-toc-addition {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 250px;
+  z-index: 1000;
+}
+
+/* Hide fixed positioning if the elements are successfully moved to margin */
+#quarto-margin-sidebar .custom-right-nav-container ~ body > .custom-toc-addition {
+  display: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1200px) {
+  .custom-toc-addition {
+    display: none;
+  }
+}
+
+/* Desktop-specific positioning improvements */
+@media (min-width: 1201px) {
+  /* Ensure margin sidebar has enough space */
+  .page-columns .margin-sidebar {
+    width: 280px !important;
+    min-width: 280px !important;
+  }
+  
+  /* Adjust main content to accommodate wider margin */
+  .page-columns .page-full {
+    grid-template-columns: 1fr min(calc(900px + 2*1rem), calc(100% - 320px)) 280px 1fr;
+  }
+}
+
+/* Debug: Temporary styling to see where elements end up */
+.custom-toc-addition {
+  border: 2px solid #ff6b6b !important;
+  background: #ffe66d !important;
+}
+
+.custom-toc-addition h3 {
+  color: #333 !important;
+}
+
+.custom-toc-addition a {
+  color: #333 !important;
+  background: rgba(255, 255, 255, 0.8) !important;
 }
