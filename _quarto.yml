@@ -15,6 +15,7 @@ project:
     - "20250713 Use http files for easy and repeatable test/README.md"
     - "Travel/Paris 2025/README.md"
     - "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
+    - "20250815 DIY Battery Pack/README.md"
 
 website:
   title: "Dario's Learning Journey"

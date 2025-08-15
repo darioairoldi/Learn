@@ -488,12 +488,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">🎭 Culture &amp; Travel</span></a>
+ <span class="menu-text">🎭 Other Technologies</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20250815 DIY Battery Pack/README.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DIY Li-Ion Battery Packs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">🎭 Culture &amp; Travel</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
@@ -868,53 +886,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    // Find all sidebar items and build the structure
+    // Find all sidebar navigation lists and sections
 
-    const sidebarItems = sidebar.querySelectorAll('.sidebar-item');
+    const sidebarNavs = sidebar.querySelectorAll('.sidebar-item, .sidebar-section');
 
     
 
-    sidebarItems.forEach(item => {
+    // Look for collapsible sections and their contents
 
-      const link = item.querySelector('.sidebar-item-text[href]');
+    const collapsibleSections = sidebar.querySelectorAll('.collapse, .sidebar-section');
 
-      if (!link) return;
+    
 
-      
+    collapsibleSections.forEach(section => {
 
-      const href = link.getAttribute('href');
+      // Find all links within this section
 
-      const text = link.textContent.trim();
-
-      
-
-      if (!href || !text) return;
+      const links = section.querySelectorAll('a.sidebar-item-text[href]');
 
       
 
-      // Find the parent sections by traversing up the DOM
+      links.forEach(link => {
 
-      const parentSections = [];
+        const href = link.getAttribute('href');
 
-      let current = item.parentElement;
+        const text = link.textContent.trim();
 
-      
+        
 
-      while (current && current !== sidebar) {
+        if (!href || !text) return;
 
-        if (current.classList.contains('sidebar-section')) {
+        
 
-          // Find the section title
+        // Find parent sections by looking for section headers
 
-          const sectionContainer = current.previousElementSibling;
+        const parentSections = [];
 
-          if (sectionContainer && sectionContainer.classList.contains('sidebar-item-container')) {
+        let current = section;
 
-            const sectionTitle = sectionContainer.querySelector('.sidebar-item-text');
+        
 
-            if (sectionTitle) {
+        // Look for parent section titles
 
-              parentSections.unshift(sectionTitle.textContent.trim());
+        while (current && current !== sidebar) {
+
+          const sectionHeader = current.querySelector('.sidebar-item-text:not([href])') || 
+
+                               current.previousElementSibling?.querySelector('.sidebar-item-text:not([href])');
+
+          
+
+          if (sectionHeader) {
+
+            const headerText = sectionHeader.textContent.trim();
+
+            if (headerText && !parentSections.includes(headerText)) {
+
+              parentSections.unshift(headerText);
+
+            }
+
+          }
+
+          
+
+          current = current.parentElement;
+
+          
+
+          // Also check for section containers
+
+          if (current && current.classList.contains('sidebar-item-container')) {
+
+            const containerHeader = current.querySelector('.sidebar-item-text:not([href])');
+
+            if (containerHeader) {
+
+              const headerText = containerHeader.textContent.trim();
+
+              if (headerText && !parentSections.includes(headerText)) {
+
+                parentSections.unshift(headerText);
+
+              }
 
             }
 
@@ -922,85 +976,177 @@ document.addEventListener('DOMContentLoaded', function() {
 
         }
 
-        current = current.parentElement;
-
-      }
-
-      
-
-      // Build the navigation structure
-
-      if (parentSections.length >= 2) {
-
-        const mainSection = parentSections[0];
-
-        const subSection = parentSections[1];
-
         
 
-        if (!navStructure[mainSection]) {
+        // Build the navigation structure
 
-          navStructure[mainSection] = {};
+        if (parentSections.length >= 2) {
+
+          const mainSection = parentSections[0];
+
+          const subSection = parentSections[1];
+
+          
+
+          if (!navStructure[mainSection]) {
+
+            navStructure[mainSection] = {};
+
+          }
+
+          
+
+          if (!navStructure[mainSection][subSection]) {
+
+            navStructure[mainSection][subSection] = { pages: [] };
+
+          }
+
+          
+
+          navStructure[mainSection][subSection].pages.push({
+
+            text: text,
+
+            href: href
+
+          });
+
+        } else if (parentSections.length === 1) {
+
+          const mainSection = parentSections[0];
+
+          const directSection = mainSection + ' Pages';
+
+          
+
+          if (!navStructure[mainSection]) {
+
+            navStructure[mainSection] = {};
+
+          }
+
+          
+
+          if (!navStructure[mainSection][directSection]) {
+
+            navStructure[mainSection][directSection] = { pages: [] };
+
+          }
+
+          
+
+          navStructure[mainSection][directSection].pages.push({
+
+            text: text,
+
+            href: href
+
+          });
 
         }
 
-        
-
-        if (!navStructure[mainSection][subSection]) {
-
-          navStructure[mainSection][subSection] = { pages: [] };
-
-        }
-
-        
-
-        navStructure[mainSection][subSection].pages.push({
-
-          text: text,
-
-          href: href
-
-        });
-
-      } else if (parentSections.length === 1) {
-
-        const mainSection = parentSections[0];
-
-        const directSection = mainSection + ' Pages';
-
-        
-
-        if (!navStructure[mainSection]) {
-
-          navStructure[mainSection] = {};
-
-        }
-
-        
-
-        if (!navStructure[mainSection][directSection]) {
-
-          navStructure[mainSection][directSection] = { pages: [] };
-
-        }
-
-        
-
-        navStructure[mainSection][directSection].pages.push({
-
-          text: text,
-
-          href: href
-
-        });
-
-      }
+      });
 
     });
 
     
 
-    // If extraction didn't work well, use fallback
+    // Additional fallback: scan all sidebar links if structure is still empty
+
+    if (Object.keys(navStructure).length === 0) {
+
+      const allLinks = sidebar.querySelectorAll('a.sidebar-item-text[href]');
+
+      
+
+      allLinks.forEach(link => {
+
+        const href = link.getAttribute('href');
+
+        const text = link.textContent.trim();
+
+        
+
+        if (!href || !text) return;
+
+        
+
+        // Try to infer structure from URL paths
+
+        const pathParts = href.split('/');
+
+        if (pathParts.length > 1) {
+
+          let mainSection = 'Other';
+
+          let subSection = 'Pages';
+
+          
+
+          // Detect common patterns
+
+          if (href.includes('202506 Build 2025') || href.includes('Build')) {
+
+            mainSection = '🎉 Events';
+
+            subSection = 'Build Conference 2025';
+
+          } else if (href.includes('Azure') || href.includes('20250702') || href.includes('20250704') || href.includes('20250706')) {
+
+            mainSection = '💻 Technologies';
+
+            subSection = '☁️ Azure';
+
+          } else if (href.includes('Quarto') || href.includes('20250712')) {
+
+            mainSection = '🛠️ Tools';
+
+            subSection = 'Quarto Documentation';
+
+          } else if (href.includes('git') || href.includes('http') || href.includes('20250709') || href.includes('20250711') || href.includes('20250713')) {
+
+            mainSection = '🛠️ Tools';
+
+            subSection = 'Development Tools';
+
+          }
+
+          
+
+          if (!navStructure[mainSection]) {
+
+            navStructure[mainSection] = {};
+
+          }
+
+          
+
+          if (!navStructure[mainSection][subSection]) {
+
+            navStructure[mainSection][subSection] = { pages: [] };
+
+          }
+
+          
+
+          navStructure[mainSection][subSection].pages.push({
+
+            text: text,
+
+            href: href
+
+          });
+
+        }
+
+      });
+
+    }
+
+    
+
+    // If extraction still didn't work, use fallback
 
     if (Object.keys(navStructure).length === 0) {
 
@@ -1086,9 +1232,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
             { text: 'Conference Overview', href: '202506 Build 2025/Readme.md' },
 
-            { text: 'BRK106: .NET Aspire AI & Cloud', href: '202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md' },
+            { text: 'BRK104 - .NET Aspire AI, Cloud, and Beyond', href: '202506 Build 2025/BRK104 - toread/README.md' },
 
-            { text: 'BRK122: ASP.NET Core & Blazor', href: '202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md' }
+            { text: 'BRK106 - .NET Aspire AI & Cloud', href: '202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md' },
+
+            { text: 'BRK114 - C# Version History', href: '202506 Build 2025/BRK114/README.md' },
+
+            { text: 'BRK122 - ASP.NET Core & Blazor', href: '202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md' },
+
+            { text: 'BRK123 - .NET MAUI', href: '202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md' },
+
+            { text: 'DEM508 - Testing with .NET Aspire and Playwright', href: '202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md' },
+
+            { text: 'DEM517 - MCP Server', href: '202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md' },
+
+            { text: 'DEM520 - Local AI Development', href: '202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md' },
+
+            { text: 'DEM581 - GitHub Copilot Extensions', href: '202506 Build 2025/DEM581/00. Building GitHub Copilot Extensions with C#, .NET and Azure AI.md' },
+
+            { text: 'ODFP957 - Cloud-Native Applications', href: '202506 Build 2025/ODFP957 - toread/README.md' }
 
           ]
 
