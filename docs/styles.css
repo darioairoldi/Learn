@@ -6,27 +6,27 @@
   margin-bottom: 1.5rem;
 }
 
-/* Custom metadata layout - Author left, dates right */
+/* Custom metadata layout - Author left, dates right on same line */
 .quarto-title-meta-contents {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   font-size: 0.9rem;
   color: #6c757d;
   border-bottom: 1px solid #e9ecef;
   padding-bottom: 0.75rem;
   margin-bottom: 1.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
-/* Author stays on the left - full line */
+/* Author stays on the left */
 .quarto-title-meta-contents > div:first-child {
-  flex: 1 1 100%;
-  margin: 0 0 0.5rem 0;
+  flex: 0 0 auto;
+  margin: 0;
   order: 1;
 }
 
-/* Dates container on the right */
+/* Create a container for dates on the right */
 .quarto-title-meta-contents > div:nth-child(2) {
   flex: 0 0 auto;
   margin: 0;
@@ -39,21 +39,9 @@
   order: 3;
 }
 
-/* Group dates on the same line using flexbox */
-.quarto-title-meta-contents {
-  position: relative;
-}
-
-.quarto-title-meta-contents::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-/* Create a dates wrapper */
-.quarto-title-meta-contents > div:nth-child(2),
-.quarto-title-meta-contents > div:nth-child(3) {
-  float: right;
+/* Use margin-left auto to push dates to the right */
+.quarto-title-meta-contents > div:nth-child(2) {
+  margin-left: auto;
 }
 
 .quarto-title-meta-heading {
