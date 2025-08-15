@@ -1624,7 +1624,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       a.textContent = page.text || page.title || 'Untitled';
 
-      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
+      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0; margin-left: 16px; position: relative;';
+
+      
+
+      // Add a subtle left border for visual hierarchy
+
+      a.style.borderLeft = '2px solid transparent';
+
+      a.style.paddingLeft = '8px';
 
       
 
@@ -1636,6 +1644,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         a.style.textDecoration = 'underline';
 
+        a.style.borderLeft = '2px solid #2780e3';
+
       });
 
       a.addEventListener('mouseleave', () => {
@@ -1643,6 +1653,24 @@ document.addEventListener('DOMContentLoaded', function() {
         a.style.color = '#666';
 
         a.style.textDecoration = 'none';
+
+        
+
+        // Keep border if this is the current page
+
+        const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
+
+        const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
+
+        if (!(pageBasePath === currentBasePath || 
+
+              currentPath.includes(page.href.replace('.md', '')) || 
+
+              page.href.includes(currentPath.replace('.html', '')))) {
+
+          a.style.borderLeft = '2px solid transparent';
+
+        }
 
       });
 
@@ -1664,11 +1692,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         a.style.color = '#2780e3';
 
-        a.style.backgroundColor = '#ffffff';
+        a.style.backgroundColor = '#f8f9fa';
 
         a.style.padding = '4px 8px';
 
+        a.style.marginLeft = '12px';
+
         a.style.borderRadius = '4px';
+
+        a.style.borderLeft = '3px solid #2780e3';
 
       }
 
@@ -1902,17 +1934,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    // Get the dynamic navigation structure
+    // For now, always use the fallback structure which we know is correct
 
-    const navStructure = extractNavigationFromSidebar();
+    const finalNavStructure = getFallbackNavStructure();
 
-    if (!navStructure) {
+    
 
-      console.log('Could not extract navigation structure');
-
-      return null;
-
-    }
+    console.log('Using fallback navigation structure:', finalNavStructure);
 
     
 
@@ -1952,15 +1980,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Normalize the current path for comparison
 
-    const normalizedCurrentPath = currentPath.replace(/\s/g, '%20').replace('.html', '').replace('.md', '');
+    const normalizedCurrentPath = currentPath.replace(/\s/g, '%20').replace('.html', '').replace('.md', '').toLowerCase();
 
     console.log('Normalized current path:', normalizedCurrentPath); // Debug log
 
     
 
-    // First, check if current path matches a subsection's main href (section landing page)
+    // Check subsections first (prioritize specific subsections)
 
-    for (const [sectionName, subsections] of Object.entries(navStructure)) {
+    for (const [sectionName, subsections] of Object.entries(finalNavStructure)) {
+
+      console.log(`Checking main section: ${sectionName}`);
+
+      
 
       for (const [subsectionName, subsectionData] of Object.entries(subsections)) {
 
@@ -1968,45 +2000,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
 
-        // Check if there's a page that represents the subsection itself
+        console.log(`  Checking subsection: ${subsectionName}`);
 
-        const subsectionMainPage = subsectionData.pages.find(page => {
+        console.log(`  Pages in subsection:`, subsectionData.pages);
+
+        
+
+        // Check if any page in this subsection matches current path
+
+        const matchingPage = subsectionData.pages.find(page => {
 
           const pageHref = page.href || '';
 
-          const normalizedPageHref = pageHref.replace(/\s/g, '%20').replace('.html', '').replace('.md', '');
+          const normalizedPageHref = pageHref.replace(/\s/g, '%20').replace('.html', '').replace('.md', '').toLowerCase();
 
           
 
-          // If this page's path matches current path, this could be the subsection main page
+          console.log(`    Comparing: "${normalizedCurrentPath}" with "${normalizedPageHref}"`);
 
-          return normalizedCurrentPath.includes(normalizedPageHref) || 
+          
 
-                 normalizedPageHref.includes(normalizedCurrentPath) ||
+          // Multiple matching strategies for better detection
 
-                 normalizedCurrentPath === normalizedPageHref;
+          const isMatch = normalizedCurrentPath.includes(normalizedPageHref) || 
+
+                         normalizedPageHref.includes(normalizedCurrentPath) ||
+
+                         normalizedCurrentPath === normalizedPageHref ||
+
+                         normalizedCurrentPath.endsWith(normalizedPageHref.split('/').pop()) ||
+
+                         normalizedPageHref.endsWith(normalizedCurrentPath.split('/').pop());
+
+          
+
+          console.log(`    Match result: ${isMatch}`);
+
+          return isMatch;
 
         });
 
         
 
-        if (subsectionMainPage) {
+        if (matchingPage) {
 
-          console.log(`✓ Found subsection main page: ${subsectionName}`); // Debug log
+          console.log(`✓ Found in subsection: ${subsectionName} (page: ${matchingPage.text})`); // Debug log
 
           
 
-          // Special handling: if we're on a page that belongs to a subsection,
-
-          // show that subsection as the title with all its children
+          // Return the subsection as the main title
 
           return { 
 
             sectionName, 
 
-            subsectionName: subsectionName, // Use subsection name as title
+            subsectionName: subsectionName, // This will be the title shown
 
-            subsectionData: subsectionData  // Show all pages in this subsection
+            subsectionData: subsectionData  // All pages in this subsection
 
           };
 
