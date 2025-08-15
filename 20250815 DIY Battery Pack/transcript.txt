@@ -1,0 +1,364 @@
+0:00
+i figured it was time to have a go at
+0:02
+building my own lithium-ion flight packs
+0:04
+so a while ago i bought a whole bunch of
+0:06
+these
+0:07
+uh samsung inr 21 730t
+0:12
+cells so this is the first pack that i
+0:14
+built yesterday
+0:15
+just a simple 4s 1p pack using 3d
+0:18
+printed
+0:19
+end caps and spacer in the center using
+0:22
+a spot welder to connect
+0:25
+the uh the cells in series
+0:28
+so this is 0.2 millimeter thick
+0:31
+uh pure nickel strip uh spot welded with
+0:34
+the secure sq sw1 spot welder
+0:38
+and with the um the balance wires
+0:41
+soldered into the middle
+0:42
+there now you'll notice that i have cut
+0:44
+slots
+0:45
+into the nickel strip at the ends and
+0:48
+that's just to encourage the electricity
+0:50
+from the electrodes of the spot welder
+0:52
+to actually travel
+0:53
+down into the metal of the cap of the
+0:55
+cell
+0:56
+rather than just traveling through the
+0:58
+the nikon strip itself
+0:59
+so the first thing i'm going to do is
+1:01
+cut a bunch of
+1:03
+32 millimeter long pieces of this 0.2
+1:06
+millimeter pure nickel strip
+1:08
+and then use the dremel to cut some
+1:11
+slots into the end
+1:26
+so the discharge wires will be connected
+1:28
+to the first and the last cell the
+1:30
+positive of this one and negative of
+1:31
+that one
+1:32
+and the order that the cells will be
+1:34
+connected will be
+1:37
+along there along there
+1:40
+and then along there
+1:43
+now i'm going to hot glue these together
+1:45
+just along the
+1:47
+sides i'm not sure if i'll keep the hot
+1:48
+glue for the actual final packs
+1:50
+but it helps just to hold them together
+1:53
+as i'm doing the spot welding
+1:56
+[Music]
+2:01
+okay starting on the bottom of the pack
+2:04
+we're going to have the
+2:05
+negative of the first cell connected to
+2:07
+the positive of the second cell
+2:09
+and then the negative of the third cell
+2:11
+connected to the positive of the fourth
+2:13
+cell so one strip across there and one
+2:15
+across there
+2:18
+okay world number one
+2:25
+now the strength of the positive world
+2:28
+is actually slightly stronger than the
+2:30
+negative so what i'm going to do is
+2:33
+rotate
+2:34
+and do the second world the other way
+2:36
+around just to distribute the uh
+2:39
+the better worlds and we're not quite so
+2:41
+good worlds side to side
+2:55
+okay now we'll do the negative self
+3:04
+okay so we have three pairs of welds on
+3:07
+each one
+3:08
+and then we can just repeat that for the
+3:10
+other one one thing you do have to do
+3:12
+is to sharpen the tips of the electrodes
+3:15
+because they do
+3:16
+literally wear down and melt and leave a
+3:19
+bit of
+3:19
+the material behind so they are they
+3:22
+develop flat
+3:23
+ends so
+3:36
+okay so there we have two out of the
+3:38
+three series connections done
+3:42
+now flip the cell over and do the final
+3:44
+series connection
+3:57
+okay so now we have all of our series
+4:00
+connections
+4:01
+made with the nickel strips now what we
+4:04
+need to do is
+4:05
+add the balance cable connections and
+4:08
+the discharge connections
+4:10
+now for the first and last cells you
+4:11
+have both the um
+4:14
+the discharge wires the thicker
+4:15
+discharge wires and the
+4:17
+thinner balance wires and obviously you
+4:19
+don't want to be
+4:20
+soldering these thick discharge wire
+4:23
+joints
+4:24
+uh directly on top of the cells that
+4:26
+would defeat the point of using
+4:28
+a spot welder at all so what we're going
+4:30
+to do is
+4:31
+solder these thicker discharge wires
+4:34
+onto the nickel tabs before we spot
+4:36
+while them onto the pack
+4:38
+now i probably shouldn't have had a
+4:40
+whole sugar coffee this morning
+4:42
+but let's see how we get on
+4:57
+okay so there is one of our discharge
+4:59
+wires
+5:00
+salted to a nickel strip tab
+5:05
+and these i will do four welds on
+5:08
+simply because they're most likely to
+5:11
+have
+5:13
+strain on them
+5:28
+okay so there's our negative discharge
+5:30
+wire we'll solder the bounce wire onto
+5:32
+the end there
+5:33
+um it can be a very quick small solar
+5:36
+joint so
+5:37
+i'm not too worried about heat damage to
+5:38
+the cell just doing that
+5:54
+yeah that isn't as good as the other one
+5:55
+but
+5:57
+it should be fine okay
+6:01
+the first and last wires in the balance
+6:03
+connector
+6:04
+connect to the discharge terminals on
+6:07
+the top here
+6:09
+each of the three middle wires connects
+6:12
+in turn
+6:13
+to the bridges between the cells so
+6:16
+y number two connects to the connection
+6:18
+between cells one and two
+6:21
+while number three connects to the
+6:22
+connection between cells two and three
+6:25
+y number four connects to the connection
+6:27
+between cells
+6:29
+three and four
+6:32
+that'll do doesn't need to be much
+6:43
+there we go
+6:50
+the coffee is really not helping me here
+7:02
+[Music]
+7:27
+[Music]
+7:41
+hold it
+7:50
+that wasn't even in frame oh well anyway
+7:52
+at this point
+7:54
+you should have a functioning pack okay
+7:58
+we can now see that we have in fact
+8:00
+wired up the balance connector correctly
+8:02
+because if we hadn't
+8:04
+uh it wouldn't be reading individual
+8:07
+cell voltages
+8:08
+it would be reading something bizarre
+8:10
+and probably being an error at us
+8:12
+the final thing to do is the xt60
+8:46
+as i said i probably won't keep the uh
+8:48
+the hot glue down the middle
+8:49
+of the cells that was just there to hold
+8:51
+them in place and as i spot molded them
+8:53
+i've got some large heat shrink on order
+8:56
+which i'll put
+8:57
+over the whole thing and which will hold
+8:59
+the end gaps in place nicely
+9:01
+without having to use zip ties in these
+9:03
+slots which i think just looks
+9:05
+a bit ugly uh yeah i've got
+9:08
+a 28 more of these my plan at the moment
+9:11
+is to build
+9:12
+five packs like this um i can run them
+9:14
+individually on my
+9:16
+six and seven inch quad i can stack them
+9:19
+and run them as a
+9:20
+4s 2p on my macro quad build and then
+9:23
+that will leave me
+9:25
+12 cells left over to make a couple of
+9:27
+6s
+9:28
+packs rather big success packs which i
+9:30
+might try on my
+9:32
+one and only 6s build which is a 5 inch
+9:35
+thousand million power success lithium
+9:37
+ion on a
+9:39
+five inch quad it could work it's only
+9:42
+double what i fly with it right now
+9:43
+so well one way to find out

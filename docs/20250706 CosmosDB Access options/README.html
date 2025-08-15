@@ -3016,11 +3016,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const a = document.createElement('a');
 
-      a.href = page.href.replace('.md', '.html');
+      
+
+      // Construct proper href path
+
+      let href = page.href;
+
+      if (href && !href.startsWith('http')) {
+
+        // Handle relative paths
+
+        if (!href.startsWith('/')) {
+
+          href = '/' + href;
+
+        }
+
+        // Convert .md to .html for web navigation
+
+        href = href.replace('.md', '.html');
+
+      }
+
+      
+
+      a.href = href;
 
       a.textContent = page.text || page.title || 'Untitled';
 
-      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0; margin-left: 16px; position: relative;';
+      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0; margin-left: 16px; position: relative; cursor: pointer;';
 
       
 
@@ -3029,6 +3053,14 @@ document.addEventListener('DOMContentLoaded', function() {
       a.style.borderLeft = '2px solid transparent';
 
       a.style.paddingLeft = '8px';
+
+      
+
+      // Ensure the link is clickable
+
+      a.setAttribute('role', 'link');
+
+      a.setAttribute('tabindex', '0');
 
       
 
@@ -3042,6 +3074,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         a.style.borderLeft = '2px solid #2780e3';
 
+        a.style.cursor = 'pointer';
+
       });
 
       a.addEventListener('mouseleave', () => {
@@ -3049,6 +3083,8 @@ document.addEventListener('DOMContentLoaded', function() {
         a.style.color = '#666';
 
         a.style.textDecoration = 'none';
+
+        a.style.cursor = 'pointer';
 
         
 
@@ -3065,6 +3101,22 @@ document.addEventListener('DOMContentLoaded', function() {
               page.href.includes(currentPath.replace('.html', '')))) {
 
           a.style.borderLeft = '2px solid transparent';
+
+        }
+
+      });
+
+      
+
+      // Add click handler as backup
+
+      a.addEventListener('click', (e) => {
+
+        if (a.href) {
+
+          console.log('Navigating to:', a.href);
+
+          window.location.href = a.href;
 
         }
 
@@ -5961,7 +6013,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
