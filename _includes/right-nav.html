@@ -153,6 +153,20 @@ document.addEventListener('DOMContentLoaded', function() {
             { text: 'BRK122: ASP.NET Core & Blazor', href: '202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md' }
           ]
         }
+      },
+      '🔧 Issues & Solutions': {
+        'Development Issues': {
+          pages: [
+            { text: 'VS Clone Error Fix', href: '_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md' }
+          ]
+        }
+      },
+      '🎭 Culture & Travel': {
+        'Travel Experiences': {
+          pages: [
+            { text: 'Paris Cultural Journey 2025', href: 'Travel/Paris 2025/README.md' }
+          ]
+        }
       }
     };
   }
@@ -392,31 +406,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const normalizedCurrentPath = currentPath.replace(/\s/g, '%20').replace('.html', '').replace('.md', '');
     console.log('Normalized current path:', normalizedCurrentPath); // Debug log
     
+    // First, check if current path matches a subsection's main href (section landing page)
     for (const [sectionName, subsections] of Object.entries(navStructure)) {
-      console.log(`Checking section: ${sectionName}`); // Debug log
-      
       for (const [subsectionName, subsectionData] of Object.entries(subsections)) {
-        console.log(`  Checking subsection: ${subsectionName}`); // Debug log
-        
         if (!subsectionData.pages) continue;
         
-        // Check if current page is in this subsection
-        const matchingPage = subsectionData.pages.find(page => {
+        // Check if there's a page that represents the subsection itself
+        const subsectionMainPage = subsectionData.pages.find(page => {
           const pageHref = page.href || '';
           const normalizedPageHref = pageHref.replace(/\s/g, '%20').replace('.html', '').replace('.md', '');
           
-          console.log(`    Comparing: "${normalizedCurrentPath}" with "${normalizedPageHref}"`); // Debug log
-          
-          // Simple exact match or contains match
+          // If this page's path matches current path, this could be the subsection main page
           return normalizedCurrentPath.includes(normalizedPageHref) || 
                  normalizedPageHref.includes(normalizedCurrentPath) ||
                  normalizedCurrentPath === normalizedPageHref;
         });
         
-        if (matchingPage) {
-          console.log(`✓ Found matching page in section: ${sectionName} -> ${subsectionName}`); // Debug log
-          console.log(`  Matching page:`, matchingPage); // Debug log
-          return { sectionName, subsectionName, subsectionData };
+        if (subsectionMainPage) {
+          console.log(`✓ Found subsection main page: ${subsectionName}`); // Debug log
+          
+          // Special handling: if we're on a page that belongs to a subsection,
+          // show that subsection as the title with all its children
+          return { 
+            sectionName, 
+            subsectionName: subsectionName, // Use subsection name as title
+            subsectionData: subsectionData  // Show all pages in this subsection
+          };
         }
       }
     }
