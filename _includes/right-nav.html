@@ -30,63 +30,77 @@ document.addEventListener('DOMContentLoaded', function() {
   // Handle window resize
   window.addEventListener('resize', handleResponsiveLayout);
   
-  // Define the navigation structure
-  const navStructure = {
-    '🎉 Events': {
-      'Build Conference 2025': {
-        pages: [
-          { text: 'Conference Overview', href: '202506 Build 2025/Readme.md' },
-          { text: '.NET Aspire AI & Cloud', href: '202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md' },
-          { text: 'ASP.NET Core & Blazor', href: '202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md' },
-          { text: '.NET MAUI AI Development', href: '202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md' },
-          { text: 'Testing with Aspire & Playwright', href: '202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md' },
-          { text: 'Model Context Protocol', href: '202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md' },
-          { text: 'Local AI Development', href: '202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md' }
-        ]
+  // Dynamic navigation structure - reads from Quarto's rendered sidebar
+  function extractNavigationFromSidebar() {
+    const sidebar = document.querySelector('#quarto-sidebar');
+    if (!sidebar) return null;
+    
+    const navStructure = {};
+    
+    // Find all main sections (level 1)
+    const mainSections = sidebar.querySelectorAll('.sidebar-item-section > .sidebar-item-container > .sidebar-item-text');
+    
+    mainSections.forEach(sectionEl => {
+      const sectionText = sectionEl.textContent.trim();
+      if (!sectionText) return;
+      
+      navStructure[sectionText] = {};
+      
+      // Find the parent section element
+      const sectionContainer = sectionEl.closest('.sidebar-item-section');
+      if (!sectionContainer) return;
+      
+      // Find subsections within this main section
+      const subsectionElements = sectionContainer.querySelectorAll('.sidebar-section .sidebar-item-section');
+      
+      subsectionElements.forEach(subsectionEl => {
+        const subsectionLink = subsectionEl.querySelector('.sidebar-item-container > .sidebar-item-text');
+        if (!subsectionLink) return;
+        
+        const subsectionText = subsectionLink.textContent.trim();
+        if (!subsectionText) return;
+        
+        navStructure[sectionText][subsectionText] = { pages: [] };
+        
+        // Find all pages within this subsection
+        const pageElements = subsectionEl.querySelectorAll('.sidebar-section .sidebar-item .sidebar-item-text');
+        
+        pageElements.forEach(pageEl => {
+          const href = pageEl.getAttribute('href');
+          const text = pageEl.textContent.trim();
+          
+          if (href && text) {
+            navStructure[sectionText][subsectionText].pages.push({
+              text: text,
+              href: href
+            });
+          }
+        });
+      });
+      
+      // Also handle direct pages under main sections (not in subsections)
+      const directPages = sectionContainer.querySelectorAll('.sidebar-section > .sidebar-item > .sidebar-item-container > .sidebar-item-text[href]');
+      if (directPages.length > 0) {
+        const directSectionName = sectionText + ' Pages';
+        navStructure[sectionText][directSectionName] = { pages: [] };
+        
+        directPages.forEach(pageEl => {
+          const href = pageEl.getAttribute('href');
+          const text = pageEl.textContent.trim();
+          
+          if (href && text) {
+            navStructure[sectionText][directSectionName].pages.push({
+              text: text,
+              href: href
+            });
+          }
+        });
       }
-    },
-    '💻 Technologies': {
-      '☁️ Azure': {
-        pages: [
-          { text: 'Azure Naming Conventions', href: '20250702 Azure Naming conventions/README.md' },
-          { text: 'Table Storage Access', href: '20250704 TableStorageAccess options/README.md' },
-          { text: 'CosmosDB Access Options', href: '20250706 CosmosDB Access options/README.md' },
-          { text: 'EventHub Access Options', href: '20250723 EventHub Access options/README.md' }
-        ]
-      }
-    },
-    '🛠️ Tools': {
-      'Development Tools': {
-        pages: [
-          { text: 'Git Command Line Management', href: '20250709 Manage GitRepo from commandline/README.md' },
-          { text: 'HTTP Testing with .http Files', href: '20250711 Use http files for easy and repeatable test/README.md' },
-          { text: 'Enhanced HTTP Testing', href: '20250713 Use http files for easy and repeatable test/README.md' }
-        ]
-      },
-      'Quarto Documentation': {
-        pages: [
-          { text: 'Using Quarto for Documentation', href: '20250712 Use QUARTO doc for Github repos doc/README.md' },
-          { text: 'Quarto.yml Document Structure', href: '20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md' },
-          { text: 'Quarto Specific Markdown Features', href: '20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md' },
-          { text: 'Quarto Theming and Styling', href: '20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md' }
-        ]
-      }
-    },
-    '🎭 Culture & Travel': {
-      'Travel Experiences': {
-        pages: [
-          { text: 'Paris 2025 Travel Guide', href: 'Travel/Paris 2025/README.md' }
-        ]
-      }
-    },
-    '🔧 Issues & Solutions': {
-      'Development Issues': {
-        pages: [
-          { text: 'VS Clone Error Fix', href: '_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md' }
-        ]
-      }
-    }
-  };
+    });
+    
+    console.log('Extracted navigation structure:', navStructure);
+    return navStructure;
+  }
 
   function handleResponsiveLayout() {
     const customNav = document.querySelector('#custom-right-nav');
@@ -294,6 +308,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function findCurrentSection(currentPath) {
     console.log('Looking for section for path:', currentPath); // Debug log
+    
+    // Get the dynamic navigation structure
+    const navStructure = extractNavigationFromSidebar();
+    if (!navStructure) {
+      console.log('Could not extract navigation structure');
+      return null;
+    }
     
     // Handle home page special case
     if (!currentPath || currentPath === '/' || currentPath === '') {
