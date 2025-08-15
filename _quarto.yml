@@ -159,7 +159,7 @@ website:
               # - href: "_ISSUES/20250710 sample/README.md"
               #   text: "Sample Issue"
       - text: "---"
-      - section: "🎭 Other Technologies"
+      - section: "⚡ Other Technologies"
         contents:
           - text: "DIY Li-Ion Battery Packs"
             href: "20250815 DIY Battery Pack/README.md"
