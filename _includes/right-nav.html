@@ -416,9 +416,16 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     }
     
-    // Normalize the current path for comparison
-    const normalizedCurrentPath = currentPath.replace(/\s/g, '%20').replace('.html', '').replace('.md', '').toLowerCase();
-    console.log('Normalized current path:', normalizedCurrentPath); // Debug log
+    // Normalize the current path for comparison with better URL handling
+    let normalizedCurrentPath = currentPath.replace('.html', '').replace('.md', '').toLowerCase();
+    
+    // Handle URL encoding - try both encoded and decoded versions
+    const decodedPath = decodeURIComponent(normalizedCurrentPath);
+    const encodedPath = normalizedCurrentPath.replace(/\s/g, '%20');
+    
+    console.log('Normalized current path:', normalizedCurrentPath); 
+    console.log('Decoded path:', decodedPath);
+    console.log('Encoded path:', encodedPath);
     
     // Check subsections first (prioritize specific subsections)
     for (const [sectionName, subsections] of Object.entries(finalNavStructure)) {
@@ -433,16 +440,35 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check if any page in this subsection matches current path
         const matchingPage = subsectionData.pages.find(page => {
           const pageHref = page.href || '';
-          const normalizedPageHref = pageHref.replace(/\s/g, '%20').replace('.html', '').replace('.md', '').toLowerCase();
+          const normalizedPageHref = pageHref.replace('.html', '').replace('.md', '').toLowerCase();
           
-          console.log(`    Comparing: "${normalizedCurrentPath}" with "${normalizedPageHref}"`);
+          console.log(`    Comparing paths with page: "${pageHref}"`);
+          console.log(`    Normalized: "${normalizedCurrentPath}" vs "${normalizedPageHref}"`);
+          console.log(`    Decoded: "${decodedPath}" vs "${normalizedPageHref}"`);
+          console.log(`    Encoded: "${encodedPath}" vs "${normalizedPageHref}"`);
           
-          // Multiple matching strategies for better detection
-          const isMatch = normalizedCurrentPath.includes(normalizedPageHref) || 
-                         normalizedPageHref.includes(normalizedCurrentPath) ||
-                         normalizedCurrentPath === normalizedPageHref ||
-                         normalizedCurrentPath.endsWith(normalizedPageHref.split('/').pop()) ||
-                         normalizedPageHref.endsWith(normalizedCurrentPath.split('/').pop());
+          // Try multiple variations of both paths
+          const currentPaths = [normalizedCurrentPath, decodedPath, encodedPath];
+          const pagePaths = [
+            normalizedPageHref,
+            normalizedPageHref.replace(/\s/g, '%20'),
+            decodeURIComponent(normalizedPageHref)
+          ];
+          
+          // Check if any combination matches
+          let isMatch = false;
+          for (const currentVariant of currentPaths) {
+            for (const pageVariant of pagePaths) {
+              if (currentVariant.includes(pageVariant) || 
+                  pageVariant.includes(currentVariant) ||
+                  currentVariant === pageVariant) {
+                isMatch = true;
+                console.log(`    ✓ Match found: "${currentVariant}" matches "${pageVariant}"`);
+                break;
+              }
+            }
+            if (isMatch) break;
+          }
           
           console.log(`    Match result: ${isMatch}`);
           return isMatch;

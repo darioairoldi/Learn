@@ -4,61 +4,64 @@
 .quarto-title-block .quarto-title-meta {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
-  border-top: 1px solid #e9ecef;
-  padding-top: 0.75rem;
 }
 
+/* Custom metadata layout - single line format */
 .quarto-title-meta-contents {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-  font-size: 0.85rem;
+  align-items: baseline;
+  font-size: 0.9rem;
   color: #6c757d;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
 }
 
-.quarto-title-meta-contents > div {
+/* Author stays on the left */
+.quarto-title-meta-contents > div:first-child {
+  flex: 0 0 auto;
   margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #f8f9fa;
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  border: 1px solid #e9ecef;
+}
+
+/* Published and Modified align to the right */
+.quarto-title-meta-contents > div:nth-child(2) {
+  margin-left: auto;
+}
+
+.quarto-title-meta-contents > div:nth-child(3) {
+  margin-left: 1rem;
 }
 
 .quarto-title-meta-heading {
   font-weight: 600;
   color: #495057;
-  font-size: 0.8rem;
   text-transform: uppercase;
+  font-size: 0.8rem;
   letter-spacing: 0.5px;
 }
 
-/* Add icons using CSS pseudo-elements */
-.quarto-title-meta-heading::before {
-  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
-  font-weight: 900;
+.quarto-title-meta-heading::after {
+  content: ":";
   margin-right: 0.25rem;
-  color: #7B9FE0;
-  font-size: 0.9rem;
 }
 
-/* Specific icons for different metadata types */
-.quarto-title-meta-contents > div:has(.quarto-title-meta-heading:contains("Author"))::before,
-.quarto-title-meta-contents > div:nth-child(1) .quarto-title-meta-heading::before {
-  content: "👤";
+/* Clean metadata item styling */
+.quarto-title-meta-contents > div {
+  background: none;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
 }
 
-.quarto-title-meta-contents > div:has(.quarto-title-meta-heading:contains("Published"))::before,
-.quarto-title-meta-contents > div:nth-child(2) .quarto-title-meta-heading::before {
-  content: "📅";
-}
-
-.quarto-title-meta-contents > div:has(.quarto-title-meta-heading:contains("Modified"))::before,
-.quarto-title-meta-contents > div:nth-child(3) .quarto-title-meta-heading::before {
-  content: "🔄";
+/* Remove emoji icons for cleaner presentation */
+.quarto-title-meta-heading::before {
+  display: none;
 }
 
 /* Responsive metadata layout */
@@ -66,11 +69,15 @@
   .quarto-title-meta-contents {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
   
-  .quarto-title-meta-contents > div {
-    width: auto;
+  .quarto-title-meta-contents > div:nth-child(2) {
+    margin-left: 0;
+  }
+  
+  .quarto-title-meta-contents > div:nth-child(3) {
+    margin-left: 0;
   }
 }
 
