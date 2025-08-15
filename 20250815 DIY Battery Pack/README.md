@@ -1,3 +1,16 @@
+---
+title: "DIY Li-Ion Battery Packs with Spot Welder Demonstration"
+description: "DIY Li-Ion Battery Packs with Spot Welder Demonstration"
+author: "Dario Airoldi"
+date: "July 2, 2025"
+date-modified: last-modified
+categories: [azure, best-practices]
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
 # DIY Li-Ion Battery Packs with Spot Welder Demonstration
 
 **Session Date:** August 15, 2025  
