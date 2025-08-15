@@ -1882,119 +1882,129 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    // Find all main sections (level 1)
+    // Find all sidebar items and build the structure
 
-    const mainSections = sidebar.querySelectorAll('.sidebar-item-section > .sidebar-item-container > .sidebar-item-text');
+    const sidebarItems = sidebar.querySelectorAll('.sidebar-item');
 
     
 
-    mainSections.forEach(sectionEl => {
+    sidebarItems.forEach(item => {
 
-      const sectionText = sectionEl.textContent.trim();
+      const link = item.querySelector('.sidebar-item-text[href]');
 
-      if (!sectionText) return;
-
-      
-
-      navStructure[sectionText] = {};
+      if (!link) return;
 
       
 
-      // Find the parent section element
+      const href = link.getAttribute('href');
 
-      const sectionContainer = sectionEl.closest('.sidebar-item-section');
-
-      if (!sectionContainer) return;
+      const text = link.textContent.trim();
 
       
 
-      // Find subsections within this main section
-
-      const subsectionElements = sectionContainer.querySelectorAll('.sidebar-section .sidebar-item-section');
+      if (!href || !text) return;
 
       
 
-      subsectionElements.forEach(subsectionEl => {
+      // Find the parent sections by traversing up the DOM
 
-        const subsectionLink = subsectionEl.querySelector('.sidebar-item-container > .sidebar-item-text');
+      const parentSections = [];
 
-        if (!subsectionLink) return;
+      let current = item.parentElement;
 
-        
+      
 
-        const subsectionText = subsectionLink.textContent.trim();
+      while (current && current !== sidebar) {
 
-        if (!subsectionText) return;
+        if (current.classList.contains('sidebar-section')) {
 
-        
+          // Find the section title
 
-        navStructure[sectionText][subsectionText] = { pages: [] };
+          const sectionContainer = current.previousElementSibling;
 
-        
+          if (sectionContainer && sectionContainer.classList.contains('sidebar-item-container')) {
 
-        // Find all pages within this subsection
+            const sectionTitle = sectionContainer.querySelector('.sidebar-item-text');
 
-        const pageElements = subsectionEl.querySelectorAll('.sidebar-section .sidebar-item .sidebar-item-text');
+            if (sectionTitle) {
 
-        
+              parentSections.unshift(sectionTitle.textContent.trim());
 
-        pageElements.forEach(pageEl => {
-
-          const href = pageEl.getAttribute('href');
-
-          const text = pageEl.textContent.trim();
-
-          
-
-          if (href && text) {
-
-            navStructure[sectionText][subsectionText].pages.push({
-
-              text: text,
-
-              href: href
-
-            });
+            }
 
           }
+
+        }
+
+        current = current.parentElement;
+
+      }
+
+      
+
+      // Build the navigation structure
+
+      if (parentSections.length >= 2) {
+
+        const mainSection = parentSections[0];
+
+        const subSection = parentSections[1];
+
+        
+
+        if (!navStructure[mainSection]) {
+
+          navStructure[mainSection] = {};
+
+        }
+
+        
+
+        if (!navStructure[mainSection][subSection]) {
+
+          navStructure[mainSection][subSection] = { pages: [] };
+
+        }
+
+        
+
+        navStructure[mainSection][subSection].pages.push({
+
+          text: text,
+
+          href: href
 
         });
 
-      });
+      } else if (parentSections.length === 1) {
 
-      
+        const mainSection = parentSections[0];
 
-      // Also handle direct pages under main sections (not in subsections)
-
-      const directPages = sectionContainer.querySelectorAll('.sidebar-section > .sidebar-item > .sidebar-item-container > .sidebar-item-text[href]');
-
-      if (directPages.length > 0) {
-
-        const directSectionName = sectionText + ' Pages';
-
-        navStructure[sectionText][directSectionName] = { pages: [] };
+        const directSection = mainSection + ' Pages';
 
         
 
-        directPages.forEach(pageEl => {
+        if (!navStructure[mainSection]) {
 
-          const href = pageEl.getAttribute('href');
+          navStructure[mainSection] = {};
 
-          const text = pageEl.textContent.trim();
+        }
 
-          
+        
 
-          if (href && text) {
+        if (!navStructure[mainSection][directSection]) {
 
-            navStructure[sectionText][directSectionName].pages.push({
+          navStructure[mainSection][directSection] = { pages: [] };
 
-              text: text,
+        }
 
-              href: href
+        
 
-            });
+        navStructure[mainSection][directSection].pages.push({
 
-          }
+          text: text,
+
+          href: href
 
         });
 
@@ -2474,9 +2484,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
+    console.log('Available sections:', Object.keys(navStructure)); // Debug log
+
+    
+
     for (const [sectionName, subsections] of Object.entries(navStructure)) {
 
+      console.log(`Checking section: ${sectionName}`); // Debug log
+
+      console.log(`Subsections:`, Object.keys(subsections)); // Debug log
+
+      
+
       for (const [subsectionName, subsectionData] of Object.entries(subsections)) {
+
+        console.log(`  Checking subsection: ${subsectionName}`); // Debug log
+
+        console.log(`  Pages in subsection:`, subsectionData.pages?.map(p => p.href) || []); // Debug log
+
+        
+
+        if (!subsectionData.pages) continue;
+
+        
 
         // Check if current page is in this subsection
 
@@ -2484,17 +2514,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // Normalize both paths for comparison
 
-          const normalizedPagePath = page.href.replace(/\s/g, '%20');
+          const pageHref = page.href || '';
+
+          const normalizedPagePath = pageHref.replace(/\s/g, '%20').replace('.md', '.html');
 
           const normalizedCurrentPath = currentPath.replace(/\s/g, '%20');
 
           
 
+          console.log(`    Comparing: "${normalizedCurrentPath}" with "${normalizedPagePath}"`); // Debug log
+
+          
+
           // Check exact match first
 
-          if (page.href === currentPath) {
+          if (normalizedPagePath === normalizedCurrentPath) {
 
-            console.log(`Exact match: ${page.href} === ${currentPath}`); // Debug log
+            console.log(`    ✓ Exact match found!`); // Debug log
 
             return true;
 
@@ -2502,19 +2538,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
           
 
-          // Check if current path contains the page path (without extension)
+          // Check if current path ends with the page path (without extension)
 
-          const pagePathWithoutExt = page.href.replace('.md', '').replace('.html', '');
+          const pagePathWithoutExt = normalizedPagePath.replace('.html', '');
 
-          const currentPathWithoutExt = currentPath.replace('.md', '').replace('.html', '');
+          const currentPathWithoutExt = normalizedCurrentPath.replace('.html', '');
 
           
 
-          if (currentPathWithoutExt.includes(pagePathWithoutExt) || 
+          if (currentPathWithoutExt.endsWith(pagePathWithoutExt) || 
 
-              pagePathWithoutExt.includes(currentPathWithoutExt)) {
+              pagePathWithoutExt.endsWith(currentPathWithoutExt)) {
 
-            console.log(`Contains match: ${page.href} matches ${currentPath}`); // Debug log
+            console.log(`    ✓ Partial match found!`); // Debug log
+
+            return true;
+
+          }
+
+          
+
+          // Check if paths contain each other
+
+          if (normalizedCurrentPath.includes(pagePathWithoutExt) || 
+
+              normalizedPagePath.includes(currentPathWithoutExt)) {
+
+            console.log(`    ✓ Contains match found!`); // Debug log
 
             return true;
 
@@ -2530,7 +2580,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (isInSubsection) {
 
-          console.log(`Found section: ${sectionName} -> ${subsectionName}`); // Debug log
+          console.log(`✓ Found section: ${sectionName} -> ${subsectionName}`); // Debug log
 
           return { sectionName, subsectionName, subsectionData };
 
@@ -2541,6 +2591,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
+
+    console.log('❌ No matching section found'); // Debug log
 
     return null;
 

@@ -1473,9 +1473,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
+    console.log('Available sections:', Object.keys(navStructure)); // Debug log
+
+    
+
     for (const [sectionName, subsections] of Object.entries(navStructure)) {
 
+      console.log(`Checking section: ${sectionName}`); // Debug log
+
+      console.log(`Subsections:`, Object.keys(subsections)); // Debug log
+
+      
+
       for (const [subsectionName, subsectionData] of Object.entries(subsections)) {
+
+        console.log(`  Checking subsection: ${subsectionName}`); // Debug log
+
+        console.log(`  Pages in subsection:`, subsectionData.pages?.map(p => p.href) || []); // Debug log
+
+        
+
+        if (!subsectionData.pages) continue;
+
+        
 
         // Check if current page is in this subsection
 
@@ -1483,17 +1503,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // Normalize both paths for comparison
 
-          const normalizedPagePath = page.href.replace(/\s/g, '%20');
+          const pageHref = page.href || '';
+
+          const normalizedPagePath = pageHref.replace(/\s/g, '%20').replace('.md', '.html');
 
           const normalizedCurrentPath = currentPath.replace(/\s/g, '%20');
 
           
 
+          console.log(`    Comparing: "${normalizedCurrentPath}" with "${normalizedPagePath}"`); // Debug log
+
+          
+
           // Check exact match first
 
-          if (page.href === currentPath) {
+          if (normalizedPagePath === normalizedCurrentPath) {
 
-            console.log(`Exact match: ${page.href} === ${currentPath}`); // Debug log
+            console.log(`    ✓ Exact match found!`); // Debug log
 
             return true;
 
@@ -1501,19 +1527,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
           
 
-          // Check if current path contains the page path (without extension)
+          // Check if current path ends with the page path (without extension)
 
-          const pagePathWithoutExt = page.href.replace('.md', '').replace('.html', '');
+          const pagePathWithoutExt = normalizedPagePath.replace('.html', '');
 
-          const currentPathWithoutExt = currentPath.replace('.md', '').replace('.html', '');
+          const currentPathWithoutExt = normalizedCurrentPath.replace('.html', '');
 
           
 
-          if (currentPathWithoutExt.includes(pagePathWithoutExt) || 
+          if (currentPathWithoutExt.endsWith(pagePathWithoutExt) || 
 
-              pagePathWithoutExt.includes(currentPathWithoutExt)) {
+              pagePathWithoutExt.endsWith(currentPathWithoutExt)) {
 
-            console.log(`Contains match: ${page.href} matches ${currentPath}`); // Debug log
+            console.log(`    ✓ Partial match found!`); // Debug log
+
+            return true;
+
+          }
+
+          
+
+          // Check if paths contain each other
+
+          if (normalizedCurrentPath.includes(pagePathWithoutExt) || 
+
+              normalizedPagePath.includes(currentPathWithoutExt)) {
+
+            console.log(`    ✓ Contains match found!`); // Debug log
 
             return true;
 
@@ -1529,7 +1569,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (isInSubsection) {
 
-          console.log(`Found section: ${sectionName} -> ${subsectionName}`); // Debug log
+          console.log(`✓ Found section: ${sectionName} -> ${subsectionName}`); // Debug log
 
           return { sectionName, subsectionName, subsectionData };
 
@@ -1540,6 +1580,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
+
+    console.log('❌ No matching section found'); // Debug log
 
     return null;
 
