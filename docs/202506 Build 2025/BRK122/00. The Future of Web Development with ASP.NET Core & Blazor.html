@@ -427,7 +427,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto Documentation Overview</span></a>
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto.yml document structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto specific markdown features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto Theming and Styling</span></a>
   </div>
 </li>
       </ul>
@@ -1718,53 +1736,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  console.log('=== DOMContentLoaded FIRED ==='); // Debug log
-
-  console.log('Document ready state:', document.readyState); // Debug log
-
-  console.log('Location:', window.location.href); // Debug log
+  console.log('Custom right navigation loading...'); // Debug log
 
   
 
-  // Immediate test - create a simple red box
-
-  const testDiv = document.createElement('div');
-
-  testDiv.innerHTML = '🔴 IMMEDIATE TEST';
-
-  testDiv.style.cssText = `
-
-    position: fixed !important;
-
-    top: 50px !important;
-
-    left: 50px !important;
-
-    background: red !important;
-
-    color: white !important;
-
-    padding: 10px !important;
-
-    z-index: 99999 !important;
-
-    border: 3px solid yellow !important;
-
-  `;
-
-  document.body.appendChild(testDiv);
-
-  console.log('Immediate test div added'); // Debug log
-
-  
-
-  // Wait longer for Quarto to finish loading and URL to be set correctly
+  // Wait for Quarto to finish loading
 
   setTimeout(function() {
-
-    console.log('=== TIMEOUT FIRED (500ms) ==='); // Debug log
-
-    console.log('Calling createCustomRightNav from DOMContentLoaded timeout'); // Debug log
 
     createCustomRightNav();
 
@@ -1778,15 +1756,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('load', function() {
 
-    console.log('=== WINDOW LOAD FIRED ==='); // Debug log
-
     setTimeout(function() {
 
-      console.log('Page fully loaded, re-rendering nav'); // Debug log
-
       if (!document.querySelector('#custom-right-nav')) {
-
-        console.log('Custom nav not found on window load, creating it'); // Debug log
 
         createCustomRightNav();
 
@@ -1956,10 +1928,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function createCustomRightNav() {
 
-    console.log('=== createCustomRightNav called ==='); // Debug log
-
-    
-
     // Try multiple container strategies
 
     const containerSelectors = [
@@ -1970,11 +1938,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       '#quarto-sidebar-toc',
 
-      '.sidebar-navigation',
-
-      'body',
-
-      'main'
+      '.sidebar-navigation'
 
     ];
 
@@ -1986,11 +1950,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       targetContainer = document.querySelector(selector);
 
-      console.log(`Container check - ${selector}:`, !!targetContainer); // Debug log
-
       if (targetContainer) {
-
-        console.log(`Using container: ${selector} (${targetContainer.tagName})`); // Debug log
 
         break;
 
@@ -2002,9 +1962,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!targetContainer) {
 
-      console.error('No suitable container found for custom nav'); // Debug log
+      // Fallback to body for mobile or other layouts
 
-      return;
+      targetContainer = document.body;
 
     }
 
@@ -2016,99 +1976,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (existing) {
 
-      console.log('Custom nav already exists, removing to recreate'); // Debug log
-
       existing.remove();
 
     }
 
 
 
-    console.log('Creating new custom nav element'); // Debug log
-
-
-
-    // Create the custom nav element with very visible styling
+    // Create the custom nav element with proper styling
 
     const customNav = document.createElement('div');
 
     customNav.id = 'custom-right-nav';
 
-    customNav.style.cssText = `
-
-      background: red !important;
-
-      color: white !important;
-
-      border: 5px solid yellow !important;
-
-      padding: 20px !important;
-
-      margin: 20px !important;
-
-      display: block !important;
-
-      visibility: visible !important;
-
-      position: fixed !important;
-
-      top: 100px !important;
-
-      right: 20px !important;
-
-      z-index: 9999 !important;
-
-      min-height: 200px !important;
-
-      min-width: 200px !important;
-
-      font-size: 16px !important;
-
-    `;
+    customNav.className = 'toc-right';
 
     customNav.innerHTML = `
 
-      <div style="color: yellow; font-weight: bold; font-size: 18px;">🔧 DEBUG: Related Pages</div>
+      <div class="toc-title">Related Pages</div>
 
-      <div style="color: white; margin-top: 10px;">
+      <nav class="toc" role="doc-toc">
 
-        <p>Container: ${targetContainer.tagName}</p>
+        <ul>
 
-        <p>Page: ${window.location.pathname}</p>
+          <li><em>Loading...</em></li>
 
-        <p>Time: ${new Date().toLocaleTimeString()}</p>
+        </ul>
 
-      </div>
+      </nav>
 
     `;
 
 
 
-    console.log('Attempting to insert custom nav into body'); // Debug log
+    // Insert into the proper Quarto sidebar container
 
-    
+    const existingToc = targetContainer.querySelector('.toc-right, #TOC, .table-of-contents');
 
-    // For debugging, always insert into body with fixed positioning
+    if (existingToc) {
 
-    document.body.appendChild(customNav);
-
-
-
-    // Verify insertion
-
-    const inserted = document.querySelector('#custom-right-nav');
-
-    console.log('Custom nav insertion successful:', !!inserted); // Debug log
-
-    if (inserted) {
-
-      console.log('Inserted element bounds:', inserted.getBoundingClientRect()); // Debug log
-
-      console.log('Inserted element computed display:', window.getComputedStyle(inserted).display); // Debug log
+      existingToc.parentNode.insertBefore(customNav, existingToc.nextSibling);
 
     } else {
 
-      console.error('Failed to insert custom nav element'); // Debug log
+      targetContainer.appendChild(customNav);
 
     }
 
@@ -2231,6 +2141,40 @@ document.addEventListener('DOMContentLoaded', function() {
   function findCurrentSection(currentPath) {
 
     console.log('Looking for section for path:', currentPath); // Debug log
+
+    
+
+    // Handle home page special case
+
+    if (!currentPath || currentPath === '/' || currentPath === '') {
+
+      console.log('Home page detected, showing featured sections'); // Debug log
+
+      return {
+
+        sectionName: '🏠 Home',
+
+        subsectionName: 'Featured',
+
+        subsectionData: {
+
+          pages: [
+
+            { title: 'Events', href: '/202506%20Build%202025/' },
+
+            { title: 'Technologies', href: '/20250702%20Azure%20Naming%20conventions/' },
+
+            { title: 'Tools', href: '/20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/' },
+
+            { title: 'Culture & Travel', href: '/Travel/Paris%202025/' }
+
+          ]
+
+        }
+
+      };
+
+    }
 
     
 
@@ -2412,8 +2356,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     customNav.classList.add('has-content');
 
-    console.log('Showing custom nav'); // Debug log
-
 
 
     // Clear existing content
@@ -2428,13 +2370,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
 
+    sectionHeader.style.cssText = 'color: #2780e3; margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px;';
+
     navList.appendChild(sectionHeader);
 
 
 
     // Add pages
 
-    subsectionData.pages.forEach(page => {
+    subsectionData.pages.forEach((page, index) => {
 
       const li = document.createElement('li');
 
@@ -2442,7 +2386,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
       a.href = page.href.replace('.md', '.html');
 
-      a.textContent = page.text;
+      a.textContent = page.text || page.title || 'Untitled';
+
+      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
+
+      
+
+      // Hover effect
+
+      a.addEventListener('mouseenter', () => {
+
+        a.style.color = '#2780e3';
+
+        a.style.textDecoration = 'underline';
+
+      });
+
+      a.addEventListener('mouseleave', () => {
+
+        a.style.color = '#666';
+
+        a.style.textDecoration = 'none';
+
+      });
 
       
 
@@ -2478,9 +2444,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
-
-
-    console.log('Rendered custom nav with', subsectionData.pages.length, 'pages'); // Debug log
+  }
 
   }
 
@@ -2492,67 +2456,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
 
-/* Base styling for custom nav */
+/* Professional custom navigation styling */
 
 #custom-right-nav {
 
   width: 100%;
 
-  background: #e7f3ff; /* Light blue background for visibility */
+  background: #f8f9fa;
 
-  border: 2px solid #2780e3; /* Blue border for debugging */
+  border: 1px solid #e9ecef;
 
-  border-radius: 8px;
+  border-radius: 6px;
 
-  padding: 1rem;
+  padding: 12px;
 
-  margin-bottom: 2rem;
+  margin-top: 16px;
 
-  display: block !important; /* Always show for debugging */
-
-  min-height: 100px; /* Minimum height to ensure visibility */
+  font-size: 0.9rem;
 
 }
 
 
-
-/* Show when it has content */
-
-#custom-right-nav.has-content {
-
-  display: block !important;
-
-}
-
-
-
-/* Match Quarto's TOC styling */
 
 #custom-right-nav .toc-title {
 
   font-weight: 600;
 
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
 
-  color: var(--bs-secondary, #6c757d);
+  color: #2780e3;
 
-  font-size: 0.875rem;
+  margin-bottom: 12px;
 
-  text-transform: uppercase;
+  padding-bottom: 6px;
 
-  letter-spacing: 0.075em;
-
-  border-bottom: none;
-
-  padding-bottom: 0;
-
-}
-
-
-
-#custom-right-nav .toc {
-
-  font-size: 0.875rem;
+  border-bottom: 2px solid #2780e3;
 
 }
 
@@ -2562,13 +2500,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   list-style: none;
 
-  margin: 0;
-
   padding: 0;
 
-  border-left: 1px solid var(--bs-border-color-translucent, #dee2e6);
-
-  padding-left: 1rem;
+  margin: 0;
 
 }
 
@@ -2576,7 +2510,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #custom-right-nav li {
 
-  margin-bottom: 0.25rem;
+  margin: 4px 0;
 
 }
 
@@ -2584,19 +2518,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #custom-right-nav a {
 
-  text-decoration: none;
+  color: #666;
 
-  color: var(--bs-secondary, #6c757d);
+  text-decoration: none;
 
   display: block;
 
-  padding: 0.125rem 0;
+  padding: 4px 8px;
+
+  border-radius: 4px;
 
   transition: all 0.2s ease;
-
-  font-size: 0.875rem;
-
-  line-height: 1.25;
 
 }
 
@@ -2604,27 +2536,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #custom-right-nav a:hover {
 
-  color: var(--bs-link-color, #2780e3);
+  background-color: #e7f3ff;
+
+  color: #2780e3;
+
+  text-decoration: none;
 
 }
 
 
 
-/* Style for current page */
+/* Responsive behavior */
 
-#custom-right-nav a[style*="background-color"] {
+@media (max-width: 800px) {
 
-  color: var(--bs-link-color, #2780e3) !important;
+  #custom-right-nav {
 
-  font-weight: 600 !important;
+    display: none; /* Hide on mobile to save space */
 
-  background-color: transparent !important;
+  }
 
-  border-left: 2px solid var(--bs-link-color, #2780e3);
+}
 
-  padding-left: 0.5rem;
 
-  margin-left: -1.5rem;
+
+@media (min-width: 801px) {
+
+  #custom-right-nav {
+
+    display: block;
+
+  }
+
+  
+
+  /* In larger screens, position in sidebar */
+
+  .page-columns .margin-sidebar #custom-right-nav {
+
+    position: sticky;
+
+    top: 2rem;
+
+  }
 
 }
 
@@ -3186,7 +3140,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

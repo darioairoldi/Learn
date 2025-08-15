@@ -137,12 +137,14 @@ website:
               - section: "Quarto Documentation"
                 href: "20250712 Use QUARTO doc for Github repos doc/README.md"
                 contents:
+                - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
+                  text: "Overview"
                 - href: "20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md"
-                  text: "Quarto Documentation Overview"
+                  text: "Quarto.yml document structure"
                 - href: "20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md"
-                  text: "Quarto Documentation Overview"
+                  text: "Quarto specific markdown features"
                 - href: "20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md"
-                  text: "Quarto Documentation Overview"
+                  text: "Quarto Theming and Styling"
               - href: "20250713 Use http files for easy and repeatable test/README.md"
                 text: "HTTP Files (Extended)"
       

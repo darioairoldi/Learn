@@ -390,7 +390,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto Documentation Overview</span></a>
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto.yml document structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto specific markdown features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto Theming and Styling</span></a>
   </div>
 </li>
       </ul>
@@ -820,10 +838,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function createCustomRightNav() {
 
-    console.log('=== createCustomRightNav called ==='); // Debug log
-
-    
-
     // Try multiple container strategies
 
     const containerSelectors = [
@@ -834,11 +848,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       '#quarto-sidebar-toc',
 
-      '.sidebar-navigation',
-
-      'body',
-
-      'main'
+      '.sidebar-navigation'
 
     ];
 
@@ -850,11 +860,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       targetContainer = document.querySelector(selector);
 
-      console.log(`Container check - ${selector}:`, !!targetContainer); // Debug log
-
       if (targetContainer) {
-
-        console.log(`Using container: ${selector} (${targetContainer.tagName})`); // Debug log
 
         break;
 
@@ -866,9 +872,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!targetContainer) {
 
-      console.error('No suitable container found for custom nav'); // Debug log
+      // Fallback to body for mobile or other layouts
 
-      return;
+      targetContainer = document.body;
 
     }
 
@@ -880,15 +886,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (existing) {
 
-      console.log('Custom nav already exists, removing to recreate'); // Debug log
-
       existing.remove();
 
     }
-
-
-
-    console.log('Creating new custom nav element'); // Debug log
 
 
 
@@ -918,45 +918,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    console.log('Attempting to insert custom nav into proper container'); // Debug log
-
-    
-
     // Insert into the proper Quarto sidebar container
 
     const existingToc = targetContainer.querySelector('.toc-right, #TOC, .table-of-contents');
 
     if (existingToc) {
 
-      console.log('Found existing TOC, inserting after it'); // Debug log
-
       existingToc.parentNode.insertBefore(customNav, existingToc.nextSibling);
 
     } else {
 
-      console.log('No existing TOC found, appending to container'); // Debug log
-
       targetContainer.appendChild(customNav);
-
-    }
-
-
-
-    // Verify insertion
-
-    const inserted = document.querySelector('#custom-right-nav');
-
-    console.log('Custom nav insertion successful:', !!inserted); // Debug log
-
-    if (inserted) {
-
-      console.log('Inserted element bounds:', inserted.getBoundingClientRect()); // Debug log
-
-      console.log('Inserted element computed display:', window.getComputedStyle(inserted).display); // Debug log
-
-    } else {
-
-      console.error('Failed to insert custom nav element'); // Debug log
 
     }
 
@@ -1294,10 +1266,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     customNav.classList.add('has-content');
 
-    console.log('Showing custom nav with section:', sectionName, subsectionName); // Debug log
-
-    console.log('Pages to show:', subsectionData.pages); // Debug log
-
 
 
     // Clear existing content
@@ -1320,11 +1288,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add pages
 
-    console.log('Adding pages to nav list:', subsectionData.pages.length); // Debug log
-
     subsectionData.pages.forEach((page, index) => {
-
-      console.log(`Adding page ${index}:`, page.title, '|', page.text, '|', page.href); // Debug log
 
       const li = document.createElement('li');
 
@@ -1388,15 +1352,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       navList.appendChild(li);
 
-      console.log(`Page ${index} added successfully`); // Debug log
-
     });
 
-
-
-    console.log('Rendered custom nav with', subsectionData.pages.length, 'pages'); // Debug log
-
-    console.log('Final nav list HTML:', navList.innerHTML); // Debug log
+  }
 
   }
 
