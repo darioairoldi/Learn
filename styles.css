@@ -93,6 +93,26 @@
   display: none !important;
 }
 
+/* Ensure Related Pages links are clickable */
+#custom-right-nav a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 10;
+  position: relative;
+}
+
+#custom-right-nav li {
+  pointer-events: auto !important;
+}
+
+#custom-right-nav ul {
+  pointer-events: auto !important;
+}
+
+#custom-right-nav {
+  pointer-events: auto !important;
+}
+
 /* Style the main page description if it exists */
 .quarto-title-block .description {
   font-size: 1.1rem;

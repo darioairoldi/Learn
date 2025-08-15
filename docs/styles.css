@@ -1,0 +1,624 @@
+/* Custom styles for Learning Journey site */
+
+/* Enhanced compact metadata styling */
+.quarto-title-block .quarto-title-meta {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Custom metadata layout - single line format */
+.quarto-title-meta-contents {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  font-size: 0.9rem;
+  color: #6c757d;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+}
+
+/* Author stays on the left */
+.quarto-title-meta-contents > div:first-child {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* Published and Modified align to the right */
+.quarto-title-meta-contents > div:nth-child(2) {
+  margin-left: auto;
+}
+
+.quarto-title-meta-contents > div:nth-child(3) {
+  margin-left: 1rem;
+}
+
+.quarto-title-meta-heading {
+  font-weight: 600;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.quarto-title-meta-heading::after {
+  content: ":";
+  margin-right: 0.25rem;
+}
+
+/* Clean metadata item styling */
+.quarto-title-meta-contents > div {
+  background: none;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+}
+
+/* Remove emoji icons for cleaner presentation */
+.quarto-title-meta-heading::before {
+  display: none;
+}
+
+/* Responsive metadata layout */
+@media (max-width: 768px) {
+  .quarto-title-meta-contents {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .quarto-title-meta-contents > div:nth-child(2) {
+    margin-left: 0;
+  }
+  
+  .quarto-title-meta-contents > div:nth-child(3) {
+    margin-left: 0;
+  }
+}
+
+/* Hide redundant h1 when it matches the page title */
+.quarto-title + h1:first-of-type,
+.quarto-title-block + h1:first-of-type,
+.quarto-title-banner + h1:first-of-type {
+  display: none !important;
+}
+
+/* Also handle cases where h1 follows immediately after quarto title meta */
+.quarto-title-meta + h1:first-of-type {
+  display: none !important;
+}
+
+/* Ensure Related Pages links are clickable */
+#custom-right-nav a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 10;
+  position: relative;
+}
+
+#custom-right-nav li {
+  pointer-events: auto !important;
+}
+
+#custom-right-nav ul {
+  pointer-events: auto !important;
+}
+
+#custom-right-nav {
+  pointer-events: auto !important;
+}
+
+/* Style the main page description if it exists */
+.quarto-title-block .description {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Pastel colors for light and dark backgrounds */
+:root {
+  --primary-color: #7B9FE0;
+  --primary-dark: #5A7BC7;
+  --secondary-color: #A78BFA;
+  --secondary-dark: #8B5CF6;
+  --accent-color: #86EFAC;
+  --accent-dark: #4ADE80;
+  --text-muted: #94A3B8;
+  --text-muted-dark: #64748B;
+  --border-color: #E2E8F0;
+  --border-color-dark: #334155;
+  
+  /* Pastel background colors */
+  --bg-pastel-blue: #EFF6FF;
+  --bg-pastel-purple: #F3E8FF;
+  --bg-pastel-green: #F0FDF4;
+  --bg-pastel-pink: #FDF2F8;
+  --bg-pastel-yellow: #FFFBEB;
+  --bg-pastel-gray: #F8FAFC;
+  
+  /* Dark mode pastel variants */
+  --bg-dark-blue: #1E293B;
+  --bg-dark-purple: #2D1B69;
+  --bg-dark-green: #14532D;
+  --bg-dark-pink: #4C1D95;
+  --bg-dark-yellow: #451A03;
+  --bg-dark-gray: #1F2937;
+}
+
+/* Header and navigation styling */
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white !important;
+}
+
+/* Keep navbar brand white on hover */
+.navbar-brand:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Make navbar icons white */
+.navbar .nav-link i,
+.navbar .nav-link .bi {
+  color: white !important;
+}
+
+.navbar .nav-link[href="index.qmd"] i,
+.navbar .nav-link[href="index.qmd"] .bi {
+  color: white !important;
+}
+
+/* Make navbar text white */
+.navbar .nav-link {
+  color: white !important;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: white !important;
+}
+
+/* Content styling */
+.lead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* Card-like containers for content sections */
+.content-card {
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-gray) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(123, 159, 224, 0.1);
+  transition: all 0.3s ease;
+}
+
+.content-card:hover {
+  box-shadow: 0 4px 16px rgba(123, 159, 224, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Pastel callout styling enhancements */
+.callout {
+  border-radius: 12px;
+  margin: 1rem 0;
+  border-width: 2px;
+  box-shadow: 0 3px 12px rgba(123, 159, 224, 0.1);
+}
+
+.callout.callout-note {
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-gray) 100%);
+  border-color: var(--primary-color);
+}
+
+.callout.callout-tip {
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+  border-color: var(--accent-color);
+}
+
+.callout.callout-warning {
+  background: linear-gradient(135deg, var(--bg-pastel-yellow) 0%, var(--bg-pastel-pink) 100%);
+  border-color: #FCD34D;
+}
+
+.callout.callout-important {
+  background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-blue) 100%);
+  border-color: var(--secondary-color);
+}
+
+/* Code block improvements */
+.sourceCode {
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: linear-gradient(135deg, var(--bg-pastel-gray) 0%, var(--bg-pastel-blue) 100%);
+  box-shadow: 0 2px 8px rgba(123, 159, 224, 0.1);
+}
+
+/* Link styling */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-decoration-color: var(--secondary-color);
+}
+
+/* Table improvements */
+.table {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Figure captions */
+.figure-caption {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .grid {
+    gap: 1rem;
+  }
+  
+  .content-card {
+    padding: 1rem;
+  }
+}
+
+/* Search enhancements */
+.aa-Form {
+  border-radius: 6px;
+}
+
+/* Footer styling */
+.page-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+  margin-top: 3rem;
+  color: var(--text-muted);
+}
+
+/* Sidebar improvements */
+.sidebar {
+  border-right: 1px solid var(--border-color);
+}
+
+.sidebar .nav-link {
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #f8f9fa;
+}
+
+.sidebar-section {
+    padding-left: 1.75em;
+}
+
+/* Enhanced sidebar section styling */
+.sidebar-section > .nav-link {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #374151 !important;
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-purple) 100%);
+  border: 2px solid var(--primary-color);
+  margin: 0.75rem 0 0.5rem 0;
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 0 1px 2px rgba(123, 159, 224, 0.3);
+  box-shadow: 0 3px 8px rgba(123, 159, 224, 0.2);
+}
+
+.sidebar-section > .nav-link:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-pink) 100%);
+  transform: translateX(4px) translateY(-1px);
+  box-shadow: 0 6px 16px rgba(167, 139, 250, 0.3);
+  color: #1F2937 !important;
+  border-color: var(--secondary-color);
+}
+
+/* Regular nav items under sections */
+.sidebar-section .nav-item .nav-link {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #4B5563 !important;
+  background: transparent;
+  border: none;
+  margin: 0.15rem 0;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-section .nav-item .nav-link:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-green) 100%);
+  color: var(--primary-dark) !important;
+  transform: translateX(6px);
+  box-shadow: 0 2px 8px rgba(134, 239, 172, 0.3);
+}
+
+/* Active states */
+.sidebar-section > .nav-link.active {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  color: white !important;
+  box-shadow: 0 6px 16px rgba(167, 139, 250, 0.4);
+  border-color: var(--secondary-color);
+}
+
+.sidebar-section .nav-item .nav-link.active {
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+  color: white !important;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(134, 239, 172, 0.4);
+}
+
+/* Home link special styling */
+.sidebar .nav-link[href="index.qmd"] {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white !important;
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+  border: 2px solid var(--accent-color);
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(134, 239, 172, 0.2);
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link[href="index.qmd"]:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-yellow) 0%, var(--bg-pastel-pink) 100%);
+  transform: translateX(3px) translateY(-1px);
+  box-shadow: 0 6px 16px rgba(134, 239, 172, 0.3);
+  border-color: var(--accent-dark);
+}
+
+/* Emoji spacing */
+.nav-link .emoji {
+  margin-right: 0.5rem;
+}
+
+/* Enhanced grid cards with pastel backgrounds */
+.grid .g-col-12 {
+  padding: 0.75rem;
+}
+
+.grid .g-col-12 > div,
+.grid .g-col-12 > section {
+  background: linear-gradient(135deg, var(--bg-pastel-gray) 0%, var(--bg-pastel-blue) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(123, 159, 224, 0.08);
+}
+
+.grid .g-col-12:nth-child(even) > div,
+.grid .g-col-12:nth-child(even) > section {
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+}
+
+.grid .g-col-12:nth-child(3n) > div,
+.grid .g-col-12:nth-child(3n) > section {
+  background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-pink) 100%);
+}
+
+.grid .g-col-12 > div:hover,
+.grid .g-col-12 > section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(123, 159, 224, 0.15);
+}
+
+/* Custom Right Navigation Widget */
+.custom-right-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-purple) 100%);
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(123, 159, 224, 0.2);
+  max-width: 200px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.custom-right-nav:hover {
+  box-shadow: 0 8px 24px rgba(123, 159, 224, 0.3);
+  transform: translateY(-50%) translateX(-5px);
+}
+
+.custom-right-nav h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.custom-right-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-right-nav li {
+  margin-bottom: 0.25rem;
+}
+
+.custom-right-nav a {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  color: var(--primary-dark);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.custom-right-nav a:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+  color: var(--primary-dark);
+  transform: translateX(3px);
+}
+
+/* Ensure right margin is wide enough for custom navigation */
+.page-columns .margin-sidebar {
+  width: 250px !important;
+  min-width: 250px !important;
+}
+
+/* Custom right navigation positioning */
+.custom-toc-addition {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-pink) 100%);
+  border: 2px solid var(--secondary-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 3px 12px rgba(167, 139, 250, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+/* Force custom navigation to appear in the right margin */
+.custom-toc-addition {
+  /* Remove from normal flow and position in margin */
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 250px;
+  z-index: 100;
+}
+
+/* Alternative: Try to inject into margin sidebar using JavaScript positioning */
+#quarto-margin-sidebar .custom-right-nav-container {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+#quarto-margin-sidebar .custom-right-nav-container .custom-toc-addition {
+  position: relative;
+  right: auto;
+  top: auto;
+  transform: none;
+  width: 100%;
+  z-index: auto;
+}
+
+.custom-toc-addition h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: var(--secondary-dark);
+  text-align: center;
+  font-weight: 600;
+}
+
+.custom-toc-addition ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-toc-addition li {
+  margin-bottom: 0.5rem;
+}
+
+.custom-toc-addition a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--secondary-dark);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid transparent;
+}
+
+.custom-toc-addition a:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+  color: var(--primary-dark);
+  transform: translateX(3px);
+  border-color: var(--accent-color);
+  box-shadow: 0 2px 8px rgba(134, 239, 172, 0.3);
+}
+
+/* When not in margin sidebar, use fixed positioning */
+body > .custom-toc-addition {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 250px;
+  z-index: 1000;
+}
+
+/* Hide fixed positioning if the elements are successfully moved to margin */
+#quarto-margin-sidebar .custom-right-nav-container ~ body > .custom-toc-addition {
+  display: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1200px) {
+  .custom-toc-addition {
+    display: none;
+  }
+}
+
+/* Desktop-specific positioning improvements */
+@media (min-width: 1201px) {
+  /* Ensure margin sidebar has enough space */
+  .page-columns .margin-sidebar {
+    width: 280px !important;
+    min-width: 280px !important;
+  }
+  
+  /* Adjust main content to accommodate wider margin */
+  .page-columns .page-full {
+    grid-template-columns: 1fr min(calc(900px + 2*1rem), calc(100% - 320px)) 280px 1fr;
+  }
+}
+
+/* Debug: Temporary styling to see where elements end up */
+.custom-toc-addition {
+  border: 2px solid #ff6b6b !important;
+  background: #ffe66d !important;
+}
+
+.custom-toc-addition h3 {
+  color: #333 !important;
+}
+
+.custom-toc-addition a {
+  color: #333 !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+}
