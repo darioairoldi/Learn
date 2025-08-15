@@ -1,5 +1,100 @@
 /* Custom styles for Learning Journey site */
 
+/* Enhanced compact metadata styling */
+.quarto-title-block .quarto-title-meta {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid #e9ecef;
+  padding-top: 0.75rem;
+}
+
+.quarto-title-meta-contents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.quarto-title-meta-contents > div {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8f9fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  border: 1px solid #e9ecef;
+}
+
+.quarto-title-meta-heading {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Add icons using CSS pseudo-elements */
+.quarto-title-meta-heading::before {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  font-weight: 900;
+  margin-right: 0.25rem;
+  color: #7B9FE0;
+  font-size: 0.9rem;
+}
+
+/* Specific icons for different metadata types */
+.quarto-title-meta-contents > div:has(.quarto-title-meta-heading:contains("Author"))::before,
+.quarto-title-meta-contents > div:nth-child(1) .quarto-title-meta-heading::before {
+  content: "👤";
+}
+
+.quarto-title-meta-contents > div:has(.quarto-title-meta-heading:contains("Published"))::before,
+.quarto-title-meta-contents > div:nth-child(2) .quarto-title-meta-heading::before {
+  content: "📅";
+}
+
+.quarto-title-meta-contents > div:has(.quarto-title-meta-heading:contains("Modified"))::before,
+.quarto-title-meta-contents > div:nth-child(3) .quarto-title-meta-heading::before {
+  content: "🔄";
+}
+
+/* Responsive metadata layout */
+@media (max-width: 768px) {
+  .quarto-title-meta-contents {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .quarto-title-meta-contents > div {
+    width: auto;
+  }
+}
+
+/* Hide redundant h1 when it matches the page title */
+.quarto-title + h1:first-of-type,
+.quarto-title-block + h1:first-of-type,
+.quarto-title-banner + h1:first-of-type {
+  display: none !important;
+}
+
+/* Also handle cases where h1 follows immediately after quarto title meta */
+.quarto-title-meta + h1:first-of-type {
+  display: none !important;
+}
+
+/* Style the main page description if it exists */
+.quarto-title-block .description {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 /* Pastel colors for light and dark backgrounds */
 :root {
   --primary-color: #7B9FE0;

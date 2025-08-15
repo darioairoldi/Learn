@@ -207,6 +207,8 @@ format:
     lang: en
     page-layout: article
     toc-title: "On This Page"
+    title-block-banner: false
+    title-block-style: default
     grid:
       sidebar-width: 300px
       body-width: 900px

@@ -514,9 +514,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On This Page</h2>
    
   <ul>
-  <li><a href="#using-quarto-with-github-pages-for-documentation" id="toc-using-quarto-with-github-pages-for-documentation" class="nav-link active" data-scroll-target="#using-quarto-with-github-pages-for-documentation">Using Quarto with GitHub Pages for Documentation</a>
-  <ul class="collapse">
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link active" data-scroll-target="#table-of-contents">Table of Contents</a></li>
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts</a>
   <ul class="collapse">
@@ -580,7 +578,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#appendix-d-configuring-your-learn-repository-for-quarto" id="toc-appendix-d-configuring-your-learn-repository-for-quarto" class="nav-link" data-scroll-target="#appendix-d-configuring-your-learn-repository-for-quarto">APPENDIX D: Configuring Your Learn Repository for Quarto</a></li>
   <li><a href="#key-advantages-of-alternative-structures" id="toc-key-advantages-of-alternative-structures" class="nav-link" data-scroll-target="#key-advantages-of-alternative-structures">Key Advantages of Alternative Structures</a></li>
   </ul></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20250712 Use QUARTO doc for Github repos doc/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -633,8 +630,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="using-quarto-with-github-pages-for-documentation" class="level1">
-<h1>Using Quarto with GitHub Pages for Documentation</h1>
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ul>
@@ -1137,7 +1132,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- -->
 
-</section>
 </section>
 </section>
 
@@ -2712,477 +2706,475 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu"># Using Quarto with GitHub Pages for Documentation</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table of Contents</span></span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table of Contents</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Overview</span><span class="co">](#overview)</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Key Concepts</span><span class="co">](#key-concepts)</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Project Structure</span><span class="co">](#1-project-structure)</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Configuration File (_quarto.yml)</span><span class="co">](#2-configuration-file-_quartoyml)</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Source Directory (src/doc/)</span><span class="co">](#3-source-directory-srcdoc)</span></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Output Directory (docs/)</span><span class="co">](#4-output-directory-docs)</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Setting Up Quarto with GitHub Pages</span><span class="co">](#setting-up-quarto-with-github-pages)</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Step 1: Initialize Quarto Project</span><span class="co">](#step-1-initialize-quarto-project)</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Step 2: Configure Output Directory</span><span class="co">](#step-2-configure-output-directory)</span></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Step 3: Configure GitHub Pages</span><span class="co">](#step-3-configure-github-pages)</span></span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Step 4: Create GitHub Actions Workflow</span><span class="co">](#step-4-create-github-actions-workflow)</span></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Best Practices</span><span class="co">](#best-practices)</span></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Content Organization</span><span class="co">](#1-content-organization)</span></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Writing Guidelines</span><span class="co">](#2-writing-guidelines)</span></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Development Workflow</span><span class="co">](#3-development-workflow)</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Version Control Considerations</span><span class="co">](#4-version-control-considerations)</span></span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Advanced Features</span><span class="co">](#advanced-features)</span></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Themes and Styling</span><span class="co">](#1-themes-and-styling)</span></span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Interactive Content</span><span class="co">](#2-interactive-content)</span></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Multi-language Support</span><span class="co">](#3-multi-language-support)</span></span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Troubleshooting Common Issues</span><span class="co">](#troubleshooting-common-issues)</span></span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">GitHub Pages Not Updating</span><span class="co">](#1-github-pages-not-updating)</span></span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Broken Links</span><span class="co">](#2-broken-links)</span></span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Rendering Errors</span><span class="co">](#3-rendering-errors)</span></span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Monitoring and Maintenance</span><span class="co">](#monitoring-and-maintenance)</span></span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Analytics</span><span class="co">](#1-analytics)</span></span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Content Updates</span><span class="co">](#2-content-updates)</span></span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Performance</span><span class="co">](#3-performance)</span></span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Conclusion</span><span class="co">](#conclusion)</span></span>
-<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">References</span><span class="co">](#references)</span></span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">APPENDIXES</span><span class="co">](#appendixes)</span></span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">APPENDIX A: Quarto.yml Document Structure</span><span class="co">](#appendix-a-quartoyml-document-structure---complete-reference-guide)</span></span>
-<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">APPENDIX B: Quarto Specific Markdown Features</span><span class="co">](#appendix-b-quarto-specific-markdown-features---complete-guide)</span></span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">APPENDIX C: Quarto Theming and Styling</span><span class="co">](#appendix-c-quarto-theming-and-styling---complete-guide)</span></span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">APPENDIX D: Configuring Your Learn Repository for Quarto</span><span class="co">](#appendix-d-configuring-your-learn-repository-for-quarto)</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Overview</span><span class="co">](#overview)</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Key Concepts</span><span class="co">](#key-concepts)</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Project Structure</span><span class="co">](#1-project-structure)</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Configuration File (_quarto.yml)</span><span class="co">](#2-configuration-file-_quartoyml)</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Source Directory (src/doc/)</span><span class="co">](#3-source-directory-srcdoc)</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Output Directory (docs/)</span><span class="co">](#4-output-directory-docs)</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Setting Up Quarto with GitHub Pages</span><span class="co">](#setting-up-quarto-with-github-pages)</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Step 1: Initialize Quarto Project</span><span class="co">](#step-1-initialize-quarto-project)</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Step 2: Configure Output Directory</span><span class="co">](#step-2-configure-output-directory)</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Step 3: Configure GitHub Pages</span><span class="co">](#step-3-configure-github-pages)</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Step 4: Create GitHub Actions Workflow</span><span class="co">](#step-4-create-github-actions-workflow)</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Best Practices</span><span class="co">](#best-practices)</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Content Organization</span><span class="co">](#1-content-organization)</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Writing Guidelines</span><span class="co">](#2-writing-guidelines)</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Development Workflow</span><span class="co">](#3-development-workflow)</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Version Control Considerations</span><span class="co">](#4-version-control-considerations)</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Advanced Features</span><span class="co">](#advanced-features)</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Themes and Styling</span><span class="co">](#1-themes-and-styling)</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Interactive Content</span><span class="co">](#2-interactive-content)</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Multi-language Support</span><span class="co">](#3-multi-language-support)</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Troubleshooting Common Issues</span><span class="co">](#troubleshooting-common-issues)</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">GitHub Pages Not Updating</span><span class="co">](#1-github-pages-not-updating)</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Broken Links</span><span class="co">](#2-broken-links)</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Rendering Errors</span><span class="co">](#3-rendering-errors)</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Monitoring and Maintenance</span><span class="co">](#monitoring-and-maintenance)</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Analytics</span><span class="co">](#1-analytics)</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Content Updates</span><span class="co">](#2-content-updates)</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Performance</span><span class="co">](#3-performance)</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Conclusion</span><span class="co">](#conclusion)</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">References</span><span class="co">](#references)</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">APPENDIXES</span><span class="co">](#appendixes)</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">APPENDIX A: Quarto.yml Document Structure</span><span class="co">](#appendix-a-quartoyml-document-structure---complete-reference-guide)</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">APPENDIX B: Quarto Specific Markdown Features</span><span class="co">](#appendix-b-quarto-specific-markdown-features---complete-guide)</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">APPENDIX C: Quarto Theming and Styling</span><span class="co">](#appendix-c-quarto-theming-and-styling---complete-guide)</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">APPENDIX D: Configuring Your Learn Repository for Quarto</span><span class="co">](#appendix-d-configuring-your-learn-repository-for-quarto)</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
 <span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>**Quarto** is a powerful, **open-source** **scientific** and **technical publishing system** that allows you to create beautiful documentation websites from Markdown files.&lt;br&gt;</span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>When combined with **GitHub Pages**, it provides an excellent solution for publishing and maintaining project documentation.</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>**Quarto** is a powerful, **open-source** **scientific** and **technical publishing system** that allows you to create beautiful documentation websites from Markdown files.&lt;br&gt;</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>When combined with **GitHub Pages**, it provides an excellent solution for publishing and maintaining project documentation.</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Concepts</span></span>
 <span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Concepts</span></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Project Structure</span></span>
 <span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Project Structure</span></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>Quarto is highly flexible and supports multiple project structures. Here are several common approaches:</span>
 <span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>Quarto is highly flexible and supports multiple project structures. Here are several common approaches:</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Standard Documentation Structure</span></span>
 <span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Standard Documentation Structure</span></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>A typical Quarto documentation project follows this structure:</span>
 <span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>A typical Quarto documentation project follows this structure:</span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
-<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="in">your-repo/</span></span>
-<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a><span class="in">├── src/</span></span>
-<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── doc/           # Source markdown files</span></span>
-<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├── index.md</span></span>
-<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├── guide.md</span></span>
-<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="in">│       └── reference.md</span></span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/              # Rendered HTML output (for GitHub Pages)</span></span>
-<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml        # Quarto configuration file</span></span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a><span class="in">└── .github/</span></span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a><span class="in">    └── workflows/</span></span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a><span class="in">        └── quarto-publish.yml  # GitHub Actions workflow</span></span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="in">your-repo/</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="in">├── src/</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── doc/           # Source markdown files</span></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├── index.md</span></span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├── guide.md</span></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="in">│       └── reference.md</span></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/              # Rendered HTML output (for GitHub Pages)</span></span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml        # Quarto configuration file</span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a><span class="in">└── .github/</span></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a><span class="in">    └── workflows/</span></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a><span class="in">        └── quarto-publish.yml  # GitHub Actions workflow</span></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Root-Level Structure</span></span>
 <span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Root-Level Structure</span></span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>For simpler projects, you can place content directly in the root:</span>
 <span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>For simpler projects, you can place content directly in the root:</span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
-<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="in">your-repo/</span></span>
-<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.md           # Homepage</span></span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a><span class="in">├── guide.md           # Documentation pages</span></span>
-<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a><span class="in">├── reference.md</span></span>
-<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="in">├── about.md</span></span>
-<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/              # Rendered output</span></span>
-<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml        # Configuration</span></span>
-<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a><span class="in">└── images/            # Assets</span></span>
-<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a><span class="in">your-repo/</span></span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.md           # Homepage</span></span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="in">├── guide.md           # Documentation pages</span></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a><span class="in">├── reference.md</span></span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a><span class="in">├── about.md</span></span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/              # Rendered output</span></span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml        # Configuration</span></span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a><span class="in">└── images/            # Assets</span></span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Learn Repository Structure Example</span></span>
 <span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Learn Repository Structure Example</span></span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>For a repository like your "Learn" repo with existing folder structure, you could adapt it as follows:</span>
 <span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a>For a repository like your "Learn" repo with existing folder structure, you could adapt it as follows:</span>
-<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="in">Learn/                              # Your existing repository</span></span>
-<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.md                        # New: Main landing page</span></span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml                     # New: Quarto configuration</span></span>
-<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/                           # New: Rendered output</span></span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="in">├── 202506 Build 2025/              # Existing: Event documentation</span></span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.md                    # New: Build 2025 overview</span></span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── BRK106/</span></span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a><span class="in">│   │   └── *.md                    # Existing: Session notes</span></span>
-<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── BRK122/</span></span>
-<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a><span class="in">│       └── *.md                    # Existing: Session notes</span></span>
-<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="in">├── 20250702 Azure Naming conventions/  # Existing: Topic folder</span></span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="in">Learn/                              # Your existing repository</span></span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.md                        # New: Main landing page</span></span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml                     # New: Quarto configuration</span></span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/                           # New: Rendered output</span></span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a><span class="in">├── 202506 Build 2025/              # Existing: Event documentation</span></span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.md                    # New: Build 2025 overview</span></span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── BRK106/</span></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="in">│   │   └── *.md                    # Existing: Session notes</span></span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── BRK122/</span></span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a><span class="in">│       └── *.md                    # Existing: Session notes</span></span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a><span class="in">├── 20250702 Azure Naming conventions/  # Existing: Topic folder</span></span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── *.md                        # Existing: Content</span></span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="in">├── 20250704 TableStorageAccess options/  # Existing: Topic folder</span></span>
 <span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── *.md                        # Existing: Content</span></span>
-<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a><span class="in">├── 20250704 TableStorageAccess options/  # Existing: Topic folder</span></span>
-<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── *.md                        # Existing: Content</span></span>
-<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="in">└── _ISSUES/                        # Existing: Issue tracking</span></span>
-<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="in">    └── */                          # Existing: Issue folders</span></span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a><span class="in">└── _ISSUES/                        # Existing: Issue tracking</span></span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a><span class="in">    └── */                          # Existing: Issue folders</span></span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Multi-Section Structure</span></span>
 <span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Multi-Section Structure</span></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>For larger documentation sites with distinct sections:</span>
 <span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>For larger documentation sites with distinct sections:</span>
-<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
-<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a><span class="in">your-repo/</span></span>
-<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.md</span></span>
-<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml</span></span>
-<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/              # Rendered output</span></span>
-<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a><span class="in">├── tutorials/         # Tutorial section</span></span>
-<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.md</span></span>
-<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── getting-started.md</span></span>
-<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── advanced.md</span></span>
-<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="in">├── reference/         # Reference section</span></span>
-<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.md</span></span>
-<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── api.md</span></span>
-<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── cli.md</span></span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="in">├── blog/              # Blog section (optional)</span></span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.md</span></span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── posts/</span></span>
-<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="in">└── assets/            # Shared resources</span></span>
-<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── images/</span></span>
-<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="in">    └── styles/</span></span>
-<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="in">your-repo/</span></span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.md</span></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml</span></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/              # Rendered output</span></span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a><span class="in">├── tutorials/         # Tutorial section</span></span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.md</span></span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── getting-started.md</span></span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── advanced.md</span></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a><span class="in">├── reference/         # Reference section</span></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.md</span></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── api.md</span></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── cli.md</span></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a><span class="in">├── blog/              # Blog section (optional)</span></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index.md</span></span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── posts/</span></span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a><span class="in">└── assets/            # Shared resources</span></span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── images/</span></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="in">    └── styles/</span></span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Configuration File (`_quarto.yml`)</span></span>
 <span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Configuration File (`_quarto.yml`)</span></span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>The <span class="in">`_quarto.yml`</span> file is the heart of your Quarto project configuration:</span>
 <span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>The <span class="in">`_quarto.yml`</span> file is the heart of your Quarto project configuration:</span>
-<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Documentation"</span></span>
-<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
-<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
-<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
-<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> guide.qmd</span></span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Guide</span></span>
-<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> reference.qmd</span></span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Reference</span></span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
-<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Documentation"</span></span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> guide.qmd</span></span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Guide</span></span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> reference.qmd</span></span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Reference</span></span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Source Directory (`src/doc/`)</span></span>
 <span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Source Directory (`src/doc/`)</span></span>
-<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Purpose**: Contains your source Markdown (<span class="in">`.md`</span>) or Quarto Markdown (<span class="in">`.qmd`</span>) files</span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Best Practices**:</span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Use clear, descriptive filenames</span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Organize content hierarchically with subdirectories</span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Include an <span class="in">`index.md`</span> as your homepage</span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Use consistent front matter (YAML headers)</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Purpose**: Contains your source Markdown (<span class="in">`.md`</span>) or Quarto Markdown (<span class="in">`.qmd`</span>) files</span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Best Practices**:</span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Use clear, descriptive filenames</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Organize content hierarchically with subdirectories</span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Include an <span class="in">`index.md`</span> as your homepage</span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Use consistent front matter (YAML headers)</span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Output Directory (`docs/`)</span></span>
 <span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Output Directory (`docs/`)</span></span>
-<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Purpose**: Contains the rendered HTML files that GitHub Pages will serve</span>
-<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Important Notes**:</span>
-<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>This directory is generated by Quarto's rendering process</span>
-<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Should be included in your repository for GitHub Pages</span>
-<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Configure GitHub Pages to serve from the <span class="in">`/docs`</span> folder</span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Purpose**: Contains the rendered HTML files that GitHub Pages will serve</span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Important Notes**:</span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>This directory is generated by Quarto's rendering process</span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Should be included in your repository for GitHub Pages</span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Configure GitHub Pages to serve from the <span class="in">`/docs`</span> folder</span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setting Up Quarto with GitHub Pages</span></span>
 <span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setting Up Quarto with GitHub Pages</span></span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Initialize Quarto Project</span></span>
 <span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Initialize Quarto Project</span></span>
-<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a><span class="co"># In your repository root</span></span>
-<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create-project . <span class="at">--type</span> website</span>
-<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a><span class="co"># In your repository root</span></span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create-project . <span class="at">--type</span> website</span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Configure Output Directory</span></span>
 <span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Configure Output Directory</span></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>Ensure your <span class="in">`_quarto.yml`</span> specifies the correct output directory:</span>
 <span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>Ensure your <span class="in">`_quarto.yml`</span> specifies the correct output directory:</span>
-<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
-<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span><span class="co">  # GitHub Pages will serve from here</span></span>
-<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span><span class="co">  # GitHub Pages will serve from here</span></span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Configure GitHub Pages</span></span>
 <span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Configure GitHub Pages</span></span>
-<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Go to your repository's Settings</span>
-<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Navigate to "Pages" section</span>
-<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Set Source to "Deploy from a branch"</span>
-<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Select branch: <span class="in">`main`</span> (or your default branch)</span>
-<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Select folder: <span class="in">`/docs`</span></span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Go to your repository's Settings</span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Navigate to "Pages" section</span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Set Source to "Deploy from a branch"</span>
+<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Select branch: <span class="in">`main`</span> (or your default branch)</span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Select folder: <span class="in">`/docs`</span></span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Create GitHub Actions Workflow</span></span>
 <span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Create GitHub Actions Workflow</span></span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>Create <span class="in">`.github/workflows/quarto-publish.yml`</span>:</span>
 <span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a>Create <span class="in">`.github/workflows/quarto-publish.yml`</span>:</span>
-<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
-<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Render and Publish Quarto Documentation</span></span>
-<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Render and Publish Quarto Documentation</span></span>
+<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
 <span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
-<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
-<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
-<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build-deploy</span><span class="kw">:</span></span>
-<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a><span class="at">    </span></span>
-<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
-<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
-<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Quarto</span></span>
-<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/setup@v2</span></span>
-<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
-<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Quarto Project</span></span>
-<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">run</span><span class="kw">:</span><span class="at"> quarto render</span></span>
-<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
-<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy to GitHub Pages</span></span>
-<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">if</span><span class="kw">:</span><span class="at"> github.ref == 'refs/heads/main'</span></span>
-<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> peaceiris/actions-gh-pages@v3</span></span>
-<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">github_token</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span>
-<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">publish_dir</span><span class="kw">:</span><span class="at"> ./docs</span></span>
-<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build-deploy</span><span class="kw">:</span></span>
+<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a><span class="at">    </span></span>
+<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
+<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Quarto</span></span>
+<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/setup@v2</span></span>
+<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Quarto Project</span></span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">run</span><span class="kw">:</span><span class="at"> quarto render</span></span>
+<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy to GitHub Pages</span></span>
+<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">if</span><span class="kw">:</span><span class="at"> github.ref == 'refs/heads/main'</span></span>
+<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> peaceiris/actions-gh-pages@v3</span></span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">github_token</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span>
+<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">publish_dir</span><span class="kw">:</span><span class="at"> ./docs</span></span>
+<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Practices</span></span>
 <span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Practices</span></span>
+<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Content Organization</span></span>
 <span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Content Organization</span></span>
-<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Logical Structure**: Organize content by topic or user journey</span>
-<span id="cb12-257"><a href="#cb12-257" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Navigation**: Use clear, hierarchical navigation in your <span class="in">`_quarto.yml`</span></span>
-<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cross-References**: Leverage Quarto's cross-referencing capabilities</span>
-<span id="cb12-259"><a href="#cb12-259" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Index Pages**: Create overview pages for each section</span>
+<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Logical Structure**: Organize content by topic or user journey</span>
+<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Navigation**: Use clear, hierarchical navigation in your <span class="in">`_quarto.yml`</span></span>
+<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cross-References**: Leverage Quarto's cross-referencing capabilities</span>
+<span id="cb12-257"><a href="#cb12-257" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Index Pages**: Create overview pages for each section</span>
+<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-259"><a href="#cb12-259" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Writing Guidelines</span></span>
 <span id="cb12-260"><a href="#cb12-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-261"><a href="#cb12-261" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Writing Guidelines</span></span>
+<span id="cb12-261"><a href="#cb12-261" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Front Matter**: Use YAML front matter for metadata:</span>
 <span id="cb12-262"><a href="#cb12-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-263"><a href="#cb12-263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Front Matter**: Use YAML front matter for metadata:</span>
-<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-265"><a href="#cb12-265" aria-hidden="true" tabindex="-1"></a>  <span class="in">```yaml</span></span>
-<span id="cb12-266"><a href="#cb12-266" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>---</span>
-<span id="cb12-267"><a href="#cb12-267" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Page Title"</span></span>
-<span id="cb12-268"><a href="#cb12-268" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Brief description"</span></span>
-<span id="cb12-269"><a href="#cb12-269" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025-01-14"</span></span>
-<span id="cb12-270"><a href="#cb12-270" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>---</span>
-<span id="cb12-271"><a href="#cb12-271" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="in">```</span></span>
-<span id="cb12-272"><a href="#cb12-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-273"><a href="#cb12-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Code Blocks**: Use syntax highlighting and proper language specification</span>
-<span id="cb12-274"><a href="#cb12-274" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Images**: Store images in organized subdirectories, use relative paths</span>
-<span id="cb12-275"><a href="#cb12-275" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Links**: Use relative links for internal navigation</span>
+<span id="cb12-263"><a href="#cb12-263" aria-hidden="true" tabindex="-1"></a>  <span class="in">```yaml</span></span>
+<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>---</span>
+<span id="cb12-265"><a href="#cb12-265" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Page Title"</span></span>
+<span id="cb12-266"><a href="#cb12-266" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Brief description"</span></span>
+<span id="cb12-267"><a href="#cb12-267" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025-01-14"</span></span>
+<span id="cb12-268"><a href="#cb12-268" aria-hidden="true" tabindex="-1"></a><span class="at">  </span>---</span>
+<span id="cb12-269"><a href="#cb12-269" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="in">```</span></span>
+<span id="cb12-270"><a href="#cb12-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-271"><a href="#cb12-271" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Code Blocks**: Use syntax highlighting and proper language specification</span>
+<span id="cb12-272"><a href="#cb12-272" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Images**: Store images in organized subdirectories, use relative paths</span>
+<span id="cb12-273"><a href="#cb12-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Links**: Use relative links for internal navigation</span>
+<span id="cb12-274"><a href="#cb12-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-275"><a href="#cb12-275" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Development Workflow</span></span>
 <span id="cb12-276"><a href="#cb12-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-277"><a href="#cb12-277" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Development Workflow</span></span>
-<span id="cb12-278"><a href="#cb12-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-279"><a href="#cb12-279" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Write**: Create/edit Markdown files in <span class="in">`src/doc/`</span></span>
-<span id="cb12-280"><a href="#cb12-280" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Preview**: Use <span class="in">`quarto preview`</span> for local development</span>
-<span id="cb12-281"><a href="#cb12-281" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Render**: Run <span class="in">`quarto render`</span> to generate HTML</span>
-<span id="cb12-282"><a href="#cb12-282" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Commit**: Add both source and rendered files to Git</span>
-<span id="cb12-283"><a href="#cb12-283" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Push**: GitHub Actions will handle deployment</span>
+<span id="cb12-277"><a href="#cb12-277" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Write**: Create/edit Markdown files in <span class="in">`src/doc/`</span></span>
+<span id="cb12-278"><a href="#cb12-278" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Preview**: Use <span class="in">`quarto preview`</span> for local development</span>
+<span id="cb12-279"><a href="#cb12-279" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Render**: Run <span class="in">`quarto render`</span> to generate HTML</span>
+<span id="cb12-280"><a href="#cb12-280" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Commit**: Add both source and rendered files to Git</span>
+<span id="cb12-281"><a href="#cb12-281" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Push**: GitHub Actions will handle deployment</span>
+<span id="cb12-282"><a href="#cb12-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-283"><a href="#cb12-283" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Version Control Considerations</span></span>
 <span id="cb12-284"><a href="#cb12-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-285"><a href="#cb12-285" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Version Control Considerations</span></span>
-<span id="cb12-286"><a href="#cb12-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-287"><a href="#cb12-287" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Include Rendered Files**: Unlike some static site generators, include the <span class="in">`docs/`</span> folder in version control</span>
-<span id="cb12-288"><a href="#cb12-288" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ignore Temporary Files**: Add to <span class="in">`.gitignore`</span>:</span>
-<span id="cb12-289"><a href="#cb12-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-290"><a href="#cb12-290" aria-hidden="true" tabindex="-1"></a>  <span class="in">```text</span></span>
-<span id="cb12-291"><a href="#cb12-291" aria-hidden="true" tabindex="-1"></a><span class="in">  .quarto/</span></span>
-<span id="cb12-292"><a href="#cb12-292" aria-hidden="true" tabindex="-1"></a><span class="in">  /.quarto/</span></span>
-<span id="cb12-293"><a href="#cb12-293" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb12-285"><a href="#cb12-285" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Include Rendered Files**: Unlike some static site generators, include the <span class="in">`docs/`</span> folder in version control</span>
+<span id="cb12-286"><a href="#cb12-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ignore Temporary Files**: Add to <span class="in">`.gitignore`</span>:</span>
+<span id="cb12-287"><a href="#cb12-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-288"><a href="#cb12-288" aria-hidden="true" tabindex="-1"></a>  <span class="in">```text</span></span>
+<span id="cb12-289"><a href="#cb12-289" aria-hidden="true" tabindex="-1"></a><span class="in">  .quarto/</span></span>
+<span id="cb12-290"><a href="#cb12-290" aria-hidden="true" tabindex="-1"></a><span class="in">  /.quarto/</span></span>
+<span id="cb12-291"><a href="#cb12-291" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb12-292"><a href="#cb12-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-293"><a href="#cb12-293" aria-hidden="true" tabindex="-1"></a><span class="fu">## Advanced Features</span></span>
 <span id="cb12-294"><a href="#cb12-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-295"><a href="#cb12-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## Advanced Features</span></span>
+<span id="cb12-295"><a href="#cb12-295" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Themes and Styling</span></span>
 <span id="cb12-296"><a href="#cb12-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-297"><a href="#cb12-297" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Themes and Styling</span></span>
-<span id="cb12-298"><a href="#cb12-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-299"><a href="#cb12-299" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Built-in Themes**: Choose from cosmo, flatly, darkly, etc.</span>
-<span id="cb12-300"><a href="#cb12-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Custom CSS**: Add custom styling via CSS files</span>
-<span id="cb12-301"><a href="#cb12-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**SCSS Variables**: Customize theme variables</span>
+<span id="cb12-297"><a href="#cb12-297" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Built-in Themes**: Choose from cosmo, flatly, darkly, etc.</span>
+<span id="cb12-298"><a href="#cb12-298" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Custom CSS**: Add custom styling via CSS files</span>
+<span id="cb12-299"><a href="#cb12-299" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**SCSS Variables**: Customize theme variables</span>
+<span id="cb12-300"><a href="#cb12-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-301"><a href="#cb12-301" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Interactive Content</span></span>
 <span id="cb12-302"><a href="#cb12-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-303"><a href="#cb12-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Interactive Content</span></span>
-<span id="cb12-304"><a href="#cb12-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-305"><a href="#cb12-305" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Code Execution**: Embed executable code blocks</span>
-<span id="cb12-306"><a href="#cb12-306" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Jupyter Notebooks**: Include <span class="in">`.ipynb`</span> files directly</span>
-<span id="cb12-307"><a href="#cb12-307" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Observable JS**: Add interactive visualizations</span>
+<span id="cb12-303"><a href="#cb12-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Code Execution**: Embed executable code blocks</span>
+<span id="cb12-304"><a href="#cb12-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Jupyter Notebooks**: Include <span class="in">`.ipynb`</span> files directly</span>
+<span id="cb12-305"><a href="#cb12-305" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Observable JS**: Add interactive visualizations</span>
+<span id="cb12-306"><a href="#cb12-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-307"><a href="#cb12-307" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Multi-language Support</span></span>
 <span id="cb12-308"><a href="#cb12-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-309"><a href="#cb12-309" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Multi-language Support</span></span>
-<span id="cb12-310"><a href="#cb12-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-311"><a href="#cb12-311" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Code Highlighting**: Support for numerous programming languages</span>
-<span id="cb12-312"><a href="#cb12-312" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Internationalization**: Multi-language documentation support</span>
+<span id="cb12-309"><a href="#cb12-309" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Code Highlighting**: Support for numerous programming languages</span>
+<span id="cb12-310"><a href="#cb12-310" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Internationalization**: Multi-language documentation support</span>
+<span id="cb12-311"><a href="#cb12-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-312"><a href="#cb12-312" aria-hidden="true" tabindex="-1"></a><span class="fu">## Troubleshooting Common Issues</span></span>
 <span id="cb12-313"><a href="#cb12-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-314"><a href="#cb12-314" aria-hidden="true" tabindex="-1"></a><span class="fu">## Troubleshooting Common Issues</span></span>
+<span id="cb12-314"><a href="#cb12-314" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. GitHub Pages Not Updating</span></span>
 <span id="cb12-315"><a href="#cb12-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-316"><a href="#cb12-316" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. GitHub Pages Not Updating</span></span>
-<span id="cb12-317"><a href="#cb12-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-318"><a href="#cb12-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Check that the <span class="in">`docs/`</span> folder is being committed</span>
-<span id="cb12-319"><a href="#cb12-319" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Verify GitHub Pages is configured to serve from <span class="in">`/docs`</span></span>
-<span id="cb12-320"><a href="#cb12-320" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ensure GitHub Actions workflow is running successfully</span>
+<span id="cb12-316"><a href="#cb12-316" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Check that the <span class="in">`docs/`</span> folder is being committed</span>
+<span id="cb12-317"><a href="#cb12-317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Verify GitHub Pages is configured to serve from <span class="in">`/docs`</span></span>
+<span id="cb12-318"><a href="#cb12-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ensure GitHub Actions workflow is running successfully</span>
+<span id="cb12-319"><a href="#cb12-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-320"><a href="#cb12-320" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Broken Links</span></span>
 <span id="cb12-321"><a href="#cb12-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-322"><a href="#cb12-322" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Broken Links</span></span>
-<span id="cb12-323"><a href="#cb12-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-324"><a href="#cb12-324" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use relative paths for internal links</span>
-<span id="cb12-325"><a href="#cb12-325" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Test all links before publishing</span>
-<span id="cb12-326"><a href="#cb12-326" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use Quarto's link checking capabilities</span>
+<span id="cb12-322"><a href="#cb12-322" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use relative paths for internal links</span>
+<span id="cb12-323"><a href="#cb12-323" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Test all links before publishing</span>
+<span id="cb12-324"><a href="#cb12-324" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use Quarto's link checking capabilities</span>
+<span id="cb12-325"><a href="#cb12-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-326"><a href="#cb12-326" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Rendering Errors</span></span>
 <span id="cb12-327"><a href="#cb12-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-328"><a href="#cb12-328" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Rendering Errors</span></span>
-<span id="cb12-329"><a href="#cb12-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-330"><a href="#cb12-330" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Check <span class="in">`_quarto.yml`</span> syntax</span>
-<span id="cb12-331"><a href="#cb12-331" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Verify all referenced files exist</span>
-<span id="cb12-332"><a href="#cb12-332" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Review console output for specific error messages</span>
+<span id="cb12-328"><a href="#cb12-328" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Check <span class="in">`_quarto.yml`</span> syntax</span>
+<span id="cb12-329"><a href="#cb12-329" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Verify all referenced files exist</span>
+<span id="cb12-330"><a href="#cb12-330" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Review console output for specific error messages</span>
+<span id="cb12-331"><a href="#cb12-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-332"><a href="#cb12-332" aria-hidden="true" tabindex="-1"></a><span class="fu">## Monitoring and Maintenance</span></span>
 <span id="cb12-333"><a href="#cb12-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-334"><a href="#cb12-334" aria-hidden="true" tabindex="-1"></a><span class="fu">## Monitoring and Maintenance</span></span>
+<span id="cb12-334"><a href="#cb12-334" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Analytics</span></span>
 <span id="cb12-335"><a href="#cb12-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-336"><a href="#cb12-336" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Analytics</span></span>
-<span id="cb12-337"><a href="#cb12-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-338"><a href="#cb12-338" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add Google Analytics or similar tracking</span>
-<span id="cb12-339"><a href="#cb12-339" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor page views and user behavior</span>
-<span id="cb12-340"><a href="#cb12-340" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use GitHub Insights for repository metrics</span>
+<span id="cb12-336"><a href="#cb12-336" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add Google Analytics or similar tracking</span>
+<span id="cb12-337"><a href="#cb12-337" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor page views and user behavior</span>
+<span id="cb12-338"><a href="#cb12-338" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use GitHub Insights for repository metrics</span>
+<span id="cb12-339"><a href="#cb12-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-340"><a href="#cb12-340" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Content Updates</span></span>
 <span id="cb12-341"><a href="#cb12-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-342"><a href="#cb12-342" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Content Updates</span></span>
-<span id="cb12-343"><a href="#cb12-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Regular review of documentation accuracy</span>
-<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Update dependencies and links</span>
-<span id="cb12-346"><a href="#cb12-346" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Maintain consistent style and formatting</span>
+<span id="cb12-342"><a href="#cb12-342" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Regular review of documentation accuracy</span>
+<span id="cb12-343"><a href="#cb12-343" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Update dependencies and links</span>
+<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Maintain consistent style and formatting</span>
+<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-346"><a href="#cb12-346" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Performance</span></span>
 <span id="cb12-347"><a href="#cb12-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-348"><a href="#cb12-348" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Performance</span></span>
-<span id="cb12-349"><a href="#cb12-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-350"><a href="#cb12-350" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimize images for web delivery</span>
-<span id="cb12-351"><a href="#cb12-351" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Minimize custom CSS and JavaScript</span>
-<span id="cb12-352"><a href="#cb12-352" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor page load times</span>
+<span id="cb12-348"><a href="#cb12-348" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimize images for web delivery</span>
+<span id="cb12-349"><a href="#cb12-349" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Minimize custom CSS and JavaScript</span>
+<span id="cb12-350"><a href="#cb12-350" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor page load times</span>
+<span id="cb12-351"><a href="#cb12-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-352"><a href="#cb12-352" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
 <span id="cb12-353"><a href="#cb12-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-354"><a href="#cb12-354" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb12-354"><a href="#cb12-354" aria-hidden="true" tabindex="-1"></a>Quarto provides a powerful, flexible platform for creating professional documentation websites. By following these best practices and understanding the key concepts, you can create maintainable, beautiful documentation that automatically publishes to GitHub Pages whenever you update your source files.</span>
 <span id="cb12-355"><a href="#cb12-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-356"><a href="#cb12-356" aria-hidden="true" tabindex="-1"></a>Quarto provides a powerful, flexible platform for creating professional documentation websites. By following these best practices and understanding the key concepts, you can create maintainable, beautiful documentation that automatically publishes to GitHub Pages whenever you update your source files.</span>
+<span id="cb12-356"><a href="#cb12-356" aria-hidden="true" tabindex="-1"></a>The combination of Markdown simplicity, Quarto's rendering capabilities, and GitHub Pages' hosting makes this an excellent choice for project documentation, technical guides, and knowledge bases.</span>
 <span id="cb12-357"><a href="#cb12-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-358"><a href="#cb12-358" aria-hidden="true" tabindex="-1"></a>The combination of Markdown simplicity, Quarto's rendering capabilities, and GitHub Pages' hosting makes this an excellent choice for project documentation, technical guides, and knowledge bases.</span>
+<span id="cb12-358"><a href="#cb12-358" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
 <span id="cb12-359"><a href="#cb12-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-360"><a href="#cb12-360" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb12-360"><a href="#cb12-360" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Quarto Official Documentation](https://quarto.org/)</span></span>
 <span id="cb12-361"><a href="#cb12-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-362"><a href="#cb12-362" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Quarto Official Documentation](https://quarto.org/)</span></span>
+<span id="cb12-362"><a href="#cb12-362" aria-hidden="true" tabindex="-1"></a>The comprehensive official guide to Quarto, covering all features from basic usage to advanced configurations. This is the primary resource for understanding Quarto's capabilities, syntax, and best practices. Essential for anyone working with Quarto as it provides authoritative information on configuration options, formatting, and troubleshooting.</span>
 <span id="cb12-363"><a href="#cb12-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-364"><a href="#cb12-364" aria-hidden="true" tabindex="-1"></a>The comprehensive official guide to Quarto, covering all features from basic usage to advanced configurations. This is the primary resource for understanding Quarto's capabilities, syntax, and best practices. Essential for anyone working with Quarto as it provides authoritative information on configuration options, formatting, and troubleshooting.</span>
+<span id="cb12-364"><a href="#cb12-364" aria-hidden="true" tabindex="-1"></a><span class="fu">### [GitHub Pages Documentation](https://docs.github.com/en/pages)</span></span>
 <span id="cb12-365"><a href="#cb12-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-366"><a href="#cb12-366" aria-hidden="true" tabindex="-1"></a><span class="fu">### [GitHub Pages Documentation](https://docs.github.com/en/pages)</span></span>
+<span id="cb12-366"><a href="#cb12-366" aria-hidden="true" tabindex="-1"></a>GitHub's official documentation for Pages, explaining how to set up, configure, and deploy static websites. Crucial for understanding GitHub Pages limitations, custom domains, HTTPS enforcement, and deployment options. This reference helps ensure proper configuration of the hosting environment for your Quarto documentation.</span>
 <span id="cb12-367"><a href="#cb12-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-368"><a href="#cb12-368" aria-hidden="true" tabindex="-1"></a>GitHub's official documentation for Pages, explaining how to set up, configure, and deploy static websites. Crucial for understanding GitHub Pages limitations, custom domains, HTTPS enforcement, and deployment options. This reference helps ensure proper configuration of the hosting environment for your Quarto documentation.</span>
+<span id="cb12-368"><a href="#cb12-368" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Quarto GitHub Actions](https://github.com/quarto-dev/quarto-actions)</span></span>
 <span id="cb12-369"><a href="#cb12-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-370"><a href="#cb12-370" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Quarto GitHub Actions](https://github.com/quarto-dev/quarto-actions)</span></span>
+<span id="cb12-370"><a href="#cb12-370" aria-hidden="true" tabindex="-1"></a>Official GitHub Actions for automating Quarto workflows, including rendering and deployment. This repository provides ready-to-use workflow templates that integrate seamlessly with GitHub Pages. Essential for setting up continuous integration and deployment pipelines for documentation projects.</span>
 <span id="cb12-371"><a href="#cb12-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-372"><a href="#cb12-372" aria-hidden="true" tabindex="-1"></a>Official GitHub Actions for automating Quarto workflows, including rendering and deployment. This repository provides ready-to-use workflow templates that integrate seamlessly with GitHub Pages. Essential for setting up continuous integration and deployment pipelines for documentation projects.</span>
+<span id="cb12-372"><a href="#cb12-372" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Markdown Guide](https://www.markdownguide.org/)</span></span>
 <span id="cb12-373"><a href="#cb12-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-374"><a href="#cb12-374" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Markdown Guide](https://www.markdownguide.org/)</span></span>
+<span id="cb12-374"><a href="#cb12-374" aria-hidden="true" tabindex="-1"></a>Comprehensive reference for Markdown syntax and best practices. Since Quarto builds upon Markdown, understanding proper Markdown formatting is fundamental. This guide helps ensure consistent, well-formatted source documents that render correctly across different platforms.</span>
 <span id="cb12-375"><a href="#cb12-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-376"><a href="#cb12-376" aria-hidden="true" tabindex="-1"></a>Comprehensive reference for Markdown syntax and best practices. Since Quarto builds upon Markdown, understanding proper Markdown formatting is fundamental. This guide helps ensure consistent, well-formatted source documents that render correctly across different platforms.</span>
+<span id="cb12-376"><a href="#cb12-376" aria-hidden="true" tabindex="-1"></a><span class="fu">### [GitHub Actions Documentation](https://docs.github.com/en/actions)</span></span>
 <span id="cb12-377"><a href="#cb12-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-378"><a href="#cb12-378" aria-hidden="true" tabindex="-1"></a><span class="fu">### [GitHub Actions Documentation](https://docs.github.com/en/actions)</span></span>
+<span id="cb12-378"><a href="#cb12-378" aria-hidden="true" tabindex="-1"></a>Complete guide to GitHub Actions workflows, syntax, and best practices. Important for customizing automation workflows beyond basic Quarto deployment, including adding testing, link checking, or custom build steps to your documentation pipeline.</span>
 <span id="cb12-379"><a href="#cb12-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-380"><a href="#cb12-380" aria-hidden="true" tabindex="-1"></a>Complete guide to GitHub Actions workflows, syntax, and best practices. Important for customizing automation workflows beyond basic Quarto deployment, including adding testing, link checking, or custom build steps to your documentation pipeline.</span>
+<span id="cb12-380"><a href="#cb12-380" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Quarto Extensions Gallery](https://quarto.org/docs/extensions/)</span></span>
 <span id="cb12-381"><a href="#cb12-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-382"><a href="#cb12-382" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Quarto Extensions Gallery](https://quarto.org/docs/extensions/)</span></span>
+<span id="cb12-382"><a href="#cb12-382" aria-hidden="true" tabindex="-1"></a>Showcase of community-contributed extensions that add functionality to Quarto. Relevant for discovering ways to enhance documentation with additional features like custom formats, filters, or shortcodes that can improve the presentation and functionality of your documentation.</span>
 <span id="cb12-383"><a href="#cb12-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-384"><a href="#cb12-384" aria-hidden="true" tabindex="-1"></a>Showcase of community-contributed extensions that add functionality to Quarto. Relevant for discovering ways to enhance documentation with additional features like custom formats, filters, or shortcodes that can improve the presentation and functionality of your documentation.</span>
+<span id="cb12-384"><a href="#cb12-384" aria-hidden="true" tabindex="-1"></a><span class="fu">### [YAML Specification](https://yaml.org/spec/)</span></span>
 <span id="cb12-385"><a href="#cb12-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-386"><a href="#cb12-386" aria-hidden="true" tabindex="-1"></a><span class="fu">### [YAML Specification](https://yaml.org/spec/)</span></span>
+<span id="cb12-386"><a href="#cb12-386" aria-hidden="true" tabindex="-1"></a>Official YAML specification, essential for understanding the syntax used in <span class="in">`_quarto.yml`</span> configuration files and front matter. Proper YAML formatting is critical for Quarto configuration, and this reference helps prevent syntax errors that can break the build process.</span>
 <span id="cb12-387"><a href="#cb12-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-388"><a href="#cb12-388" aria-hidden="true" tabindex="-1"></a>Official YAML specification, essential for understanding the syntax used in <span class="in">`_quarto.yml`</span> configuration files and front matter. Proper YAML formatting is critical for Quarto configuration, and this reference helps prevent syntax errors that can break the build process.</span>
+<span id="cb12-388"><a href="#cb12-388" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Pandoc Documentation](https://pandoc.org/MANUAL.html)</span></span>
 <span id="cb12-389"><a href="#cb12-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-390"><a href="#cb12-390" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Pandoc Documentation](https://pandoc.org/MANUAL.html)</span></span>
+<span id="cb12-390"><a href="#cb12-390" aria-hidden="true" tabindex="-1"></a>Pandoc is the underlying document conversion engine that powers Quarto. Understanding Pandoc helps with advanced customization, custom formats, and troubleshooting complex rendering issues. Particularly useful when working with cross-references, citations, or custom output formats.</span>
 <span id="cb12-391"><a href="#cb12-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-392"><a href="#cb12-392" aria-hidden="true" tabindex="-1"></a>Pandoc is the underlying document conversion engine that powers Quarto. Understanding Pandoc helps with advanced customization, custom formats, and troubleshooting complex rendering issues. Particularly useful when working with cross-references, citations, or custom output formats.</span>
+<span id="cb12-392"><a href="#cb12-392" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Git Documentation - .gitignore](https://git-scm.com/docs/gitignore)</span></span>
 <span id="cb12-393"><a href="#cb12-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-394"><a href="#cb12-394" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Git Documentation - .gitignore](https://git-scm.com/docs/gitignore)</span></span>
+<span id="cb12-394"><a href="#cb12-394" aria-hidden="true" tabindex="-1"></a>Essential for understanding how to properly exclude temporary Quarto files from version control. Proper <span class="in">`.gitignore`</span> configuration prevents committing build artifacts and temporary files while ensuring the rendered documentation is properly tracked.</span>
 <span id="cb12-395"><a href="#cb12-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-396"><a href="#cb12-396" aria-hidden="true" tabindex="-1"></a>Essential for understanding how to properly exclude temporary Quarto files from version control. Proper <span class="in">`.gitignore`</span> configuration prevents committing build artifacts and temporary files while ensuring the rendered documentation is properly tracked.</span>
+<span id="cb12-396"><a href="#cb12-396" aria-hidden="true" tabindex="-1"></a><span class="fu">### [GitHub Community Guidelines for Documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)</span></span>
 <span id="cb12-397"><a href="#cb12-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-398"><a href="#cb12-398" aria-hidden="true" tabindex="-1"></a><span class="fu">### [GitHub Community Guidelines for Documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)</span></span>
+<span id="cb12-398"><a href="#cb12-398" aria-hidden="true" tabindex="-1"></a>Best practices for creating maintainable, community-friendly documentation projects. Relevant for establishing contribution guidelines, documentation standards, and collaborative workflows when building documentation as part of open-source projects.</span>
 <span id="cb12-399"><a href="#cb12-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-400"><a href="#cb12-400" aria-hidden="true" tabindex="-1"></a>Best practices for creating maintainable, community-friendly documentation projects. Relevant for establishing contribution guidelines, documentation standards, and collaborative workflows when building documentation as part of open-source projects.</span>
+<span id="cb12-400"><a href="#cb12-400" aria-hidden="true" tabindex="-1"></a><span class="fu">### Additional Resources</span></span>
 <span id="cb12-401"><a href="#cb12-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-402"><a href="#cb12-402" aria-hidden="true" tabindex="-1"></a><span class="fu">### Additional Resources</span></span>
-<span id="cb12-403"><a href="#cb12-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-404"><a href="#cb12-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto Documentation</span><span class="co">](https://quarto.org/)</span></span>
-<span id="cb12-405"><a href="#cb12-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Pages Documentation</span><span class="co">](https://docs.github.com/en/pages)</span></span>
-<span id="cb12-406"><a href="#cb12-406" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto GitHub Actions</span><span class="co">](https://github.com/quarto-dev/quarto-actions)</span></span>
-<span id="cb12-407"><a href="#cb12-407" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Markdown Guide</span><span class="co">](https://www.markdownguide.org/)</span></span>
+<span id="cb12-402"><a href="#cb12-402" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto Documentation</span><span class="co">](https://quarto.org/)</span></span>
+<span id="cb12-403"><a href="#cb12-403" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Pages Documentation</span><span class="co">](https://docs.github.com/en/pages)</span></span>
+<span id="cb12-404"><a href="#cb12-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto GitHub Actions</span><span class="co">](https://github.com/quarto-dev/quarto-actions)</span></span>
+<span id="cb12-405"><a href="#cb12-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Markdown Guide</span><span class="co">](https://www.markdownguide.org/)</span></span>
+<span id="cb12-406"><a href="#cb12-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-407"><a href="#cb12-407" aria-hidden="true" tabindex="-1"></a><span class="fu">## APPENDIXES</span></span>
 <span id="cb12-408"><a href="#cb12-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-409"><a href="#cb12-409" aria-hidden="true" tabindex="-1"></a><span class="fu">## APPENDIXES</span></span>
+<span id="cb12-409"><a href="#cb12-409" aria-hidden="true" tabindex="-1"></a><span class="fu">### APPENDIX A: [Quarto.yml Document Structure - Complete Reference Guide](002.01.%20Quarto.yml%20document%20structure.md)</span></span>
 <span id="cb12-410"><a href="#cb12-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-411"><a href="#cb12-411" aria-hidden="true" tabindex="-1"></a><span class="fu">### APPENDIX A: [Quarto.yml Document Structure - Complete Reference Guide](002.01.%20Quarto.yml%20document%20structure.md)</span></span>
+<span id="cb12-411"><a href="#cb12-411" aria-hidden="true" tabindex="-1"></a>An in-depth technical reference covering every aspect of the <span class="in">`_quarto.yml`</span> configuration file. This companion article provides detailed explanations of all configuration sections including project settings, website configuration, format options, metadata, engines, filters, and advanced features. Essential for understanding the full capabilities of Quarto configuration and implementing complex documentation setups with custom navigation, themes, and publishing workflows.</span>
 <span id="cb12-412"><a href="#cb12-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-413"><a href="#cb12-413" aria-hidden="true" tabindex="-1"></a>An in-depth technical reference covering every aspect of the <span class="in">`_quarto.yml`</span> configuration file. This companion article provides detailed explanations of all configuration sections including project settings, website configuration, format options, metadata, engines, filters, and advanced features. Essential for understanding the full capabilities of Quarto configuration and implementing complex documentation setups with custom navigation, themes, and publishing workflows.</span>
+<span id="cb12-413"><a href="#cb12-413" aria-hidden="true" tabindex="-1"></a><span class="fu">### APPENDIX B: [Quarto Specific Markdown Features - Complete Guide](002.02.%20Quarto%20specific%20markdown%20features.md)</span></span>
 <span id="cb12-414"><a href="#cb12-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-415"><a href="#cb12-415" aria-hidden="true" tabindex="-1"></a><span class="fu">### APPENDIX B: [Quarto Specific Markdown Features - Complete Guide](002.02.%20Quarto%20specific%20markdown%20features.md)</span></span>
+<span id="cb12-415"><a href="#cb12-415" aria-hidden="true" tabindex="-1"></a>A comprehensive guide to Quarto's extended markdown syntax and features that go beyond standard Markdown. This technical reference covers div blocks, CSS styling, grid layouts, callout blocks, interactive elements, and advanced formatting options. Essential for creating rich, interactive documentation with sophisticated layouts, highlighting messages, and custom styling using Quarto's unique markdown extensions.</span>
 <span id="cb12-416"><a href="#cb12-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-417"><a href="#cb12-417" aria-hidden="true" tabindex="-1"></a>A comprehensive guide to Quarto's extended markdown syntax and features that go beyond standard Markdown. This technical reference covers div blocks, CSS styling, grid layouts, callout blocks, interactive elements, and advanced formatting options. Essential for creating rich, interactive documentation with sophisticated layouts, highlighting messages, and custom styling using Quarto's unique markdown extensions.</span>
+<span id="cb12-417"><a href="#cb12-417" aria-hidden="true" tabindex="-1"></a><span class="fu">### APPENDIX C: [Quarto Theming and Styling - Complete Guide](002.03.%20Quarto%20Theming%20and%20Styling.md)</span></span>
 <span id="cb12-418"><a href="#cb12-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a><span class="fu">### APPENDIX C: [Quarto Theming and Styling - Complete Guide](002.03.%20Quarto%20Theming%20and%20Styling.md)</span></span>
+<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a>An extensive guide to Quarto's theming and styling capabilities, covering built-in themes, custom CSS integration, SCSS customization, Bootstrap integration, and responsive design. This technical reference includes practical examples of color schemes, typography, layout customization, dark mode support, and brand integration. Essential for creating professionally designed documentation websites that reflect your organization's visual identity and design standards.</span>
 <span id="cb12-420"><a href="#cb12-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a>An extensive guide to Quarto's theming and styling capabilities, covering built-in themes, custom CSS integration, SCSS customization, Bootstrap integration, and responsive design. This technical reference includes practical examples of color schemes, typography, layout customization, dark mode support, and brand integration. Essential for creating professionally designed documentation websites that reflect your organization's visual identity and design standards.</span>
+<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a><span class="fu">### APPENDIX D: Configuring Your Learn Repository for Quarto</span></span>
 <span id="cb12-422"><a href="#cb12-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a><span class="fu">### APPENDIX D: Configuring Your Learn Repository for Quarto</span></span>
+<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a>To publish your existing Learn repository with Quarto, you would:</span>
 <span id="cb12-424"><a href="#cb12-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a>To publish your existing Learn repository with Quarto, you would:</span>
+<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Create a main `_quarto.yml` configuration**:</span>
 <span id="cb12-426"><a href="#cb12-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Create a main `_quarto.yml` configuration**:</span>
-<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
-<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
-<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dario's Learning Journey"</span></span>
-<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Technical learning notes and conference insights"</span></span>
-<span id="cb12-437"><a href="#cb12-437" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
-<span id="cb12-438"><a href="#cb12-438" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
-<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
-<span id="cb12-440"><a href="#cb12-440" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
-<span id="cb12-441"><a href="#cb12-441" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
-<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build 2025"</span></span>
-<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
-<span id="cb12-444"><a href="#cb12-444" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"202506 Build 2025/index.qmd"</span></span>
-<span id="cb12-445"><a href="#cb12-445" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Overview"</span></span>
-<span id="cb12-446"><a href="#cb12-446" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"202506 Build 2025/BRK106/index.qmd"</span></span>
-<span id="cb12-447"><a href="#cb12-447" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"BRK106: .NET Aspire"</span></span>
-<span id="cb12-448"><a href="#cb12-448" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"202506 Build 2025/BRK122/index.qmd"</span></span>
-<span id="cb12-449"><a href="#cb12-449" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"BRK122: ASP.NET Core &amp; Blazor"</span></span>
-<span id="cb12-450"><a href="#cb12-450" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Azure Topics"</span></span>
-<span id="cb12-451"><a href="#cb12-451" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
-<span id="cb12-452"><a href="#cb12-452" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250702 Azure Naming conventions/index.qmd"</span></span>
-<span id="cb12-453"><a href="#cb12-453" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Naming Conventions"</span></span>
-<span id="cb12-454"><a href="#cb12-454" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250704 TableStorageAccess options/index.qmd"</span></span>
-<span id="cb12-455"><a href="#cb12-455" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Table Storage Access"</span></span>
-<span id="cb12-456"><a href="#cb12-456" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250706 CosmosDB Access options/index.qmd"</span></span>
-<span id="cb12-457"><a href="#cb12-457" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"CosmosDB Access"</span></span>
-<span id="cb12-458"><a href="#cb12-458" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Development Tips"</span></span>
-<span id="cb12-459"><a href="#cb12-459" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
-<span id="cb12-460"><a href="#cb12-460" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250709 Manage GitRepo from commandline/index.qmd"</span></span>
-<span id="cb12-461"><a href="#cb12-461" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Git Command Line"</span></span>
-<span id="cb12-462"><a href="#cb12-462" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250711 Use http files for easy and repeatable test/index.qmd"</span></span>
-<span id="cb12-463"><a href="#cb12-463" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"HTTP Files Testing"</span></span>
-<span id="cb12-464"><a href="#cb12-464" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250712 Use QUARTO doc for Github repos doc/index.qmd"</span></span>
-<span id="cb12-465"><a href="#cb12-465" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Quarto Documentation"</span></span>
-<span id="cb12-466"><a href="#cb12-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-467"><a href="#cb12-467" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb12-468"><a href="#cb12-468" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb12-469"><a href="#cb12-469" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
-<span id="cb12-470"><a href="#cb12-470" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb12-471"><a href="#cb12-471" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb12-472"><a href="#cb12-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dario's Learning Journey"</span></span>
+<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Technical learning notes and conference insights"</span></span>
+<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb12-437"><a href="#cb12-437" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb12-438"><a href="#cb12-438" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb12-440"><a href="#cb12-440" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build 2025"</span></span>
+<span id="cb12-441"><a href="#cb12-441" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"202506 Build 2025/index.qmd"</span></span>
+<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Overview"</span></span>
+<span id="cb12-444"><a href="#cb12-444" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"202506 Build 2025/BRK106/index.qmd"</span></span>
+<span id="cb12-445"><a href="#cb12-445" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"BRK106: .NET Aspire"</span></span>
+<span id="cb12-446"><a href="#cb12-446" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"202506 Build 2025/BRK122/index.qmd"</span></span>
+<span id="cb12-447"><a href="#cb12-447" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"BRK122: ASP.NET Core &amp; Blazor"</span></span>
+<span id="cb12-448"><a href="#cb12-448" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Azure Topics"</span></span>
+<span id="cb12-449"><a href="#cb12-449" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb12-450"><a href="#cb12-450" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250702 Azure Naming conventions/index.qmd"</span></span>
+<span id="cb12-451"><a href="#cb12-451" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Naming Conventions"</span></span>
+<span id="cb12-452"><a href="#cb12-452" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250704 TableStorageAccess options/index.qmd"</span></span>
+<span id="cb12-453"><a href="#cb12-453" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Table Storage Access"</span></span>
+<span id="cb12-454"><a href="#cb12-454" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250706 CosmosDB Access options/index.qmd"</span></span>
+<span id="cb12-455"><a href="#cb12-455" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"CosmosDB Access"</span></span>
+<span id="cb12-456"><a href="#cb12-456" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Development Tips"</span></span>
+<span id="cb12-457"><a href="#cb12-457" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb12-458"><a href="#cb12-458" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250709 Manage GitRepo from commandline/index.qmd"</span></span>
+<span id="cb12-459"><a href="#cb12-459" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Git Command Line"</span></span>
+<span id="cb12-460"><a href="#cb12-460" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250711 Use http files for easy and repeatable test/index.qmd"</span></span>
+<span id="cb12-461"><a href="#cb12-461" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"HTTP Files Testing"</span></span>
+<span id="cb12-462"><a href="#cb12-462" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"20250712 Use QUARTO doc for Github repos doc/index.qmd"</span></span>
+<span id="cb12-463"><a href="#cb12-463" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Quarto Documentation"</span></span>
+<span id="cb12-464"><a href="#cb12-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-465"><a href="#cb12-465" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb12-466"><a href="#cb12-466" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb12-467"><a href="#cb12-467" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb12-468"><a href="#cb12-468" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb12-469"><a href="#cb12-469" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb12-470"><a href="#cb12-470" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-471"><a href="#cb12-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-472"><a href="#cb12-472" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Create index pages for each major section** to provide navigation and context</span>
 <span id="cb12-473"><a href="#cb12-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-474"><a href="#cb12-474" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Create index pages for each major section** to provide navigation and context</span>
+<span id="cb12-474"><a href="#cb12-474" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Rename existing README.md files** to index.qmd in each folder to maintain the same content structure</span>
 <span id="cb12-475"><a href="#cb12-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-476"><a href="#cb12-476" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Rename existing README.md files** to index.qmd in each folder to maintain the same content structure</span>
+<span id="cb12-476"><a href="#cb12-476" aria-hidden="true" tabindex="-1"></a><span class="fu">### Key Advantages of Alternative Structures</span></span>
 <span id="cb12-477"><a href="#cb12-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-478"><a href="#cb12-478" aria-hidden="true" tabindex="-1"></a><span class="fu">### Key Advantages of Alternative Structures</span></span>
-<span id="cb12-479"><a href="#cb12-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-480"><a href="#cb12-480" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Preserve Existing Organization**: Keep your current folder structure and naming conventions</span>
-<span id="cb12-481"><a href="#cb12-481" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Gradual Migration**: Convert sections one at a time</span>
-<span id="cb12-482"><a href="#cb12-482" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Flexible Navigation**: Create custom navigation that makes sense for your content</span>
-<span id="cb12-483"><a href="#cb12-483" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Maintain Git History**: No need to move files, preserving commit history</span>
-<span id="cb12-484"><a href="#cb12-484" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**SEO Friendly**: Each section gets its own landing page with proper metadata</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb12-478"><a href="#cb12-478" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Preserve Existing Organization**: Keep your current folder structure and naming conventions</span>
+<span id="cb12-479"><a href="#cb12-479" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Gradual Migration**: Convert sections one at a time</span>
+<span id="cb12-480"><a href="#cb12-480" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Flexible Navigation**: Create custom navigation that makes sense for your content</span>
+<span id="cb12-481"><a href="#cb12-481" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Maintain Git History**: No need to move files, preserving commit history</span>
+<span id="cb12-482"><a href="#cb12-482" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**SEO Friendly**: Each section gets its own landing page with proper metadata</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

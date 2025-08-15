@@ -609,7 +609,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const sidebar = document.querySelector('#quarto-sidebar');
 
-    if (!sidebar) return null;
+    if (!sidebar) {
+
+      console.log('Sidebar not found, using fallback structure');
+
+      return getFallbackNavStructure();
+
+    }
 
     
 
@@ -617,119 +623,129 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    // Find all main sections (level 1)
+    // Find all sidebar items and build the structure
 
-    const mainSections = sidebar.querySelectorAll('.sidebar-item-section > .sidebar-item-container > .sidebar-item-text');
+    const sidebarItems = sidebar.querySelectorAll('.sidebar-item');
 
     
 
-    mainSections.forEach(sectionEl => {
+    sidebarItems.forEach(item => {
 
-      const sectionText = sectionEl.textContent.trim();
+      const link = item.querySelector('.sidebar-item-text[href]');
 
-      if (!sectionText) return;
-
-      
-
-      navStructure[sectionText] = {};
+      if (!link) return;
 
       
 
-      // Find the parent section element
+      const href = link.getAttribute('href');
 
-      const sectionContainer = sectionEl.closest('.sidebar-item-section');
-
-      if (!sectionContainer) return;
+      const text = link.textContent.trim();
 
       
 
-      // Find subsections within this main section
-
-      const subsectionElements = sectionContainer.querySelectorAll('.sidebar-section .sidebar-item-section');
+      if (!href || !text) return;
 
       
 
-      subsectionElements.forEach(subsectionEl => {
+      // Find the parent sections by traversing up the DOM
 
-        const subsectionLink = subsectionEl.querySelector('.sidebar-item-container > .sidebar-item-text');
+      const parentSections = [];
 
-        if (!subsectionLink) return;
+      let current = item.parentElement;
 
-        
+      
 
-        const subsectionText = subsectionLink.textContent.trim();
+      while (current && current !== sidebar) {
 
-        if (!subsectionText) return;
+        if (current.classList.contains('sidebar-section')) {
 
-        
+          // Find the section title
 
-        navStructure[sectionText][subsectionText] = { pages: [] };
+          const sectionContainer = current.previousElementSibling;
 
-        
+          if (sectionContainer && sectionContainer.classList.contains('sidebar-item-container')) {
 
-        // Find all pages within this subsection
+            const sectionTitle = sectionContainer.querySelector('.sidebar-item-text');
 
-        const pageElements = subsectionEl.querySelectorAll('.sidebar-section .sidebar-item .sidebar-item-text');
+            if (sectionTitle) {
 
-        
+              parentSections.unshift(sectionTitle.textContent.trim());
 
-        pageElements.forEach(pageEl => {
-
-          const href = pageEl.getAttribute('href');
-
-          const text = pageEl.textContent.trim();
-
-          
-
-          if (href && text) {
-
-            navStructure[sectionText][subsectionText].pages.push({
-
-              text: text,
-
-              href: href
-
-            });
+            }
 
           }
+
+        }
+
+        current = current.parentElement;
+
+      }
+
+      
+
+      // Build the navigation structure
+
+      if (parentSections.length >= 2) {
+
+        const mainSection = parentSections[0];
+
+        const subSection = parentSections[1];
+
+        
+
+        if (!navStructure[mainSection]) {
+
+          navStructure[mainSection] = {};
+
+        }
+
+        
+
+        if (!navStructure[mainSection][subSection]) {
+
+          navStructure[mainSection][subSection] = { pages: [] };
+
+        }
+
+        
+
+        navStructure[mainSection][subSection].pages.push({
+
+          text: text,
+
+          href: href
 
         });
 
-      });
+      } else if (parentSections.length === 1) {
 
-      
+        const mainSection = parentSections[0];
 
-      // Also handle direct pages under main sections (not in subsections)
-
-      const directPages = sectionContainer.querySelectorAll('.sidebar-section > .sidebar-item > .sidebar-item-container > .sidebar-item-text[href]');
-
-      if (directPages.length > 0) {
-
-        const directSectionName = sectionText + ' Pages';
-
-        navStructure[sectionText][directSectionName] = { pages: [] };
+        const directSection = mainSection + ' Pages';
 
         
 
-        directPages.forEach(pageEl => {
+        if (!navStructure[mainSection]) {
 
-          const href = pageEl.getAttribute('href');
+          navStructure[mainSection] = {};
 
-          const text = pageEl.textContent.trim();
+        }
 
-          
+        
 
-          if (href && text) {
+        if (!navStructure[mainSection][directSection]) {
 
-            navStructure[sectionText][directSectionName].pages.push({
+          navStructure[mainSection][directSection] = { pages: [] };
 
-              text: text,
+        }
 
-              href: href
+        
 
-            });
+        navStructure[mainSection][directSection].pages.push({
 
-          }
+          text: text,
+
+          href: href
 
         });
 
@@ -739,9 +755,131 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
+    // If extraction didn't work well, use fallback
+
+    if (Object.keys(navStructure).length === 0) {
+
+      console.log('Dynamic extraction failed, using fallback structure');
+
+      return getFallbackNavStructure();
+
+    }
+
+    
+
     console.log('Extracted navigation structure:', navStructure);
 
     return navStructure;
+
+  }
+
+
+
+  // Fallback navigation structure that matches _quarto.yml
+
+  function getFallbackNavStructure() {
+
+    return {
+
+      '🛠️ Tools': {
+
+        'Quarto Documentation': {
+
+          pages: [
+
+            { text: 'Using Quarto', href: '20250712 Use QUARTO doc for Github repos doc/README.md' },
+
+            { text: 'Quarto.yml document structure', href: '20250712 Use QUARTO doc for Github repos doc/002.01. Quarto.yml document structure.md' },
+
+            { text: 'Quarto specific markdown features', href: '20250712 Use QUARTO doc for Github repos doc/002.02. Quarto specific markdown features.md' },
+
+            { text: 'Quarto Theming and Styling', href: '20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md' }
+
+          ]
+
+        },
+
+        'Development Tools': {
+
+          pages: [
+
+            { text: 'Git Command Line', href: '20250709 Manage GitRepo from commandline/README.md' },
+
+            { text: 'HTTP Files Testing', href: '20250711 Use http files for easy and repeatable test/README.md' },
+
+            { text: 'HTTP Files (Extended)', href: '20250713 Use http files for easy and repeatable test/README.md' }
+
+          ]
+
+        }
+
+      },
+
+      '💻 Technologies': {
+
+        '☁️ Azure': {
+
+          pages: [
+
+            { text: 'Naming Conventions', href: '20250702 Azure Naming conventions/README.md' },
+
+            { text: 'Table Storage Access', href: '20250704 TableStorageAccess options/README.md' },
+
+            { text: 'CosmosDB Access Options', href: '20250706 CosmosDB Access options/README.md' }
+
+          ]
+
+        }
+
+      },
+
+      '🎉 Events': {
+
+        'Build Conference 2025': {
+
+          pages: [
+
+            { text: 'Conference Overview', href: '202506 Build 2025/Readme.md' },
+
+            { text: 'BRK106: .NET Aspire AI & Cloud', href: '202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md' },
+
+            { text: 'BRK122: ASP.NET Core & Blazor', href: '202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md' }
+
+          ]
+
+        }
+
+      },
+
+      '🔧 Issues & Solutions': {
+
+        'Development Issues': {
+
+          pages: [
+
+            { text: 'VS Clone Error Fix', href: '_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md' }
+
+          ]
+
+        }
+
+      },
+
+      '🎭 Culture & Travel': {
+
+        'Travel Experiences': {
+
+          pages: [
+
+            { text: 'Paris Cultural Journey 2025', href: 'Travel/Paris 2025/README.md' }
+
+          ]
+
+        }
+
+      }
+
+    };
 
   }
 
@@ -883,7 +1021,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       a.textContent = page.text || page.title || 'Untitled';
 
-      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
+      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0; margin-left: 16px; position: relative;';
+
+      
+
+      // Add a subtle left border for visual hierarchy
+
+      a.style.borderLeft = '2px solid transparent';
+
+      a.style.paddingLeft = '8px';
 
       
 
@@ -895,6 +1041,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         a.style.textDecoration = 'underline';
 
+        a.style.borderLeft = '2px solid #2780e3';
+
       });
 
       a.addEventListener('mouseleave', () => {
@@ -902,6 +1050,24 @@ document.addEventListener('DOMContentLoaded', function() {
         a.style.color = '#666';
 
         a.style.textDecoration = 'none';
+
+        
+
+        // Keep border if this is the current page
+
+        const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
+
+        const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
+
+        if (!(pageBasePath === currentBasePath || 
+
+              currentPath.includes(page.href.replace('.md', '')) || 
+
+              page.href.includes(currentPath.replace('.html', '')))) {
+
+          a.style.borderLeft = '2px solid transparent';
+
+        }
 
       });
 
@@ -923,11 +1089,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         a.style.color = '#2780e3';
 
-        a.style.backgroundColor = '#ffffff';
+        a.style.backgroundColor = '#f8f9fa';
 
         a.style.padding = '4px 8px';
 
+        a.style.marginLeft = '12px';
+
         a.style.borderRadius = '4px';
+
+        a.style.borderLeft = '3px solid #2780e3';
 
       }
 
@@ -1161,17 +1331,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    // Get the dynamic navigation structure
+    // For now, always use the fallback structure which we know is correct
 
-    const navStructure = extractNavigationFromSidebar();
+    const finalNavStructure = getFallbackNavStructure();
 
-    if (!navStructure) {
+    
 
-      console.log('Could not extract navigation structure');
-
-      return null;
-
-    }
+    console.log('Using fallback navigation structure:', finalNavStructure);
 
     
 
@@ -1209,105 +1375,87 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    console.log('Available sections:', Object.keys(navStructure)); // Debug log
+    // Normalize the current path for comparison
+
+    const normalizedCurrentPath = currentPath.replace(/\s/g, '%20').replace('.html', '').replace('.md', '').toLowerCase();
+
+    console.log('Normalized current path:', normalizedCurrentPath); // Debug log
 
     
 
-    for (const [sectionName, subsections] of Object.entries(navStructure)) {
+    // Check subsections first (prioritize specific subsections)
 
-      console.log(`Checking section: ${sectionName}`); // Debug log
+    for (const [sectionName, subsections] of Object.entries(finalNavStructure)) {
 
-      console.log(`Subsections:`, Object.keys(subsections)); // Debug log
+      console.log(`Checking main section: ${sectionName}`);
 
       
 
       for (const [subsectionName, subsectionData] of Object.entries(subsections)) {
 
-        console.log(`  Checking subsection: ${subsectionName}`); // Debug log
-
-        console.log(`  Pages in subsection:`, subsectionData.pages?.map(p => p.href) || []); // Debug log
-
-        
-
         if (!subsectionData.pages) continue;
 
         
 
-        // Check if current page is in this subsection
+        console.log(`  Checking subsection: ${subsectionName}`);
 
-        const isInSubsection = subsectionData.pages.some(page => {
+        console.log(`  Pages in subsection:`, subsectionData.pages);
 
-          // Normalize both paths for comparison
+        
+
+        // Check if any page in this subsection matches current path
+
+        const matchingPage = subsectionData.pages.find(page => {
 
           const pageHref = page.href || '';
 
-          const normalizedPagePath = pageHref.replace(/\s/g, '%20').replace('.md', '.html');
-
-          const normalizedCurrentPath = currentPath.replace(/\s/g, '%20');
+          const normalizedPageHref = pageHref.replace(/\s/g, '%20').replace('.html', '').replace('.md', '').toLowerCase();
 
           
 
-          console.log(`    Comparing: "${normalizedCurrentPath}" with "${normalizedPagePath}"`); // Debug log
+          console.log(`    Comparing: "${normalizedCurrentPath}" with "${normalizedPageHref}"`);
 
           
 
-          // Check exact match first
+          // Multiple matching strategies for better detection
 
-          if (normalizedPagePath === normalizedCurrentPath) {
+          const isMatch = normalizedCurrentPath.includes(normalizedPageHref) || 
 
-            console.log(`    ✓ Exact match found!`); // Debug log
+                         normalizedPageHref.includes(normalizedCurrentPath) ||
 
-            return true;
+                         normalizedCurrentPath === normalizedPageHref ||
 
-          }
+                         normalizedCurrentPath.endsWith(normalizedPageHref.split('/').pop()) ||
 
-          
-
-          // Check if current path ends with the page path (without extension)
-
-          const pagePathWithoutExt = normalizedPagePath.replace('.html', '');
-
-          const currentPathWithoutExt = normalizedCurrentPath.replace('.html', '');
+                         normalizedPageHref.endsWith(normalizedCurrentPath.split('/').pop());
 
           
 
-          if (currentPathWithoutExt.endsWith(pagePathWithoutExt) || 
+          console.log(`    Match result: ${isMatch}`);
 
-              pagePathWithoutExt.endsWith(currentPathWithoutExt)) {
-
-            console.log(`    ✓ Partial match found!`); // Debug log
-
-            return true;
-
-          }
-
-          
-
-          // Check if paths contain each other
-
-          if (normalizedCurrentPath.includes(pagePathWithoutExt) || 
-
-              normalizedPagePath.includes(currentPathWithoutExt)) {
-
-            console.log(`    ✓ Contains match found!`); // Debug log
-
-            return true;
-
-          }
-
-          
-
-          return false;
+          return isMatch;
 
         });
 
         
 
-        if (isInSubsection) {
+        if (matchingPage) {
 
-          console.log(`✓ Found section: ${sectionName} -> ${subsectionName}`); // Debug log
+          console.log(`✓ Found in subsection: ${subsectionName} (page: ${matchingPage.text})`); // Debug log
 
-          return { sectionName, subsectionName, subsectionData };
+          
+
+          // Return the subsection as the main title
+
+          return { 
+
+            sectionName, 
+
+            subsectionName: subsectionName, // This will be the title shown
+
+            subsectionData: subsectionData  // All pages in this subsection
+
+          };
 
         }
 
@@ -1317,7 +1465,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    console.log('❌ No matching section found'); // Debug log
+    console.log('❌ No matching section found for path:', normalizedCurrentPath); // Debug log
 
     return null;
 

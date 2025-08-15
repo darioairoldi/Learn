@@ -11,8 +11,6 @@ format:
     toc-depth: 3
 ---
 
-# Using Quarto with GitHub Pages for Documentation
-
 ## Table of Contents
 
 - [Overview](#overview)
