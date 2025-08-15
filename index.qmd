@@ -6,7 +6,7 @@ author: "Dario Airoldi"
 description: "A collection of technical learning notes, conference insights, Azure guides, and development tips."
 ---
 
-Welcome to my technical learning hub! This repository documents my journey through modern development technologies, featuring comprehensive conference notes, practical Azure guides, and real-world development solutions.
+Welcome (index) to my technical learning hub! This repository documents my journey through modern development technologies, featuring comprehensive conference notes, practical Azure guides, and real-world development solutions.
 
 ## 🌟 Featured Articles
 

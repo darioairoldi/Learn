@@ -1,0 +1,487 @@
+<div id="custom-right-nav" class="toc-right" style="display: none;">
+  <div class="toc-title">Related Pages</div>
+  <nav class="toc" role="doc-toc">
+    <ul>
+      <li><em>Loading...</em></li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Custom right navigation loading...'); // Debug log
+  
+  // Wait for Quarto to finish loading
+  setTimeout(function() {
+    createCustomRightNav();
+    handleResponsiveLayout();
+  }, 500);
+  
+  // Also try when the page is fully loaded
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      if (!document.querySelector('#custom-right-nav')) {
+        createCustomRightNav();
+      }
+      renderRightNav();
+    }, 200);
+  });
+  
+  // Handle window resize
+  window.addEventListener('resize', handleResponsiveLayout);
+  
+  // Define the navigation structure
+  const navStructure = {
+    "🛠️ Tools": {
+      "Development Tools": {
+        href: "20250709 Manage GitRepo from commandline/README.md",
+        pages: [
+          { href: "20250709 Manage GitRepo from commandline/README.md", text: "Git Command Line" },
+          { href: "20250711 Use http files for easy and repeatable test/README.md", text: "HTTP Files Testing" }
+        ]
+      },
+      "Quarto Documentation": {
+        href: "20250712 Use QUARTO doc for Github repos doc/README.md",
+        pages: [
+          { href: "20250712 Use QUARTO doc for Github repos doc/README.md", text: "Quarto Documentation Overview" }
+        ]
+      },
+      "HTTP Files (Extended)": {
+        href: "20250713 Use http files for easy and repeatable test/README.md",
+        pages: [
+          { href: "20250713 Use http files for easy and repeatable test/README.md", text: "HTTP Files (Extended)" }
+        ]
+      }
+    },
+    "🎉 Events": {
+      "Build Conference 2025": {
+        href: "202506 Build 2025/Readme.md",
+        pages: [
+          { href: "202506 Build 2025/Readme.md", text: "Conference Overview" },
+          { href: "202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md", text: "BRK106: .NET Aspire AI & Cloud" },
+          { href: "202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md", text: "BRK122: ASP.NET Core & Blazor" },
+          { href: "202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md", text: "BRK123: .NET MAUI AI" },
+          { href: "202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md", text: "DEM508: Testing with Aspire" },
+          { href: "202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md", text: "DEM517: MCP Server" },
+          { href: "202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md", text: "DEM520: Local AI Development" }
+        ]
+      }
+    },
+    "💻 Technologies": {
+      "☁️ Azure": {
+        href: "20250702 Azure Naming conventions/README.md",
+        pages: [
+          { href: "20250702 Azure Naming conventions/README.md", text: "Naming Conventions" },
+          { href: "20250704 TableStorageAccess options/README.md", text: "Table Storage Access" },
+          { href: "20250706 CosmosDB Access options/README.md", text: "CosmosDB Access Options" }
+        ]
+      }
+    },
+    "🎭 Culture & Travel": {
+      "Travel Experiences": {
+        href: "Travel/Paris 2025/README.md",
+        pages: [
+          { href: "Travel/Paris 2025/README.md", text: "Paris Cultural Journey 2025" }
+        ]
+      }
+    }
+  };
+
+  function handleResponsiveLayout() {
+    const customNav = document.querySelector('#custom-right-nav');
+    if (!customNav) return;
+
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth <= 800) {
+      // Small screen: add mobile styling
+      customNav.classList.add('mobile-layout');
+      customNav.classList.remove('desktop-layout');
+    } else {
+      // Large screen: add desktop styling
+      customNav.classList.add('desktop-layout');
+      customNav.classList.remove('mobile-layout');
+    }
+  }
+
+  function createCustomRightNav() {
+    // Try multiple container strategies
+    const containerSelectors = [
+      '#quarto-margin-sidebar',
+      '.margin-sidebar', 
+      '#quarto-sidebar-toc',
+      '.sidebar-navigation'
+    ];
+    
+    let targetContainer = null;
+    for (const selector of containerSelectors) {
+      targetContainer = document.querySelector(selector);
+      if (targetContainer) {
+        break;
+      }
+    }
+
+    if (!targetContainer) {
+      // Fallback to body for mobile or other layouts
+      targetContainer = document.body;
+    }
+
+    // Check if custom nav already exists
+    const existing = document.querySelector('#custom-right-nav');
+    if (existing) {
+      existing.remove();
+    }
+
+    // Create the custom nav element with proper styling
+    const customNav = document.createElement('div');
+    customNav.id = 'custom-right-nav';
+    customNav.className = 'toc-right';
+    customNav.innerHTML = `
+      <div class="toc-title">Related Pages</div>
+      <nav class="toc" role="doc-toc">
+        <ul>
+          <li><em>Loading...</em></li>
+        </ul>
+      </nav>
+    `;
+
+    // Insert into the proper Quarto sidebar container
+    const existingToc = targetContainer.querySelector('.toc-right, #TOC, .table-of-contents');
+    if (existingToc) {
+      existingToc.parentNode.insertBefore(customNav, existingToc.nextSibling);
+    } else {
+      targetContainer.appendChild(customNav);
+    }
+
+    // Now render the navigation
+    setTimeout(() => {
+      renderRightNav();
+    }, 100);
+  }
+
+  function getCurrentPagePath() {
+    let path = window.location.pathname;
+    console.log('Raw pathname:', path); // Debug log
+    
+    // Handle different URL structures
+    if (path === '/' || path === '') {
+      // Try to get path from the page title or breadcrumb
+      const breadcrumb = document.querySelector('.breadcrumb-item.active, .quarto-title .title');
+      if (breadcrumb) {
+        console.log('Using breadcrumb for path detection'); // Debug log
+      }
+      
+      // Try to get from the HTML page's data attributes or meta tags
+      const pageId = document.querySelector('main').getAttribute('data-page') || 
+                    document.querySelector('meta[name="quarto:page"]')?.getAttribute('content');
+      if (pageId) {
+        path = pageId;
+        console.log('Found page ID:', pageId); // Debug log
+      }
+    }
+    
+    // Remove URL encoding
+    path = decodeURIComponent(path);
+    // Remove leading slash and Learn prefix
+    path = path.replace(/^\/Learn\//, '').replace(/^\//, '');
+    // Convert .html to .md
+    path = path.replace(/\.html$/, '.md');
+    
+    // If still empty, try to extract from document title or URL hash
+    if (!path || path === '') {
+      const title = document.title;
+      console.log('Document title:', title); // Debug log
+      
+      // Try to extract from current URL hash or query params
+      const hash = window.location.hash.replace('#', '');
+      const search = window.location.search;
+      console.log('Hash:', hash, 'Search:', search); // Debug log
+      
+      // Last resort: check if we can extract from the page content
+      const pageHeader = document.querySelector('h1, .title');
+      if (pageHeader && pageHeader.textContent.includes('Quarto')) {
+        path = '20250712 Use QUARTO doc for Github repos doc/README.md';
+        console.log('Detected Quarto page from header'); // Debug log
+      }
+    }
+    
+    console.log('Current path:', path); // Debug log
+    console.log('Full pathname:', window.location.pathname); // Debug log
+    return path;
+  }
+
+  function findCurrentSection(currentPath) {
+    console.log('Looking for section for path:', currentPath); // Debug log
+    
+    // Handle home page special case
+    if (!currentPath || currentPath === '/' || currentPath === '') {
+      console.log('Home page detected, showing featured sections'); // Debug log
+      return {
+        sectionName: '🏠 Home',
+        subsectionName: 'Featured',
+        subsectionData: {
+          pages: [
+            { title: 'Events', href: '/202506%20Build%202025/' },
+            { title: 'Technologies', href: '/20250702%20Azure%20Naming%20conventions/' },
+            { title: 'Tools', href: '/20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/' },
+            { title: 'Culture & Travel', href: '/Travel/Paris%202025/' }
+          ]
+        }
+      };
+    }
+    
+    for (const [sectionName, subsections] of Object.entries(navStructure)) {
+      for (const [subsectionName, subsectionData] of Object.entries(subsections)) {
+        // Check if current page is in this subsection
+        const isInSubsection = subsectionData.pages.some(page => {
+          // Normalize both paths for comparison
+          const normalizedPagePath = page.href.replace(/\s/g, '%20');
+          const normalizedCurrentPath = currentPath.replace(/\s/g, '%20');
+          
+          // Check exact match first
+          if (page.href === currentPath) {
+            console.log(`Exact match: ${page.href} === ${currentPath}`); // Debug log
+            return true;
+          }
+          
+          // Check if paths contain each other (for URL encoded vs decoded)
+          if (currentPath.includes(page.href) || page.href.includes(currentPath.replace(/\.md$/, ''))) {
+            console.log(`Contains match: ${page.href} matches ${currentPath}`); // Debug log
+            return true;
+          }
+          
+          // Check URL encoded versions
+          if (normalizedCurrentPath.includes(normalizedPagePath.replace(/\.md$/, '')) || 
+              normalizedPagePath.includes(normalizedCurrentPath.replace(/\.md$/, ''))) {
+            console.log(`URL encoded match: ${page.href} matches ${currentPath}`); // Debug log
+            return true;
+          }
+          
+          console.log(`No match: ${page.href} vs ${currentPath}`); // Debug log
+          return false;
+        });
+        
+        if (isInSubsection) {
+          console.log(`Found section: ${sectionName} -> ${subsectionName}`); // Debug log
+          return { sectionName, subsectionName, subsectionData };
+        }
+      }
+    }
+    return null;
+  }
+
+  function renderRightNav() {
+    console.log('renderRightNav called'); // Debug log
+    const currentPath = getCurrentPagePath();
+    const currentSection = findCurrentSection(currentPath);
+    
+    const customNav = document.querySelector('#custom-right-nav');
+    console.log('Custom nav element found:', !!customNav); // Debug log
+    
+    if (!customNav) {
+      console.log('Custom nav element not found'); // Debug log
+      return;
+    }
+    
+    // Always show for debugging
+    customNav.style.display = 'block';
+    
+    if (!currentSection) {
+      console.log('No section found for current path'); // Debug log
+      // Show debug info instead of hiding
+      const navList = customNav.querySelector('ul');
+      if (navList) {
+        navList.innerHTML = `
+          <li><strong>Debug Info:</strong></li>
+          <li>Path: "${currentPath}"</li>
+          <li>No matching section found</li>
+          <li><em>Available sections:</em></li>
+          <li>- 🛠️ Tools → Development Tools</li>
+          <li>- 🛠️ Tools → Quarto Documentation</li>
+          <li>- 🎉 Events → Build Conference 2025</li>
+          <li>- 💻 Technologies → ☁️ Azure</li>
+          <li>- 🎭 Culture & Travel → Travel Experiences</li>
+        `;
+      }
+      return;
+    }
+
+    console.log('Found section for path:', currentSection); // Debug log
+    
+    const { sectionName, subsectionName, subsectionData } = currentSection;
+    const navList = customNav.querySelector('ul');
+    
+    if (!navList) {
+      console.log('Nav list not found'); // Debug log
+      return;
+    }
+
+    // Show the custom nav
+    customNav.style.display = 'block';
+    customNav.classList.add('has-content');
+
+    // Clear existing content
+    navList.innerHTML = '';
+
+    // Add section header
+    const sectionHeader = document.createElement('li');
+    sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
+    sectionHeader.style.cssText = 'color: #2780e3; margin-bottom: 8px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px;';
+    navList.appendChild(sectionHeader);
+
+    // Add pages
+    subsectionData.pages.forEach((page, index) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = page.href.replace('.md', '.html');
+      a.textContent = page.text || page.title || 'Untitled';
+      a.style.cssText = 'color: #666; text-decoration: none; display: block; padding: 2px 0;';
+      
+      // Hover effect
+      a.addEventListener('mouseenter', () => {
+        a.style.color = '#2780e3';
+        a.style.textDecoration = 'underline';
+      });
+      a.addEventListener('mouseleave', () => {
+        a.style.color = '#666';
+        a.style.textDecoration = 'none';
+      });
+      
+      // Highlight current page
+      const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
+      const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
+      if (pageBasePath === currentBasePath || 
+          currentPath.includes(page.href.replace('.md', '')) || 
+          page.href.includes(currentPath.replace('.html', ''))) {
+        a.style.fontWeight = 'bold';
+        a.style.color = '#2780e3';
+        a.style.backgroundColor = '#ffffff';
+        a.style.padding = '4px 8px';
+        a.style.borderRadius = '4px';
+      }
+      
+      li.appendChild(a);
+      navList.appendChild(li);
+    });
+  }
+  }
+});
+</script>
+
+<style>
+/* Professional custom navigation styling */
+#custom-right-nav {
+  width: 100%;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+#custom-right-nav .toc-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2780e3;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #2780e3;
+}
+
+#custom-right-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#custom-right-nav li {
+  margin: 4px 0;
+}
+
+#custom-right-nav a {
+  color: #666;
+  text-decoration: none;
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+#custom-right-nav a:hover {
+  background-color: #e7f3ff;
+  color: #2780e3;
+  text-decoration: none;
+}
+
+/* Responsive behavior */
+@media (max-width: 800px) {
+  #custom-right-nav {
+    display: none; /* Hide on mobile to save space */
+  }
+}
+
+@media (min-width: 801px) {
+  #custom-right-nav {
+    display: block;
+  }
+  
+  /* In larger screens, position in sidebar */
+  .page-columns .margin-sidebar #custom-right-nav {
+    position: sticky;
+    top: 2rem;
+  }
+}
+
+#custom-right-nav li:first-child {
+  margin-bottom: 0.5rem;
+}
+
+#custom-right-nav li:first-child strong {
+  font-size: 0.875rem;
+  color: var(--bs-body-color, #212529);
+  font-weight: 600;
+}
+
+/* Desktop layout (> 800px) - Separate columns */
+@media (min-width: 801px) {
+  #custom-right-nav.desktop-layout {
+    margin-top: 2rem;
+    position: static;
+  }
+}
+
+/* Mobile layout (<= 800px) - Same column, collapsed sidebar */
+@media (max-width: 800px) {
+  #custom-right-nav.mobile-layout {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.375rem;
+    position: relative;
+  }
+  
+  /* Make TOC and Related Pages stack nicely */
+  #custom-right-nav.mobile-layout .toc-title {
+    color: var(--bs-body-color, #212529);
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Hide on very small screens */
+@media (max-width: 576px) {
+  #custom-right-nav {
+    display: none !important;
+  }
+}
+
+/* Ensure proper spacing in all layouts */
+.margin-sidebar #custom-right-nav,
+#quarto-margin-sidebar #custom-right-nav {
+  position: static;
+}
+</style>

@@ -25,8 +25,6 @@ website:
   
   page-navigation: true
   search: true
-  
-  # Make README.md the homepage
   reader-mode: true
   
   navbar:
@@ -136,8 +134,11 @@ website:
                 text: "Git Command Line"
               - href: "20250711 Use http files for easy and repeatable test/README.md"
                 text: "HTTP Files Testing"
-              - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
-                text: "Quarto Documentation"
+              - section: "Quarto Documentation"
+                href: "20250712 Use QUARTO doc for Github repos doc/README.md"
+                contents:
+                - href: "20250712 Use QUARTO doc for Github repos doc/README.md"
+                  text: "Quarto Documentation Overview"
               - href: "20250713 Use http files for easy and repeatable test/README.md"
                 text: "HTTP Files (Extended)"
       
@@ -177,30 +178,13 @@ format:
     toc: true
     toc-depth: 3
     toc-location: right
-    number-sections: false
-    anchor-sections: true
-    smooth-scroll: true
-    code-fold: false
-    code-tools: true
-    code-copy: true
-    highlight-style: github
-    fig-width: 8
-    fig-height: 6
-    fig-cap-location: bottom
-    callout-appearance: default
-    citations-hover: true
-    footnotes-hover: true
-    crossref:
-      fig-title: "Figure"
-      tbl-title: "Table"
-      eq-title: "Equation"
-    date-format: "MMMM D, YYYY"
-    lang: en
-    page-layout: article
+    toc-title: "On This Page"
+    # Include custom right navigation
+    include-after-body: _includes/right-nav.html
     grid:
       sidebar-width: 300px
       body-width: 900px
-      margin-width: 200px
+      margin-width: 250px  # Increased for right sidebar space
     # Enhanced markdown rendering
     html-table-processing: none
     html-math-method: katex

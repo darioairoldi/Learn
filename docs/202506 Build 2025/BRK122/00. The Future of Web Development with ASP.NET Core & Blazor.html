@@ -79,6 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,7 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -135,64 +137,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-build-2025-conference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Build 2025 Conference</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-events" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Events</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-build-2025-conference">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-events">    
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/Readme.html">
- <span class="dropdown-text">Overview</span></a>
+ <span class="dropdown-text">Build 2025: Conference Overview</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.html">
- <span class="dropdown-text">BRK106: .NET Aspire AI &amp; Cloud</span></a>
+ <span class="dropdown-text">Build 2025: BRK106 - .NET Aspire AI &amp; Cloud</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">
- <span class="dropdown-text">BRK122: ASP.NET Core &amp; Blazor</span></a>
+ <span class="dropdown-text">Build 2025: BRK122 - ASP.NET Core &amp; Blazor</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/BRK123/00. AI infused mobile &amp; desktop app development with .NET MAUI.html">
- <span class="dropdown-text">BRK123: .NET MAUI AI Development</span></a>
+ <span class="dropdown-text">Build 2025: BRK123 - .NET MAUI AI Development</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.html">
- <span class="dropdown-text">DEM508: Testing with Aspire &amp; Playwright</span></a>
+ <span class="dropdown-text">Build 2025: DEM508 - Testing with Aspire &amp; Playwright</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/DEM517/00. Build, Deploy, &amp; Use Your First Model Context Protocol (MCP) Server.html">
- <span class="dropdown-text">DEM517: Model Context Protocol</span></a>
+ <span class="dropdown-text">Build 2025: DEM517 - Model Context Protocol</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.html">
- <span class="dropdown-text">DEM520: Local AI with Foundry</span></a>
+ <span class="dropdown-text">Build 2025: DEM520 - Local AI with Foundry</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-azure-topics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Azure Topics</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technologies" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Technologies</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-azure-topics">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-technologies">    
+        <li class="dropdown-header">Azure</li>
         <li>
     <a class="dropdown-item" href="../../20250702 Azure Naming conventions/README.html">
- <span class="dropdown-text">Azure Naming Conventions</span></a>
+ <span class="dropdown-text">Azure: Naming Conventions</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../20250704 TableStorageAccess options/README.html">
- <span class="dropdown-text">Table Storage Access Options</span></a>
+ <span class="dropdown-text">Azure: Table Storage Access Options</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../20250706 CosmosDB Access options/README.html">
- <span class="dropdown-text">CosmosDB Access Options</span></a>
+ <span class="dropdown-text">Azure: CosmosDB Access Options</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Issues &amp; Solutions</li>
+        <li>
+    <a class="dropdown-item" href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html">
+ <span class="dropdown-text">Visual Studio Clone Error</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-development-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Development Tools</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-development-tools">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
         <li>
     <a class="dropdown-item" href="../../20250709 Manage GitRepo from commandline/README.html">
  <span class="dropdown-text">Git Command Line Management</span></a>
@@ -211,34 +221,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-culture--travel" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Culture &amp; Travel</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-culture--travel">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-culture--travel">    
         <li>
     <a class="dropdown-item" href="../../Travel/Paris 2025/README.html">
  <span class="dropdown-text">Paris Cultural Journey 2025</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-issues--solutions" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Issues &amp; Solutions</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-issues--solutions">    
-        <li>
-    <a class="dropdown-item" href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md">
- <span class="dropdown-text">Visual Studio Clone Error</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../_ISSUES/20250710 sample/README.md">
- <span class="dropdown-text">Sample Issue</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/darioairoldi/Learn"> <i class="bi bi-github" role="img" aria-label="GitHub Repository">
 </i> 
@@ -260,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">🚀 Build 2025 Conference</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">BRK122: ASP.NET Core &amp; Blazor</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">🎉 Events</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">Build Conference 2025</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">BRK122: ASP.NET Core &amp; Blazor</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -289,12 +284,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">🚀 Build 2025 Conference</span></a>
+ <span class="menu-text">🎉 Events</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Build Conference 2025</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
@@ -339,15 +343,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">☁️ Azure Topics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">💻 Technologies</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../20250702 Azure Naming conventions/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">☁️ Azure</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250702 Azure Naming conventions/README.html" class="sidebar-item-text sidebar-link">
@@ -368,15 +383,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">🛠️ Development Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">🛠️ Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Development Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
@@ -389,12 +415,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">HTTP Files Testing</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto Documentation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250712 Use QUARTO doc for Github repos doc/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto Documentation</span></a>
+ <span class="menu-text">Quarto Documentation Overview</span></a>
   </div>
 </li>
+      </ul>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250713 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
@@ -403,42 +440,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">🎭 Culture &amp; Travel</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Paris Cultural Journey 2025</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
  <span class="menu-text">🔧 Issues &amp; Solutions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Development Issues</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md" class="sidebar-item-text sidebar-link">
+  <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VS Clone Error Fix</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">🎭 Culture &amp; Travel</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../_ISSUES/20250710 sample/README.md" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sample Issue</span></a>
+  <a href="../../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Paris Cultural Journey 2025</span></a>
   </div>
 </li>
       </ul>
@@ -450,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">On This Page</h2>
    
   <ul>
   <li><a href="#the-future-of-web-development-with-asp.net-core-blazor" id="toc-the-future-of-web-development-with-asp.net-core-blazor" class="nav-link active" data-scroll-target="#the-future-of-web-development-with-asp.net-core-blazor">The Future of Web Development with ASP.NET Core &amp; Blazor</a>
@@ -535,9 +580,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">🚀 Build 2025 Conference</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">BRK122: ASP.NET Core &amp; Blazor</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">🎉 Events</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/Readme.html">Build Conference 2025</a></li><li class="breadcrumb-item"><a href="../../202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core &amp; Blazor.html">BRK122: ASP.NET Core &amp; Blazor</a></li></ol></nav>
 <div class="quarto-title">
 </div>
 
@@ -625,7 +670,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The .NET 10 release focuses on four key areas of investment to enhance the developer experience and application capabilities:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/000.01a focus areas.png" class="img-fluid figure-img"></p>
+<p><a href="images/000.01a focus areas.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="alt text"><img src="images/000.01a focus areas.png" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -641,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="passkey-authentication-support">Passkey Authentication Support</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/000.01 loginwithpaskeys.png" class="img-fluid figure-img"></p>
+<p><a href="images/000.01 loginwithpaskeys.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="alt text"><img src="images/000.01 loginwithpaskeys.png" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -686,7 +731,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="app-observability-and-diagnostics">2. App Observability and Diagnostics</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.00 ovservability.png" class="img-fluid figure-img"></p>
+<p><a href="images/001.00 ovservability.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="alt text"><img src="images/001.00 ovservability.png" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -694,7 +739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="enhanced-metrics-collection">Enhanced Metrics Collection</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.01 metrics.png" class="img-fluid figure-img"></p>
+<p><a href="images/001.01 metrics.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="alt text"><img src="images/001.01 metrics.png" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -713,7 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="blazor-webassembly-diagnostics">Blazor WebAssembly Diagnostics</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/001.02 blazor diagnostics.png" class="img-fluid figure-img"></p>
+<p><a href="images/001.02 blazor diagnostics.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="alt text"><img src="images/001.02 blazor diagnostics.png" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -739,7 +784,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="performance-improvements" class="level3">
 <h3 class="anchored" data-anchor-id="performance-improvements">3. Performance Improvements</h3>
-<p><img src="images/001.02 performance improvements.png" class="img-fluid"></p>
+<p><a href="images/001.02 performance improvements.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="images/001.02 performance improvements.png" class="img-fluid"></a></p>
 <section id="memory-management-optimizations" class="level4">
 <h4 class="anchored" data-anchor-id="memory-management-optimizations">Memory Management Optimizations</h4>
 <ul>
@@ -792,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="json-patch-with-system.text.json">JSON Patch with System.Text.Json</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/002.02 JSON patch.png" class="img-fluid figure-img"></p>
+<p><a href="images/002.02 JSON patch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="alt text"><img src="images/002.02 JSON patch.png" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1344,7 +1389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="appendix-02-.net-10-scaffolding-tools---dotnet-scaffold-command">APPENDIX 02: .NET 10 Scaffolding Tools - <code>dotnet scaffold</code> Command</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/dotnet scaffold.png" class="img-fluid figure-img"></p>
+<p><a href="images/dotnet scaffold.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="alt text"><img src="images/dotnet scaffold.png" class="img-fluid figure-img" alt="alt text"></a></p>
 <figcaption>alt text</figcaption>
 </figure>
 </div>
@@ -1645,14 +1690,1049 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 
 
-<!-- -->
-
 </section>
 </section>
 </section>
 </section>
 
 </main> <!-- /main -->
+<div id="custom-right-nav" class="toc-right" style="display: none;">
+
+  <div class="toc-title">Related Pages</div>
+
+  <nav class="toc" role="doc-toc">
+
+    <ul>
+
+      <li><em>Loading...</em></li>
+
+    </ul>
+
+  </nav>
+
+</div>
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  console.log('=== DOMContentLoaded FIRED ==='); // Debug log
+
+  console.log('Document ready state:', document.readyState); // Debug log
+
+  console.log('Location:', window.location.href); // Debug log
+
+  
+
+  // Immediate test - create a simple red box
+
+  const testDiv = document.createElement('div');
+
+  testDiv.innerHTML = '🔴 IMMEDIATE TEST';
+
+  testDiv.style.cssText = `
+
+    position: fixed !important;
+
+    top: 50px !important;
+
+    left: 50px !important;
+
+    background: red !important;
+
+    color: white !important;
+
+    padding: 10px !important;
+
+    z-index: 99999 !important;
+
+    border: 3px solid yellow !important;
+
+  `;
+
+  document.body.appendChild(testDiv);
+
+  console.log('Immediate test div added'); // Debug log
+
+  
+
+  // Wait longer for Quarto to finish loading and URL to be set correctly
+
+  setTimeout(function() {
+
+    console.log('=== TIMEOUT FIRED (500ms) ==='); // Debug log
+
+    console.log('Calling createCustomRightNav from DOMContentLoaded timeout'); // Debug log
+
+    createCustomRightNav();
+
+    handleResponsiveLayout();
+
+  }, 500);
+
+  
+
+  // Also try when the page is fully loaded
+
+  window.addEventListener('load', function() {
+
+    console.log('=== WINDOW LOAD FIRED ==='); // Debug log
+
+    setTimeout(function() {
+
+      console.log('Page fully loaded, re-rendering nav'); // Debug log
+
+      if (!document.querySelector('#custom-right-nav')) {
+
+        console.log('Custom nav not found on window load, creating it'); // Debug log
+
+        createCustomRightNav();
+
+      }
+
+      renderRightNav();
+
+    }, 200);
+
+  });
+
+  
+
+  // Handle window resize
+
+  window.addEventListener('resize', handleResponsiveLayout);
+
+  
+
+  // Define the navigation structure
+
+  const navStructure = {
+
+    "🛠️ Tools": {
+
+      "Development Tools": {
+
+        href: "20250709 Manage GitRepo from commandline/README.md",
+
+        pages: [
+
+          { href: "20250709 Manage GitRepo from commandline/README.md", text: "Git Command Line" },
+
+          { href: "20250711 Use http files for easy and repeatable test/README.md", text: "HTTP Files Testing" }
+
+        ]
+
+      },
+
+      "Quarto Documentation": {
+
+        href: "20250712 Use QUARTO doc for Github repos doc/README.md",
+
+        pages: [
+
+          { href: "20250712 Use QUARTO doc for Github repos doc/README.md", text: "Quarto Documentation Overview" }
+
+        ]
+
+      },
+
+      "HTTP Files (Extended)": {
+
+        href: "20250713 Use http files for easy and repeatable test/README.md",
+
+        pages: [
+
+          { href: "20250713 Use http files for easy and repeatable test/README.md", text: "HTTP Files (Extended)" }
+
+        ]
+
+      }
+
+    },
+
+    "🎉 Events": {
+
+      "Build Conference 2025": {
+
+        href: "202506 Build 2025/Readme.md",
+
+        pages: [
+
+          { href: "202506 Build 2025/Readme.md", text: "Conference Overview" },
+
+          { href: "202506 Build 2025/BRK106/00. Elevating Development with .NET Aspire AI, Cloud, and Beyond.md", text: "BRK106: .NET Aspire AI & Cloud" },
+
+          { href: "202506 Build 2025/BRK122/00. The Future of Web Development with ASP.NET Core & Blazor.md", text: "BRK122: ASP.NET Core & Blazor" },
+
+          { href: "202506 Build 2025/BRK123/00. AI infused mobile & desktop app development with .NET MAUI.md", text: "BRK123: .NET MAUI AI" },
+
+          { href: "202506 Build 2025/DEM508/00. Streamlining Application Testing with .NET Aspire and Playwright.md", text: "DEM508: Testing with Aspire" },
+
+          { href: "202506 Build 2025/DEM517/00. Build, Deploy, & Use Your First Model Context Protocol (MCP) Server.md", text: "DEM517: MCP Server" },
+
+          { href: "202506 Build 2025/DEM520/00. Local AI Development with Foundry Local and .NET Aspire.md", text: "DEM520: Local AI Development" }
+
+        ]
+
+      }
+
+    },
+
+    "💻 Technologies": {
+
+      "☁️ Azure": {
+
+        href: "20250702 Azure Naming conventions/README.md",
+
+        pages: [
+
+          { href: "20250702 Azure Naming conventions/README.md", text: "Naming Conventions" },
+
+          { href: "20250704 TableStorageAccess options/README.md", text: "Table Storage Access" },
+
+          { href: "20250706 CosmosDB Access options/README.md", text: "CosmosDB Access Options" }
+
+        ]
+
+      }
+
+    },
+
+    "🎭 Culture & Travel": {
+
+      "Travel Experiences": {
+
+        href: "Travel/Paris 2025/README.md",
+
+        pages: [
+
+          { href: "Travel/Paris 2025/README.md", text: "Paris Cultural Journey 2025" }
+
+        ]
+
+      }
+
+    }
+
+  };
+
+
+
+  function handleResponsiveLayout() {
+
+    const customNav = document.querySelector('#custom-right-nav');
+
+    if (!customNav) return;
+
+
+
+    const screenWidth = window.innerWidth;
+
+    
+
+    if (screenWidth <= 800) {
+
+      // Small screen: add mobile styling
+
+      customNav.classList.add('mobile-layout');
+
+      customNav.classList.remove('desktop-layout');
+
+    } else {
+
+      // Large screen: add desktop styling
+
+      customNav.classList.add('desktop-layout');
+
+      customNav.classList.remove('mobile-layout');
+
+    }
+
+  }
+
+
+
+  function createCustomRightNav() {
+
+    console.log('=== createCustomRightNav called ==='); // Debug log
+
+    
+
+    // Try multiple container strategies
+
+    const containerSelectors = [
+
+      '#quarto-margin-sidebar',
+
+      '.margin-sidebar', 
+
+      '#quarto-sidebar-toc',
+
+      '.sidebar-navigation',
+
+      'body',
+
+      'main'
+
+    ];
+
+    
+
+    let targetContainer = null;
+
+    for (const selector of containerSelectors) {
+
+      targetContainer = document.querySelector(selector);
+
+      console.log(`Container check - ${selector}:`, !!targetContainer); // Debug log
+
+      if (targetContainer) {
+
+        console.log(`Using container: ${selector} (${targetContainer.tagName})`); // Debug log
+
+        break;
+
+      }
+
+    }
+
+
+
+    if (!targetContainer) {
+
+      console.error('No suitable container found for custom nav'); // Debug log
+
+      return;
+
+    }
+
+
+
+    // Check if custom nav already exists
+
+    const existing = document.querySelector('#custom-right-nav');
+
+    if (existing) {
+
+      console.log('Custom nav already exists, removing to recreate'); // Debug log
+
+      existing.remove();
+
+    }
+
+
+
+    console.log('Creating new custom nav element'); // Debug log
+
+
+
+    // Create the custom nav element with very visible styling
+
+    const customNav = document.createElement('div');
+
+    customNav.id = 'custom-right-nav';
+
+    customNav.style.cssText = `
+
+      background: red !important;
+
+      color: white !important;
+
+      border: 5px solid yellow !important;
+
+      padding: 20px !important;
+
+      margin: 20px !important;
+
+      display: block !important;
+
+      visibility: visible !important;
+
+      position: fixed !important;
+
+      top: 100px !important;
+
+      right: 20px !important;
+
+      z-index: 9999 !important;
+
+      min-height: 200px !important;
+
+      min-width: 200px !important;
+
+      font-size: 16px !important;
+
+    `;
+
+    customNav.innerHTML = `
+
+      <div style="color: yellow; font-weight: bold; font-size: 18px;">🔧 DEBUG: Related Pages</div>
+
+      <div style="color: white; margin-top: 10px;">
+
+        <p>Container: ${targetContainer.tagName}</p>
+
+        <p>Page: ${window.location.pathname}</p>
+
+        <p>Time: ${new Date().toLocaleTimeString()}</p>
+
+      </div>
+
+    `;
+
+
+
+    console.log('Attempting to insert custom nav into body'); // Debug log
+
+    
+
+    // For debugging, always insert into body with fixed positioning
+
+    document.body.appendChild(customNav);
+
+
+
+    // Verify insertion
+
+    const inserted = document.querySelector('#custom-right-nav');
+
+    console.log('Custom nav insertion successful:', !!inserted); // Debug log
+
+    if (inserted) {
+
+      console.log('Inserted element bounds:', inserted.getBoundingClientRect()); // Debug log
+
+      console.log('Inserted element computed display:', window.getComputedStyle(inserted).display); // Debug log
+
+    } else {
+
+      console.error('Failed to insert custom nav element'); // Debug log
+
+    }
+
+
+
+    // Now render the navigation
+
+    setTimeout(() => {
+
+      renderRightNav();
+
+    }, 100);
+
+  }
+
+
+
+  function getCurrentPagePath() {
+
+    let path = window.location.pathname;
+
+    console.log('Raw pathname:', path); // Debug log
+
+    
+
+    // Handle different URL structures
+
+    if (path === '/' || path === '') {
+
+      // Try to get path from the page title or breadcrumb
+
+      const breadcrumb = document.querySelector('.breadcrumb-item.active, .quarto-title .title');
+
+      if (breadcrumb) {
+
+        console.log('Using breadcrumb for path detection'); // Debug log
+
+      }
+
+      
+
+      // Try to get from the HTML page's data attributes or meta tags
+
+      const pageId = document.querySelector('main').getAttribute('data-page') || 
+
+                    document.querySelector('meta[name="quarto:page"]')?.getAttribute('content');
+
+      if (pageId) {
+
+        path = pageId;
+
+        console.log('Found page ID:', pageId); // Debug log
+
+      }
+
+    }
+
+    
+
+    // Remove URL encoding
+
+    path = decodeURIComponent(path);
+
+    // Remove leading slash and Learn prefix
+
+    path = path.replace(/^\/Learn\//, '').replace(/^\//, '');
+
+    // Convert .html to .md
+
+    path = path.replace(/\.html$/, '.md');
+
+    
+
+    // If still empty, try to extract from document title or URL hash
+
+    if (!path || path === '') {
+
+      const title = document.title;
+
+      console.log('Document title:', title); // Debug log
+
+      
+
+      // Try to extract from current URL hash or query params
+
+      const hash = window.location.hash.replace('#', '');
+
+      const search = window.location.search;
+
+      console.log('Hash:', hash, 'Search:', search); // Debug log
+
+      
+
+      // Last resort: check if we can extract from the page content
+
+      const pageHeader = document.querySelector('h1, .title');
+
+      if (pageHeader && pageHeader.textContent.includes('Quarto')) {
+
+        path = '20250712 Use QUARTO doc for Github repos doc/README.md';
+
+        console.log('Detected Quarto page from header'); // Debug log
+
+      }
+
+    }
+
+    
+
+    console.log('Current path:', path); // Debug log
+
+    console.log('Full pathname:', window.location.pathname); // Debug log
+
+    return path;
+
+  }
+
+
+
+  function findCurrentSection(currentPath) {
+
+    console.log('Looking for section for path:', currentPath); // Debug log
+
+    
+
+    for (const [sectionName, subsections] of Object.entries(navStructure)) {
+
+      for (const [subsectionName, subsectionData] of Object.entries(subsections)) {
+
+        // Check if current page is in this subsection
+
+        const isInSubsection = subsectionData.pages.some(page => {
+
+          // Normalize both paths for comparison
+
+          const normalizedPagePath = page.href.replace(/\s/g, '%20');
+
+          const normalizedCurrentPath = currentPath.replace(/\s/g, '%20');
+
+          
+
+          // Check exact match first
+
+          if (page.href === currentPath) {
+
+            console.log(`Exact match: ${page.href} === ${currentPath}`); // Debug log
+
+            return true;
+
+          }
+
+          
+
+          // Check if paths contain each other (for URL encoded vs decoded)
+
+          if (currentPath.includes(page.href) || page.href.includes(currentPath.replace(/\.md$/, ''))) {
+
+            console.log(`Contains match: ${page.href} matches ${currentPath}`); // Debug log
+
+            return true;
+
+          }
+
+          
+
+          // Check URL encoded versions
+
+          if (normalizedCurrentPath.includes(normalizedPagePath.replace(/\.md$/, '')) || 
+
+              normalizedPagePath.includes(normalizedCurrentPath.replace(/\.md$/, ''))) {
+
+            console.log(`URL encoded match: ${page.href} matches ${currentPath}`); // Debug log
+
+            return true;
+
+          }
+
+          
+
+          console.log(`No match: ${page.href} vs ${currentPath}`); // Debug log
+
+          return false;
+
+        });
+
+        
+
+        if (isInSubsection) {
+
+          console.log(`Found section: ${sectionName} -> ${subsectionName}`); // Debug log
+
+          return { sectionName, subsectionName, subsectionData };
+
+        }
+
+      }
+
+    }
+
+    return null;
+
+  }
+
+
+
+  function renderRightNav() {
+
+    console.log('renderRightNav called'); // Debug log
+
+    const currentPath = getCurrentPagePath();
+
+    const currentSection = findCurrentSection(currentPath);
+
+    
+
+    const customNav = document.querySelector('#custom-right-nav');
+
+    console.log('Custom nav element found:', !!customNav); // Debug log
+
+    
+
+    if (!customNav) {
+
+      console.log('Custom nav element not found'); // Debug log
+
+      return;
+
+    }
+
+    
+
+    // Always show for debugging
+
+    customNav.style.display = 'block';
+
+    
+
+    if (!currentSection) {
+
+      console.log('No section found for current path'); // Debug log
+
+      // Show debug info instead of hiding
+
+      const navList = customNav.querySelector('ul');
+
+      if (navList) {
+
+        navList.innerHTML = `
+
+          <li><strong>Debug Info:</strong></li>
+
+          <li>Path: "${currentPath}"</li>
+
+          <li>No matching section found</li>
+
+          <li><em>Available sections:</em></li>
+
+          <li>- 🛠️ Tools → Development Tools</li>
+
+          <li>- 🛠️ Tools → Quarto Documentation</li>
+
+          <li>- 🎉 Events → Build Conference 2025</li>
+
+          <li>- 💻 Technologies → ☁️ Azure</li>
+
+          <li>- 🎭 Culture & Travel → Travel Experiences</li>
+
+        `;
+
+      }
+
+      return;
+
+    }
+
+
+
+    console.log('Found section for path:', currentSection); // Debug log
+
+    
+
+    const { sectionName, subsectionName, subsectionData } = currentSection;
+
+    const navList = customNav.querySelector('ul');
+
+    
+
+    if (!navList) {
+
+      console.log('Nav list not found'); // Debug log
+
+      return;
+
+    }
+
+
+
+    // Show the custom nav
+
+    customNav.style.display = 'block';
+
+    customNav.classList.add('has-content');
+
+    console.log('Showing custom nav'); // Debug log
+
+
+
+    // Clear existing content
+
+    navList.innerHTML = '';
+
+
+
+    // Add section header
+
+    const sectionHeader = document.createElement('li');
+
+    sectionHeader.innerHTML = `<strong>${subsectionName}</strong>`;
+
+    navList.appendChild(sectionHeader);
+
+
+
+    // Add pages
+
+    subsectionData.pages.forEach(page => {
+
+      const li = document.createElement('li');
+
+      const a = document.createElement('a');
+
+      a.href = page.href.replace('.md', '.html');
+
+      a.textContent = page.text;
+
+      
+
+      // Highlight current page
+
+      const pageBasePath = page.href.replace(/^.*\//, '').replace('.md', '');
+
+      const currentBasePath = currentPath.replace(/^.*\//, '').replace('.html', '').replace('.md', '');
+
+      if (pageBasePath === currentBasePath || 
+
+          currentPath.includes(page.href.replace('.md', '')) || 
+
+          page.href.includes(currentPath.replace('.html', ''))) {
+
+        a.style.fontWeight = 'bold';
+
+        a.style.color = '#2780e3';
+
+        a.style.backgroundColor = '#ffffff';
+
+        a.style.padding = '4px 8px';
+
+        a.style.borderRadius = '4px';
+
+      }
+
+      
+
+      li.appendChild(a);
+
+      navList.appendChild(li);
+
+    });
+
+
+
+    console.log('Rendered custom nav with', subsectionData.pages.length, 'pages'); // Debug log
+
+  }
+
+});
+
+</script>
+
+
+
+<style>
+
+/* Base styling for custom nav */
+
+#custom-right-nav {
+
+  width: 100%;
+
+  background: #e7f3ff; /* Light blue background for visibility */
+
+  border: 2px solid #2780e3; /* Blue border for debugging */
+
+  border-radius: 8px;
+
+  padding: 1rem;
+
+  margin-bottom: 2rem;
+
+  display: block !important; /* Always show for debugging */
+
+  min-height: 100px; /* Minimum height to ensure visibility */
+
+}
+
+
+
+/* Show when it has content */
+
+#custom-right-nav.has-content {
+
+  display: block !important;
+
+}
+
+
+
+/* Match Quarto's TOC styling */
+
+#custom-right-nav .toc-title {
+
+  font-weight: 600;
+
+  margin-bottom: 0.5rem;
+
+  color: var(--bs-secondary, #6c757d);
+
+  font-size: 0.875rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.075em;
+
+  border-bottom: none;
+
+  padding-bottom: 0;
+
+}
+
+
+
+#custom-right-nav .toc {
+
+  font-size: 0.875rem;
+
+}
+
+
+
+#custom-right-nav ul {
+
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+
+  border-left: 1px solid var(--bs-border-color-translucent, #dee2e6);
+
+  padding-left: 1rem;
+
+}
+
+
+
+#custom-right-nav li {
+
+  margin-bottom: 0.25rem;
+
+}
+
+
+
+#custom-right-nav a {
+
+  text-decoration: none;
+
+  color: var(--bs-secondary, #6c757d);
+
+  display: block;
+
+  padding: 0.125rem 0;
+
+  transition: all 0.2s ease;
+
+  font-size: 0.875rem;
+
+  line-height: 1.25;
+
+}
+
+
+
+#custom-right-nav a:hover {
+
+  color: var(--bs-link-color, #2780e3);
+
+}
+
+
+
+/* Style for current page */
+
+#custom-right-nav a[style*="background-color"] {
+
+  color: var(--bs-link-color, #2780e3) !important;
+
+  font-weight: 600 !important;
+
+  background-color: transparent !important;
+
+  border-left: 2px solid var(--bs-link-color, #2780e3);
+
+  padding-left: 0.5rem;
+
+  margin-left: -1.5rem;
+
+}
+
+
+
+#custom-right-nav li:first-child {
+
+  margin-bottom: 0.5rem;
+
+}
+
+
+
+#custom-right-nav li:first-child strong {
+
+  font-size: 0.875rem;
+
+  color: var(--bs-body-color, #212529);
+
+  font-weight: 600;
+
+}
+
+
+
+/* Desktop layout (> 800px) - Separate columns */
+
+@media (min-width: 801px) {
+
+  #custom-right-nav.desktop-layout {
+
+    margin-top: 2rem;
+
+    position: static;
+
+  }
+
+}
+
+
+
+/* Mobile layout (<= 800px) - Same column, collapsed sidebar */
+
+@media (max-width: 800px) {
+
+  #custom-right-nav.mobile-layout {
+
+    margin-top: 1rem;
+
+    margin-bottom: 1rem;
+
+    padding: 1rem;
+
+    background: #f8f9fa;
+
+    border: 1px solid var(--bs-border-color, #dee2e6);
+
+    border-radius: 0.375rem;
+
+    position: relative;
+
+  }
+
+  
+
+  /* Make TOC and Related Pages stack nicely */
+
+  #custom-right-nav.mobile-layout .toc-title {
+
+    color: var(--bs-body-color, #212529);
+
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+
+    padding-bottom: 0.5rem;
+
+    margin-bottom: 1rem;
+
+  }
+
+}
+
+
+
+/* Hide on very small screens */
+
+@media (max-width: 576px) {
+
+  #custom-right-nav {
+
+    display: none !important;
+
+  }
+
+}
+
+
+
+/* Ensure proper spacing in all layouts */
+
+.margin-sidebar #custom-right-nav,
+
+#quarto-margin-sidebar #custom-right-nav {
+
+  position: static;
+
+}
+
+</style>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1743,57 +2823,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
     clipboardModal.on('success', onCopySuccess);
   }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/darioairoldi\.github\.io\/Learn");
@@ -1810,6 +2839,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -2135,963 +3171,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">BRK123: .NET MAUI AI</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Future of Web Development with ASP.NET Core &amp; Blazor</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Session Overview</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>**Session Code:** BRK122  </span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>**Event:** Microsoft Build 2025  </span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>**Date:** May 19-22, 2025  </span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>**Speakers:** </span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Daniel Roth - Principal Product Manager, ASP.NET Core &amp; Blazor</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mike Kistler - Principal Product Manager, ASP.NET Core Team (Backend APIs focus)</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>**Recordings:** </span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>https://build.microsoft.com/en-US/sessions/BRK122?source=sessions</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table of Contents</span></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Executive Summary</span><span class="co">](#executive-summary)</span></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Key Statistics and Impact</span><span class="co">](#key-statistics-and-impact)</span></span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Major Focus Areas for .NET 10</span><span class="co">](#major-focus-areas-for-net-10)</span></span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span><span class="co">[</span><span class="ot">Technical Implementation Details</span><span class="co">](#technical-implementation-details)</span></span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span><span class="co">[</span><span class="ot">AI Integration and Modern Development</span><span class="co">](#ai-integration-and-modern-development)</span></span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span><span class="co">[</span><span class="ot">Development Best Practices and Recommendations</span><span class="co">](#development-best-practices-and-recommendations)</span></span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span><span class="co">[</span><span class="ot">Future Roadmap and Timeline</span><span class="co">](#future-roadmap-and-timeline)</span></span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span><span class="co">[</span><span class="ot">Migration and Adoption Strategy</span><span class="co">](#migration-and-adoption-strategy)</span></span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span><span class="co">[</span><span class="ot">Conclusion</span><span class="co">](#conclusion)</span></span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span><span class="co">[</span><span class="ot">References</span><span class="co">](#references)</span></span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span><span class="co">[</span><span class="ot">APPENDIXES</span><span class="co">](#appendixes)</span></span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="co">[</span><span class="ot">APPENDIX 01: Passkeys in Blazor Hybrid and .NET MAUI Applications</span><span class="co">](#appendix-01-passkeys-in-blazor-hybrid-and-net-maui-applications)</span></span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="co">[</span><span class="ot">APPENDIX 02: .NET 10 Scaffolding Tools - dotnet scaffold Command</span><span class="co">](#appendix-02-net-10-scaffolding-tools---dotnet-scaffold-command)</span></span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Executive Summary</span></span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>This session provided an in-depth look at the future of web development with ASP.NET Core and Blazor, focusing on the upcoming .NET 10 release.&lt;br&gt;</span>
-<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>The speakers highlighted four key areas of investment: **security enhancements**, **observability improvements**, **performance optimizations**, and addressing **long-standing pain points in the framework**.</span>
-<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Statistics and Impact</span></span>
-<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**2+ million developers** use ASP.NET Core **monthly**</span>
-<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ASP.NET Core powers major Microsoft services: Microsoft 365, Bing, Teams, Copilot, Xbox, and Azure services</span>
-<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Performance leadership**: **3x faster than Express.js**, **5x faster than Go's Gin framework** in **TechEmpower benchmarks**</span>
-<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Continuous performance improvements with each release</span>
-<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Major Focus Areas for .NET 10</span></span>
-<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a>The .NET 10 release focuses on four key areas of investment to enhance the developer experience and application capabilities:</span>
-<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/000.01a focus areas.png&gt;)</span></span>
-<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Security Enhancements** - Implement modern authentication patterns with passkey support and improved OAuth 2.0 token management</span>
-<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**App Observability and Diagnostics** - Provide comprehensive metrics collection and advanced diagnostic tools for better application monitoring</span>
-<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Performance Improvements** - Optimize memory management, JSON processing, and startup times for faster, more efficient applications</span>
-<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Pain Points and Developer Experience** - Address long-standing framework limitations and improve developer productivity through better tooling</span>
-<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Security Enhancements</span></span>
-<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Passkey Authentication Support</span></span>
-<span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/000.01 loginwithpaskeys.png&gt;)</span></span>
-<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Revolutionary change**: Complete replacement of traditional passwords with cryptographic credentials</span>
-<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Implementation**: Public-private key pairs with secure storage in authenticators</span>
-<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Benefits**: </span>
-<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Phishing-resistant authentication</span>
-<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Application-scoped credentials (**no cross-application sharing**)</span>
-<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Seamless user experience</span>
-<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Integration**: Built into &lt;mark style="background-color: lightyellow;" &gt;ASP.NET Core Identity framework&lt;/mark&gt;</span>
-<span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Based on**: FIDO2.NET library foundation</span>
-<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Template support**: Available in project templates and existing project migration tools</span>
-<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a><span class="fu">#### OAuth 2.0 Refresh Tokens</span></span>
-<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Automatic token refresh**: Seamless renewal without user interaction</span>
-<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Security improvement**: Shorter token lifespans reduce exposure risk</span>
-<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enhanced UX**: No interruption to user workflows</span>
-<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Developer Experience Improvements</span></span>
-<span id="cb33-75"><a href="#cb33-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Scaffolding tools**: New dotnet scaffold command for authentication patterns</span>
-<span id="cb33-76"><a href="#cb33-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cross-platform support**: Interactive command-line experience</span>
-<span id="cb33-77"><a href="#cb33-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Multiple auth scenarios**: </span>
-<span id="cb33-78"><a href="#cb33-78" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>ASP.NET Core Identity endpoints</span>
-<span id="cb33-79"><a href="#cb33-79" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Entra ID authentication</span>
-<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Blazor Hybrid and .NET MAUI apps</span>
-<span id="cb33-81"><a href="#cb33-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Documentation overhaul**: Scenario-based tutorials and video content</span>
-<span id="cb33-82"><a href="#cb33-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-83"><a href="#cb33-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. App Observability and Diagnostics</span></span>
-<span id="cb33-84"><a href="#cb33-84" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/001.00 ovservability.png&gt;)</span></span>
-<span id="cb33-85"><a href="#cb33-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-86"><a href="#cb33-86" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Enhanced Metrics Collection</span></span>
-<span id="cb33-87"><a href="#cb33-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-88"><a href="#cb33-88" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/001.01 metrics.png&gt;)</span></span>
-<span id="cb33-89"><a href="#cb33-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-90"><a href="#cb33-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Kestrel memory pool metrics**: Memory usage tracking and optimization</span>
-<span id="cb33-91"><a href="#cb33-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Authentication/Authorization metrics**: Security operation monitoring</span>
-<span id="cb33-92"><a href="#cb33-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Blazor-specific metrics**: </span>
-<span id="cb33-93"><a href="#cb33-93" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Circuit count and status tracking</span>
-<span id="cb33-94"><a href="#cb33-94" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Connection state monitoring</span>
-<span id="cb33-95"><a href="#cb33-95" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Interactive rendering metrics</span>
-<span id="cb33-96"><a href="#cb33-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-97"><a href="#cb33-97" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Blazor WebAssembly Diagnostics</span></span>
-<span id="cb33-98"><a href="#cb33-98" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/001.02 blazor diagnostics.png&gt;)</span></span>
-<span id="cb33-99"><a href="#cb33-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-100"><a href="#cb33-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Browser DevTools integration**: Performance profiling capabilities</span>
-<span id="cb33-101"><a href="#cb33-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Extractable diagnostics**: </span>
-<span id="cb33-102"><a href="#cb33-102" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>CPU sampling and analysis</span>
-<span id="cb33-103"><a href="#cb33-103" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Performance counter collection</span>
-<span id="cb33-104"><a href="#cb33-104" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>GC dump generation for memory analysis</span>
-<span id="cb33-105"><a href="#cb33-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Visual Studio integration**: Complete diagnostic workflow</span>
-<span id="cb33-106"><a href="#cb33-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-107"><a href="#cb33-107" aria-hidden="true" tabindex="-1"></a><span class="fu">#### OpenTelemetry Integration</span></span>
-<span id="cb33-108"><a href="#cb33-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Native instrumentation**: Built-in semantic conventions</span>
-<span id="cb33-109"><a href="#cb33-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**No additional packages required**: Streamlined setup process</span>
-<span id="cb33-110"><a href="#cb33-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Identity model logging**: JWT token validation visibility</span>
-<span id="cb33-111"><a href="#cb33-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-112"><a href="#cb33-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Performance Improvements</span></span>
-<span id="cb33-113"><a href="#cb33-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-114"><a href="#cb33-114" aria-hidden="true" tabindex="-1"></a><span class="al">![](&lt;images/001.02 performance improvements.png&gt;)</span></span>
-<span id="cb33-115"><a href="#cb33-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-116"><a href="#cb33-116" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Memory Management Optimizations</span></span>
-<span id="cb33-117"><a href="#cb33-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Kestrel memory pool evolution**: Dynamic memory release capabilities</span>
-<span id="cb33-118"><a href="#cb33-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Real-world validation**: Tested in Azure App Service at billion-request scale</span>
-<span id="cb33-119"><a href="#cb33-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Measurable impact**: Demonstrated memory reduction in production environments</span>
-<span id="cb33-120"><a href="#cb33-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Scalability benefits**: Lower idle costs and smarter resource utilization</span>
-<span id="cb33-121"><a href="#cb33-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-122"><a href="#cb33-122" aria-hidden="true" tabindex="-1"></a><span class="fu">#### JSON Processing Enhancements</span></span>
-<span id="cb33-123"><a href="#cb33-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-124"><a href="#cb33-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**PipeReader support**: System.Text.Json deserialization improvements</span>
-<span id="cb33-125"><a href="#cb33-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Continuation from .NET 9**: Completing the serialization/deserialization optimization cycle</span>
-<span id="cb33-126"><a href="#cb33-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**API performance**: Significant speed improvements for data processing</span>
-<span id="cb33-127"><a href="#cb33-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-128"><a href="#cb33-128" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Blazor WebAssembly Startup Optimization</span></span>
-<span id="cb33-129"><a href="#cb33-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Framework script optimization**: Static web asset treatment for caching</span>
-<span id="cb33-130"><a href="#cb33-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Fingerprinting**: Unique file names for aggressive browser caching</span>
-<span id="cb33-131"><a href="#cb33-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Pre-compression**: Gzip (development) and Brotli (production) compression</span>
-<span id="cb33-132"><a href="#cb33-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Preloading support**: Reduced cascade request delays</span>
-<span id="cb33-133"><a href="#cb33-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Standalone app support**: Build-time placeholder replacement system</span>
-<span id="cb33-134"><a href="#cb33-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-135"><a href="#cb33-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Pain Points and Developer Experience</span></span>
-<span id="cb33-136"><a href="#cb33-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-137"><a href="#cb33-137" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Minimal API Enhancements</span></span>
-<span id="cb33-138"><a href="#cb33-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Automatic validation**: Data annotation support (previously controller-only)</span>
-<span id="cb33-139"><a href="#cb33-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Custom validation attributes**: Extensible validation system</span>
-<span id="cb33-140"><a href="#cb33-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Object-level validation**: Cross-property validation support</span>
-<span id="cb33-141"><a href="#cb33-141" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Server-sent events**: Native support for AI application patterns</span>
-<span id="cb33-142"><a href="#cb33-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-143"><a href="#cb33-143" aria-hidden="true" tabindex="-1"></a><span class="fu">#### OpenAPI Generation Improvements</span></span>
-<span id="cb33-144"><a href="#cb33-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OpenAPI 3.1 support**: Latest standard implementation</span>
-<span id="cb33-145"><a href="#cb33-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**XML documentation integration**: Automatic metadata extraction</span>
-<span id="cb33-146"><a href="#cb33-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**YAML output support**: Alternative to JSON format</span>
-<span id="cb33-147"><a href="#cb33-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Build-time generation**: Performance and deployment optimizations</span>
-<span id="cb33-148"><a href="#cb33-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-149"><a href="#cb33-149" aria-hidden="true" tabindex="-1"></a><span class="fu">#### JSON Patch with System.Text.Json</span></span>
-<span id="cb33-150"><a href="#cb33-150" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/002.02 JSON patch.png&gt;)</span></span>
-<span id="cb33-151"><a href="#cb33-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-152"><a href="#cb33-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Modern JSON library support**: Eliminates Newtonsoft.Json dependency</span>
-<span id="cb33-153"><a href="#cb33-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Concurrent operation safety**: Test operations for data consistency</span>
-<span id="cb33-154"><a href="#cb33-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Error handling**: Comprehensive validation and error reporting</span>
-<span id="cb33-155"><a href="#cb33-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-156"><a href="#cb33-156" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Blazor Frontend Improvements</span></span>
-<span id="cb33-157"><a href="#cb33-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**State persistence**: Declarative attribute-based model</span>
-<span id="cb33-158"><a href="#cb33-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Circuit resilience**: Automatic state preservation during disconnections</span>
-<span id="cb33-159"><a href="#cb33-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Scalability controls**: Manual circuit management APIs</span>
-<span id="cb33-160"><a href="#cb33-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**QuikGrid enhancements**: </span>
-<span id="cb33-161"><a href="#cb33-161" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Row styling based on data</span>
-<span id="cb33-162"><a href="#cb33-162" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Column option control</span>
-<span id="cb33-163"><a href="#cb33-163" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Entity Framework integration improvements</span>
-<span id="cb33-164"><a href="#cb33-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-165"><a href="#cb33-165" aria-hidden="true" tabindex="-1"></a><span class="fu">#### JavaScript Interop Advancements</span></span>
-<span id="cb33-166"><a href="#cb33-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Direct constructor calls**: Simplified JavaScript integration</span>
-<span id="cb33-167"><a href="#cb33-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Property access**: Enhanced JavaScript object manipulation</span>
-<span id="cb33-168"><a href="#cb33-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Callback improvements**: Streamlined event handling</span>
-<span id="cb33-169"><a href="#cb33-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Standalone .NET libraries**: JavaScript app integration capabilities</span>
-<span id="cb33-170"><a href="#cb33-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-171"><a href="#cb33-171" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Testing Infrastructure</span></span>
-<span id="cb33-172"><a href="#cb33-172" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Web Application Factory + Kestrel**: Real server testing capabilities</span>
-<span id="cb33-173"><a href="#cb33-173" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Playwright/Selenium integration**: Full browser automation support</span>
-<span id="cb33-174"><a href="#cb33-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**End-to-end testing**: Complete application pipeline validation</span>
-<span id="cb33-175"><a href="#cb33-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-176"><a href="#cb33-176" aria-hidden="true" tabindex="-1"></a><span class="fu">## Technical Implementation Details</span></span>
-<span id="cb33-177"><a href="#cb33-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-178"><a href="#cb33-178" aria-hidden="true" tabindex="-1"></a><span class="fu">### Passkey Authentication Demo</span></span>
-<span id="cb33-179"><a href="#cb33-179" aria-hidden="true" tabindex="-1"></a>The session demonstrated a complete passkey implementation showing:</span>
-<span id="cb33-180"><a href="#cb33-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>User account setup with passkey registration</span>
-<span id="cb33-181"><a href="#cb33-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Windows Hello integration for biometric authentication</span>
-<span id="cb33-182"><a href="#cb33-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Seamless login experience without passwords</span>
-<span id="cb33-183"><a href="#cb33-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Multi-device support capabilities</span>
-<span id="cb33-184"><a href="#cb33-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-185"><a href="#cb33-185" aria-hidden="true" tabindex="-1"></a><span class="fu">### Performance Diagnostics Demo</span></span>
-<span id="cb33-186"><a href="#cb33-186" aria-hidden="true" tabindex="-1"></a>Showcased advanced diagnostic capabilities:</span>
-<span id="cb33-187"><a href="#cb33-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Real-time performance profiling in browser DevTools</span>
-<span id="cb33-188"><a href="#cb33-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Memory dump analysis in Visual Studio</span>
-<span id="cb33-189"><a href="#cb33-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>CPU sampling and performance counter extraction</span>
-<span id="cb33-190"><a href="#cb33-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Integration with existing development workflows</span>
-<span id="cb33-191"><a href="#cb33-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-192"><a href="#cb33-192" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON Patch Implementation</span></span>
-<span id="cb33-193"><a href="#cb33-193" aria-hidden="true" tabindex="-1"></a>Demonstrated practical usage:</span>
-<span id="cb33-194"><a href="#cb33-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Product catalog price updates</span>
-<span id="cb33-195"><a href="#cb33-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Concurrent operation handling with test operations</span>
-<span id="cb33-196"><a href="#cb33-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Error handling and validation feedback</span>
-<span id="cb33-197"><a href="#cb33-197" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Database transaction safety</span>
-<span id="cb33-198"><a href="#cb33-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-199"><a href="#cb33-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## AI Integration and Modern Development</span></span>
-<span id="cb33-200"><a href="#cb33-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-201"><a href="#cb33-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### .NET Platform AI Capabilities</span></span>
-<span id="cb33-202"><a href="#cb33-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Microsoft.Extensions.AI**: Generative AI integration primitives</span>
-<span id="cb33-203"><a href="#cb33-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Evaluations library**: AI application quality and safety assessment</span>
-<span id="cb33-204"><a href="#cb33-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**VectorData**: Semantic search and embedding management</span>
-<span id="cb33-205"><a href="#cb33-205" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**AI project templates**: Ready-to-use chat interface foundations</span>
-<span id="cb33-206"><a href="#cb33-206" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**C# Model Context Protocol SDK**: Extensible AI application development</span>
-<span id="cb33-207"><a href="#cb33-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Semantic Kernel**: Multi-agent workflow orchestration</span>
-<span id="cb33-208"><a href="#cb33-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-209"><a href="#cb33-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### .NET Aspire Integration</span></span>
-<span id="cb33-210"><a href="#cb33-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloud-native development**: Seamless AI and cloud service integration</span>
-<span id="cb33-211"><a href="#cb33-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Existing application compatibility**: Add to any ASP.NET Core app</span>
-<span id="cb33-212"><a href="#cb33-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Built-in best practices**: OpenTelemetry, health checks, resiliency</span>
-<span id="cb33-213"><a href="#cb33-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Local development**: Complete application orchestration</span>
-<span id="cb33-214"><a href="#cb33-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Service integration**: Redis, PostgreSQL, AI services</span>
-<span id="cb33-215"><a href="#cb33-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Observability**: Integrated dashboard for logs, metrics, and traces</span>
-<span id="cb33-216"><a href="#cb33-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Flexible deployment**: Any cloud or hosting environment</span>
-<span id="cb33-217"><a href="#cb33-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-218"><a href="#cb33-218" aria-hidden="true" tabindex="-1"></a><span class="fu">## Development Best Practices and Recommendations</span></span>
-<span id="cb33-219"><a href="#cb33-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-220"><a href="#cb33-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### Security-First Development</span></span>
-<span id="cb33-221"><a href="#cb33-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement passkey authentication for modern security</span>
-<span id="cb33-222"><a href="#cb33-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use OAuth 2.0 refresh tokens for better token management</span>
-<span id="cb33-223"><a href="#cb33-223" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Leverage scaffolding tools for consistent authentication patterns</span>
-<span id="cb33-224"><a href="#cb33-224" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Follow updated documentation for identity implementation</span>
-<span id="cb33-225"><a href="#cb33-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-226"><a href="#cb33-226" aria-hidden="true" tabindex="-1"></a><span class="fu">### Performance Optimization</span></span>
-<span id="cb33-227"><a href="#cb33-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilize new Kestrel memory pool features for better resource management</span>
-<span id="cb33-228"><a href="#cb33-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement System.Text.Json with PipeReader for high-performance APIs</span>
-<span id="cb33-229"><a href="#cb33-229" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optimize Blazor WebAssembly apps with new startup improvements</span>
-<span id="cb33-230"><a href="#cb33-230" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor applications with enhanced metrics collection</span>
-<span id="cb33-231"><a href="#cb33-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-232"><a href="#cb33-232" aria-hidden="true" tabindex="-1"></a><span class="fu">### Modern Architecture Patterns</span></span>
-<span id="cb33-233"><a href="#cb33-233" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Adopt minimal APIs for new web applications</span>
-<span id="cb33-234"><a href="#cb33-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement proper validation with data annotations</span>
-<span id="cb33-235"><a href="#cb33-235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use OpenAPI 3.1 for comprehensive API documentation</span>
-<span id="cb33-236"><a href="#cb33-236" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Leverage JSON Patch for efficient data updates</span>
-<span id="cb33-237"><a href="#cb33-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-238"><a href="#cb33-238" aria-hidden="true" tabindex="-1"></a><span class="fu">### Testing and Quality Assurance</span></span>
-<span id="cb33-239"><a href="#cb33-239" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement comprehensive testing with Web Application Factory + Kestrel</span>
-<span id="cb33-240"><a href="#cb33-240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use automated browser testing for complete UI validation</span>
-<span id="cb33-241"><a href="#cb33-241" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Leverage enhanced diagnostic tools for performance analysis</span>
-<span id="cb33-242"><a href="#cb33-242" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor application health with improved observability features</span>
-<span id="cb33-243"><a href="#cb33-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-244"><a href="#cb33-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## Future Roadmap and Timeline</span></span>
-<span id="cb33-245"><a href="#cb33-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-246"><a href="#cb33-246" aria-hidden="true" tabindex="-1"></a><span class="fu">### .NET 10 Development Timeline</span></span>
-<span id="cb33-247"><a href="#cb33-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Current Status**: Preview releases available</span>
-<span id="cb33-248"><a href="#cb33-248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Target Release**: .NET Conf 2025 (November)</span>
-<span id="cb33-249"><a href="#cb33-249" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Feature Availability**: Gradual rollout through preview releases</span>
-<span id="cb33-250"><a href="#cb33-250" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Migration Path**: Existing applications can upgrade incrementally</span>
-<span id="cb33-251"><a href="#cb33-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-252"><a href="#cb33-252" aria-hidden="true" tabindex="-1"></a><span class="fu">### Preview Release Schedule</span></span>
-<span id="cb33-253"><a href="#cb33-253" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Preview 4**: Already available with validation and JSON Patch support</span>
-<span id="cb33-254"><a href="#cb33-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Upcoming Previews**: Additional features and refinements</span>
-<span id="cb33-255"><a href="#cb33-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Release Candidate**: Feature-complete version before final release</span>
-<span id="cb33-256"><a href="#cb33-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Final Release**: November 2025 at .NET Conf</span>
-<span id="cb33-257"><a href="#cb33-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-258"><a href="#cb33-258" aria-hidden="true" tabindex="-1"></a><span class="fu">## Migration and Adoption Strategy</span></span>
-<span id="cb33-259"><a href="#cb33-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-260"><a href="#cb33-260" aria-hidden="true" tabindex="-1"></a><span class="fu">### For Existing Applications</span></span>
-<span id="cb33-261"><a href="#cb33-261" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Incremental adoption**: Add new features without breaking changes</span>
-<span id="cb33-262"><a href="#cb33-262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Backward compatibility**: Existing code continues to work</span>
-<span id="cb33-263"><a href="#cb33-263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Migration tools**: Automated assistance for complex changes</span>
-<span id="cb33-264"><a href="#cb33-264" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Documentation**: Comprehensive upgrade guides and tutorials</span>
-<span id="cb33-265"><a href="#cb33-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-266"><a href="#cb33-266" aria-hidden="true" tabindex="-1"></a><span class="fu">### For New Applications</span></span>
-<span id="cb33-267"><a href="#cb33-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Modern templates**: Latest patterns and best practices included</span>
-<span id="cb33-268"><a href="#cb33-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Scaffolding tools**: Automated setup for common scenarios</span>
-<span id="cb33-269"><a href="#cb33-269" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Integration guidance**: Clear paths for AI and cloud services</span>
-<span id="cb33-270"><a href="#cb33-270" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Performance optimizations**: Built-in from the start</span>
-<span id="cb33-271"><a href="#cb33-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-272"><a href="#cb33-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
-<span id="cb33-273"><a href="#cb33-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-274"><a href="#cb33-274" aria-hidden="true" tabindex="-1"></a>The future of web development with ASP.NET Core and Blazor is focused on developer productivity, security, performance, and modern application patterns. .NET 10 represents a significant evolution in the platform, addressing long-standing pain points while introducing cutting-edge features for AI-powered and cloud-native applications.</span>
-<span id="cb33-275"><a href="#cb33-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-276"><a href="#cb33-276" aria-hidden="true" tabindex="-1"></a>The emphasis on security through passkey authentication, enhanced observability through comprehensive metrics, performance improvements through memory optimization, and developer experience improvements through better tooling positions ASP.NET Core as a leading platform for modern web development.</span>
-<span id="cb33-277"><a href="#cb33-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-278"><a href="#cb33-278" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
-<span id="cb33-279"><a href="#cb33-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-280"><a href="#cb33-280" aria-hidden="true" tabindex="-1"></a><span class="fu">### Official Documentation and Resources</span></span>
-<span id="cb33-281"><a href="#cb33-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-282"><a href="#cb33-282" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**[.NET 10 What's New Documentation](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10)**</span>
-<span id="cb33-283"><a href="#cb33-283" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Comprehensive overview of all new features in .NET 10</span>
-<span id="cb33-284"><a href="#cb33-284" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Relevant for understanding the complete scope of changes beyond ASP.NET Core</span>
-<span id="cb33-285"><a href="#cb33-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-286"><a href="#cb33-286" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**[ASP.NET Core Official Documentation](https://docs.microsoft.com/en-us/aspnet/core/)**</span>
-<span id="cb33-287"><a href="#cb33-287" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Primary resource for ASP.NET Core development</span>
-<span id="cb33-288"><a href="#cb33-288" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Essential for implementing the concepts discussed in the session</span>
-<span id="cb33-289"><a href="#cb33-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-290"><a href="#cb33-290" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**[Blazor Documentation](https://docs.microsoft.com/en-us/aspnet/core/blazor/)**</span>
-<span id="cb33-291"><a href="#cb33-291" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Detailed guidance on Blazor development patterns</span>
-<span id="cb33-292"><a href="#cb33-292" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Critical for understanding the frontend improvements discussed</span>
-<span id="cb33-293"><a href="#cb33-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-294"><a href="#cb33-294" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**[.NET 10 Preview Downloads](https://get.net/10)**</span>
-<span id="cb33-295"><a href="#cb33-295" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Access to preview releases mentioned in the session</span>
-<span id="cb33-296"><a href="#cb33-296" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Allows developers to try new features before final release</span>
-<span id="cb33-297"><a href="#cb33-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-298"><a href="#cb33-298" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**[Build25 BRK122 Demos](https://github.com/microsoft/Build25-BRK122/?ocid=Build25_githubrepo)**</span>
-<span id="cb33-299"><a href="#cb33-299" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Official demo code and samples from the Build 2025 BRK122 session</span>
-<span id="cb33-300"><a href="#cb33-300" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Hands-on examples of passkey authentication, observability features, and performance improvements</span>
-<span id="cb33-301"><a href="#cb33-301" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Complete implementation samples for all major features discussed in the session</span>
-<span id="cb33-302"><a href="#cb33-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-303"><a href="#cb33-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### Security and Authentication</span></span>
-<span id="cb33-304"><a href="#cb33-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-305"><a href="#cb33-305" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**[01. Passkey Authentication Information](01.%20Passkey%20Authentication%20Information.md)**</span>
-<span id="cb33-306"><a href="#cb33-306" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Comprehensive guide to passkey authentication technology</span>
-<span id="cb33-307"><a href="#cb33-307" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Detailed explanation of how passkeys work and their security benefits</span>
-<span id="cb33-308"><a href="#cb33-308" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Implementation guidance for ASP.NET Core applications</span>
-<span id="cb33-309"><a href="#cb33-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-310"><a href="#cb33-310" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>**[FIDO Alliance - WebAuthn Specification](https://webauthn.io/)**</span>
-<span id="cb33-311"><a href="#cb33-311" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Technical specification for Web Authentication API</span>
-<span id="cb33-312"><a href="#cb33-312" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Essential for understanding passkey implementation details</span>
-<span id="cb33-313"><a href="#cb33-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-314"><a href="#cb33-314" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>**[Microsoft Identity Platform Documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/)**</span>
-<span id="cb33-315"><a href="#cb33-315" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Comprehensive guide for identity and authentication patterns</span>
-<span id="cb33-316"><a href="#cb33-316" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Relevant for understanding OAuth 2.0 and Entra ID integration</span>
-<span id="cb33-317"><a href="#cb33-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-318"><a href="#cb33-318" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>**[ASP.NET Core Security Best Practices](https://docs.microsoft.com/en-us/aspnet/core/security/)**</span>
-<span id="cb33-319"><a href="#cb33-319" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Security guidelines and best practices</span>
-<span id="cb33-320"><a href="#cb33-320" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Important for implementing the security features discussed</span>
-<span id="cb33-321"><a href="#cb33-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-322"><a href="#cb33-322" aria-hidden="true" tabindex="-1"></a><span class="fu">### Performance and Diagnostics</span></span>
-<span id="cb33-323"><a href="#cb33-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-324"><a href="#cb33-324" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>**[OpenTelemetry .NET Documentation](https://opentelemetry.io/docs/languages/net/)**</span>
-<span id="cb33-325"><a href="#cb33-325" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Observability and telemetry implementation guidance</span>
-<span id="cb33-326"><a href="#cb33-326" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Relevant for understanding the diagnostic improvements</span>
-<span id="cb33-327"><a href="#cb33-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-328"><a href="#cb33-328" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>**[Kestrel Web Server Documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel)**</span>
-<span id="cb33-329"><a href="#cb33-329" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Detailed information about Kestrel configuration and optimization</span>
-<span id="cb33-330"><a href="#cb33-330" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Essential for understanding memory pool improvements</span>
-<span id="cb33-331"><a href="#cb33-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-332"><a href="#cb33-332" aria-hidden="true" tabindex="-1"></a><span class="ss">12. </span>**[System.Text.Json Documentation](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/)**</span>
-<span id="cb33-333"><a href="#cb33-333" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>JSON processing optimization and configuration</span>
-<span id="cb33-334"><a href="#cb33-334" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Critical for understanding performance improvements</span>
-<span id="cb33-335"><a href="#cb33-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-336"><a href="#cb33-336" aria-hidden="true" tabindex="-1"></a><span class="fu">### AI and Modern Development</span></span>
-<span id="cb33-337"><a href="#cb33-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-338"><a href="#cb33-338" aria-hidden="true" tabindex="-1"></a><span class="ss">13. </span>**[.NET Aspire Documentation](https://dotnet.microsoft.com/aspire)**</span>
-<span id="cb33-339"><a href="#cb33-339" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Cloud-native application development with .NET</span>
-<span id="cb33-340"><a href="#cb33-340" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Relevant for understanding modern application architecture</span>
-<span id="cb33-341"><a href="#cb33-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-342"><a href="#cb33-342" aria-hidden="true" tabindex="-1"></a><span class="ss">14. </span>**[Microsoft.Extensions.AI Documentation](https://docs.microsoft.com/en-us/dotnet/ai/)**</span>
-<span id="cb33-343"><a href="#cb33-343" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>AI integration patterns and libraries</span>
-<span id="cb33-344"><a href="#cb33-344" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Important for understanding AI-powered application development</span>
-<span id="cb33-345"><a href="#cb33-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-346"><a href="#cb33-346" aria-hidden="true" tabindex="-1"></a><span class="ss">15. </span>**[Semantic Kernel Documentation](https://learn.microsoft.com/en-us/semantic-kernel/)**</span>
-<span id="cb33-347"><a href="#cb33-347" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Multi-agent AI workflow orchestration</span>
-<span id="cb33-348"><a href="#cb33-348" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Relevant for complex AI application scenarios</span>
-<span id="cb33-349"><a href="#cb33-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-350"><a href="#cb33-350" aria-hidden="true" tabindex="-1"></a><span class="fu">### Testing and Quality Assurance</span></span>
-<span id="cb33-351"><a href="#cb33-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-352"><a href="#cb33-352" aria-hidden="true" tabindex="-1"></a><span class="ss">16. </span>**[ASP.NET Core Testing Documentation](https://docs.microsoft.com/en-us/aspnet/core/test/)**</span>
-<span id="cb33-353"><a href="#cb33-353" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Comprehensive testing strategies and tools</span>
-<span id="cb33-354"><a href="#cb33-354" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Essential for understanding the testing improvements</span>
-<span id="cb33-355"><a href="#cb33-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-356"><a href="#cb33-356" aria-hidden="true" tabindex="-1"></a><span class="ss">17. </span>**[Playwright for .NET](https://playwright.dev/dotnet/)**</span>
-<span id="cb33-357"><a href="#cb33-357" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Browser automation framework</span>
-<span id="cb33-358"><a href="#cb33-358" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Relevant for the automated testing capabilities demonstrated</span>
-<span id="cb33-359"><a href="#cb33-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-360"><a href="#cb33-360" aria-hidden="true" tabindex="-1"></a><span class="fu">### API Development</span></span>
-<span id="cb33-361"><a href="#cb33-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-362"><a href="#cb33-362" aria-hidden="true" tabindex="-1"></a><span class="ss">18. </span>**[OpenAPI Specification](https://swagger.io/specification/)**</span>
-<span id="cb33-363"><a href="#cb33-363" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>API documentation standards</span>
-<span id="cb33-364"><a href="#cb33-364" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Important for understanding OpenAPI 3.1 improvements</span>
-<span id="cb33-365"><a href="#cb33-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-366"><a href="#cb33-366" aria-hidden="true" tabindex="-1"></a><span class="ss">19. </span>**[JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902)**</span>
-<span id="cb33-367"><a href="#cb33-367" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>JSON Patch operation specification</span>
-<span id="cb33-368"><a href="#cb33-368" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Essential for understanding the JSON Patch implementation</span>
-<span id="cb33-369"><a href="#cb33-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-370"><a href="#cb33-370" aria-hidden="true" tabindex="-1"></a><span class="fu">### Community and Learning</span></span>
-<span id="cb33-371"><a href="#cb33-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-372"><a href="#cb33-372" aria-hidden="true" tabindex="-1"></a><span class="ss">20. </span>**[.NET Community Blog](https://devblogs.microsoft.com/dotnet/)**</span>
-<span id="cb33-373"><a href="#cb33-373" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Regular updates and deep dives into .NET features</span>
-<span id="cb33-374"><a href="#cb33-374" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Valuable for staying current with platform developments</span>
-<span id="cb33-375"><a href="#cb33-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-376"><a href="#cb33-376" aria-hidden="true" tabindex="-1"></a><span class="ss">21. </span>**[ASP.NET Core GitHub Repository](https://github.com/dotnet/aspnetcore)**</span>
-<span id="cb33-377"><a href="#cb33-377" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Source code and issue tracking</span>
-<span id="cb33-378"><a href="#cb33-378" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Important for understanding implementation details and contributing</span>
-<span id="cb33-379"><a href="#cb33-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-380"><a href="#cb33-380" aria-hidden="true" tabindex="-1"></a><span class="ss">22. </span>**[.NET Roadmap](https://aka.ms/dotnet/roadmap)**</span>
-<span id="cb33-381"><a href="#cb33-381" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Long-term platform planning and feature timeline</span>
-<span id="cb33-382"><a href="#cb33-382" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Essential for understanding future development directions</span>
-<span id="cb33-383"><a href="#cb33-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-384"><a href="#cb33-384" aria-hidden="true" tabindex="-1"></a><span class="ss">23. </span>**[.NET Conf 2025](https://dotnetconf.net/)**</span>
-<span id="cb33-385"><a href="#cb33-385" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Annual conference for .NET release celebrations</span>
-<span id="cb33-386"><a href="#cb33-386" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Important for staying informed about major releases and announcements</span>
-<span id="cb33-387"><a href="#cb33-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-388"><a href="#cb33-388" aria-hidden="true" tabindex="-1"></a><span class="fu">### Performance Benchmarking</span></span>
-<span id="cb33-389"><a href="#cb33-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-390"><a href="#cb33-390" aria-hidden="true" tabindex="-1"></a><span class="ss">24. </span>**[TechEmpower Framework Benchmarks](https://www.techempower.com/benchmarks/)**</span>
-<span id="cb33-391"><a href="#cb33-391" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Independent web framework performance comparisons</span>
-<span id="cb33-392"><a href="#cb33-392" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Relevant for understanding ASP.NET Core performance claims</span>
-<span id="cb33-393"><a href="#cb33-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-394"><a href="#cb33-394" aria-hidden="true" tabindex="-1"></a><span class="ss">25. </span>**[ASP.NET Core Performance Best Practices](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)**</span>
-<span id="cb33-395"><a href="#cb33-395" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Optimization guidelines and recommendations</span>
-<span id="cb33-396"><a href="#cb33-396" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Essential for implementing high-performance applications</span>
-<span id="cb33-397"><a href="#cb33-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-398"><a href="#cb33-398" aria-hidden="true" tabindex="-1"></a><span class="fu">## APPENDIXES</span></span>
-<span id="cb33-399"><a href="#cb33-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-400"><a href="#cb33-400" aria-hidden="true" tabindex="-1"></a><span class="fu">## APPENDIX 01: Passkeys in Blazor Hybrid and .NET MAUI Applications</span></span>
-<span id="cb33-401"><a href="#cb33-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-402"><a href="#cb33-402" aria-hidden="true" tabindex="-1"></a><span class="fu">### What are Blazor Hybrid and .NET MAUI Apps?</span></span>
-<span id="cb33-403"><a href="#cb33-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-404"><a href="#cb33-404" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Blazor Hybrid</span></span>
-<span id="cb33-405"><a href="#cb33-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Native desktop/mobile apps** that host Blazor web components inside a WebView</span>
-<span id="cb33-406"><a href="#cb33-406" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Combines**: Native app shell + Blazor UI components</span>
-<span id="cb33-407"><a href="#cb33-407" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Platforms**: Windows (WPF/WinUI), macOS, iOS, Android</span>
-<span id="cb33-408"><a href="#cb33-408" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Architecture**: Native app container → WebView → Blazor components</span>
-<span id="cb33-409"><a href="#cb33-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-410"><a href="#cb33-410" aria-hidden="true" tabindex="-1"></a><span class="fu">#### .NET MAUI (Multi-platform App UI)</span></span>
-<span id="cb33-411"><a href="#cb33-411" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cross-platform framework** for native mobile and desktop apps</span>
-<span id="cb33-412"><a href="#cb33-412" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Single codebase** that runs on Windows, macOS, iOS, Android</span>
-<span id="cb33-413"><a href="#cb33-413" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Can include**: Blazor Hybrid components within native MAUI apps</span>
-<span id="cb33-414"><a href="#cb33-414" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Architecture**: Native app framework + optional Blazor UI components</span>
-<span id="cb33-415"><a href="#cb33-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-416"><a href="#cb33-416" aria-hidden="true" tabindex="-1"></a><span class="fu">### Passkey Authentication in Hybrid Applications</span></span>
-<span id="cb33-417"><a href="#cb33-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-418"><a href="#cb33-418" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Authentication Architecture Overview</span></span>
-<span id="cb33-419"><a href="#cb33-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-420"><a href="#cb33-420" aria-hidden="true" tabindex="-1"></a>**Traditional Web App**: Browser → Web Server → Authentication</span>
-<span id="cb33-421"><a href="#cb33-421" aria-hidden="true" tabindex="-1"></a>**Hybrid App**: Native App → WebView/Native Auth → Web Services + Local Storage</span>
-<span id="cb33-422"><a href="#cb33-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-423"><a href="#cb33-423" aria-hidden="true" tabindex="-1"></a><span class="fu">#### How Passkeys Work in Hybrid Context</span></span>
-<span id="cb33-424"><a href="#cb33-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-425"><a href="#cb33-425" aria-hidden="true" tabindex="-1"></a><span class="fu">##### 1. Platform-Specific Authentication</span></span>
-<span id="cb33-426"><a href="#cb33-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-427"><a href="#cb33-427" aria-hidden="true" tabindex="-1"></a>**Windows (WinUI/WPF)**:</span>
-<span id="cb33-428"><a href="#cb33-428" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-429"><a href="#cb33-429" aria-hidden="true" tabindex="-1"></a><span class="co">// Uses Windows Hello integration</span></span>
-<span id="cb33-430"><a href="#cb33-430" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> result <span class="op">=</span> await WebAuthenticationBroker<span class="op">.</span><span class="fu">AuthenticateAsync</span><span class="op">(</span></span>
-<span id="cb33-431"><a href="#cb33-431" aria-hidden="true" tabindex="-1"></a>    WebAuthenticationOptions<span class="op">.</span><span class="fu">None</span><span class="op">,</span></span>
-<span id="cb33-432"><a href="#cb33-432" aria-hidden="true" tabindex="-1"></a>    passKeyAuthUri<span class="op">);</span></span>
-<span id="cb33-433"><a href="#cb33-433" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-434"><a href="#cb33-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-435"><a href="#cb33-435" aria-hidden="true" tabindex="-1"></a>**iOS (.NET MAUI)**:</span>
-<span id="cb33-436"><a href="#cb33-436" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-437"><a href="#cb33-437" aria-hidden="true" tabindex="-1"></a><span class="co">// Uses Touch ID/Face ID through AuthenticationServices</span></span>
-<span id="cb33-438"><a href="#cb33-438" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> authService <span class="op">=</span> <span class="kw">new</span> <span class="fu">ASAuthorizationController</span><span class="op">();</span></span>
-<span id="cb33-439"><a href="#cb33-439" aria-hidden="true" tabindex="-1"></a>await authService<span class="op">.</span><span class="fu">PerformRequestsAsync</span><span class="op">();</span></span>
-<span id="cb33-440"><a href="#cb33-440" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-441"><a href="#cb33-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-442"><a href="#cb33-442" aria-hidden="true" tabindex="-1"></a>**Android (.NET MAUI)**:</span>
-<span id="cb33-443"><a href="#cb33-443" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-444"><a href="#cb33-444" aria-hidden="true" tabindex="-1"></a><span class="co">// Uses Android Biometric APIs</span></span>
-<span id="cb33-445"><a href="#cb33-445" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> biometricPrompt <span class="op">=</span> <span class="kw">new</span> <span class="fu">BiometricPrompt</span><span class="op">();</span></span>
-<span id="cb33-446"><a href="#cb33-446" aria-hidden="true" tabindex="-1"></a>await biometricPrompt<span class="op">.</span><span class="fu">AuthenticateAsync</span><span class="op">();</span></span>
-<span id="cb33-447"><a href="#cb33-447" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-448"><a href="#cb33-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-449"><a href="#cb33-449" aria-hidden="true" tabindex="-1"></a><span class="fu">##### 2. Identity Flow Across Application Parts</span></span>
-<span id="cb33-450"><a href="#cb33-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-451"><a href="#cb33-451" aria-hidden="true" tabindex="-1"></a>**Multi-Part Authentication Flow**:</span>
-<span id="cb33-452"><a href="#cb33-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-453"><a href="#cb33-453" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Native Authentication**: User authenticates with device biometrics</span>
-<span id="cb33-454"><a href="#cb33-454" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Passkey Generation**: Platform creates cryptographic credentials</span>
-<span id="cb33-455"><a href="#cb33-455" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Token Exchange**: Native app receives authentication tokens</span>
-<span id="cb33-456"><a href="#cb33-456" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**WebView Communication**: Tokens passed to Blazor components</span>
-<span id="cb33-457"><a href="#cb33-457" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**API Access**: Both native and web parts use shared identity</span>
-<span id="cb33-458"><a href="#cb33-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-459"><a href="#cb33-459" aria-hidden="true" tabindex="-1"></a><span class="fu">##### 3. Cross-Component Identity Sharing</span></span>
-<span id="cb33-460"><a href="#cb33-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-461"><a href="#cb33-461" aria-hidden="true" tabindex="-1"></a>**Shared Identity Store**:</span>
-<span id="cb33-462"><a href="#cb33-462" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-463"><a href="#cb33-463" aria-hidden="true" tabindex="-1"></a><span class="co">// Identity service shared between native and Blazor parts</span></span>
-<span id="cb33-464"><a href="#cb33-464" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IIdentityService</span>
-<span id="cb33-465"><a href="#cb33-465" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb33-466"><a href="#cb33-466" aria-hidden="true" tabindex="-1"></a>    Task<span class="op">&lt;</span>AuthResult<span class="op">&gt;</span> <span class="fu">AuthenticateWithPasskeyAsync</span><span class="op">();</span></span>
-<span id="cb33-467"><a href="#cb33-467" aria-hidden="true" tabindex="-1"></a>    Task<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> <span class="fu">GetAccessTokenAsync</span><span class="op">();</span></span>
-<span id="cb33-468"><a href="#cb33-468" aria-hidden="true" tabindex="-1"></a>    Task <span class="fu">ShareIdentityWithWebViewAsync</span><span class="op">(</span><span class="dt">string</span> token<span class="op">);</span></span>
-<span id="cb33-469"><a href="#cb33-469" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb33-470"><a href="#cb33-470" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-471"><a href="#cb33-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-472"><a href="#cb33-472" aria-hidden="true" tabindex="-1"></a>**Token Sharing Pattern**:</span>
-<span id="cb33-473"><a href="#cb33-473" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-474"><a href="#cb33-474" aria-hidden="true" tabindex="-1"></a><span class="co">// Native part authenticates</span></span>
-<span id="cb33-475"><a href="#cb33-475" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> authResult <span class="op">=</span> await identityService<span class="op">.</span><span class="fu">AuthenticateWithPasskeyAsync</span><span class="op">();</span></span>
-<span id="cb33-476"><a href="#cb33-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-477"><a href="#cb33-477" aria-hidden="true" tabindex="-1"></a><span class="co">// Share with Blazor WebView</span></span>
-<span id="cb33-478"><a href="#cb33-478" aria-hidden="true" tabindex="-1"></a>await webView<span class="op">.</span><span class="fu">InvokeScriptAsync</span><span class="op">(</span><span class="st">"setAuthToken"</span><span class="op">,</span> authResult<span class="op">.</span><span class="fu">Token</span><span class="op">);</span></span>
-<span id="cb33-479"><a href="#cb33-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-480"><a href="#cb33-480" aria-hidden="true" tabindex="-1"></a><span class="co">// Blazor component receives identity</span></span>
-<span id="cb33-481"><a href="#cb33-481" aria-hidden="true" tabindex="-1"></a>window<span class="op">.</span><span class="fu">setAuthToken</span> <span class="op">=</span> <span class="op">(</span>token<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
-<span id="cb33-482"><a href="#cb33-482" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Store for API calls</span></span>
-<span id="cb33-483"><a href="#cb33-483" aria-hidden="true" tabindex="-1"></a>    localStorage<span class="op">.</span><span class="fu">setItem</span><span class="op">(</span>'authToken'<span class="op">,</span> token<span class="op">);</span></span>
-<span id="cb33-484"><a href="#cb33-484" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb33-485"><a href="#cb33-485" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-486"><a href="#cb33-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-487"><a href="#cb33-487" aria-hidden="true" tabindex="-1"></a><span class="fu">### Technical Implementation Considerations</span></span>
-<span id="cb33-488"><a href="#cb33-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-489"><a href="#cb33-489" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Challenge-Response Flow in Hybrid Apps</span></span>
-<span id="cb33-490"><a href="#cb33-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-491"><a href="#cb33-491" aria-hidden="true" tabindex="-1"></a>**Native Passkey Flow**:</span>
-<span id="cb33-492"><a href="#cb33-492" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**App requests authentication** → Platform prompts for biometric</span>
-<span id="cb33-493"><a href="#cb33-493" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Platform generates signature** → Using device-stored private key</span>
-<span id="cb33-494"><a href="#cb33-494" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**App receives credential** → Cryptographic proof of identity</span>
-<span id="cb33-495"><a href="#cb33-495" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**App exchanges with server** → Gets JWT/session tokens</span>
-<span id="cb33-496"><a href="#cb33-496" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Tokens shared internally** → Between native and web components</span>
-<span id="cb33-497"><a href="#cb33-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-498"><a href="#cb33-498" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Security Boundaries</span></span>
-<span id="cb33-499"><a href="#cb33-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-500"><a href="#cb33-500" aria-hidden="true" tabindex="-1"></a>**Trust Zones**:</span>
-<span id="cb33-501"><a href="#cb33-501" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Native App Process**: Full device access, secure storage</span>
-<span id="cb33-502"><a href="#cb33-502" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**WebView Context**: Limited access, standard web security</span>
-<span id="cb33-503"><a href="#cb33-503" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Communication Bridge**: Secure token passing between contexts</span>
-<span id="cb33-504"><a href="#cb33-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-505"><a href="#cb33-505" aria-hidden="true" tabindex="-1"></a>**Data Protection**:</span>
-<span id="cb33-506"><a href="#cb33-506" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-507"><a href="#cb33-507" aria-hidden="true" tabindex="-1"></a><span class="co">// Secure storage for hybrid apps</span></span>
-<span id="cb33-508"><a href="#cb33-508" aria-hidden="true" tabindex="-1"></a>await SecureStorage<span class="op">.</span><span class="fu">SetAsync</span><span class="op">(</span><span class="st">"passkey_token"</span><span class="op">,</span> authToken<span class="op">);</span></span>
-<span id="cb33-509"><a href="#cb33-509" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> token <span class="op">=</span> await SecureStorage<span class="op">.</span><span class="fu">GetAsync</span><span class="op">(</span><span class="st">"passkey_token"</span><span class="op">);</span></span>
-<span id="cb33-510"><a href="#cb33-510" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-511"><a href="#cb33-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-512"><a href="#cb33-512" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Windows Hybrid Apps</span></span>
-<span id="cb33-513"><a href="#cb33-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-514"><a href="#cb33-514" aria-hidden="true" tabindex="-1"></a>**Windows Hello Integration**:</span>
-<span id="cb33-515"><a href="#cb33-515" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**TPM-backed credentials**: Hardware security module storage</span>
-<span id="cb33-516"><a href="#cb33-516" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Biometric authentication**: Fingerprint, face, PIN</span>
-<span id="cb33-517"><a href="#cb33-517" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enterprise policies**: Domain-managed passkey policies</span>
-<span id="cb33-518"><a href="#cb33-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-519"><a href="#cb33-519" aria-hidden="true" tabindex="-1"></a>**Code Example**:</span>
-<span id="cb33-520"><a href="#cb33-520" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-521"><a href="#cb33-521" aria-hidden="true" tabindex="-1"></a><span class="co">// Check Windows Hello availability</span></span>
-<span id="cb33-522"><a href="#cb33-522" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>await UserConsentVerifier<span class="op">.</span><span class="fu">CheckAvailabilityAsync</span><span class="op">()</span> <span class="op">==</span> </span>
-<span id="cb33-523"><a href="#cb33-523" aria-hidden="true" tabindex="-1"></a>    UserConsentVerifierAvailability<span class="op">.</span><span class="fu">Available</span><span class="op">)</span></span>
-<span id="cb33-524"><a href="#cb33-524" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb33-525"><a href="#cb33-525" aria-hidden="true" tabindex="-1"></a>    <span class="dt">var</span> result <span class="op">=</span> await UserConsentVerifier<span class="op">.</span><span class="fu">RequestVerificationAsync</span><span class="op">(</span></span>
-<span id="cb33-526"><a href="#cb33-526" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Authenticate with Windows Hello"</span><span class="op">);</span></span>
-<span id="cb33-527"><a href="#cb33-527" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb33-528"><a href="#cb33-528" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-529"><a href="#cb33-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-530"><a href="#cb33-530" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Mobile Hybrid Apps (iOS/Android)</span></span>
-<span id="cb33-531"><a href="#cb33-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-532"><a href="#cb33-532" aria-hidden="true" tabindex="-1"></a>**Platform Authentication**:</span>
-<span id="cb33-533"><a href="#cb33-533" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**iOS**: Touch ID/Face ID through AuthenticationServices framework</span>
-<span id="cb33-534"><a href="#cb33-534" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Android**: BiometricPrompt API with device biometrics</span>
-<span id="cb33-535"><a href="#cb33-535" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cross-platform**: .NET MAUI abstracts platform differences</span>
-<span id="cb33-536"><a href="#cb33-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-537"><a href="#cb33-537" aria-hidden="true" tabindex="-1"></a>**Shared Implementation**:</span>
-<span id="cb33-538"><a href="#cb33-538" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-539"><a href="#cb33-539" aria-hidden="true" tabindex="-1"></a><span class="kw">#if</span> IOS</span>
-<span id="cb33-540"><a href="#cb33-540" aria-hidden="true" tabindex="-1"></a>    <span class="co">// iOS-specific passkey implementation</span></span>
-<span id="cb33-541"><a href="#cb33-541" aria-hidden="true" tabindex="-1"></a>    <span class="dt">var</span> authController <span class="op">=</span> <span class="kw">new</span> <span class="fu">ASAuthorizationController</span><span class="op">();</span></span>
-<span id="cb33-542"><a href="#cb33-542" aria-hidden="true" tabindex="-1"></a><span class="kw">#elif</span> ANDROID</span>
-<span id="cb33-543"><a href="#cb33-543" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Android-specific biometric implementation  </span></span>
-<span id="cb33-544"><a href="#cb33-544" aria-hidden="true" tabindex="-1"></a>    <span class="dt">var</span> biometricPrompt <span class="op">=</span> <span class="kw">new</span> AndroidX<span class="op">.</span><span class="fu">Biometric</span><span class="op">.</span><span class="fu">BiometricPrompt</span><span class="op">();</span></span>
-<span id="cb33-545"><a href="#cb33-545" aria-hidden="true" tabindex="-1"></a><span class="kw">#endif</span></span>
-<span id="cb33-546"><a href="#cb33-546" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-547"><a href="#cb33-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-548"><a href="#cb33-548" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identity Synchronization Patterns</span></span>
-<span id="cb33-549"><a href="#cb33-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-550"><a href="#cb33-550" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Hybrid App Identity Architecture</span></span>
-<span id="cb33-551"><a href="#cb33-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-552"><a href="#cb33-552" aria-hidden="true" tabindex="-1"></a>**Centralized Identity Service**:</span>
-<span id="cb33-553"><a href="#cb33-553" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-554"><a href="#cb33-554" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> HybridIdentityService <span class="op">:</span> IIdentityService</span>
-<span id="cb33-555"><a href="#cb33-555" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb33-556"><a href="#cb33-556" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> ISecureStorage secureStorage<span class="op">;</span></span>
-<span id="cb33-557"><a href="#cb33-557" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> IWebView webView<span class="op">;</span></span>
-<span id="cb33-558"><a href="#cb33-558" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb33-559"><a href="#cb33-559" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> async Task<span class="op">&lt;</span><span class="dt">bool</span><span class="op">&gt;</span> <span class="fu">AuthenticateAsync</span><span class="op">()</span></span>
-<span id="cb33-560"><a href="#cb33-560" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb33-561"><a href="#cb33-561" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1. Platform-specific passkey auth</span></span>
-<span id="cb33-562"><a href="#cb33-562" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> passKeyResult <span class="op">=</span> await PlatformAuth<span class="op">.</span><span class="fu">AuthenticateAsync</span><span class="op">();</span></span>
-<span id="cb33-563"><a href="#cb33-563" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb33-564"><a href="#cb33-564" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2. Exchange with server</span></span>
-<span id="cb33-565"><a href="#cb33-565" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> tokens <span class="op">=</span> await <span class="fu">ExchangePasskeyForTokens</span><span class="op">(</span>passKeyResult<span class="op">);</span></span>
-<span id="cb33-566"><a href="#cb33-566" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb33-567"><a href="#cb33-567" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3. Store securely</span></span>
-<span id="cb33-568"><a href="#cb33-568" aria-hidden="true" tabindex="-1"></a>        await secureStorage<span class="op">.</span><span class="fu">SetAsync</span><span class="op">(</span><span class="st">"access_token"</span><span class="op">,</span> tokens<span class="op">.</span><span class="fu">AccessToken</span><span class="op">);</span></span>
-<span id="cb33-569"><a href="#cb33-569" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb33-570"><a href="#cb33-570" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 4. Share with WebView</span></span>
-<span id="cb33-571"><a href="#cb33-571" aria-hidden="true" tabindex="-1"></a>        await webView<span class="op">.</span><span class="fu">InvokeScriptAsync</span><span class="op">(</span><span class="st">"setIdentity"</span><span class="op">,</span> tokens<span class="op">.</span><span class="fu">AccessToken</span><span class="op">);</span></span>
-<span id="cb33-572"><a href="#cb33-572" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb33-573"><a href="#cb33-573" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb33-574"><a href="#cb33-574" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb33-575"><a href="#cb33-575" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb33-576"><a href="#cb33-576" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-577"><a href="#cb33-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-578"><a href="#cb33-578" aria-hidden="true" tabindex="-1"></a><span class="fu">#### State Management Across Components</span></span>
-<span id="cb33-579"><a href="#cb33-579" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-580"><a href="#cb33-580" aria-hidden="true" tabindex="-1"></a>**Shared State Pattern**:</span>
-<span id="cb33-581"><a href="#cb33-581" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Native components**: Access identity through dependency injection</span>
-<span id="cb33-582"><a href="#cb33-582" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Blazor components**: Receive identity through JavaScript interop</span>
-<span id="cb33-583"><a href="#cb33-583" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**API clients**: Use shared token store for authentication headers</span>
-<span id="cb33-584"><a href="#cb33-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-585"><a href="#cb33-585" aria-hidden="true" tabindex="-1"></a><span class="fu">### Best Practices for Hybrid Passkey Implementation</span></span>
-<span id="cb33-586"><a href="#cb33-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-587"><a href="#cb33-587" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Security Best Practices</span></span>
-<span id="cb33-588"><a href="#cb33-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-589"><a href="#cb33-589" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Secure Token Storage**: Use platform secure storage APIs</span>
-<span id="cb33-590"><a href="#cb33-590" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Minimal WebView Exposure**: Limit sensitive data in web context</span>
-<span id="cb33-591"><a href="#cb33-591" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Token Validation**: Verify tokens before cross-component sharing</span>
-<span id="cb33-592"><a href="#cb33-592" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Secure Communication**: Encrypt data passed between native/web parts</span>
-<span id="cb33-593"><a href="#cb33-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-594"><a href="#cb33-594" aria-hidden="true" tabindex="-1"></a><span class="fu">#### User Experience Best Practices</span></span>
-<span id="cb33-595"><a href="#cb33-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-596"><a href="#cb33-596" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Seamless Authentication**: Single authentication for entire app</span>
-<span id="cb33-597"><a href="#cb33-597" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Consistent UI**: Match platform authentication patterns</span>
-<span id="cb33-598"><a href="#cb33-598" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Graceful Fallback**: Handle unsupported devices/features</span>
-<span id="cb33-599"><a href="#cb33-599" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Clear Feedback**: Show authentication status across all components</span>
-<span id="cb33-600"><a href="#cb33-600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-601"><a href="#cb33-601" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Development Best Practices</span></span>
-<span id="cb33-602"><a href="#cb33-602" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-603"><a href="#cb33-603" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Platform Abstraction**: Use interfaces for platform-specific code</span>
-<span id="cb33-604"><a href="#cb33-604" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Shared Identity Service**: Centralize authentication logic</span>
-<span id="cb33-605"><a href="#cb33-605" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Comprehensive Testing**: Test on all target platforms</span>
-<span id="cb33-606"><a href="#cb33-606" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Error Handling**: Robust handling of platform-specific failures</span>
-<span id="cb33-607"><a href="#cb33-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-608"><a href="#cb33-608" aria-hidden="true" tabindex="-1"></a><span class="fu">### Future Considerations</span></span>
-<span id="cb33-609"><a href="#cb33-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-610"><a href="#cb33-610" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Emerging Standards</span></span>
-<span id="cb33-611"><a href="#cb33-611" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cross-platform passkey sync**: iCloud Keychain, Google Password Manager</span>
-<span id="cb33-612"><a href="#cb33-612" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enterprise management**: MDM integration for corporate devices</span>
-<span id="cb33-613"><a href="#cb33-613" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enhanced interoperability**: Better cross-platform passkey sharing</span>
-<span id="cb33-614"><a href="#cb33-614" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-615"><a href="#cb33-615" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Platform Evolution</span></span>
-<span id="cb33-616"><a href="#cb33-616" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Native WebAuthn support**: Direct browser API access in WebViews</span>
-<span id="cb33-617"><a href="#cb33-617" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Improved security**: Hardware security module integration</span>
-<span id="cb33-618"><a href="#cb33-618" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Better developer tools**: Unified debugging across native/web parts</span>
-<span id="cb33-619"><a href="#cb33-619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-620"><a href="#cb33-620" aria-hidden="true" tabindex="-1"></a><span class="fu">## APPENDIX 02: .NET 10 Scaffolding Tools - `dotnet scaffold` Command</span></span>
-<span id="cb33-621"><a href="#cb33-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-622"><a href="#cb33-622" aria-hidden="true" tabindex="-1"></a><span class="al">![alt text](&lt;images/dotnet scaffold.png&gt;)</span></span>
-<span id="cb33-623"><a href="#cb33-623" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-624"><a href="#cb33-624" aria-hidden="true" tabindex="-1"></a><span class="fu">### Overview of `dotnet scaffold` Command</span></span>
-<span id="cb33-625"><a href="#cb33-625" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-626"><a href="#cb33-626" aria-hidden="true" tabindex="-1"></a>The <span class="in">`dotnet scaffold`</span> command is a new CLI tool introduced in .NET 10 that automates the generation of authentication patterns and boilerplate code for ASP.NET Core applications. It provides an interactive, cross-platform experience for setting up various authentication scenarios.</span>
-<span id="cb33-627"><a href="#cb33-627" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-628"><a href="#cb33-628" aria-hidden="true" tabindex="-1"></a><span class="fu">### Command Syntax and Basic Usage</span></span>
-<span id="cb33-629"><a href="#cb33-629" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-630"><a href="#cb33-630" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Basic Command Structure</span></span>
-<span id="cb33-631"><a href="#cb33-631" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-632"><a href="#cb33-632" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold <span class="pp">[</span><span class="ss">subcommand</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span></span>
-<span id="cb33-633"><a href="#cb33-633" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-634"><a href="#cb33-634" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-635"><a href="#cb33-635" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Available Subcommands</span></span>
-<span id="cb33-636"><a href="#cb33-636" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`identity`</span> - Scaffold ASP.NET Core Identity components</span>
-<span id="cb33-637"><a href="#cb33-637" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`auth`</span> - Scaffold authentication patterns</span>
-<span id="cb33-638"><a href="#cb33-638" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`passkey`</span> - Scaffold passkey authentication</span>
-<span id="cb33-639"><a href="#cb33-639" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`entra`</span> - Scaffold Microsoft Entra ID integration</span>
-<span id="cb33-640"><a href="#cb33-640" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`hybrid`</span> - Scaffold authentication for Blazor Hybrid/MAUI apps</span>
-<span id="cb33-641"><a href="#cb33-641" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-642"><a href="#cb33-642" aria-hidden="true" tabindex="-1"></a><span class="fu">### Authentication Scaffolding Options</span></span>
-<span id="cb33-643"><a href="#cb33-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-644"><a href="#cb33-644" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 1. ASP.NET Core Identity Scaffolding</span></span>
-<span id="cb33-645"><a href="#cb33-645" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-646"><a href="#cb33-646" aria-hidden="true" tabindex="-1"></a>**Basic Identity Setup:**</span>
-<span id="cb33-647"><a href="#cb33-647" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-648"><a href="#cb33-648" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold identity</span>
-<span id="cb33-649"><a href="#cb33-649" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-650"><a href="#cb33-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-651"><a href="#cb33-651" aria-hidden="true" tabindex="-1"></a>**With Custom Options:**</span>
-<span id="cb33-652"><a href="#cb33-652" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-653"><a href="#cb33-653" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold identity <span class="dt">\</span></span>
-<span id="cb33-654"><a href="#cb33-654" aria-hidden="true" tabindex="-1"></a>  <span class="at">--use-default-ui</span> <span class="dt">\</span></span>
-<span id="cb33-655"><a href="#cb33-655" aria-hidden="true" tabindex="-1"></a>  <span class="at">--database-provider</span> SqlServer <span class="dt">\</span></span>
-<span id="cb33-656"><a href="#cb33-656" aria-hidden="true" tabindex="-1"></a>  <span class="at">--context-name</span> ApplicationDbContext <span class="dt">\</span></span>
-<span id="cb33-657"><a href="#cb33-657" aria-hidden="true" tabindex="-1"></a>  <span class="at">--output-dir</span> Areas/Identity</span>
-<span id="cb33-658"><a href="#cb33-658" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-659"><a href="#cb33-659" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-660"><a href="#cb33-660" aria-hidden="true" tabindex="-1"></a>**Available Identity Options:**</span>
-<span id="cb33-661"><a href="#cb33-661" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--use-default-ui`</span> - Use default Bootstrap UI</span>
-<span id="cb33-662"><a href="#cb33-662" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--database-provider`</span> - Database provider (SqlServer, SQLite, PostgreSQL, InMemory)</span>
-<span id="cb33-663"><a href="#cb33-663" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--context-name`</span> - DbContext class name</span>
-<span id="cb33-664"><a href="#cb33-664" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--output-dir`</span> - Output directory for generated files</span>
-<span id="cb33-665"><a href="#cb33-665" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--force`</span> - Overwrite existing files</span>
-<span id="cb33-666"><a href="#cb33-666" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--layout-page`</span> - Custom layout page path</span>
-<span id="cb33-667"><a href="#cb33-667" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-668"><a href="#cb33-668" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2. Passkey Authentication Scaffolding</span></span>
-<span id="cb33-669"><a href="#cb33-669" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-670"><a href="#cb33-670" aria-hidden="true" tabindex="-1"></a>**Basic Passkey Setup:**</span>
-<span id="cb33-671"><a href="#cb33-671" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-672"><a href="#cb33-672" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold passkey</span>
-<span id="cb33-673"><a href="#cb33-673" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-674"><a href="#cb33-674" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-675"><a href="#cb33-675" aria-hidden="true" tabindex="-1"></a>**Advanced Passkey Configuration:**</span>
-<span id="cb33-676"><a href="#cb33-676" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-677"><a href="#cb33-677" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold passkey <span class="dt">\</span></span>
-<span id="cb33-678"><a href="#cb33-678" aria-hidden="true" tabindex="-1"></a>  <span class="at">--relying-party-name</span> <span class="st">"My App"</span> <span class="dt">\</span></span>
-<span id="cb33-679"><a href="#cb33-679" aria-hidden="true" tabindex="-1"></a>  <span class="at">--relying-party-id</span> <span class="st">"myapp.com"</span> <span class="dt">\</span></span>
-<span id="cb33-680"><a href="#cb33-680" aria-hidden="true" tabindex="-1"></a>  <span class="at">--origins</span> <span class="st">"https://myapp.com,https://localhost:5001"</span> <span class="dt">\</span></span>
-<span id="cb33-681"><a href="#cb33-681" aria-hidden="true" tabindex="-1"></a>  <span class="at">--include-fallback</span> <span class="dt">\</span></span>
-<span id="cb33-682"><a href="#cb33-682" aria-hidden="true" tabindex="-1"></a>  <span class="at">--database-provider</span> SqlServer</span>
-<span id="cb33-683"><a href="#cb33-683" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-684"><a href="#cb33-684" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-685"><a href="#cb33-685" aria-hidden="true" tabindex="-1"></a>**Passkey-Specific Options:**</span>
-<span id="cb33-686"><a href="#cb33-686" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--relying-party-name`</span> - Display name for the application</span>
-<span id="cb33-687"><a href="#cb33-687" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--relying-party-id`</span> - Domain identifier for passkeys</span>
-<span id="cb33-688"><a href="#cb33-688" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--origins`</span> - Comma-separated list of allowed origins</span>
-<span id="cb33-689"><a href="#cb33-689" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--include-fallback`</span> - Include password fallback options</span>
-<span id="cb33-690"><a href="#cb33-690" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--user-verification`</span> - Required, preferred, or discouraged</span>
-<span id="cb33-691"><a href="#cb33-691" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--attestation`</span> - Attestation preference (none, indirect, direct)</span>
-<span id="cb33-692"><a href="#cb33-692" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-693"><a href="#cb33-693" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 3. Microsoft Entra ID Integration</span></span>
-<span id="cb33-694"><a href="#cb33-694" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-695"><a href="#cb33-695" aria-hidden="true" tabindex="-1"></a>**Basic Entra ID Setup:**</span>
-<span id="cb33-696"><a href="#cb33-696" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-697"><a href="#cb33-697" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold entra</span>
-<span id="cb33-698"><a href="#cb33-698" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-699"><a href="#cb33-699" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-700"><a href="#cb33-700" aria-hidden="true" tabindex="-1"></a>**With Configuration:**</span>
-<span id="cb33-701"><a href="#cb33-701" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-702"><a href="#cb33-702" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold entra <span class="dt">\</span></span>
-<span id="cb33-703"><a href="#cb33-703" aria-hidden="true" tabindex="-1"></a>  <span class="at">--tenant-id</span> <span class="st">"your-tenant-id"</span> <span class="dt">\</span></span>
-<span id="cb33-704"><a href="#cb33-704" aria-hidden="true" tabindex="-1"></a>  <span class="at">--client-id</span> <span class="st">"your-client-id"</span> <span class="dt">\</span></span>
-<span id="cb33-705"><a href="#cb33-705" aria-hidden="true" tabindex="-1"></a>  <span class="at">--domain</span> <span class="st">"yourdomain.onmicrosoft.com"</span> <span class="dt">\</span></span>
-<span id="cb33-706"><a href="#cb33-706" aria-hidden="true" tabindex="-1"></a>  <span class="at">--callback-path</span> <span class="st">"/signin-oidc"</span> <span class="dt">\</span></span>
-<span id="cb33-707"><a href="#cb33-707" aria-hidden="true" tabindex="-1"></a>  <span class="at">--include-graph-api</span></span>
-<span id="cb33-708"><a href="#cb33-708" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-709"><a href="#cb33-709" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-710"><a href="#cb33-710" aria-hidden="true" tabindex="-1"></a>**Entra ID Options:**</span>
-<span id="cb33-711"><a href="#cb33-711" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--tenant-id`</span> - Azure AD tenant identifier</span>
-<span id="cb33-712"><a href="#cb33-712" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--client-id`</span> - Application (client) ID</span>
-<span id="cb33-713"><a href="#cb33-713" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--domain`</span> - Azure AD domain</span>
-<span id="cb33-714"><a href="#cb33-714" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--callback-path`</span> - OAuth callback path</span>
-<span id="cb33-715"><a href="#cb33-715" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--include-graph-api`</span> - Add Microsoft Graph API integration</span>
-<span id="cb33-716"><a href="#cb33-716" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--scopes`</span> - Comma-separated list of OAuth scopes</span>
-<span id="cb33-717"><a href="#cb33-717" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-718"><a href="#cb33-718" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 4. Hybrid Application Authentication</span></span>
-<span id="cb33-719"><a href="#cb33-719" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-720"><a href="#cb33-720" aria-hidden="true" tabindex="-1"></a>**Blazor Hybrid/MAUI Setup:**</span>
-<span id="cb33-721"><a href="#cb33-721" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-722"><a href="#cb33-722" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold hybrid</span>
-<span id="cb33-723"><a href="#cb33-723" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-724"><a href="#cb33-724" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-725"><a href="#cb33-725" aria-hidden="true" tabindex="-1"></a>**With Platform-Specific Options:**</span>
-<span id="cb33-726"><a href="#cb33-726" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-727"><a href="#cb33-727" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold hybrid <span class="dt">\</span></span>
-<span id="cb33-728"><a href="#cb33-728" aria-hidden="true" tabindex="-1"></a>  <span class="at">--platforms</span> <span class="st">"Windows,iOS,Android"</span> <span class="dt">\</span></span>
-<span id="cb33-729"><a href="#cb33-729" aria-hidden="true" tabindex="-1"></a>  <span class="at">--authentication-type</span> <span class="st">"Passkey"</span> <span class="dt">\</span></span>
-<span id="cb33-730"><a href="#cb33-730" aria-hidden="true" tabindex="-1"></a>  <span class="at">--include-web-fallback</span> <span class="dt">\</span></span>
-<span id="cb33-731"><a href="#cb33-731" aria-hidden="true" tabindex="-1"></a>  <span class="at">--shared-identity-service</span></span>
-<span id="cb33-732"><a href="#cb33-732" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-733"><a href="#cb33-733" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-734"><a href="#cb33-734" aria-hidden="true" tabindex="-1"></a>**Hybrid-Specific Options:**</span>
-<span id="cb33-735"><a href="#cb33-735" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--platforms`</span> - Target platforms (Windows, iOS, Android, macOS)</span>
-<span id="cb33-736"><a href="#cb33-736" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--authentication-type`</span> - Authentication method (Passkey, Entra, Custom)</span>
-<span id="cb33-737"><a href="#cb33-737" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--include-web-fallback`</span> - Include web-based authentication fallback</span>
-<span id="cb33-738"><a href="#cb33-738" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--shared-identity-service`</span> - Generate shared identity service interface</span>
-<span id="cb33-739"><a href="#cb33-739" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-740"><a href="#cb33-740" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interactive Mode</span></span>
-<span id="cb33-741"><a href="#cb33-741" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-742"><a href="#cb33-742" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Starting Interactive Session</span></span>
-<span id="cb33-743"><a href="#cb33-743" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-744"><a href="#cb33-744" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold auth <span class="at">--interactive</span></span>
-<span id="cb33-745"><a href="#cb33-745" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-746"><a href="#cb33-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-747"><a href="#cb33-747" aria-hidden="true" tabindex="-1"></a>**Interactive Prompts:**</span>
-<span id="cb33-748"><a href="#cb33-748" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Authentication Type Selection:**</span>
-<span id="cb33-749"><a href="#cb33-749" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>ASP.NET Core Identity</span>
-<span id="cb33-750"><a href="#cb33-750" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Passkey Authentication</span>
-<span id="cb33-751"><a href="#cb33-751" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Microsoft Entra ID</span>
-<span id="cb33-752"><a href="#cb33-752" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Custom OAuth Provider</span>
-<span id="cb33-753"><a href="#cb33-753" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Hybrid (Blazor/MAUI)</span>
-<span id="cb33-754"><a href="#cb33-754" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-755"><a href="#cb33-755" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Configuration Options:**</span>
-<span id="cb33-756"><a href="#cb33-756" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Database provider selection</span>
-<span id="cb33-757"><a href="#cb33-757" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>UI framework choice</span>
-<span id="cb33-758"><a href="#cb33-758" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Security requirements</span>
-<span id="cb33-759"><a href="#cb33-759" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Platform targets (for hybrid)</span>
-<span id="cb33-760"><a href="#cb33-760" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-761"><a href="#cb33-761" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Advanced Settings:**</span>
-<span id="cb33-762"><a href="#cb33-762" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Custom claim types</span>
-<span id="cb33-763"><a href="#cb33-763" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Role-based authorization</span>
-<span id="cb33-764"><a href="#cb33-764" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Multi-factor authentication</span>
-<span id="cb33-765"><a href="#cb33-765" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Session management</span>
-<span id="cb33-766"><a href="#cb33-766" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-767"><a href="#cb33-767" aria-hidden="true" tabindex="-1"></a><span class="fu">### Generated File Structure</span></span>
-<span id="cb33-768"><a href="#cb33-768" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-769"><a href="#cb33-769" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Identity Scaffolding Output</span></span>
-<span id="cb33-770"><a href="#cb33-770" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-771"><a href="#cb33-771" aria-hidden="true" tabindex="-1"></a><span class="in">Areas/</span></span>
-<span id="cb33-772"><a href="#cb33-772" aria-hidden="true" tabindex="-1"></a><span class="in">└── Identity/</span></span>
-<span id="cb33-773"><a href="#cb33-773" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── Data/</span></span>
-<span id="cb33-774"><a href="#cb33-774" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── ApplicationDbContext.cs</span></span>
-<span id="cb33-775"><a href="#cb33-775" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── Pages/</span></span>
-<span id="cb33-776"><a href="#cb33-776" aria-hidden="true" tabindex="-1"></a><span class="in">    │   ├── Account/</span></span>
-<span id="cb33-777"><a href="#cb33-777" aria-hidden="true" tabindex="-1"></a><span class="in">    │   │   ├── Login.cshtml</span></span>
-<span id="cb33-778"><a href="#cb33-778" aria-hidden="true" tabindex="-1"></a><span class="in">    │   │   ├── Register.cshtml</span></span>
-<span id="cb33-779"><a href="#cb33-779" aria-hidden="true" tabindex="-1"></a><span class="in">    │   │   └── Logout.cshtml</span></span>
-<span id="cb33-780"><a href="#cb33-780" aria-hidden="true" tabindex="-1"></a><span class="in">    │   └── Shared/</span></span>
-<span id="cb33-781"><a href="#cb33-781" aria-hidden="true" tabindex="-1"></a><span class="in">    └── IdentityHostingStartup.cs</span></span>
-<span id="cb33-782"><a href="#cb33-782" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-783"><a href="#cb33-783" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-784"><a href="#cb33-784" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Passkey Scaffolding Output</span></span>
-<span id="cb33-785"><a href="#cb33-785" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-786"><a href="#cb33-786" aria-hidden="true" tabindex="-1"></a><span class="in">Authentication/</span></span>
-<span id="cb33-787"><a href="#cb33-787" aria-hidden="true" tabindex="-1"></a><span class="in">├── Passkey/</span></span>
-<span id="cb33-788"><a href="#cb33-788" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── PasskeyService.cs</span></span>
-<span id="cb33-789"><a href="#cb33-789" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── PasskeyController.cs</span></span>
-<span id="cb33-790"><a href="#cb33-790" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── PasskeyOptions.cs</span></span>
-<span id="cb33-791"><a href="#cb33-791" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── Models/</span></span>
-<span id="cb33-792"><a href="#cb33-792" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├── PasskeyCredential.cs</span></span>
-<span id="cb33-793"><a href="#cb33-793" aria-hidden="true" tabindex="-1"></a><span class="in">│       └── AuthenticationResult.cs</span></span>
-<span id="cb33-794"><a href="#cb33-794" aria-hidden="true" tabindex="-1"></a><span class="in">├── Configuration/</span></span>
-<span id="cb33-795"><a href="#cb33-795" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── PasskeyConfiguration.cs</span></span>
-<span id="cb33-796"><a href="#cb33-796" aria-hidden="true" tabindex="-1"></a><span class="in">└── wwwroot/</span></span>
-<span id="cb33-797"><a href="#cb33-797" aria-hidden="true" tabindex="-1"></a><span class="in">    └── js/</span></span>
-<span id="cb33-798"><a href="#cb33-798" aria-hidden="true" tabindex="-1"></a><span class="in">        └── passkey-auth.js</span></span>
-<span id="cb33-799"><a href="#cb33-799" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-800"><a href="#cb33-800" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-801"><a href="#cb33-801" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Entra ID Scaffolding Output</span></span>
-<span id="cb33-802"><a href="#cb33-802" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-803"><a href="#cb33-803" aria-hidden="true" tabindex="-1"></a><span class="in">Authentication/</span></span>
-<span id="cb33-804"><a href="#cb33-804" aria-hidden="true" tabindex="-1"></a><span class="in">├── EntraId/</span></span>
-<span id="cb33-805"><a href="#cb33-805" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── EntraIdService.cs</span></span>
-<span id="cb33-806"><a href="#cb33-806" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── GraphApiService.cs</span></span>
-<span id="cb33-807"><a href="#cb33-807" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── Models/</span></span>
-<span id="cb33-808"><a href="#cb33-808" aria-hidden="true" tabindex="-1"></a><span class="in">│       └── UserProfile.cs</span></span>
-<span id="cb33-809"><a href="#cb33-809" aria-hidden="true" tabindex="-1"></a><span class="in">├── Configuration/</span></span>
-<span id="cb33-810"><a href="#cb33-810" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── EntraIdConfiguration.cs</span></span>
-<span id="cb33-811"><a href="#cb33-811" aria-hidden="true" tabindex="-1"></a><span class="in">└── Controllers/</span></span>
-<span id="cb33-812"><a href="#cb33-812" aria-hidden="true" tabindex="-1"></a><span class="in">    └── AccountController.cs</span></span>
-<span id="cb33-813"><a href="#cb33-813" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-814"><a href="#cb33-814" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-815"><a href="#cb33-815" aria-hidden="true" tabindex="-1"></a><span class="fu">### Configuration Files Generated</span></span>
-<span id="cb33-816"><a href="#cb33-816" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-817"><a href="#cb33-817" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `appsettings.json` Updates</span></span>
-<span id="cb33-818"><a href="#cb33-818" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
-<span id="cb33-819"><a href="#cb33-819" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb33-820"><a href="#cb33-820" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Authentication"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb33-821"><a href="#cb33-821" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Passkey"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb33-822"><a href="#cb33-822" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"RPDisplayName"</span><span class="fu">:</span> <span class="st">"My Application"</span><span class="fu">,</span></span>
-<span id="cb33-823"><a href="#cb33-823" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"RPId"</span><span class="fu">:</span> <span class="st">"myapp.com"</span><span class="fu">,</span></span>
-<span id="cb33-824"><a href="#cb33-824" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"Origins"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb33-825"><a href="#cb33-825" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://myapp.com"</span><span class="ot">,</span></span>
-<span id="cb33-826"><a href="#cb33-826" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://localhost:5001"</span></span>
-<span id="cb33-827"><a href="#cb33-827" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb33-828"><a href="#cb33-828" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"UserVerification"</span><span class="fu">:</span> <span class="st">"required"</span><span class="fu">,</span></span>
-<span id="cb33-829"><a href="#cb33-829" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"Attestation"</span><span class="fu">:</span> <span class="st">"none"</span></span>
-<span id="cb33-830"><a href="#cb33-830" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
-<span id="cb33-831"><a href="#cb33-831" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"EntraId"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb33-832"><a href="#cb33-832" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"TenantId"</span><span class="fu">:</span> <span class="st">"your-tenant-id"</span><span class="fu">,</span></span>
-<span id="cb33-833"><a href="#cb33-833" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"ClientId"</span><span class="fu">:</span> <span class="st">"your-client-id"</span><span class="fu">,</span></span>
-<span id="cb33-834"><a href="#cb33-834" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"Domain"</span><span class="fu">:</span> <span class="st">"yourdomain.onmicrosoft.com"</span><span class="fu">,</span></span>
-<span id="cb33-835"><a href="#cb33-835" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"CallbackPath"</span><span class="fu">:</span> <span class="st">"/signin-oidc"</span></span>
-<span id="cb33-836"><a href="#cb33-836" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="cb33-837"><a href="#cb33-837" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb33-838"><a href="#cb33-838" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span>
-<span id="cb33-839"><a href="#cb33-839" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-840"><a href="#cb33-840" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-841"><a href="#cb33-841" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `Program.cs` Modifications</span></span>
-<span id="cb33-842"><a href="#cb33-842" aria-hidden="true" tabindex="-1"></a><span class="in">```csharp</span></span>
-<span id="cb33-843"><a href="#cb33-843" aria-hidden="true" tabindex="-1"></a><span class="co">// Added by scaffolding</span></span>
-<span id="cb33-844"><a href="#cb33-844" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">Services</span><span class="op">.</span><span class="fu">AddAuthentication</span><span class="op">()</span></span>
-<span id="cb33-845"><a href="#cb33-845" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">AddPasskey</span><span class="op">(</span>options <span class="op">=&gt;</span></span>
-<span id="cb33-846"><a href="#cb33-846" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb33-847"><a href="#cb33-847" aria-hidden="true" tabindex="-1"></a>        builder<span class="op">.</span><span class="fu">Configuration</span><span class="op">.</span><span class="fu">Bind</span><span class="op">(</span><span class="st">"Authentication:Passkey"</span><span class="op">,</span> options<span class="op">);</span></span>
-<span id="cb33-848"><a href="#cb33-848" aria-hidden="true" tabindex="-1"></a>    <span class="op">})</span></span>
-<span id="cb33-849"><a href="#cb33-849" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">AddMicrosoftIdentityWebApp</span><span class="op">(</span>options <span class="op">=&gt;</span></span>
-<span id="cb33-850"><a href="#cb33-850" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb33-851"><a href="#cb33-851" aria-hidden="true" tabindex="-1"></a>        builder<span class="op">.</span><span class="fu">Configuration</span><span class="op">.</span><span class="fu">Bind</span><span class="op">(</span><span class="st">"Authentication:EntraId"</span><span class="op">,</span> options<span class="op">);</span></span>
-<span id="cb33-852"><a href="#cb33-852" aria-hidden="true" tabindex="-1"></a>    <span class="op">});</span></span>
-<span id="cb33-853"><a href="#cb33-853" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-854"><a href="#cb33-854" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">Services</span><span class="op">.</span><span class="fu">AddScoped</span><span class="op">&lt;</span>IPasskeyService<span class="op">,</span> PasskeyService<span class="op">&gt;();</span></span>
-<span id="cb33-855"><a href="#cb33-855" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-856"><a href="#cb33-856" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-857"><a href="#cb33-857" aria-hidden="true" tabindex="-1"></a><span class="fu">### Advanced Scaffolding Scenarios</span></span>
-<span id="cb33-858"><a href="#cb33-858" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-859"><a href="#cb33-859" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Multi-Authentication Provider Setup</span></span>
-<span id="cb33-860"><a href="#cb33-860" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-861"><a href="#cb33-861" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold auth <span class="dt">\</span></span>
-<span id="cb33-862"><a href="#cb33-862" aria-hidden="true" tabindex="-1"></a>  <span class="at">--providers</span> <span class="st">"Identity,Passkey,EntraId"</span> <span class="dt">\</span></span>
-<span id="cb33-863"><a href="#cb33-863" aria-hidden="true" tabindex="-1"></a>  <span class="at">--default-provider</span> <span class="st">"Passkey"</span> <span class="dt">\</span></span>
-<span id="cb33-864"><a href="#cb33-864" aria-hidden="true" tabindex="-1"></a>  <span class="at">--include-provider-selection-ui</span></span>
-<span id="cb33-865"><a href="#cb33-865" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-866"><a href="#cb33-866" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-867"><a href="#cb33-867" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Enterprise Configuration</span></span>
-<span id="cb33-868"><a href="#cb33-868" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-869"><a href="#cb33-869" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold identity <span class="dt">\</span></span>
-<span id="cb33-870"><a href="#cb33-870" aria-hidden="true" tabindex="-1"></a>  <span class="at">--enterprise-features</span> <span class="dt">\</span></span>
-<span id="cb33-871"><a href="#cb33-871" aria-hidden="true" tabindex="-1"></a>  <span class="at">--include-lockout-policy</span> <span class="dt">\</span></span>
-<span id="cb33-872"><a href="#cb33-872" aria-hidden="true" tabindex="-1"></a>  <span class="at">--include-password-policy</span> <span class="dt">\</span></span>
-<span id="cb33-873"><a href="#cb33-873" aria-hidden="true" tabindex="-1"></a>  <span class="at">--include-audit-logging</span> <span class="dt">\</span></span>
-<span id="cb33-874"><a href="#cb33-874" aria-hidden="true" tabindex="-1"></a>  <span class="at">--compliance-mode</span> <span class="st">"SOX,HIPAA"</span></span>
-<span id="cb33-875"><a href="#cb33-875" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-876"><a href="#cb33-876" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-877"><a href="#cb33-877" aria-hidden="true" tabindex="-1"></a><span class="fu">#### API-Only Authentication</span></span>
-<span id="cb33-878"><a href="#cb33-878" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-879"><a href="#cb33-879" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold auth <span class="dt">\</span></span>
-<span id="cb33-880"><a href="#cb33-880" aria-hidden="true" tabindex="-1"></a>  <span class="at">--api-only</span> <span class="dt">\</span></span>
-<span id="cb33-881"><a href="#cb33-881" aria-hidden="true" tabindex="-1"></a>  <span class="at">--jwt-configuration</span> <span class="dt">\</span></span>
-<span id="cb33-882"><a href="#cb33-882" aria-hidden="true" tabindex="-1"></a>  <span class="at">--include-refresh-tokens</span> <span class="dt">\</span></span>
-<span id="cb33-883"><a href="#cb33-883" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cors-origins</span> <span class="st">"https://myapp.com"</span></span>
-<span id="cb33-884"><a href="#cb33-884" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-885"><a href="#cb33-885" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-886"><a href="#cb33-886" aria-hidden="true" tabindex="-1"></a><span class="fu">### Customization and Extensibility</span></span>
-<span id="cb33-887"><a href="#cb33-887" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-888"><a href="#cb33-888" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Custom Templates</span></span>
-<span id="cb33-889"><a href="#cb33-889" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-890"><a href="#cb33-890" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold identity <span class="dt">\</span></span>
-<span id="cb33-891"><a href="#cb33-891" aria-hidden="true" tabindex="-1"></a>  <span class="at">--template-path</span> <span class="st">"./Templates/CustomIdentity"</span> <span class="dt">\</span></span>
-<span id="cb33-892"><a href="#cb33-892" aria-hidden="true" tabindex="-1"></a>  <span class="at">--custom-user-model</span> <span class="st">"ApplicationUser"</span></span>
-<span id="cb33-893"><a href="#cb33-893" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-894"><a href="#cb33-894" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-895"><a href="#cb33-895" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Post-Scaffolding Customization</span></span>
-<span id="cb33-896"><a href="#cb33-896" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-897"><a href="#cb33-897" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate additional components</span></span>
-<span id="cb33-898"><a href="#cb33-898" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold identity-components <span class="dt">\</span></span>
-<span id="cb33-899"><a href="#cb33-899" aria-hidden="true" tabindex="-1"></a>  <span class="at">--components</span> <span class="st">"TwoFactorAuth,ExternalLogin,PasswordRecovery"</span></span>
-<span id="cb33-900"><a href="#cb33-900" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-901"><a href="#cb33-901" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-902"><a href="#cb33-902" aria-hidden="true" tabindex="-1"></a><span class="fu">### Best Practices for Scaffolding</span></span>
-<span id="cb33-903"><a href="#cb33-903" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-904"><a href="#cb33-904" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Development Workflow</span></span>
-<span id="cb33-905"><a href="#cb33-905" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Start with Interactive Mode** for first-time setup</span>
-<span id="cb33-906"><a href="#cb33-906" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Use Specific Commands** for CI/CD automation</span>
-<span id="cb33-907"><a href="#cb33-907" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Review Generated Code** before committing</span>
-<span id="cb33-908"><a href="#cb33-908" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Test All Authentication Flows** after scaffolding</span>
-<span id="cb33-909"><a href="#cb33-909" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-910"><a href="#cb33-910" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Security Considerations</span></span>
-<span id="cb33-911"><a href="#cb33-911" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Update Default Secrets** in generated configuration</span>
-<span id="cb33-912"><a href="#cb33-912" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Review Generated Policies** for compliance requirements</span>
-<span id="cb33-913"><a href="#cb33-913" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Validate HTTPS Configuration** in production settings</span>
-<span id="cb33-914"><a href="#cb33-914" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Test Cross-Platform Compatibility** for hybrid apps</span>
-<span id="cb33-915"><a href="#cb33-915" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-916"><a href="#cb33-916" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Project Organization</span></span>
-<span id="cb33-917"><a href="#cb33-917" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Use Consistent Naming** across authentication components</span>
-<span id="cb33-918"><a href="#cb33-918" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Separate Authentication Logic** from business logic</span>
-<span id="cb33-919"><a href="#cb33-919" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Document Custom Modifications** to generated code</span>
-<span id="cb33-920"><a href="#cb33-920" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Version Control Integration** with meaningful commit messages</span>
-<span id="cb33-921"><a href="#cb33-921" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-922"><a href="#cb33-922" aria-hidden="true" tabindex="-1"></a><span class="fu">### Troubleshooting Common Issues</span></span>
-<span id="cb33-923"><a href="#cb33-923" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-924"><a href="#cb33-924" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Database Provider Issues</span></span>
-<span id="cb33-925"><a href="#cb33-925" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-926"><a href="#cb33-926" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix missing database provider</span></span>
-<span id="cb33-927"><a href="#cb33-927" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> add package Microsoft.EntityFrameworkCore.SqlServer</span>
-<span id="cb33-928"><a href="#cb33-928" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold identity <span class="at">--database-provider</span> SqlServer <span class="at">--force</span></span>
-<span id="cb33-929"><a href="#cb33-929" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-930"><a href="#cb33-930" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-931"><a href="#cb33-931" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Missing Dependencies</span></span>
-<span id="cb33-932"><a href="#cb33-932" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-933"><a href="#cb33-933" aria-hidden="true" tabindex="-1"></a><span class="co"># Install required packages</span></span>
-<span id="cb33-934"><a href="#cb33-934" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> add package Microsoft.AspNetCore.Identity.EntityFrameworkCore</span>
-<span id="cb33-935"><a href="#cb33-935" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> add package Microsoft.AspNetCore.Authentication.JwtBearer</span>
-<span id="cb33-936"><a href="#cb33-936" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-937"><a href="#cb33-937" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-938"><a href="#cb33-938" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Platform-Specific Problems</span></span>
-<span id="cb33-939"><a href="#cb33-939" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb33-940"><a href="#cb33-940" aria-hidden="true" tabindex="-1"></a><span class="co"># iOS-specific scaffolding</span></span>
-<span id="cb33-941"><a href="#cb33-941" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold hybrid <span class="at">--platforms</span> iOS <span class="at">--fix-entitlements</span></span>
-<span id="cb33-942"><a href="#cb33-942" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb33-943"><a href="#cb33-943" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-944"><a href="#cb33-944" aria-hidden="true" tabindex="-1"></a><span class="fu">### Future Enhancements</span></span>
-<span id="cb33-945"><a href="#cb33-945" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-946"><a href="#cb33-946" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Planned Features</span></span>
-<span id="cb33-947"><a href="#cb33-947" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**AI-Assisted Scaffolding**: Intelligent code generation based on project analysis</span>
-<span id="cb33-948"><a href="#cb33-948" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloud Integration**: Direct Azure/AWS service configuration</span>
-<span id="cb33-949"><a href="#cb33-949" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Testing Scaffold**: Automatic test generation for authentication flows</span>
-<span id="cb33-950"><a href="#cb33-950" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Migration Tools**: Automated upgrade paths between authentication methods</span>
-<span id="cb33-951"><a href="#cb33-951" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-952"><a href="#cb33-952" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Community Extensions</span></span>
-<span id="cb33-953"><a href="#cb33-953" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Custom Provider Templates**: Community-contributed authentication providers</span>
-<span id="cb33-954"><a href="#cb33-954" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Enterprise Templates**: Industry-specific authentication patterns</span>
-<span id="cb33-955"><a href="#cb33-955" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Integration Packages**: Third-party service integrations</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -3106,9 +3186,40 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

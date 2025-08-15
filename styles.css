@@ -302,3 +302,137 @@ a:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(123, 159, 224, 0.15);
 }
+
+/* Custom Right Navigation Widget */
+.custom-right-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, var(--bg-pastel-blue) 0%, var(--bg-pastel-purple) 100%);
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(123, 159, 224, 0.2);
+  max-width: 200px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.custom-right-nav:hover {
+  box-shadow: 0 8px 24px rgba(123, 159, 224, 0.3);
+  transform: translateY(-50%) translateX(-5px);
+}
+
+.custom-right-nav h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.custom-right-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-right-nav li {
+  margin-bottom: 0.25rem;
+}
+
+.custom-right-nav a {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  color: var(--primary-dark);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.custom-right-nav a:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+  color: var(--primary-dark);
+  transform: translateX(3px);
+}
+
+/* Hide on mobile */
+@media (max-width: 1200px) {
+  .custom-right-nav {
+    display: none;
+  }
+}
+
+/* Enhanced ToC integration */
+#quarto-margin-sidebar {
+  padding-top: 1rem;
+}
+
+#quarto-margin-sidebar .toc-active {
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--bg-pastel-gray) 0%, var(--bg-pastel-blue) 100%);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(123, 159, 224, 0.1);
+}
+
+#quarto-margin-sidebar .toc-active h2 {
+  color: var(--primary-dark);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Add custom navigation widget after ToC */
+.custom-toc-addition {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, var(--bg-pastel-purple) 0%, var(--bg-pastel-pink) 100%);
+  border: 2px solid var(--secondary-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 3px 12px rgba(167, 139, 250, 0.2);
+}
+
+.custom-toc-addition h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: var(--secondary-dark);
+  text-align: center;
+  font-weight: 600;
+}
+
+.custom-toc-addition ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-toc-addition li {
+  margin-bottom: 0.5rem;
+}
+
+.custom-toc-addition a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--secondary-dark);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid transparent;
+}
+
+.custom-toc-addition a:hover {
+  background: linear-gradient(135deg, var(--bg-pastel-green) 0%, var(--bg-pastel-yellow) 100%);
+  color: var(--primary-dark);
+  transform: translateX(3px);
+  border-color: var(--accent-color);
+  box-shadow: 0 2px 8px rgba(134, 239, 172, 0.3);
+}
