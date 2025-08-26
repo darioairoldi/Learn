@@ -46,12 +46,30 @@ jobs:
       #     **/*.msi
       #     **/*.pdf  
 
+    - name: Setup System PATH
+      shell: pwsh
+      run: |
+        # Ensure System32 is in PATH for WSL access
+        $system32 = "C:\Windows\System32"
+        if ($env:PATH -notlike "*$system32*") {
+          $env:PATH = "$system32;$env:PATH"
+          Write-Host "Added $system32 to PATH"
+        }
+        
+        # Persist PATH for subsequent steps
+        echo "$system32" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        
+        Write-Host "Current PATH contains System32: $($env:PATH -like '*System32*')"
+
     - name: Test WSL Access
       shell: pwsh
       run: |
         Write-Host "Testing WSL availability..."
-        wsl --list --verbose
-        wsl --exec echo "WSL is working!"
+        
+        # Test WSL directly
+        C:\Windows\System32\wsl.exe --version
+        C:\Windows\System32\wsl.exe --list --verbose
+        C:\Windows\System32\wsl.exe --exec echo "WSL is working!"
 
     - name: Setup Quarto
       uses: quarto-dev/quarto-actions/setup@v2
