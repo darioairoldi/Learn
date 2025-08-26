@@ -128,6 +128,7 @@ jobs:
         Write-Host "Current user: $env:USERNAME"
         Write-Host "Computer: $env:COMPUTERNAME"
         Write-Host "PowerShell version: $($PSVersionTable.PSVersion)"
+        Write-Host "Running as admin: $([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)"
         
         # Check PATH
         Write-Host "`n=== PATH Contents ==="
@@ -169,6 +170,66 @@ jobs:
       uses: quarto-dev/quarto-actions/setup@v2
       with:
         version: pre-release
+
+    - name: Setup Quarto (Fallback to Native Windows)
+      if: failure() || always()
+      shell: pwsh
+      run: |
+        Write-Host "Setting up Quarto using native Windows installation..."
+        
+        # Check if Quarto is already installed
+        try {
+          $existing = quarto --version 2>$null
+          Write-Host "Quarto already installed: $existing"
+          exit 0
+        } catch {
+          Write-Host "Quarto not found, proceeding with installation..."
+        }
+        
+        # Download and install Quarto for Windows
+        $quartoVersion = "1.4.550"  # Use latest stable version
+        $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"
+        
+        Write-Host "Downloading Quarto from: $quartoUrl"
+        try {
+          Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
+          Write-Host "Download completed successfully"
+        } catch {
+          Write-Host "Download failed: $_"
+          exit 1
+        }
+        
+        # Install Quarto silently
+        Write-Host "Installing Quarto..."
+        try {
+          $process = Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait -PassThru
+          Write-Host "Installation completed with exit code: $($process.ExitCode)"
+        } catch {
+          Write-Host "Installation failed: $_"
+          exit 1
+        }
+        
+        # Add Quarto to PATH for current session
+        $quartoPath = "C:\Program Files\Quarto\bin"
+        if (Test-Path $quartoPath) {
+          $env:PATH = "$quartoPath;$env:PATH"
+          Write-Host "Added $quartoPath to PATH"
+          
+          # Persist PATH for subsequent steps
+          echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        } else {
+          Write-Host "Quarto installation directory not found at $quartoPath"
+          exit 1
+        }
+        
+        # Verify installation
+        try {
+          $version = quarto --version
+          Write-Host "Quarto installed successfully: $version"
+        } catch {
+          Write-Host "Quarto installation verification failed: $_"
+          exit 1
+        }
         
     - name: Check for Python requirements
       id: check-python
@@ -277,62 +338,3 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
-    - name: Setup Quarto (Fallback to Native Windows)
-      if: failure() || always()
-      shell: pwsh
-      run: |
-        Write-Host "Setting up Quarto using native Windows installation..."
-        
-        # Check if Quarto is already installed
-        try {
-          $existing = quarto --version 2>$null
-          Write-Host "Quarto already installed: $existing"
-          exit 0
-        } catch {
-          Write-Host "Quarto not found, proceeding with installation..."
-        }
-        
-        # Download and install Quarto for Windows
-        $quartoVersion = "1.4.550"  # Use latest stable version
-        $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"
-        
-        Write-Host "Downloading Quarto from: $quartoUrl"
-        try {
-          Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
-          Write-Host "Download completed successfully"
-        } catch {
-          Write-Host "Download failed: $_"
-          exit 1
-        }
-        
-        # Install Quarto silently
-        Write-Host "Installing Quarto..."
-        try {
-          $process = Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait -PassThru
-          Write-Host "Installation completed with exit code: $($process.ExitCode)"
-        } catch {
-          Write-Host "Installation failed: $_"
-          exit 1
-        }
-        
-        # Add Quarto to PATH for current session
-        $quartoPath = "C:\Program Files\Quarto\bin"
-        if (Test-Path $quartoPath) {
-          $env:PATH = "$quartoPath;$env:PATH"
-          Write-Host "Added $quartoPath to PATH"
-          
-          # Persist PATH for subsequent steps
-          echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-        } else {
-          Write-Host "Quarto installation directory not found at $quartoPath"
-          exit 1
-        }
-        
-        # Verify installation
-        try {
-          $version = quarto --version
-          Write-Host "Quarto installed successfully: $version"
-        } catch {
-          Write-Host "Quarto installation verification failed: $_"
-          exit 1
-        }
