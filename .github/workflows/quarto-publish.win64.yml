@@ -1,4 +1,4 @@
-name: Render and Deploy Quarto Site to GitHub Pages
+name: Quarto Site Render and Deploy to GitHub Pages
 
 on:
   push:
@@ -221,7 +221,7 @@ jobs:
     - name: Upload Pages artifact (Alternative)
       uses: actions/upload-artifact@v4
       with:
-        name: github-pages
+        name: github-pages-build
         path: docs/
         retention-days: 1
 
@@ -238,7 +238,7 @@ jobs:
     - name: Download Pages artifact
       uses: actions/download-artifact@v4
       with:
-        name: github-pages
+        name: github-pages-build
         path: pages/
         
     - name: Upload to GitHub Pages
