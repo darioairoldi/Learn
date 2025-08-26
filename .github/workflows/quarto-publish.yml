@@ -46,133 +46,7 @@ jobs:
       #     **/*.msi
       #     **/*.pdf  
 
-    - name: Setup System PATH
-      shell: pwsh
-      run: |
-        # Ensure System32 is in PATH for WSL access
-        $system32 = "C:\Windows\System32"
-        if ($env:PATH -notlike "*$system32*") {
-          $env:PATH = "$system32;$env:PATH"
-          Write-Host "Added $system32 to PATH"
-        }
-        
-        # Persist PATH for subsequent steps
-        echo "$system32" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-        
-        Write-Host "Current PATH contains System32: $($env:PATH -like '*System32*')"
-
-    - name: Diagnose WSL Installation
-      shell: pwsh
-      run: |
-        Write-Host "=== WSL Installation Diagnostics ==="
-        
-        # Check if wsl.exe exists at expected location
-        $wslPaths = @(
-          "C:\Windows\System32\wsl.exe",
-          "C:\Windows\SysWOW64\wsl.exe"
-        )
-        
-        foreach ($path in $wslPaths) {
-          Write-Host "Checking: $path"
-          if (Test-Path $path) {
-            Write-Host "  ? File exists"
-            try {
-              $fileInfo = Get-Item $path
-              Write-Host "  Size: $($fileInfo.Length) bytes"
-              Write-Host "  Created: $($fileInfo.CreationTime)"
-              Write-Host "  Modified: $($fileInfo.LastWriteTime)"
-            } catch {
-              Write-Host "  ? Cannot read file info: $_"
-            }
-          } else {
-            Write-Host "  ? File not found"
-          }
-        }
-        
-        # Check Windows features
-        Write-Host "`n=== Windows Features ==="
-        try {
-          $features = @(
-            "Microsoft-Windows-Subsystem-Linux",
-            "VirtualMachinePlatform"
-          )
-          
-          foreach ($feature in $features) {
-            try {
-              $state = Get-WindowsOptionalFeature -Online -FeatureName $feature -ErrorAction SilentlyContinue
-              Write-Host "$feature`: $($state.State)"
-            } catch {
-              Write-Host "$feature`: Unable to check - $_"
-            }
-          }
-        } catch {
-          Write-Host "Cannot check Windows features: $_"
-        }
-        
-        # Check for WSL distributions
-        Write-Host "`n=== WSL Distributions ==="
-        try {
-          # Try using reg query to check for WSL
-          $regOutput = reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss" 2>$null
-          if ($LASTEXITCODE -eq 0) {
-            Write-Host "WSL registry entries found"
-          } else {
-            Write-Host "No WSL registry entries found"
-          }
-        } catch {
-          Write-Host "Cannot check WSL registry: $_"
-        }
-        
-        # Check current user and permissions
-        Write-Host "`n=== Environment Info ==="
-        Write-Host "Current user: $env:USERNAME"
-        Write-Host "Computer: $env:COMPUTERNAME"
-        Write-Host "PowerShell version: $($PSVersionTable.PSVersion)"
-        Write-Host "Running as admin: $([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)"
-        
-        # Check PATH
-        Write-Host "`n=== PATH Contents ==="
-        $env:PATH -split ';' | Where-Object { $_ -like '*System32*' -or $_ -like '*Windows*' } | ForEach-Object {
-          Write-Host "  $_"
-        }
-
-    - name: Test WSL Access
-      shell: pwsh
-      run: |
-        Write-Host "Testing WSL availability..."
-        
-        # Test different approaches
-        Write-Host "`n--- Method 1: Call operator with full path ---"
-        try {
-          & "C:\Windows\System32\wsl.exe" --version 2>&1
-        } catch {
-          Write-Host "Method 1 failed: $_"
-        }
-        
-        Write-Host "`n--- Method 2: Start-Process ---"
-        try {
-          $result = Start-Process -FilePath "C:\Windows\System32\wsl.exe" -ArgumentList "--version" -Wait -NoNewWindow -PassThru -RedirectStandardOutput "wsl-output.txt" -RedirectStandardError "wsl-error.txt"
-          Write-Host "Exit code: $($result.ExitCode)"
-          if (Test-Path "wsl-output.txt") {
-            Write-Host "Output:"
-            Get-Content "wsl-output.txt"
-          }
-          if (Test-Path "wsl-error.txt") {
-            Write-Host "Errors:"
-            Get-Content "wsl-error.txt"
-          }
-        } catch {
-          Write-Host "Method 2 failed: $_"
-        }
-
-    - name: Setup Quarto (via Action)
-      continue-on-error: true
-      uses: quarto-dev/quarto-actions/setup@v2
-      with:
-        version: pre-release
-
-    - name: Setup Quarto (Fallback to Native Windows)
-      if: failure() || always()
+    - name: Setup Quarto (Native Windows)
       shell: pwsh
       run: |
         Write-Host "Setting up Quarto using native Windows installation..."
@@ -180,8 +54,10 @@ jobs:
         # Check if Quarto is already installed
         try {
           $existing = quarto --version 2>$null
-          Write-Host "Quarto already installed: $existing"
-          exit 0
+          if ($existing) {
+            Write-Host "Quarto already installed: $existing"
+            exit 0
+          }
         } catch {
           Write-Host "Quarto not found, proceeding with installation..."
         }
@@ -194,6 +70,7 @@ jobs:
         try {
           Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
           Write-Host "Download completed successfully"
+          Write-Host "File size: $((Get-Item 'quarto-installer.msi').Length) bytes"
         } catch {
           Write-Host "Download failed: $_"
           exit 1
@@ -217,18 +94,22 @@ jobs:
           
           # Persist PATH for subsequent steps
           echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          
+          # Verify installation
+          $version = & "$quartoPath\quarto.exe" --version
+          Write-Host "Quarto installed successfully: $version"
         } else {
           Write-Host "Quarto installation directory not found at $quartoPath"
-          exit 1
-        }
-        
-        # Verify installation
-        try {
-          $version = quarto --version
-          Write-Host "Quarto installed successfully: $version"
-        } catch {
-          Write-Host "Quarto installation verification failed: $_"
-          exit 1
+          # Check alternative locations
+          $altPath = "C:\Program Files (x86)\Quarto\bin"
+          if (Test-Path $altPath) {
+            Write-Host "Found Quarto at alternative location: $altPath"
+            $env:PATH = "$altPath;$env:PATH"
+            echo $altPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          } else {
+            Write-Host "Quarto not found in expected locations"
+            exit 1
+          }
         }
         
     - name: Check for Python requirements
