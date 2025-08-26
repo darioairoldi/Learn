@@ -198,13 +198,32 @@ jobs:
           Write-Warning "navigation.json not found, skipping copy"
         }
       
+    - name: Debug output directory
+      shell: pwsh
+      run: |
+        Write-Host "=== Checking output directory ==="
+        if (Test-Path "docs") {
+          Write-Host "docs directory exists"
+          Get-ChildItem "docs" -Recurse | ForEach-Object {
+            Write-Host "  $($_.FullName)"
+          }
+        } else {
+          Write-Host "docs directory not found"
+          Write-Host "Current directory contents:"
+          Get-ChildItem . | ForEach-Object {
+            Write-Host "  $($_.Name) $(if($_.PSIsContainer){'(dir)'}else{"($($_.Length) bytes)"})"
+          }
+        }
+      
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Upload Pages artifact (Alternative)
+      uses: actions/upload-artifact@v4
       with:
+        name: github-pages
         path: docs/
+        retention-days: 1
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -216,6 +235,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
+    - name: Download Pages artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: github-pages
+        path: pages/
+        
+    - name: Upload to GitHub Pages
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: pages/
+    
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
