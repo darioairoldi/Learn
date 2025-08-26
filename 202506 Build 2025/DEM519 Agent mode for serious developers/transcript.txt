@@ -1,0 +1,1744 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.7492157816886902
+
+00:00:00.640 --> 00:00:02.840
+Hi everyone, My name is Devin Valenciano.
+
+NOTE Confidence: 0.896405041217804
+
+00:00:02.840 --> 00:00:04.240
+Thanks for the introduction, Leslie.
+
+NOTE Confidence: 0.9079550504684448
+
+00:00:04.240 --> 00:00:06.520
+And I am APM on the VS Code team.
+
+NOTE Confidence: 0.8807322382926941
+
+00:00:06.760 --> 00:00:09.629
+And like Leslie just said, I'm here to talk about
+
+NOTE Confidence: 0.8807322382926941
+
+00:00:09.688 --> 00:00:11.679
+Agent mode for serious developers.
+
+NOTE Confidence: 0.7470922470092773
+
+00:00:11.960 --> 00:00:14.660
+So Agent mode's this really cool thing that's built to
+
+NOTE Confidence: 0.7470922470092773
+
+00:00:14.710 --> 00:00:17.360
+the copilot that allows you to solve bigger problems.
+
+NOTE Confidence: 0.8693870902061462
+
+00:00:17.360 --> 00:00:20.320
+It's this autonomous coding assistant that can iterate on its
+
+NOTE Confidence: 0.8693870902061462
+
+00:00:20.369 --> 00:00:21.000
+own progress.
+
+NOTE Confidence: 0.8303535580635071
+
+00:00:21.000 --> 00:00:23.061
+And one of the coolest things it it does is
+
+NOTE Confidence: 0.8303535580635071
+
+00:00:23.109 --> 00:00:25.028
+that it lets APM like me pretend to be a
+
+NOTE Confidence: 0.8303535580635071
+
+00:00:25.076 --> 00:00:27.569
+serious developer for a little bit or a serious data
+
+NOTE Confidence: 0.8303535580635071
+
+00:00:27.617 --> 00:00:29.199
+scientist as we're about to show.
+
+NOTE Confidence: 0.9090907573699951
+
+00:00:29.560 --> 00:00:32.156
+So the example that I'm going to run you all
+
+NOTE Confidence: 0.9090907573699951
+
+00:00:32.215 --> 00:00:34.279
+through is this real piece of work.
+
+NOTE Confidence: 0.831514298915863
+
+00:00:34.280 --> 00:00:36.200
+So this is what's called a Cagle competition.
+
+NOTE Confidence: 0.8728622794151306
+
+00:00:36.200 --> 00:00:38.320
+It's the data science equivalent of Leap code.
+
+NOTE Confidence: 0.8582373261451721
+
+00:00:38.520 --> 00:00:42.524
+And they put full competitions online for people to put
+
+NOTE Confidence: 0.8582373261451721
+
+00:00:42.597 --> 00:00:46.820
+submissions up and and try and solve difficult problems in
+
+NOTE Confidence: 0.8582373261451721
+
+00:00:46.893 --> 00:00:47.839
+data science.
+
+NOTE Confidence: 0.9527753591537476
+
+00:00:48.600 --> 00:00:50.873
+And so they give you a big overview of what
+
+NOTE Confidence: 0.9527753591537476
+
+00:00:50.926 --> 00:00:51.719
+the problem is.
+
+NOTE Confidence: 0.9402467012405396
+
+00:00:52.800 --> 00:00:54.880
+They give you some source data to use.
+
+NOTE Confidence: 0.9481523633003235
+
+00:00:54.880 --> 00:00:58.019
+And so for this particular problem, this is a housing
+
+NOTE Confidence: 0.9481523633003235
+
+00:00:58.078 --> 00:00:59.559
+price estimation problem.
+
+NOTE Confidence: 0.8604704737663269
+
+00:00:59.800 --> 00:01:01.440
+I've got a description of the data.
+
+NOTE Confidence: 0.7866265177726746
+
+00:01:01.440 --> 00:01:04.028
+I've got a test CSV, the training set, and a
+
+NOTE Confidence: 0.7866265177726746
+
+00:01:04.087 --> 00:01:05.440
+sample submission file.
+
+NOTE Confidence: 0.9335539937019348
+
+00:01:05.880 --> 00:01:06.200
+Great.
+
+NOTE Confidence: 0.9557056427001953
+
+00:01:06.440 --> 00:01:08.297
+So let's go ahead and go straight to VS Code
+
+NOTE Confidence: 0.9557056427001953
+
+00:01:08.339 --> 00:01:09.479
+and get started right away.
+
+NOTE Confidence: 0.922692060470581
+
+00:01:09.480 --> 00:01:11.330
+So you can see I've got a couple things set
+
+NOTE Confidence: 0.922692060470581
+
+00:01:11.373 --> 00:01:12.320
+up here and that's it.
+
+NOTE Confidence: 0.927312433719635
+
+00:01:12.319 --> 00:01:14.413
+I've got a prompt that I'm going to use to
+
+NOTE Confidence: 0.927312433719635
+
+00:01:14.462 --> 00:01:15.360
+prompt agent mode.
+
+NOTE Confidence: 0.9298299551010132
+
+00:01:15.640 --> 00:01:18.104
+And I've got the the files that I just showed
+
+NOTE Confidence: 0.9298299551010132
+
+00:01:18.159 --> 00:01:19.199
+you pre downloaded.
+
+NOTE Confidence: 0.9140487313270569
+
+00:01:19.280 --> 00:01:22.142
+And other than that, we're going to see what agent
+
+NOTE Confidence: 0.9140487313270569
+
+00:01:22.200 --> 00:01:25.120
+mode does solving a very real problem in real time.
+
+NOTE Confidence: 0.9265201687812805
+
+00:01:25.520 --> 00:01:27.628
+So I'm going to go ahead and you can see
+
+NOTE Confidence: 0.9265201687812805
+
+00:01:27.680 --> 00:01:29.999
+it's already got the prompt file as context.
+
+NOTE Confidence: 0.8819829225540161
+
+00:01:30.000 --> 00:01:33.458
+I'm also going to give it explicit context to those
+
+NOTE Confidence: 0.8819829225540161
+
+00:01:33.525 --> 00:01:35.559
+local files that I downloaded.
+
+NOTE Confidence: 0.8964194655418396
+
+00:01:35.760 --> 00:01:39.480
+And I'm going to just go ahead and say follow
+
+NOTE Confidence: 0.8964194655418396
+
+00:01:39.562 --> 00:01:41.960
+the prompts and wish me luck.
+
+NOTE Confidence: 0.8036310076713562
+
+00:01:43.880 --> 00:01:46.849
+So what's happening right now is get up Copilot is
+
+NOTE Confidence: 0.8036310076713562
+
+00:01:46.908 --> 00:01:49.640
+using agent mode and it's already figured out.
+
+NOTE Confidence: 0.8028815388679504
+
+00:01:49.640 --> 00:01:51.680
+Oh, I'm going to solve this Cagle housing price problem.
+
+NOTE Confidence: 0.97081458568573
+
+00:01:51.880 --> 00:01:53.440
+And it does something great right away.
+
+NOTE Confidence: 0.9365171790122986
+
+00:01:53.440 --> 00:01:55.570
+It says I'm going to go fetch this URL that
+
+NOTE Confidence: 0.9365171790122986
+
+00:01:55.620 --> 00:01:58.394
+has the actual competition data and it's using the built
+
+NOTE Confidence: 0.9365171790122986
+
+00:01:58.444 --> 00:02:00.624
+in fetch tool to go ahead and do that, which
+
+NOTE Confidence: 0.9365171790122986
+
+00:02:00.674 --> 00:02:01.120
+is great.
+
+NOTE Confidence: 0.8623226284980774
+
+00:02:01.360 --> 00:02:05.200
+So that was invoked by copilot agent mode.
+
+NOTE Confidence: 0.9724509716033936
+
+00:02:05.400 --> 00:02:06.400
+And then what does it do?
+
+NOTE Confidence: 0.9639143943786621
+
+00:02:06.400 --> 00:02:08.200
+It does exactly what a human would do, right?
+
+NOTE Confidence: 0.9113456010818481
+
+00:02:08.320 --> 00:02:10.880
+It goes and reads the description file and reads the
+
+NOTE Confidence: 0.9113456010818481
+
+00:02:10.929 --> 00:02:11.520
+whole thing.
+
+NOTE Confidence: 0.8592374920845032
+
+00:02:11.520 --> 00:02:13.398
+And it's like, OK, I understand a little bit about
+
+NOTE Confidence: 0.8592374920845032
+
+00:02:13.435 --> 00:02:14.599
+what this data is looking like.
+
+NOTE Confidence: 0.9557724595069885
+
+00:02:14.880 --> 00:02:17.742
+And then it's stepping through each one of the files,
+
+NOTE Confidence: 0.9557724595069885
+
+00:02:17.796 --> 00:02:19.849
+just 10 lines of it to get a sense of,
+
+NOTE Confidence: 0.9557724595069885
+
+00:02:19.903 --> 00:02:22.279
+OK, what's this training data set look like?
+
+NOTE Confidence: 0.9180399179458618
+
+00:02:22.280 --> 00:02:23.800
+What's this test data set look like?
+
+NOTE Confidence: 0.9565696120262146
+
+00:02:23.800 --> 00:02:25.800
+And what's my sample submission file look like?
+
+NOTE Confidence: 0.9464834332466125
+
+00:02:26.080 --> 00:02:28.800
+So it's solving this problem exactly the way a human
+
+NOTE Confidence: 0.9464834332466125
+
+00:02:28.852 --> 00:02:30.160
+would go ahead and do it.
+
+NOTE Confidence: 0.8605625033378601
+
+00:02:30.320 --> 00:02:32.709
+It's just saving me a ton of time and, and
+
+NOTE Confidence: 0.8605625033378601
+
+00:02:32.766 --> 00:02:36.350
+actually probably preventing me from learning a little bit, but
+
+NOTE Confidence: 0.8605625033378601
+
+00:02:36.407 --> 00:02:39.479
+it's a pretty learning tool to, to, to work alongside.
+
+NOTE Confidence: 0.8361835479736328
+
+00:02:39.760 --> 00:02:42.975
+So actually just now it invoked another built in tool,
+
+NOTE Confidence: 0.8361835479736328
+
+00:02:43.035 --> 00:02:45.000
+the Create Jupiter notebook tool.
+
+NOTE Confidence: 0.9052647948265076
+
+00:02:45.000 --> 00:02:47.735
+And so for those who don't know, VS Code has
+
+NOTE Confidence: 0.9052647948265076
+
+00:02:47.798 --> 00:02:51.279
+some really incredible built in native notebook support.
+
+NOTE Confidence: 0.9232026934623718
+
+00:02:51.880 --> 00:02:54.822
+And this is like a primary tool among data scientists
+
+NOTE Confidence: 0.9232026934623718
+
+00:02:54.878 --> 00:02:55.599
+in the field.
+
+NOTE Confidence: 0.9156712293624878
+
+00:02:55.600 --> 00:02:59.261
+And so yeah, basically it went ahead and created the
+
+NOTE Confidence: 0.9156712293624878
+
+00:02:59.332 --> 00:03:02.359
+solution notebook file, which is fantastic.
+
+NOTE Confidence: 0.8937022686004639
+
+00:03:03.080 --> 00:03:07.017
+It's connected to a Python Chronicle kernel, a virtual environment,
+
+NOTE Confidence: 0.8937022686004639
+
+00:03:07.076 --> 00:03:10.308
+so it's selected the correct tunnel, and now it's going
+
+NOTE Confidence: 0.8937022686004639
+
+00:03:10.367 --> 00:03:13.011
+to go ahead and edit the notebook and Add all
+
+NOTE Confidence: 0.8937022686004639
+
+00:03:13.070 --> 00:03:15.480
+the required cells to solve this problem.
+
+NOTE Confidence: 0.9237186312675476
+
+00:03:15.480 --> 00:03:16.940
+So we'll see what it comes up with in a
+
+NOTE Confidence: 0.9237186312675476
+
+00:03:16.977 --> 00:03:17.240
+second.
+
+NOTE Confidence: 0.9357082843780518
+
+00:03:17.680 --> 00:03:20.022
+Now, while it's going ahead and thinking about that, I'm
+
+NOTE Confidence: 0.9357082843780518
+
+00:03:20.064 --> 00:03:21.988
+going to go ahead and show you a couple things
+
+NOTE Confidence: 0.9357082843780518
+
+00:03:22.030 --> 00:03:22.239
+here.
+
+NOTE Confidence: 0.8484978675842285
+
+00:03:22.240 --> 00:03:25.920
+So right now we're using the clod 3.7 sonnet model.
+
+NOTE Confidence: 0.818396270275116
+
+00:03:26.080 --> 00:03:28.200
+I love clod 3.7 sonnet.
+
+NOTE Confidence: 0.8934369683265686
+
+00:03:28.200 --> 00:03:30.469
+It's my favorite of all the ones listed here, but
+
+NOTE Confidence: 0.8934369683265686
+
+00:03:30.515 --> 00:03:32.599
+we have plenty to choose from within Copilot.
+
+NOTE Confidence: 0.6720532774925232
+
+00:03:32.600 --> 00:03:37.646
+You've got Clod 3.5, you've got GPT 4414-O Gemini in
+
+NOTE Confidence: 0.6720532774925232
+
+00:03:37.743 --> 00:03:38.520
+preview.
+
+NOTE Confidence: 0.8708745837211609
+
+00:03:38.720 --> 00:03:40.440
+So there's lots of different options.
+
+NOTE Confidence: 0.8203884363174438
+
+00:03:41.280 --> 00:03:44.105
+And I just happen to really like Cloud 37 for
+
+NOTE Confidence: 0.8203884363174438
+
+00:03:44.168 --> 00:03:47.119
+this particular project because it can go deep.
+
+NOTE Confidence: 0.9424839615821838
+
+00:03:48.640 --> 00:03:51.058
+And you can see here we're using agent mode among
+
+NOTE Confidence: 0.9424839615821838
+
+00:03:51.108 --> 00:03:53.280
+the other, the other different options here.
+
+NOTE Confidence: 0.9195126891136169
+
+00:03:54.400 --> 00:03:58.319
+So sometimes you'll see with agentic flow, things get a
+
+NOTE Confidence: 0.9195126891136169
+
+00:03:58.390 --> 00:04:00.600
+little bit caught in the pipes.
+
+NOTE Confidence: 0.871815025806427
+
+00:04:00.840 --> 00:04:03.248
+So this one's been thinking a a little bit longer
+
+NOTE Confidence: 0.871815025806427
+
+00:04:03.297 --> 00:04:04.280
+than I'd like it to.
+
+NOTE Confidence: 0.9193140864372253
+
+00:04:04.480 --> 00:04:05.880
+So I'm actually going to stop it.
+
+NOTE Confidence: 0.9570050835609436
+
+00:04:05.880 --> 00:04:09.067
+And I'm going to go ahead and just say continue
+
+NOTE Confidence: 0.9570050835609436
+
+00:04:09.135 --> 00:04:12.120
+the problem and let's see what it does next.
+
+NOTE Confidence: 0.41686737537384033
+
+00:04:16.880 --> 00:04:18.080
+Continue implementing.
+
+NOTE Confidence: 0.8613224029541016
+
+00:04:18.080 --> 00:04:19.080
+Oh, thank you so much.
+
+NOTE Confidence: 0.9403014183044434
+
+00:04:22.000 --> 00:04:24.627
+So, yeah, it's it's, it's still thinking, but we'll give
+
+NOTE Confidence: 0.9403014183044434
+
+00:04:24.674 --> 00:04:25.799
+it a little second here.
+
+NOTE Confidence: 0.9464827179908752
+
+00:04:25.800 --> 00:04:30.661
+And yeah, you can see, oh, I mentioned prompt files
+
+NOTE Confidence: 0.9464827179908752
+
+00:04:30.757 --> 00:04:31.519
+earlier.
+
+NOTE Confidence: 0.9057128429412842
+
+00:04:31.520 --> 00:04:34.214
+So this allows you to save custom prompts that can
+
+NOTE Confidence: 0.9057128429412842
+
+00:04:34.268 --> 00:04:37.070
+be used across multiple projects that can be tied to
+
+NOTE Confidence: 0.9057128429412842
+
+00:04:37.123 --> 00:04:38.039
+AVS code profile.
+
+NOTE Confidence: 0.9609768986701965
+
+00:04:38.280 --> 00:04:40.840
+That's a really cool element that's been added more recently.
+
+NOTE Confidence: 0.944382905960083
+
+00:04:41.839 --> 00:04:44.369
+And yeah, so this I didn't have to actually type
+
+NOTE Confidence: 0.944382905960083
+
+00:04:44.422 --> 00:04:45.160
+in the prompt.
+
+NOTE Confidence: 0.9142513275146484
+
+00:04:45.160 --> 00:04:47.300
+I just referenced a prompt that I'd written in the
+
+NOTE Confidence: 0.9142513275146484
+
+00:04:47.342 --> 00:04:49.440
+past and and that worked out really, really well.
+
+NOTE Confidence: 0.9118772149085999
+
+00:04:49.560 --> 00:04:54.361
+So, and unfortunately with agentic development flow, we have these
+
+NOTE Confidence: 0.9118772149085999
+
+00:04:54.434 --> 00:04:58.362
+little moments where it's like, ah, shoot, I know this
+
+NOTE Confidence: 0.9118772149085999
+
+00:04:58.435 --> 00:05:02.800
+should work a certain way, but it's not quite deterministic.
+
+NOTE Confidence: 0.917590320110321
+
+00:05:02.800 --> 00:05:04.788
+So this was taking a little bit of time to
+
+NOTE Confidence: 0.917590320110321
+
+00:05:04.835 --> 00:05:05.119
+think.
+
+NOTE Confidence: 0.9081205129623413
+
+00:05:05.320 --> 00:05:07.480
+I'm actually going to give it one more try here.
+
+NOTE Confidence: 0.9195807576179504
+
+00:05:08.160 --> 00:05:11.293
+And if it doesn't continue working on the problem, I
+
+NOTE Confidence: 0.9195807576179504
+
+00:05:11.353 --> 00:05:14.787
+actually have a video just in case this happened, showing
+
+NOTE Confidence: 0.9195807576179504
+
+00:05:14.848 --> 00:05:17.318
+the full end to end and all the beauty of
+
+NOTE Confidence: 0.9195807576179504
+
+00:05:17.378 --> 00:05:17.680
+that.
+
+NOTE Confidence: 0.8795515894889832
+
+00:05:17.680 --> 00:05:20.800
+So yeah, let's see, let's see if it can go
+
+NOTE Confidence: 0.8795515894889832
+
+00:05:20.874 --> 00:05:24.068
+ahead and and kind of find its spot and get
+
+NOTE Confidence: 0.8795515894889832
+
+00:05:24.142 --> 00:05:27.560
+started to working on that solution file here.
+
+NOTE Confidence: 0.8957377076148987
+
+00:05:36.250 --> 00:05:38.365
+OK, well, I'm going to let that think for a
+
+NOTE Confidence: 0.8957377076148987
+
+00:05:38.414 --> 00:05:40.874
+little bit, but in the meantime, I'm going to pull
+
+NOTE Confidence: 0.8957377076148987
+
+00:05:40.923 --> 00:05:42.891
+up a video of that I took just two hours
+
+NOTE Confidence: 0.8957377076148987
+
+00:05:42.940 --> 00:05:44.809
+ago of me doing this exact same thing.
+
+NOTE Confidence: 0.9444547891616821
+
+00:05:45.650 --> 00:05:47.233
+And I'm going to talk through some of that and
+
+NOTE Confidence: 0.9444547891616821
+
+00:05:47.267 --> 00:05:48.954
+then we'll let that run in the background and see
+
+NOTE Confidence: 0.9444547891616821
+
+00:05:48.988 --> 00:05:50.089
+if it eventually figures it out.
+
+NOTE Confidence: 0.9154614806175232
+
+00:05:51.490 --> 00:05:55.282
+But let's go ahead and make this full screen and
+
+NOTE Confidence: 0.9154614806175232
+
+00:05:55.361 --> 00:05:59.074
+turn down the volume and skip to the part where
+
+NOTE Confidence: 0.9154614806175232
+
+00:05:59.153 --> 00:06:01.839
+it starts working on the notebook.
+
+NOTE Confidence: 0.6474511027336121
+
+00:06:24.520 --> 00:06:25.160
+Turn.
+
+NOTE Confidence: 0.9219605922698975
+
+00:06:33.080 --> 00:06:35.836
+So this is exactly where we were on the live
+
+NOTE Confidence: 0.9219605922698975
+
+00:06:35.898 --> 00:06:39.030
+demo, except this is a version I recorded just two
+
+NOTE Confidence: 0.9219605922698975
+
+00:06:39.093 --> 00:06:39.719
+hours ago.
+
+NOTE Confidence: 0.8782873749732971
+
+00:06:39.760 --> 00:06:42.419
+And so basically what happens next is it comes up
+
+NOTE Confidence: 0.8782873749732971
+
+00:06:42.473 --> 00:06:45.729
+this great header files or header cell that explains exactly
+
+NOTE Confidence: 0.8782873749732971
+
+00:06:45.783 --> 00:06:48.280
+what the problem is and what it's going to do.
+
+NOTE Confidence: 0.7194483876228333
+
+00:06:48.279 --> 00:06:51.304
+Break it breaks it down step by step into 6
+
+NOTE Confidence: 0.7194483876228333
+
+00:06:51.375 --> 00:06:52.360
+concise steps.
+
+NOTE Confidence: 0.9547716379165649
+
+00:06:52.760 --> 00:06:56.200
+And then it goes ahead and starts actually writing cells.
+
+NOTE Confidence: 0.8973156213760376
+
+00:06:56.240 --> 00:06:58.293
+And so you can see it starts with a setup
+
+NOTE Confidence: 0.8973156213760376
+
+00:06:58.343 --> 00:07:01.398
+and installation cell and it does something really cool where
+
+NOTE Confidence: 0.8973156213760376
+
+00:07:01.449 --> 00:07:03.502
+it actually asks if I want to allow it to
+
+NOTE Confidence: 0.8973156213760376
+
+00:07:03.552 --> 00:07:06.507
+run cells because it doesn't want to run anything malicious
+
+NOTE Confidence: 0.8973156213760376
+
+00:07:06.557 --> 00:07:07.759
+actually in the editors.
+
+NOTE Confidence: 0.9264097809791565
+
+00:07:07.839 --> 00:07:10.284
+And so in, in this demo, I actually went ahead
+
+NOTE Confidence: 0.9264097809791565
+
+00:07:10.337 --> 00:07:12.675
+and say, Yep, run all the cells for the rest
+
+NOTE Confidence: 0.9264097809791565
+
+00:07:12.728 --> 00:07:15.119
+of the session, which saves me a bit of time.
+
+NOTE Confidence: 0.8416034579277039
+
+00:07:15.320 --> 00:07:17.579
+And then, yeah, this is one of my favorite parts
+
+NOTE Confidence: 0.8416034579277039
+
+00:07:17.626 --> 00:07:20.310
+of using these agentic tools is getting through the setup
+
+NOTE Confidence: 0.8416034579277039
+
+00:07:20.357 --> 00:07:21.440
+and installation phase.
+
+NOTE Confidence: 0.9275978803634644
+
+00:07:22.280 --> 00:07:24.840
+So this just installs all the required packages.
+
+NOTE Confidence: 0.9636875987052917
+
+00:07:24.840 --> 00:07:27.280
+I didn't tell it which packages to go install.
+
+NOTE Confidence: 0.8610029220581055
+
+00:07:27.440 --> 00:07:30.502
+It decided based on the problem set to which packages
+
+NOTE Confidence: 0.8610029220581055
+
+00:07:30.560 --> 00:07:33.680
+would be most useful in solving the Cagle competition.
+
+NOTE Confidence: 0.9751129150390625
+
+00:07:33.840 --> 00:07:35.880
+And that saves me so much time.
+
+NOTE Confidence: 0.9688878059387207
+
+00:07:35.880 --> 00:07:38.568
+Even if I don't know exactly what library does which
+
+NOTE Confidence: 0.9688878059387207
+
+00:07:38.620 --> 00:07:40.120
+thing I can go then research.
+
+NOTE Confidence: 0.9564281105995178
+
+00:07:40.120 --> 00:07:42.319
+It gives me a starting point to then go learn
+
+NOTE Confidence: 0.9564281105995178
+
+00:07:42.368 --> 00:07:43.199
+more efficiently.
+
+NOTE Confidence: 0.8783074617385864
+
+00:07:44.360 --> 00:07:47.633
+And so yeah, it installs all the the required packages
+
+NOTE Confidence: 0.8783074617385864
+
+00:07:47.694 --> 00:07:50.665
+and then it, it, you can see it's actually adding
+
+NOTE Confidence: 0.8783074617385864
+
+00:07:50.726 --> 00:07:53.333
+a cell now to go ahead and import all those
+
+NOTE Confidence: 0.8783074617385864
+
+00:07:53.393 --> 00:07:53.999
+libraries.
+
+NOTE Confidence: 0.8989178538322449
+
+00:07:54.000 --> 00:07:56.482
+And so it's got a nice header for me and
+
+NOTE Confidence: 0.8989178538322449
+
+00:07:56.544 --> 00:07:59.213
+it's got this nice cell to, to go ahead and
+
+NOTE Confidence: 0.8989178538322449
+
+00:07:59.275 --> 00:08:03.000
+import all the libraries that were that were including here.
+
+NOTE Confidence: 0.888683021068573
+
+00:08:03.000 --> 00:08:05.823
+And you can see there's the SK learn modules, which
+
+NOTE Confidence: 0.888683021068573
+
+00:08:05.879 --> 00:08:08.481
+it's going to use for training some of the more
+
+NOTE Confidence: 0.888683021068573
+
+00:08:08.536 --> 00:08:12.080
+simple models like linear regression, lasso, Ridge, elastic net.
+
+NOTE Confidence: 0.8672799468040466
+
+00:08:12.240 --> 00:08:14.680
+And then also we've got XG boost there.
+
+NOTE Confidence: 0.919689416885376
+
+00:08:15.040 --> 00:08:17.461
+So clearly it's it's going to try and tackle this
+
+NOTE Confidence: 0.919689416885376
+
+00:08:17.510 --> 00:08:20.080
+training problem from a variety of different angles.
+
+NOTE Confidence: 0.970102071762085
+
+00:08:20.080 --> 00:08:23.014
+And I'm excited to show you exactly what that looks
+
+NOTE Confidence: 0.970102071762085
+
+00:08:23.072 --> 00:08:23.360
+like.
+
+NOTE Confidence: 0.842739999294281
+
+00:08:23.480 --> 00:08:25.433
+And so actually I can that's one of the benefits
+
+NOTE Confidence: 0.842739999294281
+
+00:08:25.474 --> 00:08:27.102
+of showing you a video now is I can skip
+
+NOTE Confidence: 0.842739999294281
+
+00:08:27.143 --> 00:08:28.119
+ahead just a little bit.
+
+NOTE Confidence: 0.865328848361969
+
+00:08:28.280 --> 00:08:30.411
+So this is this import cell always takes a little
+
+NOTE Confidence: 0.865328848361969
+
+00:08:30.455 --> 00:08:32.674
+bit of time because it's importing a lot of content
+
+NOTE Confidence: 0.865328848361969
+
+00:08:32.717 --> 00:08:33.240
+right there.
+
+NOTE Confidence: 0.93226158618927
+
+00:08:33.400 --> 00:08:38.332
+But if we skip ahead just a tiny bit to
+
+NOTE Confidence: 0.93226158618927
+
+00:08:38.458 --> 00:08:41.999
+when that's completed, yeah.
+
+NOTE Confidence: 0.7886582612991333
+
+00:08:42.000 --> 00:08:45.400
+So it finished adding all the imported libraries.
+
+NOTE Confidence: 0.894866943359375
+
+00:08:45.400 --> 00:08:48.068
+And again, if you just think about how much time
+
+NOTE Confidence: 0.894866943359375
+
+00:08:48.124 --> 00:08:51.516
+I've already saved just by getting the packages installed and
+
+NOTE Confidence: 0.894866943359375
+
+00:08:51.571 --> 00:08:54.574
+then doing the import step, that's so much thinking in
+
+NOTE Confidence: 0.894866943359375
+
+00:08:54.629 --> 00:08:57.632
+preparation and, and one of my favorite parts of using
+
+NOTE Confidence: 0.894866943359375
+
+00:08:57.687 --> 00:08:58.799
+these agentic tools.
+
+NOTE Confidence: 0.8720172047615051
+
+00:08:59.400 --> 00:09:01.849
+And so next it jumps right into the exploratory data
+
+NOTE Confidence: 0.8720172047615051
+
+00:09:01.896 --> 00:09:02.319
+analysis.
+
+NOTE Confidence: 0.8928884863853455
+
+00:09:02.320 --> 00:09:04.667
+So it, it does what any human would do and
+
+NOTE Confidence: 0.8928884863853455
+
+00:09:04.723 --> 00:09:07.127
+it's, it reads in the data and it starts to
+
+NOTE Confidence: 0.8928884863853455
+
+00:09:07.183 --> 00:09:09.642
+take a look at what the data actually is and
+
+NOTE Confidence: 0.8928884863853455
+
+00:09:09.698 --> 00:09:11.040
+what it can be used for.
+
+NOTE Confidence: 0.8695290684700012
+
+00:09:12.080 --> 00:09:15.283
+And I just want to highlight here, this is something
+
+NOTE Confidence: 0.8695290684700012
+
+00:09:15.344 --> 00:09:19.102
+that's like really, really a competitive advantage of VS Code
+
+NOTE Confidence: 0.8695290684700012
+
+00:09:19.164 --> 00:09:22.429
+is our built in native notebook support and how those
+
+NOTE Confidence: 0.8695290684700012
+
+00:09:22.490 --> 00:09:26.248
+notebooks are already can be used directly with these agentic
+
+NOTE Confidence: 0.8695290684700012
+
+00:09:26.310 --> 00:09:26.679
+flows.
+
+NOTE Confidence: 0.8984992504119873
+
+00:09:27.440 --> 00:09:30.433
+It's just, it's something that I think we do just
+
+NOTE Confidence: 0.8984992504119873
+
+00:09:30.494 --> 00:09:33.488
+so much, so much more for than our competitors in
+
+NOTE Confidence: 0.8984992504119873
+
+00:09:33.549 --> 00:09:34.160
+the space.
+
+NOTE Confidence: 0.9143075346946716
+
+00:09:34.880 --> 00:09:36.160
+And I, I think it's really exciting.
+
+NOTE Confidence: 0.903830349445343
+
+00:09:36.160 --> 00:09:38.806
+So you can see the data's been loading in that
+
+NOTE Confidence: 0.903830349445343
+
+00:09:38.863 --> 00:09:42.085
+we have so many different variables on what house prices
+
+NOTE Confidence: 0.903830349445343
+
+00:09:42.143 --> 00:09:45.134
+look like in this particular area in Idaho or sorry,
+
+NOTE Confidence: 0.903830349445343
+
+00:09:45.192 --> 00:09:45.479
+Iowa.
+
+NOTE Confidence: 0.8913646936416626
+
+00:09:46.120 --> 00:09:48.349
+So you've got the law area, you've got the street
+
+NOTE Confidence: 0.8913646936416626
+
+00:09:48.394 --> 00:09:50.714
+type, you've got whether or not they have an alley,
+
+NOTE Confidence: 0.8913646936416626
+
+00:09:50.759 --> 00:09:53.079
+you've got all sorts of square footage information.
+
+NOTE Confidence: 0.9266171455383301
+
+00:09:53.080 --> 00:09:54.839
+And so the data comes in all sorts of shapes
+
+NOTE Confidence: 0.9266171455383301
+
+00:09:54.879 --> 00:09:55.279
+and sizes.
+
+NOTE Confidence: 0.7787760496139526
+
+00:09:55.280 --> 00:09:57.920
+It's not not all just integers floats.
+
+NOTE Confidence: 0.900373637676239
+
+00:09:58.600 --> 00:10:00.981
+And so the next thing that this goes and does,
+
+NOTE Confidence: 0.900373637676239
+
+00:10:01.032 --> 00:10:03.362
+and you can see actually here, it asked me to
+
+NOTE Confidence: 0.900373637676239
+
+00:10:03.414 --> 00:10:05.639
+continue to iterate, which is great, right?
+
+NOTE Confidence: 0.8491809368133545
+
+00:10:05.640 --> 00:10:08.186
+We don't want an agentic mode to just keep spinning
+
+NOTE Confidence: 0.8491809368133545
+
+00:10:08.236 --> 00:10:11.431
+and spinning and and eventually spending compute that it doesn't
+
+NOTE Confidence: 0.8491809368133545
+
+00:10:11.481 --> 00:10:12.280
+need to compute.
+
+NOTE Confidence: 0.7880102396011353
+
+00:10:12.280 --> 00:10:14.938
+But in this case, I love what copilot Asian mode
+
+NOTE Confidence: 0.7880102396011353
+
+00:10:14.993 --> 00:10:15.879
+is doing for me.
+
+NOTE Confidence: 0.9691773653030396
+
+00:10:15.880 --> 00:10:17.320
+Like I want that to continue.
+
+NOTE Confidence: 0.9500855803489685
+
+00:10:17.320 --> 00:10:19.600
+I want to keep generating a solution here.
+
+NOTE Confidence: 0.9307125806808472
+
+00:10:19.600 --> 00:10:21.713
+And so the next thing it does is it continues
+
+NOTE Confidence: 0.9307125806808472
+
+00:10:21.760 --> 00:10:24.859
+that exploratory data analysis and it's looking for missing values
+
+NOTE Confidence: 0.9307125806808472
+
+00:10:24.906 --> 00:10:26.080
+in the training data set.
+
+NOTE Confidence: 0.9063448309898376
+
+00:10:27.120 --> 00:10:29.546
+And, and that's just something that might not even cross
+
+NOTE Confidence: 0.9063448309898376
+
+00:10:29.589 --> 00:10:31.626
+my mind if I was going and solving this problem
+
+NOTE Confidence: 0.9063448309898376
+
+00:10:31.669 --> 00:10:33.359
+like, oh, what's the data quality like?
+
+NOTE Confidence: 0.8995986580848694
+
+00:10:33.559 --> 00:10:36.354
+Like, do, do I actually have everything I need in
+
+NOTE Confidence: 0.8995986580848694
+
+00:10:36.411 --> 00:10:38.863
+the data set to go inject the data into the
+
+NOTE Confidence: 0.8995986580848694
+
+00:10:38.920 --> 00:10:39.320
+models?
+
+NOTE Confidence: 0.9163058400154114
+
+00:10:39.360 --> 00:10:42.592
+And so you can see it's got these nice distribution
+
+NOTE Confidence: 0.9163058400154114
+
+00:10:42.655 --> 00:10:44.239
+graphs that it generates.
+
+NOTE Confidence: 0.8729383945465088
+
+00:10:44.560 --> 00:10:46.840
+You can see that the data was very skew, right?
+
+NOTE Confidence: 0.9207856059074402
+
+00:10:47.559 --> 00:10:49.939
+But then they do again, just another example of something
+
+NOTE Confidence: 0.9207856059074402
+
+00:10:49.980 --> 00:10:51.399
+I wouldn't think to do right away.
+
+NOTE Confidence: 0.8359561562538147
+
+00:10:51.400 --> 00:10:53.980
+But it, it, it automatically does a log transformation on
+
+NOTE Confidence: 0.8359561562538147
+
+00:10:54.025 --> 00:10:56.107
+the data and sees that the data is more normal
+
+NOTE Confidence: 0.8359561562538147
+
+00:10:56.152 --> 00:10:56.560
+that way.
+
+NOTE Confidence: 0.9366185665130615
+
+00:10:56.840 --> 00:10:59.586
+And so it's, it's looking at all these different facets
+
+NOTE Confidence: 0.9366185665130615
+
+00:10:59.636 --> 00:11:02.133
+of the data that I personally would never think to
+
+NOTE Confidence: 0.9366185665130615
+
+00:11:02.183 --> 00:11:04.880
+explore because I'm not a professional data scientist.
+
+NOTE Confidence: 0.9653599858283997
+
+00:11:04.880 --> 00:11:07.344
+But with agent mode, I can start to learn about
+
+NOTE Confidence: 0.9653599858283997
+
+00:11:07.396 --> 00:11:08.759
+these topics a lot faster.
+
+NOTE Confidence: 0.9164574146270752
+
+00:11:09.760 --> 00:11:12.119
+And oh, this is one of my favorite pieces here
+
+NOTE Confidence: 0.9164574146270752
+
+00:11:12.170 --> 00:11:15.145
+is it actually generates A correlation matrix and shows me
+
+NOTE Confidence: 0.9164574146270752
+
+00:11:15.196 --> 00:11:18.017
+all the top variables that are correlated with the sale
+
+NOTE Confidence: 0.9164574146270752
+
+00:11:18.068 --> 00:11:20.119
+price of the existing data set of homes.
+
+NOTE Confidence: 0.8667322397232056
+
+00:11:20.800 --> 00:11:23.117
+And so you can see here that the, you know,
+
+NOTE Confidence: 0.8667322397232056
+
+00:11:23.171 --> 00:11:25.919
+overall quality in the, the year that the house was
+
+NOTE Confidence: 0.8667322397232056
+
+00:11:25.973 --> 00:11:28.559
+built and the, the square footage of the garage.
+
+NOTE Confidence: 0.9662540555000305
+
+00:11:28.559 --> 00:11:31.462
+Actually, these are all highly correlated with how much the
+
+NOTE Confidence: 0.9662540555000305
+
+00:11:31.511 --> 00:11:32.840
+house eventually sells for.
+
+NOTE Confidence: 0.9458779692649841
+
+00:11:34.320 --> 00:11:35.840
+And then it jumps right into the next step.
+
+NOTE Confidence: 0.8042993545532227
+
+00:11:35.840 --> 00:11:38.240
+So handles preprocessing of the data.
+
+NOTE Confidence: 0.8827309608459473
+
+00:11:38.520 --> 00:11:42.871
+So this is it handling missing values, it's transforming categorical
+
+NOTE Confidence: 0.8827309608459473
+
+00:11:42.935 --> 00:11:46.455
+variables, so variables that are, you know, in a string
+
+NOTE Confidence: 0.8827309608459473
+
+00:11:46.519 --> 00:11:50.807
+format into something that's more usable for these machine learning
+
+NOTE Confidence: 0.8827309608459473
+
+00:11:50.871 --> 00:11:51.319
+models.
+
+NOTE Confidence: 0.8932269811630249
+
+00:11:51.760 --> 00:11:54.193
+So it's just doing all of this prep work and
+
+NOTE Confidence: 0.8932269811630249
+
+00:11:54.248 --> 00:11:57.013
+cleaning work that I would have to do manually and
+
+NOTE Confidence: 0.8932269811630249
+
+00:11:57.069 --> 00:11:59.889
+it's generating like this cell was 86 lines of data
+
+NOTE Confidence: 0.8932269811630249
+
+00:11:59.945 --> 00:12:03.871
+cleansing that were was generated almost instantaneously, which is just
+
+NOTE Confidence: 0.8932269811630249
+
+00:12:03.926 --> 00:12:04.480
+fantastic.
+
+NOTE Confidence: 0.9351823925971985
+
+00:12:04.480 --> 00:12:06.855
+I mean, that's so much time that's saved on actually
+
+NOTE Confidence: 0.9351823925971985
+
+00:12:06.901 --> 00:12:09.276
+typing and putting this together and it gives me the
+
+NOTE Confidence: 0.9351823925971985
+
+00:12:09.322 --> 00:12:11.834
+opportunity to read through that and learn all the, the
+
+NOTE Confidence: 0.9351823925971985
+
+00:12:11.880 --> 00:12:12.839
+content much quicker.
+
+NOTE Confidence: 0.9422563314437866
+
+00:12:14.920 --> 00:12:17.404
+This just does a little bit more transformation to the
+
+NOTE Confidence: 0.9422563314437866
+
+00:12:17.450 --> 00:12:17.680
+data.
+
+NOTE Confidence: 0.8694783449172974
+
+00:12:17.679 --> 00:12:19.733
+And for time's sake, I'm going to skip just a
+
+NOTE Confidence: 0.8694783449172974
+
+00:12:19.779 --> 00:12:20.920
+tiny bit forward on that.
+
+NOTE Confidence: 0.914103090763092
+
+00:12:23.440 --> 00:12:26.040
+And then it gets straight into model building and training.
+
+NOTE Confidence: 0.8660515546798706
+
+00:12:26.679 --> 00:12:29.952
+So we saw earlier it imported all sorts of packages,
+
+NOTE Confidence: 0.8660515546798706
+
+00:12:30.015 --> 00:12:31.400
+which is just so cool.
+
+NOTE Confidence: 0.9359266757965088
+
+00:12:32.080 --> 00:12:34.474
+And now it's going to go ahead and train all
+
+NOTE Confidence: 0.9359266757965088
+
+00:12:34.529 --> 00:12:37.304
+of the different models that it has available to it
+
+NOTE Confidence: 0.9359266757965088
+
+00:12:37.359 --> 00:12:40.515
+and do different types of evaluations on how accurate that
+
+NOTE Confidence: 0.9359266757965088
+
+00:12:40.569 --> 00:12:43.399
+model prediction was based on the training data set.
+
+NOTE Confidence: 0.8543887138366699
+
+00:12:44.280 --> 00:12:46.776
+And so in this initial cell here, here, it's just
+
+NOTE Confidence: 0.8543887138366699
+
+00:12:46.827 --> 00:12:48.000
+doing the basic models.
+
+NOTE Confidence: 0.8418986797332764
+
+00:12:48.000 --> 00:12:52.143
+So the linear regression, the Ridge regression, the lasso regression
+
+NOTE Confidence: 0.8418986797332764
+
+00:12:52.204 --> 00:12:55.312
+and elastic net, and it goes and generates all this
+
+NOTE Confidence: 0.8418986797332764
+
+00:12:55.373 --> 00:12:55.800
+for me.
+
+NOTE Confidence: 0.8934279680252075
+
+00:12:55.800 --> 00:12:58.692
+It trains the models and it gives me those RMSE
+
+NOTE Confidence: 0.8934279680252075
+
+00:12:58.753 --> 00:13:02.076
+values, the root mean square error values that lets me
+
+NOTE Confidence: 0.8934279680252075
+
+00:13:02.138 --> 00:13:04.600
+know just how accurate each of these is.
+
+NOTE Confidence: 0.9422358274459839
+
+00:13:05.040 --> 00:13:06.480
+But then it takes it a step further.
+
+NOTE Confidence: 0.9214636087417603
+
+00:13:06.480 --> 00:13:09.163
+And again, it just keeps doing things that I wouldn't
+
+NOTE Confidence: 0.9214636087417603
+
+00:13:09.214 --> 00:13:10.480
+think to do as the human.
+
+NOTE Confidence: 0.8998817801475525
+
+00:13:11.200 --> 00:13:13.562
+But it's like, let's train three more models, three more
+
+NOTE Confidence: 0.8998817801475525
+
+00:13:13.604 --> 00:13:14.279
+advanced models.
+
+NOTE Confidence: 0.8429542779922485
+
+00:13:14.280 --> 00:13:17.058
+And so it does a random forest regression, it does
+
+NOTE Confidence: 0.8429542779922485
+
+00:13:17.114 --> 00:13:20.059
+gradient boosting, and it goes and uses this XG Boost
+
+NOTE Confidence: 0.8429542779922485
+
+00:13:20.115 --> 00:13:20.559
+library.
+
+NOTE Confidence: 0.8314225673675537
+
+00:13:20.559 --> 00:13:22.745
+And to be honest, I don't even know what XG
+
+NOTE Confidence: 0.8314225673675537
+
+00:13:22.796 --> 00:13:25.440
+Boost is, but you know, Asian mode and copilot does.
+
+NOTE Confidence: 0.921876072883606
+
+00:13:25.440 --> 00:13:29.680
+And so yeah, it, it's running three more models here.
+
+NOTE Confidence: 0.9448769092559814
+
+00:13:30.679 --> 00:13:32.688
+And then it what it could do is select the
+
+NOTE Confidence: 0.9448769092559814
+
+00:13:32.736 --> 00:13:34.935
+one that had the lowest error rate and then go
+
+NOTE Confidence: 0.9448769092559814
+
+00:13:34.983 --> 00:13:37.040
+ahead and create a submission file on that.
+
+NOTE Confidence: 0.8745895028114319
+
+00:13:37.040 --> 00:13:40.825
+But it actually does something even more advanced where it
+
+NOTE Confidence: 0.8745895028114319
+
+00:13:40.890 --> 00:13:44.479
+takes the the, the seven models that were generated and
+
+NOTE Confidence: 0.8745895028114319
+
+00:13:44.545 --> 00:13:48.199
+all those sets and it creates what's called an ensemble.
+
+NOTE Confidence: 0.9286824464797974
+
+00:13:49.000 --> 00:13:50.890
+So it's kind of like, I guess in the simplest
+
+NOTE Confidence: 0.9286824464797974
+
+00:13:50.932 --> 00:13:53.033
+terms, like a combination or an average of all the
+
+NOTE Confidence: 0.9286824464797974
+
+00:13:53.075 --> 00:13:54.839
+different models that have been been used.
+
+NOTE Confidence: 0.944654107093811
+
+00:13:55.840 --> 00:13:59.165
+And so that extra step ends up creating even that
+
+NOTE Confidence: 0.944654107093811
+
+00:13:59.233 --> 00:14:01.880
+much more of a high quality prediction.
+
+NOTE Confidence: 0.9256953001022339
+
+00:14:02.840 --> 00:14:06.905
+And all of this was done completely autonomously in this
+
+NOTE Confidence: 0.9256953001022339
+
+00:14:06.978 --> 00:14:10.390
+in this video, I submitted the one prompt and I
+
+NOTE Confidence: 0.9256953001022339
+
+00:14:10.463 --> 00:14:11.479
+let it go off.
+
+NOTE Confidence: 0.9470860958099365
+
+00:14:11.480 --> 00:14:14.158
+And it's just been been thinking the entire time and
+
+NOTE Confidence: 0.9470860958099365
+
+00:14:14.209 --> 00:14:15.240
+doing all this work.
+
+NOTE Confidence: 0.8760541677474976
+
+00:14:15.600 --> 00:14:17.980
+And so you can see, yeah, it's creating the the
+
+NOTE Confidence: 0.8760541677474976
+
+00:14:18.030 --> 00:14:20.461
+ensemble here in a second and then it's going to
+
+NOTE Confidence: 0.8760541677474976
+
+00:14:20.512 --> 00:14:21.879
+generate a submission file.
+
+NOTE Confidence: 0.9069586992263794
+
+00:14:21.880 --> 00:14:24.582
+And then I'll just go ahead and and skip ahead
+
+NOTE Confidence: 0.9069586992263794
+
+00:14:24.641 --> 00:14:27.638
+to this is back on the Cagle website submitting the
+
+NOTE Confidence: 0.9069586992263794
+
+00:14:27.697 --> 00:14:30.400
+submission file and we go ahead and submit it.
+
+NOTE Confidence: 0.9222026467323303
+
+00:14:30.400 --> 00:14:33.298
+And again, I don't recommend that people are, you know,
+
+NOTE Confidence: 0.9222026467323303
+
+00:14:33.351 --> 00:14:34.879
+submitting Cagle submissions.
+
+NOTE Confidence: 0.9101473093032837
+
+00:14:34.880 --> 00:14:36.663
+And this isn't the right way to for this to
+
+NOTE Confidence: 0.9101473093032837
+
+00:14:36.704 --> 00:14:38.571
+be done, but it's a really quick way to learn
+
+NOTE Confidence: 0.9101473093032837
+
+00:14:38.612 --> 00:14:40.934
+and it demonstrates that these agentic tools can be used
+
+NOTE Confidence: 0.9101473093032837
+
+00:14:40.976 --> 00:14:41.640
+for real things.
+
+NOTE Confidence: 0.8658112287521362
+
+00:14:41.880 --> 00:14:44.964
+And so I got a score of 14,000 on this,
+
+NOTE Confidence: 0.8658112287521362
+
+00:14:45.043 --> 00:14:48.760
+which equates to about 300th place out of 6000.
+
+NOTE Confidence: 0.8996144533157349
+
+00:14:48.840 --> 00:14:51.081
+And submissions is what I would be explaining in this
+
+NOTE Confidence: 0.8996144533157349
+
+00:14:51.123 --> 00:14:51.800
+video right now.
+
+NOTE Confidence: 0.950036346912384
+
+00:14:52.440 --> 00:14:56.702
+So top 5% generated in about 10 minutes time with
+
+NOTE Confidence: 0.950036346912384
+
+00:14:56.789 --> 00:15:01.400
+very little, you know, serious development on my end.
+
+NOTE Confidence: 0.8650908470153809
+
+00:15:01.400 --> 00:15:03.443
+So thank you so much for for taking a look
+
+NOTE Confidence: 0.8650908470153809
+
+00:15:03.492 --> 00:15:06.119
+and I really appreciate you all working with me today.

@@ -1,0 +1,199 @@
+Microsoft Build May 19-22, 2025 Session: STUDIO14 Speakers: Marco Casalaina, Pablo Castro, Seth Juarez, Yina Arenas
+
+Seth Juarez: Hello, my friends. We're here at Microsoft Build with some amazing people and colleagues here. How's everybody doing today?
+
+Yina Arenas: Amazing.
+
+Seth Juarez: I know, I love Microsoft Build, it's one of my favorite conferences, and to get to be where -- we kind of work together a little bit, but for those that don't know, I thought maybe we'd start with some introductions, go from over here, and then we'll just talk about what's the most important thing, and for me it's AI, so we'll have to talk about that. We'll start with you, Marco.
+
+Marco Casalaina: AI, well, hey, I'm Marco Casalaina. I'm VP Products of CoreAI here at Microsoft.
+
+Seth Juarez: Fantastic, but tell us more. Is there a favorite color?
+
+Marco Casalaina: A favorite color? (laughter). I don't know. My favorite color is AI.
+
+Seth Juarez: Wow. That is --
+
+Yina Arenas: That was deep.
+
+Seth Juarez: We got started really deep. Thank you.
+
+Marco Casalaina: That's right, we got right to it.
+
+Seth Juarez: Yeah, the favorite color, AI. It broke my brain. Thank you, sir. Yina, you're up.
+
+Yina Arenas: Hello, everyone. My name is Yina. I lead Product for Azure AI Foundry, and I'm excited for all the things that we have for Build.
+
+Seth Juarez: That's cool, and I'm not going to ask your favorite color because you're going to break my brain again, I think. Pablo, you're up.
+
+Pablo Castro: Yeah, so I'm Pablo Castro, and I'm a CVP in the AI team. I run the Azure Search team.
+
+Seth Juarez: And I also work on the same team. We're all on the same team. I'm a huge fan of AI. But I thought I'd start with you, Pablo, because, I tell people this, AI only amplifies the
+
+data estate that you have. So if you are not disciplined with your data, AI is going to make you seem not disciplined. This is how I think about it, but I'd love your take.
+
+Pablo Castro: Perfect. So you know the stories.
+
+Seth Juarez: Yes.
+
+Pablo Castro: So, yeah, of course, I mean, there is so much going on in terms of models, and that's in the end what's powering all of this, but ultimately, if you want to get something done, you often want to connect your models to the data that your application or your company, or whatever else it is, is creating and managing. So yeah, very much a combination of agents and models with data is what's really powering the applicability of all this technology out there.
+
+Seth Juarez: Yeah, and the cool thing about that, though, is, and I tell this to people and maybe you can correct me, I like to think of models as language calculators, but if you do not put the right numbers into the calculator, the right numbers won't come out. How does Azure AI Search help with this? Because that's the product you get to work on.
+
+Pablo Castro: That's very good. I'm going to use that analogy later.
+
+Seth Juarez: Yes.
+
+Pablo Castro: That's good. So yeah, I mean the role of Azure Search is, I should say Azure AI Search, so my marketing friends are happy with me.
+
+Seth Juarez: Of course.
+
+Pablo Castro: So the role of Azure AI Search is to effectively retrieve the right pieces of information. You need to answer a question or help summarize some piece of content, or maybe an agent is going through a task and needs some reference information in order to know what to do next, and all of that, these systems go out to your kind of knowledge base and find the right bits of information that inform the model. So our job from the retrieval systems perspective is, at every point in time, find you the right bit of information so the model has the information to know what to do next.
+
+Seth Juarez: And that's the important part that people seem to -- I seem to forget, that if you do not have a way to retrieve the right information, there's no way for the model to be able to tell you the right thing.
+
+Pablo Castro: That's right, or worse, it'll still tell you.
+
+Seth Juarez: It'll tell you. So let's talk about how Azure AI Search helps with that, and I know we kind of jest that we need to call it "Azure," but there is actually AI happening when you're potentially doing the indexing and when you're potentially doing the retrieval, too. So let's talk about first how one indexes stuff and how AI helps, and then let's talk about, at the
+
+retrieval end, how AI helps there, and then maybe some of the new stuff that's coming for people. What do you think?
+
+Pablo Castro: That's perfect. So on the indexing side, one of the trickier things is data comes out in all sorts of ways, and people are producing data for their own consumption and whatnot. They're not thinking, I'm going to make it real easy for the indexing system to actually index this stuff. So we know all these things about your chunking and vectorization and extracting layout, dealing with pictures and text and all the mixes, so that's one of the things we put a lot of energy on in Azure AI Search is to make it so that you point us at your data, and if you don't want to have an opinion, let's just do a --
+
+Seth Juarez: We got you.
+
+Pablo Castro: We got you. And if you do have opinions, we do let you tell us exactly what you want us to do. But typically, an easy way to start is just tell us where your data is. We'll deal with all the moving parts, and there is a lot of AI involved there in terms of everywhere from understanding what's going on in a picture to extracting layout information from a PDF or things like that, and then computing things like vectors and other representations so at retrieval time we can do a good job retrieving. Now, on the search side, that's, I guess, part of the fun part of the search space that has me really kind of hooked in the topic is this mix of bottom half is the retrieval problem, inverted indexes, vectors.
+
+Seth Juarez: Yeah, like the old school stuff.
+
+Pablo Castro: That's right, yeah, sure. Old school. Vector search is only a few years.
+
+Seth Juarez: I get it, but Euclidean dist and cosine vector, that's been around forever in NLP, but the fact that you're putting it into standard retrieval systems is what makes it the AI part of it really powerful.
+
+Pablo Castro: Exactly that, and then we have had a whole journey going from the basics of that all the way to modern systems where we do -- this is deep learning, ranking models at the top of the stack that do re-ranking to make sure we -- we sometimes start with millions of documents and we want to get to the top three to five that will be exactly right for an answer or for a set of instructions or something, and that's another kind of key role AI plays where this transformer-based re-ranking models can really make a huge difference compared to more traditional retrieval systems. And that's another area that, if you are into the topic, then there's a lot to learn about that, but if you just want to be done, just enable Azure Search's kind of full semantic ranking stack and we'll do the work for you.
+
+Seth Juarez: And this is awesome because you have the system that allows you to not only use AI when you're ingesting stuff, and you have a term "document cracking" that lets you look at documents in a really cool way, but also when you're doing the retrieval, but I think
+
+it's the models that really make this sing. Tell us about Azure AI Foundry and what we should think about it.
+
+Yina Arenas: Before we go there, I think there was one piece that was missing, Pablo, that I think that is important for us to talk about.
+
+Seth Juarez: Ooh, I'm so glad she's here.
+
+Yina Arenas: So what is different from RAG? I mean, we've been doing RAG for what?
+
+Seth Juarez: That's true.
+
+Yina Arenas: Two years now? But now we have new capabilities.
+
+Seth Juarez: Oh, that's right. That's right. I was going to come back to you on that because I want to make sure that we all get in, but what is the new stuff?
+
+Pablo Castro: So to Yina's point, we've been doing RAG for a while and it really worked out. It gave us a couple of years of good applications and whatnot, but now we've learned a lot more. So for example, one of the things we're announcing here at Build is this introduction of more -- the same agentic methods we use in many other parts of the systems and our developers use out there, we apply to the search stack. So we have this agentic retrieval capability that we're just rolling out, that for the same reasons we do agents out there, we can do it within the search stack to understand, reflect on what we got, see if we need more information, maybe kind of process and branch out queries and whatnot. So really makes a difference within the stack, not only for developers put in the stack.
+
+Seth Juarez: And I want to come back to this.
+
+Yina Arenas: And that helps give the right context to the models, back to your point, Seth, because right now, to what you were saying, the data is the key part, and we have so much explosion when it comes to new models that are coming to market. I mean, two years ago, we had the OpenAI first three models, two, three years ago. Now we have an explosion of models that has used the ecosystem. We are, as of today, have more than 10,000 models in the Azure AI Foundry catalog, and you might ask, oh, my gosh, there's too many models, how do you go about figuring out which one is the one for you to use? Well, first of all, there's models for all kinds of scenarios, whether you're doing text-to-text, text-to-speech, image, video, whether you're doing industry-specific things with Hulker (phonetic), with finance, with retail. We have all kinds of models for you to be able to find the right one for your use case, and we have a set of capabilities built into the product that help you with that discovery journey, whether it is the catalog that brings in multiple ways to slice and dice the set of offerings that we have in terms of the models, whether it is a leaderboard where we bring in comparisons based on cost and throughput and safety and quality, being able to slice and dice all of that data so that you can see what is the best model if I want to do reasoning, if I want to do text, if I want to do images. So we have lots of built-in
+
+capabilities so that you can select the best one. And back to Pablo's point, if you don't want to worry about which model do I select, well, right now at Build, we're announcing model router.
+
+Seth Juarez: Oh, how cool. Tell us about that, because a choice to me can be a little too much, but how is this helping people choose their own?
+
+Yina Arenas: Exactly. This is the place for you to start. So model router is an overlay on top of the set of models that you have deployed from Azure OpenAI, and what it will do is, based on the prompt, it will decide which model to use. So if it is a simple prompt, it will route the request to a Nano model, cheaper, and then it does the job for you. If it is a very complex prompt, one that requires reasoning, it can route it to an O3 model. So without you having to, figure out, okay, which model should I use? Should I bring a Nano, a Mini? Should I bring in the four-point -- just use the model router.
+
+Seth Juarez: That's cool, and I love how there's an analogy between both of those phases. You mentioned something here with Pablo that I wanted to get into. You said it can do agentic things, and you're doing it anyway doing the search. What does it mean to be agentic to you, and how does Azure AI Foundry help with that? Let's throw the cards everywhere. We're going to talk about it.
+
+Yina Arenas: I love the conversation, yes, because "agents," oh, my gosh, it's an overloaded word. Now everything is agents.
+
+Seth Juarez: Yes.
+
+Yina Arenas: So it is really important for developers to think about, okay, I see all of these agents in the market, but where do I get started, and how should I think about agents? Well, I mean, we've been working with language models for a while now. It's been a couple of years, so it's simple. Agents is where you let a language model help you decide the control flow of the program.
+
+Seth Juarez: Yeah, I like it. It's super simple because, as a developer, it's a new control structure. It's an "if" statement and a "while" statement, a "switch" statement. I think we should just call it the "swift" statement (laughter), LLMs as a swift statement agent.
+
+Yina Arenas: I like that.
+
+Seth Juarez: It's a swift statement.
+
+Yina Arenas: I like that.
+
+Seth Juarez: But how does that make developers more powerful in terms of what they can abstract to? So tell us about that.
+
+Yina Arenas: I mean, we've been doing automation for how many years? Decades. Decades, decades of automation. What was the thing that was super challenging when we were doing automation? At every moment that your workflow changed, you were in a madness of updating your scripts and updating all of your code. It's zero adaptability. That's the huge breakout. You bring in a language model and it can help you adapt. It will plan, it will learn, it will just go with the flow. How many times you've been into, whether it is a chat conversation on the web or in a call where you get one of the very hard-wired bots, I only understand that if you say yes, no, and then the specific query, and then you're quickly saying "representative, representative, representative."
+
+Seth Juarez: Yes.
+
+Yina Arenas: Now with the power of the language model, you can add that into your application and it helps you with that fluidity and that adaptability, and in addition to that, they have the ability to do function calling, to call a tool, whether that is retrieving knowledge from Azure AI Search --
+
+Seth Juarez: Nice.
+
+Yina Arenas: Or making an action in a system, anything that can be described with an API can be called by the LLM.
+
+Seth Juarez: Yeah, that makes sense. And so that's where all the -- I hear a bunch of buzzwords-ish, and I want to make sure that you can put those in context, because you said an LLM can now decide control flow. It can do that through tool calling or function calling. So what is MCPA? Give us all the acronyms and put those into context with this principle.
+
+Yina Arenas: I know, I know. Well, I mean, it's early in the development of the technologies around agentic AI, and we'll take you back to the days before we had HTTP. We don't have standards right now.
+
+Seth Juarez: I see.
+
+Yina Arenas: They're evolving, and some of the things that we need to do is we need to make sure that an agent can invoke a tool, that an agent can have a communication with another agent. So there's a set of proposals and protocols that are emerging and some of them are getting more traction in the market than others. So for agent-to-agent communication, there is A2A.
+
+Seth Juarez: With the number two. That's what makes it technical.
+
+Yina Arenas: Yeah, for tool calling and model context protocol, MCP, but there's also other set of protocols, and in our offering in Azure AI Foundry, in the agent service, we support A2A, MCP, we support Assistants API, Responsys API. We're working with LangChain and
+
+CrewAI to support their agent, their agentic API protocols as well. So whatever you use today, you can connect to it. You can integrate with it.
+
+Seth Juarez: And I love how the platform that you're working on is like bring your stuff. We've got the models, and if you're using stuff already, feel free to bring it to us. We got you covered. So the second bit that I want to talk about, because I have a question. How does AI Foundry make it easier? We have the agent service that you were talking about that does all this stuff. How are we keeping people safe when they're using it? Because obviously now it's a little squishier. It's not like "representative, no, yes." It's how do we keep people safe? Tell us about that, Yina.
+
+Yina Arenas: That is a key differentiator, what we have in our offer. It's not just about the models. It's about the entire set of development environment that Azure AI Foundry offers for you. It starts with model selection, but it then quickly goes to evaluations. You want to make sure that the model and your scenario, that it is doing the right thing, and we've had evaluations for quite a while, understanding relevance and understanding a set of dimensions around that, but what is different now with the agentic offering is that we're adding new set of evaluators that help you decide, did the agent call the tools correctly?
+
+Seth Juarez: I see.
+
+Yina Arenas: Did it understand the intent? Did it actually follow the instructions that were provided by the system prompt? Because part of the agent is you give it a system prompt that tells you this is how you need to behave. So all of those evaluators are going to help you as a developer understand, is it doing the right thing? So that's from a, I would say, quality perspective, and then we also have evaluators from a security perspective.
+
+Seth Juarez: I see.
+
+Yina Arenas: So think about it like as you're working with this set of applications, you want to make sure that you're monitored to continuously optimize your application and bring up the quality, and you also want to monitor to make sure that you're protecting and guarding and have the right set of security umbrella across your application.
+
+Seth Juarez: Right.
+
+Yina Arenas: So for that, we have things like prompt shields and we have a set of evaluators that make sure that, whether it is a series of attacks that are launched to your application, that it can respond the right way.
+
+Seth Juarez: And that's cool because I said "safe," but it's actually way more than that, the way you described it.
+
+Yina Arenas: Yeah.
+
+Seth Juarez: Now, I know we talked about the agent service just briefly. Why don't you briefly tell us about the agent service? And, Marco, you talk to a lot of people everywhere. I'd love to see your thoughts on what customers are doing, and maybe show us some of the new stuff. So we'll start with agent service and then we'll go to you, Marco.
+
+Yina Arenas: So agent service is an offering that we are taking to general availability today at Build, and it is basically a very simple way for you to create your agent and run it on the cloud. So you don't have to worry about scale. You don't have to worry about where it's running. You just declaratively define your agent and then you're able to have our service run it for you. So all the thing that you need to do is describe your agent, what is your agent name, what are the instructions, the personality that you're giving to your agent, what are the set of tools that you're going to give it. You can connect it to data sources like Azure AI Search, Fabric, SharePoint, you can connect it to Bing for world knowledge, and you can connect it to a set of tools that will give it actions, whether it is a logic app, an Azure function, an OpenAPI, Descrived (phonetic) API, an MCP servers. So all of these different things are capabilities that the agent service provides for you in a very, very simple way.
+
+Seth Juarez: It's like an AI agentic microservice thing.
+
+Yina Arenas: Yes.
+
+Seth Juarez: All right, Marco, tell us what customers do and then show us some stuff.
+
+Marco Casalaina: Yeah, well, I do meet a lot of customers all around the world, and I have seen some really interesting stuff. I think one of the things that really impressed me recently, I was in Munich, and I was hanging out with the folks from BMW, and they showed me an agent that they had built, and it's a data agent. They have these cars all over the world. They have these cars, and they have all this special paint on these cars, but the cars have these sensors in them. It's called "MDR," mobile data recorder, and these sensors record everything. They record the engine temperature, the brake temperature, the ambient temperature, and the moisture, 5,000 sensors on each one of these things, and they are all from all over the world reporting this to a central cloud source, which is in Azure. Well, the problem is that nobody was able to query that. They put a lot of this stuff in a Kusto database, a SQL database, and nobody knew how to query that at BMW. So there was this special class of wizards who were the only people who could query these things. So the folks at BMW, they spent six months creating a semantic model for this, because if you have a sensor called "Q underscore RSTR" --
+
+Seth Juarez: Yeah, yeah, nobody knows what that means.
+
+Marco Casalaina: Nobody knows, not your AI and not you either. You need the semantic model, and that's a precondition to making this kind of stuff work. So they spent a long time going around the company and finding out everybody's sensors and what they were called and what they did, what their ranges were and all that stuff and they created this semantic
+
+model, and with that, they created effectively a data agent using the Azure AI service. And so they have this data agent, and now pretty much anybody at BMW could just query this stuff, and so could I. They actually let me use it. So they're like, "Here." They sat me in front of it, and they're like, "Try it yourself," and I said, "Show me all the hard-braking events in the last week in rainy weather," and it can totally pull that off.
+
+Seth Juarez: That is a bit -- we only -- I wish we had -- we got to do more of this stuff. We only have 45 seconds. So what other things -- do you want to show something? You got 40 seconds.
+
+Marco Casalaina: I do got something really quick to show. We've been working on this agent together.
+
+Seth Juarez: Yeah, let's go to the screen here.
+
+Marco Casalaina: Yeah, so take a look at this screen here. Now, we've been working on this agent together. Now, yesterday, the need came up to connect this to an API, a flight reservation API. We've been working with this travel agent. We needed to connect it to this API. Well, I've been at Microsoft for three years now. I had never discovered until just now the API management service, and so I was able to create this API very quickly in this API management service, and I could mock it up on all this stuff, but check this out. Now, I cannot just create the API. I could expose it to the OpenAPI protocol. So instantly, just like this, I had an API that my agent can use, and now if I want to, I could just create a new MCP server for it also. So I can expose this API in all these different ways. It may not be the sexiest thing in the world, but you need this stuff to be able to connect your agents.
+
+Seth Juarez: Way to bring it together. So we did the data, we did the models, and then you're like -- and the platform Azure makes it all good. Well, y'all are so good. Thank you so much for being with us today.
+
+Pablo Castro: Of course. Thank you for having us.
+
+Seth Juarez: And thank you so much. We're at Microsoft Build, and you've been learning all about Azure AI Search, Foundry, and how customers are making it good with Azure. Thank you so much. We'll see you after this.
+
+[ Music ]
+
+END

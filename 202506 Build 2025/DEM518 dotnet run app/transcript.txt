@@ -1,0 +1,2149 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.6671684980392456
+
+00:00:00.040 --> 00:00:00.280
+Thank you.
+
+NOTE Confidence: 0.7371171712875366
+
+00:00:00.320 --> 00:00:00.920
+Thank you very much.
+
+NOTE Confidence: 0.8557173013687134
+
+00:00:00.920 --> 00:00:01.560
+Hello everybody.
+
+NOTE Confidence: 0.9080782532691956
+
+00:00:01.760 --> 00:00:03.967
+I am here to talk about C, but a new
+
+NOTE Confidence: 0.9080782532691956
+
+00:00:04.029 --> 00:00:07.586
+thing in C in particular, not just like language features,
+
+NOTE Confidence: 0.9080782532691956
+
+00:00:07.648 --> 00:00:09.978
+but a new way of running C So not that
+
+NOTE Confidence: 0.9080782532691956
+
+00:00:10.040 --> 00:00:13.290
+long ago, if you were teaching someone C, think about
+
+NOTE Confidence: 0.9080782532691956
+
+00:00:13.352 --> 00:00:16.234
+a new user, put yourself back when you were new
+
+NOTE Confidence: 0.9080782532691956
+
+00:00:16.296 --> 00:00:19.792
+to C and your first application might look something like
+
+NOTE Confidence: 0.9080782532691956
+
+00:00:19.853 --> 00:00:20.160
+this.
+
+NOTE Confidence: 0.8485166430473328
+
+00:00:20.160 --> 00:00:22.868
+You would have gone to the command line type.net new
+
+NOTE Confidence: 0.8485166430473328
+
+00:00:22.920 --> 00:00:25.159
+console and then told them to open VS Code.
+
+NOTE Confidence: 0.9708672165870667
+
+00:00:25.160 --> 00:00:25.800
+Or maybe you did.
+
+NOTE Confidence: 0.9205997586250305
+
+00:00:25.800 --> 00:00:28.241
+And then you're presented with this and it's like, OK,
+
+NOTE Confidence: 0.9205997586250305
+
+00:00:28.286 --> 00:00:28.920
+I'm new to C#.
+
+NOTE Confidence: 0.9556340575218201
+
+00:00:28.920 --> 00:00:30.480
+I don't know anything about this language.
+
+NOTE Confidence: 0.8976010084152222
+
+00:00:30.920 --> 00:00:33.400
+And then I'm like, OK, what does this mean?
+
+NOTE Confidence: 0.7854033708572388
+
+00:00:33.400 --> 00:00:34.960
+And what is a namespace?
+
+NOTE Confidence: 0.8115264177322388
+
+00:00:34.960 --> 00:00:36.840
+And why don't I need a class thing?
+
+NOTE Confidence: 0.9434141516685486
+
+00:00:36.840 --> 00:00:38.360
+And what is that the name of the class?
+
+NOTE Confidence: 0.8773255348205566
+
+00:00:38.360 --> 00:00:39.160
+Or is that the keyword?
+
+NOTE Confidence: 0.962730884552002
+
+00:00:39.160 --> 00:00:39.920
+I don't really know.
+
+NOTE Confidence: 0.9150596261024475
+
+00:00:40.360 --> 00:00:41.979
+And then as I don't know what that is like,
+
+NOTE Confidence: 0.9150596261024475
+
+00:00:42.017 --> 00:00:43.938
+that's just a whole bunch of words I've never heard
+
+NOTE Confidence: 0.9150596261024475
+
+00:00:43.976 --> 00:00:44.239
+before.
+
+NOTE Confidence: 0.9498748779296875
+
+00:00:44.240 --> 00:00:46.680
+I don't use in common language like static and void.
+
+NOTE Confidence: 0.8316550850868225
+
+00:00:46.680 --> 00:00:47.560
+What does void mean?
+
+NOTE Confidence: 0.9738048315048218
+
+00:00:47.560 --> 00:00:48.240
+I have no idea.
+
+NOTE Confidence: 0.9148280024528503
+
+00:00:48.760 --> 00:00:51.250
+And then finally, this looks like something that you might
+
+NOTE Confidence: 0.9148280024528503
+
+00:00:51.293 --> 00:00:53.312
+want to do as a first time developer, you know,
+
+NOTE Confidence: 0.9148280024528503
+
+00:00:53.355 --> 00:00:55.502
+print hello world to the console or to the command
+
+NOTE Confidence: 0.9148280024528503
+
+00:00:55.545 --> 00:00:55.759
+line.
+
+NOTE Confidence: 0.9111059308052063
+
+00:00:56.120 --> 00:00:57.967
+So the code itself has a lot going on here
+
+NOTE Confidence: 0.9111059308052063
+
+00:00:58.011 --> 00:01:00.431
+that isn't actually the code that you want to introduce
+
+NOTE Confidence: 0.9111059308052063
+
+00:01:00.475 --> 00:01:02.279
+people to when they're first starting C#.
+
+NOTE Confidence: 0.855671226978302
+
+00:01:02.720 --> 00:01:04.714
+Now, there are other files in here as well, like
+
+NOTE Confidence: 0.855671226978302
+
+00:01:04.756 --> 00:01:05.919
+what's this CS project file?
+
+NOTE Confidence: 0.8787099719047546
+
+00:01:05.920 --> 00:01:06.960
+Oh my God, it's XML.
+
+NOTE Confidence: 0.9064574837684631
+
+00:01:06.959 --> 00:01:09.548
+Like why do I have XML in my new language
+
+NOTE Confidence: 0.9064574837684631
+
+00:01:09.611 --> 00:01:12.642
+experience that I am trying to teach you in this
+
+NOTE Confidence: 0.9064574837684631
+
+00:01:12.705 --> 00:01:14.600
+modern stack that's called C#.
+
+NOTE Confidence: 0.9118092060089111
+
+00:01:14.880 --> 00:01:17.239
+And then lastly, there are these other folders that I'm
+
+NOTE Confidence: 0.9118092060089111
+
+00:01:17.282 --> 00:01:19.427
+not really sure what they exist for, but they look
+
+NOTE Confidence: 0.9118092060089111
+
+00:01:19.470 --> 00:01:20.200
+kind of menacing.
+
+NOTE Confidence: 0.9536769390106201
+
+00:01:20.200 --> 00:01:22.207
+If I open them, they have other things I've never
+
+NOTE Confidence: 0.9536769390106201
+
+00:01:22.248 --> 00:01:23.560
+heard of inside of them as well.
+
+NOTE Confidence: 0.9308940768241882
+
+00:01:24.000 --> 00:01:26.200
+So we can do better than this.
+
+NOTE Confidence: 0.9505031704902649
+
+00:01:26.200 --> 00:01:28.898
+Like we wanted to make sure that we can simplify
+
+NOTE Confidence: 0.9505031704902649
+
+00:01:28.954 --> 00:01:32.102
+this experience for new people learning C# for the first
+
+NOTE Confidence: 0.9505031704902649
+
+00:01:32.158 --> 00:01:32.439
+time.
+
+NOTE Confidence: 0.8857107758522034
+
+00:01:32.440 --> 00:01:35.920
+So in about.net six, we started making some changes.
+
+NOTE Confidence: 0.8728444576263428
+
+00:01:35.959 --> 00:01:38.380
+And so now your new console app looks a bit
+
+NOTE Confidence: 0.8728444576263428
+
+00:01:38.437 --> 00:01:38.999
+like this.
+
+NOTE Confidence: 0.904726505279541
+
+00:01:39.320 --> 00:01:41.640
+So I still have a bunch of files.
+
+NOTE Confidence: 0.8195855617523193
+
+00:01:41.800 --> 00:01:44.579
+I still have a file called program dot CS even
+
+NOTE Confidence: 0.8195855617523193
+
+00:01:44.639 --> 00:01:47.237
+though my app is called my first app dot CS
+
+NOTE Confidence: 0.8195855617523193
+
+00:01:47.297 --> 00:01:47.600
+prod.
+
+NOTE Confidence: 0.866385817527771
+
+00:01:47.600 --> 00:01:49.835
+So I'm not really sure why, what programme is and
+
+NOTE Confidence: 0.866385817527771
+
+00:01:49.881 --> 00:01:50.520
+why it exists.
+
+NOTE Confidence: 0.8802411556243896
+
+00:01:50.680 --> 00:01:52.929
+But at least my programme dot CS is now just
+
+NOTE Confidence: 0.8802411556243896
+
+00:01:52.980 --> 00:01:55.026
+this one file that I want to show you as
+
+NOTE Confidence: 0.8802411556243896
+
+00:01:55.077 --> 00:01:57.787
+the first time C# developer look open this file, type
+
+NOTE Confidence: 0.8802411556243896
+
+00:01:57.838 --> 00:02:00.599
+console dot writeline hello world and then you can run
+
+NOTE Confidence: 0.8802411556243896
+
+00:02:00.650 --> 00:02:01.520
+your application.
+
+NOTE Confidence: 0.9607610702514648
+
+00:02:01.760 --> 00:02:04.198
+And obviously I still have this nasty looking XML as
+
+NOTE Confidence: 0.9607610702514648
+
+00:02:04.245 --> 00:02:04.479
+well.
+
+NOTE Confidence: 0.96709144115448
+
+00:02:04.520 --> 00:02:06.400
+So what's really left here?
+
+NOTE Confidence: 0.9009196162223816
+
+00:02:06.400 --> 00:02:09.105
+What if we could just get rid of all this
+
+NOTE Confidence: 0.9009196162223816
+
+00:02:09.171 --> 00:02:12.470
+stuff that isn't C# for the person who is starting
+
+NOTE Confidence: 0.9009196162223816
+
+00:02:12.536 --> 00:02:12.799
+out?
+
+NOTE Confidence: 0.9655506610870361
+
+00:02:13.480 --> 00:02:14.640
+I'm starting from nothing.
+
+NOTE Confidence: 0.8372794985771179
+
+00:02:14.680 --> 00:02:17.935
+And my first notch into learning C should just be
+
+NOTE Confidence: 0.8372794985771179
+
+00:02:18.002 --> 00:02:18.600
+C, right?
+
+NOTE Confidence: 0.9394882321357727
+
+00:02:18.600 --> 00:02:19.640
+It shouldn't be anything else.
+
+NOTE Confidence: 0.9515555500984192
+
+00:02:19.960 --> 00:02:21.988
+So if I go over to the console, I'm going
+
+NOTE Confidence: 0.9515555500984192
+
+00:02:22.037 --> 00:02:23.720
+to open up a new instance of code.
+
+NOTE Confidence: 0.9461030960083008
+
+00:02:25.080 --> 00:02:26.708
+And so this is where I want to start a
+
+NOTE Confidence: 0.9461030960083008
+
+00:02:26.751 --> 00:02:27.480
+nice blank slate.
+
+NOTE Confidence: 0.9155970215797424
+
+00:02:27.760 --> 00:02:30.280
+And I'm just going to add my first C file.
+
+NOTE Confidence: 0.8846777677536011
+
+00:02:30.280 --> 00:02:32.252
+So I'm going to call it hello dot CS because
+
+NOTE Confidence: 0.8846777677536011
+
+00:02:32.297 --> 00:02:32.880
+I'm learning.
+
+NOTE Confidence: 0.8053693771362305
+
+00:02:32.880 --> 00:02:34.960
+And so I'm going to print hello.
+
+NOTE Confidence: 0.8799815773963928
+
+00:02:34.960 --> 00:02:37.160
+It's the first thing we do in new applications.
+
+NOTE Confidence: 0.8811854720115662
+
+00:02:37.480 --> 00:02:39.758
+And so then I can tell the person, yeah, you're
+
+NOTE Confidence: 0.8811854720115662
+
+00:02:39.806 --> 00:02:41.599
+going to write console dot writeline.
+
+NOTE Confidence: 0.8112525343894958
+
+00:02:42.320 --> 00:02:45.240
+Hello, C Great.
+
+NOTE Confidence: 0.839314341545105
+
+00:02:46.360 --> 00:02:49.200
+I've got C I'm just being exposed to CI.
+
+NOTE Confidence: 0.940018355846405
+
+00:02:49.200 --> 00:02:51.702
+Only have to learn about the concepts that I need
+
+NOTE Confidence: 0.940018355846405
+
+00:02:51.753 --> 00:02:54.358
+to accomplish the tasks that I'm trying to do right
+
+NOTE Confidence: 0.940018355846405
+
+00:02:54.409 --> 00:02:56.452
+now as a first time user, I have to call
+
+NOTE Confidence: 0.940018355846405
+
+00:02:56.503 --> 00:02:59.363
+this writeline method on this thing that says it's going
+
+NOTE Confidence: 0.940018355846405
+
+00:02:59.414 --> 00:03:00.639
+to write to the console.
+
+NOTE Confidence: 0.9652416706085205
+
+00:03:00.880 --> 00:03:01.880
+So now I want to run this.
+
+NOTE Confidence: 0.9390908479690552
+
+00:03:01.880 --> 00:03:03.760
+So OK, I'll come back to my terminal.
+
+NOTE Confidence: 0.9200268983840942
+
+00:03:04.560 --> 00:03:06.280
+Let's go into this folder that I created.
+
+NOTE Confidence: 0.8542503118515015
+
+00:03:07.680 --> 00:03:08.440
+We'll clear it out.
+
+NOTE Confidence: 0.9013326168060303
+
+00:03:08.440 --> 00:03:09.200
+Have a look inside.
+
+NOTE Confidence: 0.9124377965927124
+
+00:03:09.200 --> 00:03:09.800
+So here it is.
+
+NOTE Confidence: 0.792624831199646
+
+00:03:09.800 --> 00:03:14.087
+So now what if I could just.net run that file
+
+NOTE Confidence: 0.792624831199646
+
+00:03:14.182 --> 00:03:15.039
+directly?
+
+NOTE Confidence: 0.8830691576004028
+
+00:03:15.040 --> 00:03:17.527
+Now this is the first time this is a brand
+
+NOTE Confidence: 0.8830691576004028
+
+00:03:17.586 --> 00:03:18.119
+new feel.
+
+NOTE Confidence: 0.6686482429504395
+
+00:03:18.120 --> 00:03:18.520
+Look at that.
+
+NOTE Confidence: 0.40196090936660767
+
+00:03:18.520 --> 00:03:18.760
+It was.
+
+NOTE Confidence: 0.33619192242622375
+
+00:03:18.840 --> 00:03:19.800
+It looks like hello, see show.
+
+NOTE Confidence: 0.8305374979972839
+
+00:03:21.480 --> 00:03:23.760
+That's kind of cool right?
+
+NOTE Confidence: 0.9438995718955994
+
+00:03:23.880 --> 00:03:26.285
+Now I know some of you are looking at that
+
+NOTE Confidence: 0.9438995718955994
+
+00:03:26.343 --> 00:03:28.520
+and going why did it take 3.6 seconds?
+
+NOTE Confidence: 0.8341701626777649
+
+00:03:28.680 --> 00:03:29.960
+We're working on performance.
+
+NOTE Confidence: 0.9355878829956055
+
+00:03:29.960 --> 00:03:32.520
+This is literally the first version of this that works.
+
+NOTE Confidence: 0.8814470171928406
+
+00:03:33.000 --> 00:03:36.760
+Net 10 Preview 4 has this capability inside of it.
+
+NOTE Confidence: 0.9054701328277588
+
+00:03:36.960 --> 00:03:39.267
+OK, and the version of VS Code I'm using the
+
+NOTE Confidence: 0.9054701328277588
+
+00:03:39.319 --> 00:03:42.623
+C extension that lights up the Intellisense when you're running
+
+NOTE Confidence: 0.9054701328277588
+
+00:03:42.675 --> 00:03:45.402
+in this mode will be available imminently, if not by
+
+NOTE Confidence: 0.9054701328277588
+
+00:03:45.455 --> 00:03:47.919
+the end of the day, then hopefully by tomorrow.
+
+NOTE Confidence: 0.9366362690925598
+
+00:03:48.120 --> 00:03:50.480
+OK, so now I can just directly run C#.
+
+NOTE Confidence: 0.9019333124160767
+
+00:03:50.640 --> 00:03:51.908
+If I run it again, it should be a bit
+
+NOTE Confidence: 0.9019333124160767
+
+00:03:51.942 --> 00:03:53.520
+quicker because things should be a bit warmer.
+
+NOTE Confidence: 0.9525124430656433
+
+00:03:53.520 --> 00:03:54.520
+It's under a second now.
+
+NOTE Confidence: 0.9585800766944885
+
+00:03:54.800 --> 00:03:55.640
+That's fantastic.
+
+NOTE Confidence: 0.8060729503631592
+
+00:03:55.760 --> 00:03:57.040
+All right, well, what else can I do?
+
+NOTE Confidence: 0.8859182596206665
+
+00:03:57.400 --> 00:03:59.786
+Well, I might want to extend this to do more
+
+NOTE Confidence: 0.8859182596206665
+
+00:03:59.840 --> 00:04:02.715
+than just, you know, write the write out something to
+
+NOTE Confidence: 0.8859182596206665
+
+00:04:02.769 --> 00:04:03.800
+the to the console.
+
+NOTE Confidence: 0.9568094611167908
+
+00:04:03.800 --> 00:04:05.400
+What if I wanted to print out?
+
+NOTE Confidence: 0.883319079875946
+
+00:04:05.400 --> 00:04:06.040
+I don't know.
+
+NOTE Confidence: 0.9569864273071289
+
+00:04:06.040 --> 00:04:07.560
+How long has it been since build started?
+
+NOTE Confidence: 0.7826263308525085
+
+00:04:07.560 --> 00:04:11.573
+So we started what it was daytime offset dot, we'll
+
+NOTE Confidence: 0.7826263308525085
+
+00:04:11.652 --> 00:04:14.800
+do dot pause and we started on what day.
+
+NOTE Confidence: 0.838318943977356
+
+00:04:14.880 --> 00:04:17.000
+Then you'll know the date was like 2025.
+
+NOTE Confidence: 0.9465996026992798
+
+00:04:17.000 --> 00:04:19.505
+Obviously we're in May and I think it was the
+
+NOTE Confidence: 0.9465996026992798
+
+00:04:19.561 --> 00:04:19.840
+18th.
+
+NOTE Confidence: 0.9567710757255554
+
+00:04:19.840 --> 00:04:20.360
+Is that right?
+
+NOTE Confidence: 0.7313215732574463
+
+00:04:21.840 --> 00:04:22.920
+1919.
+
+NOTE Confidence: 0.6811981201171875
+
+00:04:22.920 --> 00:04:24.880
+OK, apparently some I started on Sunday.
+
+NOTE Confidence: 0.7452058792114258
+
+00:04:24.880 --> 00:04:26.214
+I don't know about you all, but that's what we
+
+NOTE Confidence: 0.7452058792114258
+
+00:04:26.243 --> 00:04:26.359
+did.
+
+NOTE Confidence: 0.4699346423149109
+
+00:04:26.360 --> 00:04:26.640
+All right.
+
+NOTE Confidence: 0.7988718152046204
+
+00:04:26.640 --> 00:04:29.680
+So since again was going to be Yeah, that's right.
+
+NOTE Confidence: 0.8938680291175842
+
+00:04:29.680 --> 00:04:30.720
+Thank you very much, copilot.
+
+NOTE Confidence: 0.9002992510795593
+
+00:04:30.960 --> 00:04:34.073
+And then instead of printing that out, we're going to
+
+NOTE Confidence: 0.9002992510795593
+
+00:04:34.132 --> 00:04:36.775
+go, OK, You know, it has been, I mean, that's
+
+NOTE Confidence: 0.9002992510795593
+
+00:04:36.834 --> 00:04:39.301
+not bad, but I'm just going to be lazy and
+
+NOTE Confidence: 0.9002992510795593
+
+00:04:39.360 --> 00:04:41.240
+I'm just going to do this right.
+
+NOTE Confidence: 0.697127103805542
+
+00:04:41.680 --> 00:04:46.244
+I'm just it is it is being that since build
+
+NOTE Confidence: 0.697127103805542
+
+00:04:46.350 --> 00:04:47.200
+started.
+
+NOTE Confidence: 0.9085720181465149
+
+00:04:47.520 --> 00:04:49.720
+OK, so I could go ahead and run that now.
+
+NOTE Confidence: 0.9215968251228333
+
+00:04:49.720 --> 00:04:51.842
+So if I go and run that, see if I've
+
+NOTE Confidence: 0.9215968251228333
+
+00:04:51.901 --> 00:04:54.850
+made any mistakes and you know, it is factually or
+
+NOTE Confidence: 0.9215968251228333
+
+00:04:54.909 --> 00:04:58.152
+technically correct, which I'm told is the best kind of
+
+NOTE Confidence: 0.9215968251228333
+
+00:04:58.211 --> 00:05:01.159
+correct, but it's not exactly very human friendly.
+
+NOTE Confidence: 0.9612117409706116
+
+00:05:01.160 --> 00:05:03.194
+So I know that there's a package I could use
+
+NOTE Confidence: 0.9612117409706116
+
+00:05:03.241 --> 00:05:04.119
+to make this nicer.
+
+NOTE Confidence: 0.8853467106819153
+
+00:05:04.120 --> 00:05:06.537
+So how do I reference a package in this kind
+
+NOTE Confidence: 0.8853467106819153
+
+00:05:06.592 --> 00:05:08.679
+of new mode that I'm in with the file?
+
+NOTE Confidence: 0.6927350163459778
+
+00:05:08.680 --> 00:05:11.622
+Why can you introduce or use something called an ignored
+
+NOTE Confidence: 0.6927350163459778
+
+00:05:11.674 --> 00:05:12.199
+directive?
+
+NOTE Confidence: 0.864922821521759
+
+00:05:12.200 --> 00:05:15.252
+So I mean the new version of C#, we taught
+
+NOTE Confidence: 0.864922821521759
+
+00:05:15.324 --> 00:05:16.560
+C# as a language.
+
+NOTE Confidence: 0.954647421836853
+
+00:05:16.600 --> 00:05:19.648
+You've all seen like hash before, like hash if in
+
+NOTE Confidence: 0.954647421836853
+
+00:05:19.711 --> 00:05:22.697
+your C# or like maybe some other types of hashes
+
+NOTE Confidence: 0.954647421836853
+
+00:05:22.759 --> 00:05:23.319
+in there.
+
+NOTE Confidence: 0.860140860080719
+
+00:05:23.480 --> 00:05:26.410
+Well, we told we told it about hash: And that
+
+NOTE Confidence: 0.860140860080719
+
+00:05:26.475 --> 00:05:28.559
+means ignore this as a language.
+
+NOTE Confidence: 0.9620471000671387
+
+00:05:28.560 --> 00:05:30.582
+I don't want you to think about anything that happens
+
+NOTE Confidence: 0.9620471000671387
+
+00:05:30.620 --> 00:05:31.039
+after here.
+
+NOTE Confidence: 0.9468123912811279
+
+00:05:31.400 --> 00:05:33.440
+And that's good for us as experienced developers.
+
+NOTE Confidence: 0.9701831936836243
+
+00:05:33.440 --> 00:05:35.080
+We can build stuff on top of this now.
+
+NOTE Confidence: 0.9230951070785522
+
+00:05:35.080 --> 00:05:37.008
+So I can say I want a package, and I
+
+NOTE Confidence: 0.9230951070785522
+
+00:05:37.061 --> 00:05:39.900
+know there's a package called humanizer and I want to
+
+NOTE Confidence: 0.9230951070785522
+
+00:05:39.954 --> 00:05:41.239
+get it at version 2 dot.
+
+NOTE Confidence: 0.8701272010803223
+
+00:05:41.240 --> 00:05:42.680
+I can't remember it's 2 dot something.
+
+NOTE Confidence: 0.8065982460975647
+
+00:05:42.680 --> 00:05:43.960
+So I'm just going to say 2 dot star.
+
+NOTE Confidence: 0.47156959772109985
+
+00:05:44.080 --> 00:05:44.360
+All right.
+
+NOTE Confidence: 0.9164409637451172
+
+00:05:44.760 --> 00:05:47.666
+And now instead of doing that, I can say dot
+
+NOTE Confidence: 0.9164409637451172
+
+00:05:47.732 --> 00:05:50.440
+humanize and I'm going to do it this way.
+
+NOTE Confidence: 0.9551409482955933
+
+00:05:50.440 --> 00:05:51.760
+So now let me go and run this.
+
+NOTE Confidence: 0.9173667430877686
+
+00:05:55.680 --> 00:05:58.119
+Now it's doing the restore in the background for me,
+
+NOTE Confidence: 0.9173667430877686
+
+00:05:58.166 --> 00:05:59.479
+and I don't see any of that.
+
+NOTE Confidence: 0.8531221747398376
+
+00:05:59.720 --> 00:06:02.200
+Oh, and I've got AI forgot to add a using.
+
+NOTE Confidence: 0.9204790592193604
+
+00:06:02.200 --> 00:06:03.760
+OK, so let me add my using.
+
+NOTE Confidence: 0.9307989478111267
+
+00:06:04.200 --> 00:06:06.123
+That's a new thing I need to think about as
+
+NOTE Confidence: 0.9307989478111267
+
+00:06:06.168 --> 00:06:08.360
+AC sharp developer after I've added this package.
+
+NOTE Confidence: 0.8382954001426697
+
+00:06:08.360 --> 00:06:10.320
+So good, good progressive disclosure.
+
+NOTE Confidence: 0.9570955038070679
+
+00:06:10.320 --> 00:06:11.440
+I'm learning the things I need to do.
+
+NOTE Confidence: 0.8662722110748291
+
+00:06:11.440 --> 00:06:13.556
+OK, so now it has been two days since build
+
+NOTE Confidence: 0.8662722110748291
+
+00:06:13.606 --> 00:06:13.999
+started.
+
+NOTE Confidence: 0.8994243144989014
+
+00:06:14.000 --> 00:06:16.690
+So now I've seen I can have of just a
+
+NOTE Confidence: 0.8994243144989014
+
+00:06:16.763 --> 00:06:17.999
+straight CS file.
+
+NOTE Confidence: 0.9543747305870056
+
+00:06:18.120 --> 00:06:20.926
+I can reference a package if I need to, and
+
+NOTE Confidence: 0.9543747305870056
+
+00:06:20.991 --> 00:06:23.079
+I can run that CS file directly.
+
+NOTE Confidence: 0.8487535119056702
+
+00:06:23.200 --> 00:06:25.400
+All right, So what else can we do?
+
+NOTE Confidence: 0.9621498584747314
+
+00:06:25.400 --> 00:06:26.640
+This seems like a pretty good start.
+
+NOTE Confidence: 0.8797126412391663
+
+00:06:27.080 --> 00:06:30.880
+I'm going to jump over into Ubuntu on WSL.
+
+NOTE Confidence: 0.7439531087875366
+
+00:06:31.520 --> 00:06:33.040
+OK Anyone use WSL?
+
+NOTE Confidence: 0.7746180295944214
+
+00:06:33.600 --> 00:06:34.880
+Yeah, WSL rocks, right?
+
+NOTE Confidence: 0.7797833681106567
+
+00:06:34.880 --> 00:06:36.040
+WSL is incredible.
+
+NOTE Confidence: 0.9352741241455078
+
+00:06:36.040 --> 00:06:37.848
+It's one of the best things that we've done in
+
+NOTE Confidence: 0.9352741241455078
+
+00:06:37.888 --> 00:06:38.360
+a long time.
+
+NOTE Confidence: 0.940990149974823
+
+00:06:38.360 --> 00:06:40.113
+And I believe it got open source this week, which
+
+NOTE Confidence: 0.940990149974823
+
+00:06:40.149 --> 00:06:41.079
+is like super, super cool.
+
+NOTE Confidence: 0.9481065273284912
+
+00:06:41.080 --> 00:06:43.120
+OK, so I've got a couple of files here.
+
+NOTE Confidence: 0.8473179936408997
+
+00:06:43.120 --> 00:06:45.240
+I've got a hello and I've got since.
+
+NOTE Confidence: 0.8625151515007019
+
+00:06:45.440 --> 00:06:48.120
+So if I look inside this hello file, all right,
+
+NOTE Confidence: 0.8625151515007019
+
+00:06:48.177 --> 00:06:50.915
+it's just a more advanced version of what I just
+
+NOTE Confidence: 0.8625151515007019
+
+00:06:50.972 --> 00:06:51.600
+showed you.
+
+NOTE Confidence: 0.8095618486404419
+
+00:06:51.600 --> 00:06:52.280
+It says hello.
+
+NOTE Confidence: 0.9631448984146118
+
+00:06:52.280 --> 00:06:54.480
+It's been this long since build started.
+
+NOTE Confidence: 0.9646827578544617
+
+00:06:54.720 --> 00:06:56.240
+But look at this first line up here.
+
+NOTE Confidence: 0.8595500588417053
+
+00:06:56.240 --> 00:06:57.080
+You see this line here?
+
+NOTE Confidence: 0.9494519233703613
+
+00:06:57.640 --> 00:06:59.040
+That's called a shebang.
+
+NOTE Confidence: 0.9030494093894958
+
+00:06:59.080 --> 00:07:00.280
+Anyone ever seen a shebang?
+
+NOTE Confidence: 0.8186049461364746
+
+00:07:00.279 --> 00:07:02.913
+I see someone applauding silently over here, but like they
+
+NOTE Confidence: 0.8186049461364746
+
+00:07:02.958 --> 00:07:03.639
+are applauding.
+
+NOTE Confidence: 0.938112199306488
+
+00:07:03.640 --> 00:07:04.240
+I see you, Sir.
+
+NOTE Confidence: 0.671420156955719
+
+00:07:04.240 --> 00:07:05.120
+I see you all right.
+
+NOTE Confidence: 0.9645294547080994
+
+00:07:05.680 --> 00:07:06.600
+So what does that mean?
+
+NOTE Confidence: 0.9144628047943115
+
+00:07:06.600 --> 00:07:09.420
+Well, in on Linux distros in these types of shells,
+
+NOTE Confidence: 0.9144628047943115
+
+00:07:09.475 --> 00:07:11.632
+you can put a hash bang at the front of
+
+NOTE Confidence: 0.9144628047943115
+
+00:07:11.687 --> 00:07:14.120
+your file as long as it's the first line and
+
+NOTE Confidence: 0.9144628047943115
+
+00:07:14.175 --> 00:07:17.161
+you remember not to use carriage return line feeds and
+
+NOTE Confidence: 0.9144628047943115
+
+00:07:17.217 --> 00:07:19.650
+you remember not to have a bomb in your file
+
+NOTE Confidence: 0.9144628047943115
+
+00:07:19.705 --> 00:07:22.360
+and all the other things that come with Windows.
+
+NOTE Confidence: 0.9492968916893005
+
+00:07:22.360 --> 00:07:25.707
+When you pull this your files over to Linux, you
+
+NOTE Confidence: 0.9492968916893005
+
+00:07:25.776 --> 00:07:28.845
+can point at what you want to use to execute
+
+NOTE Confidence: 0.9492968916893005
+
+00:07:28.915 --> 00:07:30.240
+this file directly.
+
+NOTE Confidence: 0.9374224543571472
+
+00:07:30.520 --> 00:07:33.301
+So as long as this file is marked as executable,
+
+NOTE Confidence: 0.9374224543571472
+
+00:07:33.359 --> 00:07:35.967
+which is a Linux thing, not so much a Windows
+
+NOTE Confidence: 0.9374224543571472
+
+00:07:36.025 --> 00:07:38.574
+thing, you can see up here the little X next
+
+NOTE Confidence: 0.9374224543571472
+
+00:07:38.632 --> 00:07:39.559
+to hello dot CS.
+
+NOTE Confidence: 0.8474130630493164
+
+00:07:39.560 --> 00:07:41.000
+That means this file is executable.
+
+NOTE Confidence: 0.9174585342407227
+
+00:07:41.280 --> 00:07:45.240
+I can just say, hey, look at that.
+
+NOTE Confidence: 0.9688576459884644
+
+00:07:45.440 --> 00:07:47.440
+I can just run my CS file directly.
+
+NOTE Confidence: 0.9687947034835815
+
+00:07:49.000 --> 00:07:50.160
+So what's in this other one?
+
+NOTE Confidence: 0.9146133661270142
+
+00:07:50.160 --> 00:07:52.993
+Just to underline that one, this is my more generic
+
+NOTE Confidence: 0.9146133661270142
+
+00:07:53.048 --> 00:07:54.159
+version of this app.
+
+NOTE Confidence: 0.9573001861572266
+
+00:07:54.160 --> 00:07:56.363
+So I can like pass an argument in and then
+
+NOTE Confidence: 0.9573001861572266
+
+00:07:56.415 --> 00:07:57.360
+it will calculate.
+
+NOTE Confidence: 0.8889068961143494
+
+00:07:57.360 --> 00:08:00.800
+So you can see now I'm using bugs, new concept.
+
+NOTE Confidence: 0.9380406737327576
+
+00:08:00.800 --> 00:08:02.741
+I can introduce that now rather than having it be
+
+NOTE Confidence: 0.9380406737327576
+
+00:08:02.780 --> 00:08:04.603
+there in the beginning of the file that I have
+
+NOTE Confidence: 0.9380406737327576
+
+00:08:04.643 --> 00:08:04.960
+to like.
+
+NOTE Confidence: 0.6436821818351746
+
+00:08:04.960 --> 00:08:05.720
+They ignore that part.
+
+NOTE Confidence: 0.9511921405792236
+
+00:08:05.720 --> 00:08:06.640
+I'll get to that later.
+
+NOTE Confidence: 0.9232522249221802
+
+00:08:07.120 --> 00:08:08.840
+So how do I make this thing executable?
+
+NOTE Confidence: 0.8693543672561646
+
+00:08:08.960 --> 00:08:10.360
+Well, I have to make it executable.
+
+NOTE Confidence: 0.654961109161377
+
+00:08:10.360 --> 00:08:12.640
+So I say schmod, schmod.
+
+NOTE Confidence: 0.7469136714935303
+
+00:08:13.160 --> 00:08:18.583
+You say schmod, chamard, chamard, and I say plus executable
+
+NOTE Confidence: 0.7469136714935303
+
+00:08:18.675 --> 00:08:22.812
+bit since that's CS now in theory, I can just
+
+NOTE Confidence: 0.7469136714935303
+
+00:08:22.904 --> 00:08:23.640
+execute.
+
+NOTE Confidence: 0.9041492342948914
+
+00:08:23.640 --> 00:08:24.960
+Oh, it says I need to provide a date.
+
+NOTE Confidence: 0.8627853393554688
+
+00:08:24.960 --> 00:08:25.200
+Good.
+
+NOTE Confidence: 0.8799691796302795
+
+00:08:25.200 --> 00:08:28.020
+So I'll put my birthday in probably a bad idea,
+
+NOTE Confidence: 0.8799691796302795
+
+00:08:28.080 --> 00:08:29.880
+but you know, Oh no, not 1780.
+
+NOTE Confidence: 0.9339277744293213
+
+00:08:31.320 --> 00:08:32.160
+I am a vampire.
+
+NOTE Confidence: 0.9700314402580261
+
+00:08:32.160 --> 00:08:33.440
+I just didn't tell any of you.
+
+NOTE Confidence: 0.9396018385887146
+
+00:08:33.440 --> 00:08:35.651
+And this will tell me how old I am Yes,
+
+NOTE Confidence: 0.9396018385887146
+
+00:08:35.708 --> 00:08:37.240
+I am actually 47 years old.
+
+NOTE Confidence: 0.9058305025100708
+
+00:08:37.240 --> 00:08:39.501
+So this is we think a kind of cool thing
+
+NOTE Confidence: 0.9058305025100708
+
+00:08:39.557 --> 00:08:42.384
+we now if you're living in the Linux ecosystem, we
+
+NOTE Confidence: 0.9058305025100708
+
+00:08:42.441 --> 00:08:45.889
+support these types of, you know, shell execute constructs so
+
+NOTE Confidence: 0.9058305025100708
+
+00:08:45.946 --> 00:08:48.490
+that you can get the advantage of that on the
+
+NOTE Confidence: 0.9058305025100708
+
+00:08:48.546 --> 00:08:49.959
+system that you're using.
+
+NOTE Confidence: 0.8817289471626282
+
+00:08:50.040 --> 00:08:52.195
+All right, So what else can you kind of do
+
+NOTE Confidence: 0.8817289471626282
+
+00:08:52.246 --> 00:08:52.759
+with this?
+
+NOTE Confidence: 0.9259355664253235
+
+00:08:52.760 --> 00:08:55.331
+Well, first of all, let me just quickly compare like
+
+NOTE Confidence: 0.9259355664253235
+
+00:08:55.380 --> 00:08:57.556
+one of the reasons like I kind of get making
+
+NOTE Confidence: 0.9259355664253235
+
+00:08:57.605 --> 00:08:59.040
+things simpler for new users.
+
+NOTE Confidence: 0.9605165123939514
+
+00:08:59.040 --> 00:09:00.240
+It's not just about that.
+
+NOTE Confidence: 0.8673201203346252
+
+00:09:00.559 --> 00:09:03.327
+Who here has ever ridden a Node application or a
+
+NOTE Confidence: 0.8673201203346252
+
+00:09:03.384 --> 00:09:04.479
+Python application?
+
+NOTE Confidence: 0.9316422343254089
+
+00:09:04.640 --> 00:09:06.480
+OK, this isn't new, right?
+
+NOTE Confidence: 0.8423140048980713
+
+00:09:06.480 --> 00:09:09.644
+If I'm over in Nodeland and I've got this hello
+
+NOTE Confidence: 0.8423140048980713
+
+00:09:09.711 --> 00:09:10.519
+dot JS file.
+
+NOTE Confidence: 0.8600811958312988
+
+00:09:10.520 --> 00:09:12.479
+But if I actually, I keep typing CS when I
+
+NOTE Confidence: 0.8600811958312988
+
+00:09:12.526 --> 00:09:13.599
+mean to type JS, right?
+
+NOTE Confidence: 0.7798672914505005
+
+00:09:14.200 --> 00:09:15.920
+How do you run this over in Node land?
+
+NOTE Confidence: 0.8072957396507263
+
+00:09:15.920 --> 00:09:18.094
+You do Node hello dot JS, like that's how it
+
+NOTE Confidence: 0.8072957396507263
+
+00:09:18.143 --> 00:09:18.439
+works.
+
+NOTE Confidence: 0.9381095170974731
+
+00:09:18.480 --> 00:09:19.720
+How does it work in Python?
+
+NOTE Confidence: 0.892935574054718
+
+00:09:19.800 --> 00:09:22.379
+You say π or Python or Python 3 or whatever
+
+NOTE Confidence: 0.892935574054718
+
+00:09:22.439 --> 00:09:23.639
+launch you're using.
+
+NOTE Confidence: 0.9435063004493713
+
+00:09:23.920 --> 00:09:26.766
+And then the Python file, even Go has a facility
+
+NOTE Confidence: 0.9435063004493713
+
+00:09:26.826 --> 00:09:27.360
+for this.
+
+NOTE Confidence: 0.9506130218505859
+
+00:09:27.360 --> 00:09:29.992
+Even Rust has a facility for doing this type of
+
+NOTE Confidence: 0.9506130218505859
+
+00:09:30.048 --> 00:09:31.560
+just run the file directly.
+
+NOTE Confidence: 0.9355480074882507
+
+00:09:31.720 --> 00:09:34.060
+So we were kind of lagging behind, but I'm very
+
+NOTE Confidence: 0.9355480074882507
+
+00:09:34.109 --> 00:09:36.400
+happy to say that we're catching up in.net 10.
+
+NOTE Confidence: 0.9237506985664368
+
+00:09:37.160 --> 00:09:39.760
+OK, What about more complicated applications?
+
+NOTE Confidence: 0.9551287293434143
+
+00:09:40.040 --> 00:09:42.979
+Let me move over now to something that isn't just
+
+NOTE Confidence: 0.9551287293434143
+
+00:09:43.039 --> 00:09:43.399
+hello.
+
+NOTE Confidence: 0.9612822532653809
+
+00:09:43.560 --> 00:09:45.120
+What if I want to do a web application?
+
+NOTE Confidence: 0.9354114532470703
+
+00:09:45.120 --> 00:09:47.236
+What other type of things would we have to support
+
+NOTE Confidence: 0.9354114532470703
+
+00:09:47.278 --> 00:09:48.760
+to let you build a web application?
+
+NOTE Confidence: 0.9241259694099426
+
+00:09:48.760 --> 00:09:52.798
+Well, here's a Web API expressed as a single file
+
+NOTE Confidence: 0.9241259694099426
+
+00:09:52.881 --> 00:09:54.200
+with no project.
+
+NOTE Confidence: 0.8295000195503235
+
+00:09:54.520 --> 00:09:55.600
+So I've got my hash bang.
+
+NOTE Confidence: 0.9455209970474243
+
+00:09:55.680 --> 00:09:57.080
+This does nothing on Windows.
+
+NOTE Confidence: 0.8284028768539429
+
+00:09:57.240 --> 00:10:00.160
+All right, maybe one day, but not today.
+
+NOTE Confidence: 0.9378719925880432
+
+00:10:00.640 --> 00:10:02.440
+So I can set the SDK.
+
+NOTE Confidence: 0.8822991251945496
+
+00:10:02.640 --> 00:10:04.880
+So web projects use a different SDK.
+
+NOTE Confidence: 0.7270066142082214
+
+00:10:05.000 --> 00:10:06.998
+OK, an SDK is like a collection of packages, a
+
+NOTE Confidence: 0.7270066142082214
+
+00:10:07.041 --> 00:10:09.039
+name is build goop and a whole bunch of magic.
+
+NOTE Confidence: 0.8579773306846619
+
+00:10:09.320 --> 00:10:11.181
+So we say, OK, I need to use the Web
+
+NOTE Confidence: 0.8579773306846619
+
+00:10:11.233 --> 00:10:11.439
+SDK.
+
+NOTE Confidence: 0.93904709815979
+
+00:10:11.640 --> 00:10:13.367
+I can add a reference to a package just like
+
+NOTE Confidence: 0.93904709815979
+
+00:10:13.406 --> 00:10:13.759
+I showed.
+
+NOTE Confidence: 0.9423714280128479
+
+00:10:14.000 --> 00:10:16.333
+And then I can just write out my web application
+
+NOTE Confidence: 0.9423714280128479
+
+00:10:16.382 --> 00:10:17.159
+as you see here.
+
+NOTE Confidence: 0.9118791222572327
+
+00:10:17.160 --> 00:10:18.760
+So let me see if this actually runs.
+
+NOTE Confidence: 0.9160718321800232
+
+00:10:18.760 --> 00:10:19.560
+See if I'm lying.
+
+NOTE Confidence: 0.7678349018096924
+
+00:10:20.600 --> 00:10:21.280
+I'm in here.
+
+NOTE Confidence: 0.8865624070167542
+
+00:10:21.280 --> 00:10:24.992
+I'm going to go into Web API, let's do net
+
+NOTE Confidence: 0.8865624070167542
+
+00:10:25.080 --> 00:10:26.760
+run Web API dot CS.
+
+NOTE Confidence: 0.9655029773712158
+
+00:10:27.280 --> 00:10:28.720
+And I've done everything correctly.
+
+NOTE Confidence: 0.9292371273040771
+
+00:10:28.720 --> 00:10:29.800
+I didn't break it earlier.
+
+NOTE Confidence: 0.9156048893928528
+
+00:10:32.240 --> 00:10:35.312
+This should boot up my Web API listening on There
+
+NOTE Confidence: 0.9156048893928528
+
+00:10:35.375 --> 00:10:36.880
+it is on localhost 5000.
+
+NOTE Confidence: 0.7771058678627014
+
+00:10:36.880 --> 00:10:37.360
+I can control.
+
+NOTE Confidence: 0.9242790937423706
+
+00:10:37.360 --> 00:10:40.739
+Click on that and there's my web application running on
+
+NOTE Confidence: 0.9242790937423706
+
+00:10:40.801 --> 00:10:41.599
+the defaults.
+
+NOTE Confidence: 0.9282867908477783
+
+00:10:43.080 --> 00:10:44.560
+Nice, nice.
+
+NOTE Confidence: 0.7732657194137573
+
+00:10:44.720 --> 00:10:47.680
+OK, OK, well, that's a, that's a really good start.
+
+NOTE Confidence: 0.8307411670684814
+
+00:10:47.680 --> 00:10:49.440
+I think, you know, we're getting somewhere here.
+
+NOTE Confidence: 0.9543156027793884
+
+00:10:50.040 --> 00:10:53.240
+What else can we possibly do here to show you
+
+NOTE Confidence: 0.9543156027793884
+
+00:10:53.311 --> 00:10:54.520
+some other stuff?
+
+NOTE Confidence: 0.8830889463424683
+
+00:10:54.520 --> 00:10:56.240
+I'm going to quickly jump back to my.
+
+NOTE Confidence: 0.8930249810218811
+
+00:10:56.240 --> 00:10:56.680
+Where is it?
+
+NOTE Confidence: 0.827491819858551
+
+00:10:56.680 --> 00:10:57.080
+Here it is.
+
+NOTE Confidence: 0.5932624936103821
+
+00:10:57.280 --> 00:10:57.520
+Nope.
+
+NOTE Confidence: 0.8335262537002563
+
+00:10:57.680 --> 00:10:58.000
+That one.
+
+NOTE Confidence: 0.8572107553482056
+
+00:10:58.160 --> 00:10:59.951
+All right, Want to make sure I show all the
+
+NOTE Confidence: 0.8572107553482056
+
+00:10:59.993 --> 00:11:01.159
+stuff that I wanted to show.
+
+NOTE Confidence: 0.9593259692192078
+
+00:11:02.040 --> 00:11:02.440
+Yeah.
+
+NOTE Confidence: 0.8771737813949585
+
+00:11:02.440 --> 00:11:04.545
+All right, so let's show you some stuff that I
+
+NOTE Confidence: 0.8771737813949585
+
+00:11:04.591 --> 00:11:06.559
+wasn't planning on showing because why not?
+
+NOTE Confidence: 0.9017947912216187
+
+00:11:07.080 --> 00:11:08.800
+So I'm going to go back to this Web API.
+
+NOTE Confidence: 0.8740924000740051
+
+00:11:10.520 --> 00:11:11.560
+So I showed you a Web API.
+
+NOTE Confidence: 0.8428468108177185
+
+00:11:11.560 --> 00:11:12.480
+What about a Razor app?
+
+NOTE Confidence: 0.9088923931121826
+
+00:11:12.480 --> 00:11:14.234
+So what would a Razor app look like in this
+
+NOTE Confidence: 0.9088923931121826
+
+00:11:14.275 --> 00:11:14.519
+world?
+
+NOTE Confidence: 0.7909591794013977
+
+00:11:14.520 --> 00:11:17.668
+So this is a Blazer server side or Blazer static
+
+NOTE Confidence: 0.7909591794013977
+
+00:11:17.734 --> 00:11:19.440
+server side rendering app.
+
+NOTE Confidence: 0.8124361634254456
+
+00:11:19.440 --> 00:11:21.594
+Over here I've got a Razor app folder and I've
+
+NOTE Confidence: 0.8124361634254456
+
+00:11:21.641 --> 00:11:23.000
+got my Razor app dot CS file.
+
+NOTE Confidence: 0.8702462315559387
+
+00:11:23.320 --> 00:11:24.000
+What does it look like?
+
+NOTE Confidence: 0.8653891086578369
+
+00:11:24.000 --> 00:11:26.006
+Well, it looks like a web application, doesn't really look
+
+NOTE Confidence: 0.8653891086578369
+
+00:11:26.041 --> 00:11:26.560
+that different.
+
+NOTE Confidence: 0.8481272459030151
+
+00:11:27.200 --> 00:11:30.063
+I'm bringing the the web SDK, but because it's a
+
+NOTE Confidence: 0.8481272459030151
+
+00:11:30.122 --> 00:11:32.747
+web app, I can just have Razor files next to
+
+NOTE Confidence: 0.8481272459030151
+
+00:11:32.807 --> 00:11:34.000
+my entry point file.
+
+NOTE Confidence: 0.8965104818344116
+
+00:11:34.000 --> 00:11:37.720
+We call this the entry point filelikeyousay.net run this file.
+
+NOTE Confidence: 0.9247615933418274
+
+00:11:37.720 --> 00:11:38.920
+That's your entry point file.
+
+NOTE Confidence: 0.9770017862319946
+
+00:11:39.280 --> 00:11:40.240
+This will just work.
+
+NOTE Confidence: 0.9675706624984741
+
+00:11:40.400 --> 00:11:43.422
+So if you want to continue teaching this person more
+
+NOTE Confidence: 0.9675706624984741
+
+00:11:43.480 --> 00:11:45.922
+about what they can do with C#, you can do
+
+NOTE Confidence: 0.9675706624984741
+
+00:11:45.980 --> 00:11:48.480
+that before you introduce them to projects.
+
+NOTE Confidence: 0.9342314600944519
+
+00:11:48.600 --> 00:11:50.788
+But at some point you're going to want a project
+
+NOTE Confidence: 0.9342314600944519
+
+00:11:50.833 --> 00:11:52.839
+probably for a lot of the stuff that you do.
+
+NOTE Confidence: 0.9525067806243896
+
+00:11:53.320 --> 00:11:55.051
+We all, a lot of us, I'm assuming, work in
+
+NOTE Confidence: 0.9525067806243896
+
+00:11:55.092 --> 00:11:57.236
+Visual Studio or we work with solutions with lots of
+
+NOTE Confidence: 0.9525067806243896
+
+00:11:57.277 --> 00:11:58.719
+projects that reference each other.
+
+NOTE Confidence: 0.9467800259590149
+
+00:11:59.040 --> 00:12:01.897
+You get to a point where you need the flexibility,
+
+NOTE Confidence: 0.9467800259590149
+
+00:12:01.954 --> 00:12:04.639
+you need the capabilities that projects afford.
+
+NOTE Confidence: 0.9496362805366516
+
+00:12:05.160 --> 00:12:06.480
+But we don't leave you in the lurch.
+
+NOTE Confidence: 0.8615061640739441
+
+00:12:06.480 --> 00:12:08.705
+We haven't like built an alternate universe where once you
+
+NOTE Confidence: 0.8615061640739441
+
+00:12:08.744 --> 00:12:10.586
+get to this point, you go, well, you're going to
+
+NOTE Confidence: 0.8615061640739441
+
+00:12:10.624 --> 00:12:12.236
+have to walk back a few steps now and then
+
+NOTE Confidence: 0.8615061640739441
+
+00:12:12.274 --> 00:12:14.040
+I'm going to have to teach you about projects.
+
+NOTE Confidence: 0.9672184586524963
+
+00:12:14.040 --> 00:12:16.622
+No, you can just jump straight into the world of
+
+NOTE Confidence: 0.9672184586524963
+
+00:12:16.675 --> 00:12:17.159
+projects.
+
+NOTE Confidence: 0.9648411273956299
+
+00:12:17.480 --> 00:12:19.840
+So let's go over to my app.
+
+NOTE Confidence: 0.868582010269165
+
+00:12:19.840 --> 00:12:21.657
+So I'm in my New Hope folder where I created
+
+NOTE Confidence: 0.868582010269165
+
+00:12:21.699 --> 00:12:22.360
+my Hello dot CS.
+
+NOTE Confidence: 0.9143113493919373
+
+00:12:22.360 --> 00:12:25.437
+And when I am ready good and ready to move
+
+NOTE Confidence: 0.9143113493919373
+
+00:12:25.510 --> 00:12:29.320
+to projectsicansay.net project convert Hello dot CS.
+
+NOTE Confidence: 0.8753898739814758
+
+00:12:30.800 --> 00:12:32.665
+And now just like that, if I look inside, I
+
+NOTE Confidence: 0.8753898739814758
+
+00:12:32.708 --> 00:12:34.399
+don't have a hello dot CS file anymore.
+
+NOTE Confidence: 0.954070508480072
+
+00:12:34.400 --> 00:12:38.083
+I have a hello folder and if I open that
+
+NOTE Confidence: 0.954070508480072
+
+00:12:38.175 --> 00:12:42.320
+folder, you'll see that now I have a project.
+
+NOTE Confidence: 0.9053484201431274
+
+00:12:42.520 --> 00:12:45.719
+So it took my package reference and it expanded it
+
+NOTE Confidence: 0.9053484201431274
+
+00:12:45.783 --> 00:12:48.983
+out into what it should be inside a project, which
+
+NOTE Confidence: 0.9053484201431274
+
+00:12:49.047 --> 00:12:50.839
+is a package reference item.
+
+NOTE Confidence: 0.8244882822036743
+
+00:12:50.840 --> 00:12:52.887
+If I go into my hello dot CS file, there's
+
+NOTE Confidence: 0.8244882822036743
+
+00:12:52.936 --> 00:12:53.960
+my hello dot CS file.
+
+NOTE Confidence: 0.8586520552635193
+
+00:12:53.960 --> 00:12:54.680
+It's stripped out.
+
+NOTE Confidence: 0.818852424621582
+
+00:12:54.680 --> 00:12:57.640
+Those ignore directives because now I'm in project mode.
+
+NOTE Confidence: 0.9358367323875427
+
+00:12:57.840 --> 00:13:00.119
+I use the project way of doing things, which is
+
+NOTE Confidence: 0.9358367323875427
+
+00:13:00.167 --> 00:13:01.719
+referencing things via packages.
+
+NOTE Confidence: 0.9531566500663757
+
+00:13:01.920 --> 00:13:04.246
+But now it works the same way you would expect
+
+NOTE Confidence: 0.9531566500663757
+
+00:13:04.296 --> 00:13:04.599
+today.
+
+NOTE Confidence: 0.862518310546875
+
+00:13:04.600 --> 00:13:06.794
+So now you can teach the person all right, now
+
+NOTE Confidence: 0.862518310546875
+
+00:13:06.841 --> 00:13:09.227
+that you're in project land over for your wait for
+
+NOTE Confidence: 0.862518310546875
+
+00:13:09.274 --> 00:13:11.707
+your terminal, and then you just run the project in
+
+NOTE Confidence: 0.862518310546875
+
+00:13:11.755 --> 00:13:12.280
+the folder.
+
+NOTE Confidence: 0.9065563082695007
+
+00:13:12.280 --> 00:13:13.975
+It finds the project, it builds it, and it runs
+
+NOTE Confidence: 0.9065563082695007
+
+00:13:14.011 --> 00:13:14.119
+it.
+
+NOTE Confidence: 0.9530371427536011
+
+00:13:14.360 --> 00:13:17.751
+OK, So now we have this nice smooth, gradual learning
+
+NOTE Confidence: 0.9530371427536011
+
+00:13:17.815 --> 00:13:20.759
+arc where you can start from a single CS file.
+
+NOTE Confidence: 0.9063490629196167
+
+00:13:21.160 --> 00:13:22.560
+Do your console dot hello.
+
+NOTE Confidence: 0.49341094493865967
+
+00:13:23.200 --> 00:13:24.920
+Once at the writeline, hello dot CS.
+
+NOTE Confidence: 0.8938077688217163
+
+00:13:25.120 --> 00:13:28.071
+You can add packages, reference those, use those APIs in
+
+NOTE Confidence: 0.8938077688217163
+
+00:13:28.123 --> 00:13:28.440
+there.
+
+NOTE Confidence: 0.9638307690620422
+
+00:13:28.520 --> 00:13:30.120
+You can even build web applications.
+
+NOTE Confidence: 0.8997295498847961
+
+00:13:30.240 --> 00:13:32.146
+If you're in the world of Linux, you can take
+
+NOTE Confidence: 0.8997295498847961
+
+00:13:32.189 --> 00:13:34.520
+advantage of shell execution over there with hash bang.
+
+NOTE Confidence: 0.9260269999504089
+
+00:13:34.800 --> 00:13:37.486
+And then when you're ready, you can introduce them to
+
+NOTE Confidence: 0.9260269999504089
+
+00:13:37.537 --> 00:13:40.679
+projects by converting what the work they've done already into
+
+NOTE Confidence: 0.9260269999504089
+
+00:13:40.730 --> 00:13:42.909
+a project so that they can now party in the
+
+NOTE Confidence: 0.9260269999504089
+
+00:13:42.960 --> 00:13:45.748
+world of projects and solutions with the big kids using
+
+NOTE Confidence: 0.9260269999504089
+
+00:13:45.799 --> 00:13:48.080
+Visual Studio and solutions and all that fun.
+
+NOTE Confidence: 0.89493328332901
+
+00:13:48.640 --> 00:13:50.114
+All right, so that's all I had to show you
+
+NOTE Confidence: 0.89493328332901
+
+00:13:50.149 --> 00:13:50.360
+today.
+
+NOTE Confidence: 0.8956455588340759
+
+00:13:50.360 --> 00:13:51.764
+What I want you all to do is you haven't
+
+NOTE Confidence: 0.8956455588340759
+
+00:13:51.799 --> 00:13:52.080
+already.
+
+NOTE Confidence: 0.7240846157073975
+
+00:13:52.080 --> 00:13:57.243
+Godownand.goanddownload.net 10 Preview 4 Visual Studio Code, the C# extension
+
+NOTE Confidence: 0.7240846157073975
+
+00:13:57.310 --> 00:13:58.920
+of a Visual Studio Code.
+
+NOTE Confidence: 0.9719811081886292
+
+00:13:58.920 --> 00:14:00.240
+That's this over here.
+
+NOTE Confidence: 0.9398108720779419
+
+00:14:00.440 --> 00:14:03.040
+I'm using a build from like the GitHub repo yesterday.
+
+NOTE Confidence: 0.9162567257881165
+
+00:14:03.320 --> 00:14:06.074
+I'm told this will be released in the pre release
+
+NOTE Confidence: 0.9162567257881165
+
+00:14:06.130 --> 00:14:09.109
+channel for C# extension either like the end of today
+
+NOTE Confidence: 0.9162567257881165
+
+00:14:09.165 --> 00:14:09.840
+or tomorrow.
+
+NOTE Confidence: 0.9151748418807983
+
+00:14:10.160 --> 00:14:12.872
+Grab that as well and start playing around with this
+
+NOTE Confidence: 0.9151748418807983
+
+00:14:12.924 --> 00:14:15.740
+and giving us feedback on the.net/SDK repo and so that
+
+NOTE Confidence: 0.9151748418807983
+
+00:14:15.792 --> 00:14:18.870
+we can incorporate that feedback into Preview 5 and Preview
+
+NOTE Confidence: 0.9151748418807983
+
+00:14:18.922 --> 00:14:20.799
+6 all the way through to dot net 10.
+
+NOTE Confidence: 0.9260221123695374
+
+00:14:21.840 --> 00:14:22.280
+There it is.
+
+NOTE Confidence: 0.7531862854957581
+
+00:14:22.280 --> 00:14:22.760
+Run file.
+
+NOTE Confidence: 0.960645318031311
+
+00:14:22.760 --> 00:14:23.480
+Thanks very much.

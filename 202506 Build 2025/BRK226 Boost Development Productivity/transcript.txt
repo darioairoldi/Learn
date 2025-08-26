@@ -1,0 +1,291 @@
+Microsoft Build May 19-22, 2025 Session: BRK226 Speakers: Craig Loewen, Kayla Cinnamon, Larry Osterman
+
+[ Music ]
+
+Kayla Cinnamon: All right. Hey, everybody. Thanks so much for coming. This talk is all about how you can boost your productivity with Windows latest tools and tips. So my name is Kayla Cinnamon. I'm a Product Manager here at Microsoft. And I am the former PM for Windows Terminal and I'm now PM for Power Toys. And we've got some great people here backstage with us. Of course, there's Larry Osterman. You might recognize him from his videos on the OneDevMinute channel or other Learn videos as well. And then we have Craig Loewen, who's the PM for WSL. And they have some great stuff that they want to show. So to give an overview of the products that we're going to be talking about today, this is everything that our team works on. So we work on Power Toys, which is a suite of utilities that just makes Windows that much more delightful. There's WSL, which is the Windows Subsystem for Linux. Winget is our Windows package manager. Windows is Windows. And Terminal is the new command line experience that is in Windows 11 and is delivered through the store. So this is going to be entirely live demos after this. So just sit back and relax because we're just going to be three friends showing cool stuff. But we've got a cheat sheet at the end of everything that we're going to show. So we'll start with what's new in Power Toys and then move into Command Palette extensibility. Command Palette is the latest utility that we delivered in Power Toys. So we're going to make an extension live right here on stage. And then we have made some Windows improvements that we're going to show off along with command line awesomeness because our whole team loves the command line. So I think with that, we can jump into bringing Craig Loewen up and we'll talk about what's new with Power Toys.
+
+Craig Loewen: Hello.
+
+Kayla Cinnamon: Hey, Craig.
+
+Craig Loewen: Hello. Hey, Kayla. Thanks for having me.
+
+Kayla Cinnamon: Oh, yeah. Thanks for being here. So I think just to start, one of the latest utilities that we brought to Power Toys that we're going to actually be using throughout this session is ZoomIt. So ZoomIt is that little tool that you might be seeing people use where they zoom and draw. And we partnered with the SysInternals team to bring this into Power Toys so that it just comes with the Power Toys package. You don't have to go install it separately. And then you can go ahead and start annotating live on the screen.
+
+Craig Loewen: So cool and so useful. I mean, I use it all the time to be able to, if you're sharing your screen, say, this piece of code. That's what I'm talking about. And we're going to be using it tons today. So I love the fact that it's bundled with Power Toys and fully open source.
+
+Kayla Cinnamon: Yeah, exactly. And if you already have ZoomIt installed, we would just suggest maybe only having one running at a time. Otherwise, they will fight to the death. And I could not tell you which one will win. But definitely just have one running and it should all just work seamlessly with Power Toys. And I wanted to bring you up because you've done a lot of work, not only in WSL, but also with Advanced Paste, which is another utility we recently released. But now you've added more improvements.
+
+Craig Loewen: Yeah, so we've done some awesome work in Advanced Paste to add some new scenarios. And so if you haven't seen this utility before, it's a Power Toy in Power Toys. And it allows you to paste whatever content you have in whatever format you need it in. So, for example, let's say I have this HTML content of a markdown issue, excuse me, of a GitHub issue. And I want to paste this as markdown. I have that option right here. So all I did was hit Shift Windows key V to open up this window with Power Toys installed. And I can go paste this markdown and it will interpret that content, put it there as a built-in action, which is really cool. But where it gets really powerful is we've infused it with AI to be able to do some more advanced stuff. So I'm going to hit that Shift Windows key V paste action again. I open up this menu and I'm going to say paste as a custom formatted markdown table. And so I take this data that was in a CSV format with the commas, et cetera, and I can paste it directly as a markdown table. And where I find it really useful is I can say things like paste with an additional column named column 3, for example. And whereas before I would have to go manually edit and do some of this stuff, it's able to really quickly just paste these things for me. And let's open the markdown preview and we can take a look and see that it's able to very intelligently reason over my data, which is really cool. And where this gets really neat is that we can chain these actions together. So, for example, I have this image and you'll notice I have a serial number present in this image. What I'm going to do is copy this entire image to my clipboard. I'm going to go to File Explorer, going to open up the Advanced Paste menu, and I say paste just the serial number as a file. And what's actually happening is we are using an agent, an AI agent behind the scenes. It very intelligently was able to read that image, say, hey, the user has an image on their clipboard, extract the text from it, paste just the serial number, and then convert that from text to a file and then paste that directly into File Explorer. And so, of course, we're going to open up the logs and see what it actually did. And so if I go to local, AppData, Power Toys, we can go open up this file and take a look right down here. This is what happens when we ran that. I ran more stuff here in the demo, so let's go all the way down to the bottom. This is what happened when we ran it. You can see that we redact a lot of the actual user requests, obviously, for privacy. But the user had an image on their clipboard, and then the AI chose to use the image to text, the custom text transformation, and the paste as text file. And so if you've seen other tools like MCP this
+
+year at Build, it's very similar exactly to those kind of ideas, bringing a lot of those experiences to areas on Windows, which is pretty powerful.
+
+Kayla Cinnamon: Yeah. And I think what's really neat about Advanced Paste is that it's not only AI. The list items below that text box are actually local APIs. So it's seamlessly blending AI into a workflow so it doesn't feel disconnected, which I really like about it.
+
+Craig Loewen: Me too. And that's one of the things that we've added. We're working on adding some additional features of what you can do here. So you'll see the list that exists down here. But now that I've copied a movie in a.mov file format, I can paste it directly as an MP4 or as an MP3, and that all uses built-in Windows APIs, which is pretty awesome, especially if I'm grabbing it from my phone where it might be in an unsupported formatting. And I can just really quickly pull that over, put it in the right format, and get going.
+
+Kayla Cinnamon: Yeah. I definitely used this last week. So definitely one of my favorite features from Power Toys. And speaking of new features, we've got some new utilities that I'd love to show also. So heading over back to my screen, the latest release we had was version 0.91, which had a lot of fixes for our latest utility, Command Palette. So here I have Command Palette set to launch with Windows R. When I launch it, I should be able to get this open. And this is the evolution of Power Toys Run. So Power Toys Run is a utility that's been around for many, many years, and one of our top feature requests was to add extensibility. And in order to do that, it would have involved a lot of rewriting in order to do it the right way. So we decided to start fresh and focus on performance along with extensibility, which is where the Command Palette came to be. So it comes with a lot of pre-installed plug-ins that we can kind of take a look at. If you just start typing right away after launching, it is an app search. So you can quickly launch an app from here with just a few keyboard shortcuts. There's the run commands option as well. And this behaves just like run. So what I've done, actually, is I went ahead and changed my launch activation key to Windows R. So if I head into settings, I've set this to Windows R right here. And you have to make sure that you turn on the low-level keyboard hook to get this to light up. This is specifically in the 0.91 version of Power Toys. 0.90, where Command Palette released, it doesn't have this fix. So make sure you turn it on. Because if you turn it off, then you'll get run instead. So I highly suggest try this out. Set it to Windows key R. Tell us what's missing. Tell us if you need to go back to run. We just want to make this experience great for everybody. Other utilities that come with, you're able to search files. And you can add bookmarks. This one's really handy because you can select to either launch a URL or a file path. So I've gone ahead and added one for the Command Palette documentation, along with just getting to my GitHub project. So I keep everything in a dev drive, and I'm able to quickly get to that folder in File Explorer, rather than navigating and clicking that way.
+
+Craig Loewen: So cool. And I love the fact that it makes it instant, where if you're typing in GitHub projects, it pulls that up. You can access that right away, kind of at the speed of thought.
+
+Kayla Cinnamon: Yeah, exactly. Our whole goal is to go faster than the speed of thought. So another utility or plug-in, I'll say, is when you want to search for Winget packages, you can use the Command Palette instead. So instead of Winget search package name in the terminal, this is running Winget search also, just in a UI fashion. And it provides a markdown preview of the package information. So if you aren't sure which package you want to get, you can learn about the description, the publisher, all of the information here as well. So I really like this tool for getting Winget packages also. And we mentioned extensibility and extensions. There's been a wide variety of community members already making extensions. These are all community extensions sourced from the Winget repository. They're just marked with metadata saying, hey, I'm a Command Palette extension. And people have published them and have gone ahead and made them available for everyone. So in order to do that ourselves, we can go ahead and create an extension right here, right now. So the Command Palette comes with the ability to create a new extension. And I'm going to call this Build, because that's where we are. And I'm going to put it in my GitHub folder where I keep all of my projects. And this will scaffold all of my folders and files that I need for creating that extension.
+
+Craig Loewen: So it sets up like a getting started project for you right away.
+
+Kayla Cinnamon: Yeah, exactly.
+
+Craig Loewen: And that's built in with Command Palette by default.
+
+Kayla Cinnamon: Yes, it comes with. That item's already there when you first install it. And I can launch the solution file directly into Visual Studio. And I should just be able to hit "Build and deploy". And everything should just work, which is our favorite way of having things work. So I will change my architecture to ARM64, because I'm on an ARM64 device. And I'm just going to let this start building and deploying. While this is going, I'd love to go back and show off the Command Palette docs really quick, because this is what you're going to need in order to continue going with the extension. So we'll set it up for you. But in order for you to add your actions, you're going to want the documentation. So we've created a bunch of developer docs over here, along with how to author your extensions from creating all the way down to publishing. And there's also namespace declarations with the classes and the methods and everything that you need here in the doc site. And we've got links for this at the end. So if you want to get started, highly recommend you check these out. But it looks like the build has finished. So if I go back to Command Palette, here I now have my extension.
+
+Craig Loewen: I love how our dry runs show up here as well.
+
+Kayla Cinnamon: Yeah, I was doing this today. I've got to make sure it works, right? You've got to trust the demo gods here. And then it starts with to do implement your extension here, and then you can go party with the docs and add all of your stuff. And so you've done this. We're going to do a little, like, baking situation.
+
+Craig Loewen: Julia Child, here's the completed extension.
+
+Kayla Cinnamon: You started with this, and then you've finished and created an extension. So I'm going to bring your screen up if you want to show that.
+
+Craig Loewen: For sure. So exactly where we started there, you get a lot of sample code that you can immediately interact with. I went and played with that for a few hours because something that I'm always doing is opening up Task Manager and looking at the CPU and memory on my computer. I think I do that maybe 30 times a day, if not more, maybe my favorite activity to do.
+
+Kayla Cinnamon: That's a lot.
+
+Craig Loewen: And I want it directly in Command Palette. I think it's a great extension. And so I was able to build something like that. So I made this thing called Performance Monitor, and it's able to go ahead and just show me very quickly my CPU and memory. And then right now it's actually pulling what processes are using my CPU memory, able to give me that information as well, which is cool. And my favorite part about the development experience for this is, A, the docs were awesome, and being able to go through that was really helpful. And then, B, I get a full debug experience for this. So when I go ahead and run this again, it will actually hit my breakpoint when it's returning those details in that class. And I can go ahead and step through, access all of these structs and information that I'm using to service that view, which I found incredibly powerful and really awesome.
+
+Kayla Cinnamon: Yeah. We've definitely done a lot of work with extensibility because that's the largest feature request that we've had. So I think you're good here. I know we've got Larry back there, and he's got some stuff to show off.
+
+Craig Loewen: Let's swap.
+
+Kayla Cinnamon: Yeah, let's swap.
+
+Craig Loewen: I know he's talking about some awesome command line stuff, so we'll swap out. Iqq1 t's good seeing you, though.
+
+Larry Osterman: Thanks, Craig. Hi, Kayla.
+
+Kayla Cinnamon: Hey, Larry.
+
+Larry Osterman: Hey.
+
+Kayla Cinnamon: What's up?
+
+Larry Osterman: Not much. I'm here on stage at Build. What can I say? So I'm a developer. I live, breathe the command prompt. I live, breathe Visual Studio. This is like my life all day long. One of the things that annoyed the heck out of me over the course of, like, forever is
+
+that every time I want to, say, edit a TOML file or whatever it is, some small minor tweak, I need to rerun some commands. Well, I'm stuck. I've got to go switch to Notepad, Visual Studio Code. I'm breaking my flow. I'm moving out of the window I'm using. I lose my context. Wouldn't it be cool if you could just say edit cargo.toml, and it brought up a text editor? Well, powers that be over in the Windows organization said, yeah, let's fix this. We're introducing Edit, the built-in text editor in the console. It's a console-based editor for light editing purposes, and it works just like you'd expect a Windows app to work. You can scroll. You can use your mouse. You can use the keyboard, obviously, and it just simply works. This is just a remarkable piece of engineering. File menus, all of the menus you're used to, File, Edit, Undo, Replace, Word Wrap, File, Exit. You can get out of this. You don't have to remember control, W, Q, exclamation point, X, S, C, magic. Nope, nope, nope. File, Exit. Also, one other lovely little thing about this. I don't know about you, but I deal with log files a lot, and you can do an amazing thing like a 100-megabyte file, boom, up immediately. The reason for that is because the edit tool is smart. It only reads the amount of the file that is necessary to actually display the content. It doesn't read the whole file as some editors do where they just, you have to wait for it to all get loaded in. No, with the edit tool, it's there, right there, on your fingertips, right away. And again, so nice, so helpful. Also, another fun feature that never ceases to delight me when I'm showing it off, if you change the console window you're running, you resize it, it resizes the window dynamically as the window moves. Again, it's built in. It does exactly what you want it to do. You want to search? Control F. Look at that. It's got that. Word wrap. It's all there, and it just simply works. So awesome enhancement to Windows. Like I said, it doesn't break my flow, and that's a big deal for me.
+
+Kayla Cinnamon: Yeah.
+
+Larry Osterman: I also find I use it for, like, little things. There's a scratch pad. The other day I was trying to decode some really obscure protocol sequences, and this was a perfect tool to just simply bring up and just write down what was going on so I could actually interpret the data I was trying to understand.
+
+Kayla Cinnamon: Yeah, for sure. And what folder are you in there?
+
+Larry Osterman: Well, funny you should ask me about that. In fact, this is the source code to the edit tool, which is an open-source project on GitHub, www.github.com/MicrosoftEdit. It's open-source. They are actively accepting contributions. They welcome contributions. I've chatted with the developer. He's got this long roadmap of things. And amazingly enough and wonderfully enough, people are already contributing to the repo. We're already seeing issues being filed. We're seeing pull requests coming in. So there's a community being built around this tool, which is just exciting, really, to just see the energy around this tool developing, even though it's only been around online for, what, three days?
+
+Kayla Cinnamon: Yeah. Yeah, the repo's been pretty active, which is awesome. So actually, if you want to get started using Edit today, it's in the releases page on GitHub. So you can head over to the URL. We've got it at the end, so you don't have to memorize it now. But you can try it out today.
+
+Larry Osterman: Download it from there. Put it on your machine. In fact, that's where this is. I just copied it down to my OneDrive folder, and I've just changed my path to include it, and it's on literally every one of my machines that I use daily. The tool's there, and I just really wasn't joking. It really is a joy to use.
+
+Kayla Cinnamon: That's awesome. So, yeah, and it will be coming to Windows soon as well. And speaking of things in Windows, I know we mentioned that we have some Windows improvements we want to show off. So I'll head back over to my desktop, and I'll show you some stuff, Larry, that we think is pretty cool. So over in Settings, we've done some work on the For Developers page. You might notice that it's been renamed to Advanced, but it still contains the Developer Features tag. It still works with searching and all the deep linking to find it. But the reason behind this is that the majority of the features in the For Developers page were not only for developers. They were for Advanced users, and discoverability of these features is something that we found to be a challenge. So we renamed it, rebranded it, and also redesigned the layout. So we put some fan favorites here at the top. You might be familiar with this one.
+
+Larry Osterman: Yes! Yes! Did I say that semi-scripted utterance out loud?
+
+[ Laughter ]
+
+Kayla Cinnamon: Yep. End Task is one of our favorites. And this is, instead of having to go to Task Manager to end a process, you can right-click on a process and select "End Task" instead. I'm not going to do it on Power Toys because I use that all the time. It's just right here, and it'll end the process, which is really handy, instead of going to Task Manager. Other things that we've added is the Enable Long Paths ability, which flips that registry key that removes the max path limitation.
+
+Larry Osterman: Yes.
+
+Kayla Cinnamon: So if you are, like, cloning a long file name to a long folder name, it should just work when this is enabled, which is great. And we've added some virtual workspaces stuff as well. So if you ever have to enable HyperV or Sandbox, eventually WSL will be here. This is a really easy way of doing it, instead of going to the Turn Optional Windows Features On or Off dialog.
+
+Larry Osterman: Which gets renamed, like, often, and you never know where it is, and you always have to, like, search for it. It's so lovely to have this thing just centralized in a place where you can find all of these settings.
+
+Kayla Cinnamon: Yeah. Great. Exactly. And other, you know, fan favorites in here, I've set my default Windows Terminal, or default Terminal Emulator to Terminal Canary. You can enable Sudo, which lets you run Sudo directly in the command line.
+
+Larry Osterman: Nice.
+
+Kayla Cinnamon: And, of course, Dev Drive is down here at the bottom if you want to go create one of those. So this page, along with some settings we've added to File Explorer, came out of the DevHome initiative that some of you might remember. So we delivered DevHome as a way to bring these advanced features to Windows. But we heard a lot of feedback saying that the DevHome delivery mechanism wasn't the best way to do it. We love the features, we just don't love how they've landed on the laptop. So we've taken those features and moved them into settings, and this is kind of that new experience. So one of those includes File Explorer with version control. This is Windows Insider Program dev channel. It's also in the beta channel. And this is powered by a system component that's open source. And what this is letting File Explorer do is be made aware of a Git repository and add that Git information directly in the File Explorer columns. So I've added my repo right here, and I have a few others because I've got a few in that GitHub folder. And if I head back over to my File Explorer, jump into my repo, you can see all of this data getting populated.
+
+Larry Osterman: Oh, wow, you've just eliminated, like, half of the reasons why I ever go to GitHub. Because looking up this history, seeing what the state of my current repo is, I noticed -- wait, do you have down there on the bottom your current branch?
+
+Kayla Cinnamon: Yep.
+
+Larry Osterman: Oh, nice.
+
+Kayla Cinnamon: Right here.
+
+Larry Osterman: Branch, oh, and modified files?
+
+Kayla Cinnamon: Yep. So it shows you your diff between your branch and the origin, and it also has the version status. So this one's modified. These two are already committed and staged. So you can just kind of get a glimpse of where you're at. Because I know, like, I clone a repo and then immediately start contributing to main, which is the worst. So knowing that I'm in my branch is extremely helpful. So this is available now. It's powered by an open-source component called Windows Advanced Settings. And we're hoping to do some really cool stuff here, but you can get this today. And, you know, speaking of, like, Windows settings, I think you've got some other things that are helpful for that.
+
+Larry Osterman: Yeah, I do. So one of the, like, glorious things about working for Microsoft is that every once in a while there's new hardware. It's a hardware company. We make hardware, and we let people, like, test drive them as their prototypes. And that's, like, fun
+
+because who doesn't love getting new toys? But it also means that every two or three weeks they come along and send you an email and say, hi, you need to clean and reformat your machine. So it's like, oh, I've just spent two weeks getting this machine to exactly the way I want it, and now you're asking me to reformat it. And I find that really frustrating. Now, we've had the Winget, the Windows app installer tool, for quite a while. And it's great and wonderful, but you have to remember all the things that you've saved away and remember where they are and, oh, that's right, I forgot this utility that I really need to have. It's a little bit annoying, to be honest. So wouldn't it be cool if, like, the next time you have to set up a dev drive, or sorry, a dev box in the cloud or a new virtual machine, you had the way of just saving the state on a working machine and then bringing it back? And you know it's coming, right? Well, you know, of course you know it's coming. But, I mean, it's kind of obvious what the next step is. And the answer is that the Winget team and desired state configuration have been working diligently to add not only the ability to export a set of installed apps, but also to install your configuration settings. And that's all done with Winget Configure Export. And you can say export the full state of your machine to a file. And what this is doing right now is it is looking at all of the components on my machine, exporting all of those things where there are configuration settings for those files. It's downloading some PowerShell scripts, if necessary, to identify what things can and cannot be updated. And it's running through and exporting a bunch of my Windows settings, my Winget settings, and the settings for a number of other tools and utilities who have been configured. And it exports them out to a file. And there it is. And you can see, you know, I'm a dev, so I don't do, like, Terminal or ZoomIt. But I do use the mouse and keyboard. So we have Windows settings, some Windows settings that are supported. And just for grins, because, well, what's a demo without some risk? See what happens if I change the system color mode from dark to light. And to get this back into your machine, you do Winget. You can import it with Winget configure. You can also launch that. There's a file association for the Winget file extension. I just happen to prefer the experience when you do this. Now, the Windows settings are controlled via UAC, so there will be a UAC prompt at the end when it finally gets done with looking through. But what I'm just doing right now is it's actually looking at all the apps that are installed on my machine and the ones in the YAML file, in the Winget file. And it's checking to make sure that everything that's in that file is currently installed on the machine, which, of course, is all there. The next thing it does is it offers you to install prompts. And as I said, there will be a UAC prompt because the Windows settings require UAC. But once you say yes, behind the scenes, it's applying all of them. And if you look at the taskbar, hopefully, assuming the demo gods are with me, then it will -- please. Now I'm getting nervous. There it is. And there you have it. The most slowest way to update your system from dark mode to light mode. But more importantly, and here's where this entire feature becomes really useful, you can set up a Winget file with configuration settings for your team, for yourself, and you can share that among other members of your team. And then that allows you to help get their machines into a consistent configuration and a consistent state so that your entire team is all using the same tools, same versions, and they are all up to date.
+
+Kayla Cinnamon: Yes, and I love that it's hands-free.
+
+Larry Osterman: Oh, yeah.
+
+Kayla Cinnamon: Because, you know, going through all those settings by hand does take a little bit of time.
+
+Larry Osterman: Fragile, also. This is less fragile because it's all just you're applying a file.
+
+Kayla Cinnamon: Yeah, exactly. And I think you mentioned this, but it's not actually installing all of these again. It makes sure that the app is there.
+
+Larry Osterman: Yes.
+
+Kayla Cinnamon: And then skips that item. And something that is actually lit up, and I'm wondering if this will finish.
+
+Larry Osterman: It should be in a couple seconds. It doesn't take that long. It's going through, and as I said, it's making sure that everything is configured up the way it was in the file. So there we go.
+
+Kayla Cinnamon: So if you actually wouldn't mind opening that file back up again with edit.
+
+Larry Osterman: Absolutely.
+
+Kayla Cinnamon: But the latest and greatest parts of configuration are with the DSC v3, which is there's a talk on it tomorrow that goes a lot more in-depth. But that will light up settings of specific applications that have enabled it. So you might notice here we have Winget settings. And, like, the progress bar, for example, is set to rainbow. So this was able to take Winget settings out and then apply them. So configuration does, like, okay, make sure my apps are correct and they're the right version and all that stuff. And the v3 piece of it is adding that settings.
+
+Larry Osterman: Yeah. And, in fact, if you saw, when I was exporting it, it did have the rainbow bar, and it's now saying that that will be there. And I could have changed that to something else, to some other visual experience, but it wouldn't actually work. Yeah. It doesn't actually play as part of the import because the import is just pretty silent. So that wasn't visually impactful, but changing dark to light -- ooh.
+
+Kayla Cinnamon: Ooh. Sweet. And, you know, we've been in the command line for a while, and I feel bad that, like, I sent Craig away, like, kind of abruptly.
+
+Larry Osterman: I know.
+
+Kayla Cinnamon: We might be able to get him back because I've got some Terminal fe
+
+Craig Loewen: I'm back.
+
+Kayla Cinnamon: Along with all of you.
+
+Craig Loewen: I'd love to see terminal improvements. I'm all back.
+
+Larry Osterman: Terminal improvements, always good.
+
+Kayla Cinnamon: So back on my machine, I'm going to pop over to my terminal. This is Terminal Canary. This is available on GitHub. And there's a few new settings that I want to show off really quickly. One of them is this new tab menu navigation item that allows you to customize this dropdown in a UI.
+
+Larry Osterman: Ooh.
+
+Craig Loewen: That was not planned.
+
+Larry Osterman: That was not planned. That was spontaneous.
+
+[ Laughter ]
+
+Kayla Cinnamon: So let's do it now. So I'm going to just select PowerShell, for example, and Ubuntu. I'll put those above my remaining profiles. Maybe I'll add a separator in there so I can distinguish my favorites from those. I'll hit "Save", and then that easily just rearranged everything all at once.
+
+Larry Osterman: Nice.
+
+Craig Loewen: So nice. And you can still go into the JSON and edit it, but if you don't want to mess with the commas, moving stuff around, you can just easily go through a UI as well.
+
+Kayla Cinnamon: Yeah. But if you want to --
+
+Larry Osterman: Finally.
+
+Kayla Cinnamon: Finally.
+
+Larry Osterman: Finally. Yeah. Sorry. It's just like I've wanted this feature for, like, forever. Literally, it's like as long as I've been using the console. It's always been annoying that I have to go into the JSON to do this. So it's just --
+
+Kayla Cinnamon: Yeah. No, it's definitely a delighter. And there's this folder option, which I feel like, Craig, you've got, like, a lot of WSL distros, right?
+
+Craig Loewen: At any point. I have many on my machine.
+
+Kayla Cinnamon: So I think, I don't know, we've done this before in other live dry runs. I've scooted Ubuntu into the WSL folder, theoretically, and now it's tucked away. So you can do,
+
+like, a little bit more nested navigation if you have a lot of a certain type or, like, a certain environment that you just want to put to a project layout. This UI makes it a whole lot easier.
+
+Craig Loewen: Also makes it a lot easier to discover things, right? Like, if I'm just using the editor, sometimes it's hard for me to know, oh, if I set it up in this way, it's set up. Being able to say, hey, I could put everything in a folder and it's obvious when playing around with it, it's pretty awesome.
+
+Kayla Cinnamon: Yeah.
+
+Larry Osterman: Yeah, I'm just immediately like, oh, good. I have a bunch of repos that I don't use regularly, but I do sometimes use. So having the ability to group those in so that they're not cluttering up the rest of the list is going to be awesome.
+
+Kayla Cinnamon: Yeah.
+
+Larry Osterman: So excited.
+
+Kayla Cinnamon: For sure. So this is in Canary. And the other feature that I want to show off is over, if I go into Ubuntu, into the Advanced section, there's this path translation item that was added recently, which lets me take my slashes and put them in the proper orientation.
+
+Larry Osterman: Wait, what?
+
+Kayla Cinnamon: Yes. And this gets automatically set when you install a WSL distro. So I will demonstrate. I'm going to take a file from this repo, drop it in, and they're all facing the correct direction for Linux.
+
+Larry Osterman: Oh.
+
+Craig Loewen: And also you added the /MNT/drive letter, so you've actually got the drives also in there?
+
+Kayla Cinnamon: Yes.
+
+Larry Osterman: So it changed like D colon back to /MNT?
+
+Kayla Cinnamon: Yeah.
+
+Larry Osterman: Oh, that's great.
+
+Kayla Cinnamon: Exactly, because traditionally it would be D colon backslash and then your path. So instead of going in and manually flipping them, this is just a nice little paper cut that we fixed just to make using WSL and any other distros a little bit easier here in the terminal.
+
+Craig Loewen: That's awesome. And that's on by default?
+
+Kayla Cinnamon: Yeah. I didn't do it. It was just there when I got here. But yeah, so it detects the distro for you, which is great, and it has a few other layouts as well, depending on the shell that you're running.
+
+Craig Loewen: So cool. And that's one of my favorite things is it all feels like the same machine. You don't have to worry. Am I in Windows? Am I in Linux? Right? You can just drag and drop files over. It just works.
+
+Kayla Cinnamon: Exactly. So, yeah.
+
+Craig Loewen: I just realized, you jogged my memory, speaking of WSL, that we forgot a major thing that we talked about this week at Build, which is the Windows Subsystem for Linux is now open-source. And so I wanted to chat about that. Thank you very much. We're really excited to kind of join a community that's also excited to build with the Windows Subsystem for Linux. So on the screen, there's just a few highlighted partners, and there's many, many more who use WSL. Everyone from distro maintainers like Red Hat, OpenSUSE, Canonical, Debian, Arch Linux, and Fedora. These are some new distros that have just joined recently as well. From folks who build on top of WSL for their experiences. That's people like NVIDIA for their AI workbench, for NIMS support, Docker Desktop, Podman Desktop, and more. And then we even have partners who use WSL every day for their workflows or to support other people to use Linux workflows as well. For example, the Moonray rendering engine, which is used by DreamWorks to render films like "How to Train Your Dragon" and more. That's open-source entirely on Linux, and the way that they support a Windows community is using WSL.
+
+Larry Osterman: That's awesome.
+
+Craig Loewen: So we're super excited to join that, and we're super excited to kind of welcome the community, see what you could do, what you want to see, and what you could help build with WSL. And so you can get that today, it's at github.com/Microsoft/WSL, and you can also go to wsl.dev for all the developer documentation on exactly how it works underneath the hood and how you can make some impact.
+
+Larry Osterman: That's spectacular. And I will say that on the Azure SDK where my team, where I work, I think literally every developer on the team has a WSL distro or several WSL distros. I know of at least four or five, actually maybe even more, developers who use Windows as their host, but their day in and day out work is done on WSL. And it really does provide the best of, like, both worlds for somebody who's trying to develop, especially if you want to develop a cross-platform component like the ones I work on regularly. It becomes just, it's like a -- well, hyperbolistic lines, but it's really cool, really awesome.
+
+Craig Loewen: I totally agree. And so, you know, that's what I like about open-sourcing where it's, A, if you're ever curious, I'm like, why does WSL work this way for the scenario? Or why doesn't it work this way when I want it to do this thing, right? You can go take a look at the source code and file PR and we'll take a look.
+
+Kayla Cinnamon: Cool. And I think that's about everything that we wanted to show, but this is where we have the cheat sheet of everything we went through. So if you want to take a picture, you absolutely can. And I've got more slides with docs and everything. But to kind of go back to the beginning, we showed ZoomIt being in Power Toys. So if you want to get that quick annotator tool, it's right there, along with Advanced Paste with the media transcoding, where Craig took a.mov file and changed it to a.mp4. He also then go further and make it a.mp3. And then there's the Command Palette, which recently released last month with its full extensibility model. And we made an extension right here live on stage, and you can as well. And then Command Palette coming for a run, if you want to make it as Windows key R, you absolutely can, and then try that out. Then advanced settings with File Explorer and version control integration. So that's in the Windows Insider program today in the beta and dev channels. Then there's Edit, which is open source on GitHub, and you can go get it from the releases page. There's a Winget configuration export, where Larry then took his config and exported it all at once and then imported it with light theme. And Terminal new tab customization, we put things in folders in the Terminal dropdown, and the path translation with the slash flipping in WSL. And, of course, WSL is --
+
+Larry Osterman: The windshield wipers?
+
+Kayla Cinnamon: The windshield wipers, yes. And WSL is, of course, open-source. So if you want to learn more about some of this information that we went through, there is a demo earlier on in the Build conference where our developers went through and made an extension for the Command Palette live and added a bunch of commands. You can easily set up dev environments in the demo that they showed yesterday as well. And then tomorrow there's a simplified dev setup with Winget and Microsoft DSC tomorrow at 8:30. And that will be a full deep dive on the Winget configuration stuff there. So if you want to ask us anything after this, we're at the Windows Developer Experiences booth, and we can do some more live demos and talk through things there. And then this is the last one I've got. So this is where all the links are if you want to get started. Another good slide to take a picture of. So you can reach out to us on Blue Sky or GitHub. There's the GitHub repositories for Power Toys, Terminal. Winget has a few. WSL and, of course, Edit where you can get the new release. And then there's documentation as well over on Command Palette docs and Terminal docs and Power Toys docs. I'm trying to see the slides. Yeah, they're right here. And WSL.dev, which is the coolest URL ever, will take you to the WSL docs. So I think with that, we'll open it up for Q&A. There is a mic right here if you want to come up and ask a question. And then if you have questions after, we will be outside if you want to come see us there. But thank you so much, and we'll take any questions.
+
+Craig Loewen: Thank you.
+
+Larry Osterman: Thank you all.
+
+[ Applause ]
+
+Craig Loewen: I think no questions might be good. Everything is very clear.
+
+Larry Osterman: We can do questions. Questions are good, but yeah.
+
+Craig Loewen: Do you have any questions?
+
+Kayla Cinnamon: Me? No, I know everything.
+
+Craig Loewen: Favorite Power Toy? Was that the question?
+
+Kayla Cinnamon: Favorite power toy? File Locksmith. I don't know if you all have tried that, but you know when you're trying to delete a file in File Explorer and then it says, oh, this process is locked by another process? Or sorry, this file is locked by another process. You can right-click, unlock with file locksmith, and then it will tell you the process that's holding on to it. You can end the process right there, and then it should be freed up to delete or whatever. It's great.
+
+Larry Osterman: Sorry.
+
+Kayla Cinnamon: Yeah.
+
+Larry Osterman: You just blew my mind a little bit, because I do the exact same thing with SysInternals handle, but that is an incredibly awkward -- and it's brilliant. It's an amazing tool, do not get me wrong, but the experience is less than optimal.
+
+Craig Loewen: Having it in the right-click menu, right?
+
+Larry Osterman: That's what I like.
+
+Craig Loewen: Yeah. It's pretty powerful.
+
+Larry Osterman: Really. Yeah. Wow. Yeah.
+
+Craig Loewen: So you learned a lot today.
+
+Larry Osterman: I did learn a lot. I always learn everything when I come together with you guys. Every time.
+
+Craig Loewen: Cool. All right. Well, if we don't have any questions, we'll come down and we'll hang out. If you have any and you want to talk privately, we'll be outside.
+
+Kayla Cinnamon: Awesome. Thank you so much.
+
+Larry Osterman: Thank you all.
+
+Craig Loewen: Thanks, everyone.
+
+END

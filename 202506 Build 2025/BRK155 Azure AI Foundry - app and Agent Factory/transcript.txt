@@ -1,0 +1,599 @@
+Microsoft Build May 19-22, 2025 Session: BRK155 Speakers: Scott Hanselman, Yina Arenas
+
+Scott Hanselman: Hello.
+
+Yina Arenas: Hello, hello.
+
+Scott Hanselman: Is my mic on?
+
+Yina Arenas: Are we doing?
+
+Scott Hanselman: It is on.
+
+Yina Arenas: Hi.
+
+Scott Hanselman: Number two. Test, test, test.
+
+Yina Arenas: Hello, hello.
+
+Scott Hanselman: Hi friends.
+
+Yina Arenas: Hello!
+
+[ Cheers ]
+
+Thank you for joining us today.
+
+Scott Hanselman: A lot of people have worked very very hard to make some really cool stuff here. We have a page and a half of demos, demos, demos. And just an hour to do it. And it's all live.
+
+Yina Arenas: Yes.
+
+Scott Hanselman: Alright. Let's do some stuff.
+
+Yina Arenas: Let's get rolling. Well welcome, welcome, welcome. We're going to talk about, guess what? AI.
+
+Scott Hanselman: Actually let me, I just realized something. You know I've never actually had you on my podcast.
+
+Yina Arenas: I know.
+
+Scott Hanselman: Can I record this?
+
+Yina Arenas: We met like 10 years ago and we've talked about this so many times.
+
+Scott Hanselman: Hang on, let me just hit record. Alright. Hi, I'm Scott Hanselman, this is another episode of Hanselminutes. Today on the show we have Yina Arenas, talking about Azure AI Foundry.
+
+Yina Arenas: Yes.
+
+Scott Hanselman: Alright, thanks. Sorry, I'm going to keep that running, please continue.
+
+Yina Arenas: So we're going to talk about AI. And as Scott said, I'm Yina, I lead Product for Azure AI Foundry and I'm here representing the work of many, many, many engineers, marketers, data scientists at Microsoft, we're bringing the platform for you. But what is Azure AI Foundry? What is the open, flexible, and secure platform that enables you as a developer to infuse AI in every single application that you do? Whether it is a brand new application, or something that you've been working for a while. You can use Azure AI Foundry to like bring in all of the AI into your apps. And as a developer it gives you, and we're going to talk about that in detail, about three core things. One is models, second one is an agentic platform and the third is around all of the observability tools that you need as a developer to take your idea to code and your code to production. Now, we wanted to, today, in order to make the Foundry real for you, we wanted to use an example of like a process that Scott does every single week.
+
+Scott Hanselman: Yeah.
+
+Yina Arenas: As part of publishing Hanselminutes. And looking at like that end-to-end process and then --
+
+Scott Hanselman: Yeah.
+
+Yina Arenas: -- maybe making it better with AI.
+
+Scott Hanselman: So I've got this podcast that I do on the side. Microsoft has a very generous, it's called moonlighting, if you do work on the side that's on your own computer in your own spare time. And I've been doing this podcast for the last 20 plus years. It's something that I do on my own. And I do it on my own money and then I pay a young lady named Mandy Moore to be my editor. So it's just Mandy and I. And the show has, I just published episode 997. So this is actually, thank you.
+
+[ Applause ]
+
+This is what we call a corpus, a large corpus of material here. There's over 500 hours of material. Talking to cool people. In fact, I was actually almost delisted by a podcast directory when a young person sent an email saying that they believed that the podcast itself was AI generated. Because they couldn't conceive about that amount of work. Now I
+
+feel very strongly about this work and as a human who created some art, I want to make sure that I'm going to be using AI in a way that only takes away the parts of the job that suck. Like show notes. And if you've ever listened to the show I am notorious for saying, I'm going to put that in the show notes and then you'll never hear from me again.
+
+Yina Arenas: Never happens.
+
+Scott Hanselman: Never happens.
+
+Yina Arenas: So, 1,000 episodes, close to 1,000 episodes.
+
+Scott Hanselman: Yep.
+
+Yina Arenas: Hours, and hours, and hours of audio files. Lots of broken promises, lots of great people on the show too. Right?
+
+Scott Hanselman: Yeah. Oh and I have to look up their bios and who they are and if they have a Wikipedia page or something. And it's a whole thing and then they never email back about their bios. There's a bunch of toil. There's figuring out the guests, scheduling the guests, packaging up the podcast. This is the part of the job that I don't like and I think that computers should do toil. They should do work that is dirty, dull or dangerous.
+
+Yina Arenas: The things that you don't want to do.
+
+Scott Hanselman: The things I don't want to do.
+
+Yina Arenas: So, that's what we did as part of like showing all the capabilities of Azure AI Foundry. We took this process that Scott has been doing for 20 years. The first step that we did is take those close to 1,000 audio files and processed them with AI to get transcriptions. And then used that, continue the process we're going to build throughout the show today, to erase that toil at scale.
+
+Scott Hanselman: Right, and we wanted to do it in a way that put me in control, because it's my show and I own this show. And I don't want to just copy, paste my entire show into some chatbot in the cloud. I want to know what's going on at every step. Now there's a lot of things that we do here, there's a lot of pain here on the left that steals time. There's dealing with the show notes, there's links, if I have an AI generate the links, do I even know if they're real links? There's text summarization, which I'm constantly doing, I'm spending probably two or three hours of my spare time every single week for the last 20 years, with administrivia that I would like to kind of automate without losing quality and without keeping me out of the loop. I want a human in the loop.
+
+Yina Arenas: Exactly. Okay. So that's the setup for what you're going to see us today on stage. And we're going to use, we're going to do the session in three chapters. We're going to first talk about models. And then we're going to show all of the different set of models
+
+that we used for this process. We're then going to talk about agents and then we're going to show the different set of agents that we built. And then last we're going to talk about observability and the set of tools that you can use to like, as I mentioned before, do all of the monitoring, tracing, logging that you need in order to take your applications to production. So let's get going with models. So first of all, Azure AI Foundry has a lot of models. But that was not always the case. Like two years ago the world was actually very simple. We had just a few foundational models. But the range of change has been unprecedented over the last couple of years. We now have tons of thousands models that are pushing the frontier. And creating new choices. This is great opportunity for you guys as developer because you have great capabilities and functionality. But it also makes it quite complex to figure out what is the right model for the job. Well, in Azure AI Foundry we have all of these different set of models. And this, at the conference we're announcing new set of capabilities on models. First, we're extending the set of models that we both host and sell. In addition to the OpenAI family we're bringing in DeepSeek, Mistral, Grok, Meta, Black Forest Lab and a set of models that, not only provide that unified access, but it also enable you to like easy switch them from your code. Now I'm going to show how do you go into the product, so I'm going to switch to two, here we are, this is the UI for Azure AI Foundry. We're going to, right here in the model catalog we're going to see the set of experiences that it offers for you. First of all is like a wide range of model selections, we have over 10,000 models now based on our partnership with Hugging Face. We see here on the top the latest news of our announcements that we are making here today and every single day, every single week they're being updated. There's a set of models, all of the models that are listed here and there's a set of dimensions that you could use. Whether it is by model provider, by industry, by the set of capabilities. Whether they're serverless, or available or managed compute. The set of tasks that they support and all of those capabilities. But if you want to just ask, for example, we have a built in agent into our portal. Where you can ask like, what is the set of models that, for example, if I'm doing like protein research. So I can say best model for protein research.
+
+Scott Hanselman: Do you have a model to talk to you about the models to pick America's next top model?
+
+Yina Arenas: And I'm going to send that in and I'm going to also show leaderboards while that is going. On, get some space. Leaderboards is the place where you want to come and see like what are the best models based on certain benchmarks. So right now we have benchmarks around quality, safety, cost, throughput. And you can see the set of trade-off charts. So if you want to select the best model depending on a quality and cost comparison, or a quality and throughput comparison and will show you what is the best model depending on that scenario.
+
+Scott Hanselman: Are those leaderboards real?
+
+Yina Arenas: Yes!
+
+Scott Hanselman: That's not like hard coded, right?
+
+Yina Arenas: No this is not hard coded, we're constantly like making, we're doing benchmarks from the models and bringing those into the catalog.
+
+Scott Hanselman: So if somebody's lower on the model or higher on the model, they're going to want to, it's a competition to be better.
+
+Yina Arenas: Exactly. It's always a competition.
+
+Scott Hanselman: Okay.
+
+Yina Arenas: Now you can also use your own data to evaluate models. So like you can bring in and use your existing dataset if you have one or you can use an AI-generated dataset as well. Okay.
+
+Scott Hanselman: It's because there's so many people in the room.
+
+Yina Arenas: The other thing that we're announcing at Build, let's see if we can get the answer from the models, yes, we see these are our best models for protein research is EvoDIff, and BioEmu and TamGen, that are models that are coming from Foundry Labs, which is the way that we bring in all of the models from Microsoft research into the catalog. Now let's look at another announcement. This is model router. Model-router takes the selection toil from your head. So, it is a router on top of like the best models. Recently models, state-of-the-art models. Right now only one OpenAI models, but soon across more models. And here you can see I make it a simple question, where is Hanoi and it used a nano model, it's a very small model to answer that very simple question. If I ask a more, a little bit more complex question about planning a trip, I have a set of constraints. It's going to use, in this case, well it used a mini model, which is like a better model for that job. And if I ask it a different question, for example, what clothes should I bring?
+
+Scott Hanselman: I don't want to go and waste money, waste energy, waste the environment on something like what's the capital of Hanoi.
+
+Yina Arenas: Exactly.
+
+Scott Hanselman: So a nano model is tinier.
+
+Yina Arenas: It's going to use a small model, again, and if I get a more complicated query, then it's going to use something like a reasoning model for this. Now I mentioned that we took, was close to 1,000 episodes.
+
+Scott Hanselman: Right.
+
+Yina Arenas: And then we processed all of those, we actually used Whisper as a model to take the audio files and generate the transcriptions. But then we wanted to like not just, we
+
+wanted to do a distillation of a model so that we can like reduce the cost that it takes to process the next 1,000 episodes.
+
+Scott Hanselman: Right. Because Hanselminutes International is me and Mandy. Like we don't have any money. So we would like to make our costs as low as possible, upfront costs is concerning to me, but also I got to do another 1,000 episodes over the next 20 years.
+
+Yina Arenas: Right.
+
+Scott Hanselman: I'd like that to be very, like a penny.
+
+Yina Arenas: So it costs about like $100 to do the processing of the first 1,000 episodes.
+
+Scott Hanselman: Okay.
+
+Yina Arenas: And then like we did a fine-tune model and the next 1,000 is going to cost us about $1.50.
+
+Scott Hanselman: $1.50.
+
+Yina Arenas: Yep.
+
+Scott Hanselman: Because we're using a custom model.
+
+Yina Arenas: Smaller model.
+
+Scott Hanselman: Okay.
+
+Yina Arenas: Faster and then it's customized specifically for your job. And then like, right now at Build we are announcing developer tier that enables you to do experimentation on reducing the hosting fees. And then there is no isolate, but like you can get to do all of the experiments on fine-tuning. Okay. We're also announcing great things around Foundry local.
+
+Scott Hanselman: Oh yeah. So this is another thing that I feel, that is really cool. Is that I've got a machine here that is very capable, this is a laptop, this is a Studio 2. I've got a 4060 here, I can do some of this work locally. So, we've got Azure AI Foundry in the Cloud, we've got Azure Foundry local here. I want to be able to look up people's biographies, like yourself. Now I could go out there and Google with Bing and then figure out your biography and then rewrite it for myself, or copy paste it. Or, I could use a combination of something like Perplexity to go and figure out a lot of information about you and then summarize that it, distill that down. So here, we're going to start up Foundry local with the Phi-4 mini model and we're going to start that on this local service. So this is running on local host. Then you notice down here in the corner, we just saw the GPU kick in and we just loaded Phi-4-mini into the local memory. And we'll go and say Yina. Now this is going to come, the first part is going to be a Perplexity, which is in the cloud, to collect me a huge chunk of data. And then
+
+we're going to go and run locally on the GPU and summarize and squish all of that, there we go. Now that's all running locally.
+
+Yina Arenas: Oh.
+
+Scott Hanselman: Now this is exciting because you were apparently, is that true?
+
+Yina Arenas: No that's not true, it got confused.
+
+Scott Hanselman: That's awesome, you're fantastic. So, you're not, did I misspell your name?
+
+Yina Arenas: Did you?
+
+Scott Hanselman: I think I probably spelled it wrong. No. Let's do it again.
+
+Yina Arenas: Let's try.
+
+Scott Hanselman: See because AI could be wrong sometimes. I didn't realize that you were such a talent, a multi-talented person, you were in Chicago.
+
+Yina Arenas: From Colombia.
+
+Scott Hanselman: Young, well now you're not, you're Australian.
+
+Yina Arenas: No.
+
+Scott Hanselman: Hey!
+
+Yina Arenas: There you go.
+
+Scott Hanselman: There you go. So. You can see the little jump right here where the work happened locally on that machine. And then we'll go and we'll see what kind of musical theater background that I have when we run this as well. And you can notice the GPU memory as well. Cool. And I want to call out that it worked really really hard for you because you're awesome and apparently do not require a lot of effort. Which is profoundly sad. But, then I can just go and say, Foundry Service stop and then watch over here on the corner and then that GPU memory goes away. So I can do that work locally.
+
+Yina Arenas: Alright. That's chapter one, models, here we saw all of the demos as one. We have packed sessions on models when going through the model catalog, model router, the fine-tuning capabilities, Foundry local. Azure OpenAI, multimodal models, reasoning models, how do you optimize all of your Gen AI applications, take the picture, don't miss those sessions. Now we're going to go to chapter two. And we're going to talk all about agents. So, first of all, what's an agent for you Scott?
+
+Scott Hanselman: Well, so I'm confused about the difference between agents and tools. Because, AI's don't have feet and they don't have hands and they can't do stuff. But sometimes you want an AI to like spin through some files. So I feel like that's a tool.
+
+Yina Arenas: That's a tool.
+
+Scott Hanselman: I have been called a tool at work, sometimes.
+
+Yina Arenas: It happens.
+
+Scott Hanselman: But then I feel like an agent might call, be able to call multiple tools, but an agent like has a task where it's like, take this and do it and then let me know when you're finished.
+
+Yina Arenas: Right. I mean we've been doing process automation for like ages. Right? And the difference is now you're having an LLM that is helping you drive the control flow of the program. It's making some of those decisions for you. And it has a set of tools that they can invoke. Those can be retrieving information, grounding with knowledge. They can be actually acting, like making an API request both. Then keeping a threat with memory of the current conversation, the current state. They can also support multimodal inputs, like conversational, images, video, text, speech. And then it can support a set of outputs that like let them, inputs and outputs that let them be invoked by other agents.
+
+Scott Hanselman: Yep.
+
+Yina Arenas: So one of the key things that we have is like the ability to orchestrate these agents. I think that right now there's a lot of overload on when we say agents. Because like people then feel like they have to add a whole bunch of functionality to a single agent. And what I usually like to recommend is that instead of that, like you create a smaller agent, that has this specific set of tasks, specific functionality. And then that you can validate and evaluate just like unit testing. And then like you can orchestrate them together to execute actually a process or a task. And you have two types of them that you will see as you go through the Product. The first one are connected agents. Which basically treat each other as tools. They invoke another agent, just like an API request invocation. Gets a result and it continues with the set things that they need to do. And the second one is more of a multi-agent workflow. Think about it this is like where it's actually human in the loop, it's a process that it needs to follow. It is not just letting the agents kind of do their thing.
+
+Scott Hanselman: Right.
+
+Yina Arenas: But actually like there's a process. And that, the second one is the one we're going to be using today for the Hanselminutes podcast file.
+
+Scott Hanselman: Right, because I want that to fit into the way I do things now. Where I put my file into a folder in OneDrive. Mandy picks it up, she does the hard work of editing and
+
+cleaning it up. Then she will interact with an agent that's going to help us as a team member that's helping do the stuff that we don't want to do, like show notes. Then we'll validate the show notes, make sure that they're cool. So they're going to fit into our existing process of guest intake, packaging and promotion.
+
+Yina Arenas: So we're going to show a whole bunch of these different set of agents. Pieces of them, of the functionality that we've built.
+
+Scott Hanselman: Right.
+
+Yina Arenas: The voice orchestrator, we just saw bio generator, the guest sourcing, transcript, the show notes. And we're going to see different parts of the product as we go through this. Now, there's multiple ways into which you can build agents. And I think this is worth a conversation.
+
+Scott Hanselman: Yeah, I would say that is a little bit confusing, that word agent gets overloaded.
+
+Yina Arenas: Right.
+
+Scott Hanselman: If you want to feel smart at work, just say agentic in a meeting. And people will think that you're fancy. But this is an agentic flow. The way I've been thinking about it, is when we started thinking about the cloud, you can do infrastructure-as-a-service. Where you're buying a virtual machine and that's very low level, that's your infrastructure. Then there's platform-as-a-service where we're talking about Azure AI Foundry, where it feels like there's a lot of power but it's hiding complexity from me. I don't really know --
+
+Yina Arenas: Managed service, don't have to think about your, scaling your own GPU's, you don't have to think about like managing your entire fleet. You don't have to think about like all of these different things.
+
+Scott Hanselman: Exactly. And then software-as-a-service would be more like Copilot Studio where I basically have this runtime that I don't have to think about much of anything, except the business problem. So we're sitting squarely at the platform-as-a-service position. Which fits well with the way that I do stuff.
+
+Yina Arenas: And then at Build we are now seeing the GA, general availability of the Azure AI Foundry agent service. Which is that platform-as-a-service service that enables you to like create agents declaratively. And run them on the cloud, use different set of models, use different set of tools. The key difference from what we've seen being offered in the past is the enterprise readiness and the capabilities that is has to like bring your own file storage to connect to your enterprise systems. To support your organizations built around network, you can bring your own memory, your own threat storage. It supports authentication, so like if you have to authenticate with an API. It supports passing all of the tokens. As well as
+
+connecting with a set of tools, like knowledge tools, like Fabric, SharePoint, Bing for web grounding and Azure AI Search. Now, another key thing that I wanted to mention is how the Foundry Agent Service is interoperable. So whether you're building the agent in our platform, or you build an agent in another platform and you want to connect it with a Foundry agent. We support A2A, MCP, we're working with Langton at CrewAI to support their languages as well. In addition to supporting the OpenAI Assistants and Responses APIs. Now, let's see this in action, let's show them some of the agents that we've built. Let me go to two.
+
+Scott Hanselman: Alright. So we're switching over to your machine. And I think show notes, right, is the one that is hurting me the most.
+
+Yina Arenas: So we're here in agents. We're going to see the list of some of the agents that we created. And we're going to show, yes, show notes, let's show them show notes. First thing that we're going to see here in show notes is that we are actually for this particular agent, we're using the nano model that we fine-tune in the past.
+
+Scott Hanselman: Yeah and I really want to call this out, because this is important to me. I understand that, yes, I could upload my MP3 into a giant chatbot. Like that's a thing you could do. But that is really bringing a sledgehammer to a scalpel fight. It's going to cost me way more money, it's going to use way more power, it's completely unnecessary and if I got to do a thousand times, it's going to be a problem. Because I want to spend as little money as possible. This is a, is it distilled is the word?
+
+Yina Arenas: Yep.
+
+Scott Hanselman: Distilled model that is a tiny model. The smallest possible model that doesn't give me relationship advice. It doesn't tell me how tall Brad Pitt is. It is trained on how to do show notes. And that's important, it does the exact thing I ask it to do and no more.
+
+Yina Arenas: So we're going to paste the transcription of one of your shows.
+
+Scott Hanselman: Okay.
+
+Yina Arenas: And then we're going to see --
+
+Scott Hanselman: Oh, which show did you do?
+
+Yina Arenas: This is actually a show with one of my coworkers and dear friends Raji.
+
+Scott Hanselman: Oh, show 881, Raji Rajagopalan, we did a talk about her book.
+
+Yina Arenas: Exactly. So we can see here it's generating the show notes, it has all of the dif
+
+Scott Hanselman: Hang on, notable quotes. Did I say something piffy?
+
+Yina Arenas: Yeah. No I think you said something very smart. Smart things happen there.
+
+Scott Hanselman: Imposture syndrome means you're doing something okay, that's good. Thoughts are not facts. Oh that's deep.
+
+Yina Arenas: I think that's Raji not you.
+
+Scott Hanselman: Oh, that was probably not me.
+
+Yina Arenas: Okay. There's a couple of cool things that I want you all to see here. View code. It opens up a view of this particular interaction that we're having, you can open in VS code, it will open up a sample project for you right there in the browser.
+
+Scott Hanselman: And it has Python and C#, I want to make sure to shout out to C#.
+
+Yina Arenas: I know he was very happy when he saw C# here.
+
+Scott Hanselman: Yeah, I just wanted to make sure that I represent.
+
+Yina Arenas: And then the other thing that I want to show is agent catalog. So, here in case you want to get started with a different set of agents, we have Microsoft Build templates, we have also several from our partners. You saw in the keynote the one that it was coming from Stanford on the healthcare example. So we have lots of different set of agents for you to get started. But, one of the things that we did, I'm going to go back to our agents here, my agents, was an orchestrator voice agent.
+
+Scott Hanselman: Yeah, you saw me running things from the command line, I can do that, I could run a Python app. But I want Mandy on my team to be able to interact with this in a way that's comfortable and we thought it'd be cool to have the orchestrator router agent. That has all of the Hanselman available things to be something we could talk to, which would be cool.
+
+Yina Arenas: Well let's try it.
+
+Scott Hanselman: Alright. Hey, are you there and can you give me a list of the things that you can do to help me with the podcast production?
+
+Speaker 1: Of course, Scott. I'm here to help streamline and enhance your podcast production. Here's a list of what I can do for you. Guest intake, collaborate with the guest intake agent to brainstorm and refine a list of potential guests to invite on your show. Help you create personalized outreach strategies to approach notable guests in industry, society and technology. Speaker bio creation. Use the bio generator to create a draft speaker bio.
+
+Scott Hanselman: I'm going to go ahead and respectfully interrupt you, hang in there for a second there bud. Okay, cool.
+
+Yina Arenas: Awesome. So that's one of our agents. And then the next one we did was around search.
+
+Scott Hanselman: Yeah. So this was something I thought was really exciting. Let's switch over to my machine here. Remember, it's my data and I'm running it in my Azure AI Foundry experience. So the model that we went and distilled is mine. And we can ask it questions now. And this was freaking amazing. Because, my search right now, on my site, is basically I just load a giant JSON file and I can search for peoples names. Now, I can chat with 20 years of stuff and I can say, is Scott nice? And it's going to go and give me an AI generated proof.
+
+Yina Arenas: Yes. That you're actually nice.
+
+Scott Hanselman: Well, they might say well I don't know, he's probably not very nice.
+
+Yina Arenas: So this is using Azure AI Search. But looks, let me see.
+
+Scott Hanselman: Look it's got proof, look it's grounded. It's grounded. I was nice twice in a 1,000 episodes. That's an easy question, right? Like, what are the characteristics of a person named Scott? Well I could've been any Scott at this point, so. No, this here is a subquery. Let's ask a sophisticated question, because this is more than just RAG. Because RAG is this augmented retrieval over data, but what if we ask a complicated series of questions like, over the last 20 years are there any recurring ideas, or universal truths in the last 1,000 episodes that have emerged?
+
+Yina Arenas: So this is not just like a one shot.
+
+Scott Hanselman: No.
+
+Yina Arenas: Right, like this is what happens with RAG that we've been doing. It's like the going from 10 links to just like you get one shot to get the answer right from your index. Well, one of the things that we're announcing at Build, right, like I see it, like all of these different set of --
+
+Scott Hanselman: So let's see, yeah it's done, let's go look at this. So, down here, look it split it up into multiple questions. Spent time on each individual question. Broke the subqueries up and those subqueries are not subsentences, those are --
+
+Yina Arenas: They're subqueries, then it goes and retrieve the answer for those queries and brings them back into the context of the model, so that it can give you the answer.
+
+Scott Hanselman: Pragmatism, mentorship, community. Cool.
+
+Yina Arenas: This is what we call agentic retrieval on Azure AI Search.
+
+Scott Hanselman: Yeah, that's really cool I'm going to be able to ask a lot of interesting questions.
+
+Yina Arenas: Okay, let's go to the next one, which is how we did the transcripts.
+
+Scott Hanselman: Oh yeah, yeah, yeah. So, you can go in here and you can define a schema, this is if you don't have a 1,000 of something. Let's say that you want that kind of feature but you don't have a large corpus to --
+
+Yina Arenas: So we define the schema, which we are using content understanding, which is a service in Azure AI Foundry. And then we process the same podcast with our friend Raji. And then we created all of the different set of field results, the title, the summary. And some of the, was it the quotes here as well?
+
+Scott Hanselman: No, we did topics, summary and title. And then we have here it's identifying speaker one, speaker two. It turns out it identified me as speakers two and three because apparently my advertisement voice is different from my actual normal voice. So when I did the ad it thought that was a different guy. Which I thought was crazy. Yeah, so you can see here, you've got all of, this is Raji speaking here and then here's me jumping in. So it's identifying different speakers. And then it's pulled out topics about mindfulness and sustainable habits and all that kind of stuff. So that's --
+
+Yina Arenas: That's another one of the agents that we got built, connecting content understanding with an agent in AI Foundry. Now, once we got all of those agents, did we miss showing the one, no I think we're good. Once we got all of those agents, we wanted to wire them up together in a multi-agent process. And for that we're using Semantic Kernel and AutoGen.
+
+Scott Hanselman: Yeah. Yeah, we have actually a lot of time right now, so let's make sure to get, dig and look at some of this code. Because I want to make sure that we're showing real code. Because we've built here is legit. So this is C#.
+
+Yina Arenas: Before you show that, let me make a couple of comments on Semantic Kernel. So, we've been working on agentic frameworks fro quite a while. We released AutoGen and Semantic Kernel in 2023. And there, AutoGen has been coming in as an agentic framework from our Microsoft research organization. Semantic Kernel is the one that we've been recommending for using in production, as like we bring all that innovation into Semantic Kernel. Where now we're bringing them together into like one agentic framework. And at Build we're announcing like they're using the same runtime.
+
+Scott Hanselman: Yeah.
+
+Yina Arenas: And then we're going to converge them into a single agentic framework as we go forward. Now, here we're using Semantic Kernel to bring all of these agents together,
+
+wire them up. And which we have the, yes, the Semantic Kernel, and we have all of the different agents that we're using.
+
+Scott Hanselman: Yeah. So over here we've got our content agent. Which is going to go and do our show notes, we've got link verification because we want to make sure that this is grounded in reality. When it runs through the show notes, oftentimes I'll say things like, well that's great, I'll be sure to put a link to your book in the show notes. And then you'll never hear from me again. We're recording right now.
+
+Yina Arenas: Well let's ask.
+
+Scott Hanselman: What do you want to put in the show notes.
+
+Yina Arenas: We want to put in the show notes, one, the reference for the session, for BRK155, which is our Build talk.
+
+Scott Hanselman: Right.
+
+Yina Arenas: We want to put the link to the AI Foundry website, which is AI.Azure.com.
+
+Scott Hanselman: Right.
+
+Yina Arenas: But let's give it a little bit more complex.
+
+Scott Hanselman: I think that you should put a link to my YouTube channel. I'm Scott and I'd like you to put a link to my YouTube. And then put a link to Hanselminutes episode 881 with Raji as a callback link.
+
+Yina Arenas: Yes.
+
+Scott Hanselman: Yes, so make sure you do that please. That would be cool.
+
+Yina Arenas: That'd be cool.
+
+Scott Hanselman: Yeah, yeah, yeah. Okay. So, this application here has these agents identified and if we go and take a look at them, they are listed as Semantic Kernel functions, right? And then Semantic Kernel includes the ability to call an agent from it. And participate in these kind of workflows. And then from them we'll go and then just spin out the results. And then the result will end up being in a markdown file called show notes. Okay.
+
+Yina Arenas: Perfect.
+
+Scott Hanselman: Alright. Where are we here? Okay. Oh and then I wanted to show the YAML.
+
+Yina Arenas: Oh and the --
+
+Scott Hanselman: Yeah, yeah, yeah.
+
+Yina Arenas: -- mermaid chart.
+
+Scott Hanselman: Oh the mermaid chart is good. Okay. So, we all know that I don't like YAML. So, we click here and I don't have to look at YAML. So this is a mermaid chart, mermaid is great. That is showing me basically the results of that YAML, showing that, okay, we're going to go and we're going to do the transcript. We're going to analyze the content for the show, generate the show notes, we're going to go and verify each one of those links to make sure that they are legit. And then we're going to summarize the result and that'll be the complete thing.
+
+Yina Arenas: That's awesome.
+
+Scott Hanselman: So that's pretty cool. So all of that will happen here.
+
+Yina Arenas: While you're at it, one of the things that I forgot to mention, we're kind of speeding up because we're like, we have so much content.
+
+Scott Hanselman: We're very excited, but we have a lot of content.
+
+Yina Arenas: You know on model router, our current analyses tell us that like when you're using comparative GPT 4.1, and you're using model router, you can get up to 60% price, like, off in the price. Meaning like, more efficient, less, like, why am I, is less expensive?
+
+Scott Hanselman: Well it's got a less environmental hit, it's got, it's more efficient, it's smaller. Like the idea is you put the router in front of it and it does, it's a load balancer.
+
+Yina Arenas: That's the word that I was trying to find is cheaper. It's 60% cheaper.
+
+Scott Hanselman: Okay.
+
+Yina Arenas: And then you only get one to two points hit in accuracy.
+
+Scott Hanselman: Okay.
+
+Yina Arenas: Which is pretty significant.
+
+Scott Hanselman: Yeah. No, I mean, help me understand what percent of accuracy turns you into an Australian singer?
+
+Yina Arenas: I don't know, I think that's a very low one. Okay. Now let's show --
+
+Scott Hanselman: Do we want to stop our podcast, are we finished with our show?
+
+Yina Arenas: What else do we want to say? We want to say, we talked about models.
+
+Scott Hanselman: Okay, we talked about models. Digging into agents. Talk about Semantic Kernel.
+
+Yina Arenas: What are the key things that we said about models?
+
+Scott Hanselman: Well there's a metric ton of them, 11,000 of them.
+
+Yina Arenas: Yeah.
+
+Scott Hanselman: There's models that are specific not just large language models, but there are models of all different flavors, including specific models for things like protein --
+
+Yina Arenas: Healthcare.
+
+Scott Hanselman: Healthcare.
+
+Yina Arenas: Finance.
+
+Scott Hanselman: Yeah, all those things. You have, I think you saw 11,000 models in there. All of those models can then be fine-tuned. And then one of the things that I was interested in, that I didn't understand was, you showed a graph, like this on a fine-tuning. But I don't understand how you know that it's correct or not.
+
+Yina Arenas: And that one we specifically didn't do an evaluation run. But like you want to get the losses here on the accuracy closer to one.
+
+Scott Hanselman: Can you show me it not looking good? Because I think it's always cool when we demos, but show me a failure.
+
+Yina Arenas: Oh we got some failures, yes, when we were doing the runs we had --
+
+Scott Hanselman: Nobody likes to see a demo that's like works.
+
+Yina Arenas: This one actually didn't go through.
+
+Scott Hanselman: So this looks, that looks like, I'm not a scientist, but that doesn't look like a good line.
+
+Yina Arenas: Yeah, exactly, the line was heading towards the middle and not necessarily trending towards one.
+
+Scott Hanselman: So this is saying whether or not it generated show notes correctly? And what we do is we verify that against actual show notes and actual transcripts. I think this was the transcript one right?
+
+Yina Arenas: Yep, this one is a good one, yep.
+
+Scott Hanselman: Okay.
+
+Yina Arenas: So. We talked about all the things in models, we talked about local, then on agents we talk about the Azure AI agent service going GA. We talked about the, oh we forgot to mention, oh. Let's look at like all of the things that they connect to. So, for example, --
+
+Scott Hanselman: Knew you were struggling to figure out what did we forget.
+
+Yina Arenas: Yeah, exactly.
+
+Scott Hanselman: Oh yeah, yeah, yeah.
+
+Yina Arenas: Finding playground. And we can connect them to like a whole bunch of different things. So, knowledge, Azure AI Search, Microsoft Fabric, SharePoint, you can do grounding with Bing Search. You can do custom search, for example, if you just want them to go to a specific set of sites and not to like a whole web.
+
+Scott Hanselman: Yep.
+
+Yina Arenas: Then you can just say, custom search. And then a few other partners. And then --
+
+Scott Hanselman: It can't be overstated how important grounding is in this kind of context because, not only, excuse me, do I want to save money and be efficient, but I don't want my chatbot to talk about things that aren't this. It's not --
+
+Yina Arenas: You can restrict it.
+
+Scott Hanselman: It has to be restricted, it has to be grounded. And if you're creating a chatbot for your own business, you're going to want to have the same experience. You don't want your coffee shop chatbot offering relationship advice, or opinions about someone's shoes. It needs to focus on what we're doing here. And in this case, the Hanselminutes one not only been created into a nano model, but we're going to ground it in the material that we have.
+
+Yina Arenas: Exactly.
+
+Scott Hanselman: The knowledge that we have available.
+
+Yina Arenas: In addition to knowledge you can add actions, so like if you have some deterministic workflows that you've already created in Azure Logic Apps. You can bring them in and connecting to.
+
+Scott Hanselman: That's a great point. So, this is, some people of a certain age, might think that, well, are you reinventing cron jobs? Are you reinventing for loops and things like that? I have existing processes that work just fine. I'm not going to replace them because they work great. But I have Azure functions. I have Azure Logic Apps. What I'll do is I'll tell the orchestrator agent about those things so then it can have those available as tools.
+
+Yina Arenas: And as long as you can describe them with an API, you can describe from the Open API v3 and then like you can connect to any of those.
+
+Yina Arenas: I think it's time for us to like go back to the --
+
+Scott Hanselman: Okay, so let's switch back over to my machine. Do you want to call that, is that the end of the show?
+
+Yina Arenas: I think we should do that the end of the show.
+
+Scott Hanselman: Okay, so that's the end of this show on Azure AI Foundry. Hopefully you made it this far into our podcast.
+
+Yina Arenas: Did you actually say my name correctly on that one?
+
+Scott Hanselman: Yina.
+
+Yina Arenas: With a y?
+
+Scott Hanselman: Arenas. Y, i, n, a. Is that correctly spelled?
+
+Yina Arenas: That's correct.
+
+Scott Hanselman: Yeah. Alright, cool. This has been another episode of Hanselminutes and we'll see you again next week. That's going to be identified as speaker number four.
+
+Yina Arenas: Okay, we're not done yet. We're just going to process that through our, all of the different set of agents that we've created. Then we're going to go and talk about our third chapter, which is all about observability.
+
+Scott Hanselman: So I'm going to kick off the process.
+
+Yina Arenas: You're going to kick off that process.
+
+Scott Hanselman: I'm copying this over, putting recording.mp3, I want to call out that it was just created and it's real. And then we're going to start that, kick this process off here. So I'm going to kick off this dotnet process. So we'll let, this will run for a little while and I'll let you know when it's done. Okay.
+
+Yina Arenas: Okay. So, some of the other things that we saw that Azure, oh we forgot to mention the Visual Studio code extension. We can show that in a minute.
+
+Scott Hanselman: Oh, we can show that.
+
+Yina Arenas: So the API, the SDK, the Visual Studio code extension, Semantic Kernel and AutoGen. More sessions for you to go and learn about that. And then we're going to go now to our final chapter, which is all around Foundry observability. So, for observability we have this set of tools to support your entire development lifecycle. Whether you are like starting
+
+to experiment, or like thinking about going to production. You want to make sure that you can continuously monitor the quality and safety of your solution. So we have those tools right here for you so that you can generate the traces, generate the, send it over to Azure monitor. And like have all of those capabilities that enable you to do debugging and make sure that there's, you hit the right level of reliability that you want for your --
+
+Scott Hanselman: Now does this use like OTel, open telemetry as part of? And it's important to call out. OTel is one of the biggest things. For folks that are in the observability space, if you're not familiar with open telemetry, it is this kind of quiet storm that is just making everything better. In the old days it was just log files and grep and a regular expression. Right, and that was how we observed our software and everyone knows that if you've got a problem and you've decided to use a regular expression to solve it, now you've got two problems. What open telemetry does, is it's effectively distributed log files and when you have large complicated distributed systems like this, you want all that to come to one place. So you could even use a dotnet aspire dashboard, or Grafana or any of these systems, any existing observability system you have, you could observe the work of your agents.
+
+Yina Arenas: So when it comes to agents, agents have threats and run. Threat is the column memory for that conversation. And each run is the turns of that agent.
+
+Scott Hanselman: The conversational threat.
+
+Yina Arenas: Exactly. And every time that threat is going through, we can see only the inputs and outputs and the metadata that is being generated across every single call. But we can also see the evaluations coming in. So for this particular case, we turned on evaluations around intent resolution, relevance, and code vulnerability. We have new set of evaluations as well that are releasing as part of like the announcements that we're going to, at Build that include intent resolution as well, but also task adherence. Because you want to make sure that your agents actually stay on task. And they're not going around just doing other things. Or for example, indirect jailbreak where if you have an agent that is going out and getting information from the web. What if it gets some, a piece of code that it shouldn't? Right, like so all of these different set of things we have built in the platform.
+
+Scott Hanselman: Well so in the example earlier where we went out to the web to get information. We spelled your name wrong, I spelled your name, sorry, and then we got the wrong Yina, we got Gina. At some point we could have a score assigned to that and it would say, I'm not sure if I'm confident in that.
+
+Yina Arenas: Exactly. It will tell you, it will have a lower quality score on, for example, relevance, this one was four out of five. It feels that it gave a decent response, but like it could've been better.
+
+Scott Hanselman: It does not omit any key details and deserves a high score. Okay, that's cool.
+
+Yina Arenas: Yeah. One of the other things that we have in addition to that is integration with your CICD pipelines. So we have, here we can see we have the evaluations, we have the evaluation overview. Where we bring in the different set of evals that we found on our agent and these fully integrated with GitHub as a GitHub action. So every time that you're pushing new changes into production, you can run your pipelines and like have those evaluations run for you as well. And then we have integration with monitoring as well, like where you can see all of the operational metrics, including your tokens. Like the average inference on your, duration of your inferences, calls, the errors. Like you, we can see how we were, in this particular example, our quality significantly improved over the last, the last few days as we were working on this demo, yeah. And so like all of these is also integrated with Azure Monitor, so if you have your dashboards you can go there and see all of your --
+
+Scott Hanselman: Yeah, I wanted to call that out. This integrates with Azure Monitors application insights, which is something I'm already familiar with now. We talked a little bit about IaaS, infrastructure-as-a-service. And we talked about platform-as-a-service, which is where we are sitting right now in the AI landscape. And then we talked about software-as-a-service where you're going to see things like Copilot. I have found in my time as a cloud person, that I really sit in that platform-as-a-service spot. I run my websites on Azure App Service. I use Azure Application insights. This fits for me in the kind of stuff that I was already doing, which is why I was excited to be a part of this talk.
+
+Yina Arenas: One last thing that we will mention. Which is very, very important is, what do we do around end-to-end security? Right? And the integration with Foundry across all of the different stack of Microsoft security products. First, agents that you're creating are getting a specific identity on Entra. So it's not like, so if you, for those of you familiar with Azure, with Entra, I'll rename Azure directory, with Entra. All of the different set of entities have whether it is users, groups, devices, they have an, they're registering the directory, right? Now agents are going to have their own type of id where you can assign entitlements and do governance on top of them. So you can see, okay I'm giving this agent who's acting on my behalf a specific set of permissions and not more than that. The second one is around sending all of the information to Purview. So like things like data labeling, data protection and the fully integration with all of the security products, like Purview and Defender are part of like what we have as capabilities in Foundry. Alrighty. We're going to, there's other sessions around observability and governance, please take a look. We're going to go way deep into these sessions. And now let's don't forget to go back and --
+
+Scott Hanselman: Okay, let's switch back over to the factory. One, two, three. So, I'm a little sad. You're name is so challenging apparently. Straight to Yale. Nobody got that reference, but that's fine. So, went in and generated that we discussed the platforms cap
+
+into the production process and we discussed various features. So this all, other than the misspelling of your name, totally legit. And we've got our topics. Then it went and it generated a, look it spelled that correct, that's cool. Made a VTT, which is not just a text file, but an actual transcript file that I could use on YouTube or I could put into my podcast. You can see our different agents over here.
+
+[ Laughter ]
+
+That agent has a leading space. And then we have a link verifier, which going to check all the links. So we scroll down a little bit. I like a nice ASCII table, I just feel strongly about that. Oh, did we say it was special or is it just think we're special?
+
+Yina Arenas: We are special, we also said it's special.
+
+Scott Hanselman: Special episode. Nearly 1,000, okay so this is all good, so it gave us a summary generating the notes. I want to open those notes up. Then we go and verify each of these, looks like two of these different work and they have a warning, we'll dig into those links. And then it went and summarized them. So let's jump into the output folder. Here's the show notes and the transcription, we'll go and look at show notes. And then let's do a little markdown magic. Scrumptious. Takeaways. Did we teach it to do quotes? There we go. Everything we built here is legit.
+
+[ Laughter ]
+
+Yina Arenas: It is indeed.
+
+Scott Hanselman: It is pretty legit. Less expensive, that's good. Put a router in the front, grounding, yep this is all cool. Resources mentioned. Scott's YouTube channel, no link.
+
+Yina Arenas: Ah!
+
+Scott Hanselman: Ah, scandalous. Oh, and then I don't know if I told you this or not. I actually I did not, I was, I actually was given permission last night at 11:30 at night to let people know that Notepad is going to support markdown.
+
+Yina Arenas: There you go.
+
+[ Applause ]
+
+Scott Hanselman: So, we've got our lovely thing loaded into, I feel like that AI Foundry Notepad collaboration.
+
+Yina Arenas: Yeah, I love that. I love that collaboration.
+
+Scott Hanselman: We're going to make markdown, we got to use, got a little something, yeah. That's pretty cool. Alright, I dig it.
+
+Yina Arenas: Alrighty. Got ourselves a show.
+
+Scott Hanselman: Yeah, that saved me a lot of work. I have to --
+
+Yina Arenas: What are you going to do with that Scott?
+
+Scott Hanselman: I'm going to go and add a couple of small changes, because I'm the human in the loop and I'm going to give it to Mandy who will edit the show. And we'll try to put it up as soon as we can.
+
+Yina Arenas: Sounds good.
+
+Scott Hanselman: Very cool.
+
+Yina Arenas: Alrighty.
+
+Scott Hanselman: Yeah.
+
+Yina Arenas: Let's recap what we did.
+
+Scott Hanselman: Let's do a recap and talk about where people can learn more. So, remember that we tried to create this podcast factory. That would make my life easier. Hopefully the two or three hours a week that I spend on this turns into 10 or 15 minutes and just an agent that does this work for me. And then I'll double check the work. One of the things we didn't get a chance to show you were some ideas on guest sourcing, because I realize that there's a trend line on my show. And we can get recommendations about who else I might want to have on the show. Shocking that it hadn't recommended you until just now. You may have put your thumb on the scale in the AI. We got the bio generator and then we also could have an AI doing scheduling. Because it's really challenging, there's a lot of emails going back and forth, talking to guests, trying to get them scheduled for the show. We've got a transcript generator that we saw, which is a custom model. And show notes, which was done on GPT 4.1 nano show notes.
+
+Yina Arenas: The fine-tuned model.
+
+Scott Hanselman: Fine-tuned model. And then the link resolver makes sure that the links that it puts up are legit links. Makes sure that they don't 404. And then other things that we could potentially do would be, generate copy for social and things like that. Localization has been a really interesting thing. We've got models that could do that as well.
+
+Yina Arenas: Translation, bringing to different languages, that's another thing that we could have done. Alrighty. Well, with that, this is a way in which we, you hopefully saw today how Azure AI Foundry can help infuse AI into like a different set of applications. We built a podcast factory. What factory are you going to build? How are you going to like bring that investment to be, instead of return of investment, return on your effort? We're hoping that
+
+like you're going to see how AI can help reduce toil. Can help like take away all of these set of tasks that we don't necessarily want to do. You mentioned them dangers and?
+
+Scott Hanselman: Dull, dangerous and dull, I want to do the fun stuff.
+
+Yina Arenas: And then we have a lot of customers. Like Gainsight, Saifr, Heineken, more that are using AI today. Over 70,000 customers are using Azure AI Foundry to bring AI into their organizations. Over 10,000 have already used Azure AI Foundry agent service. And are creating now millions and millions of agents to like bring in and get significant input, significant gains into their processes. We want to leave you with a call to action. Are you ready to create the future of AI? Thank you folks.
+
+Scott Hanselman: Yeah. Thank you very much.
+
+[ Applause ]
+
+Take a picture. Take a picture of that and make sure that you remember all of the notable quotes from the show. And then sign up over here my friends. Thank you.
+
+Yina Arenas: Thank you folks.
+
+[ Music ]
+
+END

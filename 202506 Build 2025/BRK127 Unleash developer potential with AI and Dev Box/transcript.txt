@@ -1,0 +1,1077 @@
+Microsoft Build May 19-22, 2025 Session: BRK127
+
+Denizhan Yigitbas: Welcome to Build, everybody, this early Thursday morning.
+
+How is everyone doing (cheers)?
+
+Yeah.
+
+[ Applause ]
+
+My name is Deniz Yigitbas.
+
+I'll be talking to you about Unleashing Developer Potential with AI and Microsoft Dev Box.
+
+Now, going back to our college days, right?
+
+At college we had The dreaded 8 a.m.
+
+class that I rarely went to.
+
+And I very often fell asleep on it if I did.
+
+So I will be watching everyone and hope nobody is falling asleep.
+
+So, 30 years ago, this is what development looked like.
+
+Nice and simple.
+
+But this right here is what development looks like today.
+
+Developers are building in an environment where tools, frameworks, and models are evolving almost by the week.
+
+And in this era of AI, this change isn't just fast.
+
+It's truly exponential right now.
+
+And to stay productive in this new reality that we're facing today, developers need more than just their traditional machines.
+
+They need these ready-to-code development environments, environments that come with the right tools, support AI-native workflows, and offer the flexibility to break and break again and break again.
+
+Experimentation should be seamless and have no setup burden for developers these days.
+
+So for a quick moment, I want everyone to just open their door, hop into a time machine.
+
+I want everyone to go back to the first day they got their development machine for whatever company that you're working at right now.
+
+How long did it take you to set everything up?
+
+How long did it take you to commit your first line of code?
+
+Five days?
+
+Ten days?
+
+One month?
+
+The truth is, these traditional environments that we're so used to working on aren't built for the moment that we're in.
+
+Local machines are not scaling well.
+
+Generic cloud desktops weren't designed for developers and optimized for their needs.
+
+And onboarding can take days or even weeks, rather than the minutes that we would all love.
+
+Managing dev environments, on the other end, is also a pain.
+
+IT still has to go through many hurdles to make sure that they're monitoring their dev teams.
+
+And that's why we built Microsoft Dev Box.
+
+Cloud-powered, secure, a truly ready-to-code development environments designed for this AI-native world.
+
+First, it's tailored to the developer experience with high performance, fast startup times, and deep AI integrations throughout.
+
+Second, it's a flexible platform for teams, making it easy to standardize and customize the needs for each specific project that you work on.
+
+And finally, it's built on enterprise trust, giving IT the guardrails that they'll need without slowing down innovation across teams.
+
+So, let's take a quick look at what this experience feels like.
+
+[ Music ]
+
+Alright.
+
+What a bop.
+
+I saw you bopping your head.
+
+It was pretty.
+
+Again, 8 a.m.
+
+Wake up, everyone.
+
+So let's first talk developers.
+
+As we know, being a developer right now can be exciting, but as we said, also quite overwhelming.
+
+So, the environments that developers are working on need to work with the developers just like how they want to actually work, without coming against what they need.
+
+And that's what Dev Box is built for.
+
+So, no more talking.
+
+More demos.
+
+Let's start with just breaking down the basics and just the core of what Dev Box is today.
+
+Aha.
+
+Thank you.
+
+We are live, everyone.
+
+Okay, so let's start with the home of your Dev Boxes, the Microsoft Developer Portal.
+
+This is a central location where developers can come to access, create and delete Dev Boxes as needed.
+
+The first thing that we're going to actually do is that we'll do is go to this "Create New Dev Box" button.
+
+And this is how we can see that a developer can just self-serve a Dev Box machine for themselves.
+
+So let's just put in a name.
+
+I'll say "Build".
+
+And then we can select a project.
+
+Now, Dev Box is designed around how developers work.
+
+We've been talking about this and actively thinking about the various tools and the source code that they're going to be working on.
+
+And so this list of projects that you're seeing now, each one of these projects actually represents a completely different environment.
+
+Some might have Python on it, others might have Node on it.
+
+But it's kind of ready for me to go, depending on the project that I'm working on.
+
+And this also shows how a developer can work across multiple projects, one if needed or ten if needed or even more.
+
+You just have to grant them that access.
+
+So for this demo, I see this interesting project called "The Dad Brain Project".
+
+So I'll just pick that one.
+
+All right.
+
+And now I'm going to hit the "Image" drop down.
+
+And here, again, you're seeing that there are multiple different images that I can pick from for this project that I'm working on.
+
+There's this VS Enterprise with Windows 10, but there might be a different version as well, like VS Pro with Windows 11.
+
+And I have the options to pick based off the guardrails that my admin has assigned to this project.
+
+And after that, once I select my image, you can see that there's regions as well, right?
+
+This project can be assigned unique private networks that I have access to across different regions globally.
+
+So it's easy for me to jump in and get connected wherever.
+
+And from there, all I have to do is hit "Create".
+
+I can apply customizations if I want to make this feel more personal, like have my own elements of what I need in my machine through a YAML file.
+
+But for the time being, I won't actually get into that.
+
+And rather than waiting for a Dev Box to actually create, I actually have one Dev Box that I have, as you can see here.
+
+And so let's just go ahead and connect to this Dev Box.
+
+I have two ways on this portal right now that I can connect.
+
+There's this "Open in Windows App" option for me to connect to with a Windows app.
+
+And there's also this "Open in Browser" option, two separate ways to connect.
+
+So I can connect on the road, at a cafe, whatever it is using a tablet.
+
+Or I can use the Windows app if I want the native Windows experience.
+
+So I'll just use the Windows app.
+
+So this will take a few seconds to actually boot up.
+
+But again, so we're working on this project that I'm hoping to have some of my favorite tools already pre-installed and ready to go on the machine.
+
+So as this comes up, you can see we're now in this fully brand-new environment, not my old machine.
+
+And up here we can see that I'm in that Dev Box.
+
+And just to quickly check, right, I'll say Visual Studio, Visual Studio, and Visual Studio Code is there as well as Visual Studio.
+
+So I have some of those basic tools that I love already ready to go on my machine.
+
+So even from that very short demo, right, you can start feeling the difference that we're going for with Dev Box.
+
+It isn't just a repackaged VDI solution.
+
+It's really this developer-native experience, with self-serve capabilities to create machines as needed, right?
+
+With project-scoped customizations for each team's specific needs, and allowing the developer to just be instantly productive when they enter that machine and get going.
+
+But Dev Box is pushing the limits even more by becoming a true AI-ready cloud development environment by design.
+
+So before we jump in, we're going to do another scenario, another exercise, brain exercise.
+
+So it's a work week.
+
+You're working.
+
+It's normal.
+
+Everything's going great.
+
+Then your manager sends you a message, Hey, produce me an AI app prototype.
+
+Doesn't know what it is, just that.
+
+And he's like, I want to see it by the end of the week.
+
+So, you have one week to produce this prototype of some AI app.
+
+Chaos.
+
+I face this weekly.
+
+Your environment's not ready.
+
+You might need a GPU for whatever app that you're going to make.
+
+There might be hours of setup, infra burden to get you going, coming up with the idea and kind of setting it all out.
+
+But it shouldn't be this overwhelming.
+
+As a developer, we just want to get coding as quickly as possible.
+
+And let's talk about how this should feel and how it is with Dev Box.
+
+And we're going to do that by actually building an AI app prototype right here using a Dev Box today.
+
+And the app we'll build is actually nothing crazy.
+
+It's going to be simple.
+
+It's going to be a QA bot that, given a question about some sort of internal documentation for a sample company, Contoso Telehealth, can actually scan a folder of these internal docs and return a summarized answer to that question.
+
+Right, so the value that we're actually going to show today isn't the app that we make or the final gorgeous UI that you guys are about to see, but it's more that how we can actually come to build it, end to end, without touching any setup scripts, without provisioning manual GPUs myself, or without managing any sort of LLM keys or configurations.
+
+Now, to bring the app that we're talking about to life, I know there's going to be three core components that I need.
+
+One, I'm going to need a development environment that has all the tools and libraries set up for me, maybe VS Code, maybe Python, the most recent Python, and any other things that I want on that machine.
+
+Second, I'm going to need to convert all of my documents, these text files, into numerical vectors, or embeddings.
+
+This process might require a lot of compute to convert text to these massive vectors.
+
+So I'm going to look for some sort of GPU access.
+
+And finally, I need to summarize these documents that I then match, which is quite the perfect task for what LLMs are made for.
+
+Now, all of this might have used to require me to jump across services, get some different access, spin up different infrastructure, and potential weeks of coordination with IT to make sure that I have all the tools that I need.
+
+But Dev Box really makes this flow seamless.
+
+So first, let's start with the step one, getting a machine that has all the tools that we want and need to be successful to build this.
+
+And we're going to be using the new Dev Box MCP server.
+
+So MCP, or Model Context Protocol, is basically coming in like a tidal wave.
+
+If you haven't heard it a million times already throughout the week, this is one more time you will hear it.
+
+But MCP is truly the super powerful protocol that empowers LLMs and agents to be able to interact with additional tools and APIs.
+
+So suddenly an LLM just evolved from being this natural language responder to a true doer, helping you interact with APIs and giving it tools and power to be able to just use plain English.
+
+And for Dev Box, this is truly opening this revolutionary door, allowing developers to interact with many layers of their development environments just by talking to it.
+
+I don't need to know anything about how my environments work, any sort of APIs.
+
+I can just speak to my agent.
+
+So let's take a quick peek at this experience.
+
+So, we're back at the dev portal, right?
+
+Everyone can see this?
+
+Good to go?
+
+Cool.
+
+So, we already talked about how easy it is to create a new Dev Box, right?
+
+I'm here, I can give it a name, and then I can actually go and select a project.
+
+But isn't this list of projects kind of long?
+
+How am I supposed to know what projects I'm going to work on?
+
+How am I supposed to know what project each one provides me?
+
+Is it just the name?
+
+I mean, The Dad Brain Project doesn't tell me much.
+
+How am I supposed to know what each one of these do?
+
+And this is kind of where that MCP server can really help developers kind of understand how to get started across their projects.
+
+So I'm going to actually switch over into VS Code.
+
+And we're going to switch into this agent mode here inside of VS Code for us to be able to talk and understand what we can do with our Dev Boxes.
+
+So I have a pre-made prompt.
+
+Let's just go ahead and paste it in.
+
+And like I said, I'm just talking about what we said.
+
+We want to create this AI chatbot that creates embeddings of documents, and it's going to generate a summary of the best matching chunks.
+
+And I'm asking it to find which project do I work on.
+
+Let me go ahead and just ask this.
+
+So behind the scenes, we'll be looking at our Dev Box MCP server and thinking about how I can help you.
+
+So again, through the Dev Box MCP server, it wants to get my project metadata, so I'll go ahead and allow that.
+
+And it's telling me there's this AI explorations project.
+
+It's optimized for AI ML workloads.
+
+It has that serverless GPU access, LLM API integrations with AI services.
+
+So it seems like it's a good use case for what we're about to do.
+
+So it says, Do you want me to create a Dev Box in the AI Explorations?
+
+I'll just say yes.
+
+But, again, I have my own needs.
+
+So I'm going to just ask you to make sure to include VS Code on that Dev Box and Python.
+
+So now let's start to customize that Dev Box.
+
+So first step, we're going to create that Dev Box.
+
+And here it's detecting that we want to customize the Dev Box with Visual Studio Code and Python.
+
+So let's go ahead and enable those.
+
+And this is the second install for the actual Python.
+
+And fantastic.
+
+The Dev Box is now being provisioned in this AI Explorations project with Python and Visual Studio ready to go.
+
+So that was our first look at the new Dev Box MCP server, now available in public preview.
+
+With the Dev Box MCP, we brought agent-based automation directly into your development workflows.
+
+So in just minutes, you saw that I was able to search for the metadata across all my projects and understand where to get started with Dev Box.
+
+I was able to create a Dev Box for that project.
+
+And third, I was able to personalize it instantly, all within VS Code.
+
+And this is really just the beginning of what MCP can do with Dev Box.
+
+As we continue to iterate on MCP, imagine a world where you can parallelize your dev tasks across your dev boxes while agents are doing the jobs for you in these secure, isolated environments, ready for you to jump in whenever it needs.
+
+Okay.
+
+Let's continue.
+
+So the next challenge that we'll tackle, embeddings.
+
+Now, converting these documents that we'll be looking at here in a second to vector format can be compute intensive.
+
+This means GPUs.
+
+And today, let's think about it.
+
+Who thinks getting GPUs is easy?
+
+Raise your hands if you think it's easy.
+
+Exactly.
+
+I hope nobody's raising their hands because they're not asleep.
+
+But yes, getting GPUs and configuring it and making sure it has everything that you need is not easy today.
+
+But with Dev Box, we're introducing serverless GPU compute.
+
+And it's really this game changer for a lot of CLI-based workloads and especially these ai workloads that we very recently have been talking about.
+
+You need to do no set-up, no tickets, and most importantly, no idle spend.
+
+A GPU can just be provisioned on demand while you just run the code for exactly the duration that you need.
+
+And it's all wrapped with our infamous Enterprise controls and guardrails.
+
+So it's secure, It's governed, and it's cost effective.
+
+Again, let's just take a look at what this looks like.
+
+All right.
+
+Cool.
+
+So here we have that same Dev Box, right?
+
+It's in that AI incubations project that we created from.
+
+And
+
+All right, so same Dev Box that we've been working on.
+
+So if you recall, the MCP server that we worked on told me that this AI Explorations project actually has serverless GPUs inside of it.
+
+So first, let's just confirm how I can get to my serverless GPUs.
+
+So here, let's first quickly launch the Windows terminal.
+
+And if I just take a quick look at the different shells that I have, you'll notice that there's this new option here called the Dev Box GPU shell.
+
+And that's exactly what I'm going to need.
+
+I want to connect to this shell that has direct access to a GPU.
+
+So behind the scenes here, we're spinning up an Azure container app that's actually connected to a T4 container, and it's using all of my credentials and security that I have to get connected to our GPU.
+
+So I'm immediately connected now.
+
+You can see I'm inside of a Linux container here.
+
+And just to confirm that I actually have access to a GPU, I'll run nvidia-smi.
+
+Fantastic, right?
+
+We're here, we have our GPU and ready to go.
+
+But what's even cooler with this new capability is that I can connect to this GPU through VS Code as well.
+
+And that's how we're actually going to generate the embeddings that we need for our app.
+
+So I'll switch over to VS Code.
+
+And I'll select this and here say connect to a tunnel.
+
+And we'll use our Microsoft account as mentioned.
+
+And here what we want to see is this GPU session here online and ready for me to connect to.
+
+So when I select this, I'm tunneling into that GPU that we just spun up.
+
+So here we're opening the remote connection.
+
+And cool.
+
+We are in.
+
+So now we're going to start generating those embeddings that we need.
+
+Let's open a folder.
+
+Before this, I added some of the code that we need to get this going.
+
+Let's go into our workspace and this Build25 folder.
+
+All right.
+
+So we said that we have some set of internal docs.
+
+So you can see onboarding, architecture, deployment, bug triage.
+
+These are the documents that we're going to need to generate embeddings for.
+
+And I have this document embedder file here that actually goes through all of the files in the data folder, reads the markdown, and generates these vectors from that markdown.
+
+Again, maybe for this example we wouldn't need a GPU, but imagine this scaling up and you need that additional compute.
+
+So right now I'm actually in the VS Code terminal, which also has direct access to my GPU, and I can just, let's just make sure I have all the things that I need so we don't break this live.
+
+We'll do pip install, and we have everything actually.
+
+And so now I'm just going to run Python document embedder.
+
+All right.
+
+So while this runs, again, this is going to be using the compute power of the GPU.
+
+It was instantly spun up and it can just quickly run this.
+
+And fantastic, that was pretty quick.
+
+I have a few files.
+
+And in the embeddings, it created this folder.
+
+And if we just look at one, you can see these massive vectors that it generated pretty quickly.
+
+So when I'm actually done with my GPU, I can just simply close the remote connection.
+
+And I actually was also active in this shell as well.
+
+And let me just close that out as well.
+
+And done.
+
+The GPU is no longer being charged for.
+
+It's been closed.
+
+And I've got what I needed through the GPU.
+
+So what we just saw was serverless GPU support inside of Microsoft Dev Box, designed for these real-world developer needs, now available in public preview.
+
+Whether you're building embeddings like we did today, or running models, or testing work flows or inference, thanks to our collaboration with Azure Container apps, serverless GPUs enable you to spin up and spin down these containers instantly and make them disappear when you no longer need them.
+
+And we're not stopping there.
+
+Coming soon, you'll be able to persist the storage across each of your sessions with Dev Box Workspaces, allowing you to resume exactly where you last left off every single time.
+
+Now, with our embeddings generated, we have our vectors.
+
+It's time to actually generate that response to our question.
+
+We need to get an answer.
+
+But again, a lot of workflows in this prototyping process can break down here.
+
+You might need to manage your API keys, you might need to set up models, deploy models, deploy other infrastructure, then wire up your logic.
+
+But Microsoft Dev Box's new integration with the Azure AI Foundry, that's all abstracted away.
+
+You get secure enterprise-ready access to all the Foundry models directly inside of your Dev Box.
+
+You never have to leave.
+
+And as always, everything is fully governed, everything is fully integrated, and zero setup for developers.
+
+So for our app, let's go ahead and wire this up.
+
+Okay, so we have our embeddings, and there are two additional files here that we're going to work with.
+
+We have our doc summarizer.
+
+That's going to go through the embeddings, and it's going to find the best matching chunks or files that answer a question.
+
+Then, it's going to actually use the Azure AI services to then create a summary of those chunks.
+
+So we're finding the relevant chunks here.
+
+Then we're going to actually have to summarize those chunks.
+
+And that's where the LLM comes in.
+
+Now, we need a deployment of a model here.
+
+So let's talk about how Dev Box is integrating AI Foundry inside of It.
+
+Let me come back to a shell.
+
+And here I'm just going to type in "dev box ai".
+
+So this is kind of where we'll see there's a few options for us to go through, and let me see if I can zoom in quickly.
+
+We have the option to list the models that are already, that I can get through Azure AI Foundry.
+
+I can list the deployments that my project has already created for me to connect to.
+
+I can just go to the Azure Foundry, or I can even deploy a model straight from my Dev Box.
+
+So, again, just to play around, let's just list the, let's actually just list models first, right?
+
+And Azure Foundry is continuing to introduce new models, right, quickly, and all these models are coming fast.
+
+So I have access to all of these, right?
+
+And so now let's just see what's actually deployed for this project that I'm working on.
+
+Okay, cool.
+
+We have the GPT-4.1 mini model here that I can use instantly.
+
+I actually want to use, or at least deploy, this GPT-4.1 nano model as well.
+
+And all I have to do is press "Enter", and boom, right?
+
+The nano model is also deployed and usable for me.
+
+Now, if I actually say "list deployments again", I should be able to see both the GPT-4.1 mini and the nano models are available for me to use.
+
+Now, for sakes of the app, all I have to do is copy one of these models.
+
+And you can see that I have this section right here to actually put in the model that we're going to be working with.
+
+So now we have the model that's going to help us summarize the chunks for this.
+
+And so I have an app.py that's a fantastic, gorgeous, multiple weeks of work UI.
+
+So let's take a look at how pretty it is.
+
+This will take a quick second to actually launch up as we connect to all of these different libraries inside of the app.
+
+Maybe more than a second.
+
+Maybe two.
+
+Maybe three.
+
+There we go.
+
+Three seconds.
+
+And again, I've been working on this UI for weeks so it's really pretty, right, and It's really important for this UI to feel awesome, right?
+
+So let me go ahead and ask this quick question.
+
+How do I deploy this repo?
+
+This telehealth repo that we're working on.
+
+Again, now we're quickly connecting to our Azure AI services with the model we have deployed and getting the chunks that best fit.
+
+At the bottom you see we have some of the resources that help.
+
+At the top, we have a quick summary of the question that we asked, right, exactly what we were looking for.
+
+Now, sometimes some of the engineers on this repo kind of sneak peek a few documents.
+
+So I just want to make sure, What's the best soccer team that's ever existed?
+
+Ah, there's a team in Turkey, Galatasaray.
+
+Must be the best soccer team, 25 league champions.
+
+So someone must have sneaked in a pretty important file.
+
+All righty, that was fun.
+
+The app is complete, right?
+
+What we saw is really that beginning of how we are infusing ai intelligence directly into our development environment.
+
+We have pre-configured Azure AI Foundry in public preview today, where developers can focus on the logic and the experience while the platform really handles all of the orchestration, the access, and the security behind the scenes.
+
+And because it's directly integrated inside of Dev Box, developers in your org can just tap into LLM power on day one with no set up, no silos, and no friction.
+
+Now, the developer experience revolves around experimentation, breaking things, and as we said, breaking them again.
+
+Earlier, we saw how Dev Box as a cloud development environment already empowers developers to self-serve machines on demand with these guardrails set by admins.
+
+And this allows them to spin up project-specific workspaces as needed.
+
+But what about the times where you're in the middle of something risky and I just want the freedom to move forward without any fear.
+
+Can you think about that last time that you had an "oh shoot" moment in your machine?
+
+I often have this feeling of just being like undo, undo, undo, undo, undo, undo, undo, until I get back to my original state, right?
+
+And that's the reason why we're introducing this new feature, Manual Snapshots.
+
+With one click, developers themselves can create snapshots of their Dev Boxes at any moment in time and restore the state.
+
+Just like any personal safety net that I have as a developer.
+
+I don't need a help desk ticket, and therefore I have no time lost when I need to go back.
+
+So it's the speed while having the safety as a developer working on Dev Box.
+
+And that's really how this modern development should feel for developers.
+
+And of course, developers want to work inside of the tools that they already love.
+
+Today, we're excited to announce that you can now connect to Dev Boxes directly from VS Code.
+
+This means that you don't have to jump through portals, you don't have to even RDP connect at all.
+
+You just have to open VS Code, connect to your Dev Box, and just start coding.
+
+It really feels like local development, like a local development experience, but with the power of the cloud behind it.
+
+You get the full Dev Box experience, with your local experience, with your extensions, your workflows, maybe your preferences, but it's powered by the compute, the storage, and the private networks of that Dev Box, all in just one click.
+
+Now, we talked a lot about developers and what the developer experience is and how it helps developers today.
+
+But really, the second aspect of Microsoft Dev Box is really being a platform for teams, helping teams be quick, agile and move quickly.
+
+I would like to invite my good friend and colleague, Dhruv, to help talk about the platform for teams.
+
+Dhruv Muttaraju: Thank you.
+
+Mic check.
+
+Hey, everyone.
+
+My name is Dhruv Muttaraju.
+
+I'm a Product Manager on Dev Box, and I would like to talk to you about developer onboarding.
+
+If you're a developer like me, you know how frustrating it could be to get started working on a new repository for the first time.
+
+You have to maybe read a long readme file, maybe bribe a co-worker over lunch to show you how to set it up.
+
+It could even happen if you're getting back to working on a repository that you haven't worked on in a while.
+
+You needed like, Well, what version of python am I at now?
+
+Could get really confusing and time consuming.
+
+And the problem is, this really starts adding up at the level of an organization where developers are spending a lot of time setting up their repository and taking a lot of time just to get to that spot where they feel that they can start coding.
+
+And this is a tricky problem to solve because every team is unique, right?
+
+Every project has its own tool chain and libraries that it needs.
+
+You've got.NET web app development, you've got folks using Node.js, you might even have folks doing like embedded software development, and there's no one-size-fits-all solution.
+
+Now, IT teams can sometimes try and solve this for you by bloating everyone's tools into your box, regardless of whether or not you need it.
+
+That kind of slows everyone down.
+
+Or they might just take a step back and be like, Well, you guys deal with it, right?
+
+Like, you know, maintain your own instructions and let your developers follow those instructions.
+
+But it doesn't have to be that way.
+
+And that's where Dev Box comes into the picture.
+
+Dev Box is a platform for teams.
+
+And it allows you, as a project lead or an engineering lead, to customize and define your own project without having to ask IT for each thing.
+
+So let's take an example of how this might look in an organization.
+
+So for a moment, assume that I'm an engineering manager at an organization called Contoso, and specifically I'm an engineering Manager for a web application called E-shop.
+
+Now Contoso's awesome IT Team has set up a dev center and a project among many projects as part of their Dev Box deployment.
+
+Contoso's IT Team then delegates control of my project, which is E-shop, to me so I have the flexibility to define and customize what my team's Dev Boxes look like without having to ask IT to say, Hey, can you add these bunch of software for me?
+
+I don't have to do that.
+
+I have control over my project because IT has delegated that control to me.
+
+Other teams are free to do that for their own teams as well.
+
+They could all maintain their own projects with their own tool chains without having to step on each other's toes.
+
+And what's great is we're all still deriving from a common base that Contoso has written for all of us.
+
+I get all the antivirus software and firewalls that the IT organization has defined, so that I could focus on the special sauce that my team needs to succeed and have a ready-to-code experience when they open up their Dev Box, without having to drag IT and go on vacation whenever I submit a ticket.
+
+Now, I spoke a lot about customizing a Dev Box, but what does this really mean?
+
+Let me show you a quick demo of how you can customize Dev Box to work on your code base.
+
+Okay.
+
+Perfect.
+
+So as I said, assume for a moment that I'm the engineering manager for a.Net web application called E-shop.
+
+This is my repository.
+
+You're looking at my readme right now.
+
+And you're probably wondering, Well, Dhruv, you're talking about customization of Dev Boxes and stuff.
+
+Are you going to show us how to write a bunch of YAML files?
+
+What is this, 2024?
+
+No, we're in 2025 when I last checked.
+
+We're going to ask Copilot to do most of the work for us.
+
+So here I have Copilot in agent mode.
+
+And I'm going to say, Copilot, create a new Dev Box image definition for this repository.
+
+Now, you can see GitHub Copilot is starting to think and it's looking at the structure and files in my repository.
+
+It's figured I have a readme, which is kind of good.
+
+And it now figured that based on my readme, I probably need Docker, I need Visual Studio, I need.NET, I need Git, and it says it's going to create an image definition YAML for me, so let's see how it does.
+
+Okay, that's pretty fast.
+
+You can see Copilot now created essentially a template for Dev Boxes and image definition.
+
+In it you can see it's trying to install Docker, Visual Studio Code,.NET, all using WinGet or PowerShell.
+
+It's also installing a few VS Code extensions that I thought it would be helpful to work on this repository.
+
+And that's it.
+
+With a bit of Copilot prompting, I have a great starting point for a template from which I can now create new Dev Boxes off of.
+
+So I don't have to follow the readme instructions manually each time.
+
+I can now have my team just create Dev Boxes based on this.
+
+From here, you can steer Copilot, change a few things, add a few more tasks, change the version of.NET if you don't want a preview version but the full version.
+
+And you can also just test this config out straight from your Dev Box and see if it works like you intended it.
+
+Now, this is great.
+
+Once you have this template, now you're probably wondering, Well, how can I get my whole team to just be using this?
+
+Can they derive the benefit of this and get a ready-to-code machine?
+
+Yeah, it's pretty simple.
+
+All you have to do is check in this file, just like any other file, to your repository.
+
+It's an image definition YAML file.
+
+Oh, my browser is closed.
+
+All you need to do is check in this file into your repository And go to "My Project" in Azure, and
+
+And what that really allows developers on my team to do is go to, whenever they want to work on my project, which is E-shop, all they need to do is go to the Microsoft Developer portal, devbox.microsoft.com, or devportal.microsoft.com.
+
+And they could just hit "Create a New Dev Box".
+
+And out of all the projects that they have access to, they'll see my E-shop project here.
+
+And they can just pick that and hit "Create", and they'll get a ready to code Dev Box whenever they want to work on that project.
+
+No maintaining your physical workstation, no having to catch up when you want to work on the latest branch.
+
+You just create a new Dev Box.
+
+And when you do, you get something like this one that I just created before this presentation, which has all the stuff that I had to find in that YAML that you saw, already run and ready to go.
+
+Now, that's fine and dandy, But you're probably wondering, Well, my repository is like gigabytes in size and I have a lot of assets to download.
+
+Are you going to tell every developer to take a five-hour coffee break so their dev box is ready?
+
+Actually, no.
+
+That's where we have a lot more magic up our sleeve.
+
+These image definitions that you write, you could actually go to the Azure portal or call our AO and at the click of a single button, you could build these into real custom images.
+
+We take care of the whole process for you.
+
+We're going to create a Dev Box, we're going to run all your stuff, we're going to snapshot It, we're going to assist prep it.
+
+We take care of all of that for you and at the end of the day, your image definitions are optimized into real custom images that you can poke on in Azure Compute Gallery.
+
+So you get all the benefits of having a custom image without having to pay a lot of the price When it comes to maintaining your own imaging infrastructure and having to deal with all that pain.
+
+You can focus on what drives value for your team and let us handle the infrastructure side of things.
+
+And this is how we were able to scale Dev Box at Microsoft to real success.
+
+We have over 45,000 developers using Dev Box, with over 65 of them using it as their primary dev machine.
+
+This is really because we were able to scale with over 200 projects maintained by those teams themselves, where they have written their own custom images so whenever a developer wants to work on a code base, they're no longer trying to pull down the latest version and set up their machine.
+
+They just create a new Dev Box and they're ready to go.
+
+Now, that's a lot of talking.
+
+When can you actually use this?
+
+Let's get to some announcements.
+
+We're really excited to announce the general availability of the feature you just saw, team customizations and imaging, that allows you to define dev boxes in a configuous code paradigm.
+
+You can also, with a single click, as you saw, optimize these definitions into real custom images so you get all the benefits of something like Packer without having to maintain a lot of the Infrastructure.
+
+It just works out of the box.
+
+We're also super excited to announce a public preview of An authoring agent so you can now quickly create these team customizations with an agent-based flow, or you can just ask Copilot what you want, or ask it to scan your repository and generate a Dev Box customization that it finds relevant, and you can steer it whichever direction you want.
+
+This gives you an accelerated way to set up Dev Box and customize it for your team without having to do all of this by hand, because it's not 2024.
+
+Now, all this is great.
+
+It's a lot of flexibility for project teams, but you're probably thinking, How can my IT team be happy with all of this?
+
+How do you still maintain control?
+
+that's where Dev Box is a platform for enterprises, giving them broad guardrails.
+
+I would like to invite Deniz down again to talk about enterprises and how they like Dev Box.
+
+Denizhan Yigitbas: Thank you, Dhruv.
+
+All right.
+
+Wide awake.
+
+Everyone wide awake, right?
+
+So we just saw through the demos that we made how Dev Box is great for developers, right?
+
+And Dhruv showed us how it can be even better for teams.
+
+We see fast startup times, those flexible tools.
+
+We saw built-in AI capabilities, pre-configured images.
+
+But there's really a bigger picture that we need to talk about, right?
+
+And it's this balancing act between, that a lot of tech organizations are seeing.
+
+On one side, you have your developers.
+
+They want the agility.
+
+They want the performance.
+
+They want that freedom to innovate.
+
+But on the other side, you have platform engineers and IT.
+
+They are accountable for the security, the governance, and the cost of running a service.
+
+And too often, it's this tug of war between these two.
+
+Developers are blocked by tickets and red tape, basically.
+
+Or IT loses visibility over just the control on their dev teams.
+
+And that's why this next piece Is so important.
+
+This balance between developer velocity and enterprise control is what Dev Box is built to solve.
+
+And it's not like just a layer that we add on Dev Box.
+
+It's really baked into the core design.
+
+It's sort of the bread and butter, as some would say, right?
+
+And we've been partnering closely with global leaders to scale Dev Box for real enterprise needs.
+
+Let's take a quick look at Fujitsu's journey, one of the largest users of Dev Box today, rolling it out across thousands of developers worldwide.
+
+[ Non-English ]
+
+Speaker 1: Developers want to code, not spend hours configuring hardware, and the physical devices they've used until now are expensive.
+
+[ Non-English ]
+
+Developers can start coding immediately with a pre-configured environment, and they expedite their work with GitHub Copilot.
+
+Removing hardware from the equation also saves time for our Operations Team.
+
+[ Non-English ] [ Music ]
+
+Denizhan Yigitbas: So, we're excited to continue this close collaboration that we have with Fujitsu.
+
+And the Fujitsu story is one that we actually hear often, right?
+
+It's the secure onboarding, the simplified management, and the faster development cycles that we see where Dev Box shines.
+
+But these outcomes aren't just by accident.
+
+They're made possible by three foundational pillars that we built Dev Box on.
+
+We have project management capabilities to secure and isolate projects with delegated control to teams.
+
+We have device management to provide you the ability to manage global fleets at scale.
+
+And finally, we have built in cost controls to ensure optimized spend without slowing down your teams.
+
+Let's start with project management.
+
+The foundation of Dev Box empowerment comes from the ability to delegate out control to your teams while keeping clear guardrails in place.
+
+Today, I'm excited to announce that project policies are now generally available as well.
+
+With project policies, central teams can define allowed machine SKUs.
+
+It can allow base images and networks, right, all scoped per project.
+
+That means developers get that flexibility to spin up what they need without opening up the risk for requiring any sort of constant oversight from IT.
+
+And this flexibility also includes project networking.
+
+With Microsoft Dev Box, you can create isolated secure networks for each of your projects.
+
+By using Azure Virtual Networks, You can restrict each project's access to only the resources that it needs.
+
+This not only strengthens the Security, but it also ensures that your projects align with the existing networking topologies and policies that you have.
+
+So whether it's routing traffic through your centralized configuration or integrating firewalls, Dev Box fits seamlessly into these existing networking topologies that each enterprise might have a little more uniquely.
+
+So now let's talk about managing Dev Boxes at scale.
+
+Supporting global fleets of cloud development environments is hard, but Dev Box makes it easier by integrating deeply with Microsoft's ecosystem.
+
+With built-in hooks to Microsoft Intune, with Entra ID, Defender, and the Azure Monitor Agent, you can enforce policy, monitor performance, and maintain security, all using the tools that you might already be relying on.
+
+So it's streamlined, it's secure, and it's scalable from day one.
+
+And this experience is now more available than ever.
+
+Microsoft Dev Box is built on the shoulders of giants, including Windows 365 and Azure with this global presence.
+
+We're adding the support for two new regions, Spain Central and UAE North, bringing the total to 23 Azure regions globally.
+
+This means high performance and regulatory compliance for teams all around the world.
+
+Now, let's talk about cost, one of the biggest concerns when it comes to cloud native rollout.
+
+Now, Dev Box provides powerful tools to control cost controls without slowing teams down.
+
+Features like project level limits for Dev Boxes or auto stop schedules and hibernation ensure that these resources aren't wasted and the budgets that we set as enterprises are actually predictable.
+
+So the developers can get what they need when they need it, while IT has the ability to keep that spend in check.
+
+We're excited to announce that the auto-stop on schedules for enterprises to schedule the stops for Dev Boxes in general availability.
+
+And as well as hibernate on disconnect, for those times where developers need to come back to their Dev Box and actually when they step back, we can hibernate the second they disconnect, again, removing any sort of idle waste.
+
+Now, I want to leave you off with one last thing.
+
+It's not the first time we hear this, but setting up a Dev Box for enterprise could be a little faster, could be a little easier, and more consistent.
+
+This is why we're integrating Into the Landing Zone Accelerator.
+
+The accelerator is going to provide a great starting point for replicating and using templates to be able to scale out your deployment as quickly as possible.
+
+You can use the best practices that you choose.
+
+You have enterprise-ready reference implementations to use from.
+
+And finally, you have this pre-built infrastructure as code templates to really fit the scale and the speed that you need to deploy your Microsoft Dev Box across your enterprise.
+
+So today we shared how Microsoft Dev Box is evolving to meet this moment that's really reshaping software development.
+
+We're on this journey, honestly, together to reshape what cloud development environments can be, giving developers fast, flexible, and AI-enhanced Dev Boxes and giving those platform teams the trust and cost efficiency that they need to be successful.
+
+Today's announcements bring us even closer to our vision, a more tailored developer experience ready for this AI era.
+
+A platform for teams to customize project-specific environments, and enterprise trust needed to deploy at scale.
+
+We really can't wait to see what you build with Microsoft Dev Box.
+
+Now, while that was the end, I want to highlight that right after this session, I want everyone to stand up.
+
+We're all going to do a walking party.
+
+We're going to go down the escalators, we're going to walk across the street, and enter the building across the street.
+
+That's where we have our fantastic lab.
+
+The lab is where you'll be able to play around with Dev Box and understand what the deployment process looks like and actually get into a Dev Box, and really get hands-on lab.
+
+So as I said, please join us in a hands-on lab.
+
+You can ask any of us.
+
+We have a lot of experts, any questions you have.
+
+But lots of other sessions to look into, lots of great links to look into as well.
+
+Thank you so much, everyone.
+
+[ Applause ]
+
+END

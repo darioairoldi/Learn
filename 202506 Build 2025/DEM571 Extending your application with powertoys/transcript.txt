@@ -1,0 +1,1919 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.7027649879455566
+
+00:00:00.520 --> 00:00:01.120
+Oh, thank you.
+
+NOTE Confidence: 0.6123513579368591
+
+00:00:01.120 --> 00:00:01.760
+Thank you everybody.
+
+NOTE Confidence: 0.7496378421783447
+
+00:00:02.440 --> 00:00:03.480
+Oh, welcome everybody.
+
+NOTE Confidence: 0.8315185308456421
+
+00:00:03.480 --> 00:00:05.680
+I hope you've been having a great build this far.
+
+NOTE Confidence: 0.7602425813674927
+
+00:00:06.000 --> 00:00:08.200
+My name is Nils Lauda and I'm joined today.
+
+NOTE Confidence: 0.8781399726867676
+
+00:00:08.200 --> 00:00:10.240
+By I'm Mike.
+
+NOTE Confidence: 0.4477882385253906
+
+00:00:10.480 --> 00:00:11.120
+Here's Mike.
+
+NOTE Confidence: 0.8462782502174377
+
+00:00:11.680 --> 00:00:14.120
+And we work in the Windows Developer Platform team.
+
+NOTE Confidence: 0.8718284964561462
+
+00:00:14.360 --> 00:00:17.512
+So that means our team is responsible for things like
+
+NOTE Confidence: 0.8718284964561462
+
+00:00:17.572 --> 00:00:20.606
+Windows Terminal and WCL and Power Toys and all the
+
+NOTE Confidence: 0.8718284964561462
+
+00:00:20.665 --> 00:00:21.319
+good stuff.
+
+NOTE Confidence: 0.8482208847999573
+
+00:00:22.160 --> 00:00:24.559
+And today we're actually going to talk about Windows Command
+
+NOTE Confidence: 0.8482208847999573
+
+00:00:24.599 --> 00:00:24.759
+Pal.
+
+NOTE Confidence: 0.8304855823516846
+
+00:00:25.560 --> 00:00:28.722
+So Windows Command Pal is something that we shipped last
+
+NOTE Confidence: 0.8304855823516846
+
+00:00:28.778 --> 00:00:30.359
+month as part of Power Toys.
+
+NOTE Confidence: 0.9437786936759949
+
+00:00:31.200 --> 00:00:33.455
+And if you're familiar with Power Toys Run, this is
+
+NOTE Confidence: 0.9437786936759949
+
+00:00:33.500 --> 00:00:34.960
+really the next generation of it.
+
+NOTE Confidence: 0.7538427710533142
+
+00:00:34.960 --> 00:00:37.000
+So we build it from scratch with Win UI.
+
+NOTE Confidence: 0.9073663949966431
+
+00:00:37.360 --> 00:00:40.165
+It's blazing fast and it really helps you to find
+
+NOTE Confidence: 0.9073663949966431
+
+00:00:40.222 --> 00:00:42.627
+files or launch apps and do a lot of other
+
+NOTE Confidence: 0.9073663949966431
+
+00:00:42.684 --> 00:00:46.520
+things because we actually have a great accessibility model, right?
+
+NOTE Confidence: 0.9579934477806091
+
+00:00:46.720 --> 00:00:47.360
+That's right.
+
+NOTE Confidence: 0.9232369065284729
+
+00:00:47.720 --> 00:00:50.118
+So maybe instead of just talking about it, we can
+
+NOTE Confidence: 0.9232369065284729
+
+00:00:50.167 --> 00:00:51.879
+actually show what it can do, yeah.
+
+NOTE Confidence: 0.9102585911750793
+
+00:00:52.320 --> 00:00:55.848
+Let's do that so you know this is the Windows
+
+NOTE Confidence: 0.9102585911750793
+
+00:00:55.926 --> 00:01:00.160
+Command palette which is not showing up on the screen.
+
+NOTE Confidence: 0.6954740285873413
+
+00:01:01.640 --> 00:01:02.600
+Exit the PowerPoint.
+
+NOTE Confidence: 0.8422727584838867
+
+00:01:03.080 --> 00:01:04.200
+Oh yeah, that's probably it.
+
+NOTE Confidence: 0.8640301823616028
+
+00:01:04.280 --> 00:01:04.880
+That's it.
+
+NOTE Confidence: 0.9358442425727844
+
+00:01:05.120 --> 00:01:05.880
+That's what it is.
+
+NOTE Confidence: 0.9769059419631958
+
+00:01:06.040 --> 00:01:06.600
+There we go.
+
+NOTE Confidence: 0.7140747308731079
+
+00:01:08.560 --> 00:01:10.560
+There we, This is the Windows Command Palette.
+
+NOTE Confidence: 0.8136913180351257
+
+00:01:11.240 --> 00:01:13.418
+As you can see, you know, it's pretty much your
+
+NOTE Confidence: 0.8136913180351257
+
+00:01:13.464 --> 00:01:14.159
+basic launcher.
+
+NOTE Confidence: 0.8785531520843506
+
+00:01:14.160 --> 00:01:16.380
+You know, you can find the apps you're looking for,
+
+NOTE Confidence: 0.8785531520843506
+
+00:01:16.423 --> 00:01:18.600
+whatever, you can do calculations, look for files.
+
+NOTE Confidence: 0.861836850643158
+
+00:01:18.920 --> 00:01:21.266
+But the real power of the Command palette comes from
+
+NOTE Confidence: 0.861836850643158
+
+00:01:21.311 --> 00:01:22.440
+its extensibility, right?
+
+NOTE Confidence: 0.867940366268158
+
+00:01:22.720 --> 00:01:25.406
+Any app can plug into the Windows Command Palette and
+
+NOTE Confidence: 0.867940366268158
+
+00:01:25.456 --> 00:01:28.244
+add their own commands and their own little snippets of
+
+NOTE Confidence: 0.867940366268158
+
+00:01:28.294 --> 00:01:31.082
+functionality straight to it that give all the power of
+
+NOTE Confidence: 0.867940366268158
+
+00:01:31.132 --> 00:01:33.159
+your app right at the user's fingertips.
+
+NOTE Confidence: 0.9164383411407471
+
+00:01:33.160 --> 00:01:36.557
+So like as an example, here is this GitHub extension
+
+NOTE Confidence: 0.9164383411407471
+
+00:01:36.622 --> 00:01:39.039
+that we have right and I can pull up.
+
+NOTE Confidence: 0.8694004416465759
+
+00:01:39.200 --> 00:01:41.282
+This is a list of all of my issues for
+
+NOTE Confidence: 0.8694004416465759
+
+00:01:41.336 --> 00:01:43.199
+the Command Palette on Power Toys.
+
+NOTE Confidence: 0.935640275478363
+
+00:01:43.520 --> 00:01:46.158
+But I can just like very quickly search through this
+
+NOTE Confidence: 0.935640275478363
+
+00:01:46.209 --> 00:01:48.543
+and like look for, you know, an issue that I'm
+
+NOTE Confidence: 0.935640275478363
+
+00:01:48.594 --> 00:01:50.725
+looking for and I can pull up all sorts of
+
+NOTE Confidence: 0.935640275478363
+
+00:01:50.776 --> 00:01:52.399
+commands that are related to it.
+
+NOTE Confidence: 0.8631337285041809
+
+00:01:52.760 --> 00:01:54.668
+You know, if I just want to like quickly copy
+
+NOTE Confidence: 0.8631337285041809
+
+00:01:54.710 --> 00:01:56.280
+the link to something, I can do that.
+
+NOTE Confidence: 0.8516515493392944
+
+00:01:56.520 --> 00:01:58.587
+Or, you know, if I wanted to browse the actual
+
+NOTE Confidence: 0.8516515493392944
+
+00:01:58.632 --> 00:02:01.195
+issues on GitHub straight from the Command palette, I can
+
+NOTE Confidence: 0.8516515493392944
+
+00:02:01.240 --> 00:02:01.599
+do that.
+
+NOTE Confidence: 0.7511975765228271
+
+00:02:01.600 --> 00:02:03.160
+And I couldn't quickly triage stuff.
+
+NOTE Confidence: 0.8998523354530334
+
+00:02:04.160 --> 00:02:07.972
+And that's because you know there's this extension for GitHub
+
+NOTE Confidence: 0.8998523354530334
+
+00:02:08.035 --> 00:02:10.160
+right here in the command palette.
+
+NOTE Confidence: 0.8230922818183899
+
+00:02:10.160 --> 00:02:11.852
+So you have a lot of things to do still,
+
+NOTE Confidence: 0.8230922818183899
+
+00:02:11.894 --> 00:02:12.360
+it seems I.
+
+NOTE Confidence: 0.6531879901885986
+
+00:02:12.520 --> 00:02:12.960
+Have a lot.
+
+NOTE Confidence: 0.5377231240272522
+
+00:02:13.200 --> 00:02:13.960
+Of open issues.
+
+NOTE Confidence: 0.8026444911956787
+
+00:02:14.960 --> 00:02:16.000
+So it's a lot of stuff.
+
+NOTE Confidence: 0.8821554780006409
+
+00:02:16.440 --> 00:02:17.240
+Whatever, it's fine.
+
+NOTE Confidence: 0.8633149266242981
+
+00:02:17.280 --> 00:02:18.520
+We're working on it, right?
+
+NOTE Confidence: 0.8405715227127075
+
+00:02:18.560 --> 00:02:21.160
+So how can we basically build our own extension?
+
+NOTE Confidence: 0.8672018647193909
+
+00:02:21.160 --> 00:02:21.480
+How does that?
+
+NOTE Confidence: 0.9707182049751282
+
+00:02:21.480 --> 00:02:21.760
+Work.
+
+NOTE Confidence: 0.7740989327430725
+
+00:02:21.919 --> 00:02:25.054
+I think it'd be cool if we just built one
+
+NOTE Confidence: 0.7740989327430725
+
+00:02:25.131 --> 00:02:27.960
+right here on stage live, and we can.
+
+NOTE Confidence: 0.9479992389678955
+
+00:02:28.000 --> 00:02:29.400
+We have 12 minutes left.
+
+NOTE Confidence: 0.824758768081665
+
+00:02:29.440 --> 00:02:30.280
+We can do it in 12.
+
+NOTE Confidence: 0.5947394967079163
+
+00:02:30.280 --> 00:02:30.520
+Minutes.
+
+NOTE Confidence: 0.6283382177352905
+
+00:02:30.640 --> 00:02:31.240
+OK, that's cool.
+
+NOTE Confidence: 0.7773405313491821
+
+00:02:31.760 --> 00:02:33.650
+So what we're going to do is we're going to
+
+NOTE Confidence: 0.7773405313491821
+
+00:02:33.694 --> 00:02:36.200
+create an extension right from the command Pallet itself.
+
+NOTE Confidence: 0.8616107702255249
+
+00:02:36.360 --> 00:02:39.140
+So if we just run this create new extension commands,
+
+NOTE Confidence: 0.8616107702255249
+
+00:02:39.193 --> 00:02:42.183
+you can see command pallet comes with everything you need
+
+NOTE Confidence: 0.8616107702255249
+
+00:02:42.236 --> 00:02:44.440
+to get started building extensions for it.
+
+NOTE Confidence: 0.7767838835716248
+
+00:02:44.600 --> 00:02:49.120
+So I'm just going to call this build demo my.
+
+NOTE Confidence: 0.8244921565055847
+
+00:02:49.360 --> 00:02:52.366
+Build so I don't need to clone a repo or
+
+NOTE Confidence: 0.8244921565055847
+
+00:02:52.442 --> 00:02:53.719
+do anything else.
+
+NOTE Confidence: 0.8033875823020935
+
+00:02:53.720 --> 00:02:55.991
+You can just create your own solution right from command
+
+NOTE Confidence: 0.8033875823020935
+
+00:02:56.032 --> 00:02:56.600
+pallet itself.
+
+NOTE Confidence: 0.7114438414573669
+
+00:02:56.600 --> 00:03:00.363
+So getting started is, as Mike is showing, really, really
+
+NOTE Confidence: 0.7114438414573669
+
+00:03:00.429 --> 00:03:00.759
+easy.
+
+NOTE Confidence: 0.5409024953842163
+
+00:03:00.840 --> 00:03:01.520
+So that's easy.
+
+NOTE Confidence: 0.8722667098045349
+
+00:03:02.080 --> 00:03:04.884
+All right, so we can open this solution up and
+
+NOTE Confidence: 0.8722667098045349
+
+00:03:04.945 --> 00:03:08.359
+I'm just going to start building this in the background.
+
+NOTE Confidence: 0.8709830045700073
+
+00:03:09.240 --> 00:03:11.984
+But let's let's take a quick tour through what we
+
+NOTE Confidence: 0.8709830045700073
+
+00:03:12.040 --> 00:03:12.600
+made here.
+
+NOTE Confidence: 0.9652553796768188
+
+00:03:12.600 --> 00:03:15.681
+This is kind of the template project that's made when
+
+NOTE Confidence: 0.9652553796768188
+
+00:03:15.739 --> 00:03:17.599
+you first create your extension.
+
+NOTE Confidence: 0.9436185359954834
+
+00:03:18.120 --> 00:03:20.272
+And if you come in here, you know, we have
+
+NOTE Confidence: 0.9436185359954834
+
+00:03:20.323 --> 00:03:21.400
+our command provider.
+
+NOTE Confidence: 0.8693109154701233
+
+00:03:21.520 --> 00:03:24.247
+This is the part where command pilot kind of calls
+
+NOTE Confidence: 0.8693109154701233
+
+00:03:24.301 --> 00:03:27.138
+into your extension and asks for a list of commands,
+
+NOTE Confidence: 0.8693109154701233
+
+00:03:27.192 --> 00:03:27.520
+right?
+
+NOTE Confidence: 0.9206168055534363
+
+00:03:27.720 --> 00:03:30.313
+Right now we just have we have one command this
+
+NOTE Confidence: 0.9206168055534363
+
+00:03:30.368 --> 00:03:30.920
+demo page.
+
+NOTE Confidence: 0.8697168231010437
+
+00:03:31.160 --> 00:03:33.018
+So this is the command that shows up on the
+
+NOTE Confidence: 0.8697168231010437
+
+00:03:33.061 --> 00:03:33.839
+on the 1st on the.
+
+NOTE Confidence: 0.8671919107437134
+
+00:03:33.840 --> 00:03:36.472
+Top level right, that's right and then we come in
+
+NOTE Confidence: 0.8671919107437134
+
+00:03:36.526 --> 00:03:37.439
+oh, not that one.
+
+NOTE Confidence: 0.8923431038856506
+
+00:03:37.440 --> 00:03:40.047
+We come into our pages and we have our builds
+
+NOTE Confidence: 0.8923431038856506
+
+00:03:40.105 --> 00:03:42.829
+demo page which is loading and here this is you
+
+NOTE Confidence: 0.8923431038856506
+
+00:03:42.887 --> 00:03:45.959
+know, the actual commands that the user will see when
+
+NOTE Confidence: 0.8923431038856506
+
+00:03:46.017 --> 00:03:47.640
+they open up our extensions.
+
+NOTE Confidence: 0.9195809960365295
+
+00:03:47.640 --> 00:03:51.331
+So if I come in here and I open up
+
+NOTE Confidence: 0.9195809960365295
+
+00:03:51.439 --> 00:03:56.977
+the command palette, I can go here to our extension
+
+NOTE Confidence: 0.9195809960365295
+
+00:03:57.085 --> 00:03:59.039
+and once it loads.
+
+NOTE Confidence: 0.8878746628761292
+
+00:03:59.600 --> 00:04:00.280
+So that's the flow.
+
+NOTE Confidence: 0.7773878574371338
+
+00:04:00.280 --> 00:04:03.076
+So you basically deploy it and you're just reloading command
+
+NOTE Confidence: 0.7773878574371338
+
+00:04:03.122 --> 00:04:05.080
+pilot and that's the way how you can look.
+
+NOTE Confidence: 0.8680557608604431
+
+00:04:05.080 --> 00:04:05.600
+There you go.
+
+NOTE Confidence: 0.7179306745529175
+
+00:04:05.880 --> 00:04:07.880
+It's the extension, right?
+
+NOTE Confidence: 0.8140758872032166
+
+00:04:08.640 --> 00:04:09.240
+That's cool.
+
+NOTE Confidence: 0.852514386177063
+
+00:04:09.240 --> 00:04:09.800
+You do.
+
+NOTE Confidence: 0.8398305177688599
+
+00:04:10.000 --> 00:04:11.200
+That took us one minute.
+
+NOTE Confidence: 0.8513600826263428
+
+00:04:11.360 --> 00:04:14.240
+Yeah, but thank you all for attending.
+
+NOTE Confidence: 0.4932577908039093
+
+00:04:14.240 --> 00:04:14.840
+No, no joke.
+
+NOTE Confidence: 0.8450319766998291
+
+00:04:14.840 --> 00:04:15.960
+So what else can we do?
+
+NOTE Confidence: 0.9659615159034729
+
+00:04:16.200 --> 00:04:18.600
+We should make our extension do something.
+
+NOTE Confidence: 0.5689433217048645
+
+00:04:18.680 --> 00:04:19.640
+Yeah, right of our point.
+
+NOTE Confidence: 0.9302788376808167
+
+00:04:20.600 --> 00:04:22.120
+Let's just start with something simple.
+
+NOTE Confidence: 0.8269879221916199
+
+00:04:22.120 --> 00:04:24.724
+Let's just like add a link to the Power Toys
+
+NOTE Confidence: 0.8269879221916199
+
+00:04:24.783 --> 00:04:25.079
+repo.
+
+NOTE Confidence: 0.33027827739715576
+
+00:04:25.160 --> 00:04:25.360
+Yeah.
+
+NOTE Confidence: 0.7104974389076233
+
+00:04:25.640 --> 00:04:27.700
+All right, so I'm just going to try and drop
+
+NOTE Confidence: 0.7104974389076233
+
+00:04:27.746 --> 00:04:29.760
+this because no one wants to watch me type.
+
+NOTE Confidence: 0.9304981231689453
+
+00:04:30.880 --> 00:04:33.381
+And So what we're doing here is we're just adding
+
+NOTE Confidence: 0.9304981231689453
+
+00:04:33.432 --> 00:04:35.525
+a new list item, and that list item has a
+
+NOTE Confidence: 0.9304981231689453
+
+00:04:35.576 --> 00:04:37.719
+command, and the command is open this URL.
+
+NOTE Confidence: 0.956322431564331
+
+00:04:37.720 --> 00:04:39.080
+We're just giving it a little title.
+
+NOTE Confidence: 0.8365421295166016
+
+00:04:39.360 --> 00:04:40.280
+Just going to build that.
+
+NOTE Confidence: 0.8432159423828125
+
+00:04:40.480 --> 00:04:42.200
+So this will be the default command as well right?
+
+NOTE Confidence: 0.8803889155387878
+
+00:04:42.200 --> 00:04:44.117
+So if I type in and just hit enter, it
+
+NOTE Confidence: 0.8803889155387878
+
+00:04:44.168 --> 00:04:45.480
+will just launch this URL.
+
+NOTE Confidence: 0.7327775955200195
+
+00:04:47.000 --> 00:04:47.800
+Yes, yeah.
+
+NOTE Confidence: 0.9213816523551941
+
+00:04:47.800 --> 00:04:49.197
+So we're just going to open this up and we're
+
+NOTE Confidence: 0.9213816523551941
+
+00:04:49.228 --> 00:04:50.719
+going to come back and we're going to reload it.
+
+NOTE Confidence: 0.8600655198097229
+
+00:04:52.720 --> 00:04:54.432
+We're going to come back and it's going to boot
+
+NOTE Confidence: 0.8600655198097229
+
+00:04:54.468 --> 00:04:54.760
+into it.
+
+NOTE Confidence: 0.6200498938560486
+
+00:04:56.040 --> 00:04:56.640
+Come here.
+
+NOTE Confidence: 0.6703381538391113
+
+00:04:57.240 --> 00:05:01.080
+Look, there's power toys that works.
+
+NOTE Confidence: 0.9388740658760071
+
+00:05:01.200 --> 00:05:02.400
+Look, it does something now.
+
+NOTE Confidence: 0.899665117263794
+
+00:05:02.520 --> 00:05:03.000
+Nice.
+
+NOTE Confidence: 0.7345771789550781
+
+00:05:03.200 --> 00:05:04.948
+That was another 30 seconds, so that's good, but it
+
+NOTE Confidence: 0.7345771789550781
+
+00:05:04.982 --> 00:05:05.120
+can.
+
+NOTE Confidence: 0.956375002861023
+
+00:05:07.040 --> 00:05:08.160
+Probably do more than that.
+
+NOTE Confidence: 0.6158872246742249
+
+00:05:08.160 --> 00:05:08.880
+Right, right, right.
+
+NOTE Confidence: 0.8648523092269897
+
+00:05:09.040 --> 00:05:11.182
+Like usually you want to have your apps do more
+
+NOTE Confidence: 0.8648523092269897
+
+00:05:11.228 --> 00:05:13.280
+than one thing, so let's add another command.
+
+NOTE Confidence: 0.9112375974655151
+
+00:05:13.280 --> 00:05:15.000
+Let's come back here.
+
+NOTE Confidence: 0.7087731957435608
+
+00:05:15.840 --> 00:05:17.680
+Let's add a command.
+
+NOTE Confidence: 0.7691439390182495
+
+00:05:17.720 --> 00:05:20.481
+I don't know, let's have it open up command prompt,
+
+NOTE Confidence: 0.7691439390182495
+
+00:05:20.536 --> 00:05:21.240
+right, Right.
+
+NOTE Confidence: 0.8536980748176575
+
+00:05:21.320 --> 00:05:22.440
+Something pretty simple.
+
+NOTE Confidence: 0.8548843264579773
+
+00:05:23.360 --> 00:05:26.075
+But you know, you can do more than just opening
+
+NOTE Confidence: 0.8548843264579773
+
+00:05:26.133 --> 00:05:27.000
+up URLs, right?
+
+NOTE Confidence: 0.8681545257568359
+
+00:05:27.000 --> 00:05:29.425
+This is kind of showing off that I have code
+
+NOTE Confidence: 0.8681545257568359
+
+00:05:29.481 --> 00:05:33.064
+here for launching arbitrary processes, you know, or just running
+
+NOTE Confidence: 0.8681545257568359
+
+00:05:33.119 --> 00:05:35.159
+whatever code you want from your app.
+
+NOTE Confidence: 0.9659162163734436
+
+00:05:35.600 --> 00:05:36.480
+You can do this.
+
+NOTE Confidence: 0.7889440655708313
+
+00:05:36.480 --> 00:05:38.315
+And it already comes up with a bunch of like
+
+NOTE Confidence: 0.7889440655708313
+
+00:05:38.357 --> 00:05:39.400
+built in commands, right?
+
+NOTE Confidence: 0.9314486980438232
+
+00:05:39.400 --> 00:05:41.880
+So I don't need to worry about handling processes.
+
+NOTE Confidence: 0.7853053212165833
+
+00:05:42.080 --> 00:05:44.280
+That anonymous command, we'll just do that for, yeah.
+
+NOTE Confidence: 0.8771420121192932
+
+00:05:44.320 --> 00:05:46.039
+We have a tool kit with all sorts of helpers
+
+NOTE Confidence: 0.8771420121192932
+
+00:05:46.078 --> 00:05:47.719
+in it just to make your life a lot easier.
+
+NOTE Confidence: 0.8925475478172302
+
+00:05:47.720 --> 00:05:51.407
+Like for instance, we have these icon info helpers for
+
+NOTE Confidence: 0.8925475478172302
+
+00:05:51.475 --> 00:05:54.479
+finding new icons for your extension, right?
+
+NOTE Confidence: 0.9039256572723389
+
+00:05:54.480 --> 00:05:57.462
+Just to give it like this isn't very helpful to
+
+NOTE Confidence: 0.9039256572723389
+
+00:05:57.525 --> 00:05:58.160
+me, right?
+
+NOTE Confidence: 0.8606498837471008
+
+00:05:58.480 --> 00:06:00.720
+Be cool if that was like the icon for GitHub.
+
+NOTE Confidence: 0.9392463564872742
+
+00:06:01.200 --> 00:06:02.480
+So if I reload this.
+
+NOTE Confidence: 0.8694312572479248
+
+00:06:03.839 --> 00:06:06.568
+So you can pull icons from the actual axe right
+
+NOTE Confidence: 0.8694312572479248
+
+00:06:06.626 --> 00:06:09.355
+of the applications or from the web, or you can
+
+NOTE Confidence: 0.8694312572479248
+
+00:06:09.413 --> 00:06:10.400
+list your own or.
+
+NOTE Confidence: 0.9015810489654541
+
+00:06:10.480 --> 00:06:11.600
+Yeah, that's right.
+
+NOTE Confidence: 0.8607206344604492
+
+00:06:11.600 --> 00:06:13.488
+So here we have, you know, power toys or open
+
+NOTE Confidence: 0.8607206344604492
+
+00:06:13.530 --> 00:06:14.159
+command prompt.
+
+NOTE Confidence: 0.6953094005584717
+
+00:06:15.280 --> 00:06:17.520
+Oh, that great cool.
+
+NOTE Confidence: 0.948432445526123
+
+00:06:19.200 --> 00:06:20.160
+That was another 30 seconds.
+
+NOTE Confidence: 0.545682966709137
+
+00:06:20.160 --> 00:06:20.200
+Oh.
+
+NOTE Confidence: 0.7863797545433044
+
+00:06:20.720 --> 00:06:21.840
+There we go, 8 minutes left.
+
+NOTE Confidence: 0.7940872311592102
+
+00:06:21.920 --> 00:06:22.680
+So what else?
+
+NOTE Confidence: 0.8449819087982178
+
+00:06:23.840 --> 00:06:25.000
+OK, 8 minutes.
+
+NOTE Confidence: 0.8940465450286865
+
+00:06:26.160 --> 00:06:27.280
+I don't know, maybe.
+
+NOTE Confidence: 0.8086251020431519
+
+00:06:27.720 --> 00:06:30.078
+Like I saw the we can probably do something with
+
+NOTE Confidence: 0.8086251020431519
+
+00:06:30.127 --> 00:06:31.159
+the side pane, right?
+
+NOTE Confidence: 0.8484313488006592
+
+00:06:31.160 --> 00:06:32.974
+I saw some of your of the plug in that
+
+NOTE Confidence: 0.8484313488006592
+
+00:06:33.022 --> 00:06:34.360
+you showed right this panel.
+
+NOTE Confidence: 0.7999830842018127
+
+00:06:34.360 --> 00:06:36.040
+So there's a bunch of stuff showing here.
+
+NOTE Confidence: 0.8954034447669983
+
+00:06:36.839 --> 00:06:38.857
+I see it's the same list, but how can we
+
+NOTE Confidence: 0.8954034447669983
+
+00:06:38.907 --> 00:06:40.320
+enable this this side panel?
+
+NOTE Confidence: 0.901025652885437
+
+00:06:40.440 --> 00:06:41.120
+That's a good idea.
+
+NOTE Confidence: 0.7853362560272217
+
+00:06:41.880 --> 00:06:44.520
+You can add details to the items too, right?
+
+NOTE Confidence: 0.8717631101608276
+
+00:06:44.520 --> 00:06:46.864
+If you want to add more context, you know, just
+
+NOTE Confidence: 0.8717631101608276
+
+00:06:46.914 --> 00:06:48.759
+like give the users more information.
+
+NOTE Confidence: 0.9205232262611389
+
+00:06:49.560 --> 00:06:53.135
+I just happen to have this this right here, which
+
+NOTE Confidence: 0.9205232262611389
+
+00:06:53.208 --> 00:06:56.199
+is the entire contents of the power toys.
+
+NOTE Confidence: 0.7368899583816528
+
+00:06:56.200 --> 00:06:56.640
+Read me.
+
+NOTE Confidence: 0.38067883253097534
+
+00:06:57.000 --> 00:06:57.200
+Oh.
+
+NOTE Confidence: 0.6679399609565735
+
+00:06:57.600 --> 00:06:59.160
+Wow, that's just, you know, markdown.
+
+NOTE Confidence: 0.8801767826080322
+
+00:06:59.160 --> 00:07:01.700
+So I'm just going to drop that in there and
+
+NOTE Confidence: 0.8801767826080322
+
+00:07:01.759 --> 00:07:04.240
+I'm going to I put that in the wrong place
+
+NOTE Confidence: 0.8801767826080322
+
+00:07:04.299 --> 00:07:06.839
+needs to go here and then I'm going to make
+
+NOTE Confidence: 0.8801767826080322
+
+00:07:06.898 --> 00:07:08.079
+this details object.
+
+NOTE Confidence: 0.8754244446754456
+
+00:07:08.080 --> 00:07:10.920
+Now let's put that up here.
+
+NOTE Confidence: 0.7204753160476685
+
+00:07:13.160 --> 00:07:15.920
+OK, so this is a details.
+
+NOTE Confidence: 0.9389685392379761
+
+00:07:16.400 --> 00:07:17.680
+It's got details in it.
+
+NOTE Confidence: 0.8737235069274902
+
+00:07:18.120 --> 00:07:20.360
+The details are the contents of this read me.
+
+NOTE Confidence: 0.7606581449508667
+
+00:07:20.480 --> 00:07:21.400
+It's just marked down.
+
+NOTE Confidence: 0.9600672721862793
+
+00:07:21.400 --> 00:07:22.920
+You don't need to worry about how to render it.
+
+NOTE Confidence: 0.9575872421264648
+
+00:07:23.880 --> 00:07:26.101
+And then I'm just going to stick that over here
+
+NOTE Confidence: 0.9575872421264648
+
+00:07:26.149 --> 00:07:27.000
+on this list item.
+
+NOTE Confidence: 0.9462240934371948
+
+00:07:27.200 --> 00:07:31.248
+I'm going to say the details are my new GitHub
+
+NOTE Confidence: 0.9462240934371948
+
+00:07:31.336 --> 00:07:32.040
+details.
+
+NOTE Confidence: 0.8471238613128662
+
+00:07:33.440 --> 00:07:36.865
+Great, I got to go say that I want details
+
+NOTE Confidence: 0.8471238613128662
+
+00:07:36.947 --> 00:07:37.599
+visible.
+
+NOTE Confidence: 0.8564885258674622
+
+00:07:40.440 --> 00:07:42.458
+OK so with this we basically let the command know
+
+NOTE Confidence: 0.8564885258674622
+
+00:07:42.499 --> 00:07:44.394
+like oh you need to render this in a different
+
+NOTE Confidence: 0.8564885258674622
+
+00:07:44.435 --> 00:07:44.599
+way.
+
+NOTE Confidence: 0.9137773513793945
+
+00:07:44.640 --> 00:07:46.803
+Yeah, By the way, I might have details that you
+
+NOTE Confidence: 0.9137773513793945
+
+00:07:46.849 --> 00:07:48.000
+want to show to the user.
+
+NOTE Confidence: 0.8163038492202759
+
+00:07:48.000 --> 00:07:51.200
+So we'll come back over here, load it.
+
+NOTE Confidence: 0.7488583326339722
+
+00:07:53.040 --> 00:07:53.720
+Reload.
+
+NOTE Confidence: 0.8368366360664368
+
+00:07:54.360 --> 00:07:55.000
+Oh, look at that.
+
+NOTE Confidence: 0.8286184072494507
+
+00:07:55.240 --> 00:07:57.360
+Oh nice, it even picks up the images and all
+
+NOTE Confidence: 0.8286184072494507
+
+00:07:57.408 --> 00:07:59.240
+that and this is all just marked down.
+
+NOTE Confidence: 0.6534900665283203
+
+00:07:59.240 --> 00:08:00.520
+Yeah, this is marked down, right?
+
+NOTE Confidence: 0.7368051409721375
+
+00:08:00.560 --> 00:08:03.325
+Nice, so I saw some of the other extensions have
+
+NOTE Confidence: 0.7368051409721375
+
+00:08:03.383 --> 00:08:05.399
+a bunch of like sub commands right?
+
+NOTE Confidence: 0.8196084499359131
+
+00:08:05.400 --> 00:08:07.850
+I can hit enter to just launch something, but then
+
+NOTE Confidence: 0.8196084499359131
+
+00:08:07.900 --> 00:08:10.400
+there's also a bunch of sub commands that we could.
+
+NOTE Confidence: 0.8056394457817078
+
+00:08:10.920 --> 00:08:11.720
+That's right, Yeah.
+
+NOTE Confidence: 0.8743930459022522
+
+00:08:12.280 --> 00:08:14.960
+So let's let's actually add another top level command, right?
+
+NOTE Confidence: 0.9544795751571655
+
+00:08:14.960 --> 00:08:16.160
+Like let's go in here.
+
+NOTE Confidence: 0.9682852029800415
+
+00:08:16.360 --> 00:08:18.251
+Right now we just have this one thing that the
+
+NOTE Confidence: 0.9682852029800415
+
+00:08:18.292 --> 00:08:19.279
+users can do at the top.
+
+NOTE Confidence: 0.8099684715270996
+
+00:08:19.640 --> 00:08:22.559
+Then I'll like let's add another thing that the users
+
+NOTE Confidence: 0.8099684715270996
+
+00:08:22.614 --> 00:08:23.000
+can do.
+
+NOTE Confidence: 0.9517614841461182
+
+00:08:23.720 --> 00:08:25.360
+We don't have too many things in there.
+
+NOTE Confidence: 0.8409876823425293
+
+00:08:25.360 --> 00:08:27.680
+You know, we don't want to overwhelm the users.
+
+NOTE Confidence: 0.9098514914512634
+
+00:08:27.680 --> 00:08:32.440
+But let's say I wanted to add, let's say I
+
+NOTE Confidence: 0.9098514914512634
+
+00:08:32.553 --> 00:08:36.520
+wanted to open up this repo, right?
+
+NOTE Confidence: 0.9115850925445557
+
+00:08:36.520 --> 00:08:37.880
+Just add a shortcut to it.
+
+NOTE Confidence: 0.9507451057434082
+
+00:08:37.880 --> 00:08:38.880
+I can add.
+
+NOTE Confidence: 0.7835698127746582
+
+00:08:39.440 --> 00:08:40.200
+Where is this?
+
+NOTE Confidence: 0.5882100462913513
+
+00:08:40.920 --> 00:08:41.240
+All right?
+
+NOTE Confidence: 0.9170853495597839
+
+00:08:41.240 --> 00:08:42.720
+I need to put that here, don't I?
+
+NOTE Confidence: 0.583930492401123
+
+00:08:45.000 --> 00:08:45.560
+Oh, no.
+
+NOTE Confidence: 0.536586582660675
+
+00:08:45.760 --> 00:08:46.240
+Oh, there we go.
+
+NOTE Confidence: 0.5204276442527771
+
+00:08:46.240 --> 00:08:46.760
+Oh no.
+
+NOTE Confidence: 0.487057089805603
+
+00:08:47.600 --> 00:08:47.960
+Yep.
+
+NOTE Confidence: 0.8284225463867188
+
+00:08:48.560 --> 00:08:51.360
+All right, so this is a oops.
+
+NOTE Confidence: 0.5797526836395264
+
+00:08:54.360 --> 00:08:55.480
+Oh yeah, sure, sure.
+
+NOTE Confidence: 0.6641367077827454
+
+00:08:55.520 --> 00:08:55.960
+Whatever.
+
+NOTE Confidence: 0.9181410670280457
+
+00:08:56.559 --> 00:09:00.596
+This isn't just another command for opening up a file
+
+NOTE Confidence: 0.9181410670280457
+
+00:09:00.672 --> 00:09:02.119
+right in the shell.
+
+NOTE Confidence: 0.8814231753349304
+
+00:09:03.000 --> 00:09:04.951
+We'll give it a little folder icon because you can
+
+NOTE Confidence: 0.8814231753349304
+
+00:09:04.990 --> 00:09:06.199
+just use emoji as the icon too.
+
+NOTE Confidence: 0.9758932590484619
+
+00:09:06.200 --> 00:09:06.640
+Why not?
+
+NOTE Confidence: 0.39066198468208313
+
+00:09:07.840 --> 00:09:10.480
+We'll reload this poo poo poo Doo.
+
+NOTE Confidence: 0.6606106758117676
+
+00:09:14.360 --> 00:09:15.400
+There we are.
+
+NOTE Confidence: 0.866054356098175
+
+00:09:15.600 --> 00:09:17.953
+There's our so you can really decide if you want
+
+NOTE Confidence: 0.866054356098175
+
+00:09:18.002 --> 00:09:20.945
+to have nested commands basically right that requires you to
+
+NOTE Confidence: 0.866054356098175
+
+00:09:20.994 --> 00:09:23.299
+navigate 1 level deeper or really show it up at
+
+NOTE Confidence: 0.866054356098175
+
+00:09:23.348 --> 00:09:24.280
+the most top level.
+
+NOTE Confidence: 0.841188907623291
+
+00:09:24.440 --> 00:09:24.760
+That's right.
+
+NOTE Confidence: 0.9441697597503662
+
+00:09:24.760 --> 00:09:27.555
+You're really in charge of the whole context of your
+
+NOTE Confidence: 0.9441697597503662
+
+00:09:27.608 --> 00:09:28.200
+app, right?
+
+NOTE Confidence: 0.9258713126182556
+
+00:09:28.200 --> 00:09:30.078
+If you want to put a whole bunch of items
+
+NOTE Confidence: 0.9258713126182556
+
+00:09:30.124 --> 00:09:32.323
+in there, you probably want to nest them so that
+
+NOTE Confidence: 0.9258713126182556
+
+00:09:32.369 --> 00:09:34.384
+the users go in there and then they know the
+
+NOTE Confidence: 0.9258713126182556
+
+00:09:34.430 --> 00:09:36.080
+context of what they're looking for.
+
+NOTE Confidence: 0.8668917417526245
+
+00:09:36.080 --> 00:09:38.647
+But if you have a bunch of different things, you
+
+NOTE Confidence: 0.8668917417526245
+
+00:09:38.701 --> 00:09:41.001
+know if you want to look for issues or pull
+
+NOTE Confidence: 0.8668917417526245
+
+00:09:41.054 --> 00:09:43.783
+requests or repos, those are each kind of their own
+
+NOTE Confidence: 0.8668917417526245
+
+00:09:43.836 --> 00:09:44.960
+separate page, right?
+
+NOTE Confidence: 0.5554389357566833
+
+00:09:45.040 --> 00:09:45.320
+Right.
+
+NOTE Confidence: 0.5440454483032227
+
+00:09:45.480 --> 00:09:45.920
+Right, right.
+
+NOTE Confidence: 0.7218919396400452
+
+00:09:46.400 --> 00:09:48.800
+So those sub commands, we can still add those let's.
+
+NOTE Confidence: 0.8585079312324524
+
+00:09:48.800 --> 00:09:50.600
+Do that, let's add more things, right?
+
+NOTE Confidence: 0.8320093750953674
+
+00:09:50.600 --> 00:09:52.400
+I don't always just want to open it up in
+
+NOTE Confidence: 0.8320093750953674
+
+00:09:52.444 --> 00:09:52.839
+Explorer.
+
+NOTE Confidence: 0.8431988954544067
+
+00:09:53.000 --> 00:09:55.878
+You know, probably want to open up this solution in
+
+NOTE Confidence: 0.8431988954544067
+
+00:09:55.935 --> 00:09:58.193
+Visual Studio or I want to open it up in
+
+NOTE Confidence: 0.8431988954544067
+
+00:09:58.249 --> 00:09:59.039
+the terminals.
+
+NOTE Confidence: 0.918656587600708
+
+00:09:59.040 --> 00:10:00.896
+So we'll go in here and we'll just add some
+
+NOTE Confidence: 0.918656587600708
+
+00:10:00.939 --> 00:10:01.760
+more of those here.
+
+NOTE Confidence: 0.8966701626777649
+
+00:10:02.240 --> 00:10:04.443
+And the way I'm going to do that is by
+
+NOTE Confidence: 0.8966701626777649
+
+00:10:04.501 --> 00:10:05.719
+adding more commands.
+
+NOTE Confidence: 0.847953736782074
+
+00:10:06.080 --> 00:10:07.160
+Oh, so you can just nest them?
+
+NOTE Confidence: 0.6541724801063538
+
+00:10:07.480 --> 00:10:07.880
+Yeah.
+
+NOTE Confidence: 0.8672232031822205
+
+00:10:08.559 --> 00:10:11.228
+So your commands can have more commands, more things that
+
+NOTE Confidence: 0.8672232031822205
+
+00:10:11.274 --> 00:10:12.959
+you can do with each of your things.
+
+NOTE Confidence: 0.8568370938301086
+
+00:10:12.960 --> 00:10:15.457
+It's like a command section at some point, I guess,
+
+NOTE Confidence: 0.8568370938301086
+
+00:10:15.506 --> 00:10:15.800
+right?
+
+NOTE Confidence: 0.6809296607971191
+
+00:10:15.800 --> 00:10:16.280
+Yeah, it's.
+
+NOTE Confidence: 0.789047360420227
+
+00:10:16.840 --> 00:10:19.492
+It's like a small command palette inside of a bigger
+
+NOTE Confidence: 0.789047360420227
+
+00:10:19.543 --> 00:10:20.360
+command palette.
+
+NOTE Confidence: 0.8722484111785889
+
+00:10:21.080 --> 00:10:23.953
+And this will ensure that once we select this, those
+
+NOTE Confidence: 0.8722484111785889
+
+00:10:24.008 --> 00:10:26.440
+sub commands will just show up in that menu.
+
+NOTE Confidence: 0.9680395126342773
+
+00:10:26.720 --> 00:10:27.480
+That's right.
+
+NOTE Confidence: 0.8628458976745605
+
+00:10:27.480 --> 00:10:29.824
+So if we go down here, I can press Control
+
+NOTE Confidence: 0.8628458976745605
+
+00:10:29.880 --> 00:10:32.113
+K and I can see all of these things that
+
+NOTE Confidence: 0.8628458976745605
+
+00:10:32.169 --> 00:10:34.905
+the user can do right there in that little little
+
+NOTE Confidence: 0.8628458976745605
+
+00:10:34.960 --> 00:10:35.239
+menu.
+
+NOTE Confidence: 0.7152997255325317
+
+00:10:35.400 --> 00:10:36.360
+Does it even work or?
+
+NOTE Confidence: 0.8194979429244995
+
+00:10:37.160 --> 00:10:37.960
+Does it work?
+
+NOTE Confidence: 0.5546625256538391
+
+00:10:38.240 --> 00:10:39.200
+It does it work.
+
+NOTE Confidence: 0.7591086626052856
+
+00:10:39.200 --> 00:10:39.680
+Thank you.
+
+NOTE Confidence: 0.815779447555542
+
+00:10:39.680 --> 00:10:40.320
+Thank you, Mike.
+
+NOTE Confidence: 0.7472988367080688
+
+00:10:40.480 --> 00:10:41.800
+I just want to double check that's.
+
+NOTE Confidence: 0.5457775592803955
+
+00:10:41.800 --> 00:10:43.120
+OK, come on.
+
+NOTE Confidence: 0.6437572836875916
+
+00:10:43.120 --> 00:10:43.440
+Cool.
+
+NOTE Confidence: 0.8846398591995239
+
+00:10:43.840 --> 00:10:46.504
+So now that we've built our extension, how can we
+
+NOTE Confidence: 0.8846398591995239
+
+00:10:46.558 --> 00:10:47.320
+distribute it?
+
+NOTE Confidence: 0.8901506066322327
+
+00:10:47.320 --> 00:10:49.643
+Like, how can I make sure that my users know
+
+NOTE Confidence: 0.8901506066322327
+
+00:10:49.696 --> 00:10:51.280
+how to find it and install it?
+
+NOTE Confidence: 0.9502235054969788
+
+00:10:51.280 --> 00:10:51.880
+How does that work?
+
+NOTE Confidence: 0.9140713214874268
+
+00:10:51.880 --> 00:10:52.840
+That's a good question.
+
+NOTE Confidence: 0.8837332129478455
+
+00:10:52.920 --> 00:10:54.973
+Usually when you build things, you want to build them
+
+NOTE Confidence: 0.8837332129478455
+
+00:10:55.011 --> 00:10:56.599
+for other people to have them too, right?
+
+NOTE Confidence: 0.8302930593490601
+
+00:10:57.400 --> 00:11:00.239
+So you can take your extensions, you bundle them up
+
+NOTE Confidence: 0.8302930593490601
+
+00:11:00.295 --> 00:11:03.079
+as an MSIX package just like any other app, right?
+
+NOTE Confidence: 0.8685746788978577
+
+00:11:03.320 --> 00:11:05.640
+And then you can upload them to Winget.
+
+NOTE Confidence: 0.7851184010505676
+
+00:11:05.760 --> 00:11:07.904
+And if you upload them into Winget, we can actually
+
+NOTE Confidence: 0.7851184010505676
+
+00:11:07.946 --> 00:11:09.880
+find them right in the command palette itself.
+
+NOTE Confidence: 0.8152576684951782
+
+00:11:12.440 --> 00:11:15.346
+And here we have a big list of extensions for
+
+NOTE Confidence: 0.8152576684951782
+
+00:11:15.410 --> 00:11:17.800
+the command palette that There we go.
+
+NOTE Confidence: 0.6620287895202637
+
+00:11:17.840 --> 00:11:19.120
+There we go, right?
+
+NOTE Confidence: 0.9003427624702454
+
+00:11:19.120 --> 00:11:21.840
+This is all stuff that the community has built already.
+
+NOTE Confidence: 0.8225749731063843
+
+00:11:22.559 --> 00:11:25.064
+Or you can just upload it to the store, you
+
+NOTE Confidence: 0.8225749731063843
+
+00:11:25.122 --> 00:11:27.860
+know, and then you know users can find it right
+
+NOTE Confidence: 0.8225749731063843
+
+00:11:27.918 --> 00:11:29.199
+here in the store too.
+
+NOTE Confidence: 0.8111416697502136
+
+00:11:29.360 --> 00:11:32.644
+Right now, what's actually nice, this week we're announcing that
+
+NOTE Confidence: 0.8111416697502136
+
+00:11:32.695 --> 00:11:36.082
+the for individual developers, the onboarding fee in the Microsoft
+
+NOTE Confidence: 0.8111416697502136
+
+00:11:36.133 --> 00:11:37.160
+Store is going away.
+
+NOTE Confidence: 0.8218006491661072
+
+00:11:37.440 --> 00:11:40.527
+So creating an account on the Microsoft Store to submit
+
+NOTE Confidence: 0.8218006491661072
+
+00:11:40.583 --> 00:11:44.119
+your apps or publishing manpower exchanges is now totally free.
+
+NOTE Confidence: 0.7607669830322266
+
+00:11:44.760 --> 00:11:46.772
+So that's pretty nice too that you can now just
+
+NOTE Confidence: 0.7607669830322266
+
+00:11:46.815 --> 00:11:47.799
+deal with that as well.
+
+NOTE Confidence: 0.8510903120040894
+
+00:11:48.560 --> 00:11:48.920
+Cool.
+
+NOTE Confidence: 0.8676856756210327
+
+00:11:49.080 --> 00:11:51.120
+Well, so how can I get started?
+
+NOTE Confidence: 0.8087748885154724
+
+00:11:51.560 --> 00:11:53.160
+We have some documentation I believe right that.
+
+NOTE Confidence: 0.6343696117401123
+
+00:11:53.440 --> 00:11:55.080
+Folks, can we have some documentation?
+
+NOTE Confidence: 0.9516900181770325
+
+00:11:55.680 --> 00:11:56.240
+That's always fun.
+
+NOTE Confidence: 0.8429561257362366
+
+00:11:57.240 --> 00:12:01.350
+So if you go to AKA miss command pal, you
+
+NOTE Confidence: 0.8429561257362366
+
+00:12:01.450 --> 00:12:04.959
+can go check out the documentation.
+
+NOTE Confidence: 0.6108831763267517
+
+00:12:05.720 --> 00:12:07.982
+I think we have a, we have a lead of
+
+NOTE Confidence: 0.6108831763267517
+
+00:12:08.045 --> 00:12:08.360
+that.
+
+NOTE Confidence: 0.6913858652114868
+
+00:12:08.360 --> 00:12:10.280
+Right, Yeah, if I just.
+
+NOTE Confidence: 0.6004442572593689
+
+00:12:11.160 --> 00:12:12.520
+Are you using command pal to?
+
+NOTE Confidence: 0.7412618398666382
+
+00:12:12.679 --> 00:12:14.983
+Oh yeah, I just like parked the docs so I
+
+NOTE Confidence: 0.7412618398666382
+
+00:12:15.039 --> 00:12:17.455
+can just pull up the docs and then there we
+
+NOTE Confidence: 0.7412618398666382
+
+00:12:17.511 --> 00:12:17.680
+go.
+
+NOTE Confidence: 0.717088520526886
+
+00:12:17.679 --> 00:12:19.248
+They opened up on the other monitors, so I'm just
+
+NOTE Confidence: 0.717088520526886
+
+00:12:19.280 --> 00:12:20.240
+going to bring them over here.
+
+NOTE Confidence: 0.4847809076309204
+
+00:12:21.000 --> 00:12:21.200
+Yeah.
+
+NOTE Confidence: 0.7561584115028381
+
+00:12:21.200 --> 00:12:23.360
+So you can, you should definitely check out.
+
+NOTE Confidence: 0.900678277015686
+
+00:12:23.360 --> 00:12:25.894
+It has a bunch of samples on how to create
+
+NOTE Confidence: 0.900678277015686
+
+00:12:25.954 --> 00:12:29.574
+some of these extensions and it does everything to basically
+
+NOTE Confidence: 0.900678277015686
+
+00:12:29.634 --> 00:12:30.600
+get you started.
+
+NOTE Confidence: 0.8947953581809998
+
+00:12:31.200 --> 00:12:34.906
+And then the last thing that we should highlight is
+
+NOTE Confidence: 0.8947953581809998
+
+00:12:34.979 --> 00:12:39.340
+on Wednesday, there's the breakout session done by Craig and
+
+NOTE Confidence: 0.8947953581809998
+
+00:12:39.412 --> 00:12:42.320
+Kayla and Larry, some of the folks here.
+
+NOTE Confidence: 0.8321378231048584
+
+00:12:42.760 --> 00:12:44.573
+And that will be all about all of the new
+
+NOTE Confidence: 0.8321378231048584
+
+00:12:44.617 --> 00:12:47.360
+developer experiences that we're launching this week at Build.
+
+NOTE Confidence: 0.8718359470367432
+
+00:12:48.160 --> 00:12:50.200
+So there will be a ton of cool stuff there
+
+NOTE Confidence: 0.8718359470367432
+
+00:12:50.248 --> 00:12:50.880
+to check out.
+
+NOTE Confidence: 0.9070261716842651
+
+00:12:51.320 --> 00:12:52.920
+And with that, I think we have two minutes left.
+
+NOTE Confidence: 0.9175165891647339
+
+00:12:52.920 --> 00:12:53.880
+So we actually did it.
+
+NOTE Confidence: 0.4274427890777588
+
+00:12:53.880 --> 00:12:54.320
+So that's yeah.
+
+NOTE Confidence: 0.8450511693954468
+
+00:12:54.360 --> 00:12:56.646
+So you can build an extension in like 13 minutes,
+
+NOTE Confidence: 0.8450511693954468
+
+00:12:56.693 --> 00:12:56.879
+not.
+
+NOTE Confidence: 0.3713473677635193
+
+00:12:57.040 --> 00:12:59.520
+15 yeah, including documentation, so that was good.
+
+NOTE Confidence: 0.27242061495780945
+
+00:12:59.840 --> 00:13:00.040
+Yep.
+
+NOTE Confidence: 0.6690520644187927
+
+00:13:00.280 --> 00:13:00.400
+Cool.
+
+NOTE Confidence: 0.9070166349411011
+
+00:13:00.440 --> 00:13:02.324
+Well, thank you all for attending and have a great
+
+NOTE Confidence: 0.9070166349411011
+
+00:13:02.361 --> 00:13:03.040
+rest of the build.

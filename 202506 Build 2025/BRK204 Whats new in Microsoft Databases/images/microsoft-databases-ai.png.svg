@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0078d4;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#106ebe;stop-opacity:0.2" />
+    </linearGradient>
+    <linearGradient id="azure-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0078d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#106ebe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg-gradient)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="80" fill="url(#azure-gradient)"/>
+  <text x="400" y="45" text-anchor="middle" fill="white" font-family="Segoe UI, sans-serif" font-size="24" font-weight="bold">Microsoft Database Portfolio - AI Ready</text>
+  
+  <!-- Database Icons and Labels -->
+  
+  <!-- SQL Server 2025 -->
+  <g transform="translate(120, 120)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#fff" stroke="#0078d4" stroke-width="2"/>
+    <rect x="10" y="10" width="100" height="15" rx="2" fill="#0078d4"/>
+    <rect x="10" y="30" width="80" height="8" rx="2" fill="#e0e0e0"/>
+    <rect x="10" y="42" width="90" height="8" rx="2" fill="#e0e0e0"/>
+    <rect x="10" y="54" width="75" height="8" rx="2" fill="#e0e0e0"/>
+    <text x="60" y="80" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">SQL Server 2025</text>
+    <text x="60" y="95" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#666">AI-Ready Enterprise</text>
+  </g>
+  
+  <!-- Azure SQL Database -->
+  <g transform="translate(280, 120)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#fff" stroke="#0078d4" stroke-width="2"/>
+    <circle cx="30" cy="30" r="15" fill="#0078d4"/>
+    <circle cx="60" cy="30" r="15" fill="#106ebe"/>
+    <circle cx="90" cy="30" r="15" fill="#40e0d0"/>
+    <rect x="10" y="50" width="100" height="8" rx="2" fill="#e0e0e0"/>
+    <text x="60" y="75" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Azure SQL</text>
+    <text x="60" y="90" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#666">Hyperscale & JSON</text>
+  </g>
+  
+  <!-- PostgreSQL -->
+  <g transform="translate(440, 120)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#fff" stroke="#336791" stroke-width="2"/>
+    <circle cx="60" cy="35" r="20" fill="#336791"/>
+    <text x="60" y="41" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="white">??</text>
+    <text x="60" y="75" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">PostgreSQL</text>
+    <text x="60" y="90" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#666">Vector Search & AI</text>
+  </g>
+  
+  <!-- Cosmos DB -->
+  <g transform="translate(280, 250)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#fff" stroke="#0078d4" stroke-width="2"/>
+    <circle cx="60" cy="40" r="25" fill="none" stroke="#0078d4" stroke-width="3"/>
+    <circle cx="45" cy="35" r="5" fill="#0078d4"/>
+    <circle cx="60" cy="25" r="5" fill="#106ebe"/>
+    <circle cx="75" cy="35" r="5" fill="#40e0d0"/>
+    <circle cx="60" cy="50" r="5" fill="#ff6b6b"/>
+    <text x="60" y="70" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Cosmos DB</text>
+    <text x="60" y="85" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#666">Global AI Platform</text>
+  </g>
+  
+  <!-- AI Integration Elements -->
+  
+  <!-- AI Brain Icon -->
+  <g transform="translate(600, 180)">
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#ff6b6b" stroke-width="3"/>
+    <path d="M30 40 Q50 20 70 40 Q50 60 30 40" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+    <circle cx="40" cy="40" r="3" fill="#ff6b6b"/>
+    <circle cx="60" cy="40" r="3" fill="#ff6b6b"/>
+    <text x="50" y="110" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">AI Integration</text>
+  </g>
+  
+  <!-- Connection Lines -->
+  <line x1="240" y1="170" x2="280" y2="170" stroke="#0078d4" stroke-width="2"/>
+  <line x1="400" y1="170" x2="440" y2="170" stroke="#0078d4" stroke-width="2"/>
+  <line x1="340" y1="220" x2="340" y2="250" stroke="#0078d4" stroke-width="2"/>
+  <line x1="560" y1="170" x2="600" y2="200" stroke="#ff6b6b" stroke-width="2"/>
+  <line x1="400" y1="300" x2="600" y2="220" stroke="#ff6b6b" stroke-width="2"/>
+  
+  <!-- Key Features -->
+  <g transform="translate(50, 380)">
+    <text x="0" y="0" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#0078d4">Key AI Features:</text>
+    <text x="0" y="20" font-family="Segoe UI, sans-serif" font-size="11" fill="#333">• Native Vector Search</text>
+    <text x="150" y="20" font-family="Segoe UI, sans-serif" font-size="11" fill="#333">• Semantic Operators</text>
+    <text x="300" y="20" font-family="Segoe UI, sans-serif" font-size="11" fill="#333">• AI Foundry Integration</text>
+    <text x="500" y="20" font-family="Segoe UI, sans-serif" font-size="11" fill="#333">• Global Distribution</text>
+  </g>
+  
+  <!-- Build 2025 Badge -->
+  <g transform="translate(650, 20)">
+    <rect x="0" y="0" width="130" height="40" rx="20" fill="#ff6b6b"/>
+    <text x="65" y="20" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="white">Build 2025</text>
+    <text x="65" y="32" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="white">BRK204</text>
+  </g>
+</svg>

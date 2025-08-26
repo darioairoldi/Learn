@@ -1,0 +1,275 @@
+Microsoft Build May 19-22, 2025 Session: BRK229 Speakers: Alexander Sklar, Donald Thompson, Jesse Bishop, Kiran Kumar, Michael Von Hippel
+
+Michael Von Hippel: Welcome to "Unlock agentic interactions for your apps on Windows with Model Context Protocol." If you watched Satya's keynote today, or looked at the session schedule, I'm sure you can tell that MCP's a pretty big deal for Microsoft. Whether MCP is just another acronym to you or you're an expert, and you've already attended three MCP sessions today, we're excited to share with you what we're doing to make Windows the best OS for AI developers, both on working on agents, and making your apps and services work well with agents. I'm Michael Von Hippel, a Senior Product Manager in Windows, and my team works on agent and application extensibility. I'm privileged to be joined by Donald Thompson.
+
+Donald Thompson: Thank you, Michael. I'm Donald Thompson. I'm a Distinguished Engineer at Microsoft. I work on agents and agent technology across the company.
+
+Michael Von Hippel: Great. Donald's going to be walking us through a series of demos focused on extending the capabilities of a service from our fake company, Contoso, to different agents and experiences. So let's get started.
+
+Donald Thompson: Great. So everybody knows who Contoso is, right? It's the famous product company. They make widgets and gadgets and things. We've used it forever to demonstrate various technology integrations and this year is no different. As the agents craze takes place, we thought it was appropriate to introduce Contoso agents. You could think now, well a salesperson's out in the field, needs to look up products and inventory. They shouldn't have to mess with a traditional form and database application. They should just chat something into their agent, and let it figure out what the inventory is, and that's what we're going to demonstrate today. I've started here with the boilerplate C# SDK for creating an agent. So we have some telemetry. It's just a standard console application. I'm using the OpenAI client that's now provided as part of Microsoft extensions.ai. Setting this up is just a normal chat client. Has some telemetry. But you'll notice here that I have an empty collection of tools. And really the rest of this is pretty simple. It's just going to sit in a loop, collecting messages from the user and calling OpenAI. But it needs to have tools. An agent, in order to be an agent, needs to take action and use tools. But I don't quite have any yet. And so my task is to take the Contoso REST server, which I haven't installed yet, but I was thinking that I would use WSL, the Windows subsystem for Linux. I'm going to get maybe a Fedora distro installed. And then I'm going to clone the repository for my REST server. Get that dependencies installed. I'm going to start the server, and then I'll know
+
+what the REST endpoint looks like. And then I have to somewhat go from that REST endpoint definition to these tools. And I think that that might be where I might use an MCP server.
+
+Michael Von Hippel: Seems like a good fit. But first, I can give some background on agentic integration and MCP. So as Donald showed, it's easy to make agents, but making them useful is a major challenge. If an agent doesn't have access to the right tools for accessing content, personalizing things, and acting on it, then all they can do is tell you what to do based on some limited information. I'm sure you've encountered this when your prompt wasn't specific enough for the provider. But it's often not that simple, especially when each agent framework has different ways to author tools. Adding the right tools and resources however, can be a magical thing for agents. With context and memory, agents know what you want, without long prompts and explanation. You can just ask what you want directly. Tools let your agent act on your behalf, completing tasks and saving you time. Model context protocol is a great way to integrate tools into your agent. So if you are aware, or if you're not, MCP has seen a huge uptick on GitHub, and for really good reason. It magnifies your agentic investments. Multiple services can be integrated simultaneously, giving your agent a broad tool set. The same work you do to integrate your tool with one agent, scales across all MCP capable agents with little friction. For a company like Microsoft, that makes it really appealing to unify different AI integrations all into one product, which is why you see us and other players across the industry investing in MCP.
+
+Donald Thompson: so one place that this becomes pretty obvious is in VS Code itself with GitHub Copilot integration. If I clicked on here, notice I'm in Agent Mode. So this allows Copilot to act as an agent. We can take action, not just edit my code. And it has some built-in tools. So these are the standard ones. And as I scroll down, you'll notice that there's an MCP Server here called Windows Subsystem for Linux. And it's got a bunch of tools that it's providing. Notice that the source is the MCP Registry for Windows. So that's a clue of where we might be going. But now that means that I can directly interact with Windows Subsystem for Linux via MCP and the Copilot agent. So for instance, I could say what Linux distros are available for WSL? Now note that I'm going to get this popup here that's asking me as the user to approve the action that the agent wants to take, because it's using a tool from a server that's installed in Windows itself. So this gives the user complete control over what tools are being used by the agents.
+
+Michael Von Hippel: That's great. So in this case, it's specifying the WSL list online.
+
+Donald Thompson: Distros, that's right. It's the specific tool that the agent wants to use, which I asked it, what are the available distros to install. So it found that that was the right tool. And so you can see here, these are all the ones that are available. I think I said earlier I was going to use Fedora. So there's Fedora Linux 42 here, so I'm going to go ahead and kick this off. So I'm going to say "install the Fedora Linux distro." So while I do that, why don't you share some more information about MCP?
+
+Michael Von Hippel: Sounds great. So when we talk about vocabulary in MCP, it all starts with hosts. Those are basically the agents which want to access data and tools through MCP. These hosts create a client to interact with the client servers through the protocol. Each of these servers is a lightweight program that exposes specific capabilities through tools and resources, which serve as the atomic units of functionality, allowing agents to take actions; access files, databases, and services. Hey Donald, how's the WSL setup going?
+
+Donald Thompson: Yes, pretty good. Let me push back over here. So if I say now "what are the installed distros in WS?" So again, I'm getting the request, list distros this time. And it says I installed WSL distro, is Fedora Linux 42, and we can confirm this over here. And if I just do a directory listing here. Let's see. So I don't have any non-hidden files here in this distro. So it's brand new. So what I want to do is, I want to clone that GitHub repo that has my FastAPI server in it. So let me say "in WSL, get clone." And I'm just going to paste the repo address here. And again, now it's going to say "run command." So this is actually going to run a command in Fedora on my behalf. If I come back over here, and I'll rerun the directory listing, we see that we now have Contoso. So if I see (inaudible) into it. We'll look here. We have -- I'm going to do ls al so we can see. So I have dot get, the get ignore, the pipe project source, and typings. But let's see if I can keep going with this agentic approach and say, "In WSL, what is the setup required for the Contoso project?" Let's see what it does now. So it wants to run more commands. And it's probably doing some directory listings. So in this case, it's actually going in to the repo, found the read me, and says, oh you use UV, and you'll create a virtual environment, then activate the virtual environment. So it knows how to do all this. So why don't I just say, "In WSL, use UV to create a virtual environment and install dependencies." So again, I'm just using an agent to do all these things. Maybe I don't know all the commands. It knows how to translate my intent into the right set of commands. So if we go back over here now. We can see that there's a virtual environment that's been created. So I can actually start the server now. And we'll see what that looks like. So. So now that my REST server is up and running -- and this again is in Linux. I'm going to access it through Windows now. And I'm going to pull up the docs. So this is the endpoint that I need to figure out how to convert to tools for my agent to be able to use. Which you can see, there's two endpoints. There's a "search products," and this will use a fuzzy matching kind of description. So if we try this out, and I type in let's say, "versatile," and we'll do "execute" here. You can see that I get back Gadget X, a versatile gadget for various applications. And it tells me that the product ideas, 3. And so just to complete this, if I go to get product, I can type in "3." And we can see that there is more information and the inventory level is 75. So now my task is, how do I go from this back into tools that my agent can use?
+
+Michael Von Hippel: Of course. And that's going to be where MCP comes into play. So as Donald demonstrated, there are major benefits to using MCP. Because MCP works with multiple agents, you can reach different users by addressing their needs immediately,
+
+engaging them in your service. You'll retain those users better by helping them get their tasks done better, saving time. And if you've been looking into adding agentic capabilities to your app or service, MCP allows you to either make use of other agents by using your capabilities through them, or it makes it easier to build your own by adding your extensibility points more easily. As Donald showed, MCP can also provide real value to your development pipeline, saving time, and allowing you to focus your energy on the most important problems to solve, rather than the most tedious ones. Moving forward, MCP can also be a great extensibility method for applications, removing the need for more bespoke plugin systems. With all those benefits in mind, Donald's going to show you how to create an MCP server.
+
+Donald Thompson: So once again, thanks to DevDiv, we now have a C# MCP SDK and it has lots of really good examples on how to create both servers and clients. And I've just cloned the server example. And we really just need to take this one dependency here, which is the model context protocol itself. I have created just a standard console application, so this is very boilerplate. It uses the Application Builder, and uses the Dependency Injection mechanism to add the MCP server. Now you have a choice with MCP of which transport to use. And this is part of the protocol definition of how to communicate between the client and the server. In this case, I'm just creating a local server, so I'm going to use the standard IO transport. And so we're going to create a process. It's going to use standard IO as a mechanism to communicate between two independent processes.
+
+Michael Von Hippel: What's the other one? You mentioned that there were two options.
+
+Donald Thompson: Yes. So there's SSE, which is the traditional one, server-sent events, which allows HTTP bidirectional communication. There's a new one out now called HTTP streamable, which has some upgrades. It includes web sockets. And there's talk about adding more capabilities in the future. So this is part of the protocol definition that's ongoing. But what's really interesting here is how easy DevDiv has made it for us to simply say, add some tools. So as a developer, this is really boilerplate. There's really nothing I need to mess with in here. I just need to give the type parameter to (inaudible) tools here of my actual tools. So what it did over here was I created this namespace for tools, decorated each one of my actual tools with this additional metadata. This metadata is really important because it's what the LLM uses to know when it's deciding which of the tools that you passed it to select to perform the action that you've asked it to. So in our case, we have "search products." These are exactly the same names, by the way, of the REST endpoint that we saw earlier, and "get product." And very important to have this metadata here for the description, because again, the LLM's going to use this description to know how to translate the actions, and then each one of the arguments. In this case, it's very simple. String query for the product name or description, and it returns a string. And the same for "get product" where we need the Product ID, and then we'll return a structure. But these, you'll notice that I'm just using a standard HTTP client under the covers here. So what this allows me to do is if my server was perhaps GraphQL, I could be making GraphQL queries
+
+under the cover, and I'm just abstracting out for the tool in MCP definitions what's going on under the covers. So I might have a SOAP server or GRPC. Maybe it's another local application. I'm doing something like (inaudible). Doesn't matter. It all gets exposed as MCP tools. So it unifies all of this. And now as an agent developer, an AI-enabled application developer, I don't have to worry about all the low-level specifics. I just write to the one MCP standard. So now that I have this working, I want to test this. And it's an MCP server, and when we think about what we showed earlier with WSL, I actually have an agent sitting right here in my development environment that should be able to exercise this MCP server.
+
+Michael Von Hippel: GitHub Copilot, right?
+
+Donald Thompson: Yes, GitHub Copilot, exactly. So if I bring this up, but the problem is, I look at these tools, and my server doesn't just show up here. So what VS Code has done is make it possible for you to add local servers in its own configuration. And because this is a.NET application, I'm going to take the path here -- "copy path" -- of my CS Proj. Put them in Development Mode. So I'm not shipping this yet. I still want to test this. And all I have to do is create a local MCP.JSON configuration in the VS Code. Now notice that VS Code has detected this as being something special, and has suggested an "Add Server." And I can get this UI here to help me define this. I could just write the JSON directly in there, but there's a little helper here. So I mentioned earlier that we're using the standard IO mechanism. So I'm going to go ahead and select this, and it asks me what is the command that we need to run in order to run my server? Well, because it's.NET, I can say ".NET run" and specify the project. That's why I copied the path earlier. So I'll just paste that in there. Now it just wants a name. I'll accept that. And it writes this JSON for me. And notice that there are these little controls up here. "Running," "Stop," "Restart." So it actually automatically ran it as soon as it came in here. And with any luck, when I refresh this tools dropdown, we can see my MCP server is running here. And notice this is coming from the project and VS Code MCP JSON. Unlike the WSL example we showed earlier, which is coming from the MCP registry. So this is showing that just in this very local instance of just this one workspace, I'm able to ask about what products are versatile? And you can see here, that GitHub Copilot has accurately detected the "search products" tool within my MCP server, and is going to put together this query for it. And it gives me an acceptance popup here.
+
+Michael Von Hippel: Oh, but it doesn't pop up the additional thing, right?
+
+Donald Thompson: That's right. Why do you think that is?
+
+Michael Von Hippel: Because we manually configured this for Visual Studio code, it's not running through the Windows Registry.
+
+Donald Thompson: That's exactly right. And what this means is, any application that would want to use my server also has to have a configuration mechanism. So that means Claude desktop, whatever, your own application. In fact, as I think now about what I have to do next with my agent, my agent is going to have to have its own configuration. I'm going to have to
+
+load that. I'm going to have to force my users to go and manually edit that or create little helper things like this. Seems like kind of a pain, don't you think, Michael?
+
+Michael Von Hippel: Yes. So if we're going to summarize some of the challenges you ran into, first like we were talking about, how do clients find my servers? How do I advertise it to them? How do we reduce the friction for hosting servers? And then finally, of course if everyone's doing this highly manual process for I'm going to publish this here, and here's a key for that? How do we make sure that there's enough trust and security in the ecosystem? So obviously we've shown little hints of it with the confirmation dialogs that you're seeing. We're going to show you an early first look at MCP in Windows, which will help to solve some of these problems. MCP on Windows has three main pillars, illustrated in the diagram on the screen. MCP Registry for Windows, MCP Servers for Windows, and then as a part of those Servers for Windows, built-in MCP servers. The Registry allows installed applications to identify with identity to register MCP servers with Windows. Agents then enumerate those servers through this registry as well. Remember how Donald was able to manually connect his server with GitHub Copilot? The registry simplifies this process, and removes the need to hunt across directories and keep track of different keys for different servers. The registered servers are called MCP Servers for Windows. Windows activates these servers using an MCP proxy server. That allows us to put the user in control with settings to control server availability and consent dialogs from Windows before tools are used, which clearly explain how each tool will be used before you approve it, as we saw before. So that's pretty much the basis there of our three pillars. What's really important to us is to highlight how MCP on Windows is trustworthy, secure, and safe. And this is done by balancing the need for an easily usable and extensible platform with safeguards to prevent abuse and leaking of user data. You'll see the features, and you already have, throughout our demo today, and this is where we want your feedback most. Where do your users need increased trust and protection, and how can we help you with that? How can we streamline things for the user while providing transparency? Our ambitions start with trust. By requiring identity for registered servers, we hope to ensure servers are who they say they are. Usage of those servers will be controllable by end user and enterprise settings, helping to build trust in enabled servers once more. Security is implemented starting with isolation. Using the proxy server with security and enterprise setting and privacy controls in addition to isolation, we also log all MCP interactions so that we know exactly what an agent did with them. Finally, we've integrated our best safety practices with anti-malware, responsible AI, and enterprise IT policies. The same login that helps with security also allows us to audit and correct MCP abuse in real time. You can read more about our approach here in the MCP Security Blog published this morning. So next I'm going to pass it off to Donald to show us how we register with Windows.
+
+Donald Thompson: Well one thing you said a number of times is key to this whole thing, is that it's an installed application, and the application has to have identity. What I showed before was just a simple console application. It's not that onerous, though, to give it
+
+identity. There's not a big install or anything like that. It's a simple manifest here. And what we've done here is add an extension called AI.MCPServer. And when Windows sees this as part of its manifest, it knows hey, this is something special, I'm going to record it in our MCP Registry. Now when I did the manual installation for VS Code, I had to say how do I run this? I had to tell the system, VS Code in this case, the host, how my server should be run in order to create client connections to it. And that was done in a piece of JSON that the application defined. Well, when you make your own application that gets installed, you specify your own custom JSON here, which tells Windows how to run the server. So it's basically the same thing, except now it's part of your application, not part of the host application's definition. And in this case it's just literally running the executable, the console executable from before. And where this shows up now is we have introduced the MCP Registry for Windows. Now this is only available in the developer preview, as is marked up here. When these are installed, they are installed "off" by default. So there's no immediate escalation of any kind of privilege or anything. So after it's installed, I had to come back in here and click this button to make it "on," which makes it available. We would really like to get your feedback on this entire process of installation, permissioning, provisioning. One of the challenges that we've seen before is some of the services that you want to install and make available in GitHub, Copilot, or Claude Desktop, takes API keys. And so now you're putting your API keys in all these well-known locations and clear text on the disk, which is not good. So we would like to be able to say the user installs this once, provisions it once, and then grants specific accesses to the different applications that want to use it. So with this now, I should be able to bring up that tool list again. And as I go down, we see the Contoso MCP Server. This time it's coming from the Windows Registry. And if I asked a similar question, "what product is versatile?" And now GitHub Copilot wants to say, "are you okay with me executing this?" And then because Windows is proxying this, and acting as the permission broker, we also get an approval here. Do we want Visual Studio code to access the "search products" tool in the Contoso MCP Server? And I will allow it.
+
+Michael Von Hippel: And in that same dialog, there was also a link to the Settings, so that if the user saw that and said, I don't want this making changes, they can just go there and turn it off, right?
+
+Donald Thompson: That's right. That's right. And you'll notice here, it actually made two calls. This is the agent doing agentic things. I just asked for information about it, and it says hey, do you want to know more about inventory? I have that information too. So this covers the MCP Server, but now I have to figure out how to make my agent -- if we go all the way back to the beginning, how do we get my agent, which again, I was just making this boilerplate SDK version of a little chat agent. What I've done here is, I've now imported some namespaces around the model context protocol server catalog. And so now I can get an instance, a reference to the catalog. I can say this is my client context within which I'm going to communicate. So this establishes my identity back to the catalog. And here I'm going to simply enumerate all of those entries in the catalog for all the different servers that
+
+my application has been granted access to. So this is going to be a filtered list. And I'm going to print them out, and I'm going to wait until it matches the one that I'm looking for, and then I'm going to continue. And then I'm going to actually activate the server. I'm going to ask Windows, activate that server. I'm going to create a client connection to it. So once we do that, I'm going to set up a standard IO connection to it from my application, my agent, to it. And then I get the actual MCP client. And now I'm free to make calls on this. And that's all I had to add. So this is about, I don't know, 15 lines of code in order to access the server. So no custom JSON, no steps that the user has to take to install anything in my special configuration mechanism. And if you look down here, this is the thing that was left empty in my original version, where I just had an empty tools array. Now I can call "list tools async," and it will retrieve the list of available tools from the server that I have chosen to use. And it's completely compatible with the rest of the interface. All of the rest of this code did not change from the original version. So it literally is just sitting in a loop with my messages and invoking these tools. I have no tool execution here. This is all handled under the covers by the standard MCP C# SDK, now enabled with tool definitions that are being provided by the Windows Registry. And if I run this application, again the requirement for my consuming application is the same as the MCP Server. It has to be an installed application with identity. Otherwise Windows cannot guarantee the relationship between the two. We don't want untrusted applications being able to use trusted MCP Servers and vice versa. So I have installed this application here, which is my agent. Let me make this bigger. So you can see here that we've got the MCP Contoso servers connected. And I'm going to do something a little bit more ambitious here. I'm going to say "what is the total inventory of widgets?" And once again, we get the approval dialog that my agent now is wanting to use "search products," which we'll allow it to do. Now it wants to get product information and it wants to get another product information, which you'll see in a moment why. There are two widgets, A and B. And we got their inventory, and we've done some math to total it up.
+
+Michael Von Hippel: So you just showed three dialogs that popped up. That wasn't three different times you asked it to do something or it asking for the same thing three different times. It was saying in one shot, I need these three tools to be able to complete my task, and it just did that?
+
+Donald Thompson: That's right. I literally just asked it -- you saw from the definitions of the tools, there's nothing that says this is inventory or anything else. I mean, this is the direction that these agents are taking is, that you provide them with the capabilities, you provide them with the task, and they will break it down and figure out how to use the actions, in this case MCP Tools, in order to accomplish the goal. And it even did some math here.
+
+Michael Von Hippel: That's great. I'm wondering can you do a quick test for me? I noticed there might have been some other servers that were installed on your device. Could you try going into GitHub Copilot and asking it to snap your Windows next to each other?
+
+Donald Thompson: I can try. Let's do this live. So if I go back to the Windows Registry, we should see "Snap Layouts" is enabled. That's true. And if I go back to GitHub Copilot here. I should be able to see -- oh. Okay, here the server hasn't been started, so I'll start that for VS Code. It discovers one tool here. And you said, snap? Snap.
+
+Michael Von Hippel: Yes, snap your Windows. It's what we do on Windows.
+
+Donald Thompson: And let me make sure it showed up here. Yes. Snap layouts. So let me see. Snap Windows. So it snapped topmost foreground Windows.
+
+Michael Von Hippel: Awesome!
+
+[ Applause ]
+
+Donald Thompson: Cool.
+
+Michael Von Hippel: Yes. Great. Thanks so much, Donald. Alright. So just passing backup videos here. Some of the servers that you've seen today, like WSL and of course, the Snap Layouts for Windows are actually built in to the MCP Servers for Windows, along with other servers that help provide capabilities to clients out of the box without having to rely on other installed applications. Here's a list of the servers we're building into MCP on Windows. If you haven't heard of App Actions for Windows already, that's because we're announcing it this week. It's a great feature that allows app-to-app extensibility that you can learn more about in breakout session 220 tomorrow. We're working with many application partners like Goodnotes, Todoist, and Spark Mail to make App Actions. And by allowing them to opt in, to register App Actions with MCP, we can expose them as MCP servers as well. To help agents control and access content on Windows, we also have a settings MCP and a file system MCP that can either search for files in a directory, or perform semantic searches. In the next demo, we'll show how agents can use built-in servers for App Actions and filesystem to help users be more productive. So before we get into the next demo, I want to give a big shoutout to Bobby, who I think is over there, from Perplexity, who has been an amazing partner for us today. They've helped us test out MCP on Windows really early, gave us critical feedback, and helped us work through a lot of the bugs. And so the demo you'll see is through a lot of hard work getting things to work. The person who'll be presenting in the video next is my teammate, Jesse Bishop. He's one of the crucial people from Microsoft among many others who made MCP on Windows happen. So let's see the demo.
+
+Jesse Bishop: Let's look at another early developer preview of how model context protocol helps an AI agent like Perplexity connect with Windows functionality and with other apps to securely and seamlessly help me get things done. So right now, I want to quickly find some documents I saved on my PC a while back and get a summary of them and then use that to start drafting an email. And maybe add some graphics. But instead of doing all those steps manually, let's use the power of AI with MCP. So here I have the Perplexity app. And in this developer preview, I see there's a dropdown now which lets me select what MCP servers I
+
+want to make available. Let's try this with these enabled. I think this is everything I needed. So we'll ask Perplexity, give me an overview of MCP from my MCP research documents. And we see a Windows confirmation dialog to verify on what to allow Perplexity to use the Windows file system search server to get a list of files, which I do. And we see Perplexity can activate the tool that's running it. And great. Here's my summary. Now let's turn this into an email. Now I might have multiple email apps, so let's try being specific this time and see if the AI agent can figure it out for me. I'll type "start an email with this in Spark." Spark Mail has an App Action on Windows that also gets serviced through an MCP server, which I had already enabled here in Perplexity server list. And we'll confirm again this is a tool we want to run. Looks correct. It also wants to update the subject for me. Great, let's do that too. And here we go. I remember I also had a graphic from docs.microsoft.com saved on my desktop. But it's got the Build Conference background in it. So maybe I want to remove that background from the image before I attach it to my email too. So let's try asking "remove the background from the MCP image on my desktop." And this will probably have to run two tools. One to find it. Here we go; yes. It wants to search for the file. And then it will want to use Paint I assume -- here we go -- to remove the background. Let's try it. And there we go. Background removed. Now let's attach that to our email. So for the last step, I want to be a little bit lazy and give it a vague prompt this time. Let's just say "attach the picture to the email." And it looks like it's finding the file, and now it wants to import the photo to Spark. Exactly what I wanted. Let's allow. And now if we take a look at Spark, we have our attachment. So that's a bunch of different tasks accomplished across multiple apps and operating system capabilities, all from an AI agent using the power of MCP.
+
+Michael Von Hippel: Great.
+
+[ Applause ]
+
+So as you may have seen in Satya's keynote, we're also working with companies to convert their MCP servers into MCP servers on Windows. In the next video, you'll see how GitHub Copilot can use an MCP server from Figma to create UI based on a design for a project. Special thanks to Craig Lewin, who helped create the WSL MCP server and coordinated this demo for the keynote, and of course to Divya who presented it beautifully today if any of you got a chance to see that. Here we have a design for a website called Penguin Pen Pals, which we'd like to add to our website project to make it look better. Going over to Visual Studio Code, we're going to try to have GitHub Copilot import the UI into our project. You can see the prompt used on the side of the window. We see that the MCP tool for Figma is being invoked to get the currently selected image from the Figma application. As you've seen before, we show confirmation prompts, since this tool is from an MCP Server for Windows. A second tool is used to generate HTML code from Figma for the UI as described in the design. We see it's also going to go through another confirmation prompt. And now, once that completes, the generated code is added to the website's project, while the old code is removed, marked in red and green as appropriate. And GitHub Copilot gives us a sum
+
+website. Now we can view the most updated website and see its UI exactly like the design. And it works just like we want it to, as you can see by the mouse mousing over different sections of the website here. So that's our demo there. Now you've seen our plans for MCP on Windows. There's some things that I'd like you to take away from today's presentation. The first is that there's really tangible excitement for running MCP on Windows from our agentic partners. As you can read in our session blog post today, our agent partners like OpenAI, Anthropic, and Perplexity value not only that we're using a popular protocol to extend agents on Windows, but we're improving it by making it easier to build with and more trustworthy to use. We're excited to make it easier for you to use MCP. But new extensibility tools will come. We want to offer the most useful tools safely through Windows, like App Actions for Windows, which will be featured as I said, tomorrow in breakout session 220. As a developer, you should use the tool that makes the most sense for your app right now. When new stuff comes up, we'll continue upcycling your tools to new frameworks, making them available in new ways for the agents and applications and all other new places that you'll want to expose them in the future. We're really asking you to plan for MCP on Windows, and give us feedback. In regards to MCP now, focus on exploring the learning and figuring out what patterns are most valuable. If you're an app developer, you can start expanding your application today with App Actions for Windows. Once we do announce and ship a public preview for MCP on Windows, take the MCP Servers and the App Actions you've made and register them with Windows, so everyone can take advantage of them. So please check out the resources we used today. You saw several SDKs that Donald was relying on. They're listed here on the side. And really whether you're making an app, an agent, or a web service, there's going to be something really interesting this week for you to check out, so we encourage you too. And of course, things are always changing in the agentic extensibility front, so keep an eye open for the latest on what's going on. With that, we'd like to get to your questions. Joining Donald and me will be some experts. We have Kiran Kumar and Alex. Come on up.
+
+[ Applause ]
+
+Thank you.
+
+[ Applause ]
+
+We'll also be available afterwards if you want to talk to us outside so that the next session can get going. And you can find us in The Hub for the MCP and App Actions on Windows area. So look us up. We're kind of way in the back there, but you'll find us. So with that, we'd like to hear your questions.
+
+Speaker 1: -- features "search products" and "get product."
+
+Michael Von Hippel: Yes.
+
+Speaker 1: And I was wondering if you had any advice on how to describe those features to the agent. I've played around with this stuff in the last week, and it's great.
+
+Michael Von Hippel: Yes.
+
+Speaker 1: But I struggle to get the agent to tell me what I want it to tell me.
+
+Donald Thompson: So the best way is to think in terms of humans. Like if you saw this as a person, would that make sense to you to use it to get a result that you're interested in? So I like to think of it in terms of intents. I think it's really interesting when you're sitting in an agentic loop, that the agent is framing things as "my goal is to do some research." And then if your tools that are registered that say, help you do research, then it can connect the intent with the action. And then you describe each one of the arguments into that tool with meaningful information along the same line. We've seen some things like -- I think I was describing to Alex earlier about we've seen APIs like "geolocurn" in other words, a geo location in a form of a URN. I'm like a human doesn't know what geolocurn is. So there's likely not a chance that the LLM will either. So just think in terms of projections. It's not so much a one-to-one with your API endpoint or your service. It's a projection of that API so that the LLM has a better chance of picking it and then parameterizing it.
+
+Speaker 1: One small followup, does it pay to create more, or to expose more to the agent? Like you had the search and the get.
+
+Donald Thompson: Yes.
+
+Speaker 1: Should I make a whole suite of things?
+
+Donald Thompson: Yes -- the question is should you create more and more of these kind of actions and then give them to the agent all at once? Within bounds. And you'll have to figure out based on the model and how well that model has been trained and the other things that you have in context, too. I mean everything these days is about managing the context you're sending to these models. So you might be bumping into another problem that we call tool narrowing. Like if you have hundreds of MCP servers with thousands and thousands of tools and actions; no, that's not a good thing to just throw at the LLM. So you'll need to break that down. And again, this is where my personal strategy is to use these intentions and to say let me introduce some high-level things. Like if you need inventory and product-y-oriented things, tell me that first. And then I'll make another pass through with just a subset of the tools that deal with products and inventory. But if it's like sales, or if it's geographic information, or distribution centers, or customers, you can break them down into those big chunks and then take a second pass through that then just filters down to a more manageable set. Maybe on the order of two dozen or so tools. Again there's a lot of dependencies there. But if you say okay, the agent wants to do something related to customers, and you organize your tools in terms of here's all the tools that have something
+
+to do with customers, then you take a second pass and say, okay now, specifically what you wanted to do with the customers is select from these subset of tools.
+
+Michael Von Hippel: And I think you'll always want to test with the end agents that you want your servers to be used with. Because they may behave differently. They may not be able to handle dozens and dozens of different servers, so you may need to narrow then. Along the journey that Donald was talking about, try to find the right level of intent, and the right balance in the place that you end up.
+
+Donald Thompson: This is also a very good opportunity to give us some feedback too, because if these are things that we can build into the registry, like where you just ask for the set of tools that can accomplish a subset of your tasks, and let us do the filtering. That's something that we've talked about adding, too.
+
+[inaudible]
+
+Michael Von Hippel: So the question was, what are the ways that we can register and how do we authenticate through that process? Maybe Alex, do you want to take that one on?
+
+Alexander Sklar: Sure. Sure, yes. So for Windows, apps are our bread and butter. So if you have a Windows app, that's packaged with identity, then that is the best way that you can have your MCP servers exposed to Windows. If you have Azure functions deployed as MCP servers, then that currently doesn't integrate with the registry, but we're looking at getting feedback from you guys.
+
+Donald Thompson: You think there's a chance that we might allow the user to register remote servers in the future?
+
+Alexander Sklar: Definitely. Definitely.
+
+Speaker 2: Yes, my question was around the integration with Copilot on the Windows desktop. So what I was curious is, if I created a MCP server that let's say for example, it's able to integrate with a cloud solution and bring back down some data, could I use just Microsoft Copilot to interact with that dataset? Is that an inherent capability?
+
+Michael Von Hippel: May be a good question for Kiran here.
+
+Kiran Kumar: Thank you. We are working closely with all the different Copilots which Microsoft is going to ship in future or which is currently shipping. And they will become the MCP client. So once the MCP client has the capabilities of (inaudible) and connecting with any MCP server, which is Windows Register, yes. You will be able to do it. It all comes down to the security and privacy of the user, because that's what our promise is. You want the user to be in the front and center, and interacting with the servers and the client.
+
+Michael Von Hippel: I see somebody getting up, and then we had a question over here we'll get to next.
+
+Speaker 3: My question was about the security, like as we continuously just see, there are more MCP servers, services, and more action. So is there any thinking process, like how do we think about the security in terms of an agent can do Action 1 to 3, but not 5, 6, but the other agent can do 5, 6, but not 1 to 3 like, and so on. And also for example, it's the same problem with API, like the user context versus (inaudible) so can someone do impersonation within the (inaudible)?
+
+Kiran Kumar: Great question. And as I mentioned before, the security privacy is the premises which we are building this whole infrastructure in. To answer specifically your question, will we have the granularity where the users can control not just at the service or the server level, but also at the tool level. Yes, that is of course our pipeline (inaudible) we also thinking of giving the granularity of the user can pick which server tool will be used by which client as such. So those kind of (inaudible) we want to provide for the user. But at the same time, what the premises is here again, the user is in control when using the clients and servers.
+
+Michael Von Hippel: Okay. We had a question over here. You want to come up?
+
+Speaker 4: Yes. Quick question. Do you guys have an opinion on authentication for MCP servers? Is that something that you guys want to take care of? Is that something you want to leave up to the applications to take care of? Especially with remote MCP servers? Do you have an opinion on authentication?
+
+Alexander Sklar: Yes. If you already have a Windows app that has already logged the user in, it has access to the service already, there's no reason for additional back and forth. But if you have a remote Azure function that needs to authenticate for your service, then of course, now there is an OAuth revision to the MCP protocol, and so there's a lot of work going into that area.
+
+Donald Thompson: Yes, I was going to say there's a lot of work being put into the protocol itself to ensure that we have the right handoffs and the passthroughs (inaudible) and we'll of course adhere to that.
+
+Speaker 4: Cool. I know it's just something that's being collaborated with (inaudible).
+
+Donald Thompson: Yes, we are very active in fact in working groups and steering committee with Anthropic
+
+Speaker 4: Cool. Awesome. Thank you.
+
+Donald Thompson: Yes. Thank you.
+
+Michael Von Hippel: Alright, who's next? Saw an arm almost go up. There we go. Someone was (inaudible).
+
+Speaker 5: So you mentioned wanting feedback on all of this? Where do we put it?
+
+[ Laughter ]
+
+Kiran Kumar: Thank you. We are going to open this up for private review in Developer Mode only. Once that is up, we are going to announce that where and how to use it and provide us the feedback. But that's a great feedback; thank you.
+
+Michael Von Hippel: You're not going to give him your email address?
+
+Kiran Kumar: I can also share my email address; yes.
+
+Alexander Sklar: But for now also, if you go to our station in The Hub, you'll be able to talk to the experts there, and they will be very great listeners. They will accept all of your feedback. We'll catalog all of it. Not sure we'll get back to you exactly on it, but we really do want to hear it. And we'll be here throughout the week so you can talk to us and give that feedback in person at least.
+
+Donald Thompson: There's an MCP server you can use to submit feedback.
+
+[ Laughter ]
+
+Speaker 6: I just want to encourage you guys. I think other people might agree. I mean, this is like the first step of our J.A.R.V.I.S. dreams. So work as hard as you can on this.
+
+Michael Von Hippel: Thank you. That's awesome. We're excited.
+
+[ Applause ]
+
+Speaker 7: Is there anything you can share about the (inaudible) management story, like endpoint management going forward? Like intuition into (inaudible) stuff like that?
+
+Alexander Sklar: Yes, just like we are very mindful of keeping the user in control, we're also very mindful of enterprise scenarios, keeping IT admins with their jobs. And so we want to make sure that every MCP server that's running inside of the enterprise is approved by that idea. And so we'll be looking into MDM and similar.
+
+Donald Thompson: Yes, and I think there's a growing number of public repositories and marketplaces where it'll have certain guarantees. There's also private repositories that are being developed, some by Microsoft, in fact, which are perfect for the enterprise case, similar to like an Artifactory or this kind of thing, where only the certified servers are allowed to exist and be installed by the client machines.
+
+Michael Von Hippel: Hx. Next question. We have about seven-and-a-half minutes. So this is a great time for if you have anything you want to talk to us about, bring it up now. Otherwise, you can find us outside or in The Hub. So any next questions? Are you (inaudible).
+
+Speaker 8: (inaudible) driving the functions to the agent? I mean, it's kind of maybe describe how you do it in the code, because certainly you do it in the prompt, but in the description, in the attributes, you have to put something.
+
+Donald Thompson: Yes.
+
+Speaker 8: Give us some more tips on that. If there is anything more to say. You know what I'm talking about, right?
+
+Donald Thompson: Yes. More than what we said earlier. Does somebody else want to take a whack at it?
+
+Michael Von Hippel: One thing here just want to mention that this session we're talking about Windows and how we're investing in MCP. There's going to be a lot more sessions this week, and have been more sessions this week talking about how you can use MCP in different settings as well. The same challenges that we've mentioned that you've been talking about will be discussed throughout MCP, because agents need to know how to use your tools. So strongly encourage you to go check out the resources that we have online, and check out the additional sessions that we have available. Or if they've already happened, their recordings.
+
+[inaudible]
+
+Alexander Sklar: No. No. That prompt is a User Mode prompt.
+
+Donald Thompson: Yes. And it was a standard deploy from the UI, just literally in Visual Studio. I just said "deploy." Done.
+
+[inaudible]
+
+For right now? Right now?
+
+Kiran Kumar: Right now, yes because, again, we are experimenting with this. We need to get the feedback from developers as well as from the users who again, it goes back to user is in control. That's the whole premises we start with, because this whole AI is so new.
+
+Donald Thompson: We're aware of the potential fatigue of it.
+
+Kiran Kumar: Yes.
+
+Donald Thompson: Yes?
+
+[inaudible]
+
+He's asking how do you get access to the private build?
+
+Kiran Kumar: Yes we are going to announce (inaudible) private preview will be available, and once it is announced, then you guys can come back and ask, hey we need access to this and the whole documentation, whole (inaudible), we'll be sharing with that.
+
+Michael Von Hippel: That's part of why we're encouraging now, there are things you can do to prepare for when the public preview's available, with using MCP servers other way outside of the Windows use case, and building App Actions now.
+
+Alexander Sklar: And if you visit our booth across the street, you can scan your badge and that will give us a chance to connect with you.
+
+[inaudible]
+
+Michael Von Hippel: So the question was, whether the Windows MCP uses one version of the MCP Server or it can support multiple versions of it.
+
+Kiran Kumar: You mean the multiple versions of your MCP Server? Yes, you can. It's no different than your app. You can think about it's the same system as app, what we have. If you can have multiple versions of app; yes, we will support it. It's just a repository of servers with a strong identity.
+
+Donald Thompson: On a given machine, you'll have one specific version installed. But you can have multiple versions deployed which whatever mechanism you choose. Whether it's a store or something else.
+
+[inaudible]
+
+Availability?
+
+Speaker 9: Yes.
+
+Michael Von Hippel: Timeframe.
+
+Kiran Kumar: Timeframe of (inaudible). You'll soon see right now we're targeting within a month or so to have the first private review of this. And once we announce it, then we'll start onboarding people, developers, to go (inaudible). But I think you can, again you can go check out our booth. So we have Actions already available. So that is the first step where you can start preparing your apps towards exposing the intents which users can use to do more, or the apps can do more. So once you build your applications with Actions, those Actions can automatically become MCP servers in future.
+
+[inaudible]
+
+The Actions will be available. The MCP is, as I said, we're doing a private preview of that, because this is a new area. We want to make sure that we are, again, keeping the users first.
+
+Donald Thompson: I think he's kind of interested in what the usual lag is between developer previews and retail.
+
+Kiran Kumar: Yes, it's like almost a couple of months, I would say. Yes.
+
+Michael Von Hippel: Alright, two minutes. We have a couple more questions. Anyone want to talk?
+
+Speaker 10: Nice session.
+
+Donald Thompson: Thank you.
+
+Michael Von Hippel: Someone back here. Wait, one more. Okay, alright. You can clap now.
+
+Donald Thompson: Big clap. Thank you.
+
+[ Applause ]
+
+END

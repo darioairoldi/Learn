@@ -1,0 +1,1869 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.47579988837242126
+
+00:00:00.120 --> 00:00:00.520
+All right, y'all.
+
+NOTE Confidence: 0.8357493281364441
+
+00:00:00.520 --> 00:00:02.356
+Hey, this is Kate, This is some three of my
+
+NOTE Confidence: 0.8357493281364441
+
+00:00:02.398 --> 00:00:03.679
+favorite people on the planet.
+
+NOTE Confidence: 0.8539942502975464
+
+00:00:03.680 --> 00:00:06.390
+This is Katie, this is James, and this is Dan
+
+NOTE Confidence: 0.8539942502975464
+
+00:00:06.451 --> 00:00:08.679
+talking about model context protocol.
+
+NOTE Confidence: 0.9205999970436096
+
+00:00:08.680 --> 00:00:09.240
+Give it up.
+
+NOTE Confidence: 0.5536032915115356
+
+00:00:10.360 --> 00:00:11.960
+All right, OK, cool.
+
+NOTE Confidence: 0.5429913401603699
+
+00:00:12.480 --> 00:00:13.120
+Is this done?
+
+NOTE Confidence: 0.447553813457489
+
+00:00:13.160 --> 00:00:14.040
+Is this done?
+
+NOTE Confidence: 0.47143837809562683
+
+00:00:14.040 --> 00:00:14.360
+That's good.
+
+NOTE Confidence: 0.6631813645362854
+
+00:00:14.360 --> 00:00:14.560
+That's.
+
+NOTE Confidence: 0.5202855467796326
+
+00:00:14.560 --> 00:00:15.800
+Working, I think, yeah.
+
+NOTE Confidence: 0.9246541857719421
+
+00:00:16.160 --> 00:00:19.572
+You know, I think as we continue to evolve how
+
+NOTE Confidence: 0.9246541857719421
+
+00:00:19.646 --> 00:00:23.133
+we work and how we develop every single day and
+
+NOTE Confidence: 0.9246541857719421
+
+00:00:23.207 --> 00:00:27.510
+how we interact with LLMS, the one question that continues
+
+NOTE Confidence: 0.9246541857719421
+
+00:00:27.584 --> 00:00:30.848
+to come up, which is how do we provide these
+
+NOTE Confidence: 0.9246541857719421
+
+00:00:30.923 --> 00:00:35.077
+models and these tools with more context and the ability
+
+NOTE Confidence: 0.9246541857719421
+
+00:00:35.151 --> 00:00:37.600
+to perform actions on our behalf.
+
+NOTE Confidence: 0.922056257724762
+
+00:00:38.120 --> 00:00:41.249
+So how do we give these models, these tools, real
+
+NOTE Confidence: 0.922056257724762
+
+00:00:41.313 --> 00:00:44.698
+time data, access to things that are pertinent to our
+
+NOTE Confidence: 0.922056257724762
+
+00:00:44.762 --> 00:00:48.786
+businesses, no matter where we're developing and no matter what
+
+NOTE Confidence: 0.922056257724762
+
+00:00:48.850 --> 00:00:49.999
+tools we're using?
+
+NOTE Confidence: 0.9386277794837952
+
+00:00:50.720 --> 00:00:54.567
+And that specifically is what Model Context protocol is all
+
+NOTE Confidence: 0.9386277794837952
+
+00:00:54.632 --> 00:00:58.610
+about, is solving that problem and answering that question so
+
+NOTE Confidence: 0.9386277794837952
+
+00:00:58.676 --> 00:01:01.610
+we can work with our tools better and stay in
+
+NOTE Confidence: 0.9386277794837952
+
+00:01:01.675 --> 00:01:04.480
+the flow better no matter what we're using.
+
+NOTE Confidence: 0.9241530895233154
+
+00:01:04.920 --> 00:01:08.360
+So the real question is what is model Context Protocol?
+
+NOTE Confidence: 0.8992032408714294
+
+00:01:08.959 --> 00:01:13.884
+Well, as James said, MCP provides additional context to LLMS
+
+NOTE Confidence: 0.8992032408714294
+
+00:01:13.966 --> 00:01:18.479
+and provides them access to data, tools, and resources.
+
+NOTE Confidence: 0.9361792206764221
+
+00:01:18.880 --> 00:01:21.387
+So an easy way that you can think about this
+
+NOTE Confidence: 0.9361792206764221
+
+00:01:21.444 --> 00:01:24.123
+is MCP is kind of like a universal adapter, but
+
+NOTE Confidence: 0.9361792206764221
+
+00:01:24.180 --> 00:01:25.319
+for AI applications.
+
+NOTE Confidence: 0.9178683757781982
+
+00:01:25.720 --> 00:01:28.573
+So in the same way that a universal adapter would
+
+NOTE Confidence: 0.9178683757781982
+
+00:01:28.631 --> 00:01:32.299
+let you connect a physical device to different accessories, MCP
+
+NOTE Confidence: 0.9178683757781982
+
+00:01:32.357 --> 00:01:35.676
+lets you connect your AI applications to tools, data, and
+
+NOTE Confidence: 0.9178683757781982
+
+00:01:35.734 --> 00:01:39.635
+resources without writing custom connections for each of those data
+
+NOTE Confidence: 0.9178683757781982
+
+00:01:39.694 --> 00:01:40.160
+sources.
+
+NOTE Confidence: 0.9463366270065308
+
+00:01:42.120 --> 00:01:44.947
+So when we're talking about MCP, there's really three parts
+
+NOTE Confidence: 0.9463366270065308
+
+00:01:44.994 --> 00:01:46.719
+of this that you need to understand.
+
+NOTE Confidence: 0.8751130700111389
+
+00:01:47.400 --> 00:01:50.952
+The first one is our hosts and these are programs
+
+NOTE Confidence: 0.8751130700111389
+
+00:01:51.025 --> 00:01:54.360
+like Visual Studio, copilot Studio or VS Code.
+
+NOTE Confidence: 0.94270920753479
+
+00:01:54.640 --> 00:01:57.265
+And these are the things that want access to that
+
+NOTE Confidence: 0.94270920753479
+
+00:01:57.319 --> 00:02:00.319
+data and those tools through the model context protocol.
+
+NOTE Confidence: 0.9374075531959534
+
+00:02:01.520 --> 00:02:04.953
+Next up, we have our protocol clients and these can
+
+NOTE Confidence: 0.9374075531959534
+
+00:02:05.020 --> 00:02:08.790
+actually be the same things as those hosts sometimes and
+
+NOTE Confidence: 0.9374075531959534
+
+00:02:08.857 --> 00:02:12.559
+they maintain a one to one connection with our servers.
+
+NOTE Confidence: 0.9595043063163757
+
+00:02:13.560 --> 00:02:18.440
+Servers are lightweight programs and they are the things that
+
+NOTE Confidence: 0.9595043063163757
+
+00:02:18.520 --> 00:02:23.880
+are exposing those capabilities through the model context protocol.
+
+NOTE Confidence: 0.8753584623336792
+
+00:02:24.919 --> 00:02:28.565
+So couple examples of these are you can connect directly
+
+NOTE Confidence: 0.8753584623336792
+
+00:02:28.631 --> 00:02:31.039
+to your database and analyze schemes.
+
+NOTE Confidence: 0.8622832298278809
+
+00:02:31.520 --> 00:02:35.673
+You can pull in information from GitHub repositories about different
+
+NOTE Confidence: 0.8622832298278809
+
+00:02:35.734 --> 00:02:37.200
+issues or pull requests.
+
+NOTE Confidence: 0.9115728139877319
+
+00:02:37.760 --> 00:02:41.085
+You can automate end to end testing with Playwright, or
+
+NOTE Confidence: 0.9115728139877319
+
+00:02:41.145 --> 00:02:44.168
+you can even create your own servers and have them
+
+NOTE Confidence: 0.9115728139877319
+
+00:02:44.229 --> 00:02:45.680
+do pretty much anything.
+
+NOTE Confidence: 0.9507347345352173
+
+00:02:45.680 --> 00:02:48.559
+There's a ton of things that you can make them
+
+NOTE Confidence: 0.9507347345352173
+
+00:02:48.621 --> 00:02:51.375
+do, so let's take a look at a visual example
+
+NOTE Confidence: 0.9507347345352173
+
+00:02:51.438 --> 00:02:54.192
+of this before we get into any demos here we
+
+NOTE Confidence: 0.9507347345352173
+
+00:02:54.255 --> 00:02:57.447
+have our computer and we have the Internet, just to
+
+NOTE Confidence: 0.9507347345352173
+
+00:02:57.509 --> 00:02:59.199
+keep it super duper simple.
+
+NOTE Confidence: 0.8774803876876831
+
+00:03:00.160 --> 00:03:03.724
+So from our editor with GitHub copilot, we already have
+
+NOTE Confidence: 0.8774803876876831
+
+00:03:03.789 --> 00:03:07.418
+access to some tools that are built into this experience
+
+NOTE Confidence: 0.8774803876876831
+
+00:03:07.483 --> 00:03:10.853
+and extensions that let us do things like search our
+
+NOTE Confidence: 0.8774803876876831
+
+00:03:10.918 --> 00:03:14.871
+code base or do web searches, anything that's really natively
+
+NOTE Confidence: 0.8774803876876831
+
+00:03:14.936 --> 00:03:15.519
+built in.
+
+NOTE Confidence: 0.8618486523628235
+
+00:03:16.360 --> 00:03:19.318
+But with MCP we can expand our tool kit and
+
+NOTE Confidence: 0.8618486523628235
+
+00:03:19.387 --> 00:03:21.520
+access a bunch of other things.
+
+NOTE Confidence: 0.8892162442207336
+
+00:03:21.520 --> 00:03:25.319
+So we can run MCP servers locally inside of an
+
+NOTE Confidence: 0.8892162442207336
+
+00:03:25.401 --> 00:03:29.861
+application or a docker container and talk to our data
+
+NOTE Confidence: 0.8892162442207336
+
+00:03:29.944 --> 00:03:30.439
+there.
+
+NOTE Confidence: 0.9285944700241089
+
+00:03:31.280 --> 00:03:34.222
+Or they could be calling web services such as GitHub
+
+NOTE Confidence: 0.9285944700241089
+
+00:03:34.279 --> 00:03:36.600
+does to gather and create issues for you.
+
+NOTE Confidence: 0.8546746373176575
+
+00:03:37.360 --> 00:03:41.027
+And they can also be executed totally remotely over Server
+
+NOTE Confidence: 0.8546746373176575
+
+00:03:41.091 --> 00:03:44.000
+Sent Events, which you might here called Sses.
+
+NOTE Confidence: 0.9344379305839539
+
+00:03:45.680 --> 00:03:49.327
+These remote servers can be run in Azure Functions, Container
+
+NOTE Confidence: 0.9344379305839539
+
+00:03:49.386 --> 00:03:52.196
+Apps and App Service and they can be managed by
+
+NOTE Confidence: 0.9344379305839539
+
+00:03:52.256 --> 00:03:55.724
+API Management and API Center which are both optimized for
+
+NOTE Confidence: 0.9344379305839539
+
+00:03:55.784 --> 00:03:56.919
+remote MCP servers.
+
+NOTE Confidence: 0.9550079107284546
+
+00:03:57.480 --> 00:03:59.324
+And the cool part about all of this is that
+
+NOTE Confidence: 0.9550079107284546
+
+00:03:59.367 --> 00:04:00.439
+this is an open standard.
+
+NOTE Confidence: 0.8845458030700684
+
+00:04:00.440 --> 00:04:01.800
+It's not a Microsoft thing.
+
+NOTE Confidence: 0.9419416785240173
+
+00:04:01.800 --> 00:04:06.628
+It's actually created originally by Anthropic, and companies around the
+
+NOTE Confidence: 0.9419416785240173
+
+00:04:06.696 --> 00:04:11.184
+entire ecosystem have worked closely with Anthropic to continue to
+
+NOTE Confidence: 0.9419416785240173
+
+00:04:11.252 --> 00:04:16.080
+evolve these standards and these different mechanisms as things evolve.
+
+NOTE Confidence: 0.9694834351539612
+
+00:04:16.080 --> 00:04:19.332
+And one of the common questions we often get is
+
+NOTE Confidence: 0.9694834351539612
+
+00:04:19.401 --> 00:04:20.440
+authentication.
+
+NOTE Confidence: 0.9239940643310547
+
+00:04:20.440 --> 00:04:21.840
+And how does that work, Dan?
+
+NOTE Confidence: 0.9681191444396973
+
+00:04:22.080 --> 00:04:23.560
+How does that work?
+
+NOTE Confidence: 0.9024468064308167
+
+00:04:23.800 --> 00:04:26.584
+So for our MCP servers, one of the things that
+
+NOTE Confidence: 0.9024468064308167
+
+00:04:26.645 --> 00:04:29.429
+a lot of folks say is that if we're connecting
+
+NOTE Confidence: 0.9024468064308167
+
+00:04:29.490 --> 00:04:33.666
+to different APIs and services, they're usually protected and they're
+
+NOTE Confidence: 0.9024468064308167
+
+00:04:33.727 --> 00:04:37.359
+protected by some layer that requires you to authenticate to
+
+NOTE Confidence: 0.9024468064308167
+
+00:04:37.420 --> 00:04:41.960
+get that super secret confidential organization organizational information.
+
+NOTE Confidence: 0.8981902003288269
+
+00:04:42.320 --> 00:04:46.131
+So in this spec, in the actual MCP specification, what
+
+NOTE Confidence: 0.8981902003288269
+
+00:04:46.202 --> 00:04:50.014
+is baked in is this very clear separation between APIs
+
+NOTE Confidence: 0.8981902003288269
+
+00:04:50.084 --> 00:04:54.178
+and authorization servers that enables you to plug in your
+
+NOTE Confidence: 0.8981902003288269
+
+00:04:54.249 --> 00:04:56.719
+existing systems directly into MCP.
+
+NOTE Confidence: 0.6526870131492615
+
+00:04:56.720 --> 00:04:59.211
+So this is kind of actually a misconception People think
+
+NOTE Confidence: 0.6526870131492615
+
+00:04:59.255 --> 00:05:01.480
+of like OMCPI need to implement auth from scratch.
+
+NOTE Confidence: 0.8284562826156616
+
+00:05:01.720 --> 00:05:04.720
+You don't we're snapping to auth 2.1.
+
+NOTE Confidence: 0.872547447681427
+
+00:05:05.080 --> 00:05:08.782
+So if your authorization server, whether it's entry ID or
+
+NOTE Confidence: 0.872547447681427
+
+00:05:08.847 --> 00:05:11.771
+any of the many open source ones, if you just
+
+NOTE Confidence: 0.872547447681427
+
+00:05:11.836 --> 00:05:13.719
+plug them in, they just work.
+
+NOTE Confidence: 0.9020499587059021
+
+00:05:13.960 --> 00:05:16.518
+All your server your MCP server needs to do is
+
+NOTE Confidence: 0.9020499587059021
+
+00:05:16.574 --> 00:05:20.412
+basically declare that I'm using this authorization server and that's
+
+NOTE Confidence: 0.9020499587059021
+
+00:05:20.468 --> 00:05:21.080
+kind of it.
+
+NOTE Confidence: 0.9162050485610962
+
+00:05:21.200 --> 00:05:22.080
+It's magical.
+
+NOTE Confidence: 0.6681686639785767
+
+00:05:22.160 --> 00:05:22.360
+Yeah.
+
+NOTE Confidence: 0.9358873963356018
+
+00:05:22.720 --> 00:05:24.960
+And the cool part is that this is all evolving
+
+NOTE Confidence: 0.9358873963356018
+
+00:05:25.009 --> 00:05:28.321
+based on feedback alongside Anthropic and other companies around the
+
+NOTE Confidence: 0.9358873963356018
+
+00:05:28.369 --> 00:05:30.999
+industry to build these standards together into tools.
+
+NOTE Confidence: 0.8420909643173218
+
+00:05:31.000 --> 00:05:33.325
+So obviously we'll show VS and VS Code, but other
+
+NOTE Confidence: 0.8420909643173218
+
+00:05:33.373 --> 00:05:36.363
+things like cloud desktop, Windows itself, and other things are
+
+NOTE Confidence: 0.8420909643173218
+
+00:05:36.411 --> 00:05:38.119
+all different MCP clients and hosts.
+
+NOTE Confidence: 0.9032499194145203
+
+00:05:38.480 --> 00:05:40.067
+Let's go ahead and take a look at this in
+
+NOTE Confidence: 0.9032499194145203
+
+00:05:40.105 --> 00:05:40.880
+action really quick.
+
+NOTE Confidence: 0.8771688938140869
+
+00:05:41.680 --> 00:05:44.945
+OK, so the first thing I want to do is
+
+NOTE Confidence: 0.8771688938140869
+
+00:05:45.031 --> 00:05:48.124
+I want to come in to my VS Code over
+
+NOTE Confidence: 0.8771688938140869
+
+00:05:48.210 --> 00:05:48.640
+here.
+
+NOTE Confidence: 0.896020770072937
+
+00:05:49.560 --> 00:05:51.240
+Now I have an application I've been building out.
+
+NOTE Confidence: 0.8058812022209167
+
+00:05:51.240 --> 00:05:54.233
+It's called Monkey App Vibes, and it's an application that's
+
+NOTE Confidence: 0.8058812022209167
+
+00:05:54.283 --> 00:05:55.679
+all about monkeys basically.
+
+NOTE Confidence: 0.8121539354324341
+
+00:05:55.680 --> 00:05:58.040
+So it's a Don in Maui application.
+
+NOTE Confidence: 0.9009729623794556
+
+00:05:58.040 --> 00:06:02.359
+I have just some common platform folders, resources, file, new
+
+NOTE Confidence: 0.9009729623794556
+
+00:06:02.428 --> 00:06:04.239
+project, things like this.
+
+NOTE Confidence: 0.9383300542831421
+
+00:06:04.800 --> 00:06:07.276
+So at this point, I might be very interested in
+
+NOTE Confidence: 0.9383300542831421
+
+00:06:07.328 --> 00:06:10.279
+understanding what GitHub issues I have, what I can work
+
+NOTE Confidence: 0.9383300542831421
+
+00:06:10.332 --> 00:06:13.019
+on, Maybe I have new ideas for the application, and
+
+NOTE Confidence: 0.9383300542831421
+
+00:06:13.071 --> 00:06:15.864
+maybe I want to also implement the application all up
+
+NOTE Confidence: 0.9383300542831421
+
+00:06:15.917 --> 00:06:16.760
+with agent mode.
+
+NOTE Confidence: 0.9382137656211853
+
+00:06:17.360 --> 00:06:18.920
+So a few things that I can do here.
+
+NOTE Confidence: 0.9111058712005615
+
+00:06:19.520 --> 00:06:22.160
+First is I have this MCP Jason file.
+
+NOTE Confidence: 0.9038342833518982
+
+00:06:22.360 --> 00:06:25.834
+Different tools such as VS Code and Visual Studio have
+
+NOTE Confidence: 0.9038342833518982
+
+00:06:25.898 --> 00:06:30.402
+different ways of configuring MCP servers, and they're usually through
+
+NOTE Confidence: 0.9038342833518982
+
+00:06:30.466 --> 00:06:34.520
+Jason configurations on the Model Contacts protocol IO website.
+
+NOTE Confidence: 0.9161683917045593
+
+00:06:34.520 --> 00:06:37.058
+There's different links to different servers and there's tons of
+
+NOTE Confidence: 0.9161683917045593
+
+00:06:37.098 --> 00:06:39.240
+them out there, including ones from here at Microsoft.
+
+NOTE Confidence: 0.930743932723999
+
+00:06:39.640 --> 00:06:42.200
+So here we can see we have my GitHub server,
+
+NOTE Confidence: 0.930743932723999
+
+00:06:42.258 --> 00:06:45.341
+which is running in Docker right here, and it's using
+
+NOTE Confidence: 0.930743932723999
+
+00:06:45.400 --> 00:06:48.832
+a personal access token today that I've created myself with
+
+NOTE Confidence: 0.930743932723999
+
+00:06:48.890 --> 00:06:52.090
+different permissions that the agent can use and run in
+
+NOTE Confidence: 0.930743932723999
+
+00:06:52.149 --> 00:06:53.080
+this MCP server.
+
+NOTE Confidence: 0.9377326369285583
+
+00:06:53.520 --> 00:06:56.970
+I've also created and configured this Monkey MCP server, which
+
+NOTE Confidence: 0.9377326369285583
+
+00:06:57.026 --> 00:07:00.644
+is very convenient for this application that's all about monkeys,
+
+NOTE Confidence: 0.9377326369285583
+
+00:07:00.700 --> 00:07:02.926
+and it happens to be a MCP server that I
+
+NOTE Confidence: 0.9377326369285583
+
+00:07:02.982 --> 00:07:05.320
+personally created because I love monkeys.
+
+NOTE Confidence: 0.9401147961616516
+
+00:07:05.760 --> 00:07:07.880
+So what can we do here?
+
+NOTE Confidence: 0.9642094373703003
+
+00:07:07.880 --> 00:07:12.067
+I can go ahead and say get me a list
+
+NOTE Confidence: 0.9642094373703003
+
+00:07:12.183 --> 00:07:15.440
+of my open issues on GitHub.
+
+NOTE Confidence: 0.8653796911239624
+
+00:07:17.720 --> 00:07:19.974
+Well, this is probably just going to now go off
+
+NOTE Confidence: 0.8653796911239624
+
+00:07:20.022 --> 00:07:22.276
+to the Internet and it's going to look here and
+
+NOTE Confidence: 0.8653796911239624
+
+00:07:22.324 --> 00:07:25.009
+it's going to say, hey, list issues and specifically the
+
+NOTE Confidence: 0.8653796911239624
+
+00:07:25.057 --> 00:07:27.360
+Monkey app Vibes repo because it knows about me.
+
+NOTE Confidence: 0.9157714247703552
+
+00:07:27.360 --> 00:07:29.835
+So I'm going to give it permission to run that
+
+NOTE Confidence: 0.9157714247703552
+
+00:07:29.889 --> 00:07:30.320
+command.
+
+NOTE Confidence: 0.9244548082351685
+
+00:07:30.840 --> 00:07:32.485
+And it's going to go off and say I have
+
+NOTE Confidence: 0.9244548082351685
+
+00:07:32.527 --> 00:07:33.159
+one open issue.
+
+NOTE Confidence: 0.9531322121620178
+
+00:07:33.240 --> 00:07:35.479
+There's one open issue, which is a list of monkey
+
+NOTE Confidence: 0.9531322121620178
+
+00:07:35.525 --> 00:07:35.799
+pages.
+
+NOTE Confidence: 0.9336075186729431
+
+00:07:35.800 --> 00:07:37.000
+So I'm a developer.
+
+NOTE Confidence: 0.9477214813232422
+
+00:07:37.360 --> 00:07:39.110
+I no longer have to leave my flow no matter
+
+NOTE Confidence: 0.9477214813232422
+
+00:07:39.150 --> 00:07:39.679
+where I'm at.
+
+NOTE Confidence: 0.8817653656005859
+
+00:07:39.680 --> 00:07:41.596
+I might just be somewhere not in VS Code, some
+
+NOTE Confidence: 0.8817653656005859
+
+00:07:41.638 --> 00:07:43.680
+other editor called desktop, something like that.
+
+NOTE Confidence: 0.8882607817649841
+
+00:07:44.040 --> 00:07:48.154
+But I can say, OK, get me a list of
+
+NOTE Confidence: 0.8882607817649841
+
+00:07:48.271 --> 00:07:49.799
+monkeys here.
+
+NOTE Confidence: 0.9580956697463989
+
+00:07:50.560 --> 00:07:51.920
+So now this is going to go off.
+
+NOTE Confidence: 0.8341040015220642
+
+00:07:51.920 --> 00:07:54.268
+And what GitHub Copilot's doing is it's looking to see
+
+NOTE Confidence: 0.8341040015220642
+
+00:07:54.312 --> 00:07:55.399
+what tools are available.
+
+NOTE Confidence: 0.9142331480979919
+
+00:07:55.880 --> 00:07:58.177
+And in agent mode down here, we see this little
+
+NOTE Confidence: 0.9142331480979919
+
+00:07:58.226 --> 00:07:58.959
+tool selection.
+
+NOTE Confidence: 0.8622222542762756
+
+00:07:59.280 --> 00:08:02.445
+And this is what is built in to VS Code
+
+NOTE Confidence: 0.8622222542762756
+
+00:08:02.526 --> 00:08:04.879
+to show you what's available.
+
+NOTE Confidence: 0.7359511256217957
+
+00:08:04.880 --> 00:08:07.040
+Copilot as tools that it's running.
+
+NOTE Confidence: 0.9261314272880554
+
+00:08:07.400 --> 00:08:10.238
+Here's the MCP server for GitHub with all the tools
+
+NOTE Confidence: 0.9261314272880554
+
+00:08:10.293 --> 00:08:11.239
+that it can call.
+
+NOTE Confidence: 0.9711103439331055
+
+00:08:11.240 --> 00:08:12.640
+And you can turn these on and off.
+
+NOTE Confidence: 0.9704185724258423
+
+00:08:12.960 --> 00:08:14.680
+And here's one for the monkey MCP.
+
+NOTE Confidence: 0.9395294189453125
+
+00:08:14.840 --> 00:08:17.432
+So the LLM says natural language, I want to get
+
+NOTE Confidence: 0.9395294189453125
+
+00:08:17.487 --> 00:08:18.480
+a list of monkeys.
+
+NOTE Confidence: 0.9404705762863159
+
+00:08:18.480 --> 00:08:20.754
+Oh, I have a tool that can get a list
+
+NOTE Confidence: 0.9404705762863159
+
+00:08:20.816 --> 00:08:21.800
+of monkeys here.
+
+NOTE Confidence: 0.9744091629981995
+
+00:08:22.400 --> 00:08:24.000
+So I can go ahead and run that.
+
+NOTE Confidence: 0.9398536682128906
+
+00:08:24.000 --> 00:08:25.600
+And it's going to run that command.
+
+NOTE Confidence: 0.9161182045936584
+
+00:08:25.840 --> 00:08:27.480
+It's going to get me a list of monkeys.
+
+NOTE Confidence: 0.8416363596916199
+
+00:08:28.040 --> 00:08:31.076
+Now I can also do a hashtag sign and it'll
+
+NOTE Confidence: 0.8416363596916199
+
+00:08:31.149 --> 00:08:33.679
+show me all of those tools as well.
+
+NOTE Confidence: 0.8637740015983582
+
+00:08:34.000 --> 00:08:34.880
+So that looks good.
+
+NOTE Confidence: 0.8600075244903564
+
+00:08:34.880 --> 00:08:41.995
+And I could say visualize that, analyze that here in
+
+NOTE Confidence: 0.8600075244903564
+
+00:08:42.132 --> 00:08:45.280
+chat in a table for me.
+
+NOTE Confidence: 0.8795562982559204
+
+00:08:45.720 --> 00:08:46.600
+OK, cool.
+
+NOTE Confidence: 0.9008157253265381
+
+00:08:47.320 --> 00:08:49.161
+It's going to now show me a list of these
+
+NOTE Confidence: 0.9008157253265381
+
+00:08:49.206 --> 00:08:49.879
+monkeys, right?
+
+NOTE Confidence: 0.8996421098709106
+
+00:08:49.880 --> 00:08:51.880
+I'm iterating over my data that's here.
+
+NOTE Confidence: 0.8818977475166321
+
+00:08:52.160 --> 00:08:53.710
+Now this could have been an API that I can
+
+NOTE Confidence: 0.8818977475166321
+
+00:08:53.747 --> 00:08:55.630
+figure, but maybe this is a database, maybe this is
+
+NOTE Confidence: 0.8818977475166321
+
+00:08:55.667 --> 00:08:56.000
+a schema.
+
+NOTE Confidence: 0.9076626896858215
+
+00:08:56.000 --> 00:08:58.632
+I don't know what this is, but the LLM is
+
+NOTE Confidence: 0.9076626896858215
+
+00:08:58.696 --> 00:09:01.521
+figuring this stuff out me so I can say what
+
+NOTE Confidence: 0.9076626896858215
+
+00:09:01.585 --> 00:09:03.639
+is the Jason schema here, right?
+
+NOTE Confidence: 0.8494287133216858
+
+00:09:04.559 --> 00:09:06.942
+So it's going to go figure it out here it
+
+NOTE Confidence: 0.8494287133216858
+
+00:09:07.000 --> 00:09:07.640
+is amazing.
+
+NOTE Confidence: 0.9102550148963928
+
+00:09:07.640 --> 00:09:10.696
+Now the MCP server is just returning data back to
+
+NOTE Confidence: 0.9102550148963928
+
+00:09:10.759 --> 00:09:13.753
+me, but the LLM is figuring out how to visualize
+
+NOTE Confidence: 0.9102550148963928
+
+00:09:13.816 --> 00:09:14.440
+it for me.
+
+NOTE Confidence: 0.9120504856109619
+
+00:09:14.720 --> 00:09:16.891
+If I go back up here, we can see exactly
+
+NOTE Confidence: 0.9120504856109619
+
+00:09:16.945 --> 00:09:18.519
+what the MCP server returned.
+
+NOTE Confidence: 0.9413450360298157
+
+00:09:18.520 --> 00:09:20.738
+It's just a bunch of data, but the model is
+
+NOTE Confidence: 0.9413450360298157
+
+00:09:20.790 --> 00:09:22.079
+figuring this out for me.
+
+NOTE Confidence: 0.794626772403717
+
+00:09:22.080 --> 00:09:27.880
+I could say what would this look like in COBOL?
+
+NOTE Confidence: 0.6850497126579285
+
+00:09:27.880 --> 00:09:28.200
+Right?
+
+NOTE Confidence: 0.8802099227905273
+
+00:09:28.360 --> 00:09:30.239
+It's not going to take that and it's going to
+
+NOTE Confidence: 0.8802099227905273
+
+00:09:30.281 --> 00:09:32.119
+go figure out what this looks like in COBOL.
+
+NOTE Confidence: 0.9043727517127991
+
+00:09:32.120 --> 00:09:33.698
+I don't know what that is, but now I just
+
+NOTE Confidence: 0.9043727517127991
+
+00:09:33.737 --> 00:09:35.199
+learned what that looks like in COBOL.
+
+NOTE Confidence: 0.9363290071487427
+
+00:09:35.200 --> 00:09:35.760
+That's cool.
+
+NOTE Confidence: 0.9268461465835571
+
+00:09:36.200 --> 00:09:37.400
+So now this is amazing.
+
+NOTE Confidence: 0.9221312999725342
+
+00:09:37.400 --> 00:09:42.080
+I can say, OK, take the context of this code
+
+NOTE Confidence: 0.9221312999725342
+
+00:09:42.186 --> 00:09:46.973
+base and look at that open issue and create a
+
+NOTE Confidence: 0.9221312999725342
+
+00:09:47.080 --> 00:09:52.080
+new comment with implementation details for me.
+
+NOTE Confidence: 0.9173848628997803
+
+00:09:52.400 --> 00:09:54.548
+OK, So what I'm now going to do is I'm
+
+NOTE Confidence: 0.9173848628997803
+
+00:09:54.605 --> 00:09:57.319
+going to say take the context of my application.
+
+NOTE Confidence: 0.7299595475196838
+
+00:09:57.760 --> 00:10:00.152
+And now GitHub Copilot is going to search the code
+
+NOTE Confidence: 0.7299595475196838
+
+00:10:00.200 --> 00:10:00.440
+base.
+
+NOTE Confidence: 0.9174841046333313
+
+00:10:00.440 --> 00:10:03.410
+It's going to go figure out what exactly I need
+
+NOTE Confidence: 0.9174841046333313
+
+00:10:03.474 --> 00:10:05.559
+to implement in this application.
+
+NOTE Confidence: 0.9317445755004883
+
+00:10:06.040 --> 00:10:09.411
+And it's going to go create a new comment on
+
+NOTE Confidence: 0.9317445755004883
+
+00:10:09.487 --> 00:10:12.628
+this issue for me based on what I need to
+
+NOTE Confidence: 0.9317445755004883
+
+00:10:12.705 --> 00:10:15.999
+implement based on this monkey data, right?
+
+NOTE Confidence: 0.8891403079032898
+
+00:10:16.200 --> 00:10:17.503
+And it's going to look and say, oh, I don't
+
+NOTE Confidence: 0.8891403079032898
+
+00:10:17.533 --> 00:10:18.199
+have any of this data.
+
+NOTE Confidence: 0.9227032661437988
+
+00:10:18.200 --> 00:10:19.941
+It's going to look for pages, It's going to look
+
+NOTE Confidence: 0.9227032661437988
+
+00:10:19.977 --> 00:10:21.320
+for results and it's going to go off.
+
+NOTE Confidence: 0.9176693558692932
+
+00:10:21.760 --> 00:10:24.639
+And now it's going to see everything that I need
+
+NOTE Confidence: 0.9176693558692932
+
+00:10:24.699 --> 00:10:27.399
+to do and it's going to keep searching stuff.
+
+NOTE Confidence: 0.9700192213058472
+
+00:10:28.200 --> 00:10:31.225
+And then it's going to eventually create an issue for
+
+NOTE Confidence: 0.9700192213058472
+
+00:10:31.282 --> 00:10:33.280
+me at some point of how to do this.
+
+NOTE Confidence: 0.8418390154838562
+
+00:10:33.280 --> 00:10:36.640
+It's very, for one is very interested in doing this.
+
+NOTE Confidence: 0.5480414628982544
+
+00:10:36.640 --> 00:10:37.480
+It's thorough.
+
+NOTE Confidence: 0.8323410749435425
+
+00:10:37.520 --> 00:10:39.520
+It's very thorough, right?
+
+NOTE Confidence: 0.9467431902885437
+
+00:10:39.920 --> 00:10:42.640
+So it's going through, it's doing stuff awesome.
+
+NOTE Confidence: 0.8732864260673523
+
+00:10:42.640 --> 00:10:48.968
+It's very chatty, awesome, good, good, great, awesome doing stuff,
+
+NOTE Confidence: 0.8732864260673523
+
+00:10:49.064 --> 00:10:49.639
+right.
+
+NOTE Confidence: 0.9705777764320374
+
+00:10:49.960 --> 00:10:51.000
+So I'm in the flow.
+
+NOTE Confidence: 0.9663975834846497
+
+00:10:51.000 --> 00:10:53.474
+I'm just figuring out what I need to do, and
+
+NOTE Confidence: 0.9663975834846497
+
+00:10:53.530 --> 00:10:54.880
+now we have a new issue.
+
+NOTE Confidence: 0.9292059540748596
+
+00:10:54.880 --> 00:10:57.783
+I can click on it and now I could come
+
+NOTE Confidence: 0.9292059540748596
+
+00:10:57.859 --> 00:11:00.839
+back later and actually implement this.
+
+NOTE Confidence: 0.9230496883392334
+
+00:11:00.840 --> 00:11:02.600
+So here's all this detailed information.
+
+NOTE Confidence: 0.7791949510574341
+
+00:11:02.600 --> 00:11:04.760
+I have to leave my flow, Caitlyn.
+
+NOTE Confidence: 0.8767038583755493
+
+00:11:05.280 --> 00:11:06.680
+So there we go, taking photos.
+
+NOTE Confidence: 0.8968228697776794
+
+00:11:06.760 --> 00:11:09.343
+So that's really cool, but I could have it envision
+
+NOTE Confidence: 0.8968228697776794
+
+00:11:09.394 --> 00:11:10.559
+anything for me, right?
+
+NOTE Confidence: 0.9022836089134216
+
+00:11:11.240 --> 00:11:17.685
+Let's maybe open a new issue on how to implement
+
+NOTE Confidence: 0.9022836089134216
+
+00:11:17.820 --> 00:11:23.997
+a camera control in this app to snap photos of
+
+NOTE Confidence: 0.9022836089134216
+
+00:11:24.131 --> 00:11:28.160
+of monkeys in the wild, right?
+
+NOTE Confidence: 0.8576363921165466
+
+00:11:28.160 --> 00:11:30.126
+So it's going to go off, it's going to search
+
+NOTE Confidence: 0.8576363921165466
+
+00:11:30.170 --> 00:11:32.268
+like the nice thing is for one's going to search
+
+NOTE Confidence: 0.8576363921165466
+
+00:11:32.311 --> 00:11:34.453
+the vast amount of Internet and know about my net
+
+NOTE Confidence: 0.8576363921165466
+
+00:11:34.497 --> 00:11:35.240
+Maui application.
+
+NOTE Confidence: 0.947315514087677
+
+00:11:35.240 --> 00:11:37.351
+And it's going to go ahead and create new issues
+
+NOTE Confidence: 0.947315514087677
+
+00:11:37.395 --> 00:11:38.319
+for me automatically.
+
+NOTE Confidence: 0.7683910131454468
+
+00:11:38.560 --> 00:11:42.120
+It's going to know more context and write things faster.
+
+NOTE Confidence: 0.9248547554016113
+
+00:11:42.320 --> 00:11:44.570
+And I could iterate with it for everything that I
+
+NOTE Confidence: 0.9248547554016113
+
+00:11:44.616 --> 00:11:46.039
+need to do in real time, right?
+
+NOTE Confidence: 0.9121895432472229
+
+00:11:46.280 --> 00:11:48.436
+So it's really, really powerful to be able to go
+
+NOTE Confidence: 0.9121895432472229
+
+00:11:48.481 --> 00:11:49.199
+off and do this.
+
+NOTE Confidence: 0.9347436428070068
+
+00:11:49.200 --> 00:11:55.214
+And now I could go say, hey, go and implement
+
+NOTE Confidence: 0.9347436428070068
+
+00:11:55.348 --> 00:12:00.159
+issue #1 here, go do it now, please.
+
+NOTE Confidence: 0.9337149262428284
+
+00:12:00.520 --> 00:12:02.756
+And now it's going to go take everything that I
+
+NOTE Confidence: 0.9337149262428284
+
+00:12:02.804 --> 00:12:04.279
+was working on, implement this.
+
+NOTE Confidence: 0.8739311099052429
+
+00:12:04.280 --> 00:12:06.175
+I could have it close the issue for me and
+
+NOTE Confidence: 0.8739311099052429
+
+00:12:06.220 --> 00:12:08.567
+do everything because now I'm back in agent mode and
+
+NOTE Confidence: 0.8739311099052429
+
+00:12:08.612 --> 00:12:09.560
+it's going to go off.
+
+NOTE Confidence: 0.9503272771835327
+
+00:12:09.559 --> 00:12:11.747
+And we'll see what it does after we come back
+
+NOTE Confidence: 0.9503272771835327
+
+00:12:11.796 --> 00:12:12.719
+from slides, right?
+
+NOTE Confidence: 0.9249802827835083
+
+00:12:12.920 --> 00:12:15.355
+So that sort of power of going in and staying
+
+NOTE Confidence: 0.9249802827835083
+
+00:12:15.409 --> 00:12:17.519
+in the flow is really, really powerful.
+
+NOTE Confidence: 0.8786406517028809
+
+00:12:17.760 --> 00:12:19.280
+And there's all sorts of MCPS.
+
+NOTE Confidence: 0.9210357666015625
+
+00:12:19.280 --> 00:12:22.096
+Here's one for Figma, for example, that the Maui team
+
+NOTE Confidence: 0.9210357666015625
+
+00:12:22.149 --> 00:12:22.839
+put together.
+
+NOTE Confidence: 0.8312121033668518
+
+00:12:23.120 --> 00:12:24.000
+It's configured up.
+
+NOTE Confidence: 0.8928484320640564
+
+00:12:24.000 --> 00:12:27.118
+We have a Figma design and we're inside of hot
+
+NOTE Confidence: 0.8928484320640564
+
+00:12:27.186 --> 00:12:27.999
+reload here.
+
+NOTE Confidence: 0.9436153173446655
+
+00:12:28.240 --> 00:12:31.646
+So what's happening is we just say, hey, listen, go
+
+NOTE Confidence: 0.9436153173446655
+
+00:12:31.712 --> 00:12:35.586
+take this Figma implementation, go grab it using the Figma
+
+NOTE Confidence: 0.9436153173446655
+
+00:12:35.653 --> 00:12:39.460
+MCP server, go find that design, grab the resources, grab
+
+NOTE Confidence: 0.9436153173446655
+
+00:12:39.526 --> 00:12:43.200
+all the design specs and pull that into my application.
+
+NOTE Confidence: 0.8887309432029724
+
+00:12:43.440 --> 00:12:47.137
+So it invokes this Figma for me automatically and it
+
+NOTE Confidence: 0.8887309432029724
+
+00:12:47.208 --> 00:12:50.906
+goes off and will then implement this design in near
+
+NOTE Confidence: 0.8887309432029724
+
+00:12:50.977 --> 00:12:54.320
+real time in the application, which is so cool.
+
+NOTE Confidence: 0.8633841872215271
+
+00:12:54.320 --> 00:12:57.820
+So it goes off, does its thing, I speed it
+
+NOTE Confidence: 0.8633841872215271
+
+00:12:57.903 --> 00:12:59.320
+up a whole bunch.
+
+NOTE Confidence: 0.8653315305709839
+
+00:12:59.640 --> 00:13:02.040
+It's going, going, going and boom.
+
+NOTE Confidence: 0.9394534826278687
+
+00:13:02.320 --> 00:13:05.273
+We basically have our entire application written for us that
+
+NOTE Confidence: 0.9394534826278687
+
+00:13:05.323 --> 00:13:07.440
+looks beautiful and boom, it's right there.
+
+NOTE Confidence: 0.6232373714447021
+
+00:13:08.120 --> 00:13:09.520
+Pixel perfect design.
+
+NOTE Confidence: 0.947931170463562
+
+00:13:10.840 --> 00:13:11.320
+Awesome.
+
+NOTE Confidence: 0.9627090096473694
+
+00:13:11.320 --> 00:13:13.827
+Yeah, and as we mentioned earlier, you can build your
+
+NOTE Confidence: 0.9627090096473694
+
+00:13:13.874 --> 00:13:16.239
+own servers and you can really do this for anyone.
+
+NOTE Confidence: 0.9156917929649353
+
+00:13:16.240 --> 00:13:19.342
+You could build it for your company, for other developers,
+
+NOTE Confidence: 0.9156917929649353
+
+00:13:19.395 --> 00:13:20.840
+for your friends, whatever.
+
+NOTE Confidence: 0.9255250692367554
+
+00:13:21.960 --> 00:13:25.238
+And there are SDKS for just about every programming language
+
+NOTE Confidence: 0.9255250692367554
+
+00:13:25.293 --> 00:13:25.840
+out there.
+
+NOTE Confidence: 0.9061716794967651
+
+00:13:25.840 --> 00:13:28.880
+And here at Microsoft, we actually maintain the C SDK.
+
+NOTE Confidence: 0.8345121741294861
+
+00:13:30.679 --> 00:13:32.845
+Now what's really cool is that you can build not
+
+NOTE Confidence: 0.8345121741294861
+
+00:13:32.890 --> 00:13:34.919
+only client applications like Get Up Copilot.
+
+NOTE Confidence: 0.8076982498168945
+
+00:13:34.920 --> 00:13:37.220
+So if you could embed and you can give your
+
+NOTE Confidence: 0.8076982498168945
+
+00:13:37.273 --> 00:13:40.430
+applications talk to MCP servers, but you can also actually
+
+NOTE Confidence: 0.8076982498168945
+
+00:13:40.483 --> 00:13:43.479
+create these servers with different types of transports.
+
+NOTE Confidence: 0.7936964631080627
+
+00:13:43.720 --> 00:13:46.240
+There's different types that may have different implications.
+
+NOTE Confidence: 0.8870600461959839
+
+00:13:46.440 --> 00:13:47.000
+Right, right.
+
+NOTE Confidence: 0.8730594515800476
+
+00:13:47.000 --> 00:13:49.864
+So if you're running local and you're using SDDIO, you
+
+NOTE Confidence: 0.8730594515800476
+
+00:13:49.917 --> 00:13:51.879
+can just get it right out-of-the-box.
+
+NOTE Confidence: 0.8993173241615295
+
+00:13:51.880 --> 00:13:55.350
+If you're running remote servers with server side events or
+
+NOTE Confidence: 0.8993173241615295
+
+00:13:55.409 --> 00:13:58.585
+streamable HTTP, which by the way made it in recently,
+
+NOTE Confidence: 0.8993173241615295
+
+00:13:58.644 --> 00:13:59.879
+you can also do that.
+
+NOTE Confidence: 0.8993669152259827
+
+00:14:00.200 --> 00:14:03.923
+And we even have a pull request for guess what
+
+NOTE Confidence: 0.8993669152259827
+
+00:14:04.004 --> 00:14:06.999
+authorization it's going to be there.
+
+NOTE Confidence: 0.927086591720581
+
+00:14:07.000 --> 00:14:08.960
+We're going to make it very secure out-of-the-box.
+
+NOTE Confidence: 0.8846991658210754
+
+00:14:09.200 --> 00:14:11.636
+So you can have your MCP server make sure that
+
+NOTE Confidence: 0.8846991658210754
+
+00:14:11.689 --> 00:14:14.231
+it securely connects to your data and gets it to
+
+NOTE Confidence: 0.8846991658210754
+
+00:14:14.284 --> 00:14:14.920
+your client.
+
+NOTE Confidence: 0.8635658025741577
+
+00:14:16.000 --> 00:14:18.311
+Now what's cool here is that there's a few different
+
+NOTE Confidence: 0.8635658025741577
+
+00:14:18.355 --> 00:14:20.000
+Nugent packages for c.net developers.
+
+NOTE Confidence: 0.9007220268249512
+
+00:14:20.000 --> 00:14:22.890
+A standard one and then 1 based on asp.net Core
+
+NOTE Confidence: 0.9007220268249512
+
+00:14:22.952 --> 00:14:26.519
+for doing those remote servers like Den was talking about.
+
+NOTE Confidence: 0.9358131885528564
+
+00:14:27.040 --> 00:14:28.760
+It's really super simple to get easy.
+
+NOTE Confidence: 0.9630591869354248
+
+00:14:28.760 --> 00:14:31.748
+In fact, it's literally less than 35 seconds, which is
+
+NOTE Confidence: 0.9630591869354248
+
+00:14:31.803 --> 00:14:32.799
+what we have left.
+
+NOTE Confidence: 0.8800305128097534
+
+00:14:33.160 --> 00:14:36.760
+Create a new console application, add the new packages into
+
+NOTE Confidence: 0.8800305128097534
+
+00:14:36.821 --> 00:14:39.080
+it and a Microsoft extension hosting.
+
+NOTE Confidence: 0.884879469871521
+
+00:14:39.720 --> 00:14:42.417
+From here we have a few using statements and all
+
+NOTE Confidence: 0.884879469871521
+
+00:14:42.473 --> 00:14:44.553
+we got to do is start to build up our
+
+NOTE Confidence: 0.884879469871521
+
+00:14:44.609 --> 00:14:46.519
+application, our app builder here.
+
+NOTE Confidence: 0.9426161646842957
+
+00:14:46.520 --> 00:14:49.219
+What we'll do is use standard IO in this case
+
+NOTE Confidence: 0.9426161646842957
+
+00:14:49.279 --> 00:14:52.219
+because I'm going to run it locally on my machine
+
+NOTE Confidence: 0.9426161646842957
+
+00:14:52.279 --> 00:14:54.979
+and I have a scan this assembly for tools and
+
+NOTE Confidence: 0.9426161646842957
+
+00:14:55.039 --> 00:14:56.839
+then I build it up from there.
+
+NOTE Confidence: 0.959534764289856
+
+00:14:56.880 --> 00:14:59.840
+I just start creating MCP tools.
+
+NOTE Confidence: 0.8661679625511169
+
+00:14:59.840 --> 00:15:02.475
+These are the APIs that the LLMS are going to
+
+NOTE Confidence: 0.8661679625511169
+
+00:15:02.534 --> 00:15:03.120
+call here.
+
+NOTE Confidence: 0.8416551351547241
+
+00:15:03.120 --> 00:15:05.574
+I can create an E1, I give it a description
+
+NOTE Confidence: 0.8416551351547241
+
+00:15:05.631 --> 00:15:08.485
+and a name, and that's what GitHub Copilot and the
+
+NOTE Confidence: 0.8416551351547241
+
+00:15:08.542 --> 00:15:11.225
+LLMS will look at to invoke to return a string,
+
+NOTE Confidence: 0.8416551351547241
+
+00:15:11.282 --> 00:15:13.280
+reverse a string, same exact thing.
+
+NOTE Confidence: 0.9266155362129211
+
+00:15:13.600 --> 00:15:16.123
+You can go off and easily create any of these,
+
+NOTE Confidence: 0.9266155362129211
+
+00:15:16.178 --> 00:15:18.976
+call your APIs, do anything that you want inside of
+
+NOTE Confidence: 0.9266155362129211
+
+00:15:19.030 --> 00:15:19.360
+there.
+
+NOTE Confidence: 0.9083625674247742
+
+00:15:19.920 --> 00:15:21.844
+What's great is if I have more time, I could
+
+NOTE Confidence: 0.9083625674247742
+
+00:15:21.887 --> 00:15:23.855
+show you all this stuff, but we have links at
+
+NOTE Confidence: 0.9083625674247742
+
+00:15:23.899 --> 00:15:25.080
+the end to the Monkey repo.
+
+NOTE Confidence: 0.9020718336105347
+
+00:15:25.480 --> 00:15:29.279
+There's tons of things happening in MCP from Microsoft Anthropic,
+
+NOTE Confidence: 0.9020718336105347
+
+00:15:29.338 --> 00:15:30.799
+and the entire community.
+
+NOTE Confidence: 0.8458243012428284
+
+00:15:31.000 --> 00:15:35.044
+Whether you're building, whether you're using, whether you're looking to
+
+NOTE Confidence: 0.8458243012428284
+
+00:15:35.100 --> 00:15:38.190
+host, there's amazing things happening in API M and API
+
+NOTE Confidence: 0.8458243012428284
+
+00:15:38.246 --> 00:15:38.639
+Center.
+
+NOTE Confidence: 0.8471158742904663
+
+00:15:38.840 --> 00:15:41.968
+It's API management API Center to take your existing REST
+
+NOTE Confidence: 0.8471158742904663
+
+00:15:42.023 --> 00:15:44.000
+APIs and turn them into MCP servers.
+
+NOTE Confidence: 0.8874434232711792
+
+00:15:44.200 --> 00:15:47.108
+But there's so much more you can do since these
+
+NOTE Confidence: 0.8874434232711792
+
+00:15:47.169 --> 00:15:50.387
+can run crunch data, call LLMS, do anything that you
+
+NOTE Confidence: 0.8874434232711792
+
+00:15:50.449 --> 00:15:53.481
+want to expose your data and make it available to
+
+NOTE Confidence: 0.8874434232711792
+
+00:15:53.543 --> 00:15:56.946
+these LLMS to make super powerful tools that all people
+
+NOTE Confidence: 0.8874434232711792
+
+00:15:57.008 --> 00:16:00.039
+can use, whether they're developers or end users.
+
+NOTE Confidence: 0.8021118640899658
+
+00:16:00.280 --> 00:16:01.960
+Here's a bunch of links and other sessions.
+
+NOTE Confidence: 0.8954230546951294
+
+00:16:01.960 --> 00:16:04.563
+There's also Hands on Labs and on Lamps on Demand
+
+NOTE Confidence: 0.8954230546951294
+
+00:16:04.616 --> 00:16:05.360
+to learn more.
+
+NOTE Confidence: 0.9696401357650757
+
+00:16:05.640 --> 00:16:08.144
+We'll be around to do so much more to talk
+
+NOTE Confidence: 0.9696401357650757
+
+00:16:08.203 --> 00:16:08.800
+about MCP.
+
+NOTE Confidence: 0.8919723629951477
+
+00:16:08.920 --> 00:16:11.080
+There's an MCP booth, so come check it all out.
+
+NOTE Confidence: 0.9365115761756897
+
+00:16:11.200 --> 00:16:13.128
+We hope you have a great build and come talk
+
+NOTE Confidence: 0.9365115761756897
+
+00:16:13.172 --> 00:16:15.319
+to us about MCPS and go build some awesome stuff.
+
+NOTE Confidence: 0.9057173728942871
+
+00:16:15.640 --> 00:16:16.040
+Thank you.

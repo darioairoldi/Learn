@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- Specify the default startup class -->
+    <StartupObject>Qwen25FoundryLocalSample.DiscoverAndRunModels</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Foundry Local core package -->
+    <PackageReference Include="Microsoft.AI.Foundry.Local" Version="0.1.0" />
+    
+    <!-- OpenAI SDK for inference (includes System.ClientModel dependency) -->
+    <PackageReference Include="OpenAI" Version="2.2.0-beta.4" />
+    
+    <!-- Logging support -->
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

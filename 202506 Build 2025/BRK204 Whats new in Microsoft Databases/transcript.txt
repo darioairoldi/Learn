@@ -1,0 +1,1561 @@
+Microsoft Build May 19-22, 2025 Session: BRK204
+
+[ Applause ]
+
+Arun Ulag: Hey folks.
+
+Good morning.
+
+Thank you so much for joining us.
+
+I'm Arun Ulag.
+
+I run the Azure Data Team here at Microsoft.
+
+We have tons and tons of exciting announcements today at Build.
+
+So let's just get started.
+
+We all recognize that AI is rapidly changing the world, and no surprise to anybody here.
+
+But we're all data people, and we also recognize that AI is only as good as the data that it gets to work on.
+
+The best AI models, if it doesn't have good data to work with, if you put garbage in, most likely you're going to get garbage out.
+
+That's why it's really important for customers to get their data ready for AI.
+
+And if you look at Microsoft, we have the most comprehensive portfolio of database products across the industry.
+
+Well, let's start with SQL Server, which, after three decades, still ends up being the leading enterprise database, leading on enterprise scale, enterprise reliability, and enterprise security.
+
+We're really excited to announce the public preview of SQL Server 2025 today here at Build.
+
+Thank you.
+
+[ Applause ]
+
+We also have a comprehensive portfolio of past databases, everything from Azure SQL DB to Azure Cosmos DB, which is our flagship NoSQL document database, as well as databases for both Postgres and MySQL.
+
+We have a ton of momentum across our database portfolio, but I wanted to focus and highlight three products that are all growing incredibly quickly.
+
+So wanted to start off with Azure SQL Hyperscale.
+
+We built Hyperscale to handle the world's largest transactional workloads.
+
+That's why Hyperscale can support up to 30 read replicas and can easily handle transactional workloads well above 100 terabytes.
+
+Now if you look at, in addition to scale, what hyperscale provides, we provide both highly elastic service with elastic pools as well as serverless clusters.
+
+And we're the only hyperscaler to do this for SQL.
+
+And if you look at price performance, Hyperscale really flies.
+
+It's more than 50% faster than AWS Aurora.
+
+Now a great customer I'd like to highlight for Azure SQL Hyperscale is UBS.
+
+UBS is one of the world's largest banking and wealth management companies.
+
+They chose to migrate off their Tier 1 mainframe database into Azure SQL Hyperscale.
+
+And Hyperscale today handles over two petabytes of data for UBS, over 50,000 tables, and over 400 billion records.
+
+The next database I wanted to highlight is Azure Cosmos DB, which is quickly becoming the database of choice for the world's AI workloads.
+
+And the reason is Cosmos DB is really AI ready from the get go, including capabilities like RAG and semantic search that is built in and right next to your operational data.
+
+Now Azure Cosmos DB also works at massive scale as a NoSQL document database.
+
+We have many, many customers that are already running with more than a petabyte of data betting on Cosmos DB.
+
+And Cosmos DB really, really flies from a performance perspective.
+
+We guarantee less than 10 milliseconds response times for both reads and writes.
+
+Now a great customer is NFL.
+
+And you might have seen the NFL video in Satya's keynote this morning.
+
+But NFL built their AI assistant to help their coaches get the guidance they need to spot the talent that they're looking to staff up the NFL with.
+
+And if you look at what they built, the AI assistant is built on Cosmos DB.
+
+It's also built on Azure OpenAI.
+
+And it's built on container services.
+
+Teams now get real-time insights in seconds, helping both coaches evaluate their talent faster, and helping athletes be assessed while they're still on the field.
+
+The third database I wanted to highlight is Azure Databases for Postgres.
+
+And Azure Database for Postgres is also AI ready.
+
+It has a whole bunch of capabilities around vector search, Azure AI extension, as well as graph rack, that are just built into the Postgres database.
+
+And it is 100% Postgres.
+
+So you can take any Postgres workload that is running on premise or any other cloud and just move it to Azure Database Postgres.
+
+It just runs.
+
+It's also a great destination for people who are migrating their Oracle databases.
+
+So typically, when they're migrating Oracle, they either go to Azure SQL or they go to Postgres.
+
+And Postgres is a great destination for Oracle migrations as well.
+
+It's also highly elastic with serverless clusters, and it's very autonomous, so that it does a lot of the heavy lifting for you.
+
+A great customer that uses Azure Postgres is BMW.
+
+Now BMW chose Postgres flexible server to be a key component of their mobile data recorder for vehicles because they wanted to use its built-in AI capabilities for handling conversations and chat history.
+
+We have a ton of momentum across our database portfolio.
+
+And I just wanted to highlight three things.
+
+If you look at Azure SQL, it is used by over 97% of the Fortune 500 today.
+
+So it is used at massive scale, pretty much handling a lot of the heavy workloads for most of the large companies on the planet.
+
+If you look at Cosmos DB -- now Bloomberg ran a recent survey of CIOs.
+
+And they found that Cosmos DB was the number one database for building AI applications across all of the clouds, across any hyperscaler.
+
+And you probably know that ChatGPT itself is built on CosmosDdB.
+
+And if you look at Postgres, you might be excited to learn that Microsoft has more committers on Postgres than any other hyperscaler.
+
+We not only make Postgres available, but we actively contribute back to the Postgres community.
+
+And we're number one in terms of Postgres 17 commits.
+
+Now we have tons and tons of announcements for our database portfolio here at Build.
+
+And this slide just gives you an overview of all the announcements that are landing this week at Build.
+
+Now of all of these announcements, and Shireesh is going to go into many of them in his session right after me, but there's one that I wanted to highlight, which is the public preview of SQL Server 2025.
+
+Now SQL Server 2025 is built to being AI ready, which means it has vector search that is just built into SQL Server itself.
+
+It continues to offer best-in-class reliability, enterprise scale and performance, which you've known to grow and love about SQL Server.
+
+It's also a database that has Fabric integration built in, which means all the data that is sitting in SQL Server is also available in OneLake in the open source Delta Parquet format for you to use across your data estate.
+
+And just like every version of SQL Server, SQL Server 2025 will also be available in any location and in any cloud.
+
+Now we just completed the private preview of SQL Server 2025 going into the public preview today.
+
+And the excitement that we saw was massive.
+
+It had over 2x the adoption that we saw with SQL Server 2022.
+
+So there's a lot of pent up demand.
+
+And the number one feature that customers were most excited about and most widely used, no surprise, were the AI capabilities that were just built into SQL Server.
+
+I wanted to thank all the customers that participated in the private preview, because they gave us tons and tons of great feedback, specifically Intel, Mediterranean Shipping, Hewlett Packard, and AMD.
+
+Now as we invest across our database portfolio, there are four pillars that we're investing in, making sure that our entire database portfolio is best for enterprise class applications, is best for AI developers, so you can build your AI workloads right in.
+
+We're trying to SaaS-ify the database experience so databases just run.
+
+And we're trying to make sure that all of your data is integrated into OneLake, so you have an integrated data estate.
+
+So to go deeper into these four pillars and show you tons of exciting demos, I'm going to welcome Shireesh Thota, who's a Corporate Vice President of Azure Databases.
+
+Shireesh, over to you.
+
+[ Applause ]
+
+Shireesh Thota: Thank you, Arun.
+
+I'm Shireesh Thota.
+
+Super excited to be here to talk about what's new in Azure Databases.
+
+I'm going to expand on all the cool things that Arun has just touched upon.
+
+So it's really cool to see you all here.
+
+We absolutely talked about AI being a transformative moment.
+
+It's not just an optional thing.
+
+It's absolutely a must for many of the businesses.
+
+What it means for our customers is that they're racing to build personalized experiences.
+
+They want to unlock more insights.
+
+They want to gain more reliability and so on.
+
+In the rush to embrace AI, it's easier to mistake some important ingredients of AI strategy, which is about data.
+
+Well, whether you are training your data or building the next generational AI application, you got to realize that your data strategy is the one that's going to define your AI strategy.
+
+And this is where Microsoft knows how to build data platforms that can help you build those things.
+
+We aspire to always build platforms that are secure.
+
+You can trust them.
+
+They are scalable, so that you can then go and innovate and build your transformative applications which can help you with your competitive differentiation.
+
+How do we go do that?
+
+Well, these are the four principles that Arun has touched upon.
+
+Resiliency and security are the core pillars.
+
+We are trying to address our core cohort of enterprise customers.
+
+We want to ensure that your developers get to perform in their favorite tool chains and ecosystems.
+
+We want to ensure that the databases offer you the best of AI search capabilities, vector indexing, rack patterns, and much more.
+
+With Fabric, we are taking it a notch up on the spectrum, going from IaaS to PaaS and now to SaaS.
+
+We want to reduce the time to value for your applications.
+
+And we know, we've heard a lot from our CIOs and CTO friends that they want to think about their entirety of the data.
+
+And this is where, with mirroring for operational databases coming into Fabric, and with ARC, we can give you a lot of Azure AI attached to your data wherever it resides.
+
+It could be on premises, your own data centers and whatnot.
+
+And so in this journey, you basically need a portfolio of applications, of developers, of databases that they can thrive on.
+
+Here's our portfolio.
+
+You really need it because AI applications requires a data platform that can scale, that is secure and trustworthy.
+
+And so you've got to have a comprehensive portfolio, not just to store and process the data, but to query it and serve it efficiently.
+
+And Azure databases know how to do that.
+
+The number one thing for you to do that is to move your data into the cloud to get the most of out of it.
+
+So you need a partnership that can help you modernize and migrate your applications, that can be relied on.
+
+And that is really where SQL shines.
+
+It's built on a technology that's been battle tested for several decades.
+
+And as your platform evolves, so does your data foundations.
+
+Your developers would be served well when they can combine the flexibility of open source with that of Azure seamless integration, security, and AI integrations.
+
+This is where PostgreSQL and MySQL will shine.
+
+And if you are in the market searching for a semi structured, globally available, highly distributed scalable solution, Cosmos is the right answer.
+
+And then Fabric wraps it all up in a unified, pre-integrated SaaS environment that is custom built for exact personas in their entire data journey.
+
+So let's go through one by one of these portfolios, starting with SQL.
+
+Well, we've already announced the SQL 2025.
+
+You've heard there's a lot of excitement here.
+
+It's exciting because you can now use this database to store your intelligent application -- to build your intelligent applications.
+
+It got some amazing features.
+
+It has features such as vector data types.
+
+It has pre-integrated framework supports.
+
+It's a lot of rich ecosystem.
+
+It has amazing support for seamless analytics and cloud agility through Fabric and ARC.
+
+And that's not all.
+
+Azure's flexible app migration, deployment, and modernizations can help you build SQL applications in your familiar tools and frameworks wherever you are in your journey.
+
+And now speaking of developers, I'm thrilled to announce the general availability for SQL Server Management Studio 21.
+
+SSMS 21 is now generally available, and it comes with lots of features.
+
+We know that this is a tool that's loved by DBAs and app developers across the board.
+
+And they've been using this tool for, well, several decades now.
+
+And SSMS 21 is a complete override of the previous version.
+
+It basically is written on Visual Studio 2022 shell.
+
+It supports 64 bit.
+
+It has some amazing area features, such as Git integration.
+
+It supports dark mode.
+
+It basically has a new query editor, a results grid, Azure authentication, and a lot more.
+
+So it's a huge upgrade.
+
+If you haven't tried SSMS 21, I highly encourage you to do that.
+
+And then as we are basically bringing in a lot of new features into SSMS 21, one of the cool things that we have done is the public preview of SSMS 21 Copilot in SSMS.
+
+And this helps you write some intelligent queries.
+
+It's not just about authoring the queries, but also editing and tuning them in natural language assisted by AI.
+
+And the most important thing here is that all your responses that you'd get out of this Copilot are grounded in the context because it's connected to your database in your environment.
+
+So if you have any questions about the database implementation, maintenance, configurations, et cetera, go ahead, ask Copilot.
+
+You'd get highly accurate and relevant results in a natural language with very easy, seamless fashion.
+
+Now let's move a little bit further to the north and talk about the Azure Managed Services.
+
+This is the Azure SQL family.
+
+And this is basically built on the same SQL engine that's been battle tested for decades.
+
+And it is trusted by 97% of our Fortune 500 customers.
+
+So it can help you with anything that you're looking at in terms of modernizing your applications.
+
+In the entirety of your life lifecycle, it can be a partner.
+
+Imagine you're rehosting your application to a SQL VM, if you're modernizing and migrating through SQL Managed Instance, or building a completely new application with SQL Databases.
+
+No matter what you're doing, we got the platform that is rooted in security, simplicity, and AI integrations.
+
+Now I want to zero in on our Azure SQL databases, our flagship databases that are tuned for cloud-native applications.
+
+They're great because they can help you with performance tuning, because it has intelligent query processing and autotuning built in.
+
+It can help you build AI applications with lots of frameworks, tooling supports, et cetera.
+
+It has ready integration with REST APIs and OpenAI.
+
+It can help you keep your data secure because it has threat control, threat protection, built-in security constructs and even a high availability SLA of four 9.5, four 9 and 1/2 percent.
+
+And with Hyperscale, you get an insane amount of scalability because you decouple the storage and compute.
+
+You could do quite a lot of new applications.
+
+Well, I want to talk about some of the new innovations that we've announced at SQL Hyperscale.
+
+Two features in particular that I'm very excited to announce general availability, number one is continuous priming.
+
+What it basically offers you is a consistent, optimized performance even during failovers, because the secondaries that you're going to fail over to are prime for the changes.
+
+So you really don't have any lag in terms of your performance.
+
+The second thing is increased log throughput rate, up to 150 megabits per second.
+
+This is really a lot and basically helps you write high-performing applications, especially write heavy workloads.
+
+So with all this, we truly believe that Azure SQL family, Hyperscale in particular, it's ready.
+
+It's primed to help you build modern applications.
+
+Your developers are going to love it.
+
+If you're building a new cloud native application, this is a really good place to start.
+
+And to prove that more, we have some more announcements here.
+
+We know that VS Code is the go-to editor for many of our developers.
+
+And so naturally, we've been investing in the MSSQL extension for VS Code.
+
+MSSQL here is Microsoft SQL extension.
+
+That's the name of the extension in VS Code.
+
+And it has got tons of features.
+
+We keep on introducing more and more things.
+
+The new one that we're introducing is the SSMS -- the Copilot capabilities in addition to the SSMS Copilot.
+
+That's different.
+
+And this is built into the VS Code extension itself, which is, again, great because you could generate the queries.
+
+You can do ORM migrations, explore schemas.
+
+You can do a lot of seamless interactions with the database, all being inside the VS Code.
+
+Furthering on the developer experience, one of the cool things, and we've heard a lot from our customers is one of the most sought-after features, is a support for semi-structured data built natively into the relational tables.
+
+And this is great for flexible schema modeling and seamless API integrations.
+
+Well, we're thrilled to announce a public preview of JSON indexing.
+
+Now this is great because you can now write highly performing semi-structured applications because you could index the data that you stored in your JSON type.
+
+The second thing that I want to touch upon here is native JSON types and aggregation.
+
+Thi
+
+This comes with an optimized binary storage, in-place upgrades, and seamless aggregation of your relational data into JSON types.
+
+These are amazing capabilities for your relational data to be multimodal, enabling you to take the data as it comes, because most of the data these days is born as JSON.
+
+So we want to basically consume it and provide the entirety of the rich asset capabilities that you have come to appreciate and love about SQL.
+
+Now I've talked a lot about all these capabilities.
+
+I think it's time for me to introduce Priya Sathy, our Product Leader for SQL, who's going to show all these things into action.
+
+Priya, take it away.
+
+[ Applause ]
+
+Priya Sathy: Thank you, Shireesh.
+
+Hey folks.
+
+As you've all known, SQL Server has supported free text based searching for the decades.
+
+But today I'm going to show you a demo of how you're going to be able to use the AI capabilities in SQL Server 2025 to build natural language style intuitive search experiences.
+
+So as a developer, I can get started on prem right here on my laptop.
+
+And I can start by hosting an embedded model such as Ollama.
+
+I can use the "Create External Model" statement to declare it in SQL.
+
+Pretty straightforward.
+
+But a few other things.
+
+I can create a table with a vector data type.
+
+It's a new data type that supports embeddings in binary format.
+
+And I can also do something else.
+
+I have access to a TSQL function to generate embeddings based on the model of my choice.
+
+So this is all great.
+
+But then I want to do vector searching.
+
+But how great is vector searching without a vector index?
+
+Well, guess what?
+
+We've got the ability for you to define a vector index as well, which is based on the popular DiskANN technology.
+
+So let's put it all together.
+
+I'm going to now create a stored procedure that takes a natural language prompt.
+
+And in this prompt, I'm going to ask it to generate embeddings based on that model that I just defined.
+
+On top of that, I'm going to do a vector search, so I get semantically similar search results for a query.
+
+Okay.
+
+Great.
+
+Want to see it in action?
+
+All right.
+
+Let me go execute this stored procedure next.
+
+When I execute, and I'm passing it a simple prompt here in English, what you can see is I'm going to get search results that are very rich, richer than what I could have gotten with just free text search.
+
+But you can also see I'm seeing some other language here in my results.
+
+So my model probably doesn't support multiple languages, but that's okay.
+
+First thing I want to really do here is make sure I indeed do have multiple languages in my data.
+
+Let's use Copilot, SSMS Copilot.
+
+And I'm going to ask Copilot to help me a little bit here and ask it if I have any tables with embeddings.
+
+Copilot lets me know that I do have a table.
+
+And guess what?
+
+That is a table that I had just created with a vector data type.
+
+Next, I want to explore some of my data.
+
+And I'm going to ask Copilot to help me here as well and ask me for some top 10 rows.
+
+Here, as Copilot starts retrieving the data, what you're going to see and what I'm seeing is not only do I have English, but I also have some product description here in other languages.
+
+You can also see that embedded value in character format.
+
+Okay.
+
+So this is all great.
+
+Now this tells me I probably need to use a completely different model.
+
+So I need to change my AI model that's supporting multiple languages.
+
+Folks, no worries.
+
+SQL Server 2025 makes that really easy.
+
+I go back to that model definition, and I just change it to Azure OpenAI, because Azure OpenAI supports multiple languages.
+
+Just that simple.
+
+And now let's go back execute that stored procedure.
+
+I take that prompt in English.
+
+I get great, rich results in English language.
+
+And guess what, folks?
+
+I can do something else.
+
+If I change my prompt to the Chinese language and execute the stored procedure, I'm going to get my product description results in Chinese.
+
+Folks, no other enterprise database on the planet can do something like this so easily, so seamlessly.
+
+This is all great.
+
+[ Applause ]
+
+But we also promise you security.
+
+SQL Server gives you the ability to secure your access to Azure resources.
+
+So how do you typically do it today?
+
+Let's start with that first.
+
+So if you go back to the model definition, I have something here where I'm accessing the OpenAI endpoint, and I have a credential name.
+
+If you're coming from the SQL world, you know that you have to do this by defining a database scoped credential.
+
+This is exactly how you do it.
+
+And you give it an API key.
+
+What's an API key?
+
+Just like a password, not as secure.
+
+But today, with SQL Server 2025, we're excited to give you the ability to connect your Azure resources using Microsoft Entra Managed Identities.
+
+So you can use Managed Identities and access not only OpenAI, but you can access anything in Azure that uses Managed Identities.
+
+Lot more secure.
+
+How do you set this up?
+
+Again, really simple.
+
+Go into your Azure portal and ARC enable this SQL Server 2025 instance.
+
+That's it, folks.
+
+That enables you to use Microsoft Entra Managed Identities and increase your security posture as an organization.
+
+So I'm not done yet.
+
+I've got AI.
+
+I've got security.
+
+But now as a developer, I really want an AI application.
+
+I'm going to start with my favorite tool, Visual Studio.
+
+And I'm going to use my Microsoft SQL extension and connect to my SQL Server 2025 instance.
+
+Now something new here.
+
+When I click on a database, you're going to see this ability to chat with my database.
+
+Not only am I going to be able to query things on the database, but something new and interesting here.
+
+I can ask it to generate application code, folks.
+
+And I'm asking it to use the new Semantic Kernel and the new SQL Server vector store information and generate me code.
+
+Copilot gives me the C Sharp code right here.
+
+And as you can see, it's prepopulated my connection string with this database information.
+
+It's also giving me very important information with the new vector store.
+
+It's initializing the Semantic Kernel.
+
+And it's giving me a complete example of doing vector search with a natural language prompt.
+
+That's it, folks.
+
+I have been able to create an AI application just by using the capabilities of the database itself.
+
+So now let's move on.
+
+Now Shireesh talked about how our vision here at Microsoft is to bring to you all these capabilities, not just on prem in the ground, but also in the cloud, in Azure and in Fabric.
+
+And so for this next demo, I'm going to walk you through how you can build an enterprise scale AI-ready app in Azure SQL Database and using Data API Builder.
+
+So for this demo, I'm going to walk you through an insurance web app that I've built using Hyperscale.
+
+Hyperscale, as you know, is our modern database that features scalable compute and storage.
+
+It grows with you as your needs grow.
+
+My app here is really straightforward.
+
+It just helps my insurance agents manage their customers, policies.
+
+I don't really want to do much changes in the app.
+
+I just want to extend the database capabilities.
+
+So first thing I'm going to bring in Data API Builder or DAB.
+
+(On screen: aka.ms/dab) Now what is it?
+
+It's Microsoft's open-source tool that lets you take any database, Microsoft database, and its objects and convert them into REST endpoints or GraphQL endpoints.
+
+And you can also manage permission right here.
+
+All of this just by configuring the DAB file.
+
+That's it.
+
+Once I'm done with setting up claims token based on the user, in context, you can go see when I pull up the app, and I have a DAB console on my lefthand side.
+
+As I'm navigating through the app, DAB is producing the SQL for me.
+
+I'm focusing on the app.
+
+Next thing I want to do is bring a document from my CRM system into the database.
+
+Again, easy.
+
+Shireesh talked about our support for JSON.
+
+The new JSON data type lets you store up to two gig size documents.
+
+But it's not only that.
+
+How can it be performant?
+
+Well, we're bringing to you a new JSON index as well, which is going to make those queries and searches super performant.
+
+On top of that, constraints.
+
+Here in this example, we're using a regular expression to check customer email address format validity.
+
+Now the other thing I can do here in Azure SQL as well, I can use all those AI capabilities.
+
+I can use the vector data type to define my embeddings.
+
+I can also go ahead and use -- invoke external REST endpoint stored procedure to invoke any of my Azure endpoints securely.
+
+Now as you can see in this example, I'm just invoking the OpenAI endpoint, getting results back with enriched data and storing it back in the database.
+
+I can use all those vector search functions that I talked about earlier, vector distance as well.
+
+All of that is available in Hyperscale as well.
+
+So now the other thing I want to do is I want the user to be able to chat with AI.
+
+But in addition, I want AI to be able to manipulate the data in the database.
+
+Now I bring in basically an MCP server, model context protocol server.
+
+To set this up, all I have to do is two things: go into that DAB configuration file and give it the MCP endpoint; and the second thing is I got to give the MCP tool lots of instructions on querying, inserting, updating, basically manipulating the data and the claims token.
+
+What does this do?
+
+Now just like that, I've enabled a superb chat experience without building an application editor.
+
+And you can see here, I'm asking it to list my customers.
+
+I'm getting my customers in my context.
+
+I can do more sophisticated things via chat, like I can go update names of my customers.
+
+Or maybe I do something even more sophisticated.
+
+Samantha got married.
+
+She wants to change her name, her address, and she wants to insure her new wedding ring.
+
+Well, all of that just via chat.
+
+I didn't have to build application capabilities.
+
+And I can trigger off complex business rules like sending out emails to Samantha on her update to her policy.
+
+And folks, that's it.
+
+I've used all these capabilities, made minimum application code changes, used the database AI and developer experiences to build this application.
+
+And with that, thank you.
+
+And back to Shireesh.
+
+[ Applause ]
+
+Shireesh Thota: I'm a little disappointed.
+
+I did not get the wedding invite for Samantha's wedding, but it must be lost in the mail or something.
+
+All right.
+
+So there you have it, folks.
+
+We saw how Azure SQL can go take your applications from the ground all the way to the cloud with significant amount of developer love, with DAB, with JSON indexing and much more.
+
+So let's talk about a customer that we're really excited about, who's bringing in all the goodness of SQL and AI together, Mondra Global Limited.
+
+And Mondra basically helps the food retailers assess the environmental impact of the products that they are stocking.
+
+This product lifecycle assessment was taking them several weeks.
+
+In fact, in many cases, months.
+
+So they turned to Azure.
+
+They basically built an AI Copilot called Sherpa.
+
+They've used Azure SQL Hyperscale.
+
+They've used Semantic Kernel and Azure Kubernetes Service to basically rethink about their entire architecture.
+
+They brought in all their data, created embeddings stored in our vector store in Azure SQL Hyperscale, and completely rethought about how to think about product lifecycle assessments.
+
+Now thanks to the solution, they basically were able to assess 60,000 products with a million plus ingredients.
+
+Now they're able to do the product lifecycle assessments in near four hours.
+
+That's a massive upgrade.
+
+So these are the kinds of examples that we are very excited about when we are serving with SQL Hyperscale and the rest of Azure ecosystem.
+
+Now let's move forward and talk about the OSS databases.
+
+Now OSS are quite the rage.
+
+Obviously, there's so much of popularity for the open source.
+
+Thanks to the flexibility of the open source, vibrant community support, scale and much more, they're increasingly becoming the backbone of all the way from enterprises to small and medium companies.
+
+And they are very popular.
+
+In the AI applications, they help you do real-time recommendations, conversational agents, autonomous decision making, intelligent applications and much more.
+
+And this is the reason why Azure Data -- at Azure Data, we're very thrilled to support two of the most popular open source databases in both PostgreSQL and MySQL, combining the flexibility of open source with everything that Azure has got, including AI integration.
+
+Now we already seen customers using Postgres for a lot of their applications, using our AI extensions for vector search, generative AI applications like semantic search capabilities and much more.
+
+And with MySQL, it really helps customers to build real time analytics, intelligent transactional dashboards with AI driven commerce and much more.
+
+Well, let's start with Postgres announcements.
+
+The first thing that I'm very thrilled about is DiskANN capabilities for PostgreSQL.
+
+This is in GA today.
+
+And this is basically going to help PostgreSQL, our version of Azure Database for PostgreSQL, FLEXCUBE, going to be much more performant in both relevancy and accuracy, because it out competes the existing open source Postgres extension, pgvector.
+
+This DiskANN is a leading family of vector algorithms, and you'd hear a lot about DiskANN across all our data portfolios.
+
+The second thing that I want to touch upon is semantic operators.
+
+Now vector search is amazing, but it becomes even more better when you have semantic understanding between the entities.
+
+And so we're thrilled to announce the public preview of semantic operators in Azure Database for PostgreSQL, thereby bringing a significant amount of gen-AI-based reasoning.
+
+So what are semantic operators?
+
+So it basically enables your application to have a massive amount of flexibility.
+
+It lets your developers infuse natural language expressions as part of your query.
+
+You can think of it as a little bit of an inversion of natural language query, wherein, instead of giving the entire text and getting a SQL, PL/SQL, pgSQL, here, basically you keep writing the PSQL, the existing structure remains, but you infuse the semantic expressions in the right places, and thereby making your query significantly more powerful, while having the right control.
+
+So this is a novel paradigm, and we have four operators here.
+
+Generate is going to give you arbitrary style ChatGPT generations.
+
+is_true is a semantic way of expressing a predicate, whether it's true or false.
+
+Extract, that helps you gather a lot more knowledge about entities.
+
+And Ranking is going to help you improve your relevancy.
+
+So as you can see here, you could basically use this free-flowing semantic expressions to make your SQL queries a lot more powerful.
+
+Well, in the midst of all this stuff, we haven't forgotten the importance of high availability.
+
+So we have been working significantly here in terms of rearchitecting our high availability stack.
+
+And so we're thrilled to announce the public preview of High Availability with Azure Premium SSD v2 disks.
+
+This offers you less than 10 seconds failover time, and we haven't compromised the performance as compared to the SSD (inaudible) stack.
+
+So really big step in the direction of HA here.
+
+And developers, naturally, at Build, we care about your developer attention.
+
+So VS Code has been something that we've been thinking about Postgres for a while.
+
+We do have an extension, but we have taken a new look at it.
+
+We'
+
+Charles is going to show a demo of this, but basically, this new extension can help streamline your database interactions.
+
+It centralizes workflows between Postgres and MySQL and Postgres and VS Code without having you to basically switch contexts or to do some complex configurations.
+
+You can really run it across the board.
+
+You can run it on a production PostgreSQL, containers, on premises, and much more.
+
+So naturally, the other thing, anything that has a VS Code, we are basically building the Copilot capabilities.
+
+So we do have a public preview capability for Postgres as well.
+
+Helps you build highly performing generative AI queries built inside VS Code, helps you administer and really monitor your database directly in VS Code.
+
+So with all that, obviously, we should see a demo here.
+
+Charles Feddersen, the Product Leader for PostgreSQL, is going to come and bring all this to life.
+
+Charles Feddersen: All right.
+
+Good morning, everybody, or good afternoon.
+
+So as Shireesh mentioned, we've made a number of announcements for Postgres, including VS Code and then performance and optimization for indexing.
+
+So today I'm going to give you a whirlwind tour of some of those, and we can take a look.
+
+Let's start in VS Code and with the absolute basics.
+
+We'll go and connect to a server.
+
+And you can see three options.
+
+You can choose from Parameters, Connection String, or an Azure Experience.
+
+And if we work through that Azure experience, it's everything that you'd expect, dropdowns prepopulated with your subscriptions, resource groups.
+
+You can filter on location.
+
+But critically, Entra support is native.
+
+Node credentials are stored in the cloud.
+
+You can easily connect to your Azure Database Postgres.
+
+Now on the lefthand side, if we switch over the Object Explorer, the classic experience you'd expect.
+
+We can expand through the various objects.
+
+We can look at those top 1,000 results.
+
+We get VS Code's experience of filtering.
+
+And then we can also take these results, and we can export them through Excel, JSON or even CSV.
+
+Now we're in VS Code, of course, so we need to take a look at Copilot.
+
+Now we've optimized Copilot for Postgres.
+
+And so in this experience, we're doing an NL to SQL.
+
+I've actually asked a question of the database.
+
+Copilot figures it out and gives me the results set in the Copilot pane.
+
+But if you're still building up your confidence in Copilot, and some people are, you've got a full query history there where you can see exactly what Copilot generated.
+
+And you can verify that that SQL looks correct.
+
+And for a prompt, we give you the comment of the question that you asked as well.
+
+Now Copilot is really phenomenal for optimizing Postgres queries as well.
+
+Postgres being open source means that LMs know a lot about it.
+
+So here we asked how to analyze an existing query and said we've got a 38-millisecond runtime.
+
+But it's given me an option for an optimized version.
+
+If I take that and run it, we get the results.
+
+And if we ask Copilot to analyze it again, we'll get the same set of steps explaining the query plan, but we can see that the execution time is now only eight and a half milliseconds.
+
+If you think about the time that you spend debugging queries, Copilot is an amazing accelerator for doing some of that.
+
+Now let's look at DiskANN.
+
+This is a query running DiskANN over 35 million vectors.
+
+And as you can see, it comes back in under a second.
+
+Now if we're to put that through its paces, we can take the left hand pane, which is HNSW, the open source state of the art, and the righthand side is the same workload running DiskANN.
+
+On the left, HNSW's average latency is a little over one second.
+
+DiskANN in Postgres, using the product quantization feature that we shipped to build to optimize performance, is a little over 100 milliseconds.
+
+Awesome for those highly responsive chat-based apps on Postgres.
+
+Now if we come back to DiskANN in and of itself, the index is great for searching over those vectors and providing a result set.
+
+What you can see here is we were ordering by the similarity for the highest playtime.
+
+Yet, we've got 42 hours, 62 hours.
+
+It's not quite the order.
+
+We're not quite getting them in the order we'd expect back.
+
+So now we can use the semantic operator Rank that can invoke a machine, an AI model to help us reorder those.
+
+The top of this query, queries against the index.
+
+The second part is using GPT-4.1 mini to then reorder the subset of results from the database to provide a better order to give the best results at the top back to wherever your app is going to go use them.
+
+So here you can see with 165 hours now, that looks like a better ordering.
+
+Finally, let's talk about graph.
+
+This is actually just an image in an IPython notebook which demonstrates the flexibility of VS Code.
+
+We built a graph beforehand where we've got product, review, and feature tables combined in a single graph.
+
+And with the age extension in Postgres, which we've GAed at Build, you can now run cipher queries natively in Postgres.
+
+If you're used to graph-based systems, you could do that in Postgres as well.
+
+This is a really simple example of bringing product, review and feature together.
+
+But where it gets really powerful is with some more advanced scenarios.
+
+Here, we're basically looking for headphones that are comfortable and have positive reviews.
+
+And what this query is effectively doing is looking at all of the reviews that had positive sentiment for these characteristics, joining it back to the product catalog, counting them uniquely and giving us the results set back.
+
+And so it's not your traditional relationship of primary keys and foreign keys.
+
+It's actually a semantic relationship between the data powered by graph in Postgres.
+
+So we've shown a number of things here.
+
+We've shown the sheer performance of DiskANN.
+
+We've shown how you can use graph in Postgres.
+
+And we've shown the new semantic operators for connecting data where a relationship may not naturally exist.
+
+We did it all in the new VS Code extension and complemented by Copilot.
+
+Thank you very much.
+
+Back to you, Shireesh.
+
+[ Applause ]
+
+Shireesh Thota: Thank you, Charles.
+
+Before we move forward from Postgres, I want to talk about one of our favorite customers, PTC.
+
+PTC Global is basically a world class leading product lifecycle management company.
+
+They've decided to move 300 of their complex customer scenarios to Azure Database for Postgres SQL.
+
+They also used AKS Semantic Kernel, Azure Database Migration Services.
+
+Once they moved, they basically have gotten a lot of awesome capabilities, such as increased reliability, faster processing, and lot more telemetry.
+
+And they did all this stuff by gaining a significant amount of cost efficiency, which they could go then focus on their applications to enable their customers with great generative AI applications.
+
+Now before I finish the OSS section, you may be wondering -- some of you probably are MySQL customers.
+
+And there is a specific challenge and ask that many of our customers ask.
+
+They want to basically discover the MySQL instances and figure out if they're ready to move to Azure Databases for MySQL in the cloud.
+
+So with Azure Migrate now in public preview, we got you exactly covered for that.
+
+We can help you discover your MySQL instances, their attributes in their own environments, and then help you assess their readiness to go to Azure Database for MySQL flex instances.
+
+In addition, we'll tell you the right sizing for your storage and costs, so you are not really overpaying for it, and you're effectively moving it in a very optimized fashion.
+
+So that was about OSS databases.
+
+Now we move on to the third chapter, which is Cosmos DB.
+
+Now Cosmos DB is, as Arun was touching upon, this is one of the most popular open source, sorry, NoSQL serverless vector indexing databases.
+
+And why is it popular?
+
+So couple of reasons.
+
+One, it offers you a flexible schema-less application development.
+
+It has an amazing single-digit millisecond latency guarantees for reads and writes worldwide.
+
+It has an unprecedented HA characteristic, both zonal as well as regional.
+
+And we have a lot of new announcements in the high availability category, which I'm going to touch on in a minute.
+
+Most importantly, it's wrapped with vector indexing all over the place.
+
+So with that, let's go look into some of the cool announcements here.
+
+So if you are building new applications, generative AI applications, customizing your apps, you'll be thrilled to understand and learn that Cosmos DB data can now be used to build your solutions that are natively integrated into AI Foundry.
+
+You could use it through the native portal or embed it into your intelligent applications through the Foundry SDK.
+
+And so when you do this, you basically get lots of cool capabilities.
+
+But one of the things that is now in preview is bring your storage for thread services.
+
+So what are threads?
+
+Threads are basically structured conversations between users and agents.
+
+So when you bring in storage, especially one like Cosmos DB, you basically can preserve the context across the conversations, making your applications, whether it is a general regular application or an agentic end to flow, it basically makes the interaction a lot more effective, because the context and the memory is preserved.
+
+And so that is really how Cosmos DB is enhancing the thread services in AI Foundry.
+
+This is another feature that's really popular and something that most of our customers have asked for, global secondary indexing.
+
+So today, when you basically build a Cosmos DB database, it has a partition key.
+
+And if you are querying the database which is scoped to a partition key, it's pretty effective.
+
+It basically does really good job because it's routed directly into the partition key.
+
+But if you have a query that doesn't have the scoping to the partition key, then it has to fan out.
+
+It can be a little expensive.
+
+Global secondary indexes solve exactly that.
+
+What are global secondary indexes?
+
+Well, these are basically read-only containers that are continually sourced from the original container, but with a small twist.
+
+It basically comes with a new partition key.
+
+You could go and choose it in a different way.
+
+So the data is organized in a different way.
+
+So if you have a query that needs to be queried on a -- not on the source partition key, but on a different one, go ahead, use the global secondary indexing.
+
+It's going to significantly improve your query performance.
+
+And we talk about search.
+
+Naturally, vector search is very important.
+
+But in addition to that, there's also full-text hybrid search with phrase searches, and this is now generally available.
+
+What it means is that you can bring in your Cosmos DB data, do a significant amount of text analytics with things such as tokenization stemming.
+
+Now you could combine the vector search with tools such as BM25 base searching, thereby giving you a significant amount of relevancy and accuracy.
+
+We're also excited to announce the public preview capability of multi-language support in full text, as well as fuzzy search.
+
+Now these capabilities helps you to be more flexible, helps you understand some typographical errors in your searches, and basically give it with scoring in multiple languages, all basically tuned for performance.
+
+So really cool features in terms of the search space.
+
+And then, always, high availability is an important area for Cosmos DB.
+
+I want to spend a couple of minutes here.
+
+So whether you have speeds and feeds or not, one of the things that you really cannot trade off is responsiveness and high availability, even in the face of a local outage.
+
+And this is where per partition automatic failover really is one of the most differentiated announcements that are coming from Cosmos DB.
+
+So today, if you have an outage, you basically can fail the entire database and the entire account.
+
+That works just fine and gives you really cool capabilities.
+
+But often, you have these micro outages where you may have a single partition that's undergoing a repair or maybe not responsive to your application's SLAs.
+
+But per partition automatic failovers, you don't have to engage the entire failover.
+
+You can do just the surgical amount of failover.
+
+So what this means is that now Cosmos DB has zero downtime.
+
+This is really a critical RTO guarantee.
+
+With multi-writer capability, you would have gotten that.
+
+But now with single writer, multi-region as well, you get the zero downtime guarantee.
+
+The second one is zero data loss.
+
+This is RTO guarantee.
+
+If you want to have a global consistency, absolutely not ready to lose any data, even in the face of a regional outage, we got you covered.
+
+That's what zero downtime offers you -- zero data loss offers you.
+
+Zero touch.
+
+Per partition automatic failover makes it super seamless.
+
+Your SDK will figure it out.
+
+You don't have to go into the portal and figure out how to failover, which region to failover, how to manage your topology, none of that.
+
+It's extremely simple.
+
+And that's the reason why we are proud to say Cosmos DB is the 000 database, RTO zero, RPO zero.
+
+Absolutely no reason for you to do any manual touches.
+
+And this, folks, is one of the most differentiated offering in the entire industry of databases.
+
+[ Applause ]
+
+And I want to show a little bit about our ISV and SaaS vendors who've been asking about managing their fleets of Cosmos DB accounts.
+
+As you keep adding more and more tenants, it becomes a little harder to monitor and manage them.
+
+So with fleets, we make it extremely easy.
+
+It's as simple as going and provisioning your throughput, but now can be shared across the accounts.
+
+And while you do that, you get the same amount of performance and security characteristics that you would have otherwise gotten when you're provisioning a single account per tenant.
+
+But here, by doing this, not only are you able to monitor them very easily.
+
+You're also getting a significant amount of cost efficiency.
+
+So this is a really important feature.
+
+If you are thinking about building multitenancy, ISVs, if you're SaaS vendors, et cetera, please take a look at it.
+
+I do have my friend, Product Leader, Kirill Gavrylyuk, who's going to come and show a lot about these features in action.
+
+But before he comes, we have a cool story about a customer, Carvana.
+
+So let's run this.
+
+[ Music ]
+
+Michael Graf: Carvana is fast.
+
+We move really fast.
+
+Development at Carvana, it's a lot of fun.
+
+Everything is AI first.
+
+My responsibilities are in the customer care arena.
+
+I work heavily with Sebastian, a product called CARE.
+
+CARE is our conversational analyst review engine.
+
+Every single conversation that we have with the customer is processed through our CARE system.
+
+Cosmos DB sits at the center of all of our storage and is the gateway for all of our data.
+
+It allows us to scale very quickly, to go from hundreds to thousands to millions of conversations a month.
+
+Man, Azure Cosmos DB is one of my favorite technologies from Microsoft.
+
+It just works.
+
+[ Music ]
+
+Kirill Gavrylyuk: What a great story from Carvana, and what amazing -- I hope you like the announcement in Cosmos DB Shireesh just talked about.
+
+Now let's see them in action.
+
+With vector search, full text search, hybrid search, built into Cosmos DB now generally available, you have the go to database for agentic apps that need scale, performance, reliability, and serverless cost efficiency.
+
+In this demo, we're going to look at several data patterns common among agentic apps, including chat history, semantic caching, of course, retrieval augmented generation.
+
+We will also give you a sneak preview into a built-in semantic re-ranker in Cosmos DB coming soon.
+
+Here I have a set of tools that I've built.
+
+It helps to start the video.
+
+Here I have a set of tools built, and I'm going to register them with an MCP server.
+
+And it will help my agents to understand and work with the database of my choice, Cosmos Demo, to do hybrid search, vector search, and anything else, any other custom operations.
+
+MCP is now the lingua franca of agents, right?
+
+And so you will see a lot of tools to help customers build MCP servers.
+
+And it's very easy to build.
+
+It's very easy to plug in.
+
+And we'll see how to plug them into AI Foundry portal later in the demo.
+
+And now let's take a look at the database we're using in our demo in Data Explorer.
+
+Here, I have Cosmos Demo Database, among the few, on the left.
+
+And inside of it, I have a products container.
+
+And if you look at the items, standard product entries, name, description, price, metadata.
+
+Importantly, there is embeddings entry as well.
+
+We store vectors together with data so that they're transactionally consistent.
+
+You don't have to take them out into another service.
+
+And you can leverage built-in vector search in Cosmos DB.
+
+Now let's start with a simple full-text search query.
+
+We're going to use a full-text contains operator in WHERE clause, now GA, and search for lux
+
+Now it's blazing fast.
+
+Results are accurate.
+
+All the luxury products.
+
+But what if I made a typo in the term or in the data?
+
+How do we make full-text search robust to typos and mistakes?
+
+With fuzzy search now built in into Cosmos DB as well, you can add distance parameter to your terms to say how accurate the matches must be done by Cosmos DB.
+
+And if we execute this query, we're going to see that despite the typo we added in the hand back term, the results are still accurate.
+
+Whether you make a typo in the data or in the query, the results are still accurate.
+
+Fuzzy search makes full-text search robust.
+
+Now let's take a look at our app.
+
+We've built a multitenant chat application.
+
+We built it as an MCP client talking to an MCP server.
+
+You'll have here a lot of MCP.
+
+And we're going to register tools I showed you earlier into MCP server so that it can talk to Cosmos demo database.
+
+Now our tenants are our users, and we'll store every chat history of every tenant in a separate container.
+
+Now I'm going to ask my first question to the agent, show me all the databases in resource group.
+
+And the agent figured out the tool to use and gave me an expected list of databases.
+
+Now I'm going to ask a more complex question.
+
+In one of the databases, Cosmos Demo, give me gift ideas for kitchenware from our Products Database.
+
+And note that we did not tell the agent which tool to use, which mechanism to use.
+
+It figured out automatically that it should use hybrid search.
+
+And it gave me a relevant list of items.
+
+But it's not ordered quite as I expected it to be.
+
+So I'm going to ask the agent to re-rank using the new semantic re-ranker built into Cosmos DB, coming soon, and now the results are ordered as I expected, with the most relevant items up top.
+
+Now let's take a look at the second pattern, which is semantic caching.
+
+We can ask our agents the same question we just asked a minute ago.
+
+Show me all the databases in the resource group.
+
+Once I hit "Enter," notice that the query returns almost immediately, because no longer I need to go and make a round trip to LLM.
+
+I can use a much faster, much cheaper vector search capability built into Cosmos DB and get the results.
+
+Now here in the Data Explorer, we see the storage of threads and chat conversations.
+
+It's a per tenant.
+
+Each tenant history is in a separate container.
+
+And if we look inside those threads, we're going to see what enables the semantic caching.
+
+The data, the prompt, the response and vectors are there, stored.
+
+It's a basic example of a multitenant agentic memory.
+
+Now these apps are easy to build using AI Foundry with the integration with Azure Cosmos DB now.
+
+We can go to the AI Foundry portal, and we can configure AI service -- agent service with Cosmos DB to store threads and memory.
+
+We can also do this with a simple Bicep template.
+
+And once we deploy our agent to AI Agent Service, we can test it out using the new Agent Playground in AI Foundry portal.
+
+We can configure it with custom tools.
+
+For example, with MCP server, we just used and configured to talk to Cosmos Demo Database.
+
+And notice that agent uses the Cosmos DB we provided to store threads in memory.
+
+And here is the database where it's stored.
+
+It is your database.
+
+You're in full control over this data.
+
+Now when you build agentic apps or multitenant apps, you may create many databases.
+
+With new Cosmos DB fleet management capability, you can manage those fleet of databases as one.
+
+You can get insights into aggregated telemetry from those databases.
+
+You can even share throughput capacity across the databases in your fleets.
+
+With semantic search, semantic re-ranker, fleet management, per petition auto failover and all those announcements, Cosmos DB is the go-to database for your agentic apps that need scale, reliability, performance, and serverless cost efficiency.
+
+Thank you.
+
+Over to you Shireesh.
+
+[ Applause ]
+
+Shireesh Thota: Thank you, Kirill.
+
+Well, we're not done with Cosmos DB yet.
+
+There are a few other pieces here.
+
+In terms of the Mongo version of our API.
+
+We have some really cool announcements here, starting with Entra ID capabilities.
+
+So if you could bring in your Entra IDs into your Mongo vCore clusters, and thereby securing your authentication access of your databases.
+
+The next thing here is DiskANN capabilities.
+
+But before that, I want to touch on the open sourcing of our Mongo vCore API.
+
+We have been working with our partners here at Yugabyte and FerretDB.
+
+We've seen the rise in popularity of Postgres.
+
+We've also noticed a gap in the Cosmos Mongo vCore API, effectively the document space.
+
+So we've decided that we we're going to step in here and build some open source muscle and help the community go build documents API just the way that they do relational databases.
+
+And what we've done here is bring the same technology that we built our Cosmos vCore version.
+
+But this time, it's backed by PostgreSQL.
+
+So you get the Mongo API compatibility with that of the relational API and the transactional semantics and all the extensions that PostgreSQL community really is very famous for.
+
+So we bring all that goodness and helping the documents API open-source community.
+
+As I said, we also have DiskANN capability for Mongo vCore.
+
+This enables vector search for the documents API version as well.
+
+So those basically round out our third chapter about how Cosmos DB is helping build, again, globally highly available elastic applications.
+
+I want to transition now to talk to a customer who's basically bringing the goodness of Azure SQL, Azure data and AI capabilities.
+
+To do that, I'm going to invite on the stage Genis Campa from NTT DATA, who's going to show us how the transformation that they have embarked on is helping their company.
+
+Genis, please come over.
+
+[ Applause ]
+
+Well, thank you, Genis.
+
+Thank you for being here.
+
+I want to begin asking you a simple question.
+
+What were the challenges that kind of prompted you to embark on this new data journey for your company?
+
+Genis Campa: Well, first of all, thank you, Shireesh, for inviting me here and allowing me to explain one of my best experience with Azure Database and Hyperscale type.
+
+So at NTT, we're finding this situation where we could leverage a data driving strategy and trying to pursue that data driving actions and delivering data to our company.
+
+And we engineered a data strategy program that were based on different pilots.
+
+And one of the keystones, and usually, it's a data platform itself, and that's where Azure SQL Database played a key role.
+
+Shireesh Thota: Awesome.
+
+Well, so I think the audience and I are super interested in learning about what was the solution, and how did the Azure Databases play a critical role in that?
+
+Genis Campa: Well, we engineered one side that is a solution.
+
+You can see it now in the screen, and obviously, the database were a perfect fit for processing and for storage of our data.
+
+And we took into account our strategic alliance with Microsoft, our knowledge on Power BI as an enterprise-wide data consumption tool, and our in-house SQL knowledge that we already had on the company.
+
+So this is the roadmap we -- Shireesh Thota: That's very cool.
+
+I'd reckon that most of them are interested in learning how did you get to choose Azure SQL Hyperscale in particular?
+
+Could you talk a little bit about that?
+
+Genis Campa: Yes, of course.
+
+We had this situation where we have a large amount of variety of tables and entities.
+
+So they weren't that big, but they were really normalized and really wide.
+
+So when we're analyzing the different options that we have, we find an upper scale, particularly in its system management files, like, the perfect solution for the problem we were facing on.
+
+So taking that into account and also that we could start with a basic tier, then do integration type or a scale and change over (inaudible) the strategy, depending on the demand we were having.
+
+It was a perfect fit for us.
+
+Shireesh Thota: Awesome.
+
+So changing traffic patterns, large, basically, scale aspects, etc.
+
+were the key motivation factors.
+
+So thank you so very much.
+
+Before I let you go, though, could you tell us about the business transformation, the results that you basically achieved through this transformation?
+
+Genis Campa: Yes, of course.
+
+Almost three, four years of development with having, like, 70 people developing three, four times a day to production, we end up with 2025, that product is really stable in production, with more than 6,000 employees actively using database all over datasets.
+
+And it was -- it just works, as you like to say.
+
+It was a perfect fit, and this is our experience.
+
+We succeed over data planner strategy, and we put that into practice.
+
+Shireesh Thota: That's music to us.
+
+It's really good to hear.
+
+And we are really proud to be a partner with NTT DATA.
+
+Thank you, Genis.
+
+Thanks for coming over please.
+
+Please give him a round of big applause here.
+
+Genis Campa: Thank you all.
+
+Shireesh Thota: Thank you, Genis.
+
+[ Applause ]
+
+All right, folks.
+
+So we are pretty much at the end.
+
+It's the final chapter that I want to touch on here.
+
+We've talked about how we take pride in building unified data platforms.
+
+And that's exactly how Fabric is going to help us do that.
+
+And how does it do that?
+
+Well, so firstly, it basically brings in everything from data science to data integration, data science, data warehouse, data engineering, real-time analytics, BI and now Databases coming together in a pre-integrated SaaS environment.
+
+It is important because we want to ensure that you don't have silos, your data quality is high, and you can have a comprehensive view of the data.
+
+So we embarked on bringing all these cool technologies into Fabric.
+
+And one of the things that we've released at Ignite last year, now we're furthering it forward, is SQL Hyperscale coming into Fabric.
+
+So how did we go about building databases into Fabric?
+
+These were the three key principles.
+
+We want to make sure that databases in fabric are simple.
+
+It's easier to provision, easier to manage, administer them.
+
+They're autonomous because they have built-in security, high-availability characteristics, indexing, tuning, everything taken care for you.
+
+And finally, they're AI integrated, essentially vector indexing, semantic search.
+
+And when you combine and marry this with the analytical aspects of the data, you get a completely powerful, brand-new AI platform.
+
+That can carry your applications quite far.
+
+So well, we want to expand this vision and further it.
+
+Extremely thrilled to announce the public preview of Cosmos in Fabric.
+
+There was a video that kind of shows this better than I can do justice.
+
+So let me run it.
+
+Speaker 1: AI is only as good as the data it is grounded on.
+
+Microsoft Fabric brings together a unified data platform optimized for AI applications that can tackle analytical, operational, and real-time data from sensors and devices.
+
+Microsoft Fabric enhances data unification with Cosmos DB in Fabric.
+
+Cosmos DB in Fabric brings enterprise-grade dynamic scalability, five-nines reliability, and market leading low latency required for large scale AI applications.
+
+Cosmos DB in Fabric includes native AI capabilities like RAG and vector search, and even has unique DiskANN technology developed by Microsoft research that enables Bing to power 400 billion vector indexes with 10,000 real time updates and still deliver a query latency of less than 10 milliseconds.
+
+Enable near real-time sentiment analysis of customer chat with Cosmos DB data instantly available in OneLake without any ETL required.
+
+With Microsoft Fabric, developers can build modern AI applications grounded on their entire data estate, including SQL, NoSQL, analytical and real-time data, and combined with agentic AI capabilities like data agents and Fabric for autonomous data science.
+
+Finally, all of the rich insights from the application can be shared intuitively and easily with Power BI.
+
+Try Cosmos DB in Microsoft Fabric today.
+
+[ Music ] [ Applause ]
+
+Shireesh Thota: Awesome.
+
+So that kind of really makes the true definition of a unified data platform.
+
+Now I want to also touch upon the mirroring capabilities.
+
+You already know about the availability for a SQL database behind a firewall.
+
+We also announced Azure Database for PostgreSQL mirroring.
+
+And now we are thrilled to announce the public preview for all in-market additions for SQL services on premises from 2016 to 2022.
+
+And with the public preview announcements of 2025, we're, of course, going to support mirroring as well.
+
+Mirroring and Fabric is going to be a first-class concept in SQL 2025.
+
+So in closing, I want to basically, really, just go back to the same thing that we talked about.
+
+There's lots of opportunities.
+
+AI is going to enable experiences, learning, automation, everything that is yet to imagine.
+
+And we are here to partner with you.
+
+Thank you so very much for your time.
+
+I really hope you enjoy the rest of the conference.
+
+There's a lot of new deep dive sections as well.
+
+Thank you.
+
+[ Music ]
+
+END

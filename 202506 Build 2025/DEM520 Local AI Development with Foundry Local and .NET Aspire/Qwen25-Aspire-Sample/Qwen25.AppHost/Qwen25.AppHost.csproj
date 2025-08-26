@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- .NET Aspire hosting packages -->
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+    
+    <!-- Foundry Local hosting integration (pre-release) -->
+    <PackageReference Include="Microsoft.Extensions.Hosting.FoundryLocal" Version="1.0.0-preview" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Reference to the web application project -->
+    <ProjectReference Include="..\WebApp\WebApp.csproj" />
+  </ItemGroup>
+
+</Project>

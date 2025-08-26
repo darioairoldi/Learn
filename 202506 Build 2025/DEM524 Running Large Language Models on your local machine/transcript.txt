@@ -1,0 +1,1324 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.8215529322624207
+
+00:00:00.120 --> 00:00:04.381
+All right, y'all give it up for Rodrigo Diaz Conscha,
+
+NOTE Confidence: 0.8215529322624207
+
+00:00:04.462 --> 00:00:07.919
+the man with a laptop that has two screens.
+
+NOTE Confidence: 0.8150961995124817
+
+00:00:09.320 --> 00:00:09.680
+Here we go.
+
+NOTE Confidence: 0.5465793013572693
+
+00:00:09.680 --> 00:00:11.000
+All right, it's all yours.
+
+NOTE Confidence: 0.5850722789764404
+
+00:00:11.360 --> 00:00:12.440
+Yeah, 2 screens.
+
+NOTE Confidence: 0.9059997797012329
+
+00:00:12.440 --> 00:00:13.360
+Can you believe that?
+
+NOTE Confidence: 0.8357052206993103
+
+00:00:13.960 --> 00:00:19.714
+OK, so there are some scenarios where running large language
+
+NOTE Confidence: 0.8357052206993103
+
+00:00:19.810 --> 00:00:22.400
+models locally makes sense.
+
+NOTE Confidence: 0.9514690041542053
+
+00:00:23.000 --> 00:00:25.080
+For instance, I'm involved in this project.
+
+NOTE Confidence: 0.8631579875946045
+
+00:00:25.080 --> 00:00:28.840
+This is a telemedicine project for prisons.
+
+NOTE Confidence: 0.8313478231430054
+
+00:00:29.640 --> 00:00:34.448
+So of course, those inmates, they need health care sometimes,
+
+NOTE Confidence: 0.8313478231430054
+
+00:00:34.527 --> 00:00:34.999
+right?
+
+NOTE Confidence: 0.8671050071716309
+
+00:00:35.000 --> 00:00:39.742
+So there's no possibility for, you know, taking the prisoner
+
+NOTE Confidence: 0.8671050071716309
+
+00:00:39.821 --> 00:00:41.640
+to this other hospital.
+
+NOTE Confidence: 0.8373211026191711
+
+00:00:42.000 --> 00:00:43.000
+That's not possible.
+
+NOTE Confidence: 0.7879225611686707
+
+00:00:43.000 --> 00:00:46.240
+You have to have health care inside the prison.
+
+NOTE Confidence: 0.8724935054779053
+
+00:00:46.680 --> 00:00:50.702
+So it makes sense to have this isolated system also
+
+NOTE Confidence: 0.8724935054779053
+
+00:00:50.781 --> 00:00:55.040
+in mining sites where those sites, you know, copper or
+
+NOTE Confidence: 0.8724935054779053
+
+00:00:55.119 --> 00:00:58.669
+iron or what have you, those sites are in the
+
+NOTE Confidence: 0.8724935054779053
+
+00:00:58.748 --> 00:01:00.719
+middle of nowhere, right?
+
+NOTE Confidence: 0.9522114992141724
+
+00:01:00.720 --> 00:01:05.254
+They don't have any kind of connectivity, but of course
+
+NOTE Confidence: 0.9522114992141724
+
+00:01:05.336 --> 00:01:07.480
+they need computing power.
+
+NOTE Confidence: 0.9021009802818298
+
+00:01:07.800 --> 00:01:11.297
+There are some people on the ground, there are some
+
+NOTE Confidence: 0.9021009802818298
+
+00:01:11.365 --> 00:01:15.000
+other people underground receiving data, manual data.
+
+NOTE Confidence: 0.9354947805404663
+
+00:01:15.520 --> 00:01:17.915
+And of course there's a lot of sensors, there's a
+
+NOTE Confidence: 0.9354947805404663
+
+00:01:17.964 --> 00:01:20.359
+lot of machines and devices running all the time.
+
+NOTE Confidence: 0.8723833560943604
+
+00:01:20.360 --> 00:01:25.312
+So The thing is that they are offline in isolated
+
+NOTE Confidence: 0.8723833560943604
+
+00:01:25.413 --> 00:01:30.972
+and in this other project that I'm involved with kiosks
+
+NOTE Confidence: 0.8723833560943604
+
+00:01:31.073 --> 00:01:36.631
+retail where you know, some companies like to know some
+
+NOTE Confidence: 0.8723833560943604
+
+00:01:36.732 --> 00:01:43.201
+statistics and knowledge about the customers that are inside the
+
+NOTE Confidence: 0.8723833560943604
+
+00:01:43.302 --> 00:01:48.760
+stores, inside the aisles of the those those premises.
+
+NOTE Confidence: 0.9194518327713013
+
+00:01:49.560 --> 00:01:53.243
+So today I'm going to show you Foundry Local, which
+
+NOTE Confidence: 0.9194518327713013
+
+00:01:53.315 --> 00:01:57.360
+is a fantastic technology that was announced 2 days ago.
+
+NOTE Confidence: 0.8887604475021362
+
+00:01:58.360 --> 00:02:02.987
+So Foundry Local is a technology that we can use
+
+NOTE Confidence: 0.8887604475021362
+
+00:02:03.084 --> 00:02:09.350
+today for downloading some models and running those models inside
+
+NOTE Confidence: 0.8887604475021362
+
+00:02:09.447 --> 00:02:13.399
+your machine or your on premises servers.
+
+NOTE Confidence: 0.9365076422691345
+
+00:02:15.360 --> 00:02:19.294
+But of course, there are some things that I have
+
+NOTE Confidence: 0.9365076422691345
+
+00:02:19.376 --> 00:02:20.359
+to tell you.
+
+NOTE Confidence: 0.881401002407074
+
+00:02:20.360 --> 00:02:22.160
+This is a preview technology, OK?
+
+NOTE Confidence: 0.9597548842430115
+
+00:02:22.160 --> 00:02:24.854
+So maybe the things that I'm going to show you
+
+NOTE Confidence: 0.9597548842430115
+
+00:02:24.912 --> 00:02:27.080
+today will change in the near future.
+
+NOTE Confidence: 0.9715061187744141
+
+00:02:27.120 --> 00:02:27.880
+We don't know.
+
+NOTE Confidence: 0.8518421053886414
+
+00:02:29.280 --> 00:02:32.534
+If you want to know more about Foundry Local, you
+
+NOTE Confidence: 0.8518421053886414
+
+00:02:32.601 --> 00:02:36.121
+can go ahead and visit the documentation in the learn
+
+NOTE Confidence: 0.8518421053886414
+
+00:02:36.187 --> 00:02:36.519
+side.
+
+NOTE Confidence: 0.8975992202758789
+
+00:02:37.240 --> 00:02:41.356
+So you can go ahead and navigate also to the
+
+NOTE Confidence: 0.8975992202758789
+
+00:02:41.450 --> 00:02:42.760
+GitHub Ripple.
+
+NOTE Confidence: 0.884930431842804
+
+00:02:42.960 --> 00:02:45.520
+And here you can find the installer.
+
+NOTE Confidence: 0.8048645853996277
+
+00:02:46.360 --> 00:02:50.693
+They have a Winget installer, so you can you can
+
+NOTE Confidence: 0.8048645853996277
+
+00:02:50.784 --> 00:02:55.840
+just execute this command in your machine and that's it.
+
+NOTE Confidence: 0.8428193926811218
+
+00:02:57.000 --> 00:03:00.259
+Or if you're running Mac OS, you can use the
+
+NOTE Confidence: 0.8428193926811218
+
+00:03:00.334 --> 00:03:03.519
+brew commands for installing Foundry local.
+
+NOTE Confidence: 0.8411452770233154
+
+00:03:04.520 --> 00:03:09.400
+I actually use this other technique, which is downloading the
+
+NOTE Confidence: 0.8411452770233154
+
+00:03:09.480 --> 00:03:11.720
+installer, the M6 installer.
+
+NOTE Confidence: 0.9539670944213867
+
+00:03:12.120 --> 00:03:15.764
+I already did this in the interest of time, of
+
+NOTE Confidence: 0.9539670944213867
+
+00:03:15.843 --> 00:03:20.280
+course, because as you can see, it's quite heavy, right?
+
+NOTE Confidence: 0.840020477771759
+
+00:03:21.240 --> 00:03:25.400
+So I downloaded and installed Foundry locally in my machine.
+
+NOTE Confidence: 0.900810956954956
+
+00:03:25.720 --> 00:03:30.080
+So let me show you what's the experience nowadays.
+
+NOTE Confidence: 0.9361986517906189
+
+00:03:30.760 --> 00:03:34.108
+So Foundry they have this CLI where you can, you
+
+NOTE Confidence: 0.9361986517906189
+
+00:03:34.178 --> 00:03:37.805
+know, list the models that are available for you and
+
+NOTE Confidence: 0.9361986517906189
+
+00:03:37.875 --> 00:03:41.363
+you can download some models and you can run those
+
+NOTE Confidence: 0.9361986517906189
+
+00:03:41.433 --> 00:03:42.480
+models locally.
+
+NOTE Confidence: 0.9108798503875732
+
+00:03:43.320 --> 00:03:47.995
+So for instance, if you type Foundry model list, you
+
+NOTE Confidence: 0.9108798503875732
+
+00:03:48.085 --> 00:03:53.031
+can see all the different models that are available for
+
+NOTE Confidence: 0.9108798503875732
+
+00:03:53.121 --> 00:03:54.919
+Foundry local today.
+
+NOTE Confidence: 0.8462679982185364
+
+00:03:55.000 --> 00:03:59.065
+We can see that they have the stroll, they have
+
+NOTE Confidence: 0.8462679982185364
+
+00:03:59.151 --> 00:04:03.216
+Phi, they have deep sick, both 14 billion and 7
+
+NOTE Confidence: 0.8462679982185364
+
+00:04:03.303 --> 00:04:07.282
+billion and some others as you can see here on
+
+NOTE Confidence: 0.8462679982185364
+
+00:04:07.368 --> 00:04:08.319
+the screen.
+
+NOTE Confidence: 0.9216928482055664
+
+00:04:09.040 --> 00:04:14.926
+And most importantly, they have different versions depending on the
+
+NOTE Confidence: 0.9216928482055664
+
+00:04:15.014 --> 00:04:18.879
+hardware where you're running Foundry local.
+
+NOTE Confidence: 0.939730167388916
+
+00:04:19.880 --> 00:04:25.382
+So for instance, when I downloaded 53.5 in this machine,
+
+NOTE Confidence: 0.939730167388916
+
+00:04:25.480 --> 00:04:30.492
+the CPU version was downloaded for my machine and I
+
+NOTE Confidence: 0.939730167388916
+
+00:04:30.590 --> 00:04:33.439
+had to force the GPU version.
+
+NOTE Confidence: 0.8966358304023743
+
+00:04:33.560 --> 00:04:37.182
+I passed the model ID so I can you know
+
+NOTE Confidence: 0.8966358304023743
+
+00:04:37.274 --> 00:04:41.640
+I could download the GPU version of this model.
+
+NOTE Confidence: 0.9055473208427429
+
+00:04:42.320 --> 00:04:46.314
+So if I show you this other command foundry cache
+
+NOTE Confidence: 0.9055473208427429
+
+00:04:46.396 --> 00:04:50.390
+list, you can see all the different models that I
+
+NOTE Confidence: 0.9055473208427429
+
+00:04:50.472 --> 00:04:50.879
+have.
+
+NOTE Confidence: 0.861609697341919
+
+00:04:51.560 --> 00:04:57.000
+In this machine I have both 3.5 CPU and GPU.
+
+NOTE Confidence: 0.9023029804229736
+
+00:04:57.360 --> 00:05:01.186
+This is important because as you know, those models are
+
+NOTE Confidence: 0.9023029804229736
+
+00:05:01.255 --> 00:05:05.290
+neural networks that need computing power, and most of the
+
+NOTE Confidence: 0.9023029804229736
+
+00:05:05.359 --> 00:05:08.559
+time they benefit from a GPU instead of a CPU.
+
+NOTE Confidence: 0.8674781918525696
+
+00:05:08.640 --> 00:05:11.922
+Of course, you can run your model with a CPU,
+
+NOTE Confidence: 0.8674781918525696
+
+00:05:11.995 --> 00:05:16.298
+but you're going to experience very slow responses from the
+
+NOTE Confidence: 0.8674781918525696
+
+00:05:16.371 --> 00:05:17.320
+model, right?
+
+NOTE Confidence: 0.8938319683074951
+
+00:05:17.320 --> 00:05:19.560
+Because those neural networks are a thing.
+
+NOTE Confidence: 0.9487043023109436
+
+00:05:19.760 --> 00:05:23.671
+They have billions and billions of parameters, and at the
+
+NOTE Confidence: 0.9487043023109436
+
+00:05:23.739 --> 00:05:26.827
+end of the day, they do a lot of computations
+
+NOTE Confidence: 0.9487043023109436
+
+00:05:26.895 --> 00:05:28.679
+and a lot of calculations.
+
+NOTE Confidence: 0.8745538592338562
+
+00:05:29.000 --> 00:05:31.200
+So that's why the GPU is required.
+
+NOTE Confidence: 0.853262722492218
+
+00:05:31.840 --> 00:05:34.440
+So that's fine.
+
+NOTE Confidence: 0.879620373249054
+
+00:05:34.440 --> 00:05:38.549
+And then you can expose those models as an endpoint
+
+NOTE Confidence: 0.879620373249054
+
+00:05:38.630 --> 00:05:39.919
+in your machine.
+
+NOTE Confidence: 0.9673513770103455
+
+00:05:40.520 --> 00:05:41.920
+Actually, let me show you that.
+
+NOTE Confidence: 0.9594594240188599
+
+00:05:42.520 --> 00:05:46.160
+So if I execute this Foundry model load and I
+
+NOTE Confidence: 0.9594594240188599
+
+00:05:46.241 --> 00:05:49.395
+pass the model ID that I want to run in
+
+NOTE Confidence: 0.9594594240188599
+
+00:05:49.476 --> 00:05:53.278
+this machine, you can see that this is going to
+
+NOTE Confidence: 0.9594594240188599
+
+00:05:53.359 --> 00:05:56.999
+load the model, the GPU version of the model.
+
+NOTE Confidence: 0.9193747639656067
+
+00:05:57.520 --> 00:06:01.498
+So right now it's running right and I can go
+
+NOTE Confidence: 0.9193747639656067
+
+00:06:01.588 --> 00:06:04.119
+ahead and send some prompts.
+
+NOTE Confidence: 0.9463452696800232
+
+00:06:04.480 --> 00:06:08.080
+OK, so this is running as a service right now.
+
+NOTE Confidence: 0.9546009302139282
+
+00:06:08.440 --> 00:06:13.244
+There's another command for displaying all the services that are
+
+NOTE Confidence: 0.9546009302139282
+
+00:06:13.319 --> 00:06:13.920
+running.
+
+NOTE Confidence: 0.8487244248390198
+
+00:06:15.000 --> 00:06:17.920
+In other words, the model was loaded and it's and
+
+NOTE Confidence: 0.8487244248390198
+
+00:06:17.979 --> 00:06:20.959
+it's being exposed as an endpoint in this machine.
+
+NOTE Confidence: 0.795743465423584
+
+00:06:21.120 --> 00:06:25.000
+OK, so the endpoint is on port.
+
+NOTE Confidence: 0.8603821992874146
+
+00:06:25.000 --> 00:06:30.680
+Let me show you port 5273, OK?
+
+NOTE Confidence: 0.7023319602012634
+
+00:06:31.360 --> 00:06:36.680
+And it's exposing a standard chat completions endpoint.
+
+NOTE Confidence: 0.9087138772010803
+
+00:06:37.160 --> 00:06:41.672
+So you can use the regular standard Jason document for
+
+NOTE Confidence: 0.9087138772010803
+
+00:06:41.756 --> 00:06:46.520
+sending the prompt to the model and receive the response.
+
+NOTE Confidence: 0.9359708428382874
+
+00:06:46.880 --> 00:06:47.240
+OK.
+
+NOTE Confidence: 0.9681082963943481
+
+00:06:48.040 --> 00:06:49.520
+So let's try this.
+
+NOTE Confidence: 0.7759847044944763
+
+00:06:50.200 --> 00:06:52.080
+What are the largest cities in the world?
+
+NOTE Confidence: 0.8980610966682434
+
+00:06:52.400 --> 00:06:57.499
+And I'm sending this prompt to this endpoint, and I'm
+
+NOTE Confidence: 0.8980610966682434
+
+00:06:57.596 --> 00:07:01.445
+using the GPU ID, as you can see here on
+
+NOTE Confidence: 0.8980610966682434
+
+00:07:01.541 --> 00:07:02.599
+the screen.
+
+NOTE Confidence: 0.9546565413475037
+
+00:07:03.160 --> 00:07:06.320
+OK, so let's try to do this.
+
+NOTE Confidence: 0.9720636606216431
+
+00:07:07.280 --> 00:07:09.760
+And of course, this is working.
+
+NOTE Confidence: 0.911982536315918
+
+00:07:10.480 --> 00:07:14.673
+Let me open up task manager and then let me
+
+NOTE Confidence: 0.911982536315918
+
+00:07:14.770 --> 00:07:18.866
+show you this graph so we can see that the
+
+NOTE Confidence: 0.911982536315918
+
+00:07:18.963 --> 00:07:24.619
+GPU is, you know, working crazily right for answering that
+
+NOTE Confidence: 0.911982536315918
+
+00:07:24.717 --> 00:07:25.400
+prompt.
+
+NOTE Confidence: 0.9627055525779724
+
+00:07:25.400 --> 00:07:27.400
+What are the largest cities in the world?
+
+NOTE Confidence: 0.921741783618927
+
+00:07:28.160 --> 00:07:32.681
+Which is fantastic that this model is using the GPU
+
+NOTE Confidence: 0.921741783618927
+
+00:07:32.769 --> 00:07:34.719
+and not my CPU, right?
+
+NOTE Confidence: 0.8848733305931091
+
+00:07:35.120 --> 00:07:37.737
+So if I can, if I can show you this,
+
+NOTE Confidence: 0.8848733305931091
+
+00:07:37.809 --> 00:07:41.153
+you can see the largest cities in the world by
+
+NOTE Confidence: 0.8848733305931091
+
+00:07:41.226 --> 00:07:43.480
+population and so on and so on.
+
+NOTE Confidence: 0.8248904347419739
+
+00:07:43.480 --> 00:07:49.200
+Tokyo, New Delhi, Sao Paulo and those usual suspects, right?
+
+NOTE Confidence: 0.9062347412109375
+
+00:07:49.760 --> 00:07:52.640
+Largest cities in the world, fantastic.
+
+NOTE Confidence: 0.958875834941864
+
+00:07:53.040 --> 00:07:58.080
+Now, what would happen if I run the GPU?
+
+NOTE Confidence: 0.950846254825592
+
+00:07:58.080 --> 00:07:59.520
+I'm sorry, the CPU version.
+
+NOTE Confidence: 0.9694356322288513
+
+00:08:00.440 --> 00:08:01.560
+Let's try this.
+
+NOTE Confidence: 0.9371039271354675
+
+00:08:01.600 --> 00:08:04.800
+Of course, I need to load that model as well.
+
+NOTE Confidence: 0.9004907608032227
+
+00:08:05.240 --> 00:08:08.902
+So this is fantastic because Foundry Local allows me to
+
+NOTE Confidence: 0.9004907608032227
+
+00:08:08.968 --> 00:08:12.763
+run different models at the same time, many different GPU
+
+NOTE Confidence: 0.9004907608032227
+
+00:08:12.830 --> 00:08:15.960
+ones, many different CPU ones at the same time.
+
+NOTE Confidence: 0.9468111991882324
+
+00:08:15.960 --> 00:08:20.322
+Of course, it depends on your hardware and computing power,
+
+NOTE Confidence: 0.9468111991882324
+
+00:08:20.396 --> 00:08:20.839
+right?
+
+NOTE Confidence: 0.9553465843200684
+
+00:08:21.600 --> 00:08:24.780
+So in this case, I'm just going to go back
+
+NOTE Confidence: 0.9553465843200684
+
+00:08:24.855 --> 00:08:27.960
+to the terminal and let me show you this.
+
+NOTE Confidence: 0.8950018882751465
+
+00:08:28.200 --> 00:08:32.177
+I'm going to load CPU, and this is going to
+
+NOTE Confidence: 0.8950018882751465
+
+00:08:32.269 --> 00:08:34.119
+take a little while.
+
+NOTE Confidence: 0.8922532796859741
+
+00:08:35.440 --> 00:08:39.600
+And in the meantime, let me show you this order.
+
+NOTE Confidence: 0.8686450719833374
+
+00:08:40.040 --> 00:08:43.293
+It runs successfully very fast, so there's no need for
+
+NOTE Confidence: 0.8686450719833374
+
+00:08:43.353 --> 00:08:44.799
+me to change the window.
+
+NOTE Confidence: 0.9293888211250305
+
+00:08:45.600 --> 00:08:49.344
+Now the CPU version is running and I can go
+
+NOTE Confidence: 0.9293888211250305
+
+00:08:49.431 --> 00:08:53.612
+to Postman to this other tab that I already have
+
+NOTE Confidence: 0.9293888211250305
+
+00:08:53.699 --> 00:08:58.140
+here for sending the same prompt to the CPU version
+
+NOTE Confidence: 0.9293888211250305
+
+00:08:58.227 --> 00:08:59.360
+of the model.
+
+NOTE Confidence: 0.9209758639335632
+
+00:08:59.640 --> 00:09:01.000
+And I'm going to click send.
+
+NOTE Confidence: 0.9475075006484985
+
+00:09:01.800 --> 00:09:06.412
+And what's going to happen is that my laptop is
+
+NOTE Confidence: 0.9475075006484985
+
+00:09:06.510 --> 00:09:10.239
+going to start processing that prompt.
+
+NOTE Confidence: 0.96293044090271
+
+00:09:10.240 --> 00:09:13.349
+And you can see the spike going up for the
+
+NOTE Confidence: 0.96293044090271
+
+00:09:13.423 --> 00:09:15.199
+CPU in this case, right?
+
+NOTE Confidence: 0.9349883198738098
+
+00:09:15.640 --> 00:09:18.279
+So you need to be careful about what kind of
+
+NOTE Confidence: 0.9349883198738098
+
+00:09:18.339 --> 00:09:21.639
+version you're running, what kind of hardware you have.
+
+NOTE Confidence: 0.9206002950668335
+
+00:09:22.000 --> 00:09:26.774
+In the kiosk retail space that I'm involved with, some
+
+NOTE Confidence: 0.9206002950668335
+
+00:09:26.863 --> 00:09:30.400
+kiosks, they don't have any kind of GPU.
+
+NOTE Confidence: 0.9305111169815063
+
+00:09:30.400 --> 00:09:32.120
+We have to use CPU.
+
+NOTE Confidence: 0.8534037470817566
+
+00:09:32.120 --> 00:09:35.763
+So we're constrained in a lot of ways for running
+
+NOTE Confidence: 0.8534037470817566
+
+00:09:35.838 --> 00:09:37.399
+these kind of models.
+
+NOTE Confidence: 0.8323853611946106
+
+00:09:37.960 --> 00:09:41.867
+The answer sometimes is distilled models that you can load
+
+NOTE Confidence: 0.8323853611946106
+
+00:09:41.934 --> 00:09:43.079
+in Foundry local.
+
+NOTE Confidence: 0.8985560536384583
+
+00:09:43.080 --> 00:09:49.130
+That's that's possible as long as you save those models
+
+NOTE Confidence: 0.8985560536384583
+
+00:09:49.240 --> 00:09:52.320
+as an Onyx compatible model.
+
+NOTE Confidence: 0.8798685073852539
+
+00:09:52.480 --> 00:09:52.960
+OK.
+
+NOTE Confidence: 0.7662296891212463
+
+00:09:53.160 --> 00:09:55.120
+Onyx is a format.
+
+NOTE Confidence: 0.9002650380134583
+
+00:09:55.679 --> 00:09:58.624
+So if you save the model, you save the neural
+
+NOTE Confidence: 0.9002650380134583
+
+00:09:58.689 --> 00:10:01.699
+network in an Onyx format, you will be able to
+
+NOTE Confidence: 0.9002650380134583
+
+00:10:01.764 --> 00:10:04.119
+load that model using Foundry local.
+
+NOTE Confidence: 0.8262170553207397
+
+00:10:05.440 --> 00:10:09.251
+So let's go back to Postman and let's see that,
+
+NOTE Confidence: 0.8262170553207397
+
+00:10:09.332 --> 00:10:13.792
+OK, Tokyo, New Delhi, Sao Paulo, and the usual suspects
+
+NOTE Confidence: 0.8262170553207397
+
+00:10:13.873 --> 00:10:17.280
+are there the largest cities in the world.
+
+NOTE Confidence: 0.9554775357246399
+
+00:10:18.120 --> 00:10:21.280
+Speaking of which, let me show you the services.
+
+NOTE Confidence: 0.9532217383384705
+
+00:10:21.720 --> 00:10:25.960
+I'm sorry, the models, where are those models located?
+
+NOTE Confidence: 0.9074897766113281
+
+00:10:25.960 --> 00:10:29.854
+You may be thinking, let me show you this other
+
+NOTE Confidence: 0.9074897766113281
+
+00:10:29.937 --> 00:10:30.600
+command.
+
+NOTE Confidence: 0.7197238206863403
+
+00:10:30.760 --> 00:10:33.080
+Foundry is that cache.
+
+NOTE Confidence: 0.9097331762313843
+
+00:10:34.360 --> 00:10:38.316
+So cache is showing me the entire list of models
+
+NOTE Confidence: 0.9097331762313843
+
+00:10:38.398 --> 00:10:39.800
+that I have here.
+
+NOTE Confidence: 0.9121461510658264
+
+00:10:40.240 --> 00:10:44.422
+And I also have this other command which is location
+
+NOTE Confidence: 0.9121461510658264
+
+00:10:44.503 --> 00:10:48.525
+and it's telling me, hey, you know what the models
+
+NOTE Confidence: 0.9121461510658264
+
+00:10:48.605 --> 00:10:52.708
+are located in your home folder in Windows and then
+
+NOTE Confidence: 0.9121461510658264
+
+00:10:52.788 --> 00:10:54.799
+dot foundry cache models.
+
+NOTE Confidence: 0.839963436126709
+
+00:10:55.080 --> 00:11:02.990
+So let's go there home and then dot foundry, foundry
+
+NOTE Confidence: 0.839963436126709
+
+00:11:03.142 --> 00:11:05.119
+cache models.
+
+NOTE Confidence: 0.9099419713020325
+
+00:11:05.720 --> 00:11:10.481
+And right there you can see that this is structure
+
+NOTE Confidence: 0.9099419713020325
+
+00:11:10.576 --> 00:11:15.147
+by the author of the model because I'm using Phi
+
+NOTE Confidence: 0.9099419713020325
+
+00:11:15.242 --> 00:11:18.480
+and those models are by Microsoft.
+
+NOTE Confidence: 0.940936267375946
+
+00:11:19.080 --> 00:11:22.637
+And if I show you the structure here, you can
+
+NOTE Confidence: 0.940936267375946
+
+00:11:22.716 --> 00:11:25.799
+see that the neural networks are there.
+
+NOTE Confidence: 0.8957816362380981
+
+00:11:26.240 --> 00:11:29.320
+Let's change the folder to this particular one.
+
+NOTE Confidence: 0.9225280284881592
+
+00:11:29.679 --> 00:11:32.397
+And at the end of the day, the binaries are
+
+NOTE Confidence: 0.9225280284881592
+
+00:11:32.460 --> 00:11:32.840
+there.
+
+NOTE Confidence: 0.9441816806793213
+
+00:11:32.880 --> 00:11:36.612
+OK, This is connected to the fact that you can
+
+NOTE Confidence: 0.9441816806793213
+
+00:11:36.693 --> 00:11:40.426
+load your own models as long as those are Onyx
+
+NOTE Confidence: 0.9441816806793213
+
+00:11:40.507 --> 00:11:41.399
+compatible.
+
+NOTE Confidence: 0.8620783090591431
+
+00:11:41.480 --> 00:11:43.720
+OK, perfect.
+
+NOTE Confidence: 0.8801592588424683
+
+00:11:44.000 --> 00:11:48.258
+Now finally, in this session, I want to show you
+
+NOTE Confidence: 0.8801592588424683
+
+00:11:48.346 --> 00:11:52.960
+that you're running your models using Foundry Local.
+
+NOTE Confidence: 0.8355314135551453
+
+00:11:52.960 --> 00:11:57.771
+You're exposing those models as endpoints, so you can use
+
+NOTE Confidence: 0.8355314135551453
+
+00:11:57.855 --> 00:12:03.679
+your regular large language models frameworks for using those models.
+
+NOTE Confidence: 0.8351956605911255
+
+00:12:03.679 --> 00:12:06.930
+You can use land graph, you can use land chain,
+
+NOTE Confidence: 0.8351956605911255
+
+00:12:06.999 --> 00:12:10.665
+you can use semantic kernel, you can use whatever you
+
+NOTE Confidence: 0.8351956605911255
+
+00:12:10.734 --> 00:12:11.080
+like.
+
+NOTE Confidence: 0.8946530222892761
+
+00:12:11.160 --> 00:12:14.791
+OK, in this case, in the interest of time, let
+
+NOTE Confidence: 0.8946530222892761
+
+00:12:14.870 --> 00:12:18.974
+me see if I can go ahead and createa.net application
+
+NOTE Confidence: 0.8946530222892761
+
+00:12:19.053 --> 00:12:20.079
+in 2 minutes.
+
+NOTE Confidence: 0.8169769048690796
+
+00:12:20.080 --> 00:12:24.821
+Maybe I want dot the new console and then test
+
+NOTE Confidence: 0.8169769048690796
+
+00:12:24.924 --> 00:12:30.181
+my Foundry local or something and then I can switch
+
+NOTE Confidence: 0.8169769048690796
+
+00:12:30.284 --> 00:12:36.056
+to this directory of the required Nugent package such as
+
+NOTE Confidence: 0.8169769048690796
+
+00:12:36.160 --> 00:12:38.840
+Microsoft Semantic Kernel.
+
+NOTE Confidence: 0.8893315196037292
+
+00:12:39.480 --> 00:12:43.000
+And of course I need to add the package and
+
+NOTE Confidence: 0.8893315196037292
+
+00:12:43.082 --> 00:12:44.719
+then write the code.
+
+NOTE Confidence: 0.9143906831741333
+
+00:12:44.840 --> 00:12:48.679
+I can do that, but I prefer to show you
+
+NOTE Confidence: 0.9143906831741333
+
+00:12:48.777 --> 00:12:53.797
+the final result because I mean, in 2 minutes, it's
+
+NOTE Confidence: 0.9143906831741333
+
+00:12:53.896 --> 00:12:57.440
+quite difficult to create this code.
+
+NOTE Confidence: 0.9322623014450073
+
+00:12:59.160 --> 00:13:02.590
+However, you can see that I'm using the model ID,
+
+NOTE Confidence: 0.9322623014450073
+
+00:13:02.660 --> 00:13:03.080
+right?
+
+NOTE Confidence: 0.7481766939163208
+
+00:13:04.160 --> 00:13:07.200
+I'm using this endpoint right?
+
+NOTE Confidence: 0.8386532664299011
+
+00:13:07.920 --> 00:13:11.496
+And then I'm using the Add open AI chat completion
+
+NOTE Confidence: 0.8386532664299011
+
+00:13:11.568 --> 00:13:15.360
+method for setting up the kernel, my semantic kernel.
+
+NOTE Confidence: 0.800857424736023
+
+00:13:15.360 --> 00:13:19.000
+I'm telling the kernel you know what I want to
+
+NOTE Confidence: 0.800857424736023
+
+00:13:19.079 --> 00:13:23.431
+use open AI's endpoints and then I'm just preparing the
+
+NOTE Confidence: 0.800857424736023
+
+00:13:23.511 --> 00:13:26.360
+things I'm telling some anti kernel.
+
+NOTE Confidence: 0.8243032693862915
+
+00:13:26.360 --> 00:13:31.839
+Hey, you know what, you are helpful AI assistant always
+
+NOTE Confidence: 0.8243032693862915
+
+00:13:31.938 --> 00:13:36.919
+end your messages and your responses with Foundry.
+
+NOTE Confidence: 0.920522928237915
+
+00:13:36.920 --> 00:13:40.539
+Local is awesome and what are the largest cities in
+
+NOTE Confidence: 0.920522928237915
+
+00:13:40.610 --> 00:13:41.320
+the world?
+
+NOTE Confidence: 0.8250730633735657
+
+00:13:42.080 --> 00:13:47.330
+I retrieve the ichat completion service instance, send the prompt,
+
+NOTE Confidence: 0.8250730633735657
+
+00:13:47.410 --> 00:13:49.319
+and basically that's it.
+
+NOTE Confidence: 0.9574469923973083
+
+00:13:49.760 --> 00:13:51.440
+So let me try this again.
+
+NOTE Confidence: 0.9273165464401245
+
+00:13:53.360 --> 00:13:56.419
+And you have to be careful that of course the
+
+NOTE Confidence: 0.9273165464401245
+
+00:13:56.487 --> 00:13:58.119
+model has to be running.
+
+NOTE Confidence: 0.7608562111854553
+
+00:13:59.000 --> 00:14:05.200
+And yeah, I think it runs successfully.
+
+NOTE Confidence: 0.9527990818023682
+
+00:14:05.640 --> 00:14:09.960
+Or was this the other execution?
+
+NOTE Confidence: 0.9655501842498779
+
+00:14:12.240 --> 00:14:13.160
+Let me try again.
+
+NOTE Confidence: 0.829521656036377
+
+00:14:13.720 --> 00:14:19.196
+Actually, let me try here in the terminal because I
+
+NOTE Confidence: 0.829521656036377
+
+00:14:19.304 --> 00:14:25.103
+think it you can see that better test sk.net build.net
+
+NOTE Confidence: 0.829521656036377
+
+00:14:25.210 --> 00:14:25.639
+run.
+
+NOTE Confidence: 0.8879839777946472
+
+00:14:27.240 --> 00:14:28.360
+Is this my application?
+
+NOTE Confidence: 0.5385695099830627
+
+00:14:28.360 --> 00:14:29.840
+yes.net run.
+
+NOTE Confidence: 0.8243705034255981
+
+00:14:30.480 --> 00:14:36.600
+And again, this is just a small.net application.
+
+NOTE Confidence: 0.8898200392723083
+
+00:14:37.000 --> 00:14:40.172
+I build that with, I don't know, in 5 minutes
+
+NOTE Confidence: 0.8898200392723083
+
+00:14:40.243 --> 00:14:41.160
+or something.
+
+NOTE Confidence: 0.8478221893310547
+
+00:14:41.640 --> 00:14:44.842
+And you can see that I'm receiving the responses, but
+
+NOTE Confidence: 0.8478221893310547
+
+00:14:44.902 --> 00:14:47.440
+those are coming from the local model, OK?
+
+NOTE Confidence: 0.9105567932128906
+
+00:14:48.040 --> 00:14:51.960
+I can even go ahead and disconnect from the Wi-Fi.
+
+NOTE Confidence: 0.8807306289672852
+
+00:14:53.480 --> 00:14:55.840
+There's no Internet connectivity right now.
+
+NOTE Confidence: 0.9598013162612915
+
+00:14:55.840 --> 00:14:58.126
+And I can go ahead and try to run this
+
+NOTE Confidence: 0.9598013162612915
+
+00:14:58.187 --> 00:15:01.617
+again, and I'm going to retrieve those responses from the
+
+NOTE Confidence: 0.9598013162612915
+
+00:15:01.677 --> 00:15:02.400
+local model.
+
+NOTE Confidence: 0.8431881666183472
+
+00:15:03.200 --> 00:15:05.640
+OK, Perfect.
+
+NOTE Confidence: 0.8260182738304138
+
+00:15:05.800 --> 00:15:08.360
+So amazing, right?
+
+NOTE Confidence: 0.9360963702201843
+
+00:15:08.680 --> 00:15:12.400
+Local large language models running in your machine.
+
+NOTE Confidence: 0.9683454632759094
+
+00:15:12.680 --> 00:15:14.080
+I think this is fantastic.
+
+NOTE Confidence: 0.766122043132782
+
+00:15:14.080 --> 00:15:17.746
+There are so many scenarios that are solved and are
+
+NOTE Confidence: 0.766122043132782
+
+00:15:17.818 --> 00:15:21.198
+required for this to be, you know where you can
+
+NOTE Confidence: 0.766122043132782
+
+00:15:21.270 --> 00:15:25.224
+get a lot of benefits from running local large language
+
+NOTE Confidence: 0.766122043132782
+
+00:15:25.296 --> 00:15:25.799
+models.
+
+NOTE Confidence: 0.8985033631324768
+
+00:15:26.640 --> 00:15:29.186
+And thank you very much for your time and enjoy
+
+NOTE Confidence: 0.8985033631324768
+
+00:15:29.240 --> 00:15:30.919
+the rest of the conference, OK?

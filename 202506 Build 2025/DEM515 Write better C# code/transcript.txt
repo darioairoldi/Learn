@@ -1,0 +1,1914 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.9706757068634033
+
+00:00:00.520 --> 00:00:01.760
+Thank you very much.
+
+NOTE Confidence: 0.9367278814315796
+
+00:00:01.760 --> 00:00:03.560
+Hey, everyone, welcome to the A-Team.
+
+NOTE Confidence: 0.8769981861114502
+
+00:00:03.920 --> 00:00:08.680
+I hear it's much better here than at Stage BI.
+
+NOTE Confidence: 0.3258894681930542
+
+00:00:08.680 --> 00:00:10.000
+Am Matt Torgeson.
+
+NOTE Confidence: 0.8856807947158813
+
+00:00:10.000 --> 00:00:11.520
+I am the lead designer of C#.
+
+NOTE Confidence: 0.9570257067680359
+
+00:00:13.039 --> 00:00:16.879
+And yeah, I work for Microsoft and we had a
+
+NOTE Confidence: 0.9570257067680359
+
+00:00:16.968 --> 00:00:18.040
+big session.
+
+NOTE Confidence: 0.9144343733787537
+
+00:00:18.360 --> 00:00:20.867
+If you didn't watch it, go back and watch the
+
+NOTE Confidence: 0.9144343733787537
+
+00:00:20.923 --> 00:00:23.319
+recording when you can of what's new in C#.
+
+NOTE Confidence: 0.9432399868965149
+
+00:00:23.440 --> 00:00:26.200
+Back on Monday night when everybody was hungry.
+
+NOTE Confidence: 0.8455522656440735
+
+00:00:26.720 --> 00:00:30.440
+This is like unofficially the what's old in C# talk.
+
+NOTE Confidence: 0.9124491214752197
+
+00:00:30.800 --> 00:00:32.240
+You will hear nothing new today.
+
+NOTE Confidence: 0.8518535494804382
+
+00:00:33.680 --> 00:00:36.265
+So if that bothers you and yeah, please create a
+
+NOTE Confidence: 0.8518535494804382
+
+00:00:36.319 --> 00:00:38.742
+stir, get up and and you know, trip over each
+
+NOTE Confidence: 0.8518535494804382
+
+00:00:38.796 --> 00:00:39.120
+other.
+
+NOTE Confidence: 0.9021709561347961
+
+00:00:40.960 --> 00:00:43.583
+There's a there's a few features in C# that we,
+
+NOTE Confidence: 0.9021709561347961
+
+00:00:43.639 --> 00:00:46.040
+we kind of feel people aren't using enough.
+
+NOTE Confidence: 0.7562595009803772
+
+00:00:46.040 --> 00:00:48.805
+And I'm here to Heckle you into using them more
+
+NOTE Confidence: 0.7562595009803772
+
+00:00:48.864 --> 00:00:51.159
+or as to convince you of their benefit.
+
+NOTE Confidence: 0.9017980098724365
+
+00:00:51.159 --> 00:00:55.015
+And what something like they're all added sort of in
+
+NOTE Confidence: 0.9017980098724365
+
+00:00:55.089 --> 00:00:59.463
+recent years, the latter half of numbers version numbers of
+
+NOTE Confidence: 0.9017980098724365
+
+00:00:59.537 --> 00:01:02.576
+C# and they all kind of have a few things
+
+NOTE Confidence: 0.9017980098724365
+
+00:01:02.650 --> 00:01:06.431
+in common other than maybe you should use them more
+
+NOTE Confidence: 0.9017980098724365
+
+00:01:06.506 --> 00:01:10.879
+like 1 is that they are they are syntactic simplifications.
+
+NOTE Confidence: 0.7877475619316101
+
+00:01:10.880 --> 00:01:13.440
+They're a way to express your intent maybe more clearly.
+
+NOTE Confidence: 0.8691583871841431
+
+00:01:13.840 --> 00:01:15.536
+And if you're staying on the screen, none of them
+
+NOTE Confidence: 0.8691583871841431
+
+00:01:15.571 --> 00:01:16.159
+are on there yet.
+
+NOTE Confidence: 0.8754487633705139
+
+00:01:16.160 --> 00:01:18.380
+I'm going to add them in a bit so you
+
+NOTE Confidence: 0.8754487633705139
+
+00:01:18.440 --> 00:01:20.000
+can't get ahead like that.
+
+NOTE Confidence: 0.9218934178352356
+
+00:01:20.000 --> 00:01:24.782
+So, so definitely express your intent better, but also your
+
+NOTE Confidence: 0.9218934178352356
+
+00:01:24.864 --> 00:01:28.917
+code will be safer, more likely to be correct, and
+
+NOTE Confidence: 0.9218934178352356
+
+00:01:28.998 --> 00:01:32.970
+also the compiler can probably do a better job at
+
+NOTE Confidence: 0.9218934178352356
+
+00:01:33.051 --> 00:01:37.429
+making them efficient for you than you could have done
+
+NOTE Confidence: 0.9218934178352356
+
+00:01:37.510 --> 00:01:38.240
+manually.
+
+NOTE Confidence: 0.9069766402244568
+
+00:01:38.440 --> 00:01:40.925
+OK, so that's why we think when they're appropriate for
+
+NOTE Confidence: 0.9069766402244568
+
+00:01:40.971 --> 00:01:42.959
+you, you should really adopt these features.
+
+NOTE Confidence: 0.7867949604988098
+
+00:01:42.959 --> 00:01:45.026
+I mean, you're just going to go right in and
+
+NOTE Confidence: 0.7867949604988098
+
+00:01:45.073 --> 00:01:47.750
+show you some, OK, The three features we're talking about
+
+NOTE Confidence: 0.7867949604988098
+
+00:01:47.797 --> 00:01:50.709
+today that I picked are paddle matching records and collection
+
+NOTE Confidence: 0.7867949604988098
+
+00:01:50.756 --> 00:01:51.319
+expressions.
+
+NOTE Confidence: 0.919876217842102
+
+00:01:51.640 --> 00:01:53.960
+OK, so let's get right in.
+
+NOTE Confidence: 0.5644093751907349
+
+00:01:54.320 --> 00:01:55.400
+Had a matching first.
+
+NOTE Confidence: 0.8704664707183838
+
+00:01:55.400 --> 00:01:58.498
+So what I have here is like a traditional type
+
+NOTE Confidence: 0.8704664707183838
+
+00:01:58.566 --> 00:01:59.240
+hierarchy.
+
+NOTE Confidence: 0.908758282661438
+
+00:01:59.240 --> 00:02:01.560
+Just imagine there's more than one derived class, right?
+
+NOTE Confidence: 0.7288199067115784
+
+00:02:01.560 --> 00:02:02.400
+It's type hierarchy.
+
+NOTE Confidence: 0.7847775220870972
+
+00:02:02.720 --> 00:02:04.720
+And it sort of traditionally does.
+
+NOTE Confidence: 0.8714706897735596
+
+00:02:05.000 --> 00:02:07.746
+It's like we have this little random method and does
+
+NOTE Confidence: 0.8714706897735596
+
+00:02:07.799 --> 00:02:10.388
+it with virtual methods so that each class can do
+
+NOTE Confidence: 0.8714706897735596
+
+00:02:10.440 --> 00:02:11.919
+its own thing for rendering.
+
+NOTE Confidence: 0.5774348974227905
+
+00:02:12.080 --> 00:02:13.400
+That's classic OO style.
+
+NOTE Confidence: 0.8776056170463562
+
+00:02:13.639 --> 00:02:16.162
+But often times, especially nowadays with the cloud and everything,
+
+NOTE Confidence: 0.8776056170463562
+
+00:02:16.199 --> 00:02:18.119
+the data and the functionality don't live together.
+
+NOTE Confidence: 0.956582248210907
+
+00:02:18.360 --> 00:02:19.900
+So what do you do if you have to write
+
+NOTE Confidence: 0.956582248210907
+
+00:02:19.941 --> 00:02:21.360
+the random method from the outside?
+
+NOTE Confidence: 0.8752999305725098
+
+00:02:21.600 --> 00:02:24.939
+Well, so essentially what you want to do is you
+
+NOTE Confidence: 0.8752999305725098
+
+00:02:25.011 --> 00:02:27.782
+want to you want to you want to do this
+
+NOTE Confidence: 0.8752999305725098
+
+00:02:27.853 --> 00:02:28.279
+right?
+
+NOTE Confidence: 0.9508377909660339
+
+00:02:28.280 --> 00:02:30.817
+You want to call render from the outside on a
+
+NOTE Confidence: 0.9508377909660339
+
+00:02:30.873 --> 00:02:32.959
+person like what does that look like?
+
+NOTE Confidence: 0.7787826657295227
+
+00:02:32.960 --> 00:02:34.560
+Let's let's implement that's real quick.
+
+NOTE Confidence: 0.7667682766914368
+
+00:02:34.560 --> 00:02:37.080
+So we have the render method here.
+
+NOTE Confidence: 0.8702001571655273
+
+00:02:37.080 --> 00:02:42.280
+It takes a person P and what should it do?
+
+NOTE Confidence: 0.8470639586448669
+
+00:02:42.280 --> 00:02:44.950
+Well, to for starters, let's just grab the stuff that
+
+NOTE Confidence: 0.8470639586448669
+
+00:02:45.001 --> 00:02:46.159
+person dot render does.
+
+NOTE Confidence: 0.9715046882629395
+
+00:02:46.160 --> 00:02:47.320
+Let's just put that in there.
+
+NOTE Confidence: 0.9642743468284607
+
+00:02:49.320 --> 00:02:51.120
+And now we're coming in from the outside.
+
+NOTE Confidence: 0.40201008319854736
+
+00:02:51.120 --> 00:02:51.280
+Yeah.
+
+NOTE Confidence: 0.8550369143486023
+
+00:02:51.280 --> 00:02:53.040
+So we have to dot our way into the person.
+
+NOTE Confidence: 0.9730665683746338
+
+00:02:53.040 --> 00:02:53.800
+That's fine.
+
+NOTE Confidence: 0.9641090631484985
+
+00:02:54.080 --> 00:02:54.760
+We'll do that.
+
+NOTE Confidence: 0.9750665426254272
+
+00:02:55.600 --> 00:02:57.200
+And then yes, there are some.
+
+NOTE Confidence: 0.8995713591575623
+
+00:02:57.440 --> 00:02:59.600
+That's just one derived class for demo purposes.
+
+NOTE Confidence: 0.9179372191429138
+
+00:02:59.600 --> 00:03:01.824
+We only have 15 minutes and so we should take
+
+NOTE Confidence: 0.9179372191429138
+
+00:03:01.873 --> 00:03:04.147
+care of that when it's a student, we should do
+
+NOTE Confidence: 0.9179372191429138
+
+00:03:04.197 --> 00:03:04.839
+this instead.
+
+NOTE Confidence: 0.908405065536499
+
+00:03:05.000 --> 00:03:08.200
+OK, so now we'll have some if then logic.
+
+NOTE Confidence: 0.8387730717658997
+
+00:03:08.200 --> 00:03:10.000
+I'm just kind of doing it the old fashioned way.
+
+NOTE Confidence: 0.8863900899887085
+
+00:03:10.000 --> 00:03:14.114
+If the person is actually a student, the is expression
+
+NOTE Confidence: 0.8863900899887085
+
+00:03:14.190 --> 00:03:16.399
+has been in C# since forever.
+
+NOTE Confidence: 0.95473712682724
+
+00:03:16.680 --> 00:03:20.274
+Then do that instead and or else, you know, return
+
+NOTE Confidence: 0.95473712682724
+
+00:03:20.346 --> 00:03:21.639
+the default thing.
+
+NOTE Confidence: 0.8619747161865234
+
+00:03:22.240 --> 00:03:24.735
+So yes, we have to say P dot here and
+
+NOTE Confidence: 0.8619747161865234
+
+00:03:24.802 --> 00:03:27.567
+P dot here and P dot here and we're done,
+
+NOTE Confidence: 0.8619747161865234
+
+00:03:27.635 --> 00:03:28.040
+right?
+
+NOTE Confidence: 0.8443825840950012
+
+00:03:30.240 --> 00:03:33.280
+Well, not quite because of course, a person doesn't have
+
+NOTE Confidence: 0.8443825840950012
+
+00:03:33.334 --> 00:03:34.800
+an ID, only a student does.
+
+NOTE Confidence: 0.9616394639015198
+
+00:03:35.000 --> 00:03:36.520
+And we could cast and stuff here.
+
+NOTE Confidence: 0.8705148696899414
+
+00:03:36.520 --> 00:03:39.320
+But now this is where patterns get start getting interesting.
+
+NOTE Confidence: 0.8389719724655151
+
+00:03:40.360 --> 00:03:44.013
+The is expression as of a certain C version doesn't
+
+NOTE Confidence: 0.8389719724655151
+
+00:03:44.085 --> 00:03:47.810
+just take types, it takes patterns on the right hand
+
+NOTE Confidence: 0.8389719724655151
+
+00:03:47.881 --> 00:03:48.240
+side.
+
+NOTE Confidence: 0.8584601879119873
+
+00:03:48.240 --> 00:03:49.360
+And what are patterns?
+
+NOTE Confidence: 0.7864888906478882
+
+00:03:49.360 --> 00:03:52.804
+Patterns are sort of like a a question or test
+
+NOTE Confidence: 0.7864888906478882
+
+00:03:52.879 --> 00:03:55.800
+of values that can either match or not.
+
+NOTE Confidence: 0.828862190246582
+
+00:03:56.080 --> 00:03:56.960
+You try to match it.
+
+NOTE Confidence: 0.8218438029289246
+
+00:03:56.960 --> 00:03:59.880
+If it matches succeeds, then is expression will be true.
+
+NOTE Confidence: 0.8499068021774292
+
+00:04:00.240 --> 00:04:02.695
+But also and that you can say a type check
+
+NOTE Confidence: 0.8499068021774292
+
+00:04:02.753 --> 00:04:04.039
+is an example of that.
+
+NOTE Confidence: 0.922874927520752
+
+00:04:04.040 --> 00:04:07.291
+But also you can extract information from it when it's
+
+NOTE Confidence: 0.922874927520752
+
+00:04:07.351 --> 00:04:09.880
+true by way of new fresh variables, right?
+
+NOTE Confidence: 0.8470169305801392
+
+00:04:09.880 --> 00:04:12.917
+So this S will contain the person as a student
+
+NOTE Confidence: 0.8470169305801392
+
+00:04:12.983 --> 00:04:16.350
+already strongly typed to be a student if this test
+
+NOTE Confidence: 0.8470169305801392
+
+00:04:16.416 --> 00:04:19.453
+succeeds, which means we can say S dot ID here
+
+NOTE Confidence: 0.8470169305801392
+
+00:04:19.519 --> 00:04:20.840
+and things work out.
+
+NOTE Confidence: 0.7065269351005554
+
+00:04:21.160 --> 00:04:22.240
+So patterns were really cool.
+
+NOTE Confidence: 0.9034215211868286
+
+00:04:22.400 --> 00:04:25.160
+We added them to is expressions instead of just types.
+
+NOTE Confidence: 0.916405975818634
+
+00:04:25.160 --> 00:04:26.600
+You can have all kinds of patterns.
+
+NOTE Confidence: 0.939959704875946
+
+00:04:26.920 --> 00:04:28.480
+We'll talk about the other kinds of patterns.
+
+NOTE Confidence: 0.91050124168396
+
+00:04:28.920 --> 00:04:31.781
+The if we imagine to have lots of derived classes
+
+NOTE Confidence: 0.91050124168396
+
+00:04:31.839 --> 00:04:34.992
+or other things we want to test, though, it's probably
+
+NOTE Confidence: 0.91050124168396
+
+00:04:35.051 --> 00:04:36.919
+better to do this with a switch.
+
+NOTE Confidence: 0.8139076232910156
+
+00:04:37.120 --> 00:04:39.040
+So that's turn this into a switch statement.
+
+NOTE Confidence: 0.9073452353477478
+
+00:04:39.200 --> 00:04:40.480
+Let's switch on the person.
+
+NOTE Confidence: 0.9250636696815491
+
+00:04:42.160 --> 00:04:47.520
+If I could spell switch, there you go.
+
+NOTE Confidence: 0.8949811458587646
+
+00:04:49.080 --> 00:04:50.800
+And let's turn this into a switch expression.
+
+NOTE Confidence: 0.847815215587616
+
+00:04:51.440 --> 00:04:55.755
+So where is expressions used to only have types in
+
+NOTE Confidence: 0.847815215587616
+
+00:04:55.842 --> 00:04:56.360
+there?
+
+NOTE Confidence: 0.9005188345909119
+
+00:04:56.440 --> 00:04:58.560
+Switch expressions used to only have constants.
+
+NOTE Confidence: 0.9354527592658997
+
+00:04:59.000 --> 00:05:00.790
+OK, but now we can put patterns in those as
+
+NOTE Confidence: 0.9354527592658997
+
+00:05:00.831 --> 00:05:01.040
+well.
+
+NOTE Confidence: 0.867502748966217
+
+00:05:01.040 --> 00:05:05.386
+So a case can be a pattern followed by some
+
+NOTE Confidence: 0.867502748966217
+
+00:05:05.487 --> 00:05:06.599
+statements.
+
+NOTE Confidence: 0.969463586807251
+
+00:05:07.080 --> 00:05:09.040
+Or again, we can do the default down here.
+
+NOTE Confidence: 0.7849713563919067
+
+00:05:10.680 --> 00:05:13.600
+Let's put a curly and hopefully it all indents.
+
+NOTE Confidence: 0.8795123100280762
+
+00:05:13.840 --> 00:05:14.560
+There you go.
+
+NOTE Confidence: 0.8647949695587158
+
+00:05:14.920 --> 00:05:16.766
+OK, so now we can have patterns and switch statements
+
+NOTE Confidence: 0.8647949695587158
+
+00:05:16.801 --> 00:05:17.080
+as well.
+
+NOTE Confidence: 0.8548322916030884
+
+00:05:17.080 --> 00:05:19.596
+So all of a sudden we've unified switch and is
+
+NOTE Confidence: 0.8548322916030884
+
+00:05:19.651 --> 00:05:21.839
+to be able to do more tests than before.
+
+NOTE Confidence: 0.938724160194397
+
+00:05:22.960 --> 00:05:26.182
+Now we also added a new flavor of switch, which
+
+NOTE Confidence: 0.938724160194397
+
+00:05:26.251 --> 00:05:29.748
+is the switch expression for when you just like you
+
+NOTE Confidence: 0.938724160194397
+
+00:05:29.817 --> 00:05:32.080
+want to be more stylish, I guess.
+
+NOTE Confidence: 0.9435811042785645
+
+00:05:32.080 --> 00:05:34.988
+And when they when the branches are results that you
+
+NOTE Confidence: 0.9435811042785645
+
+00:05:35.044 --> 00:05:38.119
+want to produce that you can express in one expression.
+
+NOTE Confidence: 0.8953638672828674
+
+00:05:38.400 --> 00:05:40.949
+So let's go and just take the just take the
+
+NOTE Confidence: 0.8953638672828674
+
+00:05:41.009 --> 00:05:44.033
+just take the suggestion there and turn this into a
+
+NOTE Confidence: 0.8953638672828674
+
+00:05:44.092 --> 00:05:45.160
+switch expression.
+
+NOTE Confidence: 0.8508996367454529
+
+00:05:45.160 --> 00:05:46.280
+You haven't seen them before.
+
+NOTE Confidence: 0.9106962084770203
+
+00:05:46.640 --> 00:05:50.520
+Same structure as a switch statement, just different syntax.
+
+NOTE Confidence: 0.839167594909668
+
+00:05:50.520 --> 00:05:53.816
+So P switch there says we're going to have a
+
+NOTE Confidence: 0.839167594909668
+
+00:05:53.891 --> 00:05:55.240
+switch expression.
+
+NOTE Confidence: 0.8023653030395508
+
+00:05:55.240 --> 00:05:57.480
+And inside the curlies, it's a little terser.
+
+NOTE Confidence: 0.8437119126319885
+
+00:05:57.480 --> 00:05:59.799
+We didn't say the case keyword, but we still have
+
+NOTE Confidence: 0.8437119126319885
+
+00:05:59.846 --> 00:06:00.319
+a pattern.
+
+NOTE Confidence: 0.8712326884269714
+
+00:06:00.640 --> 00:06:04.622
+We use a little fat arrow instead of instead of
+
+NOTE Confidence: 0.8712326884269714
+
+00:06:04.707 --> 00:06:08.519
+nested statements, but that's pretty much it.
+
+NOTE Confidence: 0.905295193195343
+
+00:06:08.520 --> 00:06:10.920
+And each of them has an expression that's a result
+
+NOTE Confidence: 0.905295193195343
+
+00:06:10.968 --> 00:06:12.120
+if that pattern matched.
+
+NOTE Confidence: 0.7786218523979187
+
+00:06:12.279 --> 00:06:13.680
+And we'll just go in order like we do in
+
+NOTE Confidence: 0.7786218523979187
+
+00:06:13.715 --> 00:06:14.240
+a switch thing.
+
+NOTE Confidence: 0.8967755436897278
+
+00:06:14.520 --> 00:06:18.360
+OK, so far so good.
+
+NOTE Confidence: 0.8725758790969849
+
+00:06:20.360 --> 00:06:23.392
+I mentioned there are other kinds of patterns and I'm
+
+NOTE Confidence: 0.8725758790969849
+
+00:06:23.449 --> 00:06:26.368
+going to the general idea here though before we get
+
+NOTE Confidence: 0.8725758790969849
+
+00:06:26.425 --> 00:06:29.401
+started on those, is when you, when you use switches
+
+NOTE Confidence: 0.8725758790969849
+
+00:06:29.458 --> 00:06:32.548
+with patterns even more so than is with patterns, then
+
+NOTE Confidence: 0.8725758790969849
+
+00:06:32.605 --> 00:06:35.752
+the compiler really gets in there and tries to optimize
+
+NOTE Confidence: 0.8725758790969849
+
+00:06:35.809 --> 00:06:36.839
+your code for you.
+
+NOTE Confidence: 0.8277091383934021
+
+00:06:36.839 --> 00:06:39.504
+So it's going to do its best to evaluate things
+
+NOTE Confidence: 0.8277091383934021
+
+00:06:39.561 --> 00:06:42.169
+in the order that is the most, that's the most
+
+NOTE Confidence: 0.8277091383934021
+
+00:06:42.225 --> 00:06:44.039
+opportune or the most efficient.
+
+NOTE Confidence: 0.9169285893440247
+
+00:06:44.040 --> 00:06:46.831
+It's going to really go to town on your code
+
+NOTE Confidence: 0.9169285893440247
+
+00:06:46.894 --> 00:06:50.320
+rather than you having to manually figure out the best
+
+NOTE Confidence: 0.9169285893440247
+
+00:06:50.383 --> 00:06:53.238
+sequence of the ifs and nested ifs and all of
+
+NOTE Confidence: 0.9169285893440247
+
+00:06:53.302 --> 00:06:54.000
+that stuff.
+
+NOTE Confidence: 0.8624873757362366
+
+00:06:54.080 --> 00:06:56.560
+OK, And it's also going to check more things.
+
+NOTE Confidence: 0.9599291682243347
+
+00:06:57.440 --> 00:06:59.199
+First of all, I want to fix a bug in
+
+NOTE Confidence: 0.9599291682243347
+
+00:06:59.248 --> 00:06:59.639
+my code.
+
+NOTE Confidence: 0.8097556829452515
+
+00:06:59.960 --> 00:07:02.725
+I'm indexing into the first name there as a, you
+
+NOTE Confidence: 0.8097556829452515
+
+00:07:02.783 --> 00:07:04.799
+know, string, a list of characters.
+
+NOTE Confidence: 0.7350080013275146
+
+00:07:04.800 --> 00:07:06.440
+But what if it, what if it's empty?
+
+NOTE Confidence: 0.9474092125892639
+
+00:07:06.480 --> 00:07:07.760
+So let's add another case.
+
+NOTE Confidence: 0.9239444136619568
+
+00:07:08.080 --> 00:07:10.455
+Actually, let's turn this into the when it's not empty
+
+NOTE Confidence: 0.9239444136619568
+
+00:07:10.499 --> 00:07:10.719
+case.
+
+NOTE Confidence: 0.8459708094596863
+
+00:07:11.120 --> 00:07:13.502
+When you're in a switch statement or expression, you can
+
+NOTE Confidence: 0.8459708094596863
+
+00:07:13.545 --> 00:07:15.758
+put a when clause that's simply like a boolean thing
+
+NOTE Confidence: 0.8459708094596863
+
+00:07:15.800 --> 00:07:17.120
+that says, oh, what to do next?
+
+NOTE Confidence: 0.8790282011032104
+
+00:07:18.160 --> 00:07:20.840
+So we'll do this when first name.
+
+NOTE Confidence: 0.7958992123603821
+
+00:07:22.560 --> 00:07:28.062
+Oh, when, Yeah, when P dot first name dot length
+
+NOTE Confidence: 0.7958992123603821
+
+00:07:28.176 --> 00:07:30.240
+is greater than 0.
+
+NOTE Confidence: 0.8626123666763306
+
+00:07:31.280 --> 00:07:33.433
+But there are also other ways we could do this
+
+NOTE Confidence: 0.8626123666763306
+
+00:07:33.480 --> 00:07:36.056
+when instead of just having, oh, instead of just having
+
+NOTE Confidence: 0.8626123666763306
+
+00:07:36.102 --> 00:07:38.350
+a a default pattern here, we could, we could use
+
+NOTE Confidence: 0.8626123666763306
+
+00:07:38.397 --> 00:07:39.240
+the patterns more.
+
+NOTE Confidence: 0.8339129090309143
+
+00:07:39.240 --> 00:07:41.486
+But before we do that, notice that little, the little
+
+NOTE Confidence: 0.8339129090309143
+
+00:07:41.528 --> 00:07:42.079
+warning here.
+
+NOTE Confidence: 0.8358923196792603
+
+00:07:42.080 --> 00:07:44.360
+It says your switch isn't exhaustive.
+
+NOTE Confidence: 0.8645748496055603
+
+00:07:44.360 --> 00:07:47.372
+It says there's things you aren't dealing with, like it's
+
+NOTE Confidence: 0.8645748496055603
+
+00:07:47.425 --> 00:07:50.280
+exactly when the first name is an empty string, right?
+
+NOTE Confidence: 0.9337635636329651
+
+00:07:50.280 --> 00:07:52.640
+It doesn't deal with that and it's actually telling me.
+
+NOTE Confidence: 0.942798376083374
+
+00:07:52.640 --> 00:07:53.720
+So this is one of the benefits.
+
+NOTE Confidence: 0.8586310148239136
+
+00:07:53.960 --> 00:07:56.508
+One of the ways you make a code safer is
+
+NOTE Confidence: 0.8586310148239136
+
+00:07:56.571 --> 00:07:59.120
+that you get told these kinds of things.
+
+NOTE Confidence: 0.808952808380127
+
+00:07:59.280 --> 00:08:01.392
+Let's so it's telling me, OK, let's go at that
+
+NOTE Confidence: 0.808952808380127
+
+00:08:01.437 --> 00:08:04.054
+actual default case that always, you know that the actual
+
+NOTE Confidence: 0.808952808380127
+
+00:08:04.100 --> 00:08:04.560
+fall back.
+
+NOTE Confidence: 0.8909254670143127
+
+00:08:04.560 --> 00:08:07.960
+Let's just grab the last name there.
+
+NOTE Confidence: 0.8909112811088562
+
+00:08:08.040 --> 00:08:11.360
+Oh, that was not an_There we go and.
+
+NOTE Confidence: 0.8791126608848572
+
+00:08:11.360 --> 00:08:13.958
+Another thing like kind of the opposite of the exhaustiveness
+
+NOTE Confidence: 0.8791126608848572
+
+00:08:14.001 --> 00:08:14.639
+checking let's.
+
+NOTE Confidence: 0.9195986390113831
+
+00:08:14.640 --> 00:08:16.960
+Swap these two branches for a second what.
+
+NOTE Confidence: 0.7446139454841614
+
+00:08:16.960 --> 00:08:19.331
+You'll see if you squint is there's there's a red
+
+NOTE Confidence: 0.7446139454841614
+
+00:08:19.379 --> 00:08:20.880
+squiggle on this one here this.
+
+NOTE Confidence: 0.9066721796989441
+
+00:08:20.880 --> 00:08:23.500
+Is not the best example because they're kind of obscuring
+
+NOTE Confidence: 0.9066721796989441
+
+00:08:23.546 --> 00:08:25.800
+each other saying hey you, can never get here so.
+
+NOTE Confidence: 0.8634745478630066
+
+00:08:25.800 --> 00:08:29.463
+You also get reachability checking in your in your switches
+
+NOTE Confidence: 0.8634745478630066
+
+00:08:29.525 --> 00:08:29.960
+that's.
+
+NOTE Confidence: 0.9699153304100037
+
+00:08:29.960 --> 00:08:32.920
+Also really good when you have complex logic so.
+
+NOTE Confidence: 0.77726149559021
+
+00:08:34.600 --> 00:08:35.800
+So let's switch him back.
+
+NOTE Confidence: 0.9591749906539917
+
+00:08:36.800 --> 00:08:39.221
+But then let's try to examine just quickly and you
+
+NOTE Confidence: 0.9591749906539917
+
+00:08:39.269 --> 00:08:39.560
+won't.
+
+NOTE Confidence: 0.8984946608543396
+
+00:08:39.560 --> 00:08:41.520
+This is just going to fly by.
+
+NOTE Confidence: 0.8477607369422913
+
+00:08:41.520 --> 00:08:44.680
+But there, there are many different kinds of patterns.
+
+NOTE Confidence: 0.8964268565177917
+
+00:08:44.680 --> 00:08:45.960
+I'm just going to show a few.
+
+NOTE Confidence: 0.9549448490142822
+
+00:08:46.240 --> 00:08:49.009
+We have the one that we call a property pattern
+
+NOTE Confidence: 0.9549448490142822
+
+00:08:49.068 --> 00:08:52.073
+where you can actually select one of the members of
+
+NOTE Confidence: 0.9549448490142822
+
+00:08:52.132 --> 00:08:55.550
+the incoming value, the incoming person, and you can apply
+
+NOTE Confidence: 0.9549448490142822
+
+00:08:55.609 --> 00:08:57.199
+patterns recursively to it.
+
+NOTE Confidence: 0.9330989718437195
+
+00:08:57.480 --> 00:08:59.991
+So I could just apply the var pattern that says
+
+NOTE Confidence: 0.9330989718437195
+
+00:09:00.044 --> 00:09:02.395
+just take that first name and give it a name
+
+NOTE Confidence: 0.9330989718437195
+
+00:09:02.449 --> 00:09:04.640
+like F and then use that in my code here.
+
+NOTE Confidence: 0.9138777852058411
+
+00:09:06.720 --> 00:09:09.655
+And I could have a recursive property pattern getting the
+
+NOTE Confidence: 0.9138777852058411
+
+00:09:09.706 --> 00:09:11.200
+length out like that as well.
+
+NOTE Confidence: 0.8190711140632629
+
+00:09:11.200 --> 00:09:12.440
+But we could also try other things.
+
+NOTE Confidence: 0.8508197069168091
+
+00:09:12.840 --> 00:09:16.560
+We could say where or you could say first name
+
+NOTE Confidence: 0.8508197069168091
+
+00:09:16.640 --> 00:09:20.280
+dot length and then try to do things on that.
+
+NOTE Confidence: 0.753397524356842
+
+00:09:20.280 --> 00:09:22.919
+We could say first name that where first name dot
+
+NOTE Confidence: 0.753397524356842
+
+00:09:22.973 --> 00:09:24.319
+length is greater than 0.
+
+NOTE Confidence: 0.8740248680114746
+
+00:09:24.679 --> 00:09:26.460
+And then we don't need our when clause at all
+
+NOTE Confidence: 0.8740248680114746
+
+00:09:26.500 --> 00:09:28.320
+because we are expressing it all in a pattern.
+
+NOTE Confidence: 0.8391637802124023
+
+00:09:28.560 --> 00:09:30.080
+That's the relational pattern.
+
+NOTE Confidence: 0.9275187253952026
+
+00:09:30.080 --> 00:09:32.931
+Or we can say actually where it's not 0, where
+
+NOTE Confidence: 0.9275187253952026
+
+00:09:32.993 --> 00:09:36.588
+it's taking the 0 constant pattern and saying anything but
+
+NOTE Confidence: 0.9275187253952026
+
+00:09:36.650 --> 00:09:36.959
+that.
+
+NOTE Confidence: 0.9689083695411682
+
+00:09:37.480 --> 00:09:41.910
+Or you could say actually that the first name itself
+
+NOTE Confidence: 0.9689083695411682
+
+00:09:41.995 --> 00:09:44.039
+is not the empty string.
+
+NOTE Confidence: 0.9225737452507019
+
+00:09:44.840 --> 00:09:47.830
+Or you could say it's not the empty list, or
+
+NOTE Confidence: 0.9225737452507019
+
+00:09:47.898 --> 00:09:51.228
+you could, which is a list pattern, an empty list
+
+NOTE Confidence: 0.9225737452507019
+
+00:09:51.296 --> 00:09:51.840
+pattern.
+
+NOTE Confidence: 0.9013773798942566
+
+00:09:51.840 --> 00:09:53.814
+Or you could say, actually it is a list, but
+
+NOTE Confidence: 0.9013773798942566
+
+00:09:53.859 --> 00:09:56.057
+it has at least one element that we're applying a
+
+NOTE Confidence: 0.9013773798942566
+
+00:09:56.102 --> 00:09:58.346
+pattern here to say has an element there and maybe
+
+NOTE Confidence: 0.9013773798942566
+
+00:09:58.391 --> 00:09:58.840
+some more.
+
+NOTE Confidence: 0.8756541609764099
+
+00:10:00.160 --> 00:10:02.431
+And actually you could use a var pattern here to
+
+NOTE Confidence: 0.8756541609764099
+
+00:10:02.478 --> 00:10:05.081
+say, actually, let's call that first thing in the list,
+
+NOTE Confidence: 0.8756541609764099
+
+00:10:05.129 --> 00:10:06.879
+the initial that's a first character.
+
+NOTE Confidence: 0.8937848806381226
+
+00:10:07.360 --> 00:10:09.520
+And let's just use it over here directly, right?
+
+NOTE Confidence: 0.83732670545578
+
+00:10:09.520 --> 00:10:12.471
+So you you can use pattern in many in innovative
+
+NOTE Confidence: 0.83732670545578
+
+00:10:12.532 --> 00:10:12.839
+ways.
+
+NOTE Confidence: 0.9658722281455994
+
+00:10:12.840 --> 00:10:14.622
+I'm not saying you should do all that I'm doing
+
+NOTE Confidence: 0.9658722281455994
+
+00:10:14.660 --> 00:10:15.040
+right now.
+
+NOTE Confidence: 0.8241621851921082
+
+00:10:15.080 --> 00:10:18.079
+I'm just saying there are a lot of options getting
+
+NOTE Confidence: 0.8241621851921082
+
+00:10:18.139 --> 00:10:21.979
+your code safer, more expressive, more compiler checked and more
+
+NOTE Confidence: 0.8241621851921082
+
+00:10:22.039 --> 00:10:23.479
+efficient with patterns.
+
+NOTE Confidence: 0.9178778529167175
+
+00:10:23.880 --> 00:10:25.000
+So that's it for patterns.
+
+NOTE Confidence: 0.9351540207862854
+
+00:10:25.440 --> 00:10:27.040
+Let's talk about records briefly.
+
+NOTE Confidence: 0.8154789209365845
+
+00:10:28.400 --> 00:10:32.617
+We if I took this line of code and copied
+
+NOTE Confidence: 0.8154789209365845
+
+00:10:32.720 --> 00:10:37.040
+it and said like meds 2 here and I compare
+
+NOTE Confidence: 0.8154789209365845
+
+00:10:37.142 --> 00:10:42.285
+those two, say right line meds equals meds 2, then
+
+NOTE Confidence: 0.8154789209365845
+
+00:10:42.388 --> 00:10:44.960
+these are objects, right?
+
+NOTE Confidence: 0.8235837817192078
+
+00:10:44.960 --> 00:10:47.603
+So that'll be a false like because objects compared by
+
+NOTE Confidence: 0.8235837817192078
+
+00:10:47.652 --> 00:10:48.680
+reference by default.
+
+NOTE Confidence: 0.8070588111877441
+
+00:10:48.920 --> 00:10:51.332
+But sometimes you really want, you want the object hierarchies
+
+NOTE Confidence: 0.8070588111877441
+
+00:10:51.370 --> 00:10:51.759
+and so on.
+
+NOTE Confidence: 0.8109545111656189
+
+00:10:51.760 --> 00:10:53.457
+You want to stay with classes, but you want them
+
+NOTE Confidence: 0.8109545111656189
+
+00:10:53.492 --> 00:10:54.200
+to represent values.
+
+NOTE Confidence: 0.7132717370986938
+
+00:10:54.200 --> 00:10:56.661
+You want them to present information, not like a stateful
+
+NOTE Confidence: 0.7132717370986938
+
+00:10:56.704 --> 00:10:57.999
+object that evolves over time.
+
+NOTE Confidence: 0.8259745836257935
+
+00:10:58.320 --> 00:11:00.679
+And that is just C Sharp's defaults for classes are
+
+NOTE Confidence: 0.8259745836257935
+
+00:11:00.725 --> 00:11:02.160
+just completely wrong for that.
+
+NOTE Confidence: 0.8084480166435242
+
+00:11:02.160 --> 00:11:04.426
+Like they they are so leaning into the reference based
+
+NOTE Confidence: 0.8084480166435242
+
+00:11:04.468 --> 00:11:04.719
+stuff.
+
+NOTE Confidence: 0.9359524846076965
+
+00:11:05.240 --> 00:11:08.786
+But if you want the value based interpretation, then all
+
+NOTE Confidence: 0.9359524846076965
+
+00:11:08.850 --> 00:11:11.320
+you have to do is to make them records.
+
+NOTE Confidence: 0.9061856865882874
+
+00:11:11.320 --> 00:11:13.826
+So we can say record class here and here and
+
+NOTE Confidence: 0.9061856865882874
+
+00:11:13.883 --> 00:11:16.617
+all of a sudden, actually let's get rid of those
+
+NOTE Confidence: 0.9061856865882874
+
+00:11:16.674 --> 00:11:19.237
+render methods so we don't, so we can have it
+
+NOTE Confidence: 0.9061856865882874
+
+00:11:19.294 --> 00:11:20.320
+all on the screen.
+
+NOTE Confidence: 0.8810607194900513
+
+00:11:20.640 --> 00:11:23.400
+All of a sudden we are flipping the defaults.
+
+NOTE Confidence: 0.8715134859085083
+
+00:11:23.400 --> 00:11:26.739
+Essentially we are implementing a bunch of value based functionality
+
+NOTE Confidence: 0.8715134859085083
+
+00:11:26.789 --> 00:11:29.146
+on these classes, one of which is that these two
+
+NOTE Confidence: 0.8715134859085083
+
+00:11:29.195 --> 00:11:30.079
+will now be equal.
+
+NOTE Confidence: 0.8715737462043762
+
+00:11:30.080 --> 00:11:33.440
+It's comparing the contents rather than the references, OK.
+
+NOTE Confidence: 0.871288001537323
+
+00:11:33.720 --> 00:11:36.336
+And even one of the nifty things is that even
+
+NOTE Confidence: 0.871288001537323
+
+00:11:36.395 --> 00:11:39.651
+though these are strongly typed as person here, we don't
+
+NOTE Confidence: 0.871288001537323
+
+00:11:39.709 --> 00:11:41.279
+know that they're students.
+
+NOTE Confidence: 0.8311920166015625
+
+00:11:41.280 --> 00:11:42.600
+Pilot doesn't know that they're students.
+
+NOTE Confidence: 0.945932924747467
+
+00:11:43.040 --> 00:11:45.668
+The way this is implemented will actually dig all the
+
+NOTE Confidence: 0.945932924747467
+
+00:11:45.718 --> 00:11:48.000
+way down and compare even the hidden ID field.
+
+NOTE Confidence: 0.8412167429924011
+
+00:11:48.280 --> 00:11:51.185
+OK, I'll just say it's somehow work virtual and you
+
+NOTE Confidence: 0.8412167429924011
+
+00:11:51.242 --> 00:11:54.830
+don't have to worry about how implementing value based equality
+
+NOTE Confidence: 0.8412167429924011
+
+00:11:54.887 --> 00:11:57.280
+in a hierarchy is super hard to get right.
+
+NOTE Confidence: 0.8811836838722229
+
+00:11:57.400 --> 00:11:59.415
+And once you start changing your code, it won't get
+
+NOTE Confidence: 0.8811836838722229
+
+00:11:59.454 --> 00:12:00.680
+messed up if it wasn't already.
+
+NOTE Confidence: 0.9332639575004578
+
+00:12:01.000 --> 00:12:02.329
+We just do it for you and we do it
+
+NOTE Confidence: 0.9332639575004578
+
+00:12:02.368 --> 00:12:02.759
+correctly.
+
+NOTE Confidence: 0.9443004131317139
+
+00:12:02.760 --> 00:12:04.360
+You never have to worry about it again.
+
+NOTE Confidence: 0.8314650058746338
+
+00:12:05.040 --> 00:12:09.086
+Other value based functionality is that we we actually implant
+
+NOTE Confidence: 0.8314650058746338
+
+00:12:09.151 --> 00:12:12.153
+a pretty nice 2 string, so it'll just list out
+
+NOTE Confidence: 0.8314650058746338
+
+00:12:12.218 --> 00:12:14.959
+all the stuff that's in the values inside.
+
+NOTE Confidence: 0.9379372596740723
+
+00:12:15.520 --> 00:12:18.931
+But one last thing is that when you have information
+
+NOTE Confidence: 0.9379372596740723
+
+00:12:18.996 --> 00:12:22.145
+like this, when you want to update it, you don't
+
+NOTE Confidence: 0.9379372596740723
+
+00:12:22.211 --> 00:12:23.720
+mutate the information.
+
+NOTE Confidence: 0.8048950433731079
+
+00:12:23.720 --> 00:12:25.920
+You create another, another record, right?
+
+NOTE Confidence: 0.771342933177948
+
+00:12:25.920 --> 00:12:28.531
+This, this is Mads with a with a last name,
+
+NOTE Confidence: 0.771342933177948
+
+00:12:28.592 --> 00:12:29.199
+Torgerson.
+
+NOTE Confidence: 0.8125957250595093
+
+00:12:29.200 --> 00:12:31.610
+But if I wanted to update my first name, I
+
+NOTE Confidence: 0.8125957250595093
+
+00:12:31.667 --> 00:12:34.824
+could say it's Mads with and then object initialize the
+
+NOTE Confidence: 0.8125957250595093
+
+00:12:34.881 --> 00:12:37.119
+syntax to say last name equals Nielsen.
+
+NOTE Confidence: 0.9189425706863403
+
+00:12:37.120 --> 00:12:39.329
+That actually used to be my last name many years
+
+NOTE Confidence: 0.9189425706863403
+
+00:12:39.375 --> 00:12:39.560
+ago.
+
+NOTE Confidence: 0.9592110514640808
+
+00:12:40.120 --> 00:12:43.720
+And now I get a copy with that thing changed.
+
+NOTE Confidence: 0.9393936991691589
+
+00:12:44.360 --> 00:12:47.370
+And again, it's a full copy if I write this
+
+NOTE Confidence: 0.9393936991691589
+
+00:12:47.440 --> 00:12:48.000
+one out.
+
+NOTE Confidence: 0.8648712635040283
+
+00:12:48.000 --> 00:12:49.320
+That's actually just this one.
+
+NOTE Confidence: 0.8552417755126953
+
+00:12:49.320 --> 00:12:50.280
+So let's run the code.
+
+NOTE Confidence: 0.8992500305175781
+
+00:12:51.360 --> 00:12:54.708
+If I write that one out, then you will see
+
+NOTE Confidence: 0.8992500305175781
+
+00:12:54.787 --> 00:12:58.614
+that it again, it's not based on the static type
+
+NOTE Confidence: 0.8992500305175781
+
+00:12:58.694 --> 00:13:02.679
+that it's a person and it doesn't create a person.
+
+NOTE Confidence: 0.9370748996734619
+
+00:13:02.680 --> 00:13:04.400
+It does create another student, right?
+
+NOTE Confidence: 0.8847633004188538
+
+00:13:04.400 --> 00:13:07.533
+It does the runtime copy of the actual type and
+
+NOTE Confidence: 0.8847633004188538
+
+00:13:07.600 --> 00:13:09.600
+all the hidden values as well.
+
+NOTE Confidence: 0.8960105776786804
+
+00:13:09.600 --> 00:13:12.437
+It's sort of virtually supported so that the new student
+
+NOTE Confidence: 0.8960105776786804
+
+00:13:12.487 --> 00:13:14.919
+has another last name, but it's still a student.
+
+NOTE Confidence: 0.8645013570785522
+
+00:13:14.920 --> 00:13:15.960
+It still has the same ID.
+
+NOTE Confidence: 0.9052956104278564
+
+00:13:16.080 --> 00:13:17.640
+OK, we do all that for you.
+
+NOTE Confidence: 0.8617560267448425
+
+00:13:17.920 --> 00:13:20.720
+Value based use use records.
+
+NOTE Confidence: 0.5961622595787048
+
+00:13:21.240 --> 00:13:24.640
+OK records.
+
+NOTE Confidence: 0.8551298975944519
+
+00:13:24.640 --> 00:13:26.600
+Also, I'm not going to go into this much.
+
+NOTE Confidence: 0.86994469165802
+
+00:13:26.600 --> 00:13:31.336
+Records allow you to actually if you have a primary
+
+NOTE Confidence: 0.86994469165802
+
+00:13:31.429 --> 00:13:37.093
+constructor on a record, we we will automatically implement a
+
+NOTE Confidence: 0.86994469165802
+
+00:13:37.186 --> 00:13:39.879
+a a property for you as well.
+
+NOTE Confidence: 0.9537102580070496
+
+00:13:40.880 --> 00:13:42.680
+This does change the code up here.
+
+NOTE Confidence: 0.8343818187713623
+
+00:13:42.960 --> 00:13:45.900
+I do have to provide the ID as a, as
+
+NOTE Confidence: 0.8343818187713623
+
+00:13:45.981 --> 00:13:46.880
+a argument.
+
+NOTE Confidence: 0.889445960521698
+
+00:13:46.880 --> 00:13:49.734
+Then instead of of in the object initializer, we can
+
+NOTE Confidence: 0.889445960521698
+
+00:13:49.789 --> 00:13:52.040
+just get rid of this one, this part here.
+
+NOTE Confidence: 0.8090095520019531
+
+00:13:52.480 --> 00:13:55.628
+So, and when they're, when they start to chain it,
+
+NOTE Confidence: 0.8090095520019531
+
+00:13:55.691 --> 00:13:58.400
+it, it looks like a really nifty shorthand.
+
+NOTE Confidence: 0.8615117073059082
+
+00:13:58.400 --> 00:14:00.129
+But when you start to chain down a deep hierarchy,
+
+NOTE Confidence: 0.8615117073059082
+
+00:14:00.164 --> 00:14:02.205
+you, you start to accumulate parameters because you have to
+
+NOTE Confidence: 0.8615117073059082
+
+00:14:02.240 --> 00:14:03.520
+take them and pass them up the chain.
+
+NOTE Confidence: 0.861354410648346
+
+00:14:03.840 --> 00:14:05.960
+But sometimes that's a that's a nifty thing to do.
+
+NOTE Confidence: 0.9153053760528564
+
+00:14:06.240 --> 00:14:10.621
+It also gives me an opportunity to have a parameter
+
+NOTE Confidence: 0.9153053760528564
+
+00:14:10.707 --> 00:14:14.917
+that I can instead say, let's instead here grab a
+
+NOTE Confidence: 0.9153053760528564
+
+00:14:15.003 --> 00:14:18.439
+decimal array and call it grades, right?
+
+NOTE Confidence: 0.8265631794929504
+
+00:14:18.440 --> 00:14:21.960
+This is Matt's grades when he was in university, maybe.
+
+NOTE Confidence: 0.9688135385513306
+
+00:14:22.560 --> 00:14:25.680
+And then how do you provide an array?
+
+NOTE Confidence: 0.8641847372055054
+
+00:14:26.920 --> 00:14:29.564
+Well, I guess I'm going to do, let's give myself
+
+NOTE Confidence: 0.8641847372055054
+
+00:14:29.620 --> 00:14:32.320
+at least one good grade and then some other ones.
+
+NOTE Confidence: 0.9363305568695068
+
+00:14:32.680 --> 00:14:33.920
+Let's just do this, right?
+
+NOTE Confidence: 0.9421096444129944
+
+00:14:33.920 --> 00:14:35.360
+So that's how you initialize an array.
+
+NOTE Confidence: 0.8612554669380188
+
+00:14:35.960 --> 00:14:38.640
+OK, But actually I wanted to be a list instead.
+
+NOTE Confidence: 0.8439160585403442
+
+00:14:38.840 --> 00:14:40.360
+Now I have to go and do it differently.
+
+NOTE Confidence: 0.9174804091453552
+
+00:14:40.360 --> 00:14:43.388
+Now I have, maybe I can use, maybe I can
+
+NOTE Confidence: 0.9174804091453552
+
+00:14:43.464 --> 00:14:44.600
+use, I can use.
+
+NOTE Confidence: 0.7830662131309509
+
+00:14:45.200 --> 00:14:47.170
+So nowadays you don't have to say the type when
+
+NOTE Confidence: 0.7830662131309509
+
+00:14:47.212 --> 00:14:49.308
+you still have to use a different syntax to create
+
+NOTE Confidence: 0.7830662131309509
+
+00:14:49.350 --> 00:14:49.560
+that.
+
+NOTE Confidence: 0.8920766711235046
+
+00:14:49.880 --> 00:14:52.440
+And if it's an immutable list like, who knows?
+
+NOTE Confidence: 0.7710322141647339
+
+00:14:52.800 --> 00:14:55.319
+Because now I can't use object or collection initialize anymore
+
+NOTE Confidence: 0.7710322141647339
+
+00:14:55.359 --> 00:14:57.319
+because they're immutable, you can't mutate them.
+
+NOTE Confidence: 0.9556807279586792
+
+00:14:57.840 --> 00:15:02.226
+So instead we have collection expressions which work for all
+
+NOTE Confidence: 0.9556807279586792
+
+00:15:02.299 --> 00:15:04.200
+kinds of collection types.
+
+NOTE Confidence: 0.9388729929924011
+
+00:15:04.560 --> 00:15:06.686
+They do the most efficient thing that the compiler can
+
+NOTE Confidence: 0.9388729929924011
+
+00:15:06.725 --> 00:15:07.079
+think of.
+
+NOTE Confidence: 0.8570870161056519
+
+00:15:07.080 --> 00:15:09.909
+They work for mutable types, they work for mutable types,
+
+NOTE Confidence: 0.8570870161056519
+
+00:15:09.959 --> 00:15:11.199
+They work for interfaces.
+
+NOTE Confidence: 0.868742048740387
+
+00:15:11.200 --> 00:15:12.800
+We're going to pick a concrete type for you.
+
+NOTE Confidence: 0.940758466720581
+
+00:15:12.800 --> 00:15:14.334
+We're not going to tell you what it is, but
+
+NOTE Confidence: 0.940758466720581
+
+00:15:14.370 --> 00:15:15.120
+we promise it's good.
+
+NOTE Confidence: 0.9256018400192261
+
+00:15:15.560 --> 00:15:17.360
+And of course, they work for array as well.
+
+NOTE Confidence: 0.9159185886383057
+
+00:15:17.360 --> 00:15:20.351
+So the last example where unified clean syntax gives you
+
+NOTE Confidence: 0.9159185886383057
+
+00:15:20.405 --> 00:15:24.145
+the most efficient implementation, probably better than you could have
+
+NOTE Confidence: 0.9159185886383057
+
+00:15:24.198 --> 00:15:24.839
+done before.
+
+NOTE Confidence: 0.9357977509498596
+
+00:15:25.040 --> 00:15:26.000
+Go use these features.
+
+NOTE Confidence: 0.9240669012069702
+
+00:15:26.000 --> 00:15:27.963
+Come ask us about these features and anything else you
+
+NOTE Confidence: 0.9240669012069702
+
+00:15:27.999 --> 00:15:28.399
+would like.
+
+NOTE Confidence: 0.8241181373596191
+
+00:15:28.400 --> 00:15:29.720
+Fred is here for my team.
+
+NOTE Confidence: 0.9023959636688232
+
+00:15:30.160 --> 00:15:31.360
+Meet us by the side.
+
+NOTE Confidence: 0.9615673422813416
+
+00:15:32.160 --> 00:15:33.280
+Thank you very much.
+
+NOTE Confidence: 0.9480800628662109
+
+00:15:33.280 --> 00:15:34.160
+Hope this was helpful.

@@ -1,0 +1,1934 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.6770884990692139
+
+00:00:00.160 --> 00:00:03.120
+All right, all right, what's up y'all?
+
+NOTE Confidence: 0.8534634709358215
+
+00:00:04.400 --> 00:00:06.784
+How many people were in Theatre A this morning when
+
+NOTE Confidence: 0.8534634709358215
+
+00:00:06.831 --> 00:00:08.000
+I was out there emceeing?
+
+NOTE Confidence: 0.8677780032157898
+
+00:00:08.039 --> 00:00:10.033
+We had a great time and we made fun of
+
+NOTE Confidence: 0.8677780032157898
+
+00:00:10.085 --> 00:00:11.239
+Theatre B all morning.
+
+NOTE Confidence: 0.5472733378410339
+
+00:00:11.520 --> 00:00:11.960
+Great.
+
+NOTE Confidence: 0.8039553165435791
+
+00:00:12.240 --> 00:00:15.040
+No, Theatre B is now my theatre.
+
+NOTE Confidence: 0.8397275805473328
+
+00:00:15.040 --> 00:00:16.560
+Theatre A is dead to me.
+
+NOTE Confidence: 0.8573393225669861
+
+00:00:16.800 --> 00:00:19.643
+All right, now what I want to give you today
+
+NOTE Confidence: 0.8573393225669861
+
+00:00:19.707 --> 00:00:23.067
+are 4 prompts and prompt strategies that you can use
+
+NOTE Confidence: 0.8573393225669861
+
+00:00:23.132 --> 00:00:25.199
+to become independently wealthy.
+
+NOTE Confidence: 0.9718843698501587
+
+00:00:25.640 --> 00:00:27.824
+Not really, but they will make your life a little
+
+NOTE Confidence: 0.9718843698501587
+
+00:00:27.868 --> 00:00:28.760
+bit better, I think.
+
+NOTE Confidence: 0.9521998763084412
+
+00:00:28.760 --> 00:00:31.588
+And you can use these not just for programming, but
+
+NOTE Confidence: 0.9521998763084412
+
+00:00:31.643 --> 00:00:33.639
+for whatever else it is that you do.
+
+NOTE Confidence: 0.8007431626319885
+
+00:00:33.880 --> 00:00:37.703
+So we have here copilot, and we've got a couple
+
+NOTE Confidence: 0.8007431626319885
+
+00:00:37.784 --> 00:00:41.120
+of modes for copilot, ask, edit an agent.
+
+NOTE Confidence: 0.9483625888824463
+
+00:00:41.680 --> 00:00:44.602
+We've heard the word agent about 6,000,000 times in the
+
+NOTE Confidence: 0.9483625888824463
+
+00:00:44.656 --> 00:00:45.400
+last 72 hours.
+
+NOTE Confidence: 0.9350973963737488
+
+00:00:45.400 --> 00:00:46.960
+So we're not going to do that at all.
+
+NOTE Confidence: 0.8680593967437744
+
+00:00:47.040 --> 00:00:48.606
+I'm just going to hang out in agent mode and
+
+NOTE Confidence: 0.8680593967437744
+
+00:00:48.642 --> 00:00:49.960
+we're going to do a little prompting.
+
+NOTE Confidence: 0.7703279256820679
+
+00:00:49.960 --> 00:00:52.840
+Now that's my timer.
+
+NOTE Confidence: 0.6669221520423889
+
+00:00:52.840 --> 00:00:53.600
+Oh, it's already a minute.
+
+NOTE Confidence: 0.755272626876831
+
+00:00:53.600 --> 00:00:54.280
+It's already gone.
+
+NOTE Confidence: 0.6084268689155579
+
+00:00:54.520 --> 00:00:56.480
+All right, y'all lock in.
+
+NOTE Confidence: 0.9179792404174805
+
+00:00:56.760 --> 00:00:59.007
+All right, so in this case, we have a project
+
+NOTE Confidence: 0.9179792404174805
+
+00:00:59.057 --> 00:01:01.953
+where I've kind of started to build something, but there's
+
+NOTE Confidence: 0.9179792404174805
+
+00:01:02.003 --> 00:01:04.501
+no structure and it's like kind of looks like kind
+
+NOTE Confidence: 0.9179792404174805
+
+00:01:04.550 --> 00:01:05.400
+of a junk drawer.
+
+NOTE Confidence: 0.8952049016952515
+
+00:01:05.520 --> 00:01:07.903
+And So what I like to do is use something
+
+NOTE Confidence: 0.8952049016952515
+
+00:01:07.961 --> 00:01:09.240
+called the Q&A prompt.
+
+NOTE Confidence: 0.9201034903526306
+
+00:01:09.280 --> 00:01:11.000
+OK, And this is how it goes.
+
+NOTE Confidence: 0.9408483505249023
+
+00:01:13.520 --> 00:01:15.080
+Hey there, how's it going?
+
+NOTE Confidence: 0.9493981003761292
+
+00:01:15.280 --> 00:01:18.056
+Listen up here, I got this project over here that
+
+NOTE Confidence: 0.9493981003761292
+
+00:01:18.113 --> 00:01:19.360
+has like no structure.
+
+NOTE Confidence: 0.9067496061325073
+
+00:01:19.360 --> 00:01:20.200
+It's kind of a mess.
+
+NOTE Confidence: 0.9520491361618042
+
+00:01:20.200 --> 00:01:22.652
+And so I need like a recommended file or folder
+
+NOTE Confidence: 0.9520491361618042
+
+00:01:22.705 --> 00:01:25.053
+structure for this mug and I need you to give
+
+NOTE Confidence: 0.9520491361618042
+
+00:01:25.105 --> 00:01:25.679
+that to me.
+
+NOTE Confidence: 0.9624225497245789
+
+00:01:25.680 --> 00:01:27.990
+But before you do that, could you please ask me
+
+NOTE Confidence: 0.9624225497245789
+
+00:01:28.039 --> 00:01:30.251
+5 yes or no questions that will help you make
+
+NOTE Confidence: 0.9624225497245789
+
+00:01:30.300 --> 00:01:31.479
+a better recommendation.
+
+NOTE Confidence: 0.6506778001785278
+
+00:01:34.480 --> 00:01:34.760
+All right.
+
+NOTE Confidence: 0.9352542161941528
+
+00:01:34.760 --> 00:01:37.292
+Now the first thing that I'll point out is that
+
+NOTE Confidence: 0.9352542161941528
+
+00:01:37.346 --> 00:01:38.640
+I don't type to copilot.
+
+NOTE Confidence: 0.7602943778038025
+
+00:01:38.640 --> 00:01:39.480
+I talk to it.
+
+NOTE Confidence: 0.9595633745193481
+
+00:01:39.640 --> 00:01:41.434
+That's what you should do because you don't actually have
+
+NOTE Confidence: 0.9595633745193481
+
+00:01:41.465 --> 00:01:41.559
+to.
+
+NOTE Confidence: 0.7275810837745667
+
+00:01:41.560 --> 00:01:42.960
+You don't have to be articulate, right?
+
+NOTE Confidence: 0.9176753163337708
+
+00:01:42.959 --> 00:01:47.044
+You can literally just like verbally vomit into the chat
+
+NOTE Confidence: 0.9176753163337708
+
+00:01:47.117 --> 00:01:50.400
+what you want and it will pull out from that.
+
+NOTE Confidence: 0.9170618057250977
+
+00:01:50.400 --> 00:01:51.320
+The context here.
+
+NOTE Confidence: 0.831354558467865
+
+00:01:51.760 --> 00:01:53.627
+All right, so it says, are you building a web
+
+NOTE Confidence: 0.831354558467865
+
+00:01:53.668 --> 00:01:55.079
+application or bubble application?
+
+NOTE Confidence: 0.9230464100837708
+
+00:01:55.080 --> 00:01:58.091
+Doesn't doesn't know anything about our project right now, which
+
+NOTE Confidence: 0.9230464100837708
+
+00:01:58.138 --> 00:01:59.079
+is super not useful.
+
+NOTE Confidence: 0.9643570184707642
+
+00:01:59.080 --> 00:02:00.760
+So let's fix that.
+
+NOTE Confidence: 0.8304722905158997
+
+00:02:00.760 --> 00:02:02.361
+So what I'm going to do is I'm going to
+
+NOTE Confidence: 0.8304722905158997
+
+00:02:02.402 --> 00:02:04.086
+clear the chat and I'm going to do the up
+
+NOTE Confidence: 0.8304722905158997
+
+00:02:04.127 --> 00:02:05.359
+arrow to bring my prompt back.
+
+NOTE Confidence: 0.8902387022972107
+
+00:02:05.360 --> 00:02:08.148
+And this time we're going to add in code base
+
+NOTE Confidence: 0.8902387022972107
+
+00:02:08.210 --> 00:02:10.937
+and code base is going to allow it to search
+
+NOTE Confidence: 0.8902387022972107
+
+00:02:10.999 --> 00:02:14.160
+my project for the files and folders that I've got.
+
+NOTE Confidence: 0.8444218635559082
+
+00:02:14.760 --> 00:02:16.669
+And then it's going to come back and it's going
+
+NOTE Confidence: 0.8444218635559082
+
+00:02:16.710 --> 00:02:17.360
+to ask, are you?
+
+NOTE Confidence: 0.8792983889579773
+
+00:02:17.360 --> 00:02:19.988
+Let's see, are you planning to follow a model view
+
+NOTE Confidence: 0.8792983889579773
+
+00:02:20.041 --> 00:02:21.040
+controller pattern?
+
+NOTE Confidence: 0.8443378210067749
+
+00:02:21.720 --> 00:02:23.760
+Yes, we need to handle authentication.
+
+NOTE Confidence: 0.9487367272377014
+
+00:02:23.760 --> 00:02:24.480
+Yes.
+
+NOTE Confidence: 0.9033822417259216
+
+00:02:25.000 --> 00:02:27.400
+Do you plan to implement API endpoints?
+
+NOTE Confidence: 0.5968068242073059
+
+00:02:27.400 --> 00:02:29.560
+No, we use being automated tests.
+
+NOTE Confidence: 0.8675521016120911
+
+00:02:29.560 --> 00:02:30.960
+No, not testing.
+
+NOTE Confidence: 0.6710297465324402
+
+00:02:31.240 --> 00:02:31.760
+You kidding me?
+
+NOTE Confidence: 0.8508250713348389
+
+00:02:32.200 --> 00:02:33.800
+Are you planning to include middleware?
+
+NOTE Confidence: 0.8765431046485901
+
+00:02:33.800 --> 00:02:35.240
+Yes, we are.
+
+NOTE Confidence: 0.9315201044082642
+
+00:02:35.320 --> 00:02:38.880
+And then let's see what we get back.
+
+NOTE Confidence: 0.7334308624267578
+
+00:02:40.080 --> 00:02:40.840
+Oops.
+
+NOTE Confidence: 0.9087820053100586
+
+00:02:41.880 --> 00:02:45.096
+We will not do that we will rerun without that
+
+NOTE Confidence: 0.9087820053100586
+
+00:02:45.166 --> 00:02:48.453
+let's try that again all right so based on that
+
+NOTE Confidence: 0.9087820053100586
+
+00:02:48.523 --> 00:02:52.159
+it's going to give us a folder structure here right?
+
+NOTE Confidence: 0.8696504235267639
+
+00:02:52.160 --> 00:02:55.110
+So it looks like it's recommending A config controllers, middleware
+
+NOTE Confidence: 0.8696504235267639
+
+00:02:55.154 --> 00:02:57.840
+models, route services, types details like I don't know about
+
+NOTE Confidence: 0.8696504235267639
+
+00:02:57.884 --> 00:03:00.394
+y'all, but I really struggle with this stuff figuring out
+
+NOTE Confidence: 0.8696504235267639
+
+00:03:00.438 --> 00:03:02.816
+how to structure my project right like if the template
+
+NOTE Confidence: 0.8696504235267639
+
+00:03:02.860 --> 00:03:04.842
+doesn't tell me I have a really hard time and
+
+NOTE Confidence: 0.8696504235267639
+
+00:03:04.886 --> 00:03:06.560
+I always feel like I'm doing it wrong.
+
+NOTE Confidence: 0.8430204391479492
+
+00:03:06.840 --> 00:03:08.040
+So AI is really good at this.
+
+NOTE Confidence: 0.9400681853294373
+
+00:03:08.040 --> 00:03:10.074
+So now what we want to do is we actually
+
+NOTE Confidence: 0.9400681853294373
+
+00:03:10.125 --> 00:03:12.720
+want to implement this and it can actually do that.
+
+NOTE Confidence: 0.8331059217453003
+
+00:03:12.720 --> 00:03:16.720
+It's actually giving us the code to create this.
+
+NOTE Confidence: 0.8922197222709656
+
+00:03:16.720 --> 00:03:19.265
+Now I'm looking here, it looks like it's going to
+
+NOTE Confidence: 0.8922197222709656
+
+00:03:19.317 --> 00:03:21.239
+create the directories and the files.
+
+NOTE Confidence: 0.8840906023979187
+
+00:03:21.240 --> 00:03:22.320
+It's not quite what I want.
+
+NOTE Confidence: 0.778511643409729
+
+00:03:22.639 --> 00:03:25.328
+So let's vamp on this a little bit and be
+
+NOTE Confidence: 0.778511643409729
+
+00:03:25.394 --> 00:03:26.639
+like totes Magotes.
+
+NOTE Confidence: 0.6352612972259521
+
+00:03:26.640 --> 00:03:28.680
+That is a dope structure.
+
+NOTE Confidence: 0.9642930030822754
+
+00:03:28.680 --> 00:03:30.360
+There's nothing about it that I don't love.
+
+NOTE Confidence: 0.9653081297874451
+
+00:03:30.360 --> 00:03:31.600
+I love everything about it.
+
+NOTE Confidence: 0.9427820444107056
+
+00:03:32.000 --> 00:03:34.209
+Could you just give me a single script that will
+
+NOTE Confidence: 0.9427820444107056
+
+00:03:34.255 --> 00:03:35.360
+generate that structure?
+
+NOTE Confidence: 0.8154469728469849
+
+00:03:35.520 --> 00:03:37.080
+Don't create any of the files though.
+
+NOTE Confidence: 0.9497475028038025
+
+00:03:37.080 --> 00:03:38.932
+I just want the folders and then you can just
+
+NOTE Confidence: 0.9497475028038025
+
+00:03:38.973 --> 00:03:41.031
+move the existing files that I have into the right
+
+NOTE Confidence: 0.9497475028038025
+
+00:03:41.073 --> 00:03:41.320
+spots.
+
+NOTE Confidence: 0.9504561424255371
+
+00:03:41.440 --> 00:03:41.880
+Thanks.
+
+NOTE Confidence: 0.9028893113136292
+
+00:03:44.960 --> 00:03:47.160
+Now you can use agent mode to do this.
+
+NOTE Confidence: 0.8810659646987915
+
+00:03:47.440 --> 00:03:50.200
+But in agent mode, agent mode doesn't delete files, right?
+
+NOTE Confidence: 0.8736413717269897
+
+00:03:50.200 --> 00:03:51.000
+It doesn't like to do that.
+
+NOTE Confidence: 0.9137159585952759
+
+00:03:51.000 --> 00:03:53.749
+It likes to create, it doesn't like to delete and
+
+NOTE Confidence: 0.9137159585952759
+
+00:03:53.805 --> 00:03:55.039
+that's to to save you.
+
+NOTE Confidence: 0.7588866353034973
+
+00:03:55.440 --> 00:03:57.385
+And so when we're in ask mode, we can get
+
+NOTE Confidence: 0.7588866353034973
+
+00:03:57.433 --> 00:03:58.239
+a structure here.
+
+NOTE Confidence: 0.8799639940261841
+
+00:03:59.040 --> 00:04:01.314
+So we get a a script here and then we
+
+NOTE Confidence: 0.8799639940261841
+
+00:04:01.375 --> 00:04:04.387
+can actually run this script and get it to create
+
+NOTE Confidence: 0.8799639940261841
+
+00:04:04.448 --> 00:04:06.600
+our file and folder structure here.
+
+NOTE Confidence: 0.9563867449760437
+
+00:04:06.840 --> 00:04:09.695
+So let's see, let's go ahead and add this into
+
+NOTE Confidence: 0.9563867449760437
+
+00:04:09.757 --> 00:04:10.440
+a new file.
+
+NOTE Confidence: 0.9092704653739929
+
+00:04:10.920 --> 00:04:12.240
+Let's see, let's save it.
+
+NOTE Confidence: 0.4929479956626892
+
+00:04:12.960 --> 00:04:13.840
+Which we call it.
+
+NOTE Confidence: 0.8499236702919006
+
+00:04:13.840 --> 00:04:16.920
+I don't know, we'll just call it script dot SH.
+
+NOTE Confidence: 0.9078970551490784
+
+00:04:16.920 --> 00:04:17.720
+That's a great name.
+
+NOTE Confidence: 0.9590477347373962
+
+00:04:18.440 --> 00:04:20.560
+And then let's run it.
+
+NOTE Confidence: 0.9117860198020935
+
+00:04:22.280 --> 00:04:23.760
+And I'm not even going to think about that.
+
+NOTE Confidence: 0.8234652876853943
+
+00:04:23.760 --> 00:04:26.400
+And I'm just going to run script dot SH, right?
+
+NOTE Confidence: 0.8057296276092529
+
+00:04:27.120 --> 00:04:28.520
+Why should I do it when you can do it?
+
+NOTE Confidence: 0.8420820236206055
+
+00:04:28.520 --> 00:04:29.440
+All right, let's run it.
+
+NOTE Confidence: 0.8788272142410278
+
+00:04:31.080 --> 00:04:31.880
+Permission denied.
+
+NOTE Confidence: 0.9417442083358765
+
+00:04:31.880 --> 00:04:32.280
+What?
+
+NOTE Confidence: 0.5858529806137085
+
+00:04:32.600 --> 00:04:33.560
+Chapter mod?
+
+NOTE Confidence: 0.7458109855651855
+
+00:04:33.800 --> 00:04:39.564
+Chapter mod X No run script script dot SH Gimme
+
+NOTE Confidence: 0.7458109855651855
+
+00:04:39.686 --> 00:04:46.064
+perms chapter mod or something I don't know There we
+
+NOTE Confidence: 0.7458109855651855
+
+00:04:46.187 --> 00:04:48.640
+go that looks right.
+
+NOTE Confidence: 0.9048675298690796
+
+00:04:48.640 --> 00:04:51.931
+Run Boom nailed it that's amazing see now I like
+
+NOTE Confidence: 0.9048675298690796
+
+00:04:52.000 --> 00:04:55.565
+the scripts like that because it just gives you more
+
+NOTE Confidence: 0.9048675298690796
+
+00:04:55.634 --> 00:04:57.760
+control over what you're doing.
+
+NOTE Confidence: 0.895531952381134
+
+00:04:57.839 --> 00:04:59.468
+I like, I want to see it before you do
+
+NOTE Confidence: 0.895531952381134
+
+00:04:59.511 --> 00:04:59.640
+it.
+
+NOTE Confidence: 0.9444083571434021
+
+00:05:00.080 --> 00:05:00.960
+Don't do the thing.
+
+NOTE Confidence: 0.9225925803184509
+
+00:05:01.040 --> 00:05:01.840
+I'll see it first.
+
+NOTE Confidence: 0.9637414813041687
+
+00:05:02.160 --> 00:05:03.280
+So that's how I like to roll.
+
+NOTE Confidence: 0.9613001346588135
+
+00:05:03.800 --> 00:05:04.120
+Now.
+
+NOTE Confidence: 0.9493911266326904
+
+00:05:04.120 --> 00:05:05.920
+It didn't move the files that we had.
+
+NOTE Confidence: 0.9631444811820984
+
+00:05:05.920 --> 00:05:09.360
+We won't we won't get mad about that.
+
+NOTE Confidence: 0.8852037787437439
+
+00:05:09.760 --> 00:05:10.840
+But it got close enough.
+
+NOTE Confidence: 0.8721884489059448
+
+00:05:10.920 --> 00:05:13.160
+So that's called the Q&A.
+
+NOTE Confidence: 0.9108507633209229
+
+00:05:13.200 --> 00:05:15.467
+Just ask the model to ask you some questions like
+
+NOTE Confidence: 0.9108507633209229
+
+00:05:15.513 --> 00:05:17.920
+it's prompting you and then you return the favorite.
+
+NOTE Confidence: 0.9554092288017273
+
+00:05:17.920 --> 00:05:20.080
+Now let's do another one.
+
+NOTE Confidence: 0.9519527554512024
+
+00:05:20.680 --> 00:05:25.720
+Let's do the pros and cons for pros and cons.
+
+NOTE Confidence: 0.8840194344520569
+
+00:05:25.720 --> 00:05:26.840
+Let's take a look at this file here.
+
+NOTE Confidence: 0.9447372555732727
+
+00:05:27.120 --> 00:05:29.680
+So this is our database connection file.
+
+NOTE Confidence: 0.7104284763336182
+
+00:05:29.800 --> 00:05:30.880
+It's very complex.
+
+NOTE Confidence: 0.9102929830551147
+
+00:05:32.400 --> 00:05:34.211
+And what we want to do here is we want
+
+NOTE Confidence: 0.9102929830551147
+
+00:05:34.258 --> 00:05:36.737
+to make sure that we're only injecting this one time
+
+NOTE Confidence: 0.9102929830551147
+
+00:05:36.785 --> 00:05:38.119
+into the application, right?
+
+NOTE Confidence: 0.9711874127388
+
+00:05:38.120 --> 00:05:40.160
+So there's a lot of different ways to do that.
+
+NOTE Confidence: 0.7691828012466431
+
+00:05:40.320 --> 00:05:40.960
+In programming.
+
+NOTE Confidence: 0.9068439602851868
+
+00:05:40.960 --> 00:05:43.537
+There's never one right way to do anything, even though
+
+NOTE Confidence: 0.9068439602851868
+
+00:05:43.584 --> 00:05:45.552
+you read a lot of blog posts that tell you
+
+NOTE Confidence: 0.9068439602851868
+
+00:05:45.598 --> 00:05:47.520
+otherwise, there's not run one right way.
+
+NOTE Confidence: 0.9492875933647156
+
+00:05:47.520 --> 00:05:49.080
+You know this as developers, right?
+
+NOTE Confidence: 0.899971067905426
+
+00:05:49.080 --> 00:05:52.049
+And so the model, though, is tuned to give you
+
+NOTE Confidence: 0.899971067905426
+
+00:05:52.114 --> 00:05:52.760
+an answer.
+
+NOTE Confidence: 0.9265515804290771
+
+00:05:52.760 --> 00:05:55.276
+You asked a question, it gives you an answer, but
+
+NOTE Confidence: 0.9265515804290771
+
+00:05:55.327 --> 00:05:56.919
+it may not be the right answer.
+
+NOTE Confidence: 0.9629165530204773
+
+00:05:57.120 --> 00:05:59.440
+And so it's better if you try something like this.
+
+NOTE Confidence: 0.5948381423950195
+
+00:06:00.600 --> 00:06:02.040
+Sup bro, I'm back.
+
+NOTE Confidence: 0.661422073841095
+
+00:06:02.040 --> 00:06:04.360
+Yo, listen, new sitch here.
+
+NOTE Confidence: 0.920909583568573
+
+00:06:04.440 --> 00:06:07.024
+What's going on is I got a database file and
+
+NOTE Confidence: 0.920909583568573
+
+00:06:07.083 --> 00:06:10.079
+I want to just inject it once into the application.
+
+NOTE Confidence: 0.9294885993003845
+
+00:06:10.080 --> 00:06:12.897
+Like I don't want to instantiate that mug every single
+
+NOTE Confidence: 0.9294885993003845
+
+00:06:12.949 --> 00:06:13.679
+time I use it.
+
+NOTE Confidence: 0.8907687664031982
+
+00:06:14.080 --> 00:06:15.720
+What is the best way to do that?
+
+NOTE Confidence: 0.9237257242202759
+
+00:06:15.720 --> 00:06:18.198
+Actually give me several options and give me the pros
+
+NOTE Confidence: 0.9237257242202759
+
+00:06:18.245 --> 00:06:19.040
+and cons of each.
+
+NOTE Confidence: 0.8655555844306946
+
+00:06:21.920 --> 00:06:24.440
+All right, So we're simply asking the model for all
+
+NOTE Confidence: 0.8655555844306946
+
+00:06:24.489 --> 00:06:27.009
+of the different ways that we could do this because
+
+NOTE Confidence: 0.8655555844306946
+
+00:06:27.058 --> 00:06:28.640
+there's a lot of different ways.
+
+NOTE Confidence: 0.8995709419250488
+
+00:06:28.640 --> 00:06:33.137
+So it's telling us you can use the module level
+
+NOTE Confidence: 0.8995709419250488
+
+00:06:33.232 --> 00:06:38.400
+Singleton pros, cons, OK, classical Singleton pattern.
+
+NOTE Confidence: 0.9054952263832092
+
+00:06:41.000 --> 00:06:44.084
+All right, That I actually like this better because this
+
+NOTE Confidence: 0.9054952263832092
+
+00:06:44.139 --> 00:06:46.784
+is not this is actually not a Singleton, I don't
+
+NOTE Confidence: 0.9054952263832092
+
+00:06:46.839 --> 00:06:47.279
+believe.
+
+NOTE Confidence: 0.9367427229881287
+
+00:06:47.640 --> 00:06:50.861
+All right, So, yeah, so in this case, what I
+
+NOTE Confidence: 0.9367427229881287
+
+00:06:50.934 --> 00:06:53.862
+would now do is I would flip over to can
+
+NOTE Confidence: 0.9367427229881287
+
+00:06:53.935 --> 00:06:55.400
+I flip over to edit?
+
+NOTE Confidence: 0.8319346308708191
+
+00:06:55.800 --> 00:06:56.560
+I cannot.
+
+NOTE Confidence: 0.9027117490768433
+
+00:06:56.880 --> 00:07:01.194
+I can flip over to agent, though, and I can
+
+NOTE Confidence: 0.9027117490768433
+
+00:07:01.294 --> 00:07:02.799
+say dope sauce.
+
+NOTE Confidence: 0.933491051197052
+
+00:07:02.840 --> 00:07:05.440
+I like #2A whole lot.
+
+NOTE Confidence: 0.9496325254440308
+
+00:07:05.440 --> 00:07:07.560
+Why don't you go ahead and implement that?
+
+NOTE Confidence: 0.8995635509490967
+
+00:07:07.560 --> 00:07:09.545
+And then you're going to need to update the places
+
+NOTE Confidence: 0.8995635509490967
+
+00:07:09.585 --> 00:07:11.411
+in my project where this file is being used to
+
+NOTE Confidence: 0.8995635509490967
+
+00:07:11.451 --> 00:07:12.999
+make sure that everything is copacetic.
+
+NOTE Confidence: 0.9471763968467712
+
+00:07:13.000 --> 00:07:13.280
+Thank you.
+
+NOTE Confidence: 0.7213796377182007
+
+00:07:13.280 --> 00:07:18.927
+Go all right, you'll see how good speech recognition has
+
+NOTE Confidence: 0.7213796377182007
+
+00:07:19.028 --> 00:07:20.439
+gotten lately.
+
+NOTE Confidence: 0.9634508490562439
+
+00:07:20.440 --> 00:07:21.200
+Like it's crazy.
+
+NOTE Confidence: 0.9268032312393188
+
+00:07:21.200 --> 00:07:24.877
+That's a local speech model that runs on your machine,
+
+NOTE Confidence: 0.9268032312393188
+
+00:07:24.945 --> 00:07:26.919
+so it's like snappy and fast.
+
+NOTE Confidence: 0.7897844314575195
+
+00:07:27.400 --> 00:07:29.996
+If you're not talking to a is, you should be
+
+NOTE Confidence: 0.7897844314575195
+
+00:07:30.055 --> 00:07:30.999
+talking to a is.
+
+NOTE Confidence: 0.9054498076438904
+
+00:07:31.000 --> 00:07:31.720
+It's a ton of fun.
+
+NOTE Confidence: 0.8435723781585693
+
+00:07:31.960 --> 00:07:33.964
+All right, I see the database is only being used
+
+NOTE Confidence: 0.8435723781585693
+
+00:07:34.006 --> 00:07:34.800
+in vehicle service.
+
+NOTE Confidence: 0.9160124063491821
+
+00:07:34.800 --> 00:07:37.840
+Yes, it's an oversimplified thing we got here.
+
+NOTE Confidence: 0.835953950881958
+
+00:07:37.840 --> 00:07:39.200
+So then it implements that.
+
+NOTE Confidence: 0.9762702584266663
+
+00:07:39.880 --> 00:07:40.520
+I like that.
+
+NOTE Confidence: 0.965316891670227
+
+00:07:40.520 --> 00:07:41.360
+That's amazing.
+
+NOTE Confidence: 0.7936124205589294
+
+00:07:42.120 --> 00:07:42.880
+Oh, we're still working.
+
+NOTE Confidence: 0.9344072341918945
+
+00:07:42.880 --> 00:07:46.798
+I can't keep until it's done and then it's going
+
+NOTE Confidence: 0.9344072341918945
+
+00:07:46.880 --> 00:07:51.533
+to update the vehicle service to use the correct database
+
+NOTE Confidence: 0.9344072341918945
+
+00:07:51.615 --> 00:07:52.839
+implementation.
+
+NOTE Confidence: 0.852064311504364
+
+00:07:52.840 --> 00:07:55.440
+All right, boom, here we are.
+
+NOTE Confidence: 0.9662138223648071
+
+00:07:55.440 --> 00:07:56.040
+I love this.
+
+NOTE Confidence: 0.7566094994544983
+
+00:07:56.040 --> 00:07:56.480
+Look at this.
+
+NOTE Confidence: 0.9711288213729858
+
+00:07:56.480 --> 00:07:57.240
+I love this, right?
+
+NOTE Confidence: 0.8830738067626953
+
+00:07:57.240 --> 00:07:59.468
+And so just like that, we sort of done this
+
+NOTE Confidence: 0.8830738067626953
+
+00:07:59.520 --> 00:08:02.215
+refactor that we really, really like and we now have
+
+NOTE Confidence: 0.8830738067626953
+
+00:08:02.266 --> 00:08:04.961
+a Singleton and we're sure that it's only being used
+
+NOTE Confidence: 0.8830738067626953
+
+00:08:05.013 --> 00:08:05.480
+one time.
+
+NOTE Confidence: 0.8254401683807373
+
+00:08:05.480 --> 00:08:07.680
+So we're not newing this thing up multiple times.
+
+NOTE Confidence: 0.9325061440467834
+
+00:08:08.080 --> 00:08:09.800
+New is glue or something.
+
+NOTE Confidence: 0.9735490679740906
+
+00:08:09.800 --> 00:08:10.200
+I don't know.
+
+NOTE Confidence: 0.9376615881919861
+
+00:08:10.200 --> 00:08:11.160
+Steve Smith said that.
+
+NOTE Confidence: 0.9093911051750183
+
+00:08:11.200 --> 00:08:14.927
+All right, let's keep all this let's let's leave this
+
+NOTE Confidence: 0.9093911051750183
+
+00:08:14.997 --> 00:08:17.600
+file open and do some more fun stuff.
+
+NOTE Confidence: 0.8316014409065247
+
+00:08:17.600 --> 00:08:19.086
+So the next thing we're going to do is clear
+
+NOTE Confidence: 0.8316014409065247
+
+00:08:19.120 --> 00:08:19.559
+out the chat.
+
+NOTE Confidence: 0.9262539148330688
+
+00:08:19.560 --> 00:08:22.389
+You should be clearing the chat like all the time,
+
+NOTE Confidence: 0.9262539148330688
+
+00:08:22.446 --> 00:08:24.767
+all the time all there we go So clear the
+
+NOTE Confidence: 0.9262539148330688
+
+00:08:24.823 --> 00:08:27.144
+chat and you can see that I've got a file
+
+NOTE Confidence: 0.9262539148330688
+
+00:08:27.200 --> 00:08:27.880
+here, right?
+
+NOTE Confidence: 0.8809133768081665
+
+00:08:27.880 --> 00:08:29.680
+I've got this vehicle service file.
+
+NOTE Confidence: 0.9200668334960938
+
+00:08:29.680 --> 00:08:31.680
+So I'm actually going to come back to ask mode.
+
+NOTE Confidence: 0.7857436537742615
+
+00:08:32.120 --> 00:08:33.000
+Let's come back to ask.
+
+NOTE Confidence: 0.9201693534851074
+
+00:08:33.360 --> 00:08:35.155
+Now the next thing I want to do is I
+
+NOTE Confidence: 0.9201693534851074
+
+00:08:35.205 --> 00:08:37.500
+want to do a little bit of refactoring on this
+
+NOTE Confidence: 0.9201693534851074
+
+00:08:37.550 --> 00:08:37.800
+file.
+
+NOTE Confidence: 0.7842509746551514
+
+00:08:37.800 --> 00:08:40.200
+I want to refactor, but the problem with the models
+
+NOTE Confidence: 0.7842509746551514
+
+00:08:40.247 --> 00:08:42.883
+is that they like when you refactor, it's, it's, there's
+
+NOTE Confidence: 0.7842509746551514
+
+00:08:42.930 --> 00:08:45.284
+usually a lot of steps, like you're going back and
+
+NOTE Confidence: 0.7842509746551514
+
+00:08:45.331 --> 00:08:46.319
+forth with the model.
+
+NOTE Confidence: 0.7931089401245117
+
+00:08:46.320 --> 00:08:47.200
+It's like, I want to do this.
+
+NOTE Confidence: 0.8487308025360107
+
+00:08:47.200 --> 00:08:49.800
+And you're like, Nah, not quite, let's try this instead.
+
+NOTE Confidence: 0.9281121492385864
+
+00:08:49.960 --> 00:08:53.640
+And the problem is that refactors are usually multiple steps.
+
+NOTE Confidence: 0.9521842002868652
+
+00:08:53.640 --> 00:08:56.477
+And the next step depends on what you just previously
+
+NOTE Confidence: 0.9521842002868652
+
+00:08:56.531 --> 00:08:57.119
+did, right?
+
+NOTE Confidence: 0.943682074546814
+
+00:08:57.360 --> 00:08:59.120
+And so the model tends to get confused.
+
+NOTE Confidence: 0.9248837828636169
+
+00:08:59.120 --> 00:09:01.422
+And so I want to teach you a trick to
+
+NOTE Confidence: 0.9248837828636169
+
+00:09:01.484 --> 00:09:03.599
+make the model not do that, right.
+
+NOTE Confidence: 0.7742564082145691
+
+00:09:03.840 --> 00:09:07.520
+And where's is Matt Pocock in the audience?
+
+NOTE Confidence: 0.877060055732727
+
+00:09:07.920 --> 00:09:09.376
+He came up with a name for this that we're
+
+NOTE Confidence: 0.877060055732727
+
+00:09:09.410 --> 00:09:10.000
+not going to use.
+
+NOTE Confidence: 0.8187224864959717
+
+00:09:10.160 --> 00:09:11.720
+It's called the Stepwise chain of thought.
+
+NOTE Confidence: 0.9347371459007263
+
+00:09:11.720 --> 00:09:12.480
+He had a different name.
+
+NOTE Confidence: 0.893988311290741
+
+00:09:12.480 --> 00:09:13.360
+Find him, ask him.
+
+NOTE Confidence: 0.9714757800102234
+
+00:09:13.360 --> 00:09:14.200
+That was his idea.
+
+NOTE Confidence: 0.8944742679595947
+
+00:09:14.480 --> 00:09:19.400
+So this is what we're going to do.
+
+NOTE Confidence: 0.8533063530921936
+
+00:09:19.400 --> 00:09:22.520
+Hey, listen, I want to refactor this file.
+
+NOTE Confidence: 0.9583941102027893
+
+00:09:22.600 --> 00:09:24.973
+And what I want you to do is move one
+
+NOTE Confidence: 0.9583941102027893
+
+00:09:25.037 --> 00:09:26.000
+step at a time.
+
+NOTE Confidence: 0.8901707530021667
+
+00:09:26.200 --> 00:09:29.997
+So let's just move incrementally through this refactor and do
+
+NOTE Confidence: 0.8901707530021667
+
+00:09:30.059 --> 00:09:32.674
+not move to the next step until I give you
+
+NOTE Confidence: 0.8901707530021667
+
+00:09:32.737 --> 00:09:33.919
+the keyword banana.
+
+NOTE Confidence: 0.8714843392372131
+
+00:09:37.559 --> 00:09:41.136
+All right, so now we're going to get into this
+
+NOTE Confidence: 0.8714843392372131
+
+00:09:41.214 --> 00:09:43.079
+refactoring loop, right?
+
+NOTE Confidence: 0.8441450595855713
+
+00:09:43.080 --> 00:09:44.480
+So we're going to refactor the code.
+
+NOTE Confidence: 0.8055824637413025
+
+00:09:44.680 --> 00:09:47.040
+Oh, look, we have a sequel injection vulnerability.
+
+NOTE Confidence: 0.934608519077301
+
+00:09:47.040 --> 00:09:47.880
+Super.
+
+NOTE Confidence: 0.9607437252998352
+
+00:09:47.880 --> 00:09:48.720
+That's awesome.
+
+NOTE Confidence: 0.9448745250701904
+
+00:09:48.880 --> 00:09:50.640
+It's a great way to start, right?
+
+NOTE Confidence: 0.6263521909713745
+
+00:09:50.640 --> 00:09:52.040
+And then this change, right?
+
+NOTE Confidence: 0.7017056941986084
+
+00:09:52.040 --> 00:09:54.127
+And then it's looking at things once you use a
+
+NOTE Confidence: 0.7017056941986084
+
+00:09:54.172 --> 00:09:55.079
+parameterized query.
+
+NOTE Confidence: 0.9155791401863098
+
+00:09:55.080 --> 00:09:56.800
+So here I might do something else, right?
+
+NOTE Confidence: 0.8672112226486206
+
+00:09:56.800 --> 00:10:00.800
+I might say like parameterized queries are kind of clunky.
+
+NOTE Confidence: 0.9275075197219849
+
+00:10:00.800 --> 00:10:03.120
+Is there some other way that we can do this?
+
+NOTE Confidence: 0.7941486835479736
+
+00:10:03.120 --> 00:10:06.088
+Should I be using an ORM or something, right, because
+
+NOTE Confidence: 0.7941486835479736
+
+00:10:06.144 --> 00:10:10.736
+this is programming, you're investigating alternatives, you're doing these, you're
+
+NOTE Confidence: 0.7941486835479736
+
+00:10:10.792 --> 00:10:12.360
+going back and forth, right?
+
+NOTE Confidence: 0.829352080821991
+
+00:10:12.360 --> 00:10:13.640
+It recommends Prisma.
+
+NOTE Confidence: 0.9428912401199341
+
+00:10:13.680 --> 00:10:15.200
+OK, very nice.
+
+NOTE Confidence: 0.7706248760223389
+
+00:10:15.200 --> 00:10:17.118
+First you need to install Prisma, blah, blah, blah, blah,
+
+NOTE Confidence: 0.7706248760223389
+
+00:10:17.151 --> 00:10:17.320
+blah.
+
+NOTE Confidence: 0.9335548877716064
+
+00:10:18.280 --> 00:10:20.324
+And so then maybe we do this or maybe we
+
+NOTE Confidence: 0.9335548877716064
+
+00:10:20.375 --> 00:10:21.040
+don't, right?
+
+NOTE Confidence: 0.912053108215332
+
+00:10:21.040 --> 00:10:23.297
+It doesn't really matter, but what we can do from
+
+NOTE Confidence: 0.912053108215332
+
+00:10:23.343 --> 00:10:24.679
+here, you see it says, right?
+
+NOTE Confidence: 0.8243269920349121
+
+00:10:24.679 --> 00:10:27.568
+So we can just tell it we can be like
+
+NOTE Confidence: 0.8243269920349121
+
+00:10:27.646 --> 00:10:31.314
+banana and it will just move directly on to the
+
+NOTE Confidence: 0.8243269920349121
+
+00:10:31.393 --> 00:10:35.295
+next step of the refactor without, oh, it wants to
+
+NOTE Confidence: 0.8243269920349121
+
+00:10:35.373 --> 00:10:40.291
+let's start implementing Prisma because I guess that's the next
+
+NOTE Confidence: 0.8243269920349121
+
+00:10:40.369 --> 00:10:40.760
+step.
+
+NOTE Confidence: 0.8719878792762756
+
+00:10:40.760 --> 00:10:42.316
+It's not going to let us move on until we
+
+NOTE Confidence: 0.8719878792762756
+
+00:10:42.354 --> 00:10:42.999
+implement Prisma.
+
+NOTE Confidence: 0.8571902513504028
+
+00:10:43.240 --> 00:10:45.080
+But you can use this stepwise.
+
+NOTE Confidence: 0.8363890051841736
+
+00:10:45.080 --> 00:10:46.320
+You always want to move in steps.
+
+NOTE Confidence: 0.8949081897735596
+
+00:10:46.520 --> 00:10:49.074
+Let the model work incrementally because a lot of times
+
+NOTE Confidence: 0.8949081897735596
+
+00:10:49.121 --> 00:10:50.839
+it just you asked it to do something.
+
+NOTE Confidence: 0.7958080768585205
+
+00:10:50.840 --> 00:10:53.186
+So if you tell it to refactor something, it's going
+
+NOTE Confidence: 0.7958080768585205
+
+00:10:53.232 --> 00:10:54.520
+to be like, cool, I got you.
+
+NOTE Confidence: 0.9028687477111816
+
+00:10:54.520 --> 00:10:56.471
+And it's going to try to refactor the whole file
+
+NOTE Confidence: 0.9028687477111816
+
+00:10:56.512 --> 00:10:57.000
+in one shot.
+
+NOTE Confidence: 0.972549557685852
+
+00:10:57.040 --> 00:10:57.720
+Don't do that.
+
+NOTE Confidence: 0.9118213057518005
+
+00:10:57.920 --> 00:11:01.867
+Move incrementally and use a keyword that you don't use
+
+NOTE Confidence: 0.9118213057518005
+
+00:11:01.939 --> 00:11:03.160
+normally in code.
+
+NOTE Confidence: 0.8217718005180359
+
+00:11:03.160 --> 00:11:04.995
+That's why I use banana just because I don't think
+
+NOTE Confidence: 0.8217718005180359
+
+00:11:05.032 --> 00:11:06.280
+I've ever typed that word in code.
+
+NOTE Confidence: 0.9654846787452698
+
+00:11:06.320 --> 00:11:07.280
+Maybe you have.
+
+NOTE Confidence: 0.9235595464706421
+
+00:11:08.440 --> 00:11:09.280
+That's interesting.
+
+NOTE Confidence: 0.7894899845123291
+
+00:11:09.320 --> 00:11:12.476
+All right, last one, this last one is called the
+
+NOTE Confidence: 0.7894899845123291
+
+00:11:12.542 --> 00:11:13.200
+role play.
+
+NOTE Confidence: 0.9235102534294128
+
+00:11:13.640 --> 00:11:14.800
+Let's pop the chat out.
+
+NOTE Confidence: 0.8202816843986511
+
+00:11:15.000 --> 00:11:16.622
+Did you know you all know you can do this
+
+NOTE Confidence: 0.8202816843986511
+
+00:11:16.662 --> 00:11:18.324
+like you can get the chat out like this in
+
+NOTE Confidence: 0.8202816843986511
+
+00:11:18.364 --> 00:11:18.799
+the editor.
+
+NOTE Confidence: 0.7268056273460388
+
+00:11:19.440 --> 00:11:20.880
+Look at this like full screen chat.
+
+NOTE Confidence: 0.9597781896591187
+
+00:11:21.520 --> 00:11:22.200
+Nice.
+
+NOTE Confidence: 0.8240256905555725
+
+00:11:23.240 --> 00:11:25.160
+So here's what we want to do.
+
+NOTE Confidence: 0.9412113428115845
+
+00:11:25.880 --> 00:11:29.000
+Models really, really, really like to role play.
+
+NOTE Confidence: 0.9566497206687927
+
+00:11:29.520 --> 00:11:31.361
+And what I mean by that is that if you
+
+NOTE Confidence: 0.9566497206687927
+
+00:11:31.409 --> 00:11:34.510
+tell them that they're good at something, they're just magically
+
+NOTE Confidence: 0.9566497206687927
+
+00:11:34.559 --> 00:11:35.479
+good at that thing.
+
+NOTE Confidence: 0.9247123003005981
+
+00:11:36.000 --> 00:11:36.720
+It's amazing.
+
+NOTE Confidence: 0.8825601935386658
+
+00:11:36.840 --> 00:11:39.395
+And that's why you always see in these prompts, they're
+
+NOTE Confidence: 0.8825601935386658
+
+00:11:39.442 --> 00:11:41.439
+like, you are a skilled software developer.
+
+NOTE Confidence: 0.9641996622085571
+
+00:11:41.560 --> 00:11:44.800
+They're not saying that just for fun, right?
+
+NOTE Confidence: 0.9310926198959351
+
+00:11:44.800 --> 00:11:47.679
+Like that is a key part of the thing actually
+
+NOTE Confidence: 0.9310926198959351
+
+00:11:47.743 --> 00:11:50.879
+working, which is crazy, but that's how it works.
+
+NOTE Confidence: 0.9667043685913086
+
+00:11:50.880 --> 00:11:52.360
+And so let's do this.
+
+NOTE Confidence: 0.8964663743972778
+
+00:11:55.640 --> 00:11:59.960
+You are the greatest instruction instructor in the world.
+
+NOTE Confidence: 0.9143157005310059
+
+00:11:59.960 --> 00:12:02.240
+You're almost as good as James Montemagno.
+
+NOTE Confidence: 0.9062146544456482
+
+00:12:02.240 --> 00:12:05.343
+Not quite close, close to being as good as James
+
+NOTE Confidence: 0.9062146544456482
+
+00:12:05.408 --> 00:12:06.119
+Montemagno.
+
+NOTE Confidence: 0.9680584073066711
+
+00:12:06.280 --> 00:12:09.319
+And the reason you're so good is that you give
+
+NOTE Confidence: 0.9680584073066711
+
+00:12:09.385 --> 00:12:13.217
+your students creative exercises so that they can learn by
+
+NOTE Confidence: 0.9680584073066711
+
+00:12:13.283 --> 00:12:13.679
+doing.
+
+NOTE Confidence: 0.9155290722846985
+
+00:12:13.880 --> 00:12:16.360
+And your class is the most popular class in school.
+
+NOTE Confidence: 0.9369903802871704
+
+00:12:16.360 --> 00:12:17.200
+Everyone loves it.
+
+NOTE Confidence: 0.8948624730110168
+
+00:12:17.200 --> 00:12:21.600
+And today you're teaching a class on regex.
+
+NOTE Confidence: 0.9597417712211609
+
+00:12:22.000 --> 00:12:25.137
+Go ahead and start the class, move one exercise at
+
+NOTE Confidence: 0.9597417712211609
+
+00:12:25.200 --> 00:12:25.640
+a time.
+
+NOTE Confidence: 0.8824970722198486
+
+00:12:25.640 --> 00:12:28.075
+And if the student gets the answer wrong, don't give
+
+NOTE Confidence: 0.8824970722198486
+
+00:12:28.122 --> 00:12:30.229
+them the answer, but go ahead and give them a
+
+NOTE Confidence: 0.8824970722198486
+
+00:12:30.276 --> 00:12:33.039
+suggestion that helps move them towards the correct answer.
+
+NOTE Confidence: 0.9144026637077332
+
+00:12:36.520 --> 00:12:39.524
+And so in this way, right, you can turn the
+
+NOTE Confidence: 0.9144026637077332
+
+00:12:39.594 --> 00:12:42.320
+AI sort of into anything that you want.
+
+NOTE Confidence: 0.9062629342079163
+
+00:12:42.520 --> 00:12:45.610
+So in this case, we're actually going to learn regex,
+
+NOTE Confidence: 0.9062629342079163
+
+00:12:45.669 --> 00:12:48.643
+which doesn't make a ton of sense because AI should
+
+NOTE Confidence: 0.9062629342079163
+
+00:12:48.701 --> 00:12:50.159
+be writing all regex now.
+
+NOTE Confidence: 0.8882368803024292
+
+00:12:50.160 --> 00:12:51.480
+But if we wanted to, right?
+
+NOTE Confidence: 0.7763206958770752
+
+00:12:51.480 --> 00:12:52.120
+We're here.
+
+NOTE Confidence: 0.9150855541229248
+
+00:12:52.520 --> 00:12:53.600
+Phone number detection.
+
+NOTE Confidence: 0.7151970863342285
+
+00:12:53.600 --> 00:12:54.040
+Let's start.
+
+NOTE Confidence: 0.8443320989608765
+
+00:12:54.040 --> 00:12:54.520
+Let's see.
+
+NOTE Confidence: 0.8322016596794128
+
+00:12:54.520 --> 00:12:56.360
+I want you to write a regex pattern.
+
+NOTE Confidence: 0.8164220452308655
+
+00:12:57.880 --> 00:13:02.806
+So let's see here, exactly 3 digits, then a- And
+
+NOTE Confidence: 0.8164220452308655
+
+00:13:02.908 --> 00:13:05.679
+I think this is just right.
+
+NOTE Confidence: 0.6473286151885986
+
+00:13:05.680 --> 00:13:09.160
+Isn't that right?
+
+NOTE Confidence: 0.7945565581321716
+
+00:13:12.760 --> 00:13:15.649
+That looks like the test string itself, not a regex
+
+NOTE Confidence: 0.7945565581321716
+
+00:13:15.706 --> 00:13:16.159
+pattern.
+
+NOTE Confidence: 0.7739699482917786
+
+00:13:16.520 --> 00:13:18.647
+To create a right, we need to wrap it in
+
+NOTE Confidence: 0.7739699482917786
+
+00:13:18.700 --> 00:13:20.880
+a/ for digits, use the slash D So what is
+
+NOTE Confidence: 0.7739699482917786
+
+00:13:20.934 --> 00:13:21.199
+that?
+
+NOTE Confidence: 0.9717614650726318
+
+00:13:21.200 --> 00:13:25.240
+Like this and then this and then this.
+
+NOTE Confidence: 0.9182644486427307
+
+00:13:28.280 --> 00:13:30.920
+I feel like this is a really hard first exercise.
+
+NOTE Confidence: 0.7722674608230591
+
+00:13:31.840 --> 00:13:33.560
+Should have said be be more simple.
+
+NOTE Confidence: 0.7440125942230225
+
+00:13:34.560 --> 00:13:37.600
+We're getting closer, all right?
+
+NOTE Confidence: 0.9340285658836365
+
+00:13:37.600 --> 00:13:40.042
+So, but like with this, right, we could go through
+
+NOTE Confidence: 0.9340285658836365
+
+00:13:40.091 --> 00:13:42.778
+here and we could actually learn anything that we want,
+
+NOTE Confidence: 0.9340285658836365
+
+00:13:42.826 --> 00:13:43.119
+right?
+
+NOTE Confidence: 0.833797037601471
+
+00:13:43.120 --> 00:13:45.587
+So if we wanted to learn Rust because we want
+
+NOTE Confidence: 0.833797037601471
+
+00:13:45.642 --> 00:13:48.164
+to be super cool and we want people at parties
+
+NOTE Confidence: 0.833797037601471
+
+00:13:48.219 --> 00:13:50.522
+to like us, we could do this right here in
+
+NOTE Confidence: 0.833797037601471
+
+00:13:50.577 --> 00:13:51.400
+GitHub copilot.
+
+NOTE Confidence: 0.7727365493774414
+
+00:13:52.040 --> 00:13:56.750
+So those are four prompt strategies, the Q&A prompt, the
+
+NOTE Confidence: 0.7727365493774414
+
+00:13:56.834 --> 00:14:01.880
+pros and cons prompts, the stepwise chain of thought prompt,
+
+NOTE Confidence: 0.7727365493774414
+
+00:14:01.964 --> 00:14:04.319
+and finally the role prompt.
+
+NOTE Confidence: 0.927643358707428
+
+00:14:04.360 --> 00:14:07.979
+And remember, everyone is just one prompt away from being
+
+NOTE Confidence: 0.927643358707428
+
+00:14:08.042 --> 00:14:09.439
+independently wealthy.
+
+NOTE Confidence: 0.9551568031311035
+
+00:14:09.920 --> 00:14:11.200
+So I appreciate you being here.
+
+NOTE Confidence: 0.9236781597137451
+
+00:14:11.200 --> 00:14:12.200
+Thank you very much.
+
+NOTE Confidence: 0.9326946139335632
+
+00:14:12.400 --> 00:14:14.320
+Go out, have a lot of fun with AI.
+
+NOTE Confidence: 0.9000489115715027
+
+00:14:14.640 --> 00:14:15.320
+Appreciate it.

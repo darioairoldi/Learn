@@ -1,0 +1,1099 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.726743757724762
+
+00:00:00.520 --> 00:00:01.840
+So my name is Derek and this is Ryan.
+
+NOTE Confidence: 0.8912191390991211
+
+00:00:02.400 --> 00:00:04.634
+We're going to talk about how AI is transforming the
+
+NOTE Confidence: 0.8912191390991211
+
+00:00:04.677 --> 00:00:05.879
+way the people are learning.
+
+NOTE Confidence: 0.8838958740234375
+
+00:00:06.400 --> 00:00:09.691
+We are infusing it in that learning journey, whether it's
+
+NOTE Confidence: 0.8838958740234375
+
+00:00:09.749 --> 00:00:13.155
+upfront with how you're planning, how you are going through
+
+NOTE Confidence: 0.8838958740234375
+
+00:00:13.213 --> 00:00:16.331
+the content, how you are getting your hands within the
+
+NOTE Confidence: 0.8838958740234375
+
+00:00:16.389 --> 00:00:19.853
+products and how it's also assisting when you're building by
+
+NOTE Confidence: 0.8838958740234375
+
+00:00:19.911 --> 00:00:20.720
+show of hands.
+
+NOTE Confidence: 0.8797312378883362
+
+00:00:20.840 --> 00:00:23.489
+Who has a hard time keeping up with the rate
+
+NOTE Confidence: 0.8797312378883362
+
+00:00:23.550 --> 00:00:26.200
+of change that's being introduced right now?
+
+NOTE Confidence: 0.8076815009117126
+
+00:00:28.960 --> 00:00:31.760
+I'm seeing waving of hands energetically, which is awesome.
+
+NOTE Confidence: 0.9731753468513489
+
+00:00:31.760 --> 00:00:33.560
+I agree, I have a hard time.
+
+NOTE Confidence: 0.8574177026748657
+
+00:00:33.560 --> 00:00:37.269
+There's so many amazing things have been announced just this
+
+NOTE Confidence: 0.8574177026748657
+
+00:00:37.330 --> 00:00:37.640
+week.
+
+NOTE Confidence: 0.9216710925102234
+
+00:00:37.640 --> 00:00:40.017
+It's going to take me forever to catch up on
+
+NOTE Confidence: 0.9216710925102234
+
+00:00:40.071 --> 00:00:40.720
+all of that.
+
+NOTE Confidence: 0.9350736737251282
+
+00:00:41.040 --> 00:00:44.287
+And so the introduction of AI into a lot of
+
+NOTE Confidence: 0.9350736737251282
+
+00:00:44.363 --> 00:00:47.686
+the tools will really help you to be able to
+
+NOTE Confidence: 0.9350736737251282
+
+00:00:47.761 --> 00:00:51.236
+catch up faster, to be able to get to building
+
+NOTE Confidence: 0.9350736737251282
+
+00:00:51.311 --> 00:00:53.199
+faster and keep building.
+
+NOTE Confidence: 0.8487393260002136
+
+00:00:54.240 --> 00:00:57.549
+One of the fastest growing skills is right now is
+
+NOTE Confidence: 0.8487393260002136
+
+00:00:57.617 --> 00:00:58.360
+AI fluency.
+
+NOTE Confidence: 0.8757622241973877
+
+00:00:58.360 --> 00:01:01.520
+And that's not just technical roles, that's also non-technical roles.
+
+NOTE Confidence: 0.8885199427604675
+
+00:01:02.360 --> 00:01:04.920
+About 73% of U.S.
+
+NOTE Confidence: 0.9514559507369995
+
+00:01:04.920 --> 00:01:09.800
+companies say that AI is it's really powering their growth.
+
+NOTE Confidence: 0.836823582649231
+
+00:01:09.960 --> 00:01:12.480
+They're using it for for their growth activities.
+
+NOTE Confidence: 0.9545689225196838
+
+00:01:14.319 --> 00:01:17.702
+The other 27%, what's happening with them, and a lot
+
+NOTE Confidence: 0.9545689225196838
+
+00:01:17.767 --> 00:01:20.239
+of it comes down to they're not ready.
+
+NOTE Confidence: 0.9102723598480225
+
+00:01:20.240 --> 00:01:23.080
+The organization, the individuals are not ready for that change.
+
+NOTE Confidence: 0.9254072308540344
+
+00:01:24.040 --> 00:01:27.722
+So we historically with Microsoft Learn have provided documentation, Q&A,
+
+NOTE Confidence: 0.9254072308540344
+
+00:01:27.773 --> 00:01:30.649
+training shows, a whole bunch of resources to help people
+
+NOTE Confidence: 0.9254072308540344
+
+00:01:30.699 --> 00:01:34.130
+as they're going through the building journey, the learning journey,
+
+NOTE Confidence: 0.9254072308540344
+
+00:01:34.180 --> 00:01:35.240
+the building journey.
+
+NOTE Confidence: 0.9436732530593872
+
+00:01:35.680 --> 00:01:39.299
+They're very interconnected, but that takes a lot of upfront
+
+NOTE Confidence: 0.9436732530593872
+
+00:01:39.360 --> 00:01:42.014
+work that takes you out of that flow of work
+
+NOTE Confidence: 0.9436732530593872
+
+00:01:42.075 --> 00:01:45.996
+commonly, and you're searching for the resources even when you're
+
+NOTE Confidence: 0.9436732530593872
+
+00:01:46.057 --> 00:01:46.599
+building.
+
+NOTE Confidence: 0.8994166851043701
+
+00:01:47.120 --> 00:01:49.855
+So what developers have been asking for is they want
+
+NOTE Confidence: 0.8994166851043701
+
+00:01:49.908 --> 00:01:51.959
+troubleshooting to be more streamlined.
+
+NOTE Confidence: 0.9241321682929993
+
+00:01:51.960 --> 00:01:53.360
+They want to stay in the flow of work.
+
+NOTE Confidence: 0.9143547415733337
+
+00:01:53.480 --> 00:01:55.974
+They don't want to have to bounce out and bounce
+
+NOTE Confidence: 0.9143547415733337
+
+00:01:56.026 --> 00:01:58.988
+across a bunch of different websites looking for that doc
+
+NOTE Confidence: 0.9143547415733337
+
+00:01:59.040 --> 00:02:00.600
+that answer to their question.
+
+NOTE Confidence: 0.9039885401725769
+
+00:02:01.240 --> 00:02:04.308
+They want those experiences to be personalized for them where
+
+NOTE Confidence: 0.9039885401725769
+
+00:02:04.359 --> 00:02:07.075
+it takes into account what they already know, it takes
+
+NOTE Confidence: 0.9039885401725769
+
+00:02:07.126 --> 00:02:09.742
+into account what they don't know or what what we're
+
+NOTE Confidence: 0.9039885401725769
+
+00:02:09.792 --> 00:02:10.999
+unaware of them knowing.
+
+NOTE Confidence: 0.9439481496810913
+
+00:02:11.200 --> 00:02:12.800
+So now it's tailored to them.
+
+NOTE Confidence: 0.8900634050369263
+
+00:02:13.360 --> 00:02:15.983
+They also want the context brought in, the context from
+
+NOTE Confidence: 0.8900634050369263
+
+00:02:16.031 --> 00:02:18.559
+their organization, the subscriptions that they have.
+
+NOTE Confidence: 0.9232895374298096
+
+00:02:18.680 --> 00:02:20.040
+What do they already have built?
+
+NOTE Confidence: 0.9407676458358765
+
+00:02:20.640 --> 00:02:22.760
+These are really hard things to solve for.
+
+NOTE Confidence: 0.8567321300506592
+
+00:02:23.480 --> 00:02:25.689
+But they also want less time in the docks, which
+
+NOTE Confidence: 0.8567321300506592
+
+00:02:25.735 --> 00:02:29.280
+killed me because I'm responsible for Microsoft learning product experiences.
+
+NOTE Confidence: 0.949004054069519
+
+00:02:29.280 --> 00:02:31.920
+So that's hard.
+
+NOTE Confidence: 0.9239147305488586
+
+00:02:32.240 --> 00:02:34.765
+However, if we can take a lot of that knowledge,
+
+NOTE Confidence: 0.9239147305488586
+
+00:02:34.817 --> 00:02:37.763
+that underlying knowledge base and bring it to where the
+
+NOTE Confidence: 0.9239147305488586
+
+00:02:37.816 --> 00:02:40.498
+developers are and meet them where they are, and so
+
+NOTE Confidence: 0.9239147305488586
+
+00:02:40.551 --> 00:02:43.813
+then they can actually get to the successfully deploying their
+
+NOTE Confidence: 0.9239147305488586
+
+00:02:43.865 --> 00:02:44.760
+solutions faster.
+
+NOTE Confidence: 0.8943493366241455
+
+00:02:45.160 --> 00:02:46.160
+That's an amazing win.
+
+NOTE Confidence: 0.7854187488555908
+
+00:02:46.800 --> 00:02:50.487
+And so last October 2023, we had Azure Copilot launched
+
+NOTE Confidence: 0.7854187488555908
+
+00:02:50.554 --> 00:02:54.845
+an underlying answering the plurality of those questions was the
+
+NOTE Confidence: 0.7854187488555908
+
+00:02:54.912 --> 00:02:59.070
+Microsoft Learn knowledge base where we're pulling in our doc,
+
+NOTE Confidence: 0.7854187488555908
+
+00:02:59.137 --> 00:03:03.160
+our knowledge from our documentation, our training, our Q&A.
+
+NOTE Confidence: 0.8130068778991699
+
+00:03:04.520 --> 00:03:07.980
+Back in November of last year, we introduced Ask Learn
+
+NOTE Confidence: 0.8130068778991699
+
+00:03:08.044 --> 00:03:10.159
+chat on Microsoft Learn training.
+
+NOTE Confidence: 0.9391291737556458
+
+00:03:10.680 --> 00:03:13.273
+So now as you're going through that training experience, you
+
+NOTE Confidence: 0.9391291737556458
+
+00:03:13.317 --> 00:03:14.960
+have a question on what was that term?
+
+NOTE Confidence: 0.9133557677268982
+
+00:03:15.280 --> 00:03:17.465
+What was that thing that I forgot and, and it
+
+NOTE Confidence: 0.9133557677268982
+
+00:03:17.514 --> 00:03:18.679
+interrupted my training.
+
+NOTE Confidence: 0.8514099717140198
+
+00:03:19.480 --> 00:03:22.160
+We've now extended that to all Azure documentation.
+
+NOTE Confidence: 0.7951486706733704
+
+00:03:22.840 --> 00:03:25.133
+Pretty soon, shortly after build, we're going to extend it
+
+NOTE Confidence: 0.7951486706733704
+
+00:03:25.173 --> 00:03:26.359
+to all documentation on Learn.
+
+NOTE Confidence: 0.8557555079460144
+
+00:03:27.200 --> 00:03:30.922
+The coolest part for me about that is that you're
+
+NOTE Confidence: 0.8557555079460144
+
+00:03:30.998 --> 00:03:34.645
+looking at a doc and it can answer your question
+
+NOTE Confidence: 0.8557555079460144
+
+00:03:34.721 --> 00:03:38.976
+kind of, but but your problem, your question is probably
+
+NOTE Confidence: 0.8557555079460144
+
+00:03:39.052 --> 00:03:40.800
+more complex than that.
+
+NOTE Confidence: 0.8123339414596558
+
+00:03:41.240 --> 00:03:43.249
+And so you so you'll want to be able to
+
+NOTE Confidence: 0.8123339414596558
+
+00:03:43.301 --> 00:03:46.290
+ask that complex question instead of bouncing across a few
+
+NOTE Confidence: 0.8123339414596558
+
+00:03:46.342 --> 00:03:46.599
+docs.
+
+NOTE Confidence: 0.8754743337631226
+
+00:03:46.960 --> 00:03:50.305
+Askler and chat is now right there on the documentation
+
+NOTE Confidence: 0.8754743337631226
+
+00:03:50.366 --> 00:03:53.407
+to be able to handle the more complex problems and
+
+NOTE Confidence: 0.8754743337631226
+
+00:03:53.468 --> 00:03:54.320
+opportunities.
+
+NOTE Confidence: 0.8423058986663818
+
+00:03:55.560 --> 00:03:59.134
+Also, what's not on this slide is we are introducing
+
+NOTE Confidence: 0.8423058986663818
+
+00:03:59.203 --> 00:04:02.777
+a private preview for Askler and Tutor, which is AVS
+
+NOTE Confidence: 0.8423058986663818
+
+00:04:02.846 --> 00:04:04.839
+code extension where you are.
+
+NOTE Confidence: 0.9062793850898743
+
+00:04:04.840 --> 00:04:07.843
+We are using a Socratic reasoning method where you can
+
+NOTE Confidence: 0.9062793850898743
+
+00:04:07.899 --> 00:04:10.235
+you can say I want to learn this thing and
+
+NOTE Confidence: 0.9062793850898743
+
+00:04:10.291 --> 00:04:13.350
+it will help to build out the learning objectives based
+
+NOTE Confidence: 0.9062793850898743
+
+00:04:13.406 --> 00:04:15.519
+on that, it will build the curriculum.
+
+NOTE Confidence: 0.9067885279655457
+
+00:04:15.520 --> 00:04:17.599
+So now you can get hands on with with your
+
+NOTE Confidence: 0.9067885279655457
+
+00:04:17.649 --> 00:04:18.639
+learning experience.
+
+NOTE Confidence: 0.8438000082969666
+
+00:04:20.040 --> 00:04:21.878
+And with that, I'm going to stop talking and hand
+
+NOTE Confidence: 0.8438000082969666
+
+00:04:21.916 --> 00:04:23.529
+over to Ryan to do the more fun part, which
+
+NOTE Confidence: 0.8438000082969666
+
+00:04:23.567 --> 00:04:24.279
+is a live demo all.
+
+NOTE Confidence: 0.611627459526062
+
+00:04:26.520 --> 00:04:26.720
+Right.
+
+NOTE Confidence: 0.775027871131897
+
+00:04:26.760 --> 00:04:28.720
+Thanks, Derek, everyone.
+
+NOTE Confidence: 0.899980366230011
+
+00:04:28.720 --> 00:04:32.304
+So we are excited to, to share Ask Learn, as
+
+NOTE Confidence: 0.899980366230011
+
+00:04:32.386 --> 00:04:38.088
+Derek mentioned, developers and organizations, you know, there's a lot
+
+NOTE Confidence: 0.899980366230011
+
+00:04:38.170 --> 00:04:42.162
+to keep up with and helping them select the right
+
+NOTE Confidence: 0.899980366230011
+
+00:04:42.243 --> 00:04:46.479
+technology to learn about all the details behind it.
+
+NOTE Confidence: 0.8944394588470459
+
+00:04:46.480 --> 00:04:49.411
+And then also of course, troubleshooting is where I think
+
+NOTE Confidence: 0.8944394588470459
+
+00:04:49.462 --> 00:04:50.800
+Ask Learn can really help.
+
+NOTE Confidence: 0.8970856666564941
+
+00:04:50.839 --> 00:04:53.926
+So what we have here is an Azure Docs in
+
+NOTE Confidence: 0.8970856666564941
+
+00:04:54.003 --> 00:04:57.784
+the Azure App Service and we're going to go ahead
+
+NOTE Confidence: 0.8970856666564941
+
+00:04:57.861 --> 00:05:01.333
+and find Ask, Learn here and we can invoke it
+
+NOTE Confidence: 0.8970856666564941
+
+00:05:01.410 --> 00:05:03.879
+and be able to interact with it.
+
+NOTE Confidence: 0.8799071311950684
+
+00:05:04.400 --> 00:05:07.626
+Easy prompt would be help me summarize this page, make
+
+NOTE Confidence: 0.8799071311950684
+
+00:05:07.686 --> 00:05:09.239
+it more contextual for me.
+
+NOTE Confidence: 0.8639939427375793
+
+00:05:09.240 --> 00:05:12.480
+I'm going to go ahead and query that.
+
+NOTE Confidence: 0.7704170346260071
+
+00:05:12.880 --> 00:05:17.563
+And then it's able to break down the full docs
+
+NOTE Confidence: 0.7704170346260071
+
+00:05:17.665 --> 00:05:21.941
+article for you in in kind of a layout and
+
+NOTE Confidence: 0.7704170346260071
+
+00:05:22.043 --> 00:05:22.960
+overview.
+
+NOTE Confidence: 0.943061113357544
+
+00:05:23.320 --> 00:05:26.431
+But in addition to that, you know, there's a lot
+
+NOTE Confidence: 0.943061113357544
+
+00:05:26.496 --> 00:05:30.255
+of gaps in coverage for documentation just in general, not
+
+NOTE Confidence: 0.943061113357544
+
+00:05:30.320 --> 00:05:32.199
+necessarily for our articles.
+
+NOTE Confidence: 0.857195258140564
+
+00:05:32.200 --> 00:05:36.133
+But if I'm exploring different technologies and I wanted to
+
+NOTE Confidence: 0.857195258140564
+
+00:05:36.199 --> 00:05:40.533
+understand what's the difference between an Azure App Service and
+
+NOTE Confidence: 0.857195258140564
+
+00:05:40.599 --> 00:05:43.933
+say, ask or Azure Functions for me and what should
+
+NOTE Confidence: 0.857195258140564
+
+00:05:43.999 --> 00:05:44.599
+I choose?
+
+NOTE Confidence: 0.8998233675956726
+
+00:05:45.040 --> 00:05:49.829
+This helps cross information going from the one documentation to
+
+NOTE Confidence: 0.8998233675956726
+
+00:05:49.904 --> 00:05:53.571
+the next to be very targeted to the examples that
+
+NOTE Confidence: 0.8998233675956726
+
+00:05:53.646 --> 00:05:54.319
+you need.
+
+NOTE Confidence: 0.8595280647277832
+
+00:05:55.200 --> 00:05:58.139
+So you'll be able to engage with ask learning in
+
+NOTE Confidence: 0.8595280647277832
+
+00:05:58.201 --> 00:05:59.119
+all those ways.
+
+NOTE Confidence: 0.8094247579574585
+
+00:06:00.040 --> 00:06:02.270
+Some of the smaller things just to and and the
+
+NOTE Confidence: 0.8094247579574585
+
+00:06:02.318 --> 00:06:03.240
+details about this.
+
+NOTE Confidence: 0.8916522860527039
+
+00:06:03.240 --> 00:06:05.080
+It does have a short term memory.
+
+NOTE Confidence: 0.889984130859375
+
+00:06:05.360 --> 00:06:07.658
+So you can go from one docs to the next,
+
+NOTE Confidence: 0.889984130859375
+
+00:06:07.716 --> 00:06:10.474
+get a better sense of, you know, the the context
+
+NOTE Confidence: 0.889984130859375
+
+00:06:10.531 --> 00:06:13.519
+of the project and everything that's going on there.
+
+NOTE Confidence: 0.9106802940368652
+
+00:06:13.760 --> 00:06:15.440
+This is just we're just getting started.
+
+NOTE Confidence: 0.8506459593772888
+
+00:06:15.720 --> 00:06:19.007
+As Derek mentioned, we're on Azure Docs right now and
+
+NOTE Confidence: 0.8506459593772888
+
+00:06:19.069 --> 00:06:21.239
+all of training on Microsoft Learn.
+
+NOTE Confidence: 0.9034767746925354
+
+00:06:22.040 --> 00:06:25.560
+Pretty soon you'll start to see it across all documentation,
+
+NOTE Confidence: 0.9034767746925354
+
+00:06:25.618 --> 00:06:28.434
+which would enable about 80% of all of our pages
+
+NOTE Confidence: 0.9034767746925354
+
+00:06:28.493 --> 00:06:31.368
+that we have on Learn, which is many thousands of
+
+NOTE Confidence: 0.9034767746925354
+
+00:06:31.426 --> 00:06:31.720
+them.
+
+NOTE Confidence: 0.9303533434867859
+
+00:06:33.720 --> 00:06:37.026
+And from there, I will move us over to the
+
+NOTE Confidence: 0.9303533434867859
+
+00:06:37.105 --> 00:06:41.119
+tutor, which is ask Learn Assistant now on VS Code.
+
+NOTE Confidence: 0.9618147611618042
+
+00:06:41.960 --> 00:06:45.922
+And we're really excited about this because it really keeps
+
+NOTE Confidence: 0.9618147611618042
+
+00:06:45.989 --> 00:06:48.944
+the developer in the flow of work to be able
+
+NOTE Confidence: 0.9618147611618042
+
+00:06:49.011 --> 00:06:53.511
+to help troubleshoot or even just understand specific concepts that
+
+NOTE Confidence: 0.9618147611618042
+
+00:06:53.578 --> 00:06:54.720
+might be helpful.
+
+NOTE Confidence: 0.8609951734542847
+
+00:06:54.960 --> 00:06:59.133
+And so accessing Microsoft Learn training directly in VS Code
+
+NOTE Confidence: 0.8609951734542847
+
+00:06:59.201 --> 00:07:02.279
+is something that we're really excited about.
+
+NOTE Confidence: 0.8330243825912476
+
+00:07:02.279 --> 00:07:05.280
+And to get more feedback about what would be next,
+
+NOTE Confidence: 0.8330243825912476
+
+00:07:05.340 --> 00:07:08.040
+how we how to, how we develop this extension.
+
+NOTE Confidence: 0.9584851861000061
+
+00:07:08.400 --> 00:07:11.145
+So right here I have a query about help me
+
+NOTE Confidence: 0.9584851861000061
+
+00:07:11.210 --> 00:07:13.759
+choose the right model with AI Foundry.
+
+NOTE Confidence: 0.7832542657852173
+
+00:07:13.960 --> 00:07:17.651
+I'm going to query that and it's first going to
+
+NOTE Confidence: 0.7832542657852173
+
+00:07:17.729 --> 00:07:22.520
+with the Socratic, Socratic questioning that Derek mentioned.
+
+NOTE Confidence: 0.9378776550292969
+
+00:07:22.840 --> 00:07:25.104
+It's going to get a better need to get a
+
+NOTE Confidence: 0.9378776550292969
+
+00:07:25.161 --> 00:07:27.935
+better sense of what we're going after to be able
+
+NOTE Confidence: 0.9378776550292969
+
+00:07:27.992 --> 00:07:30.823
+to help you choose the right model and also breaks
+
+NOTE Confidence: 0.9378776550292969
+
+00:07:30.879 --> 00:07:34.333
+down the principles and concepts behind that, points out some
+
+NOTE Confidence: 0.9378776550292969
+
+00:07:34.390 --> 00:07:37.844
+of the prerequisites of of understanding before we dive right
+
+NOTE Confidence: 0.9378776550292969
+
+00:07:37.900 --> 00:07:38.919
+into that problem.
+
+NOTE Confidence: 0.9121690988540649
+
+00:07:38.920 --> 00:07:41.917
+So I'm just going to simply say, you know, I
+
+NOTE Confidence: 0.9121690988540649
+
+00:07:41.985 --> 00:07:43.280
+know these prereqs.
+
+NOTE Confidence: 0.832191526889801
+
+00:07:58.040 --> 00:08:02.968
+And it's proceeding now into more of the com complicated
+
+NOTE Confidence: 0.832191526889801
+
+00:08:03.056 --> 00:08:04.640
+problems for that.
+
+NOTE Confidence: 0.9548459649085999
+
+00:08:04.640 --> 00:08:06.480
+So I'll just say, you know, this is great.
+
+NOTE Confidence: 0.9723825454711914
+
+00:08:06.480 --> 00:08:12.738
+Let's proceed and you can see how that interaction can
+
+NOTE Confidence: 0.9723825454711914
+
+00:08:12.854 --> 00:08:18.070
+continue to guide you towards the right path.
+
+NOTE Confidence: 0.9149832129478455
+
+00:08:20.190 --> 00:08:23.820
+Lastly, I'd like to also share something that seems to
+
+NOTE Confidence: 0.9149832129478455
+
+00:08:23.887 --> 00:08:27.584
+be a crowd pleaser for us, which is planned development
+
+NOTE Confidence: 0.9149832129478455
+
+00:08:27.652 --> 00:08:28.190
+with AI.
+
+NOTE Confidence: 0.9072085022926331
+
+00:08:28.190 --> 00:08:31.477
+So being able to just remove the guesswork of what
+
+NOTE Confidence: 0.9072085022926331
+
+00:08:31.543 --> 00:08:34.173
+it's going to take for me to learn up on
+
+NOTE Confidence: 0.9072085022926331
+
+00:08:34.239 --> 00:08:38.250
+this next technology is something that we're really seeing is
+
+NOTE Confidence: 0.9072085022926331
+
+00:08:38.316 --> 00:08:39.960
+helpful for for everyone.
+
+NOTE Confidence: 0.8258472084999084
+
+00:08:40.200 --> 00:08:43.326
+So from here, I'm actually on the Microsoft Learn training
+
+NOTE Confidence: 0.8258472084999084
+
+00:08:43.380 --> 00:08:43.920
+home page.
+
+NOTE Confidence: 0.937126636505127
+
+00:08:44.200 --> 00:08:46.298
+I'm going to go ahead and click on to create
+
+NOTE Confidence: 0.937126636505127
+
+00:08:46.346 --> 00:08:46.680
+a plan.
+
+NOTE Confidence: 0.9355912208557129
+
+00:08:46.680 --> 00:08:49.040
+There's four different tracks for me to understand.
+
+NOTE Confidence: 0.8475133776664734
+
+00:08:49.360 --> 00:08:51.666
+Is this going to help me grow my career in
+
+NOTE Confidence: 0.8475133776664734
+
+00:08:51.721 --> 00:08:54.797
+the the right track there versus a specific project that
+
+NOTE Confidence: 0.8475133776664734
+
+00:08:54.852 --> 00:08:56.280
+I want to understand more?
+
+NOTE Confidence: 0.8498327732086182
+
+00:08:56.280 --> 00:08:59.622
+So back to the example of understanding an Azure App
+
+NOTE Confidence: 0.8498327732086182
+
+00:08:59.687 --> 00:09:01.679
+Service in the right direction.
+
+NOTE Confidence: 0.9079293012619019
+
+00:09:01.679 --> 00:09:06.034
+I went ahead and went through these steps already created
+
+NOTE Confidence: 0.9079293012619019
+
+00:09:06.110 --> 00:09:09.166
+a plan, and what you can see here is how
+
+NOTE Confidence: 0.9079293012619019
+
+00:09:09.242 --> 00:09:12.680
+to migrate applications to Azure App Service.
+
+NOTE Confidence: 0.8765922784805298
+
+00:09:12.679 --> 00:09:16.613
+It has the learning outcomes specifically called out for the,
+
+NOTE Confidence: 0.8765922784805298
+
+00:09:16.678 --> 00:09:19.837
+the type of learning that you'll be doing and you
+
+NOTE Confidence: 0.8765922784805298
+
+00:09:19.902 --> 00:09:23.513
+can go through all the learning paths that are available
+
+NOTE Confidence: 0.8765922784805298
+
+00:09:23.578 --> 00:09:26.479
+based off of exactly what you've been putted.
+
+NOTE Confidence: 0.8769696950912476
+
+00:09:26.480 --> 00:09:29.411
+It in addition to that, say you're a manager and
+
+NOTE Confidence: 0.8769696950912476
+
+00:09:29.472 --> 00:09:32.098
+you want to be able to help your team learn
+
+NOTE Confidence: 0.8769696950912476
+
+00:09:32.159 --> 00:09:34.479
+the, the best way of going about this.
+
+NOTE Confidence: 0.9268707633018494
+
+00:09:34.480 --> 00:09:35.800
+So you can simply share.
+
+NOTE Confidence: 0.9243752956390381
+
+00:09:36.000 --> 00:09:38.683
+And when you copy the link, it'll create a reporting
+
+NOTE Confidence: 0.9243752956390381
+
+00:09:38.735 --> 00:09:41.161
+link directly for you so you can help track and
+
+NOTE Confidence: 0.9243752956390381
+
+00:09:41.212 --> 00:09:44.619
+understand progress, make sure everybody's scaling up in the right
+
+NOTE Confidence: 0.9243752956390381
+
+00:09:44.670 --> 00:09:47.199
+direction for the project that you have in place.
+
+NOTE Confidence: 0.95463627576828
+
+00:09:54.179 --> 00:09:57.235
+And so that's kind of concludes most of what we
+
+NOTE Confidence: 0.95463627576828
+
+00:09:57.300 --> 00:09:58.340
+wanted to share.
+
+NOTE Confidence: 0.9142526388168335
+
+00:09:58.340 --> 00:10:01.096
+We have a ton more for you back at the
+
+NOTE Confidence: 0.9142526388168335
+
+00:10:01.169 --> 00:10:02.040
+Learn booth.
+
+NOTE Confidence: 0.8941948413848877
+
+00:10:02.040 --> 00:10:04.767
+If you wanted to get into more of the features
+
+NOTE Confidence: 0.8941948413848877
+
+00:10:04.826 --> 00:10:07.909
+and the some of the details and nuances behind this,
+
+NOTE Confidence: 0.8941948413848877
+
+00:10:07.968 --> 00:10:11.347
+but wanted to share specifically, you know, three days at
+
+NOTE Confidence: 0.8941948413848877
+
+00:10:11.406 --> 00:10:15.022
+Learn has been incredibly helpful for everybody to trial this
+
+NOTE Confidence: 0.8941948413848877
+
+00:10:15.082 --> 00:10:16.919
+out, give us feedback as we go.
+
+NOTE Confidence: 0.880371630191803
+
+00:10:16.920 --> 00:10:20.260
+That's really what this era of using AI, building new
+
+NOTE Confidence: 0.880371630191803
+
+00:10:20.323 --> 00:10:24.925
+technologies, just getting it out there, bringing that feedback, continue
+
+NOTE Confidence: 0.880371630191803
+
+00:10:24.988 --> 00:10:27.762
+to iterate and build of of how to be helpful
+
+NOTE Confidence: 0.880371630191803
+
+00:10:27.825 --> 00:10:28.959
+in this new state.
+
+NOTE Confidence: 0.8606727719306946
+
+00:10:28.960 --> 00:10:32.840
+So wanted to thank you all for trialling these features.
+
+NOTE Confidence: 0.9115161299705505
+
+00:10:32.840 --> 00:10:36.680
+And we also have the link AKA dot Ms.
+
+NOTE Confidence: 0.9157654643058777
+
+00:10:36.679 --> 00:10:40.134
+dot ask learn in VS Code to enable that VS
+
+NOTE Confidence: 0.9157654643058777
+
+00:10:40.216 --> 00:10:44.987
+Code extension waiting list that will be following up with
+
+NOTE Confidence: 0.9157654643058777
+
+00:10:45.069 --> 00:10:49.099
+you shortly on all the instructions to try it out
+
+NOTE Confidence: 0.9157654643058777
+
+00:10:49.182 --> 00:10:49.840
+as well.
+
+NOTE Confidence: 0.5793716907501221
+
+00:10:51.280 --> 00:10:52.600
+All right, thank you.
+
+NOTE Confidence: 0.6902201771736145
+
+00:10:52.640 --> 00:10:55.480
+Give it up for Derek and Ryan.

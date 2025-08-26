@@ -1,0 +1,1764 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.9675599336624146
+
+00:00:00.840 --> 00:00:01.240
+Thank you.
+
+NOTE Confidence: 0.8583706617355347
+
+00:00:01.240 --> 00:00:03.160
+Thanks everyone for coming.
+
+NOTE Confidence: 0.9056358337402344
+
+00:00:03.440 --> 00:00:05.217
+I know it's getting late in the day and it's
+
+NOTE Confidence: 0.9056358337402344
+
+00:00:05.257 --> 00:00:06.953
+been a long week, but we've got a few more
+
+NOTE Confidence: 0.9056358337402344
+
+00:00:06.994 --> 00:00:07.600
+sessions to go.
+
+NOTE Confidence: 0.8754815459251404
+
+00:00:08.000 --> 00:00:09.807
+But either said thank you for joining us and I
+
+NOTE Confidence: 0.8754815459251404
+
+00:00:09.846 --> 00:00:12.400
+have been challenged to do some juggling throughout this session.
+
+NOTE Confidence: 0.7501922249794006
+
+00:00:12.400 --> 00:00:14.227
+So that's really why you're going to want to stick
+
+NOTE Confidence: 0.7501922249794006
+
+00:00:14.264 --> 00:00:14.520
+around.
+
+NOTE Confidence: 0.791964590549469
+
+00:00:15.040 --> 00:00:16.320
+But we've got short on time.
+
+NOTE Confidence: 0.9455589056015015
+
+00:00:16.320 --> 00:00:18.400
+So let's crack on and talk about Foundry Local.
+
+NOTE Confidence: 0.918207049369812
+
+00:00:18.960 --> 00:00:21.098
+Hey everybody, how many of you are doing any kind
+
+NOTE Confidence: 0.918207049369812
+
+00:00:21.141 --> 00:00:22.320
+of generative AI right now?
+
+NOTE Confidence: 0.8400754332542419
+
+00:00:24.080 --> 00:00:26.040
+Are you doing it on locally or in the cloud?
+
+NOTE Confidence: 0.5957115888595581
+
+00:00:27.640 --> 00:00:28.080
+Locally?
+
+NOTE Confidence: 0.8971934914588928
+
+00:00:28.400 --> 00:00:31.293
+Well, if you are not familiar with the challenges between
+
+NOTE Confidence: 0.8971934914588928
+
+00:00:31.344 --> 00:00:34.541
+running things in the cloud and locally, running things locally
+
+NOTE Confidence: 0.8971934914588928
+
+00:00:34.592 --> 00:00:35.760
+on a device is is hard.
+
+NOTE Confidence: 0.8716912269592285
+
+00:00:35.880 --> 00:00:38.597
+And you know, we are get spoiled when we run
+
+NOTE Confidence: 0.8716912269592285
+
+00:00:38.659 --> 00:00:40.080
+models on on the cloud.
+
+NOTE Confidence: 0.9475660920143127
+
+00:00:40.680 --> 00:00:43.148
+First of all, one of the challenges of running it
+
+NOTE Confidence: 0.9475660920143127
+
+00:00:43.199 --> 00:00:45.063
+on the cloud is you have to pay a lot
+
+NOTE Confidence: 0.9475660920143127
+
+00:00:45.113 --> 00:00:45.920
+of money, right?
+
+NOTE Confidence: 0.8949723839759827
+
+00:00:45.920 --> 00:00:47.680
+So when you try to get a model on your
+
+NOTE Confidence: 0.8949723839759827
+
+00:00:47.727 --> 00:00:49.720
+device locally, that's your, it's for free.
+
+NOTE Confidence: 0.9301903247833252
+
+00:00:49.720 --> 00:00:51.120
+You're running it on your device for free.
+
+NOTE Confidence: 0.8299786448478699
+
+00:00:51.440 --> 00:00:53.669
+At the same time, you're also keeping a lot of
+
+NOTE Confidence: 0.8299786448478699
+
+00:00:53.718 --> 00:00:55.560
+the information on your device, right?
+
+NOTE Confidence: 0.5830524563789368
+
+00:00:55.560 --> 00:00:57.280
+You aren't sending it to someone else's cloud.
+
+NOTE Confidence: 0.8877824544906616
+
+00:00:57.480 --> 00:00:59.245
+You know where the data is, you know where it
+
+NOTE Confidence: 0.8877824544906616
+
+00:00:59.284 --> 00:00:59.520
+lives.
+
+NOTE Confidence: 0.756737232208252
+
+00:00:59.520 --> 00:01:00.960
+So it's all keeping on the on the device.
+
+NOTE Confidence: 0.7670661211013794
+
+00:01:00.960 --> 00:01:02.240
+You have full control over that data.
+
+NOTE Confidence: 0.9266886115074158
+
+00:01:02.720 --> 00:01:04.760
+At the same time, you're not depending on the network.
+
+NOTE Confidence: 0.9447748064994812
+
+00:01:04.840 --> 00:01:07.058
+It all runs on that device and you are in
+
+NOTE Confidence: 0.9447748064994812
+
+00:01:07.112 --> 00:01:09.548
+control of how fast the data can go and based
+
+NOTE Confidence: 0.9447748064994812
+
+00:01:09.602 --> 00:01:11.279
+on the device hardware as well.
+
+NOTE Confidence: 0.817176342010498
+
+00:01:11.720 --> 00:01:13.240
+And it all can run offline, right?
+
+NOTE Confidence: 0.8651784658432007
+
+00:01:13.400 --> 00:01:14.440
+You're not depending on the cloud.
+
+NOTE Confidence: 0.8505038619041443
+
+00:01:14.440 --> 00:01:16.778
+So you can run offline and then you're not worried
+
+NOTE Confidence: 0.8505038619041443
+
+00:01:16.825 --> 00:01:19.397
+about any kind of quota or trolling because you control
+
+NOTE Confidence: 0.8505038619041443
+
+00:01:19.444 --> 00:01:20.519
+that device completely.
+
+NOTE Confidence: 0.8044857978820801
+
+00:01:22.959 --> 00:01:26.200
+However, there's some challenges when running things online, running locally,
+
+NOTE Confidence: 0.8044857978820801
+
+00:01:26.242 --> 00:01:28.600
+for example, there are some hardware constraints, right?
+
+NOTE Confidence: 0.9278656244277954
+
+00:01:28.600 --> 00:01:30.840
+You can't run any model on any hardware.
+
+NOTE Confidence: 0.9199839234352112
+
+00:01:30.840 --> 00:01:33.440
+These models are are very big, right?
+
+NOTE Confidence: 0.9192379117012024
+
+00:01:33.440 --> 00:01:35.760
+And they can take up a lot of memory.
+
+NOTE Confidence: 0.8525427579879761
+
+00:01:35.760 --> 00:01:37.512
+So you need to make sure that the device you're
+
+NOTE Confidence: 0.8525427579879761
+
+00:01:37.549 --> 00:01:39.413
+running this model on has the right hardware to be
+
+NOTE Confidence: 0.8525427579879761
+
+00:01:39.450 --> 00:01:41.240
+able to run that model size that you're looking.
+
+NOTE Confidence: 0.7321924567222595
+
+00:01:41.240 --> 00:01:43.022
+So you limit it to the size of the model
+
+NOTE Confidence: 0.7321924567222595
+
+00:01:43.067 --> 00:01:44.360
+you're running based on that.
+
+NOTE Confidence: 0.7068793177604675
+
+00:01:45.080 --> 00:01:47.120
+At the same time, there's different types of hardware.
+
+NOTE Confidence: 0.9124188423156738
+
+00:01:47.120 --> 00:01:49.479
+So if you're reaching millions of people, they all have
+
+NOTE Confidence: 0.9124188423156738
+
+00:01:49.521 --> 00:01:50.679
+different types of devices.
+
+NOTE Confidence: 0.9291926026344299
+
+00:01:50.880 --> 00:01:52.484
+So how do you send the right model to the
+
+NOTE Confidence: 0.9291926026344299
+
+00:01:52.523 --> 00:01:54.479
+right device and how do you get that there, right?
+
+NOTE Confidence: 0.9358044266700745
+
+00:01:54.480 --> 00:01:56.520
+How do you how do you maintain the right models?
+
+NOTE Confidence: 0.9185885787010193
+
+00:01:56.520 --> 00:01:59.192
+How do you decide which model to run when and
+
+NOTE Confidence: 0.9185885787010193
+
+00:01:59.252 --> 00:02:00.440
+how as part of that?
+
+NOTE Confidence: 0.8773903250694275
+
+00:02:00.520 --> 00:02:03.965
+And the same time, different models, different frameworks have different
+
+NOTE Confidence: 0.8773903250694275
+
+00:02:04.013 --> 00:02:05.640
+capabilities of different systems.
+
+NOTE Confidence: 0.9673399925231934
+
+00:02:05.640 --> 00:02:07.040
+So how do you work around that?
+
+NOTE Confidence: 0.9355335831642151
+
+00:02:07.040 --> 00:02:08.600
+So there's a lot of work you have to do
+
+NOTE Confidence: 0.9355335831642151
+
+00:02:08.640 --> 00:02:10.960
+to kind of manage this across all those different devices.
+
+NOTE Confidence: 0.9114538431167603
+
+00:02:11.680 --> 00:02:14.193
+So to help with that, we came out with Foundry
+
+NOTE Confidence: 0.9114538431167603
+
+00:02:14.248 --> 00:02:17.089
+Local, which allows you to deliver the best model to
+
+NOTE Confidence: 0.9114538431167603
+
+00:02:17.144 --> 00:02:17.799
+your device.
+
+NOTE Confidence: 0.8734095096588135
+
+00:02:17.880 --> 00:02:20.123
+It is a service that runs locally in a device
+
+NOTE Confidence: 0.8734095096588135
+
+00:02:20.173 --> 00:02:22.566
+that can decide what's the right model to run on
+
+NOTE Confidence: 0.8734095096588135
+
+00:02:22.616 --> 00:02:24.960
+top of your onto a device that it's running on.
+
+NOTE Confidence: 0.8282173871994019
+
+00:02:25.160 --> 00:02:27.744
+You as a developer, you just request a certain model
+
+NOTE Confidence: 0.8282173871994019
+
+00:02:27.793 --> 00:02:30.576
+and then Foundry Local decides what that model is, where
+
+NOTE Confidence: 0.8282173871994019
+
+00:02:30.626 --> 00:02:32.912
+it's running on the GPUCPU or even NPU as part
+
+NOTE Confidence: 0.8282173871994019
+
+00:02:32.962 --> 00:02:33.360
+of that.
+
+NOTE Confidence: 0.8808150291442871
+
+00:02:33.880 --> 00:02:36.330
+And we run the model that's the best optimized for
+
+NOTE Confidence: 0.8808150291442871
+
+00:02:36.379 --> 00:02:39.320
+that device that supports the right quantization and you can
+
+NOTE Confidence: 0.8808150291442871
+
+00:02:39.369 --> 00:02:41.771
+run on the right hardware whether you have a good
+
+NOTE Confidence: 0.8808150291442871
+
+00:02:41.820 --> 00:02:42.360
+GPU or not.
+
+NOTE Confidence: 0.7251017093658447
+
+00:02:43.680 --> 00:02:46.621
+We also found your local supports running these malls for
+
+NOTE Confidence: 0.7251017093658447
+
+00:02:46.673 --> 00:02:46.880
+you.
+
+NOTE Confidence: 0.7725452184677124
+
+00:02:46.880 --> 00:02:49.716
+So it spins up a whole service that is open
+
+NOTE Confidence: 0.7725452184677124
+
+00:02:49.782 --> 00:02:50.639
+AI compliant.
+
+NOTE Confidence: 0.7961864471435547
+
+00:02:50.639 --> 00:02:52.837
+So that way you can use the same same frameworks
+
+NOTE Confidence: 0.7961864471435547
+
+00:02:52.883 --> 00:02:55.309
+you're using with Open AI or all the other frameworks
+
+NOTE Confidence: 0.7961864471435547
+
+00:02:55.355 --> 00:02:58.239
+to just call into this local Http://endpoint that you're using.
+
+NOTE Confidence: 0.8907345533370972
+
+00:02:58.240 --> 00:03:01.108
+So for example, in this code here, you can see
+
+NOTE Confidence: 0.8907345533370972
+
+00:03:01.171 --> 00:03:04.040
+here we're using the C# SDK with Fondue local.
+
+NOTE Confidence: 0.7419067621231079
+
+00:03:04.200 --> 00:03:08.080
+We're importing the Microsoft dot AI dot fondue local namespace.
+
+NOTE Confidence: 0.8823862075805664
+
+00:03:08.240 --> 00:03:11.122
+We're saying we want to use the Quan 2.5 model,
+
+NOTE Confidence: 0.8823862075805664
+
+00:03:11.183 --> 00:03:13.759
+the five, the 0.5 billion parameter model.
+
+NOTE Confidence: 0.8644888401031494
+
+00:03:14.120 --> 00:03:17.033
+We're starting a new fondue manager to with that model
+
+NOTE Confidence: 0.8644888401031494
+
+00:03:17.087 --> 00:03:19.461
+name, and then we just get a model client to
+
+NOTE Confidence: 0.8644888401031494
+
+00:03:19.515 --> 00:03:22.159
+be able to start calling it just the same pattern
+
+NOTE Confidence: 0.8644888401031494
+
+00:03:22.213 --> 00:03:23.399
+they might be used to.
+
+NOTE Confidence: 0.9075900316238403
+
+00:03:23.960 --> 00:03:26.434
+However, a lot of the challenges here are now you're
+
+NOTE Confidence: 0.9075900316238403
+
+00:03:26.481 --> 00:03:29.907
+managing an application, you're managing a model within the application,
+
+NOTE Confidence: 0.9075900316238403
+
+00:03:29.954 --> 00:03:32.429
+as well as trying to be the application that's using
+
+NOTE Confidence: 0.9075900316238403
+
+00:03:32.476 --> 00:03:32.999
+this model.
+
+NOTE Confidence: 0.7715282440185547
+
+00:03:33.280 --> 00:03:36.152
+And that's where Eric here can help us solve that
+
+NOTE Confidence: 0.7715282440185547
+
+00:03:36.211 --> 00:03:36.680
+problem.
+
+NOTE Confidence: 0.9276377558708191
+
+00:03:37.520 --> 00:03:37.720
+Yeah.
+
+NOTE Confidence: 0.8200660347938538
+
+00:03:37.720 --> 00:03:40.908
+So in a a distributed application, which any application that
+
+NOTE Confidence: 0.8200660347938538
+
+00:03:40.960 --> 00:03:43.416
+consists of some kind of, you know, a front end
+
+NOTE Confidence: 0.8200660347938538
+
+00:03:43.468 --> 00:03:46.134
+or a service, something like that, and some kind of
+
+NOTE Confidence: 0.8200660347938538
+
+00:03:46.186 --> 00:03:48.433
+and like a database or in this case a model
+
+NOTE Confidence: 0.8200660347938538
+
+00:03:48.486 --> 00:03:52.039
+like that's a distributed application, you've got multiple services.
+
+NOTE Confidence: 0.8105146884918213
+
+00:03:52.280 --> 00:03:54.486
+And for for that, like you're really going to be
+
+NOTE Confidence: 0.8105146884918213
+
+00:03:54.532 --> 00:03:57.060
+juggling, hey, I threw in that analogy, you're going to
+
+NOTE Confidence: 0.8105146884918213
+
+00:03:57.105 --> 00:03:59.771
+end up juggling a whole bunch of different things together
+
+NOTE Confidence: 0.8105146884918213
+
+00:03:59.817 --> 00:04:01.840
+thatswhere.net Aspire can come, can come in.
+
+NOTE Confidence: 0.9082176685333252
+
+00:04:02.080 --> 00:04:05.050
+So in the previous example, the application was doing both
+
+NOTE Confidence: 0.9082176685333252
+
+00:04:05.101 --> 00:04:07.969
+the model download and management of the service as well
+
+NOTE Confidence: 0.9082176685333252
+
+00:04:08.020 --> 00:04:08.840
+as consuming it.
+
+NOTE Confidence: 0.9123283624649048
+
+00:04:09.400 --> 00:04:11.320
+With Aspire, we separate that out.
+
+NOTE Confidence: 0.8508764505386353
+
+00:04:11.320 --> 00:04:14.732
+We have our app host, which is responsible for orchestrating
+
+NOTE Confidence: 0.8508764505386353
+
+00:04:14.789 --> 00:04:18.088
+the model download and and engaging with the Foundry local
+
+NOTE Confidence: 0.8508764505386353
+
+00:04:18.144 --> 00:04:18.599
+service.
+
+NOTE Confidence: 0.9508947134017944
+
+00:04:19.000 --> 00:04:20.920
+And then we have our client application.
+
+NOTE Confidence: 0.8594886660575867
+
+00:04:21.000 --> 00:04:22.405
+So in this case, it's going to be a web
+
+NOTE Confidence: 0.8594886660575867
+
+00:04:22.441 --> 00:04:23.919
+application that's going to consume that.
+
+NOTE Confidence: 0.7813162803649902
+
+00:04:23.920 --> 00:04:27.272
+In this case, it's going to use the Microsoft Extensions,
+
+NOTE Confidence: 0.7813162803649902
+
+00:04:27.331 --> 00:04:30.565
+a Microsoft Azure inference SDK rather than the Open AI
+
+NOTE Confidence: 0.7813162803649902
+
+00:04:30.624 --> 00:04:33.682
+SDK, just because I wanted to show the the different
+
+NOTE Confidence: 0.7813162803649902
+
+00:04:33.741 --> 00:04:34.800
+styles of interop.
+
+NOTE Confidence: 0.7717472910881042
+
+00:04:35.160 --> 00:04:37.521
+Then we're then turning into a set of interfaces available
+
+NOTE Confidence: 0.7717472910881042
+
+00:04:37.561 --> 00:04:39.841
+through Microsoft Extensions AI so that we can do things
+
+NOTE Confidence: 0.7717472910881042
+
+00:04:39.882 --> 00:04:42.040
+like functioning vacation and and so on and so forth.
+
+NOTE Confidence: 0.8977676630020142
+
+00:04:43.680 --> 00:04:45.680
+But you're here for a demo.
+
+NOTE Confidence: 0.7461723685264587
+
+00:04:46.000 --> 00:04:48.301
+You're not just here to see us juggle and do
+
+NOTE Confidence: 0.7461723685264587
+
+00:04:48.353 --> 00:04:48.720
+slides.
+
+NOTE Confidence: 0.8778021335601807
+
+00:04:48.920 --> 00:04:52.442
+So let's jump over to Visual Studio where I've I've
+
+NOTE Confidence: 0.8778021335601807
+
+00:04:52.511 --> 00:04:57.000
+got an application I've created using the Microsoft Extensions AI
+
+NOTE Confidence: 0.8778021335601807
+
+00:04:57.069 --> 00:04:57.759
+templates.
+
+NOTE Confidence: 0.8511925339698792
+
+00:04:57.760 --> 00:05:00.738
+So this is just a template application that I've, you
+
+NOTE Confidence: 0.8511925339698792
+
+00:05:00.794 --> 00:05:03.435
+know, found new in Visual Studio, but I want to
+
+NOTE Confidence: 0.8511925339698792
+
+00:05:03.491 --> 00:05:04.839
+add foundry local to it.
+
+NOTE Confidence: 0.8999490141868591
+
+00:05:05.680 --> 00:05:07.691
+So I've got the aspire integration enabled as well for
+
+NOTE Confidence: 0.8999490141868591
+
+00:05:07.728 --> 00:05:07.840
+it.
+
+NOTE Confidence: 0.8158295750617981
+
+00:05:07.839 --> 00:05:10.213
+So I'm going to come to our post here and
+
+NOTE Confidence: 0.8158295750617981
+
+00:05:10.271 --> 00:05:12.240
+I'm going to add a Nugent package.
+
+NOTE Confidence: 0.9055866003036499
+
+00:05:12.520 --> 00:05:16.253
+So this is the foundry hosting integration because I'm hosting
+
+NOTE Confidence: 0.9055866003036499
+
+00:05:16.313 --> 00:05:17.999
+foundry local in my outpost.
+
+NOTE Confidence: 0.7497968673706055
+
+00:05:18.279 --> 00:05:20.220
+Now this is a pre released new package and I
+
+NOTE Confidence: 0.7497968673706055
+
+00:05:20.264 --> 00:05:22.160
+making sure that the demo is going to work.
+
+NOTE Confidence: 0.745679497718811
+
+00:05:22.160 --> 00:05:24.629
+It is running off like entirely off my machine, not
+
+NOTE Confidence: 0.745679497718811
+
+00:05:24.677 --> 00:05:25.839
+off the the nugget feed.
+
+NOTE Confidence: 0.877244770526886
+
+00:05:25.839 --> 00:05:27.515
+We're working with the team to get this out and
+
+NOTE Confidence: 0.877244770526886
+
+00:05:27.551 --> 00:05:29.119
+available so that you can use it yourselves.
+
+NOTE Confidence: 0.8732336759567261
+
+00:05:29.560 --> 00:05:32.712
+But let's add this to our our outpost and then
+
+NOTE Confidence: 0.8732336759567261
+
+00:05:32.780 --> 00:05:36.275
+come into the outpost here and say, well, I'm going
+
+NOTE Confidence: 0.8732336759567261
+
+00:05:36.344 --> 00:05:38.879
+to want to create a foundry resource.
+
+NOTE Confidence: 0.8597142696380615
+
+00:05:39.200 --> 00:05:41.160
+So in a spy, we call these resources.
+
+NOTE Confidence: 0.8098592162132263
+
+00:05:41.160 --> 00:05:42.160
+So I'm foundry resource.
+
+NOTE Confidence: 0.6117327213287354
+
+00:05:42.160 --> 00:05:43.040
+So I'm on the builder.
+
+NOTE Confidence: 0.9044978022575378
+
+00:05:43.400 --> 00:05:47.320
+I want to add a Foundry local resource called.
+
+NOTE Confidence: 0.877656877040863
+
+00:05:47.720 --> 00:05:49.560
+I give it a name, we'll call it AI.
+
+NOTE Confidence: 0.9616492986679077
+
+00:05:50.400 --> 00:05:51.400
+And then on this.
+
+NOTE Confidence: 0.9563084840774536
+
+00:05:51.440 --> 00:05:53.696
+So this is kind of like that start service sort
+
+NOTE Confidence: 0.9563084840774536
+
+00:05:53.744 --> 00:05:54.800
+of thing from the SDK.
+
+NOTE Confidence: 0.8677095174789429
+
+00:05:55.200 --> 00:05:57.989
+But with it, I then want to say the I
+
+NOTE Confidence: 0.8677095174789429
+
+00:05:58.065 --> 00:06:01.231
+want a say chat model and I'm going to say
+
+NOTE Confidence: 0.8677095174789429
+
+00:06:01.307 --> 00:06:03.719
+Foundry add a model with a name.
+
+NOTE Confidence: 0.9600935578346252
+
+00:06:03.720 --> 00:06:05.623
+So this is like the deployment name you would have
+
+NOTE Confidence: 0.9600935578346252
+
+00:06:05.661 --> 00:06:06.080
+in Foundry.
+
+NOTE Confidence: 0.7778317928314209
+
+00:06:06.240 --> 00:06:07.949
+So we'll call this chat because it's role is going
+
+NOTE Confidence: 0.7778317928314209
+
+00:06:07.983 --> 00:06:08.360
+to be chat.
+
+NOTE Confidence: 0.9454905986785889
+
+00:06:08.640 --> 00:06:10.240
+And then what is the model family I want?
+
+NOTE Confidence: 0.8296796083450317
+
+00:06:10.400 --> 00:06:13.900
+So Quinn 2.5 Dash 0.5 B so that then specifying
+
+NOTE Confidence: 0.8296796083450317
+
+00:06:13.974 --> 00:06:17.549
+the model for then foundry local to work out the
+
+NOTE Confidence: 0.8296796083450317
+
+00:06:17.623 --> 00:06:19.559
+right one for my hardware.
+
+NOTE Confidence: 0.8310484886169434
+
+00:06:19.560 --> 00:06:21.250
+Is it going to be a CPU or GPU or
+
+NOTE Confidence: 0.8310484886169434
+
+00:06:21.301 --> 00:06:22.480
+an NPU enabled version?
+
+NOTE Confidence: 0.9581888914108276
+
+00:06:23.640 --> 00:06:25.359
+Now the last thing I want to do is I
+
+NOTE Confidence: 0.9581888914108276
+
+00:06:25.407 --> 00:06:26.840
+want to add it as a reference.
+
+NOTE Confidence: 0.6914642453193665
+
+00:06:26.840 --> 00:06:28.720
+I want to sorry with reference.
+
+NOTE Confidence: 0.9370999336242676
+
+00:06:29.120 --> 00:06:32.210
+So I'm passing that reference to this resource across to
+
+NOTE Confidence: 0.9370999336242676
+
+00:06:32.265 --> 00:06:33.479
+my client application.
+
+NOTE Confidence: 0.8288758397102356
+
+00:06:33.760 --> 00:06:34.480
+There's the chat model.
+
+NOTE Confidence: 0.3396996259689331
+
+00:06:34.840 --> 00:06:35.880
+Thanks for getting up to go part.
+
+NOTE Confidence: 0.9440728425979614
+
+00:06:36.120 --> 00:06:39.377
+And then because I need that model to be downloaded
+
+NOTE Confidence: 0.9440728425979614
+
+00:06:39.441 --> 00:06:42.762
+before my application can start, I can also say wait
+
+NOTE Confidence: 0.9440728425979614
+
+00:06:42.826 --> 00:06:44.039
+for the chat model.
+
+NOTE Confidence: 0.8417811989784241
+
+00:06:44.760 --> 00:06:47.833
+So then my web application won't get us get started
+
+NOTE Confidence: 0.8417811989784241
+
+00:06:47.893 --> 00:06:51.448
+by the Aspire app host, our orchestrator of our distributed
+
+NOTE Confidence: 0.8417811989784241
+
+00:06:51.509 --> 00:06:54.040
+application until that model is available.
+
+NOTE Confidence: 0.9392667412757874
+
+00:06:54.720 --> 00:06:56.280
+Now I have actually already downloaded this model.
+
+NOTE Confidence: 0.9156019687652588
+
+00:06:56.279 --> 00:06:58.140
+So you're not going to see that in run in
+
+NOTE Confidence: 0.9156019687652588
+
+00:06:58.186 --> 00:06:58.639
+real time.
+
+NOTE Confidence: 0.854106068611145
+
+00:06:58.960 --> 00:07:01.910
+I didn't want to rely on conference Wi-Fi downloading model
+
+NOTE Confidence: 0.854106068611145
+
+00:07:01.960 --> 00:07:02.360
+over it.
+
+NOTE Confidence: 0.8801808953285217
+
+00:07:02.839 --> 00:07:04.699
+It's it would be a little bit of, well, I'd
+
+NOTE Confidence: 0.8801808953285217
+
+00:07:04.743 --> 00:07:06.559
+have to do a lot of juggling for that one.
+
+NOTE Confidence: 0.8551227450370789
+
+00:07:06.840 --> 00:07:07.400
+You have the time.
+
+NOTE Confidence: 0.6210311651229858
+
+00:07:07.680 --> 00:07:10.000
+I, I I could have do I say do we?
+
+NOTE Confidence: 0.8032633662223816
+
+00:07:10.000 --> 00:07:10.880
+Do we want to try it?
+
+NOTE Confidence: 0.7961757779121399
+
+00:07:11.000 --> 00:07:12.421
+Do we want to delete the model of my local
+
+NOTE Confidence: 0.7961757779121399
+
+00:07:12.455 --> 00:07:12.759
+occasion?
+
+NOTE Confidence: 0.8292005658149719
+
+00:07:12.760 --> 00:07:13.960
+Try and download it real time.
+
+NOTE Confidence: 0.7186654210090637
+
+00:07:14.960 --> 00:07:16.623
+I I'm I'm hearing a lot of goes goes to
+
+NOTE Confidence: 0.7186654210090637
+
+00:07:16.666 --> 00:07:16.879
+that.
+
+NOTE Confidence: 0.5809544920921326
+
+00:07:16.880 --> 00:07:21.480
+OK, so we go to foundry cache, cache R.E.M.
+
+NOTE Confidence: 0.8965772390365601
+
+00:07:22.800 --> 00:07:25.560
+All right, If this doesn't work, I'm blaming the audience.
+
+NOTE Confidence: 0.778289258480072
+
+00:07:25.560 --> 00:07:26.320
+No, it's my fault.
+
+NOTE Confidence: 0.7144055962562561
+
+00:07:26.680 --> 00:07:29.125
+Actually, I'm sorry, I'm, I'm blaming my speaker, but you,
+
+NOTE Confidence: 0.7144055962562561
+
+00:07:29.167 --> 00:07:29.800
+you enable him.
+
+NOTE Confidence: 0.5231263041496277
+
+00:07:29.800 --> 00:07:31.360
+I, I heard yes, he's coming at me.
+
+NOTE Confidence: 0.7402662634849548
+
+00:07:31.360 --> 00:07:34.240
+All right, no pressure, no pressure, no pressure.
+
+NOTE Confidence: 0.7536300420761108
+
+00:07:34.720 --> 00:07:36.866
+All right well, I've got no recovery path if this
+
+NOTE Confidence: 0.7536300420761108
+
+00:07:36.910 --> 00:07:37.479
+doesn't work.
+
+NOTE Confidence: 0.7628597021102905
+
+00:07:38.800 --> 00:07:41.888
+So then on my client application, my my web application,
+
+NOTE Confidence: 0.7628597021102905
+
+00:07:41.943 --> 00:07:44.479
+I'm going to add the, the, the Nugent package.
+
+NOTE Confidence: 0.7619463801383972
+
+00:07:44.480 --> 00:07:47.955
+Oops, not from Nugent from my, my downloaded version of
+
+NOTE Confidence: 0.7619463801383972
+
+00:07:48.018 --> 00:07:48.840
+the packages.
+
+NOTE Confidence: 0.854887068271637
+
+00:07:48.840 --> 00:07:52.219
+So I'm going to add the Aspire Azure AI inference
+
+NOTE Confidence: 0.854887068271637
+
+00:07:52.288 --> 00:07:52.840
+package.
+
+NOTE Confidence: 0.9153386950492859
+
+00:07:53.080 --> 00:07:56.200
+So this is just a thin veneer around the that
+
+NOTE Confidence: 0.9153386950492859
+
+00:07:56.269 --> 00:08:00.430
+Nugent package for Azure AI inference, which means that it's
+
+NOTE Confidence: 0.9153386950492859
+
+00:08:00.499 --> 00:08:03.828
+going to understand when I say builder, I want a
+
+NOTE Confidence: 0.9153386950492859
+
+00:08:03.897 --> 00:08:07.434
+chat completions client and I want to use that chat
+
+NOTE Confidence: 0.9153386950492859
+
+00:08:07.503 --> 00:08:07.919
+model.
+
+NOTE Confidence: 0.7866020798683167
+
+00:08:07.920 --> 00:08:10.010
+So that's the one that I defined in my my
+
+NOTE Confidence: 0.7866020798683167
+
+00:08:10.061 --> 00:08:10.520
+app host.
+
+NOTE Confidence: 0.8523010611534119
+
+00:08:11.480 --> 00:08:15.105
+Let's turn that into a Microsoft Extensions AI, and then
+
+NOTE Confidence: 0.8523010611534119
+
+00:08:15.170 --> 00:08:17.760
+we're going to say use function calling.
+
+NOTE Confidence: 0.8762387037277222
+
+00:08:18.080 --> 00:08:19.920
+Let's go function calling.
+
+NOTE Confidence: 0.8284164071083069
+
+00:08:20.720 --> 00:08:23.130
+And then we're going to say use open telemetry so
+
+NOTE Confidence: 0.8284164071083069
+
+00:08:23.179 --> 00:08:25.982
+we can get some rich diagnostic logging, which is another
+
+NOTE Confidence: 0.8284164071083069
+
+00:08:26.032 --> 00:08:27.360
+thing we get out of Aspire.
+
+NOTE Confidence: 0.8785780668258667
+
+00:08:28.760 --> 00:08:30.950
+Let's hit at 5 and we're going to see just
+
+NOTE Confidence: 0.8785780668258667
+
+00:08:31.002 --> 00:08:32.880
+how fast we can download this model.
+
+NOTE Confidence: 0.7413942813873291
+
+00:08:33.200 --> 00:08:35.254
+I shouldn't they they offered me a hard line Internet
+
+NOTE Confidence: 0.7413942813873291
+
+00:08:35.293 --> 00:08:35.720
+connection.
+
+NOTE Confidence: 0.7602102160453796
+
+00:08:35.720 --> 00:08:36.880
+I was like, Nah, it's fine.
+
+NOTE Confidence: 0.8576268553733826
+
+00:08:37.160 --> 00:08:37.920
+So we'll see.
+
+NOTE Confidence: 0.9340795874595642
+
+00:08:37.920 --> 00:08:38.840
+We'll see how well this goes.
+
+NOTE Confidence: 0.19065456092357635
+
+00:08:38.840 --> 00:08:38.960
+It's.
+
+NOTE Confidence: 0.8228737115859985
+
+00:08:39.040 --> 00:08:41.480
+Not everybody shut down what you're doing right now, yeah.
+
+NOTE Confidence: 0.8493016362190247
+
+00:08:41.600 --> 00:08:43.360
+Stop everyone off the Wi-Fi.
+
+NOTE Confidence: 0.5160659551620483
+
+00:08:45.320 --> 00:08:45.760
+It's all good.
+
+NOTE Confidence: 0.7181957960128784
+
+00:08:45.760 --> 00:08:47.960
+I the, the, the Quinn model is pretty small.
+
+NOTE Confidence: 0.7246286869049072
+
+00:08:47.960 --> 00:08:49.998
+So it's, I think it's only like 800 mega or
+
+NOTE Confidence: 0.7246286869049072
+
+00:08:50.045 --> 00:08:50.519
+something.
+
+NOTE Confidence: 0.8250871896743774
+
+00:08:50.520 --> 00:08:53.280
+So it shouldn't take too long to download.
+
+NOTE Confidence: 0.8748131990432739
+
+00:08:53.559 --> 00:08:55.762
+He famously says with like 5 minutes left in the,
+
+NOTE Confidence: 0.8748131990432739
+
+00:08:55.807 --> 00:08:57.559
+the time slot that we've got available.
+
+NOTE Confidence: 0.7846342325210571
+
+00:08:58.960 --> 00:09:01.199
+All right, so now our, our, our post is starting
+
+NOTE Confidence: 0.7846342325210571
+
+00:09:01.246 --> 00:09:02.039
+up at the moment.
+
+NOTE Confidence: 0.9434264302253723
+
+00:09:02.600 --> 00:09:04.360
+It's about to launch the dashboard.
+
+NOTE Confidence: 0.9002900719642639
+
+00:09:04.360 --> 00:09:05.520
+We'll see that pop up in a second.
+
+NOTE Confidence: 0.9637032747268677
+
+00:09:06.360 --> 00:09:06.760
+Here we go.
+
+NOTE Confidence: 0.9575589299201965
+
+00:09:06.760 --> 00:09:08.000
+We'll see our resources.
+
+NOTE Confidence: 0.922518789768219
+
+00:09:08.160 --> 00:09:08.560
+There we go.
+
+NOTE Confidence: 0.9644879698753357
+
+00:09:08.560 --> 00:09:11.120
+We have our model.
+
+NOTE Confidence: 0.9522693753242493
+
+00:09:11.120 --> 00:09:13.360
+It is downloading not particularly fast.
+
+NOTE Confidence: 0.9504740238189697
+
+00:09:13.360 --> 00:09:15.120
+That is not a great start.
+
+NOTE Confidence: 0.8807316422462463
+
+00:09:15.120 --> 00:09:17.512
+But you, you can see like it's going out and
+
+NOTE Confidence: 0.8807316422462463
+
+00:09:17.567 --> 00:09:19.960
+doing that whole acquisition process for it.
+
+NOTE Confidence: 0.886949896812439
+
+00:09:19.960 --> 00:09:23.030
+So because we just described in in Aspire in code,
+
+NOTE Confidence: 0.886949896812439
+
+00:09:23.091 --> 00:09:25.547
+this is all the stuff that we want to do
+
+NOTE Confidence: 0.886949896812439
+
+00:09:25.609 --> 00:09:29.293
+that will then come and it'll it'll execute those operations
+
+NOTE Confidence: 0.886949896812439
+
+00:09:29.354 --> 00:09:32.547
+for us, bring down that model and it will eventually
+
+NOTE Confidence: 0.886949896812439
+
+00:09:32.609 --> 00:09:33.960
+become up and running.
+
+NOTE Confidence: 0.8683903217315674
+
+00:09:34.200 --> 00:09:36.068
+We'll also notice that the web application is in a
+
+NOTE Confidence: 0.8683903217315674
+
+00:09:36.105 --> 00:09:37.974
+waiting state because we said that we want to wait
+
+NOTE Confidence: 0.8683903217315674
+
+00:09:38.011 --> 00:09:39.319
+for that model to become available.
+
+NOTE Confidence: 0.808279812335968
+
+00:09:39.440 --> 00:09:43.697
+So this will quite definitely not download in in the
+
+NOTE Confidence: 0.808279812335968
+
+00:09:43.779 --> 00:09:48.199
+time, but I'm I'm sure you can understand the process.
+
+NOTE Confidence: 0.8477165102958679
+
+00:09:48.400 --> 00:09:50.458
+And anyway, the the demo of the application is not
+
+NOTE Confidence: 0.8477165102958679
+
+00:09:50.499 --> 00:09:53.010
+particularly exciting because that's not the point of what we
+
+NOTE Confidence: 0.8477165102958679
+
+00:09:53.051 --> 00:09:54.039
+wanted to show off here.
+
+NOTE Confidence: 0.8242523074150085
+
+00:09:54.120 --> 00:09:56.812
+We weren't showing you how you can build a chat
+
+NOTE Confidence: 0.8242523074150085
+
+00:09:56.869 --> 00:09:58.759
+UI for a, A in a web application.
+
+NOTE Confidence: 0.9223800301551819
+
+00:09:58.920 --> 00:10:01.815
+It was more how you manage that orchestration in a
+
+NOTE Confidence: 0.9223800301551819
+
+00:10:01.873 --> 00:10:04.999
+distributed application design with say Foundry local.
+
+NOTE Confidence: 0.9109902381896973
+
+00:10:05.200 --> 00:10:09.430
+So and yeah, I don't think I have another model
+
+NOTE Confidence: 0.9109902381896973
+
+00:10:09.520 --> 00:10:10.240
+on here.
+
+NOTE Confidence: 0.7934218049049377
+
+00:10:10.240 --> 00:10:11.520
+Let's let's just check quickly check.
+
+NOTE Confidence: 0.9271950721740723
+
+00:10:11.520 --> 00:10:16.080
+I don't think I do Foundry model list.
+
+NOTE Confidence: 0.6143178939819336
+
+00:10:16.160 --> 00:10:17.040
+Wait, no, it's not model list.
+
+NOTE Confidence: 0.2720023989677429
+
+00:10:17.040 --> 00:10:18.600
+It's list.
+
+NOTE Confidence: 0.8938337564468384
+
+00:10:19.080 --> 00:10:20.480
+Let's see, do I have another model on here?
+
+NOTE Confidence: 0.7904363870620728
+
+00:10:20.760 --> 00:10:28.480
+No, no, it's at one point something percent so.
+
+NOTE Confidence: 0.7359484434127808
+
+00:10:28.600 --> 00:10:30.120
+So this is actually like what?
+
+NOTE Confidence: 0.8651536703109741
+
+00:10:30.240 --> 00:10:32.718
+So behind the scenes what it does is it actually
+
+NOTE Confidence: 0.8651536703109741
+
+00:10:32.769 --> 00:10:35.299
+uses that SDK from Foundry local and then it it's
+
+NOTE Confidence: 0.8651536703109741
+
+00:10:35.351 --> 00:10:37.519
+requesting from it to download that model.
+
+NOTE Confidence: 0.8629729151725769
+
+00:10:37.640 --> 00:10:39.414
+So and then it's it's pulling that to get the
+
+NOTE Confidence: 0.8629729151725769
+
+00:10:39.453 --> 00:10:40.399
+progress download of it.
+
+NOTE Confidence: 0.7411139607429504
+
+00:10:40.400 --> 00:10:41.480
+So here we go.
+
+NOTE Confidence: 0.8580406904220581
+
+00:10:41.680 --> 00:10:43.280
+Like is there a small model I can download?
+
+NOTE Confidence: 0.8763119578361511
+
+00:10:43.280 --> 00:10:44.360
+No, I think that's the smallest one.
+
+NOTE Confidence: 0.4651208519935608
+
+00:10:44.360 --> 00:10:44.960
+That's right.
+
+NOTE Confidence: 0.853595495223999
+
+00:10:45.120 --> 00:10:45.480
+Yeah.
+
+NOTE Confidence: 0.8733822107315063
+
+00:10:46.280 --> 00:10:46.840
+But it's OK.
+
+NOTE Confidence: 0.8364922404289246
+
+00:10:47.040 --> 00:10:48.458
+I mean, we can all come back tomorrow and then
+
+NOTE Confidence: 0.8364922404289246
+
+00:10:48.489 --> 00:10:49.600
+we'll download it and we'll be fine.
+
+NOTE Confidence: 0.8550320863723755
+
+00:10:49.600 --> 00:10:50.560
+We'll just continue from then.
+
+NOTE Confidence: 0.8182893395423889
+
+00:10:51.080 --> 00:10:53.546
+Yeah, but behind the scenes, all it is doing is
+
+NOTE Confidence: 0.8182893395423889
+
+00:10:53.598 --> 00:10:56.799
+it's it's orchestrating this command line tool anyway for us.
+
+NOTE Confidence: 0.8799023628234863
+
+00:10:57.760 --> 00:10:58.920
+Unfortunately, I can't swap that.
+
+NOTE Confidence: 0.5421924591064453
+
+00:10:59.240 --> 00:11:00.880
+Oh, you only have one because I only have one.
+
+NOTE Confidence: 0.8173294067382812
+
+00:11:01.360 --> 00:11:10.800
+Oh, actually, let's let's see, where is my cable bag?
+
+NOTE Confidence: 0.6029152870178223
+
+00:11:11.120 --> 00:11:12.520
+We're looking at it 15%.
+
+NOTE Confidence: 0.9452034831047058
+
+00:11:12.920 --> 00:11:14.760
+15% it's going, it's getting there.
+
+NOTE Confidence: 0.7121706008911133
+
+00:11:15.120 --> 00:11:18.400
+I have, I have a USBC to USBA.
+
+NOTE Confidence: 0.8993757963180542
+
+00:11:18.840 --> 00:11:20.640
+Let's see if I can find that one.
+
+NOTE Confidence: 0.9049342274665833
+
+00:11:21.040 --> 00:11:23.680
+No, let's see if we can.
+
+NOTE Confidence: 0.8739645481109619
+
+00:11:23.880 --> 00:11:25.608
+Let's see if we plug in Ethernet and it goes
+
+NOTE Confidence: 0.8739645481109619
+
+00:11:25.647 --> 00:11:26.079
+any faster.
+
+NOTE Confidence: 0.942503809928894
+
+00:11:27.280 --> 00:11:29.490
+This is how you know you're at the end of
+
+NOTE Confidence: 0.942503809928894
+
+00:11:29.544 --> 00:11:30.999
+day three of build is that.
+
+NOTE Confidence: 0.8808318972587585
+
+00:11:31.440 --> 00:11:34.795
+Yeah, we are just freaking out ever so slightly as
+
+NOTE Confidence: 0.8808318972587585
+
+00:11:34.862 --> 00:11:37.479
+our demos do not go quite to plan that.
+
+NOTE Confidence: 0.807945966720581
+
+00:11:39.040 --> 00:11:41.684
+No, I like, I don't think that's going to download
+
+NOTE Confidence: 0.807945966720581
+
+00:11:41.736 --> 00:11:42.159
+in time.
+
+NOTE Confidence: 0.8933520317077637
+
+00:11:42.800 --> 00:11:43.480
+Feel free to stick around.
+
+NOTE Confidence: 0.7823694944381714
+
+00:11:43.480 --> 00:11:44.728
+We'll, we'll jump off to the side if you want
+
+NOTE Confidence: 0.7823694944381714
+
+00:11:44.756 --> 00:11:44.840
+to.
+
+NOTE Confidence: 0.8794713020324707
+
+00:11:44.840 --> 00:11:47.408
+If you want to see proof that this does work,
+
+NOTE Confidence: 0.8794713020324707
+
+00:11:47.465 --> 00:11:49.519
+I'm more than more than happy to do.
+
+NOTE Confidence: 0.7173445820808411
+
+00:11:49.600 --> 00:11:50.520
+Oh, no, no, there we.
+
+NOTE Confidence: 0.6444470882415771
+
+00:11:50.680 --> 00:11:50.880
+Go now.
+
+NOTE Confidence: 0.834737241268158
+
+00:11:50.880 --> 00:11:52.580
+I want to say one of the cool things here
+
+NOTE Confidence: 0.834737241268158
+
+00:11:52.621 --> 00:11:54.736
+is that you didn't specify what version of the Quen
+
+NOTE Confidence: 0.834737241268158
+
+00:11:54.777 --> 00:11:55.400
+model you want.
+
+NOTE Confidence: 0.8105942010879517
+
+00:11:55.400 --> 00:11:57.336
+You didn't say I want this to run the GPU
+
+NOTE Confidence: 0.8105942010879517
+
+00:11:57.383 --> 00:11:59.273
+or the CPU, and you just said I want the
+
+NOTE Confidence: 0.8105942010879517
+
+00:11:59.320 --> 00:11:59.840
+Quen model.
+
+NOTE Confidence: 0.9128438234329224
+
+00:12:00.240 --> 00:12:01.120
+Go figure it out.
+
+NOTE Confidence: 0.8369284868240356
+
+00:12:01.280 --> 00:12:02.720
+Like what's going to work on this device?
+
+NOTE Confidence: 0.6830722093582153
+
+00:12:02.760 --> 00:12:03.600
+Right, yeah.
+
+NOTE Confidence: 0.8640809059143066
+
+00:12:03.640 --> 00:12:05.747
+And and because I'm running on my laptop, it doesn't
+
+NOTE Confidence: 0.8640809059143066
+
+00:12:05.787 --> 00:12:06.760
+have an MPU in this one.
+
+NOTE Confidence: 0.937414288520813
+
+00:12:06.760 --> 00:12:08.080
+I don't have a powerful GPU.
+
+NOTE Confidence: 0.9281067252159119
+
+00:12:08.080 --> 00:12:11.491
+So it's figured out to download the the CPU version
+
+NOTE Confidence: 0.9281067252159119
+
+00:12:11.558 --> 00:12:11.959
+of it.
+
+NOTE Confidence: 0.8844338059425354
+
+00:12:11.960 --> 00:12:14.862
+And that's where like if we go back back up,
+
+NOTE Confidence: 0.8844338059425354
+
+00:12:14.928 --> 00:12:17.039
+the, the one that I deleted was.
+
+NOTE Confidence: 0.8489490747451782
+
+00:12:17.240 --> 00:12:19.760
+So that was from when I practiced this demo beforehand.
+
+NOTE Confidence: 0.88813716173172
+
+00:12:19.880 --> 00:12:22.291
+So it was the CPU version of that model that
+
+NOTE Confidence: 0.88813716173172
+
+00:12:22.346 --> 00:12:24.319
+that had previously been downloaded.
+
+NOTE Confidence: 0.8910744786262512
+
+00:12:24.320 --> 00:12:27.818
+But yeah, it's it's going, it probably won't hit before
+
+NOTE Confidence: 0.8910744786262512
+
+00:12:27.882 --> 00:12:29.600
+the end of our two minutes.
+
+NOTE Confidence: 0.9586278796195984
+
+00:12:30.160 --> 00:12:33.240
+But thank you for joining us there.
+
+NOTE Confidence: 0.9330270886421204
+
+00:12:33.240 --> 00:12:35.018
+There is only so much juggling I can do to
+
+NOTE Confidence: 0.9330270886421204
+
+00:12:35.061 --> 00:12:36.839
+get us through to the end of this session.
+
+NOTE Confidence: 0.9212555885314941
+
+00:12:37.200 --> 00:12:38.400
+But I hope you've enjoyed build.
+
+NOTE Confidence: 0.8665938973426819
+
+00:12:38.400 --> 00:12:39.480
+I hope you enjoyed this session.
+
+NOTE Confidence: 0.8315503001213074
+
+00:12:39.880 --> 00:12:41.367
+And do come over and see us at the side
+
+NOTE Confidence: 0.8315503001213074
+
+00:12:41.405 --> 00:12:43.082
+if you want to see proof in the pudding that
+
+NOTE Confidence: 0.8315503001213074
+
+00:12:43.121 --> 00:12:43.960
+it does actually work.

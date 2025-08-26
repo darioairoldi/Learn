@@ -1,0 +1,1564 @@
+WEBVTT
+
+NOTE
+language:en-US
+
+NOTE Confidence: 0.8660306334495544
+
+00:00:00.240 --> 00:00:03.217
+Hey there friends, Jeff Fritz here and I got a
+
+NOTE Confidence: 0.8660306334495544
+
+00:00:03.282 --> 00:00:08.008
+chance to speak at Microsoft Build about streamlining application testing
+
+NOTE Confidence: 0.8660306334495544
+
+00:00:08.073 --> 00:00:10.080
+with.net Aspire and Playwright.
+
+NOTE Confidence: 0.9390243291854858
+
+00:00:10.520 --> 00:00:12.831
+And I want to recap and talk to you about
+
+NOTE Confidence: 0.9390243291854858
+
+00:00:12.888 --> 00:00:15.989
+that because there's some really cool tips that you can
+
+NOTE Confidence: 0.9390243291854858
+
+00:00:16.046 --> 00:00:18.640
+learn from this demo that I think you can take
+
+NOTE Confidence: 0.9390243291854858
+
+00:00:18.696 --> 00:00:21.628
+advantage of, you can learn from, and I'm even going
+
+NOTE Confidence: 0.9390243291854858
+
+00:00:21.685 --> 00:00:24.222
+to give you the source code so you can tinker
+
+NOTE Confidence: 0.9390243291854858
+
+00:00:24.278 --> 00:00:26.760
+with it at home or at the office afterwards.
+
+NOTE Confidence: 0.8634178042411804
+
+00:00:27.040 --> 00:00:29.160
+All right, let me show you what I'm talking about.
+
+NOTE Confidence: 0.8008918166160583
+
+00:00:29.560 --> 00:00:31.520
+soweknowthat.net Aspire.
+
+NOTE Confidence: 0.4881238341331482
+
+00:00:31.760 --> 00:00:32.280
+That's it.
+
+NOTE Confidence: 0.8737524151802063
+
+00:00:32.280 --> 00:00:36.319
+That set of libraries, frameworks and tools that that gives
+
+NOTE Confidence: 0.8737524151802063
+
+00:00:36.387 --> 00:00:41.864
+you that stack for building observable, production ready distributed application
+
+NOTE Confidence: 0.8737524151802063
+
+00:00:41.933 --> 00:00:42.960
+systems, right?
+
+NOTE Confidence: 0.9012449979782104
+
+00:00:42.960 --> 00:00:47.650
+We get things like smart defaults and application orchestration, a
+
+NOTE Confidence: 0.9012449979782104
+
+00:00:47.721 --> 00:00:53.763
+cool developer dashboard, service discovery capabilities and great integrations using
+
+NOTE Confidence: 0.9012449979782104
+
+00:00:53.834 --> 00:00:58.525
+containers with all kinds of different databases and services that
+
+NOTE Confidence: 0.9012449979782104
+
+00:00:58.596 --> 00:01:00.160
+you already out there.
+
+NOTE Confidence: 0.8760048151016235
+
+00:01:00.800 --> 00:01:03.773
+And we're going to take this and stitch it together
+
+NOTE Confidence: 0.8760048151016235
+
+00:01:03.831 --> 00:01:06.280
+with Playwright and we've used Playwright.
+
+NOTE Confidence: 0.8985933661460876
+
+00:01:06.600 --> 00:01:10.874
+Playwright, for those of you that haven't tried it, is
+
+NOTE Confidence: 0.8985933661460876
+
+00:01:10.953 --> 00:01:16.335
+a cross-platform and cross browser testing framework that works with
+
+NOTE Confidence: 0.8985933661460876
+
+00:01:16.414 --> 00:01:21.480
+Chromium, Firefox, and Webkit across Windows, Mac OS, and Linux.
+
+NOTE Confidence: 0.9232439994812012
+
+00:01:22.120 --> 00:01:25.520
+It's fast, it's reliable, it's great.
+
+NOTE Confidence: 0.960391640663147
+
+00:01:25.520 --> 00:01:27.891
+You can use this to help with all of your
+
+NOTE Confidence: 0.960391640663147
+
+00:01:27.949 --> 00:01:29.799
+end to end testing capabilities.
+
+NOTE Confidence: 0.8804621696472168
+
+00:01:30.240 --> 00:01:33.128
+It's got a great set of APIs that work in
+
+NOTE Confidence: 0.8804621696472168
+
+00:01:33.199 --> 00:01:37.356
+all kinds of different languages, including NET and C, like
+
+NOTE Confidence: 0.8804621696472168
+
+00:01:37.427 --> 00:01:39.400
+I'm going to use here today.
+
+NOTE Confidence: 0.9141706824302673
+
+00:01:40.400 --> 00:01:43.169
+Now, of course, there's different types of tests that we're
+
+NOTE Confidence: 0.9141706824302673
+
+00:01:43.216 --> 00:01:46.080
+going to work with as we're building our application systems.
+
+NOTE Confidence: 0.9188810586929321
+
+00:01:46.480 --> 00:01:49.352
+You might be familiar with unit testing or even doing
+
+NOTE Confidence: 0.9188810586929321
+
+00:01:49.406 --> 00:01:52.495
+a little bit of integration testing, but when I'm working
+
+NOTE Confidence: 0.9188810586929321
+
+00:01:52.549 --> 00:01:54.879
+with NET Aspire I want to do the third one.
+
+NOTE Confidence: 0.9729250073432922
+
+00:01:54.880 --> 00:01:55.080
+Here.
+
+NOTE Confidence: 0.9099599719047546
+
+00:01:55.080 --> 00:01:58.128
+I want to do some end to end testing to
+
+NOTE Confidence: 0.9099599719047546
+
+00:01:58.206 --> 00:02:03.288
+validate the full application workflow because I might have other
+
+NOTE Confidence: 0.9099599719047546
+
+00:02:03.366 --> 00:02:09.542
+microservices, databases, and other capabilities all stitched together across a
+
+NOTE Confidence: 0.9099599719047546
+
+00:02:09.620 --> 00:02:13.138
+Net Aspire system that I want to use and test
+
+NOTE Confidence: 0.9099599719047546
+
+00:02:13.216 --> 00:02:15.639
+with something like Playwright.
+
+NOTE Confidence: 0.932621419429779
+
+00:02:16.400 --> 00:02:18.813
+So let me head over to the code and show
+
+NOTE Confidence: 0.932621419429779
+
+00:02:18.874 --> 00:02:21.830
+you my sample code that will get you started with
+
+NOTE Confidence: 0.932621419429779
+
+00:02:21.891 --> 00:02:25.029
+understanding a little bit more about what we can do
+
+NOTE Confidence: 0.932621419429779
+
+00:02:25.089 --> 00:02:26.960
+with Net Aspire and Playwright.
+
+NOTE Confidence: 0.9585701823234558
+
+00:02:27.120 --> 00:02:29.879
+Here I am in Visual Studio Code and you can
+
+NOTE Confidence: 0.9585701823234558
+
+00:02:29.943 --> 00:02:32.960
+see my test project over there in the Explorer.
+
+NOTE Confidence: 0.886148989200592
+
+00:02:33.639 --> 00:02:36.951
+So I've written a couple of pieces here that I've
+
+NOTE Confidence: 0.886148989200592
+
+00:02:37.018 --> 00:02:41.276
+labeled as infrastructure that set up and manage.net aspire and
+
+NOTE Confidence: 0.886148989200592
+
+00:02:41.343 --> 00:02:42.559
+manage playwright.
+
+NOTE Confidence: 0.9693282246589661
+
+00:02:42.720 --> 00:02:45.176
+You'll be able to download and look further at these
+
+NOTE Confidence: 0.9693282246589661
+
+00:02:45.223 --> 00:02:47.586
+classes with the sample code that I'll give you at
+
+NOTE Confidence: 0.9693282246589661
+
+00:02:47.633 --> 00:02:48.719
+the end of the session.
+
+NOTE Confidence: 0.9704968333244324
+
+00:02:49.000 --> 00:02:50.160
+Now take a look here.
+
+NOTE Confidence: 0.9162423610687256
+
+00:02:50.160 --> 00:02:51.920
+This is my playwright manager.
+
+NOTE Confidence: 0.8811630606651306
+
+00:02:52.240 --> 00:02:55.654
+This is what's going to manage my interactions with the
+
+NOTE Confidence: 0.8811630606651306
+
+00:02:55.716 --> 00:02:59.006
+Playwright service so that we can go and and navigate
+
+NOTE Confidence: 0.8811630606651306
+
+00:02:59.068 --> 00:03:01.799
+a browser to explore our application system.
+
+NOTE Confidence: 0.8483169674873352
+
+00:03:01.919 --> 00:03:04.615
+I've even got a property here that etu called is
+
+NOTE Confidence: 0.8483169674873352
+
+00:03:04.671 --> 00:03:07.198
+headless, and I'm going to set that U to just
+
+NOTE Confidence: 0.8483169674873352
+
+00:03:07.254 --> 00:03:07.760
+be false.
+
+NOTE Confidence: 0.8752227425575256
+
+00:03:07.840 --> 00:03:10.474
+I want to see the browser actually running for for
+
+NOTE Confidence: 0.8752227425575256
+
+00:03:10.526 --> 00:03:12.160
+the purposes of our demos here.
+
+NOTE Confidence: 0.8475512266159058
+
+00:03:12.680 --> 00:03:16.130
+But when this initializes, it's going to go and set
+
+NOTE Confidence: 0.8475512266159058
+
+00:03:16.198 --> 00:03:19.919
+U some default timeouts, create access with Playwright.
+
+NOTE Confidence: 0.8827775716781616
+
+00:03:19.920 --> 00:03:21.720
+So it starts a browser for me.
+
+NOTE Confidence: 0.9092239737510681
+
+00:03:22.000 --> 00:03:25.175
+And you can even see here, we're going to launch
+
+NOTE Confidence: 0.9092239737510681
+
+00:03:25.241 --> 00:03:29.077
+the Chromium browser, that's the engine that runs both the
+
+NOTE Confidence: 0.9092239737510681
+
+00:03:29.143 --> 00:03:33.443
+Google Chrome browser and our Microsoft Edge browser and interact
+
+NOTE Confidence: 0.9092239737510681
+
+00:03:33.509 --> 00:03:36.420
+with with whatever we send into it to go and
+
+NOTE Confidence: 0.9092239737510681
+
+00:03:36.486 --> 00:03:37.280
+navigate to.
+
+NOTE Confidence: 0.9478434324264526
+
+00:03:38.280 --> 00:03:41.351
+I've also got my Aspire manager that I wrote here
+
+NOTE Confidence: 0.9478434324264526
+
+00:03:41.414 --> 00:03:44.987
+that gets a reference to the Playwright manager and knows
+
+NOTE Confidence: 0.9478434324264526
+
+00:03:45.049 --> 00:03:48.559
+how to configure my distributed application for testing.
+
+NOTE Confidence: 0.9245480895042419
+
+00:03:49.160 --> 00:03:52.601
+And then it gives me the ability to actually build
+
+NOTE Confidence: 0.9245480895042419
+
+00:03:52.670 --> 00:03:56.593
+that application so we can navigate and interact with it,
+
+NOTE Confidence: 0.9245480895042419
+
+00:03:56.662 --> 00:03:59.759
+start it up and then it'll be running and our
+
+NOTE Confidence: 0.9245480895042419
+
+00:03:59.828 --> 00:04:01.480
+tests can then interact.
+
+NOTE Confidence: 0.8603693246841431
+
+00:04:02.160 --> 00:04:05.560
+And we of course have some dispose capabilities here to
+
+NOTE Confidence: 0.8603693246841431
+
+00:04:05.621 --> 00:04:09.021
+clean up our alication so that when we're done testing,
+
+NOTE Confidence: 0.8603693246841431
+
+00:04:09.083 --> 00:04:11.680
+everything gets shut down properly for us.
+
+NOTE Confidence: 0.888148844242096
+
+00:04:12.560 --> 00:04:16.927
+Finally, I have some bass Playwright tests here that bring
+
+NOTE Confidence: 0.888148844242096
+
+00:04:17.002 --> 00:04:20.239
+everything together in this abstract class.
+
+NOTE Confidence: 0.9308565855026245
+
+00:04:20.480 --> 00:04:23.617
+This is the building block that all of my other
+
+NOTE Confidence: 0.9308565855026245
+
+00:04:23.684 --> 00:04:26.822
+tests are built upon, and you can see it brings
+
+NOTE Confidence: 0.9308565855026245
+
+00:04:26.889 --> 00:04:30.895
+together my Aspire manager and my Playwright Manager so that
+
+NOTE Confidence: 0.9308565855026245
+
+00:04:30.961 --> 00:04:34.366
+those two pieces can work together and my tests can
+
+NOTE Confidence: 0.9308565855026245
+
+00:04:34.433 --> 00:04:38.305
+tell Playwright how to find Aspire and navigate around the
+
+NOTE Confidence: 0.9308565855026245
+
+00:04:38.372 --> 00:04:38.840
+system.
+
+NOTE Confidence: 0.9614701867103577
+
+00:04:39.360 --> 00:04:41.160
+Let me show you a little bit further down here.
+
+NOTE Confidence: 0.931959867477417
+
+00:04:41.920 --> 00:04:45.437
+We have a configure method that does exactly those things
+
+NOTE Confidence: 0.931959867477417
+
+00:04:45.499 --> 00:04:46.240
+here, right.
+
+NOTE Confidence: 0.9048426151275635
+
+00:04:46.480 --> 00:04:49.256
+It's going to go identify the URLs for where the
+
+NOTE Confidence: 0.9048426151275635
+
+00:04:49.314 --> 00:04:52.669
+dashboard is running, pass along the information so we can
+
+NOTE Confidence: 0.9048426151275635
+
+00:04:52.726 --> 00:04:54.520
+log into the dashboard as well.
+
+NOTE Confidence: 0.8652377724647522
+
+00:04:55.440 --> 00:04:59.079
+We can interact with pages using this method that that
+
+NOTE Confidence: 0.8652377724647522
+
+00:04:59.147 --> 00:05:02.786
+takes a delegate here that takes takes a function that
+
+NOTE Confidence: 0.8652377724647522
+
+00:05:02.854 --> 00:05:06.628
+defines exactly how to navigate around using some of our
+
+NOTE Confidence: 0.8652377724647522
+
+00:05:06.695 --> 00:05:08.920
+standard playwright test methods.
+
+NOTE Confidence: 0.9530785083770752
+
+00:05:09.440 --> 00:05:12.483
+And you can see here, it's actually going to go
+
+NOTE Confidence: 0.9530785083770752
+
+00:05:12.548 --> 00:05:15.851
+and have things set up and navigate around and find
+
+NOTE Confidence: 0.9530785083770752
+
+00:05:15.916 --> 00:05:19.413
+the service that we want and interact with that inside
+
+NOTE Confidence: 0.9530785083770752
+
+00:05:19.478 --> 00:05:20.319
+of our tests.
+
+NOTE Confidence: 0.9709300398826599
+
+00:05:21.080 --> 00:05:23.600
+So I have tests that are built over here.
+
+NOTE Confidence: 0.8240606784820557
+
+00:05:23.800 --> 00:05:26.805
+This is my first set of tests called Weather Hub
+
+NOTE Confidence: 0.8240606784820557
+
+00:05:26.867 --> 00:05:29.935
+test because I'm, I'm going to work with a little
+
+NOTE Confidence: 0.8240606784820557
+
+00:05:29.998 --> 00:05:33.754
+application that's set up to interact with the United States
+
+NOTE Confidence: 0.8240606784820557
+
+00:05:33.817 --> 00:05:37.949
+National Weather Service's APIs and present the current weather to
+
+NOTE Confidence: 0.8240606784820557
+
+00:05:38.012 --> 00:05:38.199
+me.
+
+NOTE Confidence: 0.9062187671661377
+
+00:05:38.800 --> 00:05:41.802
+So I, I wrote a test here called search for
+
+NOTE Confidence: 0.9062187671661377
+
+00:05:41.872 --> 00:05:45.294
+city and I'm using X units theory and inline data
+
+NOTE Confidence: 0.9062187671661377
+
+00:05:45.364 --> 00:05:48.925
+capabilities as you see up here on lines 26 through
+
+NOTE Confidence: 0.9062187671661377
+
+00:05:48.995 --> 00:05:51.649
+30 so that I can tell it go search for
+
+NOTE Confidence: 0.9062187671661377
+
+00:05:51.719 --> 00:05:55.420
+these terms and look for these cities, look for these
+
+NOTE Confidence: 0.9062187671661377
+
+00:05:55.490 --> 00:05:59.680
+weather stations that we want to see more information about.
+
+NOTE Confidence: 0.9049264192581177
+
+00:06:00.279 --> 00:06:03.912
+And our application is going to go find the My
+
+NOTE Confidence: 0.9049264192581177
+
+00:06:03.991 --> 00:06:08.571
+Weather Hub application that Aspire is managing, go to the
+
+NOTE Confidence: 0.9049264192581177
+
+00:06:08.650 --> 00:06:12.519
+root of that website and start navigating around.
+
+NOTE Confidence: 0.9318397641181946
+
+00:06:13.680 --> 00:06:17.391
+Click into the column options on a quick grid that's
+
+NOTE Confidence: 0.9318397641181946
+
+00:06:17.463 --> 00:06:21.532
+in there and navigate through and actually search for one
+
+NOTE Confidence: 0.9318397641181946
+
+00:06:21.603 --> 00:06:24.744
+of those cities and make sure that we we can
+
+NOTE Confidence: 0.9318397641181946
+
+00:06:24.815 --> 00:06:27.599
+actually find that exact location text.
+
+NOTE Confidence: 0.9298811554908752
+
+00:06:28.240 --> 00:06:31.400
+Once we do, our test has passed and move on.
+
+NOTE Confidence: 0.7502123117446899
+
+00:06:32.560 --> 00:06:33.080
+Not bad.
+
+NOTE Confidence: 0.9528024196624756
+
+00:06:33.360 --> 00:06:35.856
+Let me show you how this runs over here using
+
+NOTE Confidence: 0.9528024196624756
+
+00:06:35.912 --> 00:06:38.520
+the testing capabilities in Visual Studio Code.
+
+NOTE Confidence: 0.9351819753646851
+
+00:06:38.760 --> 00:06:41.633
+I'll just go to that search for city and click
+
+NOTE Confidence: 0.9351819753646851
+
+00:06:41.696 --> 00:06:44.882
+start on those tests and I'll move the browser over
+
+NOTE Confidence: 0.9351819753646851
+
+00:06:44.944 --> 00:06:47.943
+here that Playwright is using so we can watch it
+
+NOTE Confidence: 0.9351819753646851
+
+00:06:48.005 --> 00:06:49.880
+interact with the application.
+
+NOTE Confidence: 0.937471866607666
+
+00:06:55.839 --> 00:06:58.881
+Here it is starting the browser and there it is
+
+NOTE Confidence: 0.937471866607666
+
+00:06:58.945 --> 00:07:02.634
+already into the website and you see it navigating around
+
+NOTE Confidence: 0.937471866607666
+
+00:07:02.698 --> 00:07:06.322
+and closing the browser and reopening it as it navigates
+
+NOTE Confidence: 0.937471866607666
+
+00:07:06.387 --> 00:07:09.039
+around and I can see in 17 seconds all of
+
+NOTE Confidence: 0.937471866607666
+
+00:07:09.104 --> 00:07:12.598
+those searches worked exactly the way I expected it to
+
+NOTE Confidence: 0.937471866607666
+
+00:07:12.663 --> 00:07:16.157
+and now it's cleaning up and shutting down the service
+
+NOTE Confidence: 0.937471866607666
+
+00:07:16.222 --> 00:07:17.839
+for me in the background.
+
+NOTE Confidence: 0.7186887264251709
+
+00:07:18.640 --> 00:07:19.080
+Great.
+
+NOTE Confidence: 0.9104065299034119
+
+00:07:20.440 --> 00:07:24.805
+But Playwright with Aspire can do more than just interact
+
+NOTE Confidence: 0.9104065299034119
+
+00:07:24.881 --> 00:07:28.940
+with and and write some tests that we're working with
+
+NOTE Confidence: 0.9104065299034119
+
+00:07:29.017 --> 00:07:29.399
+here.
+
+NOTE Confidence: 0.9227505326271057
+
+00:07:29.800 --> 00:07:34.295
+We can actually use the Playwright MCP to interact and
+
+NOTE Confidence: 0.9227505326271057
+
+00:07:34.379 --> 00:07:39.374
+explore and do more discovery capabilities inside of our our
+
+NOTE Confidence: 0.9227505326271057
+
+00:07:39.458 --> 00:07:41.039
+application system.
+
+NOTE Confidence: 0.9209466576576233
+
+00:07:41.400 --> 00:07:44.083
+So I wrote a prompt like this to to do
+
+NOTE Confidence: 0.9209466576576233
+
+00:07:44.154 --> 00:07:45.920
+some exploratory testing.
+
+NOTE Confidence: 0.8173823356628418
+
+00:07:46.440 --> 00:07:50.001
+Launch the app host project, navigate to the dashboard that's
+
+NOTE Confidence: 0.8173823356628418
+
+00:07:50.060 --> 00:07:53.680
+reported in the output with the direction, Log into dashboard.
+
+NOTE Confidence: 0.93723064661026
+
+00:07:54.800 --> 00:07:58.240
+Make sure that the weather hub service is running.
+
+NOTE Confidence: 0.9378694295883179
+
+00:07:58.480 --> 00:07:59.960
+Open a browser to visit it.
+
+NOTE Confidence: 0.9294557571411133
+
+00:08:00.120 --> 00:08:03.008
+This is a weather forecast page and wait for the
+
+NOTE Confidence: 0.9294557571411133
+
+00:08:03.068 --> 00:08:06.498
+grid to finish loading with the locations, the city names
+
+NOTE Confidence: 0.9294557571411133
+
+00:08:06.558 --> 00:08:07.160
+out there.
+
+NOTE Confidence: 0.9199236035346985
+
+00:08:07.440 --> 00:08:09.914
+And we're going to click the button for the column
+
+NOTE Confidence: 0.9199236035346985
+
+00:08:09.964 --> 00:08:10.360
+options.
+
+NOTE Confidence: 0.9669508337974548
+
+00:08:10.360 --> 00:08:12.200
+And let's search for Chicago.
+
+NOTE Confidence: 0.9675869345664978
+
+00:08:12.760 --> 00:08:15.709
+And let me know if you find any weather entries
+
+NOTE Confidence: 0.9675869345664978
+
+00:08:15.772 --> 00:08:16.399
+out there.
+
+NOTE Confidence: 0.9292784929275513
+
+00:08:17.000 --> 00:08:21.054
+So I'll just click start here with Copilot in Visual
+
+NOTE Confidence: 0.9292784929275513
+
+00:08:21.132 --> 00:08:24.796
+Studio Code and it's going to start the MCP and
+
+NOTE Confidence: 0.9292784929275513
+
+00:08:24.874 --> 00:08:26.200
+interact with it.
+
+NOTE Confidence: 0.951132595539093
+
+00:08:26.200 --> 00:08:29.126
+So first, of course, it's going to run the application
+
+NOTE Confidence: 0.951132595539093
+
+00:08:29.180 --> 00:08:29.560
+for us.
+
+NOTE Confidence: 0.9528427124023438
+
+00:08:29.560 --> 00:08:32.026
+So you see there, it's going to run it down
+
+NOTE Confidence: 0.9528427124023438
+
+00:08:32.083 --> 00:08:34.319
+here in my Visual Studio Code terminal.
+
+NOTE Confidence: 0.959410548210144
+
+00:08:35.120 --> 00:08:39.316
+And once it's done, it's going to find where that
+
+NOTE Confidence: 0.959410548210144
+
+00:08:39.401 --> 00:08:41.200
+dashboard is running.
+
+NOTE Confidence: 0.8463965058326721
+
+00:08:42.400 --> 00:08:44.931
+Wants to wait a little bit here, so we'll let
+
+NOTE Confidence: 0.8463965058326721
+
+00:08:44.987 --> 00:08:45.999
+it finish loading.
+
+NOTE Confidence: 0.9754815697669983
+
+00:08:47.800 --> 00:08:48.360
+There we go.
+
+NOTE Confidence: 0.9499305486679077
+
+00:08:48.360 --> 00:08:50.080
+It's found the dashboard URL.
+
+NOTE Confidence: 0.9496063590049744
+
+00:08:50.360 --> 00:08:53.367
+It's opening that up and we can see down here
+
+NOTE Confidence: 0.9496063590049744
+
+00:08:53.434 --> 00:08:55.440
+it's going to take a snapshot.
+
+NOTE Confidence: 0.9528283476829529
+
+00:08:55.440 --> 00:08:58.871
+It's going to look at the dashboard here for us
+
+NOTE Confidence: 0.9528283476829529
+
+00:08:58.944 --> 00:09:02.667
+and now it knows where the website is, navigates to
+
+NOTE Confidence: 0.9528283476829529
+
+00:09:02.740 --> 00:09:02.960
+it.
+
+NOTE Confidence: 0.9164978861808777
+
+00:09:03.160 --> 00:09:06.127
+And now it's actually going to start interacting with the
+
+NOTE Confidence: 0.9164978861808777
+
+00:09:06.179 --> 00:09:06.960
+website for us.
+
+NOTE Confidence: 0.9396476149559021
+
+00:09:07.120 --> 00:09:09.634
+And we can see it over there on the left
+
+NOTE Confidence: 0.9396476149559021
+
+00:09:09.697 --> 00:09:12.400
+side doing this exploratory testing for us.
+
+NOTE Confidence: 0.9408747553825378
+
+00:09:16.640 --> 00:09:20.252
+It's having a problem identifying exactly the access it needs
+
+NOTE Confidence: 0.9408747553825378
+
+00:09:20.311 --> 00:09:21.200
+to that button.
+
+NOTE Confidence: 0.9159569144248962
+
+00:09:21.200 --> 00:09:22.280
+So it's trying again.
+
+NOTE Confidence: 0.9284657835960388
+
+00:09:22.680 --> 00:09:23.280
+There it is.
+
+NOTE Confidence: 0.9118397831916809
+
+00:09:23.640 --> 00:09:27.478
+It found the search button and now it's actually going
+
+NOTE Confidence: 0.9118397831916809
+
+00:09:27.549 --> 00:09:31.032
+to search for Chicago and there it is and there's
+
+NOTE Confidence: 0.9118397831916809
+
+00:09:31.103 --> 00:09:34.799
+no values for Chicago and it's, it's going to report
+
+NOTE Confidence: 0.9118397831916809
+
+00:09:34.870 --> 00:09:38.566
+that back to me here that there's zero items instead
+
+NOTE Confidence: 0.9118397831916809
+
+00:09:38.637 --> 00:09:42.049
+of the original 3600 and it doesn't know what to
+
+NOTE Confidence: 0.9118397831916809
+
+00:09:42.120 --> 00:09:42.760
+do there.
+
+NOTE Confidence: 0.9266952872276306
+
+00:09:42.760 --> 00:09:46.061
+It's going to clean up and stop the application for
+
+NOTE Confidence: 0.9266952872276306
+
+00:09:46.125 --> 00:09:46.320
+us.
+
+NOTE Confidence: 0.9656481742858887
+
+00:09:49.800 --> 00:09:50.840
+That's great.
+
+NOTE Confidence: 0.8648092746734619
+
+00:09:51.040 --> 00:09:55.132
+We did a little bit of exploratory testing there and,
+
+NOTE Confidence: 0.8648092746734619
+
+00:09:55.209 --> 00:09:58.838
+and it worked for us to go and discover exactly
+
+NOTE Confidence: 0.8648092746734619
+
+00:09:58.915 --> 00:10:03.239
+how our application would interact with playwright here.
+
+NOTE Confidence: 0.8680051565170288
+
+00:10:03.840 --> 00:10:04.880
+Really neat stuff.
+
+NOTE Confidence: 0.9343180060386658
+
+00:10:05.160 --> 00:10:08.196
+But that's some valuable content that we saw there that
+
+NOTE Confidence: 0.9343180060386658
+
+00:10:08.251 --> 00:10:11.287
+it did handle the search properly when it couldn't find
+
+NOTE Confidence: 0.9343180060386658
+
+00:10:11.343 --> 00:10:11.840
+anything.
+
+NOTE Confidence: 0.9219204187393188
+
+00:10:12.400 --> 00:10:14.800
+So let me just, let me just codify that.
+
+NOTE Confidence: 0.9617705941200256
+
+00:10:14.800 --> 00:10:17.160
+Let's turn that into a test, right?
+
+NOTE Confidence: 0.9210669994354248
+
+00:10:19.040 --> 00:10:22.539
+Let's turn that exploration into a test that verifies when
+
+NOTE Confidence: 0.9210669994354248
+
+00:10:22.599 --> 00:10:26.400
+a location doesn't exist, that the website handles it properly.
+
+NOTE Confidence: 0.823031485080719
+
+00:10:26.640 --> 00:10:29.690
+And I've already got some tests out there and they're
+
+NOTE Confidence: 0.823031485080719
+
+00:10:29.747 --> 00:10:32.279
+saved in a file called Weather Hub Tests CS.
+
+NOTE Confidence: 0.9383015632629395
+
+00:10:32.640 --> 00:10:35.293
+So I'll tell it to run that prompt in the
+
+NOTE Confidence: 0.9383015632629395
+
+00:10:35.358 --> 00:10:36.200
+current chat.
+
+NOTE Confidence: 0.9531839489936829
+
+00:10:36.200 --> 00:10:39.919
+Just continue on there and let's see what it's able
+
+NOTE Confidence: 0.9531839489936829
+
+00:10:39.992 --> 00:10:43.200
+to generate for us so that we can extend our
+
+NOTE Confidence: 0.9531839489936829
+
+00:10:43.273 --> 00:10:48.160
+test capabilities that are interacting with our larger application.
+
+NOTE Confidence: 0.9366198182106018
+
+00:10:48.679 --> 00:10:52.809
+So you can see here it's parsing and looking at
+
+NOTE Confidence: 0.9366198182106018
+
+00:10:52.897 --> 00:10:56.587
+that test file for us and now it thinks it
+
+NOTE Confidence: 0.9366198182106018
+
+00:10:56.675 --> 00:11:00.628
+knows how to do it and it's going to generate
+
+NOTE Confidence: 0.9366198182106018
+
+00:11:00.716 --> 00:11:03.440
+a test for us inside the class.
+
+NOTE Confidence: 0.9714703559875488
+
+00:11:10.940 --> 00:11:11.540
+There we go.
+
+NOTE Confidence: 0.9169975519180298
+
+00:11:11.540 --> 00:11:15.008
+We can see it's doing the exact same things that
+
+NOTE Confidence: 0.9169975519180298
+
+00:11:15.080 --> 00:11:18.549
+it was doing in the previous test and it cleaned
+
+NOTE Confidence: 0.9169975519180298
+
+00:11:18.621 --> 00:11:20.500
+up some of its code there.
+
+NOTE Confidence: 0.9435968399047852
+
+00:11:22.540 --> 00:11:26.043
+I'm going to remove this little bit because I think
+
+NOTE Confidence: 0.9435968399047852
+
+00:11:26.112 --> 00:11:28.860
+we only need one test that is down here.
+
+NOTE Confidence: 0.9244466423988342
+
+00:11:30.400 --> 00:11:32.491
+So let's run it with the rest of our other
+
+NOTE Confidence: 0.9244466423988342
+
+00:11:32.541 --> 00:11:32.839
+tests.
+
+NOTE Confidence: 0.8226104974746704
+
+00:11:44.130 --> 00:11:46.250
+Here it is, search for nonexistent location.
+
+NOTE Confidence: 0.9511634707450867
+
+00:11:46.930 --> 00:11:48.490
+I'll let it run that test.
+
+NOTE Confidence: 0.9576436281204224
+
+00:11:50.650 --> 00:11:53.324
+We can see it built properly down here in the
+
+NOTE Confidence: 0.9576436281204224
+
+00:11:53.383 --> 00:11:54.810
+terminal and here we go.
+
+NOTE Confidence: 0.8664459586143494
+
+00:11:54.809 --> 00:11:59.364
+It's going to spin, starts up the application and it's
+
+NOTE Confidence: 0.8664459586143494
+
+00:11:59.448 --> 00:12:03.750
+going to walk through that test scenario for us and
+
+NOTE Confidence: 0.8664459586143494
+
+00:12:03.834 --> 00:12:05.689
+the test ran properly.
+
+NOTE Confidence: 0.92036372423172
+
+00:12:06.490 --> 00:12:07.370
+Fantastic.
+
+NOTE Confidence: 0.936478316783905
+
+00:12:09.800 --> 00:12:12.887
+Now we've got the test running properly and we can
+
+NOTE Confidence: 0.936478316783905
+
+00:12:12.949 --> 00:12:16.161
+run all of our tests here, but let's actually modify
+
+NOTE Confidence: 0.936478316783905
+
+00:12:16.222 --> 00:12:19.557
+the application and make sure that it still works when
+
+NOTE Confidence: 0.936478316783905
+
+00:12:19.619 --> 00:12:21.040
+we add our new feature.
+
+NOTE Confidence: 0.8886927962303162
+
+00:12:21.480 --> 00:12:25.403
+So I happen to have already started down the process
+
+NOTE Confidence: 0.8886927962303162
+
+00:12:25.479 --> 00:12:29.327
+of building a feature that's going to work with our
+
+NOTE Confidence: 0.8886927962303162
+
+00:12:29.402 --> 00:12:33.854
+application that will go summarize the first day of weather
+
+NOTE Confidence: 0.8886927962303162
+
+00:12:33.930 --> 00:12:37.929
+forecast data and to set up a background image behind
+
+NOTE Confidence: 0.8886927962303162
+
+00:12:38.004 --> 00:12:41.550
+our forecast that kind of fits the vibe for the
+
+NOTE Confidence: 0.8886927962303162
+
+00:12:41.626 --> 00:12:44.720
+the type of weather that we're expecting.
+
+NOTE Confidence: 0.9388857483863831
+
+00:12:45.000 --> 00:12:47.624
+And it's going to use a little bit of Azure
+
+NOTE Confidence: 0.9388857483863831
+
+00:12:47.685 --> 00:12:50.920
+Open AI services to reach out and interact with that.
+
+NOTE Confidence: 0.945071816444397
+
+00:12:51.520 --> 00:12:54.067
+You can learn more about how this summarizer works when
+
+NOTE Confidence: 0.945071816444397
+
+00:12:54.113 --> 00:12:56.244
+you see the source code that I'm going to give
+
+NOTE Confidence: 0.945071816444397
+
+00:12:56.290 --> 00:12:57.680
+you at the end of the session.
+
+NOTE Confidence: 0.8810614347457886
+
+00:12:58.160 --> 00:13:01.148
+So it's just going to reach out, put that summary
+
+NOTE Confidence: 0.8810614347457886
+
+00:13:01.209 --> 00:13:04.015
+into, into a, a property here for us and it'll
+
+NOTE Confidence: 0.8810614347457886
+
+00:13:04.076 --> 00:13:06.759
+format the background based on that summary.
+
+NOTE Confidence: 0.9517806768417358
+
+00:13:07.360 --> 00:13:09.517
+I can go back over to my tests and now
+
+NOTE Confidence: 0.9517806768417358
+
+00:13:09.574 --> 00:13:12.300
+I can run all the tests, including those where I
+
+NOTE Confidence: 0.9517806768417358
+
+00:13:12.357 --> 00:13:13.720
+do actually have a city.
+
+NOTE Confidence: 0.9579553604125977
+
+00:13:13.960 --> 00:13:17.152
+And I'll know immediately if if I didn't break my
+
+NOTE Confidence: 0.9579553604125977
+
+00:13:17.218 --> 00:13:18.000
+application.
+
+NOTE Confidence: 0.9427536129951477
+
+00:13:18.400 --> 00:13:21.433
+And I can then go through and actually look at
+
+NOTE Confidence: 0.9427536129951477
+
+00:13:21.499 --> 00:13:25.523
+what this this experience is after we're done running through
+
+NOTE Confidence: 0.9427536129951477
+
+00:13:25.589 --> 00:13:27.039
+all of our tests here.
+
+NOTE Confidence: 0.8566986322402954
+
+00:13:27.240 --> 00:13:31.016
+Now, of course, in in a CICD scenario, I wouldn't
+
+NOTE Confidence: 0.8566986322402954
+
+00:13:31.093 --> 00:13:33.560
+have the browser display for us.
+
+NOTE Confidence: 0.9669833183288574
+
+00:13:33.560 --> 00:13:34.520
+I would turn that off.
+
+NOTE Confidence: 0.9343294501304626
+
+00:13:34.760 --> 00:13:37.242
+But for this demo, it's kind of neat to see
+
+NOTE Confidence: 0.9343294501304626
+
+00:13:37.300 --> 00:13:40.360
+it navigate through and interact with all the things.
+
+NOTE Confidence: 0.93603515625
+
+00:13:41.160 --> 00:13:43.480
+And there we go in about 20 seconds.
+
+NOTE Confidence: 0.966117799282074
+
+00:13:43.480 --> 00:13:46.029
+We know that we didn't break anything inside of our
+
+NOTE Confidence: 0.966117799282074
+
+00:13:46.079 --> 00:13:46.679
+application.
+
+NOTE Confidence: 0.8806461095809937
+
+00:13:46.960 --> 00:13:50.276
+So I can, I can, I can stop everything here
+
+NOTE Confidence: 0.8806461095809937
+
+00:13:50.353 --> 00:13:54.441
+and head back over to PowerShell, start my system and
+
+NOTE Confidence: 0.8806461095809937
+
+00:13:54.518 --> 00:13:58.297
+actually take a look at what this what this looks
+
+NOTE Confidence: 0.8806461095809937
+
+00:13:58.374 --> 00:13:58.759
+like.
+
+NOTE Confidence: 0.6236435770988464
+
+00:14:29.160 --> 00:14:31.680
+So there's my aspired dashboard.
+
+NOTE Confidence: 0.9379894137382507
+
+00:14:31.680 --> 00:14:35.621
+I'll click into my weather application and I'll give it
+
+NOTE Confidence: 0.9379894137382507
+
+00:14:35.693 --> 00:14:38.560
+a try here by searching for my hometown.
+
+NOTE Confidence: 0.9559310674667358
+
+00:14:40.400 --> 00:14:44.401
+I'll search for my hometown, Philadelphia, and there it is
+
+NOTE Confidence: 0.9559310674667358
+
+00:14:44.470 --> 00:14:45.919
+when I click into it.
+
+NOTE Confidence: 0.8639385104179382
+
+00:14:46.320 --> 00:14:49.695
+Here's the weather forecast for for this week and you
+
+NOTE Confidence: 0.8639385104179382
+
+00:14:49.758 --> 00:14:51.159
+can see it's it today.
+
+NOTE Confidence: 0.8693675398826599
+
+00:14:51.160 --> 00:14:54.102
+It's going to be sunny, a little hazy, hot with
+
+NOTE Confidence: 0.8693675398826599
+
+00:14:54.165 --> 00:14:55.480
+highs in the mid 80s.
+
+NOTE Confidence: 0.9387896060943604
+
+00:14:55.480 --> 00:14:56.760
+That's of course Fahrenheit.
+
+NOTE Confidence: 0.9504368305206299
+
+00:14:56.760 --> 00:14:59.593
+We use Fahrenheit here in the States and I get
+
+NOTE Confidence: 0.9504368305206299
+
+00:14:59.655 --> 00:15:02.919
+a nice sunny background image based on that forecast.
+
+NOTE Confidence: 0.9582474827766418
+
+00:15:03.840 --> 00:15:04.960
+Really cool stuff.
+
+NOTE Confidence: 0.8854534029960632
+
+00:15:05.320 --> 00:15:08.483
+I had Playwright and Aspire help me test and verify
+
+NOTE Confidence: 0.8854534029960632
+
+00:15:08.545 --> 00:15:11.523
+that this application is going to work well as a
+
+NOTE Confidence: 0.8854534029960632
+
+00:15:11.585 --> 00:15:15.494
+complete system that knows how to communicate and interact with
+
+NOTE Confidence: 0.8854534029960632
+
+00:15:15.556 --> 00:15:18.968
+the National Weather Service API and cache some of that
+
+NOTE Confidence: 0.8854534029960632
+
+00:15:19.030 --> 00:15:21.759
+stuff using a Redis cache in the background.
+
+NOTE Confidence: 0.9416379928588867
+
+00:15:22.640 --> 00:15:24.641
+Let me head back to the slides and get you
+
+NOTE Confidence: 0.9416379928588867
+
+00:15:24.688 --> 00:15:27.023
+up to speed with some of the other resources that
+
+NOTE Confidence: 0.9416379928588867
+
+00:15:27.071 --> 00:15:29.025
+you might want if you want to take a look
+
+NOTE Confidence: 0.9416379928588867
+
+00:15:29.072 --> 00:15:31.359
+further into what we saw as part of these demos.
+
+NOTE Confidence: 0.8011438250541687
+
+00:15:31.640 --> 00:15:36.226
+So of course, you can learn more about Playwright at
+
+NOTE Confidence: 0.8011438250541687
+
+00:15:36.314 --> 00:15:38.959
+playwright.devinaspirethe.net.
+
+NOTE Confidence: 0.8523093461990356
+
+00:15:38.960 --> 00:15:43.520
+Aspire system is available at dot dot net slash aspire.
+
+NOTE Confidence: 0.8965070843696594
+
+00:15:44.400 --> 00:15:47.685
+Now the MCP, the model context protocol that we used
+
+NOTE Confidence: 0.8965070843696594
+
+00:15:47.748 --> 00:15:48.759
+with Playwright.
+
+NOTE Confidence: 0.9078389406204224
+
+00:15:49.240 --> 00:15:53.475
+My friend Debbie O'Brien has a fantastic video introducing all
+
+NOTE Confidence: 0.9078389406204224
+
+00:15:53.543 --> 00:15:56.958
+the things that you can do with the Playwright MCP
+
+NOTE Confidence: 0.9078389406204224
+
+00:15:57.027 --> 00:15:58.120
+at this address.
+
+NOTE Confidence: 0.8334140181541443
+
+00:15:58.360 --> 00:16:03.775
+Bitly slash playwright Dash MCP YT and the source code
+
+NOTE Confidence: 0.8334140181541443
+
+00:16:03.875 --> 00:16:05.479
+for this sample.
+
+NOTE Confidence: 0.9166907668113708
+
+00:16:05.480 --> 00:16:07.749
+If you want to dig into that further, you can
+
+NOTE Confidence: 0.9166907668113708
+
+00:16:07.800 --> 00:16:08.960
+find that on my GitHub.
+
+NOTE Confidence: 0.7923982739448547
+
+00:16:09.200 --> 00:16:10.520
+I set up a Bitly for you.
+
+NOTE Confidence: 0.7532179951667786
+
+00:16:10.840 --> 00:16:16.044
+Bitly slash aspire dash playwright dash demo Hey, thanks so
+
+NOTE Confidence: 0.7532179951667786
+
+00:16:16.132 --> 00:16:17.719
+much for watching.
+
+NOTE Confidence: 0.9365739226341248
+
+00:16:17.880 --> 00:16:20.727
+If you want to catch more of my content, you
+
+NOTE Confidence: 0.9365739226341248
+
+00:16:20.791 --> 00:16:23.638
+want to see more of what I'm doing online on
+
+NOTE Confidence: 0.9365739226341248
+
+00:16:23.703 --> 00:16:26.680
+live videos or other content, you can find me.
+
+NOTE Confidence: 0.7278982996940613
+
+00:16:26.680 --> 00:16:29.593
+I am C# Fritz on all the places on the
+
+NOTE Confidence: 0.7278982996940613
+
+00:16:29.670 --> 00:16:30.360
+Internet.
+
+NOTE Confidence: 0.7861801981925964
+
+00:16:31.720 --> 00:16:32.560
+Thanks so much for watching.

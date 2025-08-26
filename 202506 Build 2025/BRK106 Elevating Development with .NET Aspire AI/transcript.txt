@@ -1,0 +1,605 @@
+Microsoft Build May 19-22, 2025 Session: BRK106 Speakers: Damian Edwards, David Fowler, Devis Lucato, Maddy Montaquila
+
+Damian Edwards: Being more productive, more faster, more flexible.
+
+Maddy Montaquila: Here we go. What are you saying?
+
+David Fowler: Is it on?
+
+Damian Edwards: Are you on? I'm on.
+
+Maddy Montaquila: Can you hear Fowler?
+
+David Fowler: Can you hear me? Testing.
+
+Maddy Montaquila: Oh, yeah. There we go.
+
+David Fowler: There it is.
+
+Maddy Montaquila: Hi, everybody. Happy day three.
+
+David Fowler: Is it day three?
+
+Maddy Montaquila: It's day three. And it's after lunch.
+
+David Fowler: We're almost done.
+
+Maddy Montaquila: And you all look like you might actually be able to stay awake this whole session, which is rare for an after lunch day three session. But welcome to Elevating Development with.NET Aspire: AI, Cloud, and Beyond.
+
+David Fowler: Good title.
+
+Maddy Montaquila: It is a good title. I'm Maddy. I am a PM on the Aspire team. I'm here with the OG.
+
+David Fowler: David.
+
+Damian Edwards: Hello, I'm Damian.
+
+Maddy Montaquila: There we go.
+
+Damian Edwards: You're so kind.
+
+David Fowler: Thank you, thank you.
+
+Damian Edwards: All this applause for Maddy.
+
+Maddy Montaquila: Thank you so much.
+
+Damian Edwards: You're welcome.
+
+Maddy Montaquila: So a year ago, I was sitting where Glenn is sitting in the front row, watching these two try to explain Aspire for the first time to everybody in person and snickering. And so now we will see if it's better. Anyone in the Aspire announcement talk last year at Build? Yeah.
+
+David Fowler: Yeah.
+
+Maddy Montaquila: Good. I'm very excited to see what you think about our year of transformation here.
+
+David Fowler: Okay.
+
+Maddy Montaquila: Aspire is a lot of things. But most importantly, it is kind of the cornerstone to the developer experience, right? From the platforms that you're using for the apps that you're building. And obviously, agents and AI is the big thing right now. And they're complicated. And they have backends and databases and endpoints and all these things. But also, to the developer tools you use, whether that's fully-fledged VS or VS Code, or if you're all in on GitHub Actions or Azure Pipelines, right? All of these things Aspire helps you bring together. Because dev kind of sucks. That's why you guys started building this thing. And I think originally, we didn't know what Aspire was until we started talking about why we built it, which was that building apps is hard.
+
+Damian Edwards: Right.
+
+Maddy Montaquila: And there are new things every day you have to use to either spin up your auth or your database or whatever it is. We keep adding things to these lists. And this screenshot is just like the cloud-native foundation landscape. There are a million other websites and screenshots and coalitions of things that you use now to build apps. And they all have their own opinions and run mechanisms and containers and all these things. And so what's happened, as development has grown, and as many of you have modernized from something like.NET Framework to Core, you get more and more projects. You get more and more APIs. You have to right-click run things more often. You have to have Damian not on vacation when you onboard someone new to your team. And Damian, in particular, if anything goes wrong with telemetry internally and Damian's out, it's just --
+
+Damian Edwards: And I like vacation, so that's a bummer for me.
+
+Maddy Montaquila: He does. Yeah, he does like vacation. And so you have this inconsistent, stressful dev experience, right? We have people talk about two or three weeks before they can start committing code to a code base. And so Aspire really exists to let you just develop again, whatever that means to you. And not just with onboarding, but also with turning on and instrumenting the things that you probably should just turn on and instrument with your apps, whether that's open telemetry on by default or logging and resiliency with poly and retries and all of these different things. And then we give you a test story and the ability for you to package up your own standards and write your own code and comment things out and add whatever you want and build your extension methods and ship them on your own internal NuGet feeds, right? And then we have a deployment story, which Fowler is -- we've given him, like, 20 minutes to talk about deployment, so I'm not even going to try right now.
+
+David Fowler: Oh, my God.
+
+Maddy Montaquila: We'll come back to that. If you go on www.youtube.com or any of your video players of choice, you could see one of the three of us do the File, New Aspire demo, maybe 800 different places. So we're not going to do that here because you've all probably seen it. We are actually going to invite up Devis from the office of the CTO, who has been a longtime Aspire kind of tester, fan. I don't know. Lots of good feedback.
+
+Devis Lucato: User.
+
+Maddy Montaquila: User.
+
+Devis Lucato: Power user. Power user. Passionate. In love with Aspire.
+
+Maddy Montaquila: Yeah. And so he's got a cool demo. He's going to show you how he's using Aspire in real life.
+
+Devis Lucato: All right. Hi, everyone. Can I go?
+
+Damian Edwards: Yes. Yeah, go ahead. Let me switch the screen. I got you.
+
+Devis Lucato: Stream deck four.
+
+Damian Edwards: Yeah.
+
+Devis Lucato: So hi, everyone. My name is Devis Lucato, working in the Office of the CTO. In the past three years, I've been working on many AI projects. You probably heard about Semantic Kernel. Then I've been working on kernel memory, have here on the screen. And I'll tell you a little bit about the beginning, which doesn't have anything to do with Aspire, but I will get into it very quickly. So in Semantic Kernel, we really wanted to make developers more productive, making it easy to use AI. We started with a.NET SDK. We had pretty soon a Python version and a Java version. We attempted to do a TypeScript. Eventually, we ran out
+
+of people. And we've been maintaining these huge code source, code base, in three different languages, porting the same features from different projects. And people were asking for more languages, like, what about Go? What about Rust? So one of the initial learning points is whether we should really write the same code three or four times. Maybe we should just encapsulate everything into a web service. And I think we were trying to push people in that direction, saying, look, you can consume AI, use language models through a web service. Let's show you how. And a couple of years ago, I was here talking about memory, Semantic Memory. And people were worried about AI learning about our data and asking, how can I use AI in a secure way to build my memory, my knowledge base? So that's how we started Kernel Memory. And from that learning point, learning lesson, we said, let's start with a web service. Let's not get lost in writing the same solution three times. And let's point people in the direction of creating a solution that allows you to ingest data, to process the data in a flexible way with a pipeline that you can see here. And as long as you have a web service, you can point any language to it. You just need an HTTP client. This became kind of popular pretty soon because we could change the internal components. Like people started asking, I want to use Quadrant. I want to use Elasticsearch. I want to use Azure AI content safety. I want to use my own PDF parsers. So we had tons of extensions, and it became kind of a very flexible pipeline, hard to set up. So people were saying, yeah, I can see that I can plug in my custom components. Thanks, YouTube, for this very long configuration file where I can define my own storage. I can say, like, I want to use AWS versus my hard drive versus blobs. Or I can use, for example, RabbitMQ versus Azure queues. But how do I learn to manage that file? How do I put in place my resources? So I had to write a tool that is asking the user, which resources do you want to use? And through a set of questions, it generates the file. So this was a good indication that maybe something wasn't working. And about a year ago, I met with a friend in Milan, Tommaso. And I told him, look, everyone is asking me about Aspire. And I'm not clear what this Aspire is, to be honest. And they're telling me the kernel memory should work with Aspire. But when I look at Aspire, I said, actually, if Aspire is helping me to deploy, I think Aspire should work with me, rather than the other way around. So the first thing I did is basically, why are people thinking that this solution doesn't work with Aspire? And why are people looking at Aspire? And people were looking at the ability to deploy with their own components, injecting security tokens and all of that, without reinventing the wheels. And I understood there was something related to this configuration file. Plus, if you look at the code base in kernel memory, there is a lot of stuff that we reinvented, like how we connect to Postgres, how we use Entra tokens. And a lot of these libraries are now part of Aspire. In the community, there's a huge list of Aspire connections. They will reduce the amount of code I have to maintain. So the first step I did, and this is why I'm here, the journey is basically going from your legacy solution to something that is easier to manage and to deploy. And that will increase your velocity, so you don't have to focus too much on the setup, defining your infra. You can focus more on your business. So the first step was for me, let's localize kernel memory. Let's show people they can run local memory side by side with everything else they were using Aspire. And that was good because I saw the pain points, like, oh, it
+
+looks like I cannot authorize this and that because I made a few changes. But the next problem was the components that I'm using in kernel memory are using API keys. The same components used to Aspire using connection strings. So the next migration here, that's one lesson I would like to share, is if you're moving from an existing solution to something that can run in Aspire, look at your authentication patterns. Are you using connection strings? Are you using hard-coded API keys? Think about using managed identities and using connection strings that can easily be injected by Aspire. It will make your life totally easier. So this is just what the configuration looks like. And if you have the patience to go through it, you will see this is a mix of business configuration and infra as JSON, which is totally unmaintainable. In fact, I had to write basically a manual into it. You see there's plenty of comments that are trying to explain to you how to fit these values. So moving forward with that lesson that people want to use multiple languages, something similar came up in kernel memory, like everything is written in.NET. What if I want to extract my documents using a Python library, like LangChain, LlamaIndex, or anything in Python that might be better than reinventing it? So I started a new project, which is called Generic Pipelines. I'm going to show the demo of that. So I started with Aspire from day one, and that's basically what I'm telling every team in Microsoft now. If you're starting a new project, start with Aspire. You might not know what you're doing the first couple of days, but you will see the benefit. It's very easy to spin up the code locally, so you don't have to think about how do I run this solution locally when I'm developing, and then how do I deploy to the cloud. So deployment locally, deployment to the cloud is much easier. One line of code, one command from -- you cando.NET run in the app host, apps. Aspire is well-integrated with all these IDs. I use Rider in my daily job. So you can see I can start the host from here. And in this, basically, next version of kernel memory, all the tools that I could use in kernel memory, we have.NET, and now are microservices. So I have a huge list of components that before I had to start manually one by one, start Quadrant, start Elasticsearch, start the storage emulator. Now I can simply go in Aspire, describe everything that I have, and spin up all of those resources. Here you can see I have a storage emulator. I have Ollama running locally for my models, Postgres, Quadrant, Redis, and all those tools that I'm going to use to build RAG pipelines and other things that are very similar. For example, I want to use GraphRAG from Microsoft Research. It is a Python solution. I'm going to wrap it into a Docker container and bring it up. In fact, two of these are Python. One is Node.js. You don't need to know that when you're building your solution. You just want to have the best. So Dockerizing, I really believe in it. It's nothing new, but.NET is very Docker-friendly, I would say. So you made that a simple choice. Also for my team, when I'm working on something new, we have taken the same approach. And, yeah, so this is a quick view into the dashboard. You probably have seen it already. It works. Actually, I want to show you something else. What if I don't want to use Aspire, but I still want to have this local experience? So I went ahead, and in my project, I have the equivalent of Aspire. So this is the Aspire app host project. You can see I'm adding all the resources programmatically. I create my own functions. So you're very free to apply your style, even if somebody might disagree on your code style. But, you know, that's the beauty of C-Sharp. I did the same in
+
+Docker Compose. What if I want to describe my local deployment in a Docker Compose file? Well, it took me much longer than writing in the app host file. And there is a lot of copy and paste here, environment variables that I have to guess. I would totally recommend not to do it. It is fast when it works. It is a nightmare to maintain. So yeah, that's pretty much what I wanted to share.
+
+Maddy Montaquila: Perfect. Thank you.
+
+[ Applause ]
+
+And is kernel memory open source?
+
+Devis Lucato: Everything is open source. Semantic kernel, kernel memory, genetic pipelines.
+
+Maddy Montaquila: Good.
+
+Devis Lucato: There is a link in my website. But, yeah, you can Google them. Yeah.
+
+Maddy Montaquila: Yeah. Google them.
+
+Damian Edwards: Thank you.
+
+Maddy Montaquila: Thanks. Awesome. Okay.
+
+David Fowler: JSON is YAML's, like, cousin, right? I saw it. I was like, ugh. Ugh.
+
+Maddy Montaquila: Okay. So click the right button. Yes. Aspire is a lot of things, right? What you saw there was an actual existing repo that you can go look at online that is multi-language and code first. It's doing observability. It's doing deployments, right? There's all these different things. And so there are so many different opportunities for you to plug Aspire into your workflow, whether it's just the app host or all of the features. And we'll break into a couple of them. So Aspire, a year since we GA'd. Very exciting. We are at 60K people. And even cooler, we are at over 70% of top.NET customers in Microsoft, not in Microsoft, but that we know of within Microsoft, are now using Aspire in their repos. So that means apparently you guys like it. I'll take that. We are also super open-source first, right? We are very adamant that we develop things in the open. We'll show you things today that have been in the repo for a few months, but we haven't been talking about because they're experiments or previews or whatever it is. We had over 700 community PRs since last year, which is like almost two a day. Kind of insane.
+
+Damian Edwards: So we say thanks.
+
+Maddy Montaquila: So we say thanks.
+
+Damian Edwards: Thank you.
+
+Maddy Montaquila: That's a really good thing to say, yeah.
+
+Damian Edwards: We appreciate that a lot.
+
+Maddy Montaquila: I'm going to skip through some slides quickly. We're going to get to the most exciting thing ever, of course, the Copilot in the Aspire dashboard. Very exciting. We shipped 9.3 this week. So 9.3 is our latest point release of Aspire. We ship roughly every six weeks. We ship when we're ready.
+
+Damian Edwards: Let me ask you a question. How many people are using Aspire already today? All right. Keep your hands up. Put your hand down. Okay. Keep your hand up if you know what version you're using. Okay. Keep your hand up if you're using a version that's earlier than 9.2. All right. So my request to you today is please update to the latest versions of Aspire. We release every six weeks-ish.
+
+Maddy Montaquila: Yep.
+
+Damian Edwards: And we fix a whole bunch of stuff. We add a whole bunch of value. And so far from what I'm seeing when I look at the usage in that 60,000 people, a lot of you aren't updating. And so I really want to implore you to update to the latest version of Aspire. I'm going to show you how to do that in just a second just to prove how easy it is and how low friction it is. In fact, it looks like I'm going to do it right now.
+
+Maddy Montaquila: You're going to do it right now.
+
+Damian Edwards: Oh, okay. Let's go.
+
+David Fowler: On a Mac.
+
+Damian Edwards: Why did you have to, like, jinx it like that and say on a Mac?
+
+David Fowler: It's you.
+
+Damian Edwards: I am perfectly fluent in Mac from the late '80s. I'm sure it hasn't changed much since then when I used it in fifth grade.
+
+David Fowler: Snow Leopard.
+
+Damian Edwards: Can we zoom this in a bit? It looks a little small.
+
+Maddy Montaquila: Sure can. So Command.
+
+Damian Edwards: Lovely. Thank you very much.
+
+Maddy Montaquila: He's also using my Mac, so his VS Code will be pink.
+
+Damian Edwards: Yes, indeed.
+
+Maddy Montaquila: We'll have to deal with it.
+
+[inaudible]
+
+David Fowler: The keyboard? Are they out?
+
+Maddy Montaquila: Yeah, yeah.
+
+Damian Edwards: So I'm just going to establish where we are. Okay, we're currently using.NET 9.300. That's the latest.NET 9 SDK. That's all very good. And I have just a regular Aspire starter app here. I'm going to go and look inside of the App Pro CS project. And you can see that I'm currently using a version that is not 9.3. So it's not the latest. 9.3 came out on Tuesday.
+
+Maddy Montaquila: Monday.
+
+Damian Edwards: Monday.
+
+Maddy Montaquila: Monday. This week. And as a result, I'm ready to update this. Now, if you're a Visual Studio user, all good. Everything I'm going to do here, you can do the Visual Studio away in Visual Studio, or you can edit files or run the commands that you use to do updates.
+
+David Fowler: One thing, one thing.
+
+Damian Edwards: Yeah, yeah, yeah.
+
+David Fowler: Is anyone on the workload still, the Aspire workload? The workload has been gone for at least a year now. If you're on it, you should not be on it. There's no new workloads. You use NuGet to upgrade Aspire.
+
+Damian Edwards: Right. So I'm going to show you what that involves. So first thing I want you to do is update your templates. Now, this is true even if you're a Visual Studio user. The Aspire templates, because we update so frequently, they update as a NuGet package on NuGet. So you need to update them from the command line, and then Visual Studio will discover them automatically when you go in next time and do file, new. So you need to type.NET new, which is our creation experience from the command line. And you can just say.NET new update. That's all you have to do, assuming you have previously installed the Aspire templates package. Okay? .NET new install Aspire.project templates. That will install it. All you have to do is update is to say.NET new update, and it's going to update any template packages that I have installed. And here I am relying on the Internet in a live demo, which is incredibly smart of me. Okay. So there we go. I've now updated to the latest version of the Aspire templates, and if I -- you can see, uninstalled 9.21 and installed 9.3, and now I can either.NET new that, I can, in VS Code like I am here, go through DevKit to create something, or if I'm in Visual Studio, file new, it will also pick up those new templates.
+
+David Fowler: Has anyone ever run that command, just asking questions? Hands up. It's good.
+
+Damian Edwards: This command? Okay, good. All right. Now, we are working -- for those of you who are looking at this as a Visual Studio user and going, why are you telling me to go to the command line to update something that's in VS? We're working on it. Okay? We're working on it. It's something we want to improve, but for now, that's what you have to do. Now, the next thing you obviously have to do is update the versions of your existing projects. And as we just said, they're just NuGet packages. So whatever you do today to update NuGet packages is what you do here. So I could do find and replace in here. I could manually go in and do, like, update package. If I was in VS, I could do NuGet package manager at the solution level and just update all the available things. On this machine, I am using a tool called.NET Outdated. Anyone ever use.NET Outdated? Cool command line tool for being able to update stuff. I'm happy to report that the NuGet team is actually working on a command line experience for this. So this is a great tool, but it would be nice to have something built in in the future. And then I'm going to say -inc which just means include. I want to include all the stuff that starts with Aspire just to constrain this operation. And then if I say -u, that actually means go and do an update. And so by default, it's going to analyze projects, which it's doing right now. It finds any available stuff that's up there. And that's it. It's already gone and updated it. So we can see here that this one is now 9.3. Now, the only thing that it didn't do was this one up here, this line 3 SDK. Package-based SDKs are a little bit of a distant cousin in our experience right now. So they work, but they don't really get updated by anything. They don't show up in the NuGet package manager. They don't get updated by command line tools that do NuGet updates. So you have to just kind of come in here and do that part.
+
+Maddy Montaquila: You have to edit the csproj file.
+
+Damian Edwards: You have to edit the csproj file.
+
+Maddy Montaquila: I know, it's terrifying.
+
+David Fowler: By hand?
+
+Maddy Montaquila: By hand.
+
+Damian Edwards: By hand. And that's true also in Visual Studio. So if you're in Visual Studio, just double-click on the project in the Solution Explorer. That will open the csproj in the editor. Then you can just do what I just did then, and then it will update it. If you didn't know that, now you know. And you can update it that way. Okay. So now I have my solution. It has been updated to 9.3. Now, the other thing I will point out, I have a service default project here, which is part of most, pretty much all.NET Aspire applications. And if I go inside here, you'll see there's a bunch of packages that aren't Aspire packages, right? But they come with the service default. So I could run.NET outdated again, if I wanted to, and
+
+just do -u this time and just update everything. So I didn't do the -inc. It's just going to do all my packages. And we'll see that some of these packages that our service defaults template brings in also have updates, and it should apply those, including open telemetry, the service resiliency, or sorry, the HP resiliency and service discovery packages should get updated. And so those have all been updated now as well. So again, if you're in Visual Studio, you use the -- I keep invoking Siri instead of doing command. Yes. Save is the other key on a Mac. Thank you very much.
+
+Maddy Montaquila: Yes.
+
+Damian Edwards: So that's all it takes to update. Update your templates, and then update your projects and NuGet packages, plus this little friend up here in the top there. All right. So let's run this now, and then we can have a look at some new stuff that's inside here. So now I have to actually, like, go do, what is it, command shift P? And I can say, is it run or debug? What's the magic incantation?
+
+Maddy Montaquila: You could also just click the little button.
+
+David Fowler: For.NET.
+
+Damian Edwards: Oh, where? There we go.
+
+David Fowler: On a Mac.
+
+Maddy Montaquila: Now pick your startup project.
+
+Damian Edwards: Okay, so I'm going to launch some C-Sharp, and I want it to be my startup project. All right. All right, look at this. It's restoring.
+
+Maddy Montaquila: New launch experience coming in C-Sharp dev kit, by the way, that you just saw. So you can now actually pick between different startup projects. Yeah, I got a clap. There we go.
+
+Damian Edwards: Nice, nice.
+
+David Fowler: Has anyone here used VS Code?
+
+Maddy Montaquila: VS Code?
+
+David Fowler: Put your hand up. Oh, wow. That's nice. That's a lot more than I thought of it.
+
+Maddy Montaquila: Wow. They're coming for you, Visual Studio developers. Pleased.
+
+Dav
+
+Maddy Montaquila: Yeah, solution-free mode and the new launch project experience are both in flight right now in the VS Code extension, C-Sharp dev kit. You can go turn them on in settings. I've been using them exclusively.
+
+Damian Edwards: All right. So I've got my 9.3 app running now. I can go to my front end. Now I go to my weather. This is the same starter app you've seen numerous times. A couple of new things that really stand out in 9.3. Obviously, if you launch Aspire from Visual Studio Code or Visual Studio and you're signed into GitHub and thus have GitHub Copilot, you'll now see that GitHub Copilot gets injected into the dashboard. That's effectively how to think about it. But it's a special version of GitHub Copilot. It's a GitHub Copilot that we have exposed all the rich information from the Aspire dashboard to. So I can actually ask Copilot interesting things about my application. Now we do some prompting. So if I don't know what to start, say, well, say I'm new to this and I just want to know what's going on, I can click Summarize Resources and it will actually go ahead and describe the current application state. Now I've only got two in here. I could use a much larger application. I do have a shot, but I'm not going to switch over to that. But you can see that it also highlights all the resource names using the same color coding that we have over here. So like this green color here is my API service and this yellowy color is my web front end. So that's kind of cool. If I go over to my traces here and I start again, I'm just going to close this. One of the things that you can do is I can select a trace. So this is the classic trace information that we kind of love about using Aspire. I can say, hey, go ahead and explain this trace to me. So I get this contextual kind of experience here where I can ask it specific things about what I'm looking at. And then it starts describing stuff. It says, hey, there's no errors. I don't see any errors here. The whole trace took this long. The health of both things going on was this and that and so on and so forth. So this is kind of cool. Let's go back and look at another trace, see if I can find something interesting in here. I'm going to close this one down. Okay, I didn't use Redis. So one of the other things that you can do that I like to use the Copilot stuff for right now is to explain things about containers. Ask your questions about things like containers and things running inside my application. Ask what version it's using if I don't want to go and find that stuff. Or to ask information about how is my application doing XYZ? Or like why is this resource in my application? Why am I using Redis? Why am I using Postgres? And then just from the logs and the traces, it will almost always figure out exactly why my application is doing it without me having to go and read the code to figure that out. Now, obviously, generally, I'll go and read the code afterwards now that I've got a good indication of what the starting point for myself is. But I find it's a really great way to very quickly get an understanding about what's going on in my application. So that's a lot of fun. Some of the other new things in the dashboard in 9.3. If you haven't seen the graph view, that's not new in 9.3. We actually added that in 9.2. So please update Aspire and you get nice new features. But we added context menus. So you can now right mouse click on resources in the graph view and you can do useful things like stop and restart them and go straight to the console logs and so on and so forth. Or you can ask a question of GitHub Copilot accidentally like I did just then because I'm not used to your trackpad. Oh, all right.
+
+Fantastic. Over on the console view, if I close that, there's commands available here from now. So if I select one of these, I now get all the resource actions available. So that similar context menu shows up in different places now, which is also useful. And then over in places like my trace view, you can do things like filter. So inside here -- why is it not showing me the filter I want to see? Maybe it was structured logs. No, that's not going to work for me. Okay, that's fine. We'll move on from that one. All right, so but all the same type of stuff that you're used to inside the dashboard obviously is there, but it's now been enhanced with GitHub Copilot. So just to remind you, this is only available when you're launching through Visual Studio Code or Visual Studio where you have GitHub Copilot available in that context. All right, so please, please, please update your Aspire projects today so you can take advantage of all this wonderful work that the team's been doing for you.
+
+[ Applause ]
+
+Maddy Montaquila: Before I close this, also, I have to show, like, when you're on this page and you can drag them around.
+
+Damian Edwards: Oh, I mean, it's just like a fidget toy, right?
+
+Maddy Montaquila: Yeah.
+
+Damian Edwards: And you can zoom in and out as well.
+
+David Fowler: You can spend hours in there.
+
+Maddy Montaquila: It's awesome. It's awesome.
+
+Damian Edwards: I mean, I know people who have seen the graph view when they have something a little more impressive, and they print it out so they can hand it to, like, their managers to explain while they're explaining what the application does. It's pretty cool.
+
+Maddy Montaquila: It's awesome. Where did my PowerPoint go? There it is. Now I can't use my Mac.
+
+Damian Edwards: It's contagious.
+
+David Fowler: Oh, it's the Mac.
+
+Maddy Montaquila: You guys have told us a lot about Aspire in the year that we've been -- I don't know, hacking on it sounds like it's a hack, but we've kind of been hacking on it because we keep shipping things, and that's cool. One thing we've heard, how many of you work with people who are not.NET developers? Yeah.
+
+Damian Edwards: I don't.
+
+David Fowler: What?
+
+Maddy Montaquila: So you all, as enlightened.NET developers who are the best breed of developer, because.NET is the best, sorry, you all know what we're talking about when we say things like project files or NuGet or, I don't know, insert.NET-ism here, right? And then you go to your front-end team, and you say, you guys should use this thing because you guys don't have telemetry, and you should really have telemetry, and also then we can just F5 all our repos, and our lives won't suck anymore.
+
+David Fowler: What's F5?
+
+Maddy Montaquila: Run, debug. These are.NET developers, Fowler.
+
+David Fowler: Yeah, that's true.
+
+Maddy Montaquila: Okay. And then your JavaScript front-end team looks at you and says, what have you done to my repo? Oh, my God. This is a command line? .NET? No. We did a study about a year ago now where we asked people new in career who were Java or JavaScript developers what they thought of about.NET, and one of them said that they can't use.NET because they don't know how to implement a linked list from scratch. Actual quote. Thank you. Thank you for the faces. That is exactly how we all felt. I tried to play like a clip of the video. I wanted to do that a couple months ago, and I was like, it hurts me too much. I can't do it. So what we really want to do is broaden the Aspire horizon. We have a lot of aspirations, if you will. Because you keep telling us that you want to put Aspire on everything because it's making your lives better, but you have to now convince all of these people to get over the.NET-isms of the world. So we are working on, and we have been working on for a few months now, a command line experience for Aspire. Aspire run.
+
+David Fowler: It's on the shirt.
+
+Maddy Montaquila: It's on the shirt. And we're going to look at it. Oh, I wanted to switch back to the little logo so it's like a nice suave transition, but I didn't do that. That's okay. And we're going to go in here. This is a blank VS Code workspace right now. It's just a file. And I am going to open my terminal and do, give it a few seconds -- what did you do to my computer, Damian?
+
+Damian Edwards: Used it.
+
+Maddy Montaquila: I'm going to do Aspire new. And so, Aspire right now is just a.NET command line tool. We're planning on packaging it up and sticking it on Brew and Winget, so you don't even have to deal with.NET tools if you don't want to. But we take a bunch of the normal things you do with the.NET CLI or in Visual Studio or in VS Code, and we give them to you just kind of tucked behind the Aspire world, right? So we're pulling the templates from NuGet the same way you would anyways. But I don't have a NuGet config. I don't have any of that. Honestly, I could not even have C Sharp DevKit on here if I didn't want to.
+
+David Fowler: So if you look closely, so Damian showed new update.
+
+Maddy Montaquila: Come stand.
+
+David Fowler: Oh, so Damian showed new update, right? When Maddy did just now, it did a few things. It made a new project, it grabbed the newest templates, it showed you versions, and it actually, I think, ran the dev cert trust command, because when you run Aspire the first time, you have to trust the dev cert. Has anyone hit the issue, dev cert not trusted? On every OS, like it's a pain. So what we want to do is build a veneer over the default experience for.NET. So when you use Aspire and you run the project, we can pre-check all the things before you run, right? So if you have a container and Docker is not running or installed, maybe we can tell you, hey, run Docker, I'll run it for you, right? So the entire point is to build a UX that kind of hides the default things Aspire has to do on top of.NET to make it work end-to-end. So that's new.
+
+Maddy Montaquila: Yeah. All right. Turn around. Show him the shirt again. So when you Aspire run, very exciting, you find the app host wherever it is. So if you did try the CLI in 9.2, this is the best part about 9.3 is it actually finds the app host wherever it is now. We fought about the way to do this for probably 40 hours.
+
+David Fowler: It's slow, but it's fine.
+
+Maddy Montaquila: Cool. It finds the app host. It runs it. And so in this case, right, it's just Aspire starter app. It's the back end and the front end, which are.NET and Blazor.
+
+David Fowler: Zoom in. Zoom in.
+
+Maddy Montaquila: Zoom into what?
+
+David Fowler: It's so good.
+
+Maddy Montaquila: The dashboard?
+
+David Fowler: See this? Isn't that cool? Look at this.
+
+Maddy Montaquila: I can open my front end.
+
+David Fowler: It's a small dashboard.
+
+Maddy Montaquila: Look at that.
+
+David Fowler: So nice.
+
+Maddy Montaquila: It's so cool.
+
+David Fowler: And Maddy didn't want it in the CLI, by the way. Just so everyone knows.
+
+Maddy Montaquila: I accept defeat on this. I can also see the full dashboard, but Aspire is now on the command line spinning up and orchestrating everything, right? No VS Code, find the run button, nothing. So it's all magic, right? And then I can extend this further. So a lot of you said JavaScript in here, I think. If I wanted to do something like, what is the create v, at least? Oh my goodness. Create a front end, right? Pretty easy. I'm just going to give it the default things in here. We'll make it a view app. We'll make a TypeScript because we're cool. And now I have this in this folder down here. What you have to do in Aspire is you have to pull in an integration to use Node or NPM apps, right, which is a pretty normal thing. The only thing we have built in support for is.NET projects and then generic executables and containers. Everything else comes in from a NuGet package. And so you can run Aspire add. And what we do is we take all of the NuGet out of NuGet and we just give you the list of things. You can search it.
+
+David Fowler: It's a curation search.
+
+Maddy Montaquila: Node. Node. You can do -- I believe we have all of the community toolkit ones are in here under CT, right? So the community toolkit is our fully open-source collection of Aspire integrations, things that turn things on and plug them in. Fully open-source.NET foundation has 40-something in it now, which is super exciting.
+
+David Fowler: If you've used the right-click add Aspire package in VS, it kind of shows you a filter view of NuGet. This is the equivalent experience on the command line. So you run Aspire add. It shows you a view of the packages that are for Aspire only, the integrations, and you can add those to your project.
+
+Maddy Montaquila: And then I can go into my app host, and my IntelliSense will just pick up that I have add NPM, right? There we go. Add NPM app. Oh, my solution must not be open. Hold on.
+
+David Fowler: Does anyone use add NPM app in your projects? You can use Python. There's add Python app, add NPM app, add Dockerfile. You can kind of add anything. In the toolkit, it has add go app. We won't talk about that one. It has add Rust app. So you should be seeing from this that it's not just.NET. You can orchestrate anything, right? Postgres, caches, databases, languages. Anything you can run on the command line or run in the container can run in Aspire.
+
+Maddy Montaquila: Right. And so what I'm doing here is I'm just saying, give me something that is orchestrated by NPM, and you can do this with Yarn, with PNPM. We get the question all the time, how do you keep up with all the flavors of JavaScript? We don't. We just run the thing, right?
+
+David Fowler: We just say no.
+
+Maddy Montaquila: You can do this as a computer. As a computer? As a container.
+
+David Fowler: As a computer.
+
+Maddy Montaquila: Oh, my God.
+
+David Fowler: It's a computer in a box.
+
+Maddy Montaquila: It is a computer in a box. You're right. But all I'm doing is I'm giving it a name. I'm telling it where my package JSON is, and I'm giving it the NPM command to run. I'm not doing anything like magic there. I think I got the path right. Let's find out. Oh, actually, before I do that, I also have to add an endpoint, which I knew I was going to forget to do. I'm also going to tell it, because Vite is weird. They tell you the target port that they want it to run on by default. We found this out. They also automatically increment it for you if this port is taken. It's very weird.
+
+David Fowler: Smart.
+
+Maddy Montaquila: But, no, it's not smart, because then I never know what port it's on.
+
+David Fowler: Smart.
+
+Maddy Montaquila: But I can tell Aspire that Vite, locally, is going to spin things up at 5173, and so not to try and do its own Aspire spin-up port service discovery things. Just go grab the port that's already there, right? And fail to start probably because I can't find it, because I'm probably in the wrong path. Hold on.
+
+David Fowler: Is that going to work?
+
+Maddy Montaquila: What?
+
+David Fowler: Nope. More dots. Yeah, I think we need more dots.
+
+Maddy Montaquila: We're just going to try this. VS Code, package JSON.
+
+David Fowler: How are we loading?
+
+Maddy Montaquila: I know. One day.
+
+David Fowler: It's coming, I promise. At some point.
+
+Maddy Montaquila: Here we go. Oh, now it's finished.
+
+David Fowler: It's better than failing. It's done.
+
+Maddy Montaquila: I mean, the nice thing is I can just -- what do you mean Vite command not found?
+
+David Fowler: Is it npm dev or something else? Is there a dev command in the --
+
+Maddy Montaquila: Did I not just do this five minutes ago?
+
+David Fowler: Did you?
+
+Maddy Montaquila: Let's try npm on that.
+
+David Fowler: Troubleshoot live. Do it live. Pull up the npm, the package JSON.
+
+Maddy Montaquila: Oh. Pull up the package JSON.
+
+David Fowler: Yeah. Does it have a dev command? It does.
+
+Maddy Montaquila: Oh, it's Vite.
+
+David Fowler: It says you don't have Vite. Wait, do you need it?
+
+Maddy Montaquila: But I do.
+
+David Fowler: Did you run npm install? That's why.
+
+Maddy Montaquila: Oh, my God. Thank you. I knew I was going to do something.
+
+David Fowler: If you add the toolkit extension, it does npm install for you, actually.
+
+Maddy Montaquila: Yes. So there is a community toolkit extension. It's called Node Extensions.
+
+David Fowler: Yep.
+
+Maddy Montaquila: And it adds customizations for things like Vite and all of the other things, right?
+
+David Fowler: And it pre-runs install before the app host launches, so it will run npm install on your behalf. We should do that now. I was going to say we should just show it. Yeah. We should just show it. We've got time.
+
+Maddy Montaquila: No, we don't have time. I know how long you're going to talk for.
+
+David Fowler: All right.
+
+Maddy Montaquila: My God.
+
+David Fowler: Good comeback. I'll sit down.
+
+Maddy Montaquila: All right. There we go. There we go. It's running now. Very exciting. That's the Blazor app. Here's my Vite app. I'm running. Magic. Fire.
+
+[ Applause ]
+
+So selfishly --
+
+Damian Edwards: You didn't call it out, but, like, you looked at the console logs for the failed Vite app in the dashboard.
+
+Maddy Montaquila: Oh, my God. You're so right.
+
+Damian Edwards: If you hadn't done that, you would have just been like, which terminal window is the one that has the Vite logs in it?
+
+Maddy Montaquila: Yeah.
+
+David Fowler: The fifth one.
+
+Damian Edwards: It just became natural. Click on it. There they are. The fifth one. Right.
+
+Maddy Montaquila: It's almost become hard for me to explain Aspire now because I'm so, like, brainwashed by it.
+
+David Fowler: What is not Aspire?
+
+Maddy Montaquila: We got that question yesterday. It was a good question. The reason I wanted to show this in particular is because we are working a lot on improving JavaScript, Python. We have Go in the community toolkit. We have a lot of different polyglot experiences. They let Damian and Fowler argue about what to call a JavaScript extension method.
+
+David Fowler: Damian named that one on me.
+
+Maddy Montaquila: And they're.NET developers. Okay? So if you are a JavaScript person or you have a foot in both worlds, we want your feedback on this. Things like, yeah, it should NPM install every time. Or, no, it shouldn't because it's going to be slow. No, that should not be called add NPM app. What is an NPM app? Right? It should be called this. So we have a bunch of links at the end, but before I hand it over to Fowler to, you know, go all visionary, benevolent dictator on you guys, I wanted to call that out so that you know we are actively listening for that feedback. Okay. Back to the slides for a second while he unlocks his computer and does all the things. Okay. You're developers, mostly, probably. Maybe you don't develop every day anymore, but you're probably pretty familiar with the lifecycle, right? And what Aspire does is helps across the board. We've really been focused on development tests, right, so that you can troubleshoot why Vite isn't installed suddenly without having to click through a bunch of things. You can just clone a repo and hit F5 and get started. We had a customer this week tell us that they had someone get a repo and start contributing by lunch, which I was like, I don't know the last time we've done that. That's amazing. The CLI in particular targets this onboarding thing, right? It obviously helps you develop and test, but Aspire already does that. It's about getting the broader funnel to get
+
+more people using Aspire and Aspire-ifying their apps and running and cohesive and platform and whatever word you want to use to make your manager feel very impressed by you, right? But the thing that we have been really just relying on what we started with is deployment. And where we started was we had AZD. We work really closely with the AZD folks. I know some are probably in here. They did a bunch of work to digest an Aspire app host and let you do AZD up and put that into a container apps environment, and it just runs. It's actually magic. But we know that it feels a lot like right-click publish, and many of you probably have DevOps teams that would literally scream if you did that. So we've kind of been revisiting the deployment pipeline because Fowler is trying to take over Microsoft.
+
+David Fowler: All right. Thank you, Maddy. So deployment is really interesting because when we first started Aspire, we got a lot of good advice from people. Don't do deployment. It's super hard. It's super complicated, super diverse. The DevOps space, in my last year of learning this stuff super deeply, the amount of tools required to kind of get something working is insane. So we took a chunk of our team, and we said we're going to take a chunk of the people using Aspire internally and attempt to help them move faster, the same way that you guys move faster with it. We want it to be for our devs, too. And they were all using it for local devs. Everyone was really happy, like, running the Xbox team does it, so does the Copilot team does it. And there's videos showing you how they use it in their teams. But what everyone kind of told us, like, I think we met with 12 internal customers, and one after the other was, like, can you help us with deployment? Can you help us? Can you help us? Can you help us? Even in companies as big as Microsoft, like, individual teams need help deploying, maintaining, trying to manage the overall SDLC. So we took a look at what we had with AZD, and it was like, could we build a smooth experience, but for any target? And we figured if we could make Microsoft employees successful deploying with Aspire, that'll definitely accrue to value in the PPP space as well, right? Like, you guys. So our first story was, you want to deploy to Azure, and you want to go to Azure Container Apps, and we had this vertical end-to-end that was, you could do this one thing. And as we progressed in learning how to make developers successful internally, we don't use stuff that you use to deploy internally. It's very complex. Targeting that beast of a system helped us see where the patterns were between what we're doing for you guys and what we're doing for ourselves internally. And it kind of, if you look closely at the repository, over the last two versions, you'll see, like, piecemeal check-ins to add more support for these. Well, I'll show it off, but to add more support for things to make it so you can deploy anywhere. So over the next couple of weeks, you'll see this evolution from Aspire going from, oh, it goes to this one environment, this one place, and my company does X, Y, and Z, to, oh, I can express my intent for my company in this way now because we have a concept for it. All right, to switch the screens -- I'm two, I'm two, okay. So first, I want to plug my blog because it's really good.
+
+Maddy Montaquila: Oh my God.
+
+David Fowler: It's an ad. I've been writing these, like, micro blogs, super short, and it's just me expressing, like, what we've seen customers do and what we think Aspire is as a result.
+
+Damian Edwards: Is this vibe blogging?
+
+David Fowler: No, what?
+
+Damian Edwards: Did you write all these by hand?
+
+David Fowler: Does it matter?
+
+Damian Edwards: Okay.
+
+David Fowler: Judgy. Judgy.
+
+Maddy Montaquila: Copilot
+
+David Fowler: Maddy said we didn't know what Aspire was when we built it. I think that is accurate. We had an outcome in mind. We wanted to make people's lives easier. One of our devs said in a talk, he said, Aspire's job is to reduce friction to make it easy to get apps into production. And that's, like, infinite. Like, what things do you not do to make that friction go away, right? So you'll see us expand in different places just as people use it, and they'll find more reasons why it can help me here or there, X, Y, and Z, right? So I want to show a demo first. So I'm going to pull up an app I built this morning.
+
+Maddy Montaquila: He's not kidding. He actually did write this this morning while Damian and I were sitting here. Like, are you coming to this talk today?
+
+Damian Edwards: I'm convinced he wrote it while driving in. And he drove himself. He doesn't have a driver yet.
+
+David Fowler: You're not my driver? I'm kidding. I have an app here. I'll just show the app first, the app host. One cool thing about the app host is it's a really nice place to get a bird's-eye view of the app structure. So you rock up to any app, and you have this sprawl of files. Like, you have the YAML scripts, the CICD stuff, the project references, and they're kind of sprawled all over the repository. The nice thing about the app host, I guess I added a value, is you can kind of look here and see the app's configuration, dependencies, what you need to run. A really good app host means you just hit F5, and it just works. But even looking here, I can see I need a parameter for the open AI key. I have the model as ChatGPT. So I'm describing my configuration to Aspire. That's one big thing to take away here. I think people think you have to, like, convert your app to Aspire. You have to tell Aspire what your app is. So if you have a configuration in underscore underscore fubar, like, you tell Aspire, hey, there's a config key in that name, and we will just make that work for you. Our default experience, we have our own conventions, but if you want to tell Aspire how your app is working, it should be easy, right? So I'll F5 this app, and I'll show you what it does before we tal
+
+Maddy Montaquila: The timer's right in front of you, and it's giant. So you can't mess this up.
+
+David Fowler: That's more fun to look at.
+
+Maddy Montaquila: Okay. All right.
+
+David Fowler: It's bigger. I hit F5, so I should get the beautiful Copilot experience. Wonderful. So my app has an Azure Blob Storage web front end written with Razer static server components. I almost used Razer Pages, but I didn't use Razer Pages.
+
+Damian Edwards: Razer Slices?
+
+David Fowler: I did not.
+
+Damian Edwards: Oh, okay. Sorry.
+
+David Fowler: Look it up. That's Damian's pet project. And there's two apps. There's an API front end, and there's a back-end image processor that talks to a model. So one really cool thing about the graph is I can sit here and explain to you how things talk, or I could just show you. So you can see from here the blob's part of storage. Images is part of blobs, and the image processor talks to the images, the blob storage of those images there, and the web front end also reads the images back end. One thing we don't show, we don't show the raw connection information. That will be coming in a future version. So I'm going to run this app. And this is my, like, peak good UI skills. Even with AI, it's still garbage. You know, I tried to make it nice, but I was too, like, stressed out this morning. So I was like, no. Don't bother. So I'm going to upload a file from my saved images folder. Intentional. Let's use Maddy. Sorry, Maddy.
+
+Maddy Montaquila: That's okay. This is my favorite picture of myself.
+
+David Fowler: So Maddy sent me this picture this morning. And you upload an image, and then it uses MEAI to talk to OpenAI, and it will create a description from the image. It's all AI, so I hope it's safe.
+
+Maddy Montaquila: I did turn around and go back into my hotel room this morning because I thought I didn't unplug my hair straightener.
+
+[ Laughter ]
+
+David Fowler: I could upload. Looks like I've got Damian here, too.
+
+Maddy Montaquila: Oh no. I've been seen.
+
+David Fowler: Perfect. Let's upload.
+
+Maddy Montaquila: And MEAI, by the way, Microsoft Extensions AI, if you haven't heard about it this week, there will be plenty of things to record on recording for you to see. A gatekeeper to Narnia?
+
+David Fowler: Yeah. What? I mean, my prompt is super simple. I just say generate a description for the image.
+
+Maddy Montaquila: You said generate a fun description.
+
+David Fowler: A fun description for the image. Let's try one more because that's kind of weird.
+
+[ Laughter ]
+
+Damian Edwards: Okay. That's not fun. That's cruel. It's just mean.
+
+David Fowler: And typically in Aspire, you know, you get the traces. So you can see now the front end calls the back end, which calls storage, which downloads the storage blob. I can see the entire applications end-to-end working well. One of the things Aspire wants to accomplish is this app works well in local dev. What happens when you deploy it? Normally when you build your application, you get it working locally, and then you do the second hard thing. You get it working in the cloud. And it's a whole start-from-scratch experience, right? You have to figure out where you're going, what do you host with, you buy 10 domain names before you start the product. You do all that stuff before you even get it. So there's like N different projects you start from scratch every time. With Aspire, the hope is that once you've described the app hosts in our language, like our model, I can just point a tool chain at this and say, like, give me this in this environment, in that environment over here. And maybe you have to make some tweets depending on the environment. But for the most part, it's like a 10% tweak versus, like, doing the entire thing from scratch, right? So let's start off with our typical environment, Azure Container Apps. If you've used Aspire since -- 9.2?
+
+Damian Edwards: 9.2.
+
+David Fowler: We shipped a package called Aspire Hosting Azure App Containers. The name is so backwards. We'll fix it. Don't worry.
+
+Maddy Montaquila: Fix it post.
+
+David Fowler: I know. So add Azure Container App Environment. What that does is it adds a new thing called a compute environment. And compute environments attach to compute resources. So a project is a compute resource. So is a container. And a thing like NPM, right? They're all compute resources. So if you want to see, like, details, you can look at this. This type on F12 on this, you'll see this new interface called iCompute Resource. That's the new primitive that we introduced to kind of model in these environments. And
+
+because we have moved everything into the app host, it means you can tweak everything in C-Sharp. You can tweak all the devices that will come out the other end in C-Sharp. From the storage containers to the app service environments, you can turn on GPU-based scaling. You can turn on all kinds of stuff in C-Sharp from the app host. You treat the app host like source code. You change the inputs, and the outputs come out in the way you want. Do not change the outputs. Please. Please. I'm going to use AZD to just show this works. So if I run -- does anyone here use AZD to deploy an Aspire app? Do you love it?
+
+Maddy Montaquila: Pretty good.
+
+David Fowler: Pretty good. It's great. Did you say no? What? Let me zoom in. AZD. I believe I ran init before, so I should have the.azure folder. So I'm going to just run AZD in for synth. This is a quick way for me to not deploy the entire thing and show you the output. All right. So I'm going to run in for synth, and it's been in alpha for at least a year, so we'll figure out when it gets in alpha. It's in alpha because when you complain, we'll just say it's in alpha. What do you mean? What do you mean it's broken? So this is the output from that run of it for synth. Everything in my app host is kind of agnostic. I mean, it's Azure, just tied to Azure, but the projects are just projects. They're just code. I didn't say where they were going to. I didn't say to move my project to be a container app. The environment kind of informs what the target for every compute resource should be. So by default, what happens is I should have this thing called env. Env should be a bunch of resources. If you know Bicep really well, this is like looking at IL Spy. So your new IL is like looking at the Bicep. So everyone should get accustomed and feel comfortable reading the code gen. So it spat out a bunch of stuff that we need, but the core thing is the Azure Container App environment. This is the compute environment that will host all the container apps, right? It's all here. All magic. Inspire dashboard, blah, blah, blah, all the outputs. And this is all spat out just from that line, right? Make my app go to Azure Container Apps. Now, what if I wanted to not go there? I wanted to go somewhere else for fun, just because. I can come to my app host, and we introduced in 9.3 support for app service. So I just changed that one line from -- >> Preview support for app service. Preview support for app service.
+
+Maddy Montaquila: Preview.
+
+David Fowler: It's all previews. Thanks, Maddy.
+
+Maddy Montaquila: It's great, though.
+
+David Fowler: Thanks.
+
+Maddy Montaquila: But please do not start filing bugs on it because you used it in prod tonight.
+
+David Fowler: You can file bugs. It's fine. We'll close them.
+
+Damian Edwards: We'll close them. Not done yet.
+
+David Fowler: I switched the add ACA app environment to add app service environment. This is an app service compute resource. And I just changed one line, and I didn't change much else. And I should be able to run the same command again. And it should spit out now the same app, but for app service. So here's the infra. Here's the env. The env has been swapped to an app service plan. Right? So I have this blog post about intent versus mechanics, and the intent was the same. The intent was I have a front end, a back end. They have endpoints. I have a blob storage resource. There's probably RBAC between the storage resource and my applications. There's all these hidden dependencies in here that you have to kind of express verbosely normally when you do a deployment, right? So what we're doing is taking your intent, which is just like I have my front-end and back-end app that works when I hit F5. Make it work when you go somewhere else. And now you say where to go. So that's pretty cool. But what if you could say, I want to host my front end in app service and my back end in a different NACA, right? So you want to split compute environments in your deployment because someone decided that was a good idea. It was kind of cool. So let's call this frontend, frontendenv. Feenv, beenv. That's kind of interesting. This is the beenv with compute environment. With compute environment. Oh good, thank you, Copilot. All right, so what's happening here is when you add a compute environment by default, it subsumes every compute resource in your app host. And if you add more than one, if you say, I want Kubernetes and Docker Compose and app services, I don't know what the hell you're talking about. What's this thing? So you can disambiguate by saying, I want this compute resource in that environment, this one in this environment. And then the question is, how the hell does this work? How is this possible, right? Dramatically, is it going to work? So I run this, and if we did our jobs right, it should emit all the same Bicep, and it should be able to attach each compute resource to the right environment. Yeah, overwrite stuff. Let me make it clean just so we know I'm not cheating. Run and present again. If I go back here, it should have -- front-end environment should be, I think we said app service, yep, app service plan. Back-end environment should be the ACA environment. And if you look at the actual apps themselves, so the web front-end should be a website. This should be a website resource, yep. And the web, I called it the image processor, this one should be a container app resource. Yep. Yeah.
+
+[ Applause ]
+
+There's one bug here that I'm going to show you, because I'm honest. Which is, like, this is kind of crazy, really. I am doing with reference. And I'm just saying, like, I want to inject the config from that app's endpoint into this front-end app's endpoint. Like, how's that going to work? All right, so you can kind of see we're thinking about things like networking. All right, so you told us the compute environment, you told us with reference. What can we infer from that? If these two things have to talk, can they be in a private network? Is that exposed? So we can start to, with all these hints, model all these complex environments just by these few lines of code, right? The one thing I'll show you is the front-end points to the back-end. So the web should have an environment variable that says, I'm going to call
+
+the back-end. But this is not right. This is assuming that you're all in app service. So I'm going to write my hacky demo code, and I'll show you, which just says, fix endpoint. Boom. Ship it!
+
+Maddy Montaquila: That sounds great.
+
+David Fowler: Is that right?
+
+Maddy Montaquila: Lowercase e. That's hilarious.
+
+David Fowler: You're paying attention.
+
+Maddy Montaquila: Thank you.
+
+David Fowler: First, I will run this. Just to make sure it updates. All right. And now the endpoint should be fixed.
+
+Maddy Montaquila: Nice.
+
+David Fowler: This is going to inject the domain from the container apps environment into the app services front-end app, and it resolves the endpoint by set expression, right? So doing this normally is, like, a ton of research, a ton of, like, boilerplate, translating your intent from, like, your code into different things, 10 different people in charge of trying to figure out which infra to use for which thing. I want that to be a switch. Like, it should be just be like, okay, I need to target X now. Let's just go there or go here, right? And you can mix and match. So we want to be able to accomplish things like cross-cloud deployments. Like, I have my computing Kubernetes, my backend and app service, and you should be able to kind of glue together these arbitrary deployment attractions from your app hosts. This work came out of trying to make Teams deployments work in Microsoft, because guess what? They're crazy. All right. I'll show you one more thing before Maddy yoinks me off the stage.
+
+Maddy Montaquila: We're going to have to yoink you off.
+
+David Fowler: Here was the hack code. It grabs the output from the Bicep deployment, and it just has this thing that says this hard code, this URL.
+
+Maddy Montaquila: Pretty cool.
+
+David Fowler: This is super simple, right? Like, this is just me hacking code, but, like, you can write this chunk of code and just get this whole thing working.
+
+Maddy Montaquila: So before we move on to my screen, I have a question.
+
+David Fowler: Yep.
+
+Maddy Montaquila: What do I do if I am not deploying to Azure and I can't use AZD?
+
+David Fowler: Aha. Well, good call out. Good call out. So Maddy showed the Aspire CLI, right? If you look at the verbs here, there's new, run, add, and publish. So publish is the new magic verb that we have that is going to be everything that's not for Azure, right? So this is, can we get that experience that we have for ATD, but for everything? So when Amazon comes along, and we spoke last week, you know, how do we support Lambda in this environment? They're going to build a Lambda computer environment. They're going to have a thing that we call Add Lambda environment. You call it Aspire Publish, it'll spit out cloud formation, you know, a bunch of different things to come in the end-to-end.
+
+Maddy Montaquila: I mean, today, if you pull in the preview Docker package, it spits out YAML. It spits out functioning Docker Compose YAML if you add a Docker Compuse. Docker Compuse?
+
+David Fowler: Docker Compuse.
+
+Maddy Montaquila: Docker Compose Compute Environment. We're not going to show this because we literally have 20 seconds.
+
+David Fowler: No time left? You were right. Okay.
+
+Maddy Montaquila: I know. I'm paying attention.
+
+David Fowler: You're correct.
+
+Maddy Montaquila: It's very cool. Try it out. Let us know what you think. I mean, we are working on a lot of stuff. The fall will be the next kind of big marketing-y moment. You will probably see all of us at either one or both of these conferences that we're planning.
+
+David Fowler: Ask us.
+
+Maddy Montaquila: And then, of course,.NET Conf. But we have a lot that's cooking, and we want to hear from you. We will go down to the booth and hang out to answer questions because we do not have time today. But we also are very active on the.NET Discord. Everything's open-source. Do your good open-source duties. And we'll see you next year for whatever the heck we show then. Right? Thanks.
+
+David Fowler: Was that 20 minutes?
+
+[ Applause ]
+
+END

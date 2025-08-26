@@ -1,0 +1,341 @@
+Microsoft Build May 19-22, 2025 Session: BRK224 Speakers: Eric Kim, Jethro Seghers, Kevin Seong, Ki Sung, Lei Xu, Padraic Woods, Rahul Amlekar, Shay Ben-Elazar, Tsavo Knott
+
+[ Music ] [ Applause ]
+
+Rahul Amlekar: We hope you've had some amazing sessions over the last two days. Thank you for being here with us today. My name is Rahul Amlekar.
+
+Lei Xu: And I'm Lei. We're Product Managers from the Windows AI Platform Team. And we're here to talk about the fastest and easiest ways that you can integrate AI into your Windows apps.
+
+Rahul Amlekar: Fast, for me, means under 30 seconds.
+
+Lei Xu: Well, you know what? Easy for me means under five lines of code. What's your point, though?
+
+Rahul Amlekar: You know, let's jump right into a demo. We're going to try to build a Windows app that can call our on-device language model in under 30 seconds and five lines of code.
+
+Lei Xu: Well, let's do it.
+
+Rahul Amlekar: Let's do it.
+
+[ Applause ]
+
+All right. We start with a blank packaged console app. The only thing I've done in advance is I have referenced the Windows app SDK, which contains our code. And by the end of this, we'll have a Windows app that calls our on-device language model, Phi Silica, and we can get a response from it.
+
+Lei Xu: That sounds great.
+
+Rahul Amlekar: All right. Ready?
+
+Lei Xu: Let's do it. Let's go. Let's go. Rahul is just going to import the namespace here, Windows.ai.txt. And it's going to instantiate a session using our on-device language model,
+
+which is Phi Silica, by calling create async. And it's going to ask it a question to get a response back. Oh, tough question.
+
+Rahul Amlekar: And that's it. We're done.
+
+Lei Xu: Sweet.
+
+Rahul Amlekar: That's all we need.
+
+Lei Xu: Four lines of code. Look at that.
+
+Rahul Amlekar: And let's run this to see what we get. Since it's a console app, it's just going to run through it and exit without showing us the response. So I'm going to add a read line to just move it over.
+
+Lei Xu: Okay. I'll let you sneak in that extra line.
+
+Rahul Amlekar: Okay. Anyway. All right. So let's run that. We have basically done three things. We've referenced this namespace. We're creating a session for this language model API that we want to use. And then we just give it a prompt and generate a response from it. And then we just write that console app. And there it is. That's our console app.
+
+Lei Xu: Sweet. Look at that. And it's also correct. I'm glad.
+
+Rahul Amlekar: It's correct. And no API keys, no cloud calls, nothing. Like, that's all it took. So that's what we've got in our language model. So in this talk, you're going to learn about all the AI features you can build into your apps in just a few lines of code.
+
+Lei Xu: So what we showed is just one piece of a much larger platform that we call Windows AI Foundry. It's our unified stack to enable on-device AI in Windows. Now you probably have seen this diagram for a few times already. Well, this session will specifically focus on this highlighted box. We'll talk about other built-in APIs, just like the Phi Silica Prompt API that you saw from the demo, as well as some customization options that you can have on top of that. Everything in this yellow box runs on Copilot+ PCs. They are powered by a neural processing unit, or known as NPU, which are really power efficient. It's good at doing AI tasks. And at the same time, it's going to free up your CPUs and GPUs on doing other things. So your overall device performance gets much better. Well, if you wanted to use an entirely different language model to run locally, though, you have that option as well. We have a set of popular language models that's pre-optimized to run on-device. You can pull them from our model catalog through this model download service through Foundry Local. This was shown in the Windows AI Foundry Overview session from yesterday. If you missed it, don't worry about it. All the sessions were recorded. You can always go back and watch later. And if you need total control, we support you to bring your own model and run inferencing on them using Windows ML directly, which is the foundation that powers everything else that's in this diagram. This was introduced in another session
+
+from yesterday. Tons of really cool coding demos there, so I highly recommend it. We'll be posting both session info at the end of our session.
+
+Rahul Amlekar: And now, back to the API. You already saw the Phi Silica Prompt API, and we've got others to show you, too. So whether you're working with text, documents, or images, these APIs should give you the right building blocks to get you going with AI. Now, the machine learning models that power these APIs are built by Microsoft and run entirely on your users' machines. That means three things. First is that data never leaves your user's device. Even Microsoft cannot see your prompts or responses. The second is that it keeps your apps lean. Because the models ship with the OS, your app does not need to increase its size to take the model, and it can remain lean. And third is my favorite. It's fast, low latency, and there's no cloud bills, because the models are running on-device, so there's no trip to a cloud model. And today, we're going to show you three of the APIs that you see here. And for each of them, we'll talk through what it does, show you the code of how to use it, and we'll show you some developers who are using these today. So let's get started.
+
+Lei Xu: Let's go.
+
+Rahul Amlekar: All right. So the first API is the Phi Silica Prompt API. It's Microsoft's language model that's optimized to run on Copilot+ PC NPUs. You already saw the Prompt API in the demo, and we also provide some commonly used functionalities in a package we call text intelligence. So things like rewrite or summarize, we do the prompt engineering for you, so you can just call our API and get the best performance from the model.
+
+Lei Xu: That's awesome. Prompt engineering is never my favorite thing.
+
+Rahul Amlekar: Yeah. All right. So let's jump to code and see what it looks like. So we're back to our app that we just demoed with. There's one thing I took for granted in the first demo. It's that I assumed that the language model is already on my device and ready. But as a developer, you should always check for that. So what you do is you check the ready state of the API, and if it's not ready, you want to make sure that it's ready.
+
+Lei Xu: How do you do that exactly, Rahul?
+
+Rahul Amlekar: I'll show you. So you can check if language model dot get ready state is not ready. I can call await language model.ensure ready async.
+
+Lei Xu: And what does this function call do exactly, ensure ready async?
+
+Rahul Amlekar: Yeah. Great question. It checks if the models -- so get ready state checks if it's ready on the device or not. Ensure ready makes sure that the model is downloaded, installed, and cached. So when you call the APIs, you're ready to go.
+
+Lei Xu: I see. But how often do you run into this line, though, Rahul? How often is it going to tell you it's not ready and you have to call ensure ready async where this line gets executed?
+
+Rahul Amlekar: Yeah. So you should always check for it. But some models ship out of the box with Windows, so when you open your computer, you'll have them. Many others are used by Windows flagship experiences or other apps like Office that have lots of users. So it's quite likely that the model would already be there as well.
+
+Lei Xu: Sweet.
+
+Rahul Amlekar: All right. So now we talked about getting this here. Let's show you text intelligence. So I said that we can summarize text without prompt engineering. So let's see what that looks like. So I'm going to create a summarizer object and then use that to summarize text.
+
+Lei Xu: Sounds good.
+
+Rahul Amlekar: Here's our summarizer. And you can just say new text summarizer and pass it in the session for the language model we created. And then we get a summary from it. So var summary await summarizer.summarize paragraph.
+
+Lei Xu: What shall we summarize, though? Well, you know what? Let's just summarize this piece of code that you just wrote.
+
+Rahul Amlekar: Ambitiously.
+
+Lei Xu: Let's do it.
+
+Rahul Amlekar: All right. Let's try it out. I'm just going to copy this, put it in here, and make sure I'm summarizing this, not the previous thing. All right. Let's run this. So what we did is we created a text summarizer object, and we are summarizing this entire code piece that we have. Text intelligence comes in three flavors. You can summarize text, you can rewrite it, and you can convert text to a table. Summarization also has two subparts. One is summarizing a paragraph, which is just a block of text, and the second is summarizing a conversation. So if you have an email thread or a chat or a forum, it can track who said what over time and give you a good summary.
+
+Lei Xu: That's sweet. So you can keep everybody's different action items.
+
+Rahul Amlekar: Yeah, exactly. So let's see what the console app says. It says it uses Microsoft.Windows.AI.Text, checks if the language model is ready. If not, it ensures readiness, then creates a session and generates a response to what's 2 plus 2, and then initializes the text summarizer and awaits it.
+
+Lei Xu: That's a good summary. Now I know who to ask when I can't understand your code, man.
+
+Rahul Amlekar: I'll try harder. All right. So you saw how simple it is to use these APIs. Let's see what developers are doing with it today.
+
+Lei Xu: So here's some quick highlights on partners using Phi Silica and the text intelligence APIs today. You have to watch closely because the video rolls really fast. Outlook uses for email summary. Powder for summarizing game session transcripts. Filmora for its local AI chatbot that helps with video editing. And Pieces for developers to extract metadata from code snippets. That's a good variety of use cases.
+
+Rahul Amlekar: All right. So you just saw our language model. Now let's look at the second API for the day, Image Description. So given an image, this generates a text description of it. Let's jump into code.
+
+Lei Xu: Let's do it.
+
+Rahul Amlekar: So back to our demo sample, I've added some comments here. There's three steps to call our API. And if you get the hang of these three steps, all of our APIs follow the exact same pattern. So if you know how to use one, you know how to use all of them.
+
+Lei Xu: Sweet. Your step three is my favorite comment.
+
+Rahul Amlekar: Use API?
+
+Lei Xu: Yeah, exactly.
+
+Rahul Amlekar: I like that.
+
+Lei Xu: Just use API.
+
+Rahul Amlekar: Okay. So first, you need to check if the API is ready, and if not, ensure that it is. Step two is to create a session. And step three is to use the API. Lei's favorite.
+
+Lei Xu: Sounds good.
+
+Rahul Amlekar: All right. So this code is for language model, and we want to now describe an image. So I'm just going to replace language model with Image Description generator, and let's see what we get. Okay. So I check its ready state. I ensure it's ready. I create a session. And now, because we're generating a description, there's describe async is the API. And instead of taking text, it needs to take an image to describe. And it takes an image in the format of an image buffer.
+
+Lei Xu: Wait. How do I create an image buffer, though?
+
+Rahul Amlekar: That's a good question. So we actually have an app called AI Dev Gallery that has a lot of samples. It includes all documentation, and it helps you answer questions like these.
+
+Lei Xu: Sweet.
+
+Rahul Amlekar: It's available for free to download in the Microsoft Store, and I have it over here. So if I don't know how to create an image buffer, I can go to my AI API section. Over here, there is all our APIs, including Image Description. So let's click on that. For each of these, there's like pre-built samples that you can see here. So this is actually going to use the model on my PC to generate this description. It's pretty good. And in the API section, we see all this stuff we talked about. And this is it, create for software bitmap. This looks like the line.
+
+Lei Xu: That's awesome. I'm lazy, though. Can I just export this in my Visual Studio code?
+
+Rahul Amlekar: Right here.
+
+Lei Xu: Sweet.
+
+Rahul Amlekar: With one click, you can actually export a solution. And if you open it in Visual Studio, it'll give you this exact example in running code. So let's see how developers are using this today.
+
+Lei Xu: Let's do. Again, these are real-world use cases, especially, as you can imagine, in helping making accessibilities better. You see Microsoft Narrator using this to provide a better accessibility on image content on the screen, in this case, in a web browser. Word leveraged this in its Accessibility Assistant to provide a better description for the diagrams and images that's embedded in the document.
+
+Rahul Amlekar: And if you kind of reflect on all text that you've seen in the past, it'll say something like a graph or something very basic. This description tells you what's on the x-axis, what's on the y-axis, what's being compared, and so it has a lot more fidelity to the description.
+
+Lei Xu: It's quite detailed. It's awesome.
+
+Rahul Amlekar: So we looked at Phi Silica and Image Description. Let's look at the third and last API for this session. It's called text recognition. It extracts text from an image, and it's used in key Windows features like Snipping Tool and Windows Recall. And I know you've got the hang of this by now, but just to hammer the point home, again, three steps, and we can just replace Image Description generator with text recognizer. And it's the same three steps. You ensure that it's ready. You create a session. And then here is probably going to be recognized text from image. And this also takes an image buffer, which we know how to do.
+
+Lei Xu: Sweet. Lots of copy and pasting and coding. I love it.
+
+Rahul Amlekar: So switch back to the slides, please. Now, these are all quite powerful on their own, but the real magic comes from composing multiple APIs together. It can create something really magical for your users. And we'll roll a video to show you how one company is using the three APIs you just saw, Phi Silica, Image Description, and text recognition, to empower blind and low vision users to achieve more.
+
+Lei Xu: That sounds great. Let's roll the video.
+
+Eric Kim: Dot Inc. is a leading assistive technology company dedicated to delivering innovative products that promote independence and enrich the quality of life for blind and low vision individuals. The Dot Pad is an innovative multi-line tactile umbrella device that empowers visually impaired individuals to access news, work on documents, enjoy entertainment, and beyond. Dot Vista is an app that offers easy access to graphical and text content with digital braille technology. And today, we are pleased to announce a new feature to let users access summarized description of Microsoft PowerPoint slides.
+
+Kevin Seong: Local models like Phi Silica and Image Description are so intuitive. Our developers built a rapid functional prototype for PowerPoint summarization in just a few days.
+
+Eric Kim: Our partnership with Microsoft is key to advancing our mission to empower every blind or low vision user on this planet to achieve more.
+
+[ Music ] [ Applause ]
+
+Lei Xu: That's really inspiring.
+
+Rahul Amlekar: The APIs are simple but really powerful. And to talk about their developer journey, we have here the CEO and CTO of Dot Inc. Please welcome to the stage, Eric Kim and Ki Sung.
+
+Lei Xu: Welcome.
+
+[ Applause ]
+
+Eric Kim: Thank you, Rahul. Thank you so much.
+
+Rahul Amlekar: Thank you.
+
+Eric Kim: Hello, everyone. I'm Eric, and here's Ki.
+
+Ki Sung: Nice to meet you all.
+
+Eric Kim: We're co-founders of Dot Inc. It's so amazing to be here. At Dot, we're creating innovative products that can change the lives of the visually impaired people around the
+
+world. Today, we brought our new generation, Dot Pad X. It's a graphical tactile display for the visually impaired people around the world. Consuming PowerPoint presentation, if you think about it, for sighted people, it can be a very quick process. But for blind people around the world, it's a different story in many ways. For example, even if a screen reader can read all the text for you with images, graphic contents, with full of charts, different layout, eventually can create heavy cognitive load for individual users. So today, with Dot Vista, we would like to address these problems.
+
+Ki Sung: Thanks, Eric. Today, we are very excited to introduce Dot Vista, an accessibility app designed to help visually impaired people access graphical and text content in Microsoft PowerPoint slides from Windows Copilot+ PC. Let us show you how, right now. Here is a Dot Vista application on the left. Once I upload a PowerPoint file, it automatically begins analyzing its contents using the neural processing unit from the Copilot+ PC. Under the hood, Dot Vista realizes three different AI APIs. First, Phi Silica for text summarization. Second, Image Description for image analysis. Third, text OCR for text extraction from images.
+
+Eric Kim: So if you see the screen on here, you can see a Dot Pad graphical display area right now showing over layout of screen right now. And for the first time, blind users can get all the spatial information on PowerPoint. And you can see the text box here. And inside the text box, it labeled either text or image in Braille. So the user can easily identify what's in there. Right now, first of all, Phi Silica API summarizes text here and showing in Braille under the 20-cell Braille display. It's pretty cool.
+
+Ki Sung: It's amazing. Next, Image Description API provides visual description of images, like the image here with the chess player. And description will be shown on the single-line display area for the blind users. It reads, the image shows a chess board with two chess pieces, a knight and bishop, indicating a chess game is in progress. A computer monitor with a vintage design is visible, suggesting a historical or classical setting. So the Image Description provides a vivid description for the visually impaired people. It's really good, and it is making it truly accessible for the visually impaired people for the first time in the world. And finally, the text OCR extracts information from images. So here we see an image diagram portraying three different themes of computer science, and all the text will be shown on the single-line display area as well. It's pretty amazing.
+
+Eric Kim: It's amazing.
+
+Ki Sung: I think not only the PowerPoint, but also all the every digital content for the blind people will be accessible through this technology and through Windows AI APIs.
+
+Eric Kim: Yeah, so like this, Dot Vista and Dot Pad are redefining digital content's accessibility and making the world accessible dot-by-dot with Windows AI API. Thank you very much.
+
+Ki Sung: Thank you.
+
+[ Applause ]
+
+Rahul Amlekar: It's incredible what you're doing here. Why did you choose these APIs to use, and how can we help you do even more with this?
+
+Eric Kim: Thank you, Rahul. As we talk with a lot of blind developers, blind users around the world, what we found is Windows is the core of everything that they use. So it was pretty obvious that we built Dot Vista on Windows. And since, you know, we made it everything on-device, so it runs very fast and no delays and even no privacy rights.
+
+Ki Sung: Yeah, I think especially the WCR APIs made it easy to integrate with the tools like Phi Silica for text summarization, Image Description API, and text OCR. Even these are all running locally for speed and reliability. But for improvements, expanding language support and enhancing Image Description API for richer details and better debugging tools would be really, really helpful for the users.
+
+Rahul Amlekar: Makes sense. And the richer text descriptions and the more expanded language support is definitely on our roadmap. I think that you'd love to see Korean as a supported language. So points noted. Thank you so much once again, and thank you for being here. Please put your hands together for Eric and Ki.
+
+Eric Kim: Thank you very much.
+
+[ Applause ]
+
+Lei Xu: Can we switch back to the slides, please? Thank you. Wow. So now I see how easy it is to get started with our Inbox AI APIs. Is that it, Rahul? Are we all set? Are we wrapping up?
+
+Rahul Amlekar: Not yet, Lei. We still have some more to go. So we have even more APIs that we've built, and we're always adding new ones. But what I really want to talk about right now, I want to switch gears and talk about our language model, specifically how you can customize our language model for your use case. In talking to customers like you, we found out that Phi Silica is great for many use cases, but for some, you need a little bit more. And that's where customizing our language model becomes key. So these aren't big infrastructure changes. These are lightweight customizations on the APIs that you already saw. And to do this, we're going to give you two tools. The first is called low-rank adaptation, or LoRA fine-tuning. It helps nudge the model towards your tone, your tasks, or your domain. And the second is called knowledge retrieval. It's often used in RAG, or retrieval-augmented generation. It helps get data to feed into a language model and ground its answers in a database, in this case, a local database. And both of these are new as of Build.
+
+Lei Xu: I see. So if I'm getting this right, if you're ever wondering, can my chat bot sound like my own brand, for example, or can my customer support bot be able to answer questions
+
+about my own product or my own content, or can my agent understand terms that's only in my own specific domain? These seem like good customization approaches that you can take.
+
+Rahul Amlekar: Exactly.
+
+Lei Xu: Well, I do have a question, though, Rahul. You said fine-tuning for a language model. That sounds really costly and complicated. I think I'm out. I don't want to do it.
+
+Rahul Amlekar: I know it feels that way, but it's actually not that hard. All you need to do is you bring a data set of how you'd like the model to respond. So prompts and sample responses, and we take care of the rest.
+
+Lei Xu: Have you ever learned about microgesture, Rahul? You know I'm still in question, right?
+
+Rahul Amlekar: All right. So let's try to convince you. To show you, we'll roll another video of a customer that's using LoRA fine-tuning to fine-tune Phi Silica to get a better response on their particular use case. And we've got another surprise at the end of this one for you. Let's roll the video.
+
+Lei Xu: Let's do it.
+
+[ Music ]
+
+Voiceover: Project Spark is Microsoft's pioneering learning app on Copilot+ PC, designed to assist educators in saving time while delivering effective, inclusive, and personalized learning experiences to their students. With Project Spark, educators can utilize the on-device AI to create interactive lessons from their own content or from vetted educational materials, review those lessons, and share them with students. As part of Project Spark, we're collaborating with Kahoot to create classroom games powered by on-device AI, making learning more interactive and engaging.
+
+Padraic Woods: Kahoot is a game-based learning platform that makes it easy to create, share, and play learning games or trivia quizzes in minutes. To support an engaging and effective gamified learning experience, the platform is designed around optimal question and answer links. This ensures that content remains clear, focused, and easy to engage with during gameplay. Crafting concise, yet pedagogically valuable questions is both an art and a science. It's something that people can find challenging. But now, with the help of AI, it's easier and faster than ever to create high-quality learning experiences that are not only fun, but also impactful.
+
+Shay Ben-Elazar: When generating a Kahoot on a base Phi Silica model, it was challenging to get the model to adhere to the question and answer length limitations while delivering coh
+
+specializing in generating Kahoot questions. The LoRA Adapter training set consisted of a few thousand of Kahoot questions on a variety of topics generated by Cloud LLM and validated by passing through our guardrails. Following that, we used a held-out set of 2,000 Kahoot questions to evaluate improvements by comparing our guardrail rejection rates between the base Phi Silica model and our LoRA-adapted variant.
+
+Voiceover: Our analysis shows that the LoRA adapter improved rejection rates by more than 75% over the base Phi model. This can result in significantly lower latency for the end-user by reducing back-end retries during generation. To evaluate the quality of the results, we conducted a paired comparison test showing a clear preference for the LoRA-generated questions. With Project Spark on Copilot+ PCs, we strive to bring responsible, engaging and effective AI-driven experiences to every student.
+
+[ Music ] [ Applause ]
+
+Lei Xu: That looks amazing.
+
+Rahul Amlekar: Yeah, so not all problems need a cloud model. You can use the local models on our machines. Especially if you have millions of users, it makes sense to try to offload some of that locally.
+
+Lei Xu: Absolutely.
+
+Rahul Amlekar: And if you're generating responses like here Kahoot questions in real time, you want to make sure that you're getting the right format and not having to wait too long. You want to make sure the accuracy is good.
+
+Lei Xu: Yeah, it's a great delighter for the students. I wish I had this when I grow up.
+
+Rahul Amlekar: All right. So to show you how you can train your own LoRA adapter, please welcome to the stage the product manager of Project Spark, Jethro Seegers.
+
+[ Applause ]
+
+Jethro Seghers: Thank you. Thank you, guys. My name is Jethro. I'm a PM on the Education Engineering Team. And with Project Spark, we've really focused on creating a learning application, a learning companion app, both for educators and students that truly use the full capabilities of a Copilot+ PC, both the NPU, but also the model. And for a lot of our functionalities, Phi Silica did an amazing job. We really used it to create interactive lessons, assessments opportunities like fill in the blanks and flashcards and things like that. However, when we started doing the integration work with Kahoot, and Kahoot is used by millions of educators on a global scale, we did notice that we didn't get the same results as what we wanted to see with the other applications. So some tweaking was necessary. And kind of what Lei said is like we didn't want to go necessarily the fine-tuning route because we didn't want to change the model. The model was really good for all the other stuff. Was
+
+there anything we could do just uniquely for Kahoot that we wanted to do some changes? So just to show you that it's really not rocket science and that it's not hours and hours of setting up these large data sets, we're actually going to do the fine-tuning right now. So let's step into my office. We're going to very quickly log in here real quick. There we go. And pretty much what I have here is our preferred Visual Studio Code. And the first thing I've done here is I have the AI Toolkit, right? On the AI Toolkit, I have here the option to do create a fine-tuning project. And so what I'm going to start doing here is just create a definition of the project. So we are at Build, so we're going to do a LoRA fine-tuning at build. We're going to select here the Phi Silica model. And that's it. That's really where the project is going to start being created within that folder. Now the configuration happens, right? Kind of like what Rahul said, we don't need tons of data to kind of show this. So let's go really quickly in the training model that we used. And you saw Shay on the video saying we only have about 13,000 data opportunities here to do the training and about 2,000 to actually do the validation. So you don't need a super large set of data points. And you see here pretty much the structure that we've used. Because Kahoot is very strict on the size of the data, we wanted to make sure that that was done correctly so that the Phi Silica model knew exactly when we created a Kahoot application and data what it was supposed to use. So we're going to use that same training set here. So you're going to see here that I can browse through my local file where that training model lives. So this is the training data set. We're going to do exactly the same for our validation or test data set. There we go. And then, of course, based on your configuration, based on the things you want to achieve, there's a number of things here that you can kind of tweak based on your requirements. I'm going to generate the project. The project is here. And, of course, when we go through our kind of setup, you're going to see that I have my data set. So the two JSONs that I have available here. But additionally, we also have a Bicep file. Now, what's going to happen is when we start the fine-tuning project, we're actually going to deploy this to an Azure environment. The last thing you want to do is really do that on your device, right? It does require some compute, but it runs completely on your Azure environment, right? It stays within your boundary of data. So you define where it runs. You define how many resources you give it. We give you a Bicep file to make it super easy for you. But that's really the structure we're going to be using. So when we're done with this, I'm going back here to my fine-tune. Now I'm going to start the fine-tuning job. So I'm giving it a name. So Build Fine-Tune. We are going to deploy it on a specific Azure subscription. And just some best practices. What I always like to do is create a new resource group. That way you kind of know which resources were created for this. When you're done, it's an easier cleanup. You know where everything kind of goes. So this is my Build demo resource group. And I run all my information in Western US 3. And you see now that we are starting to do the provisioning of the job. Now the provisioning will take about 20 minutes. The run itself for the fine-tuning a little bit under an hour, depending on how large your data set is. Luckily, we're going to do some demo magic. We've already, of course, done this for you. So you see here we have these two jobs already run. If I click here on the "View Job", it will open my Azure environments. And you see here those two jobs are available, 55 minutes and 57 minutes,
+
+specifically to do the tuning itself. Now, while they're done or when they're done, you can actually download then the LoRA adapter, right? We're going to use that in our application. When we do a specific call to the Phi Silica model, we're going to give this fine-tuned adapter with the call so it knows what structure we expect. It knows the little changes that it has to make within that Phi Silica model. Now, how does that look like? Well, you're going to see it's not a super huge file. So that's another cool thing, especially since we're running everything on our device. This is the save sensor, and so this is the LoRA adapter. It only is about a 50-megabyte file that we're going to use to help our application really to get the best results. And kind of what you saw in the video as well, using this adapter, we dropped a rejection rate with almost 75%, right? We got better results. We got very much low latency because we didn't have to redo any of these calls. So the LoRA adapter allowed us to really have a unique experience for the Kahoot functionality without disrupting some of the other functionality that worked perfectly with the Phi Silica model. So we could pick and choose when we used the LoRA adapter and when we actually went directly with the Phi Silica model. So for us as an education engineering team, this really helped us streamline the experience, make it faster on the local devices, and it's really something that I would urge everybody to experiment with. We've seen a lot of good results with this. I'm very confident that you will see the same as well.
+
+Rahul Amlekar: Thank you very much. Please put your hands together for Jethro Seghers.
+
+[ Applause ]
+
+Jethro Seghers: Amazing. Thank you.
+
+[ Applause ]
+
+Rahul Amlekar: All right. Jethro showed you how to train a LoRA adapter. Let's show you how to use it. All right. Back to the AI Dev Gallery. We have a section for Phi Silica LoRA. And here's a sample. You can actually select your LoRA, give it a prompt, and see a before and after version. But right now, we're going to look into the code. If you remember the three steps we had for Phi Silica, step three was use API.
+
+Lei Xu: That's right.
+
+Rahul Amlekar: And that's down here, generate response async. And for the non-LoRA version, we just passed in a prompt. For the LoRA version, you just add language model options, which contains your LoRA adapter. And that's it. And you just add the LoRA adapter to the generate response async call, and you can use it. And if you drop the adapter, you use the normal Phi Silica.
+
+Lei Xu: Sweet. Looks very simple and straightforward.
+
+Rahul Amlekar: Super easy to use. So let's jump back to the slides. To recap, the way you'd want to go about any language models, application development flow, is first, you want to
+
+decide your evaluation criteria. For Project Spark, it was the response length and format. Then you want to try the prompt API as is. If it works for you, great. If it doesn't, then create a data set for how you'd like the model to respond. And then you can use, and for the data set, you can either use your company data, or you can use a cloud LLM to create this. Then you can train the adapter in AI Toolkit, as Jethro just showed you. And finally, you can use it in your app. And we looked at the code. It was super simple. You just add the LoRA adapter to the generate response method. And you rinse and repeat until you get the results you want. Pretty simple.
+
+Lei Xu: Okay, so that was pretty impressive. I think I'm convinced. I'm going to go try and create my own LoRA adapter.
+
+Rahul Amlekar: Sounds good. And for you and for others who actually want to try this, we have a lab for training your own LoRA adapter coming up later at Build as well. So check that out.
+
+Lei Xu: Yeah, we'll post that information after this session as well. So, well, LoRA is great, right? It changes the tone, the personality of the model. But what if my problem is not really about how the model talks, but it's about what the model knows? And what I mean by that is it doesn't have the necessary knowledge for it to answer the questions that the user might be asking. And then in that case, just shaping the tone is not going to help me. And this is where knowledge retrieval comes in. When you're combining the power of a language model with your app's own data, something the language model likely never trained with before, you get a really popular system nowadays with AI system, which is called RAG, retrieval-augmented generation. Well, this means for this data or knowledge, instead of trying to retrain the model with it, we try to retrieve the data at runtime and feed it into the prompt. But your app's own data, or let's call it your app's own knowledge base, right? It could be really, really large. So it's just not feasible to feed the entirety of it into the prompt. It might not fit the language model's token limit. It might be too slow, too expensive. It might cause the model to hallucinate, right? And all sorts of problems are not something that you want. And that's why being able to find the precise piece of information that's needed in answer to each of those questions that it's asked for becomes really key. So we are retrieving and feeding into the prompt just enough relevant information to answer each question accurately.
+
+Rahul Amlekar: How do you do that? That sounds pretty tough. Like when I had open-book exams, it would be so hard to find the right page.
+
+Lei Xu: Exactly, just like checking the dictionary, right? It takes forever. Well, this is where the concept of semantic search comes in. It enables the system to find relevant information and content with or without keyword matches. Well, let's talk about how that works. Let's say you have the user mentioned cities in Europe in a search or in an AI chat. With traditional keyword search, well, you get content that contains those exact words.
+
+Sometimes keyword search is actually exactly what you want, right? Like a product ID or a function name. But you can also imagine that you miss a lot of relative content. This is where semantic search shines. It doesn't look for matching terms. It looks for matching meaning. Well, in this example, Paris is the word that shows up in this document, where I have this picture of Rome, which are all conceptually relevant to my search query. And they will become discoverable through semantic search. And in fact, it's best to apply both search techniques when you're building an AI system and it's knowledge retrieval. Because the user, they just ask questions in different shapes and forms, especially in natural language. They describe things differently. They ask things differently. So it's great that you have a knowledge retrieval system that could be really forgiving on how your user asks the questions. Well, the best part is our semantic search and knowledge retrieval APIs, their private preview starting available today, will hide away a lot of those complexities of combining and re-ranking between your semantic search and keyword search and make sure the API surface stays really simple for you to use. Well, you saw from the keynote earlier, with the power of knowledge retrieval, you can enable some really cool scenarios. We showcased Filmora AI Mate, building a local knowledge base about all its videos and effects and filters. So content creators can really just describe the kind of outcome that they want. Like, I want this video to be vintage-looking. And by doing semantic search and knowledge retrieval, we're able to find all these local assets that makes this video vintage-looking and then apply those assets automatically to the video itself. So in this way, you're really elevating your user's experience as a content creator, which is amazing to see. If you haven't checked out the demo that we did in the keynote, please go catch up on that recording. And let's show you a demo app to show you some of these details that we've talked about. So I'm going to do three things. I'm going to explain what the app does. I'm going to show you how you leverage semantic search and knowledge retrieval to create a great search and AI experience. And I'll show you how this looks like in the code. I have this Contoso node app, which is preloaded with a bunch of my nodes. I have my own journals. I have my recipes, and those are all text content. But I also have a bunch of, like, interior design ideas because I'm doing a home project, and these are images. And I also have recipes that I captured from different cookbooks, let's say. And with all that, I also have this search experience that I built on top of, which is just a search bar, as well as a -- let me just enlarge this and show you a node agent that is powered by an LLM. And that's an AI experience, right? Just to show you that both of those options are completely viable. Whether you're building an enhanced search experience or you're just building an AI experience, those can all be improved by being able to use a leveraged semantic search. And I have this app running on Copilot+ PC. So all of my content is already pre-indexed with the semantic search APIs that I was talking about earlier. It's called Application Content Indexer API. And I'm just going to show a real quick example for how it works on text content. I'm going to ask my agent this restaurant that I knew I went to, but I just can't remember the name of, right? But I know I wrote it down in my notes at some point. So I ask, what was the amazing brunch place I went to? And behind the scenes, it's going to try to discover all these small pieces of data chunks that has to do with my question. And it just
+
+returned with the response, the amazing brunch place I went to was "Hole Theory". It was this bagel place in Seattle. Now I remember. Well, we built these citations here just to show you that it's always good to show the user what are the relevant information that was discovered as part of this experience, and just show that. So if we click on this note that it found the answer from, what you notice here is the word brunch or anything in my search query was actually not part of this journal that I read earlier. It's really great because I was talking about breakfast. I was talking about bagel. So it's able to find a semantic similarity between what I was asking and this piece of note that I wrote before and able to use that to answer the questions I have. Sweet. And, well, semantic search is not just working on text content. It also works on image content. And this is a great place for me to show you indexing in real time. I'm going to have this new page that's called New Recipe, and I'm going to pull this new recipe that I found for shrimp pasta into it. And if I switch to Task Manager real quick and see the NPU usage here, you can see that there's a little spike. That's indicating that the on-device local embedding model, which is what it takes for this image to be indexed for it to become searchable, is running and making this image searchable. And behind the scenes, for images especially, we're doing a few things at the same time. We're not only trying to understand the content of the image, which you can see it contains a picture of what looks like a pasta dish, and also we also try to extract and detect all the textual content in the image and build a search index for those as well. So you see in this case especially, you have all these ingredients and instructions, additional information in this image, and they all become searchable when we make this image itself searchable.
+
+Rahul Amlekar: And every time you add an image to this app, it automatically becomes searchable as well.
+
+Lei Xu: That's right. In our case, we just put it on a timer, and we also put it on a button here.
+
+Rahul Amlekar: Nice.
+
+Lei Xu: So let me just search something real quick just to show you that option exists. I'm going to search for a noodle, of course. And as you can see here, not only the noodle dish that I had in my recipe earlier, but also this newly added shrimp pasta image gets discovered because in this case, the picture looks like a noodle dish. And it's great. If I'm craving for noodles, pasta is a viable option for me.
+
+Rahul Amlekar: And I think it doesn't even say -- it doesn't even have the word noodle in it.
+
+Lei Xu: It does not have the word noodle in it. Why would you have a word noodle in the pasta recipe, right? So that's amazing. And with the power and creativity of a language model, obviously you can take that experience further. So I'm just going to ask my AI system real quick, my note agent real quick, remind me of the shrimp pasta dish ingredient and add a surprise ingredient. Rahul, what do you think? We run a few practice runs. Every time it gives me a different surprise.
+
+Rahul Amlekar: It does. And you haven't cooked for me even once yet.
+
+Lei Xu: Well, that's fair. Maybe right after this. Look at that. The surprise ingredient, saffron threads.
+
+Rahul Amlekar: That's what I want in my pasta.
+
+Lei Xu: All right. Sounds really good. That's actually something I really wanted to try. So with that demo, let's show you what the code looks like. So I'll show you three parts real quick. I'll show you the instantiation of the class real quick. And that falls under the same pattern that Rahul mentioned a few times earlier. And we'll show you how easy it is to ingest text and image data into your indexer. And then we'll show you real quick what that search API looks like. So as you can see right here, we're calling up -- oh, I always forget. I can just use my finger to touch on the screen and navigate. I have application content indexer.get ready state. And in that case, I'm calling also ensure ready async. That is the pattern that Rahul mentioned earlier. And after that, I just need to make sure to call application content indexer.get or create Indexer Async to instantiate my indexer and give it a unique name. After that, I'm going to navigate to the place where I do my index by going into the definition of this helper function. As you can see right here, for adding text content, we just extract the text content from the files. And then we call application content indexer.add or update async. And we pass in the string directly. It's really that simple. For images, it's the same. Since we're treating images as attachments in this demo app, I'm going to navigate there real quick and just to show you the same thing. For images, the only thing that you have to do is to make sure you're converting them into a software bitmap. And then you call exactly the same function, add or update async, to pass in the image bitmap and to make them searchable through the index. And just to show you real quick how search works. When you're doing a search, you just need to instantiate a application content indexer query by calling create query and passing the search text, which is likely the question that the user asks in your AI system. And then you're able to start calling query.get next text matches async and query.get next image matches async in order to retrieve the text, the image content from your database. And the only thing that you have to worry or to pass in is the number of top results that you wanted to see from this query. And that's it.
+
+Rahul Amlekar: That's awesome, Lei.
+
+[ Applause ]
+
+Lei Xu: Thank you.
+
+[ Applause ]
+
+So with that being the last demo that we wanted to show you today, let's recap everything that we've talked about. APIs that we showed, like text summarization and rewrite, Image Description, OCR for text recognition, those are generally available as stable APIs inside
+
+Windows App SDK, which means you can really build production code on top of them. The stable release also include a bunch of image processing APIs that we didn't go in-depth today, but as Rahul showed earlier, there's AI Dev Gallery that you can always go in there and check those out. While using Phi Silica prompt APIs and building the LoRA fine-tuning adapter on top of that, they are in public preview, which is something that you can start trying out using Windows App SDK experimental APIs. We also recently added image object erase, I believe, as well as conversation summary. Those are the things also in public preview as well. The semantic search and knowledge retrieval APIs are in private preview, but it's easy for you to get your hands on it. Just use the link to sign up to get access to the private SDK, and we'll be happy to work with you and get you that access. Also, like we mentioned earlier, there were a few sessions that talked about other layers and stacks inside Windows AI Foundry. You can catch up on the recording for those sessions that happened yesterday if you didn't attend. But there's also a few lab sessions like Rahul mentioned, right? Like there's a session that allow you to build your own LoRA adapter, for example. Those are really cool if you really wanted to get hands-on with some of these capabilities that we talked about today. And I know the round two of these lab sessions are still going to be available for tomorrow and the day after. So if you're interested, please go check those out. And last but not the least, for folks in the room attending Build in person, we're here throughout the rest of Build. Find us at the Hub or come to us after this session. We're happy to hear about your app, your customer, what you wanted to build for them.
+
+Rahul Amlekar: Even Jethro and the Dot team will be here if you want to try the Dot Pad and just give it a go.
+
+Lei Xu: Absolutely. If you wanted to try out those really cool devices, please stick around for that. And as a closing note, you saw earlier in that really quick video clip, right, how Pieces was able to use Phi Silica APIs. Let's roll this video and hear what their CEO's vision is with on-device AI on Windows and NPU in his own words.
+
+Tsavo Knott: Hey there, Tsavo here, CEO and co-founder at Pieces, where we've been on an ambitious journey to give developers artificial long-term memory across the OS. And this is a hard thing to do because we're pulling in this context and forming these memories in real time. And we do this through plugins, accessibility, and vision processing. And recently, we partnered with the Windows team to offload our vision stack directly onto the NPU. Focused on the SuperRes API, text recognition, and an accelerated Onyx runtime for embedding generation, we saw tremendous speedups across the board. For example, embedding generation went from 400 milliseconds all the way down to 60 milliseconds, end to end. Now, of course, we had our challenges, but once we got past a small packaging issue, we were well on our way. I highly recommend checking out these APIs and exploring the new hardware and give Pieces a look as well. Thanks so much. Peace.
+
+[ Music ] [ Applause ]
+
+Rahul Amlekar: Awesome. And I promise this is our last slide of the session. We just want to say a huge thank you to all these partners that we've showcased, obviously, we've worked with, but also audience in the room as well as folks watching us remotely. I feel like we're scratching the surface of all these possibilities of on-device AI on Windows. And we're happy that you're part of the journey with us and we're able to help you and support you in building your right scenario for your customers. Thank you very much.
+
+[ Applause ] [ Music ]
+
+END

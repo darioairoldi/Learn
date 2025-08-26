@@ -1,0 +1,1091 @@
+Microsoft Build May 19-22, 2025 Session: BRK223
+
+Tucker Burns: Alright, alright.
+
+Let's get this show rolling.
+
+Whether you're here in person or joining us online, welcome, everyone.
+
+It's great to have you all here on this, the first day of Build 2025.
+
+Thanks to Satya for warming you all up with an awesome keynote.
+
+Hope you're ready for a great conference this week, and specifically for some fun with Windows AI Foundry.
+
+Dian Hartono: Hello, my name's Dian Hartono.
+
+I'm a Product Manager on the Windows AI Foundry Team.
+
+Tucker Burns: And I'm Tucker Burns, also a PM on the Windows AI Foundry Team.
+
+Great.
+
+With no further ado, let's dive right in.
+
+AI has become an essential part of modern applications, but running models only in the cloud isn't always optimal.
+
+With miniaturization of models and advances in silicon capability, more than ever before it's possible to run on client devices.
+
+We are at a turning point for local AI.
+
+Some applications will only run cloud models, while others will only run them locally, yet others will prefer a hybrid approach.
+
+We believe that power comes in flexibility.
+
+Embracing that hybrid approach allows us to take advantage of the respective strengths of cloud and client.
+
+It brings the best of both worlds together and two of Microsoft's great strengths to bear.
+
+Working with a large set of application developers like those listed here, we see great need for local AI across a wide variety of applications, and for a few key reasons.
+
+First, the compliance landscape is evolving.
+
+With regulations like GDPR, HIPAA and the DMA, they pose specific requirements on data handling.
+
+And local model execution enables full control over user data, enabling you to run models without that data ever leaving the box.
+
+Performance is paramount.
+
+Certain user experiences are only possible without the addition of network latency, and running models locally makes that viable.
+
+For workloads like audio, video, and input processing, running models close to the sensor provides meaningful benefits.
+
+Additionally, not all deployments have access to reliable internet, but still have to have that high availability.
+
+And not all models need cloud scale, right, and running them locally enables you to optimize cost while also improving that user experience.
+
+And lastly, with power efficient NPUs, you can run models proactively or constantly in the background with no regrets.
+
+This enables a new class of experiences.
+
+With that, I'm pleased to announce to you Windows AI Foundry.
+
+In this talk, we're going to explore its capabilities and features.
+
+We will show you how Windows AI Foundry supports both built-in and third party AI models, and provides a versatile platform for AI development.
+
+Okay, first, let's talk about our Windows AI APIs.
+
+These are built on top of our Windows inbox models.
+
+They are distributed and managed by the operating system and support a couple of key vision and language tasks.
+
+We provide powerful tools for developers to integrate AI functionalities into their applications with ease.
+
+But we know our developer ecosystem has a wide variety of use cases, and that makes customization critical to delivering the best experience for their end users.
+
+With low rank adapters for inbox small language model Phi Silica and semantic search APIs that power knowledge retrieval, we are providing multiple ways to tailor our inbox capabilities to a developer's specific needs while keeping that effort and complexity low.
+
+But even with customization, we know we won't meet all developer needs with out inbox models.
+
+And that's why embracing the open source ecosystem is critical, especially with the rate of innovation we are seeing in models today.
+
+With Foundry Local Model as a Service and Model Catalog, we are making it easy to use open source language models in Windows.
+
+You can leverage our SDK and familiar REST APIs to integrate them directly into your application.
+
+And with just a few lines of code, you can switch from cloud to local inference and vice versa.
+
+And last but not least, the foundation of it all, Windows ML.
+
+Windows ML supports the execution of AI models on Windows across our powerful and diverse silicon ecosystem, from CPU, to NPU, to GPU.
+
+We provide tooling for model preparation and a robust framework for running AI models locally while minimizing dependency management, so that you, the developer, can focus elsewhere on the core value prop for your application.
+
+Dian Hartono: So, with that, Windows AI Foundry provides the versatility and scalability we need in a platform.
+
+It emphasizes the integration with built-in third party AI models, providing developers like us powerful tools to create AI capabilities on Windows.
+
+And with that, let's go to the first topic.
+
+Tucker Burns: Alright.
+
+Okay, let's jump right into Windows ML.
+
+I am pumped to announce the public preview for Windows ML, available today.
+
+As I mentioned --
+
+[ Applause ]
+
+Dian Hartono: Yes.
+
+Yes.
+
+Tucker Burns: Thank you.
+
+As I mentioned, Windows ML is the foundation.
+
+It's what Windows AI APIs and Foundry Local are built on.
+
+Powered by the ONNX Runtime, it provides developers with a high degree of flexibility on what models can run and where.
+
+Whether you've trained your own model from scratch, or sourced one from a popular catalog like Hugging Face, you can leverage the AI Toolkit for VS Code to take that model in, convert it, optimize it, and quantize for preparation of use in your application.
+
+Windows ML helps developers run AI workloads where they perform best for the given scenario, across CPUs, GPUs, and NPUs.
+
+And we provide execution providers, drivers and the runtime out-of-the-box so that you don't have to include those in your application binaries, reducing size and minimizing complexity.
+
+Now, let's talk through the developer experience in a little bit more detail.
+
+After you've sourced your model, likely in the PyTorch format, bring it into AI Toolkit for VS Code where you can convert it to ONNX, or directly into the intermediate representation for your silicon.
+
+You can run one of our pre-canned optimization scripts available for a set of common model architectures, or leverage our starter template and write your own to optimize your model.
+
+Then, you can play around with it directly in AI Toolkit and evaluate your model quality, and then go leverage our Windows ML Nougat to integrate it into your application.
+
+But enough talk.
+
+Let's take a look at some code.
+
+In this demo, I'm going to show you the AI Dev Gallery.
+
+This is an application that we've published on the Microsoft Store for Windows and also make available on GitHub for you to clone and get started with on your own.
+
+It has a wide variety of demos and samples available, and really is designed to show the breadth of what you can do with Windows AI Foundry.
+
+But in this specific example, I'm going to use it to show you a little bit about Windows ML.
+
+Awesome.
+
+So, I've opened up the Dev Gallery.
+
+And in this example, I'm going to use an image scenario, I think.
+
+You know, I like using visual demos.
+
+So, I'm going to hop in here to the image set of samples and I'm going to choose Classify Image.
+
+Okay.
+
+Now that I've selected that, you can see over here I've got an image of what looks like two Bernese Mountain Dogs, and I think -- Dian Hartono: It's a French Bulldog.
+
+Tucker Burns: It's a French Bulldog.
+
+Alright.
+
+Alright.
+
+Thank you, Dian.
+
+Okay.
+
+Then you can see, I can go over here and select my model.
+
+I already have a SqueezeNet available on this device, works across CPU, GPU, and NPU.
+
+But I can also go and select my own.
+
+I'm going to do that.
+
+So, what I didn't show in this example is how I prepared this model in AI Toolkit prior to the demo.
+
+We'll show that more in a session later today.
+
+So, in this example, I've already got that model file available.
+
+I'm going to select it and I'm going to call it the Build Demo Model.
+
+Awesome, that's uploaded.
+
+And then I will choose that for inference.
+
+Okay, so, now that I've got that model loaded and selected, I can hop over here and talk to you a little bit about one of the things that we're doing in Windows ML, which is our device policies.
+
+So, as a part of this, we want to enable what you're used to, where you can determine where you want to run that model.
+
+So, you can specify, "I always want to run it on CPU, or I always want to run it on GPU," when those are available.
+
+Or you can select one of our smarter settings, right.
+
+So, we've got, in this example, we've got max efficiency, max performance, and minimize overall power.
+
+So, let's say I said minimize overall power, and I will apply that one.
+
+What that's doing is, with the same line of code, it's able to behave differently depending on the hardware available on that device.
+
+So, if I'm, say, running this on a machine that just has a CPU and a GPU, it'll likely use that CPU for power efficiency.
+
+But if the same code is running on a machine like a Copilot+ PC that has CPU, GPU, and NPU, it'll select that NPU, which is really designed for that power efficiency.
+
+And in the future, we will add more options here, as well as being able to pull data from the model file itself and determine where to run that.
+
+Okay.
+
+Now, let's take a quick look at the code that I used for that.
+
+Okay.
+
+So, if I go in here, in this sample, I can look at the initialize model aspect.
+
+And what we're doing here, the first thing that we're going to go do to leverage Windows ML is reference that infrastructure package.
+
+So, this is the main package for Windows ML.
+
+And after doing that, I'm going to call download packages async.
+
+And what this call does, it checks what execution providers are already available on the machine, as well as what version of the ONNX Runtime.
+
+If it sees that there is new ones available on the server, it can pull those down, and it's pulling them directly from Microsoft Store on Windows.
+
+Okay, after it has those available on the device, I'm going to call register my execution providers.
+
+And this is telling the Windows ML runtime, "Okay, I have these EPs available on device.
+
+You can use them for inference." Right, and that feeds into that logic of smart selection that I was talking about before.
+
+Okay, from there, I am going to go set my selection policy.
+
+And you can see I've actually passed it in above here in my device policy, that minimize overall power that I was talking about before.
+
+And lastly, I will get my compiled model.
+
+And what this is doing is it's leveraging the NPU -- or, sorry, the execution provider on the device to compile that model into the format that's actually loaded for the inference hardware.
+
+Okay.
+
+Dian Hartono: That's really cool to see all those configurations that, as a developer, I could use so I feel really powerful in my application.
+
+Tucker Burns: Yes.
+
+Designed with flexibility in mind.
+
+So, great, that's a quick look at Windows ML.
+
+Hopefully you now have a little bit better of an understanding of what we're offering here.
+
+But you don't have to just listen to me, right.
+
+We've already been working with a set of application developers who've been trying out our private preview bits and giving us feedback.
+
+And here is a video of a few things that they had to say about it.
+
+Barthelemy Kiss: Scaling AI is hard when every device speaks a different language.
+
+Windows ML cuts dev timelines massively, letting us focus on delighting gamers.
+
+Carl Woodward: Windows ML can add efficiency to our development of next generation edge AI models that power our Deepfake video detection capability.
+
+Aidan Fitzpatrick: We've been talking with our friends at Microsoft about our journey in ML on next gen Windows silicon over the years, and they reached out to us to take an early look at Windows ML.
+
+It resonates with the vision and desire that we have for machine learning.
+
+For us, the Holy Grail is being able to take a single high precision model and have it JIT, or just work seamlessly across the range of Windows silicon with different drivers, different capabilities, and different precision, without us needing to quantize, tune, text and apply for a bunch of frameworks.
+
+Suraj Raghuraman: Because we run so many AI models, this was like a natural fit for us, where the problem that Microsoft was trying to solve between ML made absolute sense in our case.
+
+And that's why we partnered up for this.
+
+Ran Dubin: At Bufferzone, we believe that AI-powered PCs represent the future of endpoints.
+
+Windows ML simplifies integration challenges for ISVs, reduced time to market, and fosters a higher adaptation rate.
+
+Volke Rolke: Microsoft reached out to us early to discuss the new Windows ML layer and gather feedback.
+
+Earlier this year, I traveled to Microsoft to see a prototype of the new APIs and discuss our requirements with their engineers.
+
+Since then, we've received regular updates on the progress and are incredibly excited to see the direction this work is taking.
+
+Luyan Zhang: A few months ago, when I was leading the Filmora chat bot team, we spent two weeks just getting our AI feature to work on NPUs.
+
+Then last week, we tried Windows ML and got everything working on three different ship platform in just three days.
+
+That is five times faster.
+
+Dian Hartono: Hearing from our developers, yeah --
+
+[ Applause ]
+
+Go for it.
+
+Tucker Burns: Yeah, it's always great to hear from our developer community as we build our products.
+
+And we look forward to hearing from you all soon now that it's available today.
+
+Speaking of that, please go and check out our docs and our drops.
+
+Install the AI Dev Gallery and AI Toolkit Extension for VS Code if you haven't already.
+
+And lastly, go check out our dedicated session on Windows ML that's later today in the same room.
+
+Dian Hartono: Is it my turn?
+
+Tucker Burns: I think so.
+
+Dian Hartono: I think it is.
+
+Alright, so, I have the pleasure of walking you all through Windows AI APIs.
+
+And you know what?
+
+What's even better is if we go to the actual demo.
+
+Thank you, Tucker, appreciate it.
+
+So, what I have in front of me here is I have AI Dev Gallery.
+
+Like you saw before, this is a tool for developers, for us, to try out different capabilities of Windows AI Foundry.
+
+So, in front of me here, I've got a diverse set of APIs that I could use that are powered by inbox models.
+
+So, if I want to go and explore -- so, let's explore this together.
+
+So, let's say I want to go ahead and generate text that is powered by Phi Silica.
+
+I can go ahead any try out a sample right here.
+
+Let's say I want to go and recognize a piece of text or from an image.
+
+I can use this Text Recognition API.
+
+If I click on it, this actually also gives me an example of what this would look like.
+
+Sweet.
+
+And if I even go further down, I'll be able to explore some of our imaging APIs.
+
+The first one is called Image Super Resolution.
+
+This takes an image and scales it to a specific size.
+
+Next one is called Image Segmentation, which essentially removes the background of that particular image.
+
+And then I've got Object Erase, which takes an image, and then if I select it, select a particular section, it will remove that object.
+
+So, I have this example in front of me.
+
+And Tucker, to confirm, can you recognize this icon?
+
+Tucker Burns: I sure can't.
+
+Dian Hartono: You can't, right.
+
+So, I'm going to go ahead and remove it for this particular demonstration.
+
+Okay.
+
+And there you go, you can remove it.
+
+So, really AI Dev Gallery allows me, as a developer, to play around in terms of what the app -- what I want to do with my particular application and scenario.
+
+But lastly, I've got one more API that I want to go through with you all, and it's -- and we're going to go a little more deeper into this one.
+
+This one's called Image Description, which takes an image and generates a text that describes that particular image.
+
+Right away, AI Dev Gallery shows me a particular sample and actually calls the API to make this particular description.
+
+Let's say I'm happy with this.
+
+I want to explore a little bit more, right.
+
+I could go down this page and explore the API that powers this particular behavior.
+
+Now, if you want to pay attention, this particular API will actually follow similar patterns to other APIs that we provide.
+
+The first thing you want to do is I want to check whether this device can have this particular model and has this model on the device itself.
+
+If
+
+Then, I will then create an instance of this model, and then taking the necessary parameters for this particular API.
+
+Each API is different, so there's going to be some differences here.
+
+Then, it's going to call the API that will call the model, so they actually generate the image description that I want it to.
+
+So, let's say I'm happy with this, I love it.
+
+I'm going to go ahead and copy this part of the code and put it into my application.
+
+But let's say I want to go further and take whatever I have in front of me, this is like a sample app, and actually export it to Visual Studio.
+
+I'm able to do that with this simple button right here.
+
+And there you go, I'm able to do that.
+
+For the sake of time, as we all know for demos, I've already done that for us.
+
+So, I've got this app running.
+
+Well, we're about to run it, so let's first do that.
+
+There you go.
+
+It is running.
+
+It's called an API and it's calling the model to create this particular description.
+
+But let's say I want to try this with my particular image.
+
+So, I have this image in front of me, right.
+
+And so, Tucker, I need your participation here.
+
+Tucker Burns: Okay.
+
+Dian Hartono: Can you help me describe what this image is?
+
+Tucker Burns: I think that that is, I don't know, a simple one-bedroom apartment.
+
+Dian Hartono: Okay.
+
+What we're going to do is we're going to compare his description to the model on the device.
+
+Now, I'm not going to -- I'm not saying that it's a competition, but it could be.
+
+So, let's actually find that particular description.
+
+I load it up.
+
+And there you go, it is describing this particular image as, "The image shows a simple, minimalistic floor plan of a small apartment or studio with a kitchenette, one bedroom, and one bathroom." I don't know about you guys, but I prefer this particular image -- description than Tucker's.
+
+But again, it's not a competition, but it can be, right, so.
+
+Tucker Burns: It's okay, I'll take the L.
+
+Dian Hartono: Yeah, for sure.
+
+So, there you go.
+
+This is the step by step way of you all, us developers, exploring the Windows AI APIs in AI Dev Gallery.
+
+Try out the sample app embedded in the app today, explore the API, and if you want, you can export a sample right away and get started.
+
+There you go.
+
+So, that's the Windows AI APIs in the AI Dev Gallery Demo, yeah.
+
+Tucker Burns: Awesome.
+
+Dian Hartono: Yay.
+
+Yay, cool --
+
+[ Applause ]
+
+Alright.
+
+So, just to recap what I just showed you, these inbox APIs are essentially powered by inbox models that are in the CPU+ PCs.
+
+These models are distributed via Windows Updates.
+
+Ad these APIs provide a level of abstraction of these models so that, as a developer, I don't really have to care what particular models are running as long as the particular behavior of the API still runs, right.
+
+And these APIs are powered by, or delivered by, WinApp SDK.
+
+But let's say you want to do more.
+
+Let's say you want to customize your on device models a little bit more.
+
+Alright.
+
+And when I'm talking about these customizations, I'm really talking about lightweight customization applied directly to inbox APIs that you've already seen.
+
+We've essentially got two flavors here.
+
+The first one is called LoRA finetuning, and it's a way for you to nudge the model to a particular tone or task of your domain.
+
+Another way that we do customization is through knowledge retrieval powered by semantic search.
+
+Or in other words, you could think about this as RAG, retrieval augmented generation.
+
+It lets the model retrieve data and ground its answers based on local knowledge.
+
+So, let's actually run through some examples today, okay.
+
+So, let's say I want to make the particular app sound like my company, right.
+
+We'd go and recommend that you go through the LoRA finetuning route.
+
+And let's say I want to optimize for my particular workflow.
+
+Again, that would go through the LoRA flow.
+
+And let's say you want to make sure the application understands -- or the model understands the legal, medical, technical terms that you have.
+
+Well, you've got options here, right, and we love options here.
+
+So, we've got the LoRA finetuning flow, which we just -- I just mentioned.
+
+And also then, you could use knowledge retrieval.
+
+And then lastly, let's say you want to ground the answers, or your experience based off of private knowledge.
+
+So, answer based off my documents, content, etc.
+
+Then you'd go through the knowledge retrieval route.
+
+So, next, I'm going to walk you through how you would get a LoRA adapter so that you can customize your application.
+
+So, for this particular flow, you would essentially already be trying out our Windows AI APIs without this adapter.
+
+And you would essentially create a particular data set for your specific scenario, train your adapter, use the adapter on top of the model, and in this case it's Phi Silica, and then evaluate how good that model is, right -- or adapter is.
+
+And so, you essentially rinse and repeat until you get what you want.
+
+Tucker Burns: Alright.
+
+That sounds a little complicated.
+
+I hope you're going to make this easy for me.
+
+Dian Hartono: Yes, I will.
+
+Tucker Burns: Okay.
+
+Dian Hartono: Okay.
+
+So, what I have in front of my here is I have, in Visual Studio Code AI Toolkit, I'm able to essentially finetune the Phi Silica model that's local on my device.
+
+So, I went ahead and clicked on the finetuning, and the first thing I need to do is I need to create a project.
+
+So, I need to first think about a name for this particular project, and let's use the, say, LoRA Adapter Project.
+
+Okay, that's a cool name.
+
+Let's do that.
+
+Okay.
+
+So, then I need to find the location, and then I need to select the model I want to finetune with.
+
+In this case it's Phi Silica.
+
+That's, again, local on my device.
+
+So, I'm all set.
+
+I then can configure my project.
+
+Excellent.
+
+Doing that, excellent.
+
+Okay.
+
+So, then I need to give it two things.
+
+I need to give it a training data set and a test data set.
+
+This will enable me to create the adapter based off of my particular use cases.
+
+So, in this one -- I just forgot this one's -- this one's training first.
+
+Okay, good.
+
+Training and then -- okay.
+
+And then this is the test.
+
+Okay.
+
+So, and then there's also other configurations I could do, but for the sake of time and our particular project, we'll just create this project for us.
+
+And for our particular scenario, we essentially are app developers that get feedback that is unstructured about our particular application.
+
+And so, what we want to be able to do is we actually want to categorize the piece of feedback.
+
+So, I'm just sharing with you the list of mini -- this large training set that I have.
+
+So, I'm all set for my project.
+
+And now, let's start our job.
+
+And so, this job is tied to my Azure account, so, which is online.
+
+So, all the jobs happened in my -- online, and then, yes, that's -- hold on.
+
+Yes.
+
+Okay, good, sorry.
+
+[ Laughter ]
+
+Sorry, I have to select the Azure account associated with me.
+
+Oh, gosh.
+
+Tucker Burns: And so, a key part of this is also this is running in your subscription, under your control.
+
+Dian Hartono: Yeah.
+
+Tucker Burns: Right, so, it's selecting from your set of Azure subscriptions and resources.
+
+The data and the LoRA adapter that's generated is all yours.
+
+Dian Hartono: Yes.
+
+And just I did close it, but essentially it takes about 20 minutes for a job to run.
+
+Since we don't have time for that, I'm just going to go ahead and pretend that I pulled that particular adapter from my Azure account, and I'm able to actually evaluate the adapter inside AI Dev Gallery, which is actually quite great.
+
+So, I can go ahead and click on this tab.
+
+And actually, for the sake of time, I did load up this particular adapter and give it this particular prompt.
+
+So, you know, provided it a feedback, which is going to be the prompt.
+
+"Please help me summarize as well as figure out what type of feedback this is." So, and I do get nervous for typing in front of people, so I'm just going to copy and paste this prompt.
+
+Alright, so, let's go ahead and generate.
+
+Okay.
+
+So, let's see.
+
+With the adapter, it says that this prompt, this app is awesome, but it needs a better Get Started icon.
+
+Considers this a feature request.
+
+And with that adapter, it gave me two options here.
+
+It considers it a compliment and a feature request.
+
+For my particular prompt and the needs of it, it's -- I really want one feature request, or feedback type.
+
+So, I'm going to go ahead and say that with the adapter, it's pretty solid.
+
+So, there you go.
+
+[ Applause ]
+
+Yay.
+
+Tucker Burns: Awesome.
+
+It's great to see how you abstracted some of that complexity of the training job.
+
+I don't need to know how to set up my training script in detail, or configure the Docker container, etc.
+
+Dian Hartono: Absolutely.
+
+And so, let's talk about the other ways you could customize, right.
+
+As I mentioned, knowledge retrieval is another way for you to customize your experience.
+
+So, instead of training the model to memorize the facts and contents, what we did was we essentially enabled the right information at runtime to be able to feed into the model through as part of the prompt.
+
+This is a powerful pattern that we know as RAG, so retrieval augmented generation.
+
+And a key element in RAG is searching for the right data to feed into the prompt.
+
+And a lot of value is put in here, right.
+
+We've got the app data, we've got users' content, and we've got many more.
+
+So, the knowledge here I'm talking about can be big, dynamic, and constantly changing.
+
+So, let's walk through this experience together.
+
+Tucker Burns: Alright, I love it.
+
+Dian Hartono: Well, I have to type in this really long password, so, forgive me.
+
+Alright.
+
+Dian Hartono: So, I've got this application in front of me.
+
+It's the Contoso Note App.
+
+So, as a developer, I created this, on the right side, a way for my user to type in relevant information, or ask it questions, and it retrieves the relevant information in this notepad.
+
+So, now I'm the user, right.
+
+As the user, I love everything related to food.
+
+And I am also, if I can show you all, planning my wedding, so I've got a ton of photos related to weddings.
+
+And so, I wanted to demonstrate with you all that I've got text, I've got images, I've got many more things in here.
+
+So, it's a lot of content that essentially I have to index and find the right information for my particular query.
+
+Okay, so, for this example, I'm going to say I -- "Find me a vegetarian, okay, recipe and turn it vegan." And so, what it's going to do is it's going to search for everything inside of my OneNote here -- or Note App.
+
+So, what it's essentially looking at is looking for some of the relevant images and some of the text here.
+
+So, let's see if it does it.
+
+I'm going to give it five seconds.
+
+So, five, four, three, two, one.
+
+Two out of three.
+
+Gosh, okay.
+
+Well, what we should have done is essentially done what I did before, which is showing the response and then providing the relevant tabs associated with it.
+
+So, actually, it did it.
+
+Okay, I was too ambitious.
+
+I was -- okay.
+
+[ Applause ]
+
+Anyway, so, actually, okay.
+
+So, it did -- okay, it actually did the demo.
+
+Okay, I'm so happy for this.
+
+But what it's doing is it actually took a recipe in my Note Apps and then determined how I would actually make it vegan and gave me relevant images associated to it.
+
+So, yes, it did it.
+
+Great.
+
+Thank you.
+
+Tucker Burns: Awesome.
+
+So, we've made available really easy APIs to help developers index data both -- powering both semantic, or search by meaning, and lexical, search by exact keywords.
+
+Dian Hartono: Yeah, exactly.
+
+And so, essentially what these Windows AI APIs enable you, the developers, to create AI experiences in your applications that are powered by inbox apps without needing you to deploy them.
+
+So, these APIs are available in a variety of states.
+
+So, we've got some that are going GA, public preview, and private preview.
+
+So, check out the links to get started.
+
+Tucker Burns: Awesome.
+
+And you might already be experiencing some features that are already powered by these APIs, because they're already in use today, right.
+
+They're powering some Windows applications and Windows features like Click to Do, Improved Windows Search, and more.
+
+Dian Hartono: But of course, that's not all.
+
+We also want to make sure our web developers have a great experience on Windows.
+
+So, Microsoft Edge and other browsers also support similar APIs for prompting and writing assistance.
+
+These APIs are bringing -- are being proposed as web standards, helping developers integrate AI capabilities easily into their web apps on Windows.
+
+And now, one of my favorite parts is to actually get input from our developer community about Windows AI APIs.
+
+Bryan Plaza: We chose the Image Description API because it offers robust content moderation, local processing, and high quality image descriptions which are essential for creating accessible content.
+
+Using the Image Description API, we experienced significant improvements in the accuracy and quality of all text, as well as the opportunity to continue making images accessible automatically.
+
+Ken Zhu:
+
+[ Foreign Language ]
+
+Sristi Lnu: Traditionally, images, charts and graphs were hard to access.
+
+But now, using powerful on device image description models, we bring rich, detailed descriptions for our users.
+
+It's fast, private, and opens up visual content like never before.
+
+Tsavo Knott: Recently, we partnered with the Windows team to offload our vision stack directly onto the NPU.
+
+Focused on the Super Res API, Text Recognition, and an accelerated ONNX Runtime for embedding generation, we saw tremendous speedups across the board.
+
+Abhijit Theophilus: We chose Windows AI to implement this, as it provides us with two critical requirements.
+
+The SDK provides us with the infrastructure for model deployment and servicing, and an API to summarize conversations.
+
+Summarizing conversations requires the model to discern additional context, like highlighting senders and identifying key actionable items, while ensuring that each summary point associated with its source message.
+
+The Summarize Conversation API checks all these boxes and allows us to ship a rich email summarization feature on device in Outlook without data ever leaving the system.
+
+Ki Kwang Sung: We used three APIs, Phi Silica, Image Description, and Text OCR.
+
+The reason we chose SLM API like Phi Silica is due to the efficiency and lightweight design.
+
+It enabled create summarization and instruction of key information.
+
+Geoff O'Donoghue: Together with the Phi Silica team, we've unlocked a new class of AI-assisted content.
+
+For the first time, gamers can clip, edit, and publish highlight reels in real time without relying on the cloud.
+
+It's a shift in how people engage with games, communities, and creativity.
+
+And it's only the beginning.
+
+With Microsoft, we're building the future of content creation, powered by AI and built for Wi
+
+[ Music ]
+
+Dian Hartono: Yay.
+
+[ Applause ]
+
+I love watching that video.
+
+So, if you want to be like them, get started with our Windows AI APIs.
+
+So, check out our resources, which include the WinApp SDK, the AI Dev Gallery, and the AI Toolkit.
+
+And also go check out our labs and breakouts.
+
+We got a breakout session tomorrow that talks more in-depth with our Windows AI APIs, and we've got a ton of labs at Build today.
+
+So, specifically looking at how you can leverage the Windows AI APIs and how you would actually finetune your Phi Silica model.
+
+So, go check it out.
+
+Tucker Burns: Awesome.
+
+Thank you, Dian.
+
+Okay, now let's dig into our last area, Foundry Local.
+
+As you've heard in the earlier keynote, the future of AI deployment is evolving, and Microsoft is bringing together the powers of Windows and Azure AI Foundry.
+
+Meet Foundry Local, now available in public preview today.
+
+Azure AI Foundry provides developers with an extensive catalog of AI models for cloud hosting or download, but Windows provides that local AI execution across its diverse silicon ecosystem.
+
+That's CPUs, NPUs, and GPUs from AMD, Intel, Nvidia and Qualcomm.
+
+Now these capabilities come together in Foundry Local, combining Azure scalability with Windows local optimizations to empower developers with flexible, easy to use performance driven AI solutions.
+
+Okay, let's take a closer look.
+
+Foundry Local delivers ready to use open source language models from Azure AI Foundry Catalog.
+
+These models are pre-optimized for local execution, ensuring maximum performance and compatibility across different processing architectures.
+
+But not just Azure.
+
+As an open platform, Windows embraces extensibility, with support for other model catalogs to connect directly to Foundry Local.
+
+And the seamless developer experience is key.
+
+That's why we've included built-in commands that allow developers to download and test models locally from their command line interface of choice.
+
+That's no complex setup required, just WinGet install Microsoft.FoundryLocal and get going with model access and validation in minutes.
+
+Okay.
+
+Now let me show you how to use a couple of those CLI commands to browse the catalog of local models, downloads, and run them locally on your device.
+
+Okay, so, I'm over here in my Command Prompt and I'm going to start by checking the status of my server.
+
+Okay, it looks like that one is up and running already on that specific port.
+
+Okay, so, now I can go and check for the list of models that are available for this specific device.
+
+So, it's only listing those that are relevant for the hardware on this specific machine.
+
+Okay.
+
+In this case, I see a bunch of them.
+
+If I want to, I can go in and type foundry model run and insert the model name, and that will kick off a download if the model isn't already available on my device.
+
+And if it is, it'll just load it and make it ready for inference.
+
+And you have options from Quin, Phi, Mistral, DeepSeek.
+
+Great, a number of things for me to choose from.
+
+But in the case of this demo, I'm also just going to check out what's already downloaded on my device.
+
+Okay, I see there's two models available in my cache, and I will select that Phi-4 mini reasoning model.
+
+In this case, I will go foundry model run and paste in that.
+
+And now it's loading the model into memory and preparing it for inference.
+
+Okay.
+
+Now I'm in the interactive chat mode and I can submit a prompt.
+
+Let's see.
+
+"Tucker has one computer.
+
+There are four total.
+
+How many does Dian have?" Right, and this is a reasoning model, so I asked it a question that requires some reasoning.
+
+It starts answering.
+
+It's giving -- walking you through the different logical steps it's taking, and it will get to an answer.
+
+But for the sake of this, that showed you how easy it was to get started with Foundry Local.
+
+Okay.
+
+Dian Hartono: I loved that.
+
+That was so straightforward.
+
+And also, I have more computers just --
+
+[ Laughter ]
+
+Tucker Burns: And that's it.
+
+A hands-on approach that makes it easy to work with Foundry Local in a structured and intuitive way.
+
+Right, now let's dive deeper into how a developer can interact with it.
+
+Okay, in addition to those CLI commands, Foundry Local provides a REST API and can also be used with any SDK that's compatible with the OpenAI API spec.
+
+For example, Azure OpenAI SDK that you might already be leveraging for inferencing cloud models.
+
+This is what makes it trivial for developers to embrace that hybrid computing paradigm that we talked about before.
+
+But beyond just an inference playground, Foundry Local's Model Management Service offers an API and SDK, enabling applications to seamlessly acquire that local port that's being used, retrieve and load models from that model catalog, and start using in their application.
+
+This makes managing AI models and distributing them across a large set of devices no longer a hassle, right.
+
+Foundry Local enables that model distribution directly from the Azure AI Model Catalog directly onto the user's local device, so that you don't have to embed them into your application or worry about it.
+
+And built on Windows ML, Foundry Local delivers performant hardware optimized inference and compatibility across a wide variety of silicon.
+
+Okay.
+
+Now, let's go back over to the demo and show you how you can leverage that SDK in your application.
+
+Okay, so, I've got VS Code open here.
+
+I've got a very simple basic Electron application and I'm in my main.js.
+
+So, the first thing I'm going to show you, this is my code right here to call into a cloud model.
+
+I've got my endpoint and my model name, and I just want to show you what this app looks like.
+
+So, I'm going to go over into PowerShell.
+
+See, I spread the love with my command lines.
+
+Dian Hartono: Thank you.
+
+Tucker Burns: And now that I'm in here, I'm going to just type npm start and get that thing going.
+
+Alright, alright.
+
+Taking its time.
+
+Okay.
+
+There you can see it.
+
+Super basic chat application, and I'm connected to this cloud endpoint.
+
+And I've got Phi-4 reasoning pulled up there.
+
+So, I can type that same request that I had earlier, or I can try something different.
+
+"Two x plus four equals eight," for example.
+
+And it's hitting that cloud endpoint and giving the answer.
+
+Awesome.
+
+But that is not the point of this demo.
+
+Okay, so, we'll go back over to our VS Code and take a look at how easy it is for me to modify my code to hit a local endpoint instead.
+
+So, I've commented out those two pieces, those two lines that are calling into the cloud endpoint, and uncommented a couple more.
+
+So, the first thing I do is I import a Foundry Local Manager from the Foundry Local SDK that I've mentioned.
+
+Then, with just these three lines, I've instantiated a version of that Foundry Local Manager, I've passed in the model that I would like to run inference on, and I've set my endpoint, acquired and set my endpoint.
+
+Okay.
+
+With that, I'll save that, and I'll come back over here and just, npm start again.
+
+And there you go.
+
+Same exact application.
+
+Super simple.
+
+Now it's connected to that local host with a Phi-4 mini loaded up on it.
+
+And in this case, I can go in and type, you know, the same prompt, "Two x plus four equals eight." And I will start getting my answer.
+
+Dian Hartono: That was pretty fast.
+
+Tucker Burns: That's the goal, fast and simple.
+
+Dian Hartono: I love it.
+
+So, question for you though.
+
+Let's say I have three applications that are using the same AI Foundry model, right.
+
+Would I have the same three copies of said model on my device?
+
+Tucker Burns: No, that's one of the things that Foundry Local wants to help solve, right.
+
+If it's three applications from the same developer, or two from one, one from another, as long as they're using that same model, it'll make sure there's only one copy of it on device to minimize the impact on storage for the user and to reduce the number of things that we're loading in and out of memory.
+
+Okay.
+
+With that, that's Foundry Local in action.
+
+Simple, easy to use, and powerful.
+
+And in the coming months, we're going to expand the supported silicon, further remove developer friction, and improve our capabilities by integrating it directly into Windows 11 and Windows App SDK.
+
+If you want to run an open source language model, Foundry Local is the choice for you.
+
+Okay, and with that, get started with Foundry Local.
+
+As I mentioned, WinGet install Microsoft.FoundryLocal.
+
+Also, go and check out our documentation.
+
+And there's also a dedicated session on Foundry Local.
+
+Unfortunately, it's happening at the exact same time as this, so please go and watch the recording later.
+
+Okay, and with that, that's an overview of Windows AI Foundry.
+
+Whatever your need, we've got the tool for you.
+
+Whether it's our task based APIs, open source language models, or something that you've trained in-house, come and give it a whirl on Windows AI Foundry.
+
+Dian Hartono: Awesome.
+
+But that's not all.
+
+We've got the Windows AI Workstations - Optimized for AI.
+
+AI model performance is shaped by the life cycle.
+
+So, you've got training, finetuning, and inferencing.
+
+Choosing the right hardware, optimizes for each stage, improving speed and efficiency.
+
+As a developer, it's critical that we know and can evaluate the GPUs, NPUs, and cloud resourcing to match the workloads we need.
+
+AI workstations powered by the latest and greatest from our hardware partners is making these tasks seamless.
+
+You can check these out at Build in our AI Workstation Booth, so come check us out.
+
+And I want to leave you with this.
+
+I want you to have a call to action here.
+
+Build AI experiences in your apps today.
+
+Check out our documentation at aka.ms/WindowsAI.
+
+Give us your feedback.
+
+Tell us your scenarios and many more.
+
+You can email us through this email provided as well as check out our other Windows AI Foundry sessions.
+
+Like we said throughout the session, we've got a ton of them at Build this year.
+
+So, check out the breakout sessions, labs, and talk to us at our booth.
+
+And so, thank you so much for taking the time to be with us today.
+
+Sweet.
+
+[ Applause ]
+
+END

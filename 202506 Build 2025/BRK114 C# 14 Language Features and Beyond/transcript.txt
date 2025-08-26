@@ -1,0 +1,1091 @@
+Microsoft Build May 19-22, 2025 Session: BRK114 Speakers: Dustin Campbell, Mads Torgersen
+
+Mads Torgersen: Well, hello, everyone. Can you all hear me? I can hear me. Wow.
+
+Dustin Campbell: Hello, hello!
+
+Mads Torgersen: Hey, thanks for staying over dinner time here. Please don't be hangry. I'm Mads Torgersen. I'm an Architect at Microsoft, and I dabble in C# design.
+
+Dustin Campbell: And my name is Dustin Campbell. I am also an Architect at Microsoft, and I also dabble in C# design and tooling.
+
+Mads Torgersen: And this is the extent of our slides because you're not here to hear about us or anything like that. We just want to go and. . . do some coding.
+
+Dustin Campbell: Yeah. All right. 
+
+Mads Torgersen: So how we're going to go about this today is most of the C# 14 features that we planned are actually in preview right now, like, if you're using the latest stable bits.
+
+Dustin Campbell: Yeah. In fact, what we have installed here is the -- whatever latest release of Visual Studio 17.14 that released in the last week. And so the stuff we're going to show in Visual Studio is all bits you can get either out of the Visual Studio Preview Channel or in release. So, these language features are there, so long as you get Lang version preview.
+
+Mads Torgersen: So you can go and play with exactly the same bits we have here for the most part. And then towards the end there's a couple features that we have, like hot bits for that may or may not make it into C# 14. They're sort of like in decreasing order of likelihood. But they may all make it in, but we'll show them to you and just with those caveats, and we'll show those actually in Visual Studio Code and with C# Dev Kit. If they come out in preview, that's probably where they'll show up first. And just also to remind you all that, actually, C# is pretty great in VS Code as well.
+
+Mads Torgersen: So, when we switch to VS Code, that's when you know we're in dangerous territory in terms of, like --
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: -- will these features make it into C# 14?
+
+Dustin Campbell: Yeah, don't count on these. Don't tell your boss we're going to start using these, You're going to be amazing, it's going to change the whole code base. Don't do that with the ones in Dev Kit.
+
+Dustin Campbell: So, yeah.
+
+Mads Torgersen: So we're going to start small. Can you see the code? Is that fine? All right. Good. So what we have here is in C# 13, which is the one that's currently out. It gets hard to keep track of, C# 13. And we just have some code that has several nuisances in it. And we're going to make it better.
+
+Dustin Campbell: We just want to make them better. There's a lot of things about C# that every release we just try and make a little nicer, right? Just so that you guys can feel better about your day. And take out little bits of boilerplate and things that just seemed so important at the time sometimes when we were designing them to do in a certain way and then realize that, yeah, in hindsight, maybe it would have been better to do it this way in the first place.
+
+Mads Torgersen: So while we've been talking, that green squiggle has been bothering you, right?
+
+Dustin Campbell: Yeah, this one?
+
+Mads Torgersen: Yes, yes.
+
+Dustin Campbell: Everybody here has got a little little something or other. Yeah, that's got them, they're just annoyed by that. Yeah.
+
+Mads Torgersen: But it's great. It's nullable reference types analysis telling us we have a bug, right? You're dotting off something that it says loud and clear if available. It might not be there. It might be null --
+
+Dustin Campbell: Yeah. And so to fix that, you know, this is nullable analysis, right? Everybody's seen this in C#, since C# 8, actually. And so, to get rid of that, we're going to have to do our null check here. And, yeah. And there, that fixes that and moves the warning nicely for us, keeping--making sure that the video game that I'm playing right now is still active as I missed it trying to whack-a-mole that thing.
+
+Mads Torgersen: Yeah, because another warning came out there.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: So. . . isn't there a better way to do it -- like, didn't we do, like, the --
+
+Dustin Campbell: We do have a better way -- -- I know the better way.
+
+Mads Torgersen: We did a feature for this, right?
+
+Dustin Campbell: We did a feature for this. It's called. . . it's called the "Null Forgiveness Operator", right? So I can just put a bang there. Whoops! I can put like an exclamation point right here, and that just makes all the warnings go away --
+
+Mads Torgersen: That's cheating. Yeah. Just make the warning go away, and then you have no bug.
+
+[ Laughter ]
+
+Dustin Campbell: The bug's gone. "Nothing to See Here" is like the name of this operator, the "Nothing to See Here".
+
+Mads Torgersen: It's interesting that several releases before we actually had nullable reference types, we added a feature for better null, actually. It's a question mark dot, right? But it doesn't work in assignments, right? It doesn't--it only works, like, when you're on the right-hand side.
+
+Dustin Campbell: No. It's actually really annoying. We took the time in C# 8 to make an exclamation point available here but didn't make a question mark available here, right? So this doesn't work, and it stinks.
+
+Mads Torgersen: Yeah. That would be really cool --
+
+Dustin Campbell: If I could just shortcut that.
+
+Mads Torgersen: Yes. And what's the red squiggle there?
+
+Dustin Campbell: Oh. That red squiggle is telling me that if I upgrade this to the language version preview, it will work. And so I'll go ahead and do that. That's updated the project file, changed the language version, and now this feature does work. And it's null conditional assignments.
+
+[ APPLAUSE ]
+
+Mads Torgersen: Sounds like we're doing good here. So just to make it clear, what does this do? It does a null check, obviously, before it does anything else. And then, if a person there is null, then it doesn't do anything else, right? It doesn't evaluate the right-hand side. It doesn't do the assignment. It doesn't access the property or anything like that, right? So everything in that assignment is guarded by the null check.
+
+Dustin Campbell: And I think at the time, right, if I think back to C# 6, which seems like forever ago, but if I think back, I remember actually talking about some of these scenarios and thinking, "Well, this might actually make the control flow confusing. . ." You know, that, like, okay, you could have all these dots in a row and then some questions in there, and it might short circuit a whole bunch of code that you think ran. And I think we've just gotten comfortable with it since.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: It's been years. And I don't --
+
+Mads Torgersen: What do you say, if you think this is really confusing and we shouldn't do it, shout "Boo".
+
+Dustin Campbell: Okay. Cool. We're good. But that also means that down here I can shut this warning up by doing the same thing, just putting a null check in.
+
+Mads Torgersen: Yes.
+
+Dustin Campbell: And the compiler does this very, very efficiently.
+
+Mads Torgersen: So, yeah. Properties, events, it'll work on all of those. So what else?
+
+Dustin Campbell: So, there's a couple other nuisances here. It's a nuisance that you wrote an event that has an out parameter at all.
+
+Mads Torgersen: Yeah. I'm sorry, I had to come up with something.
+
+Dustin Campbell: But one of the nuisances, when you're writing a lambda expression, one of the nuisances is that, whenever you need to do anything like add a modifier, whatever, it's like, no, you've got to do everything. Sorry. Once you do that, now you have to specify the type. You can't be type inferred. And so, in this case, it'd be really nice if we could have just said name and out success. But we have to say the types.
+
+Mads Torgersen: There's a long form and your short form, and I'm sorry, but you're in the long forms --
+
+Dustin Campbell: Yeah, yeah. And it's just annoying. And so we're making that not a thing. There is, in fact, a nice little fix for it. They'll tell me that we're not going to make that a thing anymore with a little diff, and I can go ahead and accept that.
+
+Mads Torgersen: Yeah. It's a tiny little thing, but we've got to cut those corners anyway.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: Not applause-worthy apparently, but it's still, you know, hopefully nice.
+
+[ Applause ]
+
+Mads Torgersen: Okay. We're good.
+
+Dustin Campbell: We're good.
+
+Mads Torgersen: So there's some partial -- Let's go look at that "person" class. It's a partial, like -- The scenario here, assume that the way we're thinking about it is there's sort of like
+
+the user-defined code, like what we use partial classes for often nowadays. There's a user-defined code, and then there's some maybe a source generator produces an implementation of some things. And an example in there, there's a partial method in there called a "name changed" that we just do the definition there, and we're sort of telling the source generator please implement this.
+
+Dustin Campbell: This is, actually, really interesting because, when we introduced partial methods in C# 3, it was actually the other way around a lot of the time, right? It was like, you were going to provide an implementation to the code generator, and it was going to call the partial methods as extension points. And you could implement those extension points, and that's kind of what they were for. But, with source generators, we have this much more sophisticated mechanism. It's almost a two-way street because the source generator can analyze your code and see that actually you've provided a declaration that it should provide an implementation for or vice versa. And so it's kind of one of the things that's made source generators really interesting and why we're adding more of these support.
+
+Mads Torgersen: Yeah. So in C# 13, we added support for partial properties and partial indexers, and that's kind of how far we got. But there's an event on here.
+
+Mads Torgersen: And it's only -- we would really like to do the same with the event. Just be able to specify the event in the user-defined class and then have the, like, this source generator, maybe what it's for is implement your eventing, right? And you --
+
+Dustin Campbell: Yeah, maybe just define partial events. And it goes in says, "Oh, well, let me fill this in with the machinery." That would be very cool. So I can just call this partial. This is, however, on the implementation side, the error I'm getting will tell me that, yeah, you need to put in the definition too. So I'll just take that, copy it over there, and give it a semicolon. So now it's a partial definition. Now we're good.
+
+Mads Torgersen: Yeah, and we do constructors, as well, this time around. So we're kind of getting around to all the member kinds, and you can do them all partial.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: Hopefully, that's a little helpful.
+
+Dustin Campbell: Absolutely.
+
+Mads Torgersen: I noticed some, like, mangly stuff down there --
+
+Dustin Campbell: Oh, yeah, yeah.
+
+Mads Torgersen: -- on name-changed implementation, there's some "name of" stuff.
+
+Dustin Campbell: It's funny. This goes back to C# 6, as well, right?
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: So this is a name of a generic type. Has anybody run into this where, like, when you want to do a name of a generic type, you've got to put something in the arguments to make it happy? The compiler is, like, sad and needs to be made happy if you don't do that? But you don't have to do that with "type of", just "name of".
+
+Mads Torgersen: And the most ironic thing here is that the name, the string it produces, doesn't include the type argument!
+
+Dustin Campbell: It doesn't matter what I put in there.
+
+Mads Torgersen: You could put whatever.
+
+Dustin Campbell: I could put this in there --
+
+Mads Torgersen: --it says "changed handler".
+
+Dustin Campbell: Yeah, so it's kind of a silly thing. And it's another one of those. It goes back to C# 6 again, right?
+
+Mads Torgersen: We were a little busy.
+
+Dustin Campbell: We're very busy.
+
+Mads Torgersen: Yeah. We're implementing a new compiler, as well, so.
+
+Dustin Campbell: And, yeah. And this was one of those moments where we can get this feature, but we need to cut some corners.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: And that was the corner. We couldn't make it an unbound generic. And --
+
+Mads Torgersen: Eight versions later, here we are.
+
+Dustin Campbell: Eight versions later, you are welcome.
+
+Mads Torgersen: Oh, my God. Look at that.
+
+Dustin Campbell: I have the bug fixed.
+
+Mads Torgersen: Beautiful!
+
+[ Applause ]
+
+Dustin Campbell: People clap for bug fixes.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: We even took the time, I didn't use it but we even took the time just to give you a little code fix for it as well. So, yeah.
+
+Mads Torgersen: Okay.
+
+Dustin Campbell: Cool.
+
+Mads Torgersen: Those were like, little, little features, right?
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: Let's do something that's a little more impactful, I think we're ready to talk about fields, right?
+
+Dustin Campbell: Yes.
+
+Mads Torgersen: Yes.
+
+Dustin Campbell: Okay.
+
+Mads Torgersen: So, this is a feature we talked about for some years, and it's finally going in now. And knock on wood.
+
+Dustin Campbell: It's in, I'm demoing it.
+
+Mads Torgersen: Yeah. It is in. So, the situation you have here is pretty common, right? Maybe you wanted to write an auto-property, but you had to do just one little extra thing in the setter, like trigger an event or trim off the white space or whatever. And now you fall off the cliff --Aahh! And you have to, like, write the whole -- -- I could be more animated.
+
+Dustin Campbell: That was the best depiction of the cliff I've ever heard.
+
+Mads Torgersen: And you have to write the whole thing manually. Like, you just-- auto-prompts are out. And we want to remove that cliff.
+
+Dustin Campbell: Yeah. And so, removing that cliff means getting rid of -- I mean, the cliff is the field, right? That's what we call the "cliff". Whenever you're writing an auto-property and suddenly you've got to drop down to the field, whatever is making it happen. It might be any number of reasons. But that's the cliff. And because it's a pan. But I can remove that field. Now I've got two errors here. I can--take that body off.
+
+Mads Torgersen: Yeah. It's an auto-property.
+
+Dustin Campbell: And this is -- yeah. It's an auto-property, so I can access it now with the field keyword, right? It's still an auto-property.
+
+[ Applause ]
+
+Mads Torgersen: Yeah. It still generates a backing field for you, either if there's a body missing like in the getter or if the field keyword is used, then it generates a backing field for you. And you access it using the field keyword. But it's not called "field" and so other members can't access it. So it's both your code gets shorter and nicer, but it's also you get that kind of -- --I guess it's not encapsulation, but hiding so that other members don't accidentally access the field instead of the property.
+
+Dustin Campbell: I mean, it's a little contrived. I probably wouldn't do this since there's, like, multiple statements on the line. But this is even now like a one-liner, right?
+
+Mads Torgersen: Yeah. It's kind of neat now.
+
+Dustin Campbell: Yeah. It's kind of it's all right.
+
+Mads Torgersen: Now, you're totally welcome to implement both of the accessors. It's not that one has to be empty.
+
+Dustin Campbell: No, we could very easily do this. But it's kind of redundant, right? It's an auto-property. It's still an auto property if I have both if they're just accessing field as their backing field, right? So, if they have the field keyword, so it's still an auto-property. We kind of made it very fuzzy now as to what, by looking at it, if it's an auto-property or not.
+
+Mads Torgersen: The "auto" means that it generates a backing field now.
+
+Dustin Campbell: Yeah. So you don't have to manage those two pieces of data, and you can encapsulate that nicely or data --
+
+Mads Torgersen: So that, hopefully, is helpful. There's a little niggle that we, you know, that we have to talk about, which is that, when you actually do implement them both, this is actually legal C# syntax today. There could be something called "field --"
+
+Dustin Campbell: You could have had -- yeah. You could have had this, right?
+
+Mads Torgersen: There is a little bit of a language-breaking change here that we have to own up to, which is that "field" changed its meaning from referencing an existing thing to now being a keyword in its own right, a contextual keyword saying right here it means the generated thing.
+
+Dustin Campbell: And it's so easy to think, like, oh, but who uses that for a name? And, I mean, but it's databases. It's domains like academia for fields of study or agriculture or what --
+
+Mads Torgersen: Physics.
+
+Dustin Campbell: We have the same problem when we --
+
+Mads Torgersen: Many, many fields.
+
+Dustin Campbell: It turned out the financial industry was not really keen on us using "yield" as a keyword by itself, either, right? There's a lot of domains that take these words so, yeah.
+
+Mads Torgersen: So. . . it is a bit of a language-breaking change. So, when there's something in scope called "field", we do give you a warning saying, if this code was here before, it now means something different. And we don't have fixers right now in this implementation, I believe.
+
+Dustin Campbell: We've not yet, I think.
+
+Mads Torgersen: But we will have fixes when this ships. But there are a couple ways that you can fix it up, right? You can either, like you did with the "add" there, you can say, like, with any keyword, you can turn it into an identifier by putting "add" in front. Or you can just say "this dot field", like you do with this dot value sometimes. If value, did you know, if you have something called "value", you want to get at it from a setter and value, the value --
+
+Dustin Campbell: This value right here, this one right here, the one that's implicit inside of --
+
+Mads Torgersen: Yeah. You'd say this dot value --
+
+Dustin Campbell: --inside of a property setter.
+
+Mads Torgersen: You can do the same thing here.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: So that's how you kind of get around it. And you may have, if you're using "field", lowercase field like that, you may have to do a little fixing up. And hopefully that's not too big of a problem, but we'll find out.
+
+Dustin Campbell: And I realized that, in previous talks, we have shown this before. But it's always been like, "And we swear it'll be there." It's actually here. We're using the release bit, so it's actually there today. Okay so, it's underlying version preview, but it is in the product.
+
+Mads Torgersen: Famous last words.
+
+Dustin Campbell: Famous last words. And then Jared removes it. Thanks, Jared. Jared's down here. You guys can make sure he doesn't remove it later.
+
+[ Laughter ]
+
+Mads Torgersen: Okay, let's -- Now for something different.
+
+Dustin Campbell: Yeah, let's step over to a different--actually, I don't have a different Visual Studio up. Let's just --
+
+Mads Torgersen: Switch over in there. We're going to talk about extension members.
+
+Dustin Campbell: Yeah. This went well. This is good.
+
+Mads Torgersen: When was it, C# 3, that was 2008.
+
+Dustin Campbell: 2008.
+
+Mads Torgersen: We shipped extension methods.
+
+Dustin Campbell: Seventeen years ago.
+
+Mads Torgersen: And then people immediately said, "Hey, that's great. When do we get extension properties?" "When can I make my extension method static?" And we're like, "Oh, we'll go work on that." And then it turned out to be really hard. And we can sort of -- so what we have here -- and so just spoiler alert. We're doing it now. What we're looking at here, this example here is we just took a couple of the methods from system LINQ IEnumerable, and we just copied them over. Didn't actually copy the implementations, just because they're long. But just to use them as examples of what we're doing here. But let's talk about why we didn't add something like extension properties before. And it really has a lot to do with the syntax that we chose for declaring extension methods, right? So you've got one here. It needs to be able to express a receiver that --
+
+Dustin Campbell: That's the first parameter.
+
+Mads Torgersen: First parameter. When you look at the call, actually, up on line 3, right? An extension method pretends it's an instance method on its receiver.
+
+Dustin Campbell: It's like in costume. So it's like playing as an instance member.
+
+Mads Torgersen: Yeah. First here it's saying, "I'm an instance method with zero parameters." But it really is a static method with one parameter that is the receiver parameter. And, actually, it also has a type parameter, making sure that it's generic and it applies to all IEnumerables through generics. So being able to specify it like that, that works well for methods because methods do have parameters, so we can slap an extra one on there. And they do have type parameters, so we can also put an extra type parameter on there, whatever type parameters we need.
+
+Dustin Campbell: Properties have neither of those things.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: Syntactic cliff.
+
+Dus
+
+Mads Torgersen: And we've tried so many things over the years. And now, now we think we figured it out.
+
+Dustin Campbell: Yeah, we do.
+
+Mads Torgersen: So, essentially, the trick is take all that, in order to allow other member kinds, take all the stuff that is method-specific here.
+
+Dustin Campbell: Yeah, so the generic type parameters and the receiver parameter.
+
+Mads Torgersen: And the receiver parameter.
+
+Dustin Campbell: We just take those.
+
+Mads Torgersen: Yank it out to a separate scope that we put that on, and just put extension members inside of that scope. Now, they, the members themselves, don't have to specify any of that stuff.
+
+Dustin Campbell: Yeah, we can clean this up a little bit, too, because we don't need the "this" keyword any longer because it's in a thing called an extension. We know what it is. We know that it's a receiver that's special up there. That's kind of the blessed receiver parameter. This is redundant. It already has a type parameter up there called "TSource", and this method will also get that. And, of course, we're already declaring the receiver parameter up there. There we go. And so we're good, right?
+
+Mads Torgersen: It's getting pretty close, but we're getting close to what it's pretending to be. But it's pretending to be an instance method.
+
+Dustin Campbell: Yes.
+
+Mads Torgersen: So we should remove the static as well.
+
+Dustin Campbell: Yeah, and so we'll take that off. And now . . .
+
+Mads Torgersen: Now it looks exactly as if you declared the member is pretending to be.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: That is the actual member syntax you would have written if it was an instance method.
+
+Dustin Campbell: Yeah. We call this the reduced form with an extension method. This is the thing it reduces to. And then there's the regular form, which is the calling it as a static method.
+
+Mads Torgersen: Right. So -- and you can kind of squint now and see, "Oh now I I probably get how they can add other member kinds." But we're going to keep you in suspense for a little longer while we examine how this actually works for the methods.
+
+Dustin Campbell: Yeah. So, we got the parameter up here, the receiver parameter. And it's important to be here because we do have other things we can do with this, right? And so, we want it to look like a parameter.
+
+Mads Torgersen: Yeah. One thing, one design choice we could have had is where it says in the body there in the implementation where it says "source", we could have used the "this" keyword. So, it looks more like a. . . I guess it looks more like an instance method.
+
+Dustin Campbell: On that first parameter. But we call that first parameter "this".
+
+Mads Torgersen: Yeah, but we decided to keep -- keep the parameter syntax for that like we have in the old extension methods because it's actually useful to treat it as a parameter. Sometimes you want to maybe have a modifier on there.
+
+Dustin Campbell: You could do "ref", you could put, you know, any of these things. You could put attributes on it, right? You could make it nullable, right? That's something that you can do with a receiver parameter as well. And, sure enough, now we get a noble warning.
+
+Mads Torgersen: And this is not theoretical. When we designed this feature, we looked at many, many, many, many extension methods in the wild, not just our own but in GitHub and so on. And a lot of these things, like, this expressiveness really gets used. So we're like, "Yeah, we're keeping these as parameters. That's clearly useful to a lot of people.
+
+Dustin Campbell: Yeah. And so, But with an extension method in this new kind of extension block syntax, as we call it, we wanted to make sure that there was significant compatibility, right? With the extension methods you got. And, frankly, sometimes it's easier to just write a regular old extension method. They're not going anywhere. It's really easy to add "this" to an existing static method and make it an extension method, if that's what you're doing.
+
+Mads Torgersen: And you have a lot of consuming code, so we wanted to make it so that you can port from the old syntax to the new syntax if you want without breaking your consumers. But one thing that means is like, when you have an extension method and you want to call it, but it's kind of ambiguous with another extension method, or maybe it's shadowed by an instance method that got added later or something, the disambiguation syntax today for extension method is I just call it as a static method.
+
+Dustin Campbell: Right.
+
+Mads Torgersen: And that has to continue to work. Does it work?
+
+Dustin Campbell: It does work. It works perfectly.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: And there it is, and we see exactly the same, the same hover, quick info tip. And so this works exactly the same as it did before.
+
+Mads Torgersen: Yeah. Because, when we see that new syntax, we generate the old extension method for you, as well, on the static class that this is all in.
+
+Dustin Campbell: Yeah. Something to kind of -- we call it an extension block almost because it's not really a thing. It's not a thing that's there. It's almost like a holder, right? I think you described it earlier to me is like, "Oh, it's the thing that we take all the things that make a method -- an extension method, an extension method and we just lift them up. All the things that are very methody, the generic type parameters, the receiver parameter; and we just lift them up into this block. And now they can be available to everything inside of it. So right now it's like, wow. You just made a really wordy way to write an extension method. Great job, guys. I can put more in there -- and which we should do.
+
+Mads Torgersen: But, yeah, just to the the second call of first up there --
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: --we generate that static method. It's actually even an extension method in the old sense so if other older compilers or other languages consume the output of this, they will still see an old style extension method that is really there in metadata still. That's how compatible we make sure to be.
+
+Dustin Campbell: Yes. So, well, let's go ahead and move another one up.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: It is a little contrived to have one in there. The first thing you ask for is, "Well, that seems really wordy." Right? So, we'll do the same thing. I'm taking select here. Okay. Select. Well, we know it doesn't need to be static, right? We can take that off. It's going to look like it's reduced form. Therefore, I can remove the "TSource". I'm going to leave the T result, though, okay. And I can take off the receiver parameter, and there we are.
+
+Mads Torgersen: And leave the other parameter. So that's just a slightly more complex example where some of the parameters move up, and some of them stay.
+
+Dustin Campbell: Yeah. And it's interesting because some of these are like, if I go to, like, my MyEnumerable again, I can see select is there. And if you look at it, it's joined together both those type parameters because it really is just a construct that just kind of here's the stuff that goes to everything, right? And so it's still the same method that would have been
+
+written before with two parameters. And so it works the same. If I do numbers dot select down here and I get the one off of my enumerable, it's the same thing, the same stuff.
+
+Mads Torgersen: Yeah, yeah. But you didn't come here to see us reinvent extension methods, we already have those.
+
+Dustin Campbell: But, as we said, I hope you can see how it will be possible to add other member types in here now.
+
+Mads Torgersen: So let's actually
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: It's time, right?
+
+Dustin Campbell: I suppose.
+
+Mads Torgersen: Let's change the first method, extension method, into an extension property.
+
+Dustin Campbell: Okay, so. . . how do I make a method a property? Well, I take off the parameters, and I add a "get", right? And . . . there we go. That's done. Now, interestingly, there's an error here because there is no longer a first method on my enumerable. There's no error here because now it's dropped back to the actual IEnumerable one.
+
+Mads Torgersen: Yeah. We didn't take the LINQ ones out.
+
+Dustin Campbell: Didn't take that away. But I can remove the parameters here. And, sure enough.
+
+Mads Torgersen: We're calling it as a property.
+
+Dustin Campbell: We're calling it as a property.
+
+Mads Torgersen: Your first extension property, ladies and gentlemen, appropriately called "first".
+
+Dustin Campbell: Yeah!
+
+[ Applause ]
+
+Mads Torgersen: And it's a real property. You could add a setter if you want to.
+
+Dustin Campbell: Sure. That would be cool.
+
+Mads Torgersen: Just let's do a dummy one.
+
+Dustin Campbell: Yeah. It's a little weird because one of the things about extensions, these are very, you know. Under the hood, they are static things. And so we are not planning on introducing "state" into these things or "instance" fields. So, you can't have, say, an auto-property because there's nowhere to declare a backing field. You can't declare it on this object that just came in to you.
+
+Mads Torgersen: There'll be no extension field, no extension auto properties, and no extension field-like events because they all declare state. And we're not going to add "state" to somebody else's object.
+
+Dustin Campbell: But, if you have a table on the side, you have things you want to do with that and your API is such that a set makes sense here, then that is available to you as an API shape.
+
+Mads Torgersen: You do get to do it.
+
+Dustin Campbell: And I think that's that kind of one of the powerful things about extension methods and now also extension properties and other whatever else we bring here is that this gives you the ability to, like, you know, have an API that is discoverable when you press "dot" off of whatever that thing is. It could be an instance, a reference to an instance of some class. It could be that you've got extension methods for, and you can just dot into that and get the API shape that you're looking for. I think it's just super cool.
+
+Mads Torgersen: So, and you can see now that having the extension blocks, it gives us a scheme for adding any kind of function members as extension something. We're not adding all of them at this point. We're starting with methods and properties, and we'll also see static versions of those in a bit.
+
+Dustin Campbell: How do we, I don't quite under -- how would we disambiguate this?
+
+Mads Torgersen: Yeah. So that's a good point. What is disambiguation?
+
+Dustin Campbell: This is one of the problems we've had, too -- -- it's one of those niggling problems is that methods have this wonderful disambiguation. Syntax is automatically there. It's just a static method call. But what would I do with this, right? It's a property, how do I --
+
+Mads Torgersen: Let's go and hit "dot".
+
+Dustin Campbell: Well, let's delete the comma first. Let's ask IntelliSense.
+
+Mads Torgersen: Ask IntelliSense.
+
+Dustin Campbell: Yeah. Well, it turns out that "first" is here and available to us, and what the compiler has done is it's generated the two methods that actually make up every property that you write that has for the accessors, right? It introduces "get" for that "get
+
+accessor" and a "set underscore" method for that "set accessor". These are things that we don't let you write today because we reserve them for properties. It's an error if you try to write one of these by yourself, say "get-underscore- something" or "set-underscore" because we reserve that space for properties. And we still reserve it for properties. You still can't write these here.
+
+Mads Torgersen: Except --
+
+Dustin Campbell: You can't declare them, but we --
+
+Mads Torgersen: Yeah, that's true.
+
+Dustin Campbell: We reserve -- but we allow you to call them to disambiguate.
+
+Mads Torgersen: When they're extension properties, we put these methods out because that's much easier. Any actual dedicated disambiguation syntax we could come up with was at least as ugly as that. So we're just going to give you the sort of built-in ugly.
+
+Dustin Campbell: They were less ugly, but they had weirdness, they all had weirdness.
+
+Mads Torgersen: Yeah. No they--yeah. There's something to learn, right? And here you just go press "dot", and you're going to "get first". Yeah, okay.
+
+Dustin Campbell: Just wait till they do operators, they'll get ugly.
+
+Mads Torgersen: See what it does.
+
+Dustin Campbell: And so, I can now call this, and I can pass in my receiver parameter because I've turned it into a method. And that method has the "TSource" parameter on it, so it works like that.
+
+Mads Torgersen: Yeah. So that's --
+
+Dustin Campbell: That's how it is to disambiguate properties. So, finally, we get to do this. Hopefully, it's not very common, hopefully. But it comes up, right? It absolutely --
+
+Mads Torgersen: The disambiguation?
+
+Dustin Campbell: Yeah, it does come up.
+
+Mads Torgersen: It's a thing that you occasionally need to do. And then it's good to know there's a way to do it but we don't expect it to be common enough that you have to litter your code with "get this" and "set that".
+
+Dustin Campbell: Cool.
+
+Mads Torgersen: Alright, and if we're wrong about that, we can add a syntax later. We just didn't yet because we don't think we're going to need it.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: So we'll see.
+
+Dustin Campbell: What do you think?
+
+Mads Torgersen: Okay so far, yeah?
+
+Dustin Campbell: Yeah.
+
+[ APPLAUSE ]
+
+Dustin Campbell: Everybody just wanted to add, you know, IEnumerable dot count all these years as a property. Probably the worst thing to add as a property, by the way, because it's going to be expensive. But now we can.
+
+Mads Torgersen: Now you can if you really want to.
+
+Dustin Campbell: Please don't.
+
+[ Laughter ]
+
+Dustin Campbell: "Is empty" might be better.
+
+Mads Torgersen: Yeah, that's a good one.
+
+Dustin Campbell: Yeah. All right.
+
+Mads Torgersen: Yeah, "is empty" is a brilliant property to add. Yes, you should do that.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: We should do that, actually.
+
+Dustin Campbell: We should. Tanner Gooding is sitting right over there from runtime should do that.
+
+Mads Torgersen: When are we going to get "is empty" as an extension property? Come on. This feature has been in from weeks. What's that?
+
+Dustin Campbell: As soon as somebody writes an API proposal, he said.
+
+Mads Torgersen: Okay. Yeah. You heard it.
+
+Dustin Campbell: You heard Tanner volunteer to write an API proposal. That's what I heard. All right.
+
+Mads Torgersen: Okay. There's one more thing we pulled over from the System.LINQ enumerable-type, which is that range method.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: And it's not actually an extension method. Never was. It's just a static method, like a helper method that just sort of like sits there on that type.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: But you kind of have to go look for it to realize it's there, it's not very discoverable.
+
+Dustin Campbell: Yeah. Again, extension methods are great for being discoverable in dot. That one you just you've got to know.
+
+Mads Torgersen: It's not an extension method because it's not on anything.
+
+Dustin Campbell: We could make it an extension method.
+
+Mads Torgersen: Yes. A static extension method.
+
+Dustin Campbell: Yeah. So, if we're talking about IEnumerable, we could, again, declare extension block, right?
+
+Mads Torgersen: So just to be clear, what we want to try, how would you make this more discoverable?
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: We'll stick it on somewhere where people would look. So why don't we stick it on the type that it's a factory. It's a factory for IEnumerable events.
+
+Dustin Campbell: Exactly.
+
+Mads Torgersen: Let's stick it on that type. And then, when you press "dot" on that type, the factory will show up.
+
+Dustin Campbell: And so, all I've done is put a static method in here now, okay? And inside an extension block that it's not a receiver parameter. What are we calling it, like a receiver type?
+
+Mads Torgersen: Receiver type.
+
+Dustin Campbell: Yeah, maybe. But it's -- -- it's the type that you'll be able to come over here and say ".Range".
+
+Mads Torgersen: So I can press "dot", and, I know move in, it. Now it shows up because static extension method.
+
+Dustin Campbell: Absolutely.We can "foreach" over that and -- Actually, let me put that in a. . . Put this in a, I don't know, call it "X". X is a great variable.
+
+Mads Torgersen: Great variable name.
+
+Dustin Campbell: Great variable name. I would recommend using it for anything.
+
+Mads Torgersen: Very descriptive.
+
+Dustin Campbell: Very descriptive. Yeah.
+
+Mads Torgersen: Says it all, really. Self-documenting.
+
+Dustin Campbell: And so I just want to prove to you that it does work. So. . .
+
+Mads Torgersen: Are you running anything?
+
+Dustin Campbell: Aha. There it is.
+
+Mads Torgersen: It did work.
+
+Dustin Campbell: It works. This stuff is real. I'm telling you it's a release product. It's real this year, we swear.
+
+Mads Torgersen: So, unlike the instance extension methods, we really didn't have to do anything to that static method. We just put it inside of that extension scope, but it's not like it has it had some extra state or something before, right?
+
+Dustin Campbell: Right.
+
+Mads Torgersen: It was already perfect as a static method.
+
+Dustin Campbell: And you can always disambiguate it, right?
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: Because you can just go to MyEnumerable and call it, right? That's still there.
+
+Mads Torgersen: It is. Yeah, that's the thing. It just is still there. So even when you do this, when you take a static method on a static class and turn it into an extension static method, it's still there on the static class as well. So you can still disambiguate. So that's pretty good.
+
+Dustin Campbell: A little, couple of niggles, though. Why do we need the source?
+
+Mads Torgersen: Yeah. . . we only actually have static extension members in that particular extension block, so we let you omit the parameter name when you don't need it.
+
+Dustin Campbell: Yeah. If you're mixing them, if we put them in the same block, if you had other methods instance extension methods on IEnumerable event source would be there and available for the instance methods to use. But the static method can't ever use it, right? So. . .
+
+Mads Torgersen: Yeah. It can't use it, so you're allowed to omit it and we -- yeah. We do that here.
+
+Dustin Campbell: That's cool.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: That's not exactly where I want to put it, though, right? I mean, is it really all that discoverable an IEnumerable event?
+
+Mads Torgersen: Well, first of all, I feel like just doing it for int, that was kind of an underwhelming choice on LINQ's part, to be honest. Like, I would want ranges of many different things. I didn't have generic math back then.
+
+Dustin Campbell: Right. Not until Tanner added it.
+
+Mads Torgersen: But we do now. Thank you, Tanner.
+
+Dustin Campbell: Thank you.
+
+Mads Torgersen: And so, just for fun, let's go and actually generalize this a little bit.
+
+Dustin Campbell: So we could make this generic now. So we could say, "Okay, it's an IEnumerable of "T", it's going to return IEnumerable of "T". We'll have to actually, to give it its starting number, it'll be a "T" and, of course, this doesn't build. There's no way to do that on "T". But, again, generic, this is the place where all the stuff that goes on the methods that are special in methods code, right? So, we can put constraints, generic constraints on here. So I could say where "T" is an INumber of "T". MADS TORGERSEN And magically --
+
+Dustin Campbell: Magically, now I should be able to come over here.
+
+Mads Torgersen: Can we -- hang on, hang on. Do you know this? Do you know about INumber of T? Do you know about generic math? Look at that "start + +" down there just working.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: Does it?
+
+Dustin Campbell: It does work. In fact --
+
+Mad
+
+Dustin Campbell: It's no squiggle. Actually, you know what? I want to prove what we're looking at here, so I'm going to laboriously type a thing. We'll say, whoops, yeah, laboriously. I did say that. I set expectations. "Get type" name parens, and I will run this again. And we will see that, in fact, yeah. There we go. Okay. So we're going to get that. But now I could change this to say long, right? And the one is an int, right? It's an in 32. But it's a negative 2 billion to like roughly to positive 2 billion. And that's fully subsumed by long, which is --
+
+Mads Torgersen: It converts to long.
+
+Dustin Campbell: So it converts. So it converts. So this should work. And, if I run that now --
+
+Mads Torgersen: Yeah. I'm sure that works.
+
+Dustin Campbell: Well, that's cool.
+
+[ APPLAUSE ]
+
+Mads Torgersen: And what about ulong?
+
+Dustin Campbell: Oh, yeah. Sure. Ulong. But it doesn't have a negative range, so that doesn't work. But I could make this a uint 32, and it'll work just fine.
+
+Mads Torgersen: And so, of course, generic math is cool. And you should be reminded of it because not enough people know how cool it is.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: But, also, we put it in here to have an excuse to show you that you can put constraints on those type parameters on the extension.
+
+Dustin Campbell: Still, though, it's not that discoverable. I'm not going to think about IEnumerable of ulong to make a range. What I want is I just want it to be ulong, right? So I should just be able to say T there, right? And then I should be able to come in here and say ulong dot range. And now we're into discoverable territory.
+
+Mads Torgersen: Yeah. Now, the code is obscure. Yeah. There it is. There's nothing preventing you from using a type parameter as the receiver type. That's not illegal. That's totally accepted. If it's an unconstrained type parameter, you're being a little naughty because then every object in the universe will have that extension method.
+
+Dustin Campbell: Yeah. You're the bad engineer on the team that added that "to display" on everything.
+
+Mads Torgersen: As long as you constrain it to just Tanner's world, then it's fine. It's just numbers. So now, yeah. You can add that static extension method to any get, that any numeric type will just now have to give you a range of that type.
+
+Dustin Campbell: Anyone that implements INumber. Okay. It should be most of them.
+
+Mads Torgersen: So that shows you everything we have to show today about extension members. Not shown here, static properties, also fine.
+
+Dustin Campbell: Yep.
+
+Mads Torgersen: Working on right now operators. So extension operators is definitely planned again for Tanner. We call you out a lot.
+
+Dustin Campbell: He's really nice, and we do a lot of nice things for him.
+
+Mads Torgersen: Yeah, and it's still an open question. If we're not showing them. We don't have the bits yet, if they make it into C# 14. But definitely planned extension operators. Think about that, adding "plus" to something else. Or plus equals.
+
+Dustin Campbell: All right.
+
+Mads Torgersen: And probably also other member kinds down the line. Shipping every year, you've seen this before. We will often, like, do the core of a feature that is the most sought out, thinking ahead so that we now have this general syntactic scheme that we can add other member kinds. But they may only be there in a later release when we see that there's a demand or when we have the scenarios that'll help us make it just right so we're not just guessing what it should look like, that kind of thing. So over the next couple of years, I would expect you to be able to see most kinds of function members, really. But we'll see. We'll see where it goes. And keep us posted on what you use them for, where they kind of fall short, and those kinds of things.
+
+Dustin Campbell: So what do you guys think? Does this work? Yeah, yeah?
+
+Mads Torgersen: Yeah? Okay?
+
+Dustin Campbell: All right.
+
+[ Applause ]
+
+Seventeen years it took.
+
+Mads Torgersen: Seventeen years but not a day longer.
+
+Dustin Campbell: Yeah, yeah. That was a hard one too. So okay. Well, now we're switched over to C# Dev Kit.
+
+Mads Torgersen: We're even in dark mode.
+
+Dustin Campbell: Yeah. Just so you know, these are the hot features, these are the ones that have not shipped yet. And we have, again, we have a descending order. We're in descending order of confidence on how well we feel that they might make it into C# 14. But they are in implementation at some state. And we do want to talk about them and show them.
+
+Mads Torgersen: We can show. What we're showing is not like, coupled together prototype stuff for showing at Build. It is the product implementation in a certain state of evolution.
+
+Dustin Campbell: We have to build a different branch, basically, and merged main in. And that was it. It's fine. Okay.
+
+Mads Torgersen: So, as I said, we're planning on having extension operators; but we don't quite have them yet. So, instead, I just took inherited from dictionary so that we can add more members, including operators to them.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: That's kind of don't do that at home but --
+
+Dustin Campbell: It's cute.
+
+Mads Torgersen: It's cute. Yeah. Think of these, though, as they could eventually be extension operators. Why am I talking about operators?
+
+Dustin Campbell: I don't know. We are adding a couple of new operator overloads for Tanner in the product. Tanner, leader of dot net.
+
+Mads Torgersen: Yes, the most powerful.
+
+Dustin Campbell: Most powerful figure just has great ideas and comes with needs, and we're happy to oblige on the language.
+
+Mads Torgersen: So, yeah. So here's the thing, and we're going to have a maybe slightly silly example. But the way you overload a compound operator like plus equals, like the ones with the equal at the end, the way you overload them today is indirectly. You overload the plus operator, and then plus equals works with that.
+
+Dustin Campbell: Yeah. It does like X equals plus, X equals X plus, whatever is on the right. But it uses that.
+
+Mads Torgersen: Yeah. But sometimes creating that result of the plus operator is pretty expensive because the thing you are adding is very big. Think matrices or multidimensional matrices called tensors. And just producing that extra result can be quite expensive. And if all you're doing is slapping it on top of the old one, deleting that one from the surface of the
+
+Earth, maybe it was better to just mutate the old one to begin with and much cheaper. And so, if we could overload the compound operators to do that, we could have more efficient implementations. And that's what this feature is about.
+
+Dustin Campbell: So you're going to have to help me because I do not remember how to type operator overload declarations ever. I look it up every time.
+
+Mads Torgersen: Yeah, or ask Tanner.
+
+Dustin Campbell: I ask Tanner.
+
+Mads Torgersen: So I will help you with this new syntax.
+
+Dustin Campbell: Okay.
+
+Mads Torgersen: So public.
+
+Dustin Campbell: It's a good start. Void O.
+
+Mads Torgersen: Oh, that took a turn.
+
+Dustin Campbell: That's different.
+
+Mads Torgersen: Operator.
+
+Dustin Campbell: Okay.
+
+Mads Torgersen: That wasn't so surprising.
+
+Dustin Campbell: I suppose. There's something missing.
+
+Mads Torgersen: Minus equals.
+
+Dustin Campbell: Okay. And then we're going to --
+
+Mads Torgersen: Let's do an IEnumerable of T key.
+
+Dustin Campbell: Okay.
+
+Mads Torgersen: And I call it keys.
+
+Dustin Campbell: Okay.
+
+Mads Torgersen: So what we're looking at here is an operator to remove a bunch of things from the dictionary by way of subtracting.
+
+Dustin Campbell: So we're just removing things. So I could implement it by saying, oh, for each over the keys and do just a -- whoops. Wrong thing. Not remote.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: There we go.
+
+Mads Torgersen: Okay. And let's first use it and then talk about all the weirdness about it.
+
+Dustin Campbell: So we've got a thing up here, yeah, that does a remove. So we'll just use it here. And we're passing in an IEnumerable T key, so we can use a collection expression, which is not new. And there we go.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: That is adorable.
+
+Mads Torgersen: It could be 5 comma 6.
+
+Dustin Campbell: Yeah, you could put a bunch of things there.
+
+Mads Torgersen: It can be a list now because it's an IEnumerable. But just using a collection expression. But coming back to the signature there, many things are weird about this compared to the operator overload you may know today and that you can kind of pretend that you remember the syntax for. First of all, it's not static.
+
+Dustin Campbell: That's so weird.
+
+Mads Torgersen: It is not static. And why is it not static? Well, you really want to mutate the receiver, right, the left-hand side. So why go to a bunch of trouble making it a parameter that you are then would have to be a ref parameter when it's a value type because otherwise you couldn't mutate it. So let's just use this. Make it an instance operator, and you're just mutating the struct or object that is being called on.
+
+Dustin Campbell: So if this is a value type, then it would need to be a mutable value type, essentially, to work like that.
+
+Mads Torgersen: It will need to be mutable in order for you to be able to do something useful on it.
+
+Dustin Campbell: Yes. Okay.
+
+Mads Torgersen: Because the intent is to mutate it. Right? So, that's why it's void. And, essentially, if you think about operator, the old well-known static operator overloads, they're really weird static methods with weird lookup rules, right? They're just essentially static methods but look them up differently, and these are weird instance methods with weird lookup rules. So because they're essentially instance methods, you can do instance methods things with them, like actually you can make them virtual.
+
+Dustin Campbell: Oh, boy.
+
+Mads Torgersen: We saw no reason to restrict that. So, if you want that, you can absolutely do that.
+
+Dustin Campbell: You can go nuts.
+
+Mads Torgersen: You can go pretty nuts with that.
+
+Dustin Campbell: Yeah. That's pretty cool.
+
+Mads Torgersen: So that's how you do that. And we mentioned the kind of performance scenario, which is kind of the driving scenario for this. But also sometimes you just want the compound operator, but you don't want the symbol operator. Minus operator here might be a little weird. And I'm not saying that the minus equals isn't weird, but maybe it's a little less weird. And sometimes you want only that. And this gives you an ability to have that without also having the corresponding symbol operator, if you want so.
+
+Dustin Campbell: It's an adorable, adorable operator there.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: That's cute. That's very cute.
+
+Mads Torgersen: There you go. How many people, just out of curiosity, how many people in here ever use operator overloading in their code? That's pretty good. Okay, okay. I think we did something good here.
+
+Dustin Campbell: I was expecting it started with three timid hands, and then more gained confidence.
+
+Mads Torgersen: Yeah. The others were like, okay. Okay, I can fess up to it as well.
+
+Dustin Campbell: Yeah. Awesome.
+
+Mads Torgersen: Okay. That's a reason why. So that's that feature, right?
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: That's the reason why we are using dictionaries here in this example, and that's because we want to talk about dictionary expressions.
+
+Dustin Campbell: Yes. We have a dictionary up here that's actually constructed with an object initializer. I'm going to reformat it slightly --
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: -- because it looks a little odd to me. There should be a --
+
+Mads Torgersen: It irks you.
+
+Dustin Campbell: It irks me, and I don't like it. So I'm going to go ahead and wrap this initializer so that because, really, this is an object initializer. It's with the index assignment stuff so you can assign into dictionary. So it just calls. Essentially, it just sets the elements of a dictionary, rather than when you do the collection initializers where you double up for dictionaries for the key value pairs that, it winds up calling add, I think, right?
+
+Mads Torgersen: Yeah. How many people realized you could do this, actually?
+
+Dustin Campbell: It was a cute little feature we had.
+
+Mads Torgersen: Yeah. And it's been around for a while.
+
+Dustin Campbell: Yeah. But this is not new.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: But it's new to most of you, and that's cool too.
+
+Mads Torgersen: That's cool.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: But now we're going to immediately make it somewhat obsolete.
+
+Dustin Campbell: Yeah. That's great.
+
+Mads Torgersen: So collections have collection expressions now. We've had them for a couple of releases, and --
+
+Dustin Campbell: Got one right here.
+
+Mads Torgersen: Pretty cool. And we already got one up there. Why can't we do something like that for dictionaries as well?
+
+Dustin Campbell: Yeah. And so and you can. So I'm going to go ahead and convert this. There's a nice fix for that. And this is a dictionary expression, okay. So it's essentially it's semantically very similar to what I just had, right? Each of these, these are representative of key value pairs. Okay. So that colon there means that the left is the key and the right is the value and that it's going to go through, and it's going to call the indexes. It's going to do a set for each one of these into that dictionary. And now, actually, that I have it like that, now I kind of want to format it back because this looks better like that.
+
+Mads Torgersen: Now it doesn't irk you anymore.
+
+Dustin Campbell: Doesn't irk me anymore. Yeah.
+
+Mads Torgersen: Code that doesn't irk Dustin, ladies and gentlemen.
+
+Dustin Campbell: Yes.
+
+[ APPLAUSE ]
+
+So only slightly below things Tanner requests.
+
+Mads Torgersen: Yes. So I'm going to get -- exactly. So I'm going to, whenever Dustin goes like arrgh in the design meeting, we know, okay. We're not quite there yet. So I want to get into a few details of how this works. So, dictionary expressions aren't actually technically a thing in C#. They're still collection expressions. It's just that there's a new kind of element that you can put in collection expressions that is this key value pair thing. So you can specify those in collection expressions. And, if the target type has key value pairs as its element type, you are welcome to do that. When the target type also has an indexer, then it's a dictionary type. And then we use the indexer, or we do something similar when we put it in. Otherwise, we'll just call add if it's just a collection. Using the indexer has semantic impact because it means that, essentially, dictionary expressions, we'll keep calling them that, even though they're not technically a separate thing. Dictionary expressions have last insertion wins semantics. Okay. So, if you have the same key more than once, we don't throw; we don't keep the first one. The last one wins. And we try to make that consistent across all the different dictionary types that you might use this on. And, luckily, all the ones that we just go through the indexer, they already tend to be consistent around that behavior.
+
+Dustin Campbell: So as he was saying, adding this one in and putting the same key right here, this is fine because it's just going to set the previous one. It's not going to cause all this key art.
+
+Mads Torgersen: It's not fine because one will have the value of 42. But, other than that, it's fine.
+
+Dustin Campbell: It's the answer.
+
+Mads Torgersen: It's the answer.
+
+Dustin Campbell: But, as you were saying, anything that's kind of convertible to it's really a collection expression of key value pairs.
+
+Mads Torgersen: Yes.
+
+Dustin Campbell: Right? And so I can write this plus equals operator, then, such that it takes an IEnumerable of key value pairs, right, for -- and so then I can come over here and I can say, well, plus equals, whoops. I can use the correct notation on my keys. And we could just we could do this.
+
+Mads Torgersen: Tanner is the answer.
+
+Dustin Campbell: Tanner is the answer. And we could put a dictionary expression. So this one has a collection expression on the side, right, of just the keys, just strings. But this now has a dictionary expression on the side that gets turned into an IEnumerable of key value pair. And then inside we go ahead and we just set each one.
+
+Mads Torgersen: Yeah. So that is kind of how we just expanded collection expressions to also deal with dictionaries now, which many people have requested and is probably the most common scenario we hadn't covered yet with collection expressions.
+
+Dustin Campbell: Yeah. I will point out that it did technically come after compound assignment operators, user defined compound assignment operators. So our confidence is lower that it will appear in C# 14.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: That's just -- we just want to make that really clear. But it is there, and it is coming.
+
+Mads Torgersen: Yeah. But one thing that was actually a little bit of an issue with collection expressions but has become more to the forefront with dictionaries is that sometimes when you create a dictionary, you want to say something extra. Particularly compare, you want to specify a compare for the keys that is not the standard one. And the collection expressions, they kind of lack the way for you to pass constructor arguments, like a compare. And so we decided, alongside with dictionary expressions, it's time for us to address that. And we started with the syntax a lot. I don't know.
+
+Dustin Campbell: Yes. I feel, yeah.
+
+Mads Torgersen: And we're going to show you something that we decided on.
+
+Dustin Campbell: We did. We voted, and it was a decision.
+
+Mads Torgersen: We decided on it.
+
+[ Laughter ]
+
+Dustin Campbell: And we've never gone back on those ever.
+
+Mads Torgersen: It might not be the greatest syntax ever, but it's the best we could come up with.
+
+Dustin Campbell: Yep, yep.
+
+Mads Torgersen: Okay. And it is to have a with element that has to go first. And, in there, you can pass arguments essentially to the constructor. When I say essentially, that's because not all, not all dictionaries are actually created by a constructor directly. Just like with other collection expressions, you can specify create methods. That's how you can
+
+build immutable dictionaries, for instance, is there's not actually -- you can't add things in one by one to an immutable thing. And so there's another mechanism. But, essentially, there's a way to pass extra arguments --
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: --such as a compare. Why do you have a red squiggle?
+
+Dustin Campbell: The reason I have a red squiggle is because we're still using this my dictionary. My dictionary doesn't have that constructor.
+
+Mads Torgersen: Oh, you're right. Okay. Yeah.
+
+Dustin Campbell: We should point out that we've been using this silly type the whole time.
+
+Mads Torgersen: Yeah.
+
+Dustin Campbell: But if I just choose dictionary --
+
+Mads Torgersen: Yeah, then --
+
+Dustin Campbell: Yeah. Then you'd be much better. And then we can get rid of these because they don't have those operators. But, yeah. . .
+
+Mads Torgersen: So of course the built-in dictionary class will support this. It has a constructor that takes a compare. You can use that. Another example, the other example, I think, that came up that was realistic is sometimes you know you're going to be adding a whole bunch more to a collection after you created it from the collection expressions. And so, for things that have a capacity, you get sometimes you want to just pass in, yeah, actually make the capacity 100 because I'm just about to put a lot of stuff in programmatically.
+
+Dustin Campbell: Yeah. I'm going to put four in, and I'm going to put a bunch of other stuff in. And we don't want to pay for the growth.
+
+Mads Torgersen: Right.
+
+Dustin Campbell: Yeah.
+
+Mads Torgersen: But just like with other collection expressions, this is not limited to concrete classes. You could actually. . .
+
+Dustin Campbell: I'm going to remove this because I don't know if it works. But you can use them with interfaces, right?
+
+Mad
+
+Dustin Campbell: iDictionary just like we can with collection expressions, you can do with IList, IEnumerable, any of that you'll be able to do.
+
+Mads Torgersen: The compiler decides what to build. It will decide to build a dictionary for that one.
+
+Dustin Campbell: Yep. And like collection expressions, there will be a builder sort of mechanism that we provided for collection expressions that other collections could use that didn't have that obvious way to construct themselves. Like, we did that for the immutable collections. I can't wait until this is available for frozen dictionary just because it's a pain to create one. But, yeah.
+
+Mads Torgersen: Yeah. So that is dictionary expressions and the argument passing thing for collection expressions. It probably has a name.
+
+Dustin Campbell: Yeah, yeah.
+
+Mads Torgersen: And that is the wildest we're going to get today. And so we have about six minutes left for questions.
+
+Dustin Campbell: Yeah. There's a mic right there in the middle. If anybody's interested in asking a question or getting anything about what we're doing here today, feel free to grab that mic and run. Go for it. Or, if you just want to take this opportunity to head out for the door, I get it.
+
+Mads Torgersen: You don't get to leave without applauding, guys.
+
+[ Applause ]
+
+Speaker 1: Yeah, hi, Mads and Dustin. Alec from New Jersey.
+
+Dustin Campbell: Hi, Alec.
+
+Mads Torgersen: Hi, Alec.
+
+Speaker 1: Don't have a question. Just wanted to say thank you because you don't understand how many years have been wanting to add daytime dot min and max.
+
+Mads Torgersen: Okay.
+
+Speaker 1: Now I can.
+
+Mads Torgersen: Now you can.
+
+Speaker 1: Thank you.
+
+Mads Torgersen: Yeah. Awesome. Everyone probably has a thing like that.
+
+Dustin Campbell: You should really thank Tanner but also Jared and Fred up here, who build this language, as well, so with their bare hands.
+
+Mads Torgersen: Another question, anyone?
+
+Dustin Campbell: Anyone?
+
+Mads Torgersen: They're just so hungry. Yes. Go.
+
+Speaker 2: I'm wondering if you planning to any kind of new data type that exists in Python but don't exist in C#.
+
+Mads Torgersen: New data type that exists, well, as for data types, we should probably ask our library folks. I don't think that we have -- do we have anything concrete that you can think of? And did you have anything concrete in mind?
+
+Speaker 2: Like tuples, I think.
+
+Dustin Campbell: Well, we have tuples.
+
+Speaker 2: Oh, you do. Oh, okay.
+
+Mads Torgersen: We have the coolest tuples.
+
+Dustin Campbell: We have oodles of tuples.
+
+Mads Torgersen: Our tuples can have element names. Can the Python tuples do that?
+
+Dustin Campbell: And you can --
+
+[ Laughter ] [ Applause ]
+
+Mads Torgersen: Thank you. Great question.
+
+Dustin Campbell: Yeah. And you can put extension methods on them. Yeah.
+
+Mads Torgersen: All right. Go ahead.
+
+Speaker 3: Thank you. I remember last time you covered the field keyword, you said there'd be some kind of warning if you used it that you could opt into so you could know that you were going to be entering this breaking functionality going forward. Is that still in the plans?
+
+Mads Torgersen: The way we're planning it right now is that the warning you saw there is what we'll do. So, essentially, when your code is such that it might have been broken, we will tell you. And then we give you fixes for it and for it to restore that semantics. I think the plan of record right now is, if you actually meant the new thing, then you will have to either get rid of the thing called field that's in scope if you can, change its name or something; or you really have to silence the warning there.
+
+Dustin Campbell: If for some reason you wanted the semantics to change so that you still had a field called field, but you also wanted to use the field keyword in the property that previously referred to the field called field, then you'd have to do something special.
+
+Mads Torgersen: Yeah. I will acknowledge we had, at some point, discussed giving you something that essentially break you on upgrade. And we kind of moved away from that because people get touchy about being broken in upgrade, like getting a warning in upgrade. So we decided, okay. It's better to just have it in the language, rather than some, like, bigger thing, like a project-level thing. Yeah. Thank you.
+
+Speaker 4: A few years ago, sorry. I'm Alden, I'm from Portland, Oregon. A few years ago, when I think it was LINQ coming out or something, people were saying that we should all move towards a lot of the new syntastic sugar because eventually the language is going to be written to be more efficient when you use the newer features. But it seems like we're doing lots of more checking. And when I look at writing really efficient code, then people are taking away a lot of that checking and going back to kind of old ways of programming in a lot of cases. I was wondering if that's a trend that's going to keep happening or kind of what your thoughts are on making the more complex stuff run more efficiently.
+
+Mads Torgersen: That's a really good question. And, actually, if you go all the way back to LINQ, like language integrated query, we had half of it sort of right where we did high-level syntax. And, essentially, he said, leave it to the compiler. But the compiler didn't do or didn't have the tools to do a very good job of making that efficient. And that's something we've taken to heart since then. So, when we've done features that simplify your code or make it more elegant or readable, like pattern matching, collection expressions like we saw, records, we take great care that the code the compiler writes for you is as efficient or better than what you would have written yourself. You should see --
+
+Dustin Campbell: Oh, yeah.
+
+Mads Torgersen: the code that implements pattern matching for a switch expression is so complex because it really, really tries to reorder and to do things in the order that is most efficient in a way that would be very ugly to write at hand. So we actually think you can have your cake and eat it, too, when it comes to actually letting the compiler do the thing. Letting the compiler select how the collection is built for a collection expression, it can do a much better job. And it can make it better release after release. If we find out we didn't do a good enough job, we can make the compiler better; and all of a sudden your code is better. Yeah.
+
+Mads Torgersen: So we try to combine those. There's also a little bit of in the old, like, C# was always also focused on performance in that we had unsafe code, for instance. And we've tried to replace most of that with safe code, by introducing, for instance, by introducing spans, which are kind of a low-level construct but safe. And now people can write code that is very efficient. Going to the lower level, writing it more in a more old-
+
+fashioned tedious style maybe but in places where they really need that extra performance. So that's how we try to think about that.
+
+Speaker 4: Thank you.
+
+Mads Torgersen: Thank you. I think we can have one more question--no. No more questions. Okay.
+
+Dustin Campbell: Yeah. We're 20 seconds.
+
+Mads Torgersen: We're 20 seconds.
+
+Dustin Campbell: We've got to say goodbye.
+
+Mads Torgersen: Okay. We will say goodbye, and then we will talk to you right after.
+
+Dustin Campbell: Yeah, come on up.
+
+Mads Torgersen: They might throw us out of the conference center. But, if not, we'll hang around for a bit. Thank you all very much.
+
+[ Applause ] [ Music ]
+
+END

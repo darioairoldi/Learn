@@ -1,0 +1,391 @@
+Microsoft Build May 19-22, 2025 Session: BRK103 Speakers: David Fowler, Stephen Toub
+
+[ Music ]
+
+Stephen Toub: All right.
+
+David Fowler: Hello.
+
+Stephen Toub: Hello, everyone.
+
+[inaudible]
+
+Everyone still awake?
+
+[ Cheers ]
+
+David Fowler: Last talk of the day.
+
+Stephen Toub: Yeah, thank you all for being here at 6 o'clock. I know you could have been over at the C# talk. You could have been downstairs, I think drinking alcohol.
+
+David Fowler: Don't say that. Don't say that.
+
+Stephen Toub: That's right. Yeah, sorry. I mean, there's nothing else you could be doing except being here with us. My name is Stephen Toub. This is the illustrious --
+
+David Fowler: David Fowler
+
+Stephen Toub: We work -- yeah, wooh.
+
+David Fowler: Wow, yay!
+
+[ Applause ]
+
+Stephen Toub: We both work at Microsoft on the.NET team. And we are here to talk about how Microsoft developers use AI in real world coding. Now, I will first say what this is not. This is not about all Microsoft developers. We are speaking only for the two of us. This is how we use AI in our daily coding, in our daily jobs. I won't say 9 to 5 because it's more than that.
+
+[ Laughter ]
+
+But this is how we use it. This is also not a talk about every single feature that you might be using in every single dev tool. This is about how we use particular tools. This is also not us proclaiming to be the experts on this stuff. I'm sure many of the things we'll be talking about are things that all of you already do. Hopefully by the end of this, you'll be inspired. You'll walk away with a few interesting nuggets or ideas for things to go try. And if you have ideas for things that we haven't talked about, we'd love it if you come and talk to us about that as well so that we can learn from you.
+
+David Fowler: Plus, it changes every week.
+
+Stephen Toub: It does. >> So we learned a thing last week. A thing came out today. We're like we don't know what it is yet because we haven't spent time to learn it. >> In fact, I added a slide today based on something new that I just tried this morning.
+
+[ Laughter ]
+
+This is also not a talk about vibe coding. We hear about that a lot.
+
+David Fowler: It's not?
+
+Stephen Toub: Well, OK, there'll be a little vibe coding.
+
+David Fowler: Okay. I wrote this this morning in my hotel room. It took eight minutes. I didn't write a single line of code. I just scripted Copilot to do it for me. You know, prompt this. I think it took four or five iterations before I was able to defeat all of my enemies. For the most part, I do not do vibe coding in my daily work. If someone does and it works for you, great. But it is not what I do. David does a little bit more, maybe. It's great for throw away tools, things where you just needed to kind of get a job done and then you're done with it. But a lot of the things that we work on are things that have a lot of longevity to them. They need to be maintained. They need to be tested. So we have a little bit more rigor involved in our work. So what are we going to talk about?
+
+[ Laughter ]
+
+You can see this is me using AI when I'm procrastinating. You're a pro.
+
+[ Laughter ]
+
+Stephen Toub: It took a really long time to get that GitHub Copilot to show up on the hat correctly. So this is how we use these tools in our daily jobs. And this isn't just about writing code. This is about ideation and coming up with the ideas for what we're doing. Writing the code, testing the code, debugging the code, and so on. So that's enough upfront. With that, I'm going to hand it over to David to talk about one of his favourite topics, which is ideating, ideation using AI.
+
+David Fowler: So it's funny. If you were to ask me if I were using Copilot like a year ago, I was doing completion. So when you're coding, you're in (inaudible) or VS code, typing, you get completions. It's called go text before. And it was super useful. One edit could help you save time and then more edits. Super useful tests. But then I think in December last year was when we had this threat about this issue (inaudible). And the story goes like this. Let me skip aside here. There was an issue that, you know, everyone has this code base where you have this long standing issues that are really difficult to implement. And you punt them for as long as possible. Right? So there's a 10-year, there was a 10 year known issue in Kestrel. And it's been quite general that we hadn't fixed because it was hard to fix. And in December, we had the team, the app service team ping us about this issue. There's an (inaudible) in the app service front end. Yikes, bad phone call, right. And this is a team's meeting. So we had a meeting with the app service team and their LT. And it turned out it was this 10 year bug. Crap. So you're 10, should we fix it? This is the time to fix it, right. So we --
+
+[ Laughter ]
+
+Yikes. So what we end up doing was I kind of went off to figure out the approaches. And we kind of knew in the back of our heads what we could do. But the going from idea to real production software is like super difficult. So I want to take you through a journey. This is the issue. It says 2020. But this issue was transferred from an older repo like five years before that. Let me switch screens and kind of walk you through what ended up doing. And I want to show you that my chat history is using ChatGPT, but actually have a Copilot equivalent. Just to show you these tools evolve really quickly and Copilot actually has features to do the same thing as ChatGPT for this scenario. So this is the issue. Super old, people with contacts, this is like, no, I'm here. Crap. I got to help fix it. Issues, super long. There's a ton of link issues to talk about how hard this issue is to fix. So I'm going to pull up the chat history. So here was the prompt I gave ChatGPT. I have a pool with concurrent queue and no limits. See the code here. I want to have an implementation. Give me some ways to free the memory. And if you zoom out, this is like a mini GC. But I don't want to write another GC, like what's the point? So the thing that these AI tools do really well is it lets you kind of rapidly iterate through ideas super fast. Who could you talk to on a team besides Stephen? I can give you four ideas and four implementations to go start from in two seconds. So I have this query in and it told me add a limit. Give me a sample code I could copy and paste and use. And in this pattern, I am not looking for a quick fix. I'm looking for the answer. I'm looking for more expression, more ideas. So this is the ideation phase. Give me four approaches. Don't give me the answer. So first one, add a limit. Super simple. Walk the entire queue. Super inefficient. That's one pattern. Second pattern, add some policy. Trimming on a timer. Other features. So I'm like reading this going, yeah, I can see in my head how we can work in Kestrel and other things. And in my head, I'm providing my context and my system. I'm kind of these suggestions. Now, I could book time with Damien or Steve or anyone and sit in a room for an hour and bang on some of these things. We would get to a
+
+whiteboard sketch at best. I'd go off at home and code for hours and hours and hours to get my first buggy implementation. This thing gave me four implementations in four seconds. Third one, expiration for blocks. So use date times per block to figure out when to expire things. And then number four, leverage a timer on idle. And, you know, combine different strategies. So as you're kind of going through this play back and forth with the AI, you're not looking to get the answer. It's not a quick fix. You're looking to find other approaches through exploring. So the follow up question is, what if we want to create a small GC? What would it be like? How hard is it? What's the overheads? And you're doing this back and forth idea bouncing. So let's implement a generational GC for the server. Like insane. Don't ever do this. But, you know, if I want to do it, how do you do it? So possible old young generation possible blocks. And I would say like this is where AI is super useful for this quick iteration. I'm not going to copy and paste this code and put it into Kestrel. But it let me have seven discussions in parallel with myself and the AI, and the team quickly to figure out what's going on. Just to show some of this. This goes on forever. I get to a point where talking about LRUs and different kinds of concepts. I even get to a point where I have it implement the first version of it. You know, locking is a bottleneck. Can you do a timer based eviction without locking? And as you know, the AI will glaze you. So I'm correct, obviously, right. You are correct. You are so smart for saying that. And you say, thank you, AI, and you keep going. So I did this for a while. I'm looking at different approaches. This fed the initial implementation that I spoke to our devs about. So we got to a place where, like, you evaluate all the tradeoffs, all the back and forth, all the things unique about this in the class of (inaudible) and servers and what we want to do for tradeoffs. Just to show you what works knowing and (inaudible). So when you're on GitHub, you actually click on this button in the corner. And chat. And the cool thing about doing it on GitHub -- this wasn't all here before -- was it has context of the actual memory pool. So you see this. It has the issue in context. And now you can come here and add more context. I can say, I think you can do only one thing. I want to say, help me look at some approaches to solving. This may not work. This is live demo with AI.
+
+Stephen Toub: David's brave. All of mine are screenshots. So same pattern, right. I start with this simple query. I get some ideas. Now, I will say it helps if you are if you know about the actual area. You don't want to go in and say I am not security expert. Tell me how to solve security. You want to have some context. So this was feedback for me to give to other experts to further have discussions. This is all about getting to getting from zero to something to have more conversations. I had an example at work where I was trying to make a modification to our security stack. But I knew I was like out of my depth. But I got enough confidence talking to ChatGPT to have a good one-on-one with one of our security people to say like could we approach it this way? So the whole takeaway here is using it for ideation is a superpower. Being able to iterate, have conversations, dive into different implementations, test them, prove that they're right or wrong. Using it to seed ideas has been for me a big, big boost. So at the end, what ended up happening was I had a conversation with one of our devs. I think that's this one. This is a pull request that I will -
+
+[inaudible]
+
+-- can pull it up. This is a pull request that is not merged yet, but it's actually going into main. Now, taking something from something that's a prototype that I gave to our engineer and turning it into this took a lot longer. So it wasn't as though we checked in the GPT code. This is battle tested, performance tested, had to add more counters, more metrics. The ideas for the metrics that were added to the pool. So, for example, these metrics, these ideas all came from that conversation. What things would you want to know if you were going to build a pool to know if it was working or not? So all the ideas for the metrics came from that competition. We always show code completion. We always show chat. We always show these features in Copilot. This is the thing I think we don't show enough. Just bouncing ideas and having someone to discuss things with someone, something. I saw a please and thank you.
+
+[ Laughter ]
+
+David Fowler: I say as well, in case it comes from me in the end. So this will be -- did I open a new window?
+
+Stephen Toub: Yeah.
+
+David Fowler: This should be merged, I think, pretty soon. Actually, did something pretty funny. If you scroll down, you see my code of your comments are all fixed now. But then this last one. I fed this implementation back into Copilot. And I said, review this for security, performance and threading issues. And it did this. Spoke about how this was so you can all read this. It talks about the hard coded time for eviction and scheduling. It spoke about adding metrics is a good thing. It spoke about the eviction algorithm itself and how it works. So we went from a very basic algorithm in the chat that I had. The engineer went off and he tried different variations, tried to figure out which things wouldn't regress performance and ended up with this modified version. And then I fed it back into Copilot and said, is this a reasonable tradeoff for what we want to accomplish? And it said, yeah, this is like pretty good. And I say, look for strengths. Adaptive trimming is threads. And I said, is this concurrent queue in flat increments? Activity aware. So it gave me an overview of just like the code that went from prototype in the AI to like this actual priority code. And then for the issues, it came up with potential races. And it actually can analyse, is it a bad race or not? So there's some issues here that are not a big deal like dispose. Double counting is not a big deal. No age. Who cares. I hope, right, it's all good. But at the very end, it gave me this wonderful, warm, fuzzy feeling green checks for most things. So all good. Merge.
+
+[ Laughter ]
+
+Stephen Toub: Awesome. That's a terrific example. And I also separately find myself doing a very similar thing using AI to bounce ideas off of. Yes. As some of you may know.NET has had a regular expression engine since 2003 or something. But we didn't really touch it or
+
+update it till about 20, I don't know, 2020 again, because it had been this wonderful engine. But over the course of those 20 years, the industry had moved on and it got to the point where it wasn't as good as it should be. So around.NET 5, we invested pretty heavily in overhauling the regular expression engine and again in.NET 7. And we did more in.NET 8 and more in.NET 9. And there's more being done and done at.NET 10.
+
+David Fowler: Stephen. (Inaudible).
+
+[ Laughter ]
+
+Stephen Toub: But along the way, that's not just profiling to see where there are opportunities in the code for improvement. It's also what's missing. What are the optimisations that we're missing based on what academia has come up with, what other engines are doing? So it was a lot of searching around and reading articles to figure out what we should be focussing on, where we should be optimising. Now, with AI, I can just have that conversation with the AI in this particular case. I'm using copilot.microsoft.com. And I'm asking and say, hey, I maintain the.NET 10 regex engine. I would like to add what are called literal optimisations where you're looking for literals, characters, or sets, or strings. And I want to be able to find them more quickly. So what should I be thinking about? Give me 20 examples of things that I should be thinking about. And it came back with a bunch of examples. And I'm reading through them going, eh, not exactly what I meant. And as it turns out, you need to be specific with these AI engines. You need to be very concrete about what you want. You need to give them examples. So I gave an example that actually what I meant was, for example, the engine already will look for a literal after a loop at the beginning of the pattern. And if it can find such a thing, then the code for the regex implementation will very quickly search using SIMD vectorisation for that literal. And then walk backwards through the loop to the beginning of the pattern. And when I did that, it came back with another 20 examples that were all much more on the mark. And I'm reading through them and we either already had most of them or some of them weren't actually valid. The AI isn't always 100 percent correct in these things. But as I'm reading through it, one of them jumps out at me. And in particular, this example about Lookaheads. And as someone who knows this code base really well, it hits me that we don't have any optimisations at all related to Lookaheads. We treat these things as these zero with assertions. And because there's zero with we skip over them for all these purposes. But we don't have to. There's valuable information there that we could leverage. So I tell the AI, hey, this is pretty interesting. I hadn't thought about that at all. I see multiple things we could do here. We could optimize both in terms of searching and also, we could optimize in terms of anchors. Am I right in thinking that if one of these comes at the beginning of the pattern, and there was an anchor at the beginning of the pattern that I could basically lift out that anchor and treat it as if it came at the beginning of the whole thing and then optimize based on that. I think there are probably some issues, but tell me what you think. I'm using it as a rubber duck. And it comes back and says, oh you're really smart, which is I always like. (Inaudible). Exactly. You're glorious. Yet here's some things to look out for. And the net results of that was a PR
+
+that will show up in.NET 10 to optimize this particular scenario. And as one example of that, if we look at the code that's generated by the source generator, this is the.NET 9 code for the routine that is generated for regex to find the next possible place where it could possibly match. And then there's a second routine that's invoked at each possible place where it could possibly match. And you can see in the.NET 9 code for this particular pattern, which is shown here in the PR, there is at the beginning of this pattern, there's a Lookahead with an anchor at the beginning. In the.NET 9 source generated code. This code is basically saying I'm going to match in any position where there's at least six characters remaining. It figured out from the pattern that every match had to be at least six characters. There's nothing here to do with the anchor. And that means that we're going to try and match at every single position in the input string. Whereas now on.NET 10, you can see there's this extra little thing here because we recognize that the anchor can be lifted out. And so now we will only ever try to match at the beginning. And after that, we're done. And so if we look at the perfect back to that, here, I'm using that same regex, which is looking to do a extract some information from possible SQL statements. And I'm running it over a data file, and it's about 10X faster because there's just a lot less work. And all of that came from using the LLM as a way of doing this ideation.
+
+David Fowler: Do you take credit for that work?
+
+Stephen Toub: No, the Copilot does. Yeah. I think it actually shares some credit.
+
+[ Laughter ]
+
+Co-written by. And there's a lot of other things that we actually did in regex. One of my favourite changes of all in all of.NET 10 is this one. And this was an AI driven change. Back in.NET 5. When we were first overhauling the regex implementation, we did a lot of work in the compiler. We did a lot of work in, well, in.NET 7, we did work in the source generator. We added all these optimisations. But the regex interpreter, which is the thing that you get if you don't specify any special options, it works by the pattern when you construct the regex, that pattern is basically lowered into a series of opcodes. And then the regex interpreter processes these opcodes. This was all written back in 2003. I have no idea who wrote it. That person is not around anymore. And it is written in a fairly cryptic manner using --
+
+David Fowler: Efficient, efficient.
+
+Stephen Toub: Efficient manner, that's right. Using names like Lazybranch, Branchmark, Nullcount. And the only comments about what these things do are set counter, null mark, branch first for loop.
+
+[ Laughter ]
+
+To the point where we actually checked in this comment that says, at some point, we should probably figure out what these things do.
+
+[ Laughter ]
+
+And that's been there for five years.
+
+[ Laughter ]
+
+So but AI now is really good at, give it a bunch of stuff, and it'll figure stuff out. So here we're getting Copilot. We're saying, please take a look at the opcodes. The regex interpreter, the regex writers, about 3000 lines of C# source. Figure out what all those opcodes do. And then please generate a nice XML comment that explains it to me. And you can see that's exactly what it did. And so instead of back jump straight first, this implements a non greedy branch for alternations and lazy quantifiers. That I can understand, right. And it did it for all these. And then you can see we just submitted that as a PR. Thank you, oh three.
+
+David Fowler: If you said explain to me like I'm five years old, it would have done a really good job. It probably would have done a really good job, yeah. I should actually try that and see what happens. And this use of AI for maintenance and comments, it shows up in a bunch of places. This is also one of my favourites. This isn't in.NET 10. This is in a separate library that we've built called the Model Context Protocol Library. You've probably heard of MCP. It's been in a bunch of sessions. This is a standard that Anthropic came up with back around November. And it's all the rage these days. And there's an official C# SDK, which we work on that's hosted by Anthropic. But when we started working on this, we had this massive C# code base with basically no comments. And so one of the developers who actually works on the Copilot agent that you saw this morning has his own little AI tool that he's written to script LLMs to do certain things. So he scripted the LLM to say for every method in this whole project, please generate a nice comment based on all the other context, all the other methods that are referencing it. And then he submitted a PR to the Model Context Protocol Library, adding 6000 lines of AI written XML comments. I then went and edited those back to about 4000 lines. But rather than me taking days, what would it take me literally days to write all of this documentation, it took me a few hours to do this editing and then get it merged. And you can see this now. If you go to the documentation site for the MCP C# SDK, these are all AI written comments based on that, plus a little bit of human intervention to make sure that we were communicating the right thing. And a lot of my deletions was just deleting stuff that was correct, but over the top. Who likes to write code comments? Who likes to write big dot comments? Who loves to document their code? Who keeps it up to date?
+
+[ Laughter ]
+
+Don't lie. It's fine.
+
+[inaudible] [ Laughter ]
+
+I find this to be one of the most useful parts of what I call toil. I don't want to say don't love to write documentation. My boss's looking. But I think this is the part where I just want. I don't want to spend too much brain power thinking about every single dot comment for every single public property method. So having the chance to just like spit out a starting point. For this entire API is huge for me. I don't like to write that much (inaudible).
+
+Stephen Toub: It gets you off. I have a really hard time with the blank page and getting started, and this gets me very far past the blank page. And then it's not just about getting past the blank page. It's also about further iteration. So within the MCP Library, there's the concept of a server tool where you can basically write a function. You attribute it as server tool, and all the parameters are automatically parsed from the request that's coming in and you can return various things out. And the implementation special cases, various return types for these tools and then does certain things for them. So, for example, if you return an AI content from the Microsoft extensions library, it does one thing. If you return text, it does another thing. If you return this, it does something else. And so on. There's no way, though, that a developer would just sort of know this. We need to put this into the documentation. So I can go up to Copilot and say this function has this big switch statement. Please write me an XML table and add it to the documentation to just do that for me. And that's exactly what it does. Now, I could have done this myself. It probably would have taken me ten minutes, maybe, but instead it took me 30 seconds. Well, 30 seconds to type and 30 seconds for the LLM to compute it. So it took me a minute. But you hear about 10X developers and how LLMs can turn you into 10X developers. This is the kind of thing that I see it doing. It's automating these trivial things that I could do. I know how to do, but I don't want to do. Just do it for me.
+
+David Fowler: Eat vegetables.
+
+Stephen Toub: Yes. Well, I do like vegetables.
+
+David Fowler: Oh, yeah.
+
+Stephen Toub: My kids don't like vegetables.
+
+[ Laughter ]
+
+And you can see the results, again, on the dock site showing up as a nice table because it shows up like this. All right. So we've talked about ideation. We've talked about maintainability. Now, the thing that we all love to do, actually writing code. And there are a bunch of examples where there is now code shipping in.NET 10 that was written a combination of AI and developers. So one of my favourite examples is a brand new method that shows up in link, which is the shuffle method. So if I have I numerable of int, let me just call source. And I just have a bunch of numbers here, then I could say Console.WriteLine string.Concat of souce.Shuffle. And all Shuffle does is it randomizes the input and gives you back randomized output. So in this case, I passed in 12345 and I got 34521. If I were to run it
+
+again, I'd get some other random sequence. And that's fine. It shuffles actually pretty simple. It's just like order by where order by is effectively just in this case. It would be results source.ToArray and then Array.Sort results. That's basically what order by is just in a lazy fashion. Shuffle is very similar. Shuffle is, instead of sort, it's Random.Shared.Shuffle results. So the basic implementation is super simple. But one of the really cool things in the link is the ability to flow information from one operator to another. So if I have my source and I say where whatever i to i mod 2 equals zero. And then maybe I said.Select. Sure, i times 2. Doesn't matter. Under the covers, we see when we get to the select that we came from aware. And rather than having two separate operators, we fuse them together into a single one. Here. that's just to save in some a little bit of overhead, some innumerable calling move next and calling occurrence on each element. But in other cases, it can actually change the algorithmic complexity. For example, if I say source.OrderBy and I'm going to order by from i. And then I say Take1, for example. Well, I don't actually need to do that full order and log and sort to then just take the first element, which is actually the min. I could just do source.min. And so under the covers, it's going to change this from an order and log n operation to an order n operation. That's just looking for the smallest value. And there are a bunch of those things that we can do with shuffle as well. So, for example, if I say source.Shuffle.Take. Let's say I say Take. I could just grab all the items, randomize them, and then take the first n from those. But maybe there's something more efficient I could do. So back in PowerPoint, which is where -- here it is. I gave that problem to Copilot. I said, I need to implement this method to do exactly what I just said. Is there something more efficient that I could do? And it immediately come back and said, yeah. You need to use a reservoir sampling. And I realized that made sense. We use reservoir sampling elsewhere in.NET actually, we use it in the JIT as part of PGO. Reservoir sampling allows you to do a single pass iteration through a sequence of values and pull out a uniformly distributed subset. It's exactly what I want to do here. And it allows me to basically avoid having to buffer up the full input. I can have an array of exactly the right size. If I'm taking 10 things, I can have an array of 10. And I can iterate once through the data and still end up with the same uniform distribution that I would have had had I done the full thing. Not only that, it gave me the code, and I was then able to double check. Is this right? Is this what I want. And I basically submitted the code pretty much as is. I tweaked it a little bit, changed some style out of the few optimisations that it missed. But for the most part, what's now in.NET 10, when you do shuffle.Take came from an implementation written by the AI. But wait, there's more. There's also, we can tack on additional things. So one of the other things we optimized in.NET 10 is when you add contains onto the end of some other sequence of operations, we can make that significantly faster. If you do OrderBy.contains, we can skip the OrderBy entirely. There's zero benefit. The Order.By is a no op. We don't want to pay the order and log n to just then look at the results and see whether it contains something because the sort doesn't change the answer at all. It just makes it slower. So we can do the same thing. Shuffle.Contains, again, just skips the shuffle. Shuffle.Take.Contains that was interesting. Now we're in a probability problem that is way out of my area of expertise. I hav
+
+from the original subset Take values. What is the probability that one of the ones that I selected matches one of the ones that was in that subset? I have no idea. (Inaudible). What's that? (Inaudible) Yes, it probably is. I do not know the answer, but AI does. So I gave it that exact problem. And it came back and said, yeah, what you want is what's called the hyper geometric distribution.
+
+David Fowler: Of course.
+
+Stephen Toub: And, of course, yeah.
+
+[ Laughter ]
+
+But I looked it up and it's right. That is exactly what a hyper geometric distribution is. And it gave me the code for it. And this part is a little embarrassing. You'll notice the code that it gave me has this cast here. But this wasn't exactly the style that I want. I move some things around. And by the time I got around to submitting my PR -- you can see this is my PR -- somehow that cast had disappeared. But Copilot to the rescue. It says this hyper geometric probability calculation I see you're doing, you might want to add a cast in here. And so I did (laughter). So it helped me write it and then it helped me fix it, the mistakes that I made after the fact. And you can see the impact of this. So first here, I'm running doing the sort of the Take and Contains manually. Then I'm doing Take using the actual take operator with contains manually. And then I'm doing Take.Contains. And you can see the impact this has on throughput. Going from 31 microseconds to 26 microseconds to four microseconds. But the bigger impact you can see is on allocation, where we go from having to allocate for the whole thing to just allocating for a little bit. And this comes just from having a dialogue with the LLM and saying, what can I do? How can I make this better?
+
+David Fowler: Which is pretty awesome. That's pretty good.
+
+[ Applause ]
+
+.NET 10 powered by AI. So you're going to have like stuff that we did with stuff.
+
+Stephen Toub: Stuff that we did and then stuff that AI.
+
+[ Laughter ]
+
+David Fowler: Yeah, that's nuts.
+
+Stephen Toub: And there are a bunch of things that AI has helped us. Again, some in.NET 10 and some in other libraries. Again, since this top of mind for me, since I've been spending so much time in it recently, Model Context Protocol. One of the things that's in Model Context Protocol is something called Resources. Resources is basically some byte content that the server has with a MIME type. And the server can have these resources that the client can request. And the client can request what are called direct resources, which is
+
+just a fixed URL that maps to a fixed resource. But it can also contain templated resources, which are URI templates from RFC 6570, I think it is. And so now there are some great libraries out there that provide implementations of URI templates. But we really wanted to limit the number of dependencies that this particular library had. We also didn't need the full implementation. We just needed a little bit of it. One of the things that we needed was a regex capable of parsing this particular syntax because we wanted to be given a template. We wanted to be able to say pull out all of the named template holes in this URI template so that we can map those two parameters and things like that. So I can ask the AI for a regex. And it did a remarkable job of generating one. Now, again, you need to know what you're doing. You need to pay attention. It didn't get it 100 percent right. I had to go back and confirm some things with the specification. But, for example, it was allowing for an unlimited number of digits. And I had to go modified to say, actually, the spec says you're only allowed to have four digits. And it wasn't getting percent encoding exactly correct. I had to go and modify that. But it gave me the foundation. It gave me the structure to make sure I had something. And this is what we ended up submitting as part of this PR, which if you all go and grab the latest MCP package, you're using this AI implemented regex augmented by Stephen for URI templates. Which also flows into testing. So we have this example that we created. We need to be able to test some of this stuff. There's another aspect of URI templates where on the client side you have the template and then you have variables and you need to basically populate the template with those variables. So we needed some formatting code to format these URI templates. Now, not only was the able to help me write that, but there's this really cool repo out there, which has sort of a standardized test suites for URI templates. This dates back like 13 years. And I wanted to be able to use all of this test suite to validate our code. So I asked the AI in this case, I'm using ChatGPT. Please go take a look at this repo and write me test code that will load, parse those test files, parse those data files, and then validate against this method that I have to make sure I'm doing the right thing. And it did a bang up job to the point I don't really have to change it at all. And if you go and look at that PR, that test code is there using the AI generated test code to validate the AI generated formatting logic. With me in the middle, just sort of making sure that all the right things were happening (inaudible).
+
+David Fowler: Job security.
+
+Stephen Toub: Job security. That's right.
+
+[ Laughter ]
+
+David Fowler: Orchestrate the agents.
+
+Stephen Toub: Then once this gets submitted, there were some test failures. I didn't still have the screenshot from the original PR. So this is from another PR, but same idea. There was a test failure. And what I would have done previously is scroll through the log looking for what the test failure was. Or maybe I know there's some keywords that I can search for.
+
+David Fowler: Like a savage.
+
+Stephen Toub: Yeah, exactly.
+
+[ Laughter ]
+
+But there's this really beautiful explain error, which is just prompting GitHub Copilot to say, hey, find me the problem. And rather than me having to scroll and probably take a minute, a couple seconds, it comes back and says, hey, the problem is with this particular test failure. Here's more details. Here's a proposed solution, and so on. It just saves time. One last testing example. Actually, it's both cogeneration and testing. One of the first things that I used AI to do in.NET 10 was help implement about 40 overloads on the MemoryExtensions type. This is where all of the nice helper methods that you get on spans comes from. And now in in C# 14 and.NET 10, all of those extension methods on span are also implicitly extension methods on array, which is really nice. So on MemoryExtensions, we have a whole bunch of APIs like index of any, index of any in range contains, and so on and so on. And they all are constrained where the T is an IEquatable. Which is good for most things we want to do, because most types that we deal with are IEquatable. But every once in a while, you're dealing with a type that's not, or you're dealing with something where you want to provide your own comparison semantics. And so you want to have an overload that also takes a comparer. So we've had this issue open since 2019. You know, Dave was talking about it, oh, I just overwrote the date. I'm not going to --
+
+David Fowler: Prepandemic.
+
+Stephen Toub: Yeah. So not quite the 10 years that we had with the memory pool, but still going back six years. And we finally got around to doing it. We added 40 overloads that all take a compare. And we can see one of the first things that I think both David and I explored when we used AI was just this ghost text. These completions. Well, these APIs are super similar to the ones that are already there. And once I'd implemented a few of the ones that are already there, the completions were perfect. You can see the ghost text filling in this implementation. And other than I think a space like a blank line right here, which you can see in my amazing PR --
+
+[ Laughter ]
+
+-- it is that implementation. So rather than writing 40 new methods, I wrote basically two and then tabbed my way to glory through all of these (inaudible).
+
+David Fowler: Do you do any work anymore? I'm not sure.
+
+[ Laughter ] [ Applause ]
+
+Stephen Toub: But this is about testing, right. So once I have these, now I need to test it. So I modified. We have a bunch of test methods. This particular file has about 40 tests for just
+
+one method. I think this is IndexOfAny. And so I modified two of the tests to basically not just test the one overload that doesn't take a compare, but also test the overload that does take a compare against a bunch of compares. And then I told the AI I've modified the first two tests. Take care of the rest, please. And it did. And I think I had to go and change one test at the very end, which had a different structure from the rest. So it couldn't quite figure out what to do with that one. But rather than having to modify 40 tests, I modified two tests. And it took care of the rest for me. And that ended up being that PR to add all those methods. All right. Let's do one more section on debugging. And I'm going to stop talking so that David can show you cooler things than slides.
+
+David Fowler: Oh, no.
+
+[ Laughter ]
+
+Stephen Toub: This is probably my favourite example in all this, because it just happened this past week. Now, I've done my best attempt at blacking out some stuff because this came from a partner team at Microsoft. But we get this email, the email you never want to get. That's hey, we're using your stuff. And it's messed up. It's causing us real problems in this particular case, they're basically saying we're using HTTP. We've replaced the -- we're not using sockets, though. We're using the connection callback to supply named Pipes instead. It's all working great. Except when things go idle, we start to see little memory leaks start to creep in, and they don't go away until we restart our server. And it's really small. It's not a big deal. We don't have to restart like every hour. It's like once every few days. But can you take a look at this? Because something seems wrong. And they did a little bit of debugging. They said, hey here's the we looked at a dump. And it seems like this is where all the leaked things are coming from. So I literally copy and paste that into Copilot. I knew that it was Pipes, System Nile Pipes because their emails had that in the stack. So I opened up the System (inaudible) Pipes Library, and I pasted the email just tagging it with I received the following email. I believe the bug is in Pipes. Can you please tell me what the problem is? And it did. It root caused it. It took it about, I think this was Claude. It took it about 45 seconds and it came back with identifying the exact method where the problem was and telling me what the problem was, which was that if there were any outstanding operations like announced a pending read operation when the pipe was being disposed of, the resources used by that pending read wouldn't get cleaned up. And it tried to fix it for me. Now, like I said, AI is not perfect. It gave me four different solutions. I hated them all. But the actual solution, which is still pending because this was like just this week, was just adding this case of, okay, well, if we're in this case, like I was missing this, this else if at the end. And that fixed it. And this is an example where, yeah, I could have figured this out. I could have spent the time going through it. It probably would have taken me half an hour poking around and looking at dumps and whatever else. But it was able to just point me in the right direction and make my effort, you know. It was something that I could do at the end of the day before going home, rather than something where I had to dedicate a whole day to figuring it out. >>2 So consider that was Stephen, the expert. Give it to a dev on the
+
+team was to get context, read the source, clone it down, figure all this stuff, read the email, get to the email and you're catching up. Days go by before you understand what's happening. The AI has -- give it enough context, enough source code, and it can help you jump forward and not have to go through that whole waiting through context through all these things. The thing it's really good at is giving a bunch of stuff. And you said, please wade through the information and give me a summary. Give me a digest. And I think using that technical code is super useful. So a final example. And remember I said that I added one set of slides today. That's because this morning, the Copilot --
+
+David Fowler: The Copilot agent, is that what it's called?
+
+Stephen Toub: Copilot agent -- was that I hadn't played with it yet. And now I've already, I think, applied it to like six or seven PRs. Not all of them worked, but this one did. So there was this very complete issue where (inaudible), who is a dev on our networking team, identified a problem. He outlined the issue. And this is a really great example where a Copilot agent is helpful. The solution is clear here. We know what the issue is. It's a small issue, but he didn't have time to address it. He threw up an issue. It would probably take one of us 20 or 30 minutes to clean our repo, get it to the right state, go and make the change, write the test, submit the PR and so on. In this case, I just assigned it to Copilot. And a few minutes later, it had a PR up that was, again, not doing terribly hard work. It added the comment and it added one line. But after this happened, I was like, hey, (inaudible), I'm thinking of using this as an example because this looks right. Is this right? He said, yeah, the test isn't exactly what I would have written, but the fix is exactly what I would have done. And so this is just another example of how we can kick off work to the AI and let it take care of this stuff for us. So hopefully this will be merged in the next few days. And that issue, which may have just sat there for a while, will be taken care of. And with that --
+
+David Fowler: Incredible.
+
+Stephen Toub: -- we've had enough slides. So (inaudible).
+
+[ Applause ]
+
+David Fowler: Amazing. So now I know Steven doesn't do any more work. (Inaudible). All he does is tell these --
+
+Stephen Toub: Steve, cover your ears.
+
+David Fowler: It makes so much sense now.
+
+Stephen Toub: It's my boss.
+
+David Fowler: I want to give an example on the (inaudible) that happened to us like a couple of months ago. There was a bug where -- and I'll show an example -- and where I use
+
+AI the most for these small coding tasks. The bug is this. I am trying to have a compose file on the compose file has an expression. To evaluate an environment variable, try to find see if the test has an example. There's a command like this. It has one dot sign in the compose file. You can see this.
+
+Stephen Toub: This is (inaudible)?
+
+David Fowler: If I zoom in, this is definitely ammo.
+
+Stephen Toub: Yeah, I don't want to look at.
+
+David Fowler: I agree. So what you have to do. So what happens normally is when you run Compose Up, it'll try to evaluate all of the dollar variables in the compose file. But I want to defer that to run time. So don't do it at parse time. I can (inaudible) do it at runtime of the container itself. So you have to escape every environment variable reference in the compose file. So we have to parse the commands and figure out what they are. And that coding task is one of these like super annoying -- you've got to handle it in strings. You've got to handle it in quotes. You've got to handle in double quotes. You've got to handle all the weird edge cases of shell scripts. So I was like, okay, what if I could write a piece of code? I could just like take in a string and return me an escaped string. Super simple in theory.
+
+Stephen Toub: And you wrote that all manually by hand, right.
+
+David Fowler: So I pointed this thing. I said, let me see if I can get this to be done by AI. Because this is one of the things I just don't want to spend time on. And I had the AI -- so this. I won't show it here, but this took a ton of prompting, different LLMs. I had to generate the code to actually see it has safety (inaudible). It went through a ton of iterations of make it super efficient, make it secure. It's using spans. It's going to handle all the escape routines. This is the kind of thing you can throw at these machines. It's isolated. It's a single function, essentially. And then the best part, the test. Who wants to write these edge cases -- it literally came up with all these test results. I'll just like zoom it here so you can see properly.
+
+Stephen Toub: That was a really long scrollbar.
+
+David Fowler: I know, right? This is like -- -- can't, can't, can't hide stuff. If I scroll down and look for the test. The test with the best part. The most fun story about these tests, so it added all these edge cases to handle, double escaping to figure out if it done the right thing. And the (inaudible) so this test, like no one would write this test in real life. This is like just a stress test. So I send a PR and someone said, you didn't write this code.
+
+[ Laughter ]
+
+Definitely not. The best part about using AI is you can blame it when -- you can save face and just say it did that. And then you can laugh it off and then fix it embarrassingly.
+
+Stephen Toub: Silly.
+
+David Fowler: Silly AI. One of the coolest things about this or funny things about this test was the LLM could not make the test pass. So it wrote the code and the test, and then two tests kept failing. And I put it into every single model on the planet. Gemini, you name it. Gemini, Claude. And it turns out that there were two test cases that were conflicting. So it would fix the bug and then it would cause them to fail. And it would fix -- and it was like -- and I couldn't fix it. It was pretty funny. But this took me like a couple like 30 minutes to get done. This is the issue that I just hate to fix. It's like a well understood issue. But it would take me a tone of time to just do this thing I think is very low value. I don't want to spend time running a shell script process like ridiculous, right. I think having that power at your hands makes you want to do more and more. And I'm hoping with Copilot Agent, we can get more of these issues fixed over time. Okay. So what I wanted to do now was try to do something like if this doesn't work, you pretend it does work. Silly, and you clap anyway, okay. So the goal is this. Can we take one of these issues live on stage from the Aspire Repository? I have a different levels of difficulty from easy to like they can't do that. And can I use some of the tools like Agent Mode and VS and VS code to see if we can pull off a PR on stage? So this one is I think is pretty easy. This one is adding a property to a bunch of Aspire Azure resources. Shouldn't be too hard. Now, there's this new feature that I use maybe once called Code with Copilot and Agent Mode. Has anyone here used Agent Mode before? Did it work for you? Yeah-ish? Sometimes. Let's see what happens. So the Aspire Repository is configured to use code spaces. Anyone use this feature in your work? And did they work? No. Yes. It's pretty cool. So one person. Yay. Me and you. Two people, two, three. This can be done locally as well. The thing about using code spaces in GitHub is it moves the issue context into the prompt. So you say fix the issue with Copilot and it spins up a code space in the cloud. And if all goes well, it should open up just fine and it will spin up the prompt. If it doesn't work, we'll go to the local version. Yay, it kind of works. What we're going to do is we're going to attempt to fix this issue.
+
+Stephen Toub: You can do it --
+
+David Fowler: Real time. All right, still opening remote. Why is this signed out?
+
+Stephen Toub: You can do it.
+
+David Fowler: All right. Almost. Uploaded. Is it going to do a thing?
+
+[ Whistle ]
+
+All right. It's working. So now it has the issue context. It's going to say, let me scan the code base to figure out. And the name is potential Halibut. OK, that's pretty cool name.
+
+[ Laughter ]
+
+So it figures something out. It says we should be done. It's going really fast. I have to read it. It's like a junior dentist that's super eager.
+
+[ Laughter ]
+
+Calm down, this like, settle down, okay. We'll get this fixed in this way, I promize. Yes.
+
+[ Laughter ]
+
+Do your job.
+
+[ Laughter ]
+
+Stephen Toub: What did it ask you?
+
+David Fowler: I don't even know.
+
+Stephen Toub: Okay.
+
+[ Laughter ]
+
+David Fowler: I think it said, do you want to see a proof of concept of storage?
+
+[ Laughter ]
+
+Yeah. So start with like two files. Make a small change. I'll see the (inaudible). And if it's good, do to the whole repository. So read a ton of lines. I'll say one thing with Agent Mode. It does a better job at figuring out context. Before you had to look in and add context about which file, which project, which folder. Now it does a bunch of searching, which is super nice. So it's doing a bunch of searches to find Azure resources. It found Service Bus, it found Cosmos DB. If it gets really tired, it does sometimes, you have to give it some water. And it will ask you, do you want to continue searching or do you just like move on? All right, so hopefully, at some point it will make a change and not just search for things.
+
+Stephen Toub: But no matter what it asks, we say yes, right?
+
+David Fowler: You say yes.
+
+[ Laughter ]
+
+Stephen Toub: You don't want to anger the AI.
+
+David Fowler: And sure, bah, blah, blah, blah, blah, blah, me. What are you saying? I mean, they all have. No, we want to expose a name Output Reference Property from these resources. Property is like part of the property name.
+
+Stephen Toub: Oh, it's doing something.
+
+David Fowler: Earning its money. All right. Let's see what happens. Okay. Look at that. All right, first one. Service.
+
+Stephen Toub: I notice while it's doing this, you're using GPT-4.1. Is that on purpose or you just use the default? That's default. It's pretty good. It's good for coding. I say GPT-4.1 is pretty good. Claude is also really good. But I think GPT-4.1 is the (inaudible). I think Claude, in my experience, so far at least. One thing you learn is like trying models for different tasks is a thing you do know. So you're trying to figure out do you want like a deep thought old model? Are you trying to ideate and figure out more complex tasks or is this a very simple coding task? I think you can get different results based on what the task is at hand. This is a very simple find the property in every single resource of this type. Expose it. Add a dot comment. You see it added a dot comment. The funny thing is here about the dot comments is in this Repository, dot comments are required. When you add a new public API, you must have a dot comment. The AI kind of went through. And now I have I think six resources changed. All have dot comments. That's awesome.
+
+David Fowler: Yup. All exposed, all public. Still going. Seven. And it said it's done. It's done its job. I can say, I want to keep this. Looks pretty good.
+
+Stephen Toub: And now just like you should have said yes for that verify. You just submit the PR without verifying, right.
+
+David Fowler: Yeah. I mean I have a (inaudible) machine that will check if it builds so that's all good. That's what we do, right? Do any tests need to be updated? So I think it basically turned properties that were private to be public. There isn't really much, I think, of a difference to the test.
+
+Stephen Toub: So maybe nothing to change, but maybe something to add.
+
+David Fowler: Yeah. No, what, add?
+
+Stephen Toub: Sorry, apologies.
+
+David Fowler: Submit with no testing. It's all good. All right, so this (inaudible) where it says no test required. I cannot believe it. Do you believe it? Okay, let's add on (inaudible). Let's --
+
+Stephen Toub: We say yes to everything.
+
+David Fowler: Add some tests.
+
+[inaudible]
+
+I will say, like, over time, you can be more vague if it has a lot of context. You have to test to see what works for different situations. If you're too vague, it can't figure it out. If you have a history of conversation, it can figure it out without you being verbose every time. So the chat history is the context. The more you give it, the more it has to understand what the previous
+
+things meant. I can say add test for it. And it knows it's the current feature being worked on versus when I first start, I'm trying to give it all the source code, all the issue, like figure stuff out. And then once you're in the conversation, you can push it forward by doing small things.
+
+Stephen Toub: It looks like it's --
+
+David Fowler: So now it's adding a test. Wow. Okay. Wonderful. It doesn't even compile.But it got me somewhere. I'll get rid of those. It added a unit test to that. Wonderful.
+
+Stephen Toub: Nice.
+
+David Fowler: Wonderful. Let's just commit this.
+
+[ Laughter ]
+
+Branch, added. Names on stage. All right. Let's use (inaudible). We'll comment for the pull request. Wonderf -- and that's good, right? Fun story. I watched some (inaudible) on cursor (inaudible) Use Cursor on Youtube. And he was writing code. But he would do this. And generate -- it was good. Accept. Cool. Cool, cool. Cool, cool. Look good, maybe. Probably. Everyone give me a review. Does this look good? Yeah? Signed off? If it's bad, it's your fault, okay?
+
+[ Laughter ]
+
+If the product tanks in quality, just remember, remember your problem. All right. Let's create a pull request. The team will definitely not merge. What if the Copilot -- Can it review itself?
+
+[ Laughter ]
+
+This is new. I haven't done this before. This is nuts.
+
+[ Laughter ]
+
+I'm not sure how I -- -- that (inaudible). That's a plant. That feels like left hand, right hand. I don't know what that.
+
+Stephen Toub: Submit it anyway.
+
+David Fowler: No way.
+
+Stephen Toub: And while you're doing that, I'm going to switch back to my machine.
+
+David Fowler: Done.
+
+Ste
+
+David Fowler: We're good.
+
+Stephen Toub: All right.
+
+[ Applause ]
+
+Merge.
+
+David Fowler: Damien, merge that. Merge it quickly.
+
+[ Laughter ]
+
+Stephen Toub: So with that, hopefully, not everything was something you had already done. Hopefully, you got some ideas for things to go and try. And you can go and take advantage of AI to help make yourself better. Explore, try new things. As David was saying, there are new tools every day. There are new models every day. There's always something new to explore and learn and see how to benefit from. We're trying new things. You saw with the Copilot agent. That was the first time I tried it this morning. I'm going to be trying it a lot more. With that, we'll say thank you very much.
+
+[ Applause ]
+
+END
