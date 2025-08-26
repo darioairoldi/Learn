@@ -24,27 +24,27 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        lfs: true
-        lfs-include: |
-          docs/**/*.png
-          docs/**/*.jpg
-          docs/**/*.jpeg
-          docs/**/*.gif
-          assets/**/*.png
-          assets/**/*.jpg
-          *.png
-          *.jpg
-          *.jpeg
-        # Exclude large files not needed for build
-        lfs-exclude: |
-          **/*.mp4
-          **/*.avi
-          **/*.mov
-          **/*.zip
-          **/*.exe
-          **/*.msi
-          **/*.pdf  
+      # with:
+      #   lfs: true
+      #   lfs-include: |
+      #     docs/**/*.png
+      #     docs/**/*.jpg
+      #     docs/**/*.jpeg
+      #     docs/**/*.gif
+      #     assets/**/*.png
+      #     assets/**/*.jpg
+      #     *.png
+      #     *.jpg
+      #     *.jpeg
+      #   # Exclude large files not needed for build
+      #   lfs-exclude: |
+      #     **/*.mp4
+      #     **/*.avi
+      #     **/*.mov
+      #     **/*.zip
+      #     **/*.exe
+      #     **/*.msi
+      #     **/*.pdf  
 
     - name: Setup Quarto
       uses: quarto-dev/quarto-actions/setup@v2
