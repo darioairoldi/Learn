@@ -43,6 +43,15 @@
 nav[role="doc-toc"]:not(#custom-right-nav nav) {
   margin-bottom: 1rem !important;
 }
+
+/* Styling for section labels in Related Pages */
+.nav-section-label {
+  display: block;
+  padding: 0.25rem 0;
+  color: #2780e3;
+  font-weight: 600;
+  text-decoration: none;
+}
 </style>
 
 <script>
@@ -183,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Find siblings using navigation.json configuration
+    // Find siblings using navigation.json configuration - FIXED VERSION
     function findSiblingsFromConfig() {
       const currentPath = getCurrentPagePath();
       console.log('🔍 Looking for current page in config:', currentPath);
@@ -199,14 +208,24 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('✅ Found current item:', item.text || item.section);
       
       if (item.contents && item.contents.length > 0) {
-        // This is a section - show children
-        console.log('📂 Section node - showing children');
-        const children = item.contents.filter(child => child.href && child.href !== '#');
-        console.log('📂 Found children:', children.map(c => c.text || c.section));
-        return children.map(child => ({
+        // This is a section - show ONLY first-level children (sections, not individual pages)
+        console.log('📂 Section node - showing first-level children');
+        
+        const firstLevelChildren = item.contents.filter(child => 
+          // Show items that are sections (have their own contents) OR are direct pages without subsections
+          child.section || (child.text && child.href && child.href !== '#' && !child.contents)
+        );
+        
+        // If we have sections, prefer showing sections over individual pages
+        const sectionsOnly = firstLevelChildren.filter(child => child.section && child.contents);
+        const pagesToShow = sectionsOnly.length > 0 ? sectionsOnly : firstLevelChildren;
+        
+        console.log('📂 Found first-level children:', pagesToShow.map(c => c.text || c.section));
+        return pagesToShow.map(child => ({
           text: child.text || child.section,
-          href: child.href,
-          isActive: false
+          href: child.href || '#', // Use # for sections without direct href
+          isActive: false,
+          isSection: !!child.section
         }));
       } else {
         // This is a leaf - show siblings
@@ -218,7 +237,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return siblingItems.map(sibling => ({
           text: sibling.text || sibling.section,
           href: sibling.href,
-          isActive: sibling === item
+          isActive: sibling === item,
+          isSection: !!sibling.section
         }));
       }
     }
@@ -285,7 +305,8 @@ document.addEventListener('DOMContentLoaded', function() {
           siblings.push({
             text: item.textContent.trim(),
             href: href,
-            isActive: item.classList.contains('active')
+            isActive: item.classList.contains('active'),
+            isSection: false
           });
         }
       });
@@ -379,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // OPTIMIZED: Render only sibling pages, not entire navigation tree
+    // OPTIMIZED: Render only sibling pages, not entire navigation tree - UPDATED WITH SECTION SUPPORT
     function renderRightNav() {
       try {
         const customNav = document.querySelector('#custom-right-nav');
@@ -404,16 +425,30 @@ document.addEventListener('DOMContentLoaded', function() {
           const listItem = document.createElement('li');
           listItem.className = 'nav-item';
           
-          const link = document.createElement('a');
-          link.href = sibling.href;
-          link.textContent = sibling.text;
-          link.className = 'nav-link';
-          
-          if (sibling.isActive) {
-            link.classList.add('active');
+          if (sibling.isSection && sibling.href === '#') {
+            // This is a section without a direct link - make it a label
+            const span = document.createElement('span');
+            span.textContent = sibling.text;
+            span.className = 'nav-section-label';
+            listItem.appendChild(span);
+          } else {
+            // This is a regular link
+            const link = document.createElement('a');
+            link.href = sibling.href;
+            link.textContent = sibling.text;
+            link.className = 'nav-link';
+            
+            if (sibling.isSection) {
+              link.style.fontWeight = '600';
+            }
+            
+            if (sibling.isActive) {
+              link.classList.add('active');
+            }
+            
+            listItem.appendChild(link);
           }
           
-          listItem.appendChild(link);
           navContainer.appendChild(listItem);
         });
         

@@ -347,6 +347,8 @@ website:
                     text: "Quarto specific markdown features"
                   - href: "20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md"
                     text: "Quarto Theming and Styling"
+                  - href: "20250712 Use QUARTO doc for Github repos doc/007.01. Optimizing Quarto build and deploy.md"
+                    text: "Optimizing Quarto Build and Deploy"
                   - href: "20250712 Use QUARTO doc for Github repos doc/009.00 How does sidebar works.md"
                     text: "How does sidebar works"
               - href: "20250713 Use http files for easy and repeatable test/README.md"
