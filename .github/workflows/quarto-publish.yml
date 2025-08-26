@@ -46,6 +46,13 @@ jobs:
       #     **/*.msi
       #     **/*.pdf  
 
+    - name: Test WSL Access
+      shell: pwsh
+      run: |
+        Write-Host "Testing WSL availability..."
+        wsl --list --verbose
+        wsl --exec echo "WSL is working!"
+
     - name: Setup Quarto
       uses: quarto-dev/quarto-actions/setup@v2
       with:
