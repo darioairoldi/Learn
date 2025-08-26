@@ -66,10 +66,10 @@ jobs:
       run: |
         Write-Host "Testing WSL availability..."
         
-        # Test WSL directly
-        C:\Windows\System32\wsl.exe --version
-        C:\Windows\System32\wsl.exe --list --verbose
-        C:\Windows\System32\wsl.exe --exec echo "WSL is working!"
+        # Test WSL directly using call operator
+        & "C:\Windows\System32\wsl.exe" --version
+        & "C:\Windows\System32\wsl.exe" --list --verbose  
+        & "C:\Windows\System32\wsl.exe" --exec echo "WSL is working!"
 
     - name: Setup Quarto
       uses: quarto-dev/quarto-actions/setup@v2
