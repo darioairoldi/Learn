@@ -1,0 +1,434 @@
+<div id="custom-right-nav" style="display: none;">
+  <div class="toc-title">Related Pages</div>
+  <nav class="toc" role="doc-toc">
+    <ul>
+      <li><em>Loading...</em></li>
+    </ul>
+  </nav>
+</div>
+
+<style>
+/* Professional Related Pages navigation styling - RIGHT SIDEBAR ONLY */
+#custom-right-nav {
+  width: 100%;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 2rem; /* Add spacing from native TOC */
+  font-size: 0.9rem;
+  max-height: 60vh; /* Reduced from 70vh to leave space for native TOC */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Ensure our custom nav doesn't interfere with native TOC styling */
+#custom-right-nav.custom-navigation {
+  background: #f0f8ff; /* Slightly different background to distinguish from native TOC */
+  border-color: #2780e3;
+}
+
+#custom-right-nav .toc-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2780e3;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #2780e3;
+}
+
+/* Ensure native TOC is not affected by our styles */
+#TOC, 
+.table-of-contents:not(#custom-right-nav .table-of-contents),
+nav[role="doc-toc"]:not(#custom-right-nav nav) {
+  margin-bottom: 1rem !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('📋 Related Pages navigation loading...');
+  
+  // Global navigation structure from navigation.json
+  let navigationConfig = null;
+  
+  // Wrap everything in try-catch to prevent other JS errors from breaking this
+  try {
+    // Load navigation configuration (much cleaner than YAML parsing!)
+    async function loadNavigationConfig() {
+      try {
+        console.log('🔄 Loading navigation.json configuration...');
+        const response = await fetch('navigation.json');
+        if (response.ok) {
+          navigationConfig = await response.json();
+          console.log('✅ Loaded navigation config:', navigationConfig);
+          
+          // Re-render navigation with config data
+          renderRightNav();
+        } else {
+          console.log('⚠️ Could not load navigation.json, falling back to DOM parsing');
+          renderRightNav(); // Fall back to DOM parsing
+        }
+      } catch (error) {
+        console.log('⚠️ Error loading navigation.json:', error);
+        renderRightNav(); // Fall back to DOM parsing
+      }
+    }
+    
+    // Handle responsive layout function
+    function handleResponsiveLayout() {
+      const customNav = document.querySelector('#custom-right-nav');
+      if (!customNav) return;
+      
+      const isMobile = window.innerWidth <= 800;
+      
+      if (isMobile) {
+        customNav.style.display = 'none';
+      } else if (customNav.classList.contains('has-content')) {
+        customNav.style.display = 'block';
+      }
+    }
+    
+    // Initialize right navigation with minimal delay
+    function initializeRightNav() {
+      console.log('🚀 Initializing right navigation...');
+      
+      try {
+        setTimeout(() => {
+          createCustomRightNav();
+          handleResponsiveLayout();
+          // Load config after creating nav
+          loadNavigationConfig();
+        }, 300);
+      } catch (error) {
+        console.error('❌ Error in initializeRightNav:', error);
+      }
+    }
+    
+    // Try immediately for any page
+    initializeRightNav();
+    
+    // Also try when the page is fully loaded
+    window.addEventListener('load', function() {
+      console.log('📄 Page loaded, rendering right nav...');
+      try {
+        setTimeout(renderRightNav, 200);
+      } catch (error) {
+        console.error('❌ Error in load event:', error);
+      }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', handleResponsiveLayout);
+    
+    // ALSO: Listen for sidebar clicks to trigger updates
+    document.addEventListener('click', function(event) {
+      try {
+        // Check if a sidebar item was clicked
+        const sidebarItem = event.target.closest('.sidebar-item-text, .nav-link');
+        if (sidebarItem && sidebarItem.closest('#quarto-sidebar')) {
+          console.log('🖱️ Sidebar item clicked:', sidebarItem.textContent.trim());
+          // Delay slightly to let Quarto update the active states
+          setTimeout(renderRightNav, 100);
+        }
+      } catch (error) {
+        console.error('❌ Error in click handler:', error);
+      }
+    });
+    
+    // Get current page path
+    function getCurrentPagePath() {
+      try {
+        let path = window.location.pathname;
+        
+        if (path === '/' || path === '') {
+          return 'index';
+        }
+        
+        // Remove leading slash and decode URI components
+        path = path.replace(/^\//, '');
+        try {
+          path = decodeURIComponent(path);
+        } catch (e) {
+          console.log('⚠️ URI decoding failed');
+        }
+        
+        // Remove .html extension and normalize
+        path = path.replace('.html', '');
+        
+        // DEBUG: Log the path processing
+        console.log('🔍 Original pathname:', window.location.pathname);
+        console.log('🔍 Processed path:', path);
+        
+        return path;
+      } catch (error) {
+        console.error('❌ Error in getCurrentPagePath:', error);
+        return '';
+      }
+    }
+    
+    // ENHANCED: Use navigation.json config if available, fall back to DOM parsing
+    function findCurrentPageSiblings() {
+      try {
+        if (navigationConfig && navigationConfig.contents) {
+          console.log('✅ Using navigation.json configuration for navigation');
+          return findSiblingsFromConfig();
+        } else {
+          console.log('⚠️ Using DOM parsing fallback');
+          return findSiblingsFromDOM();
+        }
+      } catch (error) {
+        console.error('❌ Error in findCurrentPageSiblings:', error);
+        return null;
+      }
+    }
+    
+    // Find siblings using navigation.json configuration
+    function findSiblingsFromConfig() {
+      const currentPath = getCurrentPagePath();
+      console.log('🔍 Looking for current page in config:', currentPath);
+      
+      // Find current item in the configuration
+      const result = findItemInConfig(navigationConfig.contents, currentPath);
+      if (!result) {
+        console.log('❌ Current page not found in config');
+        return [];
+      }
+      
+      const { item, parent, siblings } = result;
+      console.log('✅ Found current item:', item.text || item.section);
+      
+      if (item.contents && item.contents.length > 0) {
+        // This is a section - show children
+        console.log('📂 Section node - showing children');
+        const children = item.contents.filter(child => child.href && child.href !== '#');
+        console.log('📂 Found children:', children.map(c => c.text || c.section));
+        return children.map(child => ({
+          text: child.text || child.section,
+          href: child.href,
+          isActive: false
+        }));
+      } else {
+        // This is a leaf - show siblings
+        console.log('📄 Leaf node - showing siblings');
+        const siblingItems = siblings.filter(sibling => 
+          sibling.href && sibling.href !== '#' && sibling !== item
+        );
+        console.log('📄 Found siblings:', siblingItems.map(s => s.text || s.section));
+        return siblingItems.map(sibling => ({
+          text: sibling.text || sibling.section,
+          href: sibling.href,
+          isActive: sibling === item
+        }));
+      }
+    }
+    
+    // Recursively find item in config structure
+    function findItemInConfig(items, targetPath, parent = null) {
+      if (!items || !Array.isArray(items)) return null;
+      
+      for (const item of items) {
+        if (item.href && pathsMatch(item.href, targetPath)) {
+          return { 
+            item, 
+            parent, 
+            siblings: parent ? parent.contents : items 
+          };
+        }
+        
+        if (item.contents && item.contents.length > 0) {
+          const found = findItemInConfig(item.contents, targetPath, item);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
+    
+    // Check if two paths match (with various normalizations)
+    function pathsMatch(configPath, currentPath) {
+      const normalize = (path) => {
+        return path.toLowerCase()
+          .replace(/\\/g, '/')
+          .replace(/\.(md|html|qmd)$/, '')
+          .replace(/^\/+/, '')
+          .trim();
+      };
+      
+      const normalizedConfig = normalize(configPath);
+      const normalizedCurrent = normalize(currentPath);
+      
+      return normalizedConfig === normalizedCurrent ||
+             normalizedConfig.endsWith(normalizedCurrent) ||
+             normalizedCurrent.endsWith(normalizedConfig) ||
+             normalizedConfig.split('/').pop() === normalizedCurrent.split('/').pop();
+    }
+    
+    // Fallback DOM parsing (simplified version of previous logic)
+    function findSiblingsFromDOM() {
+      const sidebar = document.querySelector('#quarto-sidebar');
+      if (!sidebar) return [];
+      
+      const activeItem = sidebar.querySelector('.sidebar-item-text.active');
+      if (!activeItem) return [];
+      
+      const activeContainer = activeItem.closest('.sidebar-item');
+      const parentContainer = activeContainer.parentElement;
+      
+      if (!parentContainer) return [];
+      
+      const siblings = [];
+      const siblingItems = parentContainer.querySelectorAll(':scope > .sidebar-item .sidebar-item-text[href]');
+      
+      siblingItems.forEach(item => {
+        const href = item.getAttribute('href');
+        if (href && href !== '#') {
+          siblings.push({
+            text: item.textContent.trim(),
+            href: href,
+            isActive: item.classList.contains('active')
+          });
+        }
+      });
+      
+      return siblings;
+    }
+
+    function createCustomRightNav() {
+      try {
+        console.log('🏗️ Creating custom right nav...');
+        
+        // Find right sidebar container
+        const containerSelectors = [
+          '#quarto-margin-sidebar',
+          '.margin-sidebar', 
+          '#quarto-sidebar-toc'
+        ];
+        
+        let targetContainer = null;
+        for (const selector of containerSelectors) {
+          const found = document.querySelector(selector);
+          if (found) {
+            targetContainer = found;
+            console.log('✅ Found right sidebar container:', selector);
+            break;
+          }
+        }
+
+        if (!targetContainer) {
+          console.log('⚠️ Creating fallback right sidebar container...');
+          const rightSidebarContainer = document.createElement('div');
+          rightSidebarContainer.id = 'custom-margin-sidebar';
+          rightSidebarContainer.style.cssText = `
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            width: 250px;
+            max-height: 60vh;
+            overflow-y: auto;
+            z-index: 1000;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          `;
+          document.body.appendChild(rightSidebarContainer);
+          targetContainer = rightSidebarContainer;
+          console.log('✅ Created fallback container');
+        }
+
+        // Remove existing custom nav
+        const existing = document.querySelector('#custom-right-nav');
+        if (existing) {
+          existing.remove();
+        }
+
+        // Preserve existing TOC
+        const existingToc = targetContainer.querySelector('#TOC, .table-of-contents, nav[role="doc-toc"]:not(#custom-right-nav nav)');
+        if (existingToc) {
+          console.log('✅ Preserving existing Quarto TOC');
+        }
+
+        // Create the custom nav element
+        const customNav = document.createElement('div');
+        customNav.id = 'custom-right-nav';
+        customNav.className = 'toc-right custom-navigation';
+        customNav.innerHTML = `
+          <div class="toc-title">Related Pages</div>
+          <nav class="toc" role="doc-toc">
+            <ul>
+              <li><em>Loading...</em></li>
+            </ul>
+          </nav>
+        `;
+
+        // Insert after existing TOC or append to container
+        if (existingToc) {
+          customNav.style.marginTop = '2rem';
+          existingToc.parentNode.insertBefore(customNav, existingToc.nextSibling);
+        } else {
+          targetContainer.appendChild(customNav);
+        }
+
+        console.log('✅ Custom nav created');
+        
+        // Render content immediately
+        setTimeout(renderRightNav, 100);
+      } catch (error) {
+        console.error('❌ Error in createCustomRightNav:', error);
+      }
+    }
+    
+    // OPTIMIZED: Render only sibling pages, not entire navigation tree
+    function renderRightNav() {
+      try {
+        const customNav = document.querySelector('#custom-right-nav');
+        if (!customNav) return;
+        
+        const siblings = findCurrentPageSiblings();
+        const navContainer = customNav.querySelector('.toc > ul');
+        
+        if (!navContainer) return;
+        
+        // Clear existing content
+        navContainer.innerHTML = '';
+        
+        if (!siblings || siblings.length === 0) {
+          navContainer.innerHTML = '<li><em>No related pages found</em></li>';
+          console.log('📄 No related pages to show');
+          return;
+        }
+        
+        // Render sibling pages
+        siblings.forEach(sibling => {
+          const listItem = document.createElement('li');
+          listItem.className = 'nav-item';
+          
+          const link = document.createElement('a');
+          link.href = sibling.href;
+          link.textContent = sibling.text;
+          link.className = 'nav-link';
+          
+          if (sibling.isActive) {
+            link.classList.add('active');
+          }
+          
+          listItem.appendChild(link);
+          navContainer.appendChild(listItem);
+        });
+        
+        customNav.classList.add('has-content');
+        handleResponsiveLayout();
+        
+        const source = navigationConfig ? 'navigation.json config' : 'DOM parsing';
+        console.log(`✅ Related pages rendered from ${source}:`, siblings.length, 'items');
+      } catch (error) {
+        console.error('❌ Error in renderRightNav:', error);
+      }
+    }
+    
+  } catch (error) {
+    console.error('❌ Fatal error in Related Pages navigation:', error);
+  }
+});
+</script>

@@ -1,0 +1,110 @@
+<!-- Bootstrap Icons CDN - ensures icons are loaded -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Navbar and general icon fixes -->
+<style>
+/* Ensure icons display properly in navbar */
+.navbar .bi {
+    font-size: 1.2em;
+    margin-right: 0.5rem;
+}
+
+/* Fix for missing icons in navigation */
+.navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* GitHub icon - ensure it shows properly */
+.navbar-nav a[aria-label="GitHub Repository"] {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav a[aria-label="GitHub Repository"]:before {
+    content: "\F3ED";
+    font-family: "bootstrap-icons" !important;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+/* Home icon for navbar */
+.navbar-nav a[href="index.qmd"], 
+.navbar-nav a[href="./index.qmd"] {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav a[href="index.qmd"]:before, 
+.navbar-nav a[href="./index.qmd"]:before {
+    content: "\F425";
+    font-family: "bootstrap-icons" !important;
+    font-size: 1.1em;
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+
+/* Enhanced typography for better readability */
+.navbar-brand {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Improve navigation appearance */
+.navbar-nav .dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Force icon font loading */
+@font-face {
+    font-family: 'bootstrap-icons';
+    src: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/fonts/bootstrap-icons.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/fonts/bootstrap-icons.woff') format('woff');
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Navbar fixes script loaded');
+    
+    // Wait for fonts to load
+    setTimeout(function() {
+        // Force add Bootstrap Icons CSS if not already loaded
+        if (!document.querySelector('link[href*="bootstrap-icons"]')) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css';
+            document.head.appendChild(link);
+        }
+        
+        // Fix navbar icons
+        const homeLink = document.querySelector('.navbar-nav a[href*="index"]');
+        if (homeLink && !homeLink.querySelector('.bi')) {
+            console.log('Adding home icon to navbar');
+            const icon = document.createElement('i');
+            icon.className = 'bi bi-house-fill';
+            icon.style.marginRight = '0.5rem';
+            homeLink.prepend(icon);
+        }
+        
+        const githubLink = document.querySelector('.navbar-nav a[aria-label*="GitHub"]');
+        if (githubLink && !githubLink.querySelector('.bi')) {
+            console.log('Adding github icon to navbar');
+            const icon = document.createElement('i');
+            icon.className = 'bi bi-github';
+            githubLink.prepend(icon);
+        }
+        
+        // Fix any other icon elements that might need the .bi class
+        const iconElements = document.querySelectorAll('[class*="bi-"]:not(.bi)');
+        iconElements.forEach(el => {
+            if (!el.classList.contains('bi')) {
+                el.classList.add('bi');
+            }
+        });
+        
+    }, 1000);
+});
+</script>

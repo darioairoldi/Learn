@@ -1,0 +1,61 @@
+/*-- scss:defaults --*/
+$primary: #0d6efd;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+/*-- scss:rules --*/
+.navbar-brand {
+    font-weight: 600;
+}
+
+.sidebar-navigation {
+    font-size: 0.9rem;
+}
+
+.sidebar-navigation .sidebar-item {
+    margin-bottom: 0.25rem;
+}
+
+code {
+    font-size: 0.875em;
+}
+
+.callout {
+    border-left: 5px solid;
+    margin: 1rem 0;
+}
+
+.callout.callout-note {
+    border-left-color: $info;
+}
+
+.callout.callout-tip {
+    border-left-color: $success;
+}
+
+.callout.callout-important {
+    border-left-color: $warning;
+}
+
+.callout.callout-caution {
+    border-left-color: $danger;
+}
+
+.callout.callout-warning {
+    border-left-color: $warning;
+}
+
+pre {
+    border-radius: 0.375rem;
+    border: 1px solid #e9ecef;
+}
+
+.nav-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}

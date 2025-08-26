@@ -416,3 +416,14 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Quarto
+.quarto/
+/.quarto/
+_freeze/
+/docs/
+# Generated HTML files
+*.html
+*.htm
+
+.fake
