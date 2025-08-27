@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Get current page path
+    // Get current page path - ENHANCED VERSION
     function getCurrentPagePath() {
       try {
         let path = window.location.pathname;
@@ -222,9 +222,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Remove .html extension and normalize
         path = path.replace('.html', '');
         
-        // DEBUG: Log the path processing
+        // DEBUG: Log the path processing with more detail
         console.log('🔍 Original pathname:', window.location.pathname);
-        console.log('🔍 Processed path:', path);
+        console.log('🔍 After decoding:', path);
+        
+        // For GitHub Pages, remove the repo name prefix if present
+        if (path.startsWith('Learn/')) {
+          path = path.substring(5); // Remove "Learn/"
+          console.log('🔍 After removing Learn prefix:', path);
+        }
+        
+        console.log('🔍 Final processed path:', path);
         
         return path;
       } catch (error) {
@@ -346,12 +354,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Recursively find item in config structure
+    // Recursively find item in config structure - ENHANCED VERSION
     function findItemInConfig(items, targetPath, parent = null) {
       if (!items || !Array.isArray(items)) return null;
       
-      for (const item of items) {
+      console.log('🔍 Searching in', items.length, 'items for path:', targetPath);
+      
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        console.log(`🔍 Checking item ${i + 1}:`, {
+          section: item.section,
+          text: item.text,
+          href: item.href,
+          hasContents: !!(item.contents && item.contents.length > 0)
+        });
+        
         if (item.href && pathsMatch(item.href, targetPath)) {
+          console.log('✅ Found matching item:', item.text || item.section);
           return { 
             item, 
             parent, 
@@ -359,11 +378,22 @@ document.addEventListener('DOMContentLoaded', function() {
           };
         }
         
+        // If this item is a section without direct href, check if the path might belong to it
+        if (item.section && !item.href && item.contents && item.contents.length > 0) {
+          console.log('🔍 Checking section contents for:', item.section);
+          const found = findItemInConfig(item.contents, targetPath, item);
+          if (found) return found;
+        }
+        
+        // If this item has contents, search recursively
         if (item.contents && item.contents.length > 0) {
+          console.log('🔍 Searching recursively in:', item.text || item.section);
           const found = findItemInConfig(item.contents, targetPath, item);
           if (found) return found;
         }
       }
+      
+      console.log('❌ No item found at this level');
       return null;
     }
     
@@ -385,7 +415,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       console.log('🔍 Path matching - Config:', normalizedConfig, 'Current:', normalizedCurrent);
       
-      // Direct match
+      // Direct match (highest priority)
       if (normalizedConfig === normalizedCurrent) {
         console.log('✅ Direct path match');
         return true;
@@ -398,29 +428,50 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
       }
       
-      // Handle various path variations
-      const configParts = normalizedConfig.split('/');
-      const currentParts = normalizedCurrent.split('/');
-      
-      // Check if the last significant parts match (filename-based matching)
-      const configLast = configParts[configParts.length - 1];
-      const currentLast = currentParts[currentParts.length - 1];
-      
-      if (configLast && currentLast && configLast === currentLast) {
-        console.log('✅ Filename-based path match');
-        return true;
-      }
-      
-      // Check if current path ends with config path
+      // Check if current path ends with config path (for subdirectory matching)
       if (normalizedCurrent.endsWith(normalizedConfig)) {
-        console.log('✅ Path match - current ends with config');
-        return true;
+        // But ensure it's a meaningful match, not just filename
+        const configParts = normalizedConfig.split('/');
+        const currentParts = normalizedCurrent.split('/');
+        
+        // Only match if we have at least 2 path segments matching
+        if (configParts.length >= 2 && currentParts.length >= configParts.length) {
+          const configLastTwo = configParts.slice(-2).join('/');
+          const currentMatchingParts = currentParts.slice(-configParts.length).join('/');
+          
+          if (configLastTwo === currentMatchingParts.split('/').slice(-2).join('/')) {
+            console.log('✅ Path match - meaningful directory structure match');
+            return true;
+          }
+        }
       }
       
-      // Check if config path ends with current path
+      // Check if config path ends with current path (for parent directory matching)
       if (normalizedConfig.endsWith(normalizedCurrent)) {
         console.log('✅ Path match - config ends with current');
         return true;
+      }
+      
+      // LAST RESORT: Filename-based matching (but with stricter conditions)
+      const configParts = normalizedConfig.split('/');
+      const currentParts = normalizedCurrent.split('/');
+      
+      // Only do filename matching if the directory context is similar
+      if (configParts.length >= 2 && currentParts.length >= 2) {
+        const configLast = configParts[configParts.length - 1];
+        const currentLast = currentParts[currentParts.length - 1];
+        
+        // Check if both the filename AND parent directory have some similarity
+        const configParent = configParts[configParts.length - 2];
+        const currentParent = currentParts[currentParts.length - 2];
+        
+        if (configLast === currentLast && 
+            (configParent === currentParent || 
+             configParent.includes(currentParent) || 
+             currentParent.includes(configParent))) {
+          console.log('✅ Contextual filename-based path match');
+          return true;
+        }
       }
       
       console.log('❌ No path match found');
@@ -659,4 +710,25 @@ document.addEventListener('DOMContentLoaded', function() {
             link.textContent = sibling.text;
             link.className = 'nav-link';
             
-            if
+            if (sibling.isActive) {
+              // Active link styling
+              link.classList.add('active');
+            }
+            
+            listItem.appendChild(link);
+          }
+          
+          navContainer.appendChild(listItem);
+        });
+        
+        customNav.classList.add('has-content');
+        console.log('✅ Rendered right nav with', siblings.length, 'items');
+      } catch (error) {
+        console.error('❌ Error in renderRightNav:', error);
+      }
+    }
+  } catch (error) {
+    console.error('❌ Error in Related Pages navigation script:', error);
+  }
+});
+</script>
