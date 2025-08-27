@@ -222,28 +222,11 @@ jobs:
             Write-Host "Created docs directory"
           }
           
-          # Copy to site root (primary location)
+          # Copy to site root (SINGLE LOCATION - accessible from all pages)
           Copy-Item "navigation.json" "docs/navigation.json" -Force
           Write-Host "? Copied navigation.json to docs/navigation.json"
           
-          # Dynamically copy to all subdirectories that contain rendered content
-          # This ensures navigation.json is available regardless of directory structure changes
-          Write-Host "Copying navigation.json to all content subdirectories..."
-          
-          $subdirCount = 0
-          Get-ChildItem "docs" -Directory -Recurse | ForEach-Object {
-            $subdir = $_.FullName
-            # Only copy to directories that contain HTML files (actual content directories)
-            if ((Get-ChildItem $subdir -Filter "*.html" -ErrorAction SilentlyContinue).Count -gt 0) {
-              Copy-Item "navigation.json" "$subdir/navigation.json" -Force
-              Write-Host "  ? Copied to: $($_.Name)"
-              $subdirCount++
-            }
-          }
-          
-          Write-Host "? Copied navigation.json to $subdirCount content subdirectories"
-          
-          # Verify the main copy
+          # Verify the copy
           if (Test-Path "docs/navigation.json") {
             $fileSize = (Get-Item "docs/navigation.json").Length
             Write-Host "? Verified: docs/navigation.json exists (${fileSize} bytes)"

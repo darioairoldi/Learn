@@ -354,11 +354,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Recursively find item in config structure - ENHANCED VERSION
+    // Recursively find item in config structure - ENHANCED VERSION WITH SECTION PRIORITY
     function findItemInConfig(items, targetPath, parent = null) {
       if (!items || !Array.isArray(items)) return null;
       
       console.log('🔍 Searching in', items.length, 'items for path:', targetPath);
+      
+      let foundLeafMatch = null; // Store leaf match as fallback
       
       for (let i = 0; i < items.length; i++) {
         const item = items[i];
@@ -371,30 +373,50 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (item.href && pathsMatch(item.href, targetPath)) {
           console.log('✅ Found matching item:', item.text || item.section);
-          return { 
-            item, 
-            parent, 
-            siblings: parent ? parent.contents : items 
-          };
+          
+          // PRIORITIZE SECTIONS: If this is a section with contents, prefer it over leaf items
+          if (item.section && item.contents && item.contents.length > 0) {
+            console.log('🎯 SECTION MATCH found - returning immediately:', item.section);
+            return { 
+              item, 
+              parent, 
+              siblings: parent ? parent.contents : items 
+            };
+          } else {
+            // This is a leaf item - store as fallback but continue searching for sections
+            console.log('📄 Leaf match found - storing as fallback:', item.text);
+            foundLeafMatch = { 
+              item, 
+              parent, 
+              siblings: parent ? parent.contents : items 
+            };
+          }
         }
         
-        // If this item is a section without direct href, check if the path might belong to it
-        if (item.section && !item.href && item.contents && item.contents.length > 0) {
-          console.log('🔍 Checking section contents for:', item.section);
-          const found = findItemInConfig(item.contents, targetPath, item);
-          if (found) return found;
-        }
-        
-        // If this item has contents, search recursively
+        // Search recursively in contents
         if (item.contents && item.contents.length > 0) {
           console.log('🔍 Searching recursively in:', item.text || item.section);
           const found = findItemInConfig(item.contents, targetPath, item);
-          if (found) return found;
+          if (found) {
+            // If we found a section match in recursion, return it immediately
+            if (found.item.section && found.item.contents && found.item.contents.length > 0) {
+              console.log('🎯 RECURSIVE SECTION MATCH found:', found.item.section);
+              return found;
+            } else if (!foundLeafMatch) {
+              // Store recursive leaf match as fallback only if we don't have one yet
+              foundLeafMatch = found;
+            }
+          }
         }
       }
       
-      console.log('❌ No item found at this level');
-      return null;
+      // Return the best match we found (section preferred, leaf as fallback)
+      if (foundLeafMatch) {
+        console.log('📄 Returning fallback match:', foundLeafMatch.item.text || foundLeafMatch.item.section);
+      } else {
+        console.log('❌ No item found at this level');
+      }
+      return foundLeafMatch;
     }
     
     // Check if two paths match (with various normalizations) - ENHANCED VERSION
