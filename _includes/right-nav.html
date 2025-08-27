@@ -52,6 +52,32 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
   font-weight: 600;
   text-decoration: none;
 }
+
+/* Styling for navigation links in Related Pages */
+#custom-right-nav .nav-link {
+  display: block;
+  padding: 0.25rem 0;
+  color: #495057;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+#custom-right-nav .nav-link:hover {
+  color: #2780e3;
+  text-decoration: none;
+  background-color: rgba(39, 128, 227, 0.1);
+  padding-left: 0.5rem;
+}
+
+/* Active (current page) styling in Related Pages */
+#custom-right-nav .nav-link.active {
+  color: #2780e3;
+  font-weight: 600;
+  background-color: rgba(39, 128, 227, 0.15);
+  padding-left: 0.5rem;
+  border-left: 3px solid #2780e3;
+}
 </style>
 
 <script>
@@ -281,8 +307,8 @@ document.addEventListener('DOMContentLoaded', function() {
           isSection: !!child.section
         }));
       } else {
-        // This is a leaf page - show siblings at the same level
-        console.log('📄 Leaf node - showing siblings');
+        // This is a leaf page - show ALL siblings including the current one
+        console.log('📄 Leaf node - showing ALL siblings (including current)');
         
         if (!parent || !parent.contents) {
           console.log('📄 No parent or parent contents found');
@@ -292,31 +318,29 @@ document.addEventListener('DOMContentLoaded', function() {
         const allSiblings = parent.contents || [];
         console.log('🔍 Total siblings (including self):', allSiblings.length);
         
-        // Filter siblings (exclude current item and non-navigable items)
+        // Filter siblings - INCLUDE the current item and all navigable siblings
         const siblingItems = allSiblings.filter(sibling => {
-          // Exclude the current item
-          if (sibling === item) return false;
-          
-          // Include items with href
+          // Include items with href (including current item)
           if (sibling.href && sibling.href !== '#') return true;
           
-          // Include sections
+          // Include sections (including current item)
           if (sibling.section) return true;
           
           return false;
         });
         
-        console.log('📄 Filtered siblings:', siblingItems.length);
+        console.log('📄 All siblings (including current):', siblingItems.length);
         console.log('📄 Sibling details:', siblingItems.map(s => ({
           section: s.section,
           text: s.text,
-          href: s.href
+          href: s.href,
+          isCurrent: s === item
         })));
         
         return siblingItems.map(sibling => ({
           text: sibling.text || sibling.section,
           href: sibling.href,
-          isActive: sibling === item,
+          isActive: sibling === item,  // Mark current item as active
           isSection: !!sibling.section
         }));
       }
@@ -484,8 +508,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('📂 DOM: Found first-level children:', siblings.map(s => s.text));
         return siblings;
       } else {
-        // This is a leaf page - show siblings at the same level
-        console.log('📄 DOM: Leaf page detected - showing siblings');
+        // This is a leaf page - show ALL siblings including current at the same level
+        console.log('📄 DOM: Leaf page detected - showing ALL siblings (including current)');
         
         const parentContainer = activeContainer.parentElement;
         if (!parentContainer) return [];
@@ -505,7 +529,8 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
         
-        console.log('📄 DOM: Found siblings:', siblings.map(s => s.text));
+        console.log('📄 DOM: Found ALL siblings (including current):', siblings.map(s => s.text));
+        console.log('📄 DOM: Active sibling marked:', siblings.filter(s => s.isActive).map(s => s.text));
         return siblings;
       }
     }
@@ -634,32 +659,4 @@ document.addEventListener('DOMContentLoaded', function() {
             link.textContent = sibling.text;
             link.className = 'nav-link';
             
-            if (sibling.isSection) {
-              link.style.fontWeight = '600';
-            }
-            
-            if (sibling.isActive) {
-              link.classList.add('active');
-            }
-            
-            listItem.appendChild(link);
-          }
-          
-          navContainer.appendChild(listItem);
-        });
-        
-        customNav.classList.add('has-content');
-        handleResponsiveLayout();
-        
-        const source = navigationConfig ? 'navigation.json config' : 'DOM parsing';
-        console.log(`✅ Related pages rendered from ${source}:`, siblings.length, 'items');
-      } catch (error) {
-        console.error('❌ Error in renderRightNav:', error);
-      }
-    }
-    
-  } catch (error) {
-    console.error('❌ Fatal error in Related Pages navigation:', error);
-  }
-});
-</script></script>
+            if
