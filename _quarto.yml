@@ -3,6 +3,8 @@ project:
   output-dir: docs
   pre-render: 
     - powershell -ExecutionPolicy Bypass -File scripts/generate-navigation.ps1
+  resources:
+    - "navigation.json"  # Add as a resource to ensure it gets copied
   render:
     - "*.qmd"
     - "*.md"
