@@ -67,15 +67,30 @@ document.addEventListener('DOMContentLoaded', function() {
     async function loadNavigationConfig() {
       try {
         console.log('🔄 Loading navigation.json configuration...');
-        const response = await fetch('navigation.json');
+        
+        // Try to load navigation.json from the site root, not the current directory
+        const siteRoot = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/').replace(/[^/]*$/, '');
+        const navUrl = new URL('navigation.json', window.location.origin + (window.location.pathname.includes('/') ? '/' : ''));
+        
+        console.log('🔍 Attempting to load navigation from:', navUrl.href);
+        
+        const response = await fetch(navUrl.href);
         if (response.ok) {
           navigationConfig = await response.json();
           console.log('✅ Loaded navigation config:', navigationConfig);
           
-          // Re-render navigation with config data
-          renderRightNav();
+          // Validate the structure
+          if (navigationConfig && navigationConfig.contents && Array.isArray(navigationConfig.contents)) {
+            console.log('✅ Navigation structure is valid with', navigationConfig.contents.length, 'top-level items');
+            // Re-render navigation with config data
+            renderRightNav();
+          } else {
+            console.log('⚠️ Invalid navigation structure, falling back to DOM parsing');
+            navigationConfig = null;
+            renderRightNav();
+          }
         } else {
-          console.log('⚠️ Could not load navigation.json, falling back to DOM parsing');
+          console.log('⚠️ Could not load navigation.json (HTTP', response.status, '), falling back to DOM parsing');
           renderRightNav(); // Fall back to DOM parsing
         }
       } catch (error) {
@@ -283,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
              normalizedConfig.split('/').pop() === normalizedCurrent.split('/').pop();
     }
     
-    // Fallback DOM parsing (simplified version of previous logic)
+    // Fallback DOM parsing - UPDATED TO SHOW FIRST-LEVEL SECTIONS
     function findSiblingsFromDOM() {
       const sidebar = document.querySelector('#quarto-sidebar');
       if (!sidebar) return [];
@@ -296,22 +311,60 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (!parentContainer) return [];
       
-      const siblings = [];
-      const siblingItems = parentContainer.querySelectorAll(':scope > .sidebar-item .sidebar-item-text[href]');
+      // Check if the current page is a section page (has child sections)
+      const currentSectionContainer = activeContainer.querySelector('.sidebar-item-container');
       
-      siblingItems.forEach(item => {
-        const href = item.getAttribute('href');
-        if (href && href !== '#') {
-          siblings.push({
-            text: item.textContent.trim(),
-            href: href,
-            isActive: item.classList.contains('active'),
-            isSection: false
-          });
-        }
-      });
-      
-      return siblings;
+      if (currentSectionContainer) {
+        // This is a section page - show first-level child sections only
+        console.log('📂 DOM: Section page detected - showing first-level children');
+        
+        const siblings = [];
+        const directChildren = currentSectionContainer.querySelectorAll(':scope > .sidebar-item');
+        
+        directChildren.forEach(child => {
+          const childLink = child.querySelector('.sidebar-item-text[href]');
+          if (childLink) {
+            const href = childLink.getAttribute('href');
+            const text = childLink.textContent.trim();
+            
+            if (href && href !== '#' && text) {
+              // Check if this child also has subsections (making it a section)
+              const hasSubsections = child.querySelector('.sidebar-item-container');
+              
+              siblings.push({
+                text: text,
+                href: href,
+                isActive: childLink.classList.contains('active'),
+                isSection: !!hasSubsections
+              });
+            }
+          }
+        });
+        
+        console.log('📂 DOM: Found first-level children:', siblings.map(s => s.text));
+        return siblings;
+      } else {
+        // This is a leaf page - show siblings at the same level
+        console.log('📄 DOM: Leaf page detected - showing siblings');
+        
+        const siblings = [];
+        const siblingItems = parentContainer.querySelectorAll(':scope > .sidebar-item .sidebar-item-text[href]');
+        
+        siblingItems.forEach(item => {
+          const href = item.getAttribute('href');
+          if (href && href !== '#') {
+            siblings.push({
+              text: item.textContent.trim(),
+              href: href,
+              isActive: item.classList.contains('active'),
+              isSection: false
+            });
+          }
+        });
+        
+        console.log('📄 DOM: Found siblings:', siblings.map(s => s.text));
+        return siblings;
+      }
     }
 
     function createCustomRightNav() {
