@@ -345,7 +345,7 @@ website:
                     text: "Quarto.yml document structure"
                   - href: "20250712 Use QUARTO doc for Github repos doc/003.01. Quarto specific markdown features.md"
                     text: "Quarto specific markdown features"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/002.03. Quarto Theming and Styling.md"
+                  - href: "20250712 Use QUARTO doc for Github repos doc/002.01. Quarto Theming and Styling.md"
                     text: "Quarto Theming and Styling"
                   - href: "20250712 Use QUARTO doc for Github repos doc/007.01. Optimizing Quarto build and deploy.md"
                     text: "Optimizing Quarto Build and Deploy"

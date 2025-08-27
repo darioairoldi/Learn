@@ -68,9 +68,26 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         console.log('🔄 Loading navigation.json configuration...');
         
-        // Try to load navigation.json from the site root, not the current directory
-        const siteRoot = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/').replace(/[^/]*$/, '');
-        const navUrl = new URL('navigation.json', window.location.origin + (window.location.pathname.includes('/') ? '/' : ''));
+        // FIXED: Properly construct the navigation.json URL for GitHub Pages
+        let navUrl;
+        
+        // Get the base path of the current page
+        const currentPath = window.location.pathname;
+        
+        // For GitHub Pages with repository name, we need to include the repo path
+        if (currentPath.includes('/Learn/')) {
+          // We're in a GitHub Pages repository - construct URL relative to repo root
+          const repoRoot = window.location.origin + currentPath.substring(0, currentPath.indexOf('/Learn/') + 6);
+          navUrl = new URL('navigation.json', repoRoot);
+        } else if (currentPath === '/' || currentPath === '') {
+          // Root domain
+          navUrl = new URL('navigation.json', window.location.origin + '/');
+        } else {
+          // Fallback: try to construct from current directory structure
+          const pathParts = currentPath.split('/').filter(part => part);
+          const basePath = pathParts.length > 0 ? '/' + pathParts[0] + '/' : '/';
+          navUrl = new URL('navigation.json', window.location.origin + basePath);
+        }
         
         console.log('🔍 Attempting to load navigation from:', navUrl.href);
         
