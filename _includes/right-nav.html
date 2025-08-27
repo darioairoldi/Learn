@@ -71,27 +71,26 @@ document.addEventListener('DOMContentLoaded', function() {
         // FIXED: Properly construct the navigation.json URL for GitHub Pages
         let navUrl;
         
-        // Get the base path of the current page
+        // For GitHub Pages, we need to construct the URL based on the current location
+        const currentUrl = window.location.href;
         const currentPath = window.location.pathname;
         
-        // For GitHub Pages with repository name, we need to include the repo path
-        if (currentPath.includes('/Learn/')) {
-          // We're in a GitHub Pages repository - construct URL relative to repo root
-          const repoRoot = window.location.origin + currentPath.substring(0, currentPath.indexOf('/Learn/') + 6);
-          navUrl = new URL('navigation.json', repoRoot);
-        } else if (currentPath === '/' || currentPath === '') {
-          // Root domain
-          navUrl = new URL('navigation.json', window.location.origin + '/');
+        if (currentUrl.includes('darioairoldi.github.io/Learn')) {
+          // We're on GitHub Pages - navigation.json should be at the Learn root
+          navUrl = 'https://darioairoldi.github.io/Learn/navigation.json';
+        } else if (currentPath.includes('/Learn/')) {
+          // Local or other hosting with Learn in path
+          const learnIndex = currentPath.indexOf('/Learn/');
+          const basePath = currentPath.substring(0, learnIndex + 6); // Include '/Learn/'
+          navUrl = window.location.origin + basePath + 'navigation.json';
         } else {
-          // Fallback: try to construct from current directory structure
-          const pathParts = currentPath.split('/').filter(part => part);
-          const basePath = pathParts.length > 0 ? '/' + pathParts[0] + '/' : '/';
-          navUrl = new URL('navigation.json', window.location.origin + basePath);
+          // Fallback to root
+          navUrl = window.location.origin + '/navigation.json';
         }
         
-        console.log('🔍 Attempting to load navigation from:', navUrl.href);
+        console.log('🔍 Attempting to load navigation from:', navUrl);
         
-        const response = await fetch(navUrl.href);
+        const response = await fetch(navUrl);
         if (response.ok) {
           navigationConfig = await response.json();
           console.log('✅ Loaded navigation config:', navigationConfig);
@@ -238,34 +237,82 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const { item, parent, siblings } = result;
       console.log('✅ Found current item:', item.text || item.section);
+      console.log('🔍 Item has contents:', !!(item.contents && item.contents.length > 0));
+      console.log('🔍 Parent exists:', !!parent);
       
       if (item.contents && item.contents.length > 0) {
-        // This is a section - show ONLY first-level children (sections, not individual pages)
+        // This is a section with children - show ONLY first-level children
         console.log('📂 Section node - showing first-level children');
         
-        const firstLevelChildren = item.contents.filter(child => 
-          // Show items that are sections (have their own contents) OR are direct pages without subsections
-          child.section || (child.text && child.href && child.href !== '#' && !child.contents)
-        );
+        // Get all direct children
+        const directChildren = item.contents || [];
+        console.log('🔍 Direct children count:', directChildren.length);
         
-        // If we have sections, prefer showing sections over individual pages
-        const sectionsOnly = firstLevelChildren.filter(child => child.section && child.contents);
-        const pagesToShow = sectionsOnly.length > 0 ? sectionsOnly : firstLevelChildren;
+        // Filter to show meaningful navigation items
+        const meaningfulChildren = directChildren.filter(child => {
+          // Include if it has a section name (indicates it's a navigable section)
+          if (child.section) return true;
+          
+          // Include if it has text and href (indicates it's a navigable page) 
+          if (child.text && child.href && child.href !== '#') return true;
+          
+          // Exclude items that are just structural without navigation value
+          return false;
+        });
         
-        console.log('📂 Found first-level children:', pagesToShow.map(c => c.text || c.section));
+        console.log('📂 Meaningful children found:', meaningfulChildren.length);
+        console.log('📂 Children details:', meaningfulChildren.map(c => ({
+          section: c.section, 
+          text: c.text, 
+          href: c.href,
+          hasContents: !!(c.contents && c.contents.length > 0)
+        })));
+        
+        // Prefer sections over individual pages for cleaner navigation
+        const sectionsOnly = meaningfulChildren.filter(child => child.section);
+        const pagesToShow = sectionsOnly.length > 0 ? sectionsOnly : meaningfulChildren;
+        
+        console.log('📂 Final pages to show:', pagesToShow.length);
+        
         return pagesToShow.map(child => ({
           text: child.text || child.section,
-          href: child.href || '#', // Use # for sections without direct href
+          href: child.href || '#',
           isActive: false,
           isSection: !!child.section
         }));
       } else {
-        // This is a leaf - show siblings
+        // This is a leaf page - show siblings at the same level
         console.log('📄 Leaf node - showing siblings');
-        const siblingItems = siblings.filter(sibling => 
-          sibling.href && sibling.href !== '#' && sibling !== item
-        );
-        console.log('📄 Found siblings:', siblingItems.map(s => s.text || s.section));
+        
+        if (!parent || !parent.contents) {
+          console.log('📄 No parent or parent contents found');
+          return [];
+        }
+        
+        const allSiblings = parent.contents || [];
+        console.log('🔍 Total siblings (including self):', allSiblings.length);
+        
+        // Filter siblings (exclude current item and non-navigable items)
+        const siblingItems = allSiblings.filter(sibling => {
+          // Exclude the current item
+          if (sibling === item) return false;
+          
+          // Include items with href
+          if (sibling.href && sibling.href !== '#') return true;
+          
+          // Include sections
+          if (sibling.section) return true;
+          
+          return false;
+        });
+        
+        console.log('📄 Filtered siblings:', siblingItems.length);
+        console.log('📄 Sibling details:', siblingItems.map(s => ({
+          section: s.section,
+          text: s.text,
+          href: s.href
+        })));
+        
         return siblingItems.map(sibling => ({
           text: sibling.text || sibling.section,
           href: sibling.href,
@@ -296,23 +343,64 @@ document.addEventListener('DOMContentLoaded', function() {
       return null;
     }
     
-    // Check if two paths match (with various normalizations)
+    // Check if two paths match (with various normalizations) - ENHANCED VERSION
     function pathsMatch(configPath, currentPath) {
+      if (!configPath || !currentPath) return false;
+      
       const normalize = (path) => {
         return path.toLowerCase()
           .replace(/\\/g, '/')
           .replace(/\.(md|html|qmd)$/, '')
           .replace(/^\/+/, '')
+          .replace(/\/+$/, '')
           .trim();
       };
       
       const normalizedConfig = normalize(configPath);
       const normalizedCurrent = normalize(currentPath);
       
-      return normalizedConfig === normalizedCurrent ||
-             normalizedConfig.endsWith(normalizedCurrent) ||
-             normalizedCurrent.endsWith(normalizedConfig) ||
-             normalizedConfig.split('/').pop() === normalizedCurrent.split('/').pop();
+      console.log('🔍 Path matching - Config:', normalizedConfig, 'Current:', normalizedCurrent);
+      
+      // Direct match
+      if (normalizedConfig === normalizedCurrent) {
+        console.log('✅ Direct path match');
+        return true;
+      }
+      
+      // Handle GitHub Pages paths (remove Learn/ prefix from current path if present)
+      const currentWithoutRepo = normalizedCurrent.replace(/^learn\//, '');
+      if (normalizedConfig === currentWithoutRepo) {
+        console.log('✅ Path match after removing repo prefix');
+        return true;
+      }
+      
+      // Handle various path variations
+      const configParts = normalizedConfig.split('/');
+      const currentParts = normalizedCurrent.split('/');
+      
+      // Check if the last significant parts match (filename-based matching)
+      const configLast = configParts[configParts.length - 1];
+      const currentLast = currentParts[currentParts.length - 1];
+      
+      if (configLast && currentLast && configLast === currentLast) {
+        console.log('✅ Filename-based path match');
+        return true;
+      }
+      
+      // Check if current path ends with config path
+      if (normalizedCurrent.endsWith(normalizedConfig)) {
+        console.log('✅ Path match - current ends with config');
+        return true;
+      }
+      
+      // Check if config path ends with current path
+      if (normalizedConfig.endsWith(normalizedCurrent)) {
+        console.log('✅ Path match - config ends with current');
+        return true;
+      }
+      
+      console.log('❌ No path match found');
+      return false;
     }
     
     // Fallback DOM parsing - UPDATED TO SHOW FIRST-LEVEL SECTIONS
@@ -323,30 +411,63 @@ document.addEventListener('DOMContentLoaded', function() {
       const activeItem = sidebar.querySelector('.sidebar-item-text.active');
       if (!activeItem) return [];
       
-      const activeContainer = activeItem.closest('.sidebar-item');
-      const parentContainer = activeContainer.parentElement;
+      console.log('🔍 DOM: Active item found:', activeItem.textContent.trim());
       
-      if (!parentContainer) return [];
+      const activeContainer = activeItem.closest('.sidebar-item');
+      if (!activeContainer) return [];
       
       // Check if the current page is a section page (has child sections)
       const currentSectionContainer = activeContainer.querySelector('.sidebar-item-container');
+      
+      console.log('🔍 DOM: Section container exists:', !!currentSectionContainer);
       
       if (currentSectionContainer) {
         // This is a section page - show first-level child sections only
         console.log('📂 DOM: Section page detected - showing first-level children');
         
         const siblings = [];
-        const directChildren = currentSectionContainer.querySelectorAll(':scope > .sidebar-item');
         
-        directChildren.forEach(child => {
-          const childLink = child.querySelector('.sidebar-item-text[href]');
+        // Try multiple selectors to find direct children
+        const directChildrenSelectors = [
+          ':scope > .sidebar-item',
+          '.sidebar-item'
+        ];
+        
+        let directChildren = [];
+        for (const selector of directChildrenSelectors) {
+          directChildren = currentSectionContainer.querySelectorAll(selector);
+          if (directChildren.length > 0) {
+            console.log(`🔍 DOM: Found ${directChildren.length} children using selector: ${selector}`);
+            break;
+          }
+        }
+        
+        if (directChildren.length === 0) {
+          // Alternative approach: look for any links within the section container
+          directChildren = currentSectionContainer.querySelectorAll('.sidebar-item-text[href]');
+          console.log(`🔍 DOM: Found ${directChildren.length} direct links in section`);
+        }
+        
+        directChildren.forEach((child, index) => {
+          console.log(`🔍 DOM: Processing child ${index + 1}:`, child);
+          
+          // Try to find the link within the child
+          let childLink = null;
+          if (child.classList && child.classList.contains('sidebar-item-text')) {
+            childLink = child;
+          } else {
+            childLink = child.querySelector('.sidebar-item-text[href]');
+          }
+          
           if (childLink) {
             const href = childLink.getAttribute('href');
             const text = childLink.textContent.trim();
             
+            console.log(`🔍 DOM: Child link - text: "${text}", href: "${href}"`);
+            
             if (href && href !== '#' && text) {
               // Check if this child also has subsections (making it a section)
-              const hasSubsections = child.querySelector('.sidebar-item-container');
+              const hasSubsections = child.querySelector ? child.querySelector('.sidebar-item-container') : false;
               
               siblings.push({
                 text: text,
@@ -354,6 +475,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 isActive: childLink.classList.contains('active'),
                 isSection: !!hasSubsections
               });
+              
+              console.log(`✅ DOM: Added sibling: "${text}"`);
             }
           }
         });
@@ -363,6 +486,9 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         // This is a leaf page - show siblings at the same level
         console.log('📄 DOM: Leaf page detected - showing siblings');
+        
+        const parentContainer = activeContainer.parentElement;
+        if (!parentContainer) return [];
         
         const siblings = [];
         const siblingItems = parentContainer.querySelectorAll(':scope > .sidebar-item .sidebar-item-text[href]');
@@ -536,4 +662,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('❌ Fatal error in Related Pages navigation:', error);
   }
 });
-</script>
+</script></script>
