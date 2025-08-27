@@ -1,11 +1,15 @@
 project:
   type: website
   output-dir: docs
+  pre-render: 
+    - powershell -ExecutionPolicy Bypass -File scripts/generate-navigation.ps1
   render:
     - "*.qmd"
     - "*.md"
     - "*/README.md"
     - "**/README.md"
+    - "**/SUMMARY.md"
+    - "**/*.md"
     - "20250702 Azure Naming conventions/README.md"
     - "20250704 TableStorageAccess options/README.md"
     - "20250706 CosmosDB Access options/README.md"

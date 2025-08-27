@@ -417,13 +417,23 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-# Quarto
+# Quarto build outputs (should NOT be versioned)
 .quarto/
 /.quarto/
+/_site/
 _freeze/
 /docs/
-# Generated HTML files
+
+# Generated HTML files (should NOT be versioned)
 *.html
 *.htm
 
+# Temporary build tools (should NOT be versioned)
+yq.exe
+
+# FAKE build system
 .fake
+
+# Note: navigation.json IS versioned (not ignored)
+# It's generated from _quarto.yml but should be committed to repo
+

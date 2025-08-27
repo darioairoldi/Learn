@@ -24,27 +24,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      # with:
-      #   lfs: true
-      #   lfs-include: |
-      #     docs/**/*.png
-      #     docs/**/*.jpg
-      #     docs/**/*.jpeg
-      #     docs/**/*.gif
-      #     assets/**/*.png
-      #     assets/**/*.jpg
-      #     *.png
-      #     *.jpg
-      #     *.jpeg
-      #   # Exclude large files not needed for build
-      #   lfs-exclude: |
-      #     **/*.mp4
-      #     **/*.avi
-      #     **/*.mov
-      #     **/*.zip
-      #     **/*.exe
-      #     **/*.msi
-      #     **/*.pdf  
 
     - name: Setup Quarto (Native Windows)
       shell: pwsh
@@ -145,130 +124,32 @@ jobs:
       with:
         r-version: '4.3.0'
 
-    - name: Install yq for YAML processing
-      shell: pwsh
-      run: |
-        # Download and install yq for Windows
-        $yqVersion = "v4.40.5"  # Use a specific version for reliability
-        $yqUrl = "https://github.com/mikefarah/yq/releases/download/$yqVersion/yq_windows_amd64.exe"
-        
-        Write-Host "Downloading yq from $yqUrl"
-        Invoke-WebRequest -Uri $yqUrl -OutFile "yq.exe"
-        
-        # Verify download
-        if (Test-Path "yq.exe") {
-          Write-Host "yq downloaded successfully"
-          .\yq.exe --version
-        } else {
-          Write-Error "Failed to download yq"
-          exit 1
-        }
-
-    - name: Extract navigation structure to JSON
-      shell: pwsh
-      run: |
-        # Extract sidebar structure from _quarto.yml and convert to JSON
-        Write-Host "Extracting sidebar structure from _quarto.yml..."
-        
-        if (Test-Path "_quarto.yml") {
-          # Use yq to extract the website.sidebar structure and format it properly
-          Write-Host "Using yq to extract sidebar structure..."
-          .\yq.exe eval '.website.sidebar | {"contents": .contents}' _quarto.yml --output-format=json | Out-File -FilePath "navigation.json" -Encoding utf8 -NoNewline
-          
-          Write-Host "Generated navigation.json:"
-          $navContent = Get-Content "navigation.json" -Raw
-          Write-Host $navContent
-          
-          # Validate the JSON
-          try {
-            $json = $navContent | ConvertFrom-Json
-            Write-Host "? JSON validation successful"
-            if ($json.contents -and $json.contents.Count) {
-              Write-Host "Found $($json.contents.Count) top-level sections"
-              # Show first few sections for debugging
-              $json.contents | Select-Object -First 3 | ForEach-Object {
-                if ($_.section) {
-                  Write-Host "  Section: $($_.section)"
-                } elseif ($_.text) {
-                  Write-Host "  Item: $($_.text)"
-                }
-              }
-            } else {
-              Write-Warning "No contents found in navigation structure"
-            }
-          } catch {
-            Write-Warning "? JSON validation failed: $_"
-            Write-Host "Generating fallback empty structure..."
-            '{"contents": []}' | Out-File -FilePath "navigation.json" -Encoding utf8 -NoNewline
-          }
-        } else {
-          Write-Host "_quarto.yml not found, creating empty navigation.json"
-          '{"contents": []}' | Out-File -FilePath "navigation.json" -Encoding utf8 -NoNewline
-        }
-        
     - name: Render Quarto Project
       shell: pwsh
-      run: quarto render
-
-    - name: Copy navigation data to published site
-      shell: pwsh
       run: |
-        # Copy navigation.json to the published site for client-side navigation
-        Write-Host "Copying navigation data to published site..."
+        Write-Host "Rendering Quarto project..."
+        quarto render
         
-        if (Test-Path "navigation.json") {
-          if (-not (Test-Path "docs")) {
-            New-Item -ItemType Directory -Path "docs" -Force
-            Write-Host "Created docs directory"
-          }
-          
-          # Copy to site root (SINGLE LOCATION - accessible from all pages)
-          Copy-Item "navigation.json" "docs/navigation.json" -Force
-          Write-Host "? Copied navigation.json to docs/navigation.json"
-          
-          # Verify the copy
-          if (Test-Path "docs/navigation.json") {
-            $fileSize = (Get-Item "docs/navigation.json").Length
-            Write-Host "? Verified: docs/navigation.json exists (${fileSize} bytes)"
-            
-            # Show content preview for validation
-            Write-Host "Content preview:"
-            $content = Get-Content "docs/navigation.json" -Raw
-            if ($content.Length -gt 500) {
-              Write-Host $content.Substring(0, 500) + "..."
-            } else {
-              Write-Host $content
-            }
-          } else {
-            Write-Error "? Failed to copy navigation.json to docs directory"
-          }
-        } else {
-          Write-Warning "? navigation.json not found, skipping copy"
-          Write-Host "Current directory contents:"
-          Get-ChildItem . | ForEach-Object { Write-Host "  $($_.Name)" }
-        }
-      
-    - name: Debug output directory
-      shell: pwsh
-      run: |
-        Write-Host "=== Checking output directory ==="
+        Write-Host "Verifying output directory..."
         if (Test-Path "docs") {
-          Write-Host "docs directory exists"
-          Get-ChildItem "docs" -Recurse | ForEach-Object {
-            Write-Host "  $($_.FullName)"
+          $htmlFiles = Get-ChildItem "docs" -Filter "*.html" -Recurse
+          Write-Host "Generated $($htmlFiles.Count) HTML files"
+          
+          # Check if navigation.json was copied
+          if (Test-Path "docs/navigation.json") {
+            Write-Host "? navigation.json found in output"
+          } else {
+            Write-Warning "?? navigation.json not found in output"
           }
         } else {
-          Write-Host "docs directory not found"
-          Write-Host "Current directory contents:"
-          Get-ChildItem . | ForEach-Object {
-            Write-Host "  $($_.Name) $(if($_.PSIsContainer){'(dir)'}else{"($($_.Length) bytes)"})"
-          }
+          Write-Error "? docs directory not found after rendering"
+          exit 1
         }
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
-    - name: Upload Pages artifact (Alternative)
+    - name: Upload Pages artifact
       uses: actions/upload-artifact@v4
       with:
         name: github-pages-build

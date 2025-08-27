@@ -82,62 +82,35 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('📋 Related Pages navigation loading...');
+  console.log('📋 Related Pages loading...');
   
   // Global navigation structure from navigation.json
   let navigationConfig = null;
   
   // Wrap everything in try-catch to prevent other JS errors from breaking this
   try {
-    // Load navigation configuration (much cleaner than YAML parsing!)
+    // Load navigation configuration - SIMPLIFIED
     async function loadNavigationConfig() {
       try {
-        console.log('🔄 Loading navigation.json configuration...');
+        let navUrl = window.location.href.includes('darioairoldi.github.io/Learn') 
+          ? 'https://darioairoldi.github.io/Learn/navigation.json'
+          : window.location.origin + '/navigation.json';
         
-        // FIXED: Properly construct the navigation.json URL for GitHub Pages
-        let navUrl;
-        
-        // For GitHub Pages, we need to construct the URL based on the current location
-        const currentUrl = window.location.href;
-        const currentPath = window.location.pathname;
-        
-        if (currentUrl.includes('darioairoldi.github.io/Learn')) {
-          // We're on GitHub Pages - navigation.json should be at the Learn root
-          navUrl = 'https://darioairoldi.github.io/Learn/navigation.json';
-        } else if (currentPath.includes('/Learn/')) {
-          // Local or other hosting with Learn in path
-          const learnIndex = currentPath.indexOf('/Learn/');
-          const basePath = currentPath.substring(0, learnIndex + 6); // Include '/Learn/'
-          navUrl = window.location.origin + basePath + 'navigation.json';
-        } else {
-          // Fallback to root
-          navUrl = window.location.origin + '/navigation.json';
-        }
-        
-        console.log('🔍 Attempting to load navigation from:', navUrl);
+        console.log('🔄 Loading navigation from:', navUrl);
         
         const response = await fetch(navUrl);
-        if (response.ok) {
+        
+        if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
           navigationConfig = await response.json();
-          console.log('✅ Loaded navigation config:', navigationConfig);
-          
-          // Validate the structure
-          if (navigationConfig && navigationConfig.contents && Array.isArray(navigationConfig.contents)) {
-            console.log('✅ Navigation structure is valid with', navigationConfig.contents.length, 'top-level items');
-            // Re-render navigation with config data
-            renderRightNav();
-          } else {
-            console.log('⚠️ Invalid navigation structure, falling back to DOM parsing');
-            navigationConfig = null;
-            renderRightNav();
-          }
+          console.log('✅ Navigation config loaded');
+          renderRightNav();
         } else {
-          console.log('⚠️ Could not load navigation.json (HTTP', response.status, '), falling back to DOM parsing');
-          renderRightNav(); // Fall back to DOM parsing
+          console.log('⚠️ Navigation config failed (status:', response.status, '), using DOM parsing');
+          renderRightNav();
         }
       } catch (error) {
-        console.log('⚠️ Error loading navigation.json:', error);
-        renderRightNav(); // Fall back to DOM parsing
+        console.log('⚠️ Navigation config error:', error.message, '- using DOM parsing');
+        renderRightNav();
       }
     }
     
@@ -155,20 +128,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Initialize right navigation with minimal delay
+    // Initialize right navigation - SIMPLIFIED
     function initializeRightNav() {
-      console.log('🚀 Initializing right navigation...');
-      
-      try {
-        setTimeout(() => {
-          createCustomRightNav();
-          handleResponsiveLayout();
-          // Load config after creating nav
-          loadNavigationConfig();
-        }, 300);
-      } catch (error) {
-        console.error('❌ Error in initializeRightNav:', error);
-      }
+      setTimeout(() => {
+        createCustomRightNav();
+        handleResponsiveLayout();
+        loadNavigationConfig();
+      }, 300);
     }
     
     // Try immediately for any page
@@ -176,25 +142,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Also try when the page is fully loaded
     window.addEventListener('load', function() {
-      console.log('📄 Page loaded, rendering right nav...');
-      try {
-        setTimeout(renderRightNav, 200);
-      } catch (error) {
-        console.error('❌ Error in load event:', error);
-      }
+      setTimeout(renderRightNav, 200);
     });
     
     // Handle window resize
     window.addEventListener('resize', handleResponsiveLayout);
     
-    // ALSO: Listen for sidebar clicks to trigger updates
+    // Listen for sidebar clicks to trigger updates
     document.addEventListener('click', function(event) {
       try {
-        // Check if a sidebar item was clicked
         const sidebarItem = event.target.closest('.sidebar-item-text, .nav-link');
         if (sidebarItem && sidebarItem.closest('#quarto-sidebar')) {
-          console.log('🖱️ Sidebar item clicked:', sidebarItem.textContent.trim());
-          // Delay slightly to let Quarto update the active states
           setTimeout(renderRightNav, 100);
         }
       } catch (error) {
@@ -202,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Get current page path - ENHANCED VERSION
+    // Get current page path - SIMPLIFIED VERSION
     function getCurrentPagePath() {
       try {
         let path = window.location.pathname;
@@ -222,18 +180,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Remove .html extension and normalize
         path = path.replace('.html', '');
         
-        // DEBUG: Log the path processing with more detail
-        console.log('🔍 Original pathname:', window.location.pathname);
-        console.log('🔍 After decoding:', path);
-        
         // For GitHub Pages, remove the repo name prefix if present
         if (path.startsWith('Learn/')) {
           path = path.substring(5); // Remove "Learn/"
-          console.log('🔍 After removing Learn prefix:', path);
         }
         
-        console.log('🔍 Final processed path:', path);
-        
+        console.log('🔍 Current page path:', path);
         return path;
       } catch (error) {
         console.error('❌ Error in getCurrentPagePath:', error);
@@ -241,185 +193,77 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // ENHANCED: Use navigation.json config if available, fall back to DOM parsing
+    // SIMPLIFIED: Find current page in navigation - NO MORE MASSIVE RECURSIVE SEARCH
     function findCurrentPageSiblings() {
       try {
         if (navigationConfig && navigationConfig.contents) {
-          console.log('✅ Using navigation.json configuration for navigation');
-          return findSiblingsFromConfig();
-        } else {
-          console.log('⚠️ Using DOM parsing fallback');
-          return findSiblingsFromDOM();
-        }
-      } catch (error) {
-        console.error('❌ Error in findCurrentPageSiblings:', error);
-        return null;
-      }
-    }
-    
-    // Find siblings using navigation.json configuration - FIXED VERSION
-    function findSiblingsFromConfig() {
-      const currentPath = getCurrentPagePath();
-      console.log('🔍 Looking for current page in config:', currentPath);
-      
-      // Find current item in the configuration
-      const result = findItemInConfig(navigationConfig.contents, currentPath);
-      if (!result) {
-        console.log('❌ Current page not found in config');
-        return [];
-      }
-      
-      const { item, parent, siblings } = result;
-      console.log('✅ Found current item:', item.text || item.section);
-      console.log('🔍 Item has contents:', !!(item.contents && item.contents.length > 0));
-      console.log('🔍 Parent exists:', !!parent);
-      
-      if (item.contents && item.contents.length > 0) {
-        // This is a section with children - show ONLY first-level children
-        console.log('📂 Section node - showing first-level children');
-        
-        // Get all direct children
-        const directChildren = item.contents || [];
-        console.log('🔍 Direct children count:', directChildren.length);
-        
-        // Filter to show meaningful navigation items
-        const meaningfulChildren = directChildren.filter(child => {
-          // Include if it has a section name (indicates it's a navigable section)
-          if (child.section) return true;
+          console.log('✅ Using navigation.json configuration');
+          const currentPath = getCurrentPagePath();
           
-          // Include if it has text and href (indicates it's a navigable page) 
-          if (child.text && child.href && child.href !== '#') return true;
-          
-          // Exclude items that are just structural without navigation value
-          return false;
-        });
-        
-        console.log('📂 Meaningful children found:', meaningfulChildren.length);
-        console.log('📂 Children details:', meaningfulChildren.map(c => ({
-          section: c.section, 
-          text: c.text, 
-          href: c.href,
-          hasContents: !!(c.contents && c.contents.length > 0)
-        })));
-        
-        // Prefer sections over individual pages for cleaner navigation
-        const sectionsOnly = meaningfulChildren.filter(child => child.section);
-        const pagesToShow = sectionsOnly.length > 0 ? sectionsOnly : meaningfulChildren;
-        
-        console.log('📂 Final pages to show:', pagesToShow.length);
-        
-        return pagesToShow.map(child => ({
-          text: child.text || child.section,
-          href: child.href || '#',
-          isActive: false,
-          isSection: !!child.section
-        }));
-      } else {
-        // This is a leaf page - show ALL siblings including the current one
-        console.log('📄 Leaf node - showing ALL siblings (including current)');
-        
-        if (!parent || !parent.contents) {
-          console.log('📄 No parent or parent contents found');
-          return [];
-        }
-        
-        const allSiblings = parent.contents || [];
-        console.log('🔍 Total siblings (including self):', allSiblings.length);
-        
-        // Filter siblings - INCLUDE the current item and all navigable siblings
-        const siblingItems = allSiblings.filter(sibling => {
-          // Include items with href (including current item)
-          if (sibling.href && sibling.href !== '#') return true;
-          
-          // Include sections (including current item)
-          if (sibling.section) return true;
-          
-          return false;
-        });
-        
-        console.log('📄 All siblings (including current):', siblingItems.length);
-        console.log('📄 Sibling details:', siblingItems.map(s => ({
-          section: s.section,
-          text: s.text,
-          href: s.href,
-          isCurrent: s === item
-        })));
-        
-        return siblingItems.map(sibling => ({
-          text: sibling.text || sibling.section,
-          href: sibling.href,
-          isActive: sibling === item,  // Mark current item as active
-          isSection: !!sibling.section
-        }));
-      }
-    }
-    
-    // Recursively find item in config structure - ENHANCED VERSION WITH SECTION PRIORITY
-    function findItemInConfig(items, targetPath, parent = null) {
-      if (!items || !Array.isArray(items)) return null;
-      
-      console.log('🔍 Searching in', items.length, 'items for path:', targetPath);
-      
-      let foundLeafMatch = null; // Store leaf match as fallback
-      
-      for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        console.log(`🔍 Checking item ${i + 1}:`, {
-          section: item.section,
-          text: item.text,
-          href: item.href,
-          hasContents: !!(item.contents && item.contents.length > 0)
-        });
-        
-        if (item.href && pathsMatch(item.href, targetPath)) {
-          console.log('✅ Found matching item:', item.text || item.section);
-          
-          // PRIORITIZE SECTIONS: If this is a section with contents, prefer it over leaf items
-          if (item.section && item.contents && item.contents.length > 0) {
-            console.log('🎯 SECTION MATCH found - returning immediately:', item.section);
-            return { 
-              item, 
-              parent, 
-              siblings: parent ? parent.contents : items 
-            };
-          } else {
-            // This is a leaf item - store as fallback but continue searching for sections
-            console.log('📄 Leaf match found - storing as fallback:', item.text);
-            foundLeafMatch = { 
-              item, 
-              parent, 
-              siblings: parent ? parent.contents : items 
-            };
-          }
-        }
-        
-        // Search recursively in contents
-        if (item.contents && item.contents.length > 0) {
-          console.log('🔍 Searching recursively in:', item.text || item.section);
-          const found = findItemInConfig(item.contents, targetPath, item);
-          if (found) {
-            // If we found a section match in recursion, return it immediately
-            if (found.item.section && found.item.contents && found.item.contents.length > 0) {
-              console.log('🎯 RECURSIVE SECTION MATCH found:', found.item.section);
-              return found;
-            } else if (!foundLeafMatch) {
-              // Store recursive leaf match as fallback only if we don't have one yet
-              foundLeafMatch = found;
+          // DIRECT SEARCH - no more recursive madness
+          const result = findDirectMatch(navigationConfig.contents, currentPath);
+          if (result) {
+            const { item, parent } = result;
+            
+            if (item.contents && item.contents.length > 0) {
+              // This is a section - show ALL children (sections preferred)
+              console.log('📂 Section - showing children:', item.contents.length);
+              const sections = item.contents.filter(child => child.section);
+              const children = sections.length > 0 ? sections : item.contents.filter(child => child.text && child.href);
+              
+              return children.map(child => ({
+                text: child.text || child.section,
+                href: child.href || '#',
+                isActive: false,
+                isSection: !!child.section
+              }));
+            } else if (parent && parent.contents) {
+              // This is a leaf - show ALL siblings including current
+              console.log('📄 Leaf - showing siblings:', parent.contents.length);
+              return parent.contents
+                .filter(sibling => sibling.href && sibling.href !== '#')
+                .map(sibling => ({
+                  text: sibling.text || sibling.section,
+                  href: sibling.href,
+                  isActive: pathsMatch(sibling.href, currentPath),
+                  isSection: !!sibling.section
+                }));
             }
           }
         }
+        
+        console.log('⚠️ Using DOM parsing fallback');
+        return findSiblingsFromDOM();
+      } catch (error) {
+        console.error('❌ Error in findCurrentPageSiblings:', error);
+        return [];
       }
-      
-      // Return the best match we found (section preferred, leaf as fallback)
-      if (foundLeafMatch) {
-        console.log('📄 Returning fallback match:', foundLeafMatch.item.text || foundLeafMatch.item.section);
-      } else {
-        console.log('❌ No item found at this level');
-      }
-      return foundLeafMatch;
     }
     
-    // Check if two paths match (with various normalizations) - ENHANCED VERSION
+    // SIMPLIFIED: Direct match finder - NO MORE RECURSIVE NIGHTMARE
+    function findDirectMatch(items, targetPath, parent = null) {
+      for (const item of items) {
+        if (item.href && pathsMatch(item.href, targetPath)) {
+          // Prioritize sections over leafs
+          if (item.section && item.contents) {
+            console.log('✅ Found SECTION match:', item.section);
+            return { item, parent };
+          } else {
+            console.log('✅ Found LEAF match:', item.text);
+            return { item, parent };
+          }
+        }
+        
+        // Only search in direct children, not deep recursion
+        if (item.contents) {
+          const found = findDirectMatch(item.contents, targetPath, item);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
+    
+    // SIMPLIFIED: Path matching - MUCH CLEANER
     function pathsMatch(configPath, currentPath) {
       if (!configPath || !currentPath) return false;
       
@@ -435,69 +279,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const normalizedConfig = normalize(configPath);
       const normalizedCurrent = normalize(currentPath);
       
-      console.log('🔍 Path matching - Config:', normalizedConfig, 'Current:', normalizedCurrent);
-      
-      // Direct match (highest priority)
-      if (normalizedConfig === normalizedCurrent) {
-        console.log('✅ Direct path match');
-        return true;
-      }
-      
-      // Handle GitHub Pages paths (remove Learn/ prefix from current path if present)
-      const currentWithoutRepo = normalizedCurrent.replace(/^learn\//, '');
-      if (normalizedConfig === currentWithoutRepo) {
-        console.log('✅ Path match after removing repo prefix');
-        return true;
-      }
-      
-      // Check if current path ends with config path (for subdirectory matching)
-      if (normalizedCurrent.endsWith(normalizedConfig)) {
-        // But ensure it's a meaningful match, not just filename
-        const configParts = normalizedConfig.split('/');
-        const currentParts = normalizedCurrent.split('/');
-        
-        // Only match if we have at least 2 path segments matching
-        if (configParts.length >= 2 && currentParts.length >= configParts.length) {
-          const configLastTwo = configParts.slice(-2).join('/');
-          const currentMatchingParts = currentParts.slice(-configParts.length).join('/');
-          
-          if (configLastTwo === currentMatchingParts.split('/').slice(-2).join('/')) {
-            console.log('✅ Path match - meaningful directory structure match');
-            return true;
-          }
-        }
-      }
-      
-      // Check if config path ends with current path (for parent directory matching)
-      if (normalizedConfig.endsWith(normalizedCurrent)) {
-        console.log('✅ Path match - config ends with current');
-        return true;
-      }
-      
-      // LAST RESORT: Filename-based matching (but with stricter conditions)
-      const configParts = normalizedConfig.split('/');
-      const currentParts = normalizedCurrent.split('/');
-      
-      // Only do filename matching if the directory context is similar
-      if (configParts.length >= 2 && currentParts.length >= 2) {
-        const configLast = configParts[configParts.length - 1];
-        const currentLast = currentParts[currentParts.length - 1];
-        
-        // Check if both the filename AND parent directory have some similarity
-        const configParent = configParts[configParts.length - 2];
-        const currentParent = currentParts[currentParts.length - 2];
-        
-        if (configLast === currentLast && 
-            (configParent === currentParent || 
-             configParent.includes(currentParent) || 
-             currentParent.includes(configParent))) {
-          console.log('✅ Contextual filename-based path match');
-          return true;
-        }
-      }
-      
-      console.log('❌ No path match found');
-      return false;
+      // Direct match or current ends with config
+      return normalizedConfig === normalizedCurrent || 
+             normalizedCurrent.endsWith(normalizedConfig);
     }
     
     // Fallback DOM parsing - UPDATED TO SHOW FIRST-LEVEL SECTIONS
