@@ -14,18 +14,18 @@ Welcome (index) to my technical learning hub! This repository documents my journ
 
 #### 🤖 AI & Modern Development
 
-- **[.NET Aspire: AI, Cloud, and Beyond](202506%20Build%202025/BRK106/00.%20Elevating%20Development%20with%20.NET%20Aspire%20AI,%20Cloud,%20and%20Beyond.md)** ⭐️ *(Build 2025 session)*  
+- **[.NET Aspire: AI, Cloud, and Beyond](202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐️ *(Build 2025 session)*  
   *Comprehensive guide to .NET Aspire's evolution from local development tool to full-stack platform*
-- **[Local AI Development with Foundry](202506%20Build%202025/DEM520/00.%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire.md)** *(Build 2025 session)*  
+- **[Local AI Development with Foundry](202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)** *(Build 2025 session)*  
   *Hands-on demonstration of running AI models locally with .NET integration*
-- **[AI-Infused Mobile Development](202506%20Build%202025/BRK123/00.%20AI%20infused%20mobile%20&%20desktop%20app%20development%20with%20.NET%20MAUI.md)** *(Build 2025 session)*  
+- **[AI-Infused Mobile Development](202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)** *(Build 2025 session)*  
   *Building intelligent mobile apps with .NET MAUI and AI capabilities*
 
 #### 🌐 Web Development & Architecture
 
-- **[Future of Web Development with ASP.NET Core](202506%20Build%202025/BRK122/00.%20The%20Future%20of%20Web%20Development%20with%20ASP.NET%20Core%20&%20Blazor.md)** ⭐️ *(Build 2025 session)*  
+- **[Future of Web Development with ASP.NET Core](202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/README.Sonnet4.md)** ⭐️ *(Build 2025 session)*  
   *Deep dive into .NET 10 features, Blazor enhancements, and modern web patterns*
-- **[Model Context Protocol (MCP) Servers](202506%20Build%202025/DEM517/00.%20Build,%20Deploy,%20&%20Use%20Your%20First%20Model%20Context%20Protocol%20(MCP)%20Server.md)** *(Build 2025 session)*  
+- **[Model Context Protocol (MCP) Servers](202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/README.Sonnet4.md)** *(Build 2025 session)*  
   *Building and deploying your first MCP server for AI integration*
 
 #### ☁️ Azure Development
@@ -39,7 +39,7 @@ Welcome (index) to my technical learning hub! This repository documents my journ
 
 #### 🧪 Testing & Quality Assurance
 
-- **[Testing with .NET Aspire and Playwright](202506%20Build%202025/DEM508/00.%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright.md)** *(Build 2025 session)*  
+- **[Testing with .NET Aspire and Playwright](202506%20Build%202025/DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/README.Sonnet4.md)** *(Build 2025 session)*  
   *Modern testing approaches for cloud-native applications*
 - **[HTTP Files for API Testing](20250711%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/README.md)**  
   *Streamlined API testing with HTTP files*

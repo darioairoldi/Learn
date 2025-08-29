@@ -30,6 +30,8 @@ project:
     - "20250723 EventHub Access options/README.md"
     - "20250825 Github repositories limitations/README.md"
     - "20250827 what is yq overview/README.md"
+    - "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
+    - "20250815 DIY ebike/SUMMARY.md"
     # Add ALL Quarto documentation files
     - "20250712 Use QUARTO doc for Github repos doc/*.md"
     # Add main README for homepage
@@ -397,6 +399,8 @@ website:
             contents:
               - href: "20250827 what is yq overview/README.md"
                 text: "yq YAML Processor Overview"
+              - href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
+                text: "Query Cost Metrics with Diginsight"
       
       - section: "Issues & Solutions"
         icon: wrench-adjustable
@@ -418,6 +422,8 @@ website:
         contents:
           - text: "DIY Li-Ion Battery Packs"
             href: "20250815 DIY Battery Pack/README.md"
+          - text: "DIY E-Bike Projects"
+            href: "20250815 DIY ebike/SUMMARY.md"
       
       - text: "---"
       
@@ -426,6 +432,10 @@ website:
         contents:
           - text: "Paris Cultural Journey 2025"
             href: "Travel/Paris 2025/README.md"
+
+execute:
+  warning: false
+  error: false
 
 format:
   html:
@@ -439,3 +449,6 @@ format:
       sidebar-width: 300px
       body-width: 900px  
       margin-width: 280px
+    link-external-newwindow: true
+    # Suppress excessive link validation warnings
+    link-external-icon: false

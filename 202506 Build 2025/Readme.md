@@ -14,7 +14,7 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 
 ## Build Presentations
 
-### 1. 🤖 [DEM520 - Local AI Development with Foundry Local and .NET Aspire](./DEM520/00.%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire.md)
+### 1. 🤖 [DEM520 - Local AI Development with Foundry Local and .NET Aspire](./DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)
 
 **Summary:** A focused demonstration on local AI development using Microsoft's Foundry Local platform integrated with .NET Aspire. The session addresses the challenges and benefits of running AI models locally versus cloud-based solutions.
 
@@ -22,7 +22,7 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 
 ---
 
-### 2. 🧪 [DEM508 - Streamlining Application Testing with .NET Aspire and Playwright](./DEM508/00.%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright.md)
+### 2. 🧪 [DEM508 - Streamlining Application Testing with .NET Aspire and Playwright](./DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/README.Sonnet4.md)
 
 **Summary:** A comprehensive demonstration showing how to combine .NET Aspire with Playwright for robust end-to-end testing of distributed applications. The session provides practical examples and real-world scenarios for implementing effective testing workflows.
 
@@ -30,7 +30,7 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 
 ---
 
-### 3. 🌐 [BRK122 - The Future of Web Development with ASP.NET Core & Blazor](./BRK122/00.%20The%20Future%20of%20Web%20Development%20with%20ASP.NET%20Core%20&%20Blazor.md)
+### 3. 🌐 [BRK122 - The Future of Web Development with ASP.NET Core & Blazor](./BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/README.Sonnet4.md)
 
 **Summary:** A comprehensive overview of the future direction of web development using ASP.NET Core and Blazor. This session covers major focus areas for .NET 10, including performance improvements, developer productivity enhancements, AI integration, and modern development workflows.
 
@@ -38,7 +38,7 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 
 ---
 
-### 4. 🔗 [DEM517 - Build, Deploy, & Use Your First Model Context Protocol (MCP) Server](./DEM517/00.%20Build,%20Deploy,%20&%20Use%20Your%20First%20Model%20Context%20Protocol%20(MCP)%20Server.md)
+### 4. 🔗 [DEM517 - Build, Deploy, & Use Your First Model Context Protocol (MCP) Server](./DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/README.Sonnet4.md)
 
 **Summary:** An in-depth exploration of Model Context Protocol (MCP), Microsoft's open standard for connecting AI applications to external data sources and tools. The session covers architecture, deployment options, and practical implementation strategies.
 
@@ -47,7 +47,7 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 
 ---
 
-### 5. 📋 [BRK106 - Elevating Development with .NET Aspire: AI, Cloud, and Beyond](./BRK106/00.%20Elevating%20Development%20with%20.NET%20Aspire%20AI,%20Cloud,%20and%20Beyond.md)
+### 5. 📋 [BRK106 - Elevating Development with .NET Aspire: AI, Cloud, and Beyond](./BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)
 
 **Summary:** This breakout session explores the evolution of .NET Aspire from a local development tool to a comprehensive platform for building, testing, and deploying modern applications. The session covers significant advances in AI integration, multi-language support, and developer productivity enhancements.
 

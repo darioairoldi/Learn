@@ -57,25 +57,28 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
 #custom-right-nav .nav-link {
   display: block;
   padding: 0.25rem 0;
-  color: #495057;
+  color: #495057 !important; /* Use !important to override any inherited styles */
   text-decoration: none;
   border-radius: 3px;
   transition: all 0.2s ease;
-  font-weight: normal; /* Ensure non-active items have normal font weight */
+  font-weight: normal !important; /* Force normal font weight for non-active items */
+  font-style: normal !important; /* Ensure no italic styling */
 }
 
 #custom-right-nav .nav-link:hover {
-  color: #2780e3;
+  color: #2780e3 !important;
   text-decoration: none;
   background-color: rgba(39, 128, 227, 0.1);
   padding-left: 0.5rem;
-  font-weight: normal; /* Keep normal font weight on hover */
+  font-weight: normal !important; /* Keep normal font weight on hover */
+  font-style: normal !important;
 }
 
 /* Active (current page) styling in Related Pages - ONLY ACTIVE ITEM IS BOLD */
 #custom-right-nav .nav-link.active {
-  color: #2780e3;
-  font-weight: 600; /* ONLY active item is bold */
+  color: #2780e3 !important;
+  font-weight: 600 !important; /* ONLY active item is bold */
+  font-style: normal !important;
   background-color: rgba(39, 128, 227, 0.15);
   padding-left: 0.5rem;
   border-left: 3px solid #2780e3;
@@ -83,11 +86,24 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
 
 /* Override any inherited styles that might make all items bold */
 #custom-right-nav .nav-item {
-  font-weight: normal;
+  font-weight: normal !important;
+  font-style: normal !important;
 }
 
 #custom-right-nav .nav-item .nav-link:not(.active) {
-  font-weight: normal; /* Explicitly set non-active items to normal */
+  font-weight: normal !important; /* Explicitly set non-active items to normal */
+  font-style: normal !important;
+}
+
+/* Additional override for any potential Quarto TOC styles bleeding through */
+#custom-right-nav ul li a:not(.active) {
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+#custom-right-nav nav ul li a:not(.active) {
+  font-weight: normal !important;
+  font-style: normal !important;
 }
 </style>
 
@@ -553,15 +569,31 @@ document.addEventListener('DOMContentLoaded', function() {
             // This is a regular link
             const link = document.createElement('a');
             
-            // FIXED: Convert .md and .qmd paths to .html paths for proper navigation
+            // FIXED: Properly convert .md and .qmd paths to .html paths for navigation
             let fixedHref = sibling.href;
-            if (fixedHref.endsWith('.md')) {
-              fixedHref = fixedHref.replace('.md', '.html');
+            
+            // Convert file extensions to .html
+            if (fixedHref.endsWith('.md') || fixedHref.endsWith('.qmd')) {
+              fixedHref = fixedHref.replace(/\.(md|qmd)$/, '.html');
             }
-            // Also handle .qmd files
-            if (fixedHref.endsWith('.qmd')) {
-              fixedHref = fixedHref.replace('.qmd', '.html');
-            }
+            
+            // Handle URL encoding for paths with spaces and special characters
+            // Split the path into segments, encode each segment, then rejoin
+            const pathSegments = fixedHref.split('/');
+            const encodedSegments = pathSegments.map(segment => {
+              // Don't encode the file extension part or empty segments
+              if (segment === '' || segment === '.' || segment === '..') {
+                return segment;
+              }
+              // Encode the segment but preserve the .html extension
+              if (segment.endsWith('.html')) {
+                const name = segment.slice(0, -5); // Remove .html
+                return encodeURIComponent(name) + '.html';
+              } else {
+                return encodeURIComponent(segment);
+              }
+            });
+            fixedHref = encodedSegments.join('/');
             
             link.href = fixedHref;
             link.textContent = sibling.text;
@@ -569,13 +601,31 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log(`🔗 Link created: "${sibling.text}" -> "${fixedHref}" (original: "${sibling.href}")`);
             
+            // Add click handler to debug navigation issues
+            link.addEventListener('click', function(e) {
+              console.log(`🖱️ Clicked link: "${sibling.text}" -> "${fixedHref}"`);
+              console.log(`🌐 Current location: ${window.location.href}`);
+              console.log(`🎯 Target URL: ${new URL(fixedHref, window.location.href).href}`);
+              
+              // Optional: Add some debugging for failed navigations
+              setTimeout(() => {
+                if (window.location.href === window.location.href) {
+                  console.log('✅ Navigation completed');
+                }
+              }, 100);
+            });
+            
             if (sibling.isActive) {
               // Active link styling - this will make it bold via CSS
               link.classList.add('active');
+              link.style.fontWeight = '600'; // Explicitly set bold for active
+              link.style.fontStyle = 'normal';
               console.log('🎯 Setting active class for:', sibling.text);
             } else {
               // Ensure non-active links are explicitly normal weight
               link.style.fontWeight = 'normal';
+              link.style.fontStyle = 'normal';
+              link.classList.remove('active'); // Ensure no active class
               console.log('📄 Setting normal weight for:', sibling.text);
             }
             
