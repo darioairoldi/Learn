@@ -53,7 +53,7 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
   text-decoration: none;
 }
 
-/* Styling for navigation links in Related Pages */
+/* Styling for navigation links in Related Pages - DEFAULT (NON-ACTIVE) */
 #custom-right-nav .nav-link {
   display: block;
   padding: 0.25rem 0;
@@ -61,6 +61,7 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
   text-decoration: none;
   border-radius: 3px;
   transition: all 0.2s ease;
+  font-weight: normal; /* Ensure non-active items have normal font weight */
 }
 
 #custom-right-nav .nav-link:hover {
@@ -68,15 +69,25 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
   text-decoration: none;
   background-color: rgba(39, 128, 227, 0.1);
   padding-left: 0.5rem;
+  font-weight: normal; /* Keep normal font weight on hover */
 }
 
-/* Active (current page) styling in Related Pages */
+/* Active (current page) styling in Related Pages - ONLY ACTIVE ITEM IS BOLD */
 #custom-right-nav .nav-link.active {
   color: #2780e3;
-  font-weight: 600;
+  font-weight: 600; /* ONLY active item is bold */
   background-color: rgba(39, 128, 227, 0.15);
   padding-left: 0.5rem;
   border-left: 3px solid #2780e3;
+}
+
+/* Override any inherited styles that might make all items bold */
+#custom-right-nav .nav-item {
+  font-weight: normal;
+}
+
+#custom-right-nav .nav-item .nav-link:not(.active) {
+  font-weight: normal; /* Explicitly set non-active items to normal */
 }
 </style>
 
@@ -193,15 +204,28 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // SIMPLIFIED: Find current page in navigation - NO MORE MASSIVE RECURSIVE SEARCH
+    // FIXED: Find current page in navigation - Handle PowerShell object structure
     function findCurrentPageSiblings() {
       try {
         if (navigationConfig && navigationConfig.contents) {
           console.log('✅ Using navigation.json configuration');
           const currentPath = getCurrentPagePath();
           
+          // Handle PowerShell object structure: contents might be wrapped in 'value' property
+          let actualContents = navigationConfig.contents;
+          if (actualContents.value && Array.isArray(actualContents.value)) {
+            console.log('🔧 Detected PowerShell object structure, extracting value array');
+            actualContents = actualContents.value;
+          } else if (Array.isArray(actualContents)) {
+            console.log('✅ Direct array structure detected');
+            // Already in correct format
+          } else {
+            console.log('❌ Unknown navigation structure:', typeof actualContents);
+            return findSiblingsFromDOM();
+          }
+          
           // DIRECT SEARCH - no more recursive madness
-          const result = findDirectMatch(navigationConfig.contents, currentPath);
+          const result = findDirectMatch(actualContents, currentPath);
           if (result) {
             const { item, parent } = result;
             
@@ -240,9 +264,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // SIMPLIFIED: Direct match finder - NO MORE RECURSIVE NIGHTMARE
+    // FIXED: Direct match finder - Handle array properly and add null checks
     function findDirectMatch(items, targetPath, parent = null) {
+      // Ensure items is iterable
+      if (!items || !Array.isArray(items)) {
+        console.error('❌ findDirectMatch: items is not an array:', typeof items, items);
+        return null;
+      }
+      
       for (const item of items) {
+        if (!item) continue; // Skip null/undefined items
+        
         if (item.href && pathsMatch(item.href, targetPath)) {
           // Prioritize sections over leafs
           if (item.section && item.contents) {
@@ -255,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Only search in direct children, not deep recursion
-        if (item.contents) {
+        if (item.contents && Array.isArray(item.contents)) {
           const found = findDirectMatch(item.contents, targetPath, item);
           if (found) return found;
         }
@@ -270,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const normalize = (path) => {
         return path.toLowerCase()
           .replace(/\\/g, '/')
-          .replace(/\.(md|html|qmd)$/, '')
+          .replace(/\.(md|html|qmd)$/, '') // Remove any of these extensions
           .replace(/^\/+/, '')
           .replace(/\/+$/, '')
           .trim();
@@ -279,9 +311,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const normalizedConfig = normalize(configPath);
       const normalizedCurrent = normalize(currentPath);
       
+      console.log(`🔍 Path matching: "${normalizedConfig}" vs "${normalizedCurrent}"`);
+      
       // Direct match or current ends with config
-      return normalizedConfig === normalizedCurrent || 
-             normalizedCurrent.endsWith(normalizedConfig);
+      const isMatch = normalizedConfig === normalizedCurrent || 
+                     normalizedCurrent.endsWith(normalizedConfig);
+      
+      if (isMatch) {
+        console.log(`✅ Path match found!`);
+      }
+      
+      return isMatch;
     }
     
     // Fallback DOM parsing - UPDATED TO SHOW FIRST-LEVEL SECTIONS
@@ -512,13 +552,31 @@ document.addEventListener('DOMContentLoaded', function() {
           } else {
             // This is a regular link
             const link = document.createElement('a');
-            link.href = sibling.href;
+            
+            // FIXED: Convert .md and .qmd paths to .html paths for proper navigation
+            let fixedHref = sibling.href;
+            if (fixedHref.endsWith('.md')) {
+              fixedHref = fixedHref.replace('.md', '.html');
+            }
+            // Also handle .qmd files
+            if (fixedHref.endsWith('.qmd')) {
+              fixedHref = fixedHref.replace('.qmd', '.html');
+            }
+            
+            link.href = fixedHref;
             link.textContent = sibling.text;
             link.className = 'nav-link';
             
+            console.log(`🔗 Link created: "${sibling.text}" -> "${fixedHref}" (original: "${sibling.href}")`);
+            
             if (sibling.isActive) {
-              // Active link styling
+              // Active link styling - this will make it bold via CSS
               link.classList.add('active');
+              console.log('🎯 Setting active class for:', sibling.text);
+            } else {
+              // Ensure non-active links are explicitly normal weight
+              link.style.fontWeight = 'normal';
+              console.log('📄 Setting normal weight for:', sibling.text);
             }
             
             listItem.appendChild(link);

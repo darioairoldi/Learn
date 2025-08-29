@@ -53,23 +53,44 @@ if (-not $yqPath) {
     $yqExecutable = "yq"
 }
 
-# Generate navigation.json with correct yq syntax
+# Generate navigation.json with correct structure - SIMPLE STRING APPROACH
 Write-Host "Extracting navigation structure from _quarto.yml..."
 try {
-    # Use the correct yq syntax to extract sidebar contents and format as JSON
-    $extractedContent = & $yqExecutable eval '.website.sidebar.contents' $quartoFile --output-format=json
+    # Extract the sidebar contents as JSON using yq
+    $sidebarJson = & $yqExecutable eval '.website.sidebar.contents' $quartoFile --output-format=json
     
-    # Wrap in the expected structure
-    $navigationStructure = @{
-        contents = $extractedContent | ConvertFrom-Json
+    if (-not $sidebarJson -or $sidebarJson.Trim() -eq "null") {
+        Write-Warning "No sidebar contents found in _quarto.yml"
+        '{"contents": []}' | Out-File -FilePath $navFile -Encoding utf8 -NoNewline
+        exit 1
     }
     
-    # Convert to JSON and save
-    $navigationStructure | ConvertTo-Json -Depth 20 | Out-File -FilePath $navFile -Encoding utf8 -NoNewline
+    # Wrap the JSON in the contents structure using simple string concatenation
+    $wrappedJson = '{"contents": ' + $sidebarJson + '}'
     
-    # Validate JSON
-    $content = Get-Content $navFile -Raw | ConvertFrom-Json
-    Write-Host "? navigation.json generated successfully with $($content.contents.Count) sections"
+    # Save the wrapped JSON
+    $wrappedJson | Out-File -FilePath $navFile -Encoding utf8 -NoNewline
+    
+    # Validate JSON by parsing it
+    try {
+        $testContent = Get-Content $navFile -Raw | ConvertFrom-Json
+        $itemCount = if ($testContent.contents -is [array]) { 
+            $testContent.contents.Count 
+        } else { 
+            0 
+        }
+        Write-Host "? navigation.json generated successfully with $itemCount sections"
+        Write-Host "? Contents structure: $(if ($testContent.contents -is [array]) { 'Direct Array ?' } else { 'Object with properties' })"
+        
+        # Additional debugging
+        Write-Host "? Sample content type: $($testContent.contents.GetType().Name)"
+        if ($testContent.contents -is [array] -and $testContent.contents.Count -gt 0) {
+            Write-Host "? First item: $($testContent.contents[0] | ConvertTo-Json -Depth 1 -Compress)"
+        }
+    } catch {
+        Write-Warning "JSON validation failed: $_"
+        Write-Host "Generated JSON preview: $($wrappedJson.Substring(0, [Math]::Min(200, $wrappedJson.Length)))"
+    }
     
     # Set the modification time to match _quarto.yml to avoid unnecessary regeneration
     $quartoTime = (Get-Item $quartoFile).LastWriteTime

@@ -30,6 +30,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 - **Ecosystem alignment** - Community packages target newer frameworks
 
 **Current State:**
+
 - Many organizations still run .NET Framework applications
 - Web Forms represent ~10% of legacy applications (hardest to migrate)
 - Framework targeting remains supported for gradual transitions
