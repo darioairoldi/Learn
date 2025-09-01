@@ -84,6 +84,12 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
   border-left: 3px solid #2780e3;
 }
 
+/* Styling for section links (links to sections that have children) - should be normal weight unless active */
+#custom-right-nav .nav-link.section-link:not(.active) {
+  font-weight: normal !important;
+  color: #495057 !important;
+}
+
 /* Override any inherited styles that might make all items bold */
 #custom-right-nav .nav-item {
   font-weight: normal !important;
@@ -612,7 +618,12 @@ document.addEventListener('DOMContentLoaded', function() {
             link.textContent = sibling.text;
             link.className = 'nav-link';
             
-            console.log(`🔗 Link created: "${sibling.text}" -> "${fixedHref}" (original: "${sibling.href}")`);
+            // Add section-link class for sections that have hrefs but are still sections
+            if (sibling.isSection) {
+              link.classList.add('section-link');
+            }
+            
+            console.log(`🔗 Link created: "${sibling.text}" -> "${fixedHref}" (original: "${sibling.href}") [isSection: ${sibling.isSection}]`);
             
             // Add click handler to debug navigation issues
             link.addEventListener('click', function(e) {
@@ -631,15 +642,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (sibling.isActive) {
               // Active link styling - this will make it bold via CSS
               link.classList.add('active');
-              link.style.fontWeight = '600'; // Explicitly set bold for active
-              link.style.fontStyle = 'normal';
               console.log('🎯 Setting active class for:', sibling.text);
             } else {
-              // Ensure non-active links are explicitly normal weight
-              link.style.fontWeight = 'normal';
-              link.style.fontStyle = 'normal';
+              // Ensure non-active links are explicitly normal weight, even if they're sections
               link.classList.remove('active'); // Ensure no active class
-              console.log('📄 Setting normal weight for:', sibling.text);
+              console.log('📄 Setting normal weight for:', sibling.text, '(isSection:', sibling.isSection, ')');
             }
             
             listItem.appendChild(link);
