@@ -49,7 +49,7 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
   display: block;
   padding: 0.25rem 0;
   color: #2780e3;
-  font-weight: 600;
+  font-weight: 500; /* Reduced from 600 to 500 for less boldness */
   text-decoration: none;
 }
 
@@ -252,17 +252,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const { item, parent } = result;
             
             if (item.contents && item.contents.length > 0) {
-              // This is a section - show ALL children (sections preferred)
-              console.log('📂 Section - showing children:', item.contents.length);
-              const sections = item.contents.filter(child => child.section);
-              const children = sections.length > 0 ? sections : item.contents.filter(child => child.text && child.href);
+              // This is a section - show ALL children (both regular items and sections)
+              console.log('📂 Section - showing ALL children:', item.contents.length);
               
-              return children.map(child => ({
-                text: child.text || child.section,
-                href: child.href || '#',
-                isActive: false,
-                isSection: !!child.section
-              }));
+              return item.contents.map(child => {
+                let href = child.href || '#';
+                let isSection = !!child.section;
+                
+                // If this is a section without a direct href but has children, 
+                // point to the first child's href
+                if (isSection && (!child.href || child.href === '#') && child.contents && child.contents.length > 0) {
+                  const firstChild = child.contents[0];
+                  if (firstChild && firstChild.href && firstChild.href !== '#') {
+                    href = firstChild.href;
+                    console.log(`🔗 Section "${child.section}" redirected to first child: ${href}`);
+                  }
+                }
+                
+                return {
+                  text: child.text || child.section,
+                  href: href,
+                  isActive: pathsMatch(href, currentPath),
+                  isSection: isSection
+                };
+              });
             } else if (parent && parent.contents) {
               // This is a leaf - show ALL siblings including current
               console.log('📄 Leaf - showing siblings:', parent.contents.length);
@@ -601,12 +614,13 @@ document.addEventListener('DOMContentLoaded', function() {
           const listItem = document.createElement('li');
           listItem.className = 'nav-item';
           
-          if (sibling.isSection && sibling.href === '#') {
-            // This is a section without a direct link - make it a label
+          if (sibling.isSection && (sibling.href === '#' || !sibling.href)) {
+            // This is a section without a valid direct link - make it a label
             const span = document.createElement('span');
             span.textContent = sibling.text;
             span.className = 'nav-section-label';
             listItem.appendChild(span);
+            console.log(`📋 Section label created for: "${sibling.text}" (no valid href)`);
           } else {
             // This is a regular link
             const link = document.createElement('a');
