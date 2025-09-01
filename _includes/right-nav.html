@@ -553,9 +553,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // FIXED: Simplified URL processing to prevent path duplication
+    // FIXED: Clean URL processing to prevent path duplication
     function fixUrlPath(originalHref) {
-      if (!originalHref) return '#';
+      if (!originalHref || originalHref === '#') return '#';
       
       let fixedHref = originalHref;
       
@@ -564,29 +564,28 @@ document.addEventListener('DOMContentLoaded', function() {
         fixedHref = fixedHref.replace(/\.(md|qmd)$/, '.html');
       }
       
-      // Simple URL encoding for spaces and special characters
-      // Only encode individual path segments, don't double-encode
-      const pathParts = fixedHref.split('/');
-      const encodedParts = pathParts.map(part => {
-        if (part === '' || part === '.' || part === '..' || part.startsWith('#')) {
-          return part;
-        }
-        
-        // Only encode if not already encoded and contains special characters
-        if (part.includes(' ') || part.includes('#') || part.includes('&')) {
-          // Check if already encoded by looking for % characters
-          if (!part.includes('%')) {
-            return encodeURIComponent(part);
-          }
-        }
-        
-        return part;
-      });
+      // Determine the site base URL
+      const currentOrigin = window.location.origin;
+      const currentPath = window.location.pathname;
       
-      const result = encodedParts.join('/');
+      // Check if this is GitHub Pages
+      const isGitHubPages = window.location.hostname.includes('github.io');
+      const repoName = 'Learn';
       
-      console.log(`🔧 URL fix: "${originalHref}" → "${result}"`);
-      return result;
+      let baseUrl;
+      if (isGitHubPages) {
+        baseUrl = `${currentOrigin}/${repoName}/`;
+      } else {
+        baseUrl = `${currentOrigin}/`;
+      }
+      
+      // Create absolute URL from relative path
+      const absoluteUrl = new URL(fixedHref, baseUrl).href;
+      
+      console.log(`🔧 URL fix: "${originalHref}" → "${absoluteUrl}"`);
+      console.log(`🌐 Base URL: "${baseUrl}"`);
+      
+      return absoluteUrl;
     }
     
     // OPTIMIZED: Render only sibling pages, not entire navigation tree - UPDATED WITH SECTION SUPPORT
