@@ -22,6 +22,7 @@ This session demonstrates the extensibility model of PowerToys Command Palette, 
 
 #### Next Generation Launcher
 **Built from Scratch with WinUI:**
+
 - **Performance focus** - "Blazing fast" execution and response times
 - **Accessibility improvements** - Enhanced screen reader and keyboard navigation support
 - **Modern architecture** - Complete rewrite from PowerToys Run foundation
@@ -29,6 +30,7 @@ This session demonstrates the extensibility model of PowerToys Command Palette, 
 
 #### Core Functionality Demonstration
 **Basic Features:**
+
 - **Application launcher** - Fast app discovery and launch
 - **File search** - Quick access to documents and projects
 - **Calculator integration** - Inline mathematical calculations
@@ -40,6 +42,7 @@ This session demonstrates the extensibility model of PowerToys Command Palette, 
 
 #### Plugin Integration Model
 **Any Application Integration:**
+
 - **External app connectivity** - Applications can add their own commands and functionality
 - **Context preservation** - Extensions maintain app-specific context and workflows
 - **User fingertip access** - Immediate access to deep application features
@@ -109,6 +112,7 @@ public class BuildDemoCommandProvider
 ```
 
 **Rich Details Integration:**
+
 - **Markdown rendering** - Complete PowerToys README content displayed
 - **Image preservation** - Automatic image loading and display
 - **Formatting support** - Headers, lists, code blocks maintained
@@ -121,6 +125,7 @@ public class BuildDemoCommandProvider
 #### Command Organization Philosophy
 
 **Top-Level vs. Nested Commands:**
+
 - **Discoverability** - Essential commands at surface level
 - **Organization** - Related commands grouped in sub-menus
 - **Context awareness** - Users understand command relationships
@@ -129,12 +134,14 @@ public class BuildDemoCommandProvider
 #### Visual Design Elements
 
 **Icon Strategy:**
+
 - **Application icons** - Extract from executable files
 - **Web-based icons** - Remote icon URLs supported
 - **Custom assets** - Project-specific imagery
 - **Emoji support** - Simple emoji as quick icon solution (?? for folder commands)
 
 **Information Architecture:**
+
 - **Progressive disclosure** - Basic commands first, details on demand
 - **Rich content support** - Full markdown rendering in details pane
 - **Contextual actions** - Multiple operations per command item
@@ -145,18 +152,21 @@ public class BuildDemoCommandProvider
 
 #### Extension Packaging
 **MSIX Distribution Model:**
+
 - **Standard packaging** - Extensions packaged as MSIX like regular applications
 - **Multiple distribution channels** - WinGet, Microsoft Store, direct distribution
 - **Automatic discovery** - Command Palette can find extensions in WinGet repository
 
 #### Community Engagement
 **Existing Extension Ecosystem:**
+
 - **Community contributions** - Active developer community creating extensions
 - **WinGet integration** - Extensions marked with metadata for discoverability
 - **Open submission model** - Developers can publish extensions freely
 
 #### Microsoft Store Integration
 **Major Announcement:**
+
 - **Removed onboarding fee** - Individual developers can now publish for free
 - **Lowered barrier to entry** - No cost for publishing Command Palette extensions
 - **Streamlined distribution** - Direct store publication pathway
@@ -168,6 +178,7 @@ public class BuildDemoCommandProvider
 #### SDK and Framework Support
 
 **Built-in Helpers:**
+
 - **Icon discovery utilities** - Tools for finding and implementing icons
 - **Process execution commands** - Pre-built system operation commands  
 - **UI component library** - Rich interface elements ready to use
@@ -183,6 +194,7 @@ public class BuildDemoCommandProvider
 
 #### Best Practices Demonstrated
 **Performance Considerations:**
+
 - **Latency management** - Async operations for external data
 - **UI responsiveness** - Non-blocking command execution
 - **Resource efficiency** - Minimal memory footprint for extensions
@@ -194,6 +206,7 @@ public class BuildDemoCommandProvider
 ### Extension Integration Points
 
 **Command Provider Interface:**
+
 - **GetCommands() method** - Primary extension entry point
 - **Command objects** - Structured command definitions
 - **Asynchronous support** - Non-blocking extension loading
@@ -202,6 +215,7 @@ public class BuildDemoCommandProvider
 ### Rich UI Components
 
 **Details Panel System:**
+
 - **Markdown rendering engine** - Full markdown specification support
 - **Image handling** - Automatic remote image loading
 - **Responsive layout** - Adaptive sizing based on content
@@ -210,6 +224,7 @@ public class BuildDemoCommandProvider
 ### Distribution Architecture
 
 **Extension Discovery:**
+
 - **WinGet metadata** - Special tags for Command Palette extensions
 - **Store integration** - Microsoft Store extension category
 - **Local installation** - Development and testing pathways
@@ -230,6 +245,7 @@ public class BuildDemoCommandProvider
 
 ### Real-World GitHub Extension
 **Production-Quality Features:**
+
 - **Live issue tracking** integration
 - **Search and filtering** across project issues
 - **Quick actions** - copy links, browse GitHub directly

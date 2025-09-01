@@ -208,6 +208,7 @@ All sharing same storage constraints
 #### **Documentation Site Bottlenecks**
 
 **Multi-Tier Storage Pressure:**
+
 - **Source Repository**: Markdown, code, small assets
 - **Git LFS**: PDFs, videos, large images  
 - **GitHub Pages**: Rendered HTML, processed assets
@@ -246,12 +247,14 @@ Monthly Impact: $52.50 + complete hosting failure
 #### **Performance and User Experience Impact**
 
 **Documentation Site Performance:**
+
 - **Large pages load slowly** from GitHub's CDN
 - **Missing assets** when LFS bandwidth exceeded
 - **Broken builds** when multiple limits hit simultaneously
 - **Inconsistent availability** during quota resets
 
 **Developer Experience Degradation:**
+
 - **Failed pushes** when repository approaches 1GB
 - **Broken CI/CD** when Actions minutes exhausted  
 - **Manual intervention required** for large file management

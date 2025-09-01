@@ -24,6 +24,7 @@ This session provides an authentic, practical look at how two Microsoft .NET dev
 **Real-World Challenge:** A decade-old memory pool issue in Kestrel suddenly became critical for Azure App Service.
 
 **AI-Powered Solution Approach:**
+
 - **Rapid iteration through ideas** - Four different implementation strategies in seconds
 - **Implementation exploration** - From basic limits to generational GC concepts  
 - **Context-driven discussions** - AI as a collaborative partner, not just a code generator
@@ -43,6 +44,7 @@ Prompt Pattern: "Give me approaches, not answers"
 **Technical Challenge:** Improving .NET regex engine performance through literal optimizations.
 
 **AI Discovery Process:**
+
 - **Academic knowledge synthesis** - AI identified optimization opportunities from literature
 - **Concrete example requirements** - Specificity needed for useful AI responses
 - **Lookahead optimization discovery** - AI identified unexplored optimization area
@@ -56,6 +58,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 #### Automated Comment Generation
 **The Documentation Challenge:**
+
 - **Legacy code understanding** - 20-year-old regex interpreter with cryptic opcodes
 - **Comment debt** - 3,000 lines of undocumented C# code
 - **Maintenance burden** - Who wants to write extensive documentation?
@@ -69,12 +72,14 @@ Prompt Pattern: "Give me approaches, not answers"
 ```
 
 **Model Context Protocol Library:**
+
 - **6,000 lines of AI-generated XML comments** - Reduced to 4,000 after human editing
 - **Days of work compressed to hours** - From documentation creation to refinement
 - **Context-aware generation** - AI understood method relationships and usage patterns
 
 #### Table Generation and Technical Documentation
 **Practical Automation Examples:**
+
 - **XML table generation** from switch statement analysis
 - **API documentation** with return type explanations
 - **Cross-reference documentation** maintaining consistency across large codebases
@@ -103,6 +108,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 #### MemoryExtensions Overloads (40 Methods)
 **Scaling Code Generation:**
+
 - **Pattern completion** - After implementing 2 methods, AI completed remaining 38
 - **Test generation** - Modified 2 tests, AI handled remaining 40 test variations
 - **Tab-driven development** - "Tabbed my way to glory" through repetitive implementations
@@ -113,6 +119,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 #### Named Pipes Memory Leak Case Study
 **The Critical Bug Report:**
+
 - **Partner team escalation** - Memory leaks in HTTP client using named pipes
 - **Immediate diagnosis** - AI root-caused issue in 45 seconds
 - **Solution identification** - Missing disposal logic for outstanding operations
@@ -127,6 +134,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 #### GitHub Copilot Agent Integration
 **Automated Issue Resolution:**
+
 - **Issue assignment to AI** - Direct GitHub integration
 - **Autonomous PR creation** - Fix implementation and test addition
 - **Human validation** - Expert review of AI-generated solution
@@ -138,6 +146,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 #### URI Template Testing Suite
 **Comprehensive Test Generation:**
+
 - **External test suite integration** - 13-year-old standardized test repository
 - **AI-generated test harness** - Parse test files and validate against custom implementation  
 - **Validation logic** - AI-generated code testing AI-generated formatting logic
@@ -145,6 +154,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 #### Edge Case Test Creation
 **Docker Compose Escape Sequence Example:**
+
 - **Complex string processing** - Shell script escape handling with multiple quote types
 - **Comprehensive edge cases** - AI generated extensive test scenarios
 - **Test-driven validation** - AI created tests that initially failed its own implementation
@@ -156,6 +166,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 #### Azure Aspire Repository Issue Resolution
 **Real-Time AI Development:**
+
 - **GitHub Codespaces integration** - Cloud-based development environment
 - **Issue context injection** - Automatic problem understanding from GitHub issues
 - **Multi-file modifications** - Seven Azure resource files updated with consistent patterns
@@ -169,6 +180,7 @@ Implementation → Test Generation → PR Creation → Human Review
 ```
 
 **Live Demo Results:**
+
 - **Property exposure** - Made private properties public across multiple resource types
 - **Consistent documentation** - XML comments required by repository standards
 - **Test coverage** - Unit tests for new functionality
@@ -181,6 +193,7 @@ Implementation → Test Generation → PR Creation → Human Review
 ### AI Tool Integration Stack
 
 **Primary Tools Used:**
+
 - **GitHub Copilot** - VS Code and Visual Studio integration
 - **ChatGPT/Claude** - Complex reasoning and ideation
 - **Copilot Agent Mode** - Autonomous development workflows
@@ -202,6 +215,7 @@ AI Testing → AI Documentation → Human Review → Production
 ### Quality Assurance Patterns
 
 **AI-Human Collaboration Model:**
+
 - **AI handles repetitive tasks** - Code generation, testing, documentation
 - **Human provides expertise** - Domain knowledge, architectural decisions, quality judgment
 - **Iterative refinement** - AI suggestions refined through human feedback
@@ -214,12 +228,14 @@ AI Testing → AI Documentation → Human Review → Production
 ### Quantified Benefits
 
 **Time Savings Examples:**
+
 - **10-year bug resolution** - Months of analysis compressed to days with AI ideation
 - **Documentation creation** - Days of work reduced to hours of editing
 - **Test generation** - 40 method tests automated after 2 manual examples
 - **Debugging assistance** - 30-minute investigations reduced to minutes
 
 **Quality Improvements:**
+
 - **Performance optimizations** - AI identified academic algorithms for 10x speed improvements
 - **Edge case coverage** - Comprehensive test scenarios beyond human imagination
 - **Consistency maintenance** - Uniform patterns across large codebases
@@ -228,12 +244,14 @@ AI Testing → AI Documentation → Human Review → Production
 ### Scaling Development Efficiency
 
 **Individual Developer Impact:**
+
 - **Reduced cognitive load** on repetitive tasks
 - **Faster exploration** of implementation alternatives
 - **Automated quality assurance** through test generation
 - **Enhanced documentation** maintenance
 
 **Team-Level Benefits:**
+
 - **Knowledge democratization** - Junior developers access to expert-level assistance
 - **Consistent code patterns** across team members
 - **Accelerated problem resolution** through AI-assisted debugging
@@ -245,6 +263,7 @@ AI Testing → AI Documentation → Human Review → Production
 
 ### Real-World AI Development
 **Azure Aspire Issue Resolution:**
+
 - **GitHub integration** - Seamless issue-to-code workflow
 - **Multi-file consistency** - Pattern application across similar files
 - **Documentation automation** - Required XML comments generated
@@ -252,6 +271,7 @@ AI Testing → AI Documentation → Human Review → Production
 
 ### AI Agent Capabilities
 **Autonomous Development Features:**
+
 - **Context understanding** - Issue requirements translated to implementation
 - **Code pattern recognition** - Consistent application across similar scenarios
 - **Quality standards adherence** - Repository requirements automatically followed
@@ -292,6 +312,7 @@ AI Testing → AI Documentation → Human Review → Production
 ### Tool Selection Strategy
 
 **Task-Specific Model Usage:**
+
 - **Complex reasoning** - Claude for deep analysis and architectural decisions
 - **Code generation** - GPT-4 for implementation and pattern application
 - **Quick iterations** - GitHub Copilot for real-time development assistance
@@ -312,11 +333,13 @@ AI Testing → AI Documentation → Human Review → Production
 ### Production-Ready AI Integration
 
 **What This Session Is NOT:**
+
 - **Speculative development** - Not about throwing prompts at AI hoping for working code
 - **Complete automation** - Human expertise and judgment remain essential
 - **Universal solution** - Specific to .NET development contexts and experienced developers
 
 **What This Session IS:**
+
 - **Practical integration** - Real workflows used by experienced Microsoft developers
 - **Quality-focused** - Production code standards maintained throughout AI assistance
 - **Expertise-enhanced** - AI amplifies human knowledge rather than replacing it

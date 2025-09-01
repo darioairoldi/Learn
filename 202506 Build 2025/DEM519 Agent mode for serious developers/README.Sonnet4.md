@@ -68,6 +68,7 @@ The fundamental introduction to Agent Mode establishes it as more than tradition
 > *"Agent mode's this really cool thing that's built to the copilot that allows you to solve bigger problems. It's this autonomous coding assistant that can iterate on its own progress."*
 
 **Key Capabilities Introduced:**
+
 - **Autonomous iteration** - Independent problem-solving progression
 - **Complex problem handling** - Multi-step, interconnected challenges
 - **Role democratization** - Enabling non-experts to achieve expert-level results
@@ -102,6 +103,7 @@ The session establishes credibility by selecting a genuine competitive programmi
 The housing price estimation challenge represents a complex machine learning problem with real-world applicability, requiring sophisticated data analysis, feature engineering, and model selection techniques.
 
 **Problem Components:**
+
 - **Training dataset** - Historical housing data with price labels
 - **Test dataset** - Houses requiring price prediction
 - **Sample submission** - Required output format
@@ -130,6 +132,7 @@ The demonstration begins with minimal human preparation—only a prompt file and
 > *"So you can see I've got a couple things set up here and that's it. I've got a prompt that I'm going to use to prompt agent mode. And I've got the the files that I just showed you pre downloaded."*
 
 **Starting Materials:**
+
 - Custom prompt file for Agent Mode guidance
 - Competition data files (train.csv, test.csv, data_description.txt, sample_submission.csv)
 - VS Code with Copilot Agent Mode enabled
@@ -172,6 +175,7 @@ VS Code's competitive advantage emerges through seamless integration between Age
 > *"So for those who don't know, VS Code has some really incredible built in native notebook support. And this is like a primary tool among data scientists in the field."*
 
 **Integration Benefits:**
+
 - **Automatic notebook creation** - Agent Mode generates appropriate project structure
 - **Kernel management** - Intelligent Python environment selection
 - **Cell execution control** - User permission system for code safety
@@ -187,6 +191,7 @@ The demonstration highlights VS Code Copilot's multi-model support, allowing use
 > *"So right now we're using the clod 3.7 sonnet model. I love clod 3.7 sonnet. It's my favorite of all the ones listed here, but we have plenty to choose from within Copilot."*
 
 **Available Models:**
+
 - **Claude 3.5 Sonnet** - Advanced reasoning capabilities
 - **Claude 3.7 Sonnet** - Preferred for deep analysis (demonstrated)
 - **GPT-4 Turbo** - Microsoft partnership integration
@@ -203,6 +208,7 @@ The prompt file system represents a significant productivity enhancement, enabli
 > *"So this allows you to save custom prompts that can be used across multiple projects that can be tied to AVS code profile."*
 
 **Tool Ecosystem Features:**
+
 - **Prompt file storage** - Reusable instruction patterns
 - **Profile integration** - Personalized development workflows
 - **Cross-project application** - Consistent approaches across domains
@@ -222,6 +228,7 @@ Agent Mode demonstrates sophisticated dependency management by autonomously sele
 > *"So this just installs all the required packages. I didn't tell it which packages to go install. It decided based on the problem set to which packages would be most useful in solving the Cagle competition."*
 
 **Automatically Selected Packages:**
+
 - **Data Manipulation:** pandas, numpy
 - **Visualization:** matplotlib, seaborn
 - **Machine Learning:** scikit-learn (multiple modules)
@@ -238,6 +245,7 @@ The systematic data exploration phase reveals Agent Mode's understanding of data
 > *"And so next it jumps right into the exploratory data analysis. So it, it does what any human would do and it's, it reads in the data and it starts to take a look at what the data actually is and what it can be used for."*
 
 **Analysis Components:**
+
 - **Data Loading** - Systematic file reading and structure examination
 - **Missing Value Detection** - Quality assessment and data completeness
 - **Distribution Analysis** - Statistical property examination
@@ -253,6 +261,7 @@ The preprocessing phase showcases advanced data science techniques, including lo
 > *"So it's handling missing values, it's transforming categorical variables, so variables that are, you know, in a string format into something that's more usable for these machine learning models."*
 
 **86-Line Data Cleansing Implementation:**
+
 - **Missing value imputation** - Strategic handling of incomplete data
 - **Categorical encoding** - String-to-numerical conversion
 - **Feature scaling** - Normalization for model optimization
@@ -266,12 +275,14 @@ The preprocessing phase showcases advanced data science techniques, including lo
 The multi-algorithm approach demonstrates sophisticated machine learning strategy, training seven different models with systematic performance evaluation.
 
 **Basic Model Suite:**
+
 - **Linear Regression** - Statistical baseline approach
 - **Ridge Regression** - Regularized linear model
 - **Lasso Regression** - Feature selection through regularization
 - **Elastic Net** - Combined Ridge/Lasso approach
 
 **Advanced Model Suite:**
+
 - **Random Forest** - Ensemble tree-based method
 - **Gradient Boosting** - Sequential improvement algorithm
 - **XGBoost** - Optimized gradient boosting framework
@@ -286,6 +297,7 @@ The ensemble creation represents professional-grade machine learning technique, 
 > *"But it actually does something even more advanced where it takes the the, the seven models that were generated and all those sets and it creates what's called an ensemble."*
 
 **Ensemble Benefits:**
+
 - **Improved accuracy** - Leveraging strengths of multiple approaches
 - **Reduced overfitting** - Balancing individual model limitations
 - **Robust predictions** - Consistent performance across data variations
@@ -305,6 +317,7 @@ The quantified success metrics provide concrete evidence of Agent Mode's effecti
 > *"And so I got a score of 14,000 on this, which equates to about 300th place out of 6000. And submissions... So top 5% generated in about 10 minutes time with very little, you know, serious development on my end."*
 
 **Final Performance Metrics:**
+
 - **RMSE Score:** 14,000
 - **Competition Ranking:** 300th out of 6,000 submissions
 - **Percentile Performance:** Top 5%
@@ -321,6 +334,7 @@ The time efficiency comparison illustrates the dramatic acceleration in developm
 > *"Even if I don't know exactly what library does which thing I can go then research. It gives me a starting point to then go learn more efficiently."*
 
 **Efficiency Gains:**
+
 - **Traditional Approach:** Hours to days for complete solution
 - **Agent Mode Approach:** 10 minutes for competition-ready submission
 - **Setup Elimination:** Automatic package selection and environment configuration
@@ -349,6 +363,7 @@ The session candidly addresses Agent Mode's limitations, including unpredictable
 > *"And unfortunately with agentic development flow, we have these little moments where it's like, ah, shoot, I know this should work a certain way, but it's not quite deterministic."*
 
 **Practical Challenges:**
+
 - **Unpredictable pausing** - Agent may require continuation prompts
 - **Execution variability** - Non-deterministic workflow progression
 - **Human supervision** - Need for guidance during complex operations
@@ -373,6 +388,7 @@ The demonstration emphasizes the importance of user control and permission syste
 > *"We don't want an agentic mode to just keep spinning and spinning and and eventually spending compute that it doesn't need to compute."*
 
 **Recommended Approaches:**
+
 - **Learning and education** - Primary use case for skill development
 - **Prototyping and exploration** - Rapid proof-of-concept creation
 - **Starting point generation** - Foundation code for human refinement
@@ -392,6 +408,7 @@ Agent Mode serves as an educational accelerator by exposing users to advanced te
 > *"But with agent mode, I can start to learn about these topics a lot faster."*
 
 **Learning Benefits:**
+
 - **Pattern Recognition** - Observing expert-level problem-solving approaches
 - **Technique Exposure** - Introduction to advanced methodologies
 - **Best Practice Integration** - Learning industry-standard workflows
@@ -407,6 +424,7 @@ The demonstration highlights how Agent Mode enables exploration of advanced conc
 > *"And so it's, it's looking at all these different facets of the data that I personally would never think to explore because I'm not a professional data scientist."*
 
 **Educational Applications:**
+
 - **Data Science Methodology** - Complete analytical workflow understanding
 - **Feature Engineering** - Variable transformation and selection techniques
 - **Model Selection** - Algorithm comparison and evaluation methods
@@ -427,12 +445,14 @@ The session references a custom prompt file system that enables reusable develop
 The automatic model selection and comparison process included systematic evaluation of seven different algorithms:
 
 **Traditional Statistical Methods:**
+
 - Linear Regression (baseline)
 - Ridge Regression (L2 regularization)
 - Lasso Regression (L1 regularization)
 - Elastic Net (combined regularization)
 
 **Advanced Machine Learning:**
+
 - Random Forest (ensemble tree-based)
 - Gradient Boosting (sequential optimization)
 - XGBoost (optimized gradient boosting)

@@ -345,11 +345,13 @@ The architecture philosophy emphasizes simplicity: *"It is basically a very simp
 The agent creation process follows a declarative approach where developers describe what they want rather than how to implement it:
 
 **Agent Identity Components:**
+
 - **Agent name** - identifier and branding
 - **Instructions** - behavioral guidelines and operational parameters
 - **Personality** - interaction style and communication approach
 
 **Integration Capabilities:**
+
 - **Data sources** - Azure AI Search, Fabric, SharePoint connectivity
 - **World knowledge** - Bing integration for current information
 - **Action tools** - Logic Apps, Azure Functions, OpenAPI services
@@ -405,6 +407,7 @@ The implementation delivers dramatic organizational transformation:
 Marco demonstrates the capability: *"Show me all the hard-braking events in the last week in rainy weather, and it can totally pull that off."*
 
 **Organizational Impact:**
+
 - **Democratized data access** - anyone at BMW can now query sensor data
 - **Natural language interface** - no SQL or Kusto knowledge required
 - **Complex cross-referencing** - correlation of sensor data, weather conditions, and vehicle events
@@ -617,6 +620,7 @@ Yina frames the discussion by acknowledging RAG's historical success while intro
 > "We've been doing RAG for what? Two years now? But now we have new capabilities." - Yina Arenas
 
 **Historical Context:**
+
 - **Two Years of Success:** RAG established as foundational AI application pattern
 - **Accumulated Learning:** Understanding of what works and limitations encountered
 - **Market Readiness:** Enterprise adoption reached sufficient maturity for next-generation solutions
@@ -634,6 +638,7 @@ Pablo introduces the revolutionary concept of applying agentic AI methods to the
 > "We apply the same agentic methods we use in many other parts of the systems... we apply to the search stack. So we have this agentic retrieval capability... that can understand, reflect on what we got, see if we need more information, maybe kind of process and branch out queries." - Pablo Castro
 
 **Core Capabilities:**
+
 - **Reflective Analysis:** AI evaluates retrieval quality and completeness
 - **Dynamic Query Expansion:** Automatic query reformulation and branching strategies
 - **Context-Aware Iteration:** Continuous improvement based on retrieval results
@@ -654,6 +659,7 @@ The discussion explores how modern deep learning transforms traditional search r
 > "We have had a whole journey going from the basics... all the way to modern systems where we do... deep learning, ranking models at the top of the stack that do re-ranking to make sure we... start with millions of documents and we want to get to the top three to five." - Pablo Castro
 
 **Technical Architecture:**
+
 - **Million-to-Five Filtering:** Massive document sets narrowed to essential results
 - **Transformer-Based Re-ranking:** Modern neural models for relevance scoring
 - **Semantic Understanding:** Meaning-based rather than keyword-based ranking
@@ -684,6 +690,7 @@ Yina provides perspective on the explosive growth of the AI model ecosystem and 
 > "Two years ago, we had the OpenAI first three models... Now we have an explosion of models... We are, as of today, have more than 10,000 models in the Azure AI Foundry catalog." - Yina Arenas
 
 **Comprehensive Coverage:**
+
 - **Text Processing Models:** Text-to-text, text-to-speech capabilities
 - **Visual AI Models:** Image analysis, generation, and video processing
 - **Industry-Specific Models:** Healthcare, finance, retail, and vertical specializations
@@ -701,6 +708,7 @@ With over 10,000 models available, the challenge shifts from finding any model t
 Yina explains the sophisticated discovery and comparison systems built into Azure AI Foundry to help developers navigate the vast model landscape.
 
 **Discovery Capabilities:**
+
 - **Multi-Dimensional Catalog:** Various ways to slice and categorize available models
 - **Leaderboard Comparisons:** Cost, throughput, safety, and quality metrics
 - **Scenario-Based Filtering:** Reasoning, text processing, image analysis categories
@@ -721,6 +729,7 @@ The introduction of model router represents a breakthrough in automated AI syste
 > "Model router is an overlay on top of the set of models that you have deployed... based on the prompt, it will decide which model to use. Simple prompt? Nano model (cheaper). Complex reasoning? O3 model." - Yina Arenas
 
 **Intelligent Routing Benefits:**
+
 - **Cost Optimization:** Automatic selection of most economical model for each task
 - **Performance Matching:** Complexity-appropriate model assignment
 - **Developer Simplicity:** No manual model selection required
@@ -756,6 +765,7 @@ The conversation establishes a practical, developer-focused definition of agents
 > "It's super simple because, as a developer, it's a new control structure. It's an 'if' statement and a 'while' statement, a 'switch' statement. I think we should just call it the 'swift' statement... LLMs as a swift statement agent." - Seth Juarez
 
 **Control Structure Revolution:**
+
 - **Traditional Control:** If, while, switch statements with fixed logic
 - **Agentic Control:** LLM-driven decision making for program flow
 - **Adaptive Behavior:** Control flow that adjusts to context and requirements
@@ -776,6 +786,7 @@ Yina contrasts traditional automation's brittleness with agents' adaptive capabi
 > "How many times you've been... in a call where you get one of the very hard-wired bots, I only understand that if you say yes, no... and then you're quickly saying 'representative, representative, representative.'" - Yina Arenas
 
 **AI-Powered Transformation:**
+
 - **Dynamic Adaptation:** AI adjusts to changing requirements without code updates
 - **Natural Interaction:** Conversational interfaces replace rigid menu systems
 - **Planning Capability:** AI can strategize multi-step approaches to problems
@@ -793,6 +804,7 @@ The discussion explores how agents gain practical capabilities through tool inte
 > "They have the ability to do function calling, to call a tool, whether that is retrieving knowledge from Azure AI Search or making an action in a system, anything that can be described with an API can be called by the LLM." - Yina Arenas
 
 **Integration Categories:**
+
 - **Knowledge Retrieval:** Azure AI Search integration for information access
 - **System Actions:** Real system interactions and modifications
 - **API Connectivity:** Any service with API becomes agent-accessible
@@ -823,6 +835,7 @@ The conversation acknowledges the early stage of agent protocol development and 
 > "It's early in the development of the technologies around agentic AI, and we'll take you back to the days before we had HTTP. We don't have standards right now." - Yina Arenas
 
 **Market Evolution:**
+
 - **Pre-Standard Phase:** Similar to early internet protocol development
 - **Multiple Proposals:** Various protocols competing for adoption
 - **Consolidation Trend:** Some protocols gaining more market traction
@@ -837,10 +850,12 @@ The conversation acknowledges the early stage of agent protocol development and 
 Yina explains the specific protocols and standards that Azure AI Foundry supports, covering both agent-to-agent communication and tool integration.
 
 **Agent Communication Protocols:**
+
 - **A2A Protocol:** Agent-to-agent communication and coordination standards
 - **Multi-Agent Orchestration:** Complex workflow coordination between multiple AI agents
 
 **Tool Integration Standards:**
+
 - **Model Context Protocol (MCP):** Standardized tool calling interface
 - **OpenAPI Integration:** Standard REST API connectivity
 - **Assistants API:** OpenAI-compatible agent interfaces
@@ -858,6 +873,7 @@ The comprehensive protocol support demonstrates Azure AI Foundry's "bring your s
 > "In our offering in Azure AI Foundry, in the agent service, we support A2A, MCP, we support Assistants API, Responsys API. We're working with LangChain and CrewAI to support their... agentic API protocols as well. So whatever you use today, you can connect to it." - Yina Arenas
 
 **Integration Philosophy:**
+
 - **Existing Toolchain Support:** Organizations don't need to abandon current investments
 - **Standards Agnostic:** Platform adapts to developer preferences rather than forcing choices
 - **Future-Proofing:** Support for emerging protocols as they gain adoption
@@ -885,6 +901,7 @@ Yina explains how safety and quality assurance for agents requires new evaluatio
 > "We've had evaluations for quite a while, understanding relevance and understanding a set of dimensions around that, but what is different now with the agentic offering is that we're adding new set of evaluators." - Yina Arenas
 
 **Agent-Specific Evaluation Criteria:**
+
 - **Tool Calling Correctness:** Did the agent invoke the appropriate tools and APIs?
 - **Intent Understanding:** Does the agent correctly interpret user requirements?
 - **Instruction Following:** Does behavior align with system prompt guidelines?
@@ -902,6 +919,7 @@ The discussion reveals the comprehensive security architecture protecting agent 
 > "We have things like prompt shields and we have a set of evaluators that make sure that, whether it is a series of attacks that are launched to your application, that it can respond the right way." - Yina Arenas
 
 **Security Components:**
+
 - **Prompt Shields:** Protection against injection attacks and adversarial inputs
 - **Continuous Monitoring:** Real-time security assessment during operation
 - **Attack Response:** Automated defense mechanisms against malicious inputs
@@ -919,6 +937,7 @@ Yina emphasizes how safety and security are integrated into the development work
 > "That is a key differentiator, what we have in our offer. It's not just about the models. It's about the entire set of development environment that Azure AI Foundry offers for you." - Yina Arenas
 
 **Integrated Safety Features:**
+
 - **Built-in Evaluators:** Quality assessment tools integrated into development workflow
 - **Security Umbrella:** Comprehensive protection across all applications
 - **Monitoring Dashboards:** Real-time safety and performance metrics
@@ -946,6 +965,7 @@ The announcement of Agent Service reaching general availability represents a mil
 > "Agent service is an offering that we are taking to general availability today at Build, and it is basically a very simple way for you to create your agent and run it on the cloud." - Yina Arenas
 
 **Key Benefits:**
+
 - **Declarative Agent Definition:** Simple configuration-based agent creation
 - **Cloud-Native Scaling:** Automatic resource management and scaling
 - **Zero Infrastructure Management:** Focus on agent logic rather than operational concerns
@@ -982,6 +1002,7 @@ The declarative approach allows developers to focus on what the agent should do 
 The comprehensive integration capabilities demonstrate how agents can connect to virtually any enterprise system or external service.
 
 **Connectivity Options:**
+
 - **Azure Native Services:** Seamless integration with Microsoft ecosystem
 - **Third-Party APIs:** OpenAPI standard support for external services
 - **MCP Servers:** Standardized tool protocol support
@@ -1015,6 +1036,7 @@ Marco establishes the scale and complexity of BMW's data challenge, providing co
 > "They have these cars... 5,000 sensors on each one of these things, and they are all from all over the world reporting this to a central cloud source, which is in Azure." - Marco Casalaina
 
 **Comprehensive Sensor Coverage:**
+
 - **Engine Monitoring:** Temperature, performance, and operational metrics
 - **Brake Systems:** Temperature, pressure, and wear indicators  
 - **Environmental Data:** Ambient temperature, humidity, and weather conditions
@@ -1033,6 +1055,7 @@ Marco describes the classic enterprise data problem: valuable information locked
 > "Nobody was able to query that... So there was this special class of wizards who were the only people who could query these things." - Marco Casalaina
 
 **Access Barriers:**
+
 - **Technical Complexity:** Kusto and SQL database query requirements
 - **Cryptic Naming:** Sensor identifiers like "Q underscore RSTR" meaningless to users
 - **Knowledge Bottleneck:** Limited organizational data utilization
@@ -1059,6 +1082,7 @@ The solution required significant upfront investment in semantic modeling but de
 > "Show me all the hard-braking events in the last week in rainy weather,' and it can totally pull that off." - Marco Casalaina
 
 **Organizational Impact:**
+
 - **Democratized Access:** Anyone at BMW can now query sensor data
 - **Natural Language Interface:** No SQL knowledge required for complex analysis
 - **Real-Time Insights:** Immediate answers to sophisticated operational questions
@@ -1086,6 +1110,7 @@ Marco demonstrates how Azure's integrated platform services enable rapid develop
 > "Yesterday, the need came up to connect this to an API, a flight reservation API... I was able to create this API very quickly in this API management service, and I could mock it up... I cannot just create the API. I could expose it to the OpenAPI protocol." - Marco Casalaina
 
 **Development Speed:**
+
 - **Yesterday's Requirement:** Flight reservation API needed for travel agent
 - **Platform Discovery:** Azure API Management service utilization
 - **Mock API Creation:** Rapid prototyping and development capabilities
@@ -1100,6 +1125,7 @@ Marco demonstrates how Azure's integrated platform services enable rapid develop
 The demonstration shows how a single API can be exposed through multiple protocols for different integration scenarios.
 
 **Flexible Integration Options:**
+
 - **OpenAPI Standard:** Immediate agent compatibility
 - **MCP Server Creation:** Standardized protocol support
 - **Multiple Exposure Methods:** Different protocols for different agent frameworks
@@ -1120,6 +1146,7 @@ The brief exchange reveals Azure's philosophy of platform cohesion and developer
 > "Way to bring it together. So we did the data, we did the models, and then you're like -- and the platform Azure makes it all good." - Seth Juarez
 
 **Platform Benefits:**
+
 - **Ecosystem Integration:** Services designed to work together naturally
 - **Developer Productivity:** Rapid integration without complex setup procedures
 - **Standards Compliance:** Industry protocols supported natively
@@ -1321,6 +1348,7 @@ The model router operates as an intelligent overlay system:
 ### Protocol Specifications Mentioned
 
 **Supported Agent Communication Protocols:**
+
 - **A2A (Agent-to-Agent):** Inter-agent communication and coordination
 - **MCP (Model Context Protocol):** Standardized tool calling interface
 - **Assistants API:** OpenAI-compatible agent interfaces
@@ -1331,6 +1359,7 @@ The model router operates as an intelligent overlay system:
 ### BMW Case Study Technical Details
 
 **Sensor Data Specifications:**
+
 - **Sensor Count:** 5,000 sensors per vehicle
 - **Data Types:** Engine, brake, ambient temperature, moisture
 - **Global Scale:** Worldwide fleet data aggregation
@@ -1338,6 +1367,7 @@ The model router operates as an intelligent overlay system:
 - **Query Challenge:** Cryptic sensor naming (e.g., "Q underscore RSTR")
 
 **Semantic Modeling Process:**
+
 - **Duration:** Six-month intensive documentation project
 - **Scope:** Organization-wide sensor knowledge gathering
 - **Output:** Comprehensive sensor definitions, ranges, and relationships
@@ -1346,6 +1376,7 @@ The model router operates as an intelligent overlay system:
 ### Session Format and Structure Details
 
 **STUDIO14 Format Characteristics:**
+
 - **Intimate Setting:** Studio interview rather than large hall presentation
 - **Conversational Style:** Natural discussion between colleagues
 - **Technical Depth:** Advanced concepts explained through accessible analogies
@@ -1353,6 +1384,7 @@ The model router operates as an intelligent overlay system:
 - **Online Only:** Digital-first session format
 
 **Speaker Interaction Patterns:**
+
 - **Seth Juarez:** Facilitator and questioner, providing developer perspective
 - **Pablo Castro:** Technical deep dives on Azure AI Search and retrieval
 - **Yina Arenas:** Platform overview and agent service technical specifications
@@ -1361,12 +1393,14 @@ The model router operates as an intelligent overlay system:
 ### Non-Core Discussion Elements
 
 **Personal Anecdotes and Humor:**
+
 - Marco's "favorite color is AI" response to Seth's introductory question
 - Discussion of the "swift statement" as a new control structure naming convention
 - References to frustrating experiences with rigid automated phone systems
 - Marco's discovery of Azure API Management after three years at Microsoft
 
 **Industry Context and Market Timing:**
+
 - Comparison to pre-HTTP internet protocol development phase
 - Two-year timeline for RAG technology maturation
 - References to earlier three-model OpenAI catalog vs. current 10,000+ model ecosystem

@@ -22,6 +22,7 @@ This demo-packed session showcases the most powerful and underused debugging fea
 
 #### Symbol Intelligence and Code Navigation
 **Hover-Based Documentation:**
+
 - **Instant symbol descriptions** - One-line summaries for any class, method, or variable
 - **Context-aware explanations** - Copilot analyzes symbol usage and purpose
 - **Zero documentation required** - AI generates descriptions from code structure
@@ -33,6 +34,7 @@ This demo-packed session showcases the most powerful and underused debugging fea
 
 #### Semantic Code Search with @solution Context
 **Traditional vs. AI-Powered Search:**
+
 - **Traditional approach:** Text matching, manual code exploration
 - **AI semantic search:** Intent-based queries understanding code purpose
 - **Context element usage:** `#solution` for whole-codebase analysis
@@ -48,6 +50,7 @@ AI Response: "SimulateOneStep method handles robot movement with three phases:
 
 #### Multi-Model AI Strategy
 **Model Selection for Different Tasks:**
+
 - **GPT-4.1:** General-purpose debugging and code analysis
 - **Claude 3.5 Sonnet:** Enhanced reasoning capabilities for complex problems
 - **Model switching:** Real-time comparison of AI responses
@@ -59,12 +62,14 @@ AI Response: "SimulateOneStep method handles robot movement with three phases:
 
 #### The Importance of Targeted Context
 **Generic vs. Specific Bug Fixing:**
+
 - **Generic approach:** "Fix bugs in [method]" produces broad, unfocused suggestions
 - **Targeted approach:** Specific problem descriptions with visual context
 - **Context quality impact:** More precise context yields better AI solutions
 
 #### Visual Debugging with Copilot Vision
 **Screenshot-Based Problem Analysis:**
+
 - **Image integration:** Direct screenshot upload to Copilot chat
 - **Visual problem description:** AI analyzes UI behavior and identifies issues
 - **Combined context:** Visual evidence + code analysis for targeted fixes
@@ -88,17 +93,20 @@ Solution: Minimal fix to force calculation using square distance calculation
 
 #### Intelligent Breakpoint Management
 **Breakpoint Groups and Organization:**
+
 - **Grouped breakpoints** for different debugging scenarios
 - **Bulk enable/disable** capabilities for scenario-specific debugging
 - **Demo-specific organization** - Visualizer demo, debugging demo separation
 
 **Force Run to Cursor:**
+
 - **Skip all breakpoints** and first-chance exceptions
 - **Fast-forward debugging** to specific code locations
 - **Efficient workflow** for targeted investigation
 
 #### Data Visualization and Analysis
 **IEnumerable Visualizer Enhancements:**
+
 - **Grid-like data presentation** for complex collections
 - **LINQ query filtering** with real-time data manipulation
 - **AI-powered LINQ suggestions** via sparkle button interface
@@ -120,11 +128,13 @@ Result: 42 negative-price cars identified and filtered
 
 #### Conditional Breakpoints with AI Assistance
 **Smart Breakpoint Conditions:**
+
 - **Copilot suggestions** for breakpoint conditions based on surrounding code
 - **Context-aware recommendations** - Understands variable types and logic
 - **Reduced manual condition writing** - AI provides starting points and syntax guidance
 
 **Tracepoint Integration:**
+
 - **Logpoint functionality** without code modification
 - **AI-suggested trace expressions** for relevant data logging
 - **Output window integration** for real-time debugging information
@@ -135,6 +145,7 @@ Result: 42 negative-price cars identified and filtered
 
 #### Exception Assistant with Deep AI Integration
 **Comprehensive Exception Analysis:**
+
 - **Automatic context gathering** - Call stack, locals, code snippets
 - **Dynamic variable evaluation** with user confirmation for side effects
 - **Root cause identification** through code and data structure analysis
@@ -149,6 +160,7 @@ Result: 30 products successfully deserialized
 ```
 
 **Multi-Language Support:**
+
 - **C# exception handling** with detailed API mismatch analysis
 - **C++ memory management** issues and race condition detection
 - **Cross-language debugging** capabilities
@@ -166,6 +178,7 @@ Solution: Synchronization mechanism with stop signal flag
 
 #### Variable Analysis for Logic Error Detection
 **Non-Exception Issue Investigation:**
+
 - **Logic error detection** without runtime exceptions
 - **Variable state analysis** for unexpected values
 - **API parameter validation** with documentation cross-reference
@@ -179,6 +192,7 @@ Result: Successful process creation
 ```
 
 **Inline Return Values:**
+
 - **Real-time return value display** in Visual Studio 17.12+
 - **Pre-completion value inspection** during function execution
 - **Elimination of temporary variables** for return value checking
@@ -189,6 +203,7 @@ Result: Successful process creation
 
 #### Parallel Stacks Window with AI Intelligence
 **Thread State Summarization:**
+
 - **One-line AI summaries** for each thread's current activity
 - **Complex thread visualization** made comprehensible
 - **Real-time thread status** understanding
@@ -203,12 +218,14 @@ Thread Summaries:
 
 #### Debugger Context Integration
 **#debugger Context Element:**
+
 - **Complete debugging state capture** - Call stacks, variables, thread information
 - **Conversational debugging** with maintained context
 - **Detailed explanations** of current execution state
 
 #### Deadlock Detection and Analysis
 **AI-Powered Deadlock Investigation:**
+
 - **Automatic deadlock detection** - Red icons for problematic threads
 - **Multi-thread analysis** with complete source code context
 - **Root cause identification** - Lock ordering problems
@@ -228,12 +245,14 @@ Code Fix: Multiple methods updated with proper lock sequencing
 
 #### CPU Usage Analysis with AI Insights
 **BenchmarkDotNet Integration:**
+
 - **Direct CPU trace generation** from benchmark runs
 - **Benchmark.Diagnosers package** for automatic profiling
 - **Mean execution time analysis** with baseline measurements
 
 #### AI-Powered Performance Optimization
 **Copilot Profiling Analysis:**
+
 - **Ask Copilot button** in CPU usage summary
 - **Deep insight analysis** of performance bottlenecks
 - **Optimization suggestions** with code examples
@@ -260,6 +279,7 @@ Result: Mean execution time reduced to under 100 microseconds
 
 #### Interactive LINQ Visualization
 **Hover-Based Query Analysis:**
+
 - **Step-by-step data filtering** visualization
 - **IEnumerable visualizer integration** for each LINQ operation
 - **Real-time query result inspection** at any point in the pipeline
@@ -286,6 +306,7 @@ Generated LINQ: cars.Where(c => (c.Brand == "BMW" || c.Brand == "Audi")
 
 ### AI Model Strategy
 **Multi-Model Approach:**
+
 - **GPT-4.1:** Primary model for general debugging tasks
 - **Claude 3.5 Sonnet:** Enhanced reasoning for complex analysis
 - **Model switching:** Real-time comparison for optimal results
@@ -293,6 +314,7 @@ Generated LINQ: cars.Where(c => (c.Brand == "BMW" || c.Brand == "Audi")
 
 ### Context Management System
 **Built-in Context Elements:**
+
 - **#solution:** Whole codebase semantic search
 - **#debugger:** Complete debugging state capture
 - **File attachments:** Additional code context for targeted analysis
@@ -300,6 +322,7 @@ Generated LINQ: cars.Where(c => (c.Brand == "BMW" || c.Brand == "Audi")
 
 ### Integration Points
 **Visual Studio Feature Enhancement:**
+
 - **Hover tooltips** with AI-generated descriptions
 - **Breakpoint conditions** with AI suggestions
 - **Exception dialogs** with analyze buttons
@@ -308,6 +331,7 @@ Generated LINQ: cars.Where(c => (c.Brand == "BMW" || c.Brand == "Audi")
 
 ### Safety and User Control
 **Side Effect Management:**
+
 - **User confirmation** for expressions with potential side effects
 - **Safe variable evaluation** for simple property access
 - **Controlled execution** with explicit user approval
@@ -367,6 +391,7 @@ Generated LINQ: cars.Where(c => (c.Brand == "BMW" || c.Brand == "Audi")
 
 #### 1. Essential Copilot Setup
 **Context Elements:**
+
 - **#solution** for codebase-wide semantic search
 - **#debugger** for complete debugging state analysis
 - **File attachments** for additional code context
@@ -436,6 +461,7 @@ Generated LINQ: cars.Where(c => (c.Brand == "BMW" || c.Brand == "Audi")
 
 ### Educational Value
 **Learning Enhancement:**
+
 - **24/7 expert assistance** for new developers
 - **Code comprehension** through AI explanations
 - **Debugging skill development** with guided analysis
@@ -443,6 +469,7 @@ Generated LINQ: cars.Where(c => (c.Brand == "BMW" || c.Brand == "Audi")
 
 ### Professional Development
 **Productivity Acceleration:**
+
 - **Faster bug resolution** through intelligent analysis
 - **Reduced debugging time** with targeted investigation
 - **Knowledge transfer** from AI insights
@@ -450,6 +477,7 @@ Generated LINQ: cars.Where(c => (c.Brand == "BMW" || c.Brand == "Audi")
 
 ### Team Collaboration
 **Knowledge Sharing:**
+
 - **Consistent debugging approaches** across team members
 - **Documented analysis** through conversation history
 - **Shared insights** from AI-generated explanations

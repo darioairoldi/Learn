@@ -658,6 +658,7 @@ dotnet scaffold identity \
 ```
 
 **Available Identity Options:**
+
 - `--use-default-ui` - Use default Bootstrap UI
 - `--database-provider` - Database provider (SqlServer, SQLite, PostgreSQL, InMemory)
 - `--context-name` - DbContext class name
@@ -683,6 +684,7 @@ dotnet scaffold passkey \
 ```
 
 **Passkey-Specific Options:**
+
 - `--relying-party-name` - Display name for the application
 - `--relying-party-id` - Domain identifier for passkeys
 - `--origins` - Comma-separated list of allowed origins
@@ -708,6 +710,7 @@ dotnet scaffold entra \
 ```
 
 **Entra ID Options:**
+
 - `--tenant-id` - Azure AD tenant identifier
 - `--client-id` - Application (client) ID
 - `--domain` - Azure AD domain
@@ -732,6 +735,7 @@ dotnet scaffold hybrid \
 ```
 
 **Hybrid-Specific Options:**
+
 - `--platforms` - Target platforms (Windows, iOS, Android, macOS)
 - `--authentication-type` - Authentication method (Passkey, Entra, Custom)
 - `--include-web-fallback` - Include web-based authentication fallback

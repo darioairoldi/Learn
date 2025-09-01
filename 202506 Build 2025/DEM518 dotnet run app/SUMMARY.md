@@ -36,6 +36,7 @@ class Program
 ```
 
 **Cognitive Overload for Beginners:**
+
 - **Unfamiliar terminology**: Namespace, class, static, void, Main, args
 - **Project ceremony**: `.csproj` files with XML configuration
 - **Hidden folders**: `bin`, `obj` directories with mysterious contents
@@ -52,6 +53,7 @@ Console.WriteLine("Hello World!");
 ```
 
 **Remaining Challenges:**
+
 - Still required project files and XML configuration
 - File naming confusion (`Program.cs` vs application name)
 - Project structure complexity for simple tasks
@@ -76,6 +78,7 @@ dotnet run hello.cs
 ```
 
 **Key Benefits:**
+
 - **Zero ceremony** - No projects, no XML, no extra files
 - **Pure C# learning** - Focus only on language concepts
 - **Immediate feedback** - Write and run instantly
@@ -98,6 +101,7 @@ Console.WriteLine($"It has been {timeSince.Humanize()} since Build started.");
 ```
 
 **Ignore Directive (`#!`):**
+
 - **Language instruction** to C# compiler
 - **Separates metadata** from actual C# code
 - **Extensible system** for various directives
@@ -119,6 +123,7 @@ Console.WriteLine($"You are {age.Humanize()} old.");
 ```
 
 **Linux Features:**
+
 - **Shebang support** (`#!/usr/bin/env dotnet run`)
 - **Executable permissions** with `chmod +x script.cs`
 - **Direct execution** `./script.cs "1978-01-01"`
@@ -150,6 +155,7 @@ app.Run();
 ```
 
 **Advanced Capabilities:**
+
 - **SDK switching** with `#!set sdk` directive
 - **Web API development** without project files
 - **Blazor Server applications** with Razor files
@@ -211,6 +217,7 @@ hello/
 5. **Convert to projects**: When needing full features
 
 **Comparison with Other Languages:**
+
 - **Node.js**: `node hello.js`
 - **Python**: `python hello.py` 
 - **Go**: `go run hello.go`
@@ -231,12 +238,14 @@ hello/
 ### Architecture Components
 
 **Compiler Integration:**
+
 - **Direct file compilation** without intermediate project generation
 - **Dependency resolution** through ignore directives
 - **SDK selection** via `#!set sdk` directive
 - **Package restoration** handled automatically
 
 **Cross-Platform Support:**
+
 - **Windows**: Full feature support with performance optimizations
 - **Linux/macOS**: Shebang integration for shell execution
 - **WSL**: Seamless integration with Windows Subsystem for Linux
@@ -245,6 +254,7 @@ hello/
 ### Developer Experience Enhancements
 
 **Tooling Evolution:**
+
 - **VS Code**: Enhanced C# extension with standalone file support
 - **IntelliSense**: Full language services without projects
 - **Debugging**: Breakpoints and step-through debugging

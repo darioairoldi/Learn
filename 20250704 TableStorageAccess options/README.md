@@ -162,6 +162,7 @@ The `ITableEntity` interface is the **modern, recommended approach** for definin
 <img src="images/002.00 ITableEntity.png" alt="ITableEntity Interface Diagram" style="border: 2px solid #0078d4; border-radius: 8px; padding: 10px; background-color: #f8f9fa; display: block; margin: 20px auto; max-width: 100%;">
 
 **Key Characteristics of ITableEntity:**
+
 - **Strongly-typed**: Compile-time safety with custom properties
 - **Interface-based**: Flexible implementation without inheritance constraints
 - **Required properties**: Must implement PartitionKey, RowKey, Timestamp, and ETag
@@ -170,6 +171,7 @@ The `ITableEntity` interface is the **modern, recommended approach** for definin
 - **Migration-friendly**: Easy to evolve schema over time
 
 **When to use ITableEntity:**
+
 - Well-defined, stable entity schemas
 - Need compile-time safety and IntelliSense
 - Custom business logic in entity classes
@@ -207,6 +209,7 @@ public class EmployeeEntity : ITableEntity
 The `TableEntity` class is a **built-in implementation** that provides dynamic property access through a dictionary-like interface. It's perfect for scenarios where the schema is unknown, evolving, or when working with heterogeneous data.
 
 **Key Characteristics of TableEntity:**
+
 - **Dynamic**: Properties accessed via dictionary-like syntax (`entity["PropertyName"]`)
 - **Flexible**: No predefined schema required
 - **Built-in**: Ready to use without custom classes
@@ -215,6 +218,7 @@ The `TableEntity` class is a **built-in implementation** that provides dynamic p
 - **Polymorphic**: Can store different entity types in the same table
 
 **When to use TableEntity:**
+
 - Unknown or evolving schemas
 - Rapid prototyping and development
 - Working with external/legacy data
@@ -309,11 +313,13 @@ public class FlexibleEmployeeEntity : ITableEntity
 Azure Table Storage supports **OData query syntax** for filtering and querying entities. Here are the supported query operations:
 
 **Supported Query Options:**
+
 - `$filter` - Filter entities (max 15 discrete comparisons)
 - `$top` - Limit number of results
 - `$select` - Select specific properties
 
 **OData Filter Operators:**
+
 - **Comparison**: `eq`, `ne`, `gt`, `ge`, `lt`, `le`
 - **Logical**: `and`, `or`, `not`
 - **String functions**: `startswith()`, `endswith()`, `contains()`, `length()`, `substring()`
@@ -339,6 +345,7 @@ Handle different entity types in the same table using discriminator properties t
 Store complex nested objects as JSON within table properties using custom entity classes with JSON serialization helpers.
 
 **When to Use Each Approach:**
+
 - **Strongly-typed**: Well-defined schema + compile-time safety
 - **TableEntity**: Dynamic data, schema evolution, or multiple entity types
 - **Custom serialization**: Complex nested objects stored as JSON
@@ -470,6 +477,7 @@ await foreach (var page in tableClient.QueryAsync<EmployeeEntity>(
 ```
 
 **Query Performance Tips:**
+
 - **Always include PartitionKey** in filters when possible
 - **Point queries** (PartitionKey + RowKey) are most efficient
 - **Avoid table scans** (queries without PartitionKey)
@@ -574,6 +582,7 @@ await tableClient.SubmitTransactionAsync(batchActions);
 ```
 
 **When to use each approach:**
+
 - Use **strongly-typed** for compile-time safety and well-known schemas.
 - Use **dynamic TableEntity** or **JSON** for flexible, schema-less, or external data scenarios.
 - Use **batch** for efficient insertion of multiple records with the same PartitionKey.

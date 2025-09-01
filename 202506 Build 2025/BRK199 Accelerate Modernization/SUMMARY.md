@@ -23,6 +23,7 @@ This session demonstrates how organizations can transform legacy systems into ag
 **Core Concept:** Every application will be reinvented with AI, making modernization essential for AI adoption at scale.
 
 **Key Motivations:**
+
 - **Performance improvements** through modern frameworks and PaaS services
 - **Security enhancements** via latest patches and reduced attack surfaces
 - **Feature accessibility** - newer frameworks unlock modern capabilities
@@ -30,6 +31,7 @@ This session demonstrates how organizations can transform legacy systems into ag
 - **Cost optimization** via cloud-native architectures
 
 **AI-Powered Development Lifecycle:**
+
 - **Inner loop:** Developer + IDE with GitHub Copilot integration
 - **Outer loop:** Software Engineering Agent for broader automation
 - **Third loop:** SRE Agent for observability and operational excellence
@@ -70,22 +72,26 @@ Microsoft's new **App Modernization Guidance** provides step-by-step transformat
 #### Modernization Categories
 
 **Code & Language Platform Modernization:**
+
 - **Framework upgrades** (Java 8 ? Java 21, .NET Framework ? .NET 8)
 - **Dependency management** (NuGet packages, Maven dependencies)
 - **Code refactoring** for cloud compatibility
 - **Configuration externalization** (local files ? Azure Blob Storage)
 
 **Replatforming to Azure:**
+
 - **Containerization** and deployment to AKS/Container Apps
 - **Database migration** (on-premises ? managed cloud services)
 - **Cross-cloud migration** (AWS ? Azure PaaS)
 
 **Refactor & Rearchitect:**
+
 - **Monolith decomposition** into microservices
 - **Event-driven architecture** adoption
 - **API-first design** implementation
 
 **Process Modernization:**
+
 - **DevOps transformation** with modern tooling
 - **Security modernization** via zero-trust architecture
 
@@ -96,12 +102,14 @@ Microsoft's new **App Modernization Guidance** provides step-by-step transformat
 #### GitHub Copilot App Modernization Extension
 
 **Capabilities:**
+
 - **Automated assessment** using integrated AppCAT tool
 - **Framework upgrades** with OpenRewrite integration
 - **Custom formula creation** for repeatable transformations
 - **End-to-end deployment** to Azure services
 
 **Live Demo Results (Java Application - Airsonic):**
+
 - **Assessment time:** 3-5 minutes (previously days of manual analysis)
 - **Framework upgrade:** Java 8 ? Java 21 with automated dependency resolution
 - **Code transformation:** Logging, authentication, and configuration modernization
@@ -110,12 +118,14 @@ Microsoft's new **App Modernization Guidance** provides step-by-step transformat
 #### Cognition Devin AI Agent
 
 **Agent Architecture:**
+
 - **Cloud-based execution** in isolated virtual environments
 - **Parallel processing** multiple tasks simultaneously
 - **End-to-end automation** from analysis to PR creation
 - **Integration** with Microsoft .NET Upgrade Assistant
 
 **Productivity Gains:**
+
 - **6X to 12X improvement** for repetitive migration tasks
 - **Autonomous workflow** from requirements to deployed code
 - **Error handling and recovery** without human intervention
@@ -132,35 +142,41 @@ Microsoft's new **App Modernization Guidance** provides step-by-step transformat
 
 #### Modernization Process
 **1. Data-Driven Selection:**
+
 - Portfolio analysis identifying legacy technology stacks
 - Business strategy alignment for modernization candidates
 - Cost-benefit analysis using older frameworks and expensive databases
 
 **2. Three-Day Workshop Methodology:**
+
 - Collaborative planning with development teams
 - Tool selection and process definition
 - Vertical slice modernization proof-of-concept
 - Knowledge transfer and team enablement
 
 **3. Autonomous Execution:**
+
 - Development teams take full ownership post-workshop
 - Code and infrastructure modernization in parallel
 - Database technology migrations and cloud adoption
 
 #### Flex HRM Case Study Results
 **Technical Transformation:**
+
 - **3 million lines of code** modernized from .NET Framework ? .NET 8
 - **30 developers** achieving 100% AI tool adoption
 - **Azure App Service** deployment with Linux hosting
 - **40% reduction** in migration effort through AI assistance
 
 **Business Impact:**
+
 - **€600,000 annual savings** in hosting and licensing costs
 - **Significant performance improvements** over legacy system
 - **Enhanced developer engagement** and job satisfaction
 - **Accelerated feature development** capability
 
 **Future Roadmap:**
+
 - PostgreSQL migration for further cost optimization
 - Mobile application modernization
 - Microservices architecture decomposition
@@ -190,11 +206,13 @@ Microsoft's new **App Modernization Guidance** provides step-by-step transformat
 #### Technical Implementation Architecture
 
 **Microsoft.Extensions.AI Integration:**
+
 - Unified approach to AI service consumption
 - Custom formula development for organization-specific patterns
 - Integration with existing Visual Studio and VS Code workflows
 
 **Multi-Platform Support:**
+
 - Java modernization with OpenRewrite integration
 - .NET modernization with built-in upgrade tooling
 - Database schema migration capabilities (upcoming)
@@ -254,18 +272,21 @@ Microsoft's new **App Modernization Guidance** provides step-by-step transformat
 ### AI-Assisted Code Transformation Process
 
 **Assessment Phase:**
+
 - Automated dependency analysis and vulnerability scanning
 - Framework compatibility evaluation
 - Migration complexity scoring
 - Resource requirement estimation
 
 **Transformation Phase:**
+
 - Formula-based pattern application
 - Build validation and error resolution
 - Automated testing execution
 - Configuration externalization
 
 **Deployment Phase:**
+
 - Infrastructure as Code generation
 - Azure service provisioning
 - Monitoring and observability setup
@@ -274,12 +295,14 @@ Microsoft's new **App Modernization Guidance** provides step-by-step transformat
 ### Integration with Microsoft Ecosystem
 
 **Azure Platform Services:**
+
 - App Service, Container Apps, AKS integration
 - Managed database service connectivity
 - API Management for service exposure
 - Azure Functions for event-driven workloads
 
 **Development Toolchain:**
+
 - Visual Studio family (50 million professional developers)
 - GitHub integration for source control and CI/CD
 - Azure DevOps for enterprise development workflows

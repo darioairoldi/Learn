@@ -25,12 +25,14 @@ This flagship Azure AI Foundry session showcases how Microsoft's comprehensive A
 > "I've got this podcast that I do on the side... I just published episode 997... There's over 500 hours of material. I was actually almost delisted by a podcast directory when a young person sent an email saying that they believed that the podcast itself was AI generated because they couldn't conceive about that amount of work."
 
 **The Automation Philosophy:**
+
 - **"Only take away the parts of the job that suck"** - Preserve creative work, automate toil
 - **Human-in-the-loop approach** - Maintain editorial control and quality oversight
 - **Real-world constraints** - Small team (Scott + Mandy), minimal budget, maximum efficiency
 
 #### Production Pain Points and Toil
 **Weekly Administrative Burden:**
+
 - **Show notes generation** - "I'm notorious for saying I'm going to put that in the show notes and then you'll never hear from me again"
 - **Guest biography research** - Manual Wikipedia searches and bio compilation
 - **Link verification** - Ensuring references are accurate and functional
@@ -38,6 +40,7 @@ This flagship Azure AI Foundry session showcases how Microsoft's comprehensive A
 - **Scheduling coordination** - Email back-and-forth with potential guests
 
 **Time Investment:**
+
 - **2-3 hours weekly** of administrative work for 20+ years
 - **Goal reduction** to 10-15 minutes with AI assistance
 - **Scalability concern** - Process must work for next 1,000 episodes over 20 years
@@ -59,6 +62,7 @@ Azure AI Foundry
 ```
 
 **Developer Journey:**
+
 - **Idea to code** - Rapid prototyping and experimentation
 - **Code to production** - Enterprise-ready deployment and monitoring
 - **Integrated signals loop** - Continuous improvement through observability
@@ -72,18 +76,21 @@ Azure AI Foundry
 > "Two years ago the world was actually very simple. We had just a few foundational models. But the range of change has been unprecedented over the last couple of years."
 
 **Current Ecosystem:**
+
 - **10,000+ models** available through Hugging Face partnership
 - **Daily updates** with latest model releases and capabilities
 - **Multiple dimensions** - Provider, industry, capabilities, deployment type, task support
 
 #### Live Demo: Model Catalog Navigation
 **Intelligent Discovery Features:**
+
 - **Built-in agent assistance** - "Best model for protein research" queries
 - **Leaderboard comparisons** - Quality, safety, cost, throughput benchmarks
 - **Trade-off visualization** - Quality vs. cost, quality vs. throughput charts
 - **Dynamic evaluation** - Real benchmarks, not hard-coded rankings
 
 **New Model Providers:**
+
 - **OpenAI family** - GPT-4.1, nano, mini models
 - **DeepSeek, Mistral, Grok** - Expanded language model options
 - **Meta, Black Forest Lab** - Specialized and research models
@@ -101,6 +108,7 @@ Complex Reasoning: Multi-step problems ? Full reasoning model
 ```
 
 **Performance Benefits:**
+
 - **60% cost reduction** compared to always using GPT-4.1
 - **1-2% accuracy reduction** - Minimal quality impact
 - **Environmental efficiency** - Reduced computational resources
@@ -115,6 +123,7 @@ Cost Reduction: 98.5% savings through specialization
 ```
 
 **Technical Achievement:**
+
 - **Whisper-based transcription** for initial corpus processing
 - **Distilled specialized model** - Only does show notes, no general knowledge
 - **Developer tier announcement** - Reduced hosting fees for experimentation
@@ -125,6 +134,7 @@ Cost Reduction: 98.5% savings through specialization
 
 #### Local AI Capabilities
 **On-Device Processing Demo:**
+
 - **Phi-4 mini model** running locally on laptop GPU
 - **Biographical research** combining Perplexity (cloud) + local summarization
 - **GPU memory monitoring** - Real-time resource utilization display
@@ -137,6 +147,7 @@ Cost Reduction: 98.5% savings through specialization
 3. **Quality control** - Immediate feedback on accuracy and relevance
 
 **Demonstration Results:**
+
 - **First attempt** - Incorrect biographical details (wrong Yina)
 - **Second attempt** - Accurate professional summary and background
 - **Real-time correction** - Shows AI fallibility and recovery
@@ -153,6 +164,7 @@ Cost Reduction: 98.5% savings through specialization
 > "The difference is now you're having an LLM that is helping you drive the control flow of the program. It's making some of those decisions for you."
 
 **Agent Capabilities:**
+
 - **Tool orchestration** - Coordinated use of multiple capabilities
 - **Memory management** - Context preservation across interactions
 - **Multi-modal inputs** - Text, speech, images, video processing
@@ -160,6 +172,7 @@ Cost Reduction: 98.5% savings through specialization
 
 #### Agent Service: General Availability Announcement
 **Enterprise-Ready Platform Features:**
+
 - **Declarative agent creation** - Configuration-based development
 - **Cloud execution** - Managed scaling and resource allocation
 - **Enterprise integration** - Custom file storage, network isolation
@@ -167,6 +180,7 @@ Cost Reduction: 98.5% savings through specialization
 - **Built-in connectors** - Fabric, SharePoint, Bing, Azure AI Search
 
 **Interoperability Standards:**
+
 - **A2A (Agent-to-Agent)** - Cross-platform agent communication
 - **MCP (Model Context Protocol)** - Standardized tool integration
 - **LangChain and CrewAI** - Popular framework compatibility
@@ -174,12 +188,14 @@ Cost Reduction: 98.5% savings through specialization
 
 #### Live Demo: Specialized Agent Creation
 **Show Notes Agent Implementation:**
+
 - **Fine-tuned nano model** - Specialized for podcast show note generation
 - **Cost optimization** - Smallest possible model for specific task
 - **Quality preservation** - Maintains accuracy while reducing resource usage
 - **Visual Studio integration** - One-click export to development environment
 
 **Agent Catalog Ecosystem:**
+
 - **Microsoft Build templates** - Ready-to-use agent configurations
 - **Partner contributions** - Third-party specialized agents
 - **Stanford healthcare example** - Academic research integration
@@ -193,6 +209,7 @@ Cost Reduction: 98.5% savings through specialization
 > "Hey, are you there and can you give me a list of the things that you can do to help me with the podcast production?"
 
 **Demonstrated Capabilities:**
+
 - **Guest intake collaboration** - Brainstorming and outreach strategies
 - **Bio generation** - Automated speaker biography creation  
 - **Transcript processing** - Audio-to-text conversion and formatting
@@ -217,12 +234,14 @@ Processing:
 
 #### Content Understanding and Schema Definition
 **Structured Data Extraction:**
+
 - **Speaker identification** - Multiple voice recognition and separation
 - **Topic extraction** - Thematic categorization of episode content
 - **Quote identification** - Notable statements and insights
 - **Title and summary generation** - Automated metadata creation
 
 **Technical Implementation:**
+
 - **Azure AI Content Understanding** service integration
 - **Custom schema definition** for podcast-specific fields
 - **Multi-speaker detection** - Including advertisement voice differentiation
@@ -236,6 +255,7 @@ Processing:
 > "AutoGen has been coming in as an agentic framework from our Microsoft research organization. Semantic Kernel is the one that we've been recommending for using in production... we're bringing them together into like one agentic framework."
 
 **Technical Implementation:**
+
 - **Shared runtime** - Common execution environment
 - **Production focus** - Semantic Kernel for enterprise deployment
 - **Research innovation** - AutoGen experimental capabilities
@@ -258,6 +278,7 @@ var workflow = new SequentialWorkflow()
 ```
 
 **Visual Workflow Management:**
+
 - **Mermaid chart generation** - Visual workflow representation
 - **YAML abstraction** - Configuration without direct YAML editing
 - **Process visualization** - Clear understanding of agent interactions
@@ -275,6 +296,7 @@ var workflow = new SequentialWorkflow()
 > "OTel is one of the biggest things... it's effectively distributed log files and when you have large complicated distributed systems like this, you want all that to come to one place."
 
 **Monitoring Capabilities:**
+
 - **Distributed tracing** - End-to-end request flow visibility
 - **Azure Monitor integration** - Enterprise monitoring platform compatibility
 - **Custom dashboards** - Grafana and existing observability tools
@@ -282,12 +304,14 @@ var workflow = new SequentialWorkflow()
 
 #### AI-Specific Evaluation Framework
 **Agent-Centric Observability:**
+
 - **Conversation threads** - Complete dialogue context and memory
 - **Agent runs** - Individual interaction turn analysis
 - **Input/output tracking** - Complete data flow monitoring
 - **Metadata collection** - Decision-making process transparency
 
 **Built-in Evaluation Metrics:**
+
 - **Intent resolution** - Task completion accuracy assessment
 - **Relevance scoring** - Response quality and context alignment
 - **Code vulnerability detection** - Security risk identification
@@ -296,6 +320,7 @@ var workflow = new SequentialWorkflow()
 
 #### CI/CD Pipeline Integration
 **DevOps Automation:**
+
 - **GitHub Actions integration** - Automated evaluation in deployment pipeline
 - **Quality gates** - Automated testing before production release
 - **Performance tracking** - Historical quality and performance metrics
@@ -307,6 +332,7 @@ var workflow = new SequentialWorkflow()
 
 #### End-to-End Security Architecture
 **Identity and Access Management:**
+
 - **Entra ID integration** - Agents as first-class directory entities
 - **Specific agent identities** - Individual permissions and governance
 - **Principle of least privilege** - Minimal required access rights
@@ -314,6 +340,7 @@ var workflow = new SequentialWorkflow()
 
 #### Data Protection and Compliance
 **Microsoft Purview Integration:**
+
 - **Data labeling** - Automatic content classification
 - **Data protection** - Encryption and access control
 - **Compliance monitoring** - Regulatory requirement adherence
@@ -324,6 +351,7 @@ var workflow = new SequentialWorkflow()
 > "It can't be overstated how important grounding is... I don't want my chatbot to talk about things that aren't this... You don't want your coffee shop chatbot offering relationship advice."
 
 **Implementation Strategies:**
+
 - **Domain-specific models** - Trained only for specific business contexts
 - **Knowledge source restriction** - Limited to approved information sources
 - **Custom search scopes** - Controlled web access and information retrieval
@@ -335,6 +363,7 @@ var workflow = new SequentialWorkflow()
 
 ### Podcast Factory End-to-End Processing
 **Real-Time Session Recording:**
+
 - **Complete workflow execution** - From raw recording to finished show notes
 - **Multi-agent coordination** - Seamless handoff between specialized agents
 - **Quality validation** - Human oversight at critical decision points
@@ -361,6 +390,7 @@ var workflow = new SequentialWorkflow()
 
 ### Technical Performance Metrics
 **Cost Optimization Results:**
+
 - **Model router efficiency** - 60% cost reduction with 1-2% accuracy loss
 - **Fine-tuning economics** - 98.5% cost reduction for specialized tasks
 - **Local processing** - Zero cloud costs for summarization tasks
@@ -397,12 +427,14 @@ var workflow = new SequentialWorkflow()
 #### 1. Model Selection and Optimization Strategy
 ```markdown
 **Model Catalog Navigation:**
+
 - Use built-in agent for domain-specific model recommendations
 - Leverage leaderboards for cost/quality/throughput optimization
 - Implement model router for automatic cost optimization
 - Consider fine-tuning for specialized use cases
 
 **Cost Optimization Approach:**
+
 - Start with model router for automatic selection
 - Measure baseline costs and performance
 - Identify opportunities for fine-tuning
@@ -432,12 +464,14 @@ var workflow = kernel.CreateWorkflow()
 #### 3. Observability and Monitoring Setup
 ```markdown
 **Production Monitoring:**
+
 - Enable OpenTelemetry tracing across agent workflows
 - Configure Azure Monitor integration for dashboards
 - Set up automated evaluation pipelines in CI/CD
 - Implement quality gates and regression detection
 
 **Evaluation Framework:**
+
 - Define custom evaluation metrics for business context
 - Implement A/B testing for agent improvements
 - Monitor cost and performance trends over time
@@ -470,6 +504,7 @@ var workflow = kernel.CreateWorkflow()
 
 ### Content Creation Automation
 **Podcast Production Pipeline:**
+
 - **Guest sourcing** - AI-powered guest recommendation and outreach
 - **Interview preparation** - Automated research and question generation
 - **Content processing** - Transcription, summarization, and metadata extraction
@@ -477,6 +512,7 @@ var workflow = kernel.CreateWorkflow()
 
 ### Enterprise Knowledge Management
 **Large Corpus Processing:**
+
 - **Historical content analysis** - Pattern recognition across years of material
 - **Semantic search** - Natural language queries across comprehensive datasets
 - **Content synthesis** - Multi-source information combination and analysis
@@ -484,6 +520,7 @@ var workflow = kernel.CreateWorkflow()
 
 ### Multi-Modal AI Applications
 **Comprehensive Content Understanding:**
+
 - **Audio processing** - Speech-to-text with speaker identification
 - **Visual content** - Image and video analysis integration
 - **Document processing** - Structured data extraction from various formats
@@ -495,6 +532,7 @@ var workflow = kernel.CreateWorkflow()
 
 ### Productivity Transformation
 **Hanselminutes Case Study Results:**
+
 - **Time savings** - From 2-3 hours to 10-15 minutes weekly
 - **Cost efficiency** - 98.5% reduction in processing costs through fine-tuning
 - **Quality maintenance** - Human oversight preserves editorial standards
@@ -502,6 +540,7 @@ var workflow = kernel.CreateWorkflow()
 
 ### Enterprise Adoption Metrics
 **Platform Usage Statistics:**
+
 - **70,000+ customers** using Azure AI Foundry for organizational AI
 - **10,000+ users** of Azure AI Foundry Agent Service
 - **Millions of agents** created for business process automation

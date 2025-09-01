@@ -68,6 +68,7 @@
 The session opened with Seth Juarez as moderator introducing the panel of AI experts from Microsoft. Each speaker provided their background and role within Microsoft's AI ecosystem, setting the stage for a comprehensive discussion about enterprise AI platforms and agentic systems.
 
 **Key Introductions:**
+
 - **Marco Casalaina**: VP Products of Core AI, self-described favorite color as "AI"
 - **Yina Arenas**: Leads Product for Azure AI Foundry, focusing on Build announcements
 - **Pablo Castro**: CVP in AI team, running the Azure AI Search team
@@ -211,11 +212,13 @@ Seth Juarez expanded this with a programming analogy, suggesting agents represen
 The discussion contrasted traditional automation with AI-powered systems:
 
 **Traditional Automation Challenges:**
+
 - **Zero adaptability** - hard-coded workflows break with any changes
 - **Maintenance nightmare** - constant script updates for workflow modifications
 - **Rigid interactions** - users saying "representative, representative, representative"
 
 **AI-Powered Flexibility:**
+
 - **Dynamic adaptation** - AI adjusts to changing requirements automatically
 - **Natural interaction** - conversational interfaces replace rigid menu systems
 - **Planning capability** - AI can strategize multi-step approaches
@@ -250,10 +253,12 @@ This creates challenges similar to early internet protocols, where multiple comp
 The discussion covered essential protocols for agent systems:
 
 **Agent-to-Agent Communication:**
+
 - **A2A Protocol** - standardized agent interaction and coordination
 - **Multi-agent orchestration** - complex workflow coordination capabilities
 
 **Tool Integration Standards:**
+
 - **Model Context Protocol (MCP)** - standardized tool calling interface
 - **OpenAPI integration** - standard REST API connectivity
 - **Custom protocol support** - flexibility for proprietary systems
@@ -317,6 +322,7 @@ This represents Azure's commitment to making enterprise-grade agent deployment a
 The service enables declarative agent definition through simple configuration:
 
 **Core Components:**
+
 - **Agent Identity** - name and personality definition
 - **Instructions** - behavioral and operational guidelines
 - **Tool Integration** - APIs, functions, and services

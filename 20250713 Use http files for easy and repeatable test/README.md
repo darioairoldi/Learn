@@ -235,16 +235,19 @@ Authorization: Bearer {{apiKey}}
 #### Best Practices for Variable Organization
 
 **Version Control Strategy:**
+
 - ✅ **DO commit**: Template files, shared non-sensitive variables
 - ❌ **DON'T commit**: Environment-specific files with secrets, local customizations
 
 **File Naming Conventions:**
+
 - `*.template.http` - Template files for team sharing
 - `*.env.http` - Environment-specific variables (add to .gitignore)
 - `*.local.http` - Local developer overrides (add to .gitignore)
 - `shared-*.http` - Common variables safe for version control
 
 **Security Guidelines:**
+
 - Never commit API keys, passwords, or connection strings
 - Use placeholder values in template files
 - Document required variables in your README
@@ -290,12 +293,14 @@ GET {{baseUrl}}/items/{{createItem.response.body.id}}
 ```
 
 **How it works:**
+
 - `# @name createItem` assigns the name "createItem" to the first request
 - When executed, the response is stored and can be referenced as `createItem`
 - `{{createItem.response.body.id}}` extracts the `id` field from the response body
 - This allows you to chain requests where later requests depend on data from earlier ones
 
 **Response object structure:**
+
 - `createItem.response.body` - The response body (JSON object)
 - `createItem.response.headers` - Response headers
 - `createItem.response.status` - HTTP status code

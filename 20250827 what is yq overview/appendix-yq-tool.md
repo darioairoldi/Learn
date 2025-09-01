@@ -5,6 +5,7 @@
 **yq** is a lightweight and portable command-line YAML processor. It's the YAML equivalent of `jq` (JSON processor) and provides powerful capabilities for reading, manipulating, and converting YAML documents.
 
 **Key Characteristics:**
+
 - **Cross-platform**: Available for Windows, macOS, and Linux
 - **Single binary**: No dependencies, easy to deploy
 - **Powerful**: Supports complex queries, transformations, and multiple output formats
@@ -245,17 +246,20 @@ function Get-YqTool {
 Based on our experience and testing:
 
 **File Size Performance:**
+
 - **Small files (<1MB)**: Extremely fast, near-instantaneous
 - **Medium files (1-10MB)**: Still very fast, sub-second processing
 - **Large files (10-100MB)**: Good performance, few seconds processing
 - **Very large files (>100MB)**: May require optimization or streaming approaches
 
 **Memory Usage:**
+
 - yq loads the entire YAML document into memory
 - Memory usage is roughly 3-5x the file size during processing
 - For very large files, consider splitting or streaming alternatives
 
 **Comparison with Alternatives:**
+
 - **vs Python PyYAML**: 5-10x faster for simple conversions
 - **vs Node.js js-yaml**: 3-5x faster with lower memory usage
 - **vs PowerShell modules**: 10-20x faster for complex operations
@@ -380,6 +384,7 @@ yq eval '.' file.yaml --output-format=json --indent 2
 ### Major Version Differences
 
 **yq v3 vs v4:**
+
 - **v3**: XML-based syntax, different command structure
 - **v4**: Current version, improved syntax and performance
 - **Migration**: Syntax changes required when upgrading

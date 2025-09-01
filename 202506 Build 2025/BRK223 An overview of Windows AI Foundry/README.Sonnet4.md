@@ -152,11 +152,13 @@ Tucker demonstrates the **AI Dev Gallery**, a Microsoft Store application that s
 The demo highlights Windows ML's intelligent hardware selection capabilities:
 
 **Manual Control Options:**
+
 - Explicit CPU execution
 - Explicit GPU execution  
 - Explicit NPU execution
 
 **Smart Policy Options:**
+
 - **Max Efficiency** - Prioritizes power-efficient execution
 - **Max Performance** - Optimizes for speed and throughput
 - **Minimize Power** - Balances performance with battery life

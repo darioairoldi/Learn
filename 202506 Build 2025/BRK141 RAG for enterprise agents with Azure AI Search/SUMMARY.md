@@ -25,6 +25,7 @@ This technical deep-dive session reveals the evolution from traditional RAG to p
 > "About two years ago, we started to talk about RAG... it was built out of the tools available in the room. There was this clever observation of in-context learning... we managed to put these things together."
 
 **Traditional RAG Architecture:**
+
 - **In-context learning** - Language models with concatenated retrieved content
 - **Available tools approach** - Using existing search stacks not designed for AI
 - **Vector search adoption** - Addressing vocabulary gaps and semantic understanding
@@ -32,6 +33,7 @@ This technical deep-dive session reveals the evolution from traditional RAG to p
 
 #### The Transition to Purpose-Built Systems
 **From Adoption to Innovation:**
+
 - **Historical approach** - "Whatever we adopted to do the job"
 - **Current evolution** - "Things that we purposely built and constructed"
 - **Strategic goal** - Make tasks easier, better, and faster to solution
@@ -43,6 +45,7 @@ This technical deep-dive session reveals the evolution from traditional RAG to p
 
 #### The Limitation of Single-Shot Search
 **Traditional Search Constraints:**
+
 - **Linear results** - Top-K results from single query execution
 - **Simple fact-seeking** works well: "What are the security updates for KB article #123456?"
 - **Complex queries fail** - Multi-part questions with typos, references, and context
@@ -67,6 +70,7 @@ Agentic: Chat History + Context ? Query Planning ? Parallel Execution ? Merge Re
 ```
 
 **Intelligent Query Processing:**
+
 - **Query planning** - LLM-powered understanding of information needs
 - **Query decomposition** - Breaking complex queries into retrievable components
 - **Typo correction** - Context-aware error resolution
@@ -91,12 +95,14 @@ User: "Which one fits more people?"
 
 #### Performance Metrics and Validation
 **Quantified Improvements:**
+
 - **40% increase in answer relevance** for complex queries
 - **30% increase in result rate** for difficult question scenarios
 - **Multi-dataset validation** - Support, MIML (Multi-Industry Multi-Language)
 - **Groundedness preservation** - No regression in hallucination prevention
 
 **Evaluation Framework:**
+
 - **Content relevance** - Retrieved information matches query intent
 - **Answer relevance** - LLM response addresses actual question
 - **Groundedness** - Response based on retrieved data, not hallucinated
@@ -107,6 +113,7 @@ User: "Which one fits more people?"
 
 #### Beyond Simple Text Chunking
 **Traditional RAG Data Problems:**
+
 - **500-token chunking** - Arbitrary text segmentation ignoring document structure
 - **Text-only processing** - Missing critical visual information
 - **Layout ignorance** - Losing contextual relationships and hierarchies
@@ -114,6 +121,7 @@ User: "Which one fits more people?"
 
 #### Advanced Document Intelligence
 **Real-World Document Challenges:**
+
 - **Complex schematics** - Arrows, text boxes, and diagram relationships
 - **Multi-modal content** - Text and images requiring coordinated understanding
 - **Layout significance** - Document structure conveying meaning
@@ -129,12 +137,14 @@ User: "Which one fits more people?"
 
 #### Live Demo: Azure Search Documentation Processing
 **Multi-Modal RAG Implementation:**
+
 - **Data source** - PDF documentation with diagrams and text
 - **Processing options** - Simple extraction vs. full AI Document Intelligence
 - **Image handling** - Verbalization vs. embedding vs. hybrid approaches
 - **Knowledge Store** - Addressable component storage for application integration
 
 **Generated Application Results:**
+
 - **Automatic image extraction** - Individual diagrams made addressable
 - **Visual grounding** - Images shown alongside text responses
 - **Citation support** - References to specific document sections
@@ -149,6 +159,7 @@ User: "Which one fits more people?"
 > "An interesting effect of all this super-smart retrieval systems and the copilots we build on top of them is that they'll find everything."
 
 **Enterprise Requirements:**
+
 - **Access control propagation** - Document permissions must flow through AI systems
 - **Identity integration** - Enterprise identity systems must control AI access
 - **Group membership** - Dynamic group changes affecting document visibility
@@ -171,6 +182,7 @@ Document ACLs ? Azure AI Search ? User Token ? Filtered Results
 
 #### Live Security Demo
 **Access Control in Action:**
+
 - **Document creation** - Three documents with different permission sets
 - **User authentication** - Application identity with user token delegation
 - **Filtered results** - Only accessible documents returned
@@ -178,6 +190,7 @@ Document ACLs ? Azure AI Search ? User Token ? Filtered Results
 
 #### Advanced Security: Sensitivity Labels
 **Microsoft Purview Integration (Private Preview):**
+
 - **Document encryption** - Automatic handling of encrypted documents
 - **Policy enforcement** - Sensitivity label policy compliance
 - **Organizational protection** - Document classification and handling rules
@@ -199,18 +212,21 @@ Document ACLs ? Azure AI Search ? User Token ? Filtered Results
 
 #### Comprehensive Data Source Support
 **Native Azure Integration:**
+
 - **Blob Storage** - Document and file processing
 - **OneLake** - Microsoft Fabric data lake integration
 - **Azure SQL Database** - Structured data indexing
 - **Cosmos DB** - NoSQL document processing
 
 **External Source Integration:**
+
 - **OneDrive/SharePoint** - Microsoft 365 document systems
 - **Third-party systems** - Through Logic Apps connectors
 - **Custom APIs** - Extensible integration patterns
 
 #### Azure Data Lake Storage Gen2 ACL Propagation
 **Automatic Permission Flow:**
+
 - **Source ACL detection** - Native ADLS Gen2 access control lists
 - **Permission propagation** - Automatic transfer to search index
 - **User/group mapping** - Entra ID integration throughout pipeline
@@ -222,6 +238,7 @@ Document ACLs ? Azure AI Search ? User Token ? Filtered Results
 
 #### MCP Integration for Agent Development
 **Azure MCP Server Capabilities:**
+
 - **Resource management** - Azure resource groups and services
 - **Service integration** - SQL, Azure Monitor, Cosmos DB, Azure AI Search
 - **Developer-focused** - Tools for development workflows
@@ -232,6 +249,7 @@ Document ACLs ? Azure AI Search ? User Token ? Filtered Results
 **Query:** "Build me a Next.js app for outdoor gear using my Azure Search index"
 
 **Automated Results:**
+
 - **Schema analysis** - Automatic index structure discovery
 - **Data sampling** - Understanding actual content patterns
 - **UI generation** - Complete application with faceted navigation
@@ -239,6 +257,7 @@ Document ACLs ? Azure AI Search ? User Token ? Filtered Results
 - **Search integration** - Functional search interface with filtering
 
 **Developer Productivity Gains:**
+
 - **Zero manual UI development** - Complete application from description
 - **Facet exploitation** - Automatic use of searchable/filterable fields
 - **Metadata utilization** - Index descriptions driving application behavior
@@ -268,6 +287,7 @@ knowledge_agent.retrieve(
 ```
 
 **Architectural Benefits:**
+
 - **Higher abstraction** - Chat history instead of field specifications
 - **Automatic optimization** - AI-driven query planning and execution
 - **Policy integration** - Built-in access control and security
@@ -282,6 +302,7 @@ Component Storage ? Addressable References
 ```
 
 **Processing Options:**
+
 - **Simple extraction** - Basic text and image separation
 - **Full AI Document Intelligence** - Complete layout and structure analysis
 - **Image verbalization** - LLM-powered image description
@@ -300,6 +321,7 @@ Component Storage ? Addressable References
 ```
 
 **Query-Time Enforcement:**
+
 - **Token delegation** - Application identity with user context
 - **Dynamic filtering** - Real-time permission checking
 - **Group expansion** - Automatic membership resolution
@@ -311,12 +333,14 @@ Component Storage ? Addressable References
 
 ### Agentic Retrieval Effectiveness
 **Complex Query Performance:**
+
 - **40% improvement** in answer relevance for difficult questions
 - **30% increase** in successful result rate
 - **Multi-industry validation** - Finance, manufacturing, multiple sectors
 - **Multi-language testing** - Global deployment readiness
 
 **Query Type Analysis:**
+
 - **Simple queries** - Maintained existing performance levels
 - **Multi-hop questions** - Significant improvement in accuracy
 - **Complex scenarios** - Material quality gains across all datasets
@@ -324,6 +348,7 @@ Component Storage ? Addressable References
 
 ### Multi-Modal Processing Benefits
 **Document Coverage Expansion:**
+
 - **Visual information** - Previously inaccessible diagram content
 - **Layout understanding** - Structural relationships preserved
 - **Component addressability** - Individual elements citeable
@@ -349,6 +374,7 @@ Output: Structured comparison with capacity details and citations
 
 ### Multi-Modal Document Processing
 **Azure Search Documentation Analysis:**
+
 - **Input:** Technical PDFs with diagrams and text
 - **Processing:** AI Document Intelligence + Image Verbalization
 - **Output:** Searchable text + addressable images + layout information
@@ -367,6 +393,7 @@ Search Results: Only documents 1 and 3 returned
 
 ### Agent-Driven Development
 **Application Generation:**
+
 - **Input:** "Build outdoor gear app with my search index"
 - **Analysis:** Automatic schema discovery + data sampling
 - **Output:** Complete Next.js application with search, facets, branding
@@ -482,6 +509,7 @@ Application Layer: Copilot/Agent Interface
 
 ### Development Acceleration
 **MCP-Enabled Workflows:**
+
 - **Automatic application generation** from search index schemas
 - **Schema discovery** and data pattern recognition  
 - **UI component optimization** based on facetable fields
@@ -489,6 +517,7 @@ Application Layer: Copilot/Agent Interface
 
 ### Security and Compliance
 **Enterprise-Grade Features:**
+
 - **Document-level access control** with dynamic group membership
 - **Sensitivity label support** for classified content
 - **Audit trail integration** for compliance reporting

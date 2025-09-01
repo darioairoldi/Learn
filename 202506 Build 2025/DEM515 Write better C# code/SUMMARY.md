@@ -23,6 +23,7 @@ This session focuses on three powerful but underutilized C# features that can si
 **Core Concept:** Pattern matching extends beyond traditional type checking to provide flexible, expressive ways to test and extract data from objects.
 
 **Key Features:**
+
 - **Enhanced `is` expressions** with pattern extraction
 - **Switch expressions** with pattern support  
 - **Property patterns** for deep object inspection
@@ -30,12 +31,14 @@ This session focuses on three powerful but underutilized C# features that can si
 - **When clauses** for additional conditions
 
 **Benefits:**
+
 - More expressive intent in code
 - Compiler optimizations for better performance
 - Enhanced safety with exhaustiveness checking
 - Automatic reachability analysis
 
 **Example Use Cases:**
+
 - External method implementation when data and functionality are separated
 - Complex conditional logic with type hierarchies
 - Safe extraction of nested object properties
@@ -47,6 +50,7 @@ This session focuses on three powerful but underutilized C# features that can si
 **Core Concept:** Records flip C#'s default reference-based equality to content-based equality, perfect for representing immutable data.
 
 **Key Features:**
+
 - **Value-based equality** comparison by content, not reference
 - **Automatic method implementation** (ToString, GetHashCode, Equals)
 - **Non-destructive mutation** with `with` expressions
@@ -54,6 +58,7 @@ This session focuses on three powerful but underutilized C# features that can si
 - **Virtual equality** support in inheritance hierarchies
 
 **Benefits:**
+
 - Correct value semantics without manual implementation
 - Immutable data patterns with copy-and-modify operations
 - Automatic generation of boilerplate code
@@ -66,12 +71,14 @@ This session focuses on three powerful but underutilized C# features that can si
 **Core Concept:** A single, clean syntax that works across all collection types with compiler-optimized implementations.
 
 **Key Features:**
+
 - **Universal syntax** for arrays, lists, immutable collections, and interfaces
 - **Compiler optimization** often outperforming manual code
 - **Type flexibility** - works with mutable and immutable collections
 - **Interface support** with automatic concrete type selection
 
 **Benefits:**
+
 - Consistent syntax regardless of collection type
 - Optimal performance through compiler analysis
 - Reduced cognitive load when switching between collection types
@@ -84,18 +91,21 @@ This session focuses on three powerful but underutilized C# features that can si
 ### When to Use These Features
 
 **Pattern Matching:**
+
 - External processing of type hierarchies
 - Complex conditional logic with data extraction
 - API response handling and validation
 - State machine implementations
 
 **Records:**
+
 - DTOs and data transfer objects
 - Configuration objects
 - Value objects in domain models
 - API request/response models
 
 **Collection Expressions:**
+
 - Any collection initialization
 - Switching between collection types during development
 - Performance-critical collection operations

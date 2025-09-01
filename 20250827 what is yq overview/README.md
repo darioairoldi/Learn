@@ -45,12 +45,14 @@ In our Quarto documentation project, we needed to convert `_quarto.yml` navigati
 **Best for:** One-time conversions, small files, learning purposes
 
 **Pros:**
+
 - ? No software installation required
 - ? Instant results
 - ? User-friendly interfaces
 - ? Validation and error checking
 
 **Cons:**
+
 - ? Not suitable for automation
 - ? Privacy concerns with sensitive data
 - ? No version control integration
@@ -76,12 +78,14 @@ In our Quarto documentation project, we needed to convert `_quarto.yml` navigati
 **Best for:** Windows environments, simple YAML structures, quick scripts
 
 **Pros:**
+
 - ? No external dependencies
 - ? Built into Windows
 - ? Good for automation
 - ? Integrates with existing PowerShell workflows
 
 **Cons:**
+
 - ? Limited YAML parsing capabilities
 - ? Windows-specific solution
 - ? May not handle complex YAML features
@@ -131,6 +135,7 @@ Convert-YamlToJson -YamlFilePath "_quarto.yml" -JsonOutputPath "config.json"
 Based on our real-world implementation experience, yq proved to be the most reliable solution for our navigation.json generation.
 
 **Pros:**
+
 - ? Extremely reliable and well-maintained
 - ? Powerful query and transformation capabilities
 - ? Cross-platform compatibility
@@ -138,6 +143,7 @@ Based on our real-world implementation experience, yq proved to be the most reli
 - ? Active community and documentation
 
 **Cons:**
+
 - ? Requires installation/download
 - ? Learning curve for advanced features
 - ? Additional dependency to manage
@@ -183,12 +189,14 @@ $navigationStructure | ConvertTo-Json -Depth 20 | Out-File -FilePath $navFile -E
 **Best for:** Python environments, complex data processing, integration with data science workflows
 
 **Pros:**
+
 - ? Extensive ecosystem (PyYAML, ruamel.yaml)
 - ? Powerful data manipulation capabilities
 - ? Cross-platform compatibility
 - ? Good for complex transformations
 
 **Cons:**
+
 - ? Requires Python installation
 - ? Dependency management complexity
 - ? Slower than native tools for simple conversions
@@ -262,12 +270,14 @@ if __name__ == '__main__':
 **Best for:** JavaScript ecosystems, web development workflows, npm-based projects
 
 **Pros:**
+
 - ? Fast execution
 - ? Great for web development workflows
 - ? Extensive package ecosystem
 - ? JSON-native environment
 
 **Cons:**
+
 - ? Requires Node.js installation
 - ? npm dependency management
 - ? JavaScript-specific solution
@@ -310,6 +320,7 @@ convertYamlToJson('_quarto.yml', 'config.json');
 Our production implementation demonstrates a robust PowerShell-based solution with intelligent features:
 
 **Advanced Features:**
+
 - ? Timestamp-based smart regeneration
 - ? Automatic tool download and management
 - ? Error handling and validation
@@ -378,12 +389,14 @@ function Get-YqTool {
 **Best for:** .NET environments, enterprise applications, performance-critical scenarios
 
 **Pros:**
+
 - ? High performance
 - ? Strong typing and error handling
 - ? Excellent Visual Studio integration
 - ? Deployment flexibility
 
 **Cons:**
+
 - ? Requires .NET development environment
 - ? More complex than scripting solutions
 - ? Compilation step required
@@ -637,6 +650,7 @@ stages:
 ---
 
 **Next Steps:**
+
 - Review the dedicated appendix files for detailed tool information and advanced techniques
 - Choose the approach that best fits your specific requirements and environment
 - Consider starting with simple solutions and evolving to more complex ones as needed

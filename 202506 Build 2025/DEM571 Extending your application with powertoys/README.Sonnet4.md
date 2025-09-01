@@ -47,6 +47,7 @@ Niels Laute and Mike Griese opened the session by introducing PowerToys Command 
 **Key Architectural Improvements:**
 
 **WinUI Foundation:**
+
 - **Complete Rewrite:** Built from scratch using modern WinUI framework
 - **Performance Optimization:** "Blazing fast" execution and response times
 - **Accessibility First:** Enhanced screen reader and keyboard navigation support
@@ -62,16 +63,19 @@ The speakers highlighted that unlike PowerToys Run, which was retrofitted with e
 **Built-in Capabilities Demonstration:**
 
 **Application Launcher:**
+
 - Fast application discovery and launch
 - Intelligent search algorithms
 - Recent and frequently used app prioritization
 
 **File Search Integration:**
+
 - Quick access to documents and projects
 - File type filtering and organization
 - Integration with Windows indexing service
 
 **Calculator Functionality:**
+
 - Inline mathematical calculations
 - Expression evaluation without separate application launch
 - Quick computational tasks within the launcher interface
@@ -94,6 +98,7 @@ Niels Laute articulated the fundamental philosophy behind Command Palette's exte
 > *"Any app can plug into the Windows Command Palette and add their own commands and their own little snippets of functionality straight to it that give all the power of your app right at the user's fingertips."*
 
 **Integration Benefits:**
+
 - **Context Preservation:** Applications maintain their specific context and workflows
 - **Immediate Access:** Deep application features accessible without application launch
 - **Workflow Integration:** Seamless integration into existing development and productivity workflows
@@ -122,6 +127,7 @@ GitHub Extension Features:
 ```
 
 **Workflow Integration Benefits:**
+
 - **Rapid Issue Triage:** Navigate and manage issues without leaving the development environment
 - **Context Switching Reduction:** Minimize disruption to development flow
 - **Quick Actions:** Immediate access to common GitHub operations
@@ -201,6 +207,7 @@ Each basic command implementation took approximately 30 seconds, including:
 **Icon Integration Strategies:**
 
 **Multiple Icon Sources:**
+
 - **Application Icons:** Extract icons directly from executable files
 - **Web-Based Icons:** Remote icon URLs for web services and applications
 - **Custom Assets:** Project-specific imagery and branding
@@ -252,6 +259,7 @@ yield return new CommandItem
 ```
 
 **Automatic Content Rendering:**
+
 - **Markdown Processing:** Complete markdown specification support including headers, lists, code blocks, and links
 - **Image Handling:** Automatic remote image loading and display within the details pane
 - **Formatting Preservation:** Original document formatting maintained without custom rendering code
@@ -290,6 +298,7 @@ Mike Griese described the nested navigation as:
 > *"It's like a small command palette inside of a bigger command palette."*
 
 **Organizational Benefits:**
+
 - **Discoverability:** Essential commands remain at the surface level for immediate access
 - **Organization:** Related commands grouped logically in sub-menus
 - **Context Awareness:** Users understand command relationships and hierarchies
@@ -300,12 +309,14 @@ Mike Griese described the nested navigation as:
 **Visual Design Philosophy:**
 
 **Icon Selection Strategy:**
+
 - **Consistency:** Maintain visual coherence across command sets
 - **Recognition:** Use familiar icons that users can quickly identify
 - **Accessibility:** Ensure icons work effectively with screen readers and high contrast modes
 - **Performance:** Optimize icon loading for responsive user experience
 
 **Implementation Examples:**
+
 - **GitHub Icon:** Extracted from GitHub's favicon for brand consistency
 - **Folder Operations:** Emoji-based folder icon (📁) for universal recognition
 - **System Commands:** Windows system icons for native operation consistency
@@ -323,12 +334,14 @@ Mike Griese described the nested navigation as:
 **Development Environment:**
 
 **Complete IDE Support:**
+
 - **Solution Integration:** Full Visual Studio project and solution support
 - **IntelliSense:** Complete code completion and error detection for Command Palette SDK
 - **Build System:** MSBuild integration with automatic extension packaging
 - **Project Templates:** Pre-configured project templates for rapid development initiation
 
 **Debugging Capabilities:**
+
 - **Breakpoint Support:** Full debugging experience with step-through capability
 - **Runtime Inspection:** Variable inspection and call stack analysis
 - **Extension Debugging:** Direct debugging of extension code within Command Palette context
@@ -346,6 +359,7 @@ Mike Griese described the nested navigation as:
 5. **Debugging Integration:** Breakpoints and runtime inspection as needed
 
 **Performance Optimization:**
+
 - **Build Performance:** Fast compilation and deployment cycles
 - **Extension Loading:** Minimal overhead for extension discovery and activation
 - **Memory Efficiency:** Lightweight extension architecture preventing system resource impact
@@ -366,12 +380,14 @@ The speakers demonstrated this workflow throughout the live coding session, show
 **Extension Distribution Architecture:**
 
 **MSIX Standard Packaging:**
+
 - **Application-Level Packaging:** Extensions packaged as MSIX applications like regular Windows applications
 - **Multiple Distribution Channels:** Support for WinGet, Microsoft Store, and direct distribution methods
 - **Automatic Discovery:** Command Palette can automatically discover extensions in WinGet repository
 - **Version Management:** Standard Windows application versioning and update mechanisms
 
 **Packaging Benefits:**
+
 - **Security:** MSIX security model applies to extensions
 - **Installation Management:** Standard Windows installation and uninstallation processes
 - **Update Mechanisms:** Automatic update distribution through existing Windows channels
@@ -386,12 +402,14 @@ Niels Laute announced a significant policy change affecting extension distributi
 > *"Creating an account on the Microsoft Store to submit your apps or publishing Command Palette extensions is now totally free."*
 
 **Barrier Removal:**
+
 - **No Onboarding Fee:** Individual developers can now publish extensions without cost
 - **Lowered Entry Barrier:** Eliminated financial obstacles to community participation
 - **Streamlined Publishing:** Direct store publication pathway for extensions
 - **Community Growth:** Expected increase in extension ecosystem participation
 
 **Store Integration Benefits:**
+
 - **Discoverability:** Extensions available through familiar Microsoft Store interface
 - **Trust Model:** Store review and verification processes
 - **User Acquisition:** Access to Microsoft Store's user base
@@ -402,6 +420,7 @@ Niels Laute announced a significant policy change affecting extension distributi
 **Community Ecosystem Development:**
 
 **Extension Metadata:**
+
 - **WinGet Tagging:** Extensions marked with special metadata for Command Palette discovery
 - **Automated Discovery:** Command Palette can find and suggest relevant extensions
 - **Community Curation:** User-driven extension ecosystem development
@@ -491,6 +510,7 @@ The speakers referenced an active community of developers already creating and p
 ### A.1 Live Coding Session Timeline
 
 **Detailed Development Timeline:**
+
 - **Minutes 0-1:** Project scaffolding and Visual Studio setup
 - **Minutes 1-2:** Basic URL command implementation (PowerToys repository link)
 - **Minutes 2-3:** Process execution command (Command Prompt launcher)
@@ -524,6 +544,7 @@ public interface ICommandItem
 ```
 
 **Built-in Command Types:**
+
 - **OpenUrlCommand:** Web browser integration
 - **ProcessCommand:** System process execution
 - **FileCommand:** File system operations
@@ -532,6 +553,7 @@ public interface ICommandItem
 ### A.3 Performance Characteristics
 
 **Extension Loading Performance:**
+
 - **Cold Start:** Extension discovery and loading optimized for minimal impact
 - **Hot Path:** Command enumeration designed for sub-millisecond response times
 - **Memory Usage:** Lightweight architecture preventing system resource impact
@@ -540,6 +562,7 @@ public interface ICommandItem
 ### A.4 Community Ecosystem Statistics
 
 **Current Ecosystem Status:**
+
 - **Active Extensions:** Growing community of published extensions available through WinGet
 - **Developer Participation:** Increasing number of individual and enterprise developers
 - **Distribution Channels:** Multiple pathways including Microsoft Store, WinGet, and direct distribution

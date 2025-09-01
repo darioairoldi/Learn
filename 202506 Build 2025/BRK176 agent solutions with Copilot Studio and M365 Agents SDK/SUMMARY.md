@@ -26,6 +26,7 @@ This comprehensive session demonstrates Microsoft's unified multi-agent architec
 > "What we believe is that every employee will have a copilot... We also believe that every business process will be transformed by agents. So, Copilot is aligned to every employee, and agents are aligned to business processes."
 
 **Core Differentiation:**
+
 - **Copilot** - Personal assistant grounded in individual data (emails, chats, meetings, documents)
 - **Agents** - Business process automation aligned to organizational workflows
 - **M365 Copilot** - UI to AI, the interface for all agent interactions
@@ -33,6 +34,7 @@ This comprehensive session demonstrates Microsoft's unified multi-agent architec
 
 #### The Billion Agent Future
 **IDC Projection and Market Reality:**
+
 - **1.3 billion agents by 2028** - IDC industry analyst prediction
 - **Organizational diversity** - Agents built by process owners, subject matter experts, and enterprise teams
 - **Top-down and bottom-up** - Both strategic initiatives and grassroots process improvement
@@ -53,6 +55,7 @@ Microsoft Agent Development Stack:
 ```
 
 **Strategic Benefits:**
+
 - **Enterprise-grade security** - Governance, compliance, and data protection
 - **Latest model access** - Cutting-edge AI capabilities and orchestration
 - **Company data integration** - Seamless connection to Microsoft platform data
@@ -60,6 +63,7 @@ Microsoft Agent Development Stack:
 
 #### Development Approach Selection
 **Choice Framework:**
+
 - **Process owners/SMEs** - Use Copilot Studio for visual, rapid development
 - **Professional developers** - Use pro-code tools for custom control and enterprise features
 - **Hybrid teams** - Combine approaches based on organizational needs and expertise
@@ -93,6 +97,7 @@ Multi-Agent System:
 > "We're introducing the ability for you to build smaller, lightweight, focused, specialized agents inside of your agent itself... these move with your agent."
 
 **Key Features:**
+
 - **Portable integration** - Move between environments with parent agent
 - **Instruction-driven** - Natural language behavior definition instead of manual node creation
 - **Tool sharing** - Reference parent agent tools with granular control
@@ -120,6 +125,7 @@ Instructions:
 ```
 
 **Live Demo Results:**
+
 - **Natural language interaction** - "What is the balance of my account?"
 - **Dynamic questioning** - Agent asks for account specification when needed
 - **Follow-up support** - "What about my savings account?" seamlessly handled
@@ -137,6 +143,7 @@ Advanced Instructions:
 ```
 
 **Sophisticated Workflow Results:**
+
 - **Multi-step coordination** - Chaining multiple tools between user interactions
 - **Conditional logic** - "I didn't make the ATM withdrawals" triggers dispute process
 - **Natural language processing** - Conversational responses throughout complex workflow
@@ -148,6 +155,7 @@ Advanced Instructions:
 
 #### Copilot Studio to Copilot Studio Connection
 **Salem's Agent-to-Agent Demo:**
+
 - **Mortgage Agent** - Specialized agent built with lightweight architecture
 - **Connection settings** - Simple toggle for agent availability
 - **Publishing requirement** - Agents must be published to be connectable
@@ -168,6 +176,7 @@ Foundry Agent Connection:
 ```
 
 **Authentication Options:**
+
 - **User authentication** - End-user credentials passed through
 - **Copilot author authentication** - Service account for simplified demo scenarios
 - **Multi-turn support** - Full conversation continuity across platforms
@@ -181,6 +190,7 @@ Foundry Agent Connection:
 > "This week, we have made public preview available for additional language support for the generative orchestrator. You can now enable generative orchestration for any language supported by Copilot Studio."
 
 **Revolutionary Localization:**
+
 - **29 languages available** - Complete language support in public preview
 - **Automatic translation** - Agent instructions in English, conversations in any language
 - **Seamless experience** - No manual translation required for agent logic
@@ -188,6 +198,7 @@ Foundry Agent Connection:
 
 #### Live Spanish Demonstration
 **Technical Achievement:**
+
 - **English instructions** - Agent built entirely in English
 - **Spanish conversation** - Full conversation flow automatically translated
 - **Lost card scenario** - Complex workflow operating flawlessly in Spanish
@@ -221,6 +232,7 @@ VS Code Integration:
 5. **Live validation** - Changes appear immediately in Copilot Studio
 
 **Advanced Capabilities:**
+
 - **Semantic understanding** - VS Code understands agent structure and relationships
 - **Color-coded changes** - Visual diff highlighting additions and modifications
 - **Built-in topic management** - Enable/disable system topics programmatically
@@ -246,6 +258,7 @@ SDK Architecture:
 
 #### Multi-Channel Deployment
 **Universal Agent Distribution:**
+
 - **Microsoft Teams** - Native integration and deployment
 - **Slack** - Cross-platform business communication
 - **M365 Copilot** - Direct integration with Microsoft's AI interface
@@ -257,6 +270,7 @@ SDK Architecture:
 > "It's very common that our customers... will work in organizations where there'll be teams of people... Some will be building agents in Copilot Studio. Others will be building agents in Visual Studio, in C#, in Python."
 
 **Integration Strategies:**
+
 - **Dispatcher/broker patterns** - Main SDK agent coordinating Copilot Studio specialists
 - **Leverage existing work** - Use Copilot Studio agents from custom applications
 - **Multi-agent architectures** - Complex orchestration across development approaches
@@ -277,6 +291,7 @@ await client.AskAsync("Hi, who are you?");
 ```
 
 **Implementation Simplicity:**
+
 - **Minimal dependencies** - Only core communication layer required
 - **Connection string** - Simple configuration from Copilot Studio
 - **Event handling** - Full eventing infrastructure access
@@ -284,12 +299,14 @@ await client.AskAsync("Hi, who are you?");
 
 #### Advanced Integration Patterns
 **Enterprise-Grade Features:**
+
 - **Semantic Kernel integration** - Embedded client for advanced orchestration
 - **HTTP client control** - Custom networking and connection management
 - **Authentication management** - Flexible auth configuration options
 - **Activity injection** - Send adaptive cards and complex events
 
 **Development Options:**
+
 - **Direct connection URL** - Simple single-agent integration
 - **Environment ID** - Multi-agent switching capabilities
 - **Schema name** - Dynamic agent discovery and connection
@@ -304,6 +321,7 @@ await client.AskAsync("Hi, who are you?");
 > "You can also have the agent listen to specific triggers... You have multiple types of trigger that you can now have your specialized agent listen for and get activated on."
 
 **Trigger Types:**
+
 - **Conversation start** - Agent activation on session initiation
 - **Orchestrator decision** - AI-driven agent selection
 - **External events** - System-triggered autonomous operations
@@ -314,6 +332,7 @@ await client.AskAsync("Hi, who are you?");
 > "Every single thing that you've seen today works just as well for autonomous scenarios as well. Multi-agent works across them both."
 
 **Operational Modes:**
+
 - **Conversational** - User utterance triggered agent workflows
 - **Autonomous** - External event or system triggered operations
 - **Hybrid coordination** - Mixed human and system initiated processes
@@ -382,12 +401,14 @@ Organizational Development Models:
 ### Choosing Development Approaches
 ```markdown
 **Copilot Studio (Low-Code):**
+
 - Process owners and subject matter experts
 - Rapid prototyping and visual development
 - Single team focused on specific agents
 - Agents that need direct end-user availability
 
 **M365 Agents SDK (Pro-Code):**
+
 - Professional developers and technical teams
 - Custom control over orchestration and models
 - Existing application integration
@@ -398,12 +419,14 @@ Organizational Development Models:
 ### Multi-Agent Architecture Patterns
 ```markdown
 **Lightweight Specialized Agents:**
+
 - Single maker or team development
 - Logically grouped knowledge and tools
 - Portable across environments
 - Instruction-driven behavior definition
 
 **Connected External Agents:**
+
 - Multiple teams managing separate agents
 - Direct end-user agent availability
 - Cross-platform integration requirements
@@ -413,12 +436,14 @@ Organizational Development Models:
 ### Integration Best Practices
 ```markdown
 **Tool Sharing Strategy:**
+
 - Configure tool availability at root agent level
 - Use "Additional details" settings for usage control
 - Separate shared tools from agent-specific tools
 - Plan tool access patterns across agent hierarchy
 
 **Conversation Context Management:**
+
 - Choose full context vs. private mode based on security needs
 - Plan conversation history flow across agent boundaries
 - Implement appropriate authentication strategies
@@ -431,6 +456,7 @@ Organizational Development Models:
 
 ### Enterprise Banking Transformation
 **Comprehensive Financial Services:**
+
 - **Account management** - Balance inquiries, transaction history, account switching
 - **Security operations** - Lost/stolen card processing with conditional dispute handling
 - **Loan services** - Mortgage information, car loans, eligibility assessment
@@ -438,6 +464,7 @@ Organizational Development Models:
 
 ### Global Enterprise Deployment
 **Multilingual Business Operations:**
+
 - **29-language support** - Global deployment with automatic localization
 - **Cultural adaptation** - Conversation patterns adapted to regional preferences
 - **Centralized management** - Single agent codebase serving multiple markets
@@ -445,6 +472,7 @@ Organizational Development Models:
 
 ### Developer Productivity Enhancement
 **Professional Development Workflows:**
+
 - **Local development** - Offline agent creation and testing
 - **Version control** - Git-like workflows for agent collaboration
 - **IDE integration** - Full IntelliSense and error detection for agent logic

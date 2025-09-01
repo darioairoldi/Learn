@@ -99,11 +99,13 @@ Microsoft's approach to accelerating AI journeys is organized into three distinc
 Mohammad provided a comprehensive overview of the Azure ecosystem, emphasizing that with 50 million professional developers using the Visual Studio family, Microsoft has created a complete platform for any application, architecture, or language.
 
 **Developer Tooling Layer:**
+
 - Visual Studio family and Visual Studio Code
 - GitHub (world's most popular source code repository)
 - Code modernization and remediation tooling
 
 **Application Services Layer:**
+
 - **Azure Kubernetes Service (AKS):** Full Kubernetes API access with managed cluster operations
 - **Azure Red Hat OpenShift:** Fully managed OpenShift for on-premises OpenShift workload migration
 - **Azure Container Apps:** Fully managed container service exposing Azure APIs
@@ -111,12 +113,14 @@ Mohammad provided a comprehensive overview of the Azure ecosystem, emphasizing t
 - **Azure Functions:** Event-driven and serverless workloads
 
 **Data and Integration Layer:**
+
 - Managed database services (SQL Server, MySQL, PostgreSQL)
 - Cosmos DB for NoSQL requirements
 - Azure Managed Redis for caching
 - Integration services for AI applications (chatbots, RAG applications, agents)
 
 **Security, AI, and Observability Layer:**
+
 - Security and AI services
 - Third loop feedback systems (Azure Monitor, Managed Prometheus, Managed Grafana)
 
@@ -137,21 +141,25 @@ Application modernization is defined as a technical and operational transformati
 The modernization approach is organized into four distinct categories, based on Gartner's Six R framework (excluding rehost, retain, and retire):
 
 **Code and Language Platform Modernization:**
+
 - Platform/framework upgrades (Java 8 → Java 21, .NET Framework → .NET 8)
 - Dependency upgrades (NuGet packages, Maven dependencies)
 - Application refactoring for cloud compatibility (local file systems → Azure Blob Storage)
 
 **Replatforming to Azure:**
+
 - On-premises containerization and Azure Kubernetes Service deployment
 - Cross-cloud migration (AWS → Azure PaaS)
 - Database migration (on-premises MySQL → managed Azure MySQL)
 
 **Refactor and Rearchitect to Cloud-Native:**
+
 - Monolith to microservices transformation
 - Event-driven architecture adoption
 - API-first development approach
 
 **Process Modernization:**
+
 - DevOps process modernization with modern tooling
 - Security modernization implementing zero-trust architecture
 
@@ -159,14 +167,17 @@ The modernization approach is organized into four distinct categories, based on 
 **Timeframe:** 00:17:00 - 00:18:30 (1m 30s)
 
 **Performance Improvements:**
+
 - New frameworks with reduced memory and CPU footprint
 - PaaS operational burden offloading
 
 **Security Enhancements:**
+
 - Latest framework patches and reduced security exposure
 - PaaS service security management delegation
 
 **Feature Access:**
+
 - Modern framework requirements (Quarkus requires Java 17+)
 - Improved tooling, compatibility, and community support
 
@@ -207,21 +218,26 @@ Anoop outlined the foundational pillars of cloud-native applications:
 **Timeframe:** 00:21:30 - 00:25:15 (3m 45s)
 
 **Container Management:**
+
 - **AKS:** Full Kubernetes control for advanced users
 - **Container Apps:** Fully managed Kubernetes with Azure APIs for simplified deployment
 
 **Serverless and Event-Driven Architecture:**
+
 - **Azure Functions:** Event-driven architecture implementation with developer velocity focus
 
 **Data Platform Flexibility:**
+
 - Comprehensive database ecosystem (PostgreSQL, Cosmos DB, Azure SQL family)
 - Integrated analytics and intelligence capabilities
 
 **API Management and Security:**
+
 - Secure API exposure across organizations and applications
 - Monetization capabilities and developer ecosystem integration
 
 **Integrated Developer Experience:**
+
 - GitHub, Visual Studio, and Defender for DevOps integration
 - Complete cloud-native development stack
 
@@ -237,6 +253,7 @@ Anoop outlined the foundational pillars of cloud-native applications:
 Microsoft announced the release of comprehensive **App Modernization Guidance** at Build 2025. This framework goes beyond simple cloud migration to focus on application transformation for the AI era, providing step-by-step guidance for every stage of the modernization journey.
 
 **Key Framework Characteristics:**
+
 - AI-led scenario integration throughout the process
 - Comprehensive coverage from refactor to rebuild stages
 - Post-migration optimization for resiliency, observability, cost, security, and scalability
@@ -275,6 +292,7 @@ Microsoft announced the release of comprehensive **App Modernization Guidance** 
 The framework emphasizes a paradigm shift from traditional "lift, shift, and survive" rehosting to AI-enabled replatforming and refactoring at equivalent velocity. This transformation is enabled by:
 
 **GitHub Copilot Modernization Integration:**
+
 - .NET and Java modernization and upgrade scenarios
 - Autonomous handling of repetitive tasks (dependency analysis, framework upgrades, remediation)
 - Developer focus shift to high-value tasks while AI handles repetitive work
@@ -292,6 +310,7 @@ The framework emphasizes a paradigm shift from traditional "lift, shift, and sur
 Michael introduced the **GitHub Copilot App Modernization Extension**, a new tool announced at Build 2025 that integrates AppCAT (Application and Code Assessment) tool capabilities with AI-powered automation.
 
 **Key Capabilities:**
+
 - **Automated Assessment:** 3-5 minute analysis replacing days of manual work
 - **Multi-Platform Support:** Java and .NET applications with additional language support planned
 - **Target Platform Flexibility:** App Service, Container Apps, or AKS deployment options
@@ -303,29 +322,34 @@ Michael introduced the **GitHub Copilot App Modernization Extension**, a new too
 Michael demonstrated the end-to-end modernization process using Airsonic, a complex Java 8 application:
 
 **Assessment Phase (00:38:00 - 00:40:30):**
+
 - One-click assessment initiation in VS Code
 - Automated dependency analysis and vulnerability scanning
 - Framework compatibility evaluation and migration complexity scoring
 - Detailed report generation with prioritized action items
 
 **Framework Upgrade Phase (00:40:30 - 00:44:00):**
+
 - **OpenRewrite Integration:** Automated Java 8 to Java 21 upgrade
 - **Custom Formula System:** Microsoft-built LLM-powered transformation patterns
 - **Automated Dependency Resolution:** POM file updates and build validation
 - **Error Handling:** Intelligent build error identification and resolution guidance
 
 **Code Transformation Phase (00:44:00 - 00:46:30):**
+
 - **Pre-built Formulas:** Logging to console, managed identity migration, file mounting fixes
 - **Custom Formula Creation:** Organization-specific pattern development for reuse
 - **Transparent Process:** Developer oversight and approval for all changes
 - **Real-time Validation:** Maven build integration for continuous validation
 
 **Deployment Phase (00:46:30 - 00:48:30):**
+
 - **GitHub Copilot for Azure Integration:** Automated Bicep file generation
 - **Best Practices Implementation:** Azure deployment guidance integration
 - **End-to-End Automation:** From assessment to running application on Azure Container Apps
 
 **Demonstrated Results:**
+
 - **Time Reduction:** Weeks/months to hours/days transformation timeline
 - **Error Transparency:** Clear identification of manual intervention requirements
 - **Build Validation:** Continuous testing throughout the transformation process
@@ -362,6 +386,7 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 **Timeframe:** 00:50:30 - 00:53:00 (2m 30s)
 
 **Devin's Autonomous Capabilities:**
+
 - **Requirements to Code:** PRD interpretation and implementation
 - **Build and Test Execution:** Automated build processes and test running
 - **Error Resolution:** Autonomous error identification and fixing
@@ -369,6 +394,7 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 - **Pull Request Management:** Automated PR creation and management
 
 **Parallel Processing Architecture:**
+
 - **Cloud-Based Execution:** Multiple Devin instances running simultaneously
 - **Task Distribution:** File-level task assignment across multiple agents
 - **6X to 12X Productivity Gains:** Demonstrated improvements for repetitive migration and upgrade work
@@ -377,11 +403,13 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 **Timeframe:** 00:53:00 - 00:58:15 (5m 15s)
 
 **Microsoft .NET Upgrade Assistant Integration:**
+
 - **Native Tool Leverage:** Devin utilizes Microsoft's .NET Upgrade Assistant
 - **Analysis and Execution:** Automated code analysis and partial migration execution
 - **Planning and Design:** Repository analysis with Mermaid diagrams and architectural breakdowns
 
 **Live .NET Modernization Demo:**
+
 - **Repository Analysis:** Comprehensive codebase understanding and documentation
 - **Upgrade Assistant Execution:** Automated CLI tool execution with issue identification
 - **Error Resolution:** Autonomous build failure and warning resolution
@@ -389,6 +417,7 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 - **Feedback Integration:** GitHub comment processing and automatic updates
 
 **Key Demo Insights:**
+
 - **Devin Wiki Feature:** Popular repository documentation generation for onboarding
 - **Visual Feedback:** Screenshot integration for better understanding
 - **Collaborative Workflow:** Integration with existing GitHub review processes
@@ -404,12 +433,14 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 **Timeframe:** 00:58:15 - 01:00:30 (2m 15s)
 
 **Visma Group Overview:**
+
 - **Scale:** 190 software companies across Europe and Latin America
 - **Portfolio:** 400+ SaaS products serving SMBs and public sector
 - **Focus:** Core business process automation for higher-value task allocation
 - **AI Strategy:** Comprehensive AI adoption across entire development organization
 
 **Data-Driven Modernization Selection:**
+
 - **Technology Assessment:** Identification of legacy backend technologies and expensive database systems
 - **Business Alignment:** Product strategy and roadmap evaluation for modernization timing
 - **Candidate Prioritization:** Strategic selection based on technical debt and business value
@@ -418,12 +449,14 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 **Timeframe:** 01:00:30 - 01:02:00 (1m 30s)
 
 **Workshop Structure:**
+
 - **Collaborative Planning:** Joint sessions with development teams
 - **Process Definition:** Tool selection and methodology establishment
 - **Proof of Concept:** Vertical slice modernization validation
 - **Knowledge Transfer:** Team enablement for autonomous execution
 
 **Post-Workshop Execution:**
+
 - **Team Ownership:** Full responsibility transfer to development teams
 - **Parallel Modernization:** Code and infrastructure transformation simultaneously
 - **Technology Migration:** Database technology changes and cloud adoption
@@ -432,17 +465,20 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 **Timeframe:** 01:02:00 - 01:07:30 (5m 30s)
 
 **Project Context:**
+
 - **Application Size:** Nearly 3 million lines of code
 - **Team Size:** 30 developers
 - **Development Timeline:** Product development since 2009
 - **Modernization Goal:** .NET Framework to .NET 8 upgrade
 
 **Workshop Implementation (Early 2024):**
+
 - **AI Tool Introduction:** GitHub Copilot training from 0% to 100% adoption
 - **Technology Experimentation:** GPT-4 and GPT-4 Turbo evaluation
 - **Vertical Slice Development:** Collaborative small-scale modernization proof
 
 **Technical Implementation:**
+
 - **.NET Upgrade Assistant:** Starting point for framework migration
 - **Compilation and Runtime:** Multi-month effort ensuring .NET 8 compatibility
 - **Production Deployment:** Successful .NET 8 deployment achievement
@@ -450,6 +486,7 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 - **Platform Migration:** Windows to Linux hosting transition via Azure App Service
 
 **Quantifiable Results:**
+
 - **Developer Adoption:** 100% AI tool adoption overnight post-workshop
 - **Engagement Improvement:** Increased development organization engagement
 - **Effort Reduction:** 40% reduction in migration effort through AI assistance
@@ -457,6 +494,7 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 - **Performance Gains:** Significant application performance improvements
 
 **Future Modernization Roadmap:**
+
 - **Database Migration:** PostgreSQL adoption for further cost optimization
 - **Mobile Application:** Complete mobile app rebuild
 - **Testing Enhancement:** Increased test coverage implementation
@@ -464,6 +502,7 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 - **AI Agent Integration:** Automated security, tech debt, and monitoring issue resolution
 
 **Key Success Factors:**
+
 - **Upskilling Investment:** Comprehensive internal training programs
 - **Tool Mastery:** Focus on achieving maximum AI tool effectiveness
 - **Developer Empowerment:** Training programs for optimal tool utilization
@@ -478,11 +517,13 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 **Timeframe:** 01:07:30 - 01:09:00 (1m 30s)
 
 **Self-Service Resources:**
+
 - **QR Code Access:** Immediate access to comprehensive App Modernization Framework documentation
 - **Tooling Availability:** GitHub Copilot App Modernization Extension in VS Code marketplace
 - **Assessment Tools:** Azure Migrate and Dr. Migrate for application estate discovery
 
 **Enterprise Support:**
+
 - **Microsoft Account Team:** Large-scale project consultation and guidance
 - **Partner Ecosystem:** Implementation support and professional services
 - **Comprehensive Framework:** Step-by-step guidance for enterprise-scale modernization
@@ -491,6 +532,7 @@ Bryce outlined the evolution of AI development tooling across three distinct lev
 **Timeframe:** 01:09:00 - 01:10:00 (1m 00s)
 
 **Critical Implementation Elements:**
+
 - **Estate Discovery First:** Comprehensive application inventory and assessment
 - **Strategic Planning:** Business value, urgency, and complexity-based prioritization
 - **Tool Adoption:** GitHub Copilot, Devin AI, and Microsoft modernization tooling

@@ -53,6 +53,7 @@ Microsoft's comprehensive approach to AI-ready databases centers on the fundamen
 The session opens with Arun Ulag emphasizing the "garbage in, garbage out" principle that governs AI implementations. Organizations must prioritize getting their data AI-ready as the foundational step for successful AI initiatives.
 
 **Core Strategic Elements:**
+
 - **Data Quality Foundation:** AI model success directly correlates with data quality and preparation
 - **Comprehensive Portfolio:** Microsoft offers the industry's most complete database offering
 - **Three Decades of SQL Server:** Maintaining leadership in enterprise scale, reliability, and security
@@ -63,16 +64,19 @@ The session opens with Arun Ulag emphasizing the "garbage in, garbage out" princ
 The presentation establishes Microsoft's database portfolio momentum through key performance indicators:
 
 **Azure SQL Database:**
+
 - Used by 97% of Fortune 500 companies
 - Massive enterprise scale adoption
 - Critical workload handling for largest global organizations
 
 **Azure Cosmos DB:**
+
 - #1 database for building AI applications (Bloomberg CIO survey)
 - ChatGPT infrastructure foundation
 - Petabyte-scale customer implementations
 
 **PostgreSQL Leadership:**
+
 - Microsoft has more PostgreSQL committers than any other hyperscaler
 - #1 in PostgreSQL 17 commits
 - Active community contribution beyond just hosting
@@ -90,6 +94,7 @@ This introduction sets the stage for understanding how Microsoft's database stra
 The major announcement of SQL Server 2025 Public Preview represents a significant milestone in enterprise database evolution, demonstrating unprecedented customer enthusiasm with 2x the adoption rate compared to SQL Server 2022.
 
 **Adoption Metrics and Customer Response:**
+
 - **2x Adoption Rate:** Double the early adoption compared to previous SQL Server versions
 - **Customer Validation:** Extensive private preview feedback from Intel, Mediterranean Shipping, Hewlett Packard, and AMD
 - **AI Feature Demand:** AI capabilities identified as the most requested and widely used features
@@ -100,6 +105,7 @@ The major announcement of SQL Server 2025 Public Preview represents a significan
 SQL Server 2025 introduces native AI capabilities that eliminate the need for external vector databases, providing enterprise-grade AI functionality directly within the familiar SQL Server environment.
 
 **Technical AI Integration Features:**
+
 - **Native Vector Data Type:** Binary format embedding support for efficient storage and retrieval
 - **DiskANN Vector Indexing:** Microsoft Research technology powering Bing search integrated into SQL Server
 - **Multi-Language Model Support:** Seamless switching between local Ollama and Azure OpenAI models
@@ -117,11 +123,13 @@ The session includes a compelling live demonstration showcasing:
 Enterprise security and hybrid cloud integration represent critical enhancements in SQL Server 2025, addressing modern organizational requirements for secure, distributed AI implementations.
 
 **Enterprise Security Framework:**
+
 - **Microsoft Entra Managed Identity:** Replacing API key authentication for Azure resource access
 - **ARC Enablement:** Hybrid cloud scenarios with consistent security policies
 - **Secure AI Model Connections:** Enterprise-grade authentication for AI service integration
 
 **Fabric Integration Capabilities:**
+
 - **OneLake Connectivity:** Data available in open Delta Parquet format across data estate
 - **Mirroring Capabilities:** Real-time data synchronization with analytics platforms
 - **Cross-Cloud Availability:** Deployment flexibility across any cloud or on-premises environment
@@ -139,6 +147,7 @@ The integration demonstrates Microsoft's commitment to providing enterprise cust
 The general availability of SQL Server Management Studio 21 represents a complete modernization of the primary database management tool, incorporating contemporary development practices and AI-powered capabilities.
 
 **Modernization Achievements:**
+
 - **Visual Studio 2022 Shell:** Modern development environment foundation
 - **64-bit Architecture Support:** Enhanced performance and memory handling
 - **Dark Mode and Modern UI:** Contemporary user experience design
@@ -151,6 +160,7 @@ The general availability of SQL Server Management Studio 21 represents a complet
 The public preview of Copilot integration within SSMS 21 introduces AI-powered database administration and development capabilities directly within the management environment.
 
 **AI-Powered Database Management Features:**
+
 - **Natural Language Query Generation:** Write, edit, and tune queries using plain English descriptions
 - **Context-Aware Responses:** AI understands actual database schema and data relationships
 - **Database Administration Assistance:** Configuration, maintenance, and troubleshooting guidance
@@ -167,6 +177,7 @@ The integration extends beyond query generation to include:
 Azure SQL Hyperscale continues to push the boundaries of transactional database scale and performance, with new capabilities addressing the most demanding enterprise workloads.
 
 **Enterprise Scale Performance Metrics:**
+
 - **30 Read Replicas:** Massive read scale-out capabilities
 - **100+ Terabyte Support:** Transactional workloads at unprecedented scale
 - **50% Faster than AWS Aurora:** Superior price-performance compared to competitors
@@ -183,11 +194,13 @@ The session highlights UBS as a premier example of Azure SQL Hyperscale enterpri
 **Developer Experience Enhancements:**
 
 **VS Code Integration:**
+
 - **MSSQL Extension with Copilot:** AI-powered query generation within IDE
 - **ORM Migration Support:** Automated database schema evolution
 - **Database Chat Functionality:** Natural language database interaction for application development
 
 **JSON Data Support Innovation:**
+
 - **JSON Indexing (Public Preview):** High-performance queries on semi-structured data
 - **Native JSON Types:** Optimized binary storage format
 - **JSON Aggregation:** Seamless relational-to-JSON data transformations
@@ -206,6 +219,7 @@ The evolution of Azure SQL Database demonstrates Microsoft's commitment to provi
 Azure Database for PostgreSQL introduces revolutionary vector search capabilities that dramatically improve AI application performance through Microsoft's DiskANN technology integration.
 
 **DiskANN for PostgreSQL (GA) Performance Metrics:**
+
 - **35 Million Vectors:** Queried in under 1 second response time
 - **10x Performance Improvement:** HNSW comparison showing 1000ms → 100ms average latency reduction
 - **Product Quantization Optimization:** Advanced compression techniques for efficient vector storage
@@ -221,21 +235,25 @@ The public preview of semantic operators represents a groundbreaking advancement
 **Four Semantic Operators Introduction:**
 
 **GENERATE Operator:**
+
 - **ChatGPT-style Content Generation:** Within SQL query context
 - **Dynamic Content Creation:** Based on existing data relationships
 - **Multi-model Support:** Integration with various language models
 
 **IS_TRUE Operator:**
+
 - **Semantic Predicate Evaluation:** Natural language condition assessment
 - **Context-Aware Filtering:** Understanding of conceptual relationships
 - **Boolean Logic Integration:** Seamless integration with traditional SQL WHERE clauses
 
 **EXTRACT Operator:**
+
 - **Entity Knowledge Extraction:** Automatic identification of relevant information
 - **Structured Data Generation:** From unstructured text sources
 - **Pattern Recognition:** AI-powered data parsing and categorization
 
 **RANKING Operator:**
+
 - **AI-Powered Result Relevance:** Intelligent ordering of query results
 - **Context-Sensitive Scoring:** Understanding of query intent and data relationships
 - **Multi-criteria Optimization:** Balancing multiple relevance factors
@@ -255,6 +273,7 @@ This example demonstrates how semantic operators enable natural language concept
 PostgreSQL's enhanced availability features address enterprise requirements for minimal downtime and consistent performance across critical workloads.
 
 **Premium SSD v2 Integration (Public Preview):**
+
 - **Sub-10 Second Failover:** Rapid recovery from infrastructure issues
 - **Performance Parity:** Maintaining existing SSD solution performance levels
 - **Enhanced Reliability:** Improved infrastructure resilience for critical workloads
@@ -262,6 +281,7 @@ PostgreSQL's enhanced availability features address enterprise requirements for 
 **Developer Experience Evolution:**
 
 **VS Code PostgreSQL Extension Enhancements:**
+
 - **Native Entra ID Authentication:** Enterprise identity integration
 - **Azure-Integrated Experience:** Subscription and resource group navigation
 - **Copilot Optimization:** PostgreSQL-specific query generation and optimization
@@ -271,6 +291,7 @@ PostgreSQL's enhanced availability features address enterprise requirements for 
 **Graph Database Capabilities:**
 
 **Apache AGE Extension (GA):**
+
 - **Native Cypher Queries:** Graph query language support within PostgreSQL
 - **Semantic Relationships:** Beyond traditional foreign key constraints
 - **Complex Pattern Matching:** Advanced graph traversal and analysis
@@ -296,6 +317,7 @@ The PostgreSQL innovations demonstrate Microsoft's commitment to open source dat
 Azure Cosmos DB's integration with AI Foundry represents a strategic advancement in building intelligent applications with native thread management and conversational AI capabilities.
 
 **Thread Services Integration (Preview):**
+
 - **Structured Conversations:** Multi-turn interactions between users and AI agents
 - **Context Preservation:** Maintaining conversation state across application sessions
 - **Bring Your Own Storage:** Custom thread management with Cosmos DB as backend
@@ -309,12 +331,14 @@ The AI Foundry integration enables developers to build sophisticated conversatio
 Cosmos DB continues to push the boundaries of global database performance through innovations in indexing, search capabilities, and query optimization.
 
 **Global Secondary Indexing Innovation:**
+
 - **Read-Only Containers:** Alternative partition key strategies for query optimization
 - **Cross-Partition Query Optimization:** Improved performance for non-partition-key queries
 - **Performance Boost:** Significant query response time improvements
 - **Cost Reduction:** Targeted indexing strategies reducing unnecessary computational overhead
 
 **Vector and Full-Text Search (GA):**
+
 - **Hybrid Search Capabilities:** Combining vector similarity with BM25 text ranking algorithms
 - **Multi-Language Support (Public Preview):** Global application language requirements
 - **Fuzzy Search with Typo Tolerance:** Enhanced user experience for search applications
@@ -325,6 +349,7 @@ Cosmos DB continues to push the boundaries of global database performance throug
 Cosmos DB introduces revolutionary availability guarantees through per-partition automatic failover capabilities, achieving unprecedented uptime commitments.
 
 **Per-Partition Automatic Failover Architecture:**
+
 - **Surgical Failover:** Individual partition recovery without full database disruption
 - **Zero Recovery Time (RTO = 0):** Instant recovery guarantee
 - **Zero Data Loss (RPO = 0):** Strong consistency with no data loss commitment
@@ -339,6 +364,7 @@ This innovative approach delivers:
 **Fleet Management for Multi-Tenancy:**
 
 **SaaS Optimization Features:**
+
 - **Shared Throughput:** Aggregated resource allocation across tenant accounts
 - **Aggregated Monitoring:** Centralized management and observability
 - **Cost Optimization:** Efficient resource utilization for multi-tenant applications
@@ -354,12 +380,14 @@ The National Football League's AI coaching assistant demonstrates Cosmos DB's re
 **MongoDB API Enhancements:**
 
 **Open Source Collaboration Initiative:**
+
 - **Cosmos Mongo vCore API:** Open-sourced for community contribution
 - **Partnership with Yugabyte and FerretDB:** Collaborative open source development
 - **PostgreSQL-Backed Document API:** Leveraging PostgreSQL strengths for document storage
 - **Community Contribution:** Active participation in document database ecosystem evolution
 
 **Enterprise MongoDB Features:**
+
 - **Entra ID Authentication:** Enterprise identity integration for MongoDB vCore clusters
 - **DiskANN Vector Search:** High-performance vector capabilities for document databases
 - **Transactional Semantics:** ACID guarantees with document database flexibility
@@ -377,6 +405,7 @@ Cosmos DB's evolution demonstrates Microsoft's commitment to providing a globall
 The live demonstration of SQL Server 2025 showcases the practical implementation of AI-ready database capabilities in real-world application development scenarios.
 
 **Multi-Language Vector Search Implementation:**
+
 - **Bilingual Product Catalog:** English and Chinese product search within single database instance
 - **Dynamic Model Switching:** Runtime transitions between local Ollama and Azure OpenAI models
 - **Semantic Kernel Integration:** Direct C# application development with minimal configuration
@@ -394,6 +423,7 @@ The demonstration reveals how SQL Server 2025 eliminates traditional barriers be
 The comprehensive insurance application demonstration showcases advanced Azure SQL capabilities integrated with modern development frameworks and AI-powered user interfaces.
 
 **Data API Builder (DAB) Integration:**
+
 - **REST and GraphQL Endpoints:** Automatic API generation from database schema
 - **Claims-Based Security:** User context and authorization integrated at database level
 - **JSON Document Storage:** Up to 2GB per field for complex structured data
@@ -418,6 +448,7 @@ The application demonstrates revolutionary user interaction patterns:
 The PostgreSQL demonstration focuses on extreme-scale vector search performance and the practical application of semantic operators in real-world scenarios.
 
 **35 Million Vector Performance Demonstration:**
+
 - **Sub-Second Response Times:** Consistent performance with massive vector datasets
 - **DiskANN Technology Showcase:** Microsoft Research technology integrated into PostgreSQL
 - **Semantic Operator Re-ranking:** Result optimization through AI-powered relevance scoring
@@ -442,6 +473,7 @@ The PostgreSQL demonstration emphasizes developer experience improvements:
 The Cosmos DB demonstration showcases advanced AI agent architecture with multi-tenant chat platforms and intelligent tool selection capabilities.
 
 **Multi-Tenant Chat Platform Architecture:**
+
 - **MCP Client-Server Framework:** Model Context Protocol implementation for agent communication
 - **Per-Tenant Container Isolation:** Security and data isolation for multi-tenant scenarios
 - **Semantic Caching:** Vector similarity-based response optimization
@@ -538,6 +570,7 @@ These customer success stories demonstrate Microsoft's database portfolio's capa
 Microsoft's database portfolio demonstrates a comprehensive AI-first architecture that integrates AI capabilities directly into database engines rather than requiring external AI infrastructure.
 
 **Native AI Integration Principles:**
+
 - **Embedded Vector Storage:** AI embeddings stored natively within database structures
 - **Integrated AI Models:** Direct model access through database query languages
 - **Semantic Query Processing:** Natural language concepts embedded in SQL operations
@@ -546,18 +579,21 @@ Microsoft's database portfolio demonstrates a comprehensive AI-first architectur
 **Cross-Database AI Capabilities:**
 
 **SQL Server 2025 AI Architecture:**
+
 - **DiskANN Vector Indexing:** Microsoft Research technology for high-performance vector search
 - **Multi-Model Support:** Seamless integration between local Ollama and Azure OpenAI models
 - **Semantic Kernel Integration:** C# framework integration for AI application development
 - **Native Vector Data Types:** Binary format optimization for embedding storage and retrieval
 
 **PostgreSQL AI Integration:**
+
 - **Semantic Operators Framework:** Four operator types (GENERATE, IS_TRUE, EXTRACT, RANKING)
 - **DiskANN Performance:** 35 million vector queries under 1 second response time
 - **Apache AGE Graph Extension:** Cypher query language support within PostgreSQL
 - **Multi-Language AI Model Support:** Various AI model integrations through consistent interface
 
 **Cosmos DB AI Platform:**
+
 - **AI Foundry Integration:** Native thread services for conversational AI applications
 - **Hybrid Search Capabilities:** Vector similarity combined with BM25 text ranking
 - **Global AI Distribution:** AI operations distributed across global Cosmos DB regions
@@ -568,18 +604,21 @@ Microsoft's database portfolio demonstrates a comprehensive AI-first architectur
 Microsoft's database portfolio demonstrates sophisticated integration patterns that enable AI capabilities across hybrid cloud, multi-cloud, and on-premises environments.
 
 **Fabric Integration Architecture:**
+
 - **OneLake Connectivity:** All database data available in open Delta Parquet format
 - **Mirroring Capabilities:** Real-time synchronization between operational databases and analytics platforms
 - **Unified Data Estate:** Single interface for data across multiple database technologies
 - **SaaS Data Platform:** Reducing complexity through pre-integrated data services
 
 **Azure Resource Connectivity (ARC):**
+
 - **Hybrid Cloud AI:** Azure AI services attached to data regardless of location
 - **On-Premises Integration:** Consistent AI capabilities across cloud and on-premises deployments
 - **Multi-Cloud Support:** Database portfolio available across various cloud platforms
 - **Unified Management:** Single management plane for distributed database deployments
 
 **Security and Identity Integration:**
+
 - **Microsoft Entra Managed Identity:** Consistent authentication across all database services
 - **API Key Replacement:** Enhanced security through managed identity authentication
 - **Cross-Service Authorization:** Unified security model across database and AI services
@@ -588,12 +627,14 @@ Microsoft's database portfolio demonstrates sophisticated integration patterns t
 **Developer Experience Unification:**
 
 **VS Code Integration Pattern:**
+
 - **Consistent Extensions:** Similar development experience across SQL Server, PostgreSQL, and other databases
 - **Copilot Integration:** AI-powered development assistance across all database technologies
 - **Database Chat Functionality:** Natural language interaction with databases through IDE
 - **Cross-Database Query Optimization:** Performance tuning assistance across database types
 
 **Model Context Protocol (MCP) Implementation:**
+
 - **Standardized AI Communication:** Consistent interface for AI model integration
 - **Database-Agnostic AI Access:** Uniform AI capabilities regardless of underlying database
 - **Multi-Model Support:** Various AI models accessible through single protocol
@@ -602,12 +643,14 @@ Microsoft's database portfolio demonstrates sophisticated integration patterns t
 **Performance and Scaling Patterns:**
 
 **Auto-Scaling AI Workloads:**
+
 - **Dynamic Resource Allocation:** Automatic scaling based on AI workload demands
 - **Cross-Region AI Distribution:** AI processing distributed across geographic regions
 - **Load Balancing:** AI operations balanced across multiple database instances
 - **Cost Optimization:** AI resource utilization optimized for cost efficiency
 
 **Data Movement and Synchronization:**
+
 - **Real-Time AI Data Pipelines:** Continuous data flow for AI model training and inference
 - **Change Data Capture:** AI models updated based on database changes
 - **Event-Driven AI Processing:** AI operations triggered by database events
@@ -700,18 +743,21 @@ Each reference provides specific value for different aspects of implementing Mic
 ### A. Technical Specifications and Performance Metrics
 
 **SQL Server 2025 AI Capabilities Technical Details:**
+
 - **Vector Data Type:** Binary format with optimized storage compression
 - **DiskANN Index Parameters:** Configurable parameters for accuracy vs. performance tradeoffs
 - **Model Integration APIs:** Technical specifications for AI model connectivity
 - **Security Integration:** Detailed authentication and authorization mechanisms
 
 **Azure SQL Hyperscale Performance Benchmarks:**
+
 - **Detailed Performance Comparisons:** Comprehensive benchmarks vs. AWS Aurora and Google Cloud SQL
 - **Scaling Characteristics:** Performance curves for various workload patterns
 - **Cost Analysis:** TCO calculations for different deployment scenarios
 - **Regional Availability:** Service availability across Azure regions
 
 **PostgreSQL Semantic Operators Implementation:**
+
 - **Operator Syntax Reference:** Complete SQL syntax for each semantic operator
 - **Performance Characteristics:** Latency and throughput metrics for various query patterns
 - **Model Compatibility Matrix:** Supported AI models and their capabilities
@@ -720,12 +766,14 @@ Each reference provides specific value for different aspects of implementing Mic
 ### B. Migration and Implementation Guidance
 
 **SQL Server to SQL Server 2025 Upgrade Process:**
+
 - **Compatibility Assessment:** Tools and procedures for evaluating upgrade readiness
 - **Migration Strategies:** Step-by-step upgrade procedures and rollback plans
 - **Feature Adoption:** Phased approach to implementing AI capabilities
 - **Performance Testing:** Validation procedures for upgraded systems
 
 **Legacy Database Modernization Patterns:**
+
 - **Mainframe Migration Strategies:** Detailed approaches for mainframe-to-cloud migrations
 - **Oracle to PostgreSQL Migration:** Tools and techniques for Oracle database modernization
 - **NoSQL to Cosmos DB Migration:** Patterns for transitioning from other NoSQL platforms
@@ -734,12 +782,14 @@ Each reference provides specific value for different aspects of implementing Mic
 ### C. Development Framework Integration Details
 
 **Semantic Kernel Integration Patterns:**
+
 - **Configuration Examples:** Complete code samples for various scenarios
 - **Error Handling:** Robust error handling patterns for AI-database integration
 - **Performance Optimization:** Best practices for optimizing AI-database operations
 - **Testing Strategies:** Unit and integration testing approaches for AI-enabled applications
 
 **Model Context Protocol Implementation:**
+
 - **Server Setup:** Detailed MCP server configuration procedures
 - **Client Integration:** Application patterns for MCP client implementation
 - **Security Configuration:** Authentication and authorization for MCP communications
@@ -748,12 +798,14 @@ Each reference provides specific value for different aspects of implementing Mic
 ### D. Enterprise Architecture Considerations
 
 **Multi-Tenant Application Patterns:**
+
 - **Data Isolation Strategies:** Various approaches to tenant data separation
 - **Security Models:** Authentication and authorization patterns for multi-tenant systems
 - **Scaling Patterns:** Resource allocation and performance optimization for SaaS applications
 - **Compliance Frameworks:** Regulatory compliance patterns for different industries
 
 **Disaster Recovery and Business Continuity:**
+
 - **Backup Strategies:** Comprehensive backup and recovery procedures for AI-enabled databases
 - **Failover Patterns:** High availability configurations for various database services
 - **Data Replication:** Cross-region replication strategies for global applications
@@ -762,12 +814,14 @@ Each reference provides specific value for different aspects of implementing Mic
 ### E. Security and Compliance Framework
 
 **Enterprise Security Implementation:**
+
 - **Identity Integration:** Detailed Microsoft Entra integration procedures
 - **Network Security:** VPN, private endpoints, and network isolation configurations
 - **Encryption Strategies:** Data encryption at rest and in transit implementation
 - **Audit and Compliance:** Logging and monitoring for regulatory compliance
 
 **AI Model Security Considerations:**
+
 - **Model Access Control:** Securing AI model access and usage
 - **Data Privacy:** Protecting sensitive data in AI processing workflows
 - **Prompt Injection Protection:** Security measures for natural language interfaces
@@ -776,12 +830,14 @@ Each reference provides specific value for different aspects of implementing Mic
 ### F. Cost Optimization and Resource Management
 
 **Database Service Cost Models:**
+
 - **Pricing Calculators:** Detailed cost estimation for various scenarios
 - **Resource Optimization:** Strategies for optimizing database resource utilization
 - **Reserved Capacity:** Long-term cost optimization through reserved pricing
 - **Hybrid Cost Management:** Balancing on-premises and cloud costs
 
 **AI Workload Cost Optimization:**
+
 - **Model Usage Optimization:** Strategies for efficient AI model utilization
 - **Compute Resource Management:** Optimizing compute resources for AI workloads
 - **Storage Optimization:** Efficient vector and AI data storage strategies

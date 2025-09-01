@@ -29,11 +29,13 @@ This session showcases the latest productivity tools and enhancements from the W
 #### Advanced Paste: AI-Powered Clipboard Enhancement
 
 **Core Capabilities:**
+
 - **Format transformation** - Paste content in any desired format
 - **Local API integration** - Seamless blend of local and AI capabilities
 - **AI-powered scenarios** - Complex content transformations
 
 **Live Demo Highlights:**
+
 - **HTML → Markdown conversion** with GitHub issue content
 - **CSV → Markdown table** with custom formatting requests
 - **Image OCR extraction** - Serial number from image to file
@@ -51,6 +53,7 @@ AI workflow: Image OCR → Text extraction → File creation → Explorer integr
 
 #### Evolution from PowerToys Run
 **Design Goals:**
+
 - **Performance optimization** from ground up
 - **Extensibility framework** - Top user request fulfilled
 - **Progressive enhancement** while maintaining familiar functionality
@@ -69,6 +72,7 @@ AI workflow: Image OCR → Text extraction → File creation → Explorer integr
 4. **Breakpoint debugging** - Full development environment support
 
 **Developer Experience:**
+
 - **Built-in scaffolding** via Command Palette interface
 - **Comprehensive documentation** with namespace declarations
 - **Community ecosystem** - Extensions available via WinGet repository
@@ -86,11 +90,13 @@ AI workflow: Image OCR → Text extraction → File creation → Explorer integr
 
 #### Advanced Capabilities
 **Performance Features:**
+
 - **Large file handling** - 100MB+ files load instantly
 - **Smart loading** - Only reads visible content portions
 - **Dynamic resizing** - Automatic adjustment to console window changes
 
 **Standard Features:**
+
 - **Search functionality** - Ctrl+F familiar experience
 - **Word wrap and formatting** options
 - **Full keyboard and mouse support**
@@ -108,32 +114,38 @@ AI workflow: Image OCR → Text extraction → File creation → Explorer integr
 
 #### Developer Settings Reorganization
 **"For Developers" → "Advanced" Page Redesign:**
+
 - **Improved discoverability** - Features useful beyond developers
 - **Better organization** - Popular features prominently displayed
 - **Maintained search compatibility** - Deep linking and search terms preserved
 
 #### Key Features Highlighted
 **Process Management:**
+
 - **End Task** - Right-click context menu for running applications
 - **Task Manager integration** without switching applications
 
 **File System Enhancements:**
+
 - **Long Path support** - Registry modification via simple toggle
 - **Dev Drive creation** - High-performance developer storage
 
 **Virtual Environment Controls:**
+
 - **Hyper-V enablement** - Single-click activation
 - **Windows Sandbox** access
 - **WSL integration** (planned) - Centralized virtual workspace management
 
 #### File Explorer Git Integration
 **Version Control Awareness:**
+
 - **Git repository detection** - Automatic integration in File Explorer columns
 - **Branch information** - Current branch display in status bar
 - **File status indicators** - Modified, committed, staged visualization
 - **Diff information** - Changes between branch and origin
 
 **Technical Implementation:**
+
 - **Open source component** - Powered by Windows Advanced Settings
 - **Column integration** - Native File Explorer enhancement
 - **Windows Insider availability** - Dev and Beta channels
@@ -150,17 +162,20 @@ winget configure export
 ```
 
 **Capabilities Demonstrated:**
+
 - **Complete system state capture** - Applications, settings, and configurations
 - **PowerShell script integration** - Dynamic configuration detection
 - **Team standardization** - Shared configuration files for consistent environments
 
 #### Desired State Configuration (DSC) v3
 **Advanced Features:**
+
 - **Application-specific settings** - Beyond just application installation
 - **WinGet settings preservation** - Progress bar themes, visual preferences
 - **Registry and system settings** - Dark/light mode, advanced preferences
 
 **Live Demo Results:**
+
 - **Hands-free setup** - Automated team environment configuration
 - **Validation checks** - Skip already-installed components
 - **Settings synchronization** - Complete environment replication
@@ -172,11 +187,13 @@ winget configure export
 #### User Interface Improvements
 
 **Tab Menu Customization:**
+
 - **Visual drag-and-drop** - Rearrange profiles without JSON editing
 - **Folder organization** - Group related profiles (WSL, development environments)
 - **Separator support** - Visual organization of favorites
 
 **Path Translation Features:**
+
 - **Automatic slash conversion** - Windows backslashes → Linux forward slashes
 - **Drive letter mapping** - D:\ → /mnt/d/ automatic conversion
 - **WSL auto-detection** - Enabled by default for Linux distributions
@@ -193,12 +210,14 @@ winget configure export
 - **Documentation Hub:** wsl.dev
 
 **Partner Ecosystem:**
+
 - **Linux Distributions:** Red Hat, OpenSUSE, Canonical, Debian, Arch Linux, Fedora
 - **Development Tools:** NVIDIA AI Workbench, Docker Desktop, Podman Desktop
 - **Industry Applications:** DreamWorks Moonray rendering engine for films
 
 #### Developer Workflow Integration
 **Real-World Usage:**
+
 - **Azure SDK team adoption** - Entire teams using WSL for cross-platform development
 - **Windows host, Linux development** - Best of both worlds approach
 - **Seamless integration** - "Feels like the same machine" experience
@@ -209,18 +228,21 @@ winget configure export
 
 ### PowerToys Ecosystem
 **Unified Platform:**
+
 - **Consistent experience** across utilities
 - **Shared infrastructure** for settings, updates, and community contributions
 - **Open source foundation** enabling community extensions and improvements
 
 ### Windows Terminal as Development Hub
 **Central Command Interface:**
+
 - **Profile management** for different development environments
 - **WSL integration** with automatic path translation
 - **Customizable workflows** supporting diverse development scenarios
 
 ### Configuration as Code
 **Infrastructure Approach:**
+
 - **Declarative configuration** via WinGet DSC files
 - **Version control friendly** YAML-based configuration management
 - **Team standardization** through shared configuration repositories
@@ -282,6 +304,7 @@ winget configure export
 ### Extension Development Resources
 
 **Command Palette Extensions:**
+
 - **Documentation:** Command Palette developer docs
 - **Scaffolding:** Built-in extension creation tools
 - **Community:** WinGet repository for extension sharing

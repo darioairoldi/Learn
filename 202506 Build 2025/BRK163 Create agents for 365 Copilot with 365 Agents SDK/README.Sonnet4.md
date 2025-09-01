@@ -65,17 +65,20 @@ This shift represents more than just a new interface paradigm—it's a complete 
 Sarah illustrated this transformation through several compelling real-world scenarios:
 
 **Banking Applications:**
+
 - Modern banking apps greet users with intelligent agents
 - Agents are grounded in personal financial data
 - Responses are personalized based on individual banking history and preferences
 - The same question asked by different users yields different, contextually appropriate responses
 
 **Enterprise HR Systems:**
+
 - AskHR agents provide travel guidance specific to individual employee data
 - Queries are processed within the context of personal employment history and company policies
 - Information is delivered with appropriate security and permission controls
 
 **Package Tracking Evolution:**
+
 - Traditional systems simply provided tracking information
 - Modern agent-powered systems offer proactive solutions: "What do you want to do about it?"
 - One-click resolution options for delivery rescheduling and management
@@ -116,22 +119,26 @@ The Microsoft 365 Agents SDK provides comprehensive flexibility across all layer
 - Integration with existing AI service approvals and governance
 
 **Orchestrator Choice:**
+
 - Semantic Kernel integration for .NET developers
 - LangChain support for JavaScript environments
 - Custom orchestrator frameworks
 - Preservation of existing developer expertise and training investments
 
 **Knowledge Integration:**
+
 - Enterprise data grounding capabilities
 - Connection to existing knowledge bases and data sources
 - Preservation of data governance and security policies
 
 **Conversation Management:**
+
 - Built-in state management across conversation sessions
 - Storage abstraction for different persistence requirements
 - Authentication handling for secure enterprise environments
 
 **Multi-Channel Deployment:**
+
 - Teams, Microsoft 365 Copilot, Web, Slack integration
 - Over 15 supported channels out of the box
 - Consistent agent behavior across all deployment targets
@@ -244,6 +251,7 @@ public async Task OnMessageAsync(ITurnContext turnContext)
 ```
 
 **Key Architectural Changes:**
+
 - **Event-driven design** replaces activity handler overrides
 - **Extension-based channel capabilities** instead of bespoke channel implementations
 - **Core SDK capabilities** handle common functions (adaptive cards, streaming, general communication)
@@ -254,12 +262,14 @@ public async Task OnMessageAsync(ITurnContext turnContext)
 The demonstration showcased true multi-channel deployment with zero code modifications:
 
 **Deployment Targets:**
+
 - **Agent Playground** - Local development and testing environment
 - **Microsoft Teams** - Enterprise collaboration platform integration  
 - **M365 Copilot** - Native AI assistant interface
 - **Web Chat** - Custom website and application embedding
 
 **Consistency Achievements:**
+
 - Identical agent behavior across all channels
 - Same codebase serving multiple deployment targets
 - Automatic adaptation to channel-specific capabilities
@@ -286,11 +296,13 @@ Traditional agent interactions suffered from "black box" periods where users rec
 The Agent SDK automatically adapts streaming behavior based on channel capabilities:
 
 **Low-Resolution Channels (Basic Web Chat):**
+
 - Simple typing indicators during processing
 - Single final response delivery
 - Minimal real-time feedback capabilities
 
 **High-Resolution Channels (Teams, M365 Copilot):**
+
 - Real-time status updates throughout processing
 - Granular progress communication
 - Interactive feedback during long-running operations
@@ -304,12 +316,14 @@ Matthew emphasized critical timeout management requirements:
 **Key Quote:** *"Those of you that want to target this chat, specifically on the M365 cloud, I cannot stress strongly enough, use streaming responses. They are very, very brutal on timeout."*
 
 **Microsoft 365 Copilot Requirements:**
+
 - Extremely aggressive 15-second timeout enforcement
 - Immediate acknowledgment required upon request receipt
 - Regular status updates throughout processing mandatory
 - Error prevention through proactive communication
 
 **Best Practices:**
+
 - **Immediate acknowledgment** - Send status as soon as request received
 - **Regular updates** - Continuous communication during processing
 - **Channel optimization** - Adapt streaming behavior to channel capabilities
@@ -328,6 +342,7 @@ This technical requirement represents a critical difference between traditional 
 Matthew demonstrated advanced multi-agent orchestration using a dispatcher pattern that coordinates between different agent technologies:
 
 **Architecture Components:**
+
 - **Agent SDK Host:** Central orchestration and channel management
 - **Semantic Kernel:** AI reasoning and tool selection
 - **OpenAI Integration:** Foundation model for decision-making  
@@ -343,6 +358,7 @@ The demonstration revealed sophisticated authentication token management that re
 **Key Quote:** *"I cannot tell you how much we've invested in making that work... We don't want you to have to deal with this crap anymore."*
 
 **Token Management Innovation:**
+
 - **User authorization exchange** - Automatic token acquisition for external services
 - **Scoped permissions** - Granular access control based on service requirements  
 - **SSO integration** - Seamless single sign-on across Microsoft ecosystem
@@ -371,6 +387,7 @@ Matthew provided unprecedented transparency into the authentication process thro
 ```
 
 **Technical Achievements:**
+
 - **Automatic token exchange** - No manual authentication handling required
 - **Multi-environment support** - Switch between different Copilot Studio environments
 - **Scoped access** - User permissions determine available agents and data
@@ -391,24 +408,28 @@ The demonstration showed tokens being automatically exchanged for the appropriat
 Sarah introduced the four core Microsoft 365 Copilot APIs designed for enterprise agent integration:
 
 **Retrieval API:**
+
 - Ground agents on Microsoft 365 data without data extraction
 - Maintain data governance and security within M365 boundaries
 - Semantic indexing leveraging M365's built-in content understanding
 - Permission inheritance ensuring user access controls are preserved
 
 **Chat API (Completion API):**
+
 - Headless Microsoft 365 Copilot usage for custom applications
 - Embed Copilot experiences within custom agent interfaces
 - Programmatic access to Copilot reasoning capabilities
 - Integration with native applications and custom workflows
 
 **Meeting Insights API:**
+
 - Teams meeting analysis and automated insights generation
 - Pre-processed meeting data: speakers, action items, summaries
 - Eliminate need for custom transcription processing
 - Direct access to meeting intelligence without raw transcript analysis
 
 **Interactions Export API:**
+
 - User prompts and usage analytics from Copilot interactions
 - Usage pattern analysis for optimization and compliance
 - Application development based on interaction data
@@ -421,12 +442,14 @@ The Retrieval API represents a breakthrough in enterprise data grounding:
 **Key Quote:** *"This allows you to ground on your M365 data without taking your data out of M365."*
 
 **Technical Implementation:**
+
 - **SharePoint integration** - Target specific sites and document folders
 - **Permission inheritance** - User access controls automatically applied
 - **Semantic indexing** - Leverage M365's built-in content understanding
 - **Scoped access** - Granular control over accessible documents and folders
 
 **Enterprise Benefits:**
+
 - Data never leaves Microsoft 365 ecosystem
 - Existing governance and compliance policies maintained
 - No data replication or synchronization required
@@ -439,6 +462,7 @@ Matthew's live demonstration of the Retrieval API revealed the realities of work
 **Key Quote:** *"This demo you're going to see, specifically these API calls, are in private preview... Cross your fingers. We'll get all the way through it, and it'll work properly."*
 
 **Technical Challenges Encountered:**
+
 - **API instability** - Daily changes during private preview development
 - **Integration complexity** - Coordinating multiple preview services simultaneously
 - **Timeout management** - Teams timeout limitations during debugging sessions
@@ -486,6 +510,7 @@ KPMG Digital Gateway Platform:
 KPMG has developed specialized AI personas that embody decades of tax expertise:
 
 **Global Tax Incentive Researcher:**
+
 - Specialized knowledge for international tax scenarios
 - Real-time regulatory compliance interpretation
 - Integration with KPMG's intellectual property and thought leadership
@@ -507,12 +532,14 @@ Renil demonstrated sophisticated cross-tenant authentication that represents a s
 **Technical Challenge:** Enabling users from hundreds or thousands of different Azure AD tenants to securely access KPMG's tax intelligence while maintaining governance and security.
 
 **Authentication Architecture:**
+
 - **On-behalf-of token generation** for logged-in users
 - **Single sign-on** across tenant boundaries
 - **Seamless experience** - users unaware of complex authentication processes
 - **Heavy lifting** performed by Digital Gateway backend systems
 
 **Implementation Benefits:**
+
 - Users logged into their own tenant can access KPMG services
 - No additional authentication prompts or complexity
 - Maintained security and governance across organizational boundaries
@@ -533,6 +560,7 @@ Sarah concluded with specific next steps for developers:
 **Primary Call to Action:** "Get started with the Toolkit and the SDK" - emphasizing immediate hands-on experimentation as the best learning approach.
 
 **Available Resources:**
+
 - **aka.ms/agents** - Primary SDK documentation and download location
 - **Build Labs** - Hands-on workshops starting at 8:30 the following morning
 - **Open Hack** - Real-time product group support for agent development

@@ -78,6 +78,7 @@ class Program
 ```
 
 **Associated Project Files:**
+
 - `.csproj` file with XML configuration
 - `bin/` and `obj/` directories with mysterious contents
 - `Program.cs` file with confusing naming (why "Program" when the app is called "MyFirstApp"?)
@@ -87,6 +88,7 @@ class Program
 The traditional approach presented numerous unfamiliar concepts simultaneously:
 
 **Overwhelming Terminology:**
+
 - **Namespace:** Unfamiliar concept requiring explanation
 - **Class:** Object-oriented programming concept
 - **Static:** Modifier with complex implications
@@ -95,6 +97,7 @@ The traditional approach presented numerous unfamiliar concepts simultaneously:
 - **String[] args:** Command-line arguments array
 
 **Non-Essential Complexity:**
+
 - XML project files for simple scripts
 - Hidden folder structures (`bin`, `obj`)
 - Multiple files for single-purpose applications
@@ -127,6 +130,7 @@ This eliminated the namespace, class, and Main method ceremony, focusing on the 
 Despite the code simplification, several barriers remained:
 
 **Persistent Issues:**
+
 - **Project Files:** Still required XML configuration files
 - **File Naming Confusion:** `Program.cs` vs. actual application name
 - **Project Structure:** Multiple files and directories for simple tasks
@@ -159,6 +163,7 @@ dotnet run hello.cs
 ```
 
 **Key Innovation Points:**
+
 - **Zero Ceremony:** No project files, XML, or additional structure required
 - **Pure C# Learning:** Focus exclusively on language concepts
 - **Immediate Feedback:** Write code and execute instantly
@@ -167,6 +172,7 @@ dotnet run hello.cs
 ### 4.2 Performance Characteristics
 
 **Initial Performance Metrics:**
+
 - **Cold Start:** ~3.6 seconds (first execution)
 - **Warm Start:** <1 second (subsequent executions)
 - **Performance Improvements:** Planned for Preview 5 and 6
@@ -176,6 +182,7 @@ Edwards acknowledged the current performance characteristics while emphasizing t
 > *"This is literally the first version of this that works. .NET 10 Preview 4 has this capability inside of it."*
 
 **Development Status:**
+
 - Available in .NET 10 Preview 4
 - VS Code C# extension support arriving within days of the session
 - Performance optimizations planned for future previews
@@ -205,6 +212,7 @@ Console.WriteLine($"It has been {timeSince.Humanize()} since Build started.");
 ```
 
 **Ignore Directive (`#r`) Features:**
+
 - **Language Instruction:** Tells C# compiler how to handle external references
 - **Metadata Separation:** Keeps package information separate from actual C# code
 - **Extensible System:** Foundation for additional directive types
@@ -249,6 +257,7 @@ Console.WriteLine($"You are {age.Humanize()} old.");
 ```
 
 **Shebang Line Explanation:**
+
 - **`#!/usr/bin/env dotnet run`:** Standard Unix/Linux executable specification
 - **Cross-Platform Consistency:** Same experience across Windows, Linux, and macOS
 - **Shell Integration:** Direct execution from command line without explicit `dotnet run`
@@ -266,6 +275,7 @@ chmod +x script.cs
 ```
 
 **Cross-Platform Benefits:**
+
 - **WSL Integration:** Seamless experience with Windows Subsystem for Linux
 - **Container Support:** Works in Docker and containerized environments
 - **DevOps Scripting:** Enables C# for automation and system administration tasks
@@ -308,6 +318,7 @@ app.Run();
 ```
 
 **Advanced Capabilities Demonstrated:**
+
 - **Full ASP.NET Core Support:** Complete web framework functionality
 - **Swagger Integration:** Automatic API documentation generation
 - **OpenAPI Support:** Modern API specification compliance
@@ -324,6 +335,7 @@ The `#!set sdk Microsoft.NET.Sdk.Web` directive demonstrates the system's flexib
 - **Framework Features:** Access to complete ASP.NET Core feature set
 
 **Supported Application Types:**
+
 - Console applications (default)
 - Web APIs and web applications
 - Blazor Server applications
@@ -370,6 +382,7 @@ hello/
 ```
 
 **Benefits of Conversion:**
+
 - **Full Tooling Support:** Complete Visual Studio and VS Code integration
 - **Advanced Features:** MSBuild targets, custom build processes, multi-file projects
 - **Team Development:** Source control, collaborative development features
@@ -399,6 +412,7 @@ Edwards demonstrated that the feature includes full tooling support:
 > *"The version of VS Code I'm using, the C# extension that lights up the IntelliSense when you're running in this mode will be available imminently, if not by the end of the day, then hopefully by tomorrow."*
 
 **Pre-release Channel:**
+
 - C# extension updates available through pre-release channel
 - Full language services without project configuration
 - Contextual help and documentation integration
@@ -406,6 +420,7 @@ Edwards demonstrated that the feature includes full tooling support:
 ### 9.2 IntelliSense and Debugging
 
 **Development Experience Features:**
+
 - **Code Completion:** Full IntelliSense support for standalone files
 - **Error Detection:** Real-time compilation error reporting
 - **Debugging:** Complete debugging experience without project setup
@@ -503,6 +518,7 @@ This comprehensive tooling support ensures that the simplified execution model d
 The session revealed specific performance metrics that, while not central to the main learning concepts, provide important context for practical usage:
 
 **Current Performance Profile (.NET 10 Preview 4):**
+
 - **Initial Execution:** ~3.6 seconds for cold start
 - **Subsequent Executions:** <1 second when runtime is warmed up
 - **Planned Improvements:** Performance optimizations scheduled for Preview 5 and Preview 6
@@ -513,6 +529,7 @@ Edwards acknowledged that the current performance is a result of this being the 
 ### A.2 Development Timeline and Availability
 
 **Feature Availability Schedule:**
+
 - **.NET 10 Preview 4:** Core functionality available at session time (May 22, 2025)
 - **VS Code Extension:** Pre-release channel availability within 24-48 hours of session
 - **Performance Improvements:** Preview 5 and 6 releases
@@ -526,6 +543,7 @@ Users need to access the pre-release channel for VS Code C# extension to get Int
 Edwards referenced several other programming languages that already supported direct file execution, positioning .NET 10's feature as bringing C# up to industry standards:
 
 **Language Comparison:**
+
 - **Node.js:** `node hello.js` - Industry standard for JavaScript execution
 - **Python:** `python hello.py` - Well-established scripting model
 - **Go:** `go run hello.go` - Modern language with simple execution
@@ -539,11 +557,13 @@ This comparison illustrates that the feature addresses a gap in the .NET ecosyst
 The session touched on educational concepts that support the design decisions:
 
 **Progressive Disclosure Principles:**
+
 - **Cognitive Load Theory:** Minimize extraneous cognitive load to focus on essential learning
 - **Scaffolding:** Provide support structures that can be removed as competence develops
 - **Just-in-Time Learning:** Introduce concepts when they become relevant to current tasks
 
 **Learning Path Optimization:**
+
 - **Immediate Feedback:** Rapid write-execute-observe cycles support learning
 - **Conceptual Isolation:** Separate C# language learning from tooling and infrastructure concerns
 - **Smooth Transitions:** Migration path preserves investment while adding capabilities
@@ -553,6 +573,7 @@ The session touched on educational concepts that support the design decisions:
 Edwards indicated that the feature development is actively seeking community input:
 
 **Feedback Channels:**
+
 - **GitHub Repository:** dotnet/sdk for feature-specific feedback
 - **Community Validation:** Real-world usage patterns to guide development
 - **Performance Benchmarking:** Community testing to validate optimization priorities

@@ -23,6 +23,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 **Core Concept:** Regular .NET upgrades are essential for performance, security, compliance, and ecosystem compatibility.
 
 **Key Motivations:**
+
 - **Performance gains** - Each release brings significant performance improvements
 - **Security patches** - Monthly servicing releases include critical security fixes
 - **Tooling enhancements** - New SDK capabilities and developer productivity features
@@ -40,17 +41,20 @@ This session demonstrates how AI-powered tools are transforming .NET application
 ### 🔄 **2. Upgrade vs. Modernization: Understanding the Spectrum**
 
 **Upgrade (Point A → Point B):**
+
 - Framework version migrations (.NET 6 → .NET 8 → .NET 9)
 - Dependency updates and vulnerability patches
 - Tooling and SDK transitions
 
 **Modernization (Architectural Transformation):**
+
 - Decomposition into microservices
 - Migration to cloud-native patterns (Azure Functions, Container Apps)
 - Adoption of new deployment models
 - Integration with modern DevOps practices
 
 **Business Benefits:**
+
 - Cost reduction through cloud provider alignment
 - Talent attraction and retention
 - Scalability and operational efficiency
@@ -61,12 +65,14 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 #### .NET Upgrade Assistant
 **Capabilities:**
+
 - **Analysis reporting** - Comprehensive project assessment with story point estimates
 - **Multiple upgrade strategies** - In-place, side-by-side, incremental migration
 - **NuGet Central Package Management** - Automatic package consolidation
 - **SDK-style project conversion** - Modern project file transformation
 
 **Supported Project Types:**
+
 - ASP.NET Web Applications
 - WPF and Windows Forms
 - Console Applications and Class Libraries
@@ -76,6 +82,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 **Purpose:** Cloud readiness assessment and migration planning
 
 **Features:**
+
 - **Static code analysis** for Azure compatibility
 - **Detailed remediation reports** with mandatory vs. optional fixes
 - **Basic Copilot integration** for guidance (limited to documentation lookup)
@@ -121,6 +128,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 #### Live Demo: AWS S3 → Azure Blob Storage Migration
 **Transformation scope:**
+
 - Package references and imports
 - API method calls and signatures
 - Configuration settings (appsettings.json)
@@ -128,6 +136,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 - Authentication mechanisms
 
 **Developer Experience:**
+
 - Plan review and approval workflow
 - Real-time code transformation visualization
 - Automatic build verification

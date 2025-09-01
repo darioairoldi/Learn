@@ -107,6 +107,7 @@ Loewen demonstrates the audit trail functionality, showing how the system logs a
 Advanced Paste extends beyond AI to include media format conversion using built-in Windows APIs. This functionality seamlessly blends AI capabilities with local processing power.
 
 **Media Conversion Features:**
+
 - **MOV to MP4 conversion** - Mobile video format compatibility
 - **Video to MP3 extraction** - Audio extraction from video files
 - **Built-in Windows API utilization** - No external dependencies required
@@ -144,16 +145,19 @@ Cinnamon emphasizes the performance goal: "Our whole goal is to go faster than t
 Command Palette ships with comprehensive pre-installed functionality:
 
 **Application Launcher:**
+
 - **Instant app search** with keyboard-driven navigation
 - **Run commands integration** - Full Windows Run dialog replacement
 - **File search capabilities** with intelligent indexing
 
 **Bookmark System:**
+
 - **URL and file path support** - Mixed content type bookmarks
 - **Quick access to documentation** and project folders
 - **Dev Drive integration** - Direct access to development environments
 
 **WinGet Integration:**
+
 - **Package search interface** - GUI alternative to command-line WinGet
 - **Markdown preview** - Package descriptions, publisher information
 - **Informed decision making** - Complete package details before installation
@@ -184,6 +188,7 @@ Craig Loewen demonstrates a completed extension providing:
 - **Live data access** - Real-time system information integration
 
 **Developer Experience Highlights:**
+
 - **Comprehensive documentation** - API references and namespace declarations
 - **Development environment integration** - Full Visual Studio debugging support
 - **Community contribution model** - WinGet repository distribution
@@ -206,6 +211,7 @@ The demonstration proves the extensibility framework's maturity and developer-fr
 Larry Osterman introduces Edit as a solution to a fundamental developer workflow disruption. The problem: editing configuration files breaks command-line context, forcing developers to switch applications and lose focus.
 
 **Core Design Philosophy:**
+
 - **Windows-familiar interface** - Standard File/Edit menus and keyboard shortcuts
 - **No learning curve** - File → Exit instead of cryptic command sequences
 - **Context preservation** - Editing without leaving command-line environment
@@ -214,6 +220,7 @@ Larry Osterman introduces Edit as a solution to a fundamental developer workflow
 Osterman emphasizes the workflow benefits: "It doesn't break my flow, and that's a big deal for me... I don't have to remember control W, Q, exclamation point, X, S, C, magic."
 
 **Interface Features:**
+
 - **Standard Windows menus** - File, Edit, View with familiar commands
 - **Keyboard and mouse support** - Full input method compatibility
 - **Search functionality** - Ctrl+F familiar experience
@@ -227,12 +234,14 @@ Osterman emphasizes the workflow benefits: "It doesn't break my flow, and that's
 Edit implements sophisticated performance optimizations for handling large files, a critical requirement for developer workflows involving log files and large datasets.
 
 **Smart Loading Technology:**
+
 - **Partial file reading** - Only loads visible content portions
 - **Instant startup** - 100MB+ files load immediately
 - **Dynamic memory management** - Memory usage scales with displayed content
 - **Responsive scrolling** - Smooth navigation through large files
 
 **Dynamic Interface Adaptation:**
+
 - **Console window resizing** - Automatic adjustment to terminal changes
 - **Real-time adaptation** - Interface scales dynamically with window size
 - **Seamless integration** - Behaves as native console application
@@ -248,12 +257,14 @@ Osterman shares real-world applications including protocol sequence decoding and
 Edit follows Microsoft's open source commitment with active community engagement and development.
 
 **Community Engagement:**
+
 - **GitHub repository** - github.com/MicrosoftEdit with active contribution
 - **Community contributions** - Issues, pull requests, and feature requests welcomed
 - **Developer roadmap** - Long-term feature planning with community input
 - **Rapid adoption** - Active community development within days of release
 
 **Distribution and Availability:**
+
 - **GitHub releases** - Available immediately for download
 - **Future Windows integration** - Coming as built-in Windows component
 - **Developer adoption** - Osterman uses it across all development machines
@@ -275,6 +286,7 @@ The open source approach enables community-driven enhancement while maintaining 
 Windows Settings receives a significant reorganization focused on improving discoverability and accessibility of advanced features. The "For Developers" page becomes "Advanced" while maintaining backward compatibility.
 
 **Redesign Rationale:**
+
 - **Broader applicability** - Features useful beyond developers
 - **Improved discoverability** - Advanced users can find relevant features
 - **Maintained compatibility** - Search terms and deep linking preserved
@@ -283,11 +295,13 @@ Windows Settings receives a significant reorganization focused on improving disc
 **Fan Favorite Features:**
 
 **End Task Integration:**
+
 - **Context menu access** - Right-click process termination without Task Manager
 - **Workflow preservation** - No application switching required
 - **Immediate action** - Direct process management from interface
 
 **Long Paths Support:**
+
 - **Registry key automation** - One-click maximum path limitation removal
 - **Developer workflow support** - Long file and folder name compatibility
 - **Simplified access** - No manual registry editing required
@@ -300,6 +314,7 @@ Windows Settings receives a significant reorganization focused on improving disc
 File Explorer gains native Git repository awareness through Windows Insider channels, providing integrated version control information directly in the file system interface.
 
 **Git Integration Features:**
+
 - **Repository detection** - Automatic Git repository identification
 - **Branch information** - Current branch display in status bar
 - **File status indicators** - Modified, committed, staged file visualization
@@ -307,6 +322,7 @@ File Explorer gains native Git repository awareness through Windows Insider chan
 - **Diff information** - Changes between branch and origin display
 
 **Technical Implementation:**
+
 - **Open source component** - Powered by Windows Advanced Settings
 - **Native integration** - Built into File Explorer core functionality
 - **Windows Insider availability** - Dev and Beta channel distribution
@@ -324,11 +340,13 @@ The integration provides immediate repository status awareness, reducing context
 The Advanced settings page centralizes previously scattered developer and power user features into a cohesive interface.
 
 **Virtual Workspace Management:**
+
 - **Hyper-V enablement** - Single-click virtualization activation
 - **Windows Sandbox access** - Isolated environment setup
 - **Planned WSL integration** - Future centralized Linux environment management
 
 **Development Environment Features:**
+
 - **Default Terminal configuration** - Terminal Canary and other options
 - **Sudo support** - Direct command-line elevation capabilities
 - **Dev Drive creation** - High-performance developer storage setup
@@ -355,6 +373,7 @@ winget configure export
 ```
 
 **System State Capture:**
+
 - **Complete application inventory** - All installed applications and versions
 - **System settings preservation** - Configuration preferences and customizations
 - **PowerShell script integration** - Dynamic configuration detection and application
@@ -371,6 +390,7 @@ Larry Osterman demonstrates the complete workflow by changing system themes (dar
 DSC v3 extends beyond application installation to comprehensive system configuration management, enabling declarative infrastructure approaches.
 
 **Advanced Configuration Features:**
+
 - **Application-specific settings** - Beyond installation to configuration management
 - **Visual preferences** - Progress bar themes, interface customizations
 - **Registry and system settings** - Dark/light mode, advanced Windows preferences
@@ -400,6 +420,7 @@ The approach enables Infrastructure as Code principles for Windows development e
 Windows Terminal receives significant user interface enhancements focused on profile management and organization, available in Terminal Canary.
 
 **Tab Menu Customization:**
+
 - **Visual drag-and-drop** - Rearrange profiles without JSON editing
 - **Folder organization** - Group related profiles (WSL distros, development environments)
 - **Separator support** - Visual organization of favorite profiles
@@ -415,6 +436,7 @@ Larry Osterman's reaction: "Finally! It's just like I've wanted this feature for
 Terminal introduces automatic path translation for seamless cross-platform file system navigation, particularly benefiting WSL workflows.
 
 **Automatic Path Conversion:**
+
 - **Slash orientation** - Windows backslashes automatically convert to Linux forward slashes
 - **Drive letter mapping** - D:\ automatically becomes /mnt/d/ for WSL compatibility
 - **WSL auto-detection** - Enabled by default for Linux distribution profiles
@@ -447,16 +469,19 @@ Craig Loewen announces WSL's transition to fully open source, representing a maj
 **Partner Ecosystem Expansion:**
 
 **Linux Distribution Partners:**
+
 - Red Hat, OpenSUSE, Canonical, Debian - Traditional enterprise and community distributions
 - Arch Linux, Fedora - Recently joined distributions expanding choice
 - Comprehensive distribution support across enterprise and enthusiast needs
 
 **Development Tools Integration:**
+
 - **NVIDIA AI Workbench** - GPU-accelerated development workflows
 - **Docker Desktop** - Container development and orchestration
 - **Podman Desktop** - Alternative container management solutions
 
 **Industry Applications:**
+
 - **DreamWorks Moonray** - Open source rendering engine for films like "How to Train Your Dragon"
 - **Film industry support** - Professional creative workflows using WSL for Linux-based tools
 
@@ -475,6 +500,7 @@ Larry Osterman shares Azure SDK team experiences:
 - **Daily workflow integration** - Primary development environment for many developers
 
 **Developer Experience Benefits:**
+
 - **Seamless integration** - "Really does provide the best of both worlds"
 - **Cross-platform development support** - Essential for modern software development
 - **Hypervisor-level performance** - Near-native Linux performance on Windows hosts
@@ -505,6 +531,7 @@ This utility replaces the more complex SysInternals Handle tool with an integrat
 ### A.2. Resources and Download Information
 
 **Resource Links Provided:**
+
 - **PowerToys:** Microsoft Store or GitHub repository
 - **Windows Terminal Canary:** Advanced features preview channel
 - **Edit Text Editor:** github.com/MicrosoftEdit releases page
@@ -512,10 +539,12 @@ This utility replaces the more complex SysInternals Handle tool with an integrat
 - **Command Palette Documentation:** Developer API references and extension authoring guides
 
 **Related Build Sessions:**
+
 - **Command Palette Extension Development:** Earlier Build demo with live extension creation
 - **Simplified Dev Setup with WinGet and Microsoft DSC:** Following day at 8:30 AM - Deep dive into configuration management
 
 **Community Engagement:**
+
 - **Windows Developer Experiences Booth:** Hands-on demos and extended discussions
 - **Social Media:** Blue Sky and GitHub for ongoing team interaction
 - **Documentation Contributions:** Community input welcomed on all open source projects

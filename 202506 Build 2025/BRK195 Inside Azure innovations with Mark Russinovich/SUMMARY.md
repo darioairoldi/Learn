@@ -35,6 +35,7 @@ Azure Boost 2.0 Card Components:
 
 #### Cloud-Leading Performance Metrics
 **Storage and Network Achievements:**
+
 - **Remote Disks:** 14 GB/s with 800K IOPS
 - **Local SSD:** 36 GB/s with 6.6 million IOPS  
 - **Network Bandwidth:** Up to 200 GB/s with 400K connections per second
@@ -42,6 +43,7 @@ Azure Boost 2.0 Card Components:
 
 #### Infrastructure Resilience and Maintenance
 **Operational Excellence:**
+
 - **Dual top-of-rack router connections** - Failure tolerance without service interruption
 - **Transparent maintenance** - Router upgrades with temporary single-link operation
 - **Sub-second software updates** - Data plane upgrades without virtual machine impact
@@ -62,6 +64,7 @@ RDMA Path: App Memory ? NIC ? [Network] ? NIC ? App Memory (Direct)
 ```
 
 **GPU-to-GPU Direct Communication:**
+
 - **GPUDirect RDMA** - Direct GPU memory to GPU memory transfer
 - **AI Training Optimization** - AllReduce operations without CPU intervention
 - **Weight Sharing Efficiency** - Direct GPU weight synchronization across network
@@ -69,6 +72,7 @@ RDMA Path: App Memory ? NIC ? [Network] ? NIC ? App Memory (Direct)
 
 #### Live Performance Demonstration
 **AllReduce Operation Results:**
+
 - **Traditional Method:** 51,000 microseconds, 1.4 GB/s average bandwidth
 - **Guest RDMA:** 4,600 microseconds, 14 GB/s average bandwidth
 - **Performance Improvement:** **11x speed-up** for GPU-to-GPU communication
@@ -95,6 +99,7 @@ Azure Update Evolution:
 > "For the most part, the vast majority of virtual machines now through virtual machine-preserving host update will see zero impact."
 
 **Advanced VM-PHU Features:**
+
 - **Selective VM freezing** - Only VMs requiring virtualization stack assistance pause
 - **Continuous I/O operations** - Storage and network operations continue during updates
 - **Request pinning** - Virtualization-dependent requests queued during maintenance
@@ -102,6 +107,7 @@ Azure Update Evolution:
 
 #### Live Demonstration Results
 **Traditional VM-PHU vs. Advanced VM-PHU:**
+
 - **Traditional:** Complete VM freeze during fast save/restore cycle
 - **Advanced:** Continuous ping responses and application counting during maintenance
 - **Operational benefit:** Virtualization stack restart transparent to running workloads
@@ -116,6 +122,7 @@ Azure Update Evolution:
 > "Now you're talking about not terabytes or hundreds of terabytes of data. Now you're talking about petabytes, and in some cases, even up to hundreds of petabytes of data, especially for autonomous driving model training."
 
 **AI Storage Requirements:**
+
 - **Training Data:** Multi-modal models with video content requiring petabyte datasets
 - **Model Checkpoints:** Terabyte-sized failure recovery points during training
 - **Model Deployment:** Terabyte models distributed to thousands of inference servers
@@ -134,6 +141,7 @@ Scaled Storage Account:
 
 #### Live 320-Server Demonstration
 **Unprecedented Storage Performance:**
+
 - **Cluster Configuration:** 320 servers with BlobFuse2 mounting
 - **Parallel Write Test:** All servers writing simultaneously to single account
 - **Peak Write Performance:** **15 terabits per second**
@@ -149,6 +157,7 @@ Scaled Storage Account:
 > "For me, was kind of a wow moment in my professional career, having been at Microsoft since 2006, back when Linux was not necessarily the operating system that Microsoft used a lot."
 
 **Linux Evolution at Microsoft:**
+
 - **2014:** Satya announces "Microsoft loves Linux"
 - **2012:** Azure launches with Linux IaaS support  
 - **2023:** Azure Linux distribution announcement
@@ -170,6 +179,7 @@ LinuxGuard Architecture:
 
 #### Live Security Demonstration
 **Policy Enforcement Results:**
+
 - **Unsigned executable rejection** - "hello-host" execution blocked on host
 - **Container policy enforcement** - "hello-container" execution blocked in container
 - **Audit logging** - Complete record of allowed/denied execution attempts
@@ -184,6 +194,7 @@ LinuxGuard Architecture:
 > "We came up with this term internally at Microsoft, hostile multi-tenancy... you have to assume it's hostile. It wants to do bad things, and that means we need to isolate it from the infrastructure."
 
 **Approved Isolation Technologies:**
+
 - **Hyper-V Virtual Machines** - Primary isolation for full applications
 - **Hyper-V Isolated Containers** - LCOW and WCOW for container workloads  
 - **Hyperlight Micro-VMs** - WebAssembly user-defined functions
@@ -202,6 +213,7 @@ Hyperlight Micro-VM:
 
 #### Azure Front Door Production Integration
 **Edge Computing Demonstration:**
+
 - **Image Processing Function** - Crop face functionality implemented in C (apologetically)
 - **Micro-VM Execution** - Function running in Hyperlight sandbox at edge
 - **Edge Optimization** - Processing before content reaches origin website
@@ -216,6 +228,7 @@ Hyperlight Micro-VM:
 > "We were the first company, hyperscaler cloud to come up with serverless containers with ACI... ACI is our future of our infrastructure."
 
 **ACI Strategic Positioning:**
+
 - **Serverless Focus** - Application and container focus, not infrastructure
 - **Platform Orchestration** - Automatic application deployment and management
 - **AKS Integration** - Virtual nodes for bursting from fixed pools
@@ -233,6 +246,7 @@ Container Launch Test:
 ```
 
 **Performance Achievement:**
+
 - **Scale:** 10,000 containers simultaneously launched
 - **Time:** Under 2 minutes from initiation to completion
 - **Infrastructure:** Serverless deployment without pre-provisioned nodes
@@ -247,6 +261,7 @@ Container Launch Test:
 > "Azure Incubations, I started in 2016, it was, kind of, an accidental starting of an incubations team... one of the principles is open source, CNCF, open governance."
 
 **Graduated CNCF Projects:**
+
 - **KEDA (2023)** - Kubernetes Event-Driven Autoscaler
 - **Copa/Copacetic (2023)** - Container image patching without rebuilds
 - **Dapr (2024)** - Distributed application runtime (5-year journey)
@@ -263,6 +278,7 @@ Radius Benefits:
 ```
 
 **FINOS TraderX Demonstration:**
+
 - **Reference Application** - Real trading application from financial consortium
 - **Ratification Time** - One day to convert from Helm charts and bash scripts
 - **Deployment Targets** - Both AKS and ACI container groups
@@ -288,6 +304,7 @@ Drasi Solution:
 ```
 
 **Curbside Pickup Demonstration:**
+
 - **Multi-Database Query** - Order status (Postgres) + Car location (SQL)
 - **Join Logic** - "Order ready AND car at curbside"
 - **Instant Response** - SignalR UI updates when conditions satisfied
@@ -313,6 +330,7 @@ Microsoft Confidential Computing Timeline:
 
 #### Trusted Execution Environments (TEEs)
 **Hardware-Based Protection:**
+
 - **Cryptographic Shield** - Hardware-protected execution environment
 - **Attestation Quotes** - Cryptographic proof of code and data integrity
 - **Key Release Decision** - Trust verification before data decryption
@@ -320,6 +338,7 @@ Microsoft Confidential Computing Timeline:
 
 #### Multi-GPU Confidential Computing
 **Enterprise AI Protection:**
+
 - **ServiceNow Implementation** - Agentic flows with protected seller commission data
 - **Multi-GPU Models** - H200 GPUs with confidential NVLink connections
 - **Protected PCIe** - Confidential communication between CPU and GPUs
@@ -344,6 +363,7 @@ Light-Based Computing:
 
 #### World's First Analog Optical Computer
 **Live Hardware Demonstration:**
+
 - **Physical Computer** - Actual optical computing hardware from MSR Cambridge
 - **Light Beam Output** - Visible computation result through optical processing
 - **Component Architecture** - Micro LEDs (input), weights configuration, SIMA sensors
@@ -351,6 +371,7 @@ Light-Based Computing:
 - **Research Stage** - Few thousand parameters, proof of concept for scaling
 
 **Live Classification Results:**
+
 - **Digit Recognition** - Numbers 0-9 classification through optical processing
 - **Processing Speed** - Currently slower than electronic, optimization ongoing  
 - **Neural Network Operations** - First demonstration of complete light-based AI computation
@@ -413,12 +434,14 @@ End-to-End Protection:
 ### Infrastructure Optimization Strategies
 ```markdown
 **Azure Boost 2.0 Benefits:**
+
 - Leverage accelerated storage and networking for I/O intensive applications
 - Plan for 11x improvement in GPU-to-GPU communication with Guest RDMA
 - Design applications to benefit from freed server cores
 - Expect transparent infrastructure updates with zero VM impact
 
 **Scaled Storage Applications:**
+
 - AI training pipelines requiring petabyte datasets
 - Model distribution across thousands of inference servers
 - Checkpoint storage for large-scale training operations
@@ -428,12 +451,14 @@ End-to-End Protection:
 ### Security and Compliance Implementation
 ```markdown
 **Confidential Computing Adoption:**
+
 - Protect sensitive AI models and training data
 - Enable multi-party computation scenarios
 - Implement zero-trust architecture with hardware attestation
 - Design for regulatory compliance with data-in-use protection
 
 **LinuxGuard Security:**
+
 - Implement container image signing workflows
 - Deploy DM-verity for layer verification
 - Use IPE policies for execution control
@@ -443,12 +468,14 @@ End-to-End Protection:
 ### Cloud-Native Development Patterns
 ```markdown
 **Project Radius Benefits:**
+
 - Separate application architecture from infrastructure concerns
 - Enable multi-cloud deployment with recipe-based configuration
 - Visualize application dependencies and resource relationships
 - Implement platform engineering practices at scale
 
 **Drasi Reactive Programming:**
+
 - Replace complex state tracking logic with continuous queries
 - Handle multi-source data change scenarios declaratively  
 - Implement non-event detection with timeout conditions

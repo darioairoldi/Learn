@@ -25,6 +25,7 @@ This comprehensive session demonstrates Microsoft's unified vision for agent dev
 > "Copilot is your personal assistant... It isn't 'the pilot,' it isn't running off without you, it is your copilot and it is assisting you."
 
 **Agent Specialization:**
+
 - **Business process specialists** - Understanding specific domains and workflows
 - **Knowledge and API integrators** - Processing grounded information and real-time data
 - **System bridges** - Connecting Copilot to enterprise systems of record
@@ -34,12 +35,14 @@ This comprehensive session demonstrates Microsoft's unified vision for agent dev
 **Aaron's Architectural Vision:**
 
 **App-Centric World (Orchestra):**
+
 - **Structured coordination** - Each musician (application) plays from sheet music
 - **Specialized roles** - Individual instruments with specific purposes
 - **Central conductor** - Orchestrated control and coordination
 - **Beautiful but rigid** - Precise execution within defined parameters
 
 **Agent-Centric World (Jazz Quartet):**
+
 - **Improvised collaboration** - Musicians playing off each other dynamically
 - **Adaptive interaction** - Listening and responding to other participants
 - **No sheet music** - Flexible, context-driven performance
@@ -47,6 +50,7 @@ This comprehensive session demonstrates Microsoft's unified vision for agent dev
 
 #### The Billion Agent Future
 **IDC Projection:**
+
 - **1 billion new business process agents** over next four years
 - **One agent per 7.5 people** worldwide (including children)
 - **Every function and process** in organizations will be transformed
@@ -69,6 +73,7 @@ Agent Architecture
 
 #### Orchestrator and Model Relationship
 **The Executive Function Metaphor:**
+
 - **Model as brain** - Core reasoning and intelligence capabilities
 - **Orchestrator as executive function** - Decision-making about when and how to act
 - **Hand-in-hand operation** - Coordinated interaction for optimal performance
@@ -76,6 +81,7 @@ Agent Architecture
 
 #### Knowledge and Grounding
 **The Foundation of Reliability:**
+
 - **Real, verifiable information** - Preventing hallucination and ensuring accuracy
 - **Contextually relevant data** - Information specific to business domain and use case
 - **Dynamic knowledge sources** - Connection to live systems and updated information
@@ -83,6 +89,7 @@ Agent Architecture
 
 #### Tools and Actions
 **The Power of Agency:**
+
 - **Real-time data access** - Live information retrieval and processing
 - **First and third-party systems** - Comprehensive integration capabilities
 - **Autonomous action execution** - Tasks performed on behalf of users
@@ -97,6 +104,7 @@ Agent Architecture
 > "Anyone can create an agent with these ingredients. It doesn't matter who you are and your persona and the way that you operate."
 
 **Target Scenarios:**
+
 - **Team processes** - Small groups (3-6 people) with specialized workflows
 - **Individual automation** - Personal productivity and task management
 - **Enterprise customization** - Department-specific adaptations of standard systems
@@ -104,12 +112,14 @@ Agent Architecture
 
 #### New Features and Capabilities
 **Brand-New Agent Store Experience:**
+
 - **Ground-up redesign** - Built specifically for agent discovery and management
 - **Unified navigation** - Agents, conversations, pages in integrated interface
 - **Search and filter** - Easy discovery of relevant agents for specific processes
 - **One-click sharing** - Instant distribution to teams and organizations
 
 **Enhanced Knowledge Integration:**
+
 - **Team chat history** - Grounding in organizational conversation context
 - **Email integration** - Access to communication patterns and content
 - **Office entities** - SharePoint, OneDrive, Office 365 content
@@ -118,6 +128,7 @@ Agent Architecture
 
 #### Live Demo: Build 2025 Concierge Agent
 **Real-World Implementation:**
+
 - **Book of News grounding** - All Build announcements and updates
 - **Website integration** - build.microsoft.com session and information data
 - **Code interpreter capability** - Pre-built computational and analytical tools
@@ -132,6 +143,7 @@ Source: Grounded in website data and official documentation
 
 #### Researcher Agent Integration Preview
 **Multi-Agent Orchestration Demonstration:**
+
 - **Lumen Quarterly Report Agent** - Custom formatting and presentation logic
 - **Researcher coordination** - "How do you want to structure this report?"
 - **Enterprise customization** - Organization-specific reporting standards
@@ -146,6 +158,7 @@ Source: Grounded in website data and official documentation
 > "Copilot Studio is a SaaS agent platform designed to help you really quickly and efficiently build agents that are ready to deploy in your organization... from starting point to deployed with metrics, analytics, safety rails, responsible AI literally in hours."
 
 **Comprehensive Development Stack:**
+
 - **Publishing channels** - M365 Copilot, websites, custom applications
 - **Foundation model choice** - Managed models plus Azure AI Foundry integration
 - **Knowledge customization** - Multiple source integration and RAG configuration
@@ -154,6 +167,7 @@ Source: Grounded in website data and official documentation
 
 #### Advanced Model Integration
 **Azure AI Foundry Connection:**
+
 - **1,900+ available models** - Comprehensive model catalog access
 - **Managed model defaults** - Pre-configured, optimized options
 - **Custom deployment support** - API key and connection string configuration
@@ -173,6 +187,7 @@ Contoso Employee Resources
 ```
 
 **Business Intelligence Dashboard:**
+
 - **Session analytics** - User interaction patterns and usage metrics
 - **Knowledge source tracking** - Most accessed information and documents
 - **Tool utilization** - Feature usage and workflow optimization data
@@ -182,6 +197,7 @@ Contoso Employee Resources
 **Multi-Agent Orchestration:**
 
 **Connected Agents:**
+
 - **Contoso Tax Advisor** - Specialized tax and financial guidance
 - **Contoso Vacation Advisor** - HR policy and time-off management
 - **Dynamic selection** - Host agent chooses appropriate specialist
@@ -201,6 +217,7 @@ After one year of service, vacation increases to 3.5 weeks."
 ```
 
 **Activity Map Visualization:**
+
 - **Chain of thought tracking** - Complete reasoning process display
 - **Agent invocation visualization** - Multi-agent workflow mapping
 - **Source document linking** - Direct validation and drill-through capability
@@ -208,12 +225,14 @@ After one year of service, vacation increases to 3.5 weeks."
 
 #### Advanced Tool Integration
 **Prompt Builder Innovation:**
+
 - **Fine-tuned responses** - Specialized handling for specific question types
 - **Prompt library** - Hundreds of pre-built, tested prompt templates
 - **Model specialization** - Different models for different prompt categories
 - **Testing framework** - Built-in evaluation and optimization tools
 
 **Model Context Protocol (MCP) Support:**
+
 - **Emerging standard** - Industry-standard agent-to-system communication
 - **Client-server architecture** - Agent as MCP client, systems as MCP servers
 - **Pre-configured servers** - Ready-to-use integrations with common systems
@@ -234,6 +253,7 @@ VS Code Copilot Studio Extension
 ```
 
 **Developer Productivity:**
+
 - **Local development** - Full editing capabilities offline
 - **Version control** - Git integration for agent configuration management
 - **IntelliSense support** - Type-ahead and error detection
@@ -247,6 +267,7 @@ VS Code Copilot Studio Extension
 **Safalo Finance Transformation:**
 
 **Traditional Process Problems:**
+
 - **30-minute manual workflow** - Document download, update, signature coordination
 - **Legacy system integration** - On-premise financial system certification requirements
 - **Multi-step coordination** - HR team managing complex approval workflows
@@ -271,6 +292,7 @@ Employee Onboarding Agent
 5. **E-signature initiation** - Automated delivery of documents for signature
 
 **Performance Transformation:**
+
 - **30 minutes ? 2 minutes** - 93% reduction in processing time
 - **Zero manual errors** - Automated accuracy and consistency
 - **Integrated experience** - Single Teams interface for complete workflow
@@ -295,6 +317,7 @@ Professional Developer Control
 ```
 
 **Advanced Integration Capabilities:**
+
 - **Teams Meetings** - Agents running directly in meeting contexts
 - **Licensed and unlicensed M365** - Universal compatibility across user types
 - **Visual Studio Code integration** - Professional development environment
@@ -305,12 +328,14 @@ Professional Developer Control
 **LexisNexis Legal Professional Demo:**
 
 **Clause Rewriting Capability:**
+
 - **Context awareness** - Agent understands selected text in Word document
 - **Domain expertise** - Legal language and formatting optimization
 - **In-place editing** - Direct document modification with user confirmation
 - **Professional accuracy** - Legal-grade precision and compliance
 
 **Shepardize™ Feature:**
+
 - **Citation validation** - Automated legal citation checking and verification
 - **Case law analysis** - Determining if precedents are still valid or overturned
 - **Document enhancement** - Adding visual indicators for citation status
@@ -322,11 +347,13 @@ Professional Developer Control
 > "A full developer framework designed to simplify the creation of full stack, multi-channel, enterprise-grade AI agents that can operate across M365, Teams, Copilot Studio and external platforms."
 
 **Multi-Language Support:**
+
 - **C# development** - Full .NET ecosystem integration
 - **Python support** - AI and machine learning library compatibility  
 - **JavaScript framework** - Web and Node.js development patterns
 
 **Enterprise Integration:**
+
 - **Azure AI services** - Complete Microsoft AI stack integration
 - **Semantic Kernel** - Advanced AI orchestration framework
 - **Third-party AI services** - Provider-agnostic model integration
@@ -346,6 +373,7 @@ Visual Studio Agent Development
 ```
 
 **Development Experience:**
+
 - **Instant scaffolding** - Complete agent project in minutes
 - **Built-in emulator** - Local testing and debugging environment
 - **Adaptive card responses** - Rich formatting and interactive elements
@@ -365,6 +393,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Agent Communication Patterns
 **Multi-Agent Orchestration:**
+
 - **Agent-to-agent delegation** - Specialized agents handling domain-specific queries
 - **Context preservation** - Information flow between agents with full context retention
 - **Result aggregation** - Combining outputs from multiple specialized agents
@@ -372,6 +401,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Knowledge Integration Strategies
 **Grounding Sources and Methods:**
+
 - **Microsoft 365 content** - SharePoint, OneDrive, Teams, email integration
 - **External websites** - Domain-specific web content grounding
 - **Embedded documents** - Direct file sharing with agent distribution
@@ -379,6 +409,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Model Selection and Optimization
 **Flexible Model Architecture:**
+
 - **Component-specific models** - Different models for different agent functions
 - **Cost optimization** - Right-sized models for specific tasks
 - **Performance tuning** - Model selection based on response time and accuracy requirements
@@ -390,6 +421,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Agent Builder Success Metrics
 **Build 2025 Concierge Performance:**
+
 - **Instant deployment** - Agent creation in minutes
 - **Accurate responses** - Grounded in official Build documentation
 - **User-friendly interface** - Intuitive interaction patterns
@@ -397,6 +429,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Copilot Studio Enterprise Integration
 **Contoso Employee Resources Results:**
+
 - **Multi-agent coordination** - Successful delegation between HR, tax, and vacation specialists
 - **Source verification** - Direct links to authoritative documents
 - **Analytics visibility** - Complete usage tracking and optimization data
@@ -404,6 +437,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Professional SDK Development
 **Weather Agent Implementation:**
+
 - **Rapid scaffolding** - Complete project structure in minutes
 - **Azure integration** - Seamless OpenAI service connection
 - **Rich responses** - Adaptive card formatting with structured data
@@ -500,6 +534,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Knowledge Work Transformation
 **Document-Centric Processes:**
+
 - **Legal document review** - Citation validation and clause optimization
 - **Financial analysis** - Automated report generation and compliance checking
 - **Healthcare documentation** - Patient record summarization and clinical decision support
@@ -507,6 +542,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Customer Service Automation
 **Support Process Enhancement:**
+
 - **Tier 1 support automation** - Common issue resolution without human intervention
 - **Escalation intelligence** - Smart routing to appropriate specialists
 - **Knowledge base integration** - Real-time access to support documentation
@@ -514,6 +550,7 @@ Integration: Direct Azure OpenAI model connection
 
 ### Business Process Optimization
 **Workflow Digitization:**
+
 - **Employee onboarding** - Complete automation from hire to productivity
 - **Procurement processes** - Vendor management and approval workflows
 - **Compliance monitoring** - Automated policy enforcement and reporting

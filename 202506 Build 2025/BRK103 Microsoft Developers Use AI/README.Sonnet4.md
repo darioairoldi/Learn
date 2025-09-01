@@ -49,12 +49,14 @@
 **Session Clarifications:**
 
 **What This Session Is NOT:**
+
 - **Universal Microsoft Representation:** "This is not about all Microsoft developers. We are speaking only for the two of us"
 - **Comprehensive Tool Coverage:** Not covering every AI feature in every development tool
 - **Expert Proclamation:** "This is also not us proclaiming to be the experts on this stuff"
 - **"Vibe Coding" Advocacy:** Not promoting speculative or experimental AI coding approaches
 
 **What This Session IS:**
+
 - **Personal Workflow Documentation:** How two experienced Microsoft developers integrate AI into daily work
 - **Production-Ready Practices:** Real-world applications with longevity and maintenance requirements
 - **Tool-Specific Focus:** Concentrated on particular AI tools and their practical applications
@@ -75,6 +77,7 @@ David demonstrated a game he created that morning in his hotel room using AI:
 > *"For the most part, I do not do vibe coding in my daily work... a lot of the things that we work on are things that have a lot of longevity to them. They need to be maintained. They need to be tested."* - David Fowler
 
 **Professional Standards:**
+
 - **Maintenance Requirements:** Code must be maintainable over years
 - **Testing Standards:** Comprehensive test coverage required
 - **Quality Rigor:** Production code demands higher standards than experimental projects
@@ -97,12 +100,14 @@ The speakers established that while "vibe coding" has its place for rapid protot
 David Fowler shared the story of a decade-old known issue in Kestrel that suddenly became business-critical when the Azure App Service team escalated it as a production blocker.
 
 **Problem Context:**
+
 - **Issue Age:** 10 years of known existence without resolution
 - **Technical Challenge:** Memory pool with concurrent queue lacking proper limits
 - **Business Impact:** Affecting Azure App Service frontend performance
 - **Team Pressure:** High-stakes meeting with App Service leadership team
 
 **Traditional Problem-Solving Limitations:**
+
 - **Expert Consultation Time:** Booking time with senior engineers for brainstorming
 - **Whiteboard Sessions:** Hours of discussion resulting in basic sketches
 - **Implementation Delays:** Additional hours to create initial buggy prototypes
@@ -118,6 +123,7 @@ David's approach using ChatGPT for rapid strategy generation:
 > *"I have a pool with concurrent queue and no limits. Give me some ways to free the memory."*
 
 **Key Methodology:**
+
 - **Approach Focus:** "Give me four approaches. Don't give me the answer"
 - **Rapid Iteration:** Four different implementation strategies in seconds
 - **Implementation Examples:** AI provided concrete code samples for each approach
@@ -151,11 +157,13 @@ Following initial strategy generation, David pushed the AI toward more sophistic
 > *"What if we want to create a small GC? What would it be like? How hard is it? What's the overheads?"*
 
 **Technical Deep Dive:**
+
 - **Old/Young Generation Concepts:** AI explained generational garbage collection principles
 - **Implementation Complexity:** Assessment of overhead and difficulty
 - **Production Viability:** Evaluation of real-world applicability
 
 **Team Integration Benefits:**
+
 - **Parallel Discussions:** Seven concurrent conceptual discussions with AI
 - **Expert Preparation:** Well-informed conversations with senior team members
 - **Implementation Foundation:** Solid basis for production code development
@@ -188,6 +196,7 @@ Stephen Toub addressed one of the most persistent problems in software maintenan
 > *"Who likes to write code comments? Who likes to write big XML comments? Who loves to document their code? Who keeps it up to date?"* - Stephen Toub
 
 **Typical Developer Response:**
+
 - **Minimal Enthusiasm:** Few developers enjoy extensive documentation tasks
 - **Maintenance Burden:** Documentation often falls behind code changes
 - **Time Investment:** Documentation can consume significant development time
@@ -200,6 +209,7 @@ Stephen Toub addressed one of the most persistent problems in software maintenan
 Stephen demonstrated AI's capability to understand and document extremely complex legacy code:
 
 **Technical Challenge:**
+
 - **Codebase Age:** .NET regex interpreter written in 2003
 - **Original Author:** No longer available for consultation
 - **Code Complexity:** 3,000 lines of highly optimized, cryptic C# code
@@ -223,6 +233,7 @@ Stephen demonstrated AI's capability to understand and document extremely comple
 5. **Human Review:** Validation and integration into production codebase
 
 **Results:**
+
 - **Comprehension Improvement:** Complex opcodes became understandable to team members
 - **Maintenance Enhancement:** Future modifications significantly easier
 - **Knowledge Preservation:** Institutional knowledge captured in documentation
@@ -235,6 +246,7 @@ Stephen demonstrated AI's capability to understand and document extremely comple
 David showcased an even more ambitious documentation project using AI:
 
 **Project Scope:**
+
 - **Library:** Model Context Protocol (MCP) C# SDK
 - **Original State:** Massive C# codebase with essentially no comments
 - **Target:** Comprehensive API documentation for public methods and properties
@@ -242,18 +254,21 @@ David showcased an even more ambitious documentation project using AI:
 **AI-Assisted Documentation Process:**
 
 **Automated Generation:**
+
 - **AI Tool:** Custom LLM scripting tool developed by team member
 - **Scope:** Every method in the entire project
 - **Context Awareness:** AI analyzed method relationships and usage patterns
 - **Output Volume:** 6,000 lines of AI-generated XML comments
 
 **Human Refinement:**
+
 - **Editing Phase:** Stephen reduced generated content from 6,000 to 4,000 lines
 - **Quality Control:** Ensuring accurate communication of API intentions
 - **Consistency Maintenance:** Uniform documentation style across entire codebase
 - **Time Investment:** Hours of editing instead of days of original writing
 
 **Production Impact:**
+
 - **Documentation Website:** AI-generated comments became official API documentation
 - **Developer Experience:** Comprehensive IntelliSense and reference materials
 - **Maintenance Efficiency:** Automated foundation for ongoing documentation efforts
@@ -277,11 +292,13 @@ David showcased an even more ambitious documentation project using AI:
 Stephen Toub provided background on .NET's regex engine evolution and the ongoing optimization challenges:
 
 **Regex Engine Timeline:**
+
 - **Original Implementation:** 2003 - Initial .NET regex engine
 - **Stagnation Period:** 2003-2020 - Minimal updates for 17 years
 - **Modern Overhaul:** 2020+ - Significant performance improvements across multiple .NET versions
 
 **Optimization Discovery Challenge:**
+
 - **Academic Research Integration:** Incorporating scholarly optimization techniques
 - **Industry Best Practices:** Learning from other regex engine implementations
 - **Performance Gap Analysis:** Identifying missing optimizations
@@ -301,6 +318,7 @@ Stephen Toub provided background on .NET's regex engine evolution and the ongoin
 4. **Expert Evaluation:** Stephen's domain knowledge filtered AI suggestions for validity
 
 **Breakthrough Discovery:**
+
 - **Lookahead Optimization:** AI identified unexplored optimization opportunity
 - **Domain Expertise Recognition:** Stephen immediately recognized the gap in current implementation
 - **Zero-Width Assertion Insight:** Understanding that lookaheads contained valuable optimization information
@@ -316,6 +334,7 @@ Stephen Toub provided background on .NET's regex engine evolution and the ongoin
 ```
 
 **Performance Results:**
+
 - **SQL Pattern Matching:** 10x faster execution on SQL statement parsing
 - **Position Reduction:** From checking every position to checking only beginning
 - **SIMD Optimization:** Enhanced vectorization opportunities
@@ -326,18 +345,21 @@ Stephen Toub provided background on .NET's regex engine evolution and the ongoin
 **AI as Research Accelerator:**
 
 **Traditional Research Process:**
+
 - **Literature Review:** Hours searching academic papers and documentation
 - **Knowledge Synthesis:** Manual integration of disparate optimization techniques
 - **Implementation Planning:** Converting theoretical concepts to practical code
 - **Validation Effort:** Extensive testing to confirm optimization benefits
 
 **AI-Enhanced Research Process:**
+
 - **Instant Synthesis:** AI provided comprehensive optimization survey in minutes
 - **Concrete Examples:** Specific, implementable suggestions with code patterns
 - **Gap Identification:** AI highlighted unexplored optimization areas
 - **Implementation Guidance:** Detailed technical approach recommendations
 
 **Production Impact:**
+
 - **.NET 10 Integration:** Optimization included in official .NET 10 release
 - **Source Generator Enhancement:** Improved code generation for regex patterns
 - **Developer Benefits:** Faster regex performance for all .NET applications
@@ -363,11 +385,13 @@ The AI served as both a knowledge synthesizer and a collaborative partner, provi
 David Fowler described his evolution in AI tool usage over the past year:
 
 **Traditional Copilot Usage (Year Ago):**
+
 - **Code Completion:** Tab-based suggestions during typing
 - **Incremental Assistance:** Single-line and small block completions
 - **Test Generation:** AI-assisted test writing for individual methods
 
 **Advanced Collaborative Usage (Current):**
+
 - **Architectural Discussions:** Using AI for system design conversations
 - **Implementation Strategy:** Exploring multiple approaches before coding
 - **Code Review Integration:** AI analysis of implementation quality and security
@@ -385,16 +409,19 @@ David demonstrated feeding completed implementation back to AI for comprehensive
 **AI Review Capabilities:**
 
 **Security Analysis:**
+
 - **Threading Issue Detection:** Identification of potential race conditions
 - **Concurrent Access Patterns:** Analysis of thread-safe implementation
 - **Resource Management:** Evaluation of proper disposal and cleanup
 
 **Performance Assessment:**
+
 - **Algorithm Efficiency:** Analysis of time complexity and optimization opportunities
 - **Memory Usage Patterns:** Evaluation of allocation patterns and GC pressure
 - **Scalability Considerations:** Assessment of performance under load
 
 **Implementation Quality:**
+
 - **Code Organization:** Evaluation of structure and maintainability
 - **Error Handling:** Assessment of exception handling and edge cases
 - **API Design:** Review of public interface design and usability
@@ -422,18 +449,21 @@ David demonstrated feeding completed implementation back to AI for comprehensive
 6. **Production Deployment:** Integration into main .NET codebase
 
 **Quality Transformation:**
+
 - **Prototype Stage:** Basic algorithm implementation from AI conversation
 - **Engineering Stage:** Battle-tested, performance-optimized production code
 - **Metrics Addition:** Comprehensive monitoring and observability features
 - **Documentation Enhancement:** Complete technical documentation and comments
 
 **Production Considerations Not Handled by AI:**
+
 - **Performance Benchmarking:** Extensive testing under realistic load conditions
 - **Regression Testing:** Ensuring no performance degradation in existing scenarios
 - **Monitoring Integration:** Adding metrics and observability for production systems
 - **Edge Case Handling:** Comprehensive error handling for production environments
 
 **Time Investment Analysis:**
+
 - **AI Ideation Phase:** Hours instead of weeks for strategy exploration
 - **Implementation Phase:** Traditional engineering timeline for production quality
 - **Documentation Phase:** Hours instead of days for comprehensive comments
@@ -460,6 +490,7 @@ The concept of "rubber duck debugging" involves explaining code problems to an i
 Stephen Toub described using AI as an interactive rubber duck that provides intelligent feedback:
 
 **Enhanced Interaction Pattern:**
+
 - **Problem Articulation:** Explaining technical challenges to AI in natural language
 - **Intelligent Response:** AI provides informed suggestions rather than passive listening
 - **Follow-up Questions:** AI asks clarifying questions that guide problem-solving
@@ -469,6 +500,7 @@ Stephen Toub described using AI as an interactive rubber duck that provides inte
 > *"I'm using it as a rubber duck... it comes back and says, oh you're really smart, which I always like... Yet here's some things to look out for."* - Stephen Toub
 
 **Benefits Over Traditional Method:**
+
 - **Active Participation:** AI engages with problems rather than passive listening
 - **Knowledge Access:** AI brings relevant technical knowledge to discussions
 - **Pattern Recognition:** AI identifies similar problems and proven solutions
@@ -481,6 +513,7 @@ Stephen Toub described using AI as an interactive rubber duck that provides inte
 David Fowler shared how AI helps prepare for discussions with domain experts:
 
 **Security Stack Modification Example:**
+
 - **Challenge:** Needed to modify security infrastructure outside personal expertise
 - **AI Preparation:** Used ChatGPT to understand security concepts and approaches
 - **Expert Consultation:** Well-informed discussion with security team member
@@ -494,6 +527,7 @@ David Fowler shared how AI helps prepare for discussions with domain experts:
 5. **Implementation:** Proceeding with expert-approved approach
 
 **Value Proposition:**
+
 - **Time Efficiency:** Experts spend time on validation rather than basic education
 - **Discussion Quality:** More productive conversations with prepared proposals
 - **Confidence Building:** Developer gains enough knowledge to engage meaningfully
@@ -507,18 +541,21 @@ David Fowler shared how AI helps prepare for discussions with domain experts:
 > *"I got enough confidence talking to ChatGPT to have a good one-on-one with one of our security people to say like could we approach it this way?"* - David Fowler
 
 **Technical Domain Boundaries:**
+
 - **Individual Expertise:** No developer is expert in all technical domains
 - **Team Collaboration:** Effective teams leverage distributed expertise
 - **AI Bridge:** AI helps bridge knowledge gaps between domains
 - **Quality Maintenance:** Expert review ensures implementation quality
 
 **Collaborative Benefits:**
+
 - **Reduced Expert Burden:** Experts focus on validation rather than education
 - **Improved Proposals:** Well-researched suggestions rather than uninformed requests
 - **Faster Iteration:** Multiple AI-assisted approaches explored before expert consultation
 - **Knowledge Transfer:** AI helps preserve and share institutional knowledge
 
 **Implementation Quality:**
+
 - **Expert Oversight:** Final implementation decisions remain with domain experts
 - **AI Acceleration:** AI speeds research and initial implementation phases
 - **Validation Process:** Human expertise validates AI suggestions for production use
@@ -631,12 +668,14 @@ The collaborative model demonstrates AI as an amplifier of human expertise rathe
 ### A.1 Speaker Background and Expertise
 
 **David Fowler - Distinguished Engineer:**
+
 - **Microsoft Tenure:** 16 years at Microsoft
 - **Notable Projects:** Creator of NuGet, SignalR, ASP.NET Core, and .NET Aspire
 - **Current Focus:** Architect of Azure SignalR Service, microservices developer experience
 - **AI Integration Style:** Ideation-focused, collaborative approach with team validation
 
 **Stephen Toub - Partner Software Engineer:**
+
 - **Specialization:** .NET performance optimization and runtime engineering
 - **Current Projects:** .NET 10 performance improvements, regex engine optimization
 - **AI Integration Style:** Research acceleration, academic knowledge synthesis
@@ -645,6 +684,7 @@ The collaborative model demonstrates AI as an amplifier of human expertise rathe
 ### A.2 Session Timing and Venue Context
 
 **Conference Context:**
+
 - **Time Slot:** 6:00 PM - Final session of the day
 - **Competing Sessions:** C# focused talks and social events
 - **Audience Energy:** Acknowledged audience fatigue with humor and engagement
@@ -660,12 +700,14 @@ The collaborative model demonstrates AI as an amplifier of human expertise rathe
 ### A.3 Non-Technical Session Elements
 
 **Audience Engagement Techniques:**
+
 - **Humor Integration:** Self-deprecating jokes about work-life balance ("9 to 5 because it's more than that")
 - **Interactive Elements:** Rhetorical questions about documentation preferences
 - **Live Demonstrations:** Real-time AI interactions rather than static screenshots
 - **Personal Anecdotes:** Hotel room coding session, procrastination gaming
 
 **Presentation Challenges:**
+
 - **Live AI Demonstrations:** "This may not work. This is live demo with AI."
 - **Technical Risk:** David acknowledged bravery in live AI interactions
 - **Screenshot Strategy:** Stephen used screenshots for reliability
@@ -674,12 +716,14 @@ The collaborative model demonstrates AI as an amplifier of human expertise rathe
 ### A.4 Tool Evolution and Version Context
 
 **AI Tool Landscape Changes:**
+
 - **GitHub Copilot Evolution:** From simple completion to comprehensive chat features
 - **Platform Convergence:** ChatGPT and Copilot feature parity development
 - **Integration Improvements:** Native IDE integration across Microsoft development tools
 - **Weekly Updates:** Constant feature additions requiring continuous learning
 
 **Version-Specific Features:**
+
 - **GitHub Context Integration:** Automatic issue and repository context in AI conversations
 - **Copilot Agent Mode:** Autonomous development workflow capabilities
 - **VS Code Integration:** Native AI assistance within development environment
@@ -688,12 +732,14 @@ The collaborative model demonstrates AI as an amplifier of human expertise rathe
 ### A.5 Productivity Measurement and Impact Analysis
 
 **Quantified Time Savings Examples:**
+
 - **Documentation Generation:** Days of writing reduced to hours of editing
 - **Ideation Acceleration:** Months of research compressed to days of focused development
 - **Code Review Enhancement:** 30-minute investigations reduced to minutes
 - **Test Generation:** Pattern recognition enabling bulk test creation
 
 **Qualitative Improvements:**
+
 - **Confidence Building:** AI preparation enabling expert consultations
 - **Knowledge Democratization:** Junior developers gaining access to expert-level insights
 - **Consistency Enhancement:** Uniform code patterns and documentation across large codebases
@@ -702,12 +748,14 @@ The collaborative model demonstrates AI as an amplifier of human expertise rathe
 ### A.6 Session Limitations and Disclaimers
 
 **Scope Limitations:**
+
 - **Individual Experience:** "We are speaking only for the two of us"
 - **Tool Specificity:** Focus on particular AI tools rather than comprehensive coverage
 - **Experience Level:** Recommendations based on senior developer perspectives
 - **Domain Specificity:** .NET ecosystem focus may not apply universally
 
 **Quality Considerations:**
+
 - **Production Rigor:** Emphasis on tested, maintainable code rather than experimental approaches
 - **Expert Validation:** Human oversight remains essential for production code
 - **Context Requirements:** AI effectiveness depends on developer expertise and domain knowledge

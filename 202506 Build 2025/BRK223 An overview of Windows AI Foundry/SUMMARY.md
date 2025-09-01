@@ -27,18 +27,21 @@ This comprehensive session introduces Windows AI Foundry, Microsoft's complete p
 #### Key Drivers for Local AI Adoption
 
 **Compliance and Privacy Requirements:**
+
 - **GDPR compliance** - Data sovereignty and user control
 - **HIPAA regulations** - Healthcare data protection requirements
 - **DMA compliance** - Digital Markets Act data handling rules
 - **Full data control** - Models run without data leaving the device
 
 **Performance and User Experience:**
+
 - **Zero network latency** - Critical for real-time applications
 - **Sensor proximity** - Audio, video, and input processing benefits
 - **High availability** - Operations without internet dependency
 - **Cost optimization** - Local models don't need cloud-scale infrastructure
 
 **Power Efficiency and Background Processing:**
+
 - **NPU utilization** - Dedicated neural processing units for efficient AI workloads
 - **Proactive processing** - Constantly running models without performance impact
 - **New experience classes** - Background AI capabilities enabling innovative features
@@ -54,6 +57,7 @@ Windows AI Foundry
 ```
 
 **Strategic Platform Benefits:**
+
 - **Built-in and third-party model support** - Flexibility in model selection
 - **Versatile development environment** - Multiple approaches for different use cases
 - **Cross-silicon compatibility** - CPU, GPU, NPU execution across hardware vendors
@@ -67,6 +71,7 @@ Windows AI Foundry
 **Major Release:** Windows ML now available in public preview
 
 **Core Capabilities:**
+
 - **ONNX Runtime powered** - Industry-standard model execution framework
 - **Cross-silicon execution** - CPU, GPU, NPU support with automatic optimization
 - **Flexible model support** - PyTorch, custom models, Hugging Face catalog integration
@@ -82,6 +87,7 @@ Windows AI Foundry
 
 #### Live Demo: AI Dev Gallery Image Classification
 **Device Policy Demonstration:**
+
 - **Manual control** - Explicit CPU, GPU, or NPU selection
 - **Smart policies** - Automatic hardware selection based on optimization goals:
   - **Max efficiency** - Prioritizes power-efficient execution
@@ -101,6 +107,7 @@ Windows AI Foundry
 
 #### Developer Feedback and Impact
 **Industry Testimonials:**
+
 - **Development timeline reduction** - "5x faster" deployment across silicon platforms
 - **Integration simplification** - Reduced complexity for ISVs and enterprise developers
 - **Time-to-market improvement** - Weeks reduced to days for multi-platform AI deployment
@@ -111,6 +118,7 @@ Windows AI Foundry
 
 #### Inbox Model Integration
 **Distribution and Management:**
+
 - **Windows Update delivery** - Models distributed via OS updates
 - **Copilot+ PC optimization** - Enhanced performance on new hardware
 - **API abstraction layer** - Developers don't need to manage underlying models
@@ -118,6 +126,7 @@ Windows AI Foundry
 
 #### Comprehensive API Portfolio
 **Vision APIs:**
+
 - **Image Super Resolution** - Intelligent image scaling and enhancement
 - **Image Segmentation** - Background removal and object isolation
 - **Object Erase** - Selective content removal from images
@@ -125,6 +134,7 @@ Windows AI Foundry
 - **Text Recognition (OCR)** - Text extraction from images and documents
 
 **Language APIs:**
+
 - **Text Generation** - Phi Silica-powered content creation
 - **Conversation Summarization** - Key point extraction and meeting summaries
 - **Content Moderation** - Automatic content safety and compliance checking
@@ -148,12 +158,14 @@ small apartment or studio with a kitchenette, one bedroom, and one bathroom."
 
 #### Two-Track Customization Strategy
 **LoRA Fine-Tuning:**
+
 - **Lightweight adaptation** - Nudge models toward specific domains or tones
 - **Company voice optimization** - Align output with organizational communication style
 - **Workflow specialization** - Adapt models for specific business processes
 - **Technical terminology** - Enhanced understanding of domain-specific language
 
 **Knowledge Retrieval (RAG):**
+
 - **Semantic search powered** - Intelligent information retrieval from local data
 - **Private knowledge grounding** - Answers based on proprietary documents and content
 - **Dynamic content handling** - Real-time access to changing information
@@ -176,6 +188,7 @@ After LoRA adapter: Categorized as "Compliment + Feature Request"
 
 #### Live Demo: Knowledge Retrieval (RAG)
 **Contoso Note App Implementation:**
+
 - **Multi-modal content** - Text documents, images, and mixed media indexing
 - **Semantic search** - Meaning-based rather than keyword-based retrieval
 - **Natural language queries** - "Find me a vegetarian recipe and turn it vegan"
@@ -185,6 +198,7 @@ After LoRA adapter: Categorized as "Compliment + Feature Request"
 
 #### Public Preview Features
 **Azure AI Foundry Integration:**
+
 - **Extensive model catalog** - Pre-optimized models for local execution
 - **Cross-platform compatibility** - CPU, NPU, GPU support across hardware vendors
 - **Extensible platform** - Support for multiple model catalogs beyond Azure
@@ -228,6 +242,7 @@ const localEndpoint = await manager.getEndpoint("phi-4-mini");
 ```
 
 **Model Management Benefits:**
+
 - **Single instance sharing** - Multiple applications share one model copy
 - **Automatic optimization** - Hardware-specific performance tuning
 - **Storage efficiency** - Reduced disk usage across applications
@@ -239,6 +254,7 @@ const localEndpoint = await manager.getEndpoint("phi-4-mini");
 
 ### Hardware Acceleration Strategy
 **Cross-Silicon Support:**
+
 - **Intel** - CPU and integrated graphics optimization
 - **AMD** - Ryzen processors and Radeon GPU acceleration
 - **NVIDIA** - CUDA and Tensor Core utilization
@@ -256,6 +272,7 @@ Model Selection ? Optimization ? Local Deployment ? Runtime Execution
 
 ### Security and Privacy Architecture
 **On-Device Processing Benefits:**
+
 - **Zero data transmission** - All processing occurs locally
 - **Compliance alignment** - GDPR, HIPAA, DMA requirements met by design
 - **Enterprise control** - IT policies can govern local AI usage
@@ -267,6 +284,7 @@ Model Selection ? Optimization ? Local Deployment ? Runtime Execution
 
 ### AI Dev Gallery Showcase
 **Image Classification Performance:**
+
 - **Real-time inference** across CPU, GPU, NPU hardware
 - **Dynamic policy adjustment** for power vs. performance optimization
 - **Visual Studio integration** with one-click project export
@@ -274,6 +292,7 @@ Model Selection ? Optimization ? Local Deployment ? Runtime Execution
 
 ### Windows AI APIs Integration
 **Image Description Accuracy:**
+
 - **Detailed spatial analysis** - Room layout and furniture recognition
 - **Contextual understanding** - Apartment type and feature identification
 - **Natural language output** - Human-readable descriptions
@@ -281,6 +300,7 @@ Model Selection ? Optimization ? Local Deployment ? Runtime Execution
 
 ### Foundry Local Performance
 **Multi-Model Support:**
+
 - **Quin, Phi, Mistral, DeepSeek** - Diverse model ecosystem
 - **Reasoning capabilities** - Complex logical problem solving
 - **Interactive chat modes** - Real-time conversation interfaces
@@ -290,6 +310,7 @@ Model Selection ? Optimization ? Local Deployment ? Runtime Execution
 
 ### Developer Community Feedback
 **Quantified Benefits:**
+
 - **5x faster development** - From weeks to days for multi-platform deployment
 - **Timeline reduction** - Massive cuts in development cycles
 - **Integration simplification** - Reduced complexity for ISVs
@@ -297,6 +318,7 @@ Model Selection ? Optimization ? Local Deployment ? Runtime Execution
 
 ### Production Deployments
 **Windows Features Powered by AI APIs:**
+
 - **Click to Do** - Enhanced user interaction capabilities
 - **Windows Search improvements** - Intelligent search and discovery
 - **Outlook email summarization** - On-device conversation analysis
@@ -304,6 +326,7 @@ Model Selection ? Optimization ? Local Deployment ? Runtime Execution
 
 ### Web Standards Integration
 **Microsoft Edge and Browser Support:**
+
 - **Prompting APIs** - Web-based AI interaction capabilities
 - **Writing assistance** - Browser-native AI-powered content creation
 - **Web standards proposal** - Industry-wide API standardization efforts
@@ -332,6 +355,7 @@ Model Selection ? Optimization ? Local Deployment ? Runtime Execution
 #### 1. Development Environment Setup
 ```markdown
 **Required Tools:**
+
 - Visual Studio or VS Code with AI Toolkit extension
 - Windows 11 with latest updates
 - Windows ML NuGet package
@@ -404,6 +428,7 @@ foundry model cache
 
 ### Enterprise AI Deployment
 **IT Management Capabilities:**
+
 - **Group policy integration** for enterprise AI governance
 - **Model distribution** through existing Windows Update infrastructure  
 - **Compliance monitoring** for regulated industries and data handling
@@ -411,6 +436,7 @@ foundry model cache
 
 ### Developer Productivity Enhancement
 **Integrated Development Experience:**
+
 - **One-click model integration** from AI Dev Gallery to Visual Studio
 - **Automatic hardware optimization** without manual configuration
 - **Shared model libraries** reducing application size and complexity
@@ -418,6 +444,7 @@ foundry model cache
 
 ### Innovative User Experience Patterns
 **New Application Categories:**
+
 - **Proactive AI assistants** running continuously with NPU efficiency
 - **Real-time content creation** without cloud dependency or latency
 - **Privacy-preserving analytics** with complete on-device processing

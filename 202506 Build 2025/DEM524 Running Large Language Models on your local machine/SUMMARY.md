@@ -34,6 +34,7 @@ Prison Telemedicine Requirements:
 ```
 
 **Mining Operations Intelligence:**
+
 - **Geographic Isolation** - Copper, iron, and mineral extraction sites in remote locations
 - **Connectivity Challenges** - "Middle of nowhere" locations with no internet access
 - **Operational Requirements** - Computing power for ground and underground data processing
@@ -44,6 +45,7 @@ Prison Telemedicine Requirements:
 > "This other project that I'm involved with kiosks retail where you know, some companies like to know some statistics and knowledge about the customers that are inside the stores."
 
 **Customer Analytics Applications:**
+
 - **In-Store Intelligence** - Customer behavior analysis within retail premises
 - **Aisle Optimization** - Traffic pattern analysis for store layout improvements
 - **Privacy-First Analytics** - Data processing without cloud transmission
@@ -72,6 +74,7 @@ Local AI Infrastructure:
 > "This is a preview technology, OK? So maybe the things that I'm going to show you today will change in the near future."
 
 **Technology Maturity Considerations:**
+
 - **Preview Status** - Experimental features subject to change
 - **Rapid Development** - Feature evolution based on user feedback
 - **Documentation Availability** - Microsoft Learn comprehensive resources
@@ -93,6 +96,7 @@ brew install foundry-local
 ```
 
 **Manual Installer Option:**
+
 - **MSI Installer** - Direct download for Windows environments
 - **Heavy Download** - Significant file size requiring advance preparation
 - **Local Installation** - Complete offline capability after setup
@@ -133,6 +137,7 @@ Foundry Local Model Catalog:
 > "Most importantly, they have different versions depending on the hardware where you're running Foundry local."
 
 **CPU vs GPU Performance Considerations:**
+
 - **Automatic Selection** - CPU version downloaded by default for compatibility
 - **GPU Acceleration Required** - Manual selection for performance optimization
 - **Neural Network Reality** - "Billions and billions of parameters" requiring computational power
@@ -152,6 +157,7 @@ foundry model load microsoft/phi-3.5-mini-instruct:gpu
 > "Let me open up task manager and then let me show you this graph so we can see that the GPU is, you know, working crazily right for answering that prompt."
 
 **GPU Execution Results:**
+
 - **Task Manager Visualization** - Real-time GPU utilization spikes
 - **Response Quality** - "Tokyo, New Delhi, Sao Paulo and those usual suspects"
 - **Hardware Utilization** - Optimal use of dedicated graphics processing
@@ -162,6 +168,7 @@ foundry model load microsoft/phi-3.5-mini-instruct:gpu
 > "This is fantastic because Foundry Local allows me to run different models at the same time, many different GPU ones, many different CPU ones at the same time."
 
 **CPU Processing Characteristics:**
+
 - **Hardware Constraints** - "It depends on your hardware and computing power"
 - **Kiosk Reality** - "Some kiosks, they don't have any kind of GPU"
 - **Performance Trade-offs** - CPU spike visible in Task Manager during processing
@@ -237,6 +244,7 @@ var response = await chatService.GetChatMessageContentAsync(
 > "I can even go ahead and disconnect from the Wi-Fi. There's no Internet connectivity right now. And I can go ahead and try to run this again."
 
 **Offline Operation Results:**
+
 - **Network Disconnection** - Live demonstration of Wi-Fi disconnection
 - **Continued Functionality** - Application continues processing without internet
 - **Local Model Response** - "I'm going to retrieve those responses from the local model"
@@ -273,6 +281,7 @@ Model Storage Structure:
 ```
 
 **Author-Based Organization:**
+
 - **Publisher Hierarchy** - Models organized by creator (Microsoft, etc.)
 - **Version Management** - Multiple model variants and optimizations
 - **Binary Storage** - Direct access to neural network weight files
@@ -297,6 +306,7 @@ Real-World Hardware Limitations:
 
 #### Model Optimization Strategies
 **Distilled Model Solutions:**
+
 - **Size Reduction** - Smaller parameter models for constrained hardware
 - **Performance Trade-offs** - Balance between capability and resource requirements
 - **ONNX Optimization** - Format-specific performance enhancements
@@ -357,12 +367,14 @@ Data Protection Model:
 ### Hardware Requirements and Optimization
 ```markdown
 **Minimum System Requirements:**
+
 - CPU: Multi-core processor capable of neural network inference
 - RAM: 8GB+ recommended for model loading and processing
 - Storage: Several GB per model for local caching
 - GPU: Optional but highly recommended for performance
 
 **Performance Optimization Strategies:**
+
 - Use GPU-optimized model versions when hardware allows
 - Consider distilled models for resource-constrained environments
 - Plan storage capacity for multiple concurrent model deployments
@@ -372,12 +384,14 @@ Data Protection Model:
 ### Development Integration Patterns
 ```markdown
 **Framework Selection:**
+
 - **Semantic Kernel**: Native Microsoft ecosystem integration
 - **LangChain**: Python-based AI application development
 - **Custom Applications**: Direct REST API integration
 - **Multi-Framework**: Hybrid approaches for complex applications
 
 **API Configuration:**
+
 - Configure endpoints to localhost with assigned ports
 - Use OpenAI-compatible client libraries for easy integration
 - Implement proper error handling for offline scenarios
@@ -387,6 +401,7 @@ Data Protection Model:
 ### Deployment Scenarios and Use Cases
 ```markdown
 **Ideal Use Cases:**
+
 - Healthcare systems with strict data privacy requirements
 - Remote industrial operations without reliable internet
 - Retail analytics requiring real-time local processing
@@ -394,6 +409,7 @@ Data Protection Model:
 - Edge computing scenarios with latency requirements
 
 **Constraint Considerations:**
+
 - Evaluate hardware capabilities before model selection
 - Plan for offline operation and connectivity failures
 - Consider regulatory and compliance requirements

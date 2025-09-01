@@ -59,6 +59,7 @@ This foundational section establishes the core AI-powered features that transfor
 The session opens with a revolutionary approach to code understanding through AI-powered symbol intelligence. Charlie demonstrates using a WPF robot simulation application that exhibits clustering behavior issues, showing how developers can instantly comprehend unfamiliar codebases without extensive manual exploration.
 
 **Core Functionality:**
+
 - **Hover-based Documentation:** Single gesture reveals AI-generated descriptions for any symbol (classes, methods, variables)
 - **Context-aware Analysis:** Copilot analyzes symbol usage patterns and purpose within the broader codebase context
 - **Zero Documentation Dependency:** AI generates comprehensive explanations from code structure alone
@@ -111,6 +112,7 @@ Charlie demonstrates how the `#solution` context element enables developers to a
 The session introduces a sophisticated approach to AI-assisted debugging through strategic model selection and comparison. This represents advanced AI utilization beyond single-model dependency.
 
 **Model Selection Strategy:**
+
 - **GPT-4.1:** Primary model for general debugging tasks and code analysis
 - **Claude 3.5 Sonnet:** Enhanced reasoning capabilities for complex logical problems
 - **Real-time Switching:** Ability to compare responses from different models for optimal solutions
@@ -188,6 +190,7 @@ The screenshot integration allows Copilot to understand not just what the code d
 Charlie demonstrates the reality of AI-assisted debugging: success often requires multiple iterations and strategic guidance rather than single-shot solutions.
 
 **Iterative Methodology:**
+
 - **Minimal Fixes First:** Avoid overwhelming code changes that introduce new issues
 - **Incremental Improvements:** Guide AI toward correct solutions through progressive refinement
 - **Multiple Attempts:** Persistence with different prompts and context additions
@@ -219,6 +222,7 @@ Harshada transitions the session into practical debugging tool enhancement, demo
 The demonstration begins with a car list application expecting 300 entries but only returning 253, showcasing how AI enhances breakpoint management for efficient debugging workflows.
 
 **Advanced Breakpoint Features:**
+
 - **Breakpoint Groups:** Organized collections for different debugging scenarios (Visualizer Demo, Debugging Demo)
 - **Bulk Management:** Enable/disable entire groups based on current debugging focus
 - **Scenario-Specific Organization:** Separate breakpoint collections for different testing phases
@@ -240,6 +244,7 @@ Harshada demonstrates using Force Run to Cursor to quickly verify the car count 
 The session showcases revolutionary data visualization capabilities that transform raw debugging data into comprehensible, actionable insights through AI-enhanced interfaces.
 
 **IEnumerable Visualizer Enhancements:**
+
 - **Grid-based Presentation:** Tabular data display for complex collections
 - **Real-time LINQ Filtering:** Interactive data manipulation without code modification
 - **AI-Powered Query Generation:** Natural language to LINQ translation via sparkle button interface
@@ -271,6 +276,7 @@ This demonstration reveals how AI transforms data exploration from manual LINQ w
 Harshada demonstrates how AI assistance revolutionizes conditional breakpoint creation, transforming a traditionally complex feature into an intuitive, guided experience.
 
 **AI-Assisted Breakpoint Conditions:**
+
 - **Context-Aware Suggestions:** AI analyzes surrounding code to recommend relevant conditions
 - **Syntax Guidance:** Proper conditional expression formatting and structure
 - **Variable Type Understanding:** Intelligent suggestions based on data types and logic patterns
@@ -311,6 +317,7 @@ Charlie returns to demonstrate the most sophisticated AI-powered debugging featu
 The Exception Assistant represents the pinnacle of AI-integrated debugging, providing comprehensive analysis that goes far beyond traditional exception reporting.
 
 **Comprehensive Exception Analysis Capabilities:**
+
 - **Automatic Context Gathering:** Call stack analysis, local variables, and relevant code snippets
 - **Dynamic Variable Evaluation:** Safe variable inspection with user confirmation for side effects
 - **Root Cause Identification:** Deep analysis of code structure and data flow patterns
@@ -353,6 +360,7 @@ Recommended Solution: Synchronization mechanism with stop signal flag
 ```
 
 **Cross-Language Debugging Capabilities:**
+
 - **C# Exception Handling:** API mismatch analysis with detailed structural recommendations
 - **C++ Memory Management:** Race condition detection and synchronization guidance  
 - **Universal Analysis Patterns:** Consistent AI reasoning across different runtime environments
@@ -366,6 +374,7 @@ Recommended Solution: Synchronization mechanism with stop signal flag
 Charlie demonstrates how AI extends beyond exception-based debugging to identify logic errors and subtle issues that don't generate runtime exceptions.
 
 **Non-Exception Issue Investigation:**
+
 - **Logic Error Detection:** Identification of incorrect behavior without runtime failures
 - **Variable State Analysis:** Comprehensive examination of unexpected values and states
 - **API Parameter Validation:** Cross-referencing with documentation and expected parameter formats
@@ -405,6 +414,7 @@ This section demonstrates how AI transforms the traditionally complex domain of 
 Charlie showcases how AI revolutionizes multi-threaded application understanding through intelligent thread state summarization in the Parallel Stacks window.
 
 **AI-Enhanced Thread Analysis:**
+
 - **One-line Thread Summaries:** AI generates comprehensible descriptions of each thread's current activity
 - **Complex Visualization Simplification:** Traditional thread diagrams enhanced with natural language explanations
 - **Real-time State Interpretation:** Continuous AI analysis of thread execution states
@@ -429,6 +439,7 @@ This AI-powered summarization transforms cryptic thread stack information into i
 The demonstration introduces the `#debugger` context element, representing comprehensive debugging state capture for AI analysis.
 
 **Complete Debugging State Capture:**
+
 - **Call Stack Analysis:** All thread call stacks with variable states
 - **Variable Context:** Local and global variable values across all threads  
 - **Thread Information:** Complete thread state and synchronization object details
@@ -450,6 +461,7 @@ Result: Holistic debugging perspective with intelligent correlation of multi-thr
 The session culminates with sophisticated deadlock detection and resolution through AI-powered analysis of lock ordering and synchronization patterns.
 
 **AI-Powered Deadlock Investigation:**
+
 - **Automatic Detection:** Red visual indicators for problematic threads in Parallel Stacks
 - **Multi-Thread Source Analysis:** Complete code context for all involved threads
 - **Lock Pattern Recognition:** AI identifies classic deadlock scenarios (lock ordering issues)
@@ -491,6 +503,7 @@ The session demonstrates how AI integration transforms performance profiling fro
 Charlie showcases the integration of BenchmarkDotNet with AI-powered performance analysis, creating a seamless workflow from benchmark execution to optimization implementation.
 
 **BenchmarkDotNet Integration:**
+
 - **Direct CPU Trace Generation:** Automatic profiling data collection from benchmark runs
 - **Benchmark.Diagnosers Package:** Seamless integration with Visual Studio profiling tools
 - **Mean Execution Time Analysis:** Statistical performance measurement with baseline comparisons
@@ -516,6 +529,7 @@ public class CompressionBenchmark
 The demonstration reveals how AI transforms raw profiling data into actionable optimization strategies through intelligent analysis of performance bottlenecks.
 
 **Copilot Profiling Analysis Features:**
+
 - **"Ask Copilot" Integration:** Direct AI analysis button in CPU usage summary
 - **Deep Insight Analysis:** Comprehensive examination of performance bottlenecks beyond surface metrics
 - **Optimization Suggestions:** Specific code modifications with predicted performance impact
@@ -569,6 +583,7 @@ Harshada concludes the technical demonstrations with breakthrough LINQ debugging
 The demonstration showcases revolutionary hover-based LINQ pipeline visualization that provides real-time insight into query execution and data transformation.
 
 **Hover-Based Query Analysis:**
+
 - **Step-by-step Data Filtering:** Visual inspection of data at each LINQ operation stage
 - **IEnumerable Visualizer Integration:** Grid-based data display for intermediate query results
 - **Real-time Query Result Inspection:** Immediate feedback on filtering effectiveness at any pipeline point
@@ -627,6 +642,7 @@ This feature transforms LINQ from a syntax-dependent programming construct into 
 ### Getting Started with AI-Enhanced Debugging
 
 **Context Elements Mastery:**
+
 - **#solution:** Use for codebase-wide semantic search and architectural understanding
 - **#debugger:** Apply for complete debugging state analysis and multi-threaded investigation  
 - **File attachments:** Provide additional code context for targeted analysis
@@ -713,12 +729,14 @@ This insight emphasizes the importance of maintaining conversation context and b
 ### Educational and Professional Impact
 
 **Learning Enhancement Through AI:**
+
 - **24/7 Expert Assistance:** Continuous access to intelligent debugging guidance for developers at all skill levels
 - **Code Comprehension Acceleration:** Instant understanding of unfamiliar codebases through AI-generated explanations
 - **Debugging Skill Development:** Guided analysis that teaches debugging methodology while solving immediate problems
 - **Best Practices Discovery:** AI suggestions that expose advanced debugging techniques and optimization strategies
 
 **Professional Development Acceleration:**
+
 - **Productivity Amplification:** Faster bug resolution through intelligent analysis and targeted investigation
 - **Knowledge Transfer:** AI insights that transfer expert-level debugging knowledge to all team members
 - **Complex Problem-Solving:** AI assistance for sophisticated multi-threaded, performance, and architectural debugging challenges
@@ -879,12 +897,14 @@ AI feature integration maintains IDE responsiveness:
 The session demonstrates transformative educational benefits:
 
 **Novice Developer Acceleration:**
+
 - **Immediate Code Understanding:** AI explanations provide instant comprehension of complex codebases
 - **Debugging Methodology Learning:** AI guidance teaches systematic problem-solving approaches
 - **Best Practices Exposure:** AI suggestions introduce advanced debugging techniques and optimization strategies
 - **Confidence Building:** 24/7 expert assistance reduces intimidation and encourages exploration
 
 **Expert Developer Productivity Enhancement:**
+
 - **Complex Problem Assistance:** AI support for sophisticated multi-threaded and performance issues
 - **Knowledge Transfer Acceleration:** AI insights enable rapid understanding of unfamiliar domains
 - **Pattern Recognition:** AI analysis reveals subtle issues that might require extensive manual investigation

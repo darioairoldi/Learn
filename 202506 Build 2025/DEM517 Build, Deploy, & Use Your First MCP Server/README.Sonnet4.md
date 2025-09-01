@@ -151,16 +151,19 @@ MCP servers offer flexible deployment models to meet different organizational ne
 #### Integration Patterns:
 
 **API Aggregation:**
+
 - **Single interface** - MCP server consolidates multiple APIs
 - **Data normalization** - Consistent data formats across different services
 - **Error handling** - Unified error responses and retry logic
 
 **Real-time Data Sync:**
+
 - **Webhook integration** - Receive updates from external services
 - **Event processing** - React to changes in external systems
 - **Data consistency** - Maintain synchronized state across services
 
 **Workflow Automation:**
+
 - **Action triggers** - Automatically perform tasks based on conditions
 - **Multi-step processes** - Chain together multiple API calls
 - **Business logic** - Implement complex workflows in MCP servers
@@ -168,17 +171,20 @@ MCP servers offer flexible deployment models to meet different organizational ne
 #### Popular Integration Examples:
 
 **GitHub Integration:**
+
 - **Issue management** - Create, update, and query GitHub issues
 - **Pull request automation** - Manage code review processes
 - **Repository analysis** - Extract insights from code repositories
 - **Project tracking** - Sync with project management tools
 
 **Database Connectivity:**
+
 - **Schema analysis** - Understand database structure and relationships
 - **Query execution** - Run SQL queries and return results
 - **Data visualization** - Generate charts and reports from database data
 
 **Cloud Services:**
+
 - **Azure Cognitive Services** - Add AI capabilities like translation or vision
 - **Microsoft Graph** - Access Office 365 and Microsoft 365 data
 - **Third-party SaaS** - Connect to CRM, ERP, and other business systems
@@ -232,6 +238,7 @@ The session featured a compelling example called the **"Monkey MCP Server"** tha
 #### The "Monkey MCP Server" Example
 
 **What it is:**
+
 - A custom MCP server created by one of the presenters who "loves monkeys"
 - Designed to work with the **"Monkey App Vibes"** .NET MAUI application
 - Demonstrates how MCP servers can be domain-specific and highly personalized
@@ -245,6 +252,7 @@ During the session, the presenter showed a real-time example of how MCP works by
 4. **Format conversion** - The presenter even asked "what would this look like in COBOL?" and the AI converted the data format
 
 **Key Functionality:**
+
 - **`get_monkeys` tool** - Retrieves structured monkey data from the custom server
 - **JSON data provider** - Returns monkey information in a standardized format
 - **Schema-aware responses** - Provides consistent data structure for AI analysis

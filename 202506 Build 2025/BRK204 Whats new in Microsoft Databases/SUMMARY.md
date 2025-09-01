@@ -24,6 +24,7 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 **Core Principle:** "AI is only as good as the data that it gets to work on"
 
 **Strategic Foundation:**
+
 - **Data quality determines AI success** - "Garbage in, garbage out"
 - **Getting data AI-ready** is the critical first step for organizations
 - **Comprehensive portfolio** - Most complete database offering across the industry
@@ -31,6 +32,7 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 
 #### Microsoft Database Portfolio Momentum
 **Market Leadership Metrics:**
+
 - **Azure SQL:** Used by 97% of Fortune 500 companies
 - **Cosmos DB:** #1 database for building AI applications (Bloomberg CIO survey)
 - **PostgreSQL:** Microsoft has more committers than any other hyperscaler
@@ -45,12 +47,14 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 
 #### AI-Ready Capabilities
 **Built-in Vector Search:**
+
 - **Native vector data type** supporting embeddings in binary format
 - **DiskANN vector indexing** - Microsoft Research technology powering Bing
 - **Multi-language model support** - From local Ollama to Azure OpenAI
 - **Semantic search capabilities** integrated into enterprise database
 
 **Live Demo Highlights:**
+
 - **Natural language search** across multilingual product catalogs
 - **Dynamic model switching** - From local to cloud AI models
 - **Security integration** - Microsoft Entra Managed Identity support
@@ -58,11 +62,13 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 
 #### Security and Integration Enhancements
 **Enterprise Security:**
+
 - **Microsoft Entra Managed Identity** support for Azure resource access
 - **ARC enablement** for hybrid cloud scenarios
 - **Secure AI model connections** replacing API key authentication
 
 **Fabric Integration:**
+
 - **OneLake connectivity** - Data available in open Delta Parquet format
 - **Mirroring capabilities** - Real-time data synchronization
 - **Cross-cloud availability** - Runs anywhere, any cloud
@@ -73,6 +79,7 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 
 #### SQL Server Management Studio 21 GA
 **Complete Modernization:**
+
 - **Visual Studio 2022 shell** - Modern development environment
 - **64-bit architecture** support
 - **Dark mode** and modern UI
@@ -82,6 +89,7 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 
 #### SSMS 21 Copilot Integration (Public Preview)
 **AI-Powered Database Management:**
+
 - **Natural language query generation** - Write, edit, and tune queries in plain English
 - **Context-aware responses** - Grounded in actual database schema and data
 - **Database administration** - Configuration, maintenance, and troubleshooting assistance
@@ -89,6 +97,7 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 
 #### Azure SQL Hyperscale Innovations
 **Enterprise Scale Performance:**
+
 - **30 read replicas** support
 - **100+ terabyte** transactional workloads
 - **50% faster than AWS Aurora** in price-performance
@@ -103,12 +112,14 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 
 #### Developer Experience Enhancements
 **VS Code Integration:**
+
 - **MSSQL extension** with Copilot capabilities
 - **Query generation** and ORM migrations
 - **Schema exploration** within IDE
 - **Database chat** functionality for application development
 
 **JSON Data Support:**
+
 - **JSON indexing** (Public Preview) - High-performance semi-structured queries
 - **Native JSON types** with optimized binary storage
 - **JSON aggregation** - Seamless relational-to-JSON transformations
@@ -120,6 +131,7 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 
 #### Vector Search Performance Breakthrough
 **DiskANN for PostgreSQL (GA):**
+
 - **35 million vectors** queried in under 1 second
 - **10x performance improvement** over HNSW (1000ms ? 100ms average latency)
 - **Product quantization** optimization
@@ -143,12 +155,14 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### High Availability Architecture
 **Premium SSD v2 Integration (Public Preview):**
+
 - **Sub-10 second failover** times
 - **Performance parity** with existing SSD solutions
 - **Enhanced reliability** for critical workloads
 
 #### Enhanced Developer Experience
 **VS Code PostgreSQL Extension:**
+
 - **Native Entra ID** authentication
 - **Azure-integrated experience** with subscription/resource group dropdowns
 - **Copilot optimization** for PostgreSQL-specific queries
@@ -157,6 +171,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### Graph Database Capabilities
 **Apache AGE Extension (GA):**
+
 - **Native Cypher queries** in PostgreSQL
 - **Semantic relationships** beyond traditional foreign keys
 - **Product-review-feature** graph modeling
@@ -174,6 +189,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### AI Foundry Native Integration
 **Thread Services Integration (Preview):**
+
 - **Structured conversations** between users and agents
 - **Context preservation** across multi-turn interactions
 - **Bring Your Own Storage** for thread management
@@ -181,12 +197,14 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### Performance and Scale Innovations
 **Global Secondary Indexing:**
+
 - **Read-only containers** with alternative partition keys
 - **Cross-partition query** optimization
 - **Performance boost** for non-partition-key queries
 - **Cost reduction** through targeted indexing
 
 **Vector and Full-Text Search (GA):**
+
 - **Hybrid search capabilities** combining vector similarity and BM25 text ranking
 - **Multi-language support** (Public Preview)
 - **Fuzzy search** with typo tolerance
@@ -194,18 +212,21 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### Zero-Downtime Architecture
 **Per-Partition Automatic Failover:**
+
 - **Surgical failover** - Individual partition recovery without full database failover
 - **Zero downtime** (RTO = 0) guarantee
 - **Zero data loss** (RPO = 0) with strong consistency
 - **Zero touch** - SDK-managed transparent failover
 
 **The "000 Database":**
+
 - **RTO: 0** - No recovery time
 - **RPO: 0** - No data loss
 - **Manual intervention: 0** - Fully automated
 
 #### Fleet Management for Multi-Tenancy
 **SaaS Optimization:**
+
 - **Shared throughput** across tenant accounts
 - **Aggregated monitoring** and management
 - **Cost optimization** for multi-tenant applications
@@ -219,12 +240,14 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### MongoDB API Enhancements
 **Open Source Collaboration:**
+
 - **Cosmos Mongo vCore API** open sourced
 - **Partnership with Yugabyte and FerretDB**
 - **PostgreSQL-backed** document API
 - **Community contribution** to document database ecosystem
 
 **Enterprise Features:**
+
 - **Entra ID authentication** for MongoDB vCore clusters
 - **DiskANN vector search** for document databases
 - **Transactional semantics** with document flexibility
@@ -235,6 +258,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### SQL Server 2025 AI Application Development
 **Multi-Language Vector Search:**
+
 - **English and Chinese** product search in single database
 - **Dynamic model switching** between Ollama and Azure OpenAI
 - **Semantic Kernel integration** for C# application development
@@ -242,6 +266,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### Azure SQL Hyperscale Insurance Application
 **Data API Builder (DAB) Integration:**
+
 - **REST and GraphQL** endpoint generation from database schema
 - **Claims-based security** with user context
 - **JSON document storage** up to 2GB per field
@@ -249,12 +274,14 @@ ORDER BY reviews RANKING 'best for gaming'
 - **Natural language database** manipulation through chat interface
 
 **Advanced Scenarios:**
+
 - **Complex business rules** triggered via chat commands
 - **Multi-step operations** (name change, address update, insurance addition)
 - **Email notifications** integrated with database changes
 
 #### PostgreSQL Vector Search Performance
 **35 Million Vector Demo:**
+
 - **Sub-second response** times with DiskANN
 - **Semantic operator re-ranking** for result optimization
 - **Graph query integration** with Apache AGE
@@ -262,6 +289,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### Cosmos DB Agentic Applications
 **Multi-Tenant Chat Platform:**
+
 - **MCP client-server** architecture
 - **Per-tenant container** isolation
 - **Semantic caching** with vector similarity
@@ -275,24 +303,28 @@ ORDER BY reviews RANKING 'best for gaming'
 #### Enterprise Transformations
 
 **UBS (Banking):**
+
 - **Mainframe migration** to Azure SQL Hyperscale
 - **2 petabyte** data estate management
 - **Mission-critical** banking operations
 - **Enterprise scale** reliability
 
 **BMW (Automotive):**
+
 - **Mobile data recorder** infrastructure
 - **PostgreSQL Flexible Server** for vehicle data
 - **AI-powered** conversation and chat history
 - **Real-time processing** capabilities
 
 **Carvana (E-commerce):**
+
 - **CARE system** - Conversational Analyst Review Engine
 - **Millions of conversations** processed monthly
 - **AI-first development** culture
 - **Cosmos DB** as central data platform
 
 **NTT Data (IT Services):**
+
 - **Data-driven strategy** transformation
 - **6,000+ employees** actively using platform
 - **70 developers** deploying 3-4 times daily
@@ -301,6 +333,7 @@ ORDER BY reviews RANKING 'best for gaming'
 #### Industry Impact Examples
 
 **Mondra Global (Sustainability):**
+
 - **Environmental impact** assessment for food retailers
 - **Product lifecycle** evaluation acceleration
 - **Weeks/months ? 4 hours** processing time
@@ -320,6 +353,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### Database Services in Fabric
 **SQL Database in Fabric:**
+
 - **Simplified provisioning** and management
 - **Autonomous operations** - security, HA, indexing, tuning
 - **AI integration** - vector indexing and semantic search
@@ -327,6 +361,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### Cosmos DB in Fabric (Public Preview)
 **Enterprise AI Applications:**
+
 - **Dynamic scalability** with five-nines reliability
 - **Sub-10ms latency** for 400 billion vector operations
 - **DiskANN technology** from Microsoft Research
@@ -335,6 +370,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 #### Mirroring Capabilities Expansion
 **Real-Time Data Synchronization:**
+
 - **SQL Database** behind firewalls (existing)
 - **PostgreSQL** mirroring (announced)
 - **SQL Server 2016-2022** on-premises support (Public Preview)
@@ -346,6 +382,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 ### AI-Ready Database Stack
 **Unified AI Capabilities Across Portfolio:**
+
 - **Vector data types** and indexing (SQL Server, Azure SQL, Cosmos DB, PostgreSQL)
 - **DiskANN technology** - Microsoft Research algorithm for billion-scale vector operations
 - **Semantic operators** - Natural language SQL integration
@@ -353,6 +390,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 ### Developer Experience Evolution
 **IDE-Native Database Development:**
+
 - **VS Code extensions** for all database platforms
 - **GitHub Copilot integration** across SQL Server, PostgreSQL
 - **Natural language** query generation and optimization
@@ -360,6 +398,7 @@ ORDER BY reviews RANKING 'best for gaming'
 
 ### Security and Compliance Framework
 **Enterprise-Grade Security:**
+
 - **Microsoft Entra ID** integration across all platforms
 - **Managed Identity** support for secure cloud resource access
 - **ARC enablement** for hybrid cloud scenarios
@@ -412,11 +451,13 @@ ORDER BY reviews RANKING 'best for gaming'
 ### Migration and Modernization Strategies
 
 **Assessment Tools:**
+
 - **Azure Migrate** for MySQL discovery and readiness assessment
 - **Database Migration Service** for PostgreSQL transitions
 - **SQL Server Migration Assistant** for Oracle-to-PostgreSQL paths
 
 **Modernization Pathways:**
+
 - **Rehost:** SQL VMs for lift-and-shift scenarios
 - **Modernize:** SQL Managed Instance for hybrid scenarios
 - **Rebuild:** Azure SQL Database for cloud-native applications

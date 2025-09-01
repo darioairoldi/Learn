@@ -25,6 +25,7 @@ Ryan Demopoulos and Xiaoxi Han unveil Windows ML 2.0 Experimental 1, a complete 
 > "Windows powers the vast majority of desktop and laptop PCs all around the world. That alone is sometimes staggering to think about... when you apply it to the revolution in AI that we are seeing all across the world, it really means that that AI revolution is going to unfold on Windows more than any other place."
 
 **Hardware Diversity Challenge:**
+
 - **Range:** $300 laptops to $3,000+ high-performance desktops
 - **Silicon Variety:** Multiple NPU manufacturers, diverse GPU architectures, CPU variations
 - **Developer Burden:** Targeting hardware diversity traditionally complex and time-consuming
@@ -51,6 +52,7 @@ Hardware Platform Matrix:
 ```
 
 **Demonstration Results:**
+
 - **Same executable** - 2MB app size across all platforms
 - **Automatic hardware detection** - No device-specific configuration required
 - **Optimal performance** - Each platform utilizing best available processor
@@ -58,6 +60,7 @@ Hardware Platform Matrix:
 
 #### Cross-Silicon Intelligence
 **Windows ML's Platform Adaptability:**
+
 - **NPU Diversity** - Three different manufacturers, different chip designs, automatic optimization
 - **GPU Integration** - Seamless fallback to discrete graphics for maximum performance
 - **CPU Compatibility** - Universal baseline ensuring compatibility on any Windows 11 PC
@@ -83,6 +86,7 @@ Windows AI Foundry Architecture:
 
 #### ONNX Runtime Foundation
 **Technical Infrastructure:**
+
 - **Open Standard ONNX Models** - Mature, fast inferencing runtime with proven performance
 - **20%+ Performance Improvement** - Typical inference gains after ONNX conversion
 - **PyTorch Conversion** - Direct path from PyTorch training to Windows deployment
@@ -90,6 +94,7 @@ Windows AI Foundry Architecture:
 
 #### Execution Provider Innovation
 **Hardware Abstraction Excellence:**
+
 - **Dedicated GPU Providers** - Optimized for wide range of GPU hardware
 - **Refreshed NPU Providers** - Partnership-developed with hardware manufacturers
 - **CPU Excellence** - ONNX's proven CPU support for universal compatibility
@@ -125,6 +130,7 @@ Streamlined Development:
 ```
 
 **Intelligent Resource Management:**
+
 - **Hardware-Specific Downloads** - Only necessary execution providers downloaded per device
 - **Minimal App Size** - No bundled execution providers or multiple model variants
 - **Store Integration** - Model variants with hardware metadata for automatic selection
@@ -150,6 +156,7 @@ Windows ML Device Policies:
 
 #### Live Policy Demonstration
 **Real-Time Hardware Switching:**
+
 - **CPU Baseline** - Universal compatibility demonstration
 - **GPU Engagement** - Task Manager showing graphics engine activation
 - **NPU Utilization** - Neural processing unit spike demonstration
@@ -157,6 +164,7 @@ Windows ML Device Policies:
 
 #### Future Workload Splitting
 **Multi-Processor Coordination:**
+
 - **Single AI Workload** - Distributed across multiple processor types
 - **Maximum Performance** - Utilize all available hardware simultaneously
 - **Device Policy Integration** - Seamless integration with existing policy system
@@ -181,6 +189,7 @@ AI Toolkit New Features:
 ```
 
 **Hardware-Specific Optimization Workflows:**
+
 - **Convert to QNN** - Qualcomm NPU optimization
 - **Convert to AMD NPU** - AMD-specific neural processing optimization
 - **Convert to Intel NPU** - Intel neural processing unit tuning
@@ -204,6 +213,7 @@ var results = session.Run(inputTensor);
 ```
 
 **Live Development Results:**
+
 - **Hardware Detection** - Automatic Qualcomm NPU utilization
 - **Performance Switching** - GPU engagement with single property change
 - **Power Optimization** - NPU selection for battery conservation
@@ -211,6 +221,7 @@ var results = session.Run(inputTensor);
 
 #### Model Compilation API
 **Performance Optimization:**
+
 - **Pre-compilation** - Avoid runtime compilation delays for large models
 - **Disk Caching** - Save compiled models for instant loading
 - **Multi-gigabyte Models** - Essential for LLM and complex AI workloads
@@ -279,6 +290,7 @@ AI Gaming Platform:
 
 #### Live Gaming Demonstration
 **Technical Implementation:**
+
 - **AMD Strix Halo** - ASUS Z30 Copilot+ PC demonstration
 - **Level Completion Detection** - Custom AI model trained for game events
 - **Background Processing** - Vision model running continuously during gameplay
@@ -287,6 +299,7 @@ AI Gaming Platform:
 
 #### Business Impact and Scale
 **Small Team Achievement:**
+
 - **15-Person Team** - 10 developers achieving enterprise-grade AI deployment
 - **Cross-Silicon Success** - "We do the work once, and it works everywhere"
 - **Deployment Simplification** - No deep silicon knowledge required
@@ -347,6 +360,7 @@ Supported Platforms:
 ### Getting Started with Windows ML 2.0
 ```markdown
 **Prerequisites:**
+
 - Windows 11 PC with any supported hardware (CPU minimum)
 - Visual Studio with .NET target framework 10.0.26100.0
 - AI Toolkit VS Code Extension for model conversion
@@ -363,12 +377,14 @@ Supported Platforms:
 ### Performance Optimization Strategies
 ```markdown
 **Device Policy Selection:**
+
 - **Max Performance**: Discrete GPU utilization for fastest inference
 - **Min Overall Power**: NPU selection for battery-optimized applications
 - **Default**: CPU for universal compatibility and highest accuracy
 - **Explicit Hardware**: Direct NPU/GPU specification when requirements known
 
 **Model Optimization:**
+
 - Use AI Toolkit VS Code Extension for hardware-specific optimization
 - Implement model compilation API for large models (LLMs, complex networks)
 - Leverage quantization for size and power consumption reduction
@@ -378,12 +394,14 @@ Supported Platforms:
 ### Enterprise Deployment Considerations
 ```markdown
 **Production Readiness:**
+
 - Current release is Experimental 1 - not for production use
 - Windows ML 2.0 Stable planned for later 2025
 - Feedback essential for stable release timeline and feature completeness
 - Consider pilot programs with Experimental 1 for evaluation
 
 **Hardware Planning:**
+
 - Future hardware automatically supported through certification program
 - No application updates required for new silicon compatibility
 - Investment protection through forward compatibility guarantee

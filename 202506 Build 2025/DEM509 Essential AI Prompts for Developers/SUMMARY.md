@@ -24,12 +24,14 @@ This fast-paced session delivers four powerful AI prompting strategies that tran
 **Core Principle:** "You don't have to be articulate - you can literally just verbally vomit into the chat what you want and it will pull out the context."
 
 **Key Benefits:**
+
 - **Natural communication** - No need for perfect grammar or structured writing
 - **Faster input** - Speech recognition allows rapid idea expression
 - **Local processing** - Modern speech models run locally for instant response
 - **Context extraction** - AI excels at parsing meaning from casual conversation
 
 **Technical Implementation:**
+
 - **Built-in speech recognition** in VS Code and GitHub Copilot
 - **Real-time transcription** with high accuracy
 - **Context awareness** from conversational input patterns
@@ -56,6 +58,7 @@ no questions that will help you make a better recommendation."
 
 #### Enhanced Context Integration
 **The @codebase Modifier:**
+
 - **File system analysis** - AI scans existing project structure
 - **Intelligent questioning** based on actual codebase content
 - **Technology detection** - Recognizes frameworks and patterns
@@ -69,6 +72,7 @@ no questions that will help you make a better recommendation."
 
 #### Implementation and Automation
 **Recommended Structure Generated:**
+
 - `/config` - Configuration files
 - `/controllers` - MVC controller logic
 - `/middleware` - Request processing middleware
@@ -87,6 +91,7 @@ existing files that I have into the right spots."
 ```
 
 **Practical Results:**
+
 - **Automated folder creation** via shell script
 - **Executable permissions** handling (`chmod +x`)
 - **Immediate project organization** improvement
@@ -143,6 +148,7 @@ make sure that everything is copacetic."
 ```
 
 **Agent Mode Integration:**
+
 - **Automatic code analysis** - Finds all usage locations
 - **Comprehensive refactoring** - Updates imports and instantiation
 - **Consistency validation** - Ensures pattern implementation across codebase
@@ -162,6 +168,7 @@ make sure that everything is copacetic."
 
 #### The Challenge with Multi-Step Operations
 **Traditional AI Behavior:**
+
 - **All-at-once approach** - Attempts complete refactoring in single response
 - **Context confusion** - Loses track of incremental changes
 - **Overwhelming output** - Difficult to review and validate changes
@@ -194,17 +201,20 @@ or something?"
 - **Architecture implications** - Database layer abstraction
 
 **Controlled Progression:**
+
 - **Keyword activation:** "banana" ? moves to next implementation step
 - **Incremental validation** - Review each change before proceeding
 - **Flexibility maintained** - Can pivot or refine at each stage
 
 #### Best Practices for Stepwise Prompting
 **Keyword Selection:**
+
 - **Unique terms** - Avoid words commonly used in code
 - **Memorable phrases** - Easy to remember during development sessions
 - **Context-independent** - Works across different problem domains
 
 **Benefits of Stepwise Approach:**
+
 - **Controlled pacing** - Developer maintains oversight of changes
 - **Quality assurance** - Each step can be validated before proceeding
 - **Learning opportunity** - Understanding incremental improvement patterns
@@ -219,6 +229,7 @@ or something?"
 
 #### The Psychology of AI Role Assignment
 **Why Role Playing Works:**
+
 - **Performance enhancement** - AI models respond to identity assignments
 - **Expertise simulation** - Adopts characteristics of specified roles
 - **Behavioral modification** - Changes response patterns based on assigned personality
@@ -246,6 +257,7 @@ them towards the correct answer."
 
 #### Interactive Learning Session
 **Teaching Approach:**
+
 - **Progressive difficulty** - Starting with phone number pattern matching
 - **Guided discovery** - Hints rather than direct answers
 - **Practical exercises** - Real-world pattern recognition challenges
@@ -259,12 +271,14 @@ them towards the correct answer."
 
 #### Versatile Role Applications
 **Educational Contexts:**
+
 - **Technology tutorials** - Learning new programming languages (Rust example)
 - **Code review sessions** - Senior developer perspective on code quality
 - **Architecture discussions** - System design expert guidance
 - **Debugging assistance** - QA engineer mindset for testing strategies
 
 **Professional Simulation:**
+
 - **Client consultation** - Business analyst gathering requirements  
 - **Technical interviews** - Practicing problem-solving explanations
 - **Peer programming** - Collaborative development scenarios
@@ -284,27 +298,32 @@ them towards the correct answer."
 
 #### Multi-Mode Utilization
 **Ask Mode:**
+
 - **Information gathering** and strategy development
 - **Analysis and recommendation** generation
 - **Script and documentation** creation
 
 **Agent Mode:**
+
 - **Autonomous code implementation** based on specifications
 - **Multi-file refactoring** with consistency validation
 - **Project-wide pattern** application
 
 **Edit Mode:**
+
 - **Targeted code modifications** with surgical precision
 - **Context-aware suggestions** based on cursor position
 - **Real-time collaboration** during active development
 
 #### Context Management Strategies
 **Chat Clearing Discipline:**
+
 - **Regular context reset** - "Clear the chat like all the time"
 - **Topic isolation** - Separate conversations for different problems
 - **Context accumulation** - Intentional conversation threading for complex problems
 
 **Codebase Context Integration:**
+
 - **@codebase modifier** - File system analysis integration
 - **Active file context** - Current editor state awareness  
 - **Project structure understanding** - Framework and pattern detection
@@ -345,6 +364,7 @@ them towards the correct answer."
 ### Interactive Learning Systems
 **Traditional Approach:** Static documentation and tutorials
 **AI-Enhanced Learning:**
+
 - **Personalized pacing** based on comprehension level
 - **Interactive exercises** with guided discovery
 - **Immediate feedback** and course correction

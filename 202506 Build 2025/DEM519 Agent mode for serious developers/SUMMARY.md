@@ -29,6 +29,7 @@ This focused demonstration showcases VS Code's Agent Mode capabilities through a
 > "One of the coolest things it does is that it lets APM like me pretend to be a serious developer for a little bit or a serious data scientist as we're about to show."
 
 **Key Capabilities:**
+
 - **Autonomous iteration** - Self-directed problem-solving without constant guidance
 - **Complex problem solving** - Tackling multi-step, interconnected development challenges
 - **Learning acceleration** - Enabling non-experts to work at expert levels
@@ -36,6 +37,7 @@ This focused demonstration showcases VS Code's Agent Mode capabilities through a
 
 #### The "Serious Developer" Democratization
 **Breaking Down Barriers:**
+
 - **Product managers** can execute technical solutions independently
 - **Cross-functional collaboration** - Technical and non-technical team members working at similar levels
 - **Learning through doing** - Agent Mode as educational tool for complex domains
@@ -50,6 +52,7 @@ This focused demonstration showcases VS Code's Agent Mode capabilities through a
 > "This is what's called a Kaggle competition. It's the data science equivalent of LeetCode. They put full competitions online for people to put submissions up and try and solve difficult problems in data science."
 
 **Problem Specification:**
+
 - **Domain:** Housing price estimation using machine learning
 - **Dataset:** Training data, test data, and sample submission files
 - **Objective:** Predict house prices based on multiple features and variables
@@ -66,6 +69,7 @@ Competition Package:
 
 #### Real Competition Constraints
 **Authentic Development Environment:**
+
 - **No pre-built solutions** - Starting completely from scratch
 - **Competition rules** - Must follow actual Kaggle submission requirements
 - **Time pressure** - Demonstrating rapid solution development
@@ -96,6 +100,7 @@ Agent Mode Process:
 
 #### Built-in Tool Integration
 **Seamless VS Code Integration:**
+
 - **Fetch tool** - Automatic URL retrieval for competition data
 - **Jupyter notebook creation** - Native notebook support with kernel selection
 - **File system operations** - Reading and processing multiple data files
@@ -126,6 +131,7 @@ Advanced Models:
 > "I didn't tell it which packages to go install. It decided based on the problem set which packages would be most useful in solving the Kaggle competition."
 
 **Automatically Installed Packages:**
+
 - **Pandas & NumPy** - Data manipulation and numerical computing
 - **Matplotlib & Seaborn** - Data visualization and plotting
 - **Scikit-learn** - Machine learning algorithms and preprocessing
@@ -133,6 +139,7 @@ Advanced Models:
 
 #### Data Analysis and Preprocessing
 **Exploratory Data Analysis:**
+
 - **Missing value detection** - Systematic data quality assessment
 - **Distribution analysis** - Understanding data characteristics and skewness
 - **Correlation matrix** - Identifying key features correlated with house prices
@@ -142,6 +149,7 @@ Advanced Models:
 > "86 lines of data cleansing that were generated almost instantaneously, which is just fantastic."
 
 **Preprocessing Operations:**
+
 - **Missing value imputation** - Strategic handling of incomplete data
 - **Categorical variable encoding** - Converting string variables to numerical format
 - **Feature scaling** - Normalizing variables for optimal model performance
@@ -152,6 +160,7 @@ Advanced Models:
 > "It actually does something even more advanced where it takes the seven models that were generated and creates what's called an ensemble... like a combination or an average of all the different models."
 
 **Ensemble Benefits:**
+
 - **Improved accuracy** - Combining strengths of multiple models
 - **Reduced overfitting** - Balancing individual model weaknesses
 - **Robust predictions** - More reliable results across different data scenarios
@@ -174,6 +183,7 @@ Competition Results:
 
 #### Development Time Analysis
 **Efficiency Comparison:**
+
 - **Traditional approach** - Hours to days for complete data science pipeline
 - **Agent Mode approach** - 10 minutes for competition-ready solution
 - **Learning curve** - Immediate access to expert-level techniques
@@ -183,6 +193,7 @@ Competition Results:
 > "Even if I don't know exactly what library does which thing I can go then research. It gives me a starting point to then go learn more efficiently."
 
 **Key Efficiency Gains:**
+
 - **Environment setup** - Automatic package selection and installation
 - **Boilerplate code** - Generated data processing and analysis frameworks
 - **Algorithm implementation** - Multiple model training without manual coding
@@ -197,6 +208,7 @@ Competition Results:
 > "This is something that's like really, really a competitive advantage of VS Code is our built-in native notebook support and how those notebooks can be used directly with these agentic flows."
 
 **Platform Differentiators:**
+
 - **Seamless integration** - Agent Mode works natively with Jupyter notebooks
 - **Kernel management** - Automatic Python environment selection and configuration
 - **Cell execution** - Intelligent code running with user permission controls
@@ -218,6 +230,7 @@ Available Models in VS Code Copilot:
 
 #### Prompt File System
 **Reusable Development Patterns:**
+
 - **Custom prompt storage** - Save and reuse effective prompt patterns
 - **Profile integration** - Tie prompts to specific VS Code profiles
 - **Cross-project application** - Use proven prompts across multiple projects
@@ -232,6 +245,7 @@ Available Models in VS Code Copilot:
 > "It's saving me a ton of time and actually probably preventing me from learning a little bit, but it's a pretty learning tool to work alongside."
 
 **Educational Benefits:**
+
 - **Pattern recognition** - Observing expert-level problem-solving approaches
 - **Technique exposure** - Introduction to advanced machine learning methods
 - **Best practices** - Learning industry-standard development workflows
@@ -239,6 +253,7 @@ Available Models in VS Code Copilot:
 
 #### Professional Development Acceleration
 **Skill Building Through Observation:**
+
 - **Data science methodology** - Understanding complete analytical workflows
 - **Feature engineering** - Learning variable transformation and selection techniques
 - **Model selection** - Exposure to multiple algorithm approaches and trade-offs
@@ -256,6 +271,7 @@ Available Models in VS Code Copilot:
 > "Unfortunately with agentic development flow, we have these little moments where it's like, ah, shoot, I know this should work a certain way, but it's not quite deterministic."
 
 **Practical Challenges:**
+
 - **Unpredictable execution** - Agent Mode may occasionally pause or require guidance
 - **User intervention** - Need for occasional prompts to continue iteration
 - **Backup strategies** - Importance of having fallback plans for demonstrations
@@ -266,6 +282,7 @@ Available Models in VS Code Copilot:
 > "I don't recommend that people are submitting Kaggle submissions. This isn't the right way to for this to be done, but it's a really quick way to learn."
 
 **Appropriate Applications:**
+
 - **Learning and education** - Using Agent Mode for skill development
 - **Prototyping and exploration** - Rapid proof-of-concept development
 - **Starting point creation** - Generating foundation code for human refinement
@@ -317,12 +334,14 @@ Autonomous Development Workflow:
 ### Getting Started with Agent Mode
 ```markdown
 **Prerequisites:**
+
 - VS Code with GitHub Copilot enabled
 - Agent Mode feature activated in Copilot settings
 - Python environment and Jupyter support installed
 - Access to model selection (Claude, GPT-4, Gemini)
 
 **Best Practices:**
+
 - Start with clear, specific problem descriptions
 - Use prompt files for complex, reusable instructions
 - Monitor execution and provide continuation prompts as needed
@@ -332,6 +351,7 @@ Autonomous Development Workflow:
 ### Optimal Use Cases
 ```markdown
 **Ideal Applications:**
+
 - Data science exploration and analysis
 - Machine learning model development
 - Rapid prototyping and proof-of-concept creation
@@ -339,6 +359,7 @@ Autonomous Development Workflow:
 - Complex problem solving with multiple components
 
 **Limitations to Consider:**
+
 - Non-deterministic execution requiring human oversight
 - Need for domain knowledge to validate results
 - Ethical considerations around automated competition submissions
@@ -348,6 +369,7 @@ Autonomous Development Workflow:
 ### Advanced Techniques
 ```markdown
 **Maximizing Agent Mode Effectiveness:**
+
 - Create reusable prompt files for common problem patterns
 - Use explicit context provision with relevant files and data
 - Allow agent iteration while providing continuation guidance

@@ -26,6 +26,7 @@ This groundbreaking session introduces Microsoft's comprehensive MCP (Model Cont
 > "It's easy to make agents, but making them useful is a major challenge. If an agent doesn't have access to the right tools for accessing content, personalizing things, and acting on it, then all they can do is tell you what to do based on some limited information."
 
 **Agent Utility Requirements:**
+
 - **Context and memory** - Agents know what you want without long prompts
 - **Action capabilities** - Tools let agents act on your behalf, completing tasks
 - **Content access** - Real-time data retrieval and system integration
@@ -33,6 +34,7 @@ This groundbreaking session introduces Microsoft's comprehensive MCP (Model Cont
 
 #### MCP as the Solution
 **The Strategic Value:**
+
 - **Investment magnification** - Same integration work scales across all MCP-capable agents
 - **Unified integration** - Multiple services integrated simultaneously for broad tool sets
 - **Industry adoption** - Microsoft and other major players investing in MCP standardization
@@ -53,6 +55,7 @@ MCP Architecture
 
 #### Transport Mechanisms
 **Protocol Communication Options:**
+
 - **Standard IO** - Local server communication through process pipes
 - **Server-Sent Events (SSE)** - Traditional HTTP bidirectional communication
 - **HTTP Streamable** - Enhanced protocol with WebSocket support
@@ -65,6 +68,7 @@ MCP Architecture
 > "A salesperson's out in the field, needs to look up products and inventory. They shouldn't have to mess with a traditional form and database application. They should just chat something into their agent, and let it figure out what the inventory is."
 
 **Technical Requirements:**
+
 - **FastAPI REST server** - Product and inventory management system
 - **WSL integration** - Linux development environment on Windows
 - **Agent tooling** - Natural language to system action translation
@@ -82,6 +86,7 @@ Agent Commands → MCP Tools → WSL Actions
 ```
 
 **Developer Experience Benefits:**
+
 - **Natural language commands** - No need to remember specific syntax
 - **Cross-platform orchestration** - Windows agent controlling Linux services
 - **Approval workflows** - User consent for system-level operations
@@ -107,6 +112,7 @@ public ProductInfo GetProduct(int productId)
 ```
 
 **Implementation Simplicity:**
+
 - **Standard console application** - No complex infrastructure required
 - **HTTP client abstraction** - Any backend (GraphQL, SOAP, gRPC) supported
 - **Metadata-driven** - LLM uses descriptions for tool selection
@@ -129,18 +135,21 @@ MCP on Windows Platform
 **Trust, Security, and Safety Framework:**
 
 **Trust Implementation:**
+
 - **Identity requirement** - All registered servers must have application identity
 - **User control** - End user and enterprise settings control server availability
 - **Transparency** - Clear explanation of tool usage before approval
 - **Audit trails** - Complete logging of all MCP interactions
 
 **Security Measures:**
+
 - **Server isolation** - Proxy server with security and enterprise controls
 - **Permission brokering** - Windows mediates all client-server interactions
 - **Anti-malware integration** - Real-time abuse detection and correction
 - **Enterprise IT policies** - MDM and admin control integration
 
 **Safety Practices:**
+
 - **Responsible AI integration** - Built-in safety guardrails
 - **Privacy controls** - User data protection and handling policies
 - **Real-time monitoring** - Continuous security and abuse detection
@@ -169,6 +178,7 @@ MCP on Windows Platform
 ```
 
 **Registry Management:**
+
 - **Off by default** - No immediate privilege escalation
 - **Manual activation** - User explicit consent required
 - **Settings integration** - Windows Settings app control interface
@@ -191,6 +201,7 @@ Agent Process:
 ```
 
 **Multi-Tool Coordination:**
+
 - **Three approval dialogs** - User consent for each tool invocation
 - **Intelligent decomposition** - Agent determines necessary tools automatically
 - **Mathematical processing** - Calculation performed by agent logic
@@ -216,6 +227,7 @@ Productivity Workflow:
 ```
 
 **Cross-Application Benefits:**
+
 - **Semantic file search** - AI-powered document discovery
 - **App Actions integration** - Native application extensibility
 - **Multi-tool coordination** - Complex workflows across multiple applications
@@ -237,6 +249,7 @@ Design Process:
 
 #### Comprehensive Windows Integration
 **Available Built-in Servers:**
+
 - **Windows Subsystem for Linux (WSL)** - Linux environment management
 - **Snap Layouts** - Window management and arrangement
 - **App Actions for Windows** - Inter-application communication and automation
@@ -245,6 +258,7 @@ Design Process:
 
 #### App Actions for Windows
 **Enterprise Application Integration:**
+
 - **Goodnotes integration** - Note-taking and document annotation
 - **Todoist connectivity** - Task and project management
 - **Spark Mail automation** - Email composition and management
@@ -252,6 +266,7 @@ Design Process:
 
 #### File System Capabilities
 **Advanced File Operations:**
+
 - **Directory search** - Traditional file system navigation
 - **Semantic search** - AI-powered content discovery
 - **Content analysis** - Document understanding and summarization
@@ -263,6 +278,7 @@ Design Process:
 
 #### Identity and Trust Model
 **Application Requirements:**
+
 - **Installed applications only** - No arbitrary script execution
 - **Identity verification** - Cryptographic application signatures
 - **Trust relationships** - Verified connections between clients and servers
@@ -284,6 +300,7 @@ Design Process:
 ```
 
 **Developer Benefits:**
+
 - **Local testing** - Immediate MCP server validation
 - **GitHub Copilot integration** - Agent-assisted development workflows
 - **Hot reload** - Real-time server updates during development
@@ -291,6 +308,7 @@ Design Process:
 
 #### Enterprise Management and Security
 **IT Administrator Controls:**
+
 - **MDM integration** - Mobile Device Management policy enforcement
 - **Private repositories** - Enterprise-controlled MCP server catalogs
 - **Audit logging** - Complete interaction tracking and monitoring
@@ -374,6 +392,7 @@ public string SearchProducts(string query)
 5. Design application extensibility using App Actions
 
 **Preparation Phase:**
+
 - Study MCP protocol specifications and best practices
 - Identify high-value integration scenarios in your applications
 - Plan security and authentication requirements
@@ -385,12 +404,14 @@ public string SearchProducts(string query)
 **Timeline:** Within 1 month for private preview, 2-3 months to public release
 
 **Prerequisites:**
+
 - Windows application with proper identity and packaging
 - Signed application manifests with MCP server extension
 - Tool descriptions optimized for agent interaction
 - Security and privacy compliance requirements
 
 **Enterprise Considerations:**
+
 - IT administrator approval processes
 - Enterprise policy integration and compliance
 - Private MCP server repository management
@@ -400,12 +421,14 @@ public string SearchProducts(string query)
 ### Long-term Strategy
 ```markdown
 **Platform Evolution:**
+
 - Remote MCP server registration capabilities
 - Enhanced granular permission systems
 - Expanded built-in Windows MCP server catalog
 - Cross-platform MCP standardization and compatibility
 
 **Application Integration:**
+
 - App Actions ecosystem expansion
 - Multi-agent workflow orchestration
 - Enterprise application marketplace integration
@@ -418,6 +441,7 @@ public string SearchProducts(string query)
 
 ### Enterprise Workflow Automation
 **Document Processing Pipeline:**
+
 - **File system search** - AI-powered document discovery across enterprise content
 - **Content analysis** - Automated summarization and information extraction
 - **Application integration** - Cross-platform workflow coordination
@@ -425,6 +449,7 @@ public string SearchProducts(string query)
 
 ### Development Environment Enhancement
 **AI-Assisted Development:**
+
 - **Environment setup** - Automated development environment configuration
 - **Code generation** - AI-powered application scaffolding and implementation
 - **Testing automation** - Intelligent test case generation and execution
@@ -432,6 +457,7 @@ public string SearchProducts(string query)
 
 ### Customer Service and Support
 **Intelligent Agent Workflows:**
+
 - **Knowledge base integration** - Real-time access to support documentation
 - **System diagnostic tools** - Automated troubleshooting and issue resolution
 - **Multi-application coordination** - Seamless handoffs between support tools

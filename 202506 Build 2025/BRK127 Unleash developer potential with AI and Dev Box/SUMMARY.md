@@ -63,6 +63,7 @@ Dev Box Architecture:
 
 #### Beyond Traditional VDI
 **Developer-Native Experience Features:**
+
 - **Self-serve capabilities** - Create machines as needed without tickets
 - **Project-scoped customizations** - Team-specific tools and configurations
 - **Instant productivity** - Ready-to-code environments from first login
@@ -77,6 +78,7 @@ Dev Box Architecture:
 > "MCP, or Model Context Protocol, is basically coming in like a tidal wave... MCP is truly the super powerful protocol that empowers LLMs and agents to be able to interact with additional tools and APIs."
 
 **From Responder to Doer:**
+
 - **Natural Language Control** - Interact with development environments through conversation
 - **API Abstraction** - No need to understand underlying APIs or infrastructure
 - **Plain English Commands** - Speak to your development environment directly
@@ -101,6 +103,7 @@ workloads. It has that serverless GPU access, LLM API integrations with AI servi
 
 #### Public Preview Announcement
 **Dev Box MCP Server Capabilities:**
+
 - **Search project metadata** - Understand available development environments
 - **Create Dev Boxes** - Provision environments through natural language
 - **Instant personalization** - Customize environments within VS Code
@@ -138,6 +141,7 @@ Dev Box GPU Architecture:
 ```
 
 **VS Code Tunnel Integration:**
+
 - **Remote GPU connection** - VS Code directly connected to GPU compute
 - **Seamless development** - Local IDE experience with cloud GPU power
 - **Instant provisioning** - Container spins up automatically when needed
@@ -155,6 +159,7 @@ Dev Box GPU Architecture:
 ```
 
 **Serverless Benefits Demonstrated:**
+
 - **Instant access** - GPU available immediately when needed
 - **No idle costs** - Billing stops when GPU connection closed
 - **Enterprise integration** - Full security and governance maintained
@@ -208,6 +213,7 @@ Options:
 
 #### QA Bot Application Integration
 **End-to-End AI Application:**
+
 - **Document Processing** - Convert internal docs to embeddings using GPU
 - **AI-Powered Search** - Find relevant document chunks for queries
 - **LLM Summarization** - Generate responses using deployed AI models
@@ -232,6 +238,7 @@ Developer Safety Net:
 ```
 
 **Modern Development Paradigm:**
+
 - **Speed with safety** - Fast iteration without risk of data loss
 - **Developer autonomy** - Self-service snapshot and restore capabilities
 - **Seamless integration** - Built into Dev Box platform without additional tools
@@ -256,6 +263,7 @@ VS Code Integration Benefits:
 ```
 
 **Hybrid Development Experience:**
+
 - **Local familiarity** - Keep personal extensions and customizations
 - **Cloud capabilities** - Access to enterprise resources and private networks
 - **Performance scaling** - Leverage cloud compute for intensive workloads
@@ -270,6 +278,7 @@ VS Code Integration Benefits:
 > "If you're a developer like me, you know how frustrating it could be to get started working on a new repository for the first time. You have to maybe read a long readme file, maybe bribe a co-worker over lunch to show you how to set it up."
 
 **Organizational Impact:**
+
 - **Time Accumulation** - Setup time multiplied across development teams
 - **Project Uniqueness** - Every team has specific toolchain requirements
 - **IT Limitations** - One-size-fits-all solutions slow everyone down
@@ -307,6 +316,7 @@ Generated Configuration:
 ```
 
 **Image Definition as Code:**
+
 - **Version Control** - Image definitions stored in repository
 - **Team Distribution** - Developers inherit project-specific environments
 - **Instant Productivity** - Ready-to-code environments from first creation
@@ -343,6 +353,7 @@ Dev Box Enterprise Architecture:
 
 #### Fujitsu Global Deployment Case Study
 **Enterprise Success Story:**
+
 - **Thousands of developers** - Global rollout across Fujitsu worldwide
 - **Immediate productivity** - Pre-configured environments eliminate setup time
 - **GitHub Copilot integration** - AI-powered development acceleration
@@ -361,6 +372,7 @@ Project Policy Controls:
 ```
 
 **Azure Virtual Network Integration:**
+
 - **Project isolation** - Secure networks restricting resource access
 - **Existing topology integration** - Seamless integration with enterprise networking
 - **Firewall compatibility** - Works with centralized security configurations
@@ -368,6 +380,7 @@ Project Policy Controls:
 
 #### Global Scale and Availability
 **Expanded Regional Support:**
+
 - **23 Azure regions** - Global availability for high performance
 - **New regions added** - Spain Central and UAE North
 - **Regulatory compliance** - Local data residency requirements
@@ -385,6 +398,7 @@ Cost Optimization Tools:
 ```
 
 **General Availability Features:**
+
 - **Auto-stop scheduling** - Enterprise-wide automated shutdown policies
 - **Hibernate on disconnect** - Instant resource conservation when developers step away
 - **Landing Zone Accelerator** - Enterprise deployment templates and best practices
@@ -445,6 +459,7 @@ Enterprise Control Architecture:
 ### Getting Started with Dev Box
 ```markdown
 **Prerequisites:**
+
 - Azure subscription with Dev Box service access
 - Microsoft Entra ID tenant for identity management
 - Network planning for project isolation
@@ -461,12 +476,14 @@ Enterprise Control Architecture:
 ### AI Integration Best Practices
 ```markdown
 **MCP Server Implementation:**
+
 - Install Dev Box MCP server in public preview
 - Configure VS Code with agent mode for natural language control
 - Train developers on conversational environment management
 - Implement governance for AI-assisted environment creation
 
 **Serverless GPU Optimization:**
+
 - Plan GPU workloads for cost efficiency
 - Implement automatic cleanup policies
 - Monitor usage patterns for optimization
@@ -476,12 +493,14 @@ Enterprise Control Architecture:
 ### Team Customization Strategy
 ```markdown
 **Image Definition Development:**
+
 - Use Copilot for initial configuration generation
 - Version control image definitions with source code
 - Implement testing pipelines for custom images
 - Plan optimization cycles for performance improvement
 
 **Project Management:**
+
 - Delegate project control to engineering leads
 - Establish base image policies and security requirements
 - Implement cost controls and monitoring per project

@@ -26,6 +26,7 @@ This hands-on technical session demonstrates the power and flexibility of the Mi
 > "We have had a fundamental shift in technology. And that shift is the fact that it's normal now to use conversation and questions and natural language to interact with technology."
 
 **Real-World Impact Examples:**
+
 - **Banking apps** - Agents grounded in personal data providing specific responses
 - **Enterprise tools** - AskHR agents answering travel questions based on individual context
 - **Package tracking** - Moving from information delivery to action-oriented assistance
@@ -33,6 +34,7 @@ This hands-on technical session demonstrates the power and flexibility of the Mi
 
 #### Why Agents Transform User Experience
 **Beyond Information Retrieval:**
+
 - **Focus delivery** - Agents provide targeted, relevant information rather than generic responses
 - **Security-conscious access** - Information accessed with user-chosen permissions and security levels
 - **Resolution-driven** - Agents drive toward outcomes, not just task completion
@@ -58,6 +60,7 @@ M365 Agents SDK Components:
 
 #### Language and Framework Support
 **Multi-Language Development:**
+
 - **C# integration** - Full .NET ecosystem support with Semantic Kernel
 - **JavaScript support** - LangChain and custom orchestrator integration
 - **Python capabilities** - Open-source flexibility with enterprise management
@@ -83,6 +86,7 @@ Toolkit Features:
 > "We're really trying to not just help get you started with the SDK but actually cover that end-to-end deployment and process so you can actually bring all of your components that you want to use together."
 
 **Templates and Scaffolding:**
+
 - **Empty Agent** - Basic scaffolding for complete customization
 - **Weather Agent** - Pre-configured Semantic Kernel or LangChain integration
 - **Azure AI Foundry integration** - Ready-to-use cloud AI service connections
@@ -126,6 +130,7 @@ public async Task OnMessageAsync(ITurnContext turnContext)
 
 #### Multi-Channel Consistency
 **Unified Agent Experience:**
+
 - **Agent Playground** - Local development and testing environment
 - **Microsoft Teams** - Enterprise collaboration platform integration
 - **M365 Copilot** - Native AI assistant interface
@@ -141,6 +146,7 @@ public async Task OnMessageAsync(ITurnContext turnContext)
 > "Use streaming is a capability that was added to the Microsoft ecosystem... streaming response allows us to be a little bit more interactive with our tech."
 
 **Channel-Adaptive Streaming:**
+
 - **Low-resolution channels** - Basic typing indicators with final response
 - **High-resolution channels** - Real-time status updates throughout processing
 - **Automatic adaptation** - SDK handles upscale/downscale based on channel capabilities
@@ -151,6 +157,7 @@ public async Task OnMessageAsync(ITurnContext turnContext)
 > "Those of you that want to target this chat, specifically on the M365 cloud, I cannot stress strongly enough, use streaming responses. They are very, very brutal on timeout."
 
 **Best Practices:**
+
 - **Immediate acknowledgment** - Send status as soon as request received
 - **Regular updates** - Continuous communication during processing
 - **Channel optimization** - Adapt streaming behavior to channel capabilities
@@ -176,6 +183,7 @@ Multi-Agent Architecture:
 > "I cannot tell you how much we've invested in making that work... We don't want you to have to deal with this crap anymore."
 
 **Token Management Innovation:**
+
 - **User authorization exchange** - Automatic token acquisition for external services
 - **Scoped permissions** - Granular access control based on service requirements
 - **SSO integration** - Seamless single sign-on across Microsoft ecosystem
@@ -193,6 +201,7 @@ Multi-Agent Architecture:
 ```
 
 **Technical Achievement:**
+
 - **Automatic token exchange** - No manual authentication handling required
 - **Multi-environment support** - Switch between different Copilot Studio environments
 - **Scoped access** - User permissions determine available agents and data
@@ -217,6 +226,7 @@ M365 Copilot APIs:
 > "This allows you to ground on your M365 data without taking your data out of M365."
 
 **Technical Implementation:**
+
 - **SharePoint integration** - Target specific sites and document folders
 - **Permission inheritance** - User access controls automatically applied
 - **Semantic indexing** - Leverage M365's built-in content understanding
@@ -227,6 +237,7 @@ M365 Copilot APIs:
 > "This demo you're going to see, specifically these API calls, are in private preview... Cross your fingers. We'll get all the way through it, and it'll work properly."
 
 **Development Reality:**
+
 - **API instability** - Daily changes during private preview development
 - **Integration challenges** - Coordinating multiple preview services
 - **Debugging transparency** - Live problem-solving during demonstration
@@ -252,6 +263,7 @@ KPMG Digital Gateway:
 
 #### Tax Intelligence Personas
 **Domain Expertise Integration:**
+
 - **Global Tax Incentive Researcher** - Specialized knowledge for international tax scenarios
 - **Regulatory Compliance** - Up-to-date tax law and regulation interpretation
 - **Document Attachment** - Direct integration with tax professionals' knowledge
@@ -262,6 +274,7 @@ KPMG Digital Gateway:
 > "Authenticating the users across hundreds, sometimes thousands of Entra ID tenants and bringing all this tax intelligence into their hands, providing secure access, continued governance, and seamless experience."
 
 **Enterprise Security Implementation:**
+
 - **Multi-tenant architecture** - Client tenants accessing KPMG services
 - **Single sign-on** - Transparent authentication across organizational boundaries
 - **On-behalf-of tokens** - Secure service-to-service communication
@@ -333,6 +346,7 @@ Token Management Workflow:
 ### Getting Started with M365 Agents SDK
 ```markdown
 **Prerequisites:**
+
 - Visual Studio or VS Code with M365 Agents Toolkit extension
 - Azure subscription for Bot Service registration
 - Microsoft 365 tenant for testing and deployment
@@ -349,12 +363,14 @@ Token Management Workflow:
 ### Development Best Practices
 ```markdown
 **Channel Optimization:**
+
 - Use streaming responses for M365 Copilot (aggressive 15-second timeout)
 - Implement immediate status acknowledgment for all channels
 - Test across multiple channels during development
 - Leverage channel-adaptive UI (adaptive cards, rich responses)
 
 **Authentication Strategy:**
+
 - Use scoped tokens for user-friendly consent experiences
 - Implement proper OAuth handlers for external service integration
 - Leverage automatic token exchange for seamless user experience
@@ -364,12 +380,14 @@ Token Management Workflow:
 ### Multi-Agent Architecture Patterns
 ```markdown
 **Dispatcher/Broker Pattern:**
+
 - Central Agent SDK agent as orchestration hub
 - Multiple specialized agents for domain-specific tasks
 - Semantic Kernel or custom orchestrator for decision-making
 - Unified authentication and channel management
 
 **Enterprise Integration:**
+
 - Copilot Studio agents for low-code specialized functions
 - Custom agents for complex business logic and external systems
 - API integration for data retrieval and processing
@@ -382,6 +400,7 @@ Token Management Workflow:
 
 ### Enterprise Knowledge Integration
 **Tax Intelligence and Compliance:**
+
 - **Regulatory expertise** - Domain-specific knowledge embedded in AI personas
 - **Cross-border scenarios** - Complex international tax law interpretation
 - **Real-time updates** - Dynamic regulatory change incorporation
@@ -389,6 +408,7 @@ Token Management Workflow:
 
 ### Development Productivity Enhancement
 **Rapid Prototyping and Deployment:**
+
 - **15-minute development cycles** - From Semantic Kernel to multi-channel agent
 - **Local testing environment** - Agent Playground for immediate feedback
 - **Live debugging** - Visual Studio integration with token inspection
@@ -396,6 +416,7 @@ Token Management Workflow:
 
 ### API Integration and Data Access
 **Microsoft 365 Data Leverage:**
+
 - **Retrieval API** - Access M365 content without data extraction
 - **Meeting Insights API** - Teams meeting analysis and action item extraction
 - **Chat API** - Headless M365 Copilot for custom application integration

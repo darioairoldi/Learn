@@ -178,6 +178,7 @@ var foundryResource = builder.AddFoundryLocalResource("ai")
 3. **Interactive testing**: The `foundry model run` command starts an interactive chat after download
 
 **Common download issues:**
+
 - Ensure stable internet connection for initial download
 - Check available disk space (models can be 800MB - 6GB)
 - Verify firewall/antivirus isn't blocking the download
@@ -292,6 +293,7 @@ The Foundry CLI simplifies the process by combining download and execution:
 3. **Your .NET samples automatically work** - Once a model is downloaded, your code can load it
 
 **Key Benefits:**
+
 - ✅ **One command does everything** - no separate download step
 - ✅ **Automatic hardware optimization** - selects best GPU/CPU variant  
 - ✅ **Interactive testing** - chat with the model before using in code
@@ -327,15 +329,18 @@ The Foundry CLI simplifies the process by combining download and execution:
 Based on your output, here are the available models by category:
 
 **Phi Models (Microsoft):**
+
 - `phi-4` - Latest, best quality (8.6GB)
 - `phi-3-mini-128k` - Long context support (2.2GB)  
 - `phi-3-mini-4k` - Standard context (2.2GB)
 
 **Qwen Models (Alibaba):**
+
 - `qwen2.5-0.5b` - Smallest, fastest (500MB)
 - Other Qwen variants available in catalog
 
 **Mistral Models:**
+
 - `mistral-7b-v0.2` - Good general purpose (4GB)
 
 ### Hardware-Specific Downloads
@@ -350,6 +355,7 @@ Foundry Local automatically selects the best variant for your hardware.
 ### Download Troubleshooting
 
 **Common Issues:**
+
 - **Slow downloads**: Models are large (500MB-10GB), ensure stable internet
 - **Disk space**: Check you have enough free space before downloading
 - **Network issues**: Corporate firewalls may block downloads

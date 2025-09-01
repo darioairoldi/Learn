@@ -68,6 +68,7 @@ Azure Boost 2.0 represents Microsoft's latest generation accelerator offload car
 #### Architecture Components
 
 **Hardware Design:**
+
 - **Dual 100-Gigabit Ports** - Redundant connectivity to top-of-rack routers
 - **FPGA Core** - Accelerated storage and networking offload processing
 - **ARM Processor Complex** - Dedicated control plane with DRAM for connection management
@@ -75,6 +76,7 @@ Azure Boost 2.0 represents Microsoft's latest generation accelerator offload car
 #### Performance Achievements
 
 **Storage Performance:**
+
 - **Remote Disks:** 14 GB/s with 800K IOPS
 - **Local SSD:** 36 GB/s with 6.6 million IOPS
 - **Network Bandwidth:** Up to 200 GB/s with 400K connections per second
@@ -82,12 +84,14 @@ Azure Boost 2.0 represents Microsoft's latest generation accelerator offload car
 #### Operational Benefits
 
 **Infrastructure Resilience:**
+
 - **Dual-router tolerance** - Server maintains connectivity during router failures
 - **Transparent maintenance** - Router upgrades with minimal service impact
 - **Sub-second updates** - Data plane upgrades without VM disruption
 - **Strong isolation** - Boost components don't affect server core operations
 
 **Fleet Deployment:**
+
 - **20% fleet coverage** - Current Azure Boost deployment status
 - **100% new servers** - All new Azure servers include Boost cards
 - **Extended SKU support** - GPU, HPC, and M-series memory-optimized VMs
@@ -110,6 +114,7 @@ RDMA: App Memory → NIC → [Network] → NIC → App Memory (Direct)
 #### AI Training Optimization
 
 **GPUDirect RDMA Benefits:**
+
 - **AllReduce Operations** - Direct GPU-to-GPU weight sharing
 - **Memory Bypass** - Direct access to GPU high-bandwidth memory
 - **Stack Elimination** - Removal of software networking layers
@@ -118,6 +123,7 @@ RDMA: App Memory → NIC → [Network] → NIC → App Memory (Direct)
 #### Live Performance Demonstration
 
 **Benchmark Results:**
+
 - **Traditional Method:** 51,000 microseconds, 1.4 GB/s bandwidth
 - **Guest RDMA:** 4,600 microseconds, 14 GB/s bandwidth
 - **Performance Improvement:** **11x speed-up** for GPU communication
@@ -144,6 +150,7 @@ Azure's evolution toward zero-impact maintenance demonstrates the platform's com
 #### VM-Preserving Host Update (VM-PHU) Innovation
 
 **Advanced VM-PHU Features:**
+
 - **Virtual Processor Auto-Suspend** - Selective VM freezing only when virtualization assistance needed
 - **Virtual Function Keep-Alive** - Continuous I/O operations during maintenance
 - **Request Pinning** - Queuing virtualization-dependent requests during updates
@@ -172,6 +179,7 @@ The explosive growth in AI model sizes and training datasets has driven the need
 #### AI Storage Challenge Context
 
 **Scale Requirements:**
+
 - **Training Data:** Petabytes to hundreds of petabytes for multi-modal models
 - **Model Checkpoints:** Terabyte-sized failure recovery points
 - **Model Deployment:** Terabyte models distributed to thousands of inference servers
@@ -180,6 +188,7 @@ The explosive growth in AI model sizes and training datasets has driven the need
 #### Scaled Storage Account Architecture
 
 **Technical Implementation:**
+
 - **Logical Abstraction** - Single storage account interface for developers
 - **Physical Distribution** - Storage slices across data center infrastructure
 - **Network Aggregation** - Access to data center-wide bandwidth capacity
@@ -188,6 +197,7 @@ The explosive growth in AI model sizes and training datasets has driven the need
 #### Live 320-Server Demonstration
 
 **Unprecedented Performance Results:**
+
 - **Write Performance:** 15 terabits per second across 320 servers
 - **Read Performance:** 25 terabits per second aggregate throughput
 - **Real Application:** BlobFuse2 mounting scaled storage accounts
@@ -209,6 +219,7 @@ Mark reflects on Microsoft's journey with Linux, from historical tensions to bec
 #### Historical Milestones
 
 **Microsoft's Linux Journey:**
+
 - **2012:** Azure launches with Linux IaaS support
 - **2014:** Satya Nadella announces "Microsoft loves Linux"
 - **2023:** Azure Linux distribution announcement (Build 2023)
@@ -226,6 +237,7 @@ LinuxGuard addresses the critical challenge of code integrity in container envir
 #### Security Architecture Components
 
 **LinuxGuard Stack:**
+
 - **DM-verity** - Container image layer verification
 - **SELinux** - Security controls and access policies  
 - **IPE (Integrity Policy Enforcement)** - Signature verification engine
@@ -235,6 +247,7 @@ LinuxGuard addresses the critical challenge of code integrity in container envir
 #### Policy Enforcement Demonstration
 
 **Security Policy Results:**
+
 - **Host Protection:** "hello-host" unsigned executable blocked
 - **Container Protection:** "hello-container" unsigned executable blocked in container
 - **Audit Trail:** Complete logging of execution attempts and policy decisions
@@ -263,6 +276,7 @@ Mark introduces Microsoft's internal term "hostile multi-tenancy," establishing 
 #### Hyperlight Architecture
 
 **Technical Components:**
+
 - **WebAssembly Runtime** - WASI-compatible execution environment
 - **Hypervisor APIs** - Standard virtualization interfaces for micro-VM creation
 - **Micro-VM Scale** - Tens of megabytes instead of hundreds of megabytes/gigabytes
@@ -278,6 +292,7 @@ The productization of Hyperlight in Azure Front Door demonstrates the practical 
 #### Edge Computing Implementation
 
 **Azure Front Door Capabilities:**
+
 - **User-Defined Functions** - Custom code execution at edge locations
 - **Image Processing Example** - Live demonstration of crop face functionality
 - **Edge Optimization** - Processing before content reaches origin servers
@@ -294,6 +309,7 @@ The demonstration shows:
 #### Open Source Contribution
 
 **CNCF Release:**
+
 - **Multi-Hypervisor Support** - Both Hyper-V and KVM compatibility
 - **Open Governance** - CNCF sandbox project status
 - **Community Innovation** - Enabling broader ecosystem adoption
@@ -312,6 +328,7 @@ Azure Container Instances represents Microsoft's vision of serverless computing 
 #### Serverless Philosophy
 
 **ACI Strategic Vision:**
+
 - **Infrastructure Abstraction** - Focus on containers and applications
 - **Platform Orchestration** - Automatic application deployment and management
 - **Industry Leadership** - First hyperscale cloud provider with serverless containers
@@ -320,6 +337,7 @@ Azure Container Instances represents Microsoft's vision of serverless computing 
 #### AKS Integration Patterns
 
 **Virtual Node Implementation:**
+
 - **Bursting Capability** - Scale from fixed AKS pools to serverless ACI
 - **Standby Pools** - Low-latency scale-out with minimal cost overhead
 - **Cost Optimization** - Fraction of running container costs for standby capacity
@@ -327,6 +345,7 @@ Azure Container Instances represents Microsoft's vision of serverless computing 
 #### 10,000 Container Demonstration
 
 **Massive Scale Achievement:**
+
 - **Deployment Target:** 10,000 containers across 3 deployments (2,500 each)
 - **Infrastructure:** Serverless ACI with standby pool optimization
 - **Container Type:** Full operating systems and applications, not empty containers
@@ -349,6 +368,7 @@ Project Radius addresses the complexity of modern application deployment by sepa
 #### Azure Incubations History
 
 **Graduated CNCF Projects:**
+
 - **KEDA (2023)** - Kubernetes Event-Driven Autoscaler
 - **Copa/Copacetic (2023)** - Container image patching without rebuilds  
 - **Dapr (2024)** - Distributed application runtime (5-year journey to graduation)
@@ -356,11 +376,13 @@ Project Radius addresses the complexity of modern application deployment by sepa
 #### Platform Engineering Solution
 
 **Application Deployment Challenges:**
+
 - **Multi-Service Complexity** - Containers, networking, multiple clouds, on-premises
 - **Tooling Fragmentation** - Helm charts, bash scripts, Terraform recipes
 - **Team Coordination** - Infrastructure knowledge requirements for application teams
 
 **Radius Benefits:**
+
 - **Team Collaboration** - Application architects focus on app requirements
 - **Infrastructure Binding** - Deploy to arbitrary clouds and environments
 - **Dependency Visualization** - Application resource relationship graphs
@@ -369,6 +391,7 @@ Project Radius addresses the complexity of modern application deployment by sepa
 #### FINOS TraderX Demonstration
 
 **Real-World Application:**
+
 - **Industry Reference** - Financial consortium trading application
 - **Rapid Ratification** - One day conversion from Helm charts and scripts
 - **Multi-Target Deployment** - Both AKS and ACI container groups
@@ -386,6 +409,7 @@ Drasi revolutionizes reactive application development by replacing complex state
 #### Complex State Management Problem
 
 **Traditional Challenges:**
+
 - **Multiple Data Sources** - Polling, change feeds, streaming data
 - **State Tracking Logic** - Remember triggers, avoid duplicates, handle complex conditions
 - **Multi-Condition Scenarios** - Cross-database joins and temporal requirements
@@ -394,6 +418,7 @@ Drasi revolutionizes reactive application development by replacing complex state
 #### Continuous Query Pattern
 
 **Drasi Architecture:**
+
 - **Query Definition** - Cypher/GraphQL continuous queries
 - **Source Management** - Automatic handling of polling, feeds, and streams
 - **Result Set Notifications** - Updates when query results change
@@ -402,6 +427,7 @@ Drasi revolutionizes reactive application development by replacing complex state
 #### Curbside Pickup Demonstration
 
 **Multi-Database Scenario:**
+
 - **Order Database (Postgres)** - Order status tracking
 - **Location Database (SQL)** - Car position monitoring
 - **Join Condition** - "Order ready AND car at curbside"
@@ -424,6 +450,7 @@ Confidential computing represents the future of data protection, extending encry
 #### Confidential Computing Foundation
 
 **Data Protection Lifecycle:**
+
 - **In Transit** - TLS encryption (widely adopted)
 - **At Rest** - Storage encryption (widely adopted)
 - **In Use** - Hardware-based Trusted Execution Environments (TEEs)
@@ -431,6 +458,7 @@ Confidential computing represents the future of data protection, extending encry
 #### Threat Model Coverage
 
 **Protection Against:**
+
 - **Hypervisor Access** - Host system cannot access encrypted data
 - **Host OS Access** - Operating system isolation from protected workloads
 - **Operator Access** - Administrative users cannot view sensitive data
@@ -439,6 +467,7 @@ Confidential computing represents the future of data protection, extending encry
 #### Microsoft's Confidential Computing Leadership
 
 **Historical Timeline:**
+
 - **2015** - Microsoft coins "confidential computing" term
 - **Hardware Partnerships** - Intel TDX, AMD SEV-SNP virtual machines
 - **NVIDIA Integration** - Confidential GPU development and deployment
@@ -447,6 +476,7 @@ Confidential computing represents the future of data protection, extending encry
 #### Multi-GPU Implementation
 
 **ServiceNow Production Use Case:**
+
 - **Agentic Flows** - AI agents processing sensitive commission data
 - **Multi-GPU Models** - H200 GPUs with confidential NVLink connections
 - **Protected PCIe** - Confidential communication between CPU and GPUs
@@ -455,6 +485,7 @@ Confidential computing represents the future of data protection, extending encry
 #### Live H200 Demonstration
 
 **Technical Validation:**
+
 - **TDX Attestation** - Cryptographic proof of virtual machine integrity
 - **GPU Attestation** - Eight H200 GPUs verified for confidential operation
 - **DeepSeek-R1 Model** - Large language model running confidentially
@@ -476,6 +507,7 @@ Microsoft Research Cambridge's optical computing project represents a revolution
 #### Optical Computing Vision
 
 **Environmental and Performance Benefits:**
+
 - **Room Temperature Operation** - No cooling requirements unlike electronic systems
 - **Light Speed Processing** - Theoretical maximum processing speed
 - **Energy Efficiency** - Reduced power consumption for specific operations
@@ -483,6 +515,7 @@ Microsoft Research Cambridge's optical computing project represents a revolution
 #### Technical Implementation
 
 **Light-Based Operations:**
+
 - **Multiplication** - Optical filters perform multiply operations
 - **Addition** - Light combination onto sensors creates pixel addition
 - **Neural Network Mapping** - Direct optical implementation of AI computation primitives
@@ -490,6 +523,7 @@ Microsoft Research Cambridge's optical computing project represents a revolution
 #### Hardware Components
 
 **Physical Architecture:**
+
 - **Micro LEDs** - Data input to the optical system
 - **Weight Configuration** - Positive and negative optical weights
 - **SIMA Sensors** - Output detection and measurement
@@ -498,6 +532,7 @@ Microsoft Research Cambridge's optical computing project represents a revolution
 #### Live Hardware Demonstration
 
 **Digit Classification Results:**
+
 - **Model Size** - Few thousand parameters (research scale)
 - **Recognition Task** - Handwritten digit classification (0-9)
 - **Processing Method** - Complete neural network operations performed with light
@@ -518,6 +553,7 @@ Mark concludes with a demonstration of Azure's most powerful virtual machine con
 #### Mega-Scale Virtual Machine
 
 **Unprecedented Specifications:**
+
 - **Virtual Processors:** 1,792 cores
 - **Memory:** 32 terabytes RAM
 - **Use Case:** Demonstration of Azure's scale capabilities
@@ -726,17 +762,20 @@ Hyperlight (Micro-VM Sandboxing):
 #### Interactive Demonstrations and Audience Participation
 
 **Rust Programming Language Recognition:**
+
 - **Context:** Mark's embarrassment about C code in Hyperlight demo
 - **Audience Response:** Community immediately identified Rust as preferred language
 - **Policy Statement:** Deputy CISO mandate for Rust in new Azure system code
 - **Significance:** Public commitment to memory-safe systems programming
 
 **Build Conference Demographics:**
+
 - **First-time Attendees:** Significant portion of audience new to Build
 - **Azure Innovations Veterans:** Many familiar with online versions of annual session
 - **Technical Engagement:** Strong audience familiarity with Azure services and CNCF projects
 
 **Demonstration Reactions:**
+
 - **11x RDMA Performance:** Applause for Guest RDMA benchmark results
 - **25 Terabit Storage:** Strong audience reaction to scaled storage demonstration
 - **10,000 Container Launch:** Appreciation for serverless container scale

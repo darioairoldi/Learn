@@ -470,6 +470,7 @@ git reset --hard <commit-hash>
 ```
 
 **When to use each:**
+
 - **Revert**: When working on shared branches (safe)
 - **Reset**: When working on local branches only (destructive)
 
