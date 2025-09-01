@@ -534,6 +534,42 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
+    // FIXED: Simplified URL processing to prevent path duplication
+    function fixUrlPath(originalHref) {
+      if (!originalHref) return '#';
+      
+      let fixedHref = originalHref;
+      
+      // Convert file extensions to .html
+      if (fixedHref.endsWith('.md') || fixedHref.endsWith('.qmd')) {
+        fixedHref = fixedHref.replace(/\.(md|qmd)$/, '.html');
+      }
+      
+      // Simple URL encoding for spaces and special characters
+      // Only encode individual path segments, don't double-encode
+      const pathParts = fixedHref.split('/');
+      const encodedParts = pathParts.map(part => {
+        if (part === '' || part === '.' || part === '..' || part.startsWith('#')) {
+          return part;
+        }
+        
+        // Only encode if not already encoded and contains special characters
+        if (part.includes(' ') || part.includes('#') || part.includes('&')) {
+          // Check if already encoded by looking for % characters
+          if (!part.includes('%')) {
+            return encodeURIComponent(part);
+          }
+        }
+        
+        return part;
+      });
+      
+      const result = encodedParts.join('/');
+      
+      console.log(`🔧 URL fix: "${originalHref}" → "${result}"`);
+      return result;
+    }
+    
     // OPTIMIZED: Render only sibling pages, not entire navigation tree - UPDATED WITH SECTION SUPPORT
     function renderRightNav() {
       try {
@@ -569,31 +605,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // This is a regular link
             const link = document.createElement('a');
             
-            // FIXED: Properly convert .md and .qmd paths to .html paths for navigation
-            let fixedHref = sibling.href;
-            
-            // Convert file extensions to .html
-            if (fixedHref.endsWith('.md') || fixedHref.endsWith('.qmd')) {
-              fixedHref = fixedHref.replace(/\.(md|qmd)$/, '.html');
-            }
-            
-            // Handle URL encoding for paths with spaces and special characters
-            // Split the path into segments, encode each segment, then rejoin
-            const pathSegments = fixedHref.split('/');
-            const encodedSegments = pathSegments.map(segment => {
-              // Don't encode the file extension part or empty segments
-              if (segment === '' || segment === '.' || segment === '..') {
-                return segment;
-              }
-              // Encode the segment but preserve the .html extension
-              if (segment.endsWith('.html')) {
-                const name = segment.slice(0, -5); // Remove .html
-                return encodeURIComponent(name) + '.html';
-              } else {
-                return encodeURIComponent(segment);
-              }
-            });
-            fixedHref = encodedSegments.join('/');
+            // FIXED: Use simplified URL processing
+            const fixedHref = fixUrlPath(sibling.href);
             
             link.href = fixedHref;
             link.textContent = sibling.text;
