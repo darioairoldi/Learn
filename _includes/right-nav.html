@@ -111,6 +111,16 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
   font-weight: normal !important;
   font-style: normal !important;
 }
+
+/* Fix gap issue in main Quarto sidebar */
+#quarto-sidebar .sidebar-item-text {
+  gap: 0 !important; /* Remove unwanted gap that causes misalignment */
+}
+
+/* Ensure proper alignment in sidebar items */
+#quarto-sidebar .sidebar-item {
+  gap: 0 !important;
+}
 </style>
 
 <script>
@@ -553,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // FIXED: Clean URL processing to prevent path duplication
+    // FIXED: Gentler URL processing to prevent over-encoding
     function fixUrlPath(originalHref) {
       if (!originalHref || originalHref === '#') return '#';
       
@@ -564,28 +574,50 @@ document.addEventListener('DOMContentLoaded', function() {
         fixedHref = fixedHref.replace(/\.(md|qmd)$/, '.html');
       }
       
-      // Determine the site base URL
-      const currentOrigin = window.location.origin;
-      const currentPath = window.location.pathname;
+      // Manual encoding that's more compatible with static site generators
+      // Only encode spaces and other problematic characters, but be gentle with # and other common chars
+      const pathSegments = fixedHref.split('/');
+      const encodedSegments = pathSegments.map(segment => {
+        // Don't encode empty segments or fragments
+        if (segment === '' || segment.startsWith('#')) {
+          return segment;
+        }
+        
+        // Manual encoding that's more compatible with static site generators
+        // Need to properly encode # characters as they have special meaning in URLs
+        return segment
+          .replace(/ /g, '%20')           // Encode spaces
+          .replace(/#/g, '%23')          // Encode # characters (important!)
+          .replace(/&/g, '%26')          // Encode ampersands
+          .replace(/\?/g, '%3F');        // Encode question marks
+      });
       
-      // Check if this is GitHub Pages
+      fixedHref = encodedSegments.join('/');
+      
+      // Determine the site base URL and make it absolute
       const isGitHubPages = window.location.hostname.includes('github.io');
-      const repoName = 'Learn';
+      const currentOrigin = window.location.origin;
       
       let baseUrl;
       if (isGitHubPages) {
-        baseUrl = `${currentOrigin}/${repoName}/`;
+        baseUrl = `${currentOrigin}/Learn/`;
       } else {
         baseUrl = `${currentOrigin}/`;
       }
       
-      // Create absolute URL from relative path
-      const absoluteUrl = new URL(fixedHref, baseUrl).href;
-      
-      console.log(`🔧 URL fix: "${originalHref}" → "${absoluteUrl}"`);
-      console.log(`🌐 Base URL: "${baseUrl}"`);
-      
-      return absoluteUrl;
+      // Ensure we don't double-add the base path
+      if (fixedHref.startsWith('/')) {
+        // Already absolute path
+        return fixedHref;
+      } else if (fixedHref.startsWith('http')) {
+        // Already full URL
+        return fixedHref;
+      } else {
+        // Make it absolute by adding base
+        const absoluteUrl = baseUrl + fixedHref;
+        console.log(`🔧 URL fix: "${originalHref}" → "${absoluteUrl}"`);
+        return absoluteUrl;
+      }
     }
     
     // OPTIMIZED: Render only sibling pages, not entire navigation tree - UPDATED WITH SECTION SUPPORT
