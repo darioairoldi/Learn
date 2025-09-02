@@ -207,6 +207,27 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
 document.addEventListener('DOMContentLoaded', function() {
   console.log('📋 Related Pages loading...');
   
+  // Add tooltips to intelligent navbar icons
+  function addIntelligentTooltips() {
+    const tooltipMappings = [
+      { selector: '[aria-label="Intelligent Notifications"]', title: 'Intelligent Notifications' },
+      { selector: '[aria-label="Intelligent Feeds"]', title: 'Intelligent Feeds' },
+      { selector: '[aria-label="Intelligent Rules"]', title: 'Intelligent Rules' }
+    ];
+    
+    tooltipMappings.forEach(mapping => {
+      const elements = document.querySelectorAll(mapping.selector);
+      elements.forEach(element => {
+        element.setAttribute('title', mapping.title);
+        console.log('🏷️ Added tooltip to:', mapping.title);
+      });
+    });
+  }
+  
+  // Add tooltips immediately and after potential DOM changes
+  addIntelligentTooltips();
+  setTimeout(addIntelligentTooltips, 100); // Fallback after Quarto initialization
+  
   // Global navigation structure from navigation.json
   let navigationConfig = null;
   

@@ -1,27 +1,27 @@
 # How to Convert YAML to JSON - Complete Guide
 
-## ?? Table of Contents
+## 📋 Table of Contents
 
-- [?? Overview](#-overview)
-- [?? Simple Solutions](#-simple-solutions)
+- [📖 Overview](#-overview)
+- [⚡ Simple Solutions](#-simple-solutions)
   - [Online Converters](#online-converters)
   - [PowerShell Native Conversion](#powershell-native-conversion)
-- [?? Command-Line Tools](#-command-line-tools)
+- [🛠️ Command-Line Tools](#-command-line-tools)
   - [yq Tool (Recommended)](#yq-tool-recommended)
   - [Python-based Solutions](#python-based-solutions)
   - [Node.js Solutions](#nodejs-solutions)
-- [?? Programming Solutions](#?-programming-solutions)
+- [💻 Programming Solutions](#-programming-solutions)
   - [PowerShell Script Integration](#powershell-script-integration)
   - [C# Application Development](#c-application-development)
   - [Python Automation](#python-automation)
-- [??? Advanced Integration](#?-advanced-integration)
+- [🔄 Advanced Integration](#-advanced-integration)
   - [Build Pipeline Integration](#build-pipeline-integration)
   - [Continuous Integration](#continuous-integration)
-- [?? References](#-references)
+- [📚 References](#-references)
 
 ---
 
-## ?? **Overview**
+## 📖 **Overview**
 
 Converting YAML to JSON is a common task in modern development workflows, especially when working with configuration files, CI/CD pipelines, and documentation systems. This guide covers practical solutions from simple online tools to enterprise-grade automation, based on real-world implementation experience.
 
@@ -38,7 +38,7 @@ In our Quarto documentation project, we needed to convert `_quarto.yml` navigati
 
 ---
 
-## ?? **Simple Solutions**
+## ⚡ **Simple Solutions**
 
 ### Online Converters
 
@@ -46,17 +46,17 @@ In our Quarto documentation project, we needed to convert `_quarto.yml` navigati
 
 **Pros:**
 
-- ? No software installation required
-- ? Instant results
-- ? User-friendly interfaces
-- ? Validation and error checking
+- ✅ No software installation required
+- ✅ Instant results
+- ✅ User-friendly interfaces
+- ✅ Validation and error checking
 
 **Cons:**
 
-- ? Not suitable for automation
-- ? Privacy concerns with sensitive data
-- ? No version control integration
-- ? Limited to small files
+- ❌ Not suitable for automation
+- ❌ Privacy concerns with sensitive data
+- ❌ No version control integration
+- ❌ Limited to small files
 
 **How to Implement:**
 
@@ -79,17 +79,17 @@ In our Quarto documentation project, we needed to convert `_quarto.yml` navigati
 
 **Pros:**
 
-- ? No external dependencies
-- ? Built into Windows
-- ? Good for automation
-- ? Integrates with existing PowerShell workflows
+- ✅ No external dependencies
+- ✅ Built into Windows
+- ✅ Good for automation
+- ✅ Integrates with existing PowerShell workflows
 
 **Cons:**
 
-- ? Limited YAML parsing capabilities
-- ? Windows-specific solution
-- ? May not handle complex YAML features
-- ? Requires PowerShell knowledge
+- ❌ Limited YAML parsing capabilities
+- ❌ Windows-specific solution
+- ❌ May not handle complex YAML features
+- ❌ Requires PowerShell knowledge
 
 **How to Implement:**
 
@@ -117,7 +117,7 @@ function Convert-YamlToJson {
     # Save to file
     $jsonContent | Out-File -FilePath $JsonOutputPath -Encoding utf8 -NoNewline
     
-    Write-Host "? Converted $YamlFilePath to $JsonOutputPath"
+    Write-Host "✅ Converted $YamlFilePath to $JsonOutputPath"
 }
 
 # Usage
@@ -126,7 +126,7 @@ Convert-YamlToJson -YamlFilePath "_quarto.yml" -JsonOutputPath "config.json"
 
 ---
 
-## ?? **Command-Line Tools**
+## 🛠️ **Command-Line Tools**
 
 ### yq Tool (Recommended)
 
@@ -136,17 +136,17 @@ Based on our real-world implementation experience, yq proved to be the most reli
 
 **Pros:**
 
-- ? Extremely reliable and well-maintained
-- ? Powerful query and transformation capabilities
-- ? Cross-platform compatibility
-- ? Excellent performance
-- ? Active community and documentation
+- ✅ Extremely reliable and well-maintained
+- ✅ Powerful query and transformation capabilities
+- ✅ Cross-platform compatibility
+- ✅ Excellent performance
+- ✅ Active community and documentation
 
 **Cons:**
 
-- ? Requires installation/download
-- ? Learning curve for advanced features
-- ? Additional dependency to manage
+- ❌ Requires installation/download
+- ❌ Learning curve for advanced features
+- ❌ Additional dependency to manage
 
 **How to Implement:**
 
@@ -190,16 +190,16 @@ $navigationStructure | ConvertTo-Json -Depth 20 | Out-File -FilePath $navFile -E
 
 **Pros:**
 
-- ? Extensive ecosystem (PyYAML, ruamel.yaml)
-- ? Powerful data manipulation capabilities
-- ? Cross-platform compatibility
-- ? Good for complex transformations
+- ✅ Extensive ecosystem (PyYAML, ruamel.yaml)
+- ✅ Powerful data manipulation capabilities
+- ✅ Cross-platform compatibility
+- ✅ Good for complex transformations
 
 **Cons:**
 
-- ? Requires Python installation
-- ? Dependency management complexity
-- ? Slower than native tools for simple conversions
+- ❌ Requires Python installation
+- ❌ Dependency management complexity
+- ❌ Slower than native tools for simple conversions
 
 **How to Implement:**
 
@@ -217,10 +217,10 @@ def convert_yaml_to_json(yaml_file, json_file):
         with open(json_file, 'w', encoding='utf-8') as f:
             json.dump(yaml_data, f, indent=2, ensure_ascii=False)
         
-        print(f"? Converted {yaml_file} to {json_file}")
+        print(f"✅ Converted {yaml_file} to {json_file}")
         
     except Exception as e:
-        print(f"? Error: {e}")
+        print(f"❌ Error: {e}")
         sys.exit(1)
 
 # Usage
@@ -259,7 +259,7 @@ def convert(input_file, output_file, extract, indent):
     with open(output_file, 'w') as f:
         json.dump(data, f, indent=indent, ensure_ascii=False)
     
-    click.echo(f"? Converted {input_file} to {output_file}")
+    click.echo(f"✅ Converted {input_file} to {output_file}")
 
 if __name__ == '__main__':
     convert()
@@ -271,16 +271,16 @@ if __name__ == '__main__':
 
 **Pros:**
 
-- ? Fast execution
-- ? Great for web development workflows
-- ? Extensive package ecosystem
-- ? JSON-native environment
+- ✅ Fast execution
+- ✅ Great for web development workflows
+- ✅ Extensive package ecosystem
+- ✅ JSON-native environment
 
 **Cons:**
 
-- ? Requires Node.js installation
-- ? npm dependency management
-- ? JavaScript-specific solution
+- ❌ Requires Node.js installation
+- ❌ npm dependency management
+- ❌ JavaScript-specific solution
 
 **How to Implement:**
 
@@ -311,7 +311,7 @@ convertYamlToJson('_quarto.yml', 'config.json');
 
 ---
 
-## ?? **Programming Solutions**
+## 💻 **Programming Solutions**
 
 ### PowerShell Script Integration
 
@@ -321,10 +321,10 @@ Our production implementation demonstrates a robust PowerShell-based solution wi
 
 **Advanced Features:**
 
-- ? Timestamp-based smart regeneration
-- ? Automatic tool download and management
-- ? Error handling and validation
-- ? Integration with build systems
+- ⚙️ Timestamp-based smart regeneration
+- ⚙️ Automatic tool download and management
+- ⚙️ Error handling and validation
+- ⚙️ Integration with build systems
 
 **How to Implement:**
 
@@ -344,7 +344,7 @@ function Convert-YamlToJsonAdvanced {
         $targetModified = (Get-Item $TargetFile).LastWriteTime
         
         if ($sourceModified -le $targetModified) {
-            Write-Host "? $TargetFile is current, skipping generation"
+            Write-Host "ℹ️ $TargetFile is current, skipping generation"
             return
         }
     }
@@ -363,10 +363,10 @@ function Convert-YamlToJsonAdvanced {
         $finalResult = @{ contents = ($result | ConvertFrom-Json) } | ConvertTo-Json -Depth 20
         $finalResult | Out-File -FilePath $TargetFile -Encoding utf8 -NoNewline
         
-        Write-Host "? Generated $TargetFile successfully"
+        Write-Host "✅ Generated $TargetFile successfully"
         
     } catch {
-        Write-Error "? Conversion failed: $_"
+        Write-Error "❌ Conversion failed: $_"
         exit 1
     }
 }
@@ -390,16 +390,16 @@ function Get-YqTool {
 
 **Pros:**
 
-- ? High performance
-- ? Strong typing and error handling
-- ? Excellent Visual Studio integration
-- ? Deployment flexibility
+- ✅ High performance
+- ✅ Strong typing and error handling
+- ✅ Excellent Visual Studio integration
+- ✅ Deployment flexibility
 
 **Cons:**
 
-- ? Requires .NET development environment
-- ? More complex than scripting solutions
-- ? Compilation step required
+- ❌ Requires .NET development environment
+- ❌ More complex than scripting solutions
+- ❌ Compilation step required
 
 **How to Implement:**
 
@@ -430,11 +430,11 @@ public class YamlToJsonConverter
             // Write JSON
             File.WriteAllText(jsonFile, jsonContent);
             
-            Console.WriteLine($"? Converted {yamlFile} to {jsonFile}");
+            Console.WriteLine($"✅ Converted {yamlFile} to {jsonFile}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"? Error: {ex.Message}");
+            Console.WriteLine($"❌ Error: {ex.Message}");
             Environment.Exit(1);
         }
     }
@@ -492,11 +492,11 @@ class YamlToJsonConverter:
             with open(json_file, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=indent, ensure_ascii=False)
             
-            self.logger.info(f"? Converted {yaml_file} to {json_file}")
+            self.logger.info(f"✅ Converted {yaml_file} to {json_file}")
             return True
             
         except Exception as e:
-            self.logger.error(f"? Conversion failed: {e}")
+            self.logger.error(f"❌ Conversion failed: {e}")
             return False
     
     def _extract_path(self, data: Dict[str, Any], path: str) -> Any:
@@ -538,7 +538,7 @@ if __name__ == '__main__':
 
 ---
 
-## ??? **Advanced Integration**
+## 🔄 **Advanced Integration**
 
 ### Build Pipeline Integration
 
@@ -625,7 +625,7 @@ stages:
 
 ---
 
-## ?? **References**
+## 📚 **References**
 
 ### Official Documentation
 - **[yq Documentation](https://mikefarah.gitbook.io/yq/)** - Complete guide to the yq command-line YAML processor

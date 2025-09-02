@@ -70,7 +70,7 @@ website:
           - href: "202506 Build 2025/BRK106 Elevating Development with .NET Aspire AI/README.Sonnet4.md"
             text: "Build 2025: BRK106 - .NET Aspire AI & Cloud"
           - href: "202506 Build 2025/BRK114 C# 14 Language Features and Beyond/README.Sonnet4.md"
-            text: "Build 2025: BRK114 - What's New in C# 14"
+            text: "Build 2025: BRK114 - What's New in CS 14"
           - href: "202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/README.Sonnet4.md"
             text: "Build 2025: BRK119 - Debug Like a Pro with Visual Studio & Copilot"
           - href: "202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/README.Sonnet4.md"
@@ -131,6 +131,8 @@ website:
             text: "Build 2025: ODFP957 - Sentry & Copilot AI Debugging"
           - href: "202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.md"
             text: "Build 2025: STUDIO14 - Agents & Azure AI Foundry"
+      # - text: "Development Tools"
+      #   menu:
     right:
       - text: "Culture & Travel"
         menu:
@@ -404,6 +406,11 @@ website:
                     text: "Deploying to Azure Storage"
               - href: "20250713 Use http files for easy and repeatable test/README.md"
                 text: "HTTP Files (Extended)"
+              - section: "Diginsight"
+                href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
+                contents:
+                  - href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
+                    text: "CosmosDB Query Cost Metrics with Diginsight"
           - section: "Data Processing"
             contents:
               - href: "20250827 what is yq overview/README.md"
