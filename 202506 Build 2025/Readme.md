@@ -7,7 +7,7 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 ### 🔧 .NET & Language Features
 1. [BRK101: AI-Powered .NET Modernization](#brk101-ai-powered-net-modernization)
 2. [BRK103: Microsoft Developers Use AI](#brk103-microsoft-developers-use-ai)
-3. [BRK114: C# 14 Language Features and Beyond](#brk114-c-14-language-features-and-beyond)
+3. [BRK114: C# 14 Language Features and Beyond](#brk114-cs-14-language-features-and-beyond)
 4. [DEM515: Write Better C# Code](#dem515-write-better-c-code)
 5. [DEM518: Direct C# File Execution](#dem518-direct-c-file-execution)
 
@@ -91,7 +91,7 @@ Evolution of .NET Aspire from local development tool to comprehensive platform f
 ---
 
 ### BRK114: C# 14 Language Features and Beyond
-**[Summary](./BRK114%20C#%2014%20Language%20Features%20and%20Beyond/SUMMARY.md) | [Details](./BRK114%20C#%2014%20Language%20Features%20and%20Beyond/README.Sonnet4.md)**
+**[Summary](./BRK114%20CS%2014%20Language%20Features%20and%20Beyond/SUMMARY.md) | [Details](./BRK114%20CS%2014%20Language%20Features%20and%20Beyond/README.Sonnet4.md)**
 
 Demo-filled tour of upcoming C# 14 features including dictionary expressions, extension members, field access in auto-properties, and operator enhancements. Focus on making code clearer and more expressive.
 
@@ -306,7 +306,7 @@ Sentry and Copilot integration for AI-powered debugging. Error tracking and reso
 ---
 
 ### STUDIO14: Agents & Azure AI Foundry
-**[Summary](./STUDIO14%20Agents%20AI%20and%20Azure%20Foundry/SUMMARY.md) | [Details](./STUDIO14%20Agents%20AI%20and%20Azure%20AI%20Foundry/README.Sonnet4.md)**
+**[Summary](./STUDIO14%20Agents%20AI%20and%20Azure%20AI%20Foundry/SUMMARY.md) | [Details](./STUDIO14%20Agents%20AI%20and%20Azure%20AI%20Foundry/README.Sonnet4.md)**
 
 Comprehensive studio session on agents and Azure AI Foundry. Platform deep-dive and hands-on development experience.
 
