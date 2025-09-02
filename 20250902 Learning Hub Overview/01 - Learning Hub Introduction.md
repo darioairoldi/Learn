@@ -4,7 +4,7 @@ author: "Dario Airoldi"
 date: "2025-08-29"
 date-modified: last-modified
 version: "1.0"
-description: "A comprehensive tool for transforming passive information consumption into intelligent, automated knowledge management and development"
+description: "A comprehensive tool for transforming passive information consumption into intelligent, automated knowledge development"
 keywords: 
   - Learning Hub
   - Knowledge Management
