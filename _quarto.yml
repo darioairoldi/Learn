@@ -163,7 +163,7 @@ website:
         icon: house-fill
         contents:
           - href: "20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
-            text: "Learning Hub Concept Overview"
+            text: "Learning Hub Concept"
           - href: "20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
             text: "Using Learning Hub for Learning Technologies"
       

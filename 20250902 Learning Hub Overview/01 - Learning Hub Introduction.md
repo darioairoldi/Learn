@@ -1,5 +1,5 @@
 ﻿---
-title: "Learning Hub Concept Overview"
+title: "Learning Hub Concept"
 author: "Dario Airoldi"
 date: "2025-08-29"
 date-modified: last-modified
