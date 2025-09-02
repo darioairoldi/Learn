@@ -115,6 +115,62 @@
   text-align: center;
   margin-right: 0.5rem !important;
 }
+
+/* Collapse search component to minimize space */
+.sidebar-search,
+#quarto-search,
+.mt-2.flex-shrink-0.align-items-center {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Fix sidebar alignment and remove unnecessary margins */
+#quarto-sidebar {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Remove any unwanted spacing at the top of sidebar content */
+#quarto-sidebar .sidebar-menu-container,
+#quarto-sidebar .sidebar-navigation {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Make left sidebar align like right sidebar without breaking content */
+#quarto-sidebar {
+  position: sticky !important;
+  top: 0 !important;
+  align-self: flex-start !important;
+  max-height: 100vh !important;
+  overflow-y: auto !important;
+}
+
+/* Simulate the margin-sidebar wrapper div behavior */
+#quarto-sidebar {
+  /* Add the same margin-top that .sidebar.margin-sidebar has */
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  padding: 0 !important;
+  
+  /* Wrapper div properties */
+  display: block !important;
+  width: auto !important;
+  min-height: 0 !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure right sidebar has consistent behavior */
+.quarto-margin-sidebar {
+  margin-top: 1rem !important;
+  padding-top: 0 !important;
+}
 </style>
 
 <script>
@@ -178,9 +234,19 @@ function getCollapsibleSections() {
     const sections = [];
     const chevrons = sidebar.querySelectorAll('.bi-chevron-right, .bi-chevron-down');
     
-    chevrons.forEach(chevron => {
+    console.log(`🔍 Found ${chevrons.length} chevron icons`);
+    
+    chevrons.forEach((chevron, index) => {
         const sidebarItem = chevron.closest('.sidebar-item');
         const sidebarText = sidebarItem?.querySelector('.sidebar-item-text');
+        
+        console.log(`Chevron ${index + 1}:`, {
+            text: sidebarText?.textContent?.trim(),
+            hasDataBsToggle: !!chevron.closest('[data-bs-toggle]'),
+            hasDataBsTarget: !!chevron.closest('[data-bs-target]'),
+            hasAriaExpanded: !!chevron.closest('[aria-expanded]'),
+            chevronClasses: chevron.className
+        });
         
         if (sidebarText && sidebarItem) {
             const text = sidebarText.textContent?.trim();
