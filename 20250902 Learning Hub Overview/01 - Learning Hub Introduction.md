@@ -32,9 +32,12 @@ audience: "Knowledge Workers, Consultants, Technology Professionals"
 
 ## 📋 Table of Contents
 
-- [📖 Overview](#-executive-summary)
+- [📖 Overview](#-overview)
 - [📚 Knowledge Information Sources](#-knowledge-information-sources)
-- [⚡ Scheduled Automated Prompts](#-scheduled-automated-prompts)
+- [⚡ Automated Prompts](#-automated-prompts)
+  - [Real time Automated Prompts](#real-time-automated-prompts)
+  - [User triggered Prompts](#user-triggered-prompts)
+  - [Scheduled Automated Prompts](#scheduled-automated-prompts)
 - [🚀 Deep Learning Accelerators](#-deep-learning-accelerators)
 - [🤝 Collaborative Learning](#-collaborative-learning)
 - [🛠️ Implementation Framework](#️-implementation-framework)
@@ -127,8 +130,24 @@ The Learning Hub creates and manages structured knowledge assets from diverse in
 
 ---
 
-## ⚡ Scheduled Automated Prompts
+## ⚡ Automated Prompts
 
+### Real time Prompts
+When accessing a specific article or document, the system can provide an on-the-fly 
+analysis and validations.
+
+- **Consistency Check** - Consistency with existing knowledge and upto date information
+- **Validate and update references** - Check that references are still valid and up to date
+- **Fact Verification** - Cross-referencing with trusted sources
+- **Gaps analysis** - check that gaps are not covered by the article, (eg. as for changes subsequent to the article creation)
+
+### User triggered Prompts
+- **Contextual Summary** - Key points and insights extraction (if required)
+- **Clarity and coherence Check** - Clarity and coherence evaluation
+- **Readability Check** - Conceptual flow and readability evaluation
+- **Create an example** - ...
+
+### Scheduled Automated Prompts
 The Learning Hub implements intelligent automation through scheduled prompt workflows that transform raw information into actionable intelligence.
 
 ### Daily Intelligence Triage

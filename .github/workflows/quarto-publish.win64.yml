@@ -128,7 +128,7 @@ jobs:
       shell: pwsh
       run: |
         Write-Host "Rendering Quarto project..."
-        quarto render
+        quarto render --to html
         
         Write-Host "Verifying output directory..."
         if (Test-Path "docs") {

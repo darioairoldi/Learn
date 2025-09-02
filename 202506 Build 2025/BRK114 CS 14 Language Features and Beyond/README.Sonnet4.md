@@ -521,7 +521,7 @@ Like collection expressions, dictionary expressions support custom builders for 
 
 ## Appendix A: C# Version History and Features
 
-For a comprehensive overview of C# language evolution from version 1.0 through the upcoming C# 14.0, including detailed feature descriptions and official documentation links, see the dedicated appendix document: **[Appendix A - C# Version History and Features.md](./Appendix%20A%20-%20C%23%20Version%20History%20and%20Features.md)**
+For a comprehensive overview of C# language evolution from version 1.0 through the upcoming C# 14.0, including detailed feature descriptions and official documentation links, see the dedicated appendix document: **[Appendix A - C# Version History and Features.md](./Appendix%20A%20-%20CS%20Version%20History%20and%20Features.md)**
 
 This appendix provides:
 
