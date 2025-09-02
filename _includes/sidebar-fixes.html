@@ -1,6 +1,6 @@
 <!-- Sidebar styling and fixes -->
 <style>
-/* Home link special styling - make it white and prominent */
+/* Home link special styling - make it white and prominent but allow collapse */
 .sidebar .nav-link[href="index.qmd"],
 .sidebar .sidebar-item-text[href="index.qmd"],
 .sidebar a[href="index.qmd"],
@@ -16,7 +16,7 @@
   border-radius: 12px !important;
   box-shadow: 0 3px 8px rgba(39, 128, 227, 0.3) !important;
   transition: all 0.3s ease !important;
-  display: block !important;
+  /* Remove display: block to allow collapsible functionality */
 }
 
 .sidebar .nav-link[href="index.qmd"]:hover,
@@ -31,16 +31,69 @@
   color: white !important;
 }
 
-/* Ensure sidebar icons work with emoji fallback */
+/* Ensure Home section chevron is visible and styled properly */
+#quarto-sidebar .sidebar-item:has(.sidebar-item-text[href="index.qmd"]) .bi-chevron-right,
+#quarto-sidebar .sidebar-item:has(.sidebar-item-text[href="index.qmd"]) .bi-chevron-down {
+  color: white !important;
+  opacity: 1 !important;
+  display: inline-block !important;
+  pointer-events: auto !important; /* Ensure chevron is clickable */
+  cursor: pointer !important;
+}
+
+/* Ensure Home section children are properly styled and accessible */
+#quarto-sidebar .sidebar-item:has(.sidebar-item-text[href="index.qmd"]) .sidebar-item .sidebar-item-text {
+  /* Reset the special Home styling for child items */
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #4a5568 !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  padding: 0.3rem 0.75rem !important;
+  padding-left: 1.5rem !important; /* Indent child items */
+  border-radius: 4px !important;
+  margin-bottom: 0.25rem !important;
+  transform: none !important;
+}
+
+/* Home section children hover effect */
+#quarto-sidebar .sidebar-item:has(.sidebar-item-text[href="index.qmd"]) .sidebar-item .sidebar-item-text:hover {
+  background-color: rgba(237, 242, 247, 0.8) !important;
+  color: #2d3748 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure Home section can expand/collapse properly */
+#quarto-sidebar .sidebar-item:has(.sidebar-item-text[href="index.qmd"]) .collapse {
+  background: transparent !important;
+}
+
+/* Ensure icons work with emoji fallback */
 .sidebar-navigation .sidebar-item-text {
     display: inline-flex;
     align-items: center;
 }
 
 /* FIXED: Left sidebar hierarchical indentation and spacing */
-/* Reset all sidebar items to consistent baseline */
+/* Reset all sidebar items to consistent baseline with proper spacing */
 #quarto-sidebar .sidebar-item {
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.4rem; /* Increased from 0.1rem for better separation */
+}
+
+/* Add extra spacing for top-level menu items */
+#quarto-sidebar > .sidebar-navigation > .sidebar-item {
+  margin-bottom: 0.6rem; /* More space between main sections */
+}
+
+/* Reduce spacing for nested items to maintain hierarchy */
+#quarto-sidebar .sidebar-item .sidebar-item {
+  margin-bottom: 0.25rem; /* Moderate spacing for first level nesting */
+}
+
+#quarto-sidebar .sidebar-item .sidebar-item .sidebar-item {
+  margin-bottom: 0.15rem; /* Minimal spacing for deep nesting */
 }
 
 /* Base styling for all sidebar item texts */
@@ -98,13 +151,7 @@
   background-color: rgba(39, 128, 227, 0.1) !important;
   color: #2780e3 !important;
   border-left: 3px solid #2780e3 !important;
-}
-
-/* Override any conflicting container-based rules */
-#quarto-sidebar .sidebar-item-container .sidebar-item-text,
-#quarto-sidebar .sidebar-section .sidebar-item-text {
-  /* Reset any container-specific padding - let hierarchy rules take precedence */
-  padding: inherit !important;
+  padding-left: 0.75rem !important; /* Add space between border and text */
 }
 
 /* Ensure icons align properly at all levels */
@@ -114,6 +161,13 @@
   width: 1em;
   text-align: center;
   margin-right: 0.5rem !important;
+}
+
+/* Add padding to sidebar links for better spacing */
+.sidebar-link,
+#quarto-sidebar .nav-link,
+#quarto-sidebar .sidebar-item-text {
+  padding: 0.25rem 0 !important;
 }
 
 /* Collapse search component to minimize space */
@@ -309,11 +363,58 @@ function getCollapsibleSections() {
 
 // Save sidebar state to localStorage using hierarchical structure
 function saveSidebarState() {
+    console.log('💾🔍 saveSidebarState() called');
     try {
         const sections = getCollapsibleSections();
         const hierarchicalState = {};
         
+        // First, preserve any existing Home state if it was manually set
+        const existingSavedState = localStorage.getItem(SIDEBAR_STATE_KEY);
+        let preserveHomeState = false;
+        let preservedHomeState = null;
+        
+        if (existingSavedState) {
+            try {
+                const existing = JSON.parse(existingSavedState);
+                if (existing.home && existing.home.hasOwnProperty('isExpanded')) {
+                    // Check if the Home state was recently modified (within last 5 seconds)
+                    const now = Date.now();
+                    const lastHomeUpdate = existing.home.lastUpdate || 0;
+                    const timeSince = now - lastHomeUpdate;
+                    console.log('💾🔍 Home state check:', {
+                        hasHome: !!existing.home,
+                        isExpanded: existing.home.isExpanded,
+                        lastUpdate: lastHomeUpdate,
+                        timeSince: timeSince,
+                        shouldPreserve: timeSince < 5000
+                    });
+                    if (timeSince < 5000) {
+                        preserveHomeState = true;
+                        preservedHomeState = existing.home;
+                        console.log('💾 Preserving recently updated Home state:', preservedHomeState.isExpanded);
+                    } else {
+                        console.log('💾 Home state too old, not preserving (age:', timeSince, 'ms)');
+                    }
+                }
+            } catch (e) {
+                console.error('💾❌ Error parsing existing state:', e);
+            }
+        }
+        
         sections.forEach(section => {
+            console.log('💾🔍 Processing section:', section.text, 'isExpanded:', section.isExpanded);
+            
+            // Special handling for Home section
+            if (section.text === 'Home' && preserveHomeState) {
+                // Skip normal processing for Home if we're preserving its state
+                const safeName = 'home';
+                hierarchicalState[safeName] = preservedHomeState;
+                console.log('💾 Preserved Home state instead of detecting:', preservedHomeState.isExpanded);
+                return;
+            } else if (section.text === 'Home') {
+                console.log('💾 Processing Home normally (not preserving)');
+            }
+            
             // Build the path array from hierarchicalPath
             const pathParts = section.hierarchicalPath.split(' > ').map(part => 
                 part.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_').toLowerCase()
@@ -333,6 +434,9 @@ function saveSidebarState() {
                 // If this is the final part, update with actual state
                 if (index === pathParts.length - 1) {
                     current[part].isExpanded = section.isExpanded;
+                    if (section.text === 'Home') {
+                        console.log('💾 Set Home isExpanded to:', section.isExpanded, '(from section detection)');
+                    }
                 } else {
                     current = current[part].children;
                 }
@@ -344,6 +448,44 @@ function saveSidebarState() {
         
     } catch (error) {
         console.error('❌ Failed to save sidebar state:', error);
+    }
+}
+
+// Function to collapse all sections by default (eliminates flickering)
+function collapseAllSectionsByDefault() {
+    try {
+        console.log('🔄 Collapsing all sections by default...');
+        const sidebar = document.getElementById('quarto-sidebar');
+        if (!sidebar) return;
+        
+        // Find all collapsible elements with .show class and remove it
+        const openSections = sidebar.querySelectorAll('.collapse.show');
+        let collapsedCount = 0;
+        
+        openSections.forEach(section => {
+            // Remove the .show class to collapse the section
+            section.classList.remove('show');
+            collapsedCount++;
+            
+            // Also update aria-expanded to false
+            const button = section.parentElement?.querySelector('[aria-expanded="true"]');
+            if (button) {
+                button.setAttribute('aria-expanded', 'false');
+            }
+            
+            // Update chevron icons
+            const chevron = section.parentElement?.querySelector('.bi-chevron-down');
+            if (chevron) {
+                chevron.classList.remove('bi-chevron-down');
+                chevron.classList.add('bi-chevron-right');
+            }
+        });
+        
+        console.log(`🔽 Collapsed ${collapsedCount} sections by default`);
+        return collapsedCount;
+    } catch (error) {
+        console.error('❌ Error collapsing sections:', error);
+        return 0;
     }
 }
 
@@ -380,6 +522,58 @@ function restoreSidebarState() {
         
         let restoredCount = 0;
         sections.forEach(section => {
+            console.log(`🔍 Checking section: "${section.text}" (path: ${section.hierarchicalPath})`);
+            
+            // Special handling for Home section
+            if (section.text === 'Home') {
+                console.log('🏠 Processing Home section restoration');
+                const homeState = hierarchicalState['home'];
+                if (homeState && homeState.isExpanded !== undefined) {
+                    const shouldBeExpanded = homeState.isExpanded;
+                    const isCurrentlyExpanded = section.isExpanded;
+                    
+                    console.log(`🏠 Home state - should be: ${shouldBeExpanded}, currently: ${isCurrentlyExpanded}`);
+                    
+                    if (shouldBeExpanded !== isCurrentlyExpanded) {
+                        console.log('🏠 Restoring Home section state...');
+                        setTimeout(() => {
+                            // Find the collapse target manually like we do in the click handler
+                            const homeItem = section.element;
+                            let targetElement = homeItem?.querySelector('.collapse');
+                            
+                            if (!targetElement) {
+                                const nextSibling = homeItem?.nextElementSibling;
+                                if (nextSibling?.classList.contains('collapse')) {
+                                    targetElement = nextSibling;
+                                }
+                            }
+                            
+                            if (targetElement) {
+                                console.log('🏠 Found Home collapse target, applying state...');
+                                if (shouldBeExpanded) {
+                                    targetElement.classList.add('show');
+                                    section.chevron.classList.remove('bi-chevron-right');
+                                    section.chevron.classList.add('bi-chevron-down');
+                                    console.log('🔽 Restored Home section to expanded');
+                                } else {
+                                    targetElement.classList.remove('show');
+                                    section.chevron.classList.remove('bi-chevron-down');
+                                    section.chevron.classList.add('bi-chevron-right');
+                                    console.log('🔼 Restored Home section to collapsed');
+                                }
+                                restoredCount++;
+                            } else {
+                                console.log('❌ Could not find Home collapse target for restoration');
+                            }
+                        }, 200); // Slightly longer delay for Home section
+                    }
+                } else {
+                    console.log('🏠 No saved state found for Home section');
+                }
+                return; // Skip normal processing for Home
+            }
+            
+            // Normal processing for other sections
             const pathParts = section.hierarchicalPath.split(' > ');
             const savedSection = findStateInHierarchy(pathParts, hierarchicalState);
             
@@ -412,14 +606,44 @@ document.addEventListener('click', function(event) {
     if (event.target.closest('#quarto-sidebar')) {
         
         // Check if this is a chevron click (collapse/expand action)
-        if (event.target.classList.contains('bi-chevron-right') || 
-            event.target.classList.contains('bi-chevron-down') ||
-            event.target.closest('.bi-chevron-right') ||
-            event.target.closest('.bi-chevron-down')) {
+        const isChevronClick = event.target.classList.contains('bi-chevron-right') || 
+                              event.target.classList.contains('bi-chevron-down') ||
+                              event.target.closest('.bi-chevron-right') ||
+                              event.target.closest('.bi-chevron-down');
+        
+        // Check if this is any Bootstrap collapse trigger
+        const isBootstrapTrigger = event.target.closest('[data-bs-toggle="collapse"]');
+        
+        if (isChevronClick || isBootstrapTrigger) {
+            console.log('🔄 Sidebar collapse trigger clicked');
             
-            console.log('🔄 Chevron clicked - saving state...');
+            // For Home section, let Bootstrap handle it naturally
+            // Try multiple ways to find Home item (same logic as earlier)
+            let homeItem = event.target.closest('.sidebar-item:has(.sidebar-item-text[href="index.qmd"])');
+            if (!homeItem) {
+                const homeLinks = Array.from(document.querySelectorAll('.sidebar-item-text') || []);
+                const homeLink = homeLinks.find(link => link.textContent.trim() === 'Home');
+                homeItem = homeLink?.closest('.sidebar-item');
+            }
+            if (!homeItem) {
+                homeItem = event.target.closest('.sidebar-item:has(.sidebar-item-text[href*="localhost"])');
+            }
             
-            // Wait for the DOM to update after the click, then save state
+            if (homeItem) {
+                console.log('🏠 Home section collapse trigger clicked - letting Bootstrap handle it');
+                
+                // Don't interfere with Bootstrap, just log and save state after
+                setTimeout(() => {
+                    const collapseElement = homeItem.querySelector('.collapse');
+                    const chevron = homeItem.querySelector('.bi-chevron-right, .bi-chevron-down');
+                    console.log('🏠 After Bootstrap handling:', {
+                        isExpanded: collapseElement?.classList.contains('show'),
+                        chevronClass: chevron?.className
+                    });
+                }, 100);
+            }
+            
+            // Wait for Bootstrap to update the DOM, then save state
             setTimeout(() => {
                 saveSidebarState();
             }, 300);
@@ -427,16 +651,243 @@ document.addEventListener('click', function(event) {
     }
 });
 
+// Also listen for Bootstrap collapse events specifically
+document.addEventListener('shown.bs.collapse', function(event) {
+    if (event.target.closest('#quarto-sidebar')) {
+        console.log('📂 Bootstrap collapse shown event');
+        saveSidebarState();
+    }
+});
+
+document.addEventListener('hidden.bs.collapse', function(event) {
+    if (event.target.closest('#quarto-sidebar')) {
+        console.log('📁 Bootstrap collapse hidden event');
+        saveSidebarState();
+    }
+});
+
 // Initialize everything when page loads
 setTimeout(() => {
     console.log('🔧 Initializing sidebar persistence...');
     
-    // First, restore any saved state
+    // DEBUG: Check what's in localStorage first
+    console.log('🔍 Checking localStorage contents...');
+    const savedState = localStorage.getItem(SIDEBAR_STATE_KEY);
+    if (savedState) {
+        try {
+            const parsed = JSON.parse(savedState);
+            console.log('💾 Current localStorage state:', parsed);
+            console.log('🏠 Home state in localStorage:', parsed.home);
+        } catch (error) {
+            console.error('❌ Error parsing localStorage:', error);
+        }
+    } else {
+        console.log('📂 No localStorage state found');
+    }
+    
+    // DEBUG: Check Home section structure - moved earlier
+    console.log('🔍 Starting Home section analysis...');
+    const sidebar = document.getElementById('quarto-sidebar');
+    
+    // Try multiple ways to find Home item
+    let homeItem = sidebar?.querySelector('.sidebar-item:has(.sidebar-item-text[href="index.qmd"])');
+    if (!homeItem) {
+        // Try looking for Home by text content
+        const homeLinks = Array.from(sidebar?.querySelectorAll('.sidebar-item-text') || []);
+        const homeLink = homeLinks.find(link => link.textContent.trim() === 'Home');
+        homeItem = homeLink?.closest('.sidebar-item');
+    }
+    if (!homeItem) {
+        // Try looking for localhost URL
+        homeItem = sidebar?.querySelector('.sidebar-item:has(.sidebar-item-text[href*="localhost"])');
+    }
+    
+    const homeChevron = homeItem?.querySelector('.bi-chevron-right, .bi-chevron-down');
+    const collapseTarget = homeItem?.querySelector('.collapse');
+    
+    console.log('🏠 Home section debug:', {
+        sidebar: !!sidebar,
+        homeItem: !!homeItem,
+        homeChevron: !!homeChevron,
+        collapseTarget: !!collapseTarget,
+        chevronDataBsTarget: homeChevron?.closest('[data-bs-target]')?.getAttribute('data-bs-target'),
+        collapseId: collapseTarget?.id,
+        collapseClasses: collapseTarget?.className,
+        homeItemOuterHTML: homeItem?.outerHTML.substring(0, 200) + '...'
+    });
+    
+    // IMMEDIATE HOME FIX: Try direct approach
+    if (homeChevron && !homeChevron.hasAttribute('data-home-fixed')) {
+        console.log('🔧 Adding direct Home chevron handler');
+        homeChevron.setAttribute('data-home-fixed', 'true');
+        
+        // Remove any existing listeners first
+        const newChevron = homeChevron.cloneNode(true);
+        homeChevron.parentNode.replaceChild(newChevron, homeChevron);
+        
+        newChevron.addEventListener('click', function(e) {
+            try {
+                console.log('🏠 HOME CHEVRON CLICKED!');
+                console.log('🔍 Starting debug sequence...');
+                
+                console.log('🔍 Event target:', e.target);
+                console.log('🔍 Event target classes:', e.target.className);
+                console.log('🔍 Event target parent:', e.target.parentElement);
+                
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('🔍 Prevented default and stopped propagation');
+                
+                const trigger = e.target.closest('[data-bs-target]');
+                console.log('🎯 Closest trigger element:', trigger);
+                
+                if (trigger) {
+                    console.log('🎯 Trigger classes:', trigger.className);
+                    console.log('🎯 Trigger attributes:', trigger.attributes ? Array.from(trigger.attributes).map(attr => `${attr.name}="${attr.value}"`).join(', ') : 'none');
+                } else {
+                    console.log('❌ No trigger element found');
+                }
+                
+                const targetSelector = trigger?.getAttribute('data-bs-target');
+                console.log('🎯 Target selector:', targetSelector);
+                
+                if (targetSelector && targetSelector !== '#' && targetSelector.length > 1) {
+                    console.log('✅ Valid target selector found, looking for element...');
+                    const targetElement = document.querySelector(targetSelector);
+                    console.log('🎯 Target element found:', !!targetElement);
+                    console.log('🎯 Target element:', targetElement);
+                    
+                    if (targetElement) {
+                        console.log('🎯 Target element classes:', targetElement.className);
+                        const isExpanded = targetElement.classList.contains('show');
+                        console.log('📊 Current state:', isExpanded ? 'expanded' : 'collapsed');
+                        
+                        console.log('� About to toggle state...');
+                        if (isExpanded) {
+                            targetElement.classList.remove('show');
+                            e.target.classList.remove('bi-chevron-down');
+                            e.target.classList.add('bi-chevron-right');
+                            console.log('🔼 Collapsed Home section');
+                        } else {
+                            targetElement.classList.add('show');
+                            e.target.classList.remove('bi-chevron-right');
+                            e.target.classList.add('bi-chevron-down');
+                            console.log('🔽 Expanded Home section');
+                        }
+                        
+                        console.log('� Scheduling state save...');
+                        setTimeout(saveSidebarState, 100);
+                        console.log('✅ All operations completed');
+                    } else {
+                        console.log('❌ Target element not found for selector:', targetSelector);
+                    }
+                } else {
+                    console.log('❌ Invalid or empty target selector:', targetSelector);
+                    console.log('🔍 Attempting manual collapse target detection...');
+                    
+                    // Try to find the collapse element manually
+                    const homeItem = e.target.closest('.sidebar-item');
+                    let targetElement = homeItem?.querySelector('.collapse');
+                    
+                    if (!targetElement) {
+                        // Look for a sibling collapse element
+                        const nextSibling = homeItem?.nextElementSibling;
+                        if (nextSibling?.classList.contains('collapse')) {
+                            targetElement = nextSibling;
+                        }
+                    }
+                    
+                    console.log('🎯 Manual target element found:', !!targetElement);
+                    console.log('🎯 Manual target element:', targetElement);
+                    
+                    if (targetElement) {
+                        console.log('🎯 Manual target element classes:', targetElement.className);
+                        const isExpanded = targetElement.classList.contains('show');
+                        console.log('📊 Current state:', isExpanded ? 'expanded' : 'collapsed');
+                        
+                        console.log('🔄 About to toggle state...');
+                        if (isExpanded) {
+                            targetElement.classList.remove('show');
+                            e.target.classList.remove('bi-chevron-down');
+                            e.target.classList.add('bi-chevron-right');
+                            console.log('🔼 Collapsed Home section');
+                        } else {
+                            targetElement.classList.add('show');
+                            e.target.classList.remove('bi-chevron-right');
+                            e.target.classList.add('bi-chevron-down');
+                            console.log('🔽 Expanded Home section');
+                        }
+                        
+                        // IMPORTANT: Force state save immediately for Home section
+                        console.log('💾 Force saving Home state immediately...');
+                        setTimeout(() => {
+                            const newState = !isExpanded; // The new expanded state
+                            console.log('💾 Home new state should be:', newState);
+                            
+                            // Get current state from localStorage
+                            const currentSavedState = localStorage.getItem(SIDEBAR_STATE_KEY);
+                            if (currentSavedState) {
+                                try {
+                                    const parsedState = JSON.parse(currentSavedState);
+                                    parsedState.home = parsedState.home || {};
+                                    parsedState.home.isExpanded = newState;
+                                    parsedState.home.text = 'Home';
+                                    parsedState.home.lastUpdate = Date.now(); // Add timestamp
+                                    parsedState.home.children = parsedState.home.children || {};
+                                    localStorage.setItem(SIDEBAR_STATE_KEY, JSON.stringify(parsedState));
+                                    console.log('💾✅ Home state force-saved as:', newState, 'with timestamp');
+                                } catch (error) {
+                                    console.error('💾❌ Error force-saving Home state:', error);
+                                }
+                            }
+                            
+                            // Also trigger the normal state saving
+                            saveSidebarState();
+                        }, 100);
+                        console.log('✅ Manual operations completed');
+                    } else {
+                        console.log('❌ No collapse target found manually either');
+                        console.log('🔍 Available collapse elements in sidebar:');
+                        const allCollapses = document.querySelectorAll('#quarto-sidebar .collapse');
+                        allCollapses.forEach((el, i) => {
+                            console.log(`  Collapse ${i}: id="${el.id}" classes="${el.className}"`);
+                        });
+                    }
+                }
+                
+            } catch (error) {
+                console.error('💥 ERROR in Home chevron handler:', error);
+                console.error('💥 Error stack:', error.stack);
+            }
+        });
+        
+        console.log('✅ Home chevron handler added');
+    } else if (homeChevron && homeChevron.hasAttribute('data-home-fixed')) {
+        console.log('⚠️ Home chevron already has handler');
+    } else {
+        console.log('❌ Home chevron not found');
+        // Debug: Let's see what we can find
+        console.log('🔍 Available sidebar items:');
+        const allItems = sidebar?.querySelectorAll('.sidebar-item') || [];
+        allItems.forEach((item, index) => {
+            const link = item.querySelector('.sidebar-item-text');
+            const chevron = item.querySelector('.bi-chevron-right, .bi-chevron-down');
+            console.log(`  Item ${index}: "${link?.textContent?.trim()}" href="${link?.href}" hasChevron=${!!chevron}`);
+        });
+    }
+    
+    // STEP 1: Collapse all sections by default (eliminates flickering)
+    setTimeout(() => {
+        collapseAllSectionsByDefault();
+    }, 200);
+    
+    // STEP 2: Then restore only the previously opened sections
     setTimeout(() => {
         restoreSidebarState();
     }, 500);
     
-    // Save initial state after restoration
+    // STEP 3: Save initial state after restoration
     setTimeout(() => {
         saveSidebarState();
     }, 1500);
