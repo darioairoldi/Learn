@@ -36,6 +36,8 @@ project:
     - "20250712 Use QUARTO doc for Github repos doc/*.md"
     # Add main README for homepage
     - "README.md"
+    - "20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
+    - "20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
 
 website:
   title: "Dario's Learning Journey"
@@ -159,6 +161,11 @@ website:
       - href: index.qmd
         text: "Home"
         icon: house-fill
+        contents:
+          - href: "20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
+            text: "Learning Hub Concept Overview"
+          - href: "20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
+            text: "Using Learning Hub for Learning Technologies"
       
       - section: "Events"
         icon: calendar-event
