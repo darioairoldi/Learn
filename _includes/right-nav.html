@@ -122,6 +122,171 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
   gap: 0 !important;
 }
 
+/* Compact Article Metadata Layout - Force inline with JavaScript assistance */
+.quarto-title-meta {
+  margin-bottom: 1rem !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 2rem !important;
+}
+
+/* Temporarily hide original Quarto structure until JavaScript restructures it */
+.quarto-title-meta > div:not(.custom-metadata-left):not(.custom-metadata-right) {
+  display: none !important;
+}
+
+/* Reset all child elements */
+.quarto-title-meta * {
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  clear: none !important;
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1.4 !important;
+}
+
+/* Custom metadata structure that will be created by JavaScript */
+.custom-metadata-left {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.3rem !important;
+}
+
+.custom-metadata-right {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  text-align: right !important;
+  gap: 0.3rem !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+}
+
+.metadata-item {
+  display: block !important;
+  white-space: nowrap !important;
+  margin-bottom: 0.2rem !important;
+}
+
+.metadata-label {
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  color: #495057 !important;
+  display: inline !important;
+}
+
+.metadata-value {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #495057 !important;
+  display: inline !important;
+}
+
+.quarto-title-meta > div:last-child {
+  margin-bottom: 0 !important;
+}
+
+.quarto-title-meta-heading {
+  font-size: 0.85rem !important;
+  font-weight: 400 !important; /* Normal weight for labels */
+  color: #495057 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline !important;
+  white-space: nowrap !important;
+  text-transform: none !important;
+  vertical-align: baseline !important;
+  float: none !important;
+  clear: none !important;
+  width: auto !important;
+}
+
+.quarto-title-meta-contents {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important; /* Bold weight for values */
+  color: #495057 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline !important;
+  line-height: 1.4 !important;
+  vertical-align: baseline !important;
+  float: none !important;
+  clear: none !important;
+  width: auto !important;
+}
+
+/* Add colon and space after labels */
+.quarto-title-meta-heading:after {
+  content: ": " !important;
+}
+
+/* Override any Quarto defaults that might break layout */
+.quarto-title-meta .quarto-title-meta-heading,
+.quarto-title-meta .quarto-title-meta-contents {
+  float: none !important;
+  clear: none !important;
+  width: auto !important;
+  max-width: none !important;
+  display: inline !important;
+  vertical-align: baseline !important;
+}
+
+/* More specific selectors to override Quarto defaults */
+div.quarto-title-meta div.quarto-title-meta-heading {
+  display: inline !important;
+  font-weight: 400 !important;
+}
+
+div.quarto-title-meta div.quarto-title-meta-contents {
+  display: inline !important;  
+  font-weight: 700 !important;
+}
+
+/* Force inline display with even more specific selectors */
+.quarto-title-meta > div > div > .quarto-title-meta-heading,
+.quarto-title-meta > div > div > .quarto-title-meta-contents {
+  display: inline !important;
+  vertical-align: baseline !important;
+}
+
+/* Stack vertically on smaller screens */
+@media (max-width: 768px) {
+  .quarto-title-meta {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .custom-metadata-right {
+    text-align: left !important;
+    align-items: flex-start !important;
+    min-width: auto !important;
+    max-width: none !important;
+  }
+  
+  .metadata-label,
+  .metadata-value {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Force the right column to be a single column with stacked items */
+.custom-metadata-right .metadata-item:nth-child(1),
+.custom-metadata-right .metadata-item:nth-child(2) {
+  width: 100% !important;
+  display: block !important;
+  text-align: right !important;
+}
+
 /* Intelligent Icons - Add small italic 'i' to indicate AI-powered functionality */
 /* Target the notification bell icon */
 .navbar-nav .nav-link[aria-label="Intelligent Notifications"]::after,
@@ -227,6 +392,53 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add tooltips immediately and after potential DOM changes
   addIntelligentTooltips();
   setTimeout(addIntelligentTooltips, 100); // Fallback after Quarto initialization
+  
+  // Restructure metadata to fix label/value display
+  function restructureMetadata() {
+    console.log('🔍 Looking for metadata container...');
+    const metadataContainer = document.querySelector('.quarto-title-meta');
+    if (!metadataContainer) {
+      console.log('❌ No metadata container found');
+      return;
+    }
+    
+    console.log('✅ Found metadata container:', metadataContainer);
+    console.log('📄 Current HTML:', metadataContainer.innerHTML);
+    
+    // Extract all metadata text content first
+    const authorText = metadataContainer.querySelector('.author .quarto-title-meta-contents')?.textContent || 'Dario Airoldi';
+    const publishedText = metadataContainer.querySelector('.published .quarto-title-meta-contents')?.textContent || metadataContainer.querySelector('.date .quarto-title-meta-contents')?.textContent || 'January 29, 2025';
+    const modifiedText = metadataContainer.querySelector('.modified .quarto-title-meta-contents')?.textContent || 'September 1, 2025';
+    
+    console.log('� Extracted data:', { authorText, publishedText, modifiedText });
+    
+    // Completely replace the content
+    metadataContainer.innerHTML = `
+      <div class="custom-metadata-left">
+        <div class="metadata-item">
+          <span class="metadata-label">Author:</span> <span class="metadata-value">${authorText}</span>
+        </div>
+      </div>
+      <div class="custom-metadata-right">
+        <div class="metadata-item">
+          <span class="metadata-label">Published:</span> <span class="metadata-value">${publishedText}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Modified:</span> <span class="metadata-value">${modifiedText}</span>
+        </div>
+      </div>
+    `;
+    
+    console.log('✅ Metadata layout restructured');
+    console.log('📄 New HTML:', metadataContainer.innerHTML);
+  }
+  
+  // Restructure metadata with more aggressive timing
+  setTimeout(restructureMetadata, 10);
+  setTimeout(restructureMetadata, 100);
+  setTimeout(restructureMetadata, 500);
+  setTimeout(restructureMetadata, 1000);
+  setTimeout(restructureMetadata, 2000);
   
   // Global navigation structure from navigation.json
   let navigationConfig = null;

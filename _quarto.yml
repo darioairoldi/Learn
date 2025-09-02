@@ -24,8 +24,8 @@ project:
     - "20250815 DIY Battery Pack/README.md"
     # Explicitly include Build 2025 session files
     - "202506 Build 2025/**/*.md"
-    - "202506 Build 2025/BRK114 C# 14 Language Features and Beyond/SUMMARY.md"
-    - "202506 Build 2025/BRK114 C# 14 Language Features and Beyond/README.Sonnet4.md"
+    - "202506 Build 2025/BRK114 CS 14 Language Features and Beyond/SUMMARY.md"
+    - "202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.md"
     # Add recently created content
     - "20250723 EventHub Access options/README.md"
     - "20250825 Github repositories limitations/README.md"
@@ -69,7 +69,7 @@ website:
             text: "Build 2025: BRK104 - Next Gen Apps with AI & .NET"
           - href: "202506 Build 2025/BRK106 Elevating Development with .NET Aspire AI/README.Sonnet4.md"
             text: "Build 2025: BRK106 - .NET Aspire AI & Cloud"
-          - href: "202506 Build 2025/BRK114 C# 14 Language Features and Beyond/README.Sonnet4.md"
+          - href: "202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.md"
             text: "Build 2025: BRK114 - What's New in CS 14"
           - href: "202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/README.Sonnet4.md"
             text: "Build 2025: BRK119 - Debug Like a Pro with Visual Studio & Copilot"
@@ -192,9 +192,9 @@ website:
                     text: "Session Details"
               - section: "BRK114: What's New in C# 14"
                 contents:
-                  - href: "202506 Build 2025/BRK114 C# 14 Language Features and Beyond/SUMMARY.md"
+                  - href: "202506 Build 2025/BRK114 CS 14 Language Features and Beyond/SUMMARY.md"
                     text: "Summary"
-                  - href: "202506 Build 2025/BRK114 C# 14 Language Features and Beyond/README.Sonnet4.md"
+                  - href: "202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.md"
                     text: "Session Details"
               - section: "BRK119: Debug Like a Pro"
                 contents:

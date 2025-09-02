@@ -11,35 +11,35 @@ format:
     toc-depth: 3
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Key Concepts](#key-concepts)
+- [📖 Overview](#-overview)
+- [💡 Key Concepts](#-key-concepts)
   - [Project Structure](#1-project-structure)
   - [Configuration File (_quarto.yml)](#2-configuration-file-_quartoyml)
   - [Source Directory (src/doc/)](#3-source-directory-srcdoc)
   - [Output Directory (docs/)](#4-output-directory-docs)
-- [Deploying the Quarto Site](#deploying-the-quarto-site)
-- [Best Practices](#best-practices)
+- [🚀 Deploying the Quarto Site](#-deploying-the-quarto-site)
+- [✅ Best Practices](#-best-practices)
   - [Content Organization](#1-content-organization)
   - [Writing Guidelines](#2-writing-guidelines)
   - [Development Workflow](#3-development-workflow)
   - [Version Control Considerations](#4-version-control-considerations)
-- [Advanced Features](#advanced-features)
+- [🚀 Advanced Features](#-advanced-features)
   - [Themes and Styling](#1-themes-and-styling)
   - [Interactive Content](#2-interactive-content)
   - [Multi-language Support](#3-multi-language-support)
-- [Troubleshooting Common Issues](#troubleshooting-common-issues)
+- [🔧 Troubleshooting Common Issues](#-troubleshooting-common-issues)
   - [GitHub Pages Not Updating](#1-github-pages-not-updating)
   - [Broken Links](#2-broken-links)
   - [Rendering Errors](#3-rendering-errors)
-- [Monitoring and Maintenance](#monitoring-and-maintenance)
+- [📊 Monitoring and Maintenance](#-monitoring-and-maintenance)
   - [Analytics](#1-analytics)
   - [Content Updates](#2-content-updates)
   - [Performance](#3-performance)
-- [Conclusion](#conclusion)
-- [References](#references)
-- [APPENDIXES](#appendixes)
+- [🎯 Conclusion](#-conclusion)
+- [📚 References](#-references)
+- [📑 APPENDIXES](#-appendixes)
   - [APPENDIX A: Quarto.yml Document Structure](#appendix-a-quartoyml-document-structure---complete-reference-guide)
   - [APPENDIX B: Quarto Specific Markdown Features](#appendix-b-quarto-specific-markdown-features---complete-guide)
   - [APPENDIX C: Quarto Theming and Styling](#appendix-c-quarto-theming-and-styling---complete-guide)
@@ -47,12 +47,12 @@ format:
   - [APPENDIX E: Deploying a Quarto Site to GitHub Pages](#appendix-e-deploying-a-quarto-site-to-github-pages)
   - [APPENDIX F: Deploying a Quarto Site to Azure Storage Accounts](#appendix-f-deploying-a-quarto-site-to-azure-storage-accounts)
 
-## Overview
+## 📖 Overview
 
 **Quarto** is a powerful, **open-source** **scientific** and **technical publishing system** that allows you to create <mark>beautiful documentation websites</mark> from <mark>Markdown files</mark>.<br>
 When combined with modern hosting platforms, it provides an excellent solution for publishing and maintaining project documentation.
 
-## Key Concepts
+## 💡 Key Concepts
 
 ### 1. Project Structure
 
@@ -185,7 +185,7 @@ format:
   - Should be included in your repository for some hosting platforms
   - Configure your hosting platform to serve from the appropriate directory
 
-## Deploying the Quarto Site
+## 🚀 Deploying the Quarto Site
 
 Quarto sites can be deployed to multiple hosting platforms, each offering different advantages depending on your needs, budget, and infrastructure requirements.
 
@@ -245,7 +245,7 @@ project:
 
 For detailed deployment instructions, see the specific appendixes below.
 
-## Best Practices
+## ✅ Best Practices
 
 ### 1. Content Organization
 
@@ -290,7 +290,7 @@ For detailed deployment instructions, see the specific appendixes below.
 
 - **Environment-Specific Configs**: Use different `_quarto.yml` files for different environments
 
-## Advanced Features
+## 🚀 Advanced Features
 
 ### 1. Themes and Styling
 
@@ -309,7 +309,7 @@ For detailed deployment instructions, see the specific appendixes below.
 - **Code Highlighting**: Support for numerous programming languages
 - **Internationalization**: Multi-language documentation support
 
-## Troubleshooting Common Issues
+## 🔧 Troubleshooting Common Issues
 
 ### 1. GitHub Pages Not Updating
 
@@ -329,7 +329,7 @@ For detailed deployment instructions, see the specific appendixes below.
 - Verify all referenced files exist
 - Review console output for specific error messages
 
-## Monitoring and Maintenance
+## 📊 Monitoring and Maintenance
 
 ### 1. Analytics
 
@@ -349,13 +349,13 @@ For detailed deployment instructions, see the specific appendixes below.
 - Minimize custom CSS and JavaScript
 - Monitor page load times and Core Web Vitals
 
-## Conclusion
+## 🎯 Conclusion
 
 Quarto provides a powerful, flexible platform for creating professional documentation websites. By following these best practices and understanding the key concepts, you can create maintainable, beautiful documentation that automatically publishes to your chosen hosting platform whenever you update your source files.
 
 The combination of Markdown simplicity, Quarto's rendering capabilities, and modern hosting platforms makes this an excellent choice for project documentation, technical guides, and knowledge bases.
 
-## References
+## 📚 References
 
 ### [Quarto Official Documentation](https://quarto.org/)
 
@@ -404,7 +404,7 @@ Best practices for creating maintainable, community-friendly documentation proje
 - [Netlify Documentation](https://docs.netlify.com/)
 - [Vercel Documentation](https://vercel.com/docs)
 
-## APPENDIXES
+## 📑 APPENDIXES
 
 ### APPENDIX A: [Quarto Architecture - How Quarto Works](001.001%20Quarto%20Architecture%20-%20How%20quarto%20works.md)
 
