@@ -142,23 +142,14 @@ function buildHierarchicalPath(element) {
     const path = [];
     let current = element;
     
-    console.log('🔍 Building hierarchical path for element:', element.outerHTML.substring(0, 100));
-    
     // Walk up the DOM tree to build the path
     while (current && !current.matches('#quarto-sidebar')) {
-        console.log('  🔄 Current element:', current.tagName, current.className);
-        
         if (current.matches('.sidebar-item')) {
-            // Look for the text element in this sidebar item - it's nested inside sidebar-item-container
             const textElement = current.querySelector('.sidebar-item-text');
-            console.log('  📝 Text element found:', !!textElement);
-            
             if (textElement) {
                 const text = textElement.textContent?.trim();
-                console.log('  📄 Text content:', text);
                 if (text) {
                     path.unshift(text); // Add to the beginning of the array
-                    console.log('  ➕ Added to path:', text, '| Current path:', path);
                 }
             }
         }
@@ -166,7 +157,6 @@ function buildHierarchicalPath(element) {
     }
     
     const finalPath = path.join(' > ') || 'unknown';
-    console.log('🎯 Final hierarchical path:', finalPath);
     return finalPath;
 }
 
@@ -186,91 +176,54 @@ function getCollapsibleSections() {
     if (!sidebar) return [];
     
     const sections = [];
-    
-    // Find all sidebar items that have chevron icons (indicating they're collapsible)
     const chevrons = sidebar.querySelectorAll('.bi-chevron-right, .bi-chevron-down');
     
     chevrons.forEach(chevron => {
-        console.log('🔍 Processing chevron:', chevron.outerHTML.substring(0, 100));
-        
         const sidebarItem = chevron.closest('.sidebar-item');
-        console.log('  📦 Sidebar item found:', !!sidebarItem);
-        if (sidebarItem) {
-            console.log('  📦 Sidebar item HTML:', sidebarItem.outerHTML.substring(0, 200));
-        }
-        
         const sidebarText = sidebarItem?.querySelector('.sidebar-item-text');
-        console.log('  📝 Sidebar text found:', !!sidebarText);
-        if (sidebarText) {
-            console.log('  📝 Sidebar text content:', sidebarText.textContent?.trim());
-        }
         
         if (sidebarText && sidebarItem) {
             const text = sidebarText.textContent?.trim();
-            
-            // Build hierarchical path to avoid collisions
             const hierarchicalPath = buildHierarchicalPath(sidebarItem);
             
-            // Focus on actual content visibility rather than chevron classes
-            // since Quarto seems to use chevron-right for both states
-            
-            // Look for immediate child sidebar items
+            // Check visibility of nested content
             const immediateChildren = Array.from(sidebarItem.children).filter(child => 
                 child.classList && (child.classList.contains('sidebar-item') || child.classList.contains('sidebar-section'))
             );
             
-            // Look for nested content within this item
             const nestedItems = sidebarItem.querySelectorAll(':scope > .sidebar-item, :scope > .sidebar-section, :scope .sidebar-item-container > .sidebar-item');
             
-            // Check if nested content is actually visible
             const hasVisibleNestedContent = Array.from(nestedItems).some(item => {
                 const computedStyle = window.getComputedStyle(item);
-                const isVisible = computedStyle.display !== 'none' && 
-                                computedStyle.visibility !== 'hidden' &&
-                                item.offsetHeight > 0 &&
-                                item.offsetWidth > 0;
-                return isVisible;
+                return computedStyle.display !== 'none' && 
+                       computedStyle.visibility !== 'hidden' &&
+                       item.offsetHeight > 0 &&
+                       item.offsetWidth > 0;
             });
             
-            // Alternative: Check if the parent has Bootstrap collapse classes
+            // Check Bootstrap collapse classes
             const parentCollapse = sidebarItem.querySelector('.collapse');
             const hasShowClass = parentCollapse ? parentCollapse.classList.contains('show') : false;
             
-            // Alternative: Check aria-expanded attribute on the button/link
+            // Check aria-expanded attribute
             const button = sidebarItem.querySelector('[aria-expanded]');
             const ariaExpanded = button ? button.getAttribute('aria-expanded') === 'true' : null;
             
-            // Final determination: Multiple indicators with priority
+            // Determine expanded state with priority
             let isExpanded;
             if (ariaExpanded !== null) {
-                // Trust aria-expanded if available
                 isExpanded = ariaExpanded;
             } else if (hasShowClass) {
-                // Trust Bootstrap's show class
                 isExpanded = true;
             } else {
-                // Fallback to visual inspection
                 isExpanded = hasVisibleNestedContent;
             }
             
-            console.log(`🔍 Analyzing "${hierarchicalPath}":`, {
-                text: text,
-                path: hierarchicalPath,
-                chevronClass: chevron.className,
-                immediateChildrenCount: immediateChildren.length,
-                nestedItemsCount: nestedItems.length,
-                hasVisibleNestedContent,
-                hasShowClass,
-                ariaExpanded,
-                finalIsExpanded: isExpanded
-            });
-            
-            // Use hierarchical path as the unique identifier
             const safeId = hierarchicalPath
-                .replace(/[^a-zA-Z0-9\s>/]/g, '') // Keep path separators
+                .replace(/[^a-zA-Z0-9\s>/]/g, '')
                 .replace(/\s+/g, '_')
-                .replace(/>/g, '__') // Convert > to __ for safe storage
-                .substring(0, 100) // Longer limit for paths
+                .replace(/>/g, '__')
+                .substring(0, 100)
                 .toLowerCase();
             
             sections.push({
@@ -284,11 +237,7 @@ function getCollapsibleSections() {
         }
     });
     
-    console.log(`📋 Found ${sections.length} collapsible sections:`);
-    sections.forEach((section, i) => {
-        console.log(`  ${i+1}. "${section.hierarchicalPath}" (${section.isExpanded ? 'expanded' : 'collapsed'}) - chevron: ${section.chevron.className}`);
-    });
-    
+    console.log(`📋 Found ${sections.length} collapsible sections`);
     return sections;
 }
 
@@ -325,7 +274,7 @@ function saveSidebarState() {
         });
         
         localStorage.setItem(SIDEBAR_STATE_KEY, JSON.stringify(hierarchicalState));
-        console.log(`💾 Hierarchical sidebar state saved:`, hierarchicalState);
+        console.log(`💾 Saved state for ${sections.length} sections`);
         
     } catch (error) {
         console.error('❌ Failed to save sidebar state:', error);
@@ -342,7 +291,7 @@ function restoreSidebarState() {
         }
         
         const hierarchicalState = JSON.parse(savedState);
-        console.log('🔄 Restoring hierarchical sidebar state:', hierarchicalState);
+        console.log('🔄 Restoring sidebar state...');
         
         const sections = getCollapsibleSections();
         
@@ -363,6 +312,7 @@ function restoreSidebarState() {
             return current;
         }
         
+        let restoredCount = 0;
         sections.forEach(section => {
             const pathParts = section.hierarchicalPath.split(' > ');
             const savedSection = findStateInHierarchy(pathParts, hierarchicalState);
@@ -371,21 +321,19 @@ function restoreSidebarState() {
                 const shouldBeExpanded = savedSection.isExpanded;
                 const isCurrentlyExpanded = section.isExpanded;
                 
-                console.log(`🔄 Processing "${section.hierarchicalPath}": saved=${shouldBeExpanded ? 'expanded' : 'collapsed'}, current=${isCurrentlyExpanded ? 'expanded' : 'collapsed'}`);
-                
                 // If state doesn't match, click the chevron to toggle it
                 if (shouldBeExpanded !== isCurrentlyExpanded) {
                     setTimeout(() => {
-                        console.log(`👆 Clicking chevron to restore "${section.hierarchicalPath}" to ${shouldBeExpanded ? 'expanded' : 'collapsed'}`);
                         section.chevron.click();
+                        restoredCount++;
                     }, 100);
-                } else {
-                    console.log(`✅ "${section.hierarchicalPath}" already in correct state`);
                 }
-            } else {
-                console.log(`⚠️ No saved state found for "${section.hierarchicalPath}"`);
             }
         });
+        
+        if (restoredCount > 0) {
+            console.log(`✅ Restored ${restoredCount} sections`);
+        }
         
     } catch (error) {
         console.error('❌ Failed to restore sidebar state:', error);
@@ -394,18 +342,8 @@ function restoreSidebarState() {
 
 // Enhanced click detection with state saving
 document.addEventListener('click', function(event) {
-    // Log all clicks for debugging
-    console.log('🖱️ CLICK:', {
-        tag: event.target.tagName,
-        classes: event.target.className,
-        text: event.target.textContent?.substring(0, 20),
-        inSidebar: !!event.target.closest('#quarto-sidebar')
-    });
-    
     // If it's in the sidebar, check if it's a chevron click
     if (event.target.closest('#quarto-sidebar')) {
-        console.log('🎯 SIDEBAR CLICK DETECTED');
-        console.log('Element clicked:', event.target.outerHTML.substring(0, 150));
         
         // Check if this is a chevron click (collapse/expand action)
         if (event.target.classList.contains('bi-chevron-right') || 
@@ -413,33 +351,27 @@ document.addEventListener('click', function(event) {
             event.target.closest('.bi-chevron-right') ||
             event.target.closest('.bi-chevron-down')) {
             
-            console.log('🔄 CHEVRON CLICK DETECTED - This will change sidebar state!');
+            console.log('🔄 Chevron clicked - saving state...');
             
             // Wait for the DOM to update after the click, then save state
             setTimeout(() => {
-                console.log('💾 Saving sidebar state after chevron click...');
                 saveSidebarState();
             }, 300);
-            
-        } else {
-            console.log('📄 Regular sidebar click (not a chevron) - no state change');
         }
     }
 });
 
 // Initialize everything when page loads
 setTimeout(() => {
-    console.log('🔧 Initializing sidebar persistence with hierarchical storage...');
+    console.log('🔧 Initializing sidebar persistence...');
     
     // First, restore any saved state
     setTimeout(() => {
-        console.log('🔄 Starting sidebar state restoration...');
         restoreSidebarState();
     }, 500);
     
     // Save initial state after restoration
     setTimeout(() => {
-        console.log('💾 Saving initial sidebar state after restoration...');
         saveSidebarState();
     }, 1500);
     
@@ -447,273 +379,8 @@ setTimeout(() => {
 
 // Save state when page unloads
 window.addEventListener('beforeunload', function() {
-    console.log('📤 Page unloading - saving final sidebar state');
     saveSidebarState();
 });
 
 console.log('✅ Sidebar persistence system initialized');
-console.log('🏁 SCRIPT SETUP COMPLETE');
-</script>
-        // Fix sidebar Home link styling
-        const sidebarHomeLinks = document.querySelectorAll(
-            '.sidebar a[href*="index"], #quarto-sidebar a[href*="index"], .sidebar-item-text[href*="index"]'
-        );
-        sidebarHomeLinks.forEach(link => {
-            if (link.textContent.trim().toLowerCase().includes('home')) {
-                console.log('Applying white styling to Home link in sidebar');
-                link.style.setProperty('color', 'white', 'important');
-                link.style.setProperty('background', 'linear-gradient(135deg, #2780e3 0%, #1967d2 100%)', 'important');
-                link.style.setProperty('border', '2px solid #2780e3', 'important');
-                link.style.setProperty('border-radius', '12px', 'important');
-                link.style.setProperty('padding', '0.8rem 1rem', 'important');
-                link.style.setProperty('font-weight', '600', 'important');
-                link.style.setProperty('box-shadow', '0 3px 8px rgba(39, 128, 227, 0.3)', 'important');
-                link.style.setProperty('margin-bottom', '1rem', 'important');
-                link.classList.add('home-link-styled');
-                
-                // Add home icon if missing
-                if (!link.querySelector('.bi-house-fill')) {
-                    const homeIcon = document.createElement('i');
-                    homeIcon.className = 'bi bi-house-fill';
-                    homeIcon.style.marginRight = '0.75rem';
-                    homeIcon.style.color = 'white';
-                    link.prepend(homeIcon);
-                }
-            }
-        });
-
-        // Initialize persistent sidebar state
-        initPersistentSidebar();
-    }, 1000);
-});
-
-// Persistent Sidebar State Management
-function initPersistentSidebar() {
-    console.log('Initializing persistent sidebar state...');
-    
-    // Storage key for sidebar state
-    const SIDEBAR_STATE_KEY = 'learningHubSidebarState';
-    
-    // Get all collapsible sidebar items using Quarto's actual structure
-    function getSidebarItems() {
-        // Look for actual Bootstrap collapse elements in the sidebar
-        const collapseElements = document.querySelectorAll('#quarto-sidebar .collapse');
-        const collapsibleItems = [];
-        
-        collapseElements.forEach(collapse => {
-            // Find the associated toggle element (usually the previous sibling or parent)
-            const toggle = document.querySelector(`[data-bs-target="#${collapse.id}"], [href="#${collapse.id}"]`) ||
-                          collapse.previousElementSibling ||
-                          collapse.parentElement?.querySelector('.sidebar-item-text');
-            
-            if (toggle) {
-                collapsibleItems.push({
-                    toggle: toggle,
-                    collapse: collapse,
-                    id: collapse.id
-                });
-            }
-        });
-        
-        console.log(`Found ${collapsibleItems.length} collapsible sidebar items:`, 
-                   collapsibleItems.map(item => ({
-                       id: item.id,
-                       text: item.toggle.textContent?.trim().substring(0, 30)
-                   })));
-        
-        return collapsibleItems;
-    }
-    
-    // Generate unique identifier for each sidebar item
-    function getItemId(item) {
-        // If it's a new structure item with id
-        if (item.id) {
-            return item.id;
-        }
-        
-        // Fallback for old structure
-        const textElement = item.toggle || item.querySelector('.sidebar-item-text');
-        if (textElement) {
-            const text = textElement.textContent.trim().substring(0, 50);
-            const href = textElement.getAttribute('href') || '';
-            return btoa(text + href).replace(/[^a-zA-Z0-9]/g, '');
-        }
-        return null;
-    }
-    
-    // Save current sidebar state to localStorage
-    function saveSidebarState() {
-        const state = {};
-        const sidebarItems = getSidebarItems();
-        
-        console.log(`💾 Saving sidebar state for ${sidebarItems.length} collapsible items...`);
-        
-        sidebarItems.forEach((item, index) => {
-            const id = getItemId(item);
-            if (id) {
-                // Check if the collapse element is currently hidden/shown
-                const isCollapsed = item.collapse ? 
-                    !item.collapse.classList.contains('show') :
-                    (item.classList.contains('collapsed') || 
-                     item.getAttribute('aria-expanded') === 'false');
-                
-                const text = item.toggle ? 
-                    item.toggle.textContent?.trim().substring(0, 30) :
-                    (item.querySelector('.sidebar-item-text')?.textContent?.trim().substring(0, 30) || 'Unknown');
-                
-                state[id] = {
-                    collapsed: isCollapsed,
-                    text: text
-                };
-                
-                console.log(`  📁 Item ${index + 1}: "${text}" - ${isCollapsed ? '🔼 collapsed' : '🔽 expanded'}`);
-            }
-        });
-        
-        try {
-            localStorage.setItem(SIDEBAR_STATE_KEY, JSON.stringify(state));
-            console.log(`✅ Sidebar state saved successfully: ${Object.keys(state).length} items stored`);
-        } catch (error) {
-            console.error('❌ Failed to save sidebar state:', error);
-        }
-    }
-    
-    // Add event listeners to track sidebar changes using Quarto's actual navigation system
-    function attachSidebarListeners() {
-        console.log('Attaching sidebar listeners using Quarto navigation system...');
-        
-        // Wait for Quarto's sidebar to be fully initialized
-        setTimeout(() => {
-            console.log('🔍 DEBUGGING SIDEBAR STRUCTURE...');
-            
-            // Analyze the sidebar structure
-            const sidebar = document.getElementById('quarto-sidebar');
-            if (!sidebar) {
-                console.warn('❌ Quarto sidebar not found');
-                return;
-            }
-            
-            // Look for all potential collapsible elements
-            console.log('📋 Analyzing sidebar structure:');
-            
-            // Check for Bootstrap collapse elements
-            const collapseElements = sidebar.querySelectorAll('.collapse');
-            console.log(`  🔹 Found ${collapseElements.length} .collapse elements`);
-            collapseElements.forEach((el, i) => {
-                console.log(`    ${i+1}. ID: ${el.id}, Classes: ${el.className}`);
-            });
-            
-            // Check for data-bs-toggle elements
-            const toggleElements = sidebar.querySelectorAll('[data-bs-toggle]');
-            console.log(`  🔹 Found ${toggleElements.length} [data-bs-toggle] elements`);
-            toggleElements.forEach((el, i) => {
-                console.log(`    ${i+1}. Tag: ${el.tagName}, Toggle: ${el.getAttribute('data-bs-toggle')}, Target: ${el.getAttribute('data-bs-target')}`);
-            });
-            
-            // Check for aria-expanded elements
-            const ariaElements = sidebar.querySelectorAll('[aria-expanded]');
-            console.log(`  🔹 Found ${ariaElements.length} [aria-expanded] elements`);
-            ariaElements.forEach((el, i) => {
-                console.log(`    ${i+1}. Tag: ${el.tagName}, Expanded: ${el.getAttribute('aria-expanded')}, Text: "${el.textContent?.trim().substring(0, 20)}"`);
-            });
-            
-            // Check for sidebar-item-text elements
-            const sidebarTexts = sidebar.querySelectorAll('.sidebar-item-text');
-            console.log(`  🔹 Found ${sidebarTexts.length} .sidebar-item-text elements`);
-            sidebarTexts.forEach((el, i) => {
-                const hasHref = !!el.href;
-                const hasAriaExpanded = el.hasAttribute('aria-expanded');
-                const text = el.textContent?.trim().substring(0, 25);
-                console.log(`    ${i+1}. "${text}" - href: ${hasHref}, aria-expanded: ${hasAriaExpanded ? el.getAttribute('aria-expanded') : 'none'}`);
-            });
-            
-            // Listen for ALL possible events that could indicate sidebar changes
-            console.log('🎯 Setting up COMPREHENSIVE event listeners...');
-            
-            // Bootstrap collapse events
-            ['show.bs.collapse', 'shown.bs.collapse', 'hide.bs.collapse', 'hidden.bs.collapse'].forEach(eventType => {
-                sidebar.addEventListener(eventType, function(event) {
-                    console.log(`🌟 Bootstrap Event: ${eventType}`, {
-                        target: event.target.tagName + (event.target.id ? '#' + event.target.id : ''),
-                        targetClasses: event.target.className
-                    });
-                    const sectionText = event.target.previousElementSibling?.textContent?.trim();
-                    if (sectionText) console.log(`  📝 Section: "${sectionText}"`);
-                    setTimeout(saveSidebarState, 350);
-                });
-            });
-            
-            // Generic DOM events that might be used
-            ['click', 'change', 'toggle'].forEach(eventType => {
-                sidebar.addEventListener(eventType, function(event) {
-                    console.log(`� Generic Event: ${eventType}`, {
-                        target: event.target.tagName + (event.target.className ? '.' + event.target.className.split(' ')[0] : ''),
-                        text: event.target.textContent?.trim().substring(0, 20)
-                    });
-                });
-            });
-            
-            // MutationObserver to watch for DOM changes in sidebar
-            const observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.type === 'attributes') {
-                        const target = mutation.target;
-                        if (target.closest('#quarto-sidebar')) {
-                            console.log('� Sidebar DOM Attribute Changed:', {
-                                element: target.tagName + (target.className ? '.' + target.className.split(' ')[0] : ''),
-                                attribute: mutation.attributeName,
-                                oldValue: mutation.oldValue,
-                                newValue: target.getAttribute(mutation.attributeName),
-                                text: target.textContent?.trim().substring(0, 20)
-                            });
-                            
-                            // If aria-expanded changed, save state
-                            if (mutation.attributeName === 'aria-expanded' || 
-                                mutation.attributeName === 'class' ||
-                                mutation.attributeName === 'style') {
-                                setTimeout(saveSidebarState, 100);
-                            }
-                        }
-                    }
-                    
-                    if (mutation.type === 'childList') {
-                        mutation.addedNodes.forEach(node => {
-                            if (node.nodeType === Node.ELEMENT_NODE && node.closest('#quarto-sidebar')) {
-                                console.log('➕ Sidebar DOM Node Added:', node.tagName);
-                            }
-                        });
-                        
-                        mutation.removedNodes.forEach(node => {
-                            if (node.nodeType === Node.ELEMENT_NODE && node.closest('#quarto-sidebar')) {
-                                console.log('➖ Sidebar DOM Node Removed:', node.tagName);
-                            }
-                        });
-                    }
-                });
-            });
-            
-            observer.observe(sidebar, {
-                attributes: true,
-                attributeOldValue: true,
-                childList: true,
-                subtree: true
-            });
-            
-            console.log('✅ Comprehensive sidebar monitoring active');
-            
-        }, 1000);
-        
-        // Reduced frequency backup save
-        setInterval(() => {
-            console.log('🕐 Periodic sidebar state backup');
-            saveSidebarState();
-        }, 60000); // Every minute
-    }, 1500);
-
-    // Save state when page is about to be unloaded
-    window.addEventListener('beforeunload', saveSidebarState);
-    window.addEventListener('pagehide', saveSidebarState);
-}, 1000);
-
-console.log('🏁 SIDEBAR-FIXES.HTML SCRIPT LOADED COMPLETELY');
 </script>
