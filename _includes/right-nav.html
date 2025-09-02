@@ -121,6 +121,86 @@ nav[role="doc-toc"]:not(#custom-right-nav nav) {
 #quarto-sidebar .sidebar-item {
   gap: 0 !important;
 }
+
+/* Intelligent Icons - Add small italic 'i' to indicate AI-powered functionality */
+/* Target the notification bell icon */
+.navbar-nav .nav-link[aria-label="Intelligent Notifications"]::after,
+.navbar-nav a[aria-label="Intelligent Notifications"]::after {
+  content: 'i';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  font-style: italic;
+  font-weight: bold;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Target the RSS feed analysis icon */
+.navbar-nav .nav-link[aria-label="Intelligent Feeds"]::after,
+.navbar-nav a[aria-label="Intelligent Feeds"]::after {
+  content: 'i';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  font-style: italic;
+  font-weight: bold;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Target the Rules Configuration icon */
+.navbar-nav .nav-link[aria-label="Intelligent Rules"]::after,
+.navbar-nav a[aria-label="Intelligent Rules"]::after {
+  content: 'i';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  font-style: italic;
+  font-weight: bold;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Ensure the parent navbar icons have relative positioning for absolute positioning of pseudo-elements */
+.navbar-nav .nav-link[aria-label="Intelligent Notifications"],
+.navbar-nav a[aria-label="Intelligent Notifications"],
+.navbar-nav .nav-link[aria-label="Intelligent Feeds"],
+.navbar-nav a[aria-label="Intelligent Feeds"],
+.navbar-nav .nav-link[aria-label="Intelligent Rules"],
+.navbar-nav a[aria-label="Intelligent Rules"] {
+  position: relative !important;
+}
 </style>
 
 <script>

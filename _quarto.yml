@@ -138,7 +138,13 @@ website:
             text: "Paris Cultural Journey 2025"
       - icon: bell-fill
         href: "#"
-        aria-label: "Notifications"
+        aria-label: "Intelligent Notifications"
+      - icon: rss
+        href: "#"
+        aria-label: "Intelligent Feeds"
+      - icon: sliders
+        href: "#"
+        aria-label: "Intelligent Rules"
       - icon: github
         href: "https://github.com/darioairoldi/Learn"
         aria-label: "GitHub Repository"
