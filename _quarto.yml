@@ -468,6 +468,7 @@ format:
     css: styles.css
     include-after-body: 
       - _includes/right-nav.html
+      - _includes/sidebar-fixes.html
     grid:
       sidebar-width: 300px
       body-width: 900px  

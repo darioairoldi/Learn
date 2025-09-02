@@ -395,22 +395,15 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Restructure metadata to fix label/value display
   function restructureMetadata() {
-    console.log('🔍 Looking for metadata container...');
     const metadataContainer = document.querySelector('.quarto-title-meta');
     if (!metadataContainer) {
-      console.log('❌ No metadata container found');
       return;
     }
-    
-    console.log('✅ Found metadata container:', metadataContainer);
-    console.log('📄 Current HTML:', metadataContainer.innerHTML);
     
     // Extract all metadata text content first
     const authorText = metadataContainer.querySelector('.author .quarto-title-meta-contents')?.textContent || 'Dario Airoldi';
     const publishedText = metadataContainer.querySelector('.published .quarto-title-meta-contents')?.textContent || metadataContainer.querySelector('.date .quarto-title-meta-contents')?.textContent || 'January 29, 2025';
     const modifiedText = metadataContainer.querySelector('.modified .quarto-title-meta-contents')?.textContent || 'September 1, 2025';
-    
-    console.log('� Extracted data:', { authorText, publishedText, modifiedText });
     
     // Completely replace the content
     metadataContainer.innerHTML = `
@@ -428,9 +421,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
     `;
-    
-    console.log('✅ Metadata layout restructured');
-    console.log('📄 New HTML:', metadataContainer.innerHTML);
   }
   
   // Restructure metadata with more aggressive timing
