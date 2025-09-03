@@ -1,5 +1,38 @@
 <!-- Sidebar styling and fixes -->
 <style>
+/* ANTI-FLICKER SYSTEM - Aggressive initial hiding */
+/* Hide ALL collapse content by default until JavaScript is ready */
+#quarto-sidebar .collapse {
+  display: none !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  transition: none !important;
+}
+
+/* Force all chevrons to start pointing right */
+#quarto-sidebar .sidebar-item-text .bi-chevron-down {
+  transform: rotate(-90deg) !important;
+}
+
+#quarto-sidebar .sidebar-item-text .bi::before {
+  content: "\f285" !important; /* chevron-right */
+}
+
+/* Only show content when JavaScript explicitly marks sections as ready */
+#quarto-sidebar.sidebar-ready .collapse.show {
+  display: block !important;
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Enable smooth transitions only after initial setup */
+#quarto-sidebar.sidebar-ready .collapse {
+  transition: all 0.3s ease !important;
+}
+
 /* Home link special styling - make it white and prominent but allow collapse */
 .sidebar .nav-link[href="index.qmd"],
 .sidebar .sidebar-item-text[href="index.qmd"],
@@ -247,6 +280,10 @@ if (existingState) {
 // Storage key for sidebar state
 const SIDEBAR_STATE_KEY = 'learningHubSidebarState';
 
+// Global flags for preventing conflicts
+window.sidebarRestoreInProgress = false;
+window.sidebarManualClick = false;
+
 // Function to build hierarchical path for unique identification
 function buildHierarchicalPath(element) {
     const path = [];
@@ -299,7 +336,9 @@ function getCollapsibleSections() {
             hasDataBsToggle: !!chevron.closest('[data-bs-toggle]'),
             hasDataBsTarget: !!chevron.closest('[data-bs-target]'),
             hasAriaExpanded: !!chevron.closest('[aria-expanded]'),
-            chevronClasses: chevron.className
+            chevronClasses: chevron.className,
+            hasCollapseElement: !!sidebarItem?.querySelector('.collapse'),
+            collapseHasShowClass: !!sidebarItem?.querySelector('.collapse.show')
         });
         
         if (sidebarText && sidebarItem) {
@@ -329,14 +368,32 @@ function getCollapsibleSections() {
             const button = sidebarItem.querySelector('[aria-expanded]');
             const ariaExpanded = button ? button.getAttribute('aria-expanded') === 'true' : null;
             
-            // Determine expanded state with priority
+            // Determine expanded state with priority - Bootstrap .show class is most reliable
             let isExpanded;
-            if (ariaExpanded !== null) {
-                isExpanded = ariaExpanded;
-            } else if (hasShowClass) {
+            if (hasShowClass) {
+                // Bootstrap collapse has .show class - definitely expanded
                 isExpanded = true;
+            } else if (parentCollapse && !hasShowClass) {
+                // Bootstrap collapse exists but no .show class - definitely collapsed
+                isExpanded = false;
+            } else if (ariaExpanded !== null) {
+                // Fall back to aria-expanded if no Bootstrap collapse
+                isExpanded = ariaExpanded;
             } else {
+                // Final fallback to visible content check
                 isExpanded = hasVisibleNestedContent;
+            }
+            
+            // Add extra debugging for specific sections that might be problematic
+            if (text === 'Events' || text === 'Tools' || text === 'Azure Topics') {
+                console.log('🔍 Expansion detection for', text, ':', {
+                    hasShowClass: hasShowClass,
+                    hasParentCollapse: !!parentCollapse,
+                    ariaExpanded: ariaExpanded,
+                    hasVisibleNestedContent: hasVisibleNestedContent,
+                    finalDecision: isExpanded,
+                    collapseClasses: parentCollapse?.className
+                });
             }
             
             const safeId = hierarchicalPath
@@ -364,6 +421,13 @@ function getCollapsibleSections() {
 // Save sidebar state to localStorage using hierarchical structure
 function saveSidebarState() {
     console.log('💾🔍 saveSidebarState() called');
+    
+    // Skip saving if restoration is in progress
+    if (window.sidebarRestoreInProgress) {
+        console.log('🚫 Skipping save - restoration in progress');
+        return;
+    }
+    
     try {
         const sections = getCollapsibleSections();
         const hierarchicalState = {};
@@ -403,6 +467,33 @@ function saveSidebarState() {
         
         sections.forEach(section => {
             console.log('💾🔍 Processing section:', section.text, 'isExpanded:', section.isExpanded);
+            
+            // Add extra debugging for Tools section
+            if (section.text === 'Tools') {
+                const parentCollapse = section.element.querySelector('.collapse');
+                const button = section.element.querySelector('[aria-expanded]');
+                const chevron = section.element.querySelector('.bi-chevron-right, .bi-chevron-down');
+                console.log('🔧 Tools section debug:', {
+                    hasCollapseElement: !!parentCollapse,
+                    hasShowClass: parentCollapse?.classList.contains('show'),
+                    ariaExpanded: button?.getAttribute('aria-expanded'),
+                    detectedExpanded: section.isExpanded,
+                    collapseDisplay: parentCollapse?.style.display,
+                    collapseHeight: parentCollapse?.style.height,
+                    collapseOffsetHeight: parentCollapse?.offsetHeight,
+                    chevronClasses: chevron?.className,
+                    collapseInnerHTML: parentCollapse?.innerHTML.substring(0, 200) + '...',
+                    collapseId: parentCollapse?.id
+                });
+                
+                // Check if there are actually visible children
+                const visibleChildren = Array.from(section.element.children).filter(child => {
+                    const style = window.getComputedStyle(child);
+                    return style.display !== 'none' && style.visibility !== 'hidden' && child.offsetHeight > 0;
+                });
+                console.log('🔧 Tools visible children count:', visibleChildren.length);
+                console.log('🔧 Tools visible children:', visibleChildren.map(child => child.tagName + '.' + child.className));
+            }
             
             // Special handling for Home section
             if (section.text === 'Home' && preserveHomeState) {
@@ -451,57 +542,157 @@ function saveSidebarState() {
     }
 }
 
-// Function to collapse all sections by default (eliminates flickering)
-function collapseAllSectionsByDefault() {
+// PHASE 1: Pre-render collapse - Silent reset to collapsed state
+function preRenderCollapseAll() {
+    console.log('🔄 PHASE 1: Pre-render collapse (silent)...');
+    
     try {
-        console.log('🔄 Collapsing all sections by default...');
         const sidebar = document.getElementById('quarto-sidebar');
-        if (!sidebar) return;
-        
-        // Find all collapsible elements with .show class and remove it
-        const openSections = sidebar.querySelectorAll('.collapse.show');
-        let collapsedCount = 0;
-        
-        openSections.forEach(section => {
-            // Remove the .show class to collapse the section
-            section.classList.remove('show');
-            collapsedCount++;
-            
-            // Also update aria-expanded to false
-            const button = section.parentElement?.querySelector('[aria-expanded="true"]');
-            if (button) {
-                button.setAttribute('aria-expanded', 'false');
-            }
-            
-            // Update chevron icons
-            const chevron = section.parentElement?.querySelector('.bi-chevron-down');
-            if (chevron) {
-                chevron.classList.remove('bi-chevron-down');
-                chevron.classList.add('bi-chevron-right');
-            }
-        });
-        
-        console.log(`🔽 Collapsed ${collapsedCount} sections by default`);
-        return collapsedCount;
-    } catch (error) {
-        console.error('❌ Error collapsing sections:', error);
-        return 0;
-    }
-}
-
-// Restore sidebar state from localStorage using hierarchical structure
-function restoreSidebarState() {
-    try {
-        const savedState = localStorage.getItem(SIDEBAR_STATE_KEY);
-        if (!savedState) {
-            console.log('📂 No saved sidebar state found');
+        if (!sidebar) {
+            console.warn('❌ Sidebar not found for pre-render collapse');
             return;
         }
         
+        // NOTE: No need to add initial-collapse class - CSS handles it by default
+        console.log('✅ Sidebar will start collapsed via default CSS');
+        
+        // Force disable all transitions during pre-render
+        const style = document.createElement('style');
+        style.id = 'pre-render-no-transitions';
+        style.textContent = `
+            #quarto-sidebar * {
+                transition: none !important;
+                animation: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Find all collapsible elements and force them closed
+        const collapseElements = sidebar.querySelectorAll('.collapse');
+        const chevrons = sidebar.querySelectorAll('[data-bs-toggle="collapse"]');
+        
+        let collapsedCount = 0;
+        
+        // Force all sections collapsed using Bootstrap's proper method
+        collapseElements.forEach((element) => {
+            // Remove visual state
+            element.classList.remove('show');
+            element.style.display = 'none';
+            element.style.height = '0';
+            
+            // Set proper Bootstrap state attributes
+            element.setAttribute('aria-expanded', 'false');
+            element.classList.add('collapse');
+            
+            // Important: Initialize Bootstrap's internal state by creating a Collapse instance
+            // This ensures Bootstrap's JavaScript knows the element is collapsed
+            if (window.bootstrap?.Collapse && element.id) {
+                try {
+                    // Create or get existing Bootstrap Collapse instance
+                    let collapseInstance = window.bootstrap.Collapse.getInstance(element);
+                    if (!collapseInstance) {
+                        // Find the trigger element
+                        const trigger = sidebar.querySelector(`[data-bs-target="#${element.id}"]`);
+                        if (trigger) {
+                            collapseInstance = new window.bootstrap.Collapse(element, {
+                                toggle: false // Don't toggle, just initialize
+                            });
+                        }
+                    }
+                    
+                    // Mark internal state as collapsed (if instance exists)
+                    if (collapseInstance) {
+                        collapseInstance._isTransitioning = false;
+                        // Force internal state to collapsed
+                        element.classList.remove('show');
+                        element.setAttribute('aria-expanded', 'false');
+                    }
+                } catch (error) {
+                    console.warn('⚠️ Error initializing Bootstrap collapse for', element.id, ':', error);
+                }
+            }
+            
+            collapsedCount++;
+        });
+        
+        // Force all chevrons and triggers to collapsed state
+        chevrons.forEach((chevron) => {
+            chevron.setAttribute('aria-expanded', 'false');
+            chevron.classList.remove('collapsed');
+            chevron.classList.add('collapsed'); // Add Bootstrap's collapsed class
+            
+            const icon = chevron.querySelector('.bi');
+            if (icon) {
+                // Remove any existing chevron classes and set to right
+                icon.classList.remove('bi-chevron-down', 'bi-chevron-up', 'bi-chevron-left');
+                icon.classList.add('bi-chevron-right');
+            }
+        });
+        
+        console.log(`✅ Pre-render: Force collapsed ${collapsedCount} sections silently`);
+        
+        // Remove the no-transition style after a brief moment
+        setTimeout(() => {
+            const noTransitionStyle = document.getElementById('pre-render-no-transitions');
+            if (noTransitionStyle) {
+                document.head.removeChild(noTransitionStyle);
+            }
+        }, 100);
+        
+    } catch (error) {
+        console.error('❌ Error in pre-render collapse:', error);
+    }
+}
+
+// PHASE 2: Progressive restore - Visible smooth expansion with animations
+function progressivelyRestoreSidebarState() {
+    console.log('🎯 PHASE 2: Progressive restore (visible)...');
+    
+    // Set restoration flag to prevent saves during restoration
+    window.sidebarRestoreInProgress = true;
+    console.log('🚫 Disabled saves during restoration');
+    
+    // Safety timeout: Force enable manual interactions after maximum 2 seconds
+    setTimeout(() => {
+        if (window.sidebarRestoreInProgress) {
+            console.warn('⚠️ Restoration taking too long - force enabling manual interactions');
+            window.sidebarRestoreInProgress = false;
+            
+            // Ensure sidebar is marked as ready
+            const sidebar = document.getElementById('quarto-sidebar');
+            if (sidebar && !sidebar.classList.contains('sidebar-ready')) {
+                sidebar.classList.add('sidebar-ready');
+                console.log('✅ Force-added sidebar-ready class');
+            }
+        }
+    }, 2000);
+    
+    const savedState = localStorage.getItem(SIDEBAR_STATE_KEY);
+    if (!savedState) {
+        console.log('📂 No saved state - keeping all sections collapsed');
+        
+        // Mark sidebar as ready and enable normal behavior
+        if (sidebar) {
+            sidebar.classList.add('sidebar-ready');
+            console.log('✅ Added sidebar-ready class - normal behavior enabled');
+        }
+        
+        enableSmoothTransitions();
+        window.sidebarRestoreInProgress = false;
+        return;
+    }
+    
+    try {
         const hierarchicalState = JSON.parse(savedState);
-        console.log('🔄 Restoring sidebar state...');
+        console.log('� Found saved state, starting progressive restoration...');
+        
+        // Enable smooth transitions for the restoration process
+        enableSmoothTransitions();
         
         const sections = getCollapsibleSections();
+        let expandDelay = 0;
+        const EXPAND_DELAY_INCREMENT = 25; // Reduced to 25ms for faster restoration
+        let restoredCount = 0;
         
         // Helper function to find state in nested structure
         function findStateInHierarchy(pathParts, state) {
@@ -514,96 +705,186 @@ function restoreSidebarState() {
                         current = current.children || {};
                     }
                 } else {
-                    return null; // Path not found
+                    return null;
                 }
             }
             return current;
         }
         
-        let restoredCount = 0;
-        sections.forEach(section => {
-            console.log(`🔍 Checking section: "${section.text}" (path: ${section.hierarchicalPath})`);
+        // Process each section for progressive expansion
+        const processedSections = new Set(); // Track processed sections to avoid duplicates
+        sections.forEach((section, index) => {
+            console.log(`🔍 Processing section ${index + 1}: "${section.text}"`);
+            
+            // Skip duplicates by checking if we've already processed this text
+            const sectionKey = section.text.trim().toLowerCase();
+            if (processedSections.has(sectionKey)) {
+                console.log(`⏭️ Skipping duplicate section: "${section.text}"`);
+                return;
+            }
+            processedSections.add(sectionKey);
             
             // Special handling for Home section
             if (section.text === 'Home') {
-                console.log('🏠 Processing Home section restoration');
                 const homeState = hierarchicalState['home'];
-                if (homeState && homeState.isExpanded !== undefined) {
-                    const shouldBeExpanded = homeState.isExpanded;
-                    const isCurrentlyExpanded = section.isExpanded;
-                    
-                    console.log(`🏠 Home state - should be: ${shouldBeExpanded}, currently: ${isCurrentlyExpanded}`);
-                    
-                    if (shouldBeExpanded !== isCurrentlyExpanded) {
-                        console.log('🏠 Restoring Home section state...');
-                        setTimeout(() => {
-                            // Find the collapse target manually like we do in the click handler
-                            const homeItem = section.element;
-                            let targetElement = homeItem?.querySelector('.collapse');
-                            
-                            if (!targetElement) {
-                                const nextSibling = homeItem?.nextElementSibling;
-                                if (nextSibling?.classList.contains('collapse')) {
-                                    targetElement = nextSibling;
-                                }
-                            }
-                            
-                            if (targetElement) {
-                                console.log('🏠 Found Home collapse target, applying state...');
-                                if (shouldBeExpanded) {
-                                    targetElement.classList.add('show');
-                                    section.chevron.classList.remove('bi-chevron-right');
-                                    section.chevron.classList.add('bi-chevron-down');
-                                    console.log('🔽 Restored Home section to expanded');
-                                } else {
-                                    targetElement.classList.remove('show');
-                                    section.chevron.classList.remove('bi-chevron-down');
-                                    section.chevron.classList.add('bi-chevron-right');
-                                    console.log('🔼 Restored Home section to collapsed');
-                                }
-                                restoredCount++;
-                            } else {
-                                console.log('❌ Could not find Home collapse target for restoration');
-                            }
-                        }, 200); // Slightly longer delay for Home section
-                    }
-                } else {
-                    console.log('🏠 No saved state found for Home section');
+                if (homeState && homeState.isExpanded) {
+                    setTimeout(() => {
+                        expandSectionSmoothly(section, 'Home');
+                        restoredCount++;
+                    }, expandDelay);
+                    expandDelay += EXPAND_DELAY_INCREMENT;
                 }
-                return; // Skip normal processing for Home
+                return;
             }
             
             // Normal processing for other sections
             const pathParts = section.hierarchicalPath.split(' > ');
             const savedSection = findStateInHierarchy(pathParts, hierarchicalState);
             
-            if (savedSection) {
-                const shouldBeExpanded = savedSection.isExpanded;
-                const isCurrentlyExpanded = section.isExpanded;
-                
-                // If state doesn't match, click the chevron to toggle it
-                if (shouldBeExpanded !== isCurrentlyExpanded) {
-                    setTimeout(() => {
-                        section.chevron.click();
-                        restoredCount++;
-                    }, 100);
-                }
+            if (savedSection && savedSection.isExpanded) {
+                setTimeout(() => {
+                    expandSectionSmoothly(section, section.text);
+                    restoredCount++;
+                }, expandDelay);
+                expandDelay += EXPAND_DELAY_INCREMENT;
             }
         });
         
-        if (restoredCount > 0) {
-            console.log(`✅ Restored ${restoredCount} sections`);
+        // Final completion log - reduced delay for faster response
+        setTimeout(() => {
+            console.log(`✨ Progressive restoration complete! Restored ${restoredCount} sections`);
+            
+            // Mark sidebar as ready to enable normal Bootstrap behavior
+            if (sidebar) {
+                sidebar.classList.add('sidebar-ready');
+                console.log('✅ Added sidebar-ready class - Bootstrap behavior enabled');
+            }
+            
+            // Re-enable saves after restoration is complete
+            window.sidebarRestoreInProgress = false;
+            console.log('✅ Re-enabled saves after restoration');
+        }, expandDelay + 100); // Reduced from 200ms to 100ms for faster user interaction
+        
+    } catch (error) {
+        console.error('❌ Error in progressive restore:', error);
+        
+        // Mark sidebar as ready even on error to prevent permanent hiding
+        const sidebar = document.getElementById('quarto-sidebar');
+        if (sidebar) {
+            sidebar.classList.add('sidebar-ready');
+            console.log('✅ Added sidebar-ready class after error');
+        }
+        
+        // Re-enable saves even on error
+        window.sidebarRestoreInProgress = false;
+        console.log('✅ Re-enabled saves after error');
+        
+        enableSmoothTransitions();
+    }
+}
+
+// Helper function for smooth section expansion
+function expandSectionSmoothly(section, sectionName) {
+    console.log(`🔄 Smoothly expanding: ${sectionName}`);
+    
+    try {
+        // Special handling for Home section
+        if (sectionName === 'Home') {
+            console.log('🏠 Expanding Home section...');
+            const homeItem = section.element;
+            let targetElement = homeItem?.querySelector('.collapse');
+            
+            if (!targetElement) {
+                const nextSibling = homeItem?.nextElementSibling;
+                if (nextSibling?.classList.contains('collapse')) {
+                    targetElement = nextSibling;
+                }
+            }
+            
+            if (targetElement) {
+                console.log('🏠 Found Home target element, expanding...');
+                targetElement.style.display = 'block';
+                targetElement.style.height = 'auto';
+                targetElement.classList.add('show');
+                
+                // Update chevron
+                if (section.chevron) {
+                    section.chevron.setAttribute('aria-expanded', 'true');
+                    const chevronIcon = section.chevron.querySelector('.bi');
+                    if (chevronIcon) {
+                        chevronIcon.classList.remove('bi-chevron-right');
+                        chevronIcon.classList.add('bi-chevron-down');
+                    }
+                }
+                
+                console.log('✅ Expanded Home section smoothly');
+            } else {
+                console.log('❌ Could not find Home collapse target');
+            }
+            return;
+        }
+        
+        // For other sections, try using the click method instead of manual DOM manipulation
+        console.log(`🔄 Expanding ${sectionName} using click method...`);
+        if (section.chevron && !section.isExpanded) {
+            setTimeout(() => {
+                section.chevron.click();
+                console.log(`✅ Clicked chevron for: ${sectionName}`);
+            }, 50);
+        } else {
+            console.log(`⚠️ Cannot expand ${sectionName}: chevron=${!!section.chevron}, isExpanded=${section.isExpanded}`);
         }
         
     } catch (error) {
-        console.error('❌ Failed to restore sidebar state:', error);
+        console.error(`❌ Error expanding ${sectionName}:`, error);
     }
+}
+
+// Enable smooth transitions for the restoration animations
+function enableSmoothTransitions() {
+    console.log('� Enabling smooth transitions for progressive restore...');
+    
+    const style = document.createElement('style');
+    style.id = 'enable-sidebar-transitions';
+    style.textContent = `
+        #quarto-sidebar .collapse {
+            transition: height 0.35s ease, opacity 0.25s ease !important;
+        }
+        
+        #quarto-sidebar .sidebar-item-text .bi {
+            transition: transform 0.2s ease !important;
+        }
+        
+        /* Smooth expand animation */
+        #quarto-sidebar .collapse.show {
+            animation: smoothExpand 0.35s ease-out;
+        }
+        
+        @keyframes smoothExpand {
+            from {
+                opacity: 0;
+                height: 0;
+            }
+            to {
+                opacity: 1;
+                height: auto;
+            }
+        }
+    `;
+    
+    document.head.appendChild(style);
 }
 
 // Enhanced click detection with state saving
 document.addEventListener('click', function(event) {
     // If it's in the sidebar, check if it's a chevron click
     if (event.target.closest('#quarto-sidebar')) {
+        
+        // Skip if restoration is in progress
+        if (window.sidebarRestoreInProgress) {
+            console.log('🚫 Skipping manual click handling - restoration in progress');
+            return;
+        }
         
         // Check if this is a chevron click (collapse/expand action)
         const isChevronClick = event.target.classList.contains('bi-chevron-right') || 
@@ -615,21 +896,57 @@ document.addEventListener('click', function(event) {
         const isBootstrapTrigger = event.target.closest('[data-bs-toggle="collapse"]');
         
         if (isChevronClick || isBootstrapTrigger) {
-            console.log('🔄 Sidebar collapse trigger clicked');
+            console.log('🔄 Manual sidebar collapse trigger clicked');
             
-            // For Home section, let Bootstrap handle it naturally
-            // Try multiple ways to find Home item (same logic as earlier)
-            let homeItem = event.target.closest('.sidebar-item:has(.sidebar-item-text[href="index.qmd"])');
+            // Log what was actually clicked for debugging
+            const clickedSidebarItem = event.target.closest('.sidebar-item');
+            const clickedText = clickedSidebarItem?.querySelector('.sidebar-item-text')?.textContent?.trim();
+            console.log('🎯 Clicked on sidebar item:', clickedText);
+            
+            // Debug the current state of the clicked section BEFORE Bootstrap processes it
+            if (clickedSidebarItem) {
+                const collapseElement = clickedSidebarItem.querySelector('.collapse');
+                const button = clickedSidebarItem.querySelector('[aria-expanded]');
+                const chevron = clickedSidebarItem.querySelector('.bi-chevron-right, .bi-chevron-down');
+                console.log('🔍 Pre-click state of', clickedText, ':', {
+                    hasCollapseElement: !!collapseElement,
+                    collapseHasShowClass: collapseElement?.classList.contains('show'),
+                    ariaExpanded: button?.getAttribute('aria-expanded'),
+                    chevronDirection: chevron?.classList.contains('bi-chevron-down') ? 'down' : 'right',
+                    collapseClasses: collapseElement?.className
+                });
+            }
+            
+            // For Home section ONLY, let Bootstrap handle it naturally
+            // Be much more specific about Home detection
+            let homeItem = null;
+            
+            // Method 1: Try to find by exact index.qmd href
+            homeItem = event.target.closest('.sidebar-item:has(.sidebar-item-text[href="index.qmd"])');
+            
+            // Method 2: Try to find by exact text "Home" and verify it's actually the Home section
             if (!homeItem) {
                 const homeLinks = Array.from(document.querySelectorAll('.sidebar-item-text') || []);
-                const homeLink = homeLinks.find(link => link.textContent.trim() === 'Home');
+                const homeLink = homeLinks.find(link => {
+                    const text = link.textContent?.trim();
+                    const href = link.getAttribute('href');
+                    return text === 'Home' && (href === 'index.qmd' || href === './index.qmd' || href === '/index.qmd');
+                });
                 homeItem = homeLink?.closest('.sidebar-item');
             }
-            if (!homeItem) {
-                homeItem = event.target.closest('.sidebar-item:has(.sidebar-item-text[href*="localhost"])');
+            
+            // Method 3: Only as last resort, and only if clicked text is actually "Home"
+            if (!homeItem && clickedText === 'Home') {
+                homeItem = event.target.closest('.sidebar-item:has(.sidebar-item-text[href*="index"])');
             }
             
-            if (homeItem) {
+            console.log('🏠 Home detection result:', {
+                foundHomeItem: !!homeItem,
+                clickedText: clickedText,
+                isActuallyHome: clickedText === 'Home'
+            });
+            
+            if (homeItem && clickedText === 'Home') {
                 console.log('🏠 Home section collapse trigger clicked - letting Bootstrap handle it');
                 
                 // Don't interfere with Bootstrap, just log and save state after
@@ -641,11 +958,51 @@ document.addEventListener('click', function(event) {
                         chevronClass: chevron?.className
                     });
                 }, 100);
+            } else {
+                console.log('📁 Non-Home section clicked:', clickedText, '- handling normally');
+                
+                // Add detailed debugging for the clicked section immediately after click
+                if (clickedText === 'Tools') {
+                    setTimeout(() => {
+                        console.log('🔧 POST-CLICK Tools analysis:');
+                        const toolsItem = clickedSidebarItem;
+                        const collapseElement = toolsItem?.querySelector('.collapse');
+                        const chevron = toolsItem?.querySelector('.bi-chevron-right, .bi-chevron-down');
+                        const button = toolsItem?.querySelector('[aria-expanded]');
+                        
+                        console.log('🔧 Tools DOM state after click:', {
+                            collapseExists: !!collapseElement,
+                            collapseId: collapseElement?.id,
+                            collapseClasses: collapseElement?.className,
+                            collapseStyle: collapseElement?.style.cssText,
+                            collapseDisplay: window.getComputedStyle(collapseElement || {}).display,
+                            collapseHeight: window.getComputedStyle(collapseElement || {}).height,
+                            collapseOffsetHeight: collapseElement?.offsetHeight,
+                            hasShowClass: collapseElement?.classList.contains('show'),
+                            ariaExpanded: button?.getAttribute('aria-expanded'),
+                            chevronDirection: chevron?.classList.contains('bi-chevron-down') ? 'down' : 'right'
+                        });
+                        
+                        // Check if Bootstrap instance exists and what it thinks
+                        if (collapseElement && window.bootstrap?.Collapse) {
+                            const instance = window.bootstrap.Collapse.getInstance(collapseElement);
+                            console.log('🔧 Bootstrap Collapse instance:', {
+                                exists: !!instance,
+                                isTransitioning: instance?._isTransitioning,
+                                element: instance?._element === collapseElement
+                            });
+                        }
+                    }, 150);
+                }
             }
+            
+            // Mark this as a manual click to prevent double-saving from Bootstrap events
+            window.sidebarManualClick = true;
             
             // Wait for Bootstrap to update the DOM, then save state
             setTimeout(() => {
                 saveSidebarState();
+                window.sidebarManualClick = false;
             }, 300);
         }
     }
@@ -655,6 +1012,29 @@ document.addEventListener('click', function(event) {
 document.addEventListener('shown.bs.collapse', function(event) {
     if (event.target.closest('#quarto-sidebar')) {
         console.log('📂 Bootstrap collapse shown event');
+        
+        // CRITICAL FIX: Clear the inline styles that are blocking the display
+        const collapseElement = event.target;
+        if (collapseElement && collapseElement.classList.contains('collapse')) {
+            console.log('🔧 Clearing blocking inline styles for:', collapseElement.id);
+            collapseElement.style.display = '';    // Remove display: none
+            collapseElement.style.height = '';     // Remove height: 0px
+            collapseElement.style.visibility = ''; // Remove any visibility blocks
+            console.log('✅ Cleared inline styles - element should now be visible');
+        }
+        
+        // Skip if this was triggered by a manual click (already saved)
+        if (window.sidebarManualClick) {
+            console.log('🚫 Skipping Bootstrap event save - manual click already handled');
+            return;
+        }
+        
+        // Skip if restoration is in progress
+        if (window.sidebarRestoreInProgress) {
+            console.log('🚫 Skipping Bootstrap event save - restoration in progress');
+            return;
+        }
+        
         saveSidebarState();
     }
 });
@@ -662,6 +1042,19 @@ document.addEventListener('shown.bs.collapse', function(event) {
 document.addEventListener('hidden.bs.collapse', function(event) {
     if (event.target.closest('#quarto-sidebar')) {
         console.log('📁 Bootstrap collapse hidden event');
+        
+        // Skip if this was triggered by a manual click (already saved)
+        if (window.sidebarManualClick) {
+            console.log('🚫 Skipping Bootstrap event save - manual click already handled');
+            return;
+        }
+        
+        // Skip if restoration is in progress
+        if (window.sidebarRestoreInProgress) {
+            console.log('🚫 Skipping Bootstrap event save - restoration in progress');
+            return;
+        }
+        
         saveSidebarState();
     }
 });
@@ -877,20 +1270,13 @@ setTimeout(() => {
         });
     }
     
-    // STEP 1: Collapse all sections by default (eliminates flickering)
-    setTimeout(() => {
-        collapseAllSectionsByDefault();
-    }, 200);
+    // PHASE 1: Pre-render collapse (silent, no persistence)
+    preRenderCollapseAll();
     
-    // STEP 2: Then restore only the previously opened sections
+    // PHASE 2: Progressive restore (visible, with animations)  
     setTimeout(() => {
-        restoreSidebarState();
-    }, 500);
-    
-    // STEP 3: Save initial state after restoration
-    setTimeout(() => {
-        saveSidebarState();
-    }, 1500);
+        progressivelyRestoreSidebarState();
+    }, 100);
     
 }, 1000);
 
@@ -898,6 +1284,53 @@ setTimeout(() => {
 window.addEventListener('beforeunload', function() {
     saveSidebarState();
 });
+
+// DEBUG: Add debugging to understand state restoration issue
+function debugStateRestoration() {
+    console.log('🐛 DEBUG: Analyzing state restoration...');
+    
+    const savedState = localStorage.getItem(SIDEBAR_STATE_KEY);
+    if (!savedState) {
+        console.log('🐛 DEBUG: No saved state found');
+        return;
+    }
+    
+    try {
+        const state = JSON.parse(savedState);
+        console.log('🐛 DEBUG: Saved state structure:', state);
+        console.log('🐛 DEBUG: Saved state keys:', Object.keys(state));
+        
+        // Check Home state specifically
+        if (state['home']) {
+            console.log('🐛 DEBUG: Home state found:', state['home']);
+        } else {
+            console.log('🐛 DEBUG: No Home state found');
+        }
+        
+        // Check Events state specifically
+        if (state['events']) {
+            console.log('🐛 DEBUG: Events state found:', state['events']);
+        } else {
+            console.log('🐛 DEBUG: No Events state found');
+        }
+        
+        // Check what sections we have
+        const sections = getCollapsibleSections();
+        console.log('🐛 DEBUG: Found sections:', sections.map(s => ({
+            text: s.text,
+            isExpanded: s.isExpanded,
+            hierarchicalPath: s.hierarchicalPath
+        })));
+        
+    } catch (error) {
+        console.error('🐛 DEBUG: Error parsing saved state:', error);
+    }
+}
+
+// Run debug after DOM is ready
+setTimeout(() => {
+    debugStateRestoration();
+}, 2000);
 
 console.log('✅ Sidebar persistence system initialized');
 </script>
