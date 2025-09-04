@@ -645,14 +645,199 @@ function preRenderCollapseAll() {
 }
 
 // PHASE 2: Progressive restore - Visible smooth expansion with animations
+// Detect if this is a page transition (vs initial page load)
+function detectPageTransition() {
+    // Check if we've been on this domain before (indicates page transition)
+    // Use both sessionStorage and a more sophisticated detection
+    const hasVisitedBefore = sessionStorage.getItem('has_visited_site');
+    const currentTime = Date.now();
+    const currentUrl = window.location.href;
+    const pendingNavigation = sessionStorage.getItem('pending_navigation');
+    
+    if (!hasVisitedBefore) {
+        // First visit to the site
+        sessionStorage.setItem('has_visited_site', currentTime.toString());
+        sessionStorage.setItem('last_page_load', currentTime.toString());
+        sessionStorage.setItem('last_url', currentUrl);
+        return false;
+    } else {
+        // Check how recently the last page load occurred and if URL changed
+        const lastPageLoad = parseInt(sessionStorage.getItem('last_page_load') || '0');
+        const lastUrl = sessionStorage.getItem('last_url') || '';
+        const timeSinceLastLoad = currentTime - lastPageLoad;
+        const pendingNavTime = parseInt(pendingNavigation || '0');
+        
+        // Update tracking info
+        sessionStorage.setItem('last_page_load', currentTime.toString());
+        sessionStorage.setItem('last_url', currentUrl);
+        
+        // Clear pending navigation flag after using it
+        if (pendingNavigation) {
+            sessionStorage.removeItem('pending_navigation');
+        }
+        
+        // More sophisticated detection: check for pending navigation or recent load with URL change
+        const isTransition = (timeSinceLastLoad < 30000 && lastUrl !== currentUrl) || 
+                           (pendingNavTime > 0 && (currentTime - pendingNavTime) < 5000);
+        
+        console.log(`🔍 Page transition detection: ${isTransition ? 'TRANSITION' : 'INITIAL LOAD'}`);
+        console.log(`   Time since last load: ${timeSinceLastLoad}ms`);
+        console.log(`   URL changed: ${lastUrl !== currentUrl}`);
+        console.log(`   Pending navigation: ${!!pendingNavigation} (${pendingNavTime > 0 ? currentTime - pendingNavTime + 'ms ago' : 'none'})`);
+        console.log(`   Last URL: ${lastUrl}`);
+        console.log(`   Current URL: ${currentUrl}`);
+        
+        return isTransition;
+    }
+}
+
+// Fast expansion for page transitions (minimal animation)
+function expandSectionFast(section, sectionName) {
+    console.log(`⚡ Fast expanding: ${sectionName}`);
+    console.log(`⚡ Section details:`, {
+        text: section.text,
+        hierarchicalPath: section.hierarchicalPath,
+        hasElement: !!section.element,
+        hasChevron: !!section.chevron,
+        hasCollapseTarget: !!section.collapseTarget,
+        isExpanded: section.isExpanded
+    });
+    
+    try {
+        // Special handling for Home section
+        if (sectionName === 'Home') {
+            const homeItem = section.element;
+            let targetElement = homeItem?.querySelector('.collapse');
+            
+            if (!targetElement) {
+                const nextSibling = homeItem?.nextElementSibling;
+                if (nextSibling?.classList.contains('collapse')) {
+                    targetElement = nextSibling;
+                }
+            }
+            
+            if (targetElement) {
+                targetElement.style.display = 'block';
+                targetElement.style.height = 'auto';
+                targetElement.classList.add('show');
+                
+                // Update chevron quickly
+                if (section.chevron) {
+                    const chevronIcon = section.chevron.querySelector('.bi');
+                    if (chevronIcon) {
+                        chevronIcon.classList.remove('bi-chevron-right');
+                        chevronIcon.classList.add('bi-chevron-down');
+                    }
+                }
+                console.log('⚡ Fast expanded Home section');
+            }
+            return;
+        }
+        
+        // For other sections, try multiple approaches for reliability
+        console.log(`⚡ Expanding section: ${sectionName}`);
+        
+        // Method 1: Use the collapseTarget from section data
+        if (section.collapseTarget) {
+            console.log(`⚡ Method 1: Using collapseTarget`);
+            section.collapseTarget.style.display = 'block';
+            section.collapseTarget.style.height = 'auto';
+            section.collapseTarget.classList.add('show');
+            
+            // Update chevron
+            if (section.chevron) {
+                const chevronIcon = section.chevron.querySelector('.bi');
+                if (chevronIcon) {
+                    chevronIcon.classList.remove('bi-chevron-right');
+                    chevronIcon.classList.add('bi-chevron-down');
+                }
+                // Update aria-expanded
+                section.chevron.setAttribute('aria-expanded', 'true');
+            }
+            console.log(`⚡ Fast expanded: ${sectionName} via collapseTarget`);
+            return;
+        }
+        
+        // Method 2: Find collapse element within the section element
+        if (section.element) {
+            console.log(`⚡ Method 2: Finding collapse within section element`);
+            const collapseElement = section.element.querySelector('.collapse');
+            if (collapseElement) {
+                collapseElement.style.display = 'block';
+                collapseElement.style.height = 'auto';
+                collapseElement.classList.add('show');
+                
+                // Update chevron
+                if (section.chevron) {
+                    const chevronIcon = section.chevron.querySelector('.bi');
+                    if (chevronIcon) {
+                        chevronIcon.classList.remove('bi-chevron-right');
+                        chevronIcon.classList.add('bi-chevron-down');
+                    }
+                    section.chevron.setAttribute('aria-expanded', 'true');
+                }
+                console.log(`⚡ Fast expanded: ${sectionName} via element search`);
+                return;
+            }
+        }
+        
+        // Method 3: Try clicking the chevron as fallback (but with minimal delay)
+        if (section.chevron && !section.isExpanded) {
+            console.log(`⚡ Method 3: Clicking chevron as fallback`);
+            setTimeout(() => {
+                section.chevron.click();
+                console.log(`⚡ Clicked chevron for: ${sectionName}`);
+            }, 5); // Very short delay
+        } else {
+            console.warn(`⚠️ Cannot fast expand ${sectionName}: chevron=${!!section.chevron}, isExpanded=${section.isExpanded}`);
+        }
+        
+    } catch (error) {
+        console.error(`❌ Error fast expanding ${sectionName}:`, error);
+    }
+}
+
 function progressivelyRestoreSidebarState() {
     console.log('🎯 PHASE 2: Progressive restore (visible)...');
+    
+    // Check if this is a page transition vs initial load
+    const isPageTransition = detectPageTransition();
+    console.log(`🔍 Detected ${isPageTransition ? 'page transition' : 'initial page load'}`);
+    
+    // Add temporary visual indicator for page transitions
+    if (isPageTransition) {
+        const indicator = document.createElement('div');
+        indicator.id = 'sidebar-transition-indicator';
+        indicator.innerHTML = '⚡ Restoring menu...';
+        indicator.style.cssText = `
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #2780e3;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        `;
+        document.body.appendChild(indicator);
+        
+        // Remove indicator after restoration
+        setTimeout(() => {
+            if (document.getElementById('sidebar-transition-indicator')) {
+                indicator.style.opacity = '0';
+                setTimeout(() => indicator.remove(), 300);
+            }
+        }, 800);
+    }
     
     // Set restoration flag to prevent saves during restoration
     window.sidebarRestoreInProgress = true;
     console.log('🚫 Disabled saves during restoration');
     
-    // Safety timeout: Force enable manual interactions after maximum 2 seconds
+    // Use different safety timeout based on transition type
+    const SAFETY_TIMEOUT = isPageTransition ? 1000 : 2000; // 1s for transitions, 2s for initial loads
     setTimeout(() => {
         if (window.sidebarRestoreInProgress) {
             console.warn('⚠️ Restoration taking too long - force enabling manual interactions');
@@ -665,13 +850,14 @@ function progressivelyRestoreSidebarState() {
                 console.log('✅ Force-added sidebar-ready class');
             }
         }
-    }, 2000);
+    }, SAFETY_TIMEOUT);
     
     const savedState = localStorage.getItem(SIDEBAR_STATE_KEY);
     if (!savedState) {
         console.log('📂 No saved state - keeping all sections collapsed');
         
         // Mark sidebar as ready and enable normal behavior
+        const sidebar = document.getElementById('quarto-sidebar');
         if (sidebar) {
             sidebar.classList.add('sidebar-ready');
             console.log('✅ Added sidebar-ready class - normal behavior enabled');
@@ -684,14 +870,18 @@ function progressivelyRestoreSidebarState() {
     
     try {
         const hierarchicalState = JSON.parse(savedState);
-        console.log('� Found saved state, starting progressive restoration...');
+        console.log('🎯 Found saved state, starting progressive restoration...');
+        console.log('🔍 Saved state contents:', hierarchicalState);
         
         // Enable smooth transitions for the restoration process
         enableSmoothTransitions();
         
         const sections = getCollapsibleSections();
+        console.log(`🔍 Found ${sections.length} collapsible sections:`, sections.map(s => s.text));
+        
         let expandDelay = 0;
-        const EXPAND_DELAY_INCREMENT = 25; // Reduced to 25ms for faster restoration
+        // Use faster timing for page transitions, normal timing for initial loads
+        const EXPAND_DELAY_INCREMENT = isPageTransition ? 5 : 25; // 5ms for transitions, 25ms for initial loads
         let restoredCount = 0;
         
         // Helper function to find state in nested structure
@@ -715,6 +905,10 @@ function progressivelyRestoreSidebarState() {
         const processedSections = new Set(); // Track processed sections to avoid duplicates
         sections.forEach((section, index) => {
             console.log(`🔍 Processing section ${index + 1}: "${section.text}"`);
+            console.log(`   Path: "${section.hierarchicalPath}"`);
+            console.log(`   Element: ${!!section.element}`);
+            console.log(`   Chevron: ${!!section.chevron}`);
+            console.log(`   CollapseTarget: ${!!section.collapseTarget}`);
             
             // Skip duplicates by checking if we've already processed this text
             const sectionKey = section.text.trim().toLowerCase();
@@ -727,10 +921,17 @@ function progressivelyRestoreSidebarState() {
             // Special handling for Home section
             if (section.text === 'Home') {
                 const homeState = hierarchicalState['home'];
+                console.log(`🏠 Home section state:`, homeState);
                 if (homeState && homeState.isExpanded) {
+                    console.log(`🏠 Home should be expanded, scheduling restoration`);
                     setTimeout(() => {
-                        expandSectionSmoothly(section, 'Home');
+                        if (isPageTransition) {
+                            expandSectionFast(section, 'Home');
+                        } else {
+                            expandSectionSmoothly(section, 'Home');
+                        }
                         restoredCount++;
+                        console.log(`⚡ Restored ${restoredCount}: Home (${isPageTransition ? 'fast' : 'smooth'})`);
                     }, expandDelay);
                     expandDelay += EXPAND_DELAY_INCREMENT;
                 }
@@ -739,22 +940,34 @@ function progressivelyRestoreSidebarState() {
             
             // Normal processing for other sections
             const pathParts = section.hierarchicalPath.split(' > ');
+            console.log(`🔍 Looking for path parts:`, pathParts);
             const savedSection = findStateInHierarchy(pathParts, hierarchicalState);
+            console.log(`🔍 Found saved section:`, savedSection);
             
             if (savedSection && savedSection.isExpanded) {
+                console.log(`✅ Section "${section.text}" should be expanded, scheduling restoration`);
                 setTimeout(() => {
-                    expandSectionSmoothly(section, section.text);
+                    if (isPageTransition) {
+                        expandSectionFast(section, section.text);
+                    } else {
+                        expandSectionSmoothly(section, section.text);
+                    }
                     restoredCount++;
+                    console.log(`⚡ Restored ${restoredCount}: ${section.text} (${isPageTransition ? 'fast' : 'smooth'})`);
                 }, expandDelay);
                 expandDelay += EXPAND_DELAY_INCREMENT;
+            } else {
+                console.log(`❌ Section "${section.text}" should NOT be expanded (savedSection=${!!savedSection}, isExpanded=${savedSection?.isExpanded})`);
             }
         });
         
-        // Final completion log - reduced delay for faster response
+        // Final completion with dynamic timing based on transition type
+        const COMPLETION_DELAY = isPageTransition ? 50 : 100; // Much faster for page transitions
         setTimeout(() => {
-            console.log(`✨ Progressive restoration complete! Restored ${restoredCount} sections`);
+            console.log(`✨ ${isPageTransition ? 'Fast' : 'Progressive'} restoration complete! Restored ${restoredCount} sections`);
             
             // Mark sidebar as ready to enable normal Bootstrap behavior
+            const sidebar = document.getElementById('quarto-sidebar');
             if (sidebar) {
                 sidebar.classList.add('sidebar-ready');
                 console.log('✅ Added sidebar-ready class - Bootstrap behavior enabled');
@@ -763,7 +976,7 @@ function progressivelyRestoreSidebarState() {
             // Re-enable saves after restoration is complete
             window.sidebarRestoreInProgress = false;
             console.log('✅ Re-enabled saves after restoration');
-        }, expandDelay + 100); // Reduced from 200ms to 100ms for faster user interaction
+        }, expandDelay + COMPLETION_DELAY);
         
     } catch (error) {
         console.error('❌ Error in progressive restore:', error);
@@ -1058,6 +1271,89 @@ document.addEventListener('hidden.bs.collapse', function(event) {
         saveSidebarState();
     }
 });
+
+// Listen for navigation links being clicked to save state before page unload
+document.addEventListener('click', function(event) {
+    try {
+        // Check if this is a navigation link (not a sidebar collapse toggle)
+        const clickedLink = event.target.closest('a[href]:not([data-bs-toggle]):not([data-bs-target])');
+        
+        if (clickedLink && !clickedLink.closest('#quarto-sidebar')) {
+            // This is a regular navigation link (not in sidebar), save state preemptively
+            const href = clickedLink.getAttribute('href');
+            
+            // Only for internal navigation (not external links)
+            if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                console.log('🔗 Navigation link clicked, saving state preemptively:', href);
+                saveSidebarState();
+                
+                // Also mark this as a potential page transition
+                sessionStorage.setItem('pending_navigation', Date.now().toString());
+            }
+        }
+        
+        // Also handle sidebar navigation links
+        if (clickedLink && clickedLink.closest('#quarto-sidebar') && !clickedLink.closest('[data-bs-toggle]')) {
+            const href = clickedLink.getAttribute('href');
+            if (href && !href.startsWith('#') && href !== 'javascript:void(0)') {
+                console.log('📂 Sidebar navigation link clicked, saving state:', href);
+                saveSidebarState();
+                sessionStorage.setItem('pending_navigation', Date.now().toString());
+            }
+        }
+    } catch (error) {
+        console.error('❌ Error in navigation click handler:', error);
+    }
+});
+
+// Also save state when page is about to unload
+window.addEventListener('beforeunload', function() {
+    try {
+        console.log('🔄 Page unloading, saving final state');
+        saveSidebarState();
+    } catch (error) {
+        console.error('❌ Error saving state on unload:', error);
+    }
+});
+
+// DEBUGGING HELPER - Add to window for easy testing
+window.debugSidebar = function() {
+    console.log('🔍 SIDEBAR DEBUG REPORT');
+    console.log('='.repeat(50));
+    
+    // 1. Check localStorage
+    const savedState = localStorage.getItem(SIDEBAR_STATE_KEY);
+    console.log('💾 localStorage state:', savedState);
+    if (savedState) {
+        try {
+            const parsed = JSON.parse(savedState);
+            console.log('💾 Parsed state:', parsed);
+        } catch (e) {
+            console.error('❌ Error parsing localStorage:', e);
+        }
+    }
+    
+    // 2. Check sessionStorage
+    console.log('🗂️ sessionStorage:');
+    console.log('   has_visited_site:', sessionStorage.getItem('has_visited_site'));
+    console.log('   last_page_load:', sessionStorage.getItem('last_page_load'));
+    console.log('   last_url:', sessionStorage.getItem('last_url'));
+    console.log('   pending_navigation:', sessionStorage.getItem('pending_navigation'));
+    
+    // 3. Check current sidebar state
+    const sections = getCollapsibleSections();
+    console.log('🔍 Current sidebar sections:');
+    sections.forEach((section, i) => {
+        console.log(`   ${i+1}. "${section.text}" - expanded: ${section.isExpanded}`);
+    });
+    
+    // 4. Check page transition detection
+    const isTransition = detectPageTransition();
+    console.log('🔄 Page transition detection:', isTransition);
+    
+    console.log('='.repeat(50));
+    return {savedState, sections, isTransition};
+};
 
 // Initialize everything when page loads
 setTimeout(() => {
