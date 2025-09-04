@@ -401,6 +401,8 @@ website:
                     text: "How Quarto Works"
                   - href: "20250712 Use QUARTO doc for Github repos doc/001.002 Architecture - Monolithic vs. Modular Deployment.md"
                     text: "Monolithic vs. Modular Deployment"
+                  - href: "20250712 Use QUARTO doc for Github repos doc/001.003 Architecture - Split Navigation Build from content rendering.md"
+                    text: "Split Navigation Build from Content Rendering"
                   - href: "20250712 Use QUARTO doc for Github repos doc/001.010 Quarto.yml document structure.md"
                     text: "Quarto.yml document structure"
                   - href: "20250712 Use QUARTO doc for Github repos doc/003.010 Quarto specific markdown features.md"
