@@ -145,6 +145,7 @@ The conversation acknowledged that while RAG has been successful, the accumulate
 Pablo Castro announced a significant innovation: **"We apply the same agentic methods we use in many other parts of the systems... to the search stack. So we have this agentic retrieval capability that we're just rolling out."**
 
 This breakthrough enables:
+
 - **Reflective analysis** - AI evaluates retrieval quality and completeness
 - **Dynamic query expansion** - automatic query reformulation and branching
 - **Context-aware iteration** - continuous improvement of search results
@@ -153,6 +154,7 @@ This breakthrough enables:
 ### 4.3. Advanced Ranking and Re-ranking
 
 The discussion covered deep learning integration in search systems:
+
 - **Transformer-based re-ranking** - modern neural models for relevance scoring
 - **Scale management** - filtering from millions of documents to the top 3-5 results
 - **Semantic understanding** - meaning-based rather than keyword-based ranking
@@ -171,6 +173,7 @@ The discussion covered deep learning integration in search systems:
 Yina Arenas revealed the dramatic growth in available AI models: **"Two years ago, we had the OpenAI first three models... Now we have an explosion of models that has used the ecosystem. We are, as of today, have more than 10,000 models in the Azure AI Foundry catalog."**
 
 This massive expansion includes:
+
 - **Comprehensive coverage** - text, speech, image, video processing models
 - **Industry specialization** - healthcare, finance, retail-specific models
 - **Domain expertise** - models optimized for specific use cases and scenarios
@@ -178,6 +181,7 @@ This massive expansion includes:
 ### 5.2. Model Selection and Discovery
 
 To address the complexity of choosing from 10,000+ models, Azure AI Foundry provides:
+
 - **Catalog organization** - multiple ways to categorize and filter models
 - **Leaderboard comparisons** - cost, throughput, safety, and quality metrics
 - **Scenario-based filtering** - reasoning, text processing, image analysis categories
@@ -188,6 +192,7 @@ To address the complexity of choosing from 10,000+ models, Azure AI Foundry prov
 Yina introduced the **Model Router** as a solution for automatic model selection: **"Model router is an overlay on top of the set of models that you have deployed from Azure OpenAI, and what it will do is, based on the prompt, it will decide which model to use."**
 
 Benefits include:
+
 - **Cost optimization** - simple prompts routed to cheaper Nano models
 - **Performance matching** - complex reasoning tasks routed to advanced models like O3
 - **Developer simplicity** - no manual model selection required
@@ -229,6 +234,7 @@ The discussion contrasted traditional automation with AI-powered systems:
 Yina explained how agents gain capabilities through **function calling**: **"They have the ability to do function calling, to call a tool, whether that is retrieving knowledge from Azure AI Search or making an action in a system, anything that can be described with an API can be called by the LLM."**
 
 This enables:
+
 - **Universal tool access** - any API-describable functionality becomes available
 - **Knowledge retrieval** - integration with Azure AI Search for information access
 - **Action execution** - real system interactions and modifications
@@ -282,6 +288,7 @@ This **"bring your stuff"** philosophy ensures compatibility with existing toolc
 Yina outlined Azure AI Foundry's comprehensive safety framework: **"It's not just about the models. It's about the entire set of development environment that Azure AI Foundry offers for you."**
 
 The quality evaluation framework includes:
+
 - **Traditional evaluators** - relevance and accuracy assessment
 - **Agent-specific evaluation** - tool calling correctness validation
 - **Intent understanding** - system prompt adherence monitoring
@@ -290,6 +297,7 @@ The quality evaluation framework includes:
 ### 8.2. Security and Protection
 
 The security dimension encompasses:
+
 - **Prompt shields** - protection against injection attacks
 - **Attack response systems** - automated defense against adversarial inputs
 - **Continuous monitoring** - real-time security assessment
@@ -298,6 +306,7 @@ The security dimension encompasses:
 ### 8.3. Development Environment Integration
 
 Azure AI Foundry integrates safety features throughout the development process:
+
 - **Built-in evaluators** - integrated quality assessment tools
 - **Security umbrella** - comprehensive protection across applications
 - **Monitoring dashboards** - real-time safety and performance metrics
@@ -333,6 +342,7 @@ The service enables declarative agent definition through simple configuration:
 ### 9.3. Integration Ecosystem
 
 The comprehensive connectivity includes:
+
 - **Azure services** - native integration with Microsoft ecosystem
 - **Third-party APIs** - OpenAPI standard support
 - **MCP servers** - standardized tool protocol support
@@ -354,6 +364,7 @@ Seth characterized this as **"an AI agentic microservice thing"** - emphasizing 
 Marco Casalaina shared a compelling customer success story from his visit to BMW in Munich: **"They have these cars all over the world... they have all this special paint on these cars, but the cars have these sensors in them. It's called 'MDR,' mobile data recorder, and these sensors record everything."**
 
 The scale of the challenge:
+
 - **5,000 sensors per vehicle** - comprehensive data collection
 - **Global fleet monitoring** - worldwide data aggregation
 - **Multi-dimensional data** - engine, brake, ambient temperature, moisture
@@ -364,6 +375,7 @@ The scale of the challenge:
 The implementation faced a classic enterprise data challenge: **"Nobody was able to query that. They put a lot of this stuff in a Kusto database, a SQL database, and nobody knew how to query that at BMW. So there was this special class of wizards who were the only people who could query these things."**
 
 This created significant organizational barriers:
+
 - **Expert dependency** - only specialized "wizards" could access data
 - **Cryptic naming** - sensors with names like "Q underscore RSTR" were meaningless
 - **Technical complexity** - Kusto and SQL knowledge requirements
@@ -374,6 +386,7 @@ This created significant organizational barriers:
 BMW's solution required significant upfront investment: **"The folks at BMW, they spent six months creating a semantic model for this, because if you have a sensor called 'Q underscore RSTR' -- nobody knows, not your AI and not you either."**
 
 The implementation process included:
+
 - **Semantic modeling** - comprehensive sensor definition project
 - **Cross-team collaboration** - organization-wide knowledge gathering
 - **Documentation creation** - sensor names, purposes, ranges, and relationships
@@ -384,6 +397,7 @@ The implementation process included:
 The results demonstrated the power of democratized data access: **"Now pretty much anybody at BMW could just query this stuff, and so could I. They actually let me use it... I said, 'Show me all the hard-braking events in the last week in rainy weather,' and it can totally pull that off."**
 
 This transformation delivered:
+
 - **Universal access** - anyone at BMW can query sensor data
 - **Natural language interface** - no SQL knowledge required
 - **Real-time insights** - immediate answers to complex questions
@@ -402,6 +416,7 @@ This transformation delivered:
 Marco demonstrated the power of Azure's integrated platform approach: **"Yesterday, the need came up to connect this to an API, a flight reservation API. We've been working with this travel agent."**
 
 The development workflow showcased:
+
 - **Rapid requirement response** - addressing same-day integration needs
 - **Service discovery** - leveraging Azure API Management for the first time
 - **Mock API creation** - rapid prototyping and development capabilities
@@ -412,6 +427,7 @@ The development workflow showcased:
 The demo highlighted flexible integration options: **"I cannot just create the API. I could expose it to the OpenAPI protocol. So instantly, just like this, I had an API that my agent can use, and now if I want to, I could just create a new MCP server for it also."**
 
 This enables:
+
 - **OpenAPI standard** - immediate agent compatibility
 - **MCP server creation** - standardized protocol support
 - **Multiple exposure methods** - different protocols for different needs
@@ -424,6 +440,7 @@ Marco's concluding thoughts emphasized practical necessity: **"It may not be the
 Seth summarized the comprehensive platform approach: **"So we did the data, we did the models, and then you're like -- and the platform Azure makes it all good."**
 
 This philosophy demonstrates:
+
 - **Platform cohesion** - Azure services designed to work together
 - **Developer productivity** - rapid integration without complex setup
 - **Standards compliance** - industry protocols supported natively

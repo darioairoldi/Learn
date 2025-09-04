@@ -599,6 +599,7 @@ trigger:
       - _quarto.yml
 
 stages:
+
 - stage: Convert
   jobs:
   - job: YamlToJson

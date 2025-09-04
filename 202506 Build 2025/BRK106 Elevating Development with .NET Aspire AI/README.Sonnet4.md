@@ -205,6 +205,7 @@ builder.Build().Run();
 
 #### Service Defaults
 Standardized configuration applied to all services:
+
 - OpenTelemetry integration
 - Health checks
 - Resilience patterns (Polly)
@@ -246,6 +247,7 @@ builder.AddKubernetesEnvironment("cluster");
 
 #### Cross-Environment Communication
 Aspire automatically handles service-to-service communication across different compute environments:
+
 - Network configuration
 - Service discovery
 - Load balancing
@@ -272,6 +274,7 @@ For existing applications, focus on:
 
 ### 3. Multi-Language Integration
 When incorporating non-.NET components:
+
 - Use container-based integration
 - Maintain consistent configuration patterns
 - Leverage Aspire's orchestration capabilities

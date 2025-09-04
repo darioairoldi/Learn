@@ -159,6 +159,7 @@ Azure's evolution toward zero-impact maintenance demonstrates the platform's com
 #### Live Demonstration Analysis
 
 The demonstration clearly shows the evolution from traditional VM-PHU (complete VM freeze) to advanced VM-PHU (continuous operation). During the advanced demonstration:
+
 - **Ping responses continue** throughout the maintenance window
 - **Application counting proceeds** uninterrupted during virtualization stack restart
 - **VM state changes** in management interface while maintaining service availability
@@ -269,6 +270,7 @@ Hyperlight represents Microsoft's approach to ultra-lightweight virtualization f
 #### Hostile Multi-Tenancy Philosophy
 
 Mark introduces Microsoft's internal term "hostile multi-tenancy," establishing the security mindset:
+
 - **Assumption of hostility** - Customer code must be treated as potentially malicious
 - **Approved isolation boundary** - Hyper-V virtualization as the only sanctioned multi-tenant isolation
 - **Policy enforcement** - Deputy CISO responsibility for security boundaries
@@ -566,6 +568,7 @@ The final demonstration shows the Windows Task Manager struggling to display the
 #### Innovation Summary
 
 Mark's closing emphasizes the breadth of innovations covered:
+
 - **Infrastructure advances** - Azure Boost 2.0, RDMA, storage scale
 - **Security innovations** - LinuxGuard, Hyperlight, confidential computing
 - **Platform evolution** - Serverless containers, open source incubations
@@ -618,12 +621,14 @@ Mark's closing emphasizes the breadth of innovations covered:
 #### Azure Boost 2.0 Detailed Specifications
 ```
 Hardware Configuration:
+
 - Dual 100-Gigabit Ethernet Ports
 - FPGA-based data plane processing
 - ARM processor complex with dedicated DRAM
 - PCIe integration with host servers
 
 Performance Benchmarks:
+
 - Remote Storage: 14 GB/s throughput, 800K IOPS
 - Local SSD: 36 GB/s throughput, 6.6M IOPS  
 - Network: 200 GB/s, 400K connections/second
@@ -633,11 +638,13 @@ Performance Benchmarks:
 #### Guest RDMA Performance Comparison
 ```
 Traditional TCP/IP Stack:
+
 - Latency: 51,000 microseconds
 - Bandwidth: 1.4 GB/s average
 - CPU Overhead: High (full network stack)
 
 Guest RDMA Implementation:
+
 - Latency: 4,600 microseconds  
 - Bandwidth: 14 GB/s average
 - CPU Overhead: Minimal (direct memory access)
@@ -649,17 +656,20 @@ Guest RDMA Implementation:
 #### Technical Implementation Architecture
 ```
 Logical Layer:
+
 - Single storage account interface
 - Standard blob storage APIs
 - Transparent client access
 
 Physical Layer:
+
 - Multiple storage account slices
 - Data center-wide node distribution
 - Network bandwidth aggregation
 - Cross-rack storage distribution
 
 Performance Characteristics:
+
 - Capacity: Hundreds of petabytes
 - Throughput: Terabits per second
 - IOPS: Hundreds of thousands
@@ -671,16 +681,19 @@ Performance Characteristics:
 #### Complete Security Stack
 ```
 Container Image Verification:
+
 - DM-verity for layer integrity
 - Registry signature validation
 - Policy-based execution control
 
 Host System Protection:
+
 - SELinux security policies
 - Immutable operating system
 - IPE (Integrity Policy Enforcement)
 
 Audit and Compliance:
+
 - Complete execution logging
 - Policy violation tracking
 - Security event correlation
@@ -691,18 +704,21 @@ Audit and Compliance:
 #### Multi-GPU Confidential Architecture
 ```
 Hardware Components:
+
 - Intel TDX virtual machines
 - NVIDIA H200 confidential GPUs
 - Protected PCIe connections
 - Confidential NVLink networking
 
 Security Guarantees:
+
 - Hardware-based attestation
 - Cryptographic proof of integrity
 - End-to-end encryption
 - Zero-trust architecture
 
 Use Case Examples:
+
 - ServiceNow agentic flows
 - Model IP protection
 - Multi-party computation
@@ -714,18 +730,21 @@ Use Case Examples:
 #### Microsoft Research Cambridge Optical Computer
 ```
 Hardware Architecture:
+
 - Micro LED input arrays
 - Free space optics processing
 - SIMA sensor detection
 - Configurable weight matrices
 
 Current Capabilities:
+
 - Few thousand parameter models
 - Digit classification tasks
 - Room temperature operation
 - Light-speed computation primitives
 
 Research Objectives:
+
 - Neural network operation mapping
 - Energy efficiency improvement
 - Processing speed optimization  
@@ -737,21 +756,25 @@ Research Objectives:
 #### CNCF Project Graduation Timeline
 ```
 KEDA (Kubernetes Event-Driven Autoscaler):
+
 - Origin: Azure Incubations 2019
 - Graduation: CNCF August 2023
 - Status: Production-ready autoscaling
 
 Copa/Copacetic (Container Patching):
+
 - Origin: Microsoft Security Initiative
 - Status: CNCF Sandbox Project 2023
 - Usage: Millions of container images patched monthly
 
 Dapr (Distributed Application Runtime):
+
 - Origin: Azure Incubations 2019
 - Graduation: CNCF November 2024
 - Journey: Five-year development cycle
 
 Hyperlight (Micro-VM Sandboxing):
+
 - Origin: Azure Security Research
 - Status: CNCF Contribution 2025
 - Support: Hyper-V and KVM compatibility
@@ -795,6 +818,7 @@ Timeline of Transformation:
 2025: Major Linux security contributions (LinuxGuard, IPE upstream)
 
 Cultural Shift Indicators:
+
 - Linux as first-class Azure citizen
 - Open source as default incubation strategy
 - CNCF leadership and major project contributions

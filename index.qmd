@@ -220,6 +220,7 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 ### For Conference Attendees
 
 Browse the comprehensive [Build 2025 session notes](202506%20Build%202025/) featuring:
+
 - **30+ session breakdowns** with detailed notes and timestamps
 - **Code examples** and practical implementations
 - **Actionable takeaways** for immediate application
@@ -228,6 +229,7 @@ Browse the comprehensive [Build 2025 session notes](202506%20Build%202025/) feat
 ### For Azure Practitioners
 
 Focus on production-ready patterns:
+
 - Azure service optimization guides
 - Enterprise naming and organization standards
 - Performance monitoring and cost management
@@ -236,6 +238,7 @@ Focus on production-ready patterns:
 ### For AI Developers
 
 Comprehensive AI development resources:
+
 - Local development environments and tools
 - Enterprise AI agent development
 - Microsoft 365 and Copilot integration

@@ -59,6 +59,7 @@ The issue is caused by **ReFS compatibility problems** with Visual Studio's Git 
 3. **Wait for Visual Studio updates** that improve ReFS compatibility
 
 ### Alternative Approach:
+
 - Keep source code on NTFS drive (C:)
 - Use ReFS drive (E:) for data/build outputs that benefit from ReFS features
 

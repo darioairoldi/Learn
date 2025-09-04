@@ -79,6 +79,7 @@ Content-Type: application/json
 ### 5. Execute Requests
 
 To execute a request:
+
 - Click the "<mark>Send Request</mark>" link that appears above each request
 - Or use the shortcut <mark>`Ctrl+Alt+R`</mark> (Windows/Linux) or `Cmd+Alt+R` (Mac)
 

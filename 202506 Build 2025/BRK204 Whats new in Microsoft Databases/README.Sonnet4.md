@@ -113,6 +113,7 @@ SQL Server 2025 introduces native AI capabilities that eliminate the need for ex
 
 **Live Demonstration Highlights:**
 The session includes a compelling live demonstration showcasing:
+
 - **Multilingual Product Search:** English and Chinese product catalogs searched simultaneously
 - **Dynamic Model Switching:** Real-time transitions between local and cloud AI models
 - **Semantic Kernel Integration:** Direct C# application development with AI capabilities
@@ -168,6 +169,7 @@ The public preview of Copilot integration within SSMS 21 introduces AI-powered d
 
 **Developer Experience Enhancement:**
 The integration extends beyond query generation to include:
+
 - **Schema Exploration:** AI-assisted database structure understanding
 - **Query Optimization:** Performance tuning recommendations with execution plan analysis
 - **Error Resolution:** Contextual debugging assistance for database issues
@@ -186,6 +188,7 @@ Azure SQL Hyperscale continues to push the boundaries of transactional database 
 
 **Customer Success Case Study - UBS:**
 The session highlights UBS as a premier example of Azure SQL Hyperscale enterprise adoption:
+
 - **2 Petabytes of Data:** Migrated from mainframe infrastructure
 - **50,000 Tables:** Comprehensive database schema management
 - **400 Billion Records:** Massive data volume processing
@@ -299,6 +302,7 @@ PostgreSQL's enhanced availability features address enterprise requirements for 
 
 **Customer Success Story - PTC:**
 The session highlights PTC's successful PostgreSQL implementation:
+
 - **300 Complex Scenarios:** Migrated to Azure Database for PostgreSQL
 - **Increased Reliability:** Enhanced system stability and performance
 - **Cost Efficiency Gains:** Resources redirected to AI application development
@@ -357,6 +361,7 @@ Cosmos DB introduces revolutionary availability guarantees through per-partition
 
 **The "000 Database" Concept:**
 This innovative approach delivers:
+
 - **RTO: 0** - No recovery time objective
 - **RPO: 0** - No recovery point objective  
 - **Manual Intervention: 0** - Fully automated operations
@@ -372,6 +377,7 @@ This innovative approach delivers:
 
 **Customer Success Story - NFL:**
 The National Football League's AI coaching assistant demonstrates Cosmos DB's real-world AI application capabilities:
+
 - **AI Coaching Assistant:** Built entirely on Cosmos DB infrastructure
 - **Azure OpenAI Integration:** Seamless AI model connectivity for talent evaluation
 - **Real-Time Insights:** Instant athlete assessment and coaching recommendations
@@ -413,6 +419,7 @@ The live demonstration of SQL Server 2025 showcases the practical implementation
 
 **Technical Implementation Highlights:**
 The demonstration reveals how SQL Server 2025 eliminates traditional barriers between database operations and AI capabilities:
+
 - **Native Vector Storage:** Embeddings stored directly in SQL Server without external dependencies
 - **Seamless Model Integration:** AI models accessed through familiar SQL syntax and procedures
 - **Performance Optimization:** Query execution optimized for vector similarity operations
@@ -431,6 +438,7 @@ The comprehensive insurance application demonstration showcases advanced Azure S
 
 **Advanced Business Logic Scenarios:**
 The demonstration includes complex multi-step operations triggered through natural language chat interface:
+
 - **Customer Name Changes:** Multi-table updates with referential integrity maintenance
 - **Address Updates:** Geographic data validation and normalization
 - **Insurance Policy Addition:** Complex business rule enforcement and notification systems
@@ -438,6 +446,7 @@ The demonstration includes complex multi-step operations triggered through natur
 
 **Chat-Driven Database Operations:**
 The application demonstrates revolutionary user interaction patterns:
+
 - **Natural Language Commands:** Complex database operations expressed in conversational language
 - **Multi-Step Transaction Management:** Atomic operations across multiple tables and business rules
 - **Real-Time Validation:** Business rule enforcement with immediate user feedback
@@ -456,6 +465,7 @@ The PostgreSQL demonstration focuses on extreme-scale vector search performance 
 
 **Query Optimization Live Examples:**
 The demonstration includes real-time query optimization showcasing:
+
 - **Performance Analysis:** 38ms to 8.5ms latency reduction through Copilot suggestions
 - **Semantic Operator Usage:** Natural language concepts embedded in SQL queries
 - **Multi-Model Integration:** Various AI models accessed through consistent PostgreSQL interface
@@ -463,6 +473,7 @@ The demonstration includes real-time query optimization showcasing:
 
 **Developer Workflow Integration:**
 The PostgreSQL demonstration emphasizes developer experience improvements:
+
 - **VS Code Extension Capabilities:** Seamless development environment integration
 - **Azure Authentication:** Native Entra ID integration for enterprise security
 - **Export Functionality:** Data visualization through Excel, JSON, and CSV formats
@@ -482,6 +493,7 @@ The Cosmos DB demonstration showcases advanced AI agent architecture with multi-
 
 **Advanced Agent Capabilities:**
 The demonstration reveals sophisticated AI agent behaviors:
+
 - **Context-Aware Responses:** Understanding of conversation history and user intent
 - **Intelligent Tool Selection:** Automatic choice between search methods based on query type
 - **Multi-Turn Conversation Management:** State preservation across extended interactions
@@ -501,6 +513,7 @@ The session highlights several major enterprise customers who have successfully 
 
 **UBS (Banking Sector):**
 UBS represents one of the most significant enterprise database transformations in the financial services industry:
+
 - **Mainframe Migration Scale:** 2 petabytes of data migrated from legacy mainframe systems
 - **Data Complexity:** 50,000 tables with 400 billion records managed
 - **Mission-Critical Reliability:** Tier 1 banking operations requiring 99.99% uptime
@@ -511,6 +524,7 @@ The UBS migration demonstrates Azure SQL Hyperscale's capability to handle the w
 
 **BMW (Automotive Industry):**
 BMW's implementation showcases AI integration in automotive data processing:
+
 - **Mobile Data Recorder Infrastructure:** Vehicle data collection and processing systems
 - **PostgreSQL Flexible Server:** Foundation for conversation and chat history management
 - **AI-Powered Capabilities:** Real-time vehicle data analysis and insights
@@ -518,6 +532,7 @@ BMW's implementation showcases AI integration in automotive data processing:
 
 **NFL (Sports Technology):**
 The National Football League's AI coaching assistant represents innovative AI application development:
+
 - **Azure OpenAI Integration:** Sophisticated talent evaluation and coaching guidance
 - **Cosmos DB Foundation:** Globally distributed data platform for real-time insights
 - **Container Services Orchestration:** Kubernetes integration for scalable AI workloads
@@ -527,6 +542,7 @@ The National Football League's AI coaching assistant represents innovative AI ap
 
 **PTC (Industrial Technology):**
 PTC's transformation demonstrates PostgreSQL's capabilities in complex industrial scenarios:
+
 - **300 Complex Scenarios:** Comprehensive migration to Azure Database for PostgreSQL
 - **Reliability Improvements:** Enhanced system stability and performance consistency
 - **Cost Efficiency Achievement:** Resources redirected toward AI application development
@@ -534,6 +550,7 @@ PTC's transformation demonstrates PostgreSQL's capabilities in complex industria
 
 **NTT Data Partnership:**
 Genis Campa from NTT Data provides perspective on Microsoft database adoption across enterprise clients:
+
 - **Global System Integration:** Large-scale database modernization projects
 - **AI-Ready Infrastructure:** Preparing enterprise clients for AI transformation
 - **Multi-Industry Experience:** Database solutions across various industry verticals
@@ -541,18 +558,21 @@ Genis Campa from NTT Data provides perspective on Microsoft database adoption ac
 
 **Mediterranean Shipping Company:**
 As one of the SQL Server 2025 private preview participants:
+
 - **Global Logistics Operations:** Worldwide shipping and logistics data management
 - **AI Integration Requirements:** Advanced analytics for supply chain optimization
 - **Enterprise Scale Testing:** Validation of SQL Server 2025 capabilities at global scale
 
 **Intel Corporation:**
 Intel's participation in SQL Server 2025 private preview:
+
 - **Semiconductor Industry Requirements:** High-performance computing and data analysis
 - **AI Model Development:** Advanced AI capabilities for chip design and manufacturing
 - **Performance Validation:** Testing SQL Server 2025 AI features at enterprise scale
 
 **Hewlett Packard Enterprise:**
 HPE's involvement in private preview validation:
+
 - **Enterprise Technology Integration:** Comprehensive database portfolio evaluation
 - **AI Infrastructure Development:** Supporting AI-ready enterprise solutions
 - **Performance Benchmarking:** Validating database capabilities for enterprise customers

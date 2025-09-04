@@ -169,6 +169,7 @@ L'**Île Saint-Louis** è una delle perle nascoste di Parigi, un'isola residenzi
 ![alt text](<images/001.06a Ile saint louis.jpg>)
 
 L'isola è caratterizzata da:
+
 - **Architettura omogenea**: Eleganti hôtels particuliers (palazzi privati) in pietra chiara del XVII secolo
 - **Rue Saint-Louis-en-l'Île**: L'arteria principale ricca di boutique, gallerie d'arte e la famosa gelateria **Berthillon**
 - **Quai de Bourbon** e **Quai d'Anjou**: Banchine panoramiche con vista sulla Senna e Notre-Dame
@@ -729,6 +730,7 @@ La nostra prima tappa è la storica **Maison Ladurée** al numero **75**, una de
 **L'Esperienza Sensoriale**: Entrando in Ladurée, siamo accolti da un'atmosfera da **Belle Époque**: soffitti affrescati da **Jules Chéret** (1885), specchi dorati, velluti verdi e l'inconfondibile profumo di zucchero, vaniglia e mandorle. I **macarons** sono esposti come gioielli in eleganti vetrine refrigerate, disponibili in oltre **15 sapori** classici e alcune creazioni stagionali.
 
 **I Sapori Iconici**: Tra i macarons più celebri troviamo:
+
 - **Rose** (il più famoso, dal caratteristico colore rosa pallido)
 - **Pistacchio** (verde smeraldo con ganache di pistacchi siciliani)
 - **Cioccolato** (intenso e cremoso)
@@ -747,6 +749,7 @@ Proseguiamo verso il **numero 101**, dove si trova il **flagship store** di **Lo
 **L'Architettura del Negozio**: Il palazzo, risalente al **1913**, fu completamente rinnovato nel **2005** dall'architetto **Peter Marino**. L'interno combina **elementi classici parigini** (parquet in rovere, molding decorativi) con **installazioni artistiche contemporanee**, creando un'esperienza che va oltre il semplice shopping.
 
 **Le Collezioni Esclusive**: Nel negozio troviamo:
+
 - **Pelletteria**: dalle iconiche **Speedy** e **Neverfull** alle esclusive **Capucines** (il "it-bag" preferito dalle celebrities)
 - **Haute Maroquinerie**: creazioni artigianali uniche realizzate nei laboratori francesi
 - **Prêt-à-porter**: le collezioni firmate dai direttori artistici **Nicolas Ghesquiere** (donna) e **Pharrell Williams** (uomo)
@@ -771,6 +774,7 @@ Una sosta obbligatoria al **numero 72** per la boutique di **Pierre Hermé**, co
 **L'Innovazione Dolciaria**: **Pierre Hermé**, formatosi presso **Lenôtre** e **Fauchon**, ha rivoluzionato l'arte pasticciera francese introducendo **sapori inediti** e **tecniche innovative**. I suoi macarons non sono semplici dolci, ma vere **"haute couture culinarie"**.
 
 **I Signature Macarons**: Le creazioni più celebri includono:
+
 - **Ispahan** (rosa, litchi e lampone - la sua signature più famosa)
 - **Mogador** (cioccolato e frutto della passione)
 - **Infiniment Vanille** (intensissima vaniglia del Madagascar)

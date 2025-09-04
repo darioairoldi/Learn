@@ -113,11 +113,13 @@ Done!
 ## Troubleshooting
 
 ### If you get package errors:
+
 - Make sure you're using the exact package names and versions shown above
 - Clear NuGet cache: `dotnet nuget locals all --clear`
 - Try deleting `bin` and `obj` folders and run `dotnet restore` again
 
 ### If Foundry Local doesn't start:
+
 - Make sure Foundry Local is properly installed on your system
 - Check that no other instances are running
 - Verify you have sufficient system resources

@@ -67,6 +67,7 @@
 **David Fowler's "Vibe Coding" Demonstration:**
 
 David demonstrated a game he created that morning in his hotel room using AI:
+
 - **Development Time:** 8 minutes total
 - **Code Written:** Zero lines manually authored
 - **Iterations:** 4-5 prompts to achieve desired functionality
@@ -172,6 +173,7 @@ Following initial strategy generation, David pushed the AI toward more sophistic
 **GitHub Integration Enhancement:**
 
 David demonstrated GitHub's AI integration providing automatic context:
+
 - **Issue Context:** Automatic inclusion of GitHub issue details
 - **Codebase Awareness:** AI understanding of existing memory pool implementation
 - **Contextual Suggestions:** Recommendations specific to Kestrel's architecture

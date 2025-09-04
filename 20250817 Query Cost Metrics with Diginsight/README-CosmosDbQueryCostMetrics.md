@@ -30,6 +30,7 @@ The query cost metrics follow the same pattern as Diginsight's `span_duration` m
 ### Security Considerations
 
 **Important**: The implementation excludes sensitive information from logs:
+
 - **Continuation tokens** are never logged in activity payloads for security reasons
 - Only query text, container, and database names are included in observability data
 - Request options that might contain sensitive data are excluded from logged payloads

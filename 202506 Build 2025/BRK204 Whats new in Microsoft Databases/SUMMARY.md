@@ -140,6 +140,7 @@ This comprehensive session showcases Microsoft's complete database portfolio tra
 #### Semantic Operators Innovation (Public Preview)
 **Natural Language SQL Integration:**
 Four powerful semantic operators:
+
 - **GENERATE:** ChatGPT-style content generation within queries
 - **IS_TRUE:** Semantic predicate evaluation
 - **EXTRACT:** Entity knowledge extraction

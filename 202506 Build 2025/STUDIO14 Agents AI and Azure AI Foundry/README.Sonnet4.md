@@ -551,6 +551,7 @@ Seth summarizes the comprehensive approach: *"So we did the data, we did the mod
 #### Semantic Model Schema
 ```
 Sensor Definition:
+
 - Sensor ID (e.g., "Q_RSTR")
 - Human-readable name (e.g., "Brake Temperature Rear Left")
 - Data type and range specifications
@@ -1340,6 +1341,7 @@ The session reveals the evolution from traditional search to AI-enhanced retriev
 **Model Router Technical Implementation**
 
 The model router operates as an intelligent overlay system:
+
 - **Prompt Analysis:** AI evaluates complexity and requirements
 - **Model Selection:** Automatic routing based on cost and capability optimization  
 - **Transparent Operation:** No code changes required for routing benefits

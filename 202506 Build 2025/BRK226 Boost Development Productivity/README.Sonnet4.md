@@ -130,6 +130,7 @@ Cinnamon notes the practical value, mentioning using the feature "last week" for
 Command Palette represents a complete architectural rebuild of PowerToys Run, driven by the top user request for extensibility. Rather than retrofitting the existing codebase, the team chose to "start fresh and focus on performance along with extensibility."
 
 The new implementation addresses fundamental limitations:
+
 - **Ground-up performance optimization** for speed-of-thought responsiveness
 - **Extensibility framework** built into the core architecture
 - **Windows + R replacement capability** with enhanced functionality
@@ -182,6 +183,7 @@ The session includes a complete live extension development demonstration, showca
 
 **Performance Monitor Extension Example:**
 Craig Loewen demonstrates a completed extension providing:
+
 - **CPU and memory monitoring** - Real-time system resource display
 - **Process information** - Top resource-consuming applications
 - **Full debugging support** - Breakpoints and step-through debugging
@@ -398,6 +400,7 @@ DSC v3 extends beyond application installation to comprehensive system configura
 
 **Hands-Free Environment Setup:**
 The demonstration shows automated team environment configuration with:
+
 - **Complete automation** - No user interaction required during setup
 - **Intelligent detection** - Skip already-configured components
 - **Settings synchronization** - Complete environment replication across machines
@@ -494,6 +497,7 @@ WSL demonstrates significant adoption within Microsoft's own development teams, 
 
 **Real-World Microsoft Adoption:**
 Larry Osterman shares Azure SDK team experiences:
+
 - **Universal adoption** - "Literally every developer on the team has a WSL distro or several WSL distros"
 - **Windows host, Linux development** - Best-of-both-worlds development approach
 - **Cross-platform component development** - Essential for multi-platform SDK development
@@ -521,6 +525,7 @@ The session concludes with audience Q&A, revealing additional PowerToys utility 
 
 **File Locksmith Feature:**
 Kayla Cinnamon shares her favorite PowerToys utility - File Locksmith, which solves the common Windows file locking problem:
+
 - **Right-click integration** - "Unlock with File Locksmith" context menu option
 - **Process identification** - Shows which process is locking a file
 - **Direct process termination** - End the locking process immediately

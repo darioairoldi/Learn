@@ -330,6 +330,7 @@ Comprehensive studio session on agents and Azure AI Foundry. Platform deep-dive 
 ## Additional Resources
 
 Each session folder contains:
+
 - **SUMMARY.md**: Executive summary with key takeaways
 - **README.Sonnet4.md**: Detailed technical notes with code examples
 - **Images**: Supporting diagrams and screenshots

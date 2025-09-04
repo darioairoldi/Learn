@@ -54,6 +54,7 @@ Holland begins by acknowledging the conference atmosphere, playfully referencing
 ### Copilot Modes Overview
 
 Holland introduces the three primary modes of GitHub Copilot that will be utilized throughout the demonstration:
+
 - **Ask Mode:** Information gathering and strategy development
 - **Edit Mode:** Targeted code modifications
 - **Agent Mode:** Autonomous implementation and refactoring
@@ -118,6 +119,7 @@ Instead of asking the AI for immediate solutions, the Q&A prompt inverts the int
 
 **The Enhancement Discovery:**
 Holland demonstrates a critical improvement by clearing the chat and re-running the prompt with the `@codebase` modifier. This enhancement allows the AI to:
+
 - **Analyze existing project files** and folder structures
 - **Detect technology stacks** and frameworks in use
 - **Generate contextually relevant questions** based on actual codebase content
@@ -135,6 +137,7 @@ With codebase context, the AI generates more sophisticated questions:
 
 **Recommended Architecture Output:**
 Based on the Q&A session, the AI recommends a comprehensive folder structure:
+
 - `/config` - Configuration files and environment settings
 - `/controllers` - MVC controller logic and request handlers
 - `/middleware` - Request processing middleware components
@@ -148,6 +151,7 @@ Based on the Q&A session, the AI recommends a comprehensive folder structure:
 
 **Script Execution and Practical Results:**
 The AI generates a shell script (`script.sh`) that creates the entire folder structure. Holland demonstrates the execution process, including:
+
 - **Permission handling:** `chmod +x script.sh` for executable permissions
 - **Script execution:** `./script.sh` to generate folder structure
 - **Immediate organization:** Transformation from chaotic to organized project layout
@@ -163,6 +167,7 @@ The AI generates a shell script (`script.sh`) that creates the entire folder str
 
 **Beyond Project Structure:**
 The Q&A prompt method extends to numerous development scenarios:
+
 - **Technology selection** decisions with comparative analysis
 - **Architecture pattern** selection based on project constraints
 - **Database design** optimization through requirement clarification
@@ -215,6 +220,7 @@ AI models default to providing single, definitive solutions rather than explorin
 
 **Agent Mode Integration:**
 The demonstration showcases the transition from Ask Mode (analysis and recommendation) to Agent Mode (autonomous implementation):
+
 - **Automatic code analysis** - Identifies all locations where the database file is imported
 - **Comprehensive refactoring** - Updates instantiation patterns throughout the codebase
 - **Consistency validation** - Ensures uniform implementation across all usage points
@@ -504,6 +510,7 @@ The technical implementation demonstrates how strategic prompting transforms AI 
 
 **Business Strategy Development:**
 The Q&A prompt method proves invaluable for strategic business decisions by:
+
 - **Requirement gathering** through structured questioning for product development
 - **Market analysis** via pros and cons evaluation of different approaches
 - **Risk assessment** through stepwise analysis of business model changes
@@ -536,6 +543,7 @@ The Q&A prompt method proves invaluable for strategic business decisions by:
 
 **Requirements Gathering Excellence:**
 The Q&A prompt method revolutionizes stakeholder communication by:
+
 - **Client consultation** improvement through systematic requirement exploration
 - **Project scoping** accuracy via comprehensive questioning frameworks
 - **Risk identification** through structured analysis of project constraints
@@ -562,6 +570,7 @@ The Q&A prompt method revolutionizes stakeholder communication by:
 
 **Decision Making Framework:**
 The four strategies create a comprehensive decision-making toolkit applicable to:
+
 - **Major life decisions** with systematic pros and cons analysis
 - **Learning new skills** through progressive, stepwise approaches
 - **Creative problem solving** via expert persona consultation

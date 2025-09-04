@@ -75,17 +75,20 @@ MCP servers offer flexible deployment models to meet different organizational ne
 **Local deployment** runs MCP servers directly on the developer's machine or within the same environment as the host application.
 
 #### Key Characteristics:
+
 - **Run MCP servers locally within applications** - servers execute as processes on the same machine
 - **Use Docker containers for isolated environments** - containerization provides consistency and dependency management
 - **Direct access to local data and resources** - no network latency, immediate access to file systems and local databases
 
 #### Advantages:
+
 - **Low latency** - Direct communication between client and server
 - **Offline capability** - Works without internet connectivity
 - **Development-friendly** - Easy debugging and testing
 - **Security** - Data never leaves the local environment
 
 #### Use Cases:
+
 - **Development environments** - Testing and building MCP servers
 - **Sensitive data processing** - When data cannot leave the local machine
 - **Personal productivity tools** - Individual developer workflows
@@ -108,12 +111,14 @@ MCP servers offer flexible deployment models to meet different organizational ne
 **Remote deployment** hosts MCP servers in cloud environments, enabling scalable, shared access across teams and applications.
 
 #### Key Characteristics:
+
 - **Execute servers over Server-Sent Events (SSE)** - Real-time, persistent connections for streaming data
 - **Deploy in Azure Functions, Container Apps, or App Service** - Leverages cloud-native compute platforms
 - **Managed through API Management and API Center** - Enterprise-grade API governance and monitoring
 - **Optimized for remote MCP server scenarios** - Built for scale, reliability, and multi-tenant access
 
 #### Server-Sent Events (SSE) Deep Dive:
+
 - **Persistent connections** - Maintains long-lived connections for real-time updates
 - **Unidirectional streaming** - Server pushes data to clients as it becomes available
 - **Automatic reconnection** - Built-in resilience for network interruptions
@@ -128,12 +133,14 @@ MCP servers offer flexible deployment models to meet different organizational ne
 | **Azure App Service** | Platform-as-a-Service | • Managed hosting with built-in monitoring<br>• Always-on capability<br>• Integrated CI/CD and deployment slots | Production MCP servers requiring high availability |
 
 #### API Management Integration:
+
 - **Centralized governance** - Consistent policies across all MCP servers
 - **Rate limiting** - Protect servers from overuse
 - **Authentication** - Unified security model
 - **Monitoring** - Real-time analytics and alerting
 
 #### Use Cases:
+
 - **Enterprise scenarios** - Shared access across multiple teams
 - **Scalable data processing** - Handle high-volume requests
 - **Global accessibility** - Access from anywhere with internet
@@ -144,6 +151,7 @@ MCP servers offer flexible deployment models to meet different organizational ne
 **Web Services Integration** connects MCP servers to external APIs and cloud services, extending AI capabilities beyond local resources.
 
 #### Key Characteristics:
+
 - **Connect to external APIs like GitHub** - Seamless integration with third-party services
 - **Gather and create issues, pull requests, and other resources** - Bi-directional data flow
 - **Seamless integration with existing workflows** - No disruption to established processes
@@ -190,6 +198,7 @@ MCP servers offer flexible deployment models to meet different organizational ne
 - **Third-party SaaS** - Connect to CRM, ERP, and other business systems
 
 #### Benefits of Web Services Integration:
+
 - **Extended capabilities** - Access to vast ecosystem of services
 - **Real-time data** - Always up-to-date information
 - **Workflow continuity** - Maintain flow while accessing external resources
@@ -226,6 +235,7 @@ This flexible architecture allows organizations to choose the right deployment m
 
 ### GitHub Integration
 The session demonstrated a GitHub MCP server that enables:
+
 - Listing open issues from repositories
 - Creating and managing GitHub issues
 - Accessing repository information
@@ -348,6 +358,7 @@ The "Monkey MCP Server" perfectly demonstrates that MCP's power lies not just in
 
 ### Configuration
 MCP servers are configured through JSON files that specify:
+
 - Server endpoints and connection details
 - Authentication requirements
 - Available tools and capabilities
@@ -355,6 +366,7 @@ MCP servers are configured through JSON files that specify:
 
 ### Tool Discovery
 AI applications automatically discover available MCP tools:
+
 - Dynamic tool selection based on user queries
 - Real-time capability assessment
 - Context-aware tool recommendations

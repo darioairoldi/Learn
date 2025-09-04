@@ -15,6 +15,7 @@ This session demonstrates how to effectively combine **.NET Aspire** and **Playw
 ![alt text](<images/000.00 dnetaspire.png>)
 **.NET Aspire** is a comprehensive set of libraries, frameworks, and tools designed for building observable, production-ready distributed application systems.<br> 
 It provides:
+
 - **Smart Defaults**: Pre-configured settings that follow best practices for distributed systems
 - **Application Orchestration**: Simplified management of multiple services and components
 - **Developer Dashboard**: A centralized interface for monitoring and managing applications

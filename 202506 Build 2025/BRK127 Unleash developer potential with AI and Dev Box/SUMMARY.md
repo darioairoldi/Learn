@@ -190,6 +190,7 @@ AI Foundry Integration:
 > dev box ai
 
 Options:
+
 - List models: Available models from Azure AI Foundry
 - List deployments: Already deployed models for project
 - Deploy model: Instant model deployment from command line
@@ -302,12 +303,14 @@ Copilot Automation Flow:
 Developer: "Copilot, create a new Dev Box image definition for this repository."
 
 Copilot Analysis:
+
 - Repository structure examination
 - README file analysis
 - Technology stack detection
 - Dependency identification
 
 Generated Configuration:
+
 - Docker installation via WinGet
 - Visual Studio Code with extensions
 - .NET SDK with appropriate version

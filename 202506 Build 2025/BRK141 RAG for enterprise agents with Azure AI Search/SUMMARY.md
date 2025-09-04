@@ -56,6 +56,7 @@ Complex Query: "What does KB [typo] article fix security issue mentioned earlier
 regarding the vulnerability we discussed?"
 
 Challenges:
+
 - Multiple moving parts in single question
 - Typos requiring correction
 - Cross-references requiring resolution

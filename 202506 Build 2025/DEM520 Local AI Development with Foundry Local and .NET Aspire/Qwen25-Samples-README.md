@@ -7,6 +7,7 @@ This repository contains sample code demonstrating how to load and initialize lo
 ### 1. Basic Foundry Local Sample (`Qwen25-FoundryLocal-Sample`)
 
 A simple console application that demonstrates:
+
 - Direct initialization of Qwen2.5 model using Foundry Local
 - Basic chat completion
 - Streaming chat responses
@@ -15,6 +16,7 @@ A simple console application that demonstrates:
 ### 2. .NET Aspire Integration Sample (`Qwen25-Aspire-Sample`)
 
 A complete web application demonstrating:
+
 - .NET Aspire orchestration of Foundry Local services
 - Web API endpoints for chat interactions
 - Modern web interface for testing
@@ -44,6 +46,7 @@ A complete web application demonstrating:
 ## Current Status ✅
 
 **All code compiles and runs successfully!** The samples can:
+
 - Start and connect to Foundry Local services
 - Discover available models in the catalog (50+ models found)
 - Select appropriate models (Qwen, Phi, Mistral, etc.)
@@ -346,6 +349,7 @@ Based on your output, here are the available models by category:
 ### Hardware-Specific Downloads
 
 Your catalog shows different variants for different hardware:
+
 - `*-cuda-gpu` - NVIDIA GPU acceleration
 - `*-generic-gpu` - General GPU support
 - `*-generic-cpu` - CPU-only execution

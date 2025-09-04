@@ -208,6 +208,7 @@ ANALYSIS FRAMEWORK:
    - Community engagement opportunities (meetups, conferences)
 
 OUTPUT REQUIREMENTS:
+
 - Maximum 10 items per category with relevance ranking (1-5 scale)
 - Direct source links for each item
 - Estimated time investment for follow-up actions
@@ -266,6 +267,7 @@ STRATEGIC ANALYSIS REQUIREMENTS:
    - Thought leadership content creation opportunities
 
 DELIVERABLE REQUIREMENTS:
+
 - Executive Summary (250 words maximum)
 - Detailed Analysis Document (1500 words)
 - Client Presentation Outline (PowerPoint slide concepts)

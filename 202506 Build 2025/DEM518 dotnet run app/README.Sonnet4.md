@@ -428,6 +428,7 @@ Edwards demonstrated that the feature includes full tooling support:
 
 **Educational Benefits:**
 The tooling integration supports the educational goals by providing:
+
 - Immediate feedback on code correctness
 - Contextual help for language features
 - Debugging capabilities for understanding program flow

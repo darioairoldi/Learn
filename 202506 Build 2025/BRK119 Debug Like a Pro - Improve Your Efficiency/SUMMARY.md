@@ -211,6 +211,7 @@ Result: Successful process creation
 **Stock Market Simulation Demo:**
 ```
 Thread Summaries:
+
 - Thread 1: "Waiting for next stock cycle in processing"  
 - Thread 2: "Waiting for next stock cycle in processing"
 - Garfield Thread: "Executing buy operation, waiting for next stock cycle"

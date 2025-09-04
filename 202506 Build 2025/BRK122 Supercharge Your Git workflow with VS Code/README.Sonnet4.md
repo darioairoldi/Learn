@@ -177,6 +177,7 @@ The .NET 10 release focuses on four key areas of investment to enhance the devel
 
 ### Passkey Authentication Demo
 The session demonstrated a complete passkey implementation showing:
+
 - User account setup with passkey registration
 - Windows Hello integration for biometric authentication
 - Seamless login experience without passwords
@@ -184,6 +185,7 @@ The session demonstrated a complete passkey implementation showing:
 
 ### Performance Diagnostics Demo
 Showcased advanced diagnostic capabilities:
+
 - Real-time performance profiling in browser DevTools
 - Memory dump analysis in Visual Studio
 - CPU sampling and performance counter extraction
@@ -191,6 +193,7 @@ Showcased advanced diagnostic capabilities:
 
 ### JSON Patch Implementation
 Demonstrated practical usage:
+
 - Product catalog price updates
 - Concurrent operation handling with test operations
 - Error handling and validation feedback
@@ -498,6 +501,7 @@ window.setAuthToken = (token) => {
 #### Security Boundaries
 
 **Trust Zones**:
+
 - **Native App Process**: Full device access, secure storage
 - **WebView Context**: Limited access, standard web security
 - **Communication Bridge**: Secure token passing between contexts
@@ -512,6 +516,7 @@ var token = await SecureStorage.GetAsync("passkey_token");
 #### Windows Hybrid Apps
 
 **Windows Hello Integration**:
+
 - **TPM-backed credentials**: Hardware security module storage
 - **Biometric authentication**: Fingerprint, face, PIN
 - **Enterprise policies**: Domain-managed passkey policies
@@ -530,6 +535,7 @@ if (await UserConsentVerifier.CheckAvailabilityAsync() ==
 #### Mobile Hybrid Apps (iOS/Android)
 
 **Platform Authentication**:
+
 - **iOS**: Touch ID/Face ID through AuthenticationServices framework
 - **Android**: BiometricPrompt API with device biometrics
 - **Cross-platform**: .NET MAUI abstracts platform differences
@@ -578,6 +584,7 @@ public class HybridIdentityService : IIdentityService
 #### State Management Across Components
 
 **Shared State Pattern**:
+
 - **Native components**: Access identity through dependency injection
 - **Blazor components**: Receive identity through JavaScript interop
 - **API clients**: Use shared token store for authentication headers
