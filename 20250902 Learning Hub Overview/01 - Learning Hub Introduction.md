@@ -48,16 +48,24 @@ audience: "Knowledge Workers, Consultants, Technology Professionals"
 
 The **Learning Hub** pursues a paradigm shift from traditional **passive information consumption** to <mark>**intelligent**, **automated** knowledge **development**</mark>. 
 
-This tool transforms how professionals interact with information by implementing **structured intelligent gathering**, **automated information development** and **collaborative learning**.
+This tool transforms interaction with information by implementing <mark>**intelligent gathering**</mark>, <mark>**automated information development**</mark> and <mark>**collaborative learning**</mark>.
 
 ### Core Transformation Principles
 
 The Learning Hub changes learning from:
 
 - **"Information sparse"** → **"Information centric"**
+  Information is developed into the Learning hub, iteratively, with help of Copilot.
+  Copilot assists in gathering, curating and contextualizing information, making it more accessible and actionable.
+
 - **"Passive consumption"** → **"Active intelligent analysis and development"**
+  The Learning Hub actively processes information, into the first creation and also into the development iterations.
+  Learning hub assists in organizing information for readability, consistency... and also in identifying knowledge gaps and opportunities for further exploration.
+
 - **"Random learning"** → **"Structured knowledge development"**
+  Learning now progresses with the development of information. It doesn't stop at the first read.
 - **"Individual learning"** → **"Collaborative learning"**
+  Learning pieces can be exchanged and developed across learning hub instances.
 
 ### Intelligence Application Areas
 
