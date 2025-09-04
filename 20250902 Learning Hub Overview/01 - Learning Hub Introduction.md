@@ -55,8 +55,8 @@ This tool transforms interaction with information by implementing <mark>**intell
 The Learning Hub changes learning from:
 
 - **"Information sparse"** → **"Information centric"**
-  Information is developed into the Learning hub, iteratively, with help of Copilot.
-  Copilot assists in gathering, curating and contextualizing information, making it more accessible and actionable.
+  Information is developed iteratively into the Learning hub, with help of Copilot.
+  Copilot assists in gathering, curating and developing information, making it more accessible and actionable.
 
 - **"Passive consumption"** → **"Active intelligent analysis and development"**
   The Learning Hub actively processes information, into the first creation and also into the development iterations.
@@ -65,7 +65,7 @@ The Learning Hub changes learning from:
 - **"Random learning"** → **"Structured knowledge development"**
   Learning now progresses with the development of information. It doesn't stop at the first read.
 - **"Individual learning"** → **"Collaborative learning"**
-  Learning pieces can be exchanged and developed across learning hub instances.
+  Learning pieces can be exchanged and developed across learning hub instances and, of course, it can be developed starting from (public) web resources or user provided information.
 
 ### Intelligence Application Areas
 
