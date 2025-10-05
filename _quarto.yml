@@ -40,6 +40,8 @@ project:
     - "README.md"
     - "20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
     - "20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
+    # Add Feeds architectures and protocols
+    - "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
     # Add Issues section files
     - "_ISSUES/20250710 sample/README.md"
     # Add DIY projects
@@ -139,6 +141,10 @@ website:
             text: "Build 2025: ODFP957 - Sentry & Copilot AI Debugging"
           - href: "202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.md"
             text: "Build 2025: STUDIO14 - Agents & Azure AI Foundry"
+      - text: "Architectures"
+        menu:
+          - href: "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
+            text: "Podcast and RSS Feed Analysis"
       # - text: "Development Tools"
       #   menu:
     right:
@@ -385,6 +391,10 @@ website:
       - section: "Tools"
         icon: tools
         contents:
+          - section: "Feed Architectures"
+            contents:
+              - href: "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
+                text: "Podcast and RSS Feed Analysis"
           - section: "Development Tools"
             href: "20250709 Manage GitRepo from commandline/README.md"
             contents:
