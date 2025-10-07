@@ -1,0 +1,326 @@
+name: Quarto Site Render and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Quarto (Optimized Windows)
+      shell: pwsh
+      run: |
+        Write-Host "?? Setting up Quarto for Windows self-hosted runner..."
+        
+        # Function to check Quarto installation and version
+        function Test-QuartoInstallation {
+          try {
+            $version = quarto --version 2>$null
+            if ($version -and $version -match '(\d+\.\d+\.\d+)') {
+              return $matches[1]
+            }
+          } catch {
+            return $null
+          }
+          return $null
+        }
+        
+        # Check current installation
+        $currentVersion = Test-QuartoInstallation
+        $targetVersion = "1.4.550"
+        
+        if ($currentVersion) {
+          Write-Host "? Found Quarto version: $currentVersion"
+          
+          # Check if we need to update
+          if ([version]$currentVersion -ge [version]$targetVersion) {
+            Write-Host "? Quarto is up to date ($currentVersion >= $targetVersion)"
+            
+            # Ensure it's in PATH for this session
+            $quartoCmd = Get-Command quarto -ErrorAction SilentlyContinue
+            if ($quartoCmd) {
+              $quartoDir = Split-Path $quartoCmd.Source -Parent
+              Write-Host "?? Quarto found at: $quartoDir"
+              echo $quartoDir | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+            }
+            return
+          } else {
+            Write-Host "?? Quarto version $currentVersion is older than target $targetVersion"
+          }
+        } else {
+          Write-Host "?? Quarto not found or not accessible"
+        }
+        
+        # Download and install/update Quarto
+        $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$targetVersion/quarto-$targetVersion-win.msi"
+        $installerPath = "$env:TEMP\quarto-installer-$targetVersion.msi"
+        
+        # Check if we already have this version downloaded
+        if (Test-Path $installerPath) {
+          Write-Host "?? Using cached installer: $installerPath"
+        } else {
+          Write-Host "?? Downloading Quarto $targetVersion..."
+          try {
+            # Use TLS 1.2 for better compatibility
+            [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+            
+            # Download with progress suppression for cleaner logs
+            $progressPreference = 'SilentlyContinue'
+            Invoke-WebRequest -Uri $quartoUrl -OutFile $installerPath -UseBasicParsing
+            Write-Host "? Download completed: $((Get-Item $installerPath).Length) bytes"
+          } catch {
+            Write-Error "? Download failed: $_"
+            exit 1
+          }
+        }
+        
+        # Install Quarto
+        Write-Host "?? Installing Quarto $targetVersion..."
+        try {
+          $installArgs = @("/i", $installerPath, "/quiet", "/norestart", "/l*v", "$env:TEMP\quarto-install.log")
+          $process = Start-Process -FilePath "msiexec.exe" -ArgumentList $installArgs -Wait -PassThru
+          
+          if ($process.ExitCode -eq 0 -or $process.ExitCode -eq 3010) {
+            Write-Host "? Installation completed (Exit code: $($process.ExitCode))"
+          } else {
+            Write-Error "? Installation failed with exit code: $($process.ExitCode)"
+            if (Test-Path "$env:TEMP\quarto-install.log") {
+              Get-Content "$env:TEMP\quarto-install.log" | Select-Object -Last 10
+            }
+            exit 1
+          }
+        } catch {
+          Write-Error "? Installation failed: $_"
+          exit 1
+        }
+        
+        # Find and add Quarto to PATH
+        $possiblePaths = @(
+          "C:\Program Files\Quarto\bin",
+          "C:\Program Files (x86)\Quarto\bin",
+          "${env:LOCALAPPDATA}\Programs\Quarto\bin"
+        )
+        
+        $quartoFound = $false
+        foreach ($path in $possiblePaths) {
+          if (Test-Path "$path\quarto.exe") {
+            Write-Host "? Found Quarto at: $path"
+            $env:PATH = "$path;$env:PATH"
+            echo $path | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+            
+            # Verify installation
+            try {
+              $newVersion = & "$path\quarto.exe" --version
+              Write-Host "?? Quarto ready: $newVersion"
+              $quartoFound = $true
+              break
+            } catch {
+              Write-Warning "?? Found quarto.exe but couldn't execute: $_"
+            }
+          }
+        }
+        
+        if (-not $quartoFound) {
+          Write-Error "? Quarto installation not found in expected locations"
+          exit 1
+        }
+        
+        # Clean up installer if successful
+        if (Test-Path $installerPath) {
+          Remove-Item $installerPath -Force -ErrorAction SilentlyContinue
+        }
+
+    - name: Cache Dependencies and Check Requirements
+      id: cache-deps
+      shell: pwsh
+      run: |
+        Write-Host "?? Checking project dependencies..."
+        
+        # Create cache key based on project files
+        $cacheKey = "quarto-deps-"
+        
+        # Include Quarto project files in cache key
+        if (Test-Path "_quarto.yml") {
+          $quartoHash = (Get-FileHash "_quarto.yml").Hash.Substring(0, 8)
+          $cacheKey += "quarto-$quartoHash-"
+        }
+        
+        # Include Python requirements if present
+        if (Test-Path "requirements.txt") {
+          $reqHash = (Get-FileHash "requirements.txt").Hash.Substring(0, 8)
+          $cacheKey += "py-$reqHash-"
+          echo "python-needed=true" >> $env:GITHUB_OUTPUT
+          Write-Host "?? Python requirements.txt detected"
+        } elseif (Test-Path "pyproject.toml") {
+          $projHash = (Get-FileHash "pyproject.toml").Hash.Substring(0, 8)
+          $cacheKey += "pyproj-$projHash-"
+          echo "python-needed=true" >> $env:GITHUB_OUTPUT
+          Write-Host "?? Python pyproject.toml detected"
+        } else {
+          echo "python-needed=false" >> $env:GITHUB_OUTPUT
+          Write-Host "?? No Python dependencies detected"
+        }
+        
+        Write-Host "?? Cache key: $cacheKey"
+        echo "cache-key=$cacheKey" >> $env:GITHUB_OUTPUT
+        
+    - name: Setup Python (if needed for computations)
+      if: steps.cache-deps.outputs.python-needed == 'true'
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+        
+    - name: Install Python dependencies (if needed)
+      if: steps.cache-deps.outputs.python-needed == 'true'
+      shell: pwsh
+      run: |
+        Write-Host "?? Installing Python dependencies..."
+        try {
+          if (Test-Path "requirements.txt") {
+            Write-Host "Installing from requirements.txt"
+            pip install --no-warn-script-location -r requirements.txt
+          } elseif (Test-Path "pyproject.toml") {
+            Write-Host "Installing from pyproject.toml"
+            pip install --no-warn-script-location -e .
+          }
+          Write-Host "? Python dependencies installed successfully"
+        } catch {
+          Write-Error "? Python dependencies installation failed: $_"
+          exit 1
+        }
+
+    - name: Render Quarto Project
+      shell: pwsh
+      run: |
+        Write-Host "?? Starting Quarto rendering process..."
+        
+        # Verify Quarto is accessible
+        try {
+          $quartoVersion = quarto --version
+          Write-Host "? Using Quarto version: $quartoVersion"
+        } catch {
+          Write-Error "? Quarto not found or not accessible"
+          exit 1
+        }
+        
+        # Check project configuration
+        if (Test-Path "_quarto.yml") {
+          Write-Host "?? Found _quarto.yml configuration"
+        } else {
+          Write-Warning "?? No _quarto.yml found - using defaults"
+        }
+        
+        # Run pre-render script if it exists (for navigation generation)
+        if (Test-Path "scripts/generate-navigation.ps1") {
+          Write-Host "?? Running navigation generation script..."
+          try {
+            & powershell -ExecutionPolicy Bypass -File "scripts/generate-navigation.ps1"
+            Write-Host "? Navigation script completed"
+          } catch {
+            Write-Warning "?? Navigation script failed: $_"
+            # Continue anyway - not critical for build
+          }
+        }
+        
+        # Clean previous build if exists
+        if (Test-Path "docs") {
+          Write-Host "?? Cleaning previous build..."
+          Remove-Item "docs" -Recurse -Force -ErrorAction SilentlyContinue
+        }
+        
+        # Render the project
+        Write-Host "?? Rendering Quarto project to HTML..."
+        try {
+          # Add verbose output for debugging if needed
+          $env:QUARTO_LOG_LEVEL = "INFO"
+          
+          # Render with clean output
+          quarto render --to html --quiet
+          
+          Write-Host "? Quarto rendering completed successfully"
+        } catch {
+          Write-Error "? Quarto rendering failed: $_"
+          
+          # Try to provide more diagnostics
+          Write-Host "?? Diagnostics information:"
+          Write-Host "Current directory: $(Get-Location)"
+          Write-Host "Available files:"
+          Get-ChildItem -Name | Select-Object -First 10
+          
+          exit 1
+        }
+        
+        # Verify output
+        Write-Host "?? Verifying build output..."
+        if (Test-Path "docs") {
+          $htmlFiles = Get-ChildItem "docs" -Filter "*.html" -Recurse
+          $totalSize = (Get-ChildItem "docs" -Recurse | Measure-Object -Property Length -Sum).Sum
+          Write-Host "? Generated $($htmlFiles.Count) HTML files (Total size: $([math]::Round($totalSize/1MB, 2)) MB)"
+          
+          # List some key files for verification
+          Write-Host "?? Key output files:"
+          Get-ChildItem "docs" -Name "*.html" | Select-Object -First 5 | ForEach-Object { Write-Host "  - $_" }
+          
+          # Check for navigation files
+          if (Test-Path "docs/navigation.json") {
+            Write-Host "? navigation.json found in output"
+          } else {
+            Write-Host "?? navigation.json not found in output (may be expected)"
+          }
+          
+          # Check for essential files
+          if (Test-Path "docs/index.html") {
+            Write-Host "? index.html found"
+          } else {
+            Write-Warning "?? index.html not found - this may cause deployment issues"
+          }
+        } else {
+          Write-Error "? docs directory not found after rendering"
+          exit 1
+        }
+        
+        Write-Host "?? Build verification completed successfully"
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+      
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: docs/
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    steps:    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      with:
+        timeout: 600000  # 10 minutes timeout
+        error_count: 10  # Allow up to 10 errors before failing
+        reporting_interval: 5000  # Report progress every 5 seconds
