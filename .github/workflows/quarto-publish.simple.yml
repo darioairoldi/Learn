@@ -1,0 +1,106 @@
+name: Quarto Publish (Built-in - No Artifacts)
+
+on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write  # Quarto publish needs to push to gh-pages
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Quarto (Native Windows)
+      shell: pwsh
+      run: |
+        Write-Host "Setting up Quarto using native Windows installation..."
+        
+        # Check if Quarto is already installed
+        try {
+          $existing = quarto --version 2>$null
+          if ($existing) {
+            Write-Host "Quarto already installed: $existing"
+            exit 0
+          }
+        } catch {
+          Write-Host "Quarto not found, proceeding with installation..."
+        }
+        
+        # Download and install Quarto for Windows
+        $quartoVersion = "1.4.550"
+        $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"
+        
+        Write-Host "Downloading Quarto from: $quartoUrl"
+        Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
+        
+        # Install Quarto silently
+        Write-Host "Installing Quarto..."
+        $process = Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait -PassThru
+        
+        # Add Quarto to PATH
+        $quartoPath = "C:\Program Files\Quarto\bin"
+        if (Test-Path $quartoPath) {
+          $env:PATH = "$quartoPath;$env:PATH"
+          echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          Write-Host "Quarto installed successfully: $(quarto --version)"
+        } else {
+          $altPath = "C:\Program Files (x86)\Quarto\bin"
+          if (Test-Path $altPath) {
+            $env:PATH = "$altPath;$env:PATH"
+            echo $altPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          }
+        }
+        
+    - name: Check for Python requirements
+      id: check-python
+      shell: pwsh
+      run: |
+        if ((Test-Path "requirements.txt") -or (Test-Path "pyproject.toml")) {
+          echo "python-needed=true" >> $env:GITHUB_OUTPUT
+        } else {
+          echo "python-needed=false" >> $env:GITHUB_OUTPUT
+        }
+        
+    - name: Setup Python (if needed)
+      if: steps.check-python.outputs.python-needed == 'true'
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+        
+    - name: Install Python dependencies (if needed)
+      if: steps.check-python.outputs.python-needed == 'true'
+      shell: pwsh
+      run: |
+        if (Test-Path "requirements.txt") { pip install -r requirements.txt }
+        elseif (Test-Path "pyproject.toml") { pip install -e . }
+
+    - name: Publish to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      shell: pwsh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        Write-Host "Publishing with Quarto..."
+        
+        # Configure git
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # Use Quarto's built-in publish command
+        # This handles everything: render + push to gh-pages
+        quarto publish gh-pages --no-prompt --no-browser
+        
+        Write-Host "✓ Published successfully!"

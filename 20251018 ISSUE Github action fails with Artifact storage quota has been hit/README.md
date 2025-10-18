@@ -49,24 +49,38 @@ github.com
 ### Root Cause
 The workflow was using `actions/upload-artifact@v4` to create an intermediate artifact between the build and deploy jobs. This artifact counts against your GitHub Actions storage quota, which accumulates over time with each workflow run.
 
+### Initial Challenge
+The first attempt to use `upload-pages-artifact@v3` directly on a self-hosted Windows runner failed because the action requires WSL (Windows Subsystem for Linux) or a Linux environment to create tar archives.
+
+**Error encountered:**
+```
+Windows Subsystem for Linux has no installed distributions.
+Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NOT_FOUND
+```
+
 ### Fix Applied
 **Modified**: `.github/workflows/quarto-publish.win64.yml`
 
+**Strategy:** Split the workflow into two jobs to leverage both runners optimally:
+1. **Build job** (self-hosted Windows) - Renders Quarto site
+2. **Deploy job** (ubuntu-latest) - Handles GitHub Pages deployment
+
 **Changes:**
-1. ✅ **Eliminated unnecessary intermediate artifact** - Removed the `upload-artifact@v4` step that was creating the "github-pages-build" artifact
-2. ✅ **Combined build and deploy into single job** - Simplified the workflow from 2 jobs to 1 job
-3. ✅ **Use GitHub Pages artifact directly** - Use `upload-pages-artifact@v3` which has separate storage quota
-4. ✅ **Deploy directly after upload** - No need to download artifact in separate job
+1. ✅ **Split into two jobs** - Build on Windows, deploy on Ubuntu
+2. ✅ **Use short-lived artifacts** - Set `retention-days: 1` to minimize storage impact
+3. ✅ **Deploy on Ubuntu runner** - `upload-pages-artifact@v3` works properly on Linux
+4. ✅ **Automatic cleanup** - Artifacts auto-delete after 24 hours
 
 **Before:**
 ```yaml
-# Build job - uploads artifact
+# Build job (Windows) - uploads long-lived artifact
 - uses: actions/upload-artifact@v4
   with:
     name: github-pages-build
     path: docs/
+    # No retention-days = 90 days default!
 
-# Deploy job - downloads artifact
+# Deploy job (Ubuntu) - downloads artifact
 - uses: actions/download-artifact@v4
   with:
     name: github-pages-build
@@ -74,7 +88,17 @@ The workflow was using `actions/upload-artifact@v4` to create an intermediate ar
 
 **After:**
 ```yaml
-# Single combined job
+# Build job (Windows self-hosted) - renders Quarto
+- uses: actions/upload-artifact@v4
+  with:
+    name: quarto-docs
+    path: docs/
+    retention-days: 1  # Auto-deletes after 24 hours!
+
+# Deploy job (Ubuntu) - deploys to Pages
+- uses: actions/download-artifact@v4
+  with:
+    name: quarto-docs
 - uses: actions/upload-pages-artifact@v3
   with:
     path: docs/
@@ -82,10 +106,10 @@ The workflow was using `actions/upload-artifact@v4` to create an intermediate ar
 ```
 
 ### Benefits
-- ✅ No more artifact storage quota issues
-- ✅ Faster workflow (single job instead of two)
-- ✅ Simpler maintenance
-- ✅ Follows GitHub Actions best practices for Pages deployment
+- ✅ **Minimal storage impact** - Artifacts auto-delete after 24 hours
+- ✅ **Works with Windows self-hosted runners** - Build on Windows, deploy on Linux
+- ✅ **Proper GitHub Pages deployment** - Uses the official Pages artifact action
+- ✅ **Follows best practices** - Short retention for intermediate artifacts
 
 ---
 

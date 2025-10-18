@@ -12,39 +12,38 @@ Your workflow was using `actions/upload-artifact@v4` to create an intermediate a
 
 **Workflow Structure (Before):**
 ```
-┌─────────────┐     Upload Artifact     ┌──────────────┐
-│  Build Job  │ ───────────────────────> │ Deploy Job   │
-│             │   (quota consumed!)      │              │
-│ • Render    │                          │ • Download   │
-│ • Create    │                          │ • Deploy     │
-│   artifact  │                          │   to Pages   │
-└─────────────┘                          └──────────────┘
+┌─────────────────────┐   Upload Artifact (90 days!)   ┌──────────────┐
+│  Build Job          │ ────────────────────────────────> │ Deploy Job   │
+│  (Windows)          │   (quota consumed & builds up!)  │  (Ubuntu)    │
+│                     │                                   │              │
+│  • Render Quarto    │                                   │  • Download  │
+│  • Create artifact  │                                   │  • Deploy    │
+└─────────────────────┘                                   └──────────────┘
 ```
 
 ---
 
 ## ✨ The Fix
 
-I've updated your workflow to eliminate the unnecessary intermediate artifact:
+I've updated your workflow to use short-lived artifacts (1 day retention) and properly separate build and deploy environments:
 
 **Workflow Structure (After):**
 ```
-┌──────────────────────────────┐
-│  Build-and-Deploy Job        │
-│                              │
-│  • Render                    │
-│  • Upload to Pages directly  │
-│  • Deploy                    │
-│                              │
-│  (No quota consumption!)     │
-└──────────────────────────────┘
+┌─────────────────────┐   Upload Artifact (1 day!)   ┌──────────────────┐
+│  Build Job          │ ─────────────────────────────> │  Deploy Job      │
+│  (Windows Self-Host)│   (auto-deleted after 24h)    │  (Ubuntu Latest) │
+│                     │                                │                  │
+│  • Render Quarto    │                                │  • Download      │
+│  • Upload artifact  │                                │  • Upload Pages  │
+└─────────────────────┘                                │  • Deploy Pages  │
+                                                       └──────────────────┘
 ```
 
 **Key Changes:**
-1. ✅ Removed `actions/upload-artifact@v4` step
-2. ✅ Removed `actions/download-artifact@v4` step
-3. ✅ Combined build and deploy into single job
-4. ✅ Use `actions/upload-pages-artifact@v3` directly (has separate quota!)
+1. ✅ Set `retention-days: 1` - Artifacts auto-delete after 24 hours
+2. ✅ Split jobs by runner type - Build on Windows, deploy on Ubuntu
+3. ✅ Use Ubuntu for Pages deployment - `upload-pages-artifact@v3` requires Linux/WSL
+4. ✅ Proper artifact lifecycle - Short-lived intermediates, managed Pages artifacts
 
 ---
 
@@ -102,18 +101,19 @@ git push origin main
 
 ## 🎯 Why This Works
 
-**GitHub Pages Artifacts vs Regular Artifacts:**
+**Artifact Types and Storage Impact:**
 
-| Type | Action | Quota Impact | Lifecycle |
-|------|--------|--------------|-----------|
-| Regular Artifact | `upload-artifact@v4` | ❌ Counts against quota | Manual retention |
-| Pages Artifact | `upload-pages-artifact@v3` | ✅ Separate quota | Auto-managed |
+| Configuration | Retention | Quota Impact | Monthly Cost (per GB) |
+|---------------|-----------|--------------|----------------------|
+| Before: `upload-artifact@v4` (no retention set) | 90 days | ❌ High - builds up over time | Accumulates quickly |
+| After: `upload-artifact@v4` (retention-days: 1) | 1 day | ✅ Minimal - auto-deletes | Very low |
+| Pages Artifact: `upload-pages-artifact@v3` | Auto-managed | ✅ Separate quota | Managed by GitHub |
 
-By using the dedicated GitHub Pages artifact action, you:
-- Get automatic artifact lifecycle management
-- Use a separate storage quota
-- Follow GitHub's recommended best practices
-- Simplify your workflow
+**Key Insights:**
+- **Short retention is critical**: Default 90-day retention causes quota buildup
+- **Windows self-hosted + Pages = Split jobs needed**: `upload-pages-artifact@v3` requires Linux
+- **Auto-deletion prevents accumulation**: 1-day artifacts clean themselves up
+- **Proper runner selection**: Build where your tools are, deploy where the actions work best
 
 ---
 

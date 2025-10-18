@@ -4,6 +4,10 @@
 Write-Host "GitHub Artifacts Cleanup Tool" -ForegroundColor Cyan
 Write-Host "=============================" -ForegroundColor Cyan
 Write-Host ""
+Write-Host "Note: The updated workflow uses artifacts with 1-day retention," -ForegroundColor Yellow
+Write-Host "      so they auto-delete after 24 hours. This script helps" -ForegroundColor Yellow
+Write-Host "      clean up older artifacts from previous workflow versions." -ForegroundColor Yellow
+Write-Host ""
 
 $repo = "darioairoldi/Learn"
 

@@ -1,16 +1,14 @@
-name: Quarto Site Render and Deploy to GitHub Pages
+name: Quarto Site Deploy (Direct Push - No Artifacts)
 
 on:
-  # push:
-  #   branches: [main]
-  # pull_request:
-  #   branches: [main]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write  # Need write permission to push to gh-pages
 
 concurrency:
   group: "pages"
@@ -19,15 +17,12 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: self-hosted
-    # runs-on: ubuntu-latest
-    
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for proper gh-pages handling
 
     - name: Setup Quarto (Native Windows)
       shell: pwsh
@@ -46,7 +41,7 @@ jobs:
         }
         
         # Download and install Quarto for Windows
-        $quartoVersion = "1.4.550"  # Use latest stable version
+        $quartoVersion = "1.4.550"
         $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"
         
         Write-Host "Downloading Quarto from: $quartoUrl"
@@ -121,12 +116,6 @@ jobs:
         } elseif (Test-Path "pyproject.toml") {
           pip install -e .
         }
-        
-    - name: Setup R (if needed for computations)
-      uses: r-lib/actions/setup-r@v2
-      if: false  # Set to true if you use R
-      with:
-        r-version: '4.3.0'
 
     - name: Render Quarto Project
       shell: pwsh
@@ -141,24 +130,56 @@ jobs:
           
           # Check if navigation.json was copied
           if (Test-Path "docs/navigation.json") {
-            Write-Host "? navigation.json found in output"
+            Write-Host "✓ navigation.json found in output"
           } else {
-            Write-Warning "?? navigation.json not found in output"
+            Write-Warning "⚠ navigation.json not found in output"
           }
         } else {
-          Write-Error "? docs directory not found after rendering"
+          Write-Error "✗ docs directory not found after rendering"
           exit 1
         }
-      
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-      
-    - name: Upload to GitHub Pages
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: docs/
     
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
-
+      if: github.ref == 'refs/heads/main'
+      shell: pwsh
+      run: |
+        Write-Host "Deploying to GitHub Pages..."
+        
+        # Configure git
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # Save current branch
+        $currentBranch = git rev-parse --abbrev-ref HEAD
+        Write-Host "Current branch: $currentBranch"
+        
+        # Create or switch to gh-pages branch
+        git fetch origin gh-pages:gh-pages 2>$null
+        if ($LASTEXITCODE -eq 0) {
+          Write-Host "Switching to existing gh-pages branch"
+          git checkout gh-pages
+        } else {
+          Write-Host "Creating new gh-pages branch"
+          git checkout --orphan gh-pages
+        }
+        
+        # Remove all files except docs folder
+        git rm -rf . 2>$null
+        Get-ChildItem -Exclude "docs",".git" | Remove-Item -Recurse -Force
+        
+        # Move docs contents to root
+        Get-ChildItem "docs" | Move-Item -Destination . -Force
+        Remove-Item "docs" -Force
+        
+        # Add .nojekyll to prevent Jekyll processing
+        New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
+        
+        # Commit and push
+        git add .
+        git commit -m "Deploy site - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" --allow-empty
+        git push origin gh-pages --force
+        
+        # Return to original branch
+        git checkout $currentBranch
+        
+        Write-Host "✓ Deployment complete!"
