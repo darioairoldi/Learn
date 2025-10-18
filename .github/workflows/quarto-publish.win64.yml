@@ -1,10 +1,10 @@
 name: Quarto Site Render and Deploy to GitHub Pages
 
 on:
-  # push:
-  #   branches: [main]
-  # pull_request:
-  #   branches: [main]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -17,9 +17,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: self-hosted
     # runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: Checkout repository
@@ -149,34 +153,12 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
-    - name: Upload Pages artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: github-pages-build
-        path: docs/
-        retention-days: 1
-
-  deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-      
-    steps:
-    - name: Download Pages artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: github-pages-build
-        path: pages/
-        
     - name: Upload to GitHub Pages
       uses: actions/upload-pages-artifact@v3
       with:
-        path: pages/
+        path: docs/
     
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+
