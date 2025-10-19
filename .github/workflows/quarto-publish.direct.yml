@@ -139,31 +139,35 @@ jobs:
           exit 1
         }
     
-    - name: Commit rendered docs to main branch
+    - name: Deploy to gh-pages branch
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       shell: pwsh
       run: |
-        Write-Host "Committing rendered docs to main branch..."
+        Write-Host "Deploying to gh-pages branch..."
         
         # Configure git
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         
-        # Check if there are changes in docs folder
-        $changes = git status --porcelain docs/
+        # Create or switch to gh-pages branch
+        git checkout --orphan gh-pages || git checkout gh-pages
         
-        if ($changes) {
-          Write-Host "Changes detected in docs folder:"
-          Write-Host $changes
-          
-          # Add and commit docs folder
-          git add docs/
-          git commit -m "🤖 Auto-update rendered docs - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
-          
-          # Push back to main
-          git push origin main
-          
-          Write-Host "✓ Docs committed and pushed to main branch!"
-        } else {
-          Write-Host "✓ No changes in docs folder, skipping commit"
+        # Remove all files except docs
+        Get-ChildItem -Force | Where-Object { $_.Name -ne 'docs' -and $_.Name -ne '.git' } | Remove-Item -Recurse -Force
+        
+        # Move docs contents to root
+        if (Test-Path "docs") {
+          Get-ChildItem "docs" -Force | Move-Item -Destination . -Force
+          Remove-Item "docs" -Force -Recurse
         }
+        
+        # Add all files
+        git add -A
+        
+        # Commit
+        git commit -m "🚀 Deploy site - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -m "Auto-deployed from commit $env:GITHUB_SHA"
+        
+        # Force push to gh-pages
+        git push origin gh-pages --force
+        
+        Write-Host "✓ Site deployed to gh-pages branch!"
