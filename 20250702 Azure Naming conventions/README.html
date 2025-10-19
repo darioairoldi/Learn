@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dario Airoldi">
 <meta name="dcterms.date" content="2025-07-02">
-<meta name="description" content="Standardized naming convention for Azure sample projects across multiple subscriptions">
+<meta name="description" content="Standardized naming convention for Azure resources following Microsoft Cloud Adoption Framework best practices">
 
 <title>Azure Naming Conventions – Dario’s Learning Journey</title>
 <style>
@@ -1653,15 +1653,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link active" data-scroll-target="#table-of-contents">Table of Contents</a></li>
-  <li><a href="#document-information" id="toc-document-information" class="nav-link" data-scroll-target="#document-information">Document Information</a></li>
-  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#core-naming-pattern" id="toc-core-naming-pattern" class="nav-link" data-scroll-target="#core-naming-pattern">Core Naming Pattern</a>
   <ul class="collapse">
-  <li><a href="#understanding-the-pattern-with-examples" id="toc-understanding-the-pattern-with-examples" class="nav-link" data-scroll-target="#understanding-the-pattern-with-examples">Understanding the Pattern with Examples</a></li>
-  <li><a href="#key-components-explained" id="toc-key-components-explained" class="nav-link" data-scroll-target="#key-components-explained">Key Components Explained</a></li>
-  <li><a href="#when-to-use-categories" id="toc-when-to-use-categories" class="nav-link" data-scroll-target="#when-to-use-categories">When to Use Categories</a></li>
+  <li><a href="#standard-pattern" id="toc-standard-pattern" class="nav-link" data-scroll-target="#standard-pattern">Standard Pattern</a></li>
+  <li><a href="#understanding-the-pattern" id="toc-understanding-the-pattern" class="nav-link" data-scroll-target="#understanding-the-pattern">Understanding the Pattern</a></li>
+  <li><a href="#why-this-pattern" id="toc-why-this-pattern" class="nav-link" data-scroll-target="#why-this-pattern">Why This Pattern?</a></li>
+  </ul></li>
   <li><a href="#environment-identifiers" id="toc-environment-identifiers" class="nav-link" data-scroll-target="#environment-identifiers">Environment Identifiers</a></li>
-  <li><a href="#sample-categories" id="toc-sample-categories" class="nav-link" data-scroll-target="#sample-categories">Sample Categories</a></li>
+  <li><a href="#region-codes" id="toc-region-codes" class="nav-link" data-scroll-target="#region-codes">Region Codes</a>
+  <ul class="collapse">
+  <li><a href="#americas" id="toc-americas" class="nav-link" data-scroll-target="#americas">Americas</a></li>
+  <li><a href="#europe" id="toc-europe" class="nav-link" data-scroll-target="#europe">Europe</a></li>
+  <li><a href="#asia-pacific" id="toc-asia-pacific" class="nav-link" data-scroll-target="#asia-pacific">Asia Pacific</a></li>
+  <li><a href="#middle-east-africa" id="toc-middle-east-africa" class="nav-link" data-scroll-target="#middle-east-africa">Middle East &amp; Africa</a></li>
   </ul></li>
   <li><a href="#azure-resource-types-and-naming-rules" id="toc-azure-resource-types-and-naming-rules" class="nav-link" data-scroll-target="#azure-resource-types-and-naming-rules">Azure Resource Types and Naming Rules</a>
   <ul class="collapse">
@@ -1673,47 +1678,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ai-and-cognitive-services" id="toc-ai-and-cognitive-services" class="nav-link" data-scroll-target="#ai-and-cognitive-services">AI and Cognitive Services</a></li>
   <li><a href="#security-services" id="toc-security-services" class="nav-link" data-scroll-target="#security-services">Security Services</a></li>
   </ul></li>
-  <li><a href="#sample-specific-examples" id="toc-sample-specific-examples" class="nav-link" data-scroll-target="#sample-specific-examples">Sample-Specific Examples</a>
+  <li><a href="#practical-examples" id="toc-practical-examples" class="nav-link" data-scroll-target="#practical-examples">Practical Examples</a>
   <ul class="collapse">
-  <li><a href="#azure-storage-sample-azurestoragesample" id="toc-azure-storage-sample-azurestoragesample" class="nav-link" data-scroll-target="#azure-storage-sample-azurestoragesample">03.00 Azure Storage Sample (azurestoragesample)</a></li>
-  <li><a href="#cosmosdb-sample-cosmosdbsample" id="toc-cosmosdb-sample-cosmosdbsample" class="nav-link" data-scroll-target="#cosmosdb-sample-cosmosdbsample">03.01 CosmosDB Sample (cosmosdbsample)</a></li>
-  <li><a href="#azure-sql-sample-azuresqlsample" id="toc-azure-sql-sample-azuresqlsample" class="nav-link" data-scroll-target="#azure-sql-sample-azuresqlsample">03.02 Azure SQL Sample (azuresqlsample)</a></li>
-  <li><a href="#service-bus-sample-servicebussample" id="toc-service-bus-sample-servicebussample" class="nav-link" data-scroll-target="#service-bus-sample-servicebussample">03.05 Service Bus Sample (servicebussample)</a></li>
-  <li><a href="#event-hub-sample-eventhubsample" id="toc-event-hub-sample-eventhubsample" class="nav-link" data-scroll-target="#event-hub-sample-eventhubsample">03.06 Event Hub Sample (eventhubsample)</a></li>
-  </ul></li>
-  <li><a href="#cross-environment-examples" id="toc-cross-environment-examples" class="nav-link" data-scroll-target="#cross-environment-examples">Cross-Environment Examples</a>
-  <ul class="collapse">
-  <li><a href="#same-sample-across-different-environments" id="toc-same-sample-across-different-environments" class="nav-link" data-scroll-target="#same-sample-across-different-environments">Same Sample Across Different Environments</a></li>
-  <li><a href="#benefits-of-simplified-naming" id="toc-benefits-of-simplified-naming" class="nav-link" data-scroll-target="#benefits-of-simplified-naming">Benefits of Simplified Naming</a></li>
+  <li><a href="#example-1-simple-web-application-single-region" id="toc-example-1-simple-web-application-single-region" class="nav-link" data-scroll-target="#example-1-simple-web-application-single-region">Example 1: Simple Web Application (Single Region)</a></li>
+  <li><a href="#example-2-multi-region-deployment" id="toc-example-2-multi-region-deployment" class="nav-link" data-scroll-target="#example-2-multi-region-deployment">Example 2: Multi-Region Deployment</a></li>
+  <li><a href="#example-3-development-environment" id="toc-example-3-development-environment" class="nav-link" data-scroll-target="#example-3-development-environment">Example 3: Development Environment</a></li>
+  <li><a href="#example-4-messaging-architecture" id="toc-example-4-messaging-architecture" class="nav-link" data-scroll-target="#example-4-messaging-architecture">Example 4: Messaging Architecture</a></li>
+  <li><a href="#example-5-aiml-workload" id="toc-example-5-aiml-workload" class="nav-link" data-scroll-target="#example-5-aiml-workload">Example 5: AI/ML Workload</a></li>
   </ul></li>
   <li><a href="#special-naming-considerations" id="toc-special-naming-considerations" class="nav-link" data-scroll-target="#special-naming-considerations">Special Naming Considerations</a>
   <ul class="collapse">
   <li><a href="#global-uniqueness-requirements" id="toc-global-uniqueness-requirements" class="nav-link" data-scroll-target="#global-uniqueness-requirements">Global Uniqueness Requirements</a></li>
   <li><a href="#character-restrictions" id="toc-character-restrictions" class="nav-link" data-scroll-target="#character-restrictions">Character Restrictions</a></li>
   <li><a href="#length-limitations" id="toc-length-limitations" class="nav-link" data-scroll-target="#length-limitations">Length Limitations</a></li>
+  <li><a href="#regional-considerations" id="toc-regional-considerations" class="nav-link" data-scroll-target="#regional-considerations">Regional Considerations</a></li>
   </ul></li>
-  <li><a href="#resource-tagging-strategy" id="toc-resource-tagging-strategy" class="nav-link" data-scroll-target="#resource-tagging-strategy">Resource Tagging Strategy</a></li>
+  <li><a href="#resource-tagging-strategy" id="toc-resource-tagging-strategy" class="nav-link" data-scroll-target="#resource-tagging-strategy">Resource Tagging Strategy</a>
+  <ul class="collapse">
+  <li><a href="#standard-tag-set" id="toc-standard-tag-set" class="nav-link" data-scroll-target="#standard-tag-set">Standard Tag Set</a></li>
+  <li><a href="#tag-guidelines" id="toc-tag-guidelines" class="nav-link" data-scroll-target="#tag-guidelines">Tag Guidelines</a></li>
+  <li><a href="#tag-best-practices" id="toc-tag-best-practices" class="nav-link" data-scroll-target="#tag-best-practices">Tag Best Practices</a></li>
+  </ul></li>
   <li><a href="#implementation-guidelines" id="toc-implementation-guidelines" class="nav-link" data-scroll-target="#implementation-guidelines">Implementation Guidelines</a>
   <ul class="collapse">
   <li><a href="#validation-checklist" id="toc-validation-checklist" class="nav-link" data-scroll-target="#validation-checklist">1. Validation Checklist</a></li>
   <li><a href="#automation-considerations" id="toc-automation-considerations" class="nav-link" data-scroll-target="#automation-considerations">2. Automation Considerations</a></li>
   <li><a href="#documentation-requirements" id="toc-documentation-requirements" class="nav-link" data-scroll-target="#documentation-requirements">3. Documentation Requirements</a></li>
+  <li><a href="#naming-convention-enforcement" id="toc-naming-convention-enforcement" class="nav-link" data-scroll-target="#naming-convention-enforcement">4. Naming Convention Enforcement</a></li>
   </ul></li>
-  <li><a href="#maintenance-and-updates" id="toc-maintenance-and-updates" class="nav-link" data-scroll-target="#maintenance-and-updates">Maintenance and Updates</a>
+  <li><a href="#other-documented-practices" id="toc-other-documented-practices" class="nav-link" data-scroll-target="#other-documented-practices">Other Documented Practices</a>
   <ul class="collapse">
-  <li><a href="#review-schedule" id="toc-review-schedule" class="nav-link" data-scroll-target="#review-schedule">Review Schedule</a></li>
-  <li><a href="#change-management" id="toc-change-management" class="nav-link" data-scroll-target="#change-management">Change Management</a></li>
-  </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a>
-  <ul class="collapse">
-  <li><a href="#primary-pattern-recommended" id="toc-primary-pattern-recommended" class="nav-link" data-scroll-target="#primary-pattern-recommended">Primary Pattern (Recommended)</a></li>
-  <li><a href="#benefits" id="toc-benefits" class="nav-link" data-scroll-target="#benefits">Benefits</a></li>
-  <li><a href="#optional-category-pattern" id="toc-optional-category-pattern" class="nav-link" data-scroll-target="#optional-category-pattern">Optional Category Pattern</a></li>
+  <li><a href="#microsoft-caf-resource-type-first-pattern" id="toc-microsoft-caf-resource-type-first-pattern" class="nav-link" data-scroll-target="#microsoft-caf-resource-type-first-pattern">1. Microsoft CAF Resource-Type-First Pattern</a></li>
+  <li><a href="#workload-type-environment-pattern" id="toc-workload-type-environment-pattern" class="nav-link" data-scroll-target="#workload-type-environment-pattern">2. Workload-Type-Environment Pattern</a></li>
+  <li><a href="#prefix-based-legacy-pattern" id="toc-prefix-based-legacy-pattern" class="nav-link" data-scroll-target="#prefix-based-legacy-pattern">3. Prefix-Based Legacy Pattern</a></li>
+  <li><a href="#minimalist-pattern" id="toc-minimalist-pattern" class="nav-link" data-scroll-target="#minimalist-pattern">4. Minimalist Pattern</a></li>
+  <li><a href="#our-chosen-pattern-workload-first-with-region" id="toc-our-chosen-pattern-workload-first-with-region" class="nav-link" data-scroll-target="#our-chosen-pattern-workload-first-with-region">5. Our Chosen Pattern (Workload-First with Region)</a></li>
   </ul></li>
   <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference">Quick Reference</a>
   <ul class="collapse">
-  <li><a href="#common-abbreviations" id="toc-common-abbreviations" class="nav-link" data-scroll-target="#common-abbreviations">Common Abbreviations</a></li>
-  <li><a href="#environment-reference" id="toc-environment-reference" class="nav-link" data-scroll-target="#environment-reference">Environment Reference</a></li>
+  <li><a href="#official-microsoft-documentation" id="toc-official-microsoft-documentation" class="nav-link" data-scroll-target="#official-microsoft-documentation">Official Microsoft Documentation</a></li>
+  <li><a href="#quick-lookup-tables" id="toc-quick-lookup-tables" class="nav-link" data-scroll-target="#quick-lookup-tables">Quick Lookup Tables</a></li>
+  <li><a href="#pattern-template" id="toc-pattern-template" class="nav-link" data-scroll-target="#pattern-template">Pattern Template</a></li>
+  <li><a href="#validation-checklist-1" id="toc-validation-checklist-1" class="nav-link" data-scroll-target="#validation-checklist-1">Validation Checklist</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20250702 Azure Naming conventions/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -1729,12 +1735,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-category">naming</div>
     <div class="quarto-category">conventions</div>
     <div class="quarto-category">best-practices</div>
+    <div class="quarto-category">cloud-adoption-framework</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Standardized naming convention for Azure sample projects across multiple subscriptions
+    Standardized naming convention for Azure resources following Microsoft Cloud Adoption Framework best practices
   </div>
 </div>
 
@@ -1772,208 +1779,387 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ol type="1">
-<li><a href="#document-information">Document Information</a></li>
-<li><a href="#executive-summary">Executive Summary</a></li>
+<li><a href="#overview">Overview</a></li>
 <li><a href="#core-naming-pattern">Core Naming Pattern</a></li>
 <li><a href="#environment-identifiers">Environment Identifiers</a></li>
-<li><a href="#sample-categories">Sample Categories</a></li>
+<li><a href="#region-codes">Region Codes</a></li>
 <li><a href="#azure-resource-types-and-naming-rules">Azure Resource Types and Naming Rules</a></li>
-<li><a href="#sample-specific-examples">Sample-Specific Examples</a></li>
-<li><a href="#cross-environment-examples">Cross-Environment Examples</a></li>
+<li><a href="#practical-examples">Practical Examples</a></li>
 <li><a href="#special-naming-considerations">Special Naming Considerations</a></li>
 <li><a href="#resource-tagging-strategy">Resource Tagging Strategy</a></li>
 <li><a href="#implementation-guidelines">Implementation Guidelines</a></li>
-<li><a href="#maintenance-and-updates">Maintenance and Updates</a></li>
+<li><a href="#other-documented-practices">Other Documented Practices</a></li>
 <li><a href="#quick-reference">Quick Reference</a></li>
 </ol>
+<hr>
 </section>
-<section id="document-information" class="level2">
-<h2 class="anchored" data-anchor-id="document-information">Document Information</h2>
-<ul>
-<li><strong>Version</strong>: 1.0</li>
-<li><strong>Date</strong>: July 2, 2025</li>
-<li><strong>Purpose</strong>: Standardized naming convention for Azure sample projects across multiple subscriptions</li>
-</ul>
-</section>
-<section id="executive-summary" class="level2">
-<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
-<p>This document establishes a consistent naming convention for Azure sample resources across multiple Azure subscriptions. The convention prioritizes business context over resource types while maintaining compliance with Azure naming restrictions.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This document establishes a standardized naming convention for Azure resources based on the <strong>Microsoft Cloud Adoption Framework (CAF)</strong> best practices. The naming pattern provides consistency across Azure subscriptions, environments, and regions while maintaining compliance with Azure-specific naming restrictions.</p>
+<p><strong>Purpose:</strong> - Ensure consistent resource naming across all Azure deployments - Enable easy identification of resource ownership, environment, and location - Facilitate automation, cost tracking, and resource management - Align with Microsoft recommended practices</p>
+<p><strong>Document Information:</strong> - <strong>Version</strong>: 2.0 - <strong>Date</strong>: October 19, 2025 - <strong>Based on</strong>: <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft Cloud Adoption Framework - Resource Naming</a></p>
+<hr>
 </section>
 <section id="core-naming-pattern" class="level2">
 <h2 class="anchored" data-anchor-id="core-naming-pattern">Core Naming Pattern</h2>
+<section id="standard-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="standard-pattern">Standard Pattern</h3>
 <blockquote class="blockquote">
-<p><strong>📋 Standard Pattern:</strong> <code>samples-{projectname}-{environment}-{type}-{##}</code></p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>📋 Optional Category Pattern:</strong> <code>samples-{category}-{projectname}-{environment}-{type}-{##}</code></p>
+<p><strong>📋 Pattern:</strong> <code>{workload}-{environment}-{resourcetype}-{region}-{instance}</code></p>
 </blockquote>
 <p><strong>Components:</strong></p>
-<ul>
-<li><code>samples</code> - Identifies resources as learning/sample projects</li>
-<li><code>{projectname}</code> - Actual project/solution name (e.g., cosmosdbsample, servicebussample)</li>
-<li><code>{environment}</code> - Environment context identifier (may span multiple subscriptions)</li>
-<li><code>{type}</code> - Azure resource type abbreviation (2-3 letter standard)</li>
-<li><code>{##}</code> - Instance number (01, 02, etc.)</li>
-<li><code>{category}</code> - Optional domain category prefix for complex scenarios</li>
-</ul>
-<section id="understanding-the-pattern-with-examples" class="level3">
-<h3 class="anchored" data-anchor-id="understanding-the-pattern-with-examples">Understanding the Pattern with Examples</h3>
-<p>Let’s break down the naming convention using real examples:</p>
-<section id="example-1-cosmosdb-sample" class="level4">
-<h4 class="anchored" data-anchor-id="example-1-cosmosdb-sample">Example 1: CosmosDB Sample</h4>
-<pre class="text"><code>samples-cosmosdbsample-testpersonal-cdb-01
-   │         │            │          │   │
-   │         │            │          │   └─ Instance number
-   │         │            │          └───── Resource type (cdb)
-   │         │            └──────────────── Environment (testpersonal)
-   │         └───────────────────────────── Project name (cosmosdbsample)
-   └─────────────────────────────────────── Always "samples"</code></pre>
-</section>
-<section id="example-2-service-bus-sample" class="level4">
-<h4 class="anchored" data-anchor-id="example-2-service-bus-sample">Example 2: Service Bus Sample</h4>
-<pre class="text"><code>samples-servicebussample-testms-sbn-01
-   │         │              │     │   │
-   │         │              │     │   └─ Instance number
-   │         │              │     └───── Resource type (sbn)
-   │         │              └─────────── Environment (testms)
-   │         └────────────────────────── Project name (servicebussample)
-   └──────────────────────────────────── Always "samples"</code></pre>
-</section>
-<section id="example-3-optional-category-usage-complex-scenarios" class="level4">
-<h4 class="anchored" data-anchor-id="example-3-optional-category-usage-complex-scenarios">Example 3: Optional Category Usage (Complex Scenarios)</h4>
-<pre class="text"><code>samples-data-cosmosdbsample-testms-cdb-01
-   │     │         │            │          │   │
-   │     │         │            │          │   └─ Instance number
-   │     │         │            │          └───── Resource type (cdb)
-   │     │         │            └──────────────── Environment (testms)
-   │     │         └───────────────────────────── Project name (cosmosdbsample)
-   │     └─────────────────────────────────────── Optional category (data)
-   └───────────────────────────────────────────── Always "samples"</code></pre>
-</section>
-</section>
-<section id="key-components-explained" class="level3">
-<h3 class="anchored" data-anchor-id="key-components-explained">Key Components Explained</h3>
-<ul>
-<li><strong><code>samples</code></strong> - Always constant, identifies these as learning projects</li>
-<li><strong><code>cosmosdbsample/servicebussample</code></strong> - Actual project/solution name (matches your code)</li>
-<li><strong><code>testpersonal/testms</code></strong> - Which environment you’re deploying to</li>
-<li><strong><code>cdb/sbn/stg/vm/rg</code></strong> - Azure resource type (2-3 letter abbreviation)</li>
-<li><strong><code>01/02/03</code></strong> - Instance number for multiple deployments</li>
-<li><strong><code>data/messaging/storage</code></strong> - Optional category prefix for complex scenarios</li>
-</ul>
-</section>
-<section id="when-to-use-categories" class="level3">
-<h3 class="anchored" data-anchor-id="when-to-use-categories">When to Use Categories</h3>
-<p><strong>Use simplified pattern (recommended):</strong></p>
-<ul>
-<li>Single-purpose samples</li>
-<li>Clear project names</li>
-<li>Direct code-to-resource mapping</li>
-</ul>
-<p><strong>Use category prefix when:</strong></p>
-<ul>
-<li>Multiple samples share similar names</li>
-<li>Large-scale multi-domain projects</li>
-<li>Organizational requirements for grouping</li>
-</ul>
-<details>
-<summary>
-<strong>📋 Full Reference Tables</strong> (Click to expand)
-</summary>
-</details></section>
-<section id="environment-identifiers" class="level3">
-<h3 class="anchored" data-anchor-id="environment-identifiers">Environment Identifiers</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Environment</th>
-<th>Identifier</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Personal</td>
-<td><code>testpersonal</code></td>
-<td>Personal learning environment</td>
-</tr>
-<tr class="even">
-<td>Microsoft</td>
-<td><code>testms</code></td>
-<td>Microsoft/corporate environment</td>
-</tr>
-<tr class="odd">
-<td>Customer A</td>
-<td><code>testab</code></td>
-<td>Customer A testing environment</td>
-</tr>
-<tr class="even">
-<td>Customer B</td>
-<td><code>testacme</code></td>
-<td>Customer “Acme” testing environment</td>
-</tr>
-<tr class="odd">
-<td>Generic Customer</td>
-<td><code>testcustomer</code></td>
-<td>Generic customer environment</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="sample-categories" class="level3">
-<h3 class="anchored" data-anchor-id="sample-categories">Sample Categories</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 33%">
-<col style="width: 41%">
+<col style="width: 26%">
+<col style="width: 31%">
+<col style="width: 19%">
+<col style="width: 21%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Category</th>
+<th>Component</th>
 <th>Description</th>
-<th>Sample Numbers</th>
+<th>Format</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>storage</code></td>
-<td>Azure Storage services</td>
-<td>03.00 AzureStorage</td>
+<td><strong>{workload}</strong></td>
+<td>Application or workload name</td>
+<td>lowercase, alphanumeric, hyphens</td>
+<td><code>samples</code>, <code>ecommerce</code>, <code>hr-portal</code></td>
 </tr>
 <tr class="even">
-<td><code>data</code></td>
-<td>Database and data services</td>
-<td>03.01 CosmosDB, 03.02 AzureSql, 03.03 DataExplorer</td>
+<td><strong>{environment}</strong></td>
+<td>Deployment environment</td>
+<td>2-6 letter code</td>
+<td><code>dev</code>, <code>test</code>, <code>prod</code>, <code>testmc</code></td>
 </tr>
 <tr class="odd">
-<td><code>messaging</code></td>
-<td>Messaging and event services</td>
-<td>03.05 ServiceBus, 03.06 EventHub</td>
+<td><strong>{resourcetype}</strong></td>
+<td>Azure resource type</td>
+<td>2-3 letter abbreviation</td>
+<td><code>rg</code>, <code>app</code>, <code>sql</code>, <code>akv</code></td>
 </tr>
 <tr class="even">
-<td><code>compute</code></td>
-<td>Compute services</td>
-<td>VM, Container Apps, Functions</td>
+<td><strong>{region}</strong></td>
+<td>Azure region</td>
+<td>2-4 letter code</td>
+<td><code>weu</code>, <code>eus</code>, <code>sea</code></td>
 </tr>
 <tr class="odd">
-<td><code>network</code></td>
-<td>Networking services</td>
-<td>VNet, Load Balancer, Application Gateway</td>
-</tr>
-<tr class="even">
-<td><code>security</code></td>
-<td>Security services</td>
-<td>Key Vault, Managed Identity</td>
-</tr>
-<tr class="odd">
-<td><code>ai</code></td>
-<td>AI and Cognitive services</td>
-<td>OpenAI, Cognitive Services</td>
+<td><strong>{instance}</strong></td>
+<td>Instance number</td>
+<td>2-digit zero-padded</td>
+<td><code>01</code>, <code>02</code>, <code>03</code></td>
 </tr>
 </tbody>
 </table>
-
+</section>
+<section id="understanding-the-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-the-pattern">Understanding the Pattern</h3>
+<pre class="text"><code>samples-testmc-rg-weu-01
+   │      │     │   │   │
+   │      │     │   │   └─ Instance number (01)
+   │      │     │   └───── Region (weu = West Europe)
+   │      │     └───────── Resource type (rg = Resource Group)
+   │      └─────────────── Environment (testmc)
+   └────────────────────── Workload (samples)</code></pre>
+</section>
+<section id="why-this-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-pattern">Why This Pattern?</h3>
+<p><strong>Aligned with Microsoft CAF:</strong> - Follows <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft’s recommended structure</a> - Provides clear hierarchy: business context → environment → resource → location - Facilitates multi-region deployments</p>
+<p><strong>Benefits:</strong></p>
+<ol type="1">
+<li><strong>Clear Environment Segregation</strong> - Easy to identify which environment a resource belongs to</li>
+<li><strong>Multi-Region Support</strong> - Region identifier enables global deployments</li>
+<li><strong>Resource Type Visibility</strong> - Quick identification of resource type</li>
+<li><strong>Scalability</strong> - Instance numbers support multiple deployments</li>
+<li><strong>Automation-Friendly</strong> - Structured format simplifies scripting and IaC</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="environment-identifiers" class="level2">
+<h2 class="anchored" data-anchor-id="environment-identifiers">Environment Identifiers</h2>
+<p>Standard environment codes used across all resources:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 13%">
+<col style="width: 28%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Environment</th>
+<th>Code</th>
+<th>Description</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Development</strong></td>
+<td><code>dev</code></td>
+<td>Development environment</td>
+<td>Local/team development</td>
+</tr>
+<tr class="even">
+<td><strong>Test</strong></td>
+<td><code>test</code></td>
+<td>Testing environment</td>
+<td>QA and integration testing</td>
+</tr>
+<tr class="odd">
+<td><strong>Staging</strong></td>
+<td><code>stg</code></td>
+<td>Pre-production staging</td>
+<td>Production-like testing</td>
+</tr>
+<tr class="even">
+<td><strong>Production</strong></td>
+<td><code>prod</code></td>
+<td>Production environment</td>
+<td>Live workloads</td>
+</tr>
+<tr class="odd">
+<td><strong>Test MC</strong></td>
+<td><code>testmc</code></td>
+<td>Microsoft Customer test</td>
+<td>Customer-specific testing</td>
+</tr>
+<tr class="even">
+<td><strong>Test Personal</strong></td>
+<td><code>testpers</code></td>
+<td>Personal learning</td>
+<td>Individual learning/POC</td>
+</tr>
+<tr class="odd">
+<td><strong>Test AB</strong></td>
+<td><code>testab</code></td>
+<td>Customer A/B testing</td>
+<td>A/B testing scenarios</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Custom Environments:</strong> - Format: <code>test{name}</code> or abbreviation - Keep codes short (2-6 characters) for name length compliance - Document all custom environments in this section</p>
+<hr>
+</section>
+<section id="region-codes" class="level2">
+<h2 class="anchored" data-anchor-id="region-codes">Region Codes</h2>
+<p>Standard Azure region abbreviations (2-4 letters):</p>
+<section id="americas" class="level3">
+<h3 class="anchored" data-anchor-id="americas">Americas</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Code</th>
+<th>Region</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>East US</td>
+<td><code>eus</code></td>
+<td>East US 2</td>
+<td><code>eus2</code></td>
+</tr>
+<tr class="even">
+<td>Central US</td>
+<td><code>cus</code></td>
+<td>North Central US</td>
+<td><code>ncus</code></td>
+</tr>
+<tr class="odd">
+<td>South Central US</td>
+<td><code>scus</code></td>
+<td>West Central US</td>
+<td><code>wcus</code></td>
+</tr>
+<tr class="even">
+<td>West US</td>
+<td><code>wus</code></td>
+<td>West US 2</td>
+<td><code>wus2</code></td>
+</tr>
+<tr class="odd">
+<td>West US 3</td>
+<td><code>wus3</code></td>
+<td>Canada Central</td>
+<td><code>cac</code></td>
+</tr>
+<tr class="even">
+<td>Canada East</td>
+<td><code>cae</code></td>
+<td>Brazil South</td>
+<td><code>brs</code></td>
+</tr>
+<tr class="odd">
+<td>Brazil Southeast</td>
+<td><code>brse</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="europe" class="level3">
+<h3 class="anchored" data-anchor-id="europe">Europe</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Code</th>
+<th>Region</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>North Europe</strong></td>
+<td><code>neu</code></td>
+<td><strong>West Europe</strong></td>
+<td><code>weu</code></td>
+</tr>
+<tr class="even">
+<td>UK South</td>
+<td><code>uks</code></td>
+<td>UK West</td>
+<td><code>ukw</code></td>
+</tr>
+<tr class="odd">
+<td>France Central</td>
+<td><code>frc</code></td>
+<td>France South</td>
+<td><code>frs</code></td>
+</tr>
+<tr class="even">
+<td>Germany West Central</td>
+<td><code>gwc</code></td>
+<td>Germany North</td>
+<td><code>gn</code></td>
+</tr>
+<tr class="odd">
+<td>Norway East</td>
+<td><code>noe</code></td>
+<td>Norway West</td>
+<td><code>now</code></td>
+</tr>
+<tr class="even">
+<td>Switzerland North</td>
+<td><code>swn</code></td>
+<td>Switzerland West</td>
+<td><code>sww</code></td>
+</tr>
+<tr class="odd">
+<td>Sweden Central</td>
+<td><code>swc</code></td>
+<td>Poland Central</td>
+<td><code>plc</code></td>
+</tr>
+<tr class="even">
+<td>Italy North</td>
+<td><code>itn</code></td>
+<td>Spain Central</td>
+<td><code>spc</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="asia-pacific" class="level3">
+<h3 class="anchored" data-anchor-id="asia-pacific">Asia Pacific</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Code</th>
+<th>Region</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>East Asia</td>
+<td><code>ea</code></td>
+<td>Southeast Asia</td>
+<td><code>sea</code></td>
+</tr>
+<tr class="even">
+<td>Japan East</td>
+<td><code>jpe</code></td>
+<td>Japan West</td>
+<td><code>jpw</code></td>
+</tr>
+<tr class="odd">
+<td>Australia East</td>
+<td><code>aue</code></td>
+<td>Australia Southeast</td>
+<td><code>ause</code></td>
+</tr>
+<tr class="even">
+<td>Australia Central</td>
+<td><code>auc</code></td>
+<td>Australia Central 2</td>
+<td><code>auc2</code></td>
+</tr>
+<tr class="odd">
+<td>India Central</td>
+<td><code>inc</code></td>
+<td>India South</td>
+<td><code>ins</code></td>
+</tr>
+<tr class="even">
+<td>India West</td>
+<td><code>inw</code></td>
+<td>Korea Central</td>
+<td><code>krc</code></td>
+</tr>
+<tr class="odd">
+<td>Korea South</td>
+<td><code>krs</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="middle-east-africa" class="level3">
+<h3 class="anchored" data-anchor-id="middle-east-africa">Middle East &amp; Africa</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Code</th>
+<th>Region</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>UAE North</td>
+<td><code>uaen</code></td>
+<td>UAE Central</td>
+<td><code>uaec</code></td>
+</tr>
+<tr class="even">
+<td>South Africa North</td>
+<td><code>san</code></td>
+<td>South Africa West</td>
+<td><code>saw</code></td>
+</tr>
+<tr class="odd">
+<td>Qatar Central</td>
+<td><code>qac</code></td>
+<td>Israel Central</td>
+<td><code>ilc</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Region codes can be omitted for resource group-scoped resources in single-region deployments, but are recommended for globally scoped resources.</p>
 <hr>
 </section>
 </section>
@@ -2010,7 +2196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Subscription</td>
 <td>1-90</td>
 <td>Alphanumerics, underscores, parentheses, hyphens, periods</td>
-<td><code>samples-azurestoragesample-testpersonal-rg-01</code></td>
+<td><code>samples-testmc-rg-weu-01</code></td>
 </tr>
 <tr class="even">
 <td><strong>Virtual Network</strong></td>
@@ -2018,7 +2204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Resource Group</td>
 <td>2-64</td>
 <td>Alphanumerics, underscores, periods, hyphens</td>
-<td><code>samples-networksample-testpersonal-vnt-01</code></td>
+<td><code>samples-dev-vnt-weu-01</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Subnet</strong></td>
@@ -2026,7 +2212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Virtual Network</td>
 <td>1-80</td>
 <td>Alphanumerics, underscores, periods, hyphens</td>
-<td><code>samples-networksample-testpersonal-snt-01</code></td>
+<td><code>samples-dev-snt-weu-01</code></td>
 </tr>
 <tr class="even">
 <td><strong>Network Security Group</strong></td>
@@ -2034,7 +2220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Resource Group</td>
 <td>1-80</td>
 <td>Alphanumerics, underscores, periods, hyphens</td>
-<td><code>samples-networksample-testpersonal-nsg-01</code></td>
+<td><code>samples-dev-nsg-weu-01</code></td>
 </tr>
 </tbody>
 </table>
@@ -2067,7 +2253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Global</td>
 <td>3-24</td>
 <td>Lowercase letters and numbers</td>
-<td><code>samplesazurestoragesampletestpers01</code></td>
+<td><code>samplestestmcstgweu01</code></td>
 </tr>
 <tr class="even">
 <td><strong>File Share</strong></td>
@@ -2075,7 +2261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Storage Account</td>
 <td>3-63</td>
 <td>Lowercase letters, numbers, hyphens</td>
-<td><code>samples-azurestoragesample-testpersonal-shr-01</code></td>
+<td><code>samples-testmc-shr-weu-01</code></td>
 </tr>
 </tbody>
 </table>
@@ -2105,52 +2291,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
+<td><strong>App Configuration</strong></td>
+<td><code>apc</code></td>
+<td>Global</td>
+<td>5-50</td>
+<td>Alphanumerics and hyphens</td>
+<td><code>samples-testmc-apc-weu-01</code></td>
+</tr>
+<tr class="even">
 <td><strong>Cosmos DB Account</strong></td>
 <td><code>cdb</code></td>
 <td>Global</td>
 <td>3-44</td>
 <td>Lowercase letters, numbers, hyphens</td>
-<td><code>samples-cosmosdbsample-testpersonal-cdb-01</code></td>
+<td><code>samples-prod-cdb-eus-01</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>SQL Server</strong></td>
 <td><code>sql</code></td>
 <td>Global</td>
 <td>1-63</td>
 <td>Lowercase letters, numbers, hyphens</td>
-<td><code>samples-azuresqlsample-testpersonal-sql-01</code></td>
+<td><code>samples-prod-sql-eus-01</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>SQL Database</strong></td>
 <td><code>sdb</code></td>
 <td>SQL Server</td>
 <td>1-128</td>
 <td>Various characters allowed</td>
-<td><code>samples-azuresqlsample-testpersonal-sdb-01</code></td>
+<td><code>samples-prod-sdb-eus-01</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Azure Cache for Redis</strong></td>
 <td><code>rds</code></td>
 <td>Global</td>
 <td>1-63</td>
 <td>Alphanumerics and hyphens</td>
-<td><code>samples-redissample-testpersonal-rds-01</code></td>
+<td><code>samples-dev-rds-weu-01</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>MySQL Server</strong></td>
 <td><code>mys</code></td>
 <td>Global</td>
 <td>3-63</td>
 <td>Lowercase letters, numbers, hyphens</td>
-<td><code>samples-mysqlsample-testpersonal-mys-01</code></td>
+<td><code>samples-dev-mys-weu-01</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>PostgreSQL Server</strong></td>
 <td><code>pgs</code></td>
 <td>Global</td>
 <td>3-63</td>
 <td>Lowercase letters, numbers, hyphens</td>
-<td><code>samples-postgresqlsample-testpersonal-pgs-01</code></td>
+<td><code>samples-dev-pgs-weu-01</code></td>
 </tr>
 </tbody>
 </table>
@@ -2183,7 +2377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Global</td>
 <td>6-50</td>
 <td>Alphanumerics and hyphens, start with letter</td>
-<td><code>samples-servicebussample-testpersonal-sbn-01</code></td>
+<td><code>samples-prod-sbn-eus-01</code></td>
 </tr>
 <tr class="even">
 <td><strong>Event Hub Namespace</strong></td>
@@ -2191,7 +2385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Global</td>
 <td>6-50</td>
 <td>Alphanumerics and hyphens, start with letter</td>
-<td><code>samples-eventhubsample-testpersonal-ehn-01</code></td>
+<td><code>samples-prod-ehn-eus-01</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Event Hub</strong></td>
@@ -2199,7 +2393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Event Hub Namespace</td>
 <td>1-256</td>
 <td>Alphanumerics, periods, hyphens, underscores</td>
-<td><code>samples-eventhubsample-testpersonal-evh-01</code></td>
+<td><code>samples-prod-evh-eus-01</code></td>
 </tr>
 <tr class="even">
 <td><strong>Event Grid Topic</strong></td>
@@ -2207,15 +2401,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Resource Group</td>
 <td>3-50</td>
 <td>Alphanumerics and hyphens</td>
-<td><code>samples-eventgridsample-testpersonal-egt-01</code></td>
+<td><code>samples-dev-egt-weu-01</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Event Grid System Topic</strong></td>
-<td><code>egt</code></td>
+<td><code>egst</code></td>
 <td>Resource Group</td>
 <td>3-50</td>
 <td>Alphanumerics and hyphens</td>
-<td><code>samples-tablestoragesample-testpersonal-egt-01</code></td>
+<td><code>samples-dev-egst-weu-01</code></td>
 </tr>
 </tbody>
 </table>
@@ -2248,7 +2442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Resource Group</td>
 <td>1-15 (Win), 1-64 (Linux)</td>
 <td>Limited special chars</td>
-<td><code>samples-vmsample-testpersonal-vm-01</code></td>
+<td><code>samples-dev-vm-weu-01</code></td>
 </tr>
 <tr class="even">
 <td><strong>App Service Plan</strong></td>
@@ -2256,51 +2450,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Resource Group</td>
 <td>1-60</td>
 <td>Alphanumerics and hyphens</td>
-<td><code>samples-webappsample-testpersonal-asp-01</code></td>
+<td><code>samples-prod-asp-eus-01</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Web App</strong></td>
-<td><code>app</code>, <code>api</code>, <code>aps</code>, or <code>feapp</code></td>
+<td><code>app</code></td>
 <td>Global</td>
 <td>2-60</td>
 <td>Alphanumerics and hyphens</td>
-<td><code>samples-webappsample-testpersonal-app-01</code>, <code>samples-apisample-testpersonal-api-01</code>, <code>samples-webappsample-testpersonal-aps-01</code>, or <code>samples-frontendappsample-testpersonal-feapp-01</code></td>
+<td><code>samples-prod-app-eus-01</code></td>
 </tr>
 <tr class="even">
+<td><strong>API App</strong></td>
+<td><code>api</code></td>
+<td>Global</td>
+<td>2-60</td>
+<td>Alphanumerics and hyphens</td>
+<td><code>samples-prod-api-eus-01</code></td>
+</tr>
+<tr class="odd">
 <td><strong>Function App</strong></td>
 <td><code>fap</code></td>
 <td>Global</td>
 <td>2-60</td>
 <td>Alphanumerics and hyphens</td>
-<td><code>samples-functionssample-testpersonal-fap-01</code></td>
+<td><code>samples-prod-fap-eus-01</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Container App</strong></td>
 <td><code>cap</code></td>
 <td>Resource Group</td>
 <td>2-32</td>
 <td>Lowercase letters, numbers, hyphens</td>
-<td><code>samples-containerappsample-testpersonal-cap-01</code></td>
+<td><code>samples-dev-cap-weu-01</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Container Apps Environment</strong></td>
 <td><code>cae</code></td>
 <td>Resource Group</td>
 <td>2-32</td>
 <td>Lowercase letters, numbers, hyphens</td>
-<td><code>samples-containerappsample-testpersonal-cae-01</code></td>
+<td><code>samples-dev-cae-weu-01</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Container Registry</strong></td>
 <td><code>crg</code></td>
 <td>Global</td>
 <td>5-50</td>
 <td>Alphanumerics only</td>
-<td><code>samplescontainerregistrytestpers01</code></td>
+<td><code>samplesprodcrgeus01</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong>: Use <code>app</code> for general web applications, <code>api</code> for API-only services, <code>aps</code> for app services, or <code>feapp</code> for frontend applications to better reflect the purpose.</p>
+<p><strong>Note</strong>: Use <code>app</code> for general web applications and <code>api</code> for API-only services to better reflect the purpose.</p>
 </section>
 <section id="ai-and-cognitive-services" class="level3">
 <h3 class="anchored" data-anchor-id="ai-and-cognitive-services">AI and Cognitive Services</h3>
@@ -2330,7 +2532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Global</td>
 <td>2-64</td>
 <td>Alphanumerics, underscores, periods, hyphens</td>
-<td><code>samples-openaisample-testpersonal-oai-01</code></td>
+<td><code>samples-prod-oai-eus-01</code></td>
 </tr>
 <tr class="even">
 <td><strong>Cognitive Services</strong></td>
@@ -2338,7 +2540,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Global</td>
 <td>2-64</td>
 <td>Alphanumerics, underscores, periods, hyphens</td>
-<td><code>samples-cognitivesample-testpersonal-cgs-01</code></td>
+<td><code>samples-dev-cgs-weu-01</code></td>
 </tr>
 <tr class="odd">
 <td><strong>AI Search</strong></td>
@@ -2346,7 +2548,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Global</td>
 <td>2-60</td>
 <td>Lowercase letters, numbers, hyphens</td>
-<td><code>samples-aisearchsample-testpersonal-ais-01</code></td>
+<td><code>samples-prod-ais-eus-01</code></td>
 </tr>
 </tbody>
 </table>
@@ -2375,127 +2577,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td><strong>App Registration</strong></td>
-<td><code>appr</code></td>
+<td><code>ar</code> or <code>appr</code></td>
 <td>Global</td>
 <td>1-120</td>
 <td>Various characters allowed</td>
-<td><code>samples-appsample-testpersonal-appr-01</code></td>
+<td><code>samples-prod-appr-eus-01</code></td>
 </tr>
 <tr class="even">
 <td><strong>Key Vault</strong></td>
-<td><code>kvt</code></td>
+<td><code>kv</code>, <code>akv</code> or <code>kvt</code></td>
 <td>Global</td>
 <td>3-24</td>
 <td>Alphanumerics and hyphens</td>
-<td><code>samples-keyvaultsample-testpersonal-kvt-01</code></td>
+<td><code>samples-prod-akv-eus-01</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Managed Identity</strong></td>
-<td><code>appi</code> or <code>mi</code></td>
+<td><code>mi</code></td>
 <td>Resource Group</td>
 <td>3-128</td>
 <td>Alphanumerics, underscores, hyphens</td>
-<td><code>samples-identitysample-testpersonal-appi-01</code> or <code>samples-identitysample-testpersonal-mi-01</code></td>
+<td><code>samples-prod-mi-eus-01</code></td>
 </tr>
 </tbody>
 </table>
 <hr>
 </section>
 </section>
-<section id="sample-specific-examples" class="level2">
-<h2 class="anchored" data-anchor-id="sample-specific-examples">Sample-Specific Examples</h2>
+<section id="practical-examples" class="level2">
+<h2 class="anchored" data-anchor-id="practical-examples">Practical Examples</h2>
 <blockquote class="blockquote">
-<p><strong>💡 Real-world examples</strong> showing how the simplified naming convention applies to your specific samples.</p>
+<p><strong>💡 Real-world examples</strong> showing how the naming convention applies to common scenarios.</p>
 </blockquote>
-<section id="azure-storage-sample-azurestoragesample" class="level3">
-<h3 class="anchored" data-anchor-id="azure-storage-sample-azurestoragesample">03.00 Azure Storage Sample (azurestoragesample)</h3>
-<pre class="text"><code># Resource Group
-samples-azurestoragesample-testpersonal-rg-01
-
-# Storage Account (no hyphens, globally unique)
-samplesazurestoragesampletestpers01
-
-# Related Resources
-samples-azurestoragesample-testpersonal-vnt-01
-samples-azurestoragesample-testpersonal-nsg-01</code></pre>
+<section id="example-1-simple-web-application-single-region" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-simple-web-application-single-region">Example 1: Simple Web Application (Single Region)</h3>
+<pre class="text"><code>Resource Group:      samples-prod-rg-eus-01
+App Service Plan:    samples-prod-asp-eus-01
+Web App:             samples-prod-app-eus-01
+SQL Server:          samples-prod-sql-eus-01
+SQL Database:        samples-prod-sdb-eus-01
+Key Vault:           samples-prod-akv-eus-01
+Storage Account:     samplesprodstgeus01</code></pre>
 </section>
-<section id="cosmosdb-sample-cosmosdbsample" class="level3">
-<h3 class="anchored" data-anchor-id="cosmosdb-sample-cosmosdbsample">03.01 CosmosDB Sample (cosmosdbsample)</h3>
-<pre class="text"><code># Resource Group
-samples-cosmosdbsample-testpersonal-rg-01
+<section id="example-2-multi-region-deployment" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-multi-region-deployment">Example 2: Multi-Region Deployment</h3>
+<pre class="text"><code># West Europe (Primary)
+samples-prod-rg-weu-01
+samples-prod-app-weu-01
+samples-prod-sql-weu-01
+samples-prod-cdb-weu-01
 
-# Cosmos DB Account
-samples-cosmosdbsample-testpersonal-cdb-01
-
-# Related Resources
-samples-cosmosdbsample-testpersonal-vnt-01
-samples-cosmosdbsample-testpersonal-kvt-01</code></pre>
+# East US (Secondary)
+samples-prod-rg-eus-01
+samples-prod-app-eus-01
+samples-prod-sql-eus-01
+samples-prod-cdb-eus-01</code></pre>
 </section>
-<section id="azure-sql-sample-azuresqlsample" class="level3">
-<h3 class="anchored" data-anchor-id="azure-sql-sample-azuresqlsample">03.02 Azure SQL Sample (azuresqlsample)</h3>
-<pre class="text"><code># Resource Group
-samples-azuresqlsample-testms-rg-01
-
-# SQL Server
-samples-azuresqlsample-testms-sql-01
-
-# SQL Database
-samples-azuresqlsample-testms-sdb-01</code></pre>
+<section id="example-3-development-environment" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-development-environment">Example 3: Development Environment</h3>
+<pre class="text"><code>Resource Group:      samples-dev-rg-weu-01
+Container App Env:   samples-dev-cae-weu-01
+Container App:       samples-dev-cap-weu-01
+Cosmos DB:           samples-dev-cdb-weu-01
+Key Vault:           samples-dev-akv-weu-01
+App Configuration:   samples-dev-apc-weu-01</code></pre>
 </section>
-<section id="service-bus-sample-servicebussample" class="level3">
-<h3 class="anchored" data-anchor-id="service-bus-sample-servicebussample">03.05 Service Bus Sample (servicebussample)</h3>
-<pre class="text"><code># Resource Group
-samples-servicebussample-testab-rg-01
-
-# Service Bus Namespace
-samples-servicebussample-testab-sbn-01</code></pre>
+<section id="example-4-messaging-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="example-4-messaging-architecture">Example 4: Messaging Architecture</h3>
+<pre class="text"><code>Resource Group:        samples-prod-rg-eus-01
+Service Bus:           samples-prod-sbn-eus-01
+Event Hub Namespace:   samples-prod-ehn-eus-01
+Event Hub:             samples-prod-evh-eus-01
+Event Grid Topic:      samples-prod-egt-eus-01
+Function App:          samples-prod-fap-eus-01</code></pre>
 </section>
-<section id="event-hub-sample-eventhubsample" class="level3">
-<h3 class="anchored" data-anchor-id="event-hub-sample-eventhubsample">03.06 Event Hub Sample (eventhubsample)</h3>
-<pre class="text"><code># Resource Group
-samples-eventhubsample-testcustomer-rg-01
-
-# Event Hub Namespace
-samples-eventhubsample-testcustomer-ehn-01
-
-# Event Hub
-samples-eventhubsample-testcustomer-evh-01</code></pre>
-<hr>
-</section>
-</section>
-<section id="cross-environment-examples" class="level2">
-<h2 class="anchored" data-anchor-id="cross-environment-examples">Cross-Environment Examples</h2>
-<blockquote class="blockquote">
-<p><strong>🔄 Multi-environment deployment</strong> showing consistency across different environments and subscriptions.</p>
-</blockquote>
-<section id="same-sample-across-different-environments" class="level3">
-<h3 class="anchored" data-anchor-id="same-sample-across-different-environments">Same Sample Across Different Environments</h3>
-<pre class="text"><code># Personal Environment
-samples-azurestoragesample-testpersonal-rg-01
-samplesazurestoragesampletestpers01
-
-# Microsoft Environment  
-samples-azurestoragesample-testms-rg-01
-samplesazurestoragesampletestms01
-
-# Customer Environment
-samples-azurestoragesample-testab-rg-01
-samplesazurestoragesampletestab01</code></pre>
-</section>
-<section id="benefits-of-simplified-naming" class="level3">
-<h3 class="anchored" data-anchor-id="benefits-of-simplified-naming">Benefits of Simplified Naming</h3>
-<p><strong>Code-to-Resource Traceability:</strong></p>
-<ul>
-<li>Project name <code>azurestoragesample</code> maps directly to resources</li>
-<li>Easy to identify which resources belong to which sample</li>
-<li>Simplified CI/CD pipeline configuration</li>
-</ul>
-<p><strong>Reduced Complexity:</strong></p>
-<ul>
-<li>Fewer naming components to manage</li>
-<li>More intuitive for developers</li>
-<li>Less prone to naming conflicts</li>
-</ul>
+<section id="example-5-aiml-workload" class="level3">
+<h3 class="anchored" data-anchor-id="example-5-aiml-workload">Example 5: AI/ML Workload</h3>
+<pre class="text"><code>Resource Group:      samples-dev-rg-weu-01
+OpenAI Service:      samples-dev-oai-weu-01
+AI Search:           samples-dev-ais-weu-01
+Cognitive Services:  samples-dev-cgs-weu-01
+Storage Account:     samplesdevstgweu01
+Container Registry:  samplesdevcrgweu01</code></pre>
 <hr>
 </section>
 </section>
@@ -2509,33 +2672,70 @@ samplesazurestoragesampletestab01</code></pre>
 <p>Resources with global scope need unique names across all Azure:</p>
 <ul>
 <li>Storage accounts</li>
-<li>Web apps, Function apps</li>
+<li>Web apps, Function apps, API apps</li>
 <li>Key Vaults</li>
 <li>Cosmos DB accounts</li>
 <li>SQL servers</li>
 <li>Service Bus namespaces</li>
 <li>Event Hub namespaces</li>
+<li>Container registries</li>
+<li>AI Search services</li>
+<li>OpenAI services</li>
 </ul>
-<p><strong>Strategy</strong>: Use abbreviated environment identifiers to maintain uniqueness while keeping names readable.</p>
+<p><strong>Strategy</strong>: - Include region codes for geographic uniqueness - Use environment identifiers to differentiate deployments - Consider adding organization/workload-specific prefixes</p>
 </section>
 <section id="character-restrictions" class="level3">
 <h3 class="anchored" data-anchor-id="character-restrictions">Character Restrictions</h3>
-<ul>
-<li><strong>Storage Accounts</strong>: No hyphens, lowercase only, 3-24 characters</li>
-<li><strong>Container Registry</strong>: Alphanumerics only, 5-50 characters</li>
-<li><strong>Virtual Machines</strong>: Limited special characters, length varies by OS</li>
-<li><strong>Container Apps</strong>: Lowercase only, 2-32 characters</li>
-</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource Type</th>
+<th>Special Restrictions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Storage Accounts</strong></td>
+<td>No hyphens, lowercase only, 3-24 characters</td>
+</tr>
+<tr class="even">
+<td><strong>Container Registry</strong></td>
+<td>Alphanumerics only, 5-50 characters</td>
+</tr>
+<tr class="odd">
+<td><strong>Virtual Machines</strong></td>
+<td>Limited special characters, length varies by OS</td>
+</tr>
+<tr class="even">
+<td><strong>Container Apps</strong></td>
+<td>Lowercase only, 2-32 characters</td>
+</tr>
+<tr class="odd">
+<td><strong>Cosmos DB</strong></td>
+<td>Lowercase only, must start with letter</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="length-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="length-limitations">Length Limitations</h3>
-<p>Always verify resource name length against Azure limits. When names exceed limits:</p>
+<p>When names approach or exceed Azure limits:</p>
 <ol type="1">
-<li>Abbreviate category names</li>
-<li>Shorten specific sample names</li>
-<li>Use shorter environment identifiers</li>
-<li>Reduce instance numbers to single digits</li>
+<li><strong>Use shorter region codes</strong> - <code>weu</code> instead of <code>westeu</code></li>
+<li><strong>Abbreviate workload names</strong> - <code>hrportal</code> → <code>hr</code></li>
+<li><strong>Shorten environment codes</strong> - <code>testpersonal</code> → <code>testpers</code></li>
+<li><strong>Omit region for RG-scoped resources</strong> in single-region deployments</li>
+<li><strong>Use single-digit instances</strong> when possible</li>
 </ol>
+</section>
+<section id="regional-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="regional-considerations">Regional Considerations</h3>
+<p><strong>When to include region:</strong> - ✅ Globally scoped resources (required for tracking) - ✅ Multi-region deployments (critical for identification) - ✅ Disaster recovery scenarios - ⚠️ Resource group-scoped resources (optional, but recommended)</p>
+<p><strong>When region can be omitted:</strong> - Resource group-scoped resources in single-region deployments - Resources that don’t move between regions - When name length is a concern</p>
 <hr>
 </section>
 </section>
@@ -2544,18 +2744,59 @@ samplesazurestoragesampletestab01</code></pre>
 <blockquote class="blockquote">
 <p><strong>🏷️ Complement naming</strong> with standardized resource tags for better organization and cost tracking.</p>
 </blockquote>
-<p>Complement naming convention with standardized tags:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Environment"</span><span class="fu">:</span> <span class="st">"testpersonal"</span><span class="fu">,</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Project"</span><span class="fu">:</span> <span class="st">"azure-samples"</span><span class="fu">,</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Owner"</span><span class="fu">:</span> <span class="st">"your-name"</span><span class="fu">,</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Category"</span><span class="fu">:</span> <span class="st">"storage"</span><span class="fu">,</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Sample"</span><span class="fu">:</span> <span class="st">"azurestorage"</span><span class="fu">,</span> </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"CostCenter"</span><span class="fu">:</span> <span class="st">"learning"</span><span class="fu">,</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"CreatedDate"</span><span class="fu">:</span> <span class="st">"2025-07-02"</span><span class="fu">,</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Purpose"</span><span class="fu">:</span> <span class="st">"learning-sample"</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Tags provide additional metadata that naming alone cannot convey:</p>
+<section id="standard-tag-set" class="level3">
+<h3 class="anchored" data-anchor-id="standard-tag-set">Standard Tag Set</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Environment"</span><span class="fu">:</span> <span class="st">"prod"</span><span class="fu">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Workload"</span><span class="fu">:</span> <span class="st">"samples"</span><span class="fu">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Owner"</span><span class="fu">:</span> <span class="st">"engineering-team"</span><span class="fu">,</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"CostCenter"</span><span class="fu">:</span> <span class="st">"IT-123"</span><span class="fu">,</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"BusinessUnit"</span><span class="fu">:</span> <span class="st">"Engineering"</span><span class="fu">,</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"DataClassification"</span><span class="fu">:</span> <span class="st">"internal"</span><span class="fu">,</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Criticality"</span><span class="fu">:</span> <span class="st">"medium"</span><span class="fu">,</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"CreatedDate"</span><span class="fu">:</span> <span class="st">"2025-10-19"</span><span class="fu">,</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"CreatedBy"</span><span class="fu">:</span> <span class="st">"automation"</span><span class="fu">,</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"Project"</span><span class="fu">:</span> <span class="st">"learning-platform"</span><span class="fu">,</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"MaintenanceWindow"</span><span class="fu">:</span> <span class="st">"weekend"</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tag-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="tag-guidelines">Tag Guidelines</h3>
+<ol type="1">
+<li><strong>Required Tags</strong> (Minimum):
+<ul>
+<li><code>Environment</code> - Deployment environment</li>
+<li><code>Owner</code> - Team or individual responsible</li>
+<li><code>CostCenter</code> - For cost allocation</li>
+</ul></li>
+<li><strong>Recommended Tags</strong>:
+<ul>
+<li><code>Workload</code> - Application or service name</li>
+<li><code>BusinessUnit</code> - Organizational unit</li>
+<li><code>Criticality</code> - Business impact level</li>
+</ul></li>
+<li><strong>Optional Tags</strong>:
+<ul>
+<li><code>Project</code> - Project or initiative name</li>
+<li><code>DataClassification</code> - Data sensitivity level</li>
+<li><code>MaintenanceWindow</code> - Scheduled maintenance time</li>
+<li><code>BackupPolicy</code> - Backup requirements</li>
+<li><code>Compliance</code> - Regulatory requirements</li>
+</ul></li>
+</ol>
+</section>
+<section id="tag-best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="tag-best-practices">Tag Best Practices</h3>
+<ul>
+<li>Use consistent casing (PascalCase recommended)</li>
+<li>Keep values short and descriptive</li>
+<li>Avoid sensitive information in tags</li>
+<li>Automate tag application via IaC</li>
+<li>Review and update tags regularly</li>
+</ul>
 <hr>
+</section>
 </section>
 <section id="implementation-guidelines" class="level2">
 <h2 class="anchored" data-anchor-id="implementation-guidelines">Implementation Guidelines</h2>
@@ -2564,170 +2805,383 @@ samplesazurestoragesampletestab01</code></pre>
 </blockquote>
 <section id="validation-checklist" class="level3">
 <h3 class="anchored" data-anchor-id="validation-checklist">1. Validation Checklist</h3>
+<p>Before creating any Azure resource:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Resource name meets Azure length requirements</label></li>
-<li><label><input type="checkbox">Characters are valid for the resource type</label></li>
-<li><label><input type="checkbox">Global resources have unique names</label></li>
-<li><label><input type="checkbox">Naming pattern is consistent across resources</label></li>
-<li><label><input type="checkbox">Tags are applied consistently</label></li>
+<li><label><input type="checkbox">Resource name follows <code>{workload}-{environment}-{resourcetype}-{region}-{instance}</code> pattern</label></li>
+<li><label><input type="checkbox">Name meets Azure length requirements (check table above)</label></li>
+<li><label><input type="checkbox">Characters are valid for the specific resource type</label></li>
+<li><label><input type="checkbox">Global resources have unique names (checked in Azure Portal or CLI)</label></li>
+<li><label><input type="checkbox">Region code matches actual deployment region</label></li>
+<li><label><input type="checkbox">Environment code is documented and approved</label></li>
+<li><label><input type="checkbox">Instance number is sequential and documented</label></li>
+<li><label><input type="checkbox">Required tags are defined and applied</label></li>
 </ul>
 </section>
 <section id="automation-considerations" class="level3">
 <h3 class="anchored" data-anchor-id="automation-considerations">2. Automation Considerations</h3>
-<ul>
-<li>Use naming templates in ARM/Bicep templates</li>
-<li>Implement validation in deployment scripts</li>
-<li>Create PowerShell/CLI functions for name generation</li>
-<li>Document exceptions and special cases</li>
-</ul>
+<p><strong>Infrastructure as Code (IaC):</strong></p>
+<pre class="bicep"><code>// Bicep parameter example
+param workloadName string = 'samples'
+param environmentName string = 'prod'
+param regionCode string = 'weu'
+param instanceNumber string = '01'
+
+// Generate resource names
+var resourceGroupName = '${workloadName}-${environmentName}-rg-${regionCode}-${instanceNumber}'
+var appServicePlanName = '${workloadName}-${environmentName}-asp-${regionCode}-${instanceNumber}'
+var webAppName = '${workloadName}-${environmentName}-app-${regionCode}-${instanceNumber}'</code></pre>
+<p><strong>PowerShell Helper Function:</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> New-AzureResourceName <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">param</span><span class="op">(</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">[</span><span class="dt">string</span><span class="op">]</span><span class="va">$Workload</span><span class="op">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">[</span><span class="dt">string</span><span class="op">]</span><span class="va">$Environment</span><span class="op">,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">[</span><span class="dt">string</span><span class="op">]</span><span class="va">$ResourceType</span><span class="op">,</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">[</span><span class="dt">string</span><span class="op">]</span><span class="va">$Region</span><span class="op">,</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">[</span><span class="dt">string</span><span class="op">]</span><span class="va">$Instance</span> <span class="op">=</span> <span class="st">"01"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">)</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"</span><span class="va">$Workload</span><span class="st">-</span><span class="va">$Environment</span><span class="st">-</span><span class="va">$ResourceType</span><span class="st">-</span><span class="va">$Region</span><span class="st">-</span><span class="va">$Instance</span><span class="st">"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="va">$rgName</span> <span class="op">=</span> New-AzureResourceName <span class="op">-</span>Workload <span class="st">"samples"</span> <span class="op">-</span>Environment <span class="st">"prod"</span> <span class="op">-</span>ResourceType <span class="st">"rg"</span> <span class="op">-</span>Region <span class="st">"weu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Azure CLI Validation:</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if resource name exists (for globally scoped resources)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage account check-name <span class="at">--name</span> samplesprodstgweu01</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> webapp show <span class="at">--name</span> samples-prod-app-weu-01 <span class="at">--resource-group</span> samples-prod-rg-weu-01</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="documentation-requirements" class="level3">
 <h3 class="anchored" data-anchor-id="documentation-requirements">3. Documentation Requirements</h3>
+<p>Maintain documentation for:</p>
 <ul>
-<li>Document any deviations from the standard</li>
-<li>Maintain environment identifier mappings</li>
-<li>Keep category definitions updated</li>
-<li>Version control naming convention changes</li>
+<li><strong>Custom environment codes</strong> - Document any non-standard environment identifiers</li>
+<li><strong>Region code mappings</strong> - Keep region abbreviation reference updated</li>
+<li><strong>Workload registry</strong> - Track all workload names in use</li>
+<li><strong>Exceptions</strong> - Document any naming convention deviations with justification</li>
+<li><strong>Version history</strong> - Track changes to naming convention over time</li>
 </ul>
 </section>
-</section>
-<section id="maintenance-and-updates" class="level2">
-<h2 class="anchored" data-anchor-id="maintenance-and-updates">Maintenance and Updates</h2>
-<section id="review-schedule" class="level3">
-<h3 class="anchored" data-anchor-id="review-schedule">Review Schedule</h3>
-<ul>
-<li><strong>Quarterly</strong>: Review naming convention effectiveness</li>
-<li><strong>As needed</strong>: Update when new Azure services are added</li>
-<li><strong>Before major deployments</strong>: Validate naming compliance</li>
-</ul>
-</section>
-<section id="change-management" class="level3">
-<h3 class="anchored" data-anchor-id="change-management">Change Management</h3>
-<ol type="1">
-<li>Document proposed changes</li>
-<li>Assess impact on existing resources</li>
-<li>Update templates and automation</li>
-<li>Communicate changes to team</li>
-<li>Update this document</li>
-</ol>
+<section id="naming-convention-enforcement" class="level3">
+<h3 class="anchored" data-anchor-id="naming-convention-enforcement">4. Naming Convention Enforcement</h3>
+<p><strong>Policy Enforcement:</strong> - Use Azure Policy to enforce naming patterns - Implement naming validation in CI/CD pipelines - Use Git pre-commit hooks for IaC validation</p>
+<p><strong>Code Review Guidelines:</strong> - Verify naming compliance during PR reviews - Check for duplicate or conflicting names - Validate tag completeness</p>
 <hr>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>This naming convention prioritizes simplicity and code-to-resource alignment:</p>
-<section id="primary-pattern-recommended" class="level3">
-<h3 class="anchored" data-anchor-id="primary-pattern-recommended">Primary Pattern (Recommended)</h3>
-<p><code>samples-{projectname}-{environment}-{type}-{##}</code></p>
-<p><strong>Example:</strong> <code>samples-cosmosdbsample-testpersonal-cdb-01</code></p>
+<section id="other-documented-practices" class="level2">
+<h2 class="anchored" data-anchor-id="other-documented-practices">Other Documented Practices</h2>
+<blockquote class="blockquote">
+<p><strong>📚 Alternative naming patterns</strong> from Microsoft and industry best practices.</p>
+</blockquote>
+<p>This section compares different naming approaches to help you understand the rationale behind our chosen pattern.</p>
+<section id="microsoft-caf-resource-type-first-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="microsoft-caf-resource-type-first-pattern">1. Microsoft CAF Resource-Type-First Pattern</h3>
+<p><strong>Pattern:</strong> <code>{resourcetype}-{workload}-{environment}-{region}-{instance}</code></p>
+<p><strong>Example:</strong> <code>rg-samples-prod-weu-01</code></p>
+<p><strong>Description:</strong> Microsoft’s Cloud Adoption Framework suggests resource type as the first component, emphasizing what the resource is before its business context.</p>
+<p><strong>Pros:</strong> - ✅ Official Microsoft recommendation - ✅ Resources grouped by type alphabetically - ✅ Easy to identify resource type at a glance - ✅ Useful for resource type-focused operations</p>
+<p><strong>Cons:</strong> - ❌ Business context (workload/environment) not immediately visible - ❌ Harder to filter by workload across resource types - ❌ Less intuitive for application-centric teams - ❌ Alphabetical grouping splits related resources</p>
+<p><strong>When to use:</strong> - Infrastructure-focused teams - Type-based resource management - When resource type is more important than business context</p>
+<p><strong>Reference:</strong> <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft CAF Naming Convention</a></p>
+<hr>
 </section>
-<section id="benefits" class="level3">
-<h3 class="anchored" data-anchor-id="benefits">Benefits</h3>
-<ul>
-<li><strong>Direct Code Mapping</strong>: Resource names match project/solution names</li>
-<li><strong>Simplified Management</strong>: Fewer naming components to maintain</li>
-<li><strong>Better Traceability</strong>: Easy to identify resources by project name</li>
-<li><strong>Flexible Environments</strong>: Environment identifiers work across subscriptions</li>
-</ul>
+<section id="workload-type-environment-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="workload-type-environment-pattern">2. Workload-Type-Environment Pattern</h3>
+<p><strong>Pattern:</strong> <code>{workload}-{resourcetype}-{environment}-{region}-{instance}</code></p>
+<p><strong>Example:</strong> <code>samples-rg-prod-weu-01</code></p>
+<p><strong>Description:</strong> Prioritizes workload identity, then resource type, then environment. This pattern emphasizes resource type before environment context.</p>
+<p><strong>Pros:</strong> - ✅ Workload-first approach - ✅ Resource types visible early in name - ✅ Good for multi-resource workloads - ✅ Simpler than full CAF pattern</p>
+<p><strong>Cons:</strong> - ❌ Environment context buried in the middle - ❌ Harder to filter by environment - ❌ Less clear environment separation - ❌ Not aligned with CAF recommendations</p>
+<p><strong>When to use:</strong> - Small organizations with few environments - Workloads with many resource types - Type-focused operations within workloads</p>
+<hr>
 </section>
-<section id="optional-category-pattern" class="level3">
-<h3 class="anchored" data-anchor-id="optional-category-pattern">Optional Category Pattern</h3>
-<p>Use <code>samples-{category}-{projectname}-{environment}-{type}-{##}</code> only when:</p>
-<ul>
-<li>Managing multiple similar project names</li>
-<li>Organizational requirements demand grouping</li>
-<li>Large-scale deployments need additional categorization</li>
-</ul>
+<section id="prefix-based-legacy-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="prefix-based-legacy-pattern">3. Prefix-Based Legacy Pattern</h3>
+<p><strong>Pattern:</strong> <code>{prefix}-{projectname}-{environment}-{resourcetype}-{instance}</code></p>
+<p><strong>Example:</strong> <code>samples-cosmosdb-testpersonal-cdb-01</code></p>
+<p><strong>Description:</strong> Uses a constant prefix (like “samples” or company abbreviation) followed by project name, often used in learning or multi-project environments. This was the previous version of this document.</p>
+<p><strong>Pros:</strong> - ✅ Clear organizational identity via prefix - ✅ Project names highly visible - ✅ Good for learning/sample resources - ✅ Easy code-to-resource traceability</p>
+<p><strong>Cons:</strong> - ❌ Not aligned with Microsoft CAF - ❌ Prefix adds extra length - ❌ Less scalable for enterprise - ❌ Region not included (single-region assumption)</p>
+<p><strong>When to use:</strong> - Learning environments - Sample/demo projects - Multi-project workspaces with strong identity needs - Single-region deployments</p>
+<hr>
+</section>
+<section id="minimalist-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="minimalist-pattern">4. Minimalist Pattern</h3>
+<p><strong>Pattern:</strong> <code>{workload}-{environment}-{instance}</code></p>
+<p><strong>Example:</strong> <code>samples-prod-01</code></p>
+<p><strong>Description:</strong> Removes resource type and region from the name entirely, relying on Azure resource types and tags for classification.</p>
+<p><strong>Pros:</strong> - ✅ Shortest possible names - ✅ No character limit concerns - ✅ Very simple to implement - ✅ Clean, uncluttered naming</p>
+<p><strong>Cons:</strong> - ❌ Resource type not visible in name - ❌ Region not identifiable - ❌ Requires tags for full context - ❌ Poor multi-region support - ❌ Difficult to distinguish resources without additional context</p>
+<p><strong>When to use:</strong> - Small environments with few resource types - Single-region deployments only - When name length is extremely constrained - Strong tagging infrastructure in place</p>
+<hr>
+</section>
+<section id="our-chosen-pattern-workload-first-with-region" class="level3">
+<h3 class="anchored" data-anchor-id="our-chosen-pattern-workload-first-with-region">5. Our Chosen Pattern (Workload-First with Region)</h3>
+<p><strong>Pattern:</strong> <code>{workload}-{environment}-{resourcetype}-{region}-{instance}</code></p>
+<p><strong>Example:</strong> <code>samples-prod-rg-weu-01</code></p>
+<p><strong>Description:</strong> Our adopted pattern prioritizes business context (workload and environment) while maintaining resource type visibility and explicit region identification.</p>
+<p><strong>Pros:</strong> - ✅ Business context first (workload and environment) - ✅ Clear environment segregation - ✅ Excellent multi-region support - ✅ Resource type still visible - ✅ Balanced approach between CAF and practical needs - ✅ Scalable for enterprise use</p>
+<p><strong>Cons:</strong> - ❌ Slightly longer than minimalist approaches - ❌ Not 100% CAF-compliant (workload before resource type) - ❌ Requires documented region codes</p>
+<p><strong>When to use:</strong> - Multi-environment organizations - Multi-region deployments - Application/workload-focused teams - Balance between Microsoft guidance and practical needs</p>
+<p><strong>Why we chose this:</strong> This pattern provides the best balance between Microsoft’s recommendations and practical application development needs. It prioritizes how teams think about resources (by workload and environment first) while maintaining all critical information including region for global deployments.</p>
 <hr>
 </section>
 </section>
 <section id="quick-reference" class="level2">
 <h2 class="anchored" data-anchor-id="quick-reference">Quick Reference</h2>
 <blockquote class="blockquote">
-<p><strong>📚 Quick lookup</strong> for common abbreviations and identifiers.</p>
+<p><strong>� Comprehensive reference</strong> for Azure naming conventions and related documentation.</p>
 </blockquote>
-<section id="common-abbreviations" class="level3">
-<h3 class="anchored" data-anchor-id="common-abbreviations">Common Abbreviations</h3>
+<section id="official-microsoft-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="official-microsoft-documentation">Official Microsoft Documentation</h3>
+<section id="cloud-adoption-framework-caf" class="level4">
+<h4 class="anchored" data-anchor-id="cloud-adoption-framework-caf">Cloud Adoption Framework (CAF)</h4>
+<ol type="1">
+<li><strong><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Define your naming convention</a></strong>
+<ul>
+<li>Primary resource naming guidance</li>
+<li>Recommended component order and structure</li>
+<li>Best practices and examples</li>
+</ul></li>
+<li><strong><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations">Abbreviation examples for Azure resources</a></strong>
+<ul>
+<li>Official Microsoft resource type abbreviations</li>
+<li>Comprehensive list of Azure services</li>
+<li>Standardized abbreviation recommendations</li>
+</ul></li>
+<li><strong><a href="https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool">Azure Naming Tool</a></strong>
+<ul>
+<li>Interactive tool for generating names</li>
+<li>Configurable naming patterns</li>
+<li>Validation and compliance checking</li>
+</ul></li>
+</ol>
+</section>
+<section id="azure-well-architected-framework" class="level4">
+<h4 class="anchored" data-anchor-id="azure-well-architected-framework">Azure Well-Architected Framework</h4>
+<ol start="4" type="1">
+<li><strong><a href="https://learn.microsoft.com/azure/well-architected/operational-excellence/naming-tagging">Recommendations for naming and tagging</a></strong>
+<ul>
+<li>Operational excellence perspective</li>
+<li>Tagging strategy guidance</li>
+<li>Best practices for governance</li>
+</ul></li>
+</ol>
+</section>
+<section id="azure-service-specific-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="azure-service-specific-documentation">Azure Service-Specific Documentation</h4>
+<ol start="5" type="1">
+<li><strong><a href="https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules">Azure resource naming restrictions</a></strong>
+<ul>
+<li>Complete list of naming rules per service</li>
+<li>Character limitations and requirements</li>
+<li>Scope and length constraints</li>
+</ul></li>
+<li><strong><a href="https://azure.microsoft.com/global-infrastructure/geographies/">Azure regions</a></strong>
+<ul>
+<li>Official Azure region documentation</li>
+<li>Regional availability and capabilities</li>
+<li>Geography and compliance information</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="quick-lookup-tables" class="level3">
+<h3 class="anchored" data-anchor-id="quick-lookup-tables">Quick Lookup Tables</h3>
+<section id="common-resource-type-abbreviations" class="level4">
+<h4 class="anchored" data-anchor-id="common-resource-type-abbreviations">Common Resource Type Abbreviations</h4>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Service</th>
-<th>Abbreviation</th>
-<th>Service</th>
-<th>Abbreviation</th>
+<th>Type</th>
+<th>Abbr</th>
+<th>Type</th>
+<th>Abbr</th>
+<th>Type</th>
+<th>Abbr</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Resource Group</td>
 <td><code>rg</code></td>
+<td>Virtual Network</td>
+<td><code>vnt</code></td>
 <td>Storage Account</td>
 <td><code>stg</code></td>
 </tr>
 <tr class="even">
-<td>Virtual Network</td>
-<td><code>vnt</code></td>
-<td>Cosmos DB</td>
-<td><code>cdb</code></td>
-</tr>
-<tr class="odd">
-<td>Network Security Group</td>
-<td><code>nsg</code></td>
-<td>SQL Database</td>
-<td><code>sdb</code></td>
-</tr>
-<tr class="even">
-<td>App Registration</td>
-<td><code>appr</code></td>
-<td>Service Bus</td>
-<td><code>sbn</code></td>
-</tr>
-<tr class="odd">
-<td>Key Vault</td>
-<td><code>kvt</code></td>
-<td>Event Hub Namespace</td>
-<td><code>ehn</code></td>
-</tr>
-<tr class="even">
-<td>Virtual Machine</td>
-<td><code>vm</code></td>
-<td>Event Grid Topic</td>
-<td><code>egt</code></td>
-</tr>
-<tr class="odd">
-<td>Web App</td>
-<td><code>app</code>, <code>api</code>, <code>aps</code>, <code>feapp</code></td>
-<td>Container App</td>
-<td><code>cap</code></td>
-</tr>
-<tr class="even">
-<td>Function App</td>
-<td><code>fap</code></td>
 <td>App Service Plan</td>
 <td><code>asp</code></td>
+<td>Web App</td>
+<td><code>app</code></td>
+<td>API App</td>
+<td><code>api</code></td>
 </tr>
 <tr class="odd">
+<td>Function App</td>
+<td><code>fap</code></td>
+<td>Container App</td>
+<td><code>cap</code></td>
+<td>SQL Server</td>
+<td><code>sql</code></td>
+</tr>
+<tr class="even">
+<td>SQL Database</td>
+<td><code>sdb</code></td>
+<td>Cosmos DB</td>
+<td><code>cdb</code></td>
+<td>Key Vault</td>
+<td><code>akv</code></td>
+</tr>
+<tr class="odd">
+<td>Service Bus</td>
+<td><code>sbn</code></td>
+<td>Event Hub</td>
+<td><code>ehn</code></td>
+<td>Event Grid</td>
+<td><code>egt</code></td>
+</tr>
+<tr class="even">
+<td>OpenAI</td>
+<td><code>oai</code></td>
+<td>AI Search</td>
+<td><code>ais</code></td>
+<td>Cognitive Services</td>
+<td><code>cgs</code></td>
+</tr>
+<tr class="odd">
+<td>Virtual Machine</td>
+<td><code>vm</code></td>
 <td>Managed Identity</td>
-<td><code>appi</code> or <code>mi</code></td>
-<td></td>
-<td></td>
+<td><code>mi</code></td>
+<td>App Configuration</td>
+<td><code>apc</code></td>
+</tr>
+<tr class="even">
+<td>Container Registry</td>
+<td><code>crg</code></td>
+<td>Redis Cache</td>
+<td><code>rds</code></td>
+<td>Network Security Group</td>
+<td><code>nsg</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="environment-reference" class="level3">
-<h3 class="anchored" data-anchor-id="environment-reference">Environment Reference</h3>
-<ul>
-<li><code>testpersonal</code> - Personal environment</li>
-<li><code>testms</code> - Microsoft/corporate environment<br>
-</li>
-<li><code>testab</code> - Customer A environment</li>
-<li><code>test{customername}</code> - Named customer environment</li>
+<section id="common-environment-codes" class="level4">
+<h4 class="anchored" data-anchor-id="common-environment-codes">Common Environment Codes</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Environment</th>
+<th>Code</th>
+<th>Environment</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Development</td>
+<td><code>dev</code></td>
+<td>Test</td>
+<td><code>test</code></td>
+</tr>
+<tr class="even">
+<td>Staging</td>
+<td><code>stg</code></td>
+<td>Production</td>
+<td><code>prod</code></td>
+</tr>
+<tr class="odd">
+<td>Test MC</td>
+<td><code>testmc</code></td>
+<td>Test Personal</td>
+<td><code>testpers</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="common-region-codes-top-10-used" class="level4">
+<h4 class="anchored" data-anchor-id="common-region-codes-top-10-used">Common Region Codes (Top 10 Used)</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Code</th>
+<th>Region</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>West Europe</strong></td>
+<td><code>weu</code></td>
+<td><strong>East US</strong></td>
+<td><code>eus</code></td>
+</tr>
+<tr class="even">
+<td>North Europe</td>
+<td><code>neu</code></td>
+<td>East US 2</td>
+<td><code>eus2</code></td>
+</tr>
+<tr class="odd">
+<td>UK South</td>
+<td><code>uks</code></td>
+<td>Central US</td>
+<td><code>cus</code></td>
+</tr>
+<tr class="even">
+<td>West US 2</td>
+<td><code>wus2</code></td>
+<td>Southeast Asia</td>
+<td><code>sea</code></td>
+</tr>
+<tr class="odd">
+<td>Canada Central</td>
+<td><code>cac</code></td>
+<td>Australia East</td>
+<td><code>aue</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pattern-template" class="level3">
+<h3 class="anchored" data-anchor-id="pattern-template">Pattern Template</h3>
+<pre><code>{workload}-{environment}-{resourcetype}-{region}-{instance}
+
+Examples:
+samples-prod-rg-weu-01        (Resource Group)
+samples-prod-app-weu-01       (Web App)
+samples-prod-sql-eus-01       (SQL Server)
+samples-dev-cdb-weu-01        (Cosmos DB)
+samplesprodstgweu01           (Storage Account - no hyphens)</code></pre>
+</section>
+<section id="validation-checklist-1" class="level3">
+<h3 class="anchored" data-anchor-id="validation-checklist-1">Validation Checklist</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Follows <code>{workload}-{environment}-{resourcetype}-{region}-{instance}</code> pattern</label></li>
+<li><label><input type="checkbox">Meets Azure length requirements for resource type</label></li>
+<li><label><input type="checkbox">Uses only valid characters for resource type</label></li>
+<li><label><input type="checkbox">Globally unique for globally-scoped resources</label></li>
+<li><label><input type="checkbox">Region code matches deployment region</label></li>
+<li><label><input type="checkbox">Environment code is documented</label></li>
+<li><label><input type="checkbox">Instance number is sequential</label></li>
+<li><label><input type="checkbox">Tags are defined and complete</label></li>
 </ul>
 <hr>
-<p><strong>Document Owner</strong>: IT Architecture Team<br>
-<strong>Next Review</strong>: October 2, 2025<br>
-<strong>Version History</strong>: 1.0 - Initial creation (July 2, 2025)</p>
+<p><strong>Document Owner</strong>: Engineering Team<br>
+<strong>Next Review</strong>: January 19, 2026<br>
+<strong>Version History</strong>: - 2.0 - Updated to CAF-aligned pattern (October 19, 2025) - 1.0 - Initial creation (July 2, 2025)</p>
 
 
 </section>
