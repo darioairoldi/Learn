@@ -64,18 +64,37 @@ Troubleshooting guides for GitHub Actions, CI/CD, and development environments
 
 - **[Azure Naming Conventions Guide](20250702%20Azure%20Naming%20conventions/)** ⭐️  
   *Comprehensive naming standards for Azure resources across environments*
+
+**Azure Developer Learning Path** *(October 2025)*
+
 - **[Azure Functions Q&A](202510%20Developer%20Update/01.%20Azure%20Functions/01.%20Azure%20Functions%20QA.md)**  
   *Essential questions and answers for Azure Functions development*
+- **[Azure Functions Limitations](202510%20Developer%20Update/01.%20Azure%20Functions/02.%20Azure%20Functions%20Limitations.md)**  
+  *Understanding service constraints and workarounds*
 - **[Azure Key Vault Q&A](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/01.%20Azure%20KeyVault%20QA.md)**  
   *Key management and secrets best practices*
+- **[Azure Key Vault Limitations](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/02.%20Azure%20Key%20Vault%20Limitations.md)**  
+  *Service limits and architectural considerations*
 - **[Azure App Configuration Q&A](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/01.%20Azure%20App%20Configuration%20QA.md)**  
   *Configuration management patterns and best practices*
+- **[Azure App Configuration Exercise](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/03.%20Azure%20App%20Configuration%20Exercise.md)**  
+  *Hands-on tutorial with Key Vault integration*
+
+**Azure Data & Storage**
+
 - **[Table Storage Access Patterns](20250704%20TableStorageAccess%20options/)**  
   *Best practices for Azure Table Storage implementation*
 - **[CosmosDB Access Strategies](20250706%20CosmosDB%20Access%20options/)**  
   *Optimizing CosmosDB access patterns and performance*
 - **[EventHub Integration Patterns](20250723%20EventHub%20Access%20options/)**  
   *Event streaming and real-time data processing with Azure Event Hub*
+
+#### 📚 Learning & Methodology
+
+- **[Learning Hub Introduction](20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** ⭐️  
+  *New conceptual framework for effective learning*
+- **[Using Learning Hub for Technologies](20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)**  
+  *Practical approaches to learning new technologies*
 
 #### 🧪 Testing & Development Tools
 
@@ -112,19 +131,21 @@ Troubleshooting guides for GitHub Actions, CI/CD, and development environments
 
 ### Recent Additions
 
-- **[Oct 18] GitHub Actions Artifact Storage Fix** - Solution for workflow storage quota issues
-- **[Oct 13] No-IP DDNS Setup Guide** - Complete home computer exposure tutorial
-- **[Oct 05] Podcast & RSS Feed Analysis** - Feed architecture and protocols deep-dive
-- **[Sep 02] Learning Hub Overview** - New conceptual framework for learning
-- **[Aug 29] Changes in Learning** - Evolution of learning methodologies
-- **[Aug 27] YQ Overview** - YAML processing tool comprehensive guide  
-- **[Aug 25] GitHub Repository Limitations** - Strategies for free tier constraints
-- **[Aug 17] Query Cost Metrics with Diginsight** - Performance monitoring solutions
-- **[Aug 15] DIY E-bike & Battery Pack** - Hardware projects and technical guides
-- **[Aug 08] OpenTelemetry** - Observability and monitoring patterns
-- **[Jul 23] EventHub Access Options** - Azure event streaming solutions
-- **[Jul 13] HTTP Files Testing Strategy** - Enhanced API testing workflows
-- **[Jul 12] Quarto Documentation Setup** - Professional docs with GitHub Pages
+- **[Oct 18] [GitHub Actions Artifact Storage Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/)** - Solution for workflow storage quota issues
+- **[Oct 13] [No-IP DDNS Setup Guide](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/)** - Complete home computer exposure tutorial
+- **[Oct 10] [Azure App Configuration Exercise](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/03.%20Azure%20App%20Configuration%20Exercise.md)** - Hands-on Key Vault integration
+- **[Oct 10] [Azure App Configuration Q&A](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/01.%20Azure%20App%20Configuration%20QA.md)** - Configuration management patterns
+- **[Oct 10] [Azure Key Vault Limitations](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/02.%20Azure%20Key%20Vault%20Limitations.md)** - Understanding service constraints
+- **[Oct 05] [Podcast & RSS Feed Analysis](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)** - Feed architecture and protocols deep-dive
+- **[Sep 02] [Learning Hub Overview](20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - New conceptual framework for learning
+- **[Aug 27] [YQ Overview](20250827%20what%20is%20yq%20overview/)** - YAML processing tool comprehensive guide
+- **[Aug 25] [GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/)** - Strategies for free tier constraints
+- **[Aug 17] [Query Cost Metrics with Diginsight](20250817%20Query%20Cost%20Metrics%20with%20Diginsight/)** - Performance monitoring solutions
+- **[Aug 15] [DIY E-bike Guide](20250815%20DIY%20ebike/)** & **[Battery Pack](20250815%20DIY%20Battery%20Pack/)** - Hardware projects and technical guides
+- **[Aug 08] [OpenTelemetry](20250808%20OpenTelemetry/)** - Observability and monitoring patterns
+- **[Jul 23] [EventHub Access Options](20250723%20EventHub%20Access%20options/)** - Azure event streaming solutions
+- **[Jul 13] [HTTP Files Testing Strategy](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/)** - Enhanced API testing workflows
+- **[Jul 12] [Quarto Documentation Setup](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)** - Professional docs with GitHub Pages
 
 ### Build 2025 Conference Coverage
 
