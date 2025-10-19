@@ -171,3 +171,12 @@ jobs:
         git push origin gh-pages --force
         
         Write-Host "✓ Site deployed to gh-pages branch!"
+        
+    - name: Trigger Pages Rebuild
+      shell: pwsh
+      run: |
+        Write-Host "Triggering GitHub Pages rebuild..."
+        gh api -X POST repos/$env:GITHUB_REPOSITORY/pages/builds
+        Write-Host "✓ Pages rebuild triggered!"
+      env:
+        GH_TOKEN: ${{ github.token }}
