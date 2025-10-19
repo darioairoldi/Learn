@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>questionsandanswers – Dario's Learning Journey</title>
+<title>azure-functions-qa – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,6 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html" rel="next">
+<link href="../../20250723 EventHub Access options/README.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -256,6 +292,76 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-azure" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Azure</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-azure">    
+        <li>
+    <a class="dropdown-item" href="../../20250702 Azure Naming conventions/README.html">
+ <span class="dropdown-text">Azure Best Practices</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Data Services</li>
+        <li>
+    <a class="dropdown-item" href="../../20250704 TableStorageAccess options/README.html">
+ <span class="dropdown-text">Table Storage Access</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250706 CosmosDB Access options/README.md">
+ <span class="dropdown-text">CosmosDB Access</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Messaging &amp; Events</li>
+        <li>
+    <a class="dropdown-item" href="../../20250723 EventHub Access options/README.html">
+ <span class="dropdown-text">EventHub Access</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Developer Learning Path</li>
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">
+ <span class="dropdown-text">Azure Functions Q&amp;A</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html">
+ <span class="dropdown-text">Azure Key Vault Q&amp;A</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html">
+ <span class="dropdown-text">Azure App Configuration Q&amp;A</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-development-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Development Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-development-tools">    
+        <li>
+    <a class="dropdown-item" href="../../20250709 Manage GitRepo from commandline/README.html">
+ <span class="dropdown-text">Git Command Line</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250711 Use http files for easy and repeatable test/README.html">
+ <span class="dropdown-text">HTTP Files Testing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250712 Use QUARTO doc for Github repos doc/000.000 README.html">
+ <span class="dropdown-text">Quarto Documentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20250827 what is yq overview/README.html">
+ <span class="dropdown-text">yq YAML Processor</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Networking</li>
+        <li>
+    <a class="dropdown-item" href="../../20251013 HowTo Expose My Computer with No-IP DDNS/README.html">
+ <span class="dropdown-text">No-IP DDNS Setup</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
@@ -305,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Azure Topics</li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">Azure Developer Learning Path</a></li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">Azure Functions Q&amp;A</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1127,12 +1233,32 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-38" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-39" role="navigation" aria-expanded="true">
+ <span class="menu-text">Azure Best Practices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-39" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-39" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250702 Azure Naming conventions/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure Naming Conventions</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" role="navigation" aria-expanded="true">
+ <span class="menu-text">Azure Data Services</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-40" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250704 TableStorageAccess options/README.html" class="sidebar-item-text sidebar-link">
@@ -1145,6 +1271,17 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">CosmosDB Access Options</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" role="navigation" aria-expanded="true">
+ <span class="menu-text">Azure Messaging &amp; Events</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-41" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250723 EventHub Access options/README.html" class="sidebar-item-text sidebar-link">
@@ -1153,25 +1290,68 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-39" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
-</i> 
- <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-39" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-39" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" role="navigation" aria-expanded="true">
- <span class="menu-text">Feed Architectures</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="true">
+ <span class="menu-text">Azure Developer Learning Path</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-40" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-42" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Azure Functions Q&amp;A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Functions Limitations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Key Vault Q&amp;A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Key Vault Limitations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure App Configuration Q&amp;A</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
+</i> 
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-43" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true">
+ <span class="menu-text">Feed Architectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-44" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="sidebar-item-text sidebar-link">
@@ -1184,11 +1364,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Development Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-45" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-41" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-45" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
@@ -1205,11 +1385,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../20250712 Use QUARTO doc for Github repos doc/000.000 README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Documentation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-46" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-42" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-46" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250712 Use QUARTO doc for Github repos doc/000.000 README.html" class="sidebar-item-text sidebar-link">
@@ -1300,11 +1480,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Diginsight</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-43" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-47" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
@@ -1317,13 +1497,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Processing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-44" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-48" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250827 what is yq overview/README.html" class="sidebar-item-text sidebar-link">
@@ -1338,27 +1518,44 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true">
+ <span class="menu-text">Networking &amp; Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-49" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251013 HowTo Expose My Computer with No-IP DDNS/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expose Computer with No-IP DDNS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-45" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
 </i> 
  <span class="menu-text">Issues &amp; Solutions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-45" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-45" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-50" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Development Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-46" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-46" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-51" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
@@ -1375,17 +1572,23 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="true">
- <span class="menu-text">GitHub Repositories</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true">
+ <span class="menu-text">GitHub &amp; CI/CD Issues</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-47" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-52" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250825 Github repositories limitations/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Repository Limitations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Actions Artifact Storage Quota Fix</span></a>
   </div>
 </li>
       </ul>
@@ -1395,14 +1598,14 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-53" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
 </i> 
  <span class="menu-text">Other Technologies</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-53" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-48" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-53" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250815 DIY Battery Pack/README.html" class="sidebar-item-text sidebar-link">
@@ -1420,14 +1623,14 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
 </i> 
  <span class="menu-text">Culture &amp; Travel</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-49" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-54" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
@@ -1442,7 +1645,794 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav class="toc toc-active" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link active" data-scroll-target="#table-of-contents">📑 Table of Contents</a></li>
+  <li><a href="#q.-what-plans-are-available" id="toc-q.-what-plans-are-available" class="nav-link" data-scroll-target="#q.-what-plans-are-available">💰 Q. What plans are available ?</a></li>
+  <li><a href="#q.-what-triggers-are-available" id="toc-q.-what-triggers-are-available" class="nav-link" data-scroll-target="#q.-what-triggers-are-available">🎯 Q. What triggers are available ?</a></li>
+  <li><a href="#q.-how-does-autoscale-work-in-different-execution-plans" id="toc-q.-how-does-autoscale-work-in-different-execution-plans" class="nav-link" data-scroll-target="#q.-how-does-autoscale-work-in-different-execution-plans">📊 Q. How does autoscale work in different execution plans ?</a>
+  <ul class="collapse">
+  <li><a href="#comparison-summary" id="toc-comparison-summary" class="nav-link" data-scroll-target="#comparison-summary"><strong>Comparison Summary</strong></a></li>
+  </ul></li>
+  <li><a href="#q.-role-and-structure-of-function.json-hosts.json-and-local.settings.json-files" id="toc-q.-role-and-structure-of-function.json-hosts.json-and-local.settings.json-files" class="nav-link" data-scroll-target="#q.-role-and-structure-of-function.json-hosts.json-and-local.settings.json-files">📄 Q. Role and structure of ‘function.json’, ‘hosts.json’ and ‘local.settings.json’ files?</a>
+  <ul class="collapse">
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts:</a></li>
+  <li><a href="#common-patterns" id="toc-common-patterns" class="nav-link" data-scroll-target="#common-patterns">Common Patterns:</a></li>
+  <li><a href="#configuration-in-host.json" id="toc-configuration-in-host.json" class="nav-link" data-scroll-target="#configuration-in-host.json">Configuration in <code>host.json</code>:</a></li>
+  <li><a href="#key-settings" id="toc-key-settings" class="nav-link" data-scroll-target="#key-settings">Key Settings:</a></li>
+  </ul></li>
+  <li><a href="#q.-what-are-limitations-of-azure-functions" id="toc-q.-what-are-limitations-of-azure-functions" class="nav-link" data-scroll-target="#q.-what-are-limitations-of-azure-functions">⚠️ Q. What are Limitations of Azure Functions ?</a></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">📝 ADDITIONAL INFORMATION:</a>
+  <ul class="collapse">
+  <li><a href="#q.-compare-azure-functions-to-webjobs" id="toc-q.-compare-azure-functions-to-webjobs" class="nav-link" data-scroll-target="#q.-compare-azure-functions-to-webjobs">⚙️ Q. Compare Azure Functions to WebJobs ?</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📚 References</a>
+  <ul class="collapse">
+  <li><a href="#azure-functions-official-documentation" id="toc-azure-functions-official-documentation" class="nav-link" data-scroll-target="#azure-functions-official-documentation">Azure Functions Official Documentation</a></li>
+  <li><a href="#triggers-and-bindings" id="toc-triggers-and-bindings" class="nav-link" data-scroll-target="#triggers-and-bindings">Triggers and Bindings</a></li>
+  <li><a href="#scaling-and-performance" id="toc-scaling-and-performance" class="nav-link" data-scroll-target="#scaling-and-performance">Scaling and Performance</a></li>
+  <li><a href="#durable-functions" id="toc-durable-functions" class="nav-link" data-scroll-target="#durable-functions">Durable Functions</a></li>
+  <li><a href="#container-apps" id="toc-container-apps" class="nav-link" data-scroll-target="#container-apps">Container Apps</a></li>
+  <li><a href="#comparison-and-migration" id="toc-comparison-and-migration" class="nav-link" data-scroll-target="#comparison-and-migration">Comparison and Migration</a></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/01. Azure Functions/01. Azure Functions QA.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Azure Topics</li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">Azure Developer Learning Path</a></li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">Azure Functions Q&amp;A</a></li></ol></nav></header>
+
+
+
+
+<p>the following article analyzes interesting points about azure functions</p>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">📑 Table of Contents</h2>
+<ul>
+<li><a href="#q-what-plans-are-available-">💰 Q. What plans are available?</a></li>
+<li><a href="#q-what-triggers-are-available-">🎯 Q. What triggers are available?</a></li>
+<li><a href="#q-how-does-autoscale-works-in-different-execution-plans-">📊 Q. How does autoscale work in different execution plans?</a></li>
+<li><a href="#q-role-and-structure-of-functionjson-hostsjson-and-localsettingsjson-files">📄 Q. Role and structure of ‘function.json’, ‘hosts.json’ and ‘local.settings.json’ files?</a></li>
+<li><a href="#q-what-are-durable-functions">🔄 Q. What are Durable Functions?</a></li>
+<li><a href="#q-what-are-limitations-of-azure-functions-">⚠️ Q. What are Limitations of Azure Functions?</a> - See <strong><a href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html">detailed article</a></strong></li>
+<li><a href="#additional-information">📝 Additional Information</a></li>
+<li><a href="#-references">📚 References</a></li>
+</ul>
+<hr>
+</section>
+<section id="q.-what-plans-are-available" class="level2">
+<h2 class="anchored" data-anchor-id="q.-what-plans-are-available">💰 Q. What plans are available ?</h2>
+<p><img src="images/01.001a functions plans.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;"></p>
+<p><img src="images/01.001 functions plans.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;"></p>
+<ul>
+<li><strong>Consumption plan</strong>: <em><mark>Pay-as-you-go</mark></em> serverless hosting where instances are dynamically added/removed based on incoming events. You’re charged only for compute resources when functions are running (executions, execution time, and memory used).
+<ul>
+<li><strong>Pros</strong>: <em><mark>Lowest cost</mark></em> for <mark>sporadic workloads</mark>, automatic scaling, includes free monthly grant, no infrastructure management</li>
+<li><strong>Cons</strong>: <mark>Cold starts</mark> when scaling from zero, <mark><strong>10-minute execution timeout</strong></mark>, <mark>no VNet integration</mark>, max <mark><strong>200 instances (Windows)</strong></mark> or <mark><strong>100 (Linux)</strong></mark>, <mark>Linux support retiring</mark> September 2028</li>
+</ul></li>
+<li><strong>Flex Consumption plan</strong>: Next-generation serverless plan with improved performance and flexibility. Offers <mark>faster scaling</mark> with <mark>per-function scaling logic</mark>, <mark>reduced cold starts</mark> on preprovisioned instances, and <mark>VNet support</mark> while maintaining <mark>pay-for-execution</mark> billing model.
+<ul>
+<li><strong>Pros</strong>: <mark>Faster cold starts</mark>, <mark>VNet integration</mark>, <mark>per-function scaling</mark> (<mark><strong>up to 1000 instances</strong></mark>), configurable instance memory (<mark><strong>512MB-4GB</strong></mark>), always-ready instances option, better concurrency handling</li>
+<li><strong>Cons</strong>: More complex configuration than basic Consumption, higher base cost when using always-ready instances, newer plan with <mark>some limitations</mark> (<mark>no deployment slots</mark>, limited regions), <mark>Linux only</mark>.</li>
+</ul></li>
+<li><strong>Premium plan</strong>: <mark>Elastic Premium plan</mark> providing <mark>always-ready instances</mark> with prewarmed instances buffer to eliminate cold starts. Scales dynamically like Consumption but with <mark>guaranteed compute resources</mark> and enterprise features.
+<ul>
+<li><strong>Pros</strong>: <mark>No cold starts</mark> (always-ready + prewarmed instances), <mark>VNet connectivity</mark>, unlimited execution duration, Linux container support, predictable performance, <strong>up to 100 instances</strong></li>
+<li><strong>Cons</strong>: Higher cost (billed on core-seconds/memory even when idle), minimum of 1 instance always running, more complex pricing model than consumption plans</li>
+</ul></li>
+<li><strong>Dedicated plan</strong>: <mark>Runs on dedicated App Service Plan</mark> VMs with other App Service resources. You have full control over the <mark>compute resources</mark> and <mark>scaling behavior</mark>.
+<ul>
+<li><p><strong>Pros</strong>: <mark>Predictable costs</mark>, use excess App Service capacity, <mark>custom images support</mark>, full control over scaling, <mark>can run in isolated App Service Environment</mark>, <mark>no cold starts</mark> with Always On</p></li>
+<li><p><strong>Cons</strong>: Manual scaling or <mark>slower autoscale</mark> due to provisioning time for dedicated resources, most expensive option for low-traffic apps, requires Always On setting, no automatic event-driven scaling, <mark><strong>10-30 max instances</strong></mark> (<mark><strong>100 in ASE</strong></mark>)</p></li>
+<li><p><strong>Container Apps</strong>: Deploy <mark>Azure Functions as containers</mark> in a fully managed Container Apps environment. Combines Functions <mark>event-driven model</mark> with <mark>Kubernetes-based orchestration, KEDA scaling</mark>, and advanced container features.</p></li>
+<li><p><strong>Pros</strong>: Custom containers with dependencies, <mark><strong>scale to 1000 instances</strong></mark>, VNet integration, <mark>GPU support for AI workloads</mark>, <mark>Dapr integration</mark>, unified environment with microservices, multi-revision support</p></li>
+<li><p><strong>Cons</strong>: More complex setup, <mark>cold starts when scaling to zero</mark>, <mark>no deployment slots</mark>, <mark>no Functions access keys</mark> via portal, requires storage account per revision for multi-revision scenarios, <mark>Linux only</mark></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="q.-what-triggers-are-available" class="level2">
+<h2 class="anchored" data-anchor-id="q.-what-triggers-are-available">🎯 Q. What triggers are available ?</h2>
+<p><img src="images/01.002 Functions vs webjobs.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;"></p>
+<ul>
+<li><p><strong>Timer Trigger</strong>: Executes functions on a predefined schedule using <mark>CRON expressions</mark>, enabling time-based automation for recurring tasks like batch processing, cleanup jobs, or periodic data synchronization.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Simple configuration with standard <mark>CRON syntax</mark></li>
+<li>No external dependencies or services required</li>
+<li>Predictable execution patterns for planning and monitoring</li>
+<li><mark>Works across all hosting plans</mark></li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>No built-in retry or error handling for missed executions</li>
+<li>Can waste compute resources on empty runs</li>
+<li><mark>Singleton execution model</mark> may cause delays in high-frequency scenarios (executions are guaranteed from overlapping)</li>
+</ul></li>
+<li><p><strong>Azure Storage Queues and Blobs Trigger</strong>: Automatically responds to new messages in Azure Storage Queues or detects new/modified blobs in Storage containers, enabling scalable asynchronous processing of stored data and files.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li><mark>Cost-effective</mark> for simple queuing and file processing scenarios</li>
+<li>Built-in poison message handling for failed processing</li>
+<li>Automatic scaling based on queue depth</li>
+<li>Simple integration with other Azure Storage operations</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Limited message size (64KB for queues, no message batching)</li>
+<li>Polling-based detection introduces latency (blob trigger can delay 10+ minutes on Consumption plan)</li>
+<li>No advanced messaging features (sessions, transactions, dead-lettering)</li>
+<li>Blob trigger can miss rapid changes or process same blob multiple times</li>
+</ul></li>
+<li><p><strong>Azure Service Bus Queues and Topics Trigger</strong>: Listens to Azure Service Bus queues (point-to-point) or topics (pub-sub) to process enterprise-grade messages with advanced delivery guarantees, sessions, and transactional support.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Rich messaging features: sessions, transactions, duplicate detection, dead-letter queues</li>
+<li>Large message support (up to 100MB with Premium tier)</li>
+<li>Topics enable pub-sub patterns with multiple subscribers</li>
+<li>Strong delivery guarantees and advanced error handling</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Higher cost compared to Storage Queues</li>
+<li>More complex configuration and setup</li>
+<li>Requires separate Service Bus namespace provisioning</li>
+<li>Can be overkill for simple queue scenarios</li>
+</ul></li>
+<li><p><strong>Azure Cosmos DB Trigger</strong>: Uses Cosmos DB Change Feed to detect and respond to inserts and updates in Cosmos DB containers, enabling real-time reactive processing of database changes.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Near real-time detection of data changes (sub-second latency)</li>
+<li>Processes changes in order within a partition</li>
+<li>Scalable across multiple function instances automatically</li>
+<li>Supports all Cosmos DB APIs (SQL, MongoDB, Cassandra, etc.)</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Only detects inserts and updates (not deletes)</li>
+<li>Requires additional lease container for coordination (extra cost)</li>
+<li>Can be complex to handle schema changes</li>
+<li>Change feed consumption adds RU costs</li>
+</ul></li>
+<li><p><strong>Azure Event Hubs Trigger</strong>: Processes high-throughput streaming data from Event Hubs, enabling real-time analytics and telemetry ingestion for IoT devices, application logs, and event streaming scenarios.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Massive scale (millions of events per second)</li>
+<li>Built-in partitioning for parallel processing</li>
+<li>Event retention allows replay and reprocessing</li>
+<li>Checkpointing ensures reliable event processing</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Higher cost for throughput units or processing units</li>
+<li>Complex partition management and scaling considerations</li>
+<li>Requires storage account for checkpointing (additional cost)</li>
+<li>Overkill for low-volume scenarios</li>
+</ul></li>
+<li><p><strong>HTTP/Webhook Trigger</strong>: Exposes functions as HTTP endpoints or webhooks, allowing synchronous request-response patterns for REST APIs, integrations with external services (like GitHub), and user-facing applications.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Flexible for building REST APIs and webhooks</li>
+<li>Supports all HTTP methods and custom routing</li>
+<li>Authorization via function keys, Azure AD, or anonymous</li>
+<li>Direct synchronous communication pattern</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Subject to timeout limits (230 seconds for HTTP trigger on Consumption)</li>
+<li>Synchronous nature doesn’t scale as well as queue-based patterns</li>
+<li>Requires external load balancing for high availability</li>
+<li>Cold starts impact response time on serverless plans</li>
+</ul></li>
+<li><p><strong>Azure Event Grid Trigger</strong>: Subscribes to Event Grid topics to receive and react to discrete events from Azure services (like Blob created, VM state changed) or custom applications, enabling event-driven architectures at scale.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Push-based delivery with low latency (no polling overhead)</li>
+<li>Built-in retry logic with exponential backoff</li>
+<li>Native integration with 100+ Azure services</li>
+<li>Advanced filtering and routing capabilities</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Event ordering not guaranteed</li>
+<li>Requires webhook endpoint validation</li>
+<li>1MB event size limit</li>
+<li>Can duplicate events (at-least-once delivery)</li>
+</ul></li>
+</ul>
+</section>
+<section id="q.-how-does-autoscale-work-in-different-execution-plans" class="level2">
+<h2 class="anchored" data-anchor-id="q.-how-does-autoscale-work-in-different-execution-plans">📊 Q. How does autoscale work in different execution plans ?</h2>
+<p>Azure Functions uses <mark>different scaling mechanisms depending on the hosting plan</mark>. Understanding these differences is crucial for choosing the right plan for your workload.</p>
+<p><strong>Consumption Plan - <mark>Event-Driven Scaling</mark></strong>: - The <strong><mark>Azure Functions scale controller</mark></strong> continuously monitors the rate of incoming events for each trigger type - Makes scaling decisions every few seconds based on queue depth, message age, and other trigger-specific metrics - Automatically adds or removes instances dynamically without user intervention</p>
+<pre><code>**Scaling behavior:**
+- **Scale-out**: Instances added automatically when event load increases
+- **Scale-in**: Instances removed when load decreases, with graceful shutdown (up to &lt;mark&gt;**10 minutes**&lt;/mark&gt; for running functions, default is &lt;mark&gt;5 minutes&lt;/mark&gt;)
+- **Scale-to-zero**: When no events are present, scales down to zero instances (cold start on next event)
+- **Max instances**: &lt;mark&gt;**200 (Windows)**&lt;/mark&gt; or &lt;mark&gt;**100 (Linux)**&lt;/mark&gt;
+
+**Scaling speed:** **Fast** - typically scales out in seconds to minutes</code></pre>
+<hr>
+<p><strong>Flex Consumption Plan - Per-Function Event-Driven Scaling</strong>: - Uses <strong><mark>per-function scaling logic</mark></strong> where each function type can scale independently - HTTP triggers, Blob (Event Grid) triggers, and Durable Functions share instances as groups - All other trigger types (Queue, Service Bus, Cosmos DB, Event Hubs, etc.) scale on dedicated instances - Always-ready instances option available to eliminate cold starts</p>
+<pre><code>**Scaling behavior:**
+- **Scale-out**: &lt;mark&gt;Faster than Consumption plan&lt;/mark&gt; with more aggressive scaling logic
+- **Scale-in**: &lt;mark&gt;Graceful shutdown&lt;/mark&gt; with &lt;mark&gt;**up to 60 minutes**&lt;/mark&gt; for running functions
+- **Scale-to-zero**: Optional (can configure always-ready instances)
+- **Max instances**: &lt;mark&gt;**1000 per function app**&lt;/mark&gt;
+
+**Scaling speed:** **Fastest** - optimized scaling with pre-provisioned capacity</code></pre>
+<hr>
+<p><strong>Premium Plan (Elastic Premium) - Event-Driven with Always-Ready Instances</strong>: - Uses the same <strong>event-driven scale controller</strong> as Consumption plan - Maintains <strong>always-ready instances</strong> (minimum 1) that never scale to zero - <strong>Pre-warmed instances</strong> act as a buffer for immediate scale-out - Scales additional instances dynamically based on event load</p>
+<pre><code>**Scaling behavior:**
+- **Scale-out**: Immediate (&lt;mark&gt;pre-warmed instances become active&lt;/mark&gt;, new instances added if needed)
+- **Scale-in**: &lt;mark&gt;Graceful shutdown&lt;/mark&gt; with &lt;mark&gt;up to 60 minutes&lt;/mark&gt; for running functions
+- **Scale-to-zero**: &lt;mark&gt;Never&lt;/mark&gt; - always maintains minimum instance count
+- **Max instances**: &lt;mark&gt;**100 (Windows)**&lt;/mark&gt; or &lt;mark&gt;**20-100 (Linux)**&lt;/mark&gt;
+
+**Scaling speed:** **Very fast** - no cold starts due to pre-warmed instances
+
+**Special features:**
+- **&lt;mark&gt;VNet triggers with dynamic scale monitoring&lt;/mark&gt;**: Can enable runtime scale monitoring for triggers like Service Bus, Event Hubs, and Cosmos DB when behind VNet
+- Better for scenarios requiring predictable performance with event-driven scaling</code></pre>
+<hr>
+<p><strong>Dedicated Plan (App Service Plan) - Manual/Rule-Based Autoscale</strong>: - Uses <strong><mark>Azure Monitor Autoscale</mark></strong> with metric-based rules (CPU, memory, custom metrics, schedules) - Scaling decisions based on resource utilization thresholds, not event queue depth - Requires manual configuration of autoscale rules or manual scaling</p>
+<pre><code>**Scaling behavior:**
+- **Scale-out**: &lt;mark&gt;Reactive&lt;/mark&gt;, &lt;mark&gt;triggered&lt;/mark&gt; when metrics exceed thresholds (e.g., CPU &gt; 70%)
+- **Scale-in**: Triggered when metrics fall below thresholds (e.g., CPU &lt; 30%)
+- **Scale-to-zero**: &lt;mark&gt;Not supported&lt;/mark&gt; - requires "Always On" setting to keep functions active
+- **Max instances**: &lt;mark&gt;**10-30 (regular) or 100**&lt;/mark&gt; (App Service Environment)
+
+**Scaling speed:** **Slower** - &lt;mark&gt;takes minutes to provision new VMs&lt;/mark&gt; and start app instances
+
+**Why it's slower:**
+1. Must provision full VM instances (not just function host instances)
+2. Reactive scaling based on metrics (by the time threshold is hit, load may have peaked)
+3. Uses generic App Service autoscale, not optimized for event-driven workloads
+4. No built-in understanding of event queue depth
+
+**Configuration required:**
+- Define autoscale rules in Azure Monitor
+- Set metric thresholds and scale-out/scale-in conditions
+- Configure cooldown periods between scaling operations</code></pre>
+<hr>
+<p><strong>Container Apps - Event-Driven with KEDA</strong>: Uses <strong>KEDA (Kubernetes Event-Driven Autoscaling)</strong> for event-driven scaling - Leverages Kubernetes orchestration for container lifecycle management - Scale decisions based on event sources and custom scalers</p>
+<p><strong>Scaling behavior:</strong> - <strong>Scale-out</strong>: Event-driven, similar to Premium plan - <strong>Scale-in</strong>: Graceful shutdown for running functions - <strong>Scale-to-zero</strong>: Supported (<mark>cold starts when scaling from zero</mark>) - <strong>Max instances</strong>: <mark>300-1000</mark> depending on configuration</p>
+<p><strong>Scaling speed:</strong> <strong>Fast</strong> - event-driven scaling optimized for containerized workloads</p>
+<hr>
+<section id="comparison-summary" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-summary"><strong>Comparison Summary</strong></h3>
+<p><img src="images/03.000 scaling matrix.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;"></p>
+<p><br> <br></p>
+<p>The table below summarizes the key differences:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Plan</th>
+<th>Scaling Type</th>
+<th>Speed</th>
+<th>Scale to Zero</th>
+<th>Max Instances</th>
+<th>Cold Starts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Consumption</strong></td>
+<td>Event-driven</td>
+<td>Fast</td>
+<td>✅ Yes</td>
+<td>200 (Win) / 100 (Linux)</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td><strong>Flex Consumption</strong></td>
+<td>Per-function event-driven</td>
+<td>Fastest</td>
+<td>✅ Optional</td>
+<td>1000</td>
+<td>Optional (with always-ready)</td>
+</tr>
+<tr class="odd">
+<td><strong>Premium</strong></td>
+<td>Event-driven + always-ready</td>
+<td>Very Fast</td>
+<td>❌ No (min 1)</td>
+<td>100</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td><strong>Dedicated</strong></td>
+<td>Manual/Rule-based</td>
+<td>Slower</td>
+<td>❌ No</td>
+<td>10-30 (100 ASE)</td>
+<td>No (with Always On)</td>
+</tr>
+<tr class="odd">
+<td><strong>Container Apps</strong></td>
+<td>Event-driven (KEDA)</td>
+<td>Fast</td>
+<td>✅ Yes</td>
+<td>300-1000</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><br> <br></p>
+<p><strong>Key Takeaways:</strong> - <strong><mark>Event-driven plans</mark></strong> (Consumption, Flex, Premium, Container Apps) <mark>monitor event sources</mark> and scale proactively - <strong><mark>Dedicated plan</mark></strong> uses <mark>traditional autoscale</mark> based on resource metrics and reacts to load - <strong><mark>Premium and Flex</mark></strong> offer the best balance of performance (no/minimal cold starts) and event-driven scaling - <strong><mark>Dedicated plan</mark></strong> is best for predictable, steady workloads where you control scaling behavior</p>
+</section>
+</section>
+<section id="q.-role-and-structure-of-function.json-hosts.json-and-local.settings.json-files" class="level2">
+<h2 class="anchored" data-anchor-id="q.-role-and-structure-of-function.json-hosts.json-and-local.settings.json-files">📄 Q. Role and structure of ‘function.json’, ‘hosts.json’ and ‘local.settings.json’ files?</h2>
+<p>Azure Functions uses several configuration files to define <strong>function behavior</strong>, <strong>runtime configuration</strong> and <strong>application settings</strong>.<br> Understanding these files is essential for developing and deploying functions effectively.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 46%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Scope</th>
+<th>Deployed to Azure</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><code>function.json</code></mark></td>
+<td>Per-function</td>
+<td>✅ Yes</td>
+<td>Define trigger and bindings for individual function</td>
+</tr>
+<tr class="even">
+<td><mark><code>host.json</code></mark></td>
+<td>Function app</td>
+<td>✅ Yes</td>
+<td>Global runtime and extension configuration</td>
+</tr>
+<tr class="odd">
+<td><mark><code>local.settings.json</code></mark></td>
+<td>Function app</td>
+<td>❌ No</td>
+<td>Local development settings and secrets</td>
+</tr>
+</tbody>
+</table>
+<p><br> <br></p>
+<ul>
+<li><p><strong>function.json</strong> (Function-Level Configuration): Defines the <mark>trigger, bindings, and configuration for an individual function</mark>.<br>Each function has its own <code>function.json</code> file in its directory.</p>
+<p><strong>Location</strong>: <code>&lt;FunctionApp&gt;/&lt;FunctionName&gt;/function.json</code><br> <strong>When Used</strong>:</p>
+<ul>
+<li><strong>Required</strong> for scripting languages (JavaScript, Python, PowerShell, Java)</li>
+<li><strong>Not used</strong> for C# in-process functions (attributes used instead)</li>
+<li><strong>Generated automatically</strong> for C# isolated worker process functions</li>
+</ul>
+<p><strong>Structure</strong>: <code>json   {   "bindings": [       {       "type": "queueTrigger",       "direction": "in",       "name": "myQueueItem",       "queueName": "myqueue-items",       "connection": "AzureWebJobsStorage"       },       {       "type": "blob",       "direction": "out",       "name": "outputBlob",       "path": "output/{rand-guid}.txt",       "connection": "AzureWebJobsStorage"       }   ],   "disabled": false,   "scriptFile": "../dist/index.js",   "entryPoint": "processQueueMessage"   }</code></p>
+<p><strong>Key Properties</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 33%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+<th>Example Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><code>bindings</code></mark></td>
+<td>Array of trigger and bindings</td>
+<td>See binding types below</td>
+</tr>
+<tr class="even">
+<td><mark><code>disabled</code></mark></td>
+<td>Whether function is disabled</td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr class="odd">
+<td><mark><code>scriptFile</code></mark></td>
+<td>Path to the function code file</td>
+<td><code>"index.js"</code>, <code>"__init__.py"</code></td>
+</tr>
+<tr class="even">
+<td><mark><code>entryPoint</code></mark></td>
+<td>Function entry point name</td>
+<td><code>"run"</code>, <code>"main"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Binding Properties</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 39%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><code>type</code></mark></td>
+<td>Binding type (queueTrigger, blob, http, etc.)</td>
+<td>✅ Yes</td>
+</tr>
+<tr class="even">
+<td><mark><code>direction</code></mark></td>
+<td>Data flow: <code>in</code>, <code>out</code>, or <code>inout</code></td>
+<td>✅ Yes</td>
+</tr>
+<tr class="odd">
+<td><mark><code>name</code></mark></td>
+<td>Variable name in function code</td>
+<td>✅ Yes</td>
+</tr>
+<tr class="even">
+<td><mark><code>connection</code></mark></td>
+<td>App setting name for connection string</td>
+<td>Depends on binding</td>
+</tr>
+<tr class="odd">
+<td>Additional properties</td>
+<td><mark>Trigger</mark>/<mark>binding-specific settings</mark></td>
+<td>Varies</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Common Binding Types</strong>:</p>
+<ul>
+<li>Triggers: <mark><code>httpTrigger</code></mark>, <mark><code>queueTrigger</code></mark>, <mark><code>blobTrigger</code></mark>, <mark><code>timerTrigger</code></mark>, <mark><code>serviceBusTrigger</code></mark>, <mark><code>eventHubTrigger</code></mark>, <mark><code>cosmosDBTrigger</code></mark>, <mark><code>eventGridTrigger</code></mark></li>
+<li>Bindings: <mark><code>http</code></mark>, <mark><code>queue</code></mark>, <mark><code>blob</code></mark>, <mark><code>table</code></mark>, <mark><code>cosmosDB</code></mark>, <mark><code>serviceBus</code></mark>, <mark><code>eventHub</code></mark></li>
+</ul>
+<hr></li>
+<li><p><strong>host.json - Function App-Level Configuration</strong>: Contains <mark>global configuration settings that affect all functions</mark> in the function app, including runtime behavior, logging, and extension settings.<br> <strong>Location</strong>: <code>&lt;FunctionAppRoot&gt;/host.json</code><br> <strong>Versions</strong>: Configuration schema varies by Functions runtime version (v1.x, v2.x, v3.x, v4.x)<br> <strong>Structure</strong> (Functions v4.x): <code>json     {     "version": "2.0",     "logging": {         "logLevel": {         "default": "Information",         "Function": "Information",         "Host.Aggregator": "Information"         },         "applicationInsights": {         "samplingSettings": {             "isEnabled": true,             "maxTelemetryItemsPerSecond": 20,             "excludedTypes": "Request;Exception"         }         }     },     "functionTimeout": "00:10:00",     "extensions": {         "http": {         "routePrefix": "api",         "maxConcurrentRequests": 100,         "maxOutstandingRequests": 200         },         "queues": {         "maxPollingInterval": "00:00:02",         "visibilityTimeout": "00:00:30",         "batchSize": 16,         "maxDequeueCount": 5,         "newBatchThreshold": 8         },         "serviceBus": {         "prefetchCount": 0,         "messageHandlerOptions": {             "autoComplete": true,             "maxConcurrentCalls": 16,             "maxAutoRenewDuration": "00:05:00"         }         },         "eventHubs": {         "maxEventBatchSize": 10,         "prefetchCount": 300,         "batchCheckpointFrequency": 1         },         "durableTask": {         "hubName": "MyTaskHub",         "storageProvider": {             "type": "azure_storage",             "connectionStringName": "AzureWebJobsStorage"         },         "maxConcurrentActivityFunctions": 10,         "maxConcurrentOrchestratorFunctions": 5,         "extendedSessionsEnabled": true,         "extendedSessionIdleTimeoutInSeconds": 300         }     },     "extensionBundle": {         "id": "Microsoft.Azure.Functions.ExtensionBundle",         "version": "[4.*, 5.0.0)"     },     "concurrency": {         "dynamicConcurrencyEnabled": true,         "snapshotPersistenceEnabled": true     }     }</code></p>
+<p><strong>Key Configuration Sections</strong>:</p>
+<p><strong>1. Global Settings</strong>:</p>
+<ul>
+<li><mark><code>version</code></mark>: Schema version (<code>"2.0"</code> for v2.x+)</li>
+<li><mark><code>functionTimeout</code></mark>: Maximum execution time</li>
+<li><mark>Consumption</mark>: <code>00:05:00</code> (default), max <code>00:10:00</code></li>
+<li><mark>Premium/Dedicated</mark>: <code>00:30:00</code> (default), <code>unlimited</code> (max)</li>
+</ul>
+<p><strong>2. Logging Configuration</strong>:</p>
+<ul>
+<li><mark><code>logLevel</code></mark>: Minimum log levels per category</li>
+<li><mark><code>applicationInsights</code></mark>: Application Insights settings and sampling</li>
+</ul>
+<p><strong>3. Extension Configuration</strong>:</p>
+<ul>
+<li><mark><code>http</code></mark>: HTTP trigger settings (routing, concurrency)</li>
+<li><mark><code>queues</code></mark>: Storage Queue trigger behavior</li>
+<li><mark><code>serviceBus</code></mark>: Service Bus trigger settings</li>
+<li><mark><code>eventHubs</code></mark>: Event Hubs trigger configuration</li>
+<li><mark><code>durableTask</code></mark>: Durable Functions orchestration settings</li>
+</ul>
+<p><strong>4. Extension Bundle</strong>:</p>
+<ul>
+<li>Manages binding extensions for non-.NET languages</li>
+<li>Automatic versioning and updates</li>
+</ul>
+<p><strong>5. Concurrency</strong>:</p>
+<ul>
+<li><code>dynamicConcurrencyEnabled</code>: Adaptive concurrency control</li>
+<li>Optimizes throughput and resource usage</li>
+</ul>
+<hr></li>
+<li><p><strong>local.settings.json - Local Development Settings</strong>: Contains <mark>app settings and connection strings for local development</mark>. This file is <mark><strong>not deployed to Azure</strong></mark> (excluded in <code>.gitignore</code>).</p>
+<p><strong>Location</strong>: <code>&lt;FunctionAppRoot&gt;/local.settings.json</code></p>
+<p><strong>Structure</strong>: <code>json   {   "IsEncrypted": false,   "Values": {       "AzureWebJobsStorage": "UseDevelopmentStorage=true",       "FUNCTIONS_WORKER_RUNTIME": "node",       "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",       "MyCustomSetting": "CustomValue",       "CosmosDbConnectionString": "AccountEndpoint=https://...;AccountKey=...;",       "ServiceBusConnection": "Endpoint=sb://...;SharedAccessKeyName=...;SharedAccessKey=...",       "APPINSIGHTS_INSTRUMENTATIONKEY": "your-instrumentation-key"   },   "Host": {       "LocalHttpPort": 7071,       "CORS": "*",       "CORSCredentials": false   },   "ConnectionStrings": {       "SqlConnectionString": "Server=...;Database=...;User Id=...;Password=...;"   }   }</code></p>
+<p><strong>Key Sections</strong>:</p>
+<p><strong>1. Values</strong> (App Settings):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 41%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><code>AzureWebJobsStorage</code></mark></td>
+<td>Storage account for function runtime</td>
+<td><code>UseDevelopmentStorage=true</code> (local)</td>
+</tr>
+<tr class="even">
+<td><mark><code>FUNCTIONS_WORKER_RUNTIME</code></mark></td>
+<td>Language runtime</td>
+<td><code>dotnet</code>, <code>node</code>, <code>python</code>, <code>java</code>, <code>powershell</code></td>
+</tr>
+<tr class="odd">
+<td><mark><code>AzureWebJobsFeatureFlags</code></mark></td>
+<td>Enable preview features</td>
+<td><code>EnableWorkerIndexing</code></td>
+</tr>
+<tr class="even">
+<td><mark>Custom settings</mark></td>
+<td>Your application settings</td>
+<td>Any key-value pairs</td>
+</tr>
+<tr class="odd">
+<td><mark>Connection strings</mark></td>
+<td>Service connections</td>
+<td>Used by <code>connection</code> property in bindings</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Host</strong> (Local Runtime Settings):</p>
+<ul>
+<li><mark><code>LocalHttpPort</code></mark>: HTTP trigger port (default: 7071)</li>
+<li><mark><code>CORS</code></mark>: Cross-origin resource sharing settings</li>
+<li><mark><code>CORSCredentials</code></mark>: Allow credentials in CORS</li>
+</ul>
+<p><strong>3. ConnectionStrings</strong>:</p>
+<ul>
+<li>Alternative to storing connections in <code>Values</code></li>
+<li>More semantic for database connections</li>
+</ul>
+<p><strong>Important Notes</strong>:</p>
+<ul>
+<li>⚠️ <strong>Never commit</strong> <code>local.settings.json</code> to source control (contains secrets)</li>
+<li>For Azure deployment, configure settings in <strong>Application Settings</strong> portal</li>
+<li>Use <strong>Azure Key Vault references</strong> for production secrets</li>
+<li>Azure CLI: <code>func azure functionapp publish &lt;app-name&gt; --publish-local-settings</code> to sync settings</li>
+</ul>
+<hr>
+<p>### <strong>Best Practices</strong></p>
+<ol type="1">
+<li><strong>function.json</strong>:</li>
+</ol>
+<ul>
+<li>Use descriptive binding names</li>
+<li>Leverage connection string references (don’t hardcode)</li>
+<li>Set appropriate binding-specific settings (batch sizes, polling intervals)</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>host.json</strong>:</li>
+</ol>
+<ul>
+<li>Set <code>functionTimeout</code> based on your plan and workload</li>
+<li>Configure extension settings for optimal performance</li>
+<li>Enable dynamic concurrency for better throughput</li>
+<li>Use sampling in Application Insights for high-volume apps</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>local.settings.json</strong>:</li>
+</ol>
+<ul>
+<li>Never commit to source control</li>
+<li>Use Azurite or emulators for local development</li>
+<li>Document required settings in README</li>
+<li>Use environment-specific values</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Security</strong>:</li>
+</ol>
+<ul>
+<li>Store secrets in Azure Key Vault</li>
+<li>Use managed identities for Azure service connections</li>
+<li>Reference Key Vault: <code>@Microsoft.KeyVault(SecretUri=https://...)</code></li>
+</ul>
+<hr>
+<h2 id="q.-what-are-durable-functions" class="anchored">🔄 Q. What are Durable Functions?</h2></li>
+</ul>
+<p><mark><strong>Durable Functions</strong></mark> is an extension of Azure Functions that enables you to write <strong>stateful workflows in a serverless environment</strong>. While regular Azure Functions are stateless and event-driven, Durable Functions allow you to:</p>
+<ul>
+<li><mark><strong>Maintain state</strong></mark> across function executions</li>
+<li><mark><strong>Orchestrate complex workflows</strong></mark> with multiple steps</li>
+<li><mark><strong>Chain functions</strong></mark> together in specific patterns</li>
+<li><mark><strong>Handle long-running processes</strong></mark> that exceed the typical function timeout limits</li>
+</ul>
+<section id="key-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts">Key Concepts:</h3>
+<ol type="1">
+<li><strong>Orchestrator Functions</strong>: Define the workflow logic and coordinate the execution of other functions</li>
+<li><strong>Activity Functions</strong>: The individual units of work that perform actual business logic</li>
+<li><strong>Client Functions</strong>: Start and manage orchestration instances</li>
+</ol>
+</section>
+<section id="common-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="common-patterns">Common Patterns:</h3>
+<ul>
+<li><strong>Function Chaining</strong>: Execute functions in a specific sequence</li>
+<li><strong>Fan-out/Fan-in</strong>: Execute multiple functions in parallel and aggregate results</li>
+<li><strong>Async HTTP APIs</strong>: Long-running operations with status polling</li>
+<li><strong>Human Interaction</strong>: Workflows requiring external approval/interaction</li>
+<li><strong>Monitoring</strong>: Recurring processes with flexible scheduling</li>
+</ul>
+<p><br> <br></p>
+<blockquote class="blockquote">
+<p>Durable Functions are supported across <strong>all Azure Functions hosting plans</strong>, but with different characteristics:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 55%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hosting Plan</th>
+<th>Durable Functions Support</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Consumption</strong></td>
+<td>✅ Yes</td>
+<td>Uses Azure Storage for state &gt; persistence</td>
+</tr>
+<tr class="even">
+<td><strong>Flex Consumption</strong></td>
+<td>✅ Yes</td>
+<td><mark>HTTP triggers share instances with &gt; Durable orchestrators</mark></td>
+</tr>
+<tr class="odd">
+<td><strong>Premium</strong></td>
+<td>✅ Yes</td>
+<td><mark>Best performance with always-ready &gt; instances</mark></td>
+</tr>
+<tr class="even">
+<td><strong>Dedicated</strong></td>
+<td>✅ Yes</td>
+<td>Full control over compute resources</td>
+</tr>
+<tr class="odd">
+<td><strong>Container Apps</strong></td>
+<td>✅ Yes</td>
+<td><mark>Kubernetes-based orchestration with &gt; KEDA</mark></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</section>
+<section id="configuration-in-host.json" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-in-host.json">Configuration in <code>host.json</code>:</h3>
+<p>As mentioned in your document, Durable Functions are configured in the <code>host.json</code> file under the <code>durableTask</code> extension:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">"durableTask":</span> <span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"hubName"</span><span class="fu">:</span> <span class="st">"MyTaskHub"</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"storageProvider"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"azure_storage"</span><span class="fu">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"connectionStringName"</span><span class="fu">:</span> <span class="st">"AzureWebJobsStorage"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"maxConcurrentActivityFunctions"</span><span class="fu">:</span> <span class="dv">10</span><span class="fu">,</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"maxConcurrentOrchestratorFunctions"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"extendedSessionsEnabled"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"extendedSessionIdleTimeoutInSeconds"</span><span class="fu">:</span> <span class="dv">300</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="key-settings" class="level3">
+<h3 class="anchored" data-anchor-id="key-settings">Key Settings:</h3>
+<ul>
+<li><mark><strong><code>hubName</code></strong></mark>: Task hub name for organizing orchestrations</li>
+<li><mark><strong><code>storageProvider</code></strong></mark>: Backend storage for state (Azure Storage, MSSQL, or Netherite)</li>
+<li><mark><strong><code>maxConcurrentActivityFunctions</code></strong></mark>: Max parallel activity executions</li>
+<li><mark><strong><code>maxConcurrentOrchestratorFunctions</code></strong></mark>: Max parallel orchestrator executions</li>
+<li><mark><strong><code>extendedSessionsEnabled</code></strong></mark>: Performance optimization for replay-heavy scenarios</li>
+<li><mark><strong><code>extendedSessionIdleTimeoutInSeconds</code></strong></mark>: Keep orchestrator in memory for fast replay</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="q.-what-are-limitations-of-azure-functions" class="level2">
+<h2 class="anchored" data-anchor-id="q.-what-are-limitations-of-azure-functions">⚠️ Q. What are Limitations of Azure Functions ?</h2>
+<p>Azure Functions has various limitations that vary by hosting plan. Key constraints include:</p>
+<p><strong>Critical Limitations</strong>: - <strong>Execution timeouts</strong>: 10 min max (Consumption), unlimited (Premium/Dedicated/Flex) - <strong>Scaling limits</strong>: 200 instances (Consumption), 1,000 (Flex), 100 (Premium) - <strong>Cold starts</strong>: 1-10+ seconds (Consumption), eliminated (Premium/Dedicated) - <strong>Memory/CPU</strong>: Fixed on Consumption (~1.5 GB), customizable on other plans - <strong>Networking</strong>: No VNet on Consumption, full VNet support on Premium/Dedicated/Flex - <strong>Storage</strong>: 1 GB deployment limit (Consumption), 100 GB (Premium/Dedicated)</p>
+<p><strong>Plan-Specific Constraints</strong>: - <strong>Consumption</strong>: No VNet, no deployment slots, cold starts, 10-min timeout - <strong>Flex Consumption</strong>: Linux only, no deployment slots, limited regions - <strong>Container Apps</strong>: No deployment slots, cold starts when scaling to zero</p>
+<p><strong>Performance Considerations</strong>: - <strong>Latency</strong>: Cold starts impact first request, warm instances &lt;10ms overhead - <strong>Throughput</strong>: Varies by plan (200-1,000+ instances) and trigger type - <strong>Scalability</strong>: Event-driven (Consumption/Flex/Premium) vs.&nbsp;metric-based (Dedicated)</p>
+<blockquote class="blockquote">
+<p>📖 <strong>For comprehensive details</strong> on all limitations, mitigation strategies, and plan comparisons, see <strong><a href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html">Azure Functions Limitations</a></strong></p>
+</blockquote>
+<hr>
+</section>
+<section id="additional-information" class="level2">
+<h2 class="anchored" data-anchor-id="additional-information">📝 ADDITIONAL INFORMATION:</h2>
+<section id="q.-compare-azure-functions-to-webjobs" class="level3">
+<h3 class="anchored" data-anchor-id="q.-compare-azure-functions-to-webjobs">⚙️ Q. Compare Azure Functions to WebJobs ?</h3>
+<p><img src="images/01.002 Functions vs webjobs.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;"></p>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">📚 References</h2>
+<section id="azure-functions-official-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="azure-functions-official-documentation">Azure Functions Official Documentation</h3>
+<ul>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-overview">Azure Functions Overview</a></strong> - Introduction to Azure Functions and serverless computing on Azure</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-scale">Azure Functions Hosting Plans</a></strong> - Comprehensive guide to all hosting plans and their characteristics</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/consumption-plan">Azure Functions Consumption Plan</a></strong> - Detailed documentation on the Consumption plan</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan">Azure Functions Flex Consumption Plan</a></strong> - Documentation for the new Flex Consumption plan</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-premium-plan">Azure Functions Premium Plan</a></strong> - Premium plan features and configuration</li>
+</ul>
+</section>
+<section id="triggers-and-bindings" class="level3">
+<h3 class="anchored" data-anchor-id="triggers-and-bindings">Triggers and Bindings</h3>
+<ul>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-triggers-bindings">Azure Functions Triggers and Bindings</a></strong> - Comprehensive guide to all available triggers and bindings</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-bindings-timer">Timer Trigger</a></strong> - CRON expressions and schedule-based execution</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-trigger">Azure Storage Queue Trigger</a></strong> - Queue-based message processing</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger">Azure Blob Storage Trigger</a></strong> - Blob storage event handling</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-bindings-service-bus-trigger">Service Bus Trigger</a></strong> - Enterprise messaging with Service Bus</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger">Cosmos DB Trigger</a></strong> - Change feed processing with Cosmos DB</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-bindings-event-hubs-trigger">Event Hubs Trigger</a></strong> - High-throughput event streaming</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-bindings-http-webhook">HTTP Trigger</a></strong> - HTTP endpoints and webhooks</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger">Event Grid Trigger</a></strong> - Event-driven architectures with Event Grid</li>
+</ul>
+</section>
+<section id="scaling-and-performance" class="level3">
+<h3 class="anchored" data-anchor-id="scaling-and-performance">Scaling and Performance</h3>
+<ul>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-scale">Azure Functions Scale and Hosting</a></strong> - How scaling works across different plans</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/event-driven-scaling">Event-Driven Scaling in Azure Functions</a></strong> - Deep dive into event-driven scaling mechanisms</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-overview">Azure Monitor Autoscale</a></strong> - Rule-based autoscaling for Dedicated plans</li>
+<li><strong><a href="https://keda.sh/">KEDA - Kubernetes Event-Driven Autoscaling</a></strong> - Open-source project used by Container Apps</li>
+</ul>
+</section>
+<section id="durable-functions" class="level3">
+<h3 class="anchored" data-anchor-id="durable-functions">Durable Functions</h3>
+<ul>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview">Durable Functions Overview</a></strong> - Stateful functions and orchestration patterns</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview#application-patterns">Durable Functions Patterns</a></strong> - Common orchestration patterns (chaining, fan-out/fan-in, async HTTP APIs, monitoring, human interaction)</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-task-hubs">Durable Functions Task Hubs</a></strong> - Configuration and management of task hubs</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-host-json">host.json Reference</a></strong> - Configuration settings including Durable Functions options</li>
+</ul>
+</section>
+<section id="container-apps" class="level3">
+<h3 class="anchored" data-anchor-id="container-apps">Container Apps</h3>
+<ul>
+<li><strong><a href="https://learn.microsoft.com/azure/container-apps/overview">Azure Container Apps</a></strong> - Overview of Container Apps environment</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-container-apps-hosting">Deploy Azure Functions to Container Apps</a></strong> - Running Functions in Container Apps</li>
+</ul>
+</section>
+<section id="comparison-and-migration" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-and-migration">Comparison and Migration</h3>
+<ul>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs">Compare Azure Functions and WebJobs</a></strong> - Detailed comparison of serverless options</li>
+<li><strong><a href="https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services">Choose Between Azure Services for Message-Based Solutions</a></strong> - Comparing Event Grid, Event Hubs, and Service Bus</li>
+</ul>
+</section>
+<section id="best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices">Best Practices</h3>
+<ul>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/functions-best-practices">Azure Functions Best Practices</a></strong> - Performance, reliability, and security recommendations</li>
+<li><strong><a href="https://learn.microsoft.com/azure/azure-functions/performance-reliability">Optimize Performance and Reliability</a></strong> - Tips for production workloads</li>
+<li><strong><a href="https://azure.microsoft.com/pricing/details/functions/">Azure Functions Pricing</a></strong> - Cost considerations for different plans</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<div id="custom-right-nav" style="display: none;">
+
+  <div class="toc-title">Related Pages</div>
+
+  <nav class="toc" role="doc-toc">
 
     <ul>
 
@@ -1450,23 +2440,7 @@ ul.task-list li input[type="checkbox"] {
 
     </ul>
 
-  <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/01. Azure Functions/01. QuestionsAndAnswers.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
-
-
-
-
-
-
-
-</main> <!-- /main -->
-<div id="custom-right-nav" style="display: none;">
-
-  <div class="toc-title">Related Pages</div>
-
-  
+  </nav>
 
 </div>
 
@@ -7171,9 +8145,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../20250723 EventHub Access options/README.html" class="pagination-link" aria-label="EventHub Access Options">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">EventHub Access Options</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html" class="pagination-link" aria-label="Azure Functions Limitations">
+        <span class="nav-page-text">Azure Functions Limitations</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/01. Azure Functions/01. QuestionsAndAnswers.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/01. Azure Functions/01. Azure Functions QA.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
