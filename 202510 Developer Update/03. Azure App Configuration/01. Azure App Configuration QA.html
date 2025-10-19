@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" rel="next">
+<link href="../../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html" rel="next">
 <link href="../../202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -290,12 +324,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Azure Functions Q&amp;A</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html">
+ <span class="dropdown-text">Azure Functions Limitations</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html">
  <span class="dropdown-text">Azure Key Vault Q&amp;A</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html">
+ <span class="dropdown-text">Azure Key Vault Limitations</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html">
  <span class="dropdown-text">Azure App Configuration Q&amp;A</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html">
+ <span class="dropdown-text">Azure App Configuration Exercise</span></a>
   </li>  
     </ul>
   </li>
@@ -1295,6 +1341,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Azure App Configuration Q&amp;A</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure App Configuration Exercise</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -1611,15 +1663,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav class="toc toc-active" role="doc-toc">
-
-    <ul>
-
-      <li><em>Loading...</em></li>
-
-    </ul>
-
-  <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#q.-what-pricing-tiers-are-available-for-azure-app-configuration" id="toc-q.-what-pricing-tiers-are-available-for-azure-app-configuration" class="nav-link active" data-scroll-target="#q.-what-pricing-tiers-are-available-for-azure-app-configuration">Q. What pricing tiers are available for Azure App Configuration?</a></li>
+  <li><a href="#q.-can-azure-key-vault-be-integrated-on-a-value-by-value-basis-only" id="toc-q.-can-azure-key-vault-be-integrated-on-a-value-by-value-basis-only" class="nav-link" data-scroll-target="#q.-can-azure-key-vault-be-integrated-on-a-value-by-value-basis-only">Q. Can Azure key vault be integrated on a value by value basis only?</a>
+  <ul class="collapse">
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works 🔍</a></li>
+  <li><a href="#why-use-key-vault-references-instead-of-direct-key-vault-access" id="toc-why-use-key-vault-references-instead-of-direct-key-vault-access" class="nav-link" data-scroll-target="#why-use-key-vault-references-instead-of-direct-key-vault-access">Why Use Key Vault References Instead of Direct Key Vault Access? 🤔</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Azure Topics</li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">Azure Developer Learning Path</a></li><li class="breadcrumb-item"><a href="../../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html">Azure App Configuration Q&amp;A</a></li></ol></nav></header>
@@ -1627,15 +1682,146 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="q.-what-pricing-tiers-are-available-for-azure-app-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="q.-what-pricing-tiers-are-available-for-azure-app-configuration">Q. What pricing tiers are available for Azure App Configuration?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01.001 pricing tiers.png" class="img-fluid figure-img"></p>
+<figcaption>alt text</figcaption>
+</figure>
+</div>
+<p>Azure App Configuration offers four pricing tiers, each designed for different use cases:</p>
+<p><strong>Free</strong>: The Free tier provides a cost-free evaluation environment for exploring Azure App Configuration features in non-production settings. It offers basic configuration management, feature flags, and Key Vault references with <strong><mark>limited storage (10 MB)</mark></strong> and request quotas (<strong><mark>1,000 requests/day</mark></strong>).</p>
+<blockquote class="blockquote">
+<p><strong>Pros</strong>: - No cost - perfect for learning and evaluation - Includes core functionality (config settings, feature &gt; flags, Key Vault references) - Good for tutorials and proof-of-concept projects</p>
+<p><strong>Cons</strong>: - Limited to 1 store per region per subscription - Only 10 MB storage (regular + snapshot combined) - Low request quota (1,000 requests/day) - No SLA - No Private Link support - Revision history only 7 days - No guaranteed throughput</p>
+</blockquote>
+<p><strong>Developer</strong>: The Developer tier is a cost-efficient option tailored for development and testing environments. It provides <strong><mark>more storage (500 MB)</mark></strong> and <strong><mark>request capacity (6,000 requests/hour)</mark></strong> than Free tier, with Private Link support for secure development scenarios.</p>
+<blockquote class="blockquote">
+<p><strong>Pros</strong>: - Cost-effective for development/testing - Private Link support for secure connectivity - Higher storage capacity (<strong><mark>500 MB regular</mark></strong> + <strong><mark>500 MB snapshot</mark></strong>) - Better request quota (<strong><mark>6,000 requests/hour</mark></strong>) - <mark>Unlimited stores</mark> per subscription</p>
+<p><strong>Cons</strong>: - Not designed for production use - <mark>No SLA</mark> - Revision history only <mark>7 days</mark> - <mark>No guaranteed throughput</mark> - <mark>No</mark> encryption with <mark>customer-managed keys</mark> - <mark>No</mark> <mark>soft delete</mark> or <mark>geo-replication</mark></p>
+</blockquote>
+<p><strong>Standard</strong>: The Standard tier is designed for medium-volume production and non-production workloads, offering a balance of performance and cost-efficiency. It includes enterprise features like customer-managed encryption, soft delete, and geo-replication with a 99.9% SLA (99.95% with geo-replication).</p>
+<blockquote class="blockquote">
+<p><strong>Pros</strong>: - Production-ready with <mark>99.9% SLA</mark> - <mark>1 GB storage</mark> (<mark>regular</mark> + <mark>snapshot</mark> each) - <mark>30-day</mark> revision history - Guaranteed throughput (<mark>300 RPS read</mark>, <mark>60 RPS write</mark>) - Private Link, customer-managed keys, soft delete - <mark>Geo-replication</mark> support for high availability - <mark>10 private endpoints</mark> - Reasonable request quota (<mark>30,000 requests/hour</mark>, <mark>200,000/day</mark> included)</p>
+<p><strong>Cons</strong>: - <mark>Limited compared to Premium</mark> for high-volume scenarios - <mark>Lower throughput than Premium tier</mark> - Request quota may be insufficient for very high-traffic &gt; applications - <mark>Fewer private endpoints</mark> than Premium</p>
+</blockquote>
+<p><strong>Premium</strong>: The Premium tier provides the highest performance and scalability for high-volume, enterprise-level production applications. It features unlimited request quotas, maximum throughput (450 RPS read, 100 RPS write), and enhanced SLA (99.9% base, 99.99% with geo-replication).</p>
+<blockquote class="blockquote">
+<p><strong>Pros</strong>: - <mark>No request quota limits</mark> - never blocked - Highest storage capacity (<mark>4 GB regular</mark> + 4 GB snapshot) - Best throughput (<mark>450 RPS read</mark>, <mark>100 RPS write</mark>) - <mark>30-day revision history</mark> - Enhanced SLA (<mark>99.99% with geo-replication) - Maximum private endpoints (<mark>40</mark>) - All enterprise features included - Ideal for mission-critical applications</mark></p>
+<p><strong>Cons</strong>: - <mark>Higher cost</mark> than other tiers - May be over-provisioned for smaller workloads - <mark>Cannot downgrade to Free or Developer tier directly</mark></p>
+</blockquote>
+</section>
+<section id="q.-can-azure-key-vault-be-integrated-on-a-value-by-value-basis-only" class="level2">
+<h2 class="anchored" data-anchor-id="q.-can-azure-key-vault-be-integrated-on-a-value-by-value-basis-only">Q. Can Azure key vault be integrated on a value by value basis only?</h2>
+<p><strong>Yes, Azure Key Vault integration with Azure App Configuration works on a value-by-value basis ONLY.</strong> You cannot do a bulk integration where all Key Vault secrets automatically appear in App Configuration.</p>
+<section id="how-it-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-it-works">How It Works 🔍</h3>
+<p>You must explicitly create a <strong>Key Vault reference</strong> in App Configuration for each individual secret:</p>
+<ol type="1">
+<li>Store the actual secret value in Azure Key Vault</li>
+<li>Create a reference in App Configuration that points to that specific Key Vault secret</li>
+<li>The application reads from App Configuration, which resolves the Key Vault reference at runtime</li>
+</ol>
+<blockquote class="blockquote">
+<p>💡 <strong>See <a href="../../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html#step-3-integrate-with-key-vault-">03. Azure App Configuration Exercise.md</a> for detailed implementation steps</strong></p>
+</blockquote>
+</section>
+<section id="why-use-key-vault-references-instead-of-direct-key-vault-access" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-key-vault-references-instead-of-direct-key-vault-access">Why Use Key Vault References Instead of Direct Key Vault Access? 🤔</h3>
+<p><strong>Valid Alternative</strong>: You CAN directly access all Key Vault secrets in your application:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> builder <span class="op">=</span> <span class="kw">new</span> <span class="fu">ConfigurationBuilder</span><span class="op">();</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddAzureAppConfiguration</span><span class="op">(</span>options <span class="op">=&gt;</span> <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">});</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>builder<span class="op">.</span><span class="fu">AddAzureKeyVault</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Uri</span><span class="op">(</span><span class="st">"https://myvault.vault.azure.net/"</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">DefaultAzureCredential</span><span class="op">());</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This loads <strong>ALL</strong> secrets from Key Vault into your application’s configuration.</p>
+<p><strong>Key Vault References Provide Better Control</strong>:</p>
+<ol type="1">
+<li><p><strong>Centralized Configuration Management</strong> 📋</p>
+<ul>
+<li>All configuration (settings + secret references) managed in one place (App Configuration)</li>
+<li>Easier to update which secrets are used without changing Key Vault access</li>
+<li>Better visibility: see which secrets are used in which configurations</li>
+</ul></li>
+<li><p><strong>Principle of Least Privilege</strong> 🔒</p>
+<ul>
+<li>Reference only the specific secrets each application needs</li>
+<li>Avoid loading ALL Key Vault secrets into every application</li>
+<li>Reduces attack surface if application is compromised</li>
+</ul></li>
+<li><p><strong>Environment-Specific Secret Management</strong> 🌍</p>
+<pre><code>App Configuration can reference:
+- Dev:Database:Password → KeyVault/dev-db-password
+- Prod:Database:Password → KeyVault/prod-db-password
+
+vs. AddAzureKeyVault() loads ALL secrets from ONE vault</code></pre></li>
+<li><p><strong>Dynamic Configuration Updates</strong> 🔄</p>
+<ul>
+<li>Change which secret is referenced without code deployment</li>
+<li>Point to different Key Vault secrets or versions</li>
+<li>Use App Configuration’s refresh capabilities</li>
+</ul></li>
+<li><p><strong>Multi-Tenant Scenarios</strong> 👥</p>
+<ul>
+<li>Different configurations can reference different Key Vaults</li>
+<li>Mix secrets from multiple Key Vaults in one configuration</li>
+<li>Better for complex architectures</li>
+</ul></li>
+</ol>
+<p><strong>When to Use Each Approach</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use Key Vault References</th>
+<th>Use AddAzureKeyVault()</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Need centralized config management</td>
+<td>Simple scenarios with one Key Vault</td>
+</tr>
+<tr class="even">
+<td>Want fine-grained secret selection</td>
+<td>Application needs most/all secrets from vault</td>
+</tr>
+<tr class="odd">
+<td>Multi-environment configurations</td>
+<td>Direct Key Vault access is sufficient</td>
+</tr>
+<tr class="even">
+<td>Need to mix configs and secrets</td>
+<td>Simpler code, less infrastructure</td>
+</tr>
+<tr class="odd">
+<td>Dynamic secret reference updates</td>
+<td>No App Configuration requirement</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Best Practice</strong>: Use Key Vault references when you need centralized configuration management and selective secret access. Use direct Key Vault access for simpler scenarios where the application legitimately needs access to most secrets in the vault.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <div id="custom-right-nav" style="display: none;">
 
   <div class="toc-title">Related Pages</div>
 
-  
+  <nav class="toc" role="doc-toc">
+
+    <ul>
+
+      <li><em>Loading...</em></li>
+
+    </ul>
+
+  </nav>
 
 </div>
 
@@ -7347,8 +7533,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="pagination-link" aria-label="Podcast and RSS Feed Analysis">
-        <span class="nav-page-text">Podcast and RSS Feed Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html" class="pagination-link" aria-label="Azure App Configuration Exercise">
+        <span class="nav-page-text">Azure App Configuration Exercise</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
