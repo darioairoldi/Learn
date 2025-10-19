@@ -84,7 +84,7 @@ Troubleshooting guides for GitHub Actions, CI/CD, and development environments
 
 - **[Table Storage Access Patterns](20250704%20TableStorageAccess%20options/README.md)**  
   *Best practices for Azure Table Storage implementation*
-- **[CosmosDB Access Strategies](20250706%20CosmosDB%20Access%20options/README.md)**  
+- **[CosmosDB Access Strategies](20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)**  
   *Optimizing CosmosDB access patterns and performance*
 - **[EventHub Integration Patterns](20250723%20EventHub%20Access%20options/README.md)**  
   *Event streaming and real-time data processing with Azure Event Hub*
@@ -220,7 +220,7 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 - [Key Vault](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/)
 - [App Configuration](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/)
 - [Table Storage Access](20250704%20TableStorageAccess%20options/)
-- [CosmosDB Optimization](20250706%20CosmosDB%20Access%20options/)
+- [CosmosDB Optimization](20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)
 - [EventHub Integration](20250723%20EventHub%20Access%20options/)
 - [Azure AI Search & RAG](202506%20Build%202025/BRK141%20RAG%20for%20enterprise%20agents%20with%20Azure%20AI%20Search/) *(Build 2025)*
 
