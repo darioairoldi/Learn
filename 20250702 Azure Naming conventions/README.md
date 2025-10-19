@@ -172,16 +172,16 @@ Standard Azure region abbreviations (2-4 letters):
 | Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
 |---------------|--------------|-------|--------|------------------|---------|
 | **Resource Group** | `rg` | Subscription | 1-90 | Alphanumerics, underscores, parentheses, hyphens, periods | `samples-testmc-rg-weu-01` |
-| **Virtual Network** | `vnt` | Resource Group | 2-64 | Alphanumerics, underscores, periods, hyphens | `samples-dev-vnt-weu-01` |
-| **Subnet** | `snt` | Virtual Network | 1-80 | Alphanumerics, underscores, periods, hyphens | `samples-dev-snt-weu-01` |
+| **Virtual Network** | `vnet` | Resource Group | 2-64 | Alphanumerics, underscores, periods, hyphens | `samples-dev-vnet-weu-01` |
+| **Subnet** | `snet` | Virtual Network | 1-80 | Alphanumerics, underscores, periods, hyphens | `samples-dev-snet-weu-01` |
 | **Network Security Group** | `nsg` | Resource Group | 1-80 | Alphanumerics, underscores, periods, hyphens | `samples-dev-nsg-weu-01` |
 
 ### Storage Services
 
 | Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
 |---------------|--------------|-------|--------|------------------|---------|
-| **Storage Account** | `stg` | Global | 3-24 | Lowercase letters and numbers | `samplestestmcstgweu01` |
-| **File Share** | `shr` | Storage Account | 3-63 | Lowercase letters, numbers, hyphens | `samples-testmc-shr-weu-01` |
+| **Storage Account** | `st` | Global | 3-24 | Lowercase letters and numbers | `samplestestmcstweu01` |
+| **File Share** | `share` | Storage Account | 3-63 | Lowercase letters, numbers, hyphens | `samples-testmc-share-weu-01` |
 
 **Note**: Storage account names cannot contain hyphens and must be globally unique. Use concatenated format without hyphens.
 
@@ -191,22 +191,24 @@ Standard Azure region abbreviations (2-4 letters):
 
 | Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
 |---------------|--------------|-------|--------|------------------|---------|
-| **App Configuration** | `apc` | Global | 5-50 | Alphanumerics and hyphens | `samples-testmc-apc-weu-01` |
-| **Cosmos DB Account** | `cdb` | Global | 3-44 | Lowercase letters, numbers, hyphens | `samples-prod-cdb-eus-01` |
+| **App Configuration** | `appcs` | Global | 5-50 | Alphanumerics and hyphens | `samples-testmc-appcs-weu-01` |
+| **Cosmos DB Account (NoSQL)** | `cosno` | Global | 3-44 | Lowercase letters, numbers, hyphens | `samples-prod-cosno-eus-01` |
+| **Cosmos DB Account (MongoDB)** | `cosmon` | Global | 3-44 | Lowercase letters, numbers, hyphens | `samples-prod-cosmon-eus-01` |
+| **Cosmos DB Account (generic)** | `cosmos` | Global | 3-44 | Lowercase letters, numbers, hyphens | `samples-prod-cosmos-eus-01` |
 | **SQL Server** | `sql` | Global | 1-63 | Lowercase letters, numbers, hyphens | `samples-prod-sql-eus-01` |
-| **SQL Database** | `sdb` | SQL Server | 1-128 | Various characters allowed | `samples-prod-sdb-eus-01` |
-| **Azure Cache for Redis** | `rds` | Global | 1-63 | Alphanumerics and hyphens | `samples-dev-rds-weu-01` |
-| **MySQL Server** | `mys` | Global | 3-63 | Lowercase letters, numbers, hyphens | `samples-dev-mys-weu-01` |
-| **PostgreSQL Server** | `pgs` | Global | 3-63 | Lowercase letters, numbers, hyphens | `samples-dev-pgs-weu-01` |
+| **SQL Database** | `sqldb` | SQL Server | 1-128 | Various characters allowed | `samples-prod-sqldb-eus-01` |
+| **Azure Cache for Redis** | `redis` | Global | 1-63 | Alphanumerics and hyphens | `samples-dev-redis-weu-01` |
+| **MySQL Server** | `mysql` | Global | 3-63 | Lowercase letters, numbers, hyphens | `samples-dev-mysql-weu-01` |
+| **PostgreSQL Server** | `psql` | Global | 3-63 | Lowercase letters, numbers, hyphens | `samples-dev-psql-weu-01` |
 
 ### Messaging Services
 
 | Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
 |---------------|--------------|-------|--------|------------------|---------|
-| **Service Bus Namespace** | `sbn` | Global | 6-50 | Alphanumerics and hyphens, start with letter | `samples-prod-sbn-eus-01` |
-| **Event Hub Namespace** | `ehn` | Global | 6-50 | Alphanumerics and hyphens, start with letter | `samples-prod-ehn-eus-01` |
+| **Service Bus Namespace** | `sbns` | Global | 6-50 | Alphanumerics and hyphens, start with letter | `samples-prod-sbns-eus-01` |
+| **Event Hub Namespace** | `evhns` | Global | 6-50 | Alphanumerics and hyphens, start with letter | `samples-prod-evhns-eus-01` |
 | **Event Hub** | `evh` | Event Hub Namespace | 1-256 | Alphanumerics, periods, hyphens, underscores | `samples-prod-evh-eus-01` |
-| **Event Grid Topic** | `egt` | Resource Group | 3-50 | Alphanumerics and hyphens | `samples-dev-egt-weu-01` |
+| **Event Grid Topic** | `evgt` | Resource Group | 3-50 | Alphanumerics and hyphens | `samples-dev-evgt-weu-01` |
 | **Event Grid System Topic** | `egst` | Resource Group | 3-50 | Alphanumerics and hyphens | `samples-dev-egst-weu-01` |
 
 ### Compute Services
@@ -216,29 +218,68 @@ Standard Azure region abbreviations (2-4 letters):
 | **Virtual Machine** | `vm` | Resource Group | 1-15 (Win), 1-64 (Linux) | Limited special chars | `samples-dev-vm-weu-01` |
 | **App Service Plan** | `asp` | Resource Group | 1-60 | Alphanumerics and hyphens | `samples-prod-asp-eus-01` |
 | **Web App** | `app` | Global | 2-60 | Alphanumerics and hyphens | `samples-prod-app-eus-01` |
-| **API App** | `api` | Global | 2-60 | Alphanumerics and hyphens | `samples-prod-api-eus-01` |
-| **Function App** | `fap` | Global | 2-60 | Alphanumerics and hyphens | `samples-prod-fap-eus-01` |
-| **Container App** | `cap` | Resource Group | 2-32 | Lowercase letters, numbers, hyphens | `samples-dev-cap-weu-01` |
+| **Function App** | `func` | Global | 2-60 | Alphanumerics and hyphens | `samples-prod-func-eus-01` |
+| **Container App** | `ca` | Resource Group | 2-32 | Lowercase letters, numbers, hyphens | `samples-dev-ca-weu-01` |
 | **Container Apps Environment** | `cae` | Resource Group | 2-32 | Lowercase letters, numbers, hyphens | `samples-dev-cae-weu-01` |
-| **Container Registry** | `crg` | Global | 5-50 | Alphanumerics only | `samplesprodcrgeus01` |
+| **Container Registry** | `cr` | Global | 5-50 | Alphanumerics only | `samplesprodcreus01` |
 
-**Note**: Use `app` for general web applications and `api` for API-only services to better reflect the purpose.
+**Note**: Function apps use `func` as the official Microsoft abbreviation.
 
 ### AI and Cognitive Services
 
 | Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
 |---------------|--------------|-------|--------|------------------|---------|
 | **OpenAI Service** | `oai` | Global | 2-64 | Alphanumerics, underscores, periods, hyphens | `samples-prod-oai-eus-01` |
-| **Cognitive Services** | `cgs` | Global | 2-64 | Alphanumerics, underscores, periods, hyphens | `samples-dev-cgs-weu-01` |
-| **AI Search** | `ais` | Global | 2-60 | Lowercase letters, numbers, hyphens | `samples-prod-ais-eus-01` |
+| **Azure AI Services (multi-service)** | `ais` | Global | 2-64 | Alphanumerics, underscores, periods, hyphens | `samples-dev-ais-weu-01` |
+| **AI Search** | `srch` | Global | 2-60 | Lowercase letters, numbers, hyphens | `samples-prod-srch-eus-01` |
+| **Azure Machine Learning Workspace** | `mlw` | Resource Group | 2-260 | Alphanumerics and hyphens | `samples-prod-mlw-eus-01` |
+
+**Note**: Microsoft changed naming - "Azure Cognitive Search" is now "AI Search" with abbreviation `srch`. "Cognitive Services" multi-service accounts use `ais`.
+
+### Monitoring & Observability Services
+
+| Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
+|---------------|--------------|-------|--------|------------------|---------|
+| **Application Insights** | `appi` | Resource Group | 1-260 | Alphanumerics, hyphens, periods, underscores, parentheses | `samples-testmc-appi-itn-01` |
+| **Log Analytics Workspace** | `log` | Resource Group | 4-63 | Alphanumerics and hyphens | `samples-prod-log-eus-01` |
+| **Azure Monitor Action Group** | `ag` | Resource Group | 1-260 | Alphanumerics, hyphens, periods, underscores | `samples-prod-ag-eus-01` |
+| **Data Collection Rule** | `dcr` | Resource Group | 1-64 | Alphanumerics, hyphens, underscores | `samples-prod-dcr-eus-01` |
+| **Data Collection Endpoint** | `dce` | Resource Group | 1-64 | Alphanumerics, hyphens, underscores | `samples-prod-dce-eus-01` |
+
+**Note**: Application Insights uses `appi` and Log Analytics uses `log` per Microsoft CAF official abbreviations.
+
+### Container Orchestration
+
+| Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
+|---------------|--------------|-------|--------|------------------|---------|
+| **Azure Kubernetes Service (AKS)** | `aks` | Resource Group | 1-63 | Alphanumerics, hyphens, underscores | `samples-prod-aks-eus-01` |
+| **AKS System Node Pool** | `npsystem` | AKS Cluster | 1-12 | Lowercase letters and numbers | `npsystem` |
+| **AKS User Node Pool** | `np` | AKS Cluster | 1-12 | Lowercase letters and numbers | `np01` |
+| **Container Instance** | `ci` | Resource Group | 1-63 | Lowercase letters, numbers, hyphens | `samples-dev-ci-weu-01` |
+
+**Note**: AKS cluster names should be descriptive but concise due to the 63-character limit and DNS name requirements.
+
+### Analytics & Data Platform
+
+| Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
+|---------------|--------------|-------|--------|------------------|---------|
+| **Azure Data Factory** | `adf` | Global | 3-63 | Alphanumerics and hyphens | `samples-prod-adf-eus-01` |
+| **Azure Synapse Analytics Workspace** | `synw` | Global | 1-50 | Alphanumerics and hyphens | `samples-prod-synw-eus-01` |
+| **Azure Databricks Workspace** | `dbw` | Resource Group | 3-64 | Alphanumerics, underscores, hyphens | `samples-prod-dbw-eus-01` |
+| **Microsoft Fabric Capacity** | `fc` | Global | 1-256 | Alphanumerics and spaces | `samples-prod-fc-eus-01` |
+| **Stream Analytics Job** | `asa` | Resource Group | 3-63 | Alphanumerics, hyphens, underscores | `samples-prod-asa-eus-01` |
+| **Data Lake Storage Gen2** | `dls` | Global | 3-24 | Lowercase letters and numbers | `samplesproddles01` |
+
+**Note**: Data Lake Storage Gen2 follows the same naming constraints as Storage Accounts (no hyphens, lowercase only). Fabric Workspace is not officially documented, so Fabric Capacity (`fc`) is used.
 
 ### Security Services
 
 | Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
 |---------------|--------------|-------|--------|------------------|---------|
-| **App Registration** | `ar` or `appr` | Global | 1-120 | Various characters allowed | `samples-prod-appr-eus-01` |
-| **Key Vault** | `kv`, `akv` or `kvt` | Global | 3-24 | Alphanumerics and hyphens | `samples-prod-akv-eus-01` |
-| **Managed Identity** | `mi` | Resource Group | 3-128 | Alphanumerics, underscores, hyphens | `samples-prod-mi-eus-01` |
+| **Key Vault** | `kv` | Global | 3-24 | Alphanumerics and hyphens | `samples-prod-kv-eus-01` |
+| **Managed Identity** | `mi` or `id` | Resource Group | 3-128 | Alphanumerics, underscores, hyphens | `samples-prod-id-eus-01` |
+
+**Note**: Microsoft's official abbreviation for Key Vault is `kv` and for Managed Identity is `id`.
 
 ---
 
@@ -253,9 +294,9 @@ Resource Group:      samples-prod-rg-eus-01
 App Service Plan:    samples-prod-asp-eus-01
 Web App:             samples-prod-app-eus-01
 SQL Server:          samples-prod-sql-eus-01
-SQL Database:        samples-prod-sdb-eus-01
-Key Vault:           samples-prod-akv-eus-01
-Storage Account:     samplesprodstgeus01
+SQL Database:        samples-prod-sqldb-eus-01
+Key Vault:           samples-prod-kv-eus-01
+Storage Account:     samplesprodsteus01
 ```
 
 ### Example 2: Multi-Region Deployment
@@ -265,13 +306,13 @@ Storage Account:     samplesprodstgeus01
 samples-prod-rg-weu-01
 samples-prod-app-weu-01
 samples-prod-sql-weu-01
-samples-prod-cdb-weu-01
+samples-prod-cosno-weu-01
 
 # East US (Secondary)
 samples-prod-rg-eus-01
 samples-prod-app-eus-01
 samples-prod-sql-eus-01
-samples-prod-cdb-eus-01
+samples-prod-cosno-eus-01
 ```
 
 ### Example 3: Development Environment
@@ -279,21 +320,21 @@ samples-prod-cdb-eus-01
 ```text
 Resource Group:      samples-dev-rg-weu-01
 Container App Env:   samples-dev-cae-weu-01
-Container App:       samples-dev-cap-weu-01
-Cosmos DB:           samples-dev-cdb-weu-01
-Key Vault:           samples-dev-akv-weu-01
-App Configuration:   samples-dev-apc-weu-01
+Container App:       samples-dev-ca-weu-01
+Cosmos DB (NoSQL):   samples-dev-cosno-weu-01
+Key Vault:           samples-dev-kv-weu-01
+App Configuration:   samples-dev-appcs-weu-01
 ```
 
 ### Example 4: Messaging Architecture
 
 ```text
 Resource Group:        samples-prod-rg-eus-01
-Service Bus:           samples-prod-sbn-eus-01
-Event Hub Namespace:   samples-prod-ehn-eus-01
+Service Bus:           samples-prod-sbns-eus-01
+Event Hub Namespace:   samples-prod-evhns-eus-01
 Event Hub:             samples-prod-evh-eus-01
-Event Grid Topic:      samples-prod-egt-eus-01
-Function App:          samples-prod-fap-eus-01
+Event Grid Topic:      samples-prod-evgt-eus-01
+Function App:          samples-prod-func-eus-01
 ```
 
 ### Example 5: AI/ML Workload
@@ -301,10 +342,55 @@ Function App:          samples-prod-fap-eus-01
 ```text
 Resource Group:      samples-dev-rg-weu-01
 OpenAI Service:      samples-dev-oai-weu-01
-AI Search:           samples-dev-ais-weu-01
-Cognitive Services:  samples-dev-cgs-weu-01
-Storage Account:     samplesdevstgweu01
-Container Registry:  samplesdevcrgweu01
+AI Search:           samples-dev-srch-weu-01
+AI Services:         samples-dev-ais-weu-01
+Storage Account:     samplesdevstweu01
+Container Registry:  samplesdevcrweu01
+```
+
+### Example 6: Kubernetes (AKS) Deployment
+
+```text
+Resource Group:           samples-prod-rg-eus-01
+AKS Cluster:              samples-prod-aks-eus-01
+Container Registry:       samplesprodcreus01
+Log Analytics:            samples-prod-log-eus-01
+Application Insights:     samples-prod-appi-eus-01
+Key Vault:                samples-prod-kv-eus-01
+```
+
+### Example 7: Data Analytics Platform
+
+```text
+Resource Group:           samples-prod-rg-eus-01
+Data Factory:             samples-prod-adf-eus-01
+Synapse Workspace:        samples-prod-synw-eus-01
+Data Lake Storage:        samplesproddlseus01
+Databricks Workspace:     samples-prod-dbw-eus-01
+Stream Analytics Job:     samples-prod-asa-eus-01
+Log Analytics:            samples-prod-log-eus-01
+```
+
+### Example 8: Microservices with Observability
+
+```text
+Resource Group:           samples-prod-rg-weu-01
+Container Apps Env:       samples-prod-cae-weu-01
+Container App (API):      samples-prod-ca-weu-01
+Container App (Worker):   samples-prod-ca-weu-02
+Application Insights:     samples-prod-appi-weu-01
+Log Analytics:            samples-prod-log-weu-01
+Service Bus:              samples-prod-sbns-weu-01
+Redis Cache:              samples-prod-redis-weu-01
+```
+
+### Example 9: Microsoft Fabric Workspace
+
+```text
+Resource Group:           samples-prod-rg-eus-01
+Fabric Capacity:          samples-prod-fc-eus-01
+Data Lake Storage:        samplesproddlseus01
+Key Vault:                samples-prod-kv-eus-01
 ```
 
 ---
@@ -709,14 +795,18 @@ This pattern provides the best balance between Microsoft's recommendations and p
 
 | Type | Abbr | Type | Abbr | Type | Abbr |
 |------|------|------|------|------|------|
-| Resource Group | `rg` | Virtual Network | `vnt` | Storage Account | `stg` |
-| App Service Plan | `asp` | Web App | `app` | API App | `api` |
-| Function App | `fap` | Container App | `cap` | SQL Server | `sql` |
-| SQL Database | `sdb` | Cosmos DB | `cdb` | Key Vault | `akv` |
-| Service Bus | `sbn` | Event Hub | `ehn` | Event Grid | `egt` |
-| OpenAI | `oai` | AI Search | `ais` | Cognitive Services | `cgs` |
-| Virtual Machine | `vm` | Managed Identity | `mi` | App Configuration | `apc` |
-| Container Registry | `crg` | Redis Cache | `rds` | Network Security Group | `nsg` |
+| Resource Group | `rg` | Virtual Network | `vnet` | Storage Account | `st` |
+| App Service Plan | `asp` | Web App | `app` | Function App | `func` |
+| Container App | `ca` | SQL Server | `sql` | SQL Database | `sqldb` |
+| Cosmos DB (NoSQL) | `cosno` | Cosmos DB (MongoDB) | `cosmon` | Key Vault | `kv` |
+| Service Bus Namespace | `sbns` | Event Hub Namespace | `evhns` | Event Hub | `evh` |
+| Event Grid Topic | `evgt` | OpenAI | `oai` | AI Search | `srch` |
+| AI Services | `ais` | Virtual Machine | `vm` | Managed Identity | `id` |
+| Container Registry | `cr` | Redis Cache | `redis` | Network Security Group | `nsg` |
+| Application Insights | `ai` or `appi` | Log Analytics | `log` | Azure Monitor Action Group | `ag` |
+| AKS Cluster | `aks` | Container Instance | `ci` | Data Factory | `adf` |
+| Synapse Workspace | `synw` | Databricks | `dbw` | Fabric Capacity | `fc` |
+| Stream Analytics | `asa` | Data Lake Storage | `dls` | File Share | `share` |
 
 #### Common Environment Codes
 
