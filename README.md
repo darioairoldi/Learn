@@ -3,10 +3,50 @@ title: "Dario's Learning Journey"
 subtitle: "Technical Notes, Conference Insights & Development Guides"
 date: last-modified
 author: "Dario Airoldi"
-description: "A collection of technical learning notes, conference insights, Azure guides, and development tips."
+description: "A comprehensive collection of technical learning notes, conference insights, Azure guides, and development solutions."
 ---
 
-Welcome (README) to my technical learning hub! This repository documents my journey through modern development technologies, featuring comprehensive conference notes, practical Azure guides, and real-world development solutions.
+# 🚀 Dario's Learning Hub
+
+Welcome to my technical learning hub! This repository documents my journey through modern development technologies, featuring **comprehensive conference notes**, **practical Azure guides**, and **real-world development solutions**.
+
+## 📚 What You'll Find Here
+
+This learning hub is organized into several key areas:
+
+### 🎯 **Conference Coverage**
+- **Build 2025**: 30+ session notes covering AI, .NET, Azure, and modern development practices
+- In-depth technical breakdowns with code examples and practical insights
+- Topics: AI agents, .NET Aspire, Azure AI Foundry, C# 14, Windows ML, and more
+
+### ☁️ **Azure Development**
+- Best practices for Azure resource naming conventions
+- Database access patterns (CosmosDB, Table Storage, EventHub)
+- Azure services deep-dives (Functions, Key Vault, App Configuration)
+- Performance monitoring and cost optimization
+
+### 🛠️ **Development Tools & Practices**
+- Version control with Git command line
+- API testing with HTTP files
+- Documentation with Quarto
+- YAML processing with yq
+- Network configuration (DDNS with No-IP)
+
+### 🔍 **Observability & Performance**
+- OpenTelemetry integration
+- Query cost metrics with Diginsight
+- Performance monitoring strategies
+
+### 🐛 **Issues & Solutions**
+- Real-world troubleshooting guides
+- GitHub Actions and CI/CD problems
+- Development environment fixes
+
+### 🎨 **Beyond Tech**
+- DIY projects (e-bikes, battery packs)
+- Cultural and travel experiences
+
+---
 
 ## 🌟 Featured Articles
 
@@ -32,10 +72,16 @@ Welcome (README) to my technical learning hub! This repository documents my jour
 
 - **[Azure Naming Conventions Guide](20250702%20Azure%20Naming%20conventions/README.md)** ⭐️  
   *Comprehensive naming standards for Azure resources across environments*
+- **[Azure Functions Q&A](202510%20Developer%20Update/01.%20Azure%20Functions/01.%20Azure%20Functions%20QA.md)**  
+  *Essential questions and answers for Azure Functions development*
+- **[Azure Key Vault Q&A](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/01.%20Azure%20KeyVault%20QA.md)**  
+  *Key management and secrets best practices*
 - **[Table Storage Access Patterns](20250704%20TableStorageAccess%20options/README.md)**  
   *Best practices for Azure Table Storage implementation*
 - **[CosmosDB Access Strategies](20250706%20CosmosDB%20Access%20options/README.md)**  
   *Optimizing CosmosDB access patterns and performance*
+- **[EventHub Integration](20250723%20EventHub%20Access%20options/README.md)**  
+  *Event streaming and real-time data processing patterns*
 
 #### 🧪 Testing & Quality Assurance
 
@@ -44,17 +90,38 @@ Welcome (README) to my technical learning hub! This repository documents my jour
 - **[HTTP Files for API Testing](20250711%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/README.md)**  
   *Streamlined API testing with HTTP files*
 
-## 📅 Latest Content (July 2025)
+#### 🔧 Development Tools & Infrastructure
+
+- **[Git Command Line Mastery](20250709%20Manage%20GitRepo%20from%20commandline/README.md)**  
+  *Efficient repository management from the command line*
+- **[Quarto Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)**  
+  *Professional documentation with GitHub Pages*
+- **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)**  
+  *Comprehensive guide to YAML data processing*
+- **[No-IP DDNS Setup](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/README.md)**  
+  *Expose your computer with dynamic DNS*
+
+#### 🐛 Troubleshooting & Solutions
+
+- **[GitHub Actions Storage Quota Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/README.md)**  
+  *Solving artifact storage quota issues in GitHub Actions*
+- **[GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/README.md)**  
+  *Strategies for working with free tier constraints*
+
+## 📅 Latest Content (October 2025)
 
 ### Recent Additions
 
-- **[Jul 13] HTTP Files Testing Strategy** - Enhanced API testing workflows
-- **[Jul 12] Quarto Documentation Setup** - Professional docs with GitHub Pages  
-- **[Jul 12] HTTP Files for Testing** - Repeatable API test scenarios
-- **[Jul 09] Git Command Line Mastery** - Efficient repository management
-- **[Jul 06] CosmosDB Access Patterns** - Database optimization techniques
-- **[Jul 05] Table Storage Solutions** - Azure storage best practices
-- **[Jul 02] Azure Naming Standards** - Enterprise-grade naming conventions
+- **[Oct 18] GitHub Actions Artifact Storage Fix** - Solution for workflow storage quota issues
+- **[Oct 13] No-IP DDNS Setup Guide** - Complete home computer exposure tutorial
+- **[Oct 05] Podcast & RSS Feed Analysis** - Feed architecture and protocols deep-dive
+- **[Sep 02] Learning Hub Overview** - New conceptual framework for learning
+- **[Aug 27] YQ Overview** - YAML processing tool comprehensive guide  
+- **[Aug 25] GitHub Repository Limitations** - Strategies for free tier constraints
+- **[Aug 17] Query Cost Metrics with Diginsight** - Performance monitoring solutions
+- **[Aug 15] DIY E-bike & Battery Pack** - Hardware projects and technical guides
+- **[Aug 08] OpenTelemetry** - Observability and monitoring patterns
+- **[Jul 23] EventHub Access Options** - Azure event streaming solutions
 
 ### Build 2025 Conference Coverage
 
@@ -91,9 +158,12 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 #### ☁️ Azure Services
 
 - [Resource Naming](20250702%20Azure%20Naming%20conventions/)
+- [Azure Functions](202510%20Developer%20Update/01.%20Azure%20Functions/)
+- [Key Vault](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/)
+- [App Configuration](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/)
 - [Table Storage](20250704%20TableStorageAccess%20options/)
 - [CosmosDB](20250706%20CosmosDB%20Access%20options/)
-- [Best Practices](20250702%20Azure%20Naming%20conventions/)
+- [EventHub](20250723%20EventHub%20Access%20options/)
 
 :::
 

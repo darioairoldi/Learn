@@ -47,6 +47,12 @@ project:
     - "_ISSUES/20250710 sample/README.md"
     # Add DIY projects
     - "20250815 DIY ebike/SUMMARY.md"
+    # Add Developer Update articles
+    - "202510 Developer Update/**/*.md"
+    # Add DDNS article
+    - "20251013 HowTo Expose My Computer with No-IP DDNS/README.md"
+    # Add GitHub Actions issue solution
+    - "20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.md"
 
 website:
   title: "Dario's Learning Journey"
@@ -146,6 +152,42 @@ website:
         menu:
           - href: "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
             text: "Podcast and RSS Feed Analysis"
+      - text: "Azure"
+        menu:
+          - text: "Azure Best Practices"
+            href: "20250702 Azure Naming conventions/README.md"
+          - text: "---"
+          - text: "Data Services"
+          - href: "20250704 TableStorageAccess options/README.md"
+            text: "Table Storage Access"
+          - href: "20250706 CosmosDB Access options/README.md"
+            text: "CosmosDB Access"
+          - text: "---"
+          - text: "Messaging & Events"
+          - href: "20250723 EventHub Access options/README.md"
+            text: "EventHub Access"
+          - text: "---"
+          - text: "Developer Learning Path"
+          - href: "202510 Developer Update/01. Azure Functions/01. Azure Functions QA.md"
+            text: "Azure Functions Q&A"
+          - href: "202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.md"
+            text: "Azure Key Vault Q&A"
+          - href: "202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.md"
+            text: "Azure App Configuration Q&A"
+      - text: "Development Tools"
+        menu:
+          - href: "20250709 Manage GitRepo from commandline/README.md"
+            text: "Git Command Line"
+          - href: "20250711 Use http files for easy and repeatable test/README.md"
+            text: "HTTP Files Testing"
+          - href: "20250712 Use QUARTO doc for Github repos doc/000.000 README.md"
+            text: "Quarto Documentation"
+          - href: "20250827 what is yq overview/README.md"
+            text: "yq YAML Processor"
+          - text: "---"
+          - text: "Networking"
+          - href: "20251013 HowTo Expose My Computer with No-IP DDNS/README.md"
+            text: "No-IP DDNS Setup"
       # - text: "Development Tools"
       #   menu:
     right:
@@ -380,14 +422,32 @@ website:
       - section: "Azure Topics"
         icon: cloud
         contents:
-          - href: "20250702 Azure Naming conventions/README.md"
-            text: "Azure Naming Conventions"
-          - href: "20250704 TableStorageAccess options/README.md"
-            text: "Table Storage Access Options"
-          - href: "20250706 CosmosDB Access options/README.md"
-            text: "CosmosDB Access Options"
-          - href: "20250723 EventHub Access options/README.md"
-            text: "EventHub Access Options"
+          - section: "Azure Best Practices"
+            contents:
+              - href: "20250702 Azure Naming conventions/README.md"
+                text: "Azure Naming Conventions"
+          - section: "Azure Data Services"
+            contents:
+              - href: "20250704 TableStorageAccess options/README.md"
+                text: "Table Storage Access Options"
+              - href: "20250706 CosmosDB Access options/README.md"
+                text: "CosmosDB Access Options"
+          - section: "Azure Messaging & Events"
+            contents:
+              - href: "20250723 EventHub Access options/README.md"
+                text: "EventHub Access Options"
+          - section: "Azure Developer Learning Path"
+            contents:
+              - href: "202510 Developer Update/01. Azure Functions/01. Azure Functions QA.md"
+                text: "Azure Functions Q&A"
+              - href: "202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.md"
+                text: "Azure Functions Limitations"
+              - href: "202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.md"
+                text: "Azure Key Vault Q&A"
+              - href: "202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.md"
+                text: "Azure Key Vault Limitations"
+              - href: "202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.md"
+                text: "Azure App Configuration Q&A"
       
       - section: "Tools"
         icon: tools
@@ -445,6 +505,10 @@ website:
                 text: "yq YAML Processor Overview"
               - href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
                 text: "Query Cost Metrics with Diginsight"
+          - section: "Networking & Infrastructure"
+            contents:
+              - href: "20251013 HowTo Expose My Computer with No-IP DDNS/README.md"
+                text: "Expose Computer with No-IP DDNS"
       
       - section: "Issues & Solutions"
         icon: wrench-adjustable
@@ -456,10 +520,12 @@ website:
                 text: "VS Clone Error Fix (solved)"
               - href: "_ISSUES/20250710 sample/README.md"
                 text: "Sample Issue Documentation"
-          - section: "GitHub Repositories"
+          - section: "GitHub & CI/CD Issues"
             contents:
               - href: "20250825 Github repositories limitations/README.md"
                 text: "GitHub Repository Limitations"
+              - href: "20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.md"
+                text: "GitHub Actions Artifact Storage Quota Fix"
       
       - text: "---"
       
