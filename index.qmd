@@ -42,27 +42,27 @@ Troubleshooting guides for GitHub Actions, CI/CD, and development environments
 
 #### 🤖 AI & Modern Development
 
-- **[.NET Aspire: AI, Cloud, and Beyond](202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/)** ⭐️ *(Build 2025)*  
+- **[.NET Aspire: AI, Cloud, and Beyond](202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐️ *(Build 2025)*  
   *Comprehensive guide to .NET Aspire's evolution from local development tool to full-stack platform*
-- **[Local AI Development with Foundry](202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/)** *(Build 2025)*  
+- **[Local AI Development with Foundry](202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)** *(Build 2025)*  
   *Hands-on demonstration of running AI models locally with .NET integration*
-- **[Building AI Apps with Microsoft Graph](202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/)** *(Build 2025)*  
+- **[Building AI Apps with Microsoft Graph](202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)** *(Build 2025)*  
   *Creating intelligent applications using Microsoft Graph data*
-- **[Azure AI Foundry Overview](202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/)** *(Build 2025)*  
+- **[Azure AI Foundry Overview](202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/README.Sonnet4.md)** *(Build 2025)*  
   *Microsoft's comprehensive AI development platform*
 
 #### 🌐 Web Development & Architecture
 
-- **[Git Workflow with VS Code](202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/)** ⭐️ *(Build 2025)*  
+- **[Git Workflow with VS Code](202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/README.Sonnet4.md)** ⭐️ *(Build 2025)*  
   *Advanced Git workflows and VS Code integration techniques*
-- **[Model Context Protocol (MCP) Servers](202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/)** *(Build 2025)*  
+- **[Model Context Protocol (MCP) Servers](202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/README.Sonnet4.md)** *(Build 2025)*  
   *Building and deploying your first MCP server for AI integration*
-- **[C# 14 Language Features](202506%20Build%202025/BRK114%20CS%2014%20Language%20Features%20and%20Beyond/)** *(Build 2025)*  
+- **[C# 14 Language Features](202506%20Build%202025/BRK114%20CS%2014%20Language%20Features%20and%20Beyond/README.Sonnet4.md)** *(Build 2025)*  
   *Latest C# language enhancements and best practices*
 
 #### ☁️ Azure Development
 
-- **[Azure Naming Conventions Guide](20250702%20Azure%20Naming%20conventions/)** ⭐️  
+- **[Azure Naming Conventions Guide](20250702%20Azure%20Naming%20conventions/README.md)** ⭐️  
   *Comprehensive naming standards for Azure resources across environments*
 
 **Azure Developer Learning Path** *(October 2025)*
@@ -82,11 +82,11 @@ Troubleshooting guides for GitHub Actions, CI/CD, and development environments
 
 **Azure Data & Storage**
 
-- **[Table Storage Access Patterns](20250704%20TableStorageAccess%20options/)**  
+- **[Table Storage Access Patterns](20250704%20TableStorageAccess%20options/README.md)**  
   *Best practices for Azure Table Storage implementation*
-- **[CosmosDB Access Strategies](20250706%20CosmosDB%20Access%20options/)**  
+- **[CosmosDB Access Strategies](20250706%20CosmosDB%20Access%20options/README.md)**  
   *Optimizing CosmosDB access patterns and performance*
-- **[EventHub Integration Patterns](20250723%20EventHub%20Access%20options/)**  
+- **[EventHub Integration Patterns](20250723%20EventHub%20Access%20options/README.md)**  
   *Event streaming and real-time data processing with Azure Event Hub*
 
 #### 📚 Learning & Methodology
@@ -98,33 +98,33 @@ Troubleshooting guides for GitHub Actions, CI/CD, and development environments
 
 #### 🧪 Testing & Development Tools
 
-- **[Testing with .NET Aspire and Playwright](202506%20Build%202025/DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/)** *(Build 2025)*  
+- **[Testing with .NET Aspire and Playwright](202506%20Build%202025/DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/README.Sonnet4.md)** *(Build 2025)*  
   *Modern testing approaches for cloud-native applications*
-- **[HTTP Files for API Testing](20250711%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/)**  
+- **[HTTP Files for API Testing](20250711%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/README.md)**  
   *Streamlined API testing with HTTP files*
-- **[Debug Like a Pro](202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/)** *(Build 2025)*  
+- **[Debug Like a Pro](202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/README.Sonnet4.md)** *(Build 2025)*  
   *Advanced debugging techniques and productivity tips*
-- **[Git Command Line](20250709%20Manage%20GitRepo%20from%20commandline/)**  
+- **[Git Command Line](20250709%20Manage%20GitRepo%20from%20commandline/README.md)**  
   *Efficient repository management from the command line*
 - **[Quarto Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)**  
   *Professional documentation with GitHub Pages*
-- **[yq YAML Processor](20250827%20what%20is%20yq%20overview/)**  
+- **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)**  
   *Comprehensive guide to YAML data processing*
 
 #### 🌐 Infrastructure & Networking
 
-- **[No-IP DDNS Setup](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/)**  
+- **[No-IP DDNS Setup](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/README.md)**  
   *Complete guide to exposing your computer with dynamic DNS*
 - **[Podcast & RSS Feed Analysis](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)**  
   *Feed architectures and protocol analysis*
 
 #### 🐛 Troubleshooting & Solutions
 
-- **[GitHub Actions Storage Quota Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/)**  
+- **[GitHub Actions Storage Quota Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/README.md)**  
   *Solving artifact storage quota issues in GitHub Actions*
-- **[GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/)**  
+- **[GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/README.md)**  
   *Strategies for working with free tier constraints*
-- **[Query Cost Metrics with Diginsight](20250817%20Query%20Cost%20Metrics%20with%20Diginsight/)**  
+- **[Query Cost Metrics with Diginsight](20250817%20Query%20Cost%20Metrics%20with%20Diginsight/README-CosmosDbQueryCostMetrics.md)**  
   *Performance monitoring and cost optimization*
 
 ## 📅 Latest Content (October 2025)
