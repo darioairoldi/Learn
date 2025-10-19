@@ -133,6 +133,7 @@ Troubleshooting guides for GitHub Actions, CI/CD, and development environments
 
 - **[Oct 18] [GitHub Actions Artifact Storage Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/README.md)** - Solution for workflow storage quota issues
 - **[Oct 13] [No-IP DDNS Setup Guide](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/README.md)** - Complete home computer exposure tutorial
+- **[Oct 10] [Azure Monitor Q&A](202510%20Developer%20Update/04.%20Monitor%20App%20Performance/01.%20Azure%20Monitor%20QA.md)** - Application performance monitoring essentials
 - **[Oct 10] [Azure App Configuration Exercise](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/03.%20Azure%20App%20Configuration%20Exercise.md)** - Hands-on Key Vault integration
 - **[Oct 10] [Azure App Configuration Q&A](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/01.%20Azure%20App%20Configuration%20QA.md)** - Configuration management patterns
 - **[Oct 10] [Azure Key Vault Limitations](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/02.%20Azure%20Key%20Vault%20Limitations.md)** - Understanding service constraints
