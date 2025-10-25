@@ -596,3 +596,5 @@ format:
     link-external-newwindow: true
     # Suppress excessive link validation warnings
     link-external-icon: false
+    # Fix list parsing to allow lists after bold text without blank lines
+    from: markdown+lists_without_preceding_blankline
