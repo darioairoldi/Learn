@@ -1803,7 +1803,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Session Code:</strong> BRK122<br>
 <strong>Event:</strong> Microsoft Build 2025<br>
 <strong>Date:</strong> May 19-22, 2025<br>
-<strong>Speakers:</strong> - Daniel Roth - Principal Product Manager, ASP.NET Core &amp; Blazor - Mike Kistler - Principal Product Manager, ASP.NET Core Team (Backend APIs focus) <strong>Recordings:</strong> - https://build.microsoft.com/en-US/sessions/BRK122?source=sessions</p>
+<strong>Speakers:</strong></p>
+<ul>
+<li>Daniel Roth - Principal Product Manager, ASP.NET Core &amp; Blazor</li>
+<li>Mike Kistler - Principal Product Manager, ASP.NET Core Team (Backend APIs focus) <strong>Recordings:</strong></li>
+<li>https://build.microsoft.com/en-US/sessions/BRK122?source=sessions</li>
+</ul>
 </section>
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
@@ -2458,7 +2463,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="technical-implementation-considerations">Technical Implementation Considerations</h3>
 <section id="challenge-response-flow-in-hybrid-apps" class="level4">
 <h4 class="anchored" data-anchor-id="challenge-response-flow-in-hybrid-apps">Challenge-Response Flow in Hybrid Apps</h4>
-<p><strong>Native Passkey Flow</strong>: 1. <strong>App requests authentication</strong> → Platform prompts for biometric 2. <strong>Platform generates signature</strong> → Using device-stored private key 3. <strong>App receives credential</strong> → Cryptographic proof of identity 4. <strong>App exchanges with server</strong> → Gets JWT/session tokens 5. <strong>Tokens shared internally</strong> → Between native and web components</p>
+<p><strong>Native Passkey Flow</strong>:</p>
+<ol type="1">
+<li><strong>App requests authentication</strong> → Platform prompts for biometric</li>
+<li><strong>Platform generates signature</strong> → Using device-stored private key</li>
+<li><strong>App receives credential</strong> → Cryptographic proof of identity</li>
+<li><strong>App exchanges with server</strong> → Gets JWT/session tokens</li>
+<li><strong>Tokens shared internally</strong> → Between native and web components</li>
+</ol>
 </section>
 <section id="security-boundaries" class="level4">
 <h4 class="anchored" data-anchor-id="security-boundaries">Security Boundaries</h4>
@@ -2713,8 +2725,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="starting-interactive-session" class="level4">
 <h4 class="anchored" data-anchor-id="starting-interactive-session">Starting Interactive Session</h4>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> scaffold auth <span class="at">--interactive</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Interactive Prompts:</strong> 1. <strong>Authentication Type Selection:</strong> - ASP.NET Core Identity - Passkey Authentication - Microsoft Entra ID - Custom OAuth Provider - Hybrid (Blazor/MAUI)</p>
-<ol start="2" type="1">
+<p><strong>Interactive Prompts:</strong></p>
+<ol type="1">
+<li><strong>Authentication Type Selection:</strong>
+<ul>
+<li>ASP.NET Core Identity</li>
+<li>Passkey Authentication</li>
+<li>Microsoft Entra ID</li>
+<li>Custom OAuth Provider</li>
+<li>Hybrid (Blazor/MAUI)</li>
+</ul></li>
 <li><strong>Configuration Options:</strong>
 <ul>
 <li>Database provider selection</li>

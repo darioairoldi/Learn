@@ -2259,8 +2259,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Conditional Requests</strong>: Use HTTP headers (<code>If-Modified-Since</code>, <code>ETag</code>) to minimize bandwidth</li>
 <li><strong>Caching</strong>: Respect <code>&lt;ttl&gt;</code> (time-to-live) hint to avoid excessive server load</li>
 </ul>
-<p><strong>Advantages</strong>: - ✅ Universal compatibility (works with all RSS feeds) - ✅ Simple implementation - ✅ Client controls update frequency - ✅ No additional infrastructure required</p>
-<p><strong>Disadvantages</strong>: - ❌ Update latency (delay between publication and discovery) - ❌ Bandwidth waste (polling unchanged feeds) - ❌ Server load (multiple clients polling simultaneously) - ❌ Not real-time</p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>✅ Universal compatibility (works with all RSS feeds)</li>
+<li>✅ Simple implementation</li>
+<li>✅ Client controls update frequency</li>
+<li>✅ No additional infrastructure required</li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>❌ Update latency (delay between publication and discovery)</li>
+<li>❌ Bandwidth waste (polling unchanged feeds)</li>
+<li>❌ Server load (multiple clients polling simultaneously)</li>
+<li>❌ Not real-time</li>
+</ul>
 </section>
 <section id="push-mechanism-cloud-element-rsscloud" class="level4" data-number="1.3.3.2">
 <h4 data-number="1.3.3.2" class="anchored" data-anchor-id="push-mechanism-cloud-element-rsscloud"><span class="header-section-number">1.3.3.2</span> <strong>2. Push Mechanism (Cloud Element / RSSCloud)</strong></h4>
@@ -2335,8 +2347,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        │                       │                        │
        │ 5. 200 OK + New Content                        │
        │&lt;───────────────────────┼────────────────────────┤</code></pre>
-<p><strong>Advantages</strong>: - ✅ Immediate notification of updates - ✅ Reduced polling overhead - ✅ More efficient bandwidth usage</p>
-<p><strong>Disadvantages</strong>: - ❌ Extremely rare in practice (almost no implementations) - ❌ Not standardized (multiple competing protocols) - ❌ Complex infrastructure requirements - ❌ Largely superseded by WebSub</p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>✅ Immediate notification of updates</li>
+<li>✅ Reduced polling overhead</li>
+<li>✅ More efficient bandwidth usage</li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>❌ Extremely rare in practice (almost no implementations)</li>
+<li>❌ Not standardized (multiple competing protocols)</li>
+<li>❌ Complex infrastructure requirements</li>
+<li>❌ Largely superseded by WebSub</li>
+</ul>
 </section>
 <section id="push-mechanism-websub-integration" class="level4" data-number="1.3.3.3">
 <h4 data-number="1.3.3.3" class="anchored" data-anchor-id="push-mechanism-websub-integration"><span class="header-section-number">1.3.3.3</span> <strong>3. Push Mechanism (WebSub Integration)</strong></h4>
@@ -2382,15 +2405,37 @@ Link: &lt;https://publisher.example.com/feed.xml&gt;; rel="self"</code></pre>
 <li><strong>Publishing</strong>: Publisher notifies hub when content changes</li>
 <li><strong>Distribution</strong>: Hub pushes updated feed to all subscribers</li>
 </ol>
-<p><strong>Advantages</strong>: - ✅ Real-time updates (sub-second latency possible) - ✅ Standardized W3C protocol - ✅ Decentralized architecture - ✅ Efficient bandwidth usage</p>
-<p><strong>Disadvantages</strong>: - ❌ Limited adoption in RSS ecosystem (more common with Atom) - ❌ Requires public callback URL (challenging for mobile/desktop apps) - ❌ Additional infrastructure complexity - ❌ Potential reliability issues if hub is unavailable</p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>✅ Real-time updates (sub-second latency possible)</li>
+<li>✅ Standardized W3C protocol</li>
+<li>✅ Decentralized architecture</li>
+<li>✅ Efficient bandwidth usage</li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>❌ Limited adoption in RSS ecosystem (more common with Atom)</li>
+<li>❌ Requires public callback URL (challenging for mobile/desktop apps)</li>
+<li>❌ Additional infrastructure complexity</li>
+<li>❌ Potential reliability issues if hub is unavailable</li>
+</ul>
 <hr>
 </section>
 </section>
 <section id="rss-data-summary" class="level3" data-number="1.3.4">
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="rss-data-summary"><span class="header-section-number">1.3.4</span> 📊 RSS Data Summary</h3>
-<p><strong>Data Richness</strong>: <strong>Moderate to High</strong> - Extensible via namespaces (iTunes, Dublin Core, Media RSS) - Basic metadata sufficient for most use cases - Podcast-specific extensions widely supported</p>
-<p><strong>Notification Model</strong>: <strong>Primarily Pull, Optional Push</strong> - Default: HTTP polling (pull) - Legacy: RSSCloud (rarely implemented) - Modern: WebSub integration (growing adoption)</p>
+<p><strong>Data Richness</strong>: <strong>Moderate to High</strong></p>
+<ul>
+<li>Extensible via namespaces (iTunes, Dublin Core, Media RSS)</li>
+<li>Basic metadata sufficient for most use cases</li>
+<li>Podcast-specific extensions widely supported</li>
+</ul>
+<p><strong>Notification Model</strong>: <strong>Primarily Pull, Optional Push</strong></p>
+<ul>
+<li>Default: HTTP polling (pull)</li>
+<li>Legacy: RSSCloud (rarely implemented)</li>
+<li>Modern: WebSub integration (growing adoption)</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2623,7 +2668,13 @@ Link: &lt;https://publisher.example.com/feed.xml&gt;; rel="self"</code></pre>
 </tr>
 </tbody>
 </table>
-<p><strong>Notes</strong>: - * If entry lacks <code>&lt;author&gt;</code>, feed MUST have <code>&lt;author&gt;</code> - ** Entry MUST contain at least one <code>&lt;link rel="alternate"&gt;</code> or <code>&lt;content&gt;</code></p>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li><ul>
+<li>If entry lacks <code>&lt;author&gt;</code>, feed MUST have <code>&lt;author&gt;</code></li>
+</ul></li>
+<li>** Entry MUST contain at least one <code>&lt;link rel="alternate"&gt;</code> or <code>&lt;content&gt;</code></li>
+</ul>
 </section>
 <section id="atom-constructs-complex-data-types" class="level4" data-number="1.4.2.3">
 <h4 data-number="1.4.2.3" class="anchored" data-anchor-id="atom-constructs-complex-data-types"><span class="header-section-number">1.4.2.3</span> <strong>Atom Constructs</strong> (Complex Data Types)</h4>
@@ -2864,8 +2915,18 @@ Link: &lt;https://publisher.example.com/feed.xml&gt;; rel="self"</code></pre>
 <li><strong>HTTP Headers</strong>: Support <code>ETag</code>, <code>Last-Modified</code>, <code>If-Modified-Since</code>, <code>If-None-Match</code></li>
 <li><strong>Caching</strong>: Respect HTTP cache-control headers</li>
 </ul>
-<p><strong>Advantages</strong>: - ✅ Universal compatibility - ✅ Simple implementation - ✅ Well-defined timestamp semantics</p>
-<p><strong>Disadvantages</strong>: - ❌ Update latency - ❌ Bandwidth overhead for unchanged content - ❌ Server load from polling</p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>✅ Universal compatibility</li>
+<li>✅ Simple implementation</li>
+<li>✅ Well-defined timestamp semantics</li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>❌ Update latency</li>
+<li>❌ Bandwidth overhead for unchanged content</li>
+<li>❌ Server load from polling</li>
+</ul>
 </section>
 <section id="push-mechanism-websub---recommended" class="level4" data-number="1.4.3.2">
 <h4 data-number="1.4.3.2" class="anchored" data-anchor-id="push-mechanism-websub---recommended"><span class="header-section-number">1.4.3.2</span> <strong>2. Push Mechanism (WebSub - Recommended)</strong></h4>
@@ -2991,8 +3052,21 @@ X-Hub-Signature: sha256=abc123...
 &lt;feed xmlns="http://www.w3.org/2005/Atom"&gt;
   &lt;!-- Updated feed content --&gt;
 &lt;/feed&gt;</code></pre>
-<p><strong>Advantages</strong>: - ✅ Real-time updates (typically &lt; 1 second latency) - ✅ Efficient bandwidth usage (push only when changed) - ✅ Standardized W3C protocol - ✅ Decentralized (no vendor lock-in) - ✅ Built-in security via HMAC signatures</p>
-<p><strong>Disadvantages</strong>: - ❌ Requires public callback URL (challenging for clients behind NAT/firewalls) - ❌ Additional infrastructure for webhook endpoints - ❌ Hub availability dependency - ❌ Not suitable for mobile apps without backend infrastructure</p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>✅ Real-time updates (typically &lt; 1 second latency)</li>
+<li>✅ Efficient bandwidth usage (push only when changed)</li>
+<li>✅ Standardized W3C protocol</li>
+<li>✅ Decentralized (no vendor lock-in)</li>
+<li>✅ Built-in security via HMAC signatures</li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>❌ Requires public callback URL (challenging for clients behind NAT/firewalls)</li>
+<li>❌ Additional infrastructure for webhook endpoints</li>
+<li>❌ Hub availability dependency</li>
+<li>❌ Not suitable for mobile apps without backend infrastructure</li>
+</ul>
 </section>
 <section id="atom-publishing-protocol-atompub" class="level4" data-number="1.4.3.3">
 <h4 data-number="1.4.3.3" class="anchored" data-anchor-id="atom-publishing-protocol-atompub"><span class="header-section-number">1.4.3.3</span> <strong>3. Atom Publishing Protocol (AtomPub)</strong></h4>
@@ -3028,8 +3102,20 @@ Content-Type: application/atom+xml;type=entry
 </section>
 <section id="atom-data-summary" class="level3" data-number="1.4.4">
 <h3 data-number="1.4.4" class="anchored" data-anchor-id="atom-data-summary"><span class="header-section-number">1.4.4</span> 📊 Atom Data Summary</h3>
-<p><strong>Data Richness</strong>: <strong>High</strong> - Formally specified with strict validation - Rich metadata constructs (Person, Link, Category) - Strong internationalization support (IRI-based identifiers) - Clear content type semantics</p>
-<p><strong>Notification Model</strong>: <strong>Pull and Push (WebSub Integrated)</strong> - Default: HTTP polling (pull) - Recommended: WebSub for real-time push notifications - Strong standardization for push mechanisms - Publishing protocol available (AtomPub)</p>
+<p><strong>Data Richness</strong>: <strong>High</strong></p>
+<ul>
+<li>Formally specified with strict validation</li>
+<li>Rich metadata constructs (Person, Link, Category)</li>
+<li>Strong internationalization support (IRI-based identifiers)</li>
+<li>Clear content type semantics</li>
+</ul>
+<p><strong>Notification Model</strong>: <strong>Pull and Push (WebSub Integrated)</strong></p>
+<ul>
+<li>Default: HTTP polling (pull)</li>
+<li>Recommended: WebSub for real-time push notifications</li>
+<li>Strong standardization for push mechanisms</li>
+<li>Publishing protocol available (AtomPub)</li>
+</ul>
 <hr>
 </section>
 </section>

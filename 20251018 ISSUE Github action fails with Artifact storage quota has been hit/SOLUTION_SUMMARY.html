@@ -1771,7 +1771,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 │  • Upload artifact  │                                │  • Upload Pages  │
 └─────────────────────┘                                │  • Deploy Pages  │
                                                        └──────────────────┘</code></pre>
-<p><strong>Key Changes:</strong> 1. ✅ Set <code>retention-days: 1</code> - Artifacts auto-delete after 24 hours 2. ✅ Split jobs by runner type - Build on Windows, deploy on Ubuntu 3. ✅ Use Ubuntu for Pages deployment - <code>upload-pages-artifact@v3</code> requires Linux/WSL 4. ✅ Proper artifact lifecycle - Short-lived intermediates, managed Pages artifacts</p>
+<p><strong>Key Changes:</strong></p>
+<ol type="1">
+<li>✅ Set <code>retention-days: 1</code> - Artifacts auto-delete after 24 hours</li>
+<li>✅ Split jobs by runner type - Build on Windows, deploy on Ubuntu</li>
+<li>✅ Use Ubuntu for Pages deployment - <code>upload-pages-artifact@v3</code> requires Linux/WSL</li>
+<li>✅ Proper artifact lifecycle - Short-lived intermediates, managed Pages artifacts</li>
+</ol>
 <hr>
 </section>
 <section id="files-modifiedcreated" class="level2">
@@ -1823,8 +1829,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="expected-results" class="level2">
 <h2 class="anchored" data-anchor-id="expected-results">📊 Expected Results</h2>
-<p><strong>Immediate:</strong> - ✅ Cleanup script removes all existing artifacts - ✅ Cleanup script removes old workflow runs - ✅ Storage quota starts to decrease (may take 6-12 hours to reflect)</p>
-<p><strong>After First Run:</strong> - ✅ Workflow completes successfully - ✅ No new artifacts created in the Artifacts section - ✅ Site deployed to GitHub Pages - ✅ No more quota errors!</p>
+<p><strong>Immediate:</strong></p>
+<ul>
+<li>✅ Cleanup script removes all existing artifacts</li>
+<li>✅ Cleanup script removes old workflow runs</li>
+<li>✅ Storage quota starts to decrease (may take 6-12 hours to reflect)</li>
+</ul>
+<p><strong>After First Run:</strong></p>
+<ul>
+<li>✅ Workflow completes successfully</li>
+<li>✅ No new artifacts created in the Artifacts section</li>
+<li>✅ Site deployed to GitHub Pages</li>
+<li>✅ No more quota errors!</li>
+</ul>
 <hr>
 </section>
 <section id="why-this-works" class="level2">
@@ -1866,12 +1883,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Key Insights:</strong> - <strong>Short retention is critical</strong>: Default 90-day retention causes quota buildup - <strong>Windows self-hosted + Pages = Split jobs needed</strong>: <code>upload-pages-artifact@v3</code> requires Linux - <strong>Auto-deletion prevents accumulation</strong>: 1-day artifacts clean themselves up - <strong>Proper runner selection</strong>: Build where your tools are, deploy where the actions work best</p>
+<p><strong>Key Insights:</strong></p>
+<ul>
+<li><strong>Short retention is critical</strong>: Default 90-day retention causes quota buildup</li>
+<li><strong>Windows self-hosted + Pages = Split jobs needed</strong>: <code>upload-pages-artifact@v3</code> requires Linux</li>
+<li><strong>Auto-deletion prevents accumulation</strong>: 1-day artifacts clean themselves up</li>
+<li><strong>Proper runner selection</strong>: Build where your tools are, deploy where the actions work best</li>
+</ul>
 <hr>
 </section>
 <section id="documentation" class="level2">
 <h2 class="anchored" data-anchor-id="documentation">📚 Documentation</h2>
-<p>For more details, see: - <strong>QUICKSTART.md</strong> - Step-by-step implementation guide - <strong>README.md</strong> - Full analysis and troubleshooting - <strong>cleanup-artifacts.ps1</strong> - Automated cleanup script</p>
+<p>For more details, see:</p>
+<ul>
+<li><strong>QUICKSTART.md</strong> - Step-by-step implementation guide</li>
+<li><strong>README.md</strong> - Full analysis and troubleshooting</li>
+<li><strong>cleanup-artifacts.ps1</strong> - Automated cleanup script</li>
+</ul>
 <hr>
 </section>
 <section id="if-you-need-help" class="level2">

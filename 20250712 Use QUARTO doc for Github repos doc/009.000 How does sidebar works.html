@@ -1861,7 +1861,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Set all chevrons to point right</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// No persistence logic - just clean reset</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Benefits:</strong> - ✅ <strong>Eliminates flickering</strong> - no visible state changes - ✅ <strong>Clean starting point</strong> - consistent collapsed state - ✅ <strong>Fast execution</strong> - no animations or delays - ✅ <strong>Override Quarto defaults</strong> - works regardless of Quarto’s initial state</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>✅ <strong>Eliminates flickering</strong> - no visible state changes</li>
+<li>✅ <strong>Clean starting point</strong> - consistent collapsed state</li>
+<li>✅ <strong>Fast execution</strong> - no animations or delays</li>
+<li>✅ <strong>Override Quarto defaults</strong> - works regardless of Quarto’s initial state</li>
+</ul>
 </section>
 <section id="phase-2-progressive-restore-visible" class="level4">
 <h4 class="anchored" data-anchor-id="phase-2-progressive-restore-visible">Phase 2: Progressive Restore (Visible)</h4>
@@ -1872,7 +1878,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Progressively expand sections with 75ms delays</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Beautiful visual restoration effect</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Benefits:</strong> - ✅ <strong>Smooth perception</strong> - progressive loading feels intentional - ✅ <strong>Visual polish</strong> - staggered animations look professional - ✅ <strong>Performance friendly</strong> - spreads DOM updates over time - ✅ <strong>User feedback</strong> - shows restoration progress</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>✅ <strong>Smooth perception</strong> - progressive loading feels intentional</li>
+<li>✅ <strong>Visual polish</strong> - staggered animations look professional</li>
+<li>✅ <strong>Performance friendly</strong> - spreads DOM updates over time</li>
+<li>✅ <strong>User feedback</strong> - shows restoration progress</li>
+</ul>
 <p><strong>Implementation Strategy:</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* CSS: Force collapsed-first state */</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#quarto-sidebar</span> <span class="fu">.collapse</span> {</span>

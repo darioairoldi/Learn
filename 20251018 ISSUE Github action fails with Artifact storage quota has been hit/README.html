@@ -1775,7 +1775,13 @@ More info on storage limits: https://docs.github.com/en/billing/managing-billing
 </section>
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
-<p>gh auth status github.com ✓ Logged in to github.com account darioairoldi (keyring) - Active account: true - Git operations protocol: https - Token: gho_************************************ - Token scopes: ‘gist’, ‘read:org’, ‘repo’, ‘workflow’</p>
+<p>gh auth status github.com ✓ Logged in to github.com account darioairoldi (keyring)</p>
+<ul>
+<li>Active account: true</li>
+<li>Git operations protocol: https</li>
+<li>Token: gho_************************************</li>
+<li>Token scopes: ‘gist’, ‘read:org’, ‘repo’, ‘workflow’</li>
+</ul>
 <hr>
 </section>
 <section id="solution-implemented" class="level2">
@@ -1794,8 +1800,18 @@ Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NO
 <section id="fix-applied" class="level3">
 <h3 class="anchored" data-anchor-id="fix-applied">Fix Applied</h3>
 <p><strong>Modified</strong>: <code>.github/workflows/quarto-publish.win64.yml</code></p>
-<p><strong>Strategy:</strong> Split the workflow into two jobs to leverage both runners optimally: 1. <strong>Build job</strong> (self-hosted Windows) - Renders Quarto site 2. <strong>Deploy job</strong> (ubuntu-latest) - Handles GitHub Pages deployment</p>
-<p><strong>Changes:</strong> 1. ✅ <strong>Split into two jobs</strong> - Build on Windows, deploy on Ubuntu 2. ✅ <strong>Use short-lived artifacts</strong> - Set <code>retention-days: 1</code> to minimize storage impact 3. ✅ <strong>Deploy on Ubuntu runner</strong> - <code>upload-pages-artifact@v3</code> works properly on Linux 4. ✅ <strong>Automatic cleanup</strong> - Artifacts auto-delete after 24 hours</p>
+<p><strong>Strategy:</strong> Split the workflow into two jobs to leverage both runners optimally:</p>
+<ol type="1">
+<li><strong>Build job</strong> (self-hosted Windows) - Renders Quarto site</li>
+<li><strong>Deploy job</strong> (ubuntu-latest) - Handles GitHub Pages deployment</li>
+</ol>
+<p><strong>Changes:</strong></p>
+<ol type="1">
+<li>✅ <strong>Split into two jobs</strong> - Build on Windows, deploy on Ubuntu</li>
+<li>✅ <strong>Use short-lived artifacts</strong> - Set <code>retention-days: 1</code> to minimize storage impact</li>
+<li>✅ <strong>Deploy on Ubuntu runner</strong> - <code>upload-pages-artifact@v3</code> works properly on Linux</li>
+<li>✅ <strong>Automatic cleanup</strong> - Artifacts auto-delete after 24 hours</li>
+</ol>
 <p><strong>Before:</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build job (Windows) - uploads long-lived artifact</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
@@ -1843,7 +1859,12 @@ Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NO
 <p><strong>To run:</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"E:\dev.darioa.live\darioairoldi\Learn\20251018 ISSUE Github action fails with Artifact storage quota has been hit"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\cleanup-artifacts<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The script will: 1. Delete all existing artifacts 2. Delete old workflow runs (keeping the last 5) 3. Show current storage status</p>
+<p>The script will:</p>
+<ol type="1">
+<li>Delete all existing artifacts</li>
+<li>Delete old workflow runs (keeping the last 5)</li>
+<li>Show current storage status</li>
+</ol>
 <hr>
 </section>
 <section id="manual-cleanup-commands-reference" class="level2">
@@ -1879,7 +1900,12 @@ Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NO
 <p>Visit your billing page to see actual storage usage:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open billing page in browser</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">start</span> https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>settings<span class="op">/</span>billing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Look for: - <strong>Actions storage</strong> usage amount - Which repositories are consuming storage - Any pending charges or limits</p>
+<p>Look for:</p>
+<ul>
+<li><strong>Actions storage</strong> usage amount</li>
+<li>Which repositories are consuming storage</li>
+<li>Any pending charges or limits</li>
+</ul>
 </section>
 <section id="step-2-check-for-artifacts-in-all-repos-more-thorough" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-check-for-artifacts-in-all-repos-more-thorough">Step 2: Check for Artifacts in ALL Repos (More Thorough)</h3>
@@ -1945,7 +1971,13 @@ Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NO
 <section id="key-learnings" class="level2">
 <h2 class="anchored" data-anchor-id="key-learnings">🎓 Key Learnings</h2>
 <p><strong>Problem</strong>: Using <code>actions/upload-artifact@v4</code> for GitHub Pages deployment creates unnecessary artifacts that consume storage quota.</p>
-<p><strong>Solution</strong>: Use <code>actions/upload-pages-artifact@v3</code> directly, which: - Has separate storage quota for GitHub Pages - Is designed specifically for Pages deployment - Automatically manages artifact lifecycle - Simplifies workflow structure</p>
+<p><strong>Solution</strong>: Use <code>actions/upload-pages-artifact@v3</code> directly, which:</p>
+<ul>
+<li>Has separate storage quota for GitHub Pages</li>
+<li>Is designed specifically for Pages deployment</li>
+<li>Automatically manages artifact lifecycle</li>
+<li>Simplifies workflow structure</li>
+</ul>
 <p><strong>Best Practice</strong>: For GitHub Pages deployments, always use the dedicated Pages actions instead of generic artifact actions.</p>
 <hr>
 </section>

@@ -1792,7 +1792,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Impact</strong>: - ❌ Not suitable for long-running batch jobs on Consumption plan - ⚠️ Consider using Durable Functions for workflows that exceed timeout limits - ⚠️ Break down long operations into smaller, chainable functions - ⚠️ Use message queues to decouple long-running processes</p>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Not suitable for long-running batch jobs on Consumption plan</li>
+<li>⚠️ Consider using Durable Functions for workflows that exceed timeout limits</li>
+<li>⚠️ Break down long operations into smaller, chainable functions</li>
+<li>⚠️ Use message queues to decouple long-running processes</li>
+</ul>
 <hr>
 </section>
 <section id="scaling-limits" class="level2">
@@ -1849,8 +1855,19 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Additional Scaling Constraints</strong>: - <mark><strong>Per-region limits</strong></mark>: Default quotas apply per subscription per region - <mark><strong>Cold start delays</strong></mark>: Consumption and Container Apps experience cold starts when scaling from zero - <mark><strong>Scale controller throttling</strong></mark>: Aggressive scaling may be throttled to prevent resource exhaustion - <mark><strong>Concurrent execution limits</strong></mark>: Configured in <code>host.json</code> per trigger type (e.g., <code>maxConcurrentRequests</code> for HTTP)</p>
-<p><strong>Impact</strong>: - ❌ May not handle extreme traffic spikes beyond plan limits - ⚠️ Consider Premium or Flex Consumption for higher scale requirements - ⚠️ Use Azure Front Door or API Management for traffic distribution across multiple function apps</p>
+<p><strong>Additional Scaling Constraints</strong>:</p>
+<ul>
+<li><mark><strong>Per-region limits</strong></mark>: Default quotas apply per subscription per region</li>
+<li><mark><strong>Cold start delays</strong></mark>: Consumption and Container Apps experience cold starts when scaling from zero</li>
+<li><mark><strong>Scale controller throttling</strong></mark>: Aggressive scaling may be throttled to prevent resource exhaustion</li>
+<li><mark><strong>Concurrent execution limits</strong></mark>: Configured in <code>host.json</code> per trigger type (e.g., <code>maxConcurrentRequests</code> for HTTP)</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ May not handle extreme traffic spikes beyond plan limits</li>
+<li>⚠️ Consider Premium or Flex Consumption for higher scale requirements</li>
+<li>⚠️ Use Azure Front Door or API Management for traffic distribution across multiple function apps</li>
+</ul>
 <hr>
 </section>
 <section id="cold-start-delays" class="level2">
@@ -1904,8 +1921,19 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Factors Affecting Cold Start</strong>: - <mark><strong>Language runtime</strong></mark>: C# compiled is faster; Python/Node.js slower - <mark><strong>Dependencies</strong></mark>: Large dependency trees increase startup time - <mark><strong>Package size</strong></mark>: Larger deployment packages take longer to load - <mark><strong>VNet integration</strong></mark>: Additional network setup overhead</p>
-<p><strong>Impact</strong>: - ❌ Not ideal for latency-sensitive HTTP APIs on Consumption plan - ⚠️ User-facing applications may experience delays after idle periods - ⚠️ Use warming strategies (periodic timer triggers) or upgrade to Premium</p>
+<p><strong>Factors Affecting Cold Start</strong>:</p>
+<ul>
+<li><mark><strong>Language runtime</strong></mark>: C# compiled is faster; Python/Node.js slower</li>
+<li><mark><strong>Dependencies</strong></mark>: Large dependency trees increase startup time</li>
+<li><mark><strong>Package size</strong></mark>: Larger deployment packages take longer to load</li>
+<li><mark><strong>VNet integration</strong></mark>: Additional network setup overhead</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Not ideal for latency-sensitive HTTP APIs on Consumption plan</li>
+<li>⚠️ User-facing applications may experience delays after idle periods</li>
+<li>⚠️ Use warming strategies (periodic timer triggers) or upgrade to Premium</li>
+</ul>
 <hr>
 </section>
 <section id="memory-and-cpu-constraints" class="level2">
@@ -1959,7 +1987,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Impact</strong>: - ❌ Memory-intensive workloads (large data processing, ML inference) may fail on Consumption - ❌ CPU-intensive operations (video encoding, complex calculations) perform poorly - ⚠️ Use Premium, Dedicated, or Container Apps for resource-intensive tasks - ⚠️ Consider offloading heavy compute to dedicated services (Azure Batch, Container Instances)</p>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Memory-intensive workloads (large data processing, ML inference) may fail on Consumption</li>
+<li>❌ CPU-intensive operations (video encoding, complex calculations) perform poorly</li>
+<li>⚠️ Use Premium, Dedicated, or Container Apps for resource-intensive tasks</li>
+<li>⚠️ Consider offloading heavy compute to dedicated services (Azure Batch, Container Instances)</li>
+</ul>
 <hr>
 </section>
 <section id="network-and-connectivity-limitations" class="level2">
@@ -2019,8 +2053,20 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Additional Network Constraints</strong>: - <mark><strong>HTTP request size limit</strong></mark>: 100 MB for request/response payloads - <mark><strong>WebSocket support</strong></mark>: Limited; not recommended for long-lived connections - <mark><strong>Outbound connections</strong></mark>: SNAT port exhaustion possible with many concurrent connections - <mark><strong>Bandwidth throttling</strong></mark>: Shared network resources on Consumption plan</p>
-<p><strong>Impact</strong>: - ❌ Cannot connect to on-premises resources without VNet integration (Consumption plan) - ❌ IP whitelisting difficult without static outbound IPs - ⚠️ Large file uploads/downloads may fail or perform poorly - ⚠️ Use Azure Storage, Blob SAS URLs, or dedicated transfer services for large files</p>
+<p><strong>Additional Network Constraints</strong>:</p>
+<ul>
+<li><mark><strong>HTTP request size limit</strong></mark>: 100 MB for request/response payloads</li>
+<li><mark><strong>WebSocket support</strong></mark>: Limited; not recommended for long-lived connections</li>
+<li><mark><strong>Outbound connections</strong></mark>: SNAT port exhaustion possible with many concurrent connections</li>
+<li><mark><strong>Bandwidth throttling</strong></mark>: Shared network resources on Consumption plan</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Cannot connect to on-premises resources without VNet integration (Consumption plan)</li>
+<li>❌ IP whitelisting difficult without static outbound IPs</li>
+<li>⚠️ Large file uploads/downloads may fail or perform poorly</li>
+<li>⚠️ Use Azure Storage, Blob SAS URLs, or dedicated transfer services for large files</li>
+</ul>
 <hr>
 </section>
 <section id="storage-limitations" class="level2">
@@ -2062,7 +2108,12 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Impact</strong>: - ❌ Cannot deploy very large applications to Consumption plan - ⚠️ Consider alternative storage providers (MSSQL, Netherite) for Durable Functions at scale - ⚠️ Use external storage (Blob, Cosmos DB) for large data payloads</p>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Cannot deploy very large applications to Consumption plan</li>
+<li>⚠️ Consider alternative storage providers (MSSQL, Netherite) for Durable Functions at scale</li>
+<li>⚠️ Use external storage (Blob, Cosmos DB) for large data payloads</li>
+</ul>
 <hr>
 </section>
 <section id="language-and-runtime-constraints" class="level2">
@@ -2116,8 +2167,18 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Runtime Version Constraints</strong>: - Must use supported runtime versions; older versions deprecated regularly - Migration required when runtime versions reach end-of-life - Language-specific limitations in binding support (e.g., some bindings only for .NET)</p>
-<p><strong>Impact</strong>: - ⚠️ Stay current with runtime updates to avoid forced migrations - ⚠️ Test thoroughly when migrating between runtime versions - ❌ Some advanced features (e.g., certain Durable Functions patterns) work best in C#</p>
+<p><strong>Runtime Version Constraints</strong>:</p>
+<ul>
+<li>Must use supported runtime versions; older versions deprecated regularly</li>
+<li>Migration required when runtime versions reach end-of-life</li>
+<li>Language-specific limitations in binding support (e.g., some bindings only for .NET)</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>⚠️ Stay current with runtime updates to avoid forced migrations</li>
+<li>⚠️ Test thoroughly when migrating between runtime versions</li>
+<li>❌ Some advanced features (e.g., certain Durable Functions patterns) work best in C#</li>
+</ul>
 <hr>
 </section>
 <section id="monitoring-and-debugging-limitations" class="level2">
@@ -2164,7 +2225,11 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Impact</strong>: - ⚠️ Troubleshooting production issues requires robust logging strategy - ⚠️ Implement structured logging and correlation patterns from the start</p>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>⚠️ Troubleshooting production issues requires robust logging strategy</li>
+<li>⚠️ Implement structured logging and correlation patterns from the start</li>
+</ul>
 <hr>
 </section>
 <section id="security-and-compliance-constraints" class="level2">
@@ -2205,14 +2270,39 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Impact</strong>: - ⚠️ Highly regulated workloads may require Dedicated plan or ASE - ⚠️ Implement defense-in-depth security practices</p>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>⚠️ Highly regulated workloads may require Dedicated plan or ASE</li>
+<li>⚠️ Implement defense-in-depth security practices</li>
+</ul>
 <hr>
 </section>
 <section id="plan-specific-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="plan-specific-limitations">10. <strong>Plan-Specific Limitations</strong></h2>
-<p><strong>Consumption Plan Exclusive Limitations</strong>: - ❌ No VNet integration - ❌ No always-on capability - ❌ Limited cold start mitigation options - ❌ No deployment slots - ❌ No custom domains with SSL (requires Premium or Dedicated) - ❌ Linux support retiring (September 2028)</p>
-<p><strong>Flex Consumption Limitations</strong> (as of current preview/GA): - ❌ No deployment slots - ❌ Limited regional availability (expanding) - ❌ Linux only (no Windows support) - ❌ Some advanced features may not be available yet</p>
-<p><strong>Container Apps Limitations</strong>: - ❌ No deployment slots - ❌ No Functions access keys via portal (must use Azure AD) - ❌ Requires separate storage account per revision for multi-revision scenarios - ❌ Cold starts when scaling to zero - ❌ More complex setup and configuration</p>
+<p><strong>Consumption Plan Exclusive Limitations</strong>:</p>
+<ul>
+<li>❌ No VNet integration</li>
+<li>❌ No always-on capability</li>
+<li>❌ Limited cold start mitigation options</li>
+<li>❌ No deployment slots</li>
+<li>❌ No custom domains with SSL (requires Premium or Dedicated)</li>
+<li>❌ Linux support retiring (September 2028)</li>
+</ul>
+<p><strong>Flex Consumption Limitations</strong> (as of current preview/GA):</p>
+<ul>
+<li>❌ No deployment slots</li>
+<li>❌ Limited regional availability (expanding)</li>
+<li>❌ Linux only (no Windows support)</li>
+<li>❌ Some advanced features may not be available yet</li>
+</ul>
+<p><strong>Container Apps Limitations</strong>:</p>
+<ul>
+<li>❌ No deployment slots</li>
+<li>❌ No Functions access keys via portal (must use Azure AD)</li>
+<li>❌ Requires separate storage account per revision for multi-revision scenarios</li>
+<li>❌ Cold starts when scaling to zero</li>
+<li>❌ More complex setup and configuration</li>
+</ul>
 <hr>
 </section>
 <section id="cost-considerations" class="level2">
@@ -2259,8 +2349,19 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Hidden Costs</strong>: - Storage account transactions and data storage - Application Insights ingestion and retention - Outbound data transfer (egress) charges - VNet integration and NAT Gateway costs</p>
-<p><strong>Impact</strong>: - ⚠️ Monitor costs closely, especially for high-volume workloads - ⚠️ Use consumption plans wisely; Premium may be cheaper for steady workloads - ⚠️ Implement cost alerts and budgets</p>
+<p><strong>Hidden Costs</strong>:</p>
+<ul>
+<li>Storage account transactions and data storage</li>
+<li>Application Insights ingestion and retention</li>
+<li>Outbound data transfer (egress) charges</li>
+<li>VNet integration and NAT Gateway costs</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>⚠️ Monitor costs closely, especially for high-volume workloads</li>
+<li>⚠️ Use consumption plans wisely; Premium may be cheaper for steady workloads</li>
+<li>⚠️ Implement cost alerts and budgets</li>
+</ul>
 <hr>
 </section>
 <section id="development-and-deployment-limitations" class="level2">
@@ -2306,7 +2407,11 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Impact</strong>: - ⚠️ Blue-green deployments require additional infrastructure - ⚠️ Testing may not catch all production issues</p>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>⚠️ Blue-green deployments require additional infrastructure</li>
+<li>⚠️ Testing may not catch all production issues</li>
+</ul>
 <hr>
 </section>
 <section id="latency-and-scalability-limits" class="level2">
@@ -2371,8 +2476,23 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Factors Affecting Cold Start Duration</strong>: - <mark><strong>Package size</strong></mark>: Larger dependencies = longer initialization - <mark><strong>Runtime initialization</strong></mark>: Some runtimes (Java, PowerShell) have slower startup - <mark><strong>VNet integration</strong></mark>: Adds ~2-3 seconds for network setup - <mark><strong>Application Insights</strong></mark>: Adds ~500ms overhead - <mark><strong>Dependency injection</strong></mark>: Complex DI containers increase startup time</p>
-<p><strong>Mitigation Strategies</strong>: 1. Use <mark><strong>Premium plan</strong></mark> with <strong>min instances ≥ 1</strong> (eliminates cold starts) 2. Use <mark><strong>Flex Consumption</strong></mark> with <strong>always-ready instances</strong> 3. Minimize package size (tree-shake dependencies, remove unused packages) 4. Use <strong>compiled languages</strong> (C#) over interpreted ones (Python, PowerShell) 5. Implement <strong>pre-warming</strong> via health check endpoints 6. Consider <mark><strong>Application Initialization</strong></mark> for Dedicated plans</p>
+<p><strong>Factors Affecting Cold Start Duration</strong>:</p>
+<ul>
+<li><mark><strong>Package size</strong></mark>: Larger dependencies = longer initialization</li>
+<li><mark><strong>Runtime initialization</strong></mark>: Some runtimes (Java, PowerShell) have slower startup</li>
+<li><mark><strong>VNet integration</strong></mark>: Adds ~2-3 seconds for network setup</li>
+<li><mark><strong>Application Insights</strong></mark>: Adds ~500ms overhead</li>
+<li><mark><strong>Dependency injection</strong></mark>: Complex DI containers increase startup time</li>
+</ul>
+<p><strong>Mitigation Strategies</strong>:</p>
+<ol type="1">
+<li>Use <mark><strong>Premium plan</strong></mark> with <strong>min instances ≥ 1</strong> (eliminates cold starts)</li>
+<li>Use <mark><strong>Flex Consumption</strong></mark> with <strong>always-ready instances</strong></li>
+<li>Minimize package size (tree-shake dependencies, remove unused packages)</li>
+<li>Use <strong>compiled languages</strong> (C#) over interpreted ones (Python, PowerShell)</li>
+<li>Implement <strong>pre-warming</strong> via health check endpoints</li>
+<li>Consider <mark><strong>Application Initialization</strong></mark> for Dedicated plans</li>
+</ol>
 <hr>
 </section>
 <section id="warm-execution-latency" class="level3">
@@ -2435,27 +2555,108 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Low-Latency Best Practices</strong>: - Use <strong>HTTP triggers</strong> or <strong>Event Grid</strong> for lowest latency - Configure <strong>aggressive polling</strong> for queue-based triggers (trade-off with cost) - Use <strong>Premium plan</strong> for consistent low-latency performance - Implement <strong>async patterns</strong> to avoid blocking - Optimize <strong>binding configurations</strong> (batch sizes, prefetch counts)</p>
+<p><strong>Low-Latency Best Practices</strong>:</p>
+<ul>
+<li>Use <strong>HTTP triggers</strong> or <strong>Event Grid</strong> for lowest latency</li>
+<li>Configure <strong>aggressive polling</strong> for queue-based triggers (trade-off with cost)</li>
+<li>Use <strong>Premium plan</strong> for consistent low-latency performance</li>
+<li>Implement <strong>async patterns</strong> to avoid blocking</li>
+<li>Optimize <strong>binding configurations</strong> (batch sizes, prefetch counts)</li>
+</ul>
 <hr>
 </section>
 <section id="scaling-speed-and-limits" class="level3">
 <h3 class="anchored" data-anchor-id="scaling-speed-and-limits"><strong>Scaling Speed and Limits</strong></h3>
 <p>How quickly Azure Functions can scale to meet demand:</p>
-<p><strong>Consumption Plan</strong>: - <mark><strong>Scale-out speed</strong></mark>: 1 new instance every <mark><strong>10 seconds</strong></mark> on average - <mark><strong>Burst scaling</strong></mark>: Up to <mark><strong>10 instances</strong></mark> can be added quickly initially - <mark><strong>Throttling</strong></mark>: After burst, limited to prevent runaway scaling - <mark><strong>Max instances</strong></mark>: 200 (Windows) / 100 (Linux) - <mark><strong>Scale-in delay</strong></mark>: 5-10 minutes after load decreases</p>
-<p><strong>Flex Consumption Plan</strong>: - <mark><strong>Scale-out speed</strong></mark>: <mark><strong>Fastest</strong></mark> - can add <mark><strong>100+ instances</strong></mark> in <mark><strong>30 seconds</strong></mark> - <mark><strong>Per-function scaling</strong></mark>: Each function type scales independently - <mark><strong>Max instances</strong></mark>: 1,000 per function app - <mark><strong>Always-ready instances</strong></mark>: Immediate capacity without cold starts - <mark><strong>Scale-in delay</strong></mark>: Up to 60 minutes for graceful shutdown</p>
-<p><strong>Premium Plan</strong>: - <mark><strong>Scale-out speed</strong></mark>: <mark><strong>Very fast</strong></mark> - pre-warmed instances activate immediately - <mark><strong>Pre-warmed buffer</strong></mark>: Configurable number of warm instances ready - <mark><strong>Max instances</strong></mark>: 100 (Windows) / 20-100 (Linux) - <mark><strong>Min instances</strong></mark>: Always maintains at least 1 instance - <mark><strong>Scale-in delay</strong></mark>: Up to 60 minutes for graceful shutdown</p>
-<p><strong>Dedicated Plan</strong>: - <mark><strong>Scale-out speed</strong></mark>: <mark><strong>Slower</strong></mark> - takes <mark><strong>2-5 minutes</strong></mark> to provision new VMs - <mark><strong>Autoscale rules</strong></mark>: Based on CPU/memory thresholds, not event queue depth - <mark><strong>Max instances</strong></mark>: 10-30 (regular) / 100 (App Service Environment) - <mark><strong>Manual scaling</strong></mark>: Instant if done manually before load hits</p>
-<p><strong>Container Apps</strong>: - <mark><strong>Scale-out speed</strong></mark>: <mark><strong>Fast</strong></mark> - event-driven via KEDA - <mark><strong>Max instances</strong></mark>: 300-1,000 depending on configuration - <mark><strong>Scale-to-zero</strong></mark>: Supported but incurs cold starts</p>
+<p><strong>Consumption Plan</strong>:</p>
+<ul>
+<li><mark><strong>Scale-out speed</strong></mark>: 1 new instance every <mark><strong>10 seconds</strong></mark> on average</li>
+<li><mark><strong>Burst scaling</strong></mark>: Up to <mark><strong>10 instances</strong></mark> can be added quickly initially</li>
+<li><mark><strong>Throttling</strong></mark>: After burst, limited to prevent runaway scaling</li>
+<li><mark><strong>Max instances</strong></mark>: 200 (Windows) / 100 (Linux)</li>
+<li><mark><strong>Scale-in delay</strong></mark>: 5-10 minutes after load decreases</li>
+</ul>
+<p><strong>Flex Consumption Plan</strong>:</p>
+<ul>
+<li><mark><strong>Scale-out speed</strong></mark>: <mark><strong>Fastest</strong></mark> - can add <mark><strong>100+ instances</strong></mark> in <mark><strong>30 seconds</strong></mark></li>
+<li><mark><strong>Per-function scaling</strong></mark>: Each function type scales independently</li>
+<li><mark><strong>Max instances</strong></mark>: 1,000 per function app</li>
+<li><mark><strong>Always-ready instances</strong></mark>: Immediate capacity without cold starts</li>
+<li><mark><strong>Scale-in delay</strong></mark>: Up to 60 minutes for graceful shutdown</li>
+</ul>
+<p><strong>Premium Plan</strong>:</p>
+<ul>
+<li><mark><strong>Scale-out speed</strong></mark>: <mark><strong>Very fast</strong></mark> - pre-warmed instances activate immediately</li>
+<li><mark><strong>Pre-warmed buffer</strong></mark>: Configurable number of warm instances ready</li>
+<li><mark><strong>Max instances</strong></mark>: 100 (Windows) / 20-100 (Linux)</li>
+<li><mark><strong>Min instances</strong></mark>: Always maintains at least 1 instance</li>
+<li><mark><strong>Scale-in delay</strong></mark>: Up to 60 minutes for graceful shutdown</li>
+</ul>
+<p><strong>Dedicated Plan</strong>:</p>
+<ul>
+<li><mark><strong>Scale-out speed</strong></mark>: <mark><strong>Slower</strong></mark> - takes <mark><strong>2-5 minutes</strong></mark> to provision new VMs</li>
+<li><mark><strong>Autoscale rules</strong></mark>: Based on CPU/memory thresholds, not event queue depth</li>
+<li><mark><strong>Max instances</strong></mark>: 10-30 (regular) / 100 (App Service Environment)</li>
+<li><mark><strong>Manual scaling</strong></mark>: Instant if done manually before load hits</li>
+</ul>
+<p><strong>Container Apps</strong>:</p>
+<ul>
+<li><mark><strong>Scale-out speed</strong></mark>: <mark><strong>Fast</strong></mark> - event-driven via KEDA</li>
+<li><mark><strong>Max instances</strong></mark>: 300-1,000 depending on configuration</li>
+<li><mark><strong>Scale-to-zero</strong></mark>: Supported but incurs cold starts</li>
+</ul>
 <hr>
 </section>
 <section id="trigger-specific-scaling-characteristics" class="level3">
 <h3 class="anchored" data-anchor-id="trigger-specific-scaling-characteristics"><strong>Trigger-Specific Scaling Characteristics</strong></h3>
-<p><strong>HTTP Triggers</strong>: - <mark><strong>Concurrency</strong></mark>: Default <mark><strong>100 concurrent requests per instance</strong></mark> - <mark><strong>Max outstanding requests</strong></mark>: <mark><strong>200</strong></mark> (configurable in <code>host.json</code>) - <mark><strong>Scaling metric</strong></mark>: Number of HTTP requests queued - <mark><strong>Throttling</strong></mark>: Returns 429 (Too Many Requests) when limits exceeded - <mark><strong>Timeout</strong></mark>: 230 seconds on Consumption (230 seconds max for sync processing)</p>
-<p><strong>Queue Triggers (Storage Queue)</strong>: - <mark><strong>Batch size</strong></mark>: Default <mark><strong>16 messages</strong></mark> per batch - <mark><strong>Polling interval</strong></mark>: <mark><strong>Exponential backoff</strong></mark> from 100ms to 1 minute - <mark><strong>Scaling metric</strong></mark>: Queue depth / target messages per instance - <mark><strong>Max dequeue count</strong></mark>: <mark><strong>5</strong></mark> (then moved to poison queue) - <mark><strong>Parallelism</strong></mark>: Multiple batches processed concurrently per instance</p>
-<p><strong>Service Bus Triggers</strong>: - <mark><strong>Max concurrent calls</strong></mark>: Default <mark><strong>16</strong></mark> per instance - <mark><strong>Prefetch count</strong></mark>: Default <mark><strong>0</strong></mark> (can configure up to 1000+) - <mark><strong>Scaling metric</strong></mark>: Message count + message age - <mark><strong>Session support</strong></mark>: One session per instance (limits parallelism) - <mark><strong>Max auto-renew duration</strong></mark>: <mark><strong>5 minutes</strong></mark></p>
-<p><strong>Event Hubs Triggers</strong>: - <mark><strong>Partition-based scaling</strong></mark>: Max <mark><strong>1 instance per partition</strong></mark> - <mark><strong>Batch size</strong></mark>: Default <mark><strong>10 events</strong></mark> per batch (max 1000) - <mark><strong>Prefetch count</strong></mark>: Default <mark><strong>300</strong></mark> - <mark><strong>Checkpoint frequency</strong></mark>: After every batch by default - <mark><strong>Throughput</strong></mark>: Millions of events per second possible</p>
-<p><strong>Cosmos DB Triggers</strong>: - <mark><strong>Lease-based coordination</strong></mark>: Requires additional container - <mark><strong>Scaling metric</strong></mark>: Change feed items per lease - <mark><strong>Max items per invocation</strong></mark>: Configurable (default varies) - <mark><strong>Latency</strong></mark>: Sub-second to ~1 second - <mark><strong>Partition-aware</strong></mark>: Maintains order within partition</p>
-<p><strong>Event Grid Triggers</strong>: - <mark><strong>Push-based</strong></mark>: No polling overhead - <mark><strong>Latency</strong></mark>: &lt;1 second typically - <mark><strong>Retry policy</strong></mark>: Exponential backoff up to 24 hours - <mark><strong>Max event size</strong></mark>: <mark><strong>1 MB</strong></mark> - <mark><strong>Batch delivery</strong></mark>: Supported (up to 5000 events per batch)</p>
+<p><strong>HTTP Triggers</strong>:</p>
+<ul>
+<li><mark><strong>Concurrency</strong></mark>: Default <mark><strong>100 concurrent requests per instance</strong></mark></li>
+<li><mark><strong>Max outstanding requests</strong></mark>: <mark><strong>200</strong></mark> (configurable in <code>host.json</code>)</li>
+<li><mark><strong>Scaling metric</strong></mark>: Number of HTTP requests queued</li>
+<li><mark><strong>Throttling</strong></mark>: Returns 429 (Too Many Requests) when limits exceeded</li>
+<li><mark><strong>Timeout</strong></mark>: 230 seconds on Consumption (230 seconds max for sync processing)</li>
+</ul>
+<p><strong>Queue Triggers (Storage Queue)</strong>:</p>
+<ul>
+<li><mark><strong>Batch size</strong></mark>: Default <mark><strong>16 messages</strong></mark> per batch</li>
+<li><mark><strong>Polling interval</strong></mark>: <mark><strong>Exponential backoff</strong></mark> from 100ms to 1 minute</li>
+<li><mark><strong>Scaling metric</strong></mark>: Queue depth / target messages per instance</li>
+<li><mark><strong>Max dequeue count</strong></mark>: <mark><strong>5</strong></mark> (then moved to poison queue)</li>
+<li><mark><strong>Parallelism</strong></mark>: Multiple batches processed concurrently per instance</li>
+</ul>
+<p><strong>Service Bus Triggers</strong>:</p>
+<ul>
+<li><mark><strong>Max concurrent calls</strong></mark>: Default <mark><strong>16</strong></mark> per instance</li>
+<li><mark><strong>Prefetch count</strong></mark>: Default <mark><strong>0</strong></mark> (can configure up to 1000+)</li>
+<li><mark><strong>Scaling metric</strong></mark>: Message count + message age</li>
+<li><mark><strong>Session support</strong></mark>: One session per instance (limits parallelism)</li>
+<li><mark><strong>Max auto-renew duration</strong></mark>: <mark><strong>5 minutes</strong></mark></li>
+</ul>
+<p><strong>Event Hubs Triggers</strong>:</p>
+<ul>
+<li><mark><strong>Partition-based scaling</strong></mark>: Max <mark><strong>1 instance per partition</strong></mark></li>
+<li><mark><strong>Batch size</strong></mark>: Default <mark><strong>10 events</strong></mark> per batch (max 1000)</li>
+<li><mark><strong>Prefetch count</strong></mark>: Default <mark><strong>300</strong></mark></li>
+<li><mark><strong>Checkpoint frequency</strong></mark>: After every batch by default</li>
+<li><mark><strong>Throughput</strong></mark>: Millions of events per second possible</li>
+</ul>
+<p><strong>Cosmos DB Triggers</strong>:</p>
+<ul>
+<li><mark><strong>Lease-based coordination</strong></mark>: Requires additional container</li>
+<li><mark><strong>Scaling metric</strong></mark>: Change feed items per lease</li>
+<li><mark><strong>Max items per invocation</strong></mark>: Configurable (default varies)</li>
+<li><mark><strong>Latency</strong></mark>: Sub-second to ~1 second</li>
+<li><mark><strong>Partition-aware</strong></mark>: Maintains order within partition</li>
+</ul>
+<p><strong>Event Grid Triggers</strong>:</p>
+<ul>
+<li><mark><strong>Push-based</strong></mark>: No polling overhead</li>
+<li><mark><strong>Latency</strong></mark>: &lt;1 second typically</li>
+<li><mark><strong>Retry policy</strong></mark>: Exponential backoff up to 24 hours</li>
+<li><mark><strong>Max event size</strong></mark>: <mark><strong>1 MB</strong></mark></li>
+<li><mark><strong>Batch delivery</strong></mark>: Supported (up to 5000 events per batch)</li>
+</ul>
 <hr>
 </section>
 <section id="throughput-limits" class="level3">
@@ -2521,39 +2722,130 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="network-latency-considerations" class="level3">
 <h3 class="anchored" data-anchor-id="network-latency-considerations"><strong>Network Latency Considerations</strong></h3>
-<p><strong>Outbound Call Latency</strong>: - <mark><strong>Same region Azure services</strong></mark>: <mark><strong>1-5 ms</strong></mark> - <mark><strong>Cross-region Azure services</strong></mark>: <mark><strong>20-100 ms</strong></mark> - <mark><strong>External APIs</strong></mark>: <mark><strong>50-500+ ms</strong></mark> (internet-dependent) - <mark><strong>VNet-integrated services</strong></mark>: <mark><strong>+1-2 ms</strong></mark> overhead - <mark><strong>Private endpoints</strong></mark>: <mark><strong>+1-3 ms</strong></mark> overhead</p>
-<p><strong>Connection Pooling</strong>: - <mark><strong>HTTP connection pool</strong></mark>: Default <mark><strong>maxOutstandingRequests = 200</strong></mark> - <mark><strong>SNAT port limits</strong></mark>: Can exhaust with many concurrent connections - <mark><strong>Best practice</strong></mark>: Reuse connections, use singleton pattern for HTTP clients</p>
+<p><strong>Outbound Call Latency</strong>:</p>
+<ul>
+<li><mark><strong>Same region Azure services</strong></mark>: <mark><strong>1-5 ms</strong></mark></li>
+<li><mark><strong>Cross-region Azure services</strong></mark>: <mark><strong>20-100 ms</strong></mark></li>
+<li><mark><strong>External APIs</strong></mark>: <mark><strong>50-500+ ms</strong></mark> (internet-dependent)</li>
+<li><mark><strong>VNet-integrated services</strong></mark>: <mark><strong>+1-2 ms</strong></mark> overhead</li>
+<li><mark><strong>Private endpoints</strong></mark>: <mark><strong>+1-3 ms</strong></mark> overhead</li>
+</ul>
+<p><strong>Connection Pooling</strong>:</p>
+<ul>
+<li><mark><strong>HTTP connection pool</strong></mark>: Default <mark><strong>maxOutstandingRequests = 200</strong></mark></li>
+<li><mark><strong>SNAT port limits</strong></mark>: Can exhaust with many concurrent connections</li>
+<li><mark><strong>Best practice</strong></mark>: Reuse connections, use singleton pattern for HTTP clients</li>
+</ul>
 <hr>
 </section>
 <section id="subscription-and-regional-limits" class="level3">
 <h3 class="anchored" data-anchor-id="subscription-and-regional-limits"><strong>Subscription and Regional Limits</strong></h3>
-<p><strong>Per-Region Quotas</strong>: - <mark><strong>Function apps per subscription per region</strong></mark>: <mark><strong>100</strong></mark> (default, can be increased) - <mark><strong>Total instances across all apps</strong></mark>: Subject to regional capacity - <mark><strong>Storage accounts</strong></mark>: <mark><strong>250</strong></mark> per subscription per region - <mark><strong>VNet integration</strong></mark>: Limited by subnet size and available IPs</p>
-<p><strong>Request Limits</strong>: - <mark><strong>Request size</strong></mark>: <mark><strong>100 MB</strong></mark> max for HTTP payloads - <mark><strong>Response size</strong></mark>: <mark><strong>100 MB</strong></mark> max - <mark><strong>URL length</strong></mark>: <mark><strong>4096 bytes</strong></mark> - <mark><strong>Header size</strong></mark>: <mark><strong>16 KB</strong></mark> per header</p>
+<p><strong>Per-Region Quotas</strong>:</p>
+<ul>
+<li><mark><strong>Function apps per subscription per region</strong></mark>: <mark><strong>100</strong></mark> (default, can be increased)</li>
+<li><mark><strong>Total instances across all apps</strong></mark>: Subject to regional capacity</li>
+<li><mark><strong>Storage accounts</strong></mark>: <mark><strong>250</strong></mark> per subscription per region</li>
+<li><mark><strong>VNet integration</strong></mark>: Limited by subnet size and available IPs</li>
+</ul>
+<p><strong>Request Limits</strong>:</p>
+<ul>
+<li><mark><strong>Request size</strong></mark>: <mark><strong>100 MB</strong></mark> max for HTTP payloads</li>
+<li><mark><strong>Response size</strong></mark>: <mark><strong>100 MB</strong></mark> max</li>
+<li><mark><strong>URL length</strong></mark>: <mark><strong>4096 bytes</strong></mark></li>
+<li><mark><strong>Header size</strong></mark>: <mark><strong>16 KB</strong></mark> per header</li>
+</ul>
 <hr>
 </section>
 <section id="performance-optimization-strategies" class="level3">
 <h3 class="anchored" data-anchor-id="performance-optimization-strategies"><strong>Performance Optimization Strategies</strong></h3>
-<p><strong>For Low Latency</strong>: 1. Use <strong>Premium plan</strong> for consistent performance 2. Enable <strong>always-ready instances</strong> (Flex Consumption) 3. Co-locate <strong>functions and dependencies</strong> in same region 4. Use <strong>Event Grid</strong> or <strong>HTTP triggers</strong> for push-based patterns 5. Implement <strong>connection pooling</strong> and <strong>singleton patterns</strong> 6. Configure <strong>aggressive prefetch</strong> for queue-based triggers</p>
-<p><strong>For High Throughput</strong>: 1. Use <strong>Flex Consumption</strong> for massive scale (up to 1000 instances) 2. Configure <strong>optimal batch sizes</strong> for queue-based triggers 3. Enable <strong>dynamic concurrency</strong> in <code>host.json</code> 4. Use <strong>Event Hubs</strong> for high-volume streaming scenarios 5. Partition data for <strong>parallel processing</strong> 6. Implement <strong>async/await patterns</strong> properly</p>
-<p><strong>For Consistent Performance</strong>: 1. Use <strong>Premium or Dedicated plans</strong> to avoid cold starts 2. Configure <strong>min instance count</strong> &gt; 0 3. Enable <strong>runtime scale monitoring</strong> for VNet scenarios 4. Monitor <strong>Application Insights</strong> for performance bottlenecks 5. Implement <strong>circuit breakers</strong> for external dependencies 6. Use <strong>health checks</strong> and <strong>graceful degradation</strong></p>
+<p><strong>For Low Latency</strong>:</p>
+<ol type="1">
+<li>Use <strong>Premium plan</strong> for consistent performance</li>
+<li>Enable <strong>always-ready instances</strong> (Flex Consumption)</li>
+<li>Co-locate <strong>functions and dependencies</strong> in same region</li>
+<li>Use <strong>Event Grid</strong> or <strong>HTTP triggers</strong> for push-based patterns</li>
+<li>Implement <strong>connection pooling</strong> and <strong>singleton patterns</strong></li>
+<li>Configure <strong>aggressive prefetch</strong> for queue-based triggers</li>
+</ol>
+<p><strong>For High Throughput</strong>:</p>
+<ol type="1">
+<li>Use <strong>Flex Consumption</strong> for massive scale (up to 1000 instances)</li>
+<li>Configure <strong>optimal batch sizes</strong> for queue-based triggers</li>
+<li>Enable <strong>dynamic concurrency</strong> in <code>host.json</code></li>
+<li>Use <strong>Event Hubs</strong> for high-volume streaming scenarios</li>
+<li>Partition data for <strong>parallel processing</strong></li>
+<li>Implement <strong>async/await patterns</strong> properly</li>
+</ol>
+<p><strong>For Consistent Performance</strong>:</p>
+<ol type="1">
+<li>Use <strong>Premium or Dedicated plans</strong> to avoid cold starts</li>
+<li>Configure <strong>min instance count</strong> &gt; 0</li>
+<li>Enable <strong>runtime scale monitoring</strong> for VNet scenarios</li>
+<li>Monitor <strong>Application Insights</strong> for performance bottlenecks</li>
+<li>Implement <strong>circuit breakers</strong> for external dependencies</li>
+<li>Use <strong>health checks</strong> and <strong>graceful degradation</strong></li>
+</ol>
 <hr>
 </section>
 <section id="monitoring-key-metrics" class="level3">
 <h3 class="anchored" data-anchor-id="monitoring-key-metrics"><strong>Monitoring Key Metrics</strong></h3>
 <p>Track these metrics to understand latency and scalability:</p>
-<p><strong>Latency Metrics</strong>: - <mark><strong>Function execution time</strong></mark>: P50, P95, P99 percentiles - <mark><strong>Cold start duration</strong></mark>: Track initialization time - <mark><strong>Queue/trigger latency</strong></mark>: Time from event to function start - <mark><strong>Dependency latency</strong></mark>: External API call durations</p>
-<p><strong>Scalability Metrics</strong>: - <mark><strong>Instance count</strong></mark>: Current vs.&nbsp;max instances - <mark><strong>Concurrent executions</strong></mark>: Per instance and per app - <mark><strong>Throttling events</strong></mark>: 429 responses, queue backlog - <mark><strong>Scale-out/scale-in events</strong></mark>: Frequency and timing - <mark><strong>Queue depth</strong></mark>: Backlog size for queue-based triggers</p>
-<p><strong>Resource Metrics</strong>: - <mark><strong>CPU usage</strong></mark>: Per instance - <mark><strong>Memory usage</strong></mark>: Per instance - <mark><strong>Network throughput</strong></mark>: Inbound/outbound - <mark><strong>Storage operations</strong></mark>: IOPS and throughput</p>
+<p><strong>Latency Metrics</strong>:</p>
+<ul>
+<li><mark><strong>Function execution time</strong></mark>: P50, P95, P99 percentiles</li>
+<li><mark><strong>Cold start duration</strong></mark>: Track initialization time</li>
+<li><mark><strong>Queue/trigger latency</strong></mark>: Time from event to function start</li>
+<li><mark><strong>Dependency latency</strong></mark>: External API call durations</li>
+</ul>
+<p><strong>Scalability Metrics</strong>:</p>
+<ul>
+<li><mark><strong>Instance count</strong></mark>: Current vs.&nbsp;max instances</li>
+<li><mark><strong>Concurrent executions</strong></mark>: Per instance and per app</li>
+<li><mark><strong>Throttling events</strong></mark>: 429 responses, queue backlog</li>
+<li><mark><strong>Scale-out/scale-in events</strong></mark>: Frequency and timing</li>
+<li><mark><strong>Queue depth</strong></mark>: Backlog size for queue-based triggers</li>
+</ul>
+<p><strong>Resource Metrics</strong>:</p>
+<ul>
+<li><mark><strong>CPU usage</strong></mark>: Per instance</li>
+<li><mark><strong>Memory usage</strong></mark>: Per instance</li>
+<li><mark><strong>Network throughput</strong></mark>: Inbound/outbound</li>
+<li><mark><strong>Storage operations</strong></mark>: IOPS and throughput</li>
+</ul>
 <hr>
 </section>
 <section id="common-latency-and-scaling-issues" class="level3">
 <h3 class="anchored" data-anchor-id="common-latency-and-scaling-issues"><strong>Common Latency and Scaling Issues</strong></h3>
-<p><strong>Issue: Inconsistent Response Times</strong> - <strong>Cause</strong>: Cold starts on Consumption plan - <strong>Solution</strong>: Upgrade to Premium or use always-ready instances</p>
-<p><strong>Issue: 429 Throttling Errors</strong> - <strong>Cause</strong>: HTTP concurrent request limits exceeded - <strong>Solution</strong>: Increase limits in <code>host.json</code> or scale to more instances</p>
-<p><strong>Issue: Slow Queue Processing</strong> - <strong>Cause</strong>: Low polling frequency or small batch sizes - <strong>Solution</strong>: Optimize <code>host.json</code> queue settings (<code>batchSize</code>, <code>maxPollingInterval</code>)</p>
-<p><strong>Issue: Partition Bottleneck</strong> - <strong>Cause</strong>: Event Hubs with too few partitions - <strong>Solution</strong>: Increase partition count (requires new Event Hub)</p>
-<p><strong>Issue: SNAT Port Exhaustion</strong> - <strong>Cause</strong>: Too many outbound connections - <strong>Solution</strong>: Implement connection pooling, use VNet integration with NAT Gateway</p>
-<p><strong>Issue: Slow Scale-Out</strong> - <strong>Cause</strong>: Dedicated plan using Azure Monitor Autoscale - <strong>Solution</strong>: Switch to event-driven plans (Consumption, Flex, Premium)</p>
+<p><strong>Issue: Inconsistent Response Times</strong></p>
+<ul>
+<li><strong>Cause</strong>: Cold starts on Consumption plan</li>
+<li><strong>Solution</strong>: Upgrade to Premium or use always-ready instances</li>
+</ul>
+<p><strong>Issue: 429 Throttling Errors</strong></p>
+<ul>
+<li><strong>Cause</strong>: HTTP concurrent request limits exceeded</li>
+<li><strong>Solution</strong>: Increase limits in <code>host.json</code> or scale to more instances</li>
+</ul>
+<p><strong>Issue: Slow Queue Processing</strong></p>
+<ul>
+<li><strong>Cause</strong>: Low polling frequency or small batch sizes</li>
+<li><strong>Solution</strong>: Optimize <code>host.json</code> queue settings (<code>batchSize</code>, <code>maxPollingInterval</code>)</li>
+</ul>
+<p><strong>Issue: Partition Bottleneck</strong></p>
+<ul>
+<li><strong>Cause</strong>: Event Hubs with too few partitions</li>
+<li><strong>Solution</strong>: Increase partition count (requires new Event Hub)</li>
+</ul>
+<p><strong>Issue: SNAT Port Exhaustion</strong></p>
+<ul>
+<li><strong>Cause</strong>: Too many outbound connections</li>
+<li><strong>Solution</strong>: Implement connection pooling, use VNet integration with NAT Gateway</li>
+</ul>
+<p><strong>Issue: Slow Scale-Out</strong></p>
+<ul>
+<li><strong>Cause</strong>: Dedicated plan using Azure Monitor Autoscale</li>
+<li><strong>Solution</strong>: Switch to event-driven plans (Consumption, Flex, Premium)</li>
+</ul>
 <hr>
 </section>
 <section id="summary-table-latency-scalability-by-plan" class="level3">

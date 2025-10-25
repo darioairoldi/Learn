@@ -1886,7 +1886,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Latest version: 9.3 (as of session date)</li>
 <li>Distribution: NuGet packages (no longer workload-based)</li>
 </ul>
-<p><strong>Update Process:</strong> 1. <strong>Template Updates:</strong> <code>dotnet new update</code> 2. <strong>Package Updates:</strong> Standard NuGet update procedures 3. <strong>SDK Updates:</strong> Manual project file editing required</p>
+<p><strong>Update Process:</strong></p>
+<ol type="1">
+<li><strong>Template Updates:</strong> <code>dotnet new update</code></li>
+<li><strong>Package Updates:</strong> Standard NuGet update procedures</li>
+<li><strong>SDK Updates:</strong> Manual project file editing required</li>
+</ol>
 <p><strong>Challenge Highlighted:</strong> Many developers are not updating to latest versions, missing bug fixes and new features.</p>
 </section>
 <section id="observability-and-debugging" class="level3">
@@ -2013,7 +2018,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="migration-strategy" class="level3">
 <h3 class="anchored" data-anchor-id="migration-strategy">2. Migration Strategy</h3>
-<p>For existing applications, focus on: 1. <strong>Authentication Patterns:</strong> Move from API keys to managed identities 2. <strong>Configuration Management:</strong> Externalize configuration from code 3. <strong>Service Boundaries:</strong> Identify natural service boundaries for containerization 4. <strong>Dependency Management:</strong> Catalog external dependencies (databases, message queues, etc.)</p>
+<p>For existing applications, focus on:</p>
+<ol type="1">
+<li><strong>Authentication Patterns:</strong> Move from API keys to managed identities</li>
+<li><strong>Configuration Management:</strong> Externalize configuration from code</li>
+<li><strong>Service Boundaries:</strong> Identify natural service boundaries for containerization</li>
+<li><strong>Dependency Management:</strong> Catalog external dependencies (databases, message queues, etc.)</li>
+</ol>
 </section>
 <section id="multi-language-integration" class="level3">
 <h3 class="anchored" data-anchor-id="multi-language-integration">3. Multi-Language Integration</h3>

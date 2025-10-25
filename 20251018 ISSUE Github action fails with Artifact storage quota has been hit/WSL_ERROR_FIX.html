@@ -1752,7 +1752,11 @@ Process completed with exit code 1.</code></pre>
 </section>
 <section id="why-this-happened" class="level2">
 <h2 class="anchored" data-anchor-id="why-this-happened">🔍 Why This Happened</h2>
-<p>The <code>actions/upload-pages-artifact@v3</code> action uses <code>tar</code> to create archives, which requires either: - A Linux environment (bash, tar utilities) - Windows Subsystem for Linux (WSL)</p>
+<p>The <code>actions/upload-pages-artifact@v3</code> action uses <code>tar</code> to create archives, which requires either:</p>
+<ul>
+<li>A Linux environment (bash, tar utilities)</li>
+<li>Windows Subsystem for Linux (WSL)</li>
+</ul>
 <p>Your self-hosted Windows runner doesn’t have WSL installed, so the action fails.</p>
 </section>
 <section id="solution-hybrid-runner-approach" class="level2">

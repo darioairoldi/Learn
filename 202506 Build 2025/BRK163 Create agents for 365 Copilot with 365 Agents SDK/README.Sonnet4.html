@@ -1911,7 +1911,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sdk-architecture-and-flexibility" class="level3">
 <h3 class="anchored" data-anchor-id="sdk-architecture-and-flexibility">SDK Architecture and Flexibility</h3>
 <p>The Microsoft 365 Agents SDK provides comprehensive flexibility across all layers of agent development:</p>
-<p><strong>AI Model Agnostic:</strong> - Support for any AI model or AI services (OpenAI, Azure AI, custom models) - No lock-in to Microsoft-specific AI technologies - Integration with existing AI service approvals and governance</p>
+<p><strong>AI Model Agnostic:</strong></p>
+<ul>
+<li>Support for any AI model or AI services (OpenAI, Azure AI, custom models)</li>
+<li>No lock-in to Microsoft-specific AI technologies</li>
+<li>Integration with existing AI service approvals and governance</li>
+</ul>
 <p><strong>Orchestrator Choice:</strong></p>
 <ul>
 <li>Semantic Kernel integration for .NET developers</li>
@@ -1955,9 +1960,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="from-file-new-to-deployment" class="level3">
 <h3 class="anchored" data-anchor-id="from-file-new-to-deployment">From File New to Deployment</h3>
 <p>The Microsoft 365 Agents Toolkit provides comprehensive development support from project creation through production deployment:</p>
-<p><strong>Built-in Templates:</strong> - Empty Agent template for complete customization freedom - Weather Agent template with pre-configured Semantic Kernel or LangChain integration - Azure AI Foundry ready-to-use cloud AI service connections - OpenAI agent support with direct service integration</p>
-<p><strong>Agent Playground:</strong> - Embedded local testing environment within the toolkit - Real-time debugging capabilities for agent behavior - Immediate feedback on AI orchestrator and knowledge integration - Set debug target and test locally before channel deployment</p>
-<p><strong>Multi-Channel Publishing:</strong> - Automated deployment to Teams and Microsoft 365 Copilot - Deep integration testing capabilities - Production deployment process automation - End-to-end deployment pipeline management</p>
+<p><strong>Built-in Templates:</strong></p>
+<ul>
+<li>Empty Agent template for complete customization freedom</li>
+<li>Weather Agent template with pre-configured Semantic Kernel or LangChain integration</li>
+<li>Azure AI Foundry ready-to-use cloud AI service connections</li>
+<li>OpenAI agent support with direct service integration</li>
+</ul>
+<p><strong>Agent Playground:</strong></p>
+<ul>
+<li>Embedded local testing environment within the toolkit</li>
+<li>Real-time debugging capabilities for agent behavior</li>
+<li>Immediate feedback on AI orchestrator and knowledge integration</li>
+<li>Set debug target and test locally before channel deployment</li>
+</ul>
+<p><strong>Multi-Channel Publishing:</strong></p>
+<ul>
+<li>Automated deployment to Teams and Microsoft 365 Copilot</li>
+<li>Deep integration testing capabilities</li>
+<li>Production deployment process automation</li>
+<li>End-to-end deployment pipeline management</li>
+</ul>
 </section>
 <section id="development-workflow-integration" class="level3">
 <h3 class="anchored" data-anchor-id="development-workflow-integration">Development Workflow Integration</h3>
@@ -1989,7 +2012,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Matthew Barbour demonstrated the transformation of a basic Semantic Kernel console application into a full multi-channel agent in approximately 15 minutes of development time:</p>
 <p><strong>Key Quote:</strong> <em>“That particular demo took me about 15 minutes to create… Starting with the Semantic Kernel and bringing some things over.”</em></p>
 <p><strong>Starting Point:</strong> A basic Semantic Kernel console application with OpenWeather API integration that operated in a command-line interface with simple text responses.</p>
-<p><strong>Transformation Process:</strong> 1. <strong>Base Semantic Kernel app</strong> - Console application with OpenWeather API integration 2. <strong>Agent SDK integration</strong> - Add cloud adapter, memory storage, agent applications 3. <strong>Multi-channel deployment</strong> - Same agent running in Playground, Teams, M365 Copilot, Web Chat 4. <strong>Adaptive card generation</strong> - AI-generated rich responses across all channels</p>
+<p><strong>Transformation Process:</strong></p>
+<ol type="1">
+<li><strong>Base Semantic Kernel app</strong> - Console application with OpenWeather API integration</li>
+<li><strong>Agent SDK integration</strong> - Add cloud adapter, memory storage, agent applications</li>
+<li><strong>Multi-channel deployment</strong> - Same agent running in Playground, Teams, M365 Copilot, Web Chat</li>
+<li><strong>Adaptive card generation</strong> - AI-generated rich responses across all channels</li>
+</ol>
 <p><strong>Technical Innovation:</strong> The demonstration showed OpenAI generating adaptive cards without explicit programming—the agent was simply instructed to “create an adaptive card” and the AI model handled the formatting automatically.</p>
 </section>
 <section id="technical-implementation-deep-dive" class="level3">
@@ -2232,7 +2261,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="global-tax-intelligence-platform" class="level3">
 <h3 class="anchored" data-anchor-id="global-tax-intelligence-platform">Global Tax Intelligence Platform</h3>
 <p>KPMG presented their Digital Gateway platform, demonstrating enterprise-scale implementation of the Microsoft 365 Agents SDK:</p>
-<p><strong>Business Context:</strong> - 125 years in business serving global enterprise clients - 250,000+ employees worldwide - Focus on tax planning, preparation, and compliance for Fortune 500 companies - Core mission: translate complex tax codes into reliable, maintainable applications</p>
+<p><strong>Business Context:</strong></p>
+<ul>
+<li>125 years in business serving global enterprise clients</li>
+<li>250,000+ employees worldwide</li>
+<li>Focus on tax planning, preparation, and compliance for Fortune 500 companies</li>
+<li>Core mission: translate complex tax codes into reliable, maintainable applications</li>
+</ul>
 <p><strong>Digital Gateway Architecture:</strong></p>
 <pre><code>KPMG Digital Gateway Platform:
 ├── Workflows: Tax process automation and management
@@ -2252,7 +2287,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Document attachment capabilities for tax professionals</li>
 </ul>
 <p><strong>Technical Innovation:</strong> Tax professionals can attach documents directly from their laptops or connect to existing Digital Gateway data sources, creating personalized knowledge bases for specific client scenarios.</p>
-<p><strong>Example Scenarios Demonstrated:</strong> 1. <strong>US-China Operations:</strong> “We have manufacturing operations in China but R&amp;D in US. What are the different tax incentives available to us?” 2. <strong>Mexico Manufacturing:</strong> “What’s the different tax funds available in Mexico if you are doing automobile manufacturing?”</p>
+<p><strong>Example Scenarios Demonstrated:</strong></p>
+<ol type="1">
+<li><strong>US-China Operations:</strong> “We have manufacturing operations in China but R&amp;D in US. What are the different tax incentives available to us?”</li>
+<li><strong>Mexico Manufacturing:</strong> “What’s the different tax funds available in Mexico if you are doing automobile manufacturing?”</li>
+</ol>
 <p>These scenarios demonstrate the system’s ability to handle complex, multi-jurisdictional tax questions that require deep domain expertise and current regulatory knowledge.</p>
 </section>
 <section id="cross-tenant-authentication-excellence" class="level3">

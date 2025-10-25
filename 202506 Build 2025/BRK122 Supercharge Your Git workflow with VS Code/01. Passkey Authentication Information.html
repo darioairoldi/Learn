@@ -1753,8 +1753,20 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-authentication-flow-comparison" class="level4">
 <h4 class="anchored" data-anchor-id="the-authentication-flow-comparison">The Authentication Flow Comparison</h4>
-<p><strong>JWT Bearer Token Flow:</strong> 1. Login with username/password → Server generates JWT 2. Store JWT in browser/app 3. Send JWT with every subsequent API request 4. Server validates JWT on each request</p>
-<p><strong>Passkey Flow:</strong> 1. One-time registration → Device generates key pair 2. Store private key securely on device 3. Authentication challenge → Sign with private key 4. Server validates signature → Creates normal web session (cookies)</p>
+<p><strong>JWT Bearer Token Flow:</strong></p>
+<ol type="1">
+<li>Login with username/password → Server generates JWT</li>
+<li>Store JWT in browser/app</li>
+<li>Send JWT with every subsequent API request</li>
+<li>Server validates JWT on each request</li>
+</ol>
+<p><strong>Passkey Flow:</strong></p>
+<ol type="1">
+<li>One-time registration → Device generates key pair</li>
+<li>Store private key securely on device</li>
+<li>Authentication challenge → Sign with private key</li>
+<li>Server validates signature → Creates normal web session (cookies)</li>
+</ol>
 </section>
 <section id="passkeys-jwt-tokens-working-together" class="level4">
 <h4 class="anchored" data-anchor-id="passkeys-jwt-tokens-working-together">Passkeys + JWT Tokens: Working Together</h4>

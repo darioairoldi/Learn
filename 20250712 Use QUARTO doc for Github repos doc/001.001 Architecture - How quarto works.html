@@ -1973,7 +1973,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Configuration Processing:</strong> 1. <strong>Schema Validation</strong>: Ensures all keys are valid 2. <strong>Profile Resolution</strong>: Applies development/production profiles 3. <strong>Template Selection</strong>: Chooses appropriate HTML templates 4. <strong>Resource Discovery</strong>: Locates CSS, JavaScript, and image files</p>
+<p><strong>Configuration Processing:</strong></p>
+<ol type="1">
+<li><strong>Schema Validation</strong>: Ensures all keys are valid</li>
+<li><strong>Profile Resolution</strong>: Applies development/production profiles</li>
+<li><strong>Template Selection</strong>: Chooses appropriate HTML templates</li>
+<li><strong>Resource Discovery</strong>: Locates CSS, JavaScript, and image files</li>
+</ol>
 </section>
 <section id="resource-resolution" class="level3">
 <h3 class="anchored" data-anchor-id="resource-resolution">Resource Resolution</h3>
@@ -2112,7 +2118,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Render specific directory</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="st">"202506 Build 2025/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Individual Rendering Process:</strong> 1. <strong>Page Discovery</strong>: Find the specified file(s) 2. <strong>Context Loading</strong>: Load site configuration and navigation 3. <strong>Dependency Check</strong>: Ensure referenced resources exist 4. <strong>Content Processing</strong>: Convert Markdown to HTML 5. <strong>Template Application</strong>: Apply site layout 6. <strong>Output Generation</strong>: Create HTML file</p>
+<p><strong>Individual Rendering Process:</strong></p>
+<ol type="1">
+<li><strong>Page Discovery</strong>: Find the specified file(s)</li>
+<li><strong>Context Loading</strong>: Load site configuration and navigation</li>
+<li><strong>Dependency Check</strong>: Ensure referenced resources exist</li>
+<li><strong>Content Processing</strong>: Convert Markdown to HTML</li>
+<li><strong>Template Application</strong>: Apply site layout</li>
+<li><strong>Output Generation</strong>: Create HTML file</li>
+</ol>
 </section>
 <section id="incremental-updates" class="level3">
 <h3 class="anchored" data-anchor-id="incremental-updates">Incremental Updates</h3>
@@ -2143,7 +2157,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pre-render</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> powershell -ExecutionPolicy Bypass -File scripts/generate-navigation.ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Pre-render Sequence:</strong> 1. <strong>Hook Execution</strong>: Run custom scripts before rendering 2. <strong>Data Generation</strong>: Create JSON files, process external data 3. <strong>Resource Preparation</strong>: Download dependencies, optimize assets 4. <strong>Configuration Enhancement</strong>: Modify configuration based on environment</p>
+<p><strong>Pre-render Sequence:</strong></p>
+<ol type="1">
+<li><strong>Hook Execution</strong>: Run custom scripts before rendering</li>
+<li><strong>Data Generation</strong>: Create JSON files, process external data</li>
+<li><strong>Resource Preparation</strong>: Download dependencies, optimize assets</li>
+<li><strong>Configuration Enhancement</strong>: Modify configuration based on environment</li>
+</ol>
 </section>
 <section id="content-processing" class="level3">
 <h3 class="anchored" data-anchor-id="content-processing">Content Processing</h3>
@@ -2161,7 +2181,14 @@ Template Application ? Final HTML</code></pre>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># Content goes here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Processing Steps:</strong> 1. <strong>Front Matter</strong>: Extracts YAML metadata 2. <strong>Markdown Parsing</strong>: Converts to Pandoc AST 3. <strong>Code Highlighting</strong>: Processes code blocks 4. <strong>Cross-References</strong>: Resolves internal links 5. <strong>Template Application</strong>: Applies site layout</p>
+<p><strong>Processing Steps:</strong></p>
+<ol type="1">
+<li><strong>Front Matter</strong>: Extracts YAML metadata</li>
+<li><strong>Markdown Parsing</strong>: Converts to Pandoc AST</li>
+<li><strong>Code Highlighting</strong>: Processes code blocks</li>
+<li><strong>Cross-References</strong>: Resolves internal links</li>
+<li><strong>Template Application</strong>: Applies site layout</li>
+</ol>
 </section>
 <section id="asset-pipeline" class="level3">
 <h3 class="anchored" data-anchor-id="asset-pipeline">Asset Pipeline</h3>

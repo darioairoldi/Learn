@@ -1961,7 +1961,15 @@ Authorization: Bearer {{token}}</code></pre>
 <h4 class="anchored" data-anchor-id="how-variables-are-defined">How Variables Are Defined</h4>
 <p>Variables use a simple declaration syntax:</p>
 <pre class="http"><code>@variableName = value</code></pre>
-<p>Variables can contain: - URLs and endpoints - Authentication tokens - API keys - Request parameters - Port numbers - Any other string values</p>
+<p>Variables can contain:</p>
+<ul>
+<li>URLs and endpoints</li>
+<li>Authentication tokens</li>
+<li>API keys</li>
+<li>Request parameters</li>
+<li>Port numbers</li>
+<li>Any other string values</li>
+</ul>
 </section>
 <section id="where-variables-can-be-defined" class="level4">
 <h4 class="anchored" data-anchor-id="where-variables-can-be-defined">Where Variables Can Be Defined</h4>
@@ -2059,8 +2067,18 @@ X-API-Key: {{apiKey}}</code></pre>
 <li>Variables from both <code>http-client.env.json</code> and <code>http-client.private.env.json</code> are merged</li>
 <li>Execute your request with the selected environment’s variables</li>
 </ol>
-<p><strong>File Location:</strong> - Place <code>http-client.env.json</code> and <code>http-client.private.env.json</code> in the same directory as your <code>.http</code> files - Or in the solution root directory</p>
-<p><strong>Key Benefits:</strong> - ✅ Separate public config from secrets - ✅ Easy environment switching via UI - ✅ Variables merge from both files - ✅ Private file can be gitignored</p>
+<p><strong>File Location:</strong></p>
+<ul>
+<li>Place <code>http-client.env.json</code> and <code>http-client.private.env.json</code> in the same directory as your <code>.http</code> files</li>
+<li>Or in the solution root directory</li>
+</ul>
+<p><strong>Key Benefits:</strong></p>
+<ul>
+<li>✅ Separate public config from secrets</li>
+<li>✅ Easy environment switching via UI</li>
+<li>✅ Variables merge from both files</li>
+<li>✅ Private file can be gitignored</li>
+</ul>
 <p><strong>Important: Add to .gitignore:</strong></p>
 <pre class="gitignore"><code># Exclude private environment variables
 http-client.private.env.json</code></pre>
@@ -2079,7 +2097,14 @@ http-client.private.env.json</code></pre>
 <h4 class="anchored" data-anchor-id="system-and-predefined-variables">System and Predefined Variables</h4>
 <p><strong>Visual Studio HTTP Files:</strong></p>
 <p>Visual Studio currently has <strong>limited support</strong> for system variables. Unlike VSCode’s REST Client extension, Visual Studio does not provide built-in system variables like timestamps or random values.</p>
-<p>Available approaches: - ✅ User-defined variables (manual) - ❌ No automatic timestamp variables - ❌ No random number generators - ❌ No GUID generators - ❌ No environment variable expansion</p>
+<p>Available approaches:</p>
+<ul>
+<li>✅ User-defined variables (manual)</li>
+<li>❌ No automatic timestamp variables</li>
+<li>❌ No random number generators</li>
+<li>❌ No GUID generators</li>
+<li>❌ No environment variable expansion</li>
+</ul>
 <p><strong>Workaround - Manual Dynamic Values:</strong></p>
 <p>You must manually update dynamic values:</p>
 <pre class="http"><code>@timestamp = 2025-10-20T10:30:00Z
@@ -2096,7 +2121,17 @@ X-Timestamp: {{timestamp}}
   "timestamp": "{{timestamp}}"
 }</code></pre>
 <p><strong>VSCode REST Client System Variables (Not Available in Visual Studio):</strong></p>
-<p>For comparison, VSCode’s REST Client offers: - <code>{$guid}</code> - Generate a GUID - <code>{$randomInt min max}</code> - Random integer - <code>{$timestamp}</code> - Current Unix timestamp - <code>{$timestamp -1 d}</code> - Relative timestamps - <code>{$datetime iso8601}</code> - ISO 8601 datetime - <code>{$localDatetime iso8601}</code> - Local datetime - <code>{$processEnv variableName}</code> - OS environment variables - <code>{$dotenv variableName}</code> - Variables from .env file</p>
+<p>For comparison, VSCode’s REST Client offers:</p>
+<ul>
+<li><code>{$guid}</code> - Generate a GUID</li>
+<li><code>{$randomInt min max}</code> - Random integer</li>
+<li><code>{$timestamp}</code> - Current Unix timestamp</li>
+<li><code>{$timestamp -1 d}</code> - Relative timestamps</li>
+<li><code>{$datetime iso8601}</code> - ISO 8601 datetime</li>
+<li><code>{$localDatetime iso8601}</code> - Local datetime</li>
+<li><code>{$processEnv variableName}</code> - OS environment variables</li>
+<li><code>{$dotenv variableName}</code> - Variables from .env file</li>
+</ul>
 </section>
 <section id="best-practices-for-variables" class="level4">
 <h4 class="anchored" data-anchor-id="best-practices-for-variables">Best Practices for Variables</h4>
@@ -2189,7 +2224,13 @@ Content-Type: application/json
 ### Step 3: Use the token to access protected endpoint
 GET {{baseUrl}}/api/users/{{userId}}/profile
 Authorization: Bearer {{authToken}}</code></pre>
-<p><strong>Workflow Steps:</strong> 1. Execute the first request (login) 2. Manually copy the token from the response 3. Paste it into the variable declaration 4. Execute the subsequent requests</p>
+<p><strong>Workflow Steps:</strong></p>
+<ol type="1">
+<li>Execute the first request (login)</li>
+<li>Manually copy the token from the response</li>
+<li>Paste it into the variable declaration</li>
+<li>Execute the subsequent requests</li>
+</ol>
 </section>
 <section id="request-chaining-in-vscode-for-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="request-chaining-in-vscode-for-comparison">Request Chaining in VSCode (For Comparison)</h3>
@@ -2405,7 +2446,13 @@ Authorization: Bearer {{authToken}}</code></pre>
 </section>
 <section id="viewing-responses" class="level3">
 <h3 class="anchored" data-anchor-id="viewing-responses">Viewing Responses</h3>
-<p>Visual Studio displays responses in a separate pane showing: - Status code and reason phrase - Response headers - Response body (with syntax highlighting for JSON/XML) - Response time</p>
+<p>Visual Studio displays responses in a separate pane showing:</p>
+<ul>
+<li>Status code and reason phrase</li>
+<li>Response headers</li>
+<li>Response body (with syntax highlighting for JSON/XML)</li>
+<li>Response time</li>
+</ul>
 </section>
 </section>
 <section id="testing-workflows" class="level2">
@@ -2468,7 +2515,13 @@ DELETE {{baseUrl}}/products/{{productId}}</code></pre>
 <h2 class="anchored" data-anchor-id="best-practices">✅ Best Practices</h2>
 <section id="organize-your-http-files" class="level3">
 <h3 class="anchored" data-anchor-id="organize-your-http-files">1. Organize Your HTTP Files</h3>
-<p>Structure your HTTP files by feature or API area: - <code>auth.http</code> - Authentication endpoints - <code>users.http</code> - User management endpoints - <code>products.http</code> - Product CRUD operations - <code>orders.http</code> - Order processing endpoints</p>
+<p>Structure your HTTP files by feature or API area:</p>
+<ul>
+<li><code>auth.http</code> - Authentication endpoints</li>
+<li><code>users.http</code> - User management endpoints</li>
+<li><code>products.http</code> - Product CRUD operations</li>
+<li><code>orders.http</code> - Order processing endpoints</li>
+</ul>
 </section>
 <section id="use-meaningful-names-and-comments" class="level3">
 <h3 class="anchored" data-anchor-id="use-meaningful-names-and-comments">2. Use Meaningful Names and Comments</h3>
@@ -2487,7 +2540,12 @@ Content-Type: application/json
 </section>
 <section id="version-control-your-http-files" class="level3">
 <h3 class="anchored" data-anchor-id="version-control-your-http-files">3. Version Control Your HTTP Files</h3>
-<p>Include HTTP files in your repository: - Commit them with your code - Use <code>.gitignore</code> to exclude sensitive data files - Consider using environment variables for secrets</p>
+<p>Include HTTP files in your repository:</p>
+<ul>
+<li>Commit them with your code</li>
+<li>Use <code>.gitignore</code> to exclude sensitive data files</li>
+<li>Consider using environment variables for secrets</li>
+</ul>
 </section>
 <section id="separate-sensitive-data" class="level3">
 <h3 class="anchored" data-anchor-id="separate-sensitive-data">4. Separate Sensitive Data</h3>
@@ -2538,8 +2596,19 @@ Content-Type: application/json
 <p>While both Visual Studio and Visual Studio Code support HTTP files, there are important differences in how they handle these files:</p>
 <section id="ide-integration" class="level3">
 <h3 class="anchored" data-anchor-id="ide-integration">IDE Integration</h3>
-<p><strong>Visual Studio:</strong> - Native built-in support starting with Visual Studio 2022 (v17.0+) - No additional extensions required - Integrated directly into the IDE’s request execution framework - Part of the Web API development toolset</p>
-<p><strong>VSCode:</strong> - Requires the <strong>REST Client</strong> extension by Huachao Mao - More lightweight and modular approach - Extension must be explicitly installed from the marketplace</p>
+<p><strong>Visual Studio:</strong></p>
+<ul>
+<li>Native built-in support starting with Visual Studio 2022 (v17.0+)</li>
+<li>No additional extensions required</li>
+<li>Integrated directly into the IDE’s request execution framework</li>
+<li>Part of the Web API development toolset</li>
+</ul>
+<p><strong>VSCode:</strong></p>
+<ul>
+<li>Requires the <strong>REST Client</strong> extension by Huachao Mao</li>
+<li>More lightweight and modular approach</li>
+<li>Extension must be explicitly installed from the marketplace</li>
+</ul>
 </section>
 <section id="feature-differences" class="level3">
 <h3 class="anchored" data-anchor-id="feature-differences">Feature Differences</h3>
@@ -2791,7 +2860,23 @@ X-Timestamp: {{$timestamp}}
   "timestamp": "{{$datetime iso8601}}",
   "scheduledFor": "{{$timestamp 1 d}}"
 }</code></pre>
-<p><strong>Available VSCode System Variables:</strong> - <code>{$guid}</code> - RFC 4122 v4 GUID - <code>{$randomInt min max}</code> - Random integer between min and max - <code>{$timestamp [offset unit]}</code> - Unix timestamp in seconds - Examples: <code>{$timestamp}</code>, <code>{$timestamp -1 d}</code>, <code>{$timestamp 2 h}</code> - <code>{$datetime format [offset unit]}</code> - Formatted datetime - Formats: <code>iso8601</code>, <code>rfc1123</code>, custom - Examples: <code>{$datetime iso8601}</code>, <code>{$datetime 'YYYY-MM-DD' -1 d}</code> - <code>{$localDatetime format [offset unit]}</code> - Local time formatted - <code>{$processEnv variableName}</code> - OS environment variable - <code>{$dotenv variableName}</code> - Variable from .env file</p>
+<p><strong>Available VSCode System Variables:</strong></p>
+<ul>
+<li><code>{$guid}</code> - RFC 4122 v4 GUID</li>
+<li><code>{$randomInt min max}</code> - Random integer between min and max</li>
+<li><code>{$timestamp [offset unit]}</code> - Unix timestamp in seconds
+<ul>
+<li>Examples: <code>{$timestamp}</code>, <code>{$timestamp -1 d}</code>, <code>{$timestamp 2 h}</code></li>
+</ul></li>
+<li><code>{$datetime format [offset unit]}</code> - Formatted datetime
+<ul>
+<li>Formats: <code>iso8601</code>, <code>rfc1123</code>, custom</li>
+<li>Examples: <code>{$datetime iso8601}</code>, <code>{$datetime 'YYYY-MM-DD' -1 d}</code></li>
+</ul></li>
+<li><code>{$localDatetime format [offset unit]}</code> - Local time formatted</li>
+<li><code>{$processEnv variableName}</code> - OS environment variable</li>
+<li><code>{$dotenv variableName}</code> - Variable from .env file</li>
+</ul>
 </section>
 <section id="response-variable-capture-request-chaining" class="level4">
 <h4 class="anchored" data-anchor-id="response-variable-capture-request-chaining">Response Variable Capture (Request Chaining)</h4>
@@ -3007,28 +3092,74 @@ X-API-Key: {{apiKey}}</code></pre>
 GET {{baseUrl}}/{{apiVersion}}/health
 X-API-Key: {{apiKey}}
 Content-Type: {{contentType}}</code></pre>
-<p>Switch environments via: - Status bar: Click “No Environment” → Select environment - Command Palette: “Rest Client: Switch Environment”</p>
+<p>Switch environments via:</p>
+<ul>
+<li>Status bar: Click “No Environment” → Select environment</li>
+<li>Command Palette: “Rest Client: Switch Environment”</li>
+</ul>
 </section>
 <section id="variable-scope-and-precedence" class="level4">
 <h4 class="anchored" data-anchor-id="variable-scope-and-precedence">Variable Scope and Precedence</h4>
-<p><strong>Visual Studio:</strong> - Two scopes with precedence: 1. Inline variables in .http file (highest priority) 2. Environment variables from http-client.env.json + http-client.private.env.json (merged) - Variables from selected environment override inline if both are defined - Within same scope, last declaration wins</p>
+<p><strong>Visual Studio:</strong></p>
+<ul>
+<li>Two scopes with precedence:
+<ol type="1">
+<li>Inline variables in .http file (highest priority)</li>
+<li>Environment variables from http-client.env.json + http-client.private.env.json (merged)</li>
+</ol></li>
+<li>Variables from selected environment override inline if both are defined</li>
+<li>Within same scope, last declaration wins</li>
+</ul>
 <p><strong>Example precedence:</strong></p>
 <pre class="http"><code># Inline variable (lower priority when environment is selected)
 @baseUrl = https://default.example.com
 
 # If environment "dev" is selected, baseUrl from http-client.env.json overrides
 GET {{baseUrl}}/api/users</code></pre>
-<p><strong>VSCode:</strong> - Multiple scopes with precedence: 1. Request-level variables (highest priority) 2. File-level variables 3. Environment-specific variables (settings.json) 4. Shared variables (<code>$shared</code> in settings.json) 5. System variables (lowest priority)</p>
+<p><strong>VSCode:</strong></p>
+<ul>
+<li>Multiple scopes with precedence:
+<ol type="1">
+<li>Request-level variables (highest priority)</li>
+<li>File-level variables</li>
+<li>Environment-specific variables (settings.json)</li>
+<li>Shared variables (<code>$shared</code> in settings.json)</li>
+<li>System variables (lowest priority)</li>
+</ol></li>
+</ul>
 </section>
 <section id="practical-comparison-summary" class="level4">
 <h4 class="anchored" data-anchor-id="practical-comparison-summary">Practical Comparison Summary</h4>
-<p><strong>Choose Visual Studio when:</strong> - ✅ Working within Visual Studio IDE for .NET projects - ✅ Need environment management via JSON files (http-client.env.json) - ✅ Want to separate public and private variables (two-file approach) - ✅ Basic to intermediate variable needs (URLs, tokens, IDs) - ⚠️ Can accept manual request chaining (copy-paste workflow) - ⚠️ Don’t need dynamic values (timestamps, GUIDs) - ✅ Want native IDE integration without extensions</p>
-<p><strong>Choose VSCode when:</strong> - ✅ Need automated request chaining (response variable extraction) - ✅ Require dynamic values (timestamps, random data, GUIDs) - ✅ Want to use OS environment variables or .env files - ✅ Need advanced variable extraction from responses (JSONPath) - ✅ Prefer centralized environment configuration in workspace settings - ✅ Working across different technology stacks - ✅ Need shared variables across all environments (<code>$shared</code>)</p>
+<p><strong>Choose Visual Studio when:</strong></p>
+<ul>
+<li>✅ Working within Visual Studio IDE for .NET projects</li>
+<li>✅ Need environment management via JSON files (http-client.env.json)</li>
+<li>✅ Want to separate public and private variables (two-file approach)</li>
+<li>✅ Basic to intermediate variable needs (URLs, tokens, IDs)</li>
+<li>⚠️ Can accept manual request chaining (copy-paste workflow)</li>
+<li>⚠️ Don’t need dynamic values (timestamps, GUIDs)</li>
+<li>✅ Want native IDE integration without extensions</li>
+</ul>
+<p><strong>Choose VSCode when:</strong></p>
+<ul>
+<li>✅ Need automated request chaining (response variable extraction)</li>
+<li>✅ Require dynamic values (timestamps, random data, GUIDs)</li>
+<li>✅ Want to use OS environment variables or .env files</li>
+<li>✅ Need advanced variable extraction from responses (JSONPath)</li>
+<li>✅ Prefer centralized environment configuration in workspace settings</li>
+<li>✅ Working across different technology stacks</li>
+<li>✅ Need shared variables across all environments (<code>$shared</code>)</li>
+</ul>
 </section>
 </section>
 <section id="settings-and-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="settings-and-configuration">Settings and Configuration</h3>
-<p><strong>Visual Studio:</strong> - Settings managed through Visual Studio Options - Limited configuration options - No per-workspace HTTP client settings</p>
+<p><strong>Visual Studio:</strong></p>
+<ul>
+<li>Settings managed through Visual Studio Options</li>
+<li>Limited configuration options</li>
+<li>No per-workspace HTTP client settings</li>
+</ul>
 <p><strong>VSCode:</strong></p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">.vscode/settings.json</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
@@ -3049,22 +3180,69 @@ GET {{baseUrl}}/api/users</code></pre>
 </section>
 <section id="request-execution" class="level3">
 <h3 class="anchored" data-anchor-id="request-execution">Request Execution</h3>
-<p><strong>Visual Studio:</strong> - Click “Send Request” link above request - Keyboard shortcut: <code>Ctrl+Alt+R</code> - Response opens in output window</p>
-<p><strong>VSCode:</strong> - Click “Send Request” link above request - Keyboard shortcut: <code>Ctrl+Alt+R</code> (Windows/Linux) or <code>Cmd+Alt+R</code> (Mac) - Response opens in new editor tab - Can view multiple responses side-by-side</p>
+<p><strong>Visual Studio:</strong></p>
+<ul>
+<li>Click “Send Request” link above request</li>
+<li>Keyboard shortcut: <code>Ctrl+Alt+R</code></li>
+<li>Response opens in output window</li>
+</ul>
+<p><strong>VSCode:</strong></p>
+<ul>
+<li>Click “Send Request” link above request</li>
+<li>Keyboard shortcut: <code>Ctrl+Alt+R</code> (Windows/Linux) or <code>Cmd+Alt+R</code> (Mac)</li>
+<li>Response opens in new editor tab</li>
+<li>Can view multiple responses side-by-side</li>
+</ul>
 </section>
 <section id="response-viewing" class="level3">
 <h3 class="anchored" data-anchor-id="response-viewing">Response Viewing</h3>
-<p><strong>Visual Studio:</strong> - Response in bottom output pane - Basic syntax highlighting - Limited response navigation</p>
-<p><strong>VSCode:</strong> - Full editor tab for responses - Rich syntax highlighting - Response can be saved as file - Response links are clickable - Better formatting for large responses - Response time and size displayed</p>
+<p><strong>Visual Studio:</strong></p>
+<ul>
+<li>Response in bottom output pane</li>
+<li>Basic syntax highlighting</li>
+<li>Limited response navigation</li>
+</ul>
+<p><strong>VSCode:</strong></p>
+<ul>
+<li>Full editor tab for responses</li>
+<li>Rich syntax highlighting</li>
+<li>Response can be saved as file</li>
+<li>Response links are clickable</li>
+<li>Better formatting for large responses</li>
+<li>Response time and size displayed</li>
+</ul>
 </section>
 <section id="when-to-use-which" class="level3">
 <h3 class="anchored" data-anchor-id="when-to-use-which">When to Use Which</h3>
-<p><strong>Choose Visual Studio when:</strong> - Already working in Visual Studio 2022+ - Testing ASP.NET Core APIs in the same solution - Need minimal setup without extensions - Working primarily within .NET ecosystem - Prefer native IDE integration</p>
-<p><strong>Choose VSCode when:</strong> - Need advanced features like request chaining - Working with multiple environments - Require response history tracking - Need automated variable extraction from responses - Working across different technology stacks - Want lightweight, extension-based approach - Need pre-request scripting capabilities</p>
+<p><strong>Choose Visual Studio when:</strong></p>
+<ul>
+<li>Already working in Visual Studio 2022+</li>
+<li>Testing ASP.NET Core APIs in the same solution</li>
+<li>Need minimal setup without extensions</li>
+<li>Working primarily within .NET ecosystem</li>
+<li>Prefer native IDE integration</li>
+</ul>
+<p><strong>Choose VSCode when:</strong></p>
+<ul>
+<li>Need advanced features like request chaining</li>
+<li>Working with multiple environments</li>
+<li>Require response history tracking</li>
+<li>Need automated variable extraction from responses</li>
+<li>Working across different technology stacks</li>
+<li>Want lightweight, extension-based approach</li>
+<li>Need pre-request scripting capabilities</li>
+</ul>
 </section>
 <section id="migration-considerations" class="level3">
 <h3 class="anchored" data-anchor-id="migration-considerations">Migration Considerations</h3>
-<p>HTTP files are largely compatible between both IDEs for basic scenarios: - ✅ Basic request syntax is identical - ✅ Variable declarations work the same - ✅ Request separators (<code>###</code>) are compatible - ⚠️ Advanced VSCode features won’t work in Visual Studio - ⚠️ Environment-specific settings need manual adaptation</p>
+<p>HTTP files are largely compatible between both IDEs for basic scenarios:</p>
+<ul>
+<li>✅ Basic request syntax is identical</li>
+<li>✅ Variable declarations work the same</li>
+<li>✅ Request separators (<code>###</code>) are compatible</li>
+<li>⚠️ Advanced VSCode features won’t work in Visual Studio</li>
+<li>⚠️ Environment-specific settings need manual adaptation</li>
+</ul>
 </section>
 </section>
 <section id="integration-with-cicd" class="level2">
@@ -3100,10 +3278,30 @@ GET {{baseUrl}}/api/users</code></pre>
 <h2 class="anchored" data-anchor-id="troubleshooting">🔧 Troubleshooting</h2>
 <section id="common-issues" class="level3">
 <h3 class="anchored" data-anchor-id="common-issues">Common Issues</h3>
-<p><strong>Issue: Request not executing</strong> - Ensure cursor is within the request block - Check for syntax errors in the request - Verify the request URL is accessible</p>
-<p><strong>Issue: Variables not resolving</strong> - Verify variable declaration syntax: <code>@varName = value</code> - Ensure variables are defined before use - Check for typos in variable names: <code>{varName}</code></p>
-<p><strong>Issue: Authentication failures</strong> - Verify token/credentials are current - Check authorization header format - Ensure token hasn’t expired</p>
-<p><strong>Issue: Response not displaying</strong> - Check Output window for errors - Verify API endpoint is accessible - Check firewall/network settings</p>
+<p><strong>Issue: Request not executing</strong></p>
+<ul>
+<li>Ensure cursor is within the request block</li>
+<li>Check for syntax errors in the request</li>
+<li>Verify the request URL is accessible</li>
+</ul>
+<p><strong>Issue: Variables not resolving</strong></p>
+<ul>
+<li>Verify variable declaration syntax: <code>@varName = value</code></li>
+<li>Ensure variables are defined before use</li>
+<li>Check for typos in variable names: <code>{varName}</code></li>
+</ul>
+<p><strong>Issue: Authentication failures</strong></p>
+<ul>
+<li>Verify token/credentials are current</li>
+<li>Check authorization header format</li>
+<li>Ensure token hasn’t expired</li>
+</ul>
+<p><strong>Issue: Response not displaying</strong></p>
+<ul>
+<li>Check Output window for errors</li>
+<li>Verify API endpoint is accessible</li>
+<li>Check firewall/network settings</li>
+</ul>
 </section>
 </section>
 <section id="conclusion" class="level2">

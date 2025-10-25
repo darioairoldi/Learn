@@ -1863,8 +1863,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This document establishes a standardized naming convention for Azure resources based on the <strong>Microsoft Cloud Adoption Framework (CAF)</strong> best practices. The naming pattern provides consistency across Azure subscriptions, environments, and regions while maintaining compliance with Azure-specific naming restrictions.</p>
-<p><strong>Purpose:</strong> - Ensure consistent resource naming across all Azure deployments - Enable easy identification of resource ownership, environment, and location - Facilitate automation, cost tracking, and resource management - Align with Microsoft recommended practices</p>
-<p><strong>Document Information:</strong> - <strong>Version</strong>: 2.0 - <strong>Date</strong>: October 19, 2025 - <strong>Based on</strong>: <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft Cloud Adoption Framework - Resource Naming</a></p>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>Ensure consistent resource naming across all Azure deployments</li>
+<li>Enable easy identification of resource ownership, environment, and location</li>
+<li>Facilitate automation, cost tracking, and resource management</li>
+<li>Align with Microsoft recommended practices</li>
+</ul>
+<p><strong>Document Information:</strong></p>
+<ul>
+<li><strong>Version</strong>: 2.0</li>
+<li><strong>Date</strong>: October 19, 2025</li>
+<li><strong>Based on</strong>: <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft Cloud Adoption Framework - Resource Naming</a></li>
+</ul>
 <hr>
 </section>
 <section id="core-naming-pattern" class="level2">
@@ -1936,7 +1947,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="why-this-pattern" class="level3">
 <h3 class="anchored" data-anchor-id="why-this-pattern">Why This Pattern?</h3>
-<p><strong>Aligned with Microsoft CAF:</strong> - Follows <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft’s recommended structure</a> - Provides clear hierarchy: business context → environment → resource → location - Facilitates multi-region deployments</p>
+<p><strong>Aligned with Microsoft CAF:</strong></p>
+<ul>
+<li>Follows <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft’s recommended structure</a></li>
+<li>Provides clear hierarchy: business context → environment → resource → location</li>
+<li>Facilitates multi-region deployments</li>
+</ul>
 <p><strong>Benefits:</strong></p>
 <ol type="1">
 <li><strong>Clear Environment Segregation</strong> - Easy to identify which environment a resource belongs to</li>
@@ -2011,7 +2027,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Custom Environments:</strong> - Format: <code>test{name}</code> or abbreviation - Keep codes short (2-6 characters) for name length compliance - Document all custom environments in this section</p>
+<p><strong>Custom Environments:</strong></p>
+<ul>
+<li>Format: <code>test{name}</code> or abbreviation</li>
+<li>Keep codes short (2-6 characters) for name length compliance</li>
+<li>Document all custom environments in this section</li>
+</ul>
 <hr>
 </section>
 <section id="region-codes" class="level2">
@@ -2994,7 +3015,12 @@ Key Vault:                samples-prod-kv-eus-01</code></pre>
 <li>AI Search services</li>
 <li>OpenAI services</li>
 </ul>
-<p><strong>Strategy</strong>: - Include region codes for geographic uniqueness - Use environment identifiers to differentiate deployments - Consider adding organization/workload-specific prefixes</p>
+<p><strong>Strategy</strong>:</p>
+<ul>
+<li>Include region codes for geographic uniqueness</li>
+<li>Use environment identifiers to differentiate deployments</li>
+<li>Consider adding organization/workload-specific prefixes</li>
+</ul>
 </section>
 <section id="character-restrictions" class="level3">
 <h3 class="anchored" data-anchor-id="character-restrictions">Character Restrictions</h3>
@@ -3046,8 +3072,19 @@ Key Vault:                samples-prod-kv-eus-01</code></pre>
 </section>
 <section id="regional-considerations" class="level3">
 <h3 class="anchored" data-anchor-id="regional-considerations">Regional Considerations</h3>
-<p><strong>When to include region:</strong> - ✅ Globally scoped resources (required for tracking) - ✅ Multi-region deployments (critical for identification) - ✅ Disaster recovery scenarios - ⚠️ Resource group-scoped resources (optional, but recommended)</p>
-<p><strong>When region can be omitted:</strong> - Resource group-scoped resources in single-region deployments - Resources that don’t move between regions - When name length is a concern</p>
+<p><strong>When to include region:</strong></p>
+<ul>
+<li>✅ Globally scoped resources (required for tracking)</li>
+<li>✅ Multi-region deployments (critical for identification)</li>
+<li>✅ Disaster recovery scenarios</li>
+<li>⚠️ Resource group-scoped resources (optional, but recommended)</li>
+</ul>
+<p><strong>When region can be omitted:</strong></p>
+<ul>
+<li>Resource group-scoped resources in single-region deployments</li>
+<li>Resources that don’t move between regions</li>
+<li>When name length is a concern</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -3174,8 +3211,18 @@ var webAppName = '${workloadName}-${environmentName}-app-${regionCode}-${instanc
 </section>
 <section id="naming-convention-enforcement" class="level3">
 <h3 class="anchored" data-anchor-id="naming-convention-enforcement">4. Naming Convention Enforcement</h3>
-<p><strong>Policy Enforcement:</strong> - Use Azure Policy to enforce naming patterns - Implement naming validation in CI/CD pipelines - Use Git pre-commit hooks for IaC validation</p>
-<p><strong>Code Review Guidelines:</strong> - Verify naming compliance during PR reviews - Check for duplicate or conflicting names - Validate tag completeness</p>
+<p><strong>Policy Enforcement:</strong></p>
+<ul>
+<li>Use Azure Policy to enforce naming patterns</li>
+<li>Implement naming validation in CI/CD pipelines</li>
+<li>Use Git pre-commit hooks for IaC validation</li>
+</ul>
+<p><strong>Code Review Guidelines:</strong></p>
+<ul>
+<li>Verify naming compliance during PR reviews</li>
+<li>Check for duplicate or conflicting names</li>
+<li>Validate tag completeness</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -3190,9 +3237,26 @@ var webAppName = '${workloadName}-${environmentName}-app-${regionCode}-${instanc
 <p><strong>Pattern:</strong> <code>{resourcetype}-{workload}-{environment}-{region}-{instance}</code></p>
 <p><strong>Example:</strong> <code>rg-samples-prod-weu-01</code></p>
 <p><strong>Description:</strong> Microsoft’s Cloud Adoption Framework suggests resource type as the first component, emphasizing what the resource is before its business context.</p>
-<p><strong>Pros:</strong> - ✅ Official Microsoft recommendation - ✅ Resources grouped by type alphabetically - ✅ Easy to identify resource type at a glance - ✅ Useful for resource type-focused operations</p>
-<p><strong>Cons:</strong> - ❌ Business context (workload/environment) not immediately visible - ❌ Harder to filter by workload across resource types - ❌ Less intuitive for application-centric teams - ❌ Alphabetical grouping splits related resources</p>
-<p><strong>When to use:</strong> - Infrastructure-focused teams - Type-based resource management - When resource type is more important than business context</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>✅ Official Microsoft recommendation</li>
+<li>✅ Resources grouped by type alphabetically</li>
+<li>✅ Easy to identify resource type at a glance</li>
+<li>✅ Useful for resource type-focused operations</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>❌ Business context (workload/environment) not immediately visible</li>
+<li>❌ Harder to filter by workload across resource types</li>
+<li>❌ Less intuitive for application-centric teams</li>
+<li>❌ Alphabetical grouping splits related resources</li>
+</ul>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Infrastructure-focused teams</li>
+<li>Type-based resource management</li>
+<li>When resource type is more important than business context</li>
+</ul>
 <p><strong>Reference:</strong> <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft CAF Naming Convention</a></p>
 <hr>
 </section>
@@ -3201,9 +3265,26 @@ var webAppName = '${workloadName}-${environmentName}-app-${regionCode}-${instanc
 <p><strong>Pattern:</strong> <code>{workload}-{resourcetype}-{environment}-{region}-{instance}</code></p>
 <p><strong>Example:</strong> <code>samples-rg-prod-weu-01</code></p>
 <p><strong>Description:</strong> Prioritizes workload identity, then resource type, then environment. This pattern emphasizes resource type before environment context.</p>
-<p><strong>Pros:</strong> - ✅ Workload-first approach - ✅ Resource types visible early in name - ✅ Good for multi-resource workloads - ✅ Simpler than full CAF pattern</p>
-<p><strong>Cons:</strong> - ❌ Environment context buried in the middle - ❌ Harder to filter by environment - ❌ Less clear environment separation - ❌ Not aligned with CAF recommendations</p>
-<p><strong>When to use:</strong> - Small organizations with few environments - Workloads with many resource types - Type-focused operations within workloads</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>✅ Workload-first approach</li>
+<li>✅ Resource types visible early in name</li>
+<li>✅ Good for multi-resource workloads</li>
+<li>✅ Simpler than full CAF pattern</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>❌ Environment context buried in the middle</li>
+<li>❌ Harder to filter by environment</li>
+<li>❌ Less clear environment separation</li>
+<li>❌ Not aligned with CAF recommendations</li>
+</ul>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Small organizations with few environments</li>
+<li>Workloads with many resource types</li>
+<li>Type-focused operations within workloads</li>
+</ul>
 <hr>
 </section>
 <section id="prefix-based-legacy-pattern" class="level3">
@@ -3211,9 +3292,27 @@ var webAppName = '${workloadName}-${environmentName}-app-${regionCode}-${instanc
 <p><strong>Pattern:</strong> <code>{prefix}-{projectname}-{environment}-{resourcetype}-{instance}</code></p>
 <p><strong>Example:</strong> <code>samples-cosmosdb-testpersonal-cdb-01</code></p>
 <p><strong>Description:</strong> Uses a constant prefix (like “samples” or company abbreviation) followed by project name, often used in learning or multi-project environments. This was the previous version of this document.</p>
-<p><strong>Pros:</strong> - ✅ Clear organizational identity via prefix - ✅ Project names highly visible - ✅ Good for learning/sample resources - ✅ Easy code-to-resource traceability</p>
-<p><strong>Cons:</strong> - ❌ Not aligned with Microsoft CAF - ❌ Prefix adds extra length - ❌ Less scalable for enterprise - ❌ Region not included (single-region assumption)</p>
-<p><strong>When to use:</strong> - Learning environments - Sample/demo projects - Multi-project workspaces with strong identity needs - Single-region deployments</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>✅ Clear organizational identity via prefix</li>
+<li>✅ Project names highly visible</li>
+<li>✅ Good for learning/sample resources</li>
+<li>✅ Easy code-to-resource traceability</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>❌ Not aligned with Microsoft CAF</li>
+<li>❌ Prefix adds extra length</li>
+<li>❌ Less scalable for enterprise</li>
+<li>❌ Region not included (single-region assumption)</li>
+</ul>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Learning environments</li>
+<li>Sample/demo projects</li>
+<li>Multi-project workspaces with strong identity needs</li>
+<li>Single-region deployments</li>
+</ul>
 <hr>
 </section>
 <section id="minimalist-pattern" class="level3">
@@ -3221,9 +3320,28 @@ var webAppName = '${workloadName}-${environmentName}-app-${regionCode}-${instanc
 <p><strong>Pattern:</strong> <code>{workload}-{environment}-{instance}</code></p>
 <p><strong>Example:</strong> <code>samples-prod-01</code></p>
 <p><strong>Description:</strong> Removes resource type and region from the name entirely, relying on Azure resource types and tags for classification.</p>
-<p><strong>Pros:</strong> - ✅ Shortest possible names - ✅ No character limit concerns - ✅ Very simple to implement - ✅ Clean, uncluttered naming</p>
-<p><strong>Cons:</strong> - ❌ Resource type not visible in name - ❌ Region not identifiable - ❌ Requires tags for full context - ❌ Poor multi-region support - ❌ Difficult to distinguish resources without additional context</p>
-<p><strong>When to use:</strong> - Small environments with few resource types - Single-region deployments only - When name length is extremely constrained - Strong tagging infrastructure in place</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>✅ Shortest possible names</li>
+<li>✅ No character limit concerns</li>
+<li>✅ Very simple to implement</li>
+<li>✅ Clean, uncluttered naming</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>❌ Resource type not visible in name</li>
+<li>❌ Region not identifiable</li>
+<li>❌ Requires tags for full context</li>
+<li>❌ Poor multi-region support</li>
+<li>❌ Difficult to distinguish resources without additional context</li>
+</ul>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Small environments with few resource types</li>
+<li>Single-region deployments only</li>
+<li>When name length is extremely constrained</li>
+<li>Strong tagging infrastructure in place</li>
+</ul>
 <hr>
 </section>
 <section id="our-chosen-pattern-workload-first-with-region" class="level3">
@@ -3231,9 +3349,28 @@ var webAppName = '${workloadName}-${environmentName}-app-${regionCode}-${instanc
 <p><strong>Pattern:</strong> <code>{workload}-{environment}-{resourcetype}-{region}-{instance}</code></p>
 <p><strong>Example:</strong> <code>samples-prod-rg-weu-01</code></p>
 <p><strong>Description:</strong> Our adopted pattern prioritizes business context (workload and environment) while maintaining resource type visibility and explicit region identification.</p>
-<p><strong>Pros:</strong> - ✅ Business context first (workload and environment) - ✅ Clear environment segregation - ✅ Excellent multi-region support - ✅ Resource type still visible - ✅ Balanced approach between CAF and practical needs - ✅ Scalable for enterprise use</p>
-<p><strong>Cons:</strong> - ❌ Slightly longer than minimalist approaches - ❌ Not 100% CAF-compliant (workload before resource type) - ❌ Requires documented region codes</p>
-<p><strong>When to use:</strong> - Multi-environment organizations - Multi-region deployments - Application/workload-focused teams - Balance between Microsoft guidance and practical needs</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>✅ Business context first (workload and environment)</li>
+<li>✅ Clear environment segregation</li>
+<li>✅ Excellent multi-region support</li>
+<li>✅ Resource type still visible</li>
+<li>✅ Balanced approach between CAF and practical needs</li>
+<li>✅ Scalable for enterprise use</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>❌ Slightly longer than minimalist approaches</li>
+<li>❌ Not 100% CAF-compliant (workload before resource type)</li>
+<li>❌ Requires documented region codes</li>
+</ul>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Multi-environment organizations</li>
+<li>Multi-region deployments</li>
+<li>Application/workload-focused teams</li>
+<li>Balance between Microsoft guidance and practical needs</li>
+</ul>
 <p><strong>Why we chose this:</strong> This pattern provides the best balance between Microsoft’s recommendations and practical application development needs. It prioritizes how teams think about resources (by workload and environment first) while maintaining all critical information including region for global deployments.</p>
 <hr>
 </section>
@@ -3525,7 +3662,11 @@ samplesprodstgweu01           (Storage Account - no hyphens)</code></pre>
 <hr>
 <p><strong>Document Owner</strong>: Engineering Team<br>
 <strong>Next Review</strong>: January 19, 2026<br>
-<strong>Version History</strong>: - 2.0 - Updated to CAF-aligned pattern (October 19, 2025) - 1.0 - Initial creation (July 2, 2025)</p>
+<strong>Version History</strong>:</p>
+<ul>
+<li>2.0 - Updated to CAF-aligned pattern (October 19, 2025)</li>
+<li>1.0 - Initial creation (July 2, 2025)</li>
+</ul>
 
 
 </section>

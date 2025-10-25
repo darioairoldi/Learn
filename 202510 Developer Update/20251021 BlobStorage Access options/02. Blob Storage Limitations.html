@@ -1890,9 +1890,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Per-Blob Throughput</strong>: - <strong>Block Blob</strong>: Up to <mark><strong>500 MiB/s</strong></mark> per blob - <strong>Page Blob</strong>: Up to <mark><strong>60 MiB/s</strong></mark> per blob<br>
-- <strong>Append Blob</strong>: Up to <mark><strong>60 MiB/s</strong></mark> per blob</p>
-<p><strong>Impact</strong>: - ❌ High-bandwidth applications may hit storage account limits - ⚠️ GRS replication reduces available ingress bandwidth - ⚠️ Premium storage required for highest performance workloads</p>
+<p><strong>Per-Blob Throughput</strong>:</p>
+<ul>
+<li><strong>Block Blob</strong>: Up to <mark><strong>500 MiB/s</strong></mark> per blob</li>
+<li><strong>Page Blob</strong>: Up to <mark><strong>60 MiB/s</strong></mark> per blob<br>
+</li>
+<li><strong>Append Blob</strong>: Up to <mark><strong>60 MiB/s</strong></mark> per blob</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ High-bandwidth applications may hit storage account limits</li>
+<li>⚠️ GRS replication reduces available ingress bandwidth</li>
+<li>⚠️ Premium storage required for highest performance workloads</li>
+</ul>
 </section>
 <section id="iops-constraints" class="level3">
 <h3 class="anchored" data-anchor-id="iops-constraints"><strong>IOPS Constraints</strong></h3>
@@ -1923,9 +1933,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Per-Blob IOPS</strong>: - <strong>Standard Blob</strong>: Up to <mark><strong>500 IOPS</strong></mark> per blob (1 MiB I/O) - <strong>Premium Blob</strong>: Up to <mark><strong>100,000 IOPS</strong></mark> per blob</p>
-<p><strong>Factors Affecting IOPS</strong>: - <mark><strong>I/O Size</strong></mark>: Smaller operations = higher IOPS consumption - <mark><strong>Access Pattern</strong></mark>: Random access performs worse than sequential - <mark><strong>Concurrent Operations</strong></mark>: Multiple clients can exhaust IOPS budget - <mark><strong>Blob Type</strong></mark>: Block blobs offer best IOPS performance</p>
-<p><strong>Impact</strong>: - ❌ Applications with many small file operations may hit IOPS limits - ⚠️ Database-style workloads may require premium storage - ⚠️ Monitoring required to identify IOPS bottlenecks</p>
+<p><strong>Per-Blob IOPS</strong>:</p>
+<ul>
+<li><strong>Standard Blob</strong>: Up to <mark><strong>500 IOPS</strong></mark> per blob (1 MiB I/O)</li>
+<li><strong>Premium Blob</strong>: Up to <mark><strong>100,000 IOPS</strong></mark> per blob</li>
+</ul>
+<p><strong>Factors Affecting IOPS</strong>:</p>
+<ul>
+<li><mark><strong>I/O Size</strong></mark>: Smaller operations = higher IOPS consumption</li>
+<li><mark><strong>Access Pattern</strong></mark>: Random access performs worse than sequential</li>
+<li><mark><strong>Concurrent Operations</strong></mark>: Multiple clients can exhaust IOPS budget</li>
+<li><mark><strong>Blob Type</strong></mark>: Block blobs offer best IOPS performance</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Applications with many small file operations may hit IOPS limits</li>
+<li>⚠️ Database-style workloads may require premium storage</li>
+<li>⚠️ Monitoring required to identify IOPS bottlenecks</li>
+</ul>
 </section>
 <section id="latency-characteristics" class="level3">
 <h3 class="anchored" data-anchor-id="latency-characteristics"><strong>Latency Characteristics</strong></h3>
@@ -1971,9 +1996,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Latency Factors</strong>: - <mark><strong>Geographic Distance</strong></mark>: Physical proximity to Azure region - <mark><strong>Network Path</strong></mark>: Internet routing and connectivity quality<br>
-- <mark><strong>Request Size</strong></mark>: Larger requests have higher latency - <mark><strong>Access Tier</strong></mark>: Cold and Archive tiers have retrieval delays - <mark><strong>Concurrent Load</strong></mark>: High utilization increases latency</p>
-<p><strong>Impact</strong>: - ❌ Not suitable for low-latency applications requiring &lt;1ms response times - ⚠️ Archive tier requires hours for data access - ⚠️ Geographic distribution needed for global low-latency access</p>
+<p><strong>Latency Factors</strong>:</p>
+<ul>
+<li><mark><strong>Geographic Distance</strong></mark>: Physical proximity to Azure region</li>
+<li><mark><strong>Network Path</strong></mark>: Internet routing and connectivity quality<br>
+</li>
+<li><mark><strong>Request Size</strong></mark>: Larger requests have higher latency</li>
+<li><mark><strong>Access Tier</strong></mark>: Cold and Archive tiers have retrieval delays</li>
+<li><mark><strong>Concurrent Load</strong></mark>: High utilization increases latency</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Not suitable for low-latency applications requiring &lt;1ms response times</li>
+<li>⚠️ Archive tier requires hours for data access</li>
+<li>⚠️ Geographic distribution needed for global low-latency access</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2014,12 +2051,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Subscription-Level Limits</strong>: - <strong>Storage Accounts per Region</strong>: <mark><strong>250</strong></mark> (default quota, can be increased) - <strong>Total Storage Accounts per Subscription</strong>: <mark><strong>250 per region</strong></mark> - <strong>Storage Account Names</strong>: Must be globally unique across all Azure</p>
+<p><strong>Subscription-Level Limits</strong>:</p>
+<ul>
+<li><strong>Storage Accounts per Region</strong>: <mark><strong>250</strong></mark> (default quota, can be increased)</li>
+<li><strong>Total Storage Accounts per Subscription</strong>: <mark><strong>250 per region</strong></mark></li>
+<li><strong>Storage Account Names</strong>: Must be globally unique across all Azure</li>
+</ul>
 </section>
 <section id="container-and-blob-limits" class="level3">
 <h3 class="anchored" data-anchor-id="container-and-blob-limits"><strong>Container and Blob Limits</strong></h3>
-<p><strong>Container Limitations</strong>: - <strong>Container Name Length</strong>: <mark><strong>3-63 characters</strong></mark> - <strong>Container Name Format</strong>: Lowercase letters, numbers, hyphens only - <strong>Nested Containers</strong>: ❌ Not supported (flat namespace only) - <strong>Container Metadata</strong>: <mark><strong>8 KB</strong></mark> maximum per container</p>
-<p><strong>Blob Limitations</strong>: - <strong>Blob Name Length</strong>: <mark><strong>1-1024 characters</strong></mark> - <strong>Directory Depth</strong>: <mark><strong>No technical limit</strong></mark> (simulated via naming) - <strong>Blob Metadata</strong>: <mark><strong>8 KB</strong></mark> maximum per blob - <strong>Custom Properties</strong>: <mark><strong>8 KB</strong></mark> maximum total size</p>
+<p><strong>Container Limitations</strong>:</p>
+<ul>
+<li><strong>Container Name Length</strong>: <mark><strong>3-63 characters</strong></mark></li>
+<li><strong>Container Name Format</strong>: Lowercase letters, numbers, hyphens only</li>
+<li><strong>Nested Containers</strong>: ❌ Not supported (flat namespace only)</li>
+<li><strong>Container Metadata</strong>: <mark><strong>8 KB</strong></mark> maximum per container</li>
+</ul>
+<p><strong>Blob Limitations</strong>:</p>
+<ul>
+<li><strong>Blob Name Length</strong>: <mark><strong>1-1024 characters</strong></mark></li>
+<li><strong>Directory Depth</strong>: <mark><strong>No technical limit</strong></mark> (simulated via naming)</li>
+<li><strong>Blob Metadata</strong>: <mark><strong>8 KB</strong></mark> maximum per blob</li>
+<li><strong>Custom Properties</strong>: <mark><strong>8 KB</strong></mark> maximum total size</li>
+</ul>
 </section>
 <section id="request-rate-limits" class="level3">
 <h3 class="anchored" data-anchor-id="request-rate-limits"><strong>Request Rate Limits</strong></h3>
@@ -2055,8 +2109,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Request Pattern Considerations</strong>: - <mark><strong>Hot Partition</strong></mark>: Single blob receiving high traffic can be throttled - <mark><strong>Sequential Naming</strong></mark>: Can create hot partitions (avoid timestamp prefixes) - <mark><strong>Burst Capacity</strong></mark>: Short bursts above limits may be tolerated - <mark><strong>Throttling Response</strong></mark>: HTTP 503 errors with retry-after headers</p>
-<p><strong>Impact</strong>: - ❌ High-frequency applications may need multiple storage accounts - ⚠️ Load distribution required to avoid hot partition issues - ⚠️ Implement exponential backoff retry logic for throttling</p>
+<p><strong>Request Pattern Considerations</strong>:</p>
+<ul>
+<li><mark><strong>Hot Partition</strong></mark>: Single blob receiving high traffic can be throttled</li>
+<li><mark><strong>Sequential Naming</strong></mark>: Can create hot partitions (avoid timestamp prefixes)</li>
+<li><mark><strong>Burst Capacity</strong></mark>: Short bursts above limits may be tolerated</li>
+<li><mark><strong>Throttling Response</strong></mark>: HTTP 503 errors with retry-after headers</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ High-frequency applications may need multiple storage accounts</li>
+<li>⚠️ Load distribution required to avoid hot partition issues</li>
+<li>⚠️ Implement exponential backoff retry logic for throttling</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2102,19 +2167,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Block Size Constraints</strong>: - <strong>Block Blob Block Size</strong>: <mark><strong>4 MiB</strong></mark> (Put Block) / <mark><strong>100 MiB</strong></mark> (Put Block from URL) - <strong>Page Blob Page Size</strong>: <mark><strong>512 bytes</strong></mark> (fixed) - <strong>Append Blob Block Size</strong>: <mark><strong>4 MiB</strong></mark> maximum</p>
-<p><strong>Upload Constraints</strong>: - <strong>Single PUT Blob</strong>: <mark><strong>256 MiB</strong></mark> maximum - <strong>Multipart Upload</strong>: Required for files &gt; 256 MiB - <strong>Maximum Upload Time</strong>: <mark><strong>10 minutes</strong></mark> per operation</p>
+<p><strong>Block Size Constraints</strong>:</p>
+<ul>
+<li><strong>Block Blob Block Size</strong>: <mark><strong>4 MiB</strong></mark> (Put Block) / <mark><strong>100 MiB</strong></mark> (Put Block from URL)</li>
+<li><strong>Page Blob Page Size</strong>: <mark><strong>512 bytes</strong></mark> (fixed)</li>
+<li><strong>Append Blob Block Size</strong>: <mark><strong>4 MiB</strong></mark> maximum</li>
+</ul>
+<p><strong>Upload Constraints</strong>:</p>
+<ul>
+<li><strong>Single PUT Blob</strong>: <mark><strong>256 MiB</strong></mark> maximum</li>
+<li><strong>Multipart Upload</strong>: Required for files &gt; 256 MiB</li>
+<li><strong>Maximum Upload Time</strong>: <mark><strong>10 minutes</strong></mark> per operation</li>
+</ul>
 </section>
 <section id="blob-size-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="blob-size-limitations"><strong>Blob Size Limitations</strong></h3>
-<p><strong>Practical Considerations</strong>: - <strong>Network Timeouts</strong>: Large blobs may timeout during upload/download - <strong>Memory Usage</strong>: SDKs may load entire blob into memory - <strong>Checksums</strong>: MD5 validation limited to 64 MB per operation - <strong>Bandwidth</strong>: Large blobs consume significant bandwidth</p>
-<p><strong>Workarounds for Large Files</strong>: 1. <strong>Chunked Upload</strong>: Use multipart upload for reliability 2. <strong>Resumable Upload</strong>: Implement checkpoint and resume logic 3. <strong>Parallel Upload</strong>: Split into multiple concurrent streams 4. <strong>Content Validation</strong>: Use block-level checksums instead of blob-level</p>
+<p><strong>Practical Considerations</strong>:</p>
+<ul>
+<li><strong>Network Timeouts</strong>: Large blobs may timeout during upload/download</li>
+<li><strong>Memory Usage</strong>: SDKs may load entire blob into memory</li>
+<li><strong>Checksums</strong>: MD5 validation limited to 64 MB per operation</li>
+<li><strong>Bandwidth</strong>: Large blobs consume significant bandwidth</li>
+</ul>
+<p><strong>Workarounds for Large Files</strong>:</p>
+<ol type="1">
+<li><strong>Chunked Upload</strong>: Use multipart upload for reliability</li>
+<li><strong>Resumable Upload</strong>: Implement checkpoint and resume logic</li>
+<li><strong>Parallel Upload</strong>: Split into multiple concurrent streams</li>
+<li><strong>Content Validation</strong>: Use block-level checksums instead of blob-level</li>
+</ol>
 </section>
 <section id="metadata-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="metadata-limitations"><strong>Metadata Limitations</strong></h3>
-<p><strong>Metadata Constraints</strong>: - <strong>Total Metadata Size</strong>: <mark><strong>8 KB</strong></mark> per blob/container - <strong>Metadata Name Length</strong>: <mark><strong>C# identifier rules</strong></mark> (alphanumeric + underscore) - <strong>Metadata Value Length</strong>: No specific limit within 8 KB total - <strong>System vs User Metadata</strong>: System metadata doesn’t count toward 8 KB limit</p>
-<p><strong>Headers and Properties</strong>: - <strong>Custom Headers</strong>: Limited by HTTP header size limits - <strong>Content-Type</strong>: <mark><strong>256 characters</strong></mark> maximum - <strong>Cache-Control</strong>: <mark><strong>256 characters</strong></mark> maximum - <strong>Content-Disposition</strong>: <mark><strong>256 characters</strong></mark> maximum</p>
-<p><strong>Impact</strong>: - ❌ Cannot store extensive metadata with blobs - ⚠️ Consider external metadata storage for rich metadata scenarios - ⚠️ Use naming conventions to embed metadata in blob names</p>
+<p><strong>Metadata Constraints</strong>:</p>
+<ul>
+<li><strong>Total Metadata Size</strong>: <mark><strong>8 KB</strong></mark> per blob/container</li>
+<li><strong>Metadata Name Length</strong>: <mark><strong>C# identifier rules</strong></mark> (alphanumeric + underscore)</li>
+<li><strong>Metadata Value Length</strong>: No specific limit within 8 KB total</li>
+<li><strong>System vs User Metadata</strong>: System metadata doesn’t count toward 8 KB limit</li>
+</ul>
+<p><strong>Headers and Properties</strong>:</p>
+<ul>
+<li><strong>Custom Headers</strong>: Limited by HTTP header size limits</li>
+<li><strong>Content-Type</strong>: <mark><strong>256 characters</strong></mark> maximum</li>
+<li><strong>Cache-Control</strong>: <mark><strong>256 characters</strong></mark> maximum</li>
+<li><strong>Content-Disposition</strong>: <mark><strong>256 characters</strong></mark> maximum</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Cannot store extensive metadata with blobs</li>
+<li>⚠️ Consider external metadata storage for rich metadata scenarios</li>
+<li>⚠️ Use naming conventions to embed metadata in blob names</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2172,13 +2276,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Tier Transition Limitations</strong>: - <strong>Archive to Hot/Cool</strong>: Requires <mark><strong>rehydration</strong></mark> (1-15 hours) - <strong>Rehydration Priority</strong>: Standard vs High (affects duration and cost) - <strong>Parallel Rehydration</strong>: Limited concurrent rehydration operations - <strong>Early Deletion Fees</strong>: Charged if moved before minimum duration</p>
-<p><strong>Impact</strong>: - ❌ Page and Append blobs cannot use cost-optimized cool/archive tiers - ⚠️ Archive tier not suitable for frequently accessed data - ⚠️ Plan rehydration time for archive retrieval scenarios</p>
+<p><strong>Tier Transition Limitations</strong>:</p>
+<ul>
+<li><strong>Archive to Hot/Cool</strong>: Requires <mark><strong>rehydration</strong></mark> (1-15 hours)</li>
+<li><strong>Rehydration Priority</strong>: Standard vs High (affects duration and cost)</li>
+<li><strong>Parallel Rehydration</strong>: Limited concurrent rehydration operations</li>
+<li><strong>Early Deletion Fees</strong>: Charged if moved before minimum duration</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Page and Append blobs cannot use cost-optimized cool/archive tiers</li>
+<li>⚠️ Archive tier not suitable for frequently accessed data</li>
+<li>⚠️ Plan rehydration time for archive retrieval scenarios</li>
+</ul>
 </section>
 <section id="security-and-compliance-limits" class="level3">
 <h3 class="anchored" data-anchor-id="security-and-compliance-limits"><strong>Security and Compliance Limits</strong></h3>
-<p><strong>Access Control Limitations</strong>: - <strong>SAS Token Limitations</strong>: - <strong>Maximum Duration</strong>: <mark><strong>1 year</strong></mark> with stored access policy - <strong>URL Length</strong>: <mark><strong>2048 characters</strong></mark> including SAS parameters - <strong>IP Range Restrictions</strong>: Limited to IPv4 ranges - <strong>RBAC Granularity</strong>: Cannot assign permissions to individual blobs - <strong>Encryption Keys</strong>: - <strong>Customer-Managed Keys</strong>: Must be in same region as storage account - <strong>Key Rotation</strong>: Manual process, can cause access issues during rotation</p>
-<p><strong>Compliance Constraints</strong>: - <strong>Immutable Storage</strong>: Once set, retention policies cannot be shortened - <strong>Legal Hold</strong>: Cannot be removed until explicitly cleared - <strong>Data Residency</strong>: Limited control over geo-replication target regions - <strong>Audit Logging</strong>: Storage Analytics logs retained for maximum <mark><strong>1 year</strong></mark></p>
+<p><strong>Access Control Limitations</strong>:</p>
+<ul>
+<li><strong>SAS Token Limitations</strong>:
+<ul>
+<li><strong>Maximum Duration</strong>: <mark><strong>1 year</strong></mark> with stored access policy</li>
+<li><strong>URL Length</strong>: <mark><strong>2048 characters</strong></mark> including SAS parameters</li>
+<li><strong>IP Range Restrictions</strong>: Limited to IPv4 ranges</li>
+</ul></li>
+<li><strong>RBAC Granularity</strong>: Cannot assign permissions to individual blobs</li>
+<li><strong>Encryption Keys</strong>:
+<ul>
+<li><strong>Customer-Managed Keys</strong>: Must be in same region as storage account</li>
+<li><strong>Key Rotation</strong>: Manual process, can cause access issues during rotation</li>
+</ul></li>
+</ul>
+<p><strong>Compliance Constraints</strong>:</p>
+<ul>
+<li><strong>Immutable Storage</strong>: Once set, retention policies cannot be shortened</li>
+<li><strong>Legal Hold</strong>: Cannot be removed until explicitly cleared</li>
+<li><strong>Data Residency</strong>: Limited control over geo-replication target regions</li>
+<li><strong>Audit Logging</strong>: Storage Analytics logs retained for maximum <mark><strong>1 year</strong></mark></li>
+</ul>
 </section>
 <section id="geographic-redundancy-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="geographic-redundancy-limitations"><strong>Geographic Redundancy Limitations</strong></h3>
@@ -2231,8 +2366,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Cross-Region Limitations</strong>: - <strong>Failover Control</strong>: Microsoft-managed failover for most scenarios - <strong>Customer-Initiated Failover</strong>: Available but may cause data loss - <strong>Cross-Region Bandwidth</strong>: Limited by Azure backbone capacity - <strong>Consistency</strong>: Secondary region may lag behind primary by up to 1 hour</p>
-<p><strong>Impact</strong>: - ❌ Cannot guarantee zero data loss with geo-replication - ⚠️ Secondary region access patterns different from primary - ⚠️ Application must handle eventual consistency in RA-GRS scenarios</p>
+<p><strong>Cross-Region Limitations</strong>:</p>
+<ul>
+<li><strong>Failover Control</strong>: Microsoft-managed failover for most scenarios</li>
+<li><strong>Customer-Initiated Failover</strong>: Available but may cause data loss</li>
+<li><strong>Cross-Region Bandwidth</strong>: Limited by Azure backbone capacity</li>
+<li><strong>Consistency</strong>: Secondary region may lag behind primary by up to 1 hour</li>
+</ul>
+<p><strong>Impact</strong>:</p>
+<ul>
+<li>❌ Cannot guarantee zero data loss with geo-replication</li>
+<li>⚠️ Secondary region access patterns different from primary</li>
+<li>⚠️ Application must handle eventual consistency in RA-GRS scenarios</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2241,18 +2387,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Network-related constraints can significantly impact application performance and data transfer capabilities.</p>
 <section id="bandwidth-throttling" class="level3">
 <h3 class="anchored" data-anchor-id="bandwidth-throttling"><strong>Bandwidth Throttling</strong></h3>
-<p><strong>Per-Client Throttling</strong>: - <strong>Individual Connection</strong>: Limited by client network capability and Azure egress limits - <strong>Concurrent Connections</strong>: <mark><strong>2000</strong></mark> concurrent connections per storage account (default) - <strong>Connection Pooling</strong>: Required for high-throughput scenarios - <strong>TCP Window Scaling</strong>: May be limited by client OS configuration</p>
-<p><strong>Regional Bandwidth Limits</strong>: - <strong>Cross-Region Transfer</strong>: Limited by Azure backbone capacity - <strong>Internet Egress</strong>: Subject to Azure data transfer pricing and limits - <strong>Express Route</strong>: Higher bandwidth but additional cost and complexity</p>
+<p><strong>Per-Client Throttling</strong>:</p>
+<ul>
+<li><strong>Individual Connection</strong>: Limited by client network capability and Azure egress limits</li>
+<li><strong>Concurrent Connections</strong>: <mark><strong>2000</strong></mark> concurrent connections per storage account (default)</li>
+<li><strong>Connection Pooling</strong>: Required for high-throughput scenarios</li>
+<li><strong>TCP Window Scaling</strong>: May be limited by client OS configuration</li>
+</ul>
+<p><strong>Regional Bandwidth Limits</strong>:</p>
+<ul>
+<li><strong>Cross-Region Transfer</strong>: Limited by Azure backbone capacity</li>
+<li><strong>Internet Egress</strong>: Subject to Azure data transfer pricing and limits</li>
+<li><strong>Express Route</strong>: Higher bandwidth but additional cost and complexity</li>
+</ul>
 </section>
 <section id="connection-limits" class="level3">
 <h3 class="anchored" data-anchor-id="connection-limits"><strong>Connection Limits</strong></h3>
-<p><strong>Protocol Constraints</strong>: - <strong>HTTP/1.1</strong>: Limited connection multiplexing - <strong>HTTP/2</strong>: Better multiplexing but not universally supported by SDKs - <strong>REST API Rate Limits</strong>: Subject to storage account request rate limits - <strong>SDK Connection Pooling</strong>: Configuration varies by SDK and language</p>
-<p><strong>Timeout Settings</strong>: - <strong>Default Timeouts</strong>: <mark><strong>90 seconds</strong></mark> for most operations - <strong>Large File Timeouts</strong>: May need custom timeout values - <strong>Retry Policies</strong>: SDK defaults may not be optimal for all scenarios</p>
+<p><strong>Protocol Constraints</strong>:</p>
+<ul>
+<li><strong>HTTP/1.1</strong>: Limited connection multiplexing</li>
+<li><strong>HTTP/2</strong>: Better multiplexing but not universally supported by SDKs</li>
+<li><strong>REST API Rate Limits</strong>: Subject to storage account request rate limits</li>
+<li><strong>SDK Connection Pooling</strong>: Configuration varies by SDK and language</li>
+</ul>
+<p><strong>Timeout Settings</strong>:</p>
+<ul>
+<li><strong>Default Timeouts</strong>: <mark><strong>90 seconds</strong></mark> for most operations</li>
+<li><strong>Large File Timeouts</strong>: May need custom timeout values</li>
+<li><strong>Retry Policies</strong>: SDK defaults may not be optimal for all scenarios</li>
+</ul>
 </section>
 <section id="regional-availability" class="level3">
 <h3 class="anchored" data-anchor-id="regional-availability"><strong>Regional Availability</strong></h3>
-<p><strong>Service Availability</strong>: - <strong>Premium Storage</strong>: Not available in all regions - <strong>Zone-Redundant Storage</strong>: Limited regional availability - <strong>Data Residency Requirements</strong>: May limit region choices - <strong>Feature Rollout</strong>: New features may not be available in all regions immediately</p>
-<p><strong>Network Proximity</strong>: - <strong>Latency Impact</strong>: Geographic distance affects performance - <strong>CDN Integration</strong>: Additional complexity for global content distribution - <strong>Edge Locations</strong>: Limited compared to dedicated CDN services</p>
+<p><strong>Service Availability</strong>:</p>
+<ul>
+<li><strong>Premium Storage</strong>: Not available in all regions</li>
+<li><strong>Zone-Redundant Storage</strong>: Limited regional availability</li>
+<li><strong>Data Residency Requirements</strong>: May limit region choices</li>
+<li><strong>Feature Rollout</strong>: New features may not be available in all regions immediately</li>
+</ul>
+<p><strong>Network Proximity</strong>:</p>
+<ul>
+<li><strong>Latency Impact</strong>: Geographic distance affects performance</li>
+<li><strong>CDN Integration</strong>: Additional complexity for global content distribution</li>
+<li><strong>Edge Locations</strong>: Limited compared to dedicated CDN services</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2298,12 +2477,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Cost Impact Considerations</strong>: - <strong>High-Frequency Access</strong>: Cool/Archive tiers become expensive with frequent reads - <strong>Small File Overhead</strong>: Transaction costs may exceed storage costs for many small files - <strong>List Operations</strong>: Expensive, especially with deep folder hierarchies</p>
+<p><strong>Cost Impact Considerations</strong>:</p>
+<ul>
+<li><strong>High-Frequency Access</strong>: Cool/Archive tiers become expensive with frequent reads</li>
+<li><strong>Small File Overhead</strong>: Transaction costs may exceed storage costs for many small files</li>
+<li><strong>List Operations</strong>: Expensive, especially with deep folder hierarchies</li>
+</ul>
 </section>
 <section id="data-transfer-charges" class="level3">
 <h3 class="anchored" data-anchor-id="data-transfer-charges"><strong>Data Transfer Charges</strong></h3>
-<p><strong>Egress Pricing</strong>: - <strong>First 100 GB/month</strong>: <mark><strong>Free</strong></mark> - <strong>Next 9.9 TB/month</strong>: <mark><strong>$0.087/GB</strong></mark> - <strong>Next 40 TB/month</strong>: <mark><strong>$0.083/GB</strong></mark> - <strong>Over 150 TB/month</strong>: <mark><strong>$0.05/GB</strong></mark></p>
-<p><strong>Transfer Scenarios</strong>: - <strong>Same Region</strong>: Generally free between Azure services - <strong>Cross-Region</strong>: Charged as egress from source region - <strong>Internet Download</strong>: Full egress charges apply - <strong>CDN Integration</strong>: Additional CDN costs on top of storage</p>
+<p><strong>Egress Pricing</strong>:</p>
+<ul>
+<li><strong>First 100 GB/month</strong>: <mark><strong>Free</strong></mark></li>
+<li><strong>Next 9.9 TB/month</strong>: <mark><strong>$0.087/GB</strong></mark></li>
+<li><strong>Next 40 TB/month</strong>: <mark><strong>$0.083/GB</strong></mark></li>
+<li><strong>Over 150 TB/month</strong>: <mark><strong>$0.05/GB</strong></mark></li>
+</ul>
+<p><strong>Transfer Scenarios</strong>:</p>
+<ul>
+<li><strong>Same Region</strong>: Generally free between Azure services</li>
+<li><strong>Cross-Region</strong>: Charged as egress from source region</li>
+<li><strong>Internet Download</strong>: Full egress charges apply</li>
+<li><strong>CDN Integration</strong>: Additional CDN costs on top of storage</li>
+</ul>
 </section>
 <section id="storage-pricing-tiers" class="level3">
 <h3 class="anchored" data-anchor-id="storage-pricing-tiers"><strong>Storage Pricing Tiers</strong></h3>
@@ -2350,7 +2546,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Hidden Costs</strong>: - <strong>Metadata Storage</strong>: Counts toward storage capacity - <strong>Index Storage</strong>: For blob index tags (additional cost) - <strong>Snapshot Storage</strong>: Incremental but can accumulate - <strong>Soft Delete Storage</strong>: Deleted blobs retained for configured period</p>
+<p><strong>Hidden Costs</strong>:</p>
+<ul>
+<li><strong>Metadata Storage</strong>: Counts toward storage capacity</li>
+<li><strong>Index Storage</strong>: For blob index tags (additional cost)</li>
+<li><strong>Snapshot Storage</strong>: Incremental but can accumulate</li>
+<li><strong>Soft Delete Storage</strong>: Deleted blobs retained for configured period</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2359,15 +2561,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Effective monitoring is essential for identifying performance bottlenecks, capacity issues, and optimization opportunities.</p>
 <section id="performance-metrics" class="level3">
 <h3 class="anchored" data-anchor-id="performance-metrics"><strong>Performance Metrics</strong></h3>
-<p><strong>Latency Metrics</strong>: - <strong>SuccessE2ELatency</strong>: End-to-end latency for successful operations - <strong>SuccessServerLatency</strong>: Server-side processing time - <strong>ClientOtherError</strong>: Client-side timeout and connection issues - <strong>NetworkLatency</strong>: Calculated as E2E - Server latency</p>
-<p><strong>Throughput Metrics</strong>: - <strong>Ingress</strong>: Data uploaded to storage account (bytes/second) - <strong>Egress</strong>: Data downloaded from storage account (bytes/second) - <strong>Transactions</strong>: Number of operations per second by operation type - <strong>TotalBillableRequests</strong>: All billable operations including failures</p>
-<p><strong>Error Metrics</strong>: - <strong>ClientTimeoutError</strong>: Client-side timeout (HTTP 408) - <strong>ServerTimeoutError</strong>: Server-side timeout (HTTP 500) - <strong>ThrottlingError</strong>: Rate limiting (HTTP 503) - <strong>AuthorizationError</strong>: Authentication/authorization failures (HTTP 403)</p>
+<p><strong>Latency Metrics</strong>:</p>
+<ul>
+<li><strong>SuccessE2ELatency</strong>: End-to-end latency for successful operations</li>
+<li><strong>SuccessServerLatency</strong>: Server-side processing time</li>
+<li><strong>ClientOtherError</strong>: Client-side timeout and connection issues</li>
+<li><strong>NetworkLatency</strong>: Calculated as E2E - Server latency</li>
+</ul>
+<p><strong>Throughput Metrics</strong>:</p>
+<ul>
+<li><strong>Ingress</strong>: Data uploaded to storage account (bytes/second)</li>
+<li><strong>Egress</strong>: Data downloaded from storage account (bytes/second)</li>
+<li><strong>Transactions</strong>: Number of operations per second by operation type</li>
+<li><strong>TotalBillableRequests</strong>: All billable operations including failures</li>
+</ul>
+<p><strong>Error Metrics</strong>:</p>
+<ul>
+<li><strong>ClientTimeoutError</strong>: Client-side timeout (HTTP 408)</li>
+<li><strong>ServerTimeoutError</strong>: Server-side timeout (HTTP 500)</li>
+<li><strong>ThrottlingError</strong>: Rate limiting (HTTP 503)</li>
+<li><strong>AuthorizationError</strong>: Authentication/authorization failures (HTTP 403)</li>
+</ul>
 </section>
 <section id="capacity-metrics" class="level3">
 <h3 class="anchored" data-anchor-id="capacity-metrics"><strong>Capacity Metrics</strong></h3>
-<p><strong>Storage Utilization</strong>: - <strong>UsedCapacity</strong>: Total storage consumed across all tiers - <strong>BlobCapacity</strong>: Capacity used by blob storage specifically - <strong>ContainerCount</strong>: Number of containers in storage account - <strong>BlobCount</strong>: Number of blobs per container/storage account</p>
-<p><strong>Operational Metrics</strong>: - <strong>AvailabilityPercentage</strong>: Uptime percentage for operations - <strong>PercentSuccess</strong>: Success rate for all operations - <strong>TotalRequests</strong>: All requests including successful and failed - <strong>BillableRequests</strong>: Subset of requests that incur transaction charges</p>
-<p><strong>Monitoring Tools</strong>: - <strong>Azure Monitor</strong>: Built-in metrics and alerting - <strong>Storage Analytics</strong>: Detailed logging and metrics (legacy) - <strong>Application Insights</strong>: Application-level monitoring integration - <strong>Third-party Tools</strong>: Datadog, New Relic, custom solutions</p>
+<p><strong>Storage Utilization</strong>:</p>
+<ul>
+<li><strong>UsedCapacity</strong>: Total storage consumed across all tiers</li>
+<li><strong>BlobCapacity</strong>: Capacity used by blob storage specifically</li>
+<li><strong>ContainerCount</strong>: Number of containers in storage account</li>
+<li><strong>BlobCount</strong>: Number of blobs per container/storage account</li>
+</ul>
+<p><strong>Operational Metrics</strong>:</p>
+<ul>
+<li><strong>AvailabilityPercentage</strong>: Uptime percentage for operations</li>
+<li><strong>PercentSuccess</strong>: Success rate for all operations</li>
+<li><strong>TotalRequests</strong>: All requests including successful and failed</li>
+<li><strong>BillableRequests</strong>: Subset of requests that incur transaction charges</li>
+</ul>
+<p><strong>Monitoring Tools</strong>:</p>
+<ul>
+<li><strong>Azure Monitor</strong>: Built-in metrics and alerting</li>
+<li><strong>Storage Analytics</strong>: Detailed logging and metrics (legacy)</li>
+<li><strong>Application Insights</strong>: Application-level monitoring integration</li>
+<li><strong>Third-party Tools</strong>: Datadog, New Relic, custom solutions</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2379,13 +2617,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Optimal Naming Conventions</strong>:</p>
 <pre><code>✅ Good: /logs/{guid}/{timestamp}.log
 ❌ Bad:  /logs/{timestamp}/{guid}.log</code></pre>
-<p><strong>Benefits of Good Naming</strong>: - <strong>Avoids Hot Partitions</strong>: Prevents sequential timestamp clustering - <strong>Better Load Distribution</strong>: Random GUIDs spread load across partitions - <strong>Improved Scalability</strong>: Enables Azure’s automatic load balancing</p>
-<p><strong>Parallel Access Patterns</strong>: - <strong>Concurrent Uploads</strong>: Split large files into parallel block uploads - <strong>Multiple Containers</strong>: Distribute load across different containers - <strong>Client-Side Parallelism</strong>: Use multiple threads/connections per client - <strong>Batch Operations</strong>: Group small operations to reduce overhead</p>
+<p><strong>Benefits of Good Naming</strong>:</p>
+<ul>
+<li><strong>Avoids Hot Partitions</strong>: Prevents sequential timestamp clustering</li>
+<li><strong>Better Load Distribution</strong>: Random GUIDs spread load across partitions</li>
+<li><strong>Improved Scalability</strong>: Enables Azure’s automatic load balancing</li>
+</ul>
+<p><strong>Parallel Access Patterns</strong>:</p>
+<ul>
+<li><strong>Concurrent Uploads</strong>: Split large files into parallel block uploads</li>
+<li><strong>Multiple Containers</strong>: Distribute load across different containers</li>
+<li><strong>Client-Side Parallelism</strong>: Use multiple threads/connections per client</li>
+<li><strong>Batch Operations</strong>: Group small operations to reduce overhead</li>
+</ul>
 </section>
 <section id="caching-strategies" class="level3">
 <h3 class="anchored" data-anchor-id="caching-strategies"><strong>Caching Strategies</strong></h3>
-<p><strong>Client-Side Caching</strong>: - <strong>HTTP Caching Headers</strong>: Use ETag and Last-Modified for conditional requests - <strong>Local File Cache</strong>: Cache frequently accessed blobs locally - <strong>Memory Caching</strong>: Keep small, hot blobs in application memory - <strong>CDN Integration</strong>: Use Azure CDN for globally distributed caching</p>
-<p><strong>Application-Level Optimization</strong>: - <strong>Connection Pooling</strong>: Reuse HTTP connections across operations - <strong>Retry Policies</strong>: Implement exponential backoff for transient failures - <strong>Async Patterns</strong>: Use asynchronous operations to improve concurrency - <strong>Stream Processing</strong>: Process large blobs without loading entirely into memory</p>
+<p><strong>Client-Side Caching</strong>:</p>
+<ul>
+<li><strong>HTTP Caching Headers</strong>: Use ETag and Last-Modified for conditional requests</li>
+<li><strong>Local File Cache</strong>: Cache frequently accessed blobs locally</li>
+<li><strong>Memory Caching</strong>: Keep small, hot blobs in application memory</li>
+<li><strong>CDN Integration</strong>: Use Azure CDN for globally distributed caching</li>
+</ul>
+<p><strong>Application-Level Optimization</strong>:</p>
+<ul>
+<li><strong>Connection Pooling</strong>: Reuse HTTP connections across operations</li>
+<li><strong>Retry Policies</strong>: Implement exponential backoff for transient failures</li>
+<li><strong>Async Patterns</strong>: Use asynchronous operations to improve concurrency</li>
+<li><strong>Stream Processing</strong>: Process large blobs without loading entirely into memory</li>
+</ul>
 <p><strong>SDK Configuration Optimization</strong>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Example: .NET SDK optimization</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> options <span class="op">=</span> <span class="kw">new</span> BlobClientOptions</span>
@@ -2401,7 +2662,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        Mode <span class="op">=</span> RetryMode<span class="op">.</span><span class="fu">Exponential</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Infrastructure Optimization</strong>: - <strong>Premium Storage</strong>: Use for IOPS-intensive workloads - <strong>Regional Placement</strong>: Co-locate compute and storage in same region - <strong>Network Optimization</strong>: Use ExpressRoute for predictable bandwidth - <strong>Load Balancing</strong>: Distribute requests across multiple storage accounts</p>
+<p><strong>Infrastructure Optimization</strong>:</p>
+<ul>
+<li><strong>Premium Storage</strong>: Use for IOPS-intensive workloads</li>
+<li><strong>Regional Placement</strong>: Co-locate compute and storage in same region</li>
+<li><strong>Network Optimization</strong>: Use ExpressRoute for predictable bandwidth</li>
+<li><strong>Load Balancing</strong>: Distribute requests across multiple storage accounts</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -2410,14 +2677,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Understanding frequent problems helps in proactive problem prevention and faster troubleshooting.</p>
 <section id="throttling-issues" class="level3">
 <h3 class="anchored" data-anchor-id="throttling-issues"><strong>Throttling Issues</strong></h3>
-<p><strong>Symptoms</strong>: - HTTP 503 (Service Unavailable) responses - Increased latency and timeout errors - Decreased overall throughput - Retry-After headers in responses</p>
-<p><strong>Common Causes</strong>: - <strong>Hot Partitioning</strong>: Too many requests to single blob or container - <strong>Sequential Naming</strong>: Timestamp-based naming causing load concentration - <strong>Burst Traffic</strong>: Sudden spike exceeding account limits - <strong>Inefficient Access Patterns</strong>: Many small operations instead of batched requests</p>
-<p><strong>Mitigation Strategies</strong>: 1. <strong>Implement Exponential Backoff</strong>: Respect retry-after headers 2. <strong>Distribute Load</strong>: Use random naming prefixes 3. <strong>Scale Out</strong>: Use multiple storage accounts for high throughput 4. <strong>Optimize Patterns</strong>: Batch small operations, use parallel uploads</p>
+<p><strong>Symptoms</strong>:</p>
+<ul>
+<li>HTTP 503 (Service Unavailable) responses</li>
+<li>Increased latency and timeout errors</li>
+<li>Decreased overall throughput</li>
+<li>Retry-After headers in responses</li>
+</ul>
+<p><strong>Common Causes</strong>:</p>
+<ul>
+<li><strong>Hot Partitioning</strong>: Too many requests to single blob or container</li>
+<li><strong>Sequential Naming</strong>: Timestamp-based naming causing load concentration</li>
+<li><strong>Burst Traffic</strong>: Sudden spike exceeding account limits</li>
+<li><strong>Inefficient Access Patterns</strong>: Many small operations instead of batched requests</li>
+</ul>
+<p><strong>Mitigation Strategies</strong>:</p>
+<ol type="1">
+<li><strong>Implement Exponential Backoff</strong>: Respect retry-after headers</li>
+<li><strong>Distribute Load</strong>: Use random naming prefixes</li>
+<li><strong>Scale Out</strong>: Use multiple storage accounts for high throughput</li>
+<li><strong>Optimize Patterns</strong>: Batch small operations, use parallel uploads</li>
+</ol>
 </section>
 <section id="latency-problems" class="level3">
 <h3 class="anchored" data-anchor-id="latency-problems"><strong>Latency Problems</strong></h3>
-<p><strong>High Latency Scenarios</strong>: - <strong>Cross-Region Access</strong>: Accessing storage from distant regions - <strong>Cold Tier Access</strong>: First access to cold/archive tier data - <strong>Large File Operations</strong>: Single-threaded large file transfers - <strong>Network Issues</strong>: Poor internet connectivity or routing</p>
-<p><strong>Latency Optimization</strong>: - <strong>Regional Strategy</strong>: Place storage close to compute resources - <strong>Tier Management</strong>: Keep frequently accessed data in hot tier - <strong>Parallel Operations</strong>: Use concurrent connections for large transfers - <strong>CDN Usage</strong>: Implement content delivery network for global access</p>
+<p><strong>High Latency Scenarios</strong>:</p>
+<ul>
+<li><strong>Cross-Region Access</strong>: Accessing storage from distant regions</li>
+<li><strong>Cold Tier Access</strong>: First access to cold/archive tier data</li>
+<li><strong>Large File Operations</strong>: Single-threaded large file transfers</li>
+<li><strong>Network Issues</strong>: Poor internet connectivity or routing</li>
+</ul>
+<p><strong>Latency Optimization</strong>:</p>
+<ul>
+<li><strong>Regional Strategy</strong>: Place storage close to compute resources</li>
+<li><strong>Tier Management</strong>: Keep frequently accessed data in hot tier</li>
+<li><strong>Parallel Operations</strong>: Use concurrent connections for large transfers</li>
+<li><strong>CDN Usage</strong>: Implement content delivery network for global access</li>
+</ul>
 <p><strong>Performance Monitoring</strong>:</p>
 <pre><code>Key Metrics to Track:
 - E2E Latency &gt; 1000ms (investigate)
@@ -2432,8 +2729,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Follow these guidelines to maximize Azure Blob Storage performance, reliability, and cost-effectiveness.</p>
 <section id="architecture-guidelines" class="level3">
 <h3 class="anchored" data-anchor-id="architecture-guidelines"><strong>Architecture Guidelines</strong></h3>
-<p><strong>Storage Account Design</strong>: - <strong>Single Purpose</strong>: Use separate storage accounts for different workloads - <strong>Regional Strategy</strong>: Create storage accounts in each region where needed - <strong>Naming Convention</strong>: Use descriptive, unique names that support your organization structure - <strong>Access Patterns</strong>: Align storage account configuration with access patterns</p>
-<p><strong>Container Organization</strong>: - <strong>Logical Grouping</strong>: Organize containers by application, environment, or data type - <strong>Security Boundaries</strong>: Use containers to implement different access policies - <strong>Lifecycle Management</strong>: Configure automated tier transitions and deletion policies - <strong>Monitoring Scope</strong>: Size containers appropriately for monitoring and billing granularity</p>
+<p><strong>Storage Account Design</strong>:</p>
+<ul>
+<li><strong>Single Purpose</strong>: Use separate storage accounts for different workloads</li>
+<li><strong>Regional Strategy</strong>: Create storage accounts in each region where needed</li>
+<li><strong>Naming Convention</strong>: Use descriptive, unique names that support your organization structure</li>
+<li><strong>Access Patterns</strong>: Align storage account configuration with access patterns</li>
+</ul>
+<p><strong>Container Organization</strong>:</p>
+<ul>
+<li><strong>Logical Grouping</strong>: Organize containers by application, environment, or data type</li>
+<li><strong>Security Boundaries</strong>: Use containers to implement different access policies</li>
+<li><strong>Lifecycle Management</strong>: Configure automated tier transitions and deletion policies</li>
+<li><strong>Monitoring Scope</strong>: Size containers appropriately for monitoring and billing granularity</li>
+</ul>
 <p><strong>Blob Naming Strategy</strong>:</p>
 <pre><code>✅ Recommended Patterns:
 /year/month/day/hour/{guid}-filename.ext
@@ -2446,10 +2755,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="performance-optimization" class="level3">
 <h3 class="anchored" data-anchor-id="performance-optimization"><strong>Performance Optimization</strong></h3>
-<p><strong>Upload Optimization</strong>: - <strong>Block Size</strong>: Use 4-8 MB blocks for optimal throughput - <strong>Parallel Upload</strong>: Upload multiple blocks concurrently - <strong>Memory Management</strong>: Stream large files instead of loading into memory - <strong>Retry Logic</strong>: Implement robust retry with exponential backoff</p>
-<p><strong>Download Optimization</strong>: - <strong>Range Requests</strong>: Download specific byte ranges when possible - <strong>Conditional Requests</strong>: Use ETag/If-Modified-Since headers - <strong>Streaming</strong>: Process data as it downloads rather than buffering - <strong>Compression</strong>: Enable compression for text-based content</p>
-<p><strong>Cost Optimization</strong>: - <strong>Tier Strategy</strong>: Regularly review and optimize access tiers - <strong>Lifecycle Policies</strong>: Automate tier transitions and deletions - <strong>Reserved Capacity</strong>: Use reservations for predictable storage needs - <strong>Monitor Usage</strong>: Regular cost analysis and optimization reviews</p>
-<p><strong>Security Best Practices</strong>: - <strong>Managed Identity</strong>: Use Azure AD authentication instead of access keys - <strong>SAS Tokens</strong>: Implement fine-grained, time-limited access - <strong>Network Security</strong>: Use private endpoints and firewall rules - <strong>Encryption</strong>: Enable encryption at rest and in transit</p>
+<p><strong>Upload Optimization</strong>:</p>
+<ul>
+<li><strong>Block Size</strong>: Use 4-8 MB blocks for optimal throughput</li>
+<li><strong>Parallel Upload</strong>: Upload multiple blocks concurrently</li>
+<li><strong>Memory Management</strong>: Stream large files instead of loading into memory</li>
+<li><strong>Retry Logic</strong>: Implement robust retry with exponential backoff</li>
+</ul>
+<p><strong>Download Optimization</strong>:</p>
+<ul>
+<li><strong>Range Requests</strong>: Download specific byte ranges when possible</li>
+<li><strong>Conditional Requests</strong>: Use ETag/If-Modified-Since headers</li>
+<li><strong>Streaming</strong>: Process data as it downloads rather than buffering</li>
+<li><strong>Compression</strong>: Enable compression for text-based content</li>
+</ul>
+<p><strong>Cost Optimization</strong>:</p>
+<ul>
+<li><strong>Tier Strategy</strong>: Regularly review and optimize access tiers</li>
+<li><strong>Lifecycle Policies</strong>: Automate tier transitions and deletions</li>
+<li><strong>Reserved Capacity</strong>: Use reservations for predictable storage needs</li>
+<li><strong>Monitor Usage</strong>: Regular cost analysis and optimization reviews</li>
+</ul>
+<p><strong>Security Best Practices</strong>:</p>
+<ul>
+<li><strong>Managed Identity</strong>: Use Azure AD authentication instead of access keys</li>
+<li><strong>SAS Tokens</strong>: Implement fine-grained, time-limited access</li>
+<li><strong>Network Security</strong>: Use private endpoints and firewall rules</li>
+<li><strong>Encryption</strong>: Enable encryption at rest and in transit</li>
+</ul>
 <p><strong>Monitoring and Alerting</strong>:</p>
 <pre><code>Critical Alerts to Configure:
 - Availability &lt; 99.9%
@@ -2457,8 +2790,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 - Latency &gt; P95 baseline
 - Throttling Events &gt; threshold
 - Cost &gt; budget threshold</code></pre>
-<p><strong>Disaster Recovery</strong>: - <strong>Replication Strategy</strong>: Choose appropriate redundancy level - <strong>Backup Procedures</strong>: Implement regular backup verification - <strong>Recovery Testing</strong>: Regularly test recovery procedures - <strong>Documentation</strong>: Maintain current recovery runbooks</p>
-<p><strong>Development Best Practices</strong>: - <strong>SDK Usage</strong>: Use latest stable SDKs with proper configuration - <strong>Error Handling</strong>: Implement comprehensive error handling and logging - <strong>Testing</strong>: Include performance and reliability testing in CI/CD - <strong>Documentation</strong>: Document storage patterns and troubleshooting procedures</p>
+<p><strong>Disaster Recovery</strong>:</p>
+<ul>
+<li><strong>Replication Strategy</strong>: Choose appropriate redundancy level</li>
+<li><strong>Backup Procedures</strong>: Implement regular backup verification</li>
+<li><strong>Recovery Testing</strong>: Regularly test recovery procedures</li>
+<li><strong>Documentation</strong>: Maintain current recovery runbooks</li>
+</ul>
+<p><strong>Development Best Practices</strong>:</p>
+<ul>
+<li><strong>SDK Usage</strong>: Use latest stable SDKs with proper configuration</li>
+<li><strong>Error Handling</strong>: Implement comprehensive error handling and logging</li>
+<li><strong>Testing</strong>: Include performance and reliability testing in CI/CD</li>
+<li><strong>Documentation</strong>: Document storage patterns and troubleshooting procedures</li>
+</ul>
 <hr>
 </section>
 </section>

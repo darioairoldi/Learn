@@ -2264,7 +2264,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">// Partition strategy for user timeline queries</span></span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> <span class="dt">string</span> <span class="fu">GetUserTimelinePartition</span><span class="op">(</span><span class="dt">string</span> userId<span class="op">,</span> DateTime date<span class="op">)</span></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">=&gt;</span> $<span class="st">"{userId}_{date:yyyy-MM}"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Recommended Strategy</strong>: User + Time Hybrid - <strong>Benefits</strong>: Efficient user timeline queries, temporal distribution - <strong>Trade-offs</strong>: Cross-user queries require multiple partitions</p>
+<p><strong>Recommended Strategy</strong>: User + Time Hybrid</p>
+<ul>
+<li><strong>Benefits</strong>: Efficient user timeline queries, temporal distribution</li>
+<li><strong>Trade-offs</strong>: Cross-user queries require multiple partitions</li>
+</ul>
 </section>
 <section id="multi-tenant-systems" class="level3">
 <h3 class="anchored" data-anchor-id="multi-tenant-systems">Multi-Tenant Systems</h3>
@@ -2282,7 +2286,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">object</span> Content <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> DateTime CreatedAt <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Recommended Strategy</strong>: Tenant ID-Based - <strong>Benefits</strong>: Perfect tenant isolation, efficient tenant queries - <strong>Trade-offs</strong>: May need synthetic keys for large tenants</p>
+<p><strong>Recommended Strategy</strong>: Tenant ID-Based</p>
+<ul>
+<li><strong>Benefits</strong>: Perfect tenant isolation, efficient tenant queries</li>
+<li><strong>Trade-offs</strong>: May need synthetic keys for large tenants</li>
+</ul>
 </section>
 <section id="time-series-data" class="level3">
 <h3 class="anchored" data-anchor-id="time-series-data">Time-Series Data</h3>
@@ -2313,7 +2321,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">else</span></span>
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> $<span class="st">"{deviceId}_{timestamp:yyyy-MM}"</span><span class="op">;</span></span>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Recommended Strategy</strong>: Device + Time Hybrid - <strong>Benefits</strong>: Device-specific queries, temporal analytics - <strong>Trade-offs</strong>: Complex cross-device aggregations</p>
+<p><strong>Recommended Strategy</strong>: Device + Time Hybrid</p>
+<ul>
+<li><strong>Benefits</strong>: Device-specific queries, temporal analytics</li>
+<li><strong>Trade-offs</strong>: Complex cross-device aggregations</li>
+</ul>
 </section>
 <section id="document-management" class="level3">
 <h3 class="anchored" data-anchor-id="document-management">Document Management</h3>
@@ -2336,7 +2348,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> <span class="dt">string</span> <span class="fu">GetDocumentPartition</span><span class="op">(</span><span class="dt">string</span> department<span class="op">,</span> <span class="dt">string</span> docType<span class="op">)</span></span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">=&gt;</span> $<span class="st">"{department}_{docType}"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Recommended Strategy</strong>: Department + Document Type - <strong>Benefits</strong>: Department-specific queries, document type analytics - <strong>Trade-offs</strong>: May need rebalancing if departments have different document volumes</p>
+<p><strong>Recommended Strategy</strong>: Department + Document Type</p>
+<ul>
+<li><strong>Benefits</strong>: Department-specific queries, document type analytics</li>
+<li><strong>Trade-offs</strong>: May need rebalancing if departments have different document volumes</li>
+</ul>
 </section>
 <section id="e-commerce-platforms" class="level3">
 <h3 class="anchored" data-anchor-id="e-commerce-platforms">E-commerce Platforms</h3>
@@ -2370,7 +2386,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> List<span class="op">&lt;</span>OrderItem<span class="op">&gt;</span> Items <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
 <span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">decimal</span> TotalAmount <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
 <span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Recommended Strategy</strong>: - <strong>Products</strong>: Category + Brand - <strong>Orders</strong>: Customer ID or Region + Time</p>
+<p><strong>Recommended Strategy</strong>:</p>
+<ul>
+<li><strong>Products</strong>: Category + Brand</li>
+<li><strong>Orders</strong>: Customer ID or Region + Time</li>
+</ul>
 </section>
 <section id="iot-applications" class="level3">
 <h3 class="anchored" data-anchor-id="iot-applications">IoT Applications</h3>
@@ -2393,7 +2413,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> <span class="dt">string</span> <span class="fu">GetInfrastructurePartition</span><span class="op">(</span><span class="dt">string</span> zone<span class="op">,</span> <span class="dt">string</span> deviceType<span class="op">,</span> DateTime timestamp<span class="op">)</span></span>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">=&gt;</span> $<span class="st">"{zone}_{deviceType}_{timestamp:yyyy-MM}"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Recommended Strategy</strong>: Zone + Device Type + Time - <strong>Benefits</strong>: Geographic and temporal analytics, device type insights - <strong>Trade-offs</strong>: Complex cross-zone queries</p>
+<p><strong>Recommended Strategy</strong>: Zone + Device Type + Time</p>
+<ul>
+<li><strong>Benefits</strong>: Geographic and temporal analytics, device type insights</li>
+<li><strong>Trade-offs</strong>: Complex cross-zone queries</li>
+</ul>
 </section>
 </section>
 <section id="anti-patterns-and-pitfalls" class="level2">
@@ -3201,7 +3225,14 @@ Multiple Time Periods with Independent Management?
 <h3 class="anchored" data-anchor-id="scenario-overview">Scenario Overview</h3>
 <p><strong>Database</strong>: <code>diginsight-cdb-testlive-01</code><br>
 <strong>Collection</strong>: <code>feeds</code><br>
-<strong>Requirements</strong>: - Multiple feed providers with varying volumes - Time-based access patterns (recent feeds prioritized) - Mixed query patterns (crawlers, indexers, user queries) - Configurable archival (older feeds moved to archive storage) - Performance optimization for recent data</p>
+<strong>Requirements</strong>:</p>
+<ul>
+<li>Multiple feed providers with varying volumes</li>
+<li>Time-based access patterns (recent feeds prioritized)</li>
+<li>Mixed query patterns (crawlers, indexers, user queries)</li>
+<li>Configurable archival (older feeds moved to archive storage)</li>
+<li>Performance optimization for recent data</li>
+</ul>
 </section>
 <section id="partition-strategy-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="partition-strategy-analysis">Partition Strategy Analysis</h3>
@@ -3242,8 +3273,19 @@ Multiple Time Periods with Independent Management?
 <span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Benefits</strong>: - ✅ <strong>Predictable Growth</strong>: New partitions created monthly - ✅ <strong>Recent Data Optimization</strong>: Most queries target 1-2 recent partitions - ✅ <strong>Easy Archival</strong>: Archive entire partitions older than X years - ✅ <strong>Balanced Distribution</strong>: Even distribution over time - ✅ <strong>Query Efficiency</strong>: Temporal queries are highly efficient</p>
-<p><strong>Trade-offs</strong>: - ⚠️ <strong>Provider-Specific Queries</strong>: Require cross-partition queries - ⚠️ <strong>Hot Partition</strong>: Current month receives all new writes</p>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>✅ <strong>Predictable Growth</strong>: New partitions created monthly</li>
+<li>✅ <strong>Recent Data Optimization</strong>: Most queries target 1-2 recent partitions</li>
+<li>✅ <strong>Easy Archival</strong>: Archive entire partitions older than X years</li>
+<li>✅ <strong>Balanced Distribution</strong>: Even distribution over time</li>
+<li>✅ <strong>Query Efficiency</strong>: Temporal queries are highly efficient</li>
+</ul>
+<p><strong>Trade-offs</strong>:</p>
+<ul>
+<li>⚠️ <strong>Provider-Specific Queries</strong>: Require cross-partition queries</li>
+<li>⚠️ <strong>Hot Partition</strong>: Current month receives all new writes</li>
+</ul>
 </section>
 <section id="option-2-hybrid-provider-time-partitioning" class="level4">
 <h4 class="anchored" data-anchor-id="option-2-hybrid-provider-time-partitioning">Option 2: Hybrid Provider-Time Partitioning</h4>
@@ -3269,8 +3311,17 @@ Multiple Time Periods with Independent Management?
 <span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Benefits</strong>: - ✅ <strong>Provider Isolation</strong>: Efficient provider-specific queries - ✅ <strong>Adaptive Granularity</strong>: Different time granularity based on volume - ✅ <strong>Reduced Cross-Partition Queries</strong>: Provider queries hit single partition</p>
-<p><strong>Trade-offs</strong>: - ⚠️ <strong>Complex Management</strong>: More complex partition key logic - ⚠️ <strong>Provider Imbalance</strong>: Popular providers may still create hot partitions</p>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>✅ <strong>Provider Isolation</strong>: Efficient provider-specific queries</li>
+<li>✅ <strong>Adaptive Granularity</strong>: Different time granularity based on volume</li>
+<li>✅ <strong>Reduced Cross-Partition Queries</strong>: Provider queries hit single partition</li>
+</ul>
+<p><strong>Trade-offs</strong>:</p>
+<ul>
+<li>⚠️ <strong>Complex Management</strong>: More complex partition key logic</li>
+<li>⚠️ <strong>Provider Imbalance</strong>: Popular providers may still create hot partitions</li>
+</ul>
 </section>
 <section id="option-3-guid-partitioning-not-recommended" class="level4">
 <h4 class="anchored" data-anchor-id="option-3-guid-partitioning-not-recommended">Option 3: GUID Partitioning (NOT RECOMMENDED)</h4>
@@ -3283,7 +3334,13 @@ Multiple Time Periods with Independent Management?
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">[</span><span class="fu">JsonProperty</span><span class="op">(</span><span class="st">"partitionKey"</span><span class="op">)]</span></span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> PartitionKey <span class="op">=&gt;</span> Id<span class="op">;</span> <span class="co">// BAD: One partition per feed item</span></span>
 <span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Problems</strong>: - ❌ <strong>Poor Query Performance</strong>: All queries become cross-partition - ❌ <strong>High RU Costs</strong>: Expensive aggregations and filters - ❌ <strong>No Locality</strong>: Related feeds scattered across partitions - ❌ <strong>Archival Complexity</strong>: Cannot easily identify old data</p>
+<p><strong>Problems</strong>:</p>
+<ul>
+<li>❌ <strong>Poor Query Performance</strong>: All queries become cross-partition</li>
+<li>❌ <strong>High RU Costs</strong>: Expensive aggregations and filters</li>
+<li>❌ <strong>No Locality</strong>: Related feeds scattered across partitions</li>
+<li>❌ <strong>Archival Complexity</strong>: Cannot easily identify old data</li>
+</ul>
 </section>
 </section>
 <section id="implementation-recommendation" class="level3">

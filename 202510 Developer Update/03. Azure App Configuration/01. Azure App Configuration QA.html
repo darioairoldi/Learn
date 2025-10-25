@@ -1745,23 +1745,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Azure App Configuration offers four pricing tiers, each designed for different use cases:</p>
 <p><strong>Free</strong>: The Free tier provides a cost-free evaluation environment for exploring Azure App Configuration features in non-production settings. It offers basic configuration management, feature flags, and Key Vault references with <strong><mark>limited storage (10 MB)</mark></strong> and request quotas (<strong><mark>1,000 requests/day</mark></strong>).</p>
 <blockquote class="blockquote">
-<p><strong>Pros</strong>: - No cost - perfect for learning and evaluation - Includes core functionality (config settings, feature &gt; flags, Key Vault references) - Good for tutorials and proof-of-concept projects</p>
-<p><strong>Cons</strong>: - Limited to 1 store per region per subscription - Only 10 MB storage (regular + snapshot combined) - Low request quota (1,000 requests/day) - No SLA - No Private Link support - Revision history only 7 days - No guaranteed throughput</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>No cost - perfect for learning and evaluation</li>
+<li>Includes core functionality (config settings, feature &gt; flags, Key Vault references)</li>
+<li>Good for tutorials and proof-of-concept projects</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Limited to 1 store per region per subscription</li>
+<li>Only 10 MB storage (regular + snapshot combined)</li>
+<li>Low request quota (1,000 requests/day)</li>
+<li>No SLA</li>
+<li>No Private Link support</li>
+<li>Revision history only 7 days</li>
+<li>No guaranteed throughput</li>
+</ul>
 </blockquote>
 <p><strong>Developer</strong>: The Developer tier is a cost-efficient option tailored for development and testing environments. It provides <strong><mark>more storage (500 MB)</mark></strong> and <strong><mark>request capacity (6,000 requests/hour)</mark></strong> than Free tier, with Private Link support for secure development scenarios.</p>
 <blockquote class="blockquote">
-<p><strong>Pros</strong>: - Cost-effective for development/testing - Private Link support for secure connectivity - Higher storage capacity (<strong><mark>500 MB regular</mark></strong> + <strong><mark>500 MB snapshot</mark></strong>) - Better request quota (<strong><mark>6,000 requests/hour</mark></strong>) - <mark>Unlimited stores</mark> per subscription</p>
-<p><strong>Cons</strong>: - Not designed for production use - <mark>No SLA</mark> - Revision history only <mark>7 days</mark> - <mark>No guaranteed throughput</mark> - <mark>No</mark> encryption with <mark>customer-managed keys</mark> - <mark>No</mark> <mark>soft delete</mark> or <mark>geo-replication</mark></p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>Cost-effective for development/testing</li>
+<li>Private Link support for secure connectivity</li>
+<li>Higher storage capacity (<strong><mark>500 MB regular</mark></strong> + <strong><mark>500 MB snapshot</mark></strong>)</li>
+<li>Better request quota (<strong><mark>6,000 requests/hour</mark></strong>)</li>
+<li><mark>Unlimited stores</mark> per subscription</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Not designed for production use</li>
+<li><mark>No SLA</mark></li>
+<li>Revision history only <mark>7 days</mark></li>
+<li><mark>No guaranteed throughput</mark></li>
+<li><mark>No</mark> encryption with <mark>customer-managed keys</mark></li>
+<li><mark>No</mark> <mark>soft delete</mark> or <mark>geo-replication</mark></li>
+</ul>
 </blockquote>
 <p><strong>Standard</strong>: The Standard tier is designed for medium-volume production and non-production workloads, offering a balance of performance and cost-efficiency. It includes enterprise features like customer-managed encryption, soft delete, and geo-replication with a 99.9% SLA (99.95% with geo-replication).</p>
 <blockquote class="blockquote">
-<p><strong>Pros</strong>: - Production-ready with <mark>99.9% SLA</mark> - <mark>1 GB storage</mark> (<mark>regular</mark> + <mark>snapshot</mark> each) - <mark>30-day</mark> revision history - Guaranteed throughput (<mark>300 RPS read</mark>, <mark>60 RPS write</mark>) - Private Link, customer-managed keys, soft delete - <mark>Geo-replication</mark> support for high availability - <mark>10 private endpoints</mark> - Reasonable request quota (<mark>30,000 requests/hour</mark>, <mark>200,000/day</mark> included)</p>
-<p><strong>Cons</strong>: - <mark>Limited compared to Premium</mark> for high-volume scenarios - <mark>Lower throughput than Premium tier</mark> - Request quota may be insufficient for very high-traffic &gt; applications - <mark>Fewer private endpoints</mark> than Premium</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>Production-ready with <mark>99.9% SLA</mark></li>
+<li><mark>1 GB storage</mark> (<mark>regular</mark> + <mark>snapshot</mark> each)</li>
+<li><mark>30-day</mark> revision history</li>
+<li>Guaranteed throughput (<mark>300 RPS read</mark>, <mark>60 RPS write</mark>)</li>
+<li>Private Link, customer-managed keys, soft delete</li>
+<li><mark>Geo-replication</mark> support for high availability</li>
+<li><mark>10 private endpoints</mark></li>
+<li>Reasonable request quota (<mark>30,000 requests/hour</mark>, <mark>200,000/day</mark> included)</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li><mark>Limited compared to Premium</mark> for high-volume scenarios</li>
+<li><mark>Lower throughput than Premium tier</mark></li>
+<li>Request quota may be insufficient for very high-traffic &gt; applications</li>
+<li><mark>Fewer private endpoints</mark> than Premium</li>
+</ul>
 </blockquote>
 <p><strong>Premium</strong>: The Premium tier provides the highest performance and scalability for high-volume, enterprise-level production applications. It features unlimited request quotas, maximum throughput (450 RPS read, 100 RPS write), and enhanced SLA (99.9% base, 99.99% with geo-replication).</p>
 <blockquote class="blockquote">
-<p><strong>Pros</strong>: - <mark>No request quota limits</mark> - never blocked - Highest storage capacity (<mark>4 GB regular</mark> + 4 GB snapshot) - Best throughput (<mark>450 RPS read</mark>, <mark>100 RPS write</mark>) - <mark>30-day revision history</mark> - Enhanced SLA (<mark>99.99% with geo-replication) - Maximum private endpoints (<mark>40</mark>) - All enterprise features included - Ideal for mission-critical applications</mark></p>
-<p><strong>Cons</strong>: - <mark>Higher cost</mark> than other tiers - May be over-provisioned for smaller workloads - <mark>Cannot downgrade to Free or Developer tier directly</mark></p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li><mark>No request quota limits</mark> - never blocked</li>
+<li>Highest storage capacity (<mark>4 GB regular</mark> + 4 GB snapshot)</li>
+<li>Best throughput (<mark>450 RPS read</mark>, <mark>100 RPS write</mark>)</li>
+<li><mark>30-day revision history</mark></li>
+<li>Enhanced SLA (<mark>99.99% with geo-replication)</mark></li>
+<li>Maximum private endpoints (<mark>40</mark>)</li>
+<li>All enterprise features included</li>
+<li>Ideal for mission-critical applications</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li><mark>Higher cost</mark> than other tiers</li>
+<li>May be over-provisioned for smaller workloads</li>
+<li><mark>Cannot downgrade to Free or Developer tier directly</mark></li>
+</ul>
 </blockquote>
 </section>
 <section id="q.-can-azure-key-vault-be-integrated-on-a-value-by-value-basis-only" class="level2">

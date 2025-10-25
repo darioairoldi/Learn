@@ -1754,32 +1754,104 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="service-limits-and-quotas">1. ⚡ Service Limits and Quotas</h2>
 <section id="transaction-rate-limits-throttling" class="level3">
 <h3 class="anchored" data-anchor-id="transaction-rate-limits-throttling">1.1 Transaction Rate Limits (Throttling)</h3>
-<p><strong>Secrets, Keys, and Certificates per vault per region:</strong> - <strong>GET operations</strong>: <mark>2,000 transactions</mark> per <mark>10 seconds</mark> - <strong>All other operations</strong>: <mark>2,000 transactions</mark> per <mark>10 seconds</mark></p>
-<p><strong>Key operations (RSA 2048-bit keys):</strong> - <strong>Sign/Verify</strong>: <mark>2,000 transactions</mark> per <mark>10 seconds</mark> - <strong>Encrypt/Decrypt</strong>: <mark>200 transactions</mark> per <mark>10 seconds</mark></p>
-<p><strong>Key operations (RSA 3072-bit, 4096-bit, ECC keys):</strong> - Lower limits apply based on key type and operation</p>
-<p><strong>Impact:</strong> - Exceeding limits results in <mark>HTTP 429 (Too Many Requests)</mark> errors - Applications must implement retry logic with exponential backoff - May require architecture changes for high-throughput scenarios</p>
-<p><strong>Mitigation:</strong> - Cache secrets/keys in application memory - Use multiple key vaults for horizontal scaling - Implement caching strategies with appropriate TTL - Consider Azure Key Vault Managed HSM for higher throughput requirements</p>
+<p><strong>Secrets, Keys, and Certificates per vault per region:</strong></p>
+<ul>
+<li><strong>GET operations</strong>: <mark>2,000 transactions</mark> per <mark>10 seconds</mark></li>
+<li><strong>All other operations</strong>: <mark>2,000 transactions</mark> per <mark>10 seconds</mark></li>
+</ul>
+<p><strong>Key operations (RSA 2048-bit keys):</strong></p>
+<ul>
+<li><strong>Sign/Verify</strong>: <mark>2,000 transactions</mark> per <mark>10 seconds</mark></li>
+<li><strong>Encrypt/Decrypt</strong>: <mark>200 transactions</mark> per <mark>10 seconds</mark></li>
+</ul>
+<p><strong>Key operations (RSA 3072-bit, 4096-bit, ECC keys):</strong></p>
+<ul>
+<li>Lower limits apply based on key type and operation</li>
+</ul>
+<p><strong>Impact:</strong></p>
+<ul>
+<li>Exceeding limits results in <mark>HTTP 429 (Too Many Requests)</mark> errors</li>
+<li>Applications must implement retry logic with exponential backoff</li>
+<li>May require architecture changes for high-throughput scenarios</li>
+</ul>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li>Cache secrets/keys in application memory</li>
+<li>Use multiple key vaults for horizontal scaling</li>
+<li>Implement caching strategies with appropriate TTL</li>
+<li>Consider Azure Key Vault Managed HSM for higher throughput requirements</li>
+</ul>
 <hr>
 </section>
 <section id="object-size-limits" class="level3">
 <h3 class="anchored" data-anchor-id="object-size-limits">1.2 Object Size Limits</h3>
-<p><strong>Secrets:</strong> - Maximum size: <strong>25 KB</strong> - Impact: Cannot store large configuration files or certificates directly as secrets</p>
-<p><strong>Keys:</strong> - RSA key sizes: 2048, 3072, or 4096 bits - EC key sizes: P-256, P-384, P-521, P-256K (secp256k1) - No arbitrary key sizes supported</p>
-<p><strong>Certificates:</strong> - Maximum size: <strong>1.5 MB</strong> - Includes certificate, private key, and certificate chain</p>
-<p><strong>Mitigation:</strong> - Store large files in Azure Blob Storage and keep references/SAS tokens in Key Vault - Split large configurations into multiple secrets - Use certificate bundling carefully to stay within limits</p>
+<p><strong>Secrets:</strong></p>
+<ul>
+<li>Maximum size: <strong>25 KB</strong></li>
+<li>Impact: Cannot store large configuration files or certificates directly as secrets</li>
+</ul>
+<p><strong>Keys:</strong></p>
+<ul>
+<li>RSA key sizes: 2048, 3072, or 4096 bits</li>
+<li>EC key sizes: P-256, P-384, P-521, P-256K (secp256k1)</li>
+<li>No arbitrary key sizes supported</li>
+</ul>
+<p><strong>Certificates:</strong></p>
+<ul>
+<li>Maximum size: <strong>1.5 MB</strong></li>
+<li>Includes certificate, private key, and certificate chain</li>
+</ul>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li>Store large files in Azure Blob Storage and keep references/SAS tokens in Key Vault</li>
+<li>Split large configurations into multiple secrets</li>
+<li>Use certificate bundling carefully to stay within limits</li>
+</ul>
 <hr>
 </section>
 <section id="naming-constraints" class="level3">
 <h3 class="anchored" data-anchor-id="naming-constraints">1.3 Naming Constraints</h3>
-<p><strong>Object names (secrets, keys, certificates):</strong> - Length: <strong>1-127 characters</strong> - Allowed characters: <strong>0-9, a-z, A-Z, and hyphens (-)</strong> - Must start with a letter or number - Case-insensitive (treated as lowercase)</p>
-<p><strong>Key Vault name:</strong> - Length: <strong>3-24 characters</strong> - Globally unique across Azure - Alphanumeric and hyphens only - Must start with a letter - Cannot contain consecutive hyphens</p>
-<p><strong>Impact:</strong> - Limited naming conventions - Cannot use special characters or underscores - Name collisions in global namespace</p>
+<p><strong>Object names (secrets, keys, certificates):</strong></p>
+<ul>
+<li>Length: <strong>1-127 characters</strong></li>
+<li>Allowed characters: <strong>0-9, a-z, A-Z, and hyphens (-)</strong></li>
+<li>Must start with a letter or number</li>
+<li>Case-insensitive (treated as lowercase)</li>
+</ul>
+<p><strong>Key Vault name:</strong></p>
+<ul>
+<li>Length: <strong>3-24 characters</strong></li>
+<li>Globally unique across Azure</li>
+<li>Alphanumeric and hyphens only</li>
+<li>Must start with a letter</li>
+<li>Cannot contain consecutive hyphens</li>
+</ul>
+<p><strong>Impact:</strong></p>
+<ul>
+<li>Limited naming conventions</li>
+<li>Cannot use special characters or underscores</li>
+<li>Name collisions in global namespace</li>
+</ul>
 <hr>
 </section>
 <section id="storage-limits" class="level3">
 <h3 class="anchored" data-anchor-id="storage-limits">1.4 Storage Limits</h3>
-<p><strong>Per Key Vault:</strong> - <strong>No hard limit</strong> on number of secrets, keys, or certificates - However, practical limits due to: - Performance degradation with thousands of objects - Management complexity - Listing operations pagination</p>
-<p><strong>Best Practice:</strong> - Keep vaults focused and organized - Use multiple vaults for different applications/environments - Implement proper tagging and naming conventions</p>
+<p><strong>Per Key Vault:</strong></p>
+<ul>
+<li><strong>No hard limit</strong> on number of secrets, keys, or certificates</li>
+<li>However, practical limits due to:
+<ul>
+<li>Performance degradation with thousands of objects</li>
+<li>Management complexity</li>
+<li>Listing operations pagination</li>
+</ul></li>
+</ul>
+<p><strong>Best Practice:</strong></p>
+<ul>
+<li>Keep vaults focused and organized</li>
+<li>Use multiple vaults for different applications/environments</li>
+<li>Implement proper tagging and naming conventions</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1787,23 +1859,72 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="security-and-access-limitations">2. 🔒 Security and Access Limitations</h2>
 <section id="access-policy-vs-rbac" class="level3">
 <h3 class="anchored" data-anchor-id="access-policy-vs-rbac">2.1 Access Policy vs RBAC</h3>
-<p><strong>Access Policy Model (Classic):</strong> - Maximum <strong>1,024 access policies</strong> per vault - Coarse-grained permissions (e.g., cannot separate read vs list for secrets) - No inheritance from resource groups or subscriptions - Difficult to manage at scale</p>
-<p><strong>RBAC Model (Recommended):</strong> - Fine-grained permissions using built-in or custom roles - Inherits from higher scopes - Better integration with Azure AD governance - Some operations still require vault access policies (backup/restore)</p>
-<p><strong>Limitation:</strong> - Cannot mix both models seamlessly in some scenarios - Migration from access policies to RBAC requires planning</p>
+<p><strong>Access Policy Model (Classic):</strong></p>
+<ul>
+<li>Maximum <strong>1,024 access policies</strong> per vault</li>
+<li>Coarse-grained permissions (e.g., cannot separate read vs list for secrets)</li>
+<li>No inheritance from resource groups or subscriptions</li>
+<li>Difficult to manage at scale</li>
+</ul>
+<p><strong>RBAC Model (Recommended):</strong></p>
+<ul>
+<li>Fine-grained permissions using built-in or custom roles</li>
+<li>Inherits from higher scopes</li>
+<li>Better integration with Azure AD governance</li>
+<li>Some operations still require vault access policies (backup/restore)</li>
+</ul>
+<p><strong>Limitation:</strong></p>
+<ul>
+<li>Cannot mix both models seamlessly in some scenarios</li>
+<li>Migration from access policies to RBAC requires planning</li>
+</ul>
 <hr>
 </section>
 <section id="network-security-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="network-security-limitations">2.2 Network Security Limitations</h3>
-<p><strong>Firewall and Virtual Network Rules:</strong> - Maximum <strong>400 IP rules</strong> per vault - Maximum <strong>400 virtual network rules</strong> per vault - No support for IPv6 (as of current version) - Firewall rules apply to entire vault (cannot restrict per object)</p>
-<p><strong>Private Endpoints:</strong> - Supported, but adds complexity - DNS configuration required - May impact multi-region scenarios - Private endpoint connections count toward subscription limits</p>
-<p><strong>Public Access:</strong> - Default is public access enabled - “Deny all” firewall rules may block legitimate Azure services - Requires careful configuration of trusted services</p>
+<p><strong>Firewall and Virtual Network Rules:</strong></p>
+<ul>
+<li>Maximum <strong>400 IP rules</strong> per vault</li>
+<li>Maximum <strong>400 virtual network rules</strong> per vault</li>
+<li>No support for IPv6 (as of current version)</li>
+<li>Firewall rules apply to entire vault (cannot restrict per object)</li>
+</ul>
+<p><strong>Private Endpoints:</strong></p>
+<ul>
+<li>Supported, but adds complexity</li>
+<li>DNS configuration required</li>
+<li>May impact multi-region scenarios</li>
+<li>Private endpoint connections count toward subscription limits</li>
+</ul>
+<p><strong>Public Access:</strong></p>
+<ul>
+<li>Default is public access enabled</li>
+<li>“Deny all” firewall rules may block legitimate Azure services</li>
+<li>Requires careful configuration of trusted services</li>
+</ul>
 <hr>
 </section>
 <section id="soft-delete-and-purge-protection" class="level3">
 <h3 class="anchored" data-anchor-id="soft-delete-and-purge-protection">2.3 Soft Delete and Purge Protection</h3>
-<p><strong>Soft Delete:</strong> - Cannot be disabled on new vaults (enforced by Azure) - Retention period: <strong>7-90 days</strong> (default 90) - Deleted objects count toward naming restrictions until purged - May cause naming conflicts when recreating objects</p>
-<p><strong>Purge Protection:</strong> - When enabled, <strong>cannot be disabled</strong> - Objects cannot be permanently deleted during retention period - Increases storage costs for deleted objects</p>
-<p><strong>Impact:</strong> - Cannot immediately reuse names after deletion - Must wait for retention period or purge (if allowed) - Compliance requirement may mandate purge protection</p>
+<p><strong>Soft Delete:</strong></p>
+<ul>
+<li>Cannot be disabled on new vaults (enforced by Azure)</li>
+<li>Retention period: <strong>7-90 days</strong> (default 90)</li>
+<li>Deleted objects count toward naming restrictions until purged</li>
+<li>May cause naming conflicts when recreating objects</li>
+</ul>
+<p><strong>Purge Protection:</strong></p>
+<ul>
+<li>When enabled, <strong>cannot be disabled</strong></li>
+<li>Objects cannot be permanently deleted during retention period</li>
+<li>Increases storage costs for deleted objects</li>
+</ul>
+<p><strong>Impact:</strong></p>
+<ul>
+<li>Cannot immediately reuse names after deletion</li>
+<li>Must wait for retention period or purge (if allowed)</li>
+<li>Compliance requirement may mandate purge protection</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1811,16 +1932,48 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="regional-and-availability-limitations">3. 🌍 Regional and Availability Limitations</h2>
 <section id="geographic-restrictions" class="level3">
 <h3 class="anchored" data-anchor-id="geographic-restrictions">3.1 Geographic Restrictions</h3>
-<p><strong>Region Availability:</strong> - Not available in all Azure regions - Some features (Managed HSM) available in limited regions - Must consider data residency requirements</p>
-<p><strong>Cross-Region Access:</strong> - No built-in geo-replication for secrets/keys - Manual replication required for multi-region scenarios - Disaster recovery requires planning</p>
-<p><strong>Mitigation:</strong> - Use multiple vaults in different regions - Implement application-level replication logic - Consider Azure Site Recovery for DR scenarios</p>
+<p><strong>Region Availability:</strong></p>
+<ul>
+<li>Not available in all Azure regions</li>
+<li>Some features (Managed HSM) available in limited regions</li>
+<li>Must consider data residency requirements</li>
+</ul>
+<p><strong>Cross-Region Access:</strong></p>
+<ul>
+<li>No built-in geo-replication for secrets/keys</li>
+<li>Manual replication required for multi-region scenarios</li>
+<li>Disaster recovery requires planning</li>
+</ul>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li>Use multiple vaults in different regions</li>
+<li>Implement application-level replication logic</li>
+<li>Consider Azure Site Recovery for DR scenarios</li>
+</ul>
 <hr>
 </section>
 <section id="backup-and-recovery-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="backup-and-recovery-limitations">3.2 Backup and Recovery Limitations</h3>
-<p><strong>Backup:</strong> - Backups are <strong>encrypted and opaque</strong> (cannot be inspected) - Can only be restored to same Azure geography - Cannot restore to different subscription directly - Cannot selectively restore individual secrets</p>
-<p><strong>Recovery:</strong> - Point-in-time recovery not supported - Must restore entire vault backup - No cross-region restore support</p>
-<p><strong>Best Practice:</strong> - Regular backup automation - Test restore procedures - Document secret recreation processes - Consider exporting secrets to secure storage as alternative backup</p>
+<p><strong>Backup:</strong></p>
+<ul>
+<li>Backups are <strong>encrypted and opaque</strong> (cannot be inspected)</li>
+<li>Can only be restored to same Azure geography</li>
+<li>Cannot restore to different subscription directly</li>
+<li>Cannot selectively restore individual secrets</li>
+</ul>
+<p><strong>Recovery:</strong></p>
+<ul>
+<li>Point-in-time recovery not supported</li>
+<li>Must restore entire vault backup</li>
+<li>No cross-region restore support</li>
+</ul>
+<p><strong>Best Practice:</strong></p>
+<ul>
+<li>Regular backup automation</li>
+<li>Test restore procedures</li>
+<li>Document secret recreation processes</li>
+<li>Consider exporting secrets to secure storage as alternative backup</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1828,22 +1981,63 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="feature-specific-limitations">4. 🔧 Feature-Specific Limitations</h2>
 <section id="certificate-management" class="level3">
 <h3 class="anchored" data-anchor-id="certificate-management">4.1 Certificate Management</h3>
-<p><strong>Certificate Authorities:</strong> - Limited to integrated CAs (DigiCert, GlobalSign) or self-signed - Custom CA integration requires manual certificate upload - Auto-renewal only works with integrated CAs</p>
-<p><strong>Certificate Formats:</strong> - Only <strong>PFX/PKCS#12</strong> format for certificates with private keys - Limited control over certificate export formats - Some legacy formats not supported</p>
-<p><strong>Limitations:</strong> - Cannot modify certificate after creation (must create new version) - No built-in certificate validation testing - Limited certificate chain management</p>
+<p><strong>Certificate Authorities:</strong></p>
+<ul>
+<li>Limited to integrated CAs (DigiCert, GlobalSign) or self-signed</li>
+<li>Custom CA integration requires manual certificate upload</li>
+<li>Auto-renewal only works with integrated CAs</li>
+</ul>
+<p><strong>Certificate Formats:</strong></p>
+<ul>
+<li>Only <strong>PFX/PKCS#12</strong> format for certificates with private keys</li>
+<li>Limited control over certificate export formats</li>
+<li>Some legacy formats not supported</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Cannot modify certificate after creation (must create new version)</li>
+<li>No built-in certificate validation testing</li>
+<li>Limited certificate chain management</li>
+</ul>
 <hr>
 </section>
 <section id="key-operations-and-cryptography" class="level3">
 <h3 class="anchored" data-anchor-id="key-operations-and-cryptography">4.2 Key Operations and Cryptography</h3>
-<p><strong>Supported Algorithms:</strong> - Limited to specific RSA and EC key types - No support for custom cryptographic algorithms - Symmetric key operations limited compared to HSM</p>
-<p><strong>Key Rotation:</strong> - No automatic key rotation for customer-managed keys - Manual rotation process required - Application changes needed to support key versioning</p>
-<p><strong>Export Restrictions:</strong> - HSM-backed keys <strong>cannot be exported</strong> - Software-protected keys can be backed up (encrypted) - No plain-text export of private keys (by design)</p>
+<p><strong>Supported Algorithms:</strong></p>
+<ul>
+<li>Limited to specific RSA and EC key types</li>
+<li>No support for custom cryptographic algorithms</li>
+<li>Symmetric key operations limited compared to HSM</li>
+</ul>
+<p><strong>Key Rotation:</strong></p>
+<ul>
+<li>No automatic key rotation for customer-managed keys</li>
+<li>Manual rotation process required</li>
+<li>Application changes needed to support key versioning</li>
+</ul>
+<p><strong>Export Restrictions:</strong></p>
+<ul>
+<li>HSM-backed keys <strong>cannot be exported</strong></li>
+<li>Software-protected keys can be backed up (encrypted)</li>
+<li>No plain-text export of private keys (by design)</li>
+</ul>
 <hr>
 </section>
 <section id="versioning-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="versioning-limitations">4.3 Versioning Limitations</h3>
-<p><strong>Version Management:</strong> - No limit on number of versions per object - Cannot delete specific versions (must disable first) - All versions consume storage - Listing all versions may be slow with many versions</p>
-<p><strong>Version Control:</strong> - No built-in version comparison tools - No rollback automation - Manual version management required</p>
+<p><strong>Version Management:</strong></p>
+<ul>
+<li>No limit on number of versions per object</li>
+<li>Cannot delete specific versions (must disable first)</li>
+<li>All versions consume storage</li>
+<li>Listing all versions may be slow with many versions</li>
+</ul>
+<p><strong>Version Control:</strong></p>
+<ul>
+<li>No built-in version comparison tools</li>
+<li>No rollback automation</li>
+<li>Manual version management required</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1851,21 +2045,57 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="integration-and-compatibility-limitations">5. 🔌 Integration and Compatibility Limitations</h2>
 <section id="authentication-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="authentication-limitations">5.1 Authentication Limitations</h3>
-<p><strong>Supported Authentication Methods:</strong> - Azure AD only (no alternative identity providers) - Service Principals require credential management - Managed Identity only works for Azure resources - No support for on-premises AD without Azure AD Connect</p>
-<p><strong>Local Development:</strong> - Requires Azure AD authentication setup - Visual Studio, VS Code, Azure CLI credential providers - More complex than simple API keys</p>
+<p><strong>Supported Authentication Methods:</strong></p>
+<ul>
+<li>Azure AD only (no alternative identity providers)</li>
+<li>Service Principals require credential management</li>
+<li>Managed Identity only works for Azure resources</li>
+<li>No support for on-premises AD without Azure AD Connect</li>
+</ul>
+<p><strong>Local Development:</strong></p>
+<ul>
+<li>Requires Azure AD authentication setup</li>
+<li>Visual Studio, VS Code, Azure CLI credential providers</li>
+<li>More complex than simple API keys</li>
+</ul>
 <hr>
 </section>
 <section id="sdk-and-api-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="sdk-and-api-limitations">5.2 SDK and API Limitations</h3>
-<p><strong>SDK Availability:</strong> - Good coverage for major languages (.NET, Java, Python, JavaScript, Go) - Some languages have limited or community-supported SDKs - API versions may lag behind portal features</p>
-<p><strong>REST API:</strong> - Requires manual token management - Complex authentication flow - Rate limiting applies to all access methods</p>
+<p><strong>SDK Availability:</strong></p>
+<ul>
+<li>Good coverage for major languages (.NET, Java, Python, JavaScript, Go)</li>
+<li>Some languages have limited or community-supported SDKs</li>
+<li>API versions may lag behind portal features</li>
+</ul>
+<p><strong>REST API:</strong></p>
+<ul>
+<li>Requires manual token management</li>
+<li>Complex authentication flow</li>
+<li>Rate limiting applies to all access methods</li>
+</ul>
 <hr>
 </section>
 <section id="monitoring-and-logging-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="monitoring-and-logging-limitations">5.3 Monitoring and Logging Limitations</h3>
-<p><strong>Azure Monitor Integration:</strong> - Diagnostic logs available but require configuration - Log retention in Log Analytics has costs - No built-in alerts for common scenarios</p>
-<p><strong>Audit Trail:</strong> - Access logs available through Azure Monitor - Cannot track secret value access vs metadata access (by design) - Limited real-time monitoring capabilities</p>
-<p><strong>Limitations:</strong> - No built-in secret usage tracking - Must correlate logs from multiple sources - SIEM integration requires additional configuration</p>
+<p><strong>Azure Monitor Integration:</strong></p>
+<ul>
+<li>Diagnostic logs available but require configuration</li>
+<li>Log retention in Log Analytics has costs</li>
+<li>No built-in alerts for common scenarios</li>
+</ul>
+<p><strong>Audit Trail:</strong></p>
+<ul>
+<li>Access logs available through Azure Monitor</li>
+<li>Cannot track secret value access vs metadata access (by design)</li>
+<li>Limited real-time monitoring capabilities</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>No built-in secret usage tracking</li>
+<li>Must correlate logs from multiple sources</li>
+<li>SIEM integration requires additional configuration</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1873,17 +2103,51 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="cost-considerations-and-limitations">6. 💰 Cost Considerations and Limitations</h2>
 <section id="pricing-tiers" class="level3">
 <h3 class="anchored" data-anchor-id="pricing-tiers">6.1 Pricing Tiers</h3>
-<p><strong>Standard Tier:</strong> - Software-protected keys and secrets - Pay per operation (after free tier) - Limited cryptographic operations</p>
-<p><strong>Premium Tier:</strong> - HSM-backed keys supported - Higher cost per operation - Better for compliance requirements</p>
-<p><strong>Managed HSM:</strong> - Significantly higher cost (dedicated HSM pools) - Monthly base charge even with no operations - Minimum 3 instances required for HA</p>
-<p><strong>Limitations:</strong> - Cannot downgrade from Premium to Standard if HSM keys exist - Managed HSM has high entry cost - No commitment discounts available</p>
+<p><strong>Standard Tier:</strong></p>
+<ul>
+<li>Software-protected keys and secrets</li>
+<li>Pay per operation (after free tier)</li>
+<li>Limited cryptographic operations</li>
+</ul>
+<p><strong>Premium Tier:</strong></p>
+<ul>
+<li>HSM-backed keys supported</li>
+<li>Higher cost per operation</li>
+<li>Better for compliance requirements</li>
+</ul>
+<p><strong>Managed HSM:</strong></p>
+<ul>
+<li>Significantly higher cost (dedicated HSM pools)</li>
+<li>Monthly base charge even with no operations</li>
+<li>Minimum 3 instances required for HA</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Cannot downgrade from Premium to Standard if HSM keys exist</li>
+<li>Managed HSM has high entry cost</li>
+<li>No commitment discounts available</li>
+</ul>
 <hr>
 </section>
 <section id="hidden-costs" class="level3">
 <h3 class="anchored" data-anchor-id="hidden-costs">6.2 Hidden Costs</h3>
-<p><strong>Storage Costs:</strong> - Soft-deleted objects consume storage - Multiple versions consume storage - Backups stored in vault count toward storage</p>
-<p><strong>Operation Costs:</strong> - High-frequency operations can increase costs - Certificate auto-renewal operations - Monitoring and logging costs separate</p>
-<p><strong>Data Transfer:</strong> - Egress charges may apply - Cross-region access incurs data transfer costs</p>
+<p><strong>Storage Costs:</strong></p>
+<ul>
+<li>Soft-deleted objects consume storage</li>
+<li>Multiple versions consume storage</li>
+<li>Backups stored in vault count toward storage</li>
+</ul>
+<p><strong>Operation Costs:</strong></p>
+<ul>
+<li>High-frequency operations can increase costs</li>
+<li>Certificate auto-renewal operations</li>
+<li>Monitoring and logging costs separate</li>
+</ul>
+<p><strong>Data Transfer:</strong></p>
+<ul>
+<li>Egress charges may apply</li>
+<li>Cross-region access incurs data transfer costs</li>
+</ul>
 <hr>
 </section>
 </section>

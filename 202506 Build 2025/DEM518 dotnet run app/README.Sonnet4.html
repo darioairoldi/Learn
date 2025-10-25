@@ -1990,7 +1990,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="progressive-disclosure-learning" class="level3">
 <h3 class="anchored" data-anchor-id="progressive-disclosure-learning">5.2 Progressive Disclosure Learning</h3>
 <p>The package integration demonstrated progressive disclosure principles:</p>
-<p><strong>Learning Progression:</strong> 1. <strong>Start Simple:</strong> Pure C# syntax and basic operations 2. <strong>Add Complexity:</strong> Variable declarations, method calls, date operations 3. <strong>Include External Code:</strong> Package references and using statements 4. <strong>Expand Functionality:</strong> More sophisticated operations with external libraries</p>
+<p><strong>Learning Progression:</strong></p>
+<ol type="1">
+<li><strong>Start Simple:</strong> Pure C# syntax and basic operations</li>
+<li><strong>Add Complexity:</strong> Variable declarations, method calls, date operations</li>
+<li><strong>Include External Code:</strong> Package references and using statements</li>
+<li><strong>Expand Functionality:</strong> More sophisticated operations with external libraries</li>
+</ol>
 <p>Edwards noted that the using statement introduction came naturally after adding packages: &gt; <em>“That’s a new thing I need to think about as a C# developer after I’ve added this package. So good, good progressive disclosure. I’m learning the things I need to do.”</em></p>
 <p>This approach allows developers to encounter concepts when they become relevant rather than overwhelming them upfront.</p>
 <hr>
@@ -2103,7 +2109,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Edwards demonstrated the smooth migration path from single files to full projects:</p>
 <p><strong>Project Conversion Command:</strong></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> project convert hello.cs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Conversion Process:</strong> 1. <strong>Project Folder Creation:</strong> Creates directory with same name as file 2. <strong><code>.csproj</code> Generation:</strong> Automatic project file creation with appropriate references 3. <strong>Directive Stripping:</strong> Removes ignore directives from C# file 4. <strong>Package Integration:</strong> Converts <code>#r</code> directives to proper PackageReference elements 5. <strong>Code Preservation:</strong> Maintains all functionality in project format</p>
+<p><strong>Conversion Process:</strong></p>
+<ol type="1">
+<li><strong>Project Folder Creation:</strong> Creates directory with same name as file</li>
+<li><strong><code>.csproj</code> Generation:</strong> Automatic project file creation with appropriate references</li>
+<li><strong>Directive Stripping:</strong> Removes ignore directives from C# file</li>
+<li><strong>Package Integration:</strong> Converts <code>#r</code> directives to proper PackageReference elements</li>
+<li><strong>Code Preservation:</strong> Maintains all functionality in project format</li>
+</ol>
 </section>
 <section id="maintaining-functionality" class="level3">
 <h3 class="anchored" data-anchor-id="maintaining-functionality">8.2 Maintaining Functionality</h3>

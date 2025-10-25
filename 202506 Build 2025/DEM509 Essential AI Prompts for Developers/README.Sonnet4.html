@@ -1894,8 +1894,15 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Generate contextually relevant questions</strong> based on actual codebase content</li>
 <li><strong>Provide informed recommendations</strong> rather than generic suggestions</li>
 </ul>
-<p><strong>Enhanced Question Quality:</strong> With codebase context, the AI generates more sophisticated questions: 1. “Are you planning to follow a model-view-controller pattern?” → Yes 2. “Do you need to handle authentication?” → Yes<br>
-3. “Do you plan to implement API endpoints?” → No 4. “Will you be using automated tests?” → No (“You kidding me?”) 5. “Are you planning to include middleware?” → Yes</p>
+<p><strong>Enhanced Question Quality:</strong> With codebase context, the AI generates more sophisticated questions:</p>
+<ol type="1">
+<li>“Are you planning to follow a model-view-controller pattern?” → Yes</li>
+<li>“Do you need to handle authentication?” → Yes<br>
+</li>
+<li>“Do you plan to implement API endpoints?” → No</li>
+<li>“Will you be using automated tests?” → No (“You kidding me?”)</li>
+<li>“Are you planning to include middleware?” → Yes</li>
+</ol>
 </section>
 <section id="automated-implementation-and-script-generation" class="level3">
 <h3 class="anchored" data-anchor-id="automated-implementation-and-script-generation">Automated Implementation and Script Generation</h3>
@@ -1954,9 +1961,21 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="multi-option-decision-framework">Multi-Option Decision Framework</h3>
 <p><strong>The Pros and Cons Prompt:</strong> <em>“Sup bro, I’m back. Yo, listen, new sitch here. What’s going on is I got a database file and I want to just inject it once into the application. Like I don’t want to instantiate that mug every single time I use it. What is the best way to do that? Actually give me several options and give me the pros and cons of each.”</em></p>
 <p><strong>Comprehensive Solution Analysis:</strong></p>
-<p><strong>Option 1: Module-Level Singleton</strong> - <strong>Pros:</strong> Simple implementation, automatic lazy loading, minimal configuration - <strong>Cons:</strong> Global state management, potential testing complications, dependency injection challenges</p>
-<p><strong>Option 2: Classical Singleton Pattern</strong> - <strong>Pros:</strong> Controlled instantiation, thread-safe implementation options, established pattern - <strong>Cons:</strong> More complex implementation, potential performance bottlenecks, testing difficulties</p>
-<p><strong>Option 3: Dependency Injection Container</strong> - <strong>Pros:</strong> Testable architecture, configurable implementations, follows SOLID principles - <strong>Cons:</strong> Framework dependency, learning curve, additional complexity</p>
+<p><strong>Option 1: Module-Level Singleton</strong></p>
+<ul>
+<li><strong>Pros:</strong> Simple implementation, automatic lazy loading, minimal configuration</li>
+<li><strong>Cons:</strong> Global state management, potential testing complications, dependency injection challenges</li>
+</ul>
+<p><strong>Option 2: Classical Singleton Pattern</strong></p>
+<ul>
+<li><strong>Pros:</strong> Controlled instantiation, thread-safe implementation options, established pattern</li>
+<li><strong>Cons:</strong> More complex implementation, potential performance bottlenecks, testing difficulties</li>
+</ul>
+<p><strong>Option 3: Dependency Injection Container</strong></p>
+<ul>
+<li><strong>Pros:</strong> Testable architecture, configurable implementations, follows SOLID principles</li>
+<li><strong>Cons:</strong> Framework dependency, learning curve, additional complexity</li>
+</ul>
 </section>
 <section id="implementation-selection-and-agent-mode" class="level3">
 <h3 class="anchored" data-anchor-id="implementation-selection-and-agent-mode">Implementation Selection and Agent Mode</h3>
@@ -2018,9 +2037,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="security-vulnerability-resolution" class="level3">
 <h3 class="anchored" data-anchor-id="security-vulnerability-resolution">Security Vulnerability Resolution</h3>
 <p><strong>Live Demonstration Context:</strong> While the transcript is brief for this section, the strategy is demonstrated through a security-focused refactoring scenario where the AI identifies and addresses SQL injection vulnerabilities in a systematic, step-by-step manner.</p>
-<p><strong>Step 1: Vulnerability Identification</strong> - <strong>Issue detection:</strong> SQL injection risk in database queries - <strong>Impact assessment:</strong> Security implications and potential attack vectors - <strong>Initial recommendation:</strong> Parameterized query implementation - <strong>Control point:</strong> Awaiting “banana” keyword for progression</p>
+<p><strong>Step 1: Vulnerability Identification</strong></p>
+<ul>
+<li><strong>Issue detection:</strong> SQL injection risk in database queries</li>
+<li><strong>Impact assessment:</strong> Security implications and potential attack vectors</li>
+<li><strong>Initial recommendation:</strong> Parameterized query implementation</li>
+<li><strong>Control point:</strong> Awaiting “banana” keyword for progression</li>
+</ul>
 <p><strong>Developer Dialogue and Alternative Exploration:</strong> The stepwise approach allows for mid-process consultation and alternative evaluation: <em>“Parameterized queries are kind of clunky. Is there some other way that we can do this? Should I be using an ORM or something?”</em></p>
-<p><strong>Step 2: Architecture Alternative Analysis</strong> - <strong>ORM evaluation:</strong> Prisma ORM as alternative approach - <strong>Implementation requirements:</strong> Dependencies and configuration steps - <strong>Architecture implications:</strong> Database abstraction layer considerations - <strong>Controlled decision point:</strong> Evaluation before commitment to implementation path</p>
+<p><strong>Step 2: Architecture Alternative Analysis</strong></p>
+<ul>
+<li><strong>ORM evaluation:</strong> Prisma ORM as alternative approach</li>
+<li><strong>Implementation requirements:</strong> Dependencies and configuration steps</li>
+<li><strong>Architecture implications:</strong> Database abstraction layer considerations</li>
+<li><strong>Controlled decision point:</strong> Evaluation before commitment to implementation path</li>
+</ul>
 </section>
 <section id="best-practices-and-applications" class="level3">
 <h3 class="anchored" data-anchor-id="best-practices-and-applications">Best Practices and Applications</h3>
@@ -2079,7 +2110,13 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Interactive engagement</strong> - Responsive to student questions and confusion</li>
 <li><strong>Practical exercises</strong> - Real-world application examples and challenges</li>
 </ul>
-<p><strong>Example Learning Interaction:</strong> 1. <strong>Exercise Introduction:</strong> “Write a regex pattern that matches phone numbers in format XXX-XXX-XXXX” 2. <strong>Student Confusion:</strong> Providing literal strings instead of regex patterns 3. <strong>AI Guidance:</strong> “That looks like the test string itself, not a regex pattern. To create a regex, we need to wrap it in / and for digits, use 4. <strong>Iterative Improvement:</strong> Continued refinement until pattern mastery</p>
+<p><strong>Example Learning Interaction:</strong></p>
+<ol type="1">
+<li><strong>Exercise Introduction:</strong> “Write a regex pattern that matches phone numbers in format XXX-XXX-XXXX”</li>
+<li><strong>Student Confusion:</strong> Providing literal strings instead of regex patterns</li>
+<li><strong>AI Guidance:</strong> “That looks like the test string itself, not a regex pattern. To create a regex, we need to wrap it in / and for digits, use </li>
+<li><strong>Iterative Improvement:</strong> Continued refinement until pattern mastery</li>
+</ol>
 </section>
 <section id="versatile-role-applications" class="level3">
 <h3 class="anchored" data-anchor-id="versatile-role-applications">Versatile Role Applications</h3>
@@ -2474,10 +2511,28 @@ thorough but constructive style."</code></pre>
 <section id="d.-advanced-integration-patterns" class="level3">
 <h3 class="anchored" data-anchor-id="d.-advanced-integration-patterns">D. Advanced Integration Patterns</h3>
 <p><strong>Cross-Mode Workflow Examples:</strong></p>
-<p><strong>Complete Feature Development:</strong> 1. <strong>Ask Mode:</strong> Q&amp;A prompting for requirements gathering 2. <strong>Ask Mode:</strong> Pros and cons analysis for implementation approach selection<br>
-3. <strong>Agent Mode:</strong> Autonomous implementation of selected approach 4. <strong>Edit Mode:</strong> Fine-tuning and optimization of generated code</p>
-<p><strong>Architecture Refactoring:</strong> 1. <strong>Ask Mode:</strong> Role-playing architectural consultant for strategy development 2. <strong>Ask Mode:</strong> Stepwise planning with controlled progression keywords 3. <strong>Agent Mode:</strong> Implementation of each step with validation checkpoints 4. <strong>Edit Mode:</strong> Manual adjustments and quality improvements</p>
-<p><strong>Learning and Skill Development:</strong> 1. <strong>Ask Mode:</strong> Role-playing expert instructor for lesson planning 2. <strong>Ask Mode:</strong> Interactive exercises with guided discovery methodology 3. <strong>Edit Mode:</strong> Hands-on practice with real-time feedback 4. <strong>Agent Mode:</strong> Project implementation applying learned concepts</p>
+<p><strong>Complete Feature Development:</strong></p>
+<ol type="1">
+<li><strong>Ask Mode:</strong> Q&amp;A prompting for requirements gathering</li>
+<li><strong>Ask Mode:</strong> Pros and cons analysis for implementation approach selection<br>
+</li>
+<li><strong>Agent Mode:</strong> Autonomous implementation of selected approach</li>
+<li><strong>Edit Mode:</strong> Fine-tuning and optimization of generated code</li>
+</ol>
+<p><strong>Architecture Refactoring:</strong></p>
+<ol type="1">
+<li><strong>Ask Mode:</strong> Role-playing architectural consultant for strategy development</li>
+<li><strong>Ask Mode:</strong> Stepwise planning with controlled progression keywords</li>
+<li><strong>Agent Mode:</strong> Implementation of each step with validation checkpoints</li>
+<li><strong>Edit Mode:</strong> Manual adjustments and quality improvements</li>
+</ol>
+<p><strong>Learning and Skill Development:</strong></p>
+<ol type="1">
+<li><strong>Ask Mode:</strong> Role-playing expert instructor for lesson planning</li>
+<li><strong>Ask Mode:</strong> Interactive exercises with guided discovery methodology</li>
+<li><strong>Edit Mode:</strong> Hands-on practice with real-time feedback</li>
+<li><strong>Agent Mode:</strong> Project implementation applying learned concepts</li>
+</ol>
 </section>
 <section id="e.-troubleshooting-and-optimization-guidelines" class="level3">
 <h3 class="anchored" data-anchor-id="e.-troubleshooting-and-optimization-guidelines">E. Troubleshooting and Optimization Guidelines</h3>

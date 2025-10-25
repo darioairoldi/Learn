@@ -1905,59 +1905,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="q.-how-does-autoscale-work-in-different-execution-plans" class="level2">
 <h2 class="anchored" data-anchor-id="q.-how-does-autoscale-work-in-different-execution-plans">📊 Q. How does autoscale work in different execution plans ?</h2>
 <p>Azure Functions uses <mark>different scaling mechanisms depending on the hosting plan</mark>. Understanding these differences is crucial for choosing the right plan for your workload.</p>
-<p><strong>Consumption Plan - <mark>Event-Driven Scaling</mark></strong>: - The <strong><mark>Azure Functions scale controller</mark></strong> continuously monitors the rate of incoming events for each trigger type - Makes scaling decisions every few seconds based on queue depth, message age, and other trigger-specific metrics - Automatically adds or removes instances dynamically without user intervention</p>
-<pre><code>**Scaling behavior:**
-- **Scale-out**: Instances added automatically when event load increases
-- **Scale-in**: Instances removed when load decreases, with graceful shutdown (up to &lt;mark&gt;**10 minutes**&lt;/mark&gt; for running functions, default is &lt;mark&gt;5 minutes&lt;/mark&gt;)
-- **Scale-to-zero**: When no events are present, scales down to zero instances (cold start on next event)
-- **Max instances**: &lt;mark&gt;**200 (Windows)**&lt;/mark&gt; or &lt;mark&gt;**100 (Linux)**&lt;/mark&gt;
-
-**Scaling speed:** **Fast** - typically scales out in seconds to minutes</code></pre>
+<p><strong>Consumption Plan - <mark>Event-Driven Scaling</mark></strong>:</p>
+<ul>
+<li><p>The <strong><mark>Azure Functions scale controller</mark></strong> continuously monitors the rate of incoming events for each trigger type</p></li>
+<li><p>Makes scaling decisions every few seconds based on queue depth, message age, and other trigger-specific metrics</p></li>
+<li><p>Automatically adds or removes instances dynamically without user intervention</p>
+<p><strong>Scaling behavior:</strong></p>
+<ul>
+<li><strong>Scale-out</strong>: Instances added automatically when event load increases</li>
+<li><strong>Scale-in</strong>: Instances removed when load decreases, with graceful shutdown (up to <mark><strong>10 minutes</strong></mark> for running functions, default is <mark>5 minutes</mark>)</li>
+<li><strong>Scale-to-zero</strong>: When no events are present, scales down to zero instances (cold start on next event)</li>
+<li><strong>Max instances</strong>: <mark><strong>200 (Windows)</strong></mark> or <mark><strong>100 (Linux)</strong></mark></li>
+</ul>
+<p><strong>Scaling speed:</strong> <strong>Fast</strong> - typically scales out in seconds to minutes</p></li>
+</ul>
 <hr>
-<p><strong>Flex Consumption Plan - Per-Function Event-Driven Scaling</strong>: - Uses <strong><mark>per-function scaling logic</mark></strong> where each function type can scale independently - HTTP triggers, Blob (Event Grid) triggers, and Durable Functions share instances as groups - All other trigger types (Queue, Service Bus, Cosmos DB, Event Hubs, etc.) scale on dedicated instances - Always-ready instances option available to eliminate cold starts</p>
-<pre><code>**Scaling behavior:**
-- **Scale-out**: &lt;mark&gt;Faster than Consumption plan&lt;/mark&gt; with more aggressive scaling logic
-- **Scale-in**: &lt;mark&gt;Graceful shutdown&lt;/mark&gt; with &lt;mark&gt;**up to 60 minutes**&lt;/mark&gt; for running functions
-- **Scale-to-zero**: Optional (can configure always-ready instances)
-- **Max instances**: &lt;mark&gt;**1000 per function app**&lt;/mark&gt;
-
-**Scaling speed:** **Fastest** - optimized scaling with pre-provisioned capacity</code></pre>
+<p><strong>Flex Consumption Plan - Per-Function Event-Driven Scaling</strong>:</p>
+<ul>
+<li><p>Uses <strong><mark>per-function scaling logic</mark></strong> where each function type can scale independently</p></li>
+<li><p>HTTP triggers, Blob (Event Grid) triggers, and Durable Functions share instances as groups</p></li>
+<li><p>All other trigger types (Queue, Service Bus, Cosmos DB, Event Hubs, etc.) scale on dedicated instances</p></li>
+<li><p>Always-ready instances option available to eliminate cold starts</p>
+<p><strong>Scaling behavior:</strong></p>
+<ul>
+<li><strong>Scale-out</strong>: <mark>Faster than Consumption plan</mark> with more aggressive scaling logic</li>
+<li><strong>Scale-in</strong>: <mark>Graceful shutdown</mark> with <mark><strong>up to 60 minutes</strong></mark> for running functions</li>
+<li><strong>Scale-to-zero</strong>: Optional (can configure always-ready instances)</li>
+<li><strong>Max instances</strong>: <mark><strong>1000 per function app</strong></mark></li>
+</ul>
+<p><strong>Scaling speed:</strong> <strong>Fastest</strong> - optimized scaling with pre-provisioned capacity</p></li>
+</ul>
 <hr>
-<p><strong>Premium Plan (Elastic Premium) - Event-Driven with Always-Ready Instances</strong>: - Uses the same <strong>event-driven scale controller</strong> as Consumption plan - Maintains <strong>always-ready instances</strong> (minimum 1) that never scale to zero - <strong>Pre-warmed instances</strong> act as a buffer for immediate scale-out - Scales additional instances dynamically based on event load</p>
-<pre><code>**Scaling behavior:**
-- **Scale-out**: Immediate (&lt;mark&gt;pre-warmed instances become active&lt;/mark&gt;, new instances added if needed)
-- **Scale-in**: &lt;mark&gt;Graceful shutdown&lt;/mark&gt; with &lt;mark&gt;up to 60 minutes&lt;/mark&gt; for running functions
-- **Scale-to-zero**: &lt;mark&gt;Never&lt;/mark&gt; - always maintains minimum instance count
-- **Max instances**: &lt;mark&gt;**100 (Windows)**&lt;/mark&gt; or &lt;mark&gt;**20-100 (Linux)**&lt;/mark&gt;
-
-**Scaling speed:** **Very fast** - no cold starts due to pre-warmed instances
-
-**Special features:**
-- **&lt;mark&gt;VNet triggers with dynamic scale monitoring&lt;/mark&gt;**: Can enable runtime scale monitoring for triggers like Service Bus, Event Hubs, and Cosmos DB when behind VNet
-- Better for scenarios requiring predictable performance with event-driven scaling</code></pre>
+<p><strong>Premium Plan (Elastic Premium) - Event-Driven with Always-Ready Instances</strong>:</p>
+<ul>
+<li><p>Uses the same <strong>event-driven scale controller</strong> as Consumption plan</p></li>
+<li><p>Maintains <strong>always-ready instances</strong> (minimum 1) that never scale to zero</p></li>
+<li><p><strong>Pre-warmed instances</strong> act as a buffer for immediate scale-out</p></li>
+<li><p>Scales additional instances dynamically based on event load</p>
+<p><strong>Scaling behavior:</strong></p>
+<ul>
+<li><strong>Scale-out</strong>: Immediate (<mark>pre-warmed instances become active</mark>, new instances added if needed)</li>
+<li><strong>Scale-in</strong>: <mark>Graceful shutdown</mark> with <mark>up to 60 minutes</mark> for running functions</li>
+<li><strong>Scale-to-zero</strong>: <mark>Never</mark> - always maintains minimum instance count</li>
+<li><strong>Max instances</strong>: <mark><strong>100 (Windows)</strong></mark> or <mark><strong>20-100 (Linux)</strong></mark></li>
+</ul>
+<p><strong>Scaling speed:</strong> <strong>Very fast</strong> - no cold starts due to pre-warmed instances</p>
+<p><strong>Special features:</strong></p>
+<ul>
+<li><strong><mark>VNet triggers with dynamic scale monitoring</mark></strong>: Can enable runtime scale monitoring for triggers like Service Bus, Event Hubs, and Cosmos DB when behind VNet</li>
+<li>Better for scenarios requiring predictable performance with event-driven scaling</li>
+</ul></li>
+</ul>
 <hr>
-<p><strong>Dedicated Plan (App Service Plan) - Manual/Rule-Based Autoscale</strong>: - Uses <strong><mark>Azure Monitor Autoscale</mark></strong> with metric-based rules (CPU, memory, custom metrics, schedules) - Scaling decisions based on resource utilization thresholds, not event queue depth - Requires manual configuration of autoscale rules or manual scaling</p>
-<pre><code>**Scaling behavior:**
-- **Scale-out**: &lt;mark&gt;Reactive&lt;/mark&gt;, &lt;mark&gt;triggered&lt;/mark&gt; when metrics exceed thresholds (e.g., CPU &gt; 70%)
-- **Scale-in**: Triggered when metrics fall below thresholds (e.g., CPU &lt; 30%)
-- **Scale-to-zero**: &lt;mark&gt;Not supported&lt;/mark&gt; - requires "Always On" setting to keep functions active
-- **Max instances**: &lt;mark&gt;**10-30 (regular) or 100**&lt;/mark&gt; (App Service Environment)
-
-**Scaling speed:** **Slower** - &lt;mark&gt;takes minutes to provision new VMs&lt;/mark&gt; and start app instances
-
-**Why it's slower:**
-1. Must provision full VM instances (not just function host instances)
-2. Reactive scaling based on metrics (by the time threshold is hit, load may have peaked)
-3. Uses generic App Service autoscale, not optimized for event-driven workloads
-4. No built-in understanding of event queue depth
-
-**Configuration required:**
-- Define autoscale rules in Azure Monitor
-- Set metric thresholds and scale-out/scale-in conditions
-- Configure cooldown periods between scaling operations</code></pre>
+<p><strong>Dedicated Plan (App Service Plan) - Manual/Rule-Based Autoscale</strong>:</p>
+<ul>
+<li><p>Uses <strong><mark>Azure Monitor Autoscale</mark></strong> with metric-based rules (CPU, memory, custom metrics, schedules)</p></li>
+<li><p>Scaling decisions based on resource utilization thresholds, not event queue depth</p></li>
+<li><p>Requires manual configuration of autoscale rules or manual scaling</p>
+<p><strong>Scaling behavior:</strong></p>
+<ul>
+<li><strong>Scale-out</strong>: <mark>Reactive</mark>, <mark>triggered</mark> when metrics exceed thresholds (e.g., CPU &gt; 70%)</li>
+<li><strong>Scale-in</strong>: Triggered when metrics fall below thresholds (e.g., CPU &lt; 30%)</li>
+<li><strong>Scale-to-zero</strong>: <mark>Not supported</mark> - requires “Always On” setting to keep functions active</li>
+<li><strong>Max instances</strong>: <mark><strong>10-30 (regular) or 100</strong></mark> (App Service Environment)</li>
+</ul>
+<p><strong>Scaling speed:</strong> <strong>Slower</strong> - <mark>takes minutes to provision new VMs</mark> and start app instances</p>
+<p><strong>Why it’s slower:</strong></p>
+<ol type="1">
+<li>Must provision full VM instances (not just function host instances)</li>
+<li>Reactive scaling based on metrics (by the time threshold is hit, load may have peaked)</li>
+<li>Uses generic App Service autoscale, not optimized for event-driven workloads</li>
+<li>No built-in understanding of event queue depth</li>
+</ol>
+<p><strong>Configuration required:</strong></p>
+<ul>
+<li>Define autoscale rules in Azure Monitor</li>
+<li>Set metric thresholds and scale-out/scale-in conditions</li>
+<li>Configure cooldown periods between scaling operations</li>
+</ul></li>
+</ul>
 <hr>
-<p><strong>Container Apps - Event-Driven with KEDA</strong>: Uses <strong>KEDA (Kubernetes Event-Driven Autoscaling)</strong> for event-driven scaling - Leverages Kubernetes orchestration for container lifecycle management - Scale decisions based on event sources and custom scalers</p>
-<p><strong>Scaling behavior:</strong> - <strong>Scale-out</strong>: Event-driven, similar to Premium plan - <strong>Scale-in</strong>: Graceful shutdown for running functions - <strong>Scale-to-zero</strong>: Supported (<mark>cold starts when scaling from zero</mark>) - <strong>Max instances</strong>: <mark>300-1000</mark> depending on configuration</p>
+<p><strong>Container Apps - Event-Driven with KEDA</strong>: Uses <strong>KEDA (Kubernetes Event-Driven Autoscaling)</strong> for event-driven scaling</p>
+<ul>
+<li>Leverages Kubernetes orchestration for container lifecycle management</li>
+<li>Scale decisions based on event sources and custom scalers</li>
+</ul>
+<p><strong>Scaling behavior:</strong></p>
+<ul>
+<li><strong>Scale-out</strong>: Event-driven, similar to Premium plan</li>
+<li><strong>Scale-in</strong>: Graceful shutdown for running functions</li>
+<li><strong>Scale-to-zero</strong>: Supported (<mark>cold starts when scaling from zero</mark>)</li>
+<li><strong>Max instances</strong>: <mark>300-1000</mark> depending on configuration</li>
+</ul>
 <p><strong>Scaling speed:</strong> <strong>Fast</strong> - event-driven scaling optimized for containerized workloads</p>
 <hr>
 <section id="comparison-summary" class="level3">
@@ -2028,7 +2067,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><br> <br></p>
-<p><strong>Key Takeaways:</strong> - <strong><mark>Event-driven plans</mark></strong> (Consumption, Flex, Premium, Container Apps) <mark>monitor event sources</mark> and scale proactively - <strong><mark>Dedicated plan</mark></strong> uses <mark>traditional autoscale</mark> based on resource metrics and reacts to load - <strong><mark>Premium and Flex</mark></strong> offer the best balance of performance (no/minimal cold starts) and event-driven scaling - <strong><mark>Dedicated plan</mark></strong> is best for predictable, steady workloads where you control scaling behavior</p>
+<p><strong>Key Takeaways:</strong></p>
+<ul>
+<li><strong><mark>Event-driven plans</mark></strong> (Consumption, Flex, Premium, Container Apps) <mark>monitor event sources</mark> and scale proactively</li>
+<li><strong><mark>Dedicated plan</mark></strong> uses <mark>traditional autoscale</mark> based on resource metrics and reacts to load</li>
+<li><strong><mark>Premium and Flex</mark></strong> offer the best balance of performance (no/minimal cold starts) and event-driven scaling</li>
+<li><strong><mark>Dedicated plan</mark></strong> is best for predictable, steady workloads where you control scaling behavior</li>
+</ul>
 </section>
 </section>
 <section id="q.-role-and-structure-of-function.json-hosts.json-and-local.settings.json-files" class="level2">
@@ -2374,17 +2419,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="configuration-in-host.json" class="level3">
 <h3 class="anchored" data-anchor-id="configuration-in-host.json">Configuration in <code>host.json</code>:</h3>
 <p>As mentioned in your document, Durable Functions are configured in the <code>host.json</code> file under the <code>durableTask</code> extension:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">"durableTask":</span> <span class="fu">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"hubName"</span><span class="fu">:</span> <span class="st">"MyTaskHub"</span><span class="fu">,</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"storageProvider"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"azure_storage"</span><span class="fu">,</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"connectionStringName"</span><span class="fu">:</span> <span class="st">"AzureWebJobsStorage"</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"maxConcurrentActivityFunctions"</span><span class="fu">:</span> <span class="dv">10</span><span class="fu">,</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"maxConcurrentOrchestratorFunctions"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"extendedSessionsEnabled"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"extendedSessionIdleTimeoutInSeconds"</span><span class="fu">:</span> <span class="dv">300</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">"durableTask":</span> <span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"hubName"</span><span class="fu">:</span> <span class="st">"MyTaskHub"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"storageProvider"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"azure_storage"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"connectionStringName"</span><span class="fu">:</span> <span class="st">"AzureWebJobsStorage"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"maxConcurrentActivityFunctions"</span><span class="fu">:</span> <span class="dv">10</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"maxConcurrentOrchestratorFunctions"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"extendedSessionsEnabled"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"extendedSessionIdleTimeoutInSeconds"</span><span class="fu">:</span> <span class="dv">300</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="key-settings" class="level3">
 <h3 class="anchored" data-anchor-id="key-settings">Key Settings:</h3>
@@ -2402,9 +2447,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="q.-what-are-limitations-of-azure-functions" class="level2">
 <h2 class="anchored" data-anchor-id="q.-what-are-limitations-of-azure-functions">⚠️ Q. What are Limitations of Azure Functions ?</h2>
 <p>Azure Functions has various limitations that vary by hosting plan. Key constraints include:</p>
-<p><strong>Critical Limitations</strong>: - <strong>Execution timeouts</strong>: 10 min max (Consumption), unlimited (Premium/Dedicated/Flex) - <strong>Scaling limits</strong>: 200 instances (Consumption), 1,000 (Flex), 100 (Premium) - <strong>Cold starts</strong>: 1-10+ seconds (Consumption), eliminated (Premium/Dedicated) - <strong>Memory/CPU</strong>: Fixed on Consumption (~1.5 GB), customizable on other plans - <strong>Networking</strong>: No VNet on Consumption, full VNet support on Premium/Dedicated/Flex - <strong>Storage</strong>: 1 GB deployment limit (Consumption), 100 GB (Premium/Dedicated)</p>
-<p><strong>Plan-Specific Constraints</strong>: - <strong>Consumption</strong>: No VNet, no deployment slots, cold starts, 10-min timeout - <strong>Flex Consumption</strong>: Linux only, no deployment slots, limited regions - <strong>Container Apps</strong>: No deployment slots, cold starts when scaling to zero</p>
-<p><strong>Performance Considerations</strong>: - <strong>Latency</strong>: Cold starts impact first request, warm instances &lt;10ms overhead - <strong>Throughput</strong>: Varies by plan (200-1,000+ instances) and trigger type - <strong>Scalability</strong>: Event-driven (Consumption/Flex/Premium) vs.&nbsp;metric-based (Dedicated)</p>
+<p><strong>Critical Limitations</strong>:</p>
+<ul>
+<li><strong>Execution timeouts</strong>: 10 min max (Consumption), unlimited (Premium/Dedicated/Flex)</li>
+<li><strong>Scaling limits</strong>: 200 instances (Consumption), 1,000 (Flex), 100 (Premium)</li>
+<li><strong>Cold starts</strong>: 1-10+ seconds (Consumption), eliminated (Premium/Dedicated)</li>
+<li><strong>Memory/CPU</strong>: Fixed on Consumption (~1.5 GB), customizable on other plans</li>
+<li><strong>Networking</strong>: No VNet on Consumption, full VNet support on Premium/Dedicated/Flex</li>
+<li><strong>Storage</strong>: 1 GB deployment limit (Consumption), 100 GB (Premium/Dedicated)</li>
+</ul>
+<p><strong>Plan-Specific Constraints</strong>:</p>
+<ul>
+<li><strong>Consumption</strong>: No VNet, no deployment slots, cold starts, 10-min timeout</li>
+<li><strong>Flex Consumption</strong>: Linux only, no deployment slots, limited regions</li>
+<li><strong>Container Apps</strong>: No deployment slots, cold starts when scaling to zero</li>
+</ul>
+<p><strong>Performance Considerations</strong>:</p>
+<ul>
+<li><strong>Latency</strong>: Cold starts impact first request, warm instances &lt;10ms overhead</li>
+<li><strong>Throughput</strong>: Varies by plan (200-1,000+ instances) and trigger type</li>
+<li><strong>Scalability</strong>: Event-driven (Consumption/Flex/Premium) vs.&nbsp;metric-based (Dedicated)</li>
+</ul>
 <blockquote class="blockquote">
 <p>📖 <strong>For comprehensive details</strong> on all limitations, mitigation strategies, and plan comparisons, see <strong><a href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html">Azure Functions Limitations</a></strong></p>
 </blockquote>

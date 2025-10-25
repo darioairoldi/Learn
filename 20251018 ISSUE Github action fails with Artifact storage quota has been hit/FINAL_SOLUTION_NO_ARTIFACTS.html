@@ -1740,7 +1740,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>FINAL SOLUTION: No Artifacts Approach</h1>
 <section id="the-real-problem" class="level2">
 <h2 class="anchored" data-anchor-id="the-real-problem">🔴 The Real Problem</h2>
-<p>You’re absolutely right! The split-job approach I initially suggested <strong>still uses artifacts</strong>, which means: - ❌ Still counts against your storage quota - ❌ Can still hit quota limits if workflow runs frequently - ❌ Only reduces the problem, doesn’t solve it</p>
+<p>You’re absolutely right! The split-job approach I initially suggested <strong>still uses artifacts</strong>, which means:</p>
+<ul>
+<li>❌ Still counts against your storage quota</li>
+<li>❌ Can still hit quota limits if workflow runs frequently</li>
+<li>❌ Only reduces the problem, doesn’t solve it</li>
+</ul>
 </section>
 <section id="the-real-solution-zero-artifacts" class="level2">
 <h2 class="anchored" data-anchor-id="the-real-solution-zero-artifacts">✅ The Real Solution: ZERO Artifacts</h2>
@@ -1757,9 +1762,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 (No artifacts, no GitHub Actions Pages system)</code></pre>
 <p><strong>Command:</strong></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages <span class="at">--no-prompt</span> <span class="at">--no-browser</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Pros:</strong> - ✅ <strong>ZERO artifacts</strong> - No storage quota used - ✅ Simplest solution - One command does everything - ✅ Official Quarto method - ✅ Works natively on Windows - ✅ Handles all git operations automatically</p>
-<p><strong>Cons:</strong> - Uses <code>contents: write</code> permission (needs to push to gh-pages branch)</p>
-<p><strong>GitHub Pages Setup Required:</strong> - Go to: Settings → Pages - Source: Deploy from a branch - Branch: <code>gh-pages</code> / <code>root</code></p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>✅ <strong>ZERO artifacts</strong> - No storage quota used</li>
+<li>✅ Simplest solution - One command does everything</li>
+<li>✅ Official Quarto method</li>
+<li>✅ Works natively on Windows</li>
+<li>✅ Handles all git operations automatically</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Uses <code>contents: write</code> permission (needs to push to gh-pages branch)</li>
+</ul>
+<p><strong>GitHub Pages Setup Required:</strong></p>
+<ul>
+<li>Go to: Settings → Pages</li>
+<li>Source: Deploy from a branch</li>
+<li>Branch: <code>gh-pages</code> / <code>root</code></li>
+</ul>
 <hr>
 </section>
 <section id="option-2-manual-git-push-to-gh-pages-full-control" class="level3">
@@ -1768,14 +1788,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>How it works:</strong></p>
 <pre><code>Render → Manually push docs to gh-pages branch
 (No artifacts, custom deployment logic)</code></pre>
-<p><strong>Pros:</strong> - ✅ <strong>ZERO artifacts</strong> - ✅ Full control over deployment process - ✅ Works natively on Windows - ✅ Can customize deployment logic</p>
-<p><strong>Cons:</strong> - More complex workflow script - More git commands to maintain</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>✅ <strong>ZERO artifacts</strong></li>
+<li>✅ Full control over deployment process</li>
+<li>✅ Works natively on Windows</li>
+<li>✅ Can customize deployment logic</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>More complex workflow script</li>
+<li>More git commands to maintain</li>
+</ul>
 <hr>
 </section>
 <section id="option-3-current-approach-not-recommended" class="level3">
 <h3 class="anchored" data-anchor-id="option-3-current-approach-not-recommended"><strong>Option 3: Current Approach (NOT RECOMMENDED)</strong></h3>
 <p><strong>File</strong>: <code>quarto-publish.win64.yml</code> (current)</p>
-<p><strong>Problems:</strong> - ❌ Uses <code>upload-artifact@v4</code> (counts against quota!) - ❌ Creates artifact on every run - ❌ Even with 1-day retention, can accumulate if you run frequently - ❌ This is what’s causing your quota issue</p>
+<p><strong>Problems:</strong></p>
+<ul>
+<li>❌ Uses <code>upload-artifact@v4</code> (counts against quota!)</li>
+<li>❌ Creates artifact on every run</li>
+<li>❌ Even with 1-day retention, can accumulate if you run frequently</li>
+<li>❌ This is what’s causing your quota issue</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1864,7 +1900,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <code>quarto publish gh-pages</code> command is specifically designed for this use case:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This ONE command does everything:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">quarto publish gh-pages --no-prompt --no-browser</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>What it does internally:</strong> 1. Renders your Quarto project 2. Creates/updates the <code>gh-pages</code> branch 3. Pushes the rendered content 4. All without using any GitHub Actions artifacts!</p>
+<p><strong>What it does internally:</strong></p>
+<ol type="1">
+<li>Renders your Quarto project</li>
+<li>Creates/updates the <code>gh-pages</code> branch</li>
+<li>Pushes the rendered content</li>
+<li>All without using any GitHub Actions artifacts!</li>
+</ol>
 <p><strong>It’s literally the official way to publish Quarto to GitHub Pages.</strong></p>
 <hr>
 </section>
@@ -1885,16 +1927,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="quick-decision-guide" class="level2">
 <h2 class="anchored" data-anchor-id="quick-decision-guide">📝 Quick Decision Guide</h2>
-<p><strong>Use Quarto Built-in (<code>quarto-publish.simple.yml</code>) if:</strong> - ✅ You want the simplest solution - ✅ You’re okay with <code>quarto publish</code> handling everything - ✅ You want the official Quarto method - ✅ You want ZERO artifacts</p>
-<p><strong>Use Manual Push (<code>quarto-publish.direct.yml</code>) if:</strong> - ✅ You need custom deployment logic - ✅ You want more control over the git operations - ✅ You want ZERO artifacts</p>
-<p><strong>Don’t use the split-job approach if:</strong> - ❌ You’re hitting artifact storage quota limits - ❌ You run workflows frequently - ❌ You want to avoid artifacts completely</p>
+<p><strong>Use Quarto Built-in (<code>quarto-publish.simple.yml</code>) if:</strong></p>
+<ul>
+<li>✅ You want the simplest solution</li>
+<li>✅ You’re okay with <code>quarto publish</code> handling everything</li>
+<li>✅ You want the official Quarto method</li>
+<li>✅ You want ZERO artifacts</li>
+</ul>
+<p><strong>Use Manual Push (<code>quarto-publish.direct.yml</code>) if:</strong></p>
+<ul>
+<li>✅ You need custom deployment logic</li>
+<li>✅ You want more control over the git operations</li>
+<li>✅ You want ZERO artifacts</li>
+</ul>
+<p><strong>Don’t use the split-job approach if:</strong></p>
+<ul>
+<li>❌ You’re hitting artifact storage quota limits</li>
+<li>❌ You run workflows frequently</li>
+<li>❌ You want to avoid artifacts completely</li>
+</ul>
 <hr>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">✅ Summary</h2>
-<p><strong>The issue with the current approach:</strong> - Still uses artifacts (even with 1-day retention) - Can accumulate if workflow runs frequently - Not a true solution to the quota problem</p>
-<p><strong>The real solution:</strong> - Use <code>quarto publish gh-pages</code> command - No artifacts at all - Simple, official, and works perfectly on Windows</p>
-<p><strong>Next step:</strong> - Replace <code>quarto-publish.win64.yml</code> with <code>quarto-publish.simple.yml</code> - Configure GitHub Pages to use <code>gh-pages</code> branch - Done! No more quota issues, ever.</p>
+<p><strong>The issue with the current approach:</strong></p>
+<ul>
+<li>Still uses artifacts (even with 1-day retention)</li>
+<li>Can accumulate if workflow runs frequently</li>
+<li>Not a true solution to the quota problem</li>
+</ul>
+<p><strong>The real solution:</strong></p>
+<ul>
+<li>Use <code>quarto publish gh-pages</code> command</li>
+<li>No artifacts at all</li>
+<li>Simple, official, and works perfectly on Windows</li>
+</ul>
+<p><strong>Next step:</strong></p>
+<ul>
+<li>Replace <code>quarto-publish.win64.yml</code> with <code>quarto-publish.simple.yml</code></li>
+<li>Configure GitHub Pages to use <code>gh-pages</code> branch</li>
+<li>Done! No more quota issues, ever.</li>
+</ul>
 <hr>
 <p><strong>Ready to implement? I recommend Option 1 (Quarto built-in).</strong> 🎉</p>
 

@@ -1746,7 +1746,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="workflow-file-fixed" class="level3">
 <h3 class="anchored" data-anchor-id="workflow-file-fixed">1. Workflow File Fixed ✅</h3>
 <p><strong>File</strong>: <code>.github/workflows/quarto-publish.win64.yml</code></p>
-<p><strong>Changes Made:</strong> - Removed unnecessary <code>upload-artifact@v4</code> step that was consuming quota - Combined build and deploy jobs into one - Now uses <code>upload-pages-artifact@v3</code> directly (separate quota for GitHub Pages)</p>
+<p><strong>Changes Made:</strong></p>
+<ul>
+<li>Removed unnecessary <code>upload-artifact@v4</code> step that was consuming quota</li>
+<li>Combined build and deploy jobs into one</li>
+<li>Now uses <code>upload-pages-artifact@v3</code> directly (separate quota for GitHub Pages)</li>
+</ul>
 <p><strong>Result</strong>: Future workflow runs won’t consume artifact storage quota!</p>
 <hr>
 </section>
@@ -1758,7 +1763,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Open PowerShell in this directory and run:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"E:\dev.darioa.live\darioairoldi\Learn\20251018 ISSUE Github action fails with Artifact storage quota has been hit"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\cleanup-artifacts<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will: - Delete all existing artifacts from your repository - Remove old workflow runs (keeping the last 5) - Show you the current storage status</p>
+<p>This will:</p>
+<ul>
+<li>Delete all existing artifacts from your repository</li>
+<li>Remove old workflow runs (keeping the last 5)</li>
+<li>Show you the current storage status</li>
+</ul>
 </section>
 <section id="step-2-commit-and-push-the-fixed-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-commit-and-push-the-fixed-workflow">Step 2: Commit and Push the Fixed Workflow</h3>
@@ -1778,11 +1788,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-3-test-the-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-test-the-workflow">Step 3: Test the Workflow</h3>
-<p>Go to your GitHub repository and manually trigger the workflow: 1. Navigate to: https://github.com/darioairoldi/Learn/actions 2. Click on “Quarto Site Render and Deploy to GitHub Pages” 3. Click “Run workflow” button 4. Select the <code>main</code> branch 5. Click “Run workflow”</p>
+<p>Go to your GitHub repository and manually trigger the workflow:</p>
+<ol type="1">
+<li>Navigate to: https://github.com/darioairoldi/Learn/actions</li>
+<li>Click on “Quarto Site Render and Deploy to GitHub Pages”</li>
+<li>Click “Run workflow” button</li>
+<li>Select the <code>main</code> branch</li>
+<li>Click “Run workflow”</li>
+</ol>
 </section>
 <section id="step-4-verify-success" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-verify-success">Step 4: Verify Success</h3>
-<p>After the workflow runs: - ✅ Check that it completes successfully - ✅ Verify your site is published at your GitHub Pages URL - ✅ Confirm no new artifacts are created (check Actions → Artifacts)</p>
+<p>After the workflow runs:</p>
+<ul>
+<li>✅ Check that it completes successfully</li>
+<li>✅ Verify your site is published at your GitHub Pages URL</li>
+<li>✅ Confirm no new artifacts are created (check Actions → Artifacts)</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1803,7 +1825,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="contact-support" class="level3">
 <h3 class="anchored" data-anchor-id="contact-support">Contact Support</h3>
-<p>If the issue continues after cleanup, it may be a GitHub platform issue: - Support: https://support.github.com/ - Status: https://www.githubstatus.com/</p>
+<p>If the issue continues after cleanup, it may be a GitHub platform issue:</p>
+<ul>
+<li>Support: https://support.github.com/</li>
+<li>Status: https://www.githubstatus.com/</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1813,7 +1839,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Build Job → Upload Artifact (quota counted!) → Deploy Job → Download Artifact → Deploy</code></pre>
 <p><strong>After:</strong></p>
 <pre><code>Build-and-Deploy Job → Upload to Pages → Deploy (no quota impact!)</code></pre>
-<p><strong>Benefits:</strong> - ✅ No more artifact storage quota issues - ✅ Faster workflow (single job) - ✅ Follows GitHub best practices - ✅ Simpler to maintain</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>✅ No more artifact storage quota issues</li>
+<li>✅ Faster workflow (single job)</li>
+<li>✅ Follows GitHub best practices</li>
+<li>✅ Simpler to maintain</li>
+</ul>
 <hr>
 </section>
 <section id="files-modifiedcreated" class="level2">
@@ -1840,7 +1872,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="need-help" class="level2">
 <h2 class="anchored" data-anchor-id="need-help">Need Help?</h2>
-<p>Refer to the main README.md in this folder for: - Detailed analysis of the issue - Manual cleanup commands - Advanced troubleshooting steps - Additional references and documentation</p>
+<p>Refer to the main README.md in this folder for:</p>
+<ul>
+<li>Detailed analysis of the issue</li>
+<li>Manual cleanup commands</li>
+<li>Advanced troubleshooting steps</li>
+<li>Additional references and documentation</li>
+</ul>
 
 
 </section>
