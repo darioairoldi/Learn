@@ -132,18 +132,18 @@ To effectively gather and analyze podcast information, developers and analysts m
 
 | Element | Purpose | Example |
 |---------|---------|---------|
-| **`<rss>`** | Root element with version declaration | `<rss version="2.0">` |
-| **`<channel>`** | Container for podcast metadata and episodes | Contains all podcast information |
-| **`<title>`** | Podcast or episode name | `<title>Tech Talk Podcast</title>` |
-| **`<description>`** | Detailed content description | Text summary of podcast/episode |
-| **`<link>`** | Website URL for the podcast | `<link>https://techtalkpod.com</link>` |
-| **`<pubDate>`** | Publication date in RFC 822 format | `<pubDate>Fri, 05 Oct 2025 10:00:00 GMT</pubDate>` |
-| **`<item>`** | Individual episode container | Contains single episode data |
-| **`<guid>`** | Unique episode identifier | `<guid>episode-42-ai-healthcare</guid>` |
-| **`<enclosure>`** | Audio file reference with metadata | Contains URL, type, and file size |
-| **`<itunes:duration>`** | Episode length in HH:MM:SS format | `<itunes:duration>45:30</itunes:duration>` |
-| **`<itunes:image>`** | Artwork URL for podcast/episode | `<itunes:image href="..."/>` |
-| **`<itunes:category>`** | Podcast categorization for directories | `<itunes:category text="Technology"/>` |
+| **<mark>`<rss>`** | Root element with version declaration | `<rss version="2.0">` |
+| **<mark>`<channel>`** | Container for podcast metadata and episodes | Contains all podcast information |
+| **<mark>`<title>`** | Podcast or episode name | `<title>Tech Talk Podcast</title>` |
+| **<mark>`<description>`** | Detailed content description | Text summary of podcast/episode |
+| **<mark>`<link>`** | Website URL for the podcast | `<link>https://techtalkpod.com</link>` |
+| **<mark>`<pubDate>`** | Publication date in RFC 822 format | `<pubDate>Fri, 05 Oct 2025 10:00:00 GMT</pubDate>` |
+| **<mark>`<item>`** | Individual episode container | Contains single episode data |
+| **<mark>`<guid>`** | Unique episode identifier | `<guid>episode-42-ai-healthcare</guid>` |
+| **<mark>`<enclosure>`** | Audio file reference with metadata | Contains URL, type, and file size |
+| **<mark>`<itunes:duration>`** | Episode length in HH:MM:SS format | `<itunes:duration>45:30</itunes:duration>` |
+| **<mark>`<itunes:image>`** | Artwork URL for podcast/episode | `<itunes:image href="..."/>` |
+| **<mark>`<itunes:category>`** | Podcast categorization for directories | `<itunes:category text="Technology"/>` |
 
 ### Atom (XML) ⚛️
 
@@ -217,18 +217,18 @@ To effectively gather and analyze podcast information, developers and analysts m
 
 | Element | Purpose | Example |
 |---------|---------|---------|
-| **`<feed>`** | Root element with namespace declarations | `<feed xmlns="http://www.w3.org/2005/Atom">` |
-| **`<title>`** | Podcast or episode name | `<title>Tech Talk Podcast</title>` |
-| **`<subtitle>`** | Brief podcast description | `<subtitle>Weekly tech discussions</subtitle>` |
-| **`<link>`** | Multiple link types (website, self-reference) | `<link rel="self" href="..."/>` |
-| **`<id>`** | Unique feed/entry identifier (URI) | `<id>https://techtalkpod.com</id>` |
-| **`<updated>`** | Last modification date in RFC 3339 format | `<updated>2025-10-05T10:00:00Z</updated>` |
-| **`<published>`** | Original publication date | `<published>2025-10-05T09:00:00Z</published>` |
-| **`<entry>`** | Individual episode container | Contains single episode data |
-| **`<summary>`** | Brief episode description | Short text summary |
-| **`<content>`** | Detailed episode content | Full episode description with type attribute |
-| **`<author>`** | Author information container | Contains `<name>` and optionally `<email>` |
-| **`<link rel="enclosure">`** | Audio file reference | Similar to RSS enclosure but as link element |
+| **<mark>`<feed>`** | Root element with namespace declarations | `<feed xmlns="http://www.w3.org/2005/Atom">` |
+| **<mark>`<title>`** | Podcast or episode name | `<title>Tech Talk Podcast</title>` |
+| **<mark>`<subtitle>`** | Brief podcast description | `<subtitle>Weekly tech discussions</subtitle>` |
+| **<mark>`<link>`** | Multiple link types (website, self-reference) | `<link rel="self" href="..."/>` |
+| **<mark>`<id>`** | Unique feed/entry identifier (URI) | `<id>https://techtalkpod.com</id>` |
+| **<mark>`<updated>`** | Last modification date in RFC 3339 format | `<updated>2025-10-05T10:00:00Z</updated>` |
+| **<mark>`<published>`** | Original publication date | `<published>2025-10-05T09:00:00Z</published>` |
+| **<mark>`<entry>`** | Individual episode container | Contains single episode data |
+| **<mark>`<summary>`** | Brief episode description | Short text summary |
+| **<mark>`<content>`** | Detailed episode content | Full episode description with type attribute |
+| **<mark>`<author>`** | Author information container | Contains `<name>` and optionally `<email>` |
+| **<mark>`<link rel="enclosure">`** | Audio file reference | Similar to RSS enclosure but as link element |
 
 #### ⚖️ Key Structural Differences:
 

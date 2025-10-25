@@ -43,6 +43,9 @@ project:
     - "20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
     # Add Feeds architectures and protocols
     - "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
+    - "20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.md"
+    - "20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.md"
+    - "20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.md"
     # Add Issues section files
     - "_ISSUES/20250710 sample/README.md"
     # Add DIY projects
@@ -152,6 +155,12 @@ website:
         menu:
           - href: "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
             text: "Podcast and RSS Feed Analysis"
+          - href: "20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.md"
+            text: "Analyzing Atom and RSS Specifications"
+          - href: "20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.md"
+            text: "Additional Metadata for RSS and Atom Feeds"
+          - href: "20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.md"
+            text: "C# Reference Classes for Reading Feeds"
       - text: "Azure"
         menu:
           - text: "Azure Best Practices"
@@ -468,10 +477,16 @@ website:
       - section: "Tools"
         icon: tools
         contents:
-          - section: "Feed Architectures"
+          - section: "Feed Architectures & Protocols"
             contents:
               - href: "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
                 text: "Podcast and RSS Feed Analysis"
+              - href: "20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.md"
+                text: "Analyzing Atom and RSS Specifications"
+              - href: "20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.md"
+                text: "Additional Metadata for RSS and Atom Feeds"
+              - href: "20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.md"
+                text: "C# Reference Classes for Reading Feeds"
           - section: "Development Tools"
             href: "20250709 Manage GitRepo from commandline/README.md"
             contents:
