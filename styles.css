@@ -743,3 +743,7 @@ body > .custom-toc-addition {
     grid-template-columns: 1fr min(calc(900px + 2*1rem), calc(100% - 320px)) 280px 1fr;
   }
 }
+
+mark, .mark {
+    background-color: var(--bs-highlight-bg) !important;
+}
