@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>final_solution_no_artifacts – Dario's Learning Journey</title>
+<title>quickstart – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -1645,7 +1645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Actions Artifact Storage Quota Fix</span></a>
   </div>
 </li>
@@ -1707,28 +1707,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#final-solution-no-artifacts-approach" id="toc-final-solution-no-artifacts-approach" class="nav-link active" data-scroll-target="#final-solution-no-artifacts-approach">FINAL SOLUTION: No Artifacts Approach</a>
+  <li><a href="#quick-start-guide---fixing-artifact-storage-quota-issue" id="toc-quick-start-guide---fixing-artifact-storage-quota-issue" class="nav-link active" data-scroll-target="#quick-start-guide---fixing-artifact-storage-quota-issue">Quick Start Guide - Fixing Artifact Storage Quota Issue</a>
   <ul class="collapse">
-  <li><a href="#the-real-problem" id="toc-the-real-problem" class="nav-link" data-scroll-target="#the-real-problem">🔴 The Real Problem</a></li>
-  <li><a href="#the-real-solution-zero-artifacts" id="toc-the-real-solution-zero-artifacts" class="nav-link" data-scroll-target="#the-real-solution-zero-artifacts">✅ The Real Solution: ZERO Artifacts</a></li>
-  <li><a href="#recommended-solution-options" id="toc-recommended-solution-options" class="nav-link" data-scroll-target="#recommended-solution-options">🎯 Recommended Solution Options</a>
+  <li><a href="#what-was-done" id="toc-what-was-done" class="nav-link" data-scroll-target="#what-was-done">What Was Done</a>
   <ul class="collapse">
-  <li><a href="#option-1-use-quartos-built-in-publish-easiest-best" id="toc-option-1-use-quartos-built-in-publish-easiest-best" class="nav-link" data-scroll-target="#option-1-use-quartos-built-in-publish-easiest-best"><strong>Option 1: Use Quarto’s Built-in Publish</strong> ⭐ <strong>EASIEST &amp; BEST</strong></a></li>
-  <li><a href="#option-2-manual-git-push-to-gh-pages-full-control" id="toc-option-2-manual-git-push-to-gh-pages-full-control" class="nav-link" data-scroll-target="#option-2-manual-git-push-to-gh-pages-full-control"><strong>Option 2: Manual Git Push to gh-pages</strong> ⭐ <strong>FULL CONTROL</strong></a></li>
-  <li><a href="#option-3-current-approach-not-recommended" id="toc-option-3-current-approach-not-recommended" class="nav-link" data-scroll-target="#option-3-current-approach-not-recommended"><strong>Option 3: Current Approach (NOT RECOMMENDED)</strong></a></li>
+  <li><a href="#workflow-file-fixed" id="toc-workflow-file-fixed" class="nav-link" data-scroll-target="#workflow-file-fixed">1. Workflow File Fixed ✅</a></li>
   </ul></li>
-  <li><a href="#comparison-table" id="toc-comparison-table" class="nav-link" data-scroll-target="#comparison-table">📊 Comparison Table</a></li>
-  <li><a href="#implementation-steps" id="toc-implementation-steps" class="nav-link" data-scroll-target="#implementation-steps">🚀 Implementation Steps</a>
+  <li><a href="#what-you-need-to-do" id="toc-what-you-need-to-do" class="nav-link" data-scroll-target="#what-you-need-to-do">What You Need To Do</a>
   <ul class="collapse">
-  <li><a href="#to-use-option-1-quarto-built-in---recommended" id="toc-to-use-option-1-quarto-built-in---recommended" class="nav-link" data-scroll-target="#to-use-option-1-quarto-built-in---recommended">To Use Option 1 (Quarto Built-in - RECOMMENDED):</a></li>
+  <li><a href="#step-1-run-the-cleanup-script" id="toc-step-1-run-the-cleanup-script" class="nav-link" data-scroll-target="#step-1-run-the-cleanup-script">Step 1: Run the Cleanup Script</a></li>
+  <li><a href="#step-2-commit-and-push-the-fixed-workflow" id="toc-step-2-commit-and-push-the-fixed-workflow" class="nav-link" data-scroll-target="#step-2-commit-and-push-the-fixed-workflow">Step 2: Commit and Push the Fixed Workflow</a></li>
+  <li><a href="#step-3-test-the-workflow" id="toc-step-3-test-the-workflow" class="nav-link" data-scroll-target="#step-3-test-the-workflow">Step 3: Test the Workflow</a></li>
+  <li><a href="#step-4-verify-success" id="toc-step-4-verify-success" class="nav-link" data-scroll-target="#step-4-verify-success">Step 4: Verify Success</a></li>
   </ul></li>
-  <li><a href="#why-quarto-built-in-is-best" id="toc-why-quarto-built-in-is-best" class="nav-link" data-scroll-target="#why-quarto-built-in-is-best">🎯 Why Quarto Built-in is Best</a></li>
-  <li><a href="#cleaning-up-after-switch" id="toc-cleaning-up-after-switch" class="nav-link" data-scroll-target="#cleaning-up-after-switch">🧹 Cleaning Up After Switch</a></li>
-  <li><a href="#quick-decision-guide" id="toc-quick-decision-guide" class="nav-link" data-scroll-target="#quick-decision-guide">📝 Quick Decision Guide</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">✅ Summary</a></li>
+  <li><a href="#if-problems-persist" id="toc-if-problems-persist" class="nav-link" data-scroll-target="#if-problems-persist">If Problems Persist</a>
+  <ul class="collapse">
+  <li><a href="#check-storage-status" id="toc-check-storage-status" class="nav-link" data-scroll-target="#check-storage-status">Check Storage Status</a></li>
+  <li><a href="#check-billing-dashboard" id="toc-check-billing-dashboard" class="nav-link" data-scroll-target="#check-billing-dashboard">Check Billing Dashboard</a></li>
+  <li><a href="#contact-support" id="toc-contact-support" class="nav-link" data-scroll-target="#contact-support">Contact Support</a></li>
+  </ul></li>
+  <li><a href="#summary-of-the-fix" id="toc-summary-of-the-fix" class="nav-link" data-scroll-target="#summary-of-the-fix">Summary of the Fix</a></li>
+  <li><a href="#files-modifiedcreated" id="toc-files-modifiedcreated" class="nav-link" data-scroll-target="#files-modifiedcreated">Files Modified/Created</a></li>
+  <li><a href="#need-help" id="toc-need-help" class="nav-link" data-scroll-target="#need-help">Need Help?</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251018 ISSUE Github action fails with Artifact storage quota has been hit/FINAL_SOLUTION_NO_ARTIFACTS.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -1736,240 +1739,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="final-solution-no-artifacts-approach" class="level1">
-<h1>FINAL SOLUTION: No Artifacts Approach</h1>
-<section id="the-real-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-real-problem">🔴 The Real Problem</h2>
-<p>You’re absolutely right! The split-job approach I initially suggested <strong>still uses artifacts</strong>, which means:</p>
+<section id="quick-start-guide---fixing-artifact-storage-quota-issue" class="level1">
+<h1>Quick Start Guide - Fixing Artifact Storage Quota Issue</h1>
+<section id="what-was-done" class="level2">
+<h2 class="anchored" data-anchor-id="what-was-done">What Was Done</h2>
+<section id="workflow-file-fixed" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-file-fixed">1. Workflow File Fixed ✅</h3>
+<p><strong>File</strong>: <code>.github/workflows/quarto-publish.win64.yml</code></p>
+<p><strong>Changes Made:</strong></p>
 <ul>
-<li>❌ Still counts against your storage quota</li>
-<li>❌ Can still hit quota limits if workflow runs frequently</li>
-<li>❌ Only reduces the problem, doesn’t solve it</li>
+<li>Removed unnecessary <code>upload-artifact@v4</code> step that was consuming quota</li>
+<li>Combined build and deploy jobs into one</li>
+<li>Now uses <code>upload-pages-artifact@v3</code> directly (separate quota for GitHub Pages)</li>
 </ul>
-</section>
-<section id="the-real-solution-zero-artifacts" class="level2">
-<h2 class="anchored" data-anchor-id="the-real-solution-zero-artifacts">✅ The Real Solution: ZERO Artifacts</h2>
-<p>You need a workflow that <strong>doesn’t use artifacts at all</strong>. Here are your options:</p>
-<hr>
-</section>
-<section id="recommended-solution-options" class="level2">
-<h2 class="anchored" data-anchor-id="recommended-solution-options">🎯 Recommended Solution Options</h2>
-<section id="option-1-use-quartos-built-in-publish-easiest-best" class="level3">
-<h3 class="anchored" data-anchor-id="option-1-use-quartos-built-in-publish-easiest-best"><strong>Option 1: Use Quarto’s Built-in Publish</strong> ⭐ <strong>EASIEST &amp; BEST</strong></h3>
-<p><strong>File</strong>: <code>quarto-publish.simple.yml</code></p>
-<p><strong>How it works:</strong></p>
-<pre><code>Render → Push directly to gh-pages branch
-(No artifacts, no GitHub Actions Pages system)</code></pre>
-<p><strong>Command:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages <span class="at">--no-prompt</span> <span class="at">--no-browser</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>✅ <strong>ZERO artifacts</strong> - No storage quota used</li>
-<li>✅ Simplest solution - One command does everything</li>
-<li>✅ Official Quarto method</li>
-<li>✅ Works natively on Windows</li>
-<li>✅ Handles all git operations automatically</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>Uses <code>contents: write</code> permission (needs to push to gh-pages branch)</li>
-</ul>
-<p><strong>GitHub Pages Setup Required:</strong></p>
-<ul>
-<li>Go to: Settings → Pages</li>
-<li>Source: Deploy from a branch</li>
-<li>Branch: <code>gh-pages</code> / <code>root</code></li>
-</ul>
-<hr>
-</section>
-<section id="option-2-manual-git-push-to-gh-pages-full-control" class="level3">
-<h3 class="anchored" data-anchor-id="option-2-manual-git-push-to-gh-pages-full-control"><strong>Option 2: Manual Git Push to gh-pages</strong> ⭐ <strong>FULL CONTROL</strong></h3>
-<p><strong>File</strong>: <code>quarto-publish.direct.yml</code></p>
-<p><strong>How it works:</strong></p>
-<pre><code>Render → Manually push docs to gh-pages branch
-(No artifacts, custom deployment logic)</code></pre>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>✅ <strong>ZERO artifacts</strong></li>
-<li>✅ Full control over deployment process</li>
-<li>✅ Works natively on Windows</li>
-<li>✅ Can customize deployment logic</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>More complex workflow script</li>
-<li>More git commands to maintain</li>
-</ul>
-<hr>
-</section>
-<section id="option-3-current-approach-not-recommended" class="level3">
-<h3 class="anchored" data-anchor-id="option-3-current-approach-not-recommended"><strong>Option 3: Current Approach (NOT RECOMMENDED)</strong></h3>
-<p><strong>File</strong>: <code>quarto-publish.win64.yml</code> (current)</p>
-<p><strong>Problems:</strong></p>
-<ul>
-<li>❌ Uses <code>upload-artifact@v4</code> (counts against quota!)</li>
-<li>❌ Creates artifact on every run</li>
-<li>❌ Even with 1-day retention, can accumulate if you run frequently</li>
-<li>❌ This is what’s causing your quota issue</li>
-</ul>
+<p><strong>Result</strong>: Future workflow runs won’t consume artifact storage quota!</p>
 <hr>
 </section>
 </section>
-<section id="comparison-table" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-table">📊 Comparison Table</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 22%">
-<col style="width: 19%">
-<col style="width: 26%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Approach</th>
-<th>Artifacts Used?</th>
-<th>Quota Impact</th>
-<th>Works on Windows?</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Quarto built-in</strong></td>
-<td>❌ None</td>
-<td>✅ Zero</td>
-<td>✅ Yes</td>
-<td>⭐ Simple</td>
-</tr>
-<tr class="even">
-<td><strong>Manual gh-pages push</strong></td>
-<td>❌ None</td>
-<td>✅ Zero</td>
-<td>✅ Yes</td>
-<td>⭐⭐ Medium</td>
-</tr>
-<tr class="odd">
-<td><strong>Split job (current)</strong></td>
-<td>✅ Yes (1 day)</td>
-<td>⚠️ Low but not zero</td>
-<td>✅ Yes</td>
-<td>⭐⭐⭐ Complex</td>
-</tr>
-<tr class="even">
-<td><strong>Single job with Pages API</strong></td>
-<td>✅ Yes</td>
-<td>❌ High</td>
-<td>❌ Needs WSL</td>
-<td>⭐⭐⭐ Complex</td>
-</tr>
-</tbody>
-</table>
-<hr>
+<section id="what-you-need-to-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-need-to-do">What You Need To Do</h2>
+<section id="step-1-run-the-cleanup-script" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-run-the-cleanup-script">Step 1: Run the Cleanup Script</h3>
+<p>Open PowerShell in this directory and run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"E:\dev.darioa.live\darioairoldi\Learn\20251018 ISSUE Github action fails with Artifact storage quota has been hit"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\cleanup-artifacts<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will:</p>
+<ul>
+<li>Delete all existing artifacts from your repository</li>
+<li>Remove old workflow runs (keeping the last 5)</li>
+<li>Show you the current storage status</li>
+</ul>
 </section>
-<section id="implementation-steps" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-steps">🚀 Implementation Steps</h2>
-<section id="to-use-option-1-quarto-built-in---recommended" class="level3">
-<h3 class="anchored" data-anchor-id="to-use-option-1-quarto-built-in---recommended">To Use Option 1 (Quarto Built-in - RECOMMENDED):</h3>
+<section id="step-2-commit-and-push-the-fixed-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-commit-and-push-the-fixed-workflow">Step 2: Commit and Push the Fixed Workflow</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> E<span class="op">:</span>\dev<span class="op">.</span><span class="fu">darioa</span><span class="op">.</span><span class="fu">live</span>\darioairoldi\Learn</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check what changed</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>git status</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the modified workflow file</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span><span class="fu">github</span><span class="op">/</span>workflows<span class="op">/</span>quarto-publish<span class="op">.</span><span class="fu">win64</span><span class="op">.</span><span class="fu">yml</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit the fix</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">"Fix: Eliminate artifact storage quota issue in GitHub Actions workflow"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Push to GitHub</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>git push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-3-test-the-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-test-the-workflow">Step 3: Test the Workflow</h3>
+<p>Go to your GitHub repository and manually trigger the workflow:</p>
 <ol type="1">
-<li><p><strong>Disable current workflow:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename to disable it</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"E:\dev.darioa.live\darioairoldi\Learn\.github\workflows"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Rename-Item</span> <span class="st">"quarto-publish.win64.yml"</span> <span class="st">"quarto-publish.win64.yml.disabled"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Enable the simple workflow:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It's already created as quarto-publish.simple.yml</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Just commit and push</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Configure GitHub Pages:</strong></p>
+<li>Navigate to: https://github.com/darioairoldi/Learn/actions</li>
+<li>Click on “Quarto Site Render and Deploy to GitHub Pages”</li>
+<li>Click “Run workflow” button</li>
+<li>Select the <code>main</code> branch</li>
+<li>Click “Run workflow”</li>
+</ol>
+</section>
+<section id="step-4-verify-success" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-verify-success">Step 4: Verify Success</h3>
+<p>After the workflow runs:</p>
 <ul>
-<li>Go to: https://github.com/darioairoldi/Learn/settings/pages</li>
-<li>Source: <strong>Deploy from a branch</strong></li>
-<li>Branch: <strong>gh-pages</strong> / <strong>root</strong></li>
-<li>Save</li>
+<li>✅ Check that it completes successfully</li>
+<li>✅ Verify your site is published at your GitHub Pages URL</li>
+<li>✅ Confirm no new artifacts are created (check Actions → Artifacts)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="if-problems-persist" class="level2">
+<h2 class="anchored" data-anchor-id="if-problems-persist">If Problems Persist</h2>
+<section id="check-storage-status" class="level3">
+<h3 class="anchored" data-anchor-id="check-storage-status">Check Storage Status</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check remaining artifacts</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>gh api repos<span class="op">/</span>darioairoldi<span class="op">/</span>Learn<span class="op">/</span>actions<span class="op">/</span>artifacts</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check workflow runs</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>gh run list <span class="op">--</span>repo darioairoldi<span class="op">/</span>Learn <span class="op">--</span>limit <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="check-billing-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="check-billing-dashboard">Check Billing Dashboard</h3>
+<p>Visit: https://github.com/settings/billing/summary</p>
+<p>Look for “Actions storage” usage. It should decrease after cleanup (may take 6-12 hours to update).</p>
+</section>
+<section id="contact-support" class="level3">
+<h3 class="anchored" data-anchor-id="contact-support">Contact Support</h3>
+<p>If the issue continues after cleanup, it may be a GitHub platform issue:</p>
+<ul>
+<li>Support: https://support.github.com/</li>
+<li>Status: https://www.githubstatus.com/</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="summary-of-the-fix" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-the-fix">Summary of the Fix</h2>
+<p><strong>Before:</strong></p>
+<pre><code>Build Job → Upload Artifact (quota counted!) → Deploy Job → Download Artifact → Deploy</code></pre>
+<p><strong>After:</strong></p>
+<pre><code>Build-and-Deploy Job → Upload to Pages → Deploy (no quota impact!)</code></pre>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>✅ No more artifact storage quota issues</li>
+<li>✅ Faster workflow (single job)</li>
+<li>✅ Follows GitHub best practices</li>
+<li>✅ Simpler to maintain</li>
+</ul>
+<hr>
+</section>
+<section id="files-modifiedcreated" class="level2">
+<h2 class="anchored" data-anchor-id="files-modifiedcreated">Files Modified/Created</h2>
+<ol type="1">
+<li><strong>Modified</strong>: <code>.github/workflows/quarto-publish.win64.yml</code>
+<ul>
+<li>Combined jobs, removed artifact steps</li>
 </ul></li>
-<li><p><strong>Commit and test:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"E:\dev.darioa.live\darioairoldi\Learn"</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span><span class="fu">github</span><span class="op">/</span>workflows<span class="op">/</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">"Switch to Quarto built-in publish (no artifacts)"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-<hr>
-</section>
-</section>
-<section id="why-quarto-built-in-is-best" class="level2">
-<h2 class="anchored" data-anchor-id="why-quarto-built-in-is-best">🎯 Why Quarto Built-in is Best</h2>
-<p>The <code>quarto publish gh-pages</code> command is specifically designed for this use case:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This ONE command does everything:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">quarto publish gh-pages --no-prompt --no-browser</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>What it does internally:</strong></p>
-<ol type="1">
-<li>Renders your Quarto project</li>
-<li>Creates/updates the <code>gh-pages</code> branch</li>
-<li>Pushes the rendered content</li>
-<li>All without using any GitHub Actions artifacts!</li>
-</ol>
-<p><strong>It’s literally the official way to publish Quarto to GitHub Pages.</strong></p>
-<hr>
-</section>
-<section id="cleaning-up-after-switch" class="level2">
-<h2 class="anchored" data-anchor-id="cleaning-up-after-switch">🧹 Cleaning Up After Switch</h2>
-<p>After switching to the no-artifact approach:</p>
-<ol type="1">
-<li><p><strong>Run the cleanup script</strong> to remove existing artifacts:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"E:\dev.darioa.live\darioairoldi\Learn\20251018 ISSUE Github action fails with Artifact storage quota has been hit"</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\cleanup-artifacts<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Monitor that no new artifacts are created:</strong></p>
+<li><strong>Created</strong>: <code>cleanup-artifacts.ps1</code>
 <ul>
-<li>Go to: https://github.com/darioairoldi/Learn/actions/artifacts</li>
-<li>Should remain empty after workflows run</li>
+<li>Script to clean up existing artifacts and workflow runs</li>
+</ul></li>
+<li><strong>Updated</strong>: <code>README.md</code>
+<ul>
+<li>Complete documentation of the issue and solution</li>
+</ul></li>
+<li><strong>Created</strong>: <code>QUICKSTART.md</code> (this file)
+<ul>
+<li>Step-by-step guide to implement the solution</li>
 </ul></li>
 </ol>
 <hr>
 </section>
-<section id="quick-decision-guide" class="level2">
-<h2 class="anchored" data-anchor-id="quick-decision-guide">📝 Quick Decision Guide</h2>
-<p><strong>Use Quarto Built-in (<code>quarto-publish.simple.yml</code>) if:</strong></p>
+<section id="need-help" class="level2">
+<h2 class="anchored" data-anchor-id="need-help">Need Help?</h2>
+<p>Refer to the main README.md in this folder for:</p>
 <ul>
-<li>✅ You want the simplest solution</li>
-<li>✅ You’re okay with <code>quarto publish</code> handling everything</li>
-<li>✅ You want the official Quarto method</li>
-<li>✅ You want ZERO artifacts</li>
+<li>Detailed analysis of the issue</li>
+<li>Manual cleanup commands</li>
+<li>Advanced troubleshooting steps</li>
+<li>Additional references and documentation</li>
 </ul>
-<p><strong>Use Manual Push (<code>quarto-publish.direct.yml</code>) if:</strong></p>
-<ul>
-<li>✅ You need custom deployment logic</li>
-<li>✅ You want more control over the git operations</li>
-<li>✅ You want ZERO artifacts</li>
-</ul>
-<p><strong>Don’t use the split-job approach if:</strong></p>
-<ul>
-<li>❌ You’re hitting artifact storage quota limits</li>
-<li>❌ You run workflows frequently</li>
-<li>❌ You want to avoid artifacts completely</li>
-</ul>
-<hr>
-</section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">✅ Summary</h2>
-<p><strong>The issue with the current approach:</strong></p>
-<ul>
-<li>Still uses artifacts (even with 1-day retention)</li>
-<li>Can accumulate if workflow runs frequently</li>
-<li>Not a true solution to the quota problem</li>
-</ul>
-<p><strong>The real solution:</strong></p>
-<ul>
-<li>Use <code>quarto publish gh-pages</code> command</li>
-<li>No artifacts at all</li>
-<li>Simple, official, and works perfectly on Windows</li>
-</ul>
-<p><strong>Next step:</strong></p>
-<ul>
-<li>Replace <code>quarto-publish.win64.yml</code> with <code>quarto-publish.simple.yml</code></li>
-<li>Configure GitHub Pages to use <code>gh-pages</code> branch</li>
-<li>Done! No more quota issues, ever.</li>
-</ul>
-<hr>
-<p><strong>Ready to implement? I recommend Option 1 (Quarto built-in).</strong> 🎉</p>
 
 
 </section>
@@ -7698,4 +7607,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251018 ISSUE Github action fails with Artifact storage quota has been hit/FINAL_SOLUTION_NO_ARTIFACTS.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

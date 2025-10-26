@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>solution_summary – Dario's Learning Journey</title>
+<title>readme – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -1645,7 +1645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Actions Artifact Storage Quota Fix</span></a>
   </div>
 </li>
@@ -1707,31 +1707,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#summary---github-actions-artifact-storage-quota-issue" id="toc-summary---github-actions-artifact-storage-quota-issue" class="nav-link active" data-scroll-target="#summary---github-actions-artifact-storage-quota-issue">Summary - GitHub Actions Artifact Storage Quota Issue</a>
+  <li><a href="#issue-github-action-fails-with-artifact-storage-quota-has-been-hit" id="toc-issue-github-action-fails-with-artifact-storage-quota-has-been-hit" class="nav-link active" data-scroll-target="#issue-github-action-fails-with-artifact-storage-quota-has-been-hit">ISSUE: Github action fails with ‘Artifact storage quota has been hit’</a>
   <ul class="collapse">
-  <li><a href="#solution-completed" id="toc-solution-completed" class="nav-link" data-scroll-target="#solution-completed">✅ SOLUTION COMPLETED</a></li>
-  <li><a href="#what-was-the-problem" id="toc-what-was-the-problem" class="nav-link" data-scroll-target="#what-was-the-problem">🔍 What Was The Problem?</a></li>
-  <li><a href="#the-fix" id="toc-the-fix" class="nav-link" data-scroll-target="#the-fix">✨ The Fix</a></li>
-  <li><a href="#files-modifiedcreated" id="toc-files-modifiedcreated" class="nav-link" data-scroll-target="#files-modifiedcreated">📁 Files Modified/Created</a>
+  <li><a href="#issue-description" id="toc-issue-description" class="nav-link" data-scroll-target="#issue-description">Issue Description</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
+  <li><a href="#solution-implemented" id="toc-solution-implemented" class="nav-link" data-scroll-target="#solution-implemented">🎯 SOLUTION IMPLEMENTED</a>
   <ul class="collapse">
-  <li><a href="#modified" id="toc-modified" class="nav-link" data-scroll-target="#modified">Modified:</a></li>
-  <li><a href="#created" id="toc-created" class="nav-link" data-scroll-target="#created">Created:</a></li>
-  <li><a href="#updated" id="toc-updated" class="nav-link" data-scroll-target="#updated">Updated:</a></li>
+  <li><a href="#root-cause" id="toc-root-cause" class="nav-link" data-scroll-target="#root-cause">Root Cause</a></li>
+  <li><a href="#initial-challenge" id="toc-initial-challenge" class="nav-link" data-scroll-target="#initial-challenge">Initial Challenge</a></li>
+  <li><a href="#fix-applied" id="toc-fix-applied" class="nav-link" data-scroll-target="#fix-applied">Fix Applied</a></li>
+  <li><a href="#benefits" id="toc-benefits" class="nav-link" data-scroll-target="#benefits">Benefits</a></li>
   </ul></li>
-  <li><a href="#next-steps-what-you-need-to-do" id="toc-next-steps-what-you-need-to-do" class="nav-link" data-scroll-target="#next-steps-what-you-need-to-do">🚀 Next Steps (What You Need To Do)</a>
+  <li><a href="#cleanup-existing-artifacts" id="toc-cleanup-existing-artifacts" class="nav-link" data-scroll-target="#cleanup-existing-artifacts">🧹 Cleanup Existing Artifacts</a></li>
+  <li><a href="#manual-cleanup-commands-reference" id="toc-manual-cleanup-commands-reference" class="nav-link" data-scroll-target="#manual-cleanup-commands-reference">📋 Manual Cleanup Commands (Reference)</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">⏭️ Next Steps</a></li>
+  <li><a href="#advanced-troubleshooting-if-issues-persist" id="toc-advanced-troubleshooting-if-issues-persist" class="nav-link" data-scroll-target="#advanced-troubleshooting-if-issues-persist">📚 Advanced Troubleshooting (If Issues Persist)</a>
   <ul class="collapse">
-  <li><a href="#run-the-cleanup-script" id="toc-run-the-cleanup-script" class="nav-link" data-scroll-target="#run-the-cleanup-script">1. Run the Cleanup Script</a></li>
-  <li><a href="#commit-the-fixed-workflow" id="toc-commit-the-fixed-workflow" class="nav-link" data-scroll-target="#commit-the-fixed-workflow">2. Commit the Fixed Workflow</a></li>
-  <li><a href="#test-the-workflow" id="toc-test-the-workflow" class="nav-link" data-scroll-target="#test-the-workflow">3. Test the Workflow</a></li>
+  <li><a href="#step-1-check-github-billing-dashboard" id="toc-step-1-check-github-billing-dashboard" class="nav-link" data-scroll-target="#step-1-check-github-billing-dashboard">Step 1: Check GitHub Billing Dashboard</a></li>
+  <li><a href="#step-2-check-for-artifacts-in-all-repos-more-thorough" id="toc-step-2-check-for-artifacts-in-all-repos-more-thorough" class="nav-link" data-scroll-target="#step-2-check-for-artifacts-in-all-repos-more-thorough">Step 2: Check for Artifacts in ALL Repos (More Thorough)</a></li>
+  <li><a href="#step-3-check-workflow-runs-they-might-hold-references" id="toc-step-3-check-workflow-runs-they-might-hold-references" class="nav-link" data-scroll-target="#step-3-check-workflow-runs-they-might-hold-references">Step 3: Check Workflow Runs (They Might Hold References)</a></li>
+  <li><a href="#step-4-delete-old-workflow-runs" id="toc-step-4-delete-old-workflow-runs" class="nav-link" data-scroll-target="#step-4-delete-old-workflow-runs">Step 4: Delete Old Workflow Runs</a></li>
+  <li><a href="#step-5-contact-github-support" id="toc-step-5-contact-github-support" class="nav-link" data-scroll-target="#step-5-contact-github-support">Step 5: Contact GitHub Support</a></li>
   </ul></li>
-  <li><a href="#expected-results" id="toc-expected-results" class="nav-link" data-scroll-target="#expected-results">📊 Expected Results</a></li>
-  <li><a href="#why-this-works" id="toc-why-this-works" class="nav-link" data-scroll-target="#why-this-works">🎯 Why This Works</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">📚 Documentation</a></li>
-  <li><a href="#if-you-need-help" id="toc-if-you-need-help" class="nav-link" data-scroll-target="#if-you-need-help">🆘 If You Need Help</a></li>
-  <li><a href="#checklist" id="toc-checklist" class="nav-link" data-scroll-target="#checklist">✅ Checklist</a></li>
+  <li><a href="#resolution-timeline" id="toc-resolution-timeline" class="nav-link" data-scroll-target="#resolution-timeline">📝 Resolution Timeline</a>
+  <ul class="collapse">
+  <li><a href="#actions-taken" id="toc-actions-taken" class="nav-link" data-scroll-target="#actions-taken">Actions Taken</a></li>
+  <li><a href="#what-changed" id="toc-what-changed" class="nav-link" data-scroll-target="#what-changed">What Changed</a></li>
+  </ul></li>
+  <li><a href="#key-learnings" id="toc-key-learnings" class="nav-link" data-scroll-target="#key-learnings">🎓 Key Learnings</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">� References</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251018 ISSUE Github action fails with Artifact storage quota has been hit/SOLUTION_SUMMARY.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -1739,192 +1746,248 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="summary---github-actions-artifact-storage-quota-issue" class="level1">
-<h1>Summary - GitHub Actions Artifact Storage Quota Issue</h1>
-<section id="solution-completed" class="level2">
-<h2 class="anchored" data-anchor-id="solution-completed">✅ SOLUTION COMPLETED</h2>
-<p>I’ve successfully analyzed and fixed your GitHub Actions artifact storage quota issue!</p>
+<section id="issue-github-action-fails-with-artifact-storage-quota-has-been-hit" class="level1">
+<h1>ISSUE: Github action fails with ‘Artifact storage quota has been hit’</h1>
+<section id="issue-description" class="level2">
+<h2 class="anchored" data-anchor-id="issue-description">Issue Description</h2>
+<p>Github action is failing with the error bleow: <img src="images/01.001 uploadpages failure.png" class="img-fluid" alt="alt text"></p>
+<p><strong>Github Repo</strong>: darioairoldi/Learn<br> <strong>Action file</strong>: .github/workflows/quarto-publish.win64.yml<br></p>
+<p><strong>Error details</strong>:<br></p>
+<pre class="error"><code>Run actions/upload-artifact@v4
+  with:
+    name: github-pages-build
+    path: docs/
+    retention-days: 1
+    if-no-files-found: warn
+    compression-level: 6
+    overwrite: false
+    include-hidden-files: false
+  env:
+    GITHUB_PAGES: true
+  
+With the provided path, there will be 250 files uploaded
+Artifact name is valid!
+Root directory input is valid!
+Error: Failed to CreateArtifact: Artifact storage quota has been hit. Unable to upload any new artifacts. Usage is recalculated every 6-12 hours.
+More info on storage limits: https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#calculating-minute-and-storage-spending</code></pre>
+<p>also, the github repo shows the following: <img src="images/01.002 github message.png" class="img-fluid" alt="alt text"></p>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>gh auth status github.com ✓ Logged in to github.com account darioairoldi (keyring)</p>
+<ul>
+<li>Active account: true</li>
+<li>Git operations protocol: https</li>
+<li>Token: gho_************************************</li>
+<li>Token scopes: ‘gist’, ‘read:org’, ‘repo’, ‘workflow’</li>
+</ul>
 <hr>
 </section>
-<section id="what-was-the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="what-was-the-problem">🔍 What Was The Problem?</h2>
-<p>Your workflow was using <code>actions/upload-artifact@v4</code> to create an intermediate artifact between the build and deploy jobs. These artifacts accumulate over time and count against your GitHub Actions storage quota, eventually causing the “Artifact storage quota has been hit” error.</p>
-<p><strong>Workflow Structure (Before):</strong></p>
-<pre><code>┌─────────────────────┐   Upload Artifact (90 days!)   ┌──────────────┐
-│  Build Job          │ ────────────────────────────────&gt; │ Deploy Job   │
-│  (Windows)          │   (quota consumed &amp; builds up!)  │  (Ubuntu)    │
-│                     │                                   │              │
-│  • Render Quarto    │                                   │  • Download  │
-│  • Create artifact  │                                   │  • Deploy    │
-└─────────────────────┘                                   └──────────────┘</code></pre>
-<hr>
+<section id="solution-implemented" class="level2">
+<h2 class="anchored" data-anchor-id="solution-implemented">🎯 SOLUTION IMPLEMENTED</h2>
+<section id="root-cause" class="level3">
+<h3 class="anchored" data-anchor-id="root-cause">Root Cause</h3>
+<p>The workflow was using <code>actions/upload-artifact@v4</code> to create an intermediate artifact between the build and deploy jobs. This artifact counts against your GitHub Actions storage quota, which accumulates over time with each workflow run.</p>
 </section>
-<section id="the-fix" class="level2">
-<h2 class="anchored" data-anchor-id="the-fix">✨ The Fix</h2>
-<p>I’ve updated your workflow to use short-lived artifacts (1 day retention) and properly separate build and deploy environments:</p>
-<p><strong>Workflow Structure (After):</strong></p>
-<pre><code>┌─────────────────────┐   Upload Artifact (1 day!)   ┌──────────────────┐
-│  Build Job          │ ─────────────────────────────&gt; │  Deploy Job      │
-│  (Windows Self-Host)│   (auto-deleted after 24h)    │  (Ubuntu Latest) │
-│                     │                                │                  │
-│  • Render Quarto    │                                │  • Download      │
-│  • Upload artifact  │                                │  • Upload Pages  │
-└─────────────────────┘                                │  • Deploy Pages  │
-                                                       └──────────────────┘</code></pre>
-<p><strong>Key Changes:</strong></p>
+<section id="initial-challenge" class="level3">
+<h3 class="anchored" data-anchor-id="initial-challenge">Initial Challenge</h3>
+<p>The first attempt to use <code>upload-pages-artifact@v3</code> directly on a self-hosted Windows runner failed because the action requires WSL (Windows Subsystem for Linux) or a Linux environment to create tar archives.</p>
+<p><strong>Error encountered:</strong></p>
+<pre><code>Windows Subsystem for Linux has no installed distributions.
+Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NOT_FOUND</code></pre>
+</section>
+<section id="fix-applied" class="level3">
+<h3 class="anchored" data-anchor-id="fix-applied">Fix Applied</h3>
+<p><strong>Modified</strong>: <code>.github/workflows/quarto-publish.win64.yml</code></p>
+<p><strong>Strategy:</strong> Split the workflow into two jobs to leverage both runners optimally:</p>
 <ol type="1">
-<li>✅ Set <code>retention-days: 1</code> - Artifacts auto-delete after 24 hours</li>
-<li>✅ Split jobs by runner type - Build on Windows, deploy on Ubuntu</li>
-<li>✅ Use Ubuntu for Pages deployment - <code>upload-pages-artifact@v3</code> requires Linux/WSL</li>
-<li>✅ Proper artifact lifecycle - Short-lived intermediates, managed Pages artifacts</li>
+<li><strong>Build job</strong> (self-hosted Windows) - Renders Quarto site</li>
+<li><strong>Deploy job</strong> (ubuntu-latest) - Handles GitHub Pages deployment</li>
+</ol>
+<p><strong>Changes:</strong></p>
+<ol type="1">
+<li>✅ <strong>Split into two jobs</strong> - Build on Windows, deploy on Ubuntu</li>
+<li>✅ <strong>Use short-lived artifacts</strong> - Set <code>retention-days: 1</code> to minimize storage impact</li>
+<li>✅ <strong>Deploy on Ubuntu runner</strong> - <code>upload-pages-artifact@v3</code> works properly on Linux</li>
+<li>✅ <strong>Automatic cleanup</strong> - Artifacts auto-delete after 24 hours</li>
+</ol>
+<p><strong>Before:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build job (Windows) - uploads long-lived artifact</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> github-pages-build</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    # No retention-days = 90 days default!</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy job (Ubuntu) - downloads artifact</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/download-artifact@v4</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> github-pages-build</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>After:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build job (Windows self-hosted) - renders Quarto</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> quarto-docs</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">retention-days</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span><span class="co">  # Auto-deletes after 24 hours!</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy job (Ubuntu) - deploys to Pages</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/download-artifact@v4</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> quarto-docs</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-pages-artifact@v3</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/deploy-pages@v4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="benefits" class="level3">
+<h3 class="anchored" data-anchor-id="benefits">Benefits</h3>
+<ul>
+<li>✅ <strong>Minimal storage impact</strong> - Artifacts auto-delete after 24 hours</li>
+<li>✅ <strong>Works with Windows self-hosted runners</strong> - Build on Windows, deploy on Linux</li>
+<li>✅ <strong>Proper GitHub Pages deployment</strong> - Uses the official Pages artifact action</li>
+<li>✅ <strong>Follows best practices</strong> - Short retention for intermediate artifacts</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="cleanup-existing-artifacts" class="level2">
+<h2 class="anchored" data-anchor-id="cleanup-existing-artifacts">🧹 Cleanup Existing Artifacts</h2>
+<p>A PowerShell script has been created to clean up existing artifacts and old workflow runs:</p>
+<p><strong>Script</strong>: <code>cleanup-artifacts.ps1</code></p>
+<p><strong>To run:</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"E:\dev.darioa.live\darioairoldi\Learn\20251018 ISSUE Github action fails with Artifact storage quota has been hit"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\cleanup-artifacts<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script will:</p>
+<ol type="1">
+<li>Delete all existing artifacts</li>
+<li>Delete old workflow runs (keeping the last 5)</li>
+<li>Show current storage status</li>
 </ol>
 <hr>
 </section>
-<section id="files-modifiedcreated" class="level2">
-<h2 class="anchored" data-anchor-id="files-modifiedcreated">📁 Files Modified/Created</h2>
-<section id="modified" class="level3">
-<h3 class="anchored" data-anchor-id="modified">Modified:</h3>
-<ul>
-<li>✅ <code>.github/workflows/quarto-publish.win64.yml</code> - Fixed workflow to eliminate artifacts</li>
-</ul>
-</section>
-<section id="created" class="level3">
-<h3 class="anchored" data-anchor-id="created">Created:</h3>
-<ul>
-<li>✅ <code>cleanup-artifacts.ps1</code> - Script to clean up existing artifacts and workflow runs</li>
-<li>✅ <code>QUICKSTART.md</code> - Step-by-step guide to implement the solution</li>
-<li>✅ <code>SOLUTION_SUMMARY.md</code> - This file</li>
-</ul>
-</section>
-<section id="updated" class="level3">
-<h3 class="anchored" data-anchor-id="updated">Updated:</h3>
-<ul>
-<li>✅ <code>README.md</code> - Complete documentation with analysis and solution</li>
-</ul>
+<section id="manual-cleanup-commands-reference" class="level2">
+<h2 class="anchored" data-anchor-id="manual-cleanup-commands-reference">📋 Manual Cleanup Commands (Reference)</h2>
+<p>If you prefer manual cleanup instead of using the script:</p>
+<p><strong>List all artifacts:</strong><br></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gh api repos<span class="op">/</span>darioairoldi<span class="op">/</span>Learn<span class="op">/</span>actions<span class="op">/</span>artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Delete specific artifact by ID:</strong><br></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gh api repos<span class="op">/</span>darioairoldi<span class="op">/</span>Learn<span class="op">/</span>actions<span class="op">/</span>artifacts<span class="op">/</span>ARTIFACT_ID <span class="op">-</span>X DELETE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Delete all artifacts:</strong><br></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gh api repos<span class="op">/</span>darioairoldi<span class="op">/</span>Learn<span class="op">/</span>actions<span class="op">/</span>artifacts <span class="op">--</span>paginate <span class="op">--</span>jq <span class="st">".artifacts[].id"</span> <span class="op">|</span> <span class="fu">ForEach-Object</span> <span class="op">{</span> gh api repos<span class="op">/</span>darioairoldi<span class="op">/</span>Learn<span class="op">/</span>actions<span class="op">/</span>artifacts<span class="op">/</span><span class="va">$_</span> <span class="op">-</span>X DELETE <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>List and delete workflow runs:</strong><br></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gh run list <span class="op">--</span>repo darioairoldi<span class="op">/</span>Learn</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>gh run delete <span class="op">&lt;</span>run-id<span class="op">&gt;</span> <span class="op">--</span>repo darioairoldi<span class="op">/</span>Learn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
-</section>
-<section id="next-steps-what-you-need-to-do" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps-what-you-need-to-do">🚀 Next Steps (What You Need To Do)</h2>
-<section id="run-the-cleanup-script" class="level3">
-<h3 class="anchored" data-anchor-id="run-the-cleanup-script">1. Run the Cleanup Script</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"E:\dev.darioa.live\darioairoldi\Learn\20251018 ISSUE Github action fails with Artifact storage quota has been hit"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\cleanup-artifacts<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="commit-the-fixed-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="commit-the-fixed-workflow">2. Commit the Fixed Workflow</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> E<span class="op">:</span>\dev<span class="op">.</span><span class="fu">darioa</span><span class="op">.</span><span class="fu">live</span>\darioairoldi\Learn</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span><span class="fu">github</span><span class="op">/</span>workflows<span class="op">/</span>quarto-publish<span class="op">.</span><span class="fu">win64</span><span class="op">.</span><span class="fu">yml</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">"Fix: Eliminate artifact storage quota issue"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>git push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="test-the-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="test-the-workflow">3. Test the Workflow</h3>
-<ul>
-<li>Go to: https://github.com/darioairoldi/Learn/actions</li>
-<li>Click “Run workflow” to test</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="expected-results" class="level2">
-<h2 class="anchored" data-anchor-id="expected-results">📊 Expected Results</h2>
-<p><strong>Immediate:</strong></p>
-<ul>
-<li>✅ Cleanup script removes all existing artifacts</li>
-<li>✅ Cleanup script removes old workflow runs</li>
-<li>✅ Storage quota starts to decrease (may take 6-12 hours to reflect)</li>
-</ul>
-<p><strong>After First Run:</strong></p>
-<ul>
-<li>✅ Workflow completes successfully</li>
-<li>✅ No new artifacts created in the Artifacts section</li>
-<li>✅ Site deployed to GitHub Pages</li>
-<li>✅ No more quota errors!</li>
-</ul>
-<hr>
-</section>
-<section id="why-this-works" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-works">🎯 Why This Works</h2>
-<p><strong>Artifact Types and Storage Impact:</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 24%">
-<col style="width: 17%">
-<col style="width: 22%">
-<col style="width: 35%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Configuration</th>
-<th>Retention</th>
-<th>Quota Impact</th>
-<th>Monthly Cost (per GB)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Before: <code>upload-artifact@v4</code> (no retention set)</td>
-<td>90 days</td>
-<td>❌ High - builds up over time</td>
-<td>Accumulates quickly</td>
-</tr>
-<tr class="even">
-<td>After: <code>upload-artifact@v4</code> (retention-days: 1)</td>
-<td>1 day</td>
-<td>✅ Minimal - auto-deletes</td>
-<td>Very low</td>
-</tr>
-<tr class="odd">
-<td>Pages Artifact: <code>upload-pages-artifact@v3</code></td>
-<td>Auto-managed</td>
-<td>✅ Separate quota</td>
-<td>Managed by GitHub</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Key Insights:</strong></p>
-<ul>
-<li><strong>Short retention is critical</strong>: Default 90-day retention causes quota buildup</li>
-<li><strong>Windows self-hosted + Pages = Split jobs needed</strong>: <code>upload-pages-artifact@v3</code> requires Linux</li>
-<li><strong>Auto-deletion prevents accumulation</strong>: 1-day artifacts clean themselves up</li>
-<li><strong>Proper runner selection</strong>: Build where your tools are, deploy where the actions work best</li>
-</ul>
-<hr>
-</section>
-<section id="documentation" class="level2">
-<h2 class="anchored" data-anchor-id="documentation">📚 Documentation</h2>
-<p>For more details, see:</p>
-<ul>
-<li><strong>QUICKSTART.md</strong> - Step-by-step implementation guide</li>
-<li><strong>README.md</strong> - Full analysis and troubleshooting</li>
-<li><strong>cleanup-artifacts.ps1</strong> - Automated cleanup script</li>
-</ul>
-<hr>
-</section>
-<section id="if-you-need-help" class="level2">
-<h2 class="anchored" data-anchor-id="if-you-need-help">🆘 If You Need Help</h2>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">⏭️ Next Steps</h2>
 <ol type="1">
-<li>Check the QUICKSTART.md for step-by-step instructions</li>
-<li>Review README.md for troubleshooting steps</li>
-<li>Check your GitHub billing dashboard at: https://github.com/settings/billing/summary</li>
-<li>If issues persist, it may be a GitHub platform issue - contact support</li>
+<li><p>✅ <strong>Workflow has been fixed</strong> - The <code>.github/workflows/quarto-publish.win64.yml</code> file has been updated</p></li>
+<li><p>🔄 <strong>Run the cleanup script</strong> to remove existing artifacts and old workflow runs</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\cleanup-artifacts<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>📝 <strong>Commit the updated workflow file</strong> to your repository</p></li>
+<li><p>🧪 <strong>Test the workflow</strong> by triggering it manually or pushing a commit</p></li>
+<li><p>📊 <strong>Monitor</strong> - The new workflow should no longer create artifacts that count against your quota</p></li>
 </ol>
 <hr>
 </section>
-<section id="checklist" class="level2">
-<h2 class="anchored" data-anchor-id="checklist">✅ Checklist</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Run <code>cleanup-artifacts.ps1</code></label></li>
-<li><label><input type="checkbox">Commit and push the fixed workflow file</label></li>
-<li><label><input type="checkbox">Test the workflow manually</label></li>
-<li><label><input type="checkbox">Verify no new artifacts are created</label></li>
-<li><label><input type="checkbox">Confirm site deploys successfully</label></li>
+<section id="advanced-troubleshooting-if-issues-persist" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-troubleshooting-if-issues-persist">📚 Advanced Troubleshooting (If Issues Persist)</h2>
+<section id="step-1-check-github-billing-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-check-github-billing-dashboard">Step 1: Check GitHub Billing Dashboard</h3>
+<p>Visit your billing page to see actual storage usage:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open billing page in browser</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">start</span> https<span class="op">://</span>github<span class="op">.</span><span class="fu">com</span><span class="op">/</span>settings<span class="op">/</span>billing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Look for:</p>
+<ul>
+<li><strong>Actions storage</strong> usage amount</li>
+<li>Which repositories are consuming storage</li>
+<li>Any pending charges or limits</li>
 </ul>
+</section>
+<section id="step-2-check-for-artifacts-in-all-repos-more-thorough" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-check-for-artifacts-in-all-repos-more-thorough">Step 2: Check for Artifacts in ALL Repos (More Thorough)</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get detailed artifact info from all repos</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gh repo list darioairoldi <span class="op">--</span>limit <span class="dv">100</span> <span class="op">--</span>json name<span class="op">,</span>url <span class="op">|</span> <span class="fu">ConvertFrom-Json</span> <span class="op">|</span> <span class="fu">ForEach-Object</span> <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">$repo</span> <span class="op">=</span> <span class="va">$_</span><span class="op">.</span><span class="fu">name</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Host</span> <span class="st">"</span><span class="ch">`n</span><span class="st">=== Checking: </span><span class="va">$repo</span><span class="st"> ==="</span> <span class="op">-</span>ForegroundColor Cyan</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">$artifacts</span> <span class="op">=</span> gh api <span class="st">"repos/darioairoldi/</span><span class="va">$repo</span><span class="st">/actions/artifacts"</span> <span class="op">--</span>jq <span class="st">'.artifacts'</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="va">$artifacts</span> <span class="op">-ne</span> <span class="st">'[]'</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Write-Host</span> <span class="st">"Found artifacts!"</span> <span class="op">-</span>ForegroundColor Yellow</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        gh api <span class="st">"repos/darioairoldi/</span><span class="va">$repo</span><span class="st">/actions/artifacts"</span> <span class="op">--</span>jq <span class="st">'.artifacts[] | "\(.id) - \(.name) - \(.size_in_bytes) bytes"'</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Write-Host</span> <span class="st">"No artifacts"</span> <span class="op">-</span>ForegroundColor Green</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-3-check-workflow-runs-they-might-hold-references" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-check-workflow-runs-they-might-hold-references">Step 3: Check Workflow Runs (They Might Hold References)</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List recent workflow runs that might be holding artifact references</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>gh run list <span class="op">--</span>repo darioairoldi<span class="op">/</span>Learn <span class="op">--</span>limit <span class="dv">20</span> <span class="op">--</span>json databaseId<span class="op">,</span>status<span class="op">,</span>conclusion<span class="op">,</span>createdAt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-4-delete-old-workflow-runs" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-delete-old-workflow-runs">Step 4: Delete Old Workflow Runs</h3>
+<p>Sometimes workflow runs themselves consume storage even after artifacts are deleted:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete all completed workflow runs (this can free up storage)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>gh api repos<span class="op">/</span>darioairoldi<span class="op">/</span>Learn<span class="op">/</span>actions<span class="op">/</span>runs <span class="op">--</span>paginate <span class="op">--</span>jq <span class="st">'.workflow_runs[].id'</span> <span class="op">|</span> <span class="fu">ForEach-Object</span> <span class="op">{</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Host</span> <span class="st">"Deleting run: </span><span class="va">$_</span><span class="st">"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    gh api repos<span class="op">/</span>darioairoldi<span class="op">/</span>Learn<span class="op">/</span>actions<span class="op">/</span>runs<span class="op">/</span><span class="va">$_</span> <span class="op">-</span>X DELETE</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-5-contact-github-support" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-contact-github-support">Step 5: Contact GitHub Support</h3>
+<p>If none of the above works, this is likely a GitHub platform issue:</p>
+<ol type="1">
+<li><strong>Open a support ticket</strong>: https://support.github.com/</li>
+<li><strong>Check GitHub Status</strong>: https://www.githubstatus.com/</li>
+<li><strong>Community Forum</strong>: https://github.community/</li>
+</ol>
 <hr>
-<p><strong>Status</strong>: Solution Ready ✅<br>
-<strong>Action Required</strong>: Run cleanup script and commit changes<br>
-<strong>Expected Outcome</strong>: No more artifact storage quota issues!</p>
+</section>
+</section>
+<section id="resolution-timeline" class="level2">
+<h2 class="anchored" data-anchor-id="resolution-timeline">📝 Resolution Timeline</h2>
+<section id="actions-taken" class="level3">
+<h3 class="anchored" data-anchor-id="actions-taken">Actions Taken</h3>
+<ul>
+<li>✅ <strong>Analyzed the issue</strong> - Identified artifact storage quota problem</li>
+<li>✅ <strong>Fixed the workflow</strong> - Eliminated unnecessary intermediate artifacts</li>
+<li>✅ <strong>Created cleanup script</strong> - Automated cleanup of existing artifacts and workflow runs</li>
+<li>🔄 <strong>Pending</strong>: Run cleanup script and test new workflow</li>
+</ul>
+</section>
+<section id="what-changed" class="level3">
+<h3 class="anchored" data-anchor-id="what-changed">What Changed</h3>
+<ol type="1">
+<li><strong>Workflow file updated</strong> - Combined build/deploy jobs, removed artifact step</li>
+<li><strong>Cleanup script created</strong> - <code>cleanup-artifacts.ps1</code> for removing old data</li>
+<li><strong>Documentation updated</strong> - This README now contains the complete solution</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="key-learnings" class="level2">
+<h2 class="anchored" data-anchor-id="key-learnings">🎓 Key Learnings</h2>
+<p><strong>Problem</strong>: Using <code>actions/upload-artifact@v4</code> for GitHub Pages deployment creates unnecessary artifacts that consume storage quota.</p>
+<p><strong>Solution</strong>: Use <code>actions/upload-pages-artifact@v3</code> directly, which:</p>
+<ul>
+<li>Has separate storage quota for GitHub Pages</li>
+<li>Is designed specifically for Pages deployment</li>
+<li>Automatically manages artifact lifecycle</li>
+<li>Simplifies workflow structure</li>
+</ul>
+<p><strong>Best Practice</strong>: For GitHub Pages deployments, always use the dedicated Pages actions instead of generic artifact actions.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">� References</h2>
+<ul>
+<li><a href="https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts">GitHub Actions Artifacts Documentation</a></li>
+<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub Pages Deployment Documentation</a></li>
+<li><a href="https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions">GitHub Actions Billing</a></li>
+<li><a href="https://quarto.org/docs/publishing/github-pages.html">Quarto Publishing to GitHub Pages</a></li>
+</ul>
 
 
 </section>
@@ -7653,4 +7716,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251018 ISSUE Github action fails with Artifact storage quota has been hit/SOLUTION_SUMMARY.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
