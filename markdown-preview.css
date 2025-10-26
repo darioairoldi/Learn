@@ -1,0 +1,13 @@
+/* Custom styles for VS Code Markdown Preview */
+
+mark {
+    background-color: #fff7d1 !important;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #333;
+}
+
+/* Override any default mark styling */
+.vscode-body mark {
+    background-color: #fff7d1 !important;
+}

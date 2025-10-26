@@ -1,3 +1,6 @@
 {
-    "azureAutomation.directory.basePath": "c:\\Program Files\\Microsoft VS Code"
+    "azureAutomation.directory.basePath": "c:\\Program Files\\Microsoft VS Code",
+    "markdown.styles": [
+        "markdown-preview.css"
+    ]
 }
