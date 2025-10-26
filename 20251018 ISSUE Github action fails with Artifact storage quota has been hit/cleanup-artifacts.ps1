@@ -9,7 +9,7 @@ Write-Host "      so they auto-delete after 24 hours. This script helps" -Foregr
 Write-Host "      clean up older artifacts from previous workflow versions." -ForegroundColor Yellow
 Write-Host ""
 
-$repo = "darioairoldi/Learn"
+$repo = "diginsight/tools"
 
 # Check if gh CLI is installed and authenticated
 try {
