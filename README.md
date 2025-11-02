@@ -15,22 +15,22 @@ This repository documents my journey through modern development technologies, fe
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-6}
 ### 🎯 **Conference Coverage**
-30+ sessions from **Build 2025** covering AI, .NET, Azure, and modern development practices
+40+ sessions from **Build 2025** covering AI, .NET, Azure, and modern development practices
 :::
 
 ::: {.g-col-12 .g-col-md-6}
 ### ☁️ **Azure Development**
-Best practices, database patterns, and service deep-dives for Azure development
+Comprehensive guides for Azure services including Apps, Functions, Key Vault, Storage, Containers, and Security
 :::
 
 ::: {.g-col-12 .g-col-md-6}
 ### 🛠️ **Development Tools**
-Git, HTTP testing, Quarto docs, YAML processing, and networking tools
+Git workflows, API testing, documentation with Quarto, YAML processing, and networking tools
 :::
 
 ::: {.g-col-12 .g-col-md-6}
 ### 🐛 **Real-World Solutions**
-Troubleshooting guides for GitHub Actions, CI/CD, and development environments
+Troubleshooting guides for GitHub Actions, CI/CD, authentication, and development environments
 :::
 :::
 
@@ -38,65 +38,252 @@ Troubleshooting guides for GitHub Actions, CI/CD, and development environments
 
 ## 🌟 Featured Articles
 
-### Most Popular by Subject
+### Conference Sessions (Build 2025)
 
-#### 🤖 AI & Modern Development
+#### 🤖 AI & Intelligent Development
 
-- **[.NET Aspire: AI, Cloud, and Beyond](202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐️ *(Build 2025)*  
+- **[.NET Aspire: AI, Cloud, and Beyond](202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐️  
   *Comprehensive guide to .NET Aspire's evolution from local development tool to full-stack platform*
-- **[Local AI Development with Foundry](202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)** *(Build 2025)*  
+- **[Local AI Development with Foundry](202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)**  
   *Hands-on demonstration of running AI models locally with .NET integration*
-- **[Building AI Apps with Microsoft Graph](202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)** *(Build 2025)*  
+- **[Building AI Apps with Microsoft Graph](202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)**  
   *Creating intelligent applications using Microsoft Graph data*
-- **[Azure AI Foundry Overview](202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/README.Sonnet4.md)** *(Build 2025)*  
+- **[Azure AI Foundry Overview](202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/SUMMARY.md)**  
   *Microsoft's comprehensive AI development platform*
+- **[RAG for Enterprise Agents](202506%20Build%202025/BRK141%20RAG%20for%20enterprise%20agents%20with%20Azure%20AI%20Search/SUMMARY.md)**  
+  *Retrieval-Augmented Generation with Azure AI Search*
 
-#### 🌐 Web Development & Architecture
+#### 🌐 Developer Tools & Productivity
 
-- **[Git Workflow with VS Code](202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/README.Sonnet4.md)** ⭐️ *(Build 2025)*  
+- **[Git Workflow with VS Code](202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/README.Sonnet4.md)** ⭐️  
   *Advanced Git workflows and VS Code integration techniques*
-- **[Model Context Protocol (MCP) Servers](202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/README.Sonnet4.md)** *(Build 2025)*  
+- **[Debug Like a Pro](202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/README.Sonnet4.md)**  
+  *Visual Studio debugging with AI-powered Copilot assistance*
+- **[Model Context Protocol (MCP) Servers](202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/README.Sonnet4.md)**  
   *Building and deploying your first MCP server for AI integration*
-- **[C# 14 Language Features](202506%20Build%202025/BRK114%20CS%2014%20Language%20Features%20and%20Beyond/README.Sonnet4.md)** *(Build 2025)*  
-  *Latest C# language enhancements and best practices*
+- **[Agent Mode for Serious Developers](202506%20Build%202025/DEM519%20Agent%20mode%20for%20serious%20developers/README.Sonnet4.md)**  
+  *Next-generation development with AI agents*
 
-#### ☁️ Azure Development
+#### 💻 .NET & C# Development
+
+- **[C# 14 Language Features](202506%20Build%202025/BRK114%20CS%2014%20Language%20Features%20and%20Beyond/README.Sonnet4.md)** ⭐️  
+  *Latest C# language enhancements and best practices*
+- **[.NET App Modernization](202506%20Build%202025/BRK101%20Dotnet%20app%20modernization/README.Sonnet4.md)**  
+  *AI-powered strategies for modernizing .NET applications*
+- **[Write Better C# Code](202506%20Build%202025/DEM515%20Write%20better%20C%23%20code/README.GPT5.md)**  
+  *Code quality, patterns, and best practices*
+
+---
+
+### Azure Development
+
+#### ☁️ Azure Best Practices
 
 - **[Azure Naming Conventions Guide](20250702%20Azure%20Naming%20conventions/README.md)** ⭐️  
   *Comprehensive naming standards for Azure resources across environments*
 
-**Azure Developer Learning Path** *(October 2025)*
+#### 🔐 Security & Identity
 
+- **[Azure AD External Users Authentication](20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/01.%20External%20Users%20Authentication%20in%20Azure%20AD%20Explained.md)** 🆕  
+  *Understanding external user authentication in Azure AD*
+- **[External Users Types & Invitation Process](20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/02.%20External%20Users%20types%20and%20invitation%20process.md)** 🆕  
+  *B2B collaboration and guest access management*
+
+#### 💾 Data & Storage Services
+
+- **[Table Storage Access Patterns](202510%20Developer%20Update/20250704%20TableStorageAccess%20options/README.md)**  
+  *Best practices for Azure Table Storage implementation*
+- **[Blob Storage Access Options](202510%20Developer%20Update/20251021%20BlobStorage%20Access%20options/01.%20Blob%20Storage%20Access%20options.md)** 🆕  
+  *Accessing and managing Azure Blob Storage*
+- **[Blob Storage Limitations](202510%20Developer%20Update/20251021%20BlobStorage%20Access%20options/02.%20Blob%20Storage%20Limitations.md)** 🆕  
+  *Understanding service limits and constraints*
+- **[CosmosDB Access Strategies](202510%20Developer%20Update/20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)**  
+  *Optimizing CosmosDB access patterns and performance*
+- **[CosmosDB Partitioning](202510%20Developer%20Update/20250706%20CosmosDB%20Access%20options/02.%20CosmosDB%20Partitioning%20Strategies.md)**  
+  *Effective partitioning strategies for scale*
+
+#### 📨 Messaging & Events
+
+- **[EventHub Integration Patterns](20250723%20EventHub%20Access%20options/README.md)**  
+  *Event streaming and real-time data processing with Azure Event Hub*
+
+#### 🚀 Azure Apps & Functions
+
+**Azure Web Apps** 🆕
+- **[Azure Apps Q&A](202510%20Developer%20Update/01.%20Azure%20Apps/01.%20Azure%20Apps%20QA.md)**  
+  *Common questions and answers about Azure Web Apps*
+- **[Azure Web App Limitations](202510%20Developer%20Update/01.%20Azure%20Apps/02.%20Azure%20WebApp%20Limitations.md)**  
+  *Service constraints and workarounds*
+- **[Azure Web App CLI Guide](202510%20Developer%20Update/01.%20Azure%20Apps/04.%20Azure%20Web%20App%20CLI%20Commands%20Guide.md)**  
+  *Comprehensive CLI commands reference*
+
+**Azure Functions**
 - **[Azure Functions Q&A](202510%20Developer%20Update/01.%20Azure%20Functions/01.%20Azure%20Functions%20QA.md)**  
   *Essential questions and answers for Azure Functions development*
 - **[Azure Functions Limitations](202510%20Developer%20Update/01.%20Azure%20Functions/02.%20Azure%20Functions%20Limitations.md)**  
   *Understanding service constraints and workarounds*
+
+#### 🔑 Security Services
+
 - **[Azure Key Vault Q&A](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/01.%20Azure%20KeyVault%20QA.md)**  
   *Key management and secrets best practices*
 - **[Azure Key Vault Limitations](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/02.%20Azure%20Key%20Vault%20Limitations.md)**  
   *Service limits and architectural considerations*
+- **[HowTo: Create and Retrieve Secrets](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/03.%20HowTo.Create%20and%20retrieve%20secrets%20from%20Azure%20Key%20Vault.md)**  
+  *Step-by-step guide for Key Vault operations*
+
+#### ⚙️ Configuration & Monitoring
+
 - **[Azure App Configuration Q&A](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/01.%20Azure%20App%20Configuration%20QA.md)**  
   *Configuration management patterns and best practices*
 - **[Azure App Configuration Exercise](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/03.%20Azure%20App%20Configuration%20Exercise.md)**  
   *Hands-on tutorial with Key Vault integration*
+- **[Azure Monitor Q&A](202510%20Developer%20Update/04.%20Monitor%20App%20Performance/01.%20Azure%20Monitor%20QA.md)**  
+  *Application performance monitoring essentials*
 
-**Azure Data & Storage**
+#### 📦 Container Services
 
-- **[Table Storage Access Patterns](20250704%20TableStorageAccess%20options/README.md)**  
-  *Best practices for Azure Table Storage implementation*
-- **[CosmosDB Access Strategies](20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)**  
-  *Optimizing CosmosDB access patterns and performance*
-- **[EventHub Integration Patterns](20250723%20EventHub%20Access%20options/README.md)**  
-  *Event streaming and real-time data processing with Azure Event Hub*
+- **[Azure Container App](202510%20Developer%20Update/05.%20Azure%20Containers/01.%20Azure%20Container%20App.md)**  
+  *Introduction to Azure Container Apps*
+- **[Container App Environments](202510%20Developer%20Update/05.%20Azure%20Containers/02.%20Azure%20Container%20App%20Environments%20Overview.md)**  
+  *Understanding container app environments*
+- **[Azure Containers Q&A](202510%20Developer%20Update/05.%20Azure%20Containers/99.%20Azure%20Containers%20QA.md)**  
+  *Common questions about Azure container services*
 
-#### 📚 Learning & Methodology
+---
+
+### Development Tools & Practices
+
+#### 📡 Feed Architectures
+
+- **[Podcast and RSS Feed Analysis](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)** ⭐️  
+  *Comprehensive analysis of RSS and Atom feed architectures*
+- **[Analyzing Feed Specifications](20251005%20Feeds%20architectures%20and%20protocols/02.%20Analyzing%20Atom%20and%20RSS%20specifications.md)**  
+  *Deep dive into RSS and Atom standards*
+- **[C# Feed Classes](20251005%20Feeds%20architectures%20and%20protocols/04.%20C%23%20Reference%20Classes%20for%20Reading%20Feeds.md)**  
+  *Reference implementation for feed parsing*
+
+#### 🧪 API Testing
+
+- **[HTTP/REST API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md)** 🆕 ⭐️  
+  *Comprehensive comparison of API testing tools and approaches*
+- **[VS Code REST Client Guide](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/01.%20Using%20HTTP%20Files%20for%20API%20Testing%20(VSCode%20Rest%20Client).md)** 🆕  
+  *Using .http files in VS Code for API testing*
+- **[Visual Studio HTTP Files Guide](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/02.%20Using%20HTTP%20Files%20for%20API%20Testing%20(Visual%20Studio).md)** 🆕  
+  *HTTP file testing in Visual Studio*
+
+#### 📝 Documentation & Tools
+
+- **[Using Quarto for Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)** ⭐️  
+  *Creating beautiful documentation with Quarto*
+- **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)**  
+  *Processing YAML files with yq command-line tool*
+- **[Git Command Line](20250709%20Manage%20GitRepo%20from%20commandline/README.md)**  
+  *Essential Git commands for repository management*
+- **[GitHub CLI Commands](202510%20Developer%20Update/Cli/Cli%20commands%20for%20Github.md)**  
+  *GitHub CLI reference guide*
+
+#### 💻 Programming Languages
+
+- **[C# DateTime Format Strings](202510%20Developer%20Update/Lang01%20CSharp/01.%20Format%20strings%20-%20DateTime,%20DateTimeOffset%20and%20TimeSpan.md)**  
+  *Complete guide to formatting dates and times in C#*
+
+#### 🌐 Networking
+
+- **[No-IP DDNS Setup](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/HowTo.Expose%20My%20Computer%20with%20No-IP%20DDNS.md)**  
+  *Expose your computer to the internet using No-IP dynamic DNS*
+
+---
+
+### Issues & Solutions
+
+#### 🔧 Development Issues
+
+- **[VS Clone Error Fix](\_ISSUES/20250709%20fatal%20error%20cloning%20a%20repo%20with%20Visual%20Studio/README.md)** ✅  
+  *Solved: Fatal error when cloning repositories in Visual Studio*
+
+#### 🚀 GitHub & CI/CD
+
+- **[GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/README.md)**  
+  *Understanding GitHub's service limits and constraints*
+
+**GitHub Actions: Artifact Storage Quota Fix** ✅
+- **[Overview](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)**  
+  *Understanding the artifact storage quota issue*
+- **[Quick Start](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/02.%20QUICKSTART.md)**  
+  *Fast track to solving the problem*
+- **[Solution Summary](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/03.%20SOLUTION_SUMMARY.md)**  
+  *Comprehensive solution overview*
+- **[Final Solution](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/05.%20FINAL_SOLUTION_NO_ARTIFACTS.md)**  
+  *Deploy without using artifacts*
+
+---
+
+### Learning Methodology
 
 - **[Learning Hub Introduction](20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** ⭐️  
   *New conceptual framework for effective learning*
 - **[Using Learning Hub for Technologies](20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)**  
   *Practical approaches to learning new technologies*
 
-#### 🧪 Testing & Development Tools
+---
+
+## 🎯 Quick Navigation
+
+### By Technology
+- **AI & Machine Learning**: Build 2025 AI sessions, Azure AI Foundry, Local AI Development
+- **Azure Cloud**: Apps, Functions, Storage, Containers, Key Vault, Security
+- **Development Tools**: Git, VS Code, API Testing, Quarto, YAML
+- **.NET & C#**: C# 14, .NET Aspire, DateTime formatting
+- **Architecture**: Feed protocols, RSS/Atom, MCP servers
+
+### By Topic
+- **🎓 Learning**: Conference notes, Learning methodology
+- **☁️ Cloud**: Azure services and patterns
+- **🛠️ Tools**: Development and productivity tools
+- **🐛 Troubleshooting**: Real-world solutions and fixes
+- **🔐 Security**: Authentication, authorization, secrets management
+
+---
+
+## 📖 How to Use This Hub
+
+1. **Browse by Category**: Use the navigation menus to explore specific technology areas
+2. **Search**: Use the built-in search to find specific topics
+3. **Follow Learning Paths**: Start with the Learning Hub methodology, then dive into specific technologies
+4. **Reference Materials**: Keep bookmarks to frequently used guides and cheat sheets
+
+---
+
+## 🚀 Recent Additions
+
+🆕 **Azure AD External Users** - Authentication and B2B collaboration  
+🆕 **Azure Web Apps** - Complete Q&A and CLI guides  
+🆕 **Blob Storage** - Access options and limitations  
+🆕 **API Testing** - Comprehensive HTTP testing tools comparison  
+🆕 **Build 2025** - 40+ session notes from Microsoft Build
+
+---
+
+## 📝 Contributing
+
+This is a personal learning repository, but feel free to:
+- Open issues for corrections or suggestions
+- Share your own learning notes
+- Suggest additional topics to cover
+
+---
+
+## 📄 License
+
+See [LICENSE](LICENSE) file for details.
+
+---
+
+**Last Updated**: November 2025  
+**Total Articles**: 100+  
+**Conference Sessions**: 40+  
+**Azure Services Covered**: 15+
 
 - **[Testing with .NET Aspire and Playwright](202506%20Build%202025/DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/README.Sonnet4.md)** *(Build 2025)*  
   *Modern testing approaches for cloud-native applications*

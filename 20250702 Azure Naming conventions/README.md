@@ -29,7 +29,7 @@ format:
 
 ## Overview
 
-This document establishes a standardized naming convention for Azure resources based on the **Microsoft Cloud Adoption Framework (CAF)** best practices. The naming pattern provides consistency across Azure subscriptions, environments, and regions while maintaining compliance with Azure-specific naming restrictions.
+This document establishes a standardized naming convention for Azure resources based on the **<mark>Microsoft Cloud Adoption Framework (CAF)** best practices. The naming pattern provides consistency across Azure subscriptions, environments, and regions while maintaining compliance with Azure-specific naming restrictions.
 
 **Purpose:**
 - Ensure consistent resource naming across all Azure deployments
