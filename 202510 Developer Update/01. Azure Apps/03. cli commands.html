@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>cli_github_commands – Dario's Learning Journey</title>
+<title>cli-commands – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,6 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.html" rel="next">
+<link href="../../202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -312,13 +280,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Azure Best Practices</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Security &amp; Identity</li>
+        <li>
+    <a class="dropdown-item" href="../../20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.html">
+ <span class="dropdown-text">Azure AD External Users Explained</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.html">
+ <span class="dropdown-text">External Users Types &amp; Invitation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Data Services</li>
         <li>
-    <a class="dropdown-item" href="../../20250704 TableStorageAccess options/README.md">
+    <a class="dropdown-item" href="../../202510 Developer Update/20250704 TableStorageAccess options/README.html">
  <span class="dropdown-text">Table Storage Access</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../20250706 CosmosDB Access options/README.md">
+    <a class="dropdown-item" href="../../202510 Developer Update/20251021 BlobStorage Access options/01. Blob Storage Access options.html">
+ <span class="dropdown-text">Blob Storage Access Options</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/20251021 BlobStorage Access options/02. Blob Storage Limitations.html">
+ <span class="dropdown-text">Blob Storage Limitations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.html">
  <span class="dropdown-text">CosmosDB Access</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
@@ -329,6 +315,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Developer Learning Path</li>
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html">
+ <span class="dropdown-text">Azure Apps Q&amp;A</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html">
+ <span class="dropdown-text">Azure Web App Limitations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Apps/03. cli commands.html">
+ <span class="dropdown-text">Azure Apps CLI Commands</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.html">
+ <span class="dropdown-text">Azure Web App CLI Guide</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">
  <span class="dropdown-text">Azure Functions Q&amp;A</span></a>
@@ -346,12 +348,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Azure Key Vault Limitations</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/02. Azure Key Vault/03. HowTo.Create and retrieve secrets from Azure Key Vault.html">
+ <span class="dropdown-text">Azure Key Vault HowTo</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html">
  <span class="dropdown-text">Azure App Configuration Q&amp;A</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html">
  <span class="dropdown-text">Azure App Configuration Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/04. Monitor App Performance/01. Azure Monitor QA.html">
+ <span class="dropdown-text">Azure Monitor Q&amp;A</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/05. Azure Containers/01. Azure Container App.html">
+ <span class="dropdown-text">Azure Container App</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/05. Azure Containers/02. Azure Container App Environments Overview.html">
+ <span class="dropdown-text">Azure Container App Environments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create azure container app.md.html">
+ <span class="dropdown-text">Azure Container App CLI HowTo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/05. Azure Containers/99. Azure Containers QA.html">
+ <span class="dropdown-text">Azure Containers Q&amp;A</span></a>
   </li>  
     </ul>
   </li>
@@ -364,6 +390,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../20250709 Manage GitRepo from commandline/README.html">
  <span class="dropdown-text">Git Command Line</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/Cli/Cli commands for Github.html">
+ <span class="dropdown-text">GitHub CLI Commands</span></a>
+  </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">API Testing</li>
         <li>
@@ -371,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">HTTP/REST API Testing Tools Comparison</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client)">
+    <a class="dropdown-item" href="../../20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client).md">
  <span class="dropdown-text">VS Code REST Client Guide</span></a>
   </li>  
         <li>
@@ -389,9 +419,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">yq YAML Processor</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Programming Languages</li>
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.html">
+ <span class="dropdown-text">C# DateTime Format Strings</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Networking</li>
         <li>
-    <a class="dropdown-item" href="../../20251013 HowTo Expose My Computer with No-IP DDNS/README.html">
+    <a class="dropdown-item" href="../../20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html">
  <span class="dropdown-text">No-IP DDNS Setup</span></a>
   </li>  
     </ul>
@@ -445,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Azure Topics</li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html">Azure Developer Learning Path</a></li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Apps/03. cli commands.html">Azure Apps CLI Commands</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1287,7 +1323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" role="navigation" aria-expanded="true">
- <span class="menu-text">Azure Data Services</span></a>
+ <span class="menu-text">Security &amp; Identity</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1295,14 +1331,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-40" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../20250704 TableStorageAccess options/README.md" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Table Storage Access Options</span></a>
+  <a href="../../20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure AD External Users Explained</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../20250706 CosmosDB Access options/README.md" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CosmosDB Access Options</span></a>
+  <a href="../../20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">External Users Types &amp; Invitation</span></a>
   </div>
 </li>
       </ul>
@@ -1310,12 +1346,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" role="navigation" aria-expanded="true">
- <span class="menu-text">Azure Messaging &amp; Events</span></a>
+ <span class="menu-text">Azure Data Services</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-41" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20250704 TableStorageAccess options/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Table Storage Access Options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20251021 BlobStorage Access options/01. Blob Storage Access options.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Blob Storage Access Options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20251021 BlobStorage Access options/02. Blob Storage Limitations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Blob Storage Limitations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CosmosDB Access Options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20250706 CosmosDB Access options/02. CosmosDB Partitioning Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CosmosDB Partitioning Strategies</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="true">
+ <span class="menu-text">Azure Messaging &amp; Events</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-42" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250723 EventHub Access options/README.html" class="sidebar-item-text sidebar-link">
@@ -1326,13 +1403,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true">
  <span class="menu-text">Azure Developer Learning Path</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-42" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-43" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Apps Q&amp;A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Web App Limitations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Apps/03. cli commands.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Azure Apps CLI Commands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Web App CLI Guide</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html" class="sidebar-item-text sidebar-link">
@@ -1359,6 +1460,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/02. Azure Key Vault/03. HowTo.Create and retrieve secrets from Azure Key Vault.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Key Vault HowTo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure App Configuration Q&amp;A</span></a>
   </div>
@@ -1369,29 +1476,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Azure App Configuration Exercise</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/04. Monitor App Performance/01. Azure Monitor QA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Monitor Q&amp;A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/05. Azure Containers/01. Azure Container App.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Container App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/05. Azure Containers/02. Azure Container App Environments Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Container App Environments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create azure container app.md.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Container App CLI HowTo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/05. Azure Containers/99. Azure Containers QA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Containers Q&amp;A</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
 </i> 
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-43" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true">
- <span class="menu-text">Feed Architectures &amp; Protocols</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-44" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-44" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-45" role="navigation" aria-expanded="true">
+ <span class="menu-text">Feed Architectures &amp; Protocols</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-45" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-45" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="sidebar-item-text sidebar-link">
@@ -1422,15 +1559,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Development Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-45" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-46" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-45" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-46" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git Command Line</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/Cli/Cli commands for Github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub CLI Commands</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1443,11 +1586,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../20250712 Use QUARTO doc for Github repos doc/000.000 README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Documentation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-46" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-46" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-47" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250712 Use QUARTO doc for Github repos doc/000.000 README.html" class="sidebar-item-text sidebar-link">
@@ -1538,11 +1681,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Diginsight</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-47" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-48" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
@@ -1555,13 +1698,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true">
  <span class="menu-text">Data Processing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-48" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-49" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250827 what is yq overview/README.html" class="sidebar-item-text sidebar-link">
@@ -1578,16 +1721,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true">
- <span class="menu-text">Networking &amp; Infrastructure</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true">
+ <span class="menu-text">Programming Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-49" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-50" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../20251013 HowTo Expose My Computer with No-IP DDNS/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C# DateTime Format Strings</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true">
+ <span class="menu-text">Networking &amp; Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-51" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expose Computer with No-IP DDNS</span></a>
   </div>
 </li>
@@ -1597,23 +1757,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
 </i> 
  <span class="menu-text">Issues &amp; Solutions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-50" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-52" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Development Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-53" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-51" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-53" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
@@ -1630,25 +1790,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true">
  <span class="menu-text">GitHub &amp; CI/CD Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-52" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-54" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250825 Github repositories limitations/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Repository Limitations</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-55" role="navigation" aria-expanded="false">
+ <span class="menu-text">GitHub Actions: Artifact Storage Quota Fix</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-55" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-55" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.md" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitHub Actions Artifact Storage Quota Fix</span></a>
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quick Start</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solution Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Solution (No Artifacts)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">WSL Error Fix</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
       </ul>
@@ -1656,14 +1851,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-53" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-56" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
 </i> 
  <span class="menu-text">Other Technologies</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-53" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-56" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-53" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-56" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../20250815 DIY Battery Pack/README.html" class="sidebar-item-text sidebar-link">
@@ -1681,14 +1876,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-57" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
 </i> 
  <span class="menu-text">Culture &amp; Travel</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-57" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-54" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-57" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
@@ -1703,766 +1898,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#cli-commands-to-interact-with-github-repositories" id="toc-cli-commands-to-interact-with-github-repositories" class="nav-link active" data-scroll-target="#cli-commands-to-interact-with-github-repositories">?? CLI Commands to Interact with GitHub Repositories</a>
-  <ul class="collapse">
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">?? Table of Contents</a></li>
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">?? Overview</a>
-  <ul class="collapse">
-  <li><a href="#available-cli-tools" id="toc-available-cli-tools" class="nav-link" data-scroll-target="#available-cli-tools">Available CLI Tools</a></li>
-  <li><a href="#command-categories" id="toc-command-categories" class="nav-link" data-scroll-target="#command-categories">Command Categories</a></li>
-  </ul></li>
-  <li><a href="#github-cli-gh-commands" id="toc-github-cli-gh-commands" class="nav-link" data-scroll-target="#github-cli-gh-commands">?? GitHub CLI (gh) Commands</a>
-  <ul class="collapse">
-  <li><a href="#authentication" id="toc-authentication" class="nav-link" data-scroll-target="#authentication">Authentication</a></li>
-  <li><a href="#repository-management" id="toc-repository-management" class="nav-link" data-scroll-target="#repository-management">Repository Management</a></li>
-  <li><a href="#issues-and-pull-requests" id="toc-issues-and-pull-requests" class="nav-link" data-scroll-target="#issues-and-pull-requests">Issues and Pull Requests</a></li>
-  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions">GitHub Actions</a></li>
-  <li><a href="#releases" id="toc-releases" class="nav-link" data-scroll-target="#releases">Releases</a></li>
-  <li><a href="#gists" id="toc-gists" class="nav-link" data-scroll-target="#gists">Gists</a></li>
-  </ul></li>
-  <li><a href="#git-commands" id="toc-git-commands" class="nav-link" data-scroll-target="#git-commands">?? Git Commands</a>
-  <ul class="collapse">
-  <li><a href="#repository-operations" id="toc-repository-operations" class="nav-link" data-scroll-target="#repository-operations">Repository Operations</a></li>
-  <li><a href="#branch-management" id="toc-branch-management" class="nav-link" data-scroll-target="#branch-management">Branch Management</a></li>
-  <li><a href="#commit-operations" id="toc-commit-operations" class="nav-link" data-scroll-target="#commit-operations">Commit Operations</a></li>
-  <li><a href="#remote-operations" id="toc-remote-operations" class="nav-link" data-scroll-target="#remote-operations">Remote Operations</a></li>
-  </ul></li>
-  <li><a href="#github-rest-api-via-cli" id="toc-github-rest-api-via-cli" class="nav-link" data-scroll-target="#github-rest-api-via-cli">?? GitHub REST API via CLI</a>
-  <ul class="collapse">
-  <li><a href="#basic-api-calls" id="toc-basic-api-calls" class="nav-link" data-scroll-target="#basic-api-calls">Basic API Calls</a></li>
-  <li><a href="#artifacts-management" id="toc-artifacts-management" class="nav-link" data-scroll-target="#artifacts-management">Artifacts Management</a></li>
-  <li><a href="#workflow-runs" id="toc-workflow-runs" class="nav-link" data-scroll-target="#workflow-runs">Workflow Runs</a></li>
-  <li><a href="#repository-information" id="toc-repository-information" class="nav-link" data-scroll-target="#repository-information">Repository Information</a></li>
-  </ul></li>
-  <li><a href="#additional-details" id="toc-additional-details" class="nav-link" data-scroll-target="#additional-details">?? Additional Details</a>
-  <ul class="collapse">
-  <li><a href="#gh-auth---authentication-management" id="toc-gh-auth---authentication-management" class="nav-link" data-scroll-target="#gh-auth---authentication-management">gh auth - Authentication Management</a></li>
-  <li><a href="#gh-repo---repository-operations" id="toc-gh-repo---repository-operations" class="nav-link" data-scroll-target="#gh-repo---repository-operations">gh repo - Repository Operations</a></li>
-  <li><a href="#gh-pr---pull-request-management" id="toc-gh-pr---pull-request-management" class="nav-link" data-scroll-target="#gh-pr---pull-request-management">gh pr - Pull Request Management</a></li>
-  <li><a href="#gh-run---github-actions-workflow-management" id="toc-gh-run---github-actions-workflow-management" class="nav-link" data-scroll-target="#gh-run---github-actions-workflow-management">gh run - GitHub Actions Workflow Management</a></li>
-  <li><a href="#gh-api---direct-api-access" id="toc-gh-api---direct-api-access" class="nav-link" data-scroll-target="#gh-api---direct-api-access">gh api - Direct API Access</a></li>
-  <li><a href="#gh-release---release-management" id="toc-gh-release---release-management" class="nav-link" data-scroll-target="#gh-release---release-management">gh release - Release Management</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">?? References</a>
-  <ul class="collapse">
-  <li><a href="#official-documentation" id="toc-official-documentation" class="nav-link" data-scroll-target="#official-documentation">Official Documentation</a></li>
-  <li><a href="#github-cli-resources" id="toc-github-cli-resources" class="nav-link" data-scroll-target="#github-cli-resources">GitHub CLI Resources</a></li>
-  <li><a href="#api-documentation" id="toc-api-documentation" class="nav-link" data-scroll-target="#api-documentation">API Documentation</a></li>
-  <li><a href="#community-resources" id="toc-community-resources" class="nav-link" data-scroll-target="#community-resources">Community Resources</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/Cli/CLI_GITHUB_COMMANDS.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
-
-
-
-
-<section id="cli-commands-to-interact-with-github-repositories" class="level1">
-<h1>?? CLI Commands to Interact with GitHub Repositories</h1>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">?? Table of Contents</h2>
-<ul>
-<li><a href="#-cli-commands-to-interact-with-github-repositories">?? CLI Commands to Interact with GitHub Repositories</a>
-<ul>
-<li><a href="#-table-of-contents">?? Table of Contents</a></li>
-<li><a href="#-overview">?? Overview</a>
-<ul>
-<li><a href="#available-cli-tools">Available CLI Tools</a></li>
-<li><a href="#command-categories">Command Categories</a></li>
-</ul></li>
-<li><a href="#-github-cli-gh-commands">?? GitHub CLI (gh) Commands</a>
-<ul>
-<li><a href="#authentication">Authentication</a></li>
-<li><a href="#repository-management">Repository Management</a></li>
-<li><a href="#issues-and-pull-requests">Issues and Pull Requests</a></li>
-<li><a href="#github-actions">GitHub Actions</a></li>
-<li><a href="#releases">Releases</a></li>
-<li><a href="#gists">Gists</a></li>
-</ul></li>
-<li><a href="#-git-commands">?? Git Commands</a>
-<ul>
-<li><a href="#repository-operations">Repository Operations</a></li>
-<li><a href="#branch-management">Branch Management</a></li>
-<li><a href="#commit-operations">Commit Operations</a></li>
-<li><a href="#remote-operations">Remote Operations</a></li>
-</ul></li>
-<li><a href="#-github-rest-api-via-cli">?? GitHub REST API via CLI</a>
-<ul>
-<li><a href="#basic-api-calls">Basic API Calls</a></li>
-<li><a href="#artifacts-management">Artifacts Management</a></li>
-<li><a href="#workflow-runs">Workflow Runs</a></li>
-<li><a href="#repository-information">Repository Information</a></li>
-</ul></li>
-<li><a href="#-additional-details">?? Additional Details</a>
-<ul>
-<li><a href="#gh-auth---authentication-management">gh auth - Authentication Management</a></li>
-<li><a href="#gh-repo---repository-operations">gh repo - Repository Operations</a></li>
-<li><a href="#gh-pr---pull-request-management">gh pr - Pull Request Management</a></li>
-<li><a href="#gh-run---github-actions-workflow-management">gh run - GitHub Actions Workflow Management</a></li>
-<li><a href="#gh-api---direct-api-access">gh api - Direct API Access</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#gh-release---release-management">gh release - Release Management</a></li>
-<li><a href="#-references">?? References</a></li>
-<li><a href="#official-documentation">Official Documentation</a>
-<ul>
-<li><a href="#github-cli-resources">GitHub CLI Resources</a></li>
-<li><a href="#api-documentation">API Documentation</a></li>
-<li><a href="#community-resources">Community Resources</a></li>
-</ul></li>
-</ul>
-<hr>
-</section>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">?? Overview</h2>
-<section id="available-cli-tools" class="level3">
-<h3 class="anchored" data-anchor-id="available-cli-tools">Available CLI Tools</h3>
-<p>GitHub provides several command-line tools for interacting with repositories:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 39%">
-<col style="width: 42%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tool</th>
-<th>Description</th>
-<th>Installation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>GitHub CLI (<code>gh</code>)</strong></td>
-<td>Official GitHub command-line tool</td>
-<td><code>winget install GitHub.cli</code></td>
-</tr>
-<tr class="even">
-<td><strong>Git</strong></td>
-<td>Version control system</td>
-<td><code>winget install Git.Git</code></td>
-</tr>
-<tr class="odd">
-<td><strong>GitHub REST API</strong></td>
-<td>Direct API access via <code>gh api</code></td>
-<td>Included with GitHub CLI</td>
-</tr>
-<tr class="even">
-<td><strong>PowerShell/Bash</strong></td>
-<td>Scripting environments</td>
-<td>Built-in on Windows/Linux</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="command-categories" class="level3">
-<h3 class="anchored" data-anchor-id="command-categories">Command Categories</h3>
-<p>GitHub CLI commands are organized into these main categories:</p>
-<ul>
-<li>?? <strong>Authentication</strong> - Login, token management</li>
-<li>?? <strong>Repository</strong> - Create, clone, view, fork</li>
-<li>?? <strong>Issues</strong> - Create, list, view, close</li>
-<li>?? <strong>Pull Requests</strong> - Create, review, merge</li>
-<li>?? <strong>Actions</strong> - Workflows, runs, artifacts</li>
-<li>??? <strong>Releases</strong> - Create, list, download</li>
-<li>?? <strong>Gists</strong> - Create, list, view</li>
-<li>?? <strong>API</strong> - Direct REST API access</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="github-cli-gh-commands" class="level2">
-<h2 class="anchored" data-anchor-id="github-cli-gh-commands">?? GitHub CLI (gh) Commands</h2>
-<section id="authentication" class="level3">
-<h3 class="anchored" data-anchor-id="authentication">Authentication</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check authentication status</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth status</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Login to GitHub</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Login with specific scopes</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login <span class="at">--scopes</span> <span class="st">"repo,read:org,workflow"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Refresh authentication</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth refresh</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Logout</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth logout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="repository-management" class="level3">
-<h3 class="anchored" data-anchor-id="repository-management">Repository Management</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List repositories</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list <span class="pp">[</span><span class="ss">OWNER</span><span class="pp">]</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list <span class="at">--limit</span> 100</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list <span class="at">--json</span> name,url,description</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View repository details</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo view <span class="pp">[</span><span class="ss">OWNER/REPO</span><span class="pp">]</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo view <span class="at">--web</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone repository</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo clone OWNER/REPO</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo clone OWNER/REPO TARGET-DIR</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new repository</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create NAME</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create NAME <span class="at">--public</span> <span class="at">--description</span> <span class="st">"My new repo"</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create NAME <span class="at">--private</span> <span class="at">--source</span><span class="op">=</span>. <span class="at">--remote</span><span class="op">=</span>origin</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Fork repository</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo fork OWNER/REPO</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo fork <span class="at">--clone</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete repository (requires confirmation)</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo delete OWNER/REPO</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename repository</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo rename NEW-NAME</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Set repository visibility</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo edit <span class="at">--visibility</span> public</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo edit <span class="at">--visibility</span> private</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="issues-and-pull-requests" class="level3">
-<h3 class="anchored" data-anchor-id="issues-and-pull-requests">Issues and Pull Requests</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List issues</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue list</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue list <span class="at">--state</span> open</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue list <span class="at">--label</span> bug</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue list <span class="at">--assignee</span> @me</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create issue</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue create</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue create <span class="at">--title</span> <span class="st">"Bug found"</span> <span class="at">--body</span> <span class="st">"Description"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View issue</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue view 123</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue view 123 <span class="at">--web</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Close issue</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> issue close 123</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># List pull requests</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr list</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr list <span class="at">--state</span> open</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr list <span class="at">--author</span> @me</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Create pull request</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr create</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr create <span class="at">--title</span> <span class="st">"Fix bug"</span> <span class="at">--body</span> <span class="st">"Description"</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr create <span class="at">--draft</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># View pull request</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr view 456</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr view <span class="at">--web</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Checkout pull request</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr checkout 456</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge pull request</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr merge 456</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr merge 456 <span class="at">--squash</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr merge 456 <span class="at">--rebase</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Review pull request</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr review 456 <span class="at">--approve</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr review 456 <span class="at">--comment</span> <span class="at">--body</span> <span class="st">"LGTM"</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr review 456 <span class="at">--request-changes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="github-actions" class="level3">
-<h3 class="anchored" data-anchor-id="github-actions">GitHub Actions</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List workflow runs</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run list</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run list <span class="at">--workflow</span><span class="op">=</span>ci.yml</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run list <span class="at">--limit</span> 10</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View run details</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run view RUN-ID</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run view <span class="at">--log</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Watch run in real-time</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run watch RUN-ID</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Rerun workflow</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run rerun RUN-ID</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Cancel run</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run cancel RUN-ID</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Download run artifacts</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run download RUN-ID</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run download RUN-ID <span class="at">--name</span> artifact-name</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># List workflows</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow list</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># View workflow</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow view WORKFLOW-NAME</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable/disable workflow</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow enable WORKFLOW-NAME</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow disable WORKFLOW-NAME</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Trigger workflow</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow run WORKFLOW-NAME</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> workflow run WORKFLOW-NAME <span class="at">--ref</span> branch-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="releases" class="level3">
-<h3 class="anchored" data-anchor-id="releases">Releases</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List releases</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release list</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release list <span class="at">--limit</span> 20</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View release</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release view TAG</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release view <span class="at">--web</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create release</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release create v1.0.0</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release create v1.0.0 <span class="at">--title</span> <span class="st">"Version 1.0.0"</span> <span class="at">--notes</span> <span class="st">"Release notes"</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release create v1.0.0 file1.zip file2.tar.gz</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload assets to release</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release upload v1.0.0 file.zip</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Download release assets</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release download v1.0.0</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release download v1.0.0 <span class="at">--pattern</span> <span class="st">"*.zip"</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete release</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release delete v1.0.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="gists" class="level3">
-<h3 class="anchored" data-anchor-id="gists">Gists</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List gists</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> gist list</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> gist list <span class="at">--public</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create gist</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> gist create file.txt</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> gist create <span class="at">--public</span> <span class="at">--desc</span> <span class="st">"My gist"</span> file1.txt file2.txt</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View gist</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> gist view GIST-ID</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> gist view <span class="at">--web</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit gist</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> gist edit GIST-ID</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete gist</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> gist delete GIST-ID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-</section>
-<section id="git-commands" class="level2">
-<h2 class="anchored" data-anchor-id="git-commands">?? Git Commands</h2>
-<section id="repository-operations" class="level3">
-<h3 class="anchored" data-anchor-id="repository-operations">Repository Operations</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone repository</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/OWNER/REPO.git</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:OWNER/REPO.git</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize repository</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="at">--bare</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Add remote</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/OWNER/REPO.git</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># List remotes</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove remote</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote remove origin</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename remote</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote rename old-name new-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="branch-management" class="level3">
-<h3 class="anchored" data-anchor-id="branch-management">Branch Management</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List branches</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-a</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-r</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create branch</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch new-branch</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> new-branch</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch branch</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout branch-name</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch branch-name</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete branch</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> branch-name</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-D</span> branch-name  <span class="co"># Force delete</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Push branch to remote</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin branch-name</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin branch-name</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete remote branch</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="at">--delete</span> branch-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="commit-operations" class="level3">
-<h3 class="anchored" data-anchor-id="commit-operations">Commit Operations</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage changes</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add file.txt</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit changes</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Commit message"</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"Add and commit"</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Amend last commit</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span> <span class="at">-m</span> <span class="st">"New message"</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># View commit history</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--graph</span> <span class="at">--oneline</span> <span class="at">--all</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># View specific commit</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show COMMIT-HASH</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset commits</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset HEAD~1     <span class="co"># Soft reset</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~1   <span class="co"># Hard reset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="remote-operations" class="level3">
-<h3 class="anchored" data-anchor-id="remote-operations">Remote Operations</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch from remote</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull from remote</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Push to remote</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force#</span> Force push <span class="er">(</span><span class="ex">use</span> carefully!<span class="kw">)</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># View remote info</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote show origin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-</section>
-<section id="github-rest-api-via-cli" class="level2">
-<h2 class="anchored" data-anchor-id="github-rest-api-via-cli">?? GitHub REST API via CLI</h2>
-<section id="basic-api-calls" class="level3">
-<h3 class="anchored" data-anchor-id="basic-api-calls">Basic API Calls</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make GET request</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make POST request</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api <span class="at">-X</span> POST /repos/OWNER/REPO/issues <span class="at">-f</span> title=<span class="st">"New issue"</span> <span class="at">-f</span> body=<span class="st">"Description"</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Make DELETE request</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api <span class="at">-X</span> DELETE /repos/OWNER/REPO/issues/123</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Use jq for JSON processing</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO <span class="kw">|</span> <span class="ex">jq</span> <span class="st">'.name'</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO <span class="at">--jq</span> <span class="st">'.name'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="artifacts-management" class="level3">
-<h3 class="anchored" data-anchor-id="artifacts-management">Artifacts Management</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List artifacts</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/artifacts</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/artifacts <span class="at">--jq</span> <span class="st">'.artifacts'</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Get specific artifact</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/artifacts/ARTIFACT-ID</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete artifact</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/artifacts/ARTIFACT-ID <span class="at">-X</span> DELETE</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete all artifacts (PowerShell)</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/artifacts <span class="at">--paginate</span> <span class="at">--jq</span> <span class="st">".artifacts[].id"</span> <span class="kw">|</span> <span class="ex">ForEach-Object</span> {</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">gh</span> api repos/OWNER/REPO/actions/artifacts/<span class="va">$_</span> <span class="at">-X</span> DELETE</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete all artifacts (Bash)</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/artifacts <span class="at">--paginate</span> <span class="at">--jq</span> <span class="st">'.artifacts[].id'</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I</span> {} gh api repos/OWNER/REPO/actions/artifacts/{} <span class="at">-X</span> DELETE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="workflow-runs" class="level3">
-<h3 class="anchored" data-anchor-id="workflow-runs">Workflow Runs</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List workflow runs</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/runs</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get specific run</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/runs/RUN-ID</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete workflow run</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/runs/RUN-ID <span class="at">-X</span> DELETE</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Rerun workflow</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/runs/RUN-ID/rerun <span class="at">-X</span> POST</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Cancel workflow run</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/OWNER/REPO/actions/runs/RUN-ID/cancel <span class="at">-X</span> POST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="repository-information" class="level3">
-<h3 class="anchored" data-anchor-id="repository-information">Repository Information</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get repository details</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get repository topics</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO/topics</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get repository languages</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO/languages</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get repository contributors</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO/contributors</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Get repository statistics</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO/stats/contributors</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/OWNER/REPO/stats/commit_activity</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-</section>
-<section id="additional-details" class="level2">
-<h2 class="anchored" data-anchor-id="additional-details">?? Additional Details</h2>
-<section id="gh-auth---authentication-management" class="level3">
-<h3 class="anchored" data-anchor-id="gh-auth---authentication-management">gh auth - Authentication Management</h3>
-<p>The <code>gh auth</code> command manages your GitHub authentication.</p>
-<p><strong>Example: Check current authentication status</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>github.com
-  ? Logged in to github.com account username (keyring)
-  - Active account: true
-  - Git operations protocol: https
-  - Token: gho_************************************
-  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'</code></pre>
-<p><strong>Example: Login with specific scopes</strong></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login <span class="at">--scopes</span> <span class="st">"repo,read:org,workflow,delete_repo"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This ensures you have the necessary permissions for operations like:</p>
-<ul>
-<li><code>repo</code> - Full repository access</li>
-<li><code>read:org</code> - Read organization data</li>
-<li><code>workflow</code> - Manage GitHub Actions</li>
-<li><code>delete_repo</code> - Delete repositories</li>
-</ul>
-<p><strong>Example: Refresh token</strong></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Useful when you need additional scopes</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth refresh <span class="at">--scopes</span> <span class="st">"repo,workflow,admin:org"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="gh-repo---repository-operations" class="level3">
-<h3 class="anchored" data-anchor-id="gh-repo---repository-operations">gh repo - Repository Operations</h3>
-<p>The <code>gh repo</code> command handles all repository-related operations.</p>
-<p><strong>Example: List repositories with JSON output</strong></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list username <span class="at">--limit</span> 100 <span class="at">--json</span> name,url,description,isPrivate,updatedAt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Create a new repository from current directory</strong></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize git, create GitHub repo, and push</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit"</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create my-new-repo <span class="at">--source</span><span class="op">=</span>. <span class="at">--public</span> <span class="at">--remote</span><span class="op">=</span>origin <span class="at">--push</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Clone and navigate</strong></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo clone owner/repo</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> repo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: View repository in browser</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo view <span class="at">--web</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Fork and clone</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo fork owner/repo <span class="at">--clone</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This forks the repository to your account and clones it locally.</p>
-<hr>
-</section>
-<section id="gh-pr---pull-request-management" class="level3">
-<h3 class="anchored" data-anchor-id="gh-pr---pull-request-management">gh pr - Pull Request Management</h3>
-<p>The <code>gh pr</code> command streamlines pull request workflows.</p>
-<p><strong>Example: Create PR interactively</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr create</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This launches an interactive prompt for:</p>
-<ul>
-<li>Title</li>
-<li>Body/Description</li>
-<li>Reviewers</li>
-<li>Assignees</li>
-<li>Labels</li>
-<li>Projects</li>
-</ul>
-<p><strong>Example: Create PR with all details</strong></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr create <span class="dt">\</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--title</span> <span class="st">"Add new feature"</span> <span class="dt">\</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--body</span> <span class="st">"This PR adds feature X which does Y"</span> <span class="dt">\</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--base</span> main <span class="dt">\</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--head</span> feature-branch <span class="dt">\</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--reviewer</span> username1,username2 <span class="dt">\</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--assignee</span> @me <span class="dt">\</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--label</span> enhancement,priority-high</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Check out PR for local testing</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr checkout 123</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This checks out the PR branch locally for testing.</p>
-<p><strong>Example: View PR diff</strong></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr diff 123</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Add comment to PR</strong></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr comment 123 <span class="at">--body</span> <span class="st">"This looks great! ??"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Merge PR with squash</strong></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> pr merge 123 <span class="at">--squash</span> <span class="at">--delete-branch</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="gh-run---github-actions-workflow-management" class="level3">
-<h3 class="anchored" data-anchor-id="gh-run---github-actions-workflow-management">gh run - GitHub Actions Workflow Management</h3>
-<p>The <code>gh run</code> command manages workflow runs.</p>
-<p><strong>Example: Watch workflow in real-time</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run watch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This displays live updates of the current workflow run.</p>
-<p><strong>Example: View logs for failed run</strong></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run view 123456789 <span class="at">--log-failed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Download all artifacts</strong></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run download 123456789</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Download specific artifact</strong></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run download 123456789 <span class="at">--name</span> build-artifacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: List recent failed runs</strong></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run list <span class="at">--status</span> failure <span class="at">--limit</span> 10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Rerun failed jobs only</strong></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> run rerun 123456789 <span class="at">--failed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Delete old workflow runs (PowerShell)</strong></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete runs older than 30 days</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>gh api repos<span class="op">/</span>owner<span class="op">/</span>repo<span class="op">/</span>actions<span class="op">/</span>runs <span class="op">--</span>paginate <span class="op">--</span>jq <span class="st">'.workflow_runs[] | select(.created_at &lt; "2024-01-01") | .id'</span> <span class="op">|</span> <span class="fu">ForEach-Object</span> <span class="op">{</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    gh api repos<span class="op">/</span>owner<span class="op">/</span>repo<span class="op">/</span>actions<span class="op">/</span>runs<span class="op">/</span><span class="va">$_</span> <span class="op">-</span>X DELETE</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="gh-api---direct-api-access" class="level3">
-<h3 class="anchored" data-anchor-id="gh-api---direct-api-access">gh api - Direct API Access</h3>
-<p>The <code>gh api</code> command provides direct access to GitHub’s REST API.</p>
-<p><strong>Example: Get repository details with jq filtering</strong></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/owner/repo <span class="at">--jq</span> <span class="st">'{name: .name, stars: .stargazers_count, forks: .forks_count}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Paginate through all results</strong></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/owner/repo/issues <span class="at">--paginate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Create issue via API</strong></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api <span class="at">-X</span> POST /repos/owner/repo/issues <span class="dt">\</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-f</span> title=<span class="st">"Bug: App crashes on startup"</span> <span class="dt">\</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-f</span> body=<span class="st">"Detailed description here"</span> <span class="dt">\</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-f</span> labels=<span class="st">'["bug","priority-high"]'</span> <span class="dt">\</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-f</span> assignees=<span class="st">'["username"]'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Update repository settings</strong></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api <span class="at">-X</span> PATCH /repos/owner/repo <span class="dt">\</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-f</span> description=<span class="st">"New description"</span> <span class="dt">\</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-f</span> has_issues=true <span class="dt">\</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-f</span> has_wiki=false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Get workflow run logs</strong></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api /repos/owner/repo/actions/runs/123456789/logs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Complex query with PowerShell processing</strong></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all artifacts and calculate total size</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="va">$artifacts</span> <span class="op">=</span> gh api repos<span class="op">/</span>owner<span class="op">/</span>repo<span class="op">/</span>actions<span class="op">/</span>artifacts <span class="op">--</span>paginate <span class="op">|</span> <span class="fu">ConvertFrom-Json</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="va">$totalSize</span> <span class="op">=</span> <span class="op">(</span><span class="va">$artifacts</span><span class="op">.</span><span class="fu">artifacts</span> <span class="op">|</span> <span class="fu">Measure-Object</span> <span class="op">-</span>Property size_in_bytes <span class="op">-</span>Sum<span class="op">).</span><span class="fu">Sum</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Write-Host</span> <span class="st">"Total artifact storage: </span><span class="op">$([</span>math<span class="op">]::</span>Round<span class="op">(</span><span class="va">$totalSize</span> <span class="op">/</span> 1MB<span class="op">,</span> <span class="dv">2</span><span class="op">)</span><span class="st">) MB"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="gh-release---release-management" class="level3">
-<h3 class="anchored" data-anchor-id="gh-release---release-management">gh release - Release Management</h3>
-<p>The <code>gh release</code> command handles software releases.</p>
-<p><strong>Example: Create release with auto-generated notes</strong></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release create v1.0.0 <span class="at">--generate-notes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Create release with specific notes</strong></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release create v2.0.0 <span class="dt">\</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--title</span> <span class="st">"Version 2.0.0 - Major Update"</span> <span class="dt">\</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--notes</span> <span class="st">"## What's New</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="st">- Feature A</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="st">- Feature B</span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="st">## Bug Fixes</span></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="st">- Fixed issue #123</span></span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="st">- Fixed issue #456"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Create pre-release</strong></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release create v2.0.0-beta.1 <span class="at">--prerelease</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Upload multiple files</strong></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release create v1.0.0 <span class="dt">\</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  ./dist/app-windows.zip <span class="dt">\</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  ./dist/app-linux.tar.gz <span class="dt">\</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  ./dist/app-macos.dmg <span class="dt">\</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>--notes <span class="st">"Cross-platform release"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: Download latest release assets</strong></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release download <span class="at">--pattern</span> <span class="st">"*.zip"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Example: View release in browser</strong></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> release view v1.0.0 <span class="at">--web</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">?? References</h2>
-<section id="official-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="official-documentation">Official Documentation</h3>
-<ul>
-<li><strong>GitHub CLI Manual</strong>: https://cli.github.com/manual/</li>
-<li><strong>GitHub CLI Documentation</strong>: https://docs.github.com/en/github-cli</li>
-<li><strong>Git Documentation</strong>: https://git-scm.com/doc</li>
-<li><strong>GitHub REST API</strong>: https://docs.github.com/en/rest</li>
-</ul>
-</section>
-<section id="github-cli-resources" class="level3">
-<h3 class="anchored" data-anchor-id="github-cli-resources">GitHub CLI Resources</h3>
-<ul>
-<li><strong>GitHub CLI Repository</strong>: https://github.com/cli/cli</li>
-<li><strong>GitHub CLI Releases</strong>: https://github.com/cli/cli/releases</li>
-<li><strong>Installation Guide</strong>: https://github.com/cli/cli#installation</li>
-<li><strong>GitHub CLI Extensions</strong>: https://github.com/topics/gh-extension</li>
-</ul>
-</section>
-<section id="api-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="api-documentation">API Documentation</h3>
-<ul>
-<li><strong>GitHub REST API Reference</strong>: https://docs.github.com/en/rest/reference</li>
-<li><strong>Authentication</strong>: https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api</li>
-<li><strong>Actions API</strong>: https://docs.github.com/en/rest/actions</li>
-<li><strong>Artifacts API</strong>: https://docs.github.com/en/rest/actions/artifacts</li>
-<li><strong>Workflow Runs API</strong>: https://docs.github.com/en/rest/actions/workflow-runs</li>
-<li><strong>Rate Limiting</strong>: https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting</li>
-</ul>
-</section>
-<section id="community-resources" class="level3">
-<h3 class="anchored" data-anchor-id="community-resources">Community Resources</h3>
-<ul>
-<li><strong>GitHub Community Forum</strong>: https://github.community/</li>
-<li><strong>GitHub CLI Discussions</strong>: https://github.com/cli/cli/discussions</li>
-<li><strong>GitHub Skills</strong>: https://skills.github.com/</li>
-<li><strong>GitHub Learning Lab</strong>: https://lab.github.com/</li>
-<li><strong>Awesome GitHub CLI</strong>: https://github.com/villelahdenvuo/awesome-gh-cli</li>
-</ul>
-<hr>
-<p><strong>?? Pro Tips:</strong></p>
-<ol type="1">
-<li><p><strong>Use aliases</strong> - Create shortcuts for commonly used commands:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> alias set prc <span class="st">'pr create'</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> alias set co <span class="st">'pr checkout'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Output formats</strong> - Use <code>--json</code> and <code>--jq</code> for scripting:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list <span class="at">--json</span> name,url <span class="at">--jq</span> <span class="st">'.[].name'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Pagination</strong> - Use <code>--paginate</code> for complete results:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">gh</span> api /repos/owner/repo/issues <span class="at">--paginate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Combine tools</strong> - Mix <code>gh</code>, <code>git</code>, and API calls in scripts for powerful automation</p></li>
-<li><p><strong>Check help</strong> - Use <code>gh &lt;command&gt; --help</code> for detailed information about any command</p></li>
-</ol>
-<hr>
-<p><em>Last updated: 2025-01-18</em></p>
-
-
-</section>
-</section>
-</section>
-
-</main> <!-- /main -->
-<div id="custom-right-nav" style="display: none;">
-
-  <div class="toc-title">Related Pages</div>
-
-  <nav class="toc" role="doc-toc">
+        <nav class="toc toc-active" role="doc-toc">
 
     <ul>
 
@@ -2470,7 +1906,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     </ul>
 
-  </nav>
+  <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/01. Azure Apps/03. cli commands.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Azure Topics</li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html">Azure Developer Learning Path</a></li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Apps/03. cli commands.html">Azure Apps CLI Commands</a></li></ol></nav></header>
+
+
+
+
+<p>az login -t b92a0fb8-931a-44be-85ba-09c887a3ad01 az account set –subscription “Contoso Subscription”</p>
+<p>az webapp show –resource-group diginsighttools-testmc-rg-itn-01 –name diginsighttools-testmc-job-itn-01 az webapp show –resource-group diginsighttools-testmc-rg-itn-01 –name diginsighttools-testmc-job-itn-01 –query outboundIpAddresses –output tsv</p>
+<p>az webapp list-runtimes –os-type linux az webapp list-runtimes –os-type windows</p>
+<p>az webapp up –name diginsighttools-testmc-job-itn-01 –resource-group diginsighttools-testmc-rg-itn-01 –runtime “dotnet:8” –location “italynorth”</p>
+<p>az webapp config appsettings set –resource-group diginsighttools-testmc-rg-itn-01 –name diginsighttools-testmc-job-itn-01 –settings key1=value1 key2=value2</p>
+
+
+
+</main> <!-- /main -->
+<div id="custom-right-nav" style="display: none;">
+
+  <div class="toc-title">Related Pages</div>
+
+  
 
 </div>
 
@@ -8175,9 +7632,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html" class="pagination-link" aria-label="Azure Web App Limitations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Azure Web App Limitations</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.html" class="pagination-link" aria-label="Azure Web App CLI Guide">
+        <span class="nav-page-text">Azure Web App CLI Guide</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/Cli/CLI_GITHUB_COMMANDS.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/01. Azure Apps/03. cli commands.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

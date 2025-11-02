@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-10-13">
-<meta name="description" content="Complete guide to making your home computer accessible from anywhere using No-IP Dynamic DNS service">
 
-<title>readme – Dario's Learning Journey</title>
+<title>azure-apps-qa – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,61 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" rel="next">
-<link href="../20250827 what is yq overview/README.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3a62b57c7ce0f47a491e97fb1cd0ccc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html" rel="next">
+<link href="../../20250723 EventHub Access options/README.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-3a62b57c7ce0f47a491e97fb1cd0ccc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -117,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Learning Hub</span>
     </a>
   </div>
@@ -128,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> <i class="bi bi-house-fill" role="img">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> <i class="bi bi-house-fill" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -138,148 +101,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-events">    
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/Readme.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/Readme.html">
  <span class="dropdown-text">Build 2025: Conference Overview</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK101 Dotnet app modernization/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK101 Dotnet app modernization/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK101 - .NET App Modernization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK103 Microsoft Developers Use AI/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK103 Microsoft Developers Use AI/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK103 - Microsoft Developers Use AI</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK104 - Next Gen Apps with AI &amp; .NET</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK106 Elevating Development with .NET Aspire AI/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK106 Elevating Development with .NET Aspire AI/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK106 - .NET Aspire AI &amp; Cloud</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK114 - What’s New in CS 14</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK119 - Debug Like a Pro with Visual Studio &amp; Copilot</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK122 - ASP.NET Core &amp; Blazor Future</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK123 - Build AI Apps with Microsoft Graph</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK127 - Unleash Developer Potential with AI and Dev Box</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK141 RAG for enterprise agents with Azure AI Search/SUMMARY.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK141 RAG for enterprise agents with Azure AI Search/SUMMARY.html">
  <span class="dropdown-text">Build 2025: BRK141 - RAG for Enterprise Agents with Azure AI Search</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK155 Azure AI Foundry - app and Agent Factory/SUMMARY.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK155 Azure AI Foundry - app and Agent Factory/SUMMARY.html">
  <span class="dropdown-text">Build 2025: BRK155 - Azure AI Foundry: The AI App and Agent Factory</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK163 - Create Agents with M365 Agents SDK</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK165 - Building Agents for Microsoft 365 Copilot</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK176 - Multi-Agent Solutions with Copilot Studio and SDK</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK195 - Inside Azure Innovations with Mark Russinovich</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK199 Accelerate Modernization/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK199 Accelerate Modernization/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK199 - Accelerate Modernization at Scale</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK204 Whats new in Microsoft Databases/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK204 Whats new in Microsoft Databases/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK204 - What’s New in Microsoft Databases</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK223 An overview of Windows AI Foundry/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK223 An overview of Windows AI Foundry/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK223 - Windows AI Foundry Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK224 Integrate AI using Windows AI APIs/SUMMARY.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK224 Integrate AI using Windows AI APIs/SUMMARY.html">
  <span class="dropdown-text">Build 2025: BRK224 - Integrate AI using Windows AI APIs</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK225 Bring your own model to Windows using Windows ML/SUMMARY.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK225 Bring your own model to Windows using Windows ML/SUMMARY.html">
  <span class="dropdown-text">Build 2025: BRK225 - Bring Your Own Model to Windows using Windows ML</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK226 Boost Development Productivity/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK226 Boost Development Productivity/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK226 - Windows Developer Tools</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: BRK229 - Unlock Agentic Interactions with MCP on Windows</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/BRK229 Introducing Copilot Solutions/SUMMARY.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/BRK229 Introducing Copilot Solutions/SUMMARY.html">
  <span class="dropdown-text">Build 2025: BRK229 - Introducing Copilot Solutions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM508 Streamlining Application Testing with .NET Aspire and Playwright/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM508 Streamlining Application Testing with .NET Aspire and Playwright/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: DEM508 - .NET Aspire and Playwright Testing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM509 Essential AI Prompts for Developers/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM509 Essential AI Prompts for Developers/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: DEM509 - Essential AI Prompts for Developers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM515 Write better C# code/README.GPT5.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM515 Write better C# code/README.GPT5.html">
  <span class="dropdown-text">Build 2025: DEM515 - Write Better C# Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM517 Build, Deploy, &amp; Use Your First MCP Server/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM517 Build, Deploy, &amp; Use Your First MCP Server/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: DEM517 - Model Context Protocol</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM518 dotnet run app/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM518 dotnet run app/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: DEM518 - Direct C# File Execution</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM519 Agent mode for serious developers/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM519 Agent mode for serious developers/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: DEM519 - Agent Mode for Serious Developers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: DEM520 - Local AI Development</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM524 Running Large Language Models on your local machine/SUMMARY.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM524 Running Large Language Models on your local machine/SUMMARY.html">
  <span class="dropdown-text">Build 2025: DEM524 - Running Large Language Models Locally</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM571 Extending your application with powertoys/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM571 Extending your application with powertoys/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: DEM571 - PowerToys Command Palette Extensions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: DEM581 - Transforming Microsoft Learn with AI</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: ODFP957 - Sentry &amp; Copilot AI Debugging</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.html">
+    <a class="dropdown-item" href="../../202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.html">
  <span class="dropdown-text">Build 2025: STUDIO14 - Agents &amp; Azure AI Foundry</span></a>
   </li>  
     </ul>
@@ -290,19 +253,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-architectures">    
         <li>
-    <a class="dropdown-item" href="../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html">
+    <a class="dropdown-item" href="../../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html">
  <span class="dropdown-text">Podcast and RSS Feed Analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.html">
+    <a class="dropdown-item" href="../../20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.html">
  <span class="dropdown-text">Analyzing Atom and RSS Specifications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.html">
+    <a class="dropdown-item" href="../../20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.html">
  <span class="dropdown-text">Additional Metadata for RSS and Atom Feeds</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.html">
+    <a class="dropdown-item" href="../../20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.html">
  <span class="dropdown-text">C# Reference Classes for Reading Feeds</span></a>
   </li>  
     </ul>
@@ -313,50 +276,108 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-azure">    
         <li>
-    <a class="dropdown-item" href="../20250702 Azure Naming conventions/README.html">
+    <a class="dropdown-item" href="../../20250702 Azure Naming conventions/README.html">
  <span class="dropdown-text">Azure Best Practices</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Security &amp; Identity</li>
+        <li>
+    <a class="dropdown-item" href="../../20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.html">
+ <span class="dropdown-text">Azure AD External Users Explained</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.html">
+ <span class="dropdown-text">External Users Types &amp; Invitation</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Data Services</li>
         <li>
-    <a class="dropdown-item" href="../20250704 TableStorageAccess options/README.md">
+    <a class="dropdown-item" href="../../202510 Developer Update/20250704 TableStorageAccess options/README.html">
  <span class="dropdown-text">Table Storage Access</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250706 CosmosDB Access options/README.md">
+    <a class="dropdown-item" href="../../202510 Developer Update/20251021 BlobStorage Access options/01. Blob Storage Access options.html">
+ <span class="dropdown-text">Blob Storage Access Options</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/20251021 BlobStorage Access options/02. Blob Storage Limitations.html">
+ <span class="dropdown-text">Blob Storage Limitations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.html">
  <span class="dropdown-text">CosmosDB Access</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Messaging &amp; Events</li>
         <li>
-    <a class="dropdown-item" href="../20250723 EventHub Access options/README.html">
+    <a class="dropdown-item" href="../../20250723 EventHub Access options/README.html">
  <span class="dropdown-text">EventHub Access</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Developer Learning Path</li>
         <li>
-    <a class="dropdown-item" href="../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html">
+ <span class="dropdown-text">Azure Apps Q&amp;A</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html">
+ <span class="dropdown-text">Azure Web App Limitations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Apps/03. cli commands.html">
+ <span class="dropdown-text">Azure Apps CLI Commands</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.html">
+ <span class="dropdown-text">Azure Web App CLI Guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html">
  <span class="dropdown-text">Azure Functions Q&amp;A</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html">
+    <a class="dropdown-item" href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html">
  <span class="dropdown-text">Azure Functions Limitations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html">
+    <a class="dropdown-item" href="../../202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html">
  <span class="dropdown-text">Azure Key Vault Q&amp;A</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html">
+    <a class="dropdown-item" href="../../202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html">
  <span class="dropdown-text">Azure Key Vault Limitations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html">
+    <a class="dropdown-item" href="../../202510 Developer Update/02. Azure Key Vault/03. HowTo.Create and retrieve secrets from Azure Key Vault.html">
+ <span class="dropdown-text">Azure Key Vault HowTo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html">
  <span class="dropdown-text">Azure App Configuration Q&amp;A</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html">
+    <a class="dropdown-item" href="../../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html">
  <span class="dropdown-text">Azure App Configuration Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/04. Monitor App Performance/01. Azure Monitor QA.html">
+ <span class="dropdown-text">Azure Monitor Q&amp;A</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/05. Azure Containers/01. Azure Container App.html">
+ <span class="dropdown-text">Azure Container App</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/05. Azure Containers/02. Azure Container App Environments Overview.html">
+ <span class="dropdown-text">Azure Container App Environments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create azure container app.md.html">
+ <span class="dropdown-text">Azure Container App CLI HowTo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/05. Azure Containers/99. Azure Containers QA.html">
+ <span class="dropdown-text">Azure Containers Q&amp;A</span></a>
   </li>  
     </ul>
   </li>
@@ -366,37 +387,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-development-tools">    
         <li>
-    <a class="dropdown-item" href="../20250709 Manage GitRepo from commandline/README.html">
+    <a class="dropdown-item" href="../../20250709 Manage GitRepo from commandline/README.html">
  <span class="dropdown-text">Git Command Line</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/Cli/Cli commands for Github.html">
+ <span class="dropdown-text">GitHub CLI Commands</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">API Testing</li>
         <li>
-    <a class="dropdown-item" href="../20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.html">
+    <a class="dropdown-item" href="../../20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.html">
  <span class="dropdown-text">HTTP/REST API Testing Tools Comparison</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client)">
+    <a class="dropdown-item" href="../../20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client).md">
  <span class="dropdown-text">VS Code REST Client Guide</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250713 Use http files for easy and repeatable test/02. Using HTTP Files for API Testing (Visual Studio).html">
+    <a class="dropdown-item" href="../../20250713 Use http files for easy and repeatable test/02. Using HTTP Files for API Testing (Visual Studio).html">
  <span class="dropdown-text">Visual Studio HTTP Files Guide</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Documentation</li>
         <li>
-    <a class="dropdown-item" href="../20250712 Use QUARTO doc for Github repos doc/000.000 README.html">
+    <a class="dropdown-item" href="../../20250712 Use QUARTO doc for Github repos doc/000.000 README.html">
  <span class="dropdown-text">Quarto Documentation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../20250827 what is yq overview/README.html">
+    <a class="dropdown-item" href="../../20250827 what is yq overview/README.html">
  <span class="dropdown-text">yq YAML Processor</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Programming Languages</li>
+        <li>
+    <a class="dropdown-item" href="../../202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.html">
+ <span class="dropdown-text">C# DateTime Format Strings</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Networking</li>
         <li>
-    <a class="dropdown-item" href="../20251013 HowTo Expose My Computer with No-IP DDNS/README.html">
+    <a class="dropdown-item" href="../../20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html">
  <span class="dropdown-text">No-IP DDNS Setup</span></a>
   </li>  
     </ul>
@@ -409,23 +440,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-culture--travel">    
         <li>
-    <a class="dropdown-item" href="../Travel/Paris 2025/README.html">
+    <a class="dropdown-item" href="../../Travel/Paris 2025/README.html">
  <span class="dropdown-text">Paris Cultural Journey 2025</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item compact">
-    <a class="nav-link" href="../#"> <i class="bi bi-bell-fill" role="img" aria-label="Intelligent Notifications">
+    <a class="nav-link" href="../../#"> <i class="bi bi-bell-fill" role="img" aria-label="Intelligent Notifications">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../#"> <i class="bi bi-rss" role="img" aria-label="Intelligent Feeds">
+    <a class="nav-link" href="../../#"> <i class="bi bi-rss" role="img" aria-label="Intelligent Feeds">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../#"> <i class="bi bi-sliders" role="img" aria-label="Intelligent Rules">
+    <a class="nav-link" href="../../#"> <i class="bi bi-sliders" role="img" aria-label="Intelligent Rules">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -450,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Tools</li><li class="breadcrumb-item"><a href="../20251013 HowTo Expose My Computer with No-IP DDNS/README.html">Networking &amp; Infrastructure</a></li><li class="breadcrumb-item"><a href="../20251013 HowTo Expose My Computer with No-IP DDNS/README.html">Expose Computer with No-IP DDNS</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Azure Topics</li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html">Azure Developer Learning Path</a></li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html">Azure Apps Q&amp;A</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -472,7 +503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house-fill" role="img">
+            <a href="../../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house-fill" role="img">
 </i> 
  <span class="menu-text">Home</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
@@ -482,13 +513,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250902 Learning Hub Overview/01 - Learning Hub Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250902 Learning Hub Overview/01 - Learning Hub Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Learning Hub Concept</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Learning Hub for Learning Technologies</span></a>
   </div>
 </li>
@@ -506,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
+            <a href="../../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Build Conference 2025</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -515,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/Readme.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conference Overview</span></a>
   </div>
 </li>
@@ -530,13 +561,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK101 Dotnet app modernization/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK101 Dotnet app modernization/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK101 Dotnet app modernization/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK101 Dotnet app modernization/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -553,13 +584,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK103 Microsoft Developers Use AI/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK103 Microsoft Developers Use AI/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK103 Microsoft Developers Use AI/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK103 Microsoft Developers Use AI/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -576,13 +607,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -599,7 +630,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK106 Elevating Development with .NET Aspire AI/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK106 Elevating Development with .NET Aspire AI/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -616,13 +647,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK114 CS 14 Language Features and Beyond/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK114 CS 14 Language Features and Beyond/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -639,13 +670,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -662,7 +693,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -679,13 +710,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -702,13 +733,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -725,7 +756,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK141 RAG for enterprise agents with Azure AI Search/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK141 RAG for enterprise agents with Azure AI Search/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -742,7 +773,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK155 Azure AI Foundry - app and Agent Factory/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK155 Azure AI Foundry - app and Agent Factory/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -759,13 +790,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -782,13 +813,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -805,13 +836,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -828,13 +859,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -851,13 +882,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK199 Accelerate Modernization/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK199 Accelerate Modernization/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK199 Accelerate Modernization/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK199 Accelerate Modernization/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -874,13 +905,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK204 Whats new in Microsoft Databases/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK204 Whats new in Microsoft Databases/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK204 Whats new in Microsoft Databases/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK204 Whats new in Microsoft Databases/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -897,13 +928,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK223 An overview of Windows AI Foundry/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK223 An overview of Windows AI Foundry/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK223 An overview of Windows AI Foundry/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK223 An overview of Windows AI Foundry/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -920,7 +951,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK224 Integrate AI using Windows AI APIs/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK224 Integrate AI using Windows AI APIs/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -937,7 +968,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK225 Bring your own model to Windows using Windows ML/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK225 Bring your own model to Windows using Windows ML/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -954,13 +985,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK226 Boost Development Productivity/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK226 Boost Development Productivity/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK226 Boost Development Productivity/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK226 Boost Development Productivity/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -977,13 +1008,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1000,7 +1031,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/BRK229 Introducing Copilot Solutions/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/BRK229 Introducing Copilot Solutions/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -1017,7 +1048,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM508 Streamlining Application Testing with .NET Aspire and Playwright/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM508 Streamlining Application Testing with .NET Aspire and Playwright/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1034,13 +1065,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM509 Essential AI Prompts for Developers/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM509 Essential AI Prompts for Developers/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM509 Essential AI Prompts for Developers/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM509 Essential AI Prompts for Developers/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1057,13 +1088,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM515 Write better C# code/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM515 Write better C# code/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM515 Write better C# code/README.GPT5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM515 Write better C# code/README.GPT5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1080,7 +1111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM517 Build, Deploy, &amp; Use Your First MCP Server/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM517 Build, Deploy, &amp; Use Your First MCP Server/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1097,13 +1128,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM518 dotnet run app/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM518 dotnet run app/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM518 dotnet run app/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM518 dotnet run app/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1120,13 +1151,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM519 Agent mode for serious developers/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM519 Agent mode for serious developers/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM519 Agent mode for serious developers/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM519 Agent mode for serious developers/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1143,7 +1174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-32" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1160,7 +1191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-33" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM524 Running Large Language Models on your local machine/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM524 Running Large Language Models on your local machine/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -1177,13 +1208,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-34" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM571 Extending your application with powertoys/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM571 Extending your application with powertoys/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM571 Extending your application with powertoys/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM571 Extending your application with powertoys/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1200,13 +1231,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-35" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1223,13 +1254,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-36" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1246,13 +1277,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-37" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session Details</span></a>
   </div>
 </li>
@@ -1283,7 +1314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-39" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250702 Azure Naming conventions/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250702 Azure Naming conventions/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure Naming Conventions</span></a>
   </div>
 </li>
@@ -1292,7 +1323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" role="navigation" aria-expanded="true">
- <span class="menu-text">Azure Data Services</span></a>
+ <span class="menu-text">Security &amp; Identity</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1300,14 +1331,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-40" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250704 TableStorageAccess options/README.md" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Table Storage Access Options</span></a>
+  <a href="../../20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure AD External Users Explained</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250706 CosmosDB Access options/README.md" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CosmosDB Access Options</span></a>
+  <a href="../../20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">External Users Types &amp; Invitation</span></a>
   </div>
 </li>
       </ul>
@@ -1315,7 +1346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" role="navigation" aria-expanded="true">
- <span class="menu-text">Azure Messaging &amp; Events</span></a>
+ <span class="menu-text">Azure Data Services</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1323,8 +1354,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-41" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250723 EventHub Access options/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EventHub Access Options</span></a>
+  <a href="../../202510 Developer Update/20250704 TableStorageAccess options/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Table Storage Access Options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20251021 BlobStorage Access options/01. Blob Storage Access options.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Blob Storage Access Options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20251021 BlobStorage Access options/02. Blob Storage Limitations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Blob Storage Limitations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CosmosDB Access Options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/20250706 CosmosDB Access options/02. CosmosDB Partitioning Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CosmosDB Partitioning Strategies</span></a>
   </div>
 </li>
       </ul>
@@ -1332,7 +1387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="true">
- <span class="menu-text">Azure Developer Learning Path</span></a>
+ <span class="menu-text">Azure Messaging &amp; Events</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1340,38 +1395,115 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-42" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250723 EventHub Access options/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EventHub Access Options</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true">
+ <span class="menu-text">Azure Developer Learning Path</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-43" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Azure Apps Q&amp;A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Web App Limitations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Apps/03. cli commands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Apps CLI Commands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Web App CLI Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure Functions Q&amp;A</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure Functions Limitations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure Key Vault Q&amp;A</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure Key Vault Limitations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202510 Developer Update/02. Azure Key Vault/03. HowTo.Create and retrieve secrets from Azure Key Vault.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Key Vault HowTo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure App Configuration Q&amp;A</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Azure App Configuration Exercise</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/04. Monitor App Performance/01. Azure Monitor QA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Monitor Q&amp;A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/05. Azure Containers/01. Azure Container App.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Container App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/05. Azure Containers/02. Azure Container App Environments Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Container App Environments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create azure container app.md.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Container App CLI HowTo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/05. Azure Containers/99. Azure Containers QA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Azure Containers Q&amp;A</span></a>
   </div>
 </li>
       </ul>
@@ -1380,53 +1512,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
 </i> 
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-43" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-43" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true">
- <span class="menu-text">Feed Architectures &amp; Protocols</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-44" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-44" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Podcast and RSS Feed Analysis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyzing Atom and RSS Specifications</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Additional Metadata for RSS and Atom Feeds</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C# Reference Classes for Reading Feeds</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
+      <ul id="quarto-sidebar-section-44" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Development Tools</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-45" role="navigation" aria-expanded="true">
+ <span class="menu-text">Feed Architectures &amp; Protocols</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-45" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1434,115 +1531,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-45" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Podcast and RSS Feed Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyzing Atom and RSS Specifications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Additional Metadata for RSS and Atom Feeds</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C# Reference Classes for Reading Feeds</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Development Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-46" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-46" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250709 Manage GitRepo from commandline/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git Command Line</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250711 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../202510 Developer Update/Cli/Cli commands for Github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub CLI Commands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250711 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HTTP Files Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../20250712 Use QUARTO doc for Github repos doc/000.000 README.html" class="sidebar-item-text sidebar-link">
+            <a href="../../20250712 Use QUARTO doc for Github repos doc/000.000 README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Documentation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-46" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-46" class="collapse list-unstyled sidebar-section depth3 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/000.000 README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using Quarto</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/001.001 Architecture - How quarto works.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How Quarto Works</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/001.002 Architecture - Monolithic vs. Modular Deployment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Monolithic vs.&nbsp;Modular Deployment</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/001.003 Architecture - Split Navigation Build from content rendering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Split Navigation Build from Content Rendering</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/001.010 Quarto.yml document structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto.yml document structure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/003.010 Quarto specific markdown features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto specific markdown features</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/002.010 Quarto Theming and Styling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto Theming and Styling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/007.010 Optimizing Quarto build and deploy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Optimizing Quarto Build and Deploy</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/009.000 How does sidebar works.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How does sidebar works</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/009.010 Navigation workflow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Navigation workflow</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/009.020 Sidebar Page Transition Optimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sidebar Page Transition Optimization</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/010.001 Deploying a Quarto site to GitHub Pages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Deploying to GitHub Pages</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250712 Use QUARTO doc for Github repos doc/010.002 Deploying a Quarto site to Storage Accounts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Deploying to Azure Storage</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250713 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HTTP Files (Extended)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diginsight</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1550,7 +1593,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-47" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/000.000 README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/001.001 Architecture - How quarto works.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How Quarto Works</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/001.002 Architecture - Monolithic vs. Modular Deployment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Monolithic vs.&nbsp;Modular Deployment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/001.003 Architecture - Split Navigation Build from content rendering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Split Navigation Build from Content Rendering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/001.010 Quarto.yml document structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto.yml document structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/003.010 Quarto specific markdown features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto specific markdown features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/002.010 Quarto Theming and Styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto Theming and Styling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/007.010 Optimizing Quarto build and deploy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimizing Quarto Build and Deploy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/009.000 How does sidebar works.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How does sidebar works</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/009.010 Navigation workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Navigation workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/009.020 Sidebar Page Transition Optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sidebar Page Transition Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/010.001 Deploying a Quarto site to GitHub Pages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deploying to GitHub Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250712 Use QUARTO doc for Github repos doc/010.002 Deploying a Quarto site to Storage Accounts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deploying to Azure Storage</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250713 Use http files for easy and repeatable test/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTTP Files (Extended)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diginsight</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-48" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CosmosDB Query Cost Metrics with Diginsight</span></a>
   </div>
 </li>
@@ -1560,31 +1698,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Processing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-48" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250827 what is yq overview/README.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">yq YAML Processor Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Query Cost Metrics with Diginsight</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true">
- <span class="menu-text">Networking &amp; Infrastructure</span></a>
+ <span class="menu-text">Data Processing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-49" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1592,7 +1707,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-49" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20251013 HowTo Expose My Computer with No-IP DDNS/README.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../20250827 what is yq overview/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">yq YAML Processor Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Query Cost Metrics with Diginsight</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true">
+ <span class="menu-text">Programming Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-50" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C# DateTime Format Strings</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true">
+ <span class="menu-text">Networking &amp; Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-51" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expose Computer with No-IP DDNS</span></a>
   </div>
 </li>
@@ -1602,32 +1757,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
 </i> 
  <span class="menu-text">Issues &amp; Solutions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-50" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-50" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-52" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
+            <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Development Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-53" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-51" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-53" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VS Clone Error Fix (solved)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../_ISSUES/20250710 sample/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../_ISSUES/20250710 sample/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sample Issue Documentation</span></a>
   </div>
 </li>
@@ -1635,25 +1790,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true">
  <span class="menu-text">GitHub &amp; CI/CD Issues</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-52" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-52" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-54" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250825 Github repositories limitations/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250825 Github repositories limitations/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Repository Limitations</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-55" role="navigation" aria-expanded="false">
+ <span class="menu-text">GitHub Actions: Artifact Storage Quota Fix</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-55" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-55" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20251018 ISSUE Github action fails with Artifact storage quota has been hit/README.md" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitHub Actions Artifact Storage Quota Fix</span></a>
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quick Start</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solution Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Solution (No Artifacts)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">WSL Error Fix</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
       </ul>
@@ -1661,23 +1851,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-53" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-56" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
 </i> 
  <span class="menu-text">Other Technologies</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-53" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-56" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-53" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-56" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250815 DIY Battery Pack/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250815 DIY Battery Pack/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DIY Li-Ion Battery Packs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../20250815 DIY ebike/SUMMARY.html" class="sidebar-item-text sidebar-link">
+  <a href="../../20250815 DIY ebike/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DIY E-Bike Projects</span></a>
   </div>
 </li>
@@ -1686,17 +1876,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-57" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
 </i> 
  <span class="menu-text">Culture &amp; Travel</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-54" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-57" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-54" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-57" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Paris Cultural Journey 2025</span></a>
   </div>
 </li>
@@ -1712,166 +1902,187 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link active" data-scroll-target="#table-of-contents">📋 Table of Contents</a></li>
-  <li><a href="#create-a-no-ip-account-and-hostname" id="toc-create-a-no-ip-account-and-hostname" class="nav-link" data-scroll-target="#create-a-no-ip-account-and-hostname">✅ 1. Create a No-IP Account and Hostname</a></li>
-  <li><a href="#install-the-no-ip-duc-dynamic-update-client" id="toc-install-the-no-ip-duc-dynamic-update-client" class="nav-link" data-scroll-target="#install-the-no-ip-duc-dynamic-update-client">✅ 2. Install the No-IP DUC (Dynamic Update Client)</a></li>
-  <li><a href="#configure-the-duc" id="toc-configure-the-duc" class="nav-link" data-scroll-target="#configure-the-duc">✅ 3. Configure the DUC</a></li>
-  <li><a href="#special-notes-on-credentials" id="toc-special-notes-on-credentials" class="nav-link" data-scroll-target="#special-notes-on-credentials">✅ 4. Special Notes on Credentials</a></li>
-  <li><a href="#verify-the-setup" id="toc-verify-the-setup" class="nav-link" data-scroll-target="#verify-the-setup">✅ 5. Verify the Setup</a></li>
-  <li><a href="#configure-port-forwarding" id="toc-configure-port-forwarding" class="nav-link" data-scroll-target="#configure-port-forwarding">✅ 6. Configure Port Forwarding</a></li>
-  <li><a href="#secure-your-setup" id="toc-secure-your-setup" class="nav-link" data-scroll-target="#secure-your-setup">🔒 7. Secure Your Setup</a></li>
-  <li><a href="#test-ip-change-handling" id="toc-test-ip-change-handling" class="nav-link" data-scroll-target="#test-ip-change-handling">🧪 8. Test IP Change Handling</a></li>
-  <li><a href="#key-lessons-learned" id="toc-key-lessons-learned" class="nav-link" data-scroll-target="#key-lessons-learned">💡 Key Lessons Learned</a></li>
+  <li><a href="#q.-what-are-deployment-slots-how-can-i-use-them" id="toc-q.-what-are-deployment-slots-how-can-i-use-them" class="nav-link active" data-scroll-target="#q.-what-are-deployment-slots-how-can-i-use-them">Q. What are Deployment slots ? how can I use them?</a></li>
+  <li><a href="#q.what-are-linux-web-app-limitations" id="toc-q.what-are-linux-web-app-limitations" class="nav-link" data-scroll-target="#q.what-are-linux-web-app-limitations">Q.What are Linux web app Limitations</a></li>
+  <li><a href="#q.what-is-app-service-environment-when-should-i-use-it" id="toc-q.what-is-app-service-environment-when-should-i-use-it" class="nav-link" data-scroll-target="#q.what-is-app-service-environment-when-should-i-use-it">Q.What is App Service Environment? when should I use it?</a></li>
+  <li><a href="#q.-to-manually-push-your-code-to-azure" id="toc-q.-to-manually-push-your-code-to-azure" class="nav-link" data-scroll-target="#q.-to-manually-push-your-code-to-azure">Q. to manually push your code to Azure:</a></li>
+  <li><a href="#q.-sidecar-containers" id="toc-q.-sidecar-containers" class="nav-link" data-scroll-target="#q.-sidecar-containers">Q. Sidecar containers</a></li>
+  <li><a href="#q.-autoscaling-options" id="toc-q.-autoscaling-options" class="nav-link" data-scroll-target="#q.-autoscaling-options">Q. Autoscaling options</a>
+  <ul class="collapse">
+  <li><a href="#azure-autoscale-rule-based-scaling" id="toc-azure-autoscale-rule-based-scaling" class="nav-link" data-scroll-target="#azure-autoscale-rule-based-scaling"><strong>Azure Autoscale</strong> (Rule-Based Scaling)</a></li>
+  <li><a href="#azure-app-service-automatic-scaling-ai-powered-scaling" id="toc-azure-app-service-automatic-scaling-ai-powered-scaling" class="nav-link" data-scroll-target="#azure-app-service-automatic-scaling-ai-powered-scaling"><strong>Azure App Service Automatic Scaling</strong> (AI-Powered Scaling)</a></li>
+  <li><a href="#summary-of-key-differences" id="toc-summary-of-key-differences" class="nav-link" data-scroll-target="#summary-of-key-differences"><strong>Summary of Key Differences</strong></a></li>
+  </ul></li>
+  <li><a href="#q.-slot-specific-settings" id="toc-q.-slot-specific-settings" class="nav-link" data-scroll-target="#q.-slot-specific-settings">Q. Slot specific settings</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251013 HowTo Expose My Computer with No-IP DDNS/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/01. Azure Apps/01. Azure Apps QA.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Azure Topics</li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html">Azure Developer Learning Path</a></li><li class="breadcrumb-item"><a href="../../202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html">Azure Apps Q&amp;A</a></li></ol></nav></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Tools</li><li class="breadcrumb-item"><a href="../20251013 HowTo Expose My Computer with No-IP DDNS/README.html">Networking &amp; Infrastructure</a></li><li class="breadcrumb-item"><a href="../20251013 HowTo Expose My Computer with No-IP DDNS/README.html">Expose Computer with No-IP DDNS</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">🌐 HowTo: Expose My Computer with No-IP DDNS</h1>
+
+
+
+<section id="q.-what-are-deployment-slots-how-can-i-use-them" class="level2">
+<h2 class="anchored" data-anchor-id="q.-what-are-deployment-slots-how-can-i-use-them">Q. What are Deployment slots ? how can I use them?</h2>
+<p>When deploying a web app, you can use a separate deployment slot instead of the default production slot when you’re running in the Standard App Service pricing tier or better. Deployment slots are live apps with their own host names. App content and configurations elements can be swapped between two deployment slots, including the production slot.</p>
+</section>
+<section id="q.what-are-linux-web-app-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="q.what-are-linux-web-app-limitations">Q.What are Linux web app Limitations</h2>
+<p>App Service on Linux does have some limitations:</p>
+<p>App Service on Linux isn’t supported on Shared pricing tier. The Azure portal shows only features that currently work for Linux apps. As features are enabled, they’re activated on the portal. When deployed to built-in images, your code and content are allocated as a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files might benefit from the custom container option, which places files in the container filesystem instead of on the content volume.</p>
+</section>
+<section id="q.what-is-app-service-environment-when-should-i-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="q.what-is-app-service-environment-when-should-i-use-it">Q.What is App Service Environment? when should I use it?</h2>
+<p>App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps. It offers improved security at high scale.</p>
+<p>Unlike the App Service offering, where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer. For more information on the differences between App Service Environment and App Service, see the comparison.</p>
+</section>
+<section id="q.-to-manually-push-your-code-to-azure" class="level2">
+<h2 class="anchored" data-anchor-id="q.-to-manually-push-your-code-to-azure">Q. to manually push your code to Azure:</h2>
+<ul>
+<li><strong>Git</strong>: App Service web apps feature a Git URL that you can add as a remote repository. Pushing to the remote repository deploys your app.</li>
+<li><strong>CLI</strong>: The <strong><mark>az webapp up</mark></strong> is a feature of the az command-line interface that packages your app and deploys it. Unlike other deployment methods, az webapp up can create a new App Service web app for you.</li>
+<li><strong>Zip deploy</strong>: Use curl or a similar HTTP utility to send a ZIP of your application files to App Service.</li>
+<li><strong>FTP/S</strong>: FTP or FTPS is a traditional way of pushing your code to many hosting environments, including App Service.</li>
+</ul>
+</section>
+<section id="q.-sidecar-containers" class="level2">
+<h2 class="anchored" data-anchor-id="q.-sidecar-containers">Q. Sidecar containers</h2>
+<p>In Azure App Service, you can add up to <mark>nine sidecar containers</mark> for each sidecar-enabled custom container app. Sidecar containers are supported for Linux-based custom container apps and enable deploying extra services and features without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers.</p>
+<p>You can add a sidecar container through the Deployment Center in the app’s management page.</p>
+</section>
+<section id="q.-autoscaling-options" class="level2">
+<h2 class="anchored" data-anchor-id="q.-autoscaling-options">Q. Autoscaling options</h2>
+<p><strong>Azure App Service</strong> supports manual scaling, and two options for scaling out your web apps automatically:</p>
+<ul>
+<li><strong>Autoscaling with <mark>Azure autoscale</mark></strong> - Autoscaling makes scaling decisions based on <mark>rules that you define</mark>.</li>
+<li><strong>Azure App Service <mark>automatic scaling</mark></strong> - Automatic scaling makes scaling decisions for you based on the <mark>parameters that you select</mark>.</li>
+</ul>
+<section id="azure-autoscale-rule-based-scaling" class="level3">
+<h3 class="anchored" data-anchor-id="azure-autoscale-rule-based-scaling"><strong>Azure Autoscale</strong> (Rule-Based Scaling)</h3>
+<p><strong>Where it’s applied:</strong></p>
+<ul>
+<li>Azure App Service running on <strong><mark>Standard tier or higher</mark></strong></li>
+<li>Uses <strong><mark>Azure Monitor Autoscale</mark></strong> service</li>
+<li>Applied to the underlying <strong><mark>App Service Plan</mark></strong></li>
+</ul>
+<p><strong>How it works:</strong></p>
+<ul>
+<li><strong>Rule-based scaling</strong> - You define custom rules based on metrics</li>
+<li><strong>Reactive scaling</strong> - Responds to load <strong>after</strong> thresholds are exceeded</li>
+<li><strong>Metric-driven</strong> - Based on CPU utilization, memory usage, request count, or custom metrics</li>
+<li><strong>Manual configuration</strong> required for all scaling rules</li>
+</ul>
+<p><strong>Scale behavior:</strong></p>
+<ul>
+<li><strong>Scale OUT/IN</strong> (horizontal scaling) - Adds/removes instances</li>
+<li><strong>Slower scaling</strong> - Takes <strong>2-5 minutes</strong> to provision new VM instances</li>
+<li><strong>Threshold-based</strong> - Scales when metrics exceed defined limits (e.g., CPU &gt; 70%)</li>
+<li><strong>Cannot scale to zero</strong> - Requires minimum number of instances</li>
+</ul>
+<p><strong>Example triggers:</strong></p>
+<ul>
+<li><mark>CPU &gt; 80% for 5 minutes</mark> → Scale out</li>
+<li><mark>Memory &gt; 75% for 10 minutes</mark> → Scale out<br>
+</li>
+<li><mark>Request count &gt; 1000 per minute</mark> → Scale out</li>
+</ul>
+</section>
+<section id="azure-app-service-automatic-scaling-ai-powered-scaling" class="level3">
+<h3 class="anchored" data-anchor-id="azure-app-service-automatic-scaling-ai-powered-scaling"><strong>Azure App Service Automatic Scaling</strong> (AI-Powered Scaling)</h3>
+<p><strong>Where it’s applied:</strong></p>
+<ul>
+<li>Azure App Service <strong><mark>Premium v3 tier and higher</mark></strong></li>
+<li>Uses <strong>built-in automatic scaling intelligence</strong></li>
+<li>Applied directly to the <strong>App Service</strong></li>
+</ul>
+<p><strong>How it works:</strong></p>
+<ul>
+<li><strong><mark>AI-powered scaling</mark></strong> - Makes intelligent scaling decisions for you</li>
+<li><strong><mark>Proactive scaling</mark></strong> - Anticipates load patterns and scales before demand peaks</li>
+<li><strong><mark>Parameter-based</mark></strong> - You select scaling parameters rather than defining complex rules</li>
+<li><strong><mark>Minimal configuration</mark></strong> - System learns and optimizes automatically</li>
+</ul>
+<p><strong>Scale behavior:</strong></p>
+<ul>
+<li><strong>Scale OUT/IN</strong> (horizontal scaling) - Adds/removes instances intelligently<br>
+</li>
+<li><strong>Faster scaling</strong> - More responsive than rule-based autoscale</li>
+<li><strong>Pattern-aware</strong> - Learns from historical usage patterns</li>
+<li><strong>Intelligent scale-in</strong> - Smarter decisions about when to remove instances</li>
+</ul>
+</section>
+<section id="summary-of-key-differences" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-key-differences"><strong>Summary of Key Differences</strong></h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 30%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Azure Autoscale</th>
+<th>App Service Automatic Scaling</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Configuration</strong></td>
+<td>Manual rule definition</td>
+<td>Parameter selection</td>
+</tr>
+<tr class="even">
+<td><strong>Intelligence</strong></td>
+<td>Rule-based thresholds</td>
+<td>AI-powered learning</td>
+</tr>
+<tr class="odd">
+<td><strong>Response</strong></td>
+<td>Reactive to metrics</td>
+<td>Proactive pattern recognition</td>
+</tr>
+<tr class="even">
+<td><strong>Complexity</strong></td>
+<td>High - requires metric expertise</td>
+<td>Low - simplified setup</td>
+</tr>
+<tr class="odd">
+<td><strong>Scaling Speed</strong></td>
+<td>Slower (2-5 minutes)</td>
+<td>Faster and more responsive</td>
+</tr>
+<tr class="even">
+<td><strong>Required Tier</strong></td>
+<td>Standard+</td>
+<td>Premium v3+</td>
+</tr>
+<tr class="odd">
+<td><strong>Learning</strong></td>
+<td>No learning capability</td>
+<td>Learns usage patterns</td>
+</tr>
+</tbody>
+</table>
+<p>The following table highlights the differences between the two automatic scaling options:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01. autoscaling options.png" class="img-fluid figure-img"></p>
+<figcaption>alt text</figcaption>
+</figure>
 </div>
-
-<div>
-  <div class="description">
-    Complete guide to making your home computer accessible from anywhere using No-IP Dynamic DNS service
-  </div>
+</section>
+</section>
+<section id="q.-slot-specific-settings" class="level2">
+<h2 class="anchored" data-anchor-id="q.-slot-specific-settings">Q. Slot specific settings</h2>
+<p>what settings are slot specific in Azure Web Apps?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02.slotspecific settings.png" class="img-fluid figure-img"></p>
+<figcaption>alt text</figcaption>
+</figure>
 </div>
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dario Airoldi </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 13, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p><strong>Dynamic DNS (DDNS)</strong> is a great way to make your home computer accessible from anywhere, even if your ISP gives you a dynamic public IP.</p>
-<p><strong>No-IP</strong> provides a free and reliable DDNS service. This guide walks you through the entire process.</p>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">📋 Table of Contents</h2>
-<ol type="1">
-<li><a href="#-1-create-a-no-ip-account-and-hostname">Create a No-IP Account and Hostname</a></li>
-<li><a href="#-2-install-the-no-ip-duc-dynamic-update-client">Install the No-IP DUC (Dynamic Update Client)</a></li>
-<li><a href="#-3-configure-the-duc">Configure the DUC</a></li>
-<li><a href="#-4-special-notes-on-credentials">Special Notes on Credentials</a></li>
-<li><a href="#-5-verify-the-setup">Verify the Setup</a></li>
-<li><a href="#-6-configure-port-forwarding">Configure Port Forwarding</a></li>
-<li><a href="#-7-secure-your-setup">Secure Your Setup</a></li>
-<li><a href="#-8-test-ip-change-handling">Test IP Change Handling</a></li>
-<li><a href="#-key-lessons-learned">Key Lessons Learned</a></li>
-</ol>
-<hr>
-</section>
-<section id="create-a-no-ip-account-and-hostname" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-no-ip-account-and-hostname">✅ 1. Create a No-IP Account and Hostname</h2>
-<ol type="1">
-<li>Go to <a href="https://www.noip.com/">No-IP</a> for a free account.</li>
-<li>Create a hostname (e.g., <code>myhost.ddns.net</code>).</li>
-<li>Confirm your email and activate the hostname.</li>
-</ol>
-<p><img src="images/00.000 noip hostname.png" alt="No-IP hostname configuration" width="600" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;"></p>
-</section>
-<section id="install-the-no-ip-duc-dynamic-update-client" class="level2">
-<h2 class="anchored" data-anchor-id="install-the-no-ip-duc-dynamic-update-client">✅ 2. Install the No-IP DUC (Dynamic Update Client)</h2>
-<p>The DUC keeps your hostname updated with your current public IP.</p>
-<ul>
-<li><strong>Download</strong>: <a href="https://www.noip.com/download?page=duc">No-IP DUC Download</a> and install the client on your computer.</li>
-<li>During setup:
-<ul>
-<li>Log in with your <strong>No-IP credentials</strong> (or <strong>DDNS Key</strong> if configured).</li>
-<li>Select the hostname you created.</li>
-</ul></li>
-</ul>
-<p><img src="images/00.001a noip DUC.png" alt="No-IP hostname configuration" width="300" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;"></p>
-</section>
-<section id="configure-the-duc" class="level2">
-<h2 class="anchored" data-anchor-id="configure-the-duc">✅ 3. Configure the DUC</h2>
-<ul>
-<li>Open <strong>Preferences</strong>:
-<ul>
-<li>Enable <strong>Run as a system service</strong> (recommended for 24/7 updates).</li>
-<li>Default update interval: <strong>5 minutes</strong>.</li>
-</ul></li>
-<li>IP detection: Use <strong>remote methods</strong> (default).</li>
-</ul>
-</section>
-<section id="special-notes-on-credentials" class="level2">
-<h2 class="anchored" data-anchor-id="special-notes-on-credentials">✅ 4. Special Notes on Credentials</h2>
-<ul>
-<li>If you signed up with Google, you must <strong>set a No-IP password</strong> via the password reset link.</li>
-<li>Alternatively, you can use <strong>DDNS Key credentials</strong>, but they only work on the same Windows account where configured.</li>
-</ul>
-<p><img src="images/00.002 preferences.png" alt="No-IP hostname configuration" width="400" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;"></p>
-</section>
-<section id="verify-the-setup" class="level2">
-<h2 class="anchored" data-anchor-id="verify-the-setup">✅ 5. Verify the Setup</h2>
-<ul>
-<li><p>Check the DUC dashboard: Green check marks mean it’s working.</p></li>
-<li><p>On No-IP dashboard: Your hostname should show your current public IP.</p></li>
-<li><p>Test from an external network:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> myhost.ddns.net</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>or use <code>bash     nslookup myhost.ddns.net</code></p></li>
-</ul>
-</section>
-<section id="configure-port-forwarding" class="level2">
-<h2 class="anchored" data-anchor-id="configure-port-forwarding">✅ 6. Configure Port Forwarding</h2>
-<p>To access services (RDP, SSH, web server):</p>
-<ol type="1">
-<li>Log in to your router.</li>
-<li>Forward the required ports to your computer’s <strong>local IP</strong>:
-<ul>
-<li><strong>RDP</strong>: TCP 3389</li>
-<li><strong>SSH</strong>: TCP 22</li>
-<li><strong>Custom apps</strong>: Define as needed.</li>
-</ul></li>
-</ol>
-<p><img src="images/01.002 portmapping.png" alt="No-IP hostname configuration" width="400" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;"></p>
-</section>
-<section id="secure-your-setup" class="level2">
-<h2 class="anchored" data-anchor-id="secure-your-setup">🔒 7. Secure Your Setup</h2>
-<ul>
-<li>Use <strong>strong passwords</strong> for remote services.</li>
-<li>Enable <strong>firewall rules</strong> to restrict access.</li>
-<li>Consider using a <strong>VPN</strong> for safer remote access.</li>
-</ul>
-<hr>
-</section>
-<section id="test-ip-change-handling" class="level2">
-<h2 class="anchored" data-anchor-id="test-ip-change-handling">🧪 8. Test IP Change Handling</h2>
-<ul>
-<li><p>Restart your router or use:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bat code-with-copy"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/release</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ipconfig <span class="at">/renew</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Confirm that:</p></li>
-</ul>
-<p>DUC updates the IP within 5 minutes. Hostname resolves to the new IP.</p>
-</section>
-<section id="key-lessons-learned" class="level2">
-<h2 class="anchored" data-anchor-id="key-lessons-learned">💡 Key Lessons Learned</h2>
-<ul>
-<li>Free plan <mark>allows 1 hostname</mark>, requires monthly confirmation.</li>
-<li>DUC as a service ensures updates even without user login.</li>
-<li>DUC credentials must be entered always from the same user.</li>
-</ul>
 
 
 </section>
@@ -7596,13 +7807,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../20250827 what is yq overview/README.html" class="pagination-link" aria-label="yq YAML Processor Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">yq YAML Processor Overview</span>
+      <a href="../../20250723 EventHub Access options/README.html" class="pagination-link" aria-label="EventHub Access Options">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">EventHub Access Options</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.html" class="pagination-link" aria-label="Development Issues">
-        <span class="nav-page-text">Development Issues</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html" class="pagination-link" aria-label="Azure Web App Limitations">
+        <span class="nav-page-text">Azure Web App Limitations</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -7611,4 +7822,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/20251013 HowTo Expose My Computer with No-IP DDNS/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/202510 Developer Update/01. Azure Apps/01. Azure Apps QA.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
