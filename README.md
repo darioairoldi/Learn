@@ -42,35 +42,35 @@ Troubleshooting guides for GitHub Actions, CI/CD, authentication, and developmen
 
 #### 🤖 AI & Intelligent Development
 
-- **[.NET Aspire: AI, Cloud, and Beyond](202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐️  
+- **[.NET Aspire: AI, Cloud, and Beyond](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐️  
   *Comprehensive guide to .NET Aspire's evolution from local development tool to full-stack platform*
-- **[Local AI Development with Foundry](202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)**  
+- **[Local AI Development with Foundry](events/202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)**  
   *Hands-on demonstration of running AI models locally with .NET integration*
-- **[Building AI Apps with Microsoft Graph](202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)**  
+- **[Building AI Apps with Microsoft Graph](events/202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)**  
   *Creating intelligent applications using Microsoft Graph data*
-- **[Azure AI Foundry Overview](202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/SUMMARY.md)**  
+- **[Azure AI Foundry Overview](events/202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/SUMMARY.md)**  
   *Microsoft's comprehensive AI development platform*
-- **[RAG for Enterprise Agents](202506%20Build%202025/BRK141%20RAG%20for%20enterprise%20agents%20with%20Azure%20AI%20Search/SUMMARY.md)**  
+- **[RAG for Enterprise Agents](events/202506%20Build%202025/BRK141%20RAG%20for%20enterprise%20agents%20with%20Azure%20AI%20Search/SUMMARY.md)**  
   *Retrieval-Augmented Generation with Azure AI Search*
 
 #### 🌐 Developer Tools & Productivity
 
-- **[Git Workflow with VS Code](202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/README.Sonnet4.md)** ⭐️  
+- **[Git Workflow with VS Code](events/202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/README.Sonnet4.md)** ⭐️  
   *Advanced Git workflows and VS Code integration techniques*
-- **[Debug Like a Pro](202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/README.Sonnet4.md)**  
+- **[Debug Like a Pro](events/202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/README.Sonnet4.md)**  
   *Visual Studio debugging with AI-powered Copilot assistance*
-- **[Model Context Protocol (MCP) Servers](202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/README.Sonnet4.md)**  
+- **[Model Context Protocol (MCP) Servers](events/202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/README.Sonnet4.md)**  
   *Building and deploying your first MCP server for AI integration*
-- **[Agent Mode for Serious Developers](202506%20Build%202025/DEM519%20Agent%20mode%20for%20serious%20developers/README.Sonnet4.md)**  
+- **[Agent Mode for Serious Developers](events/202506%20Build%202025/DEM519%20Agent%20mode%20for%20serious%20developers/README.Sonnet4.md)**  
   *Next-generation development with AI agents*
 
 #### 💻 .NET & C# Development
 
-- **[C# 14 Language Features](202506%20Build%202025/BRK114%20CS%2014%20Language%20Features%20and%20Beyond/README.Sonnet4.md)** ⭐️  
+- **[C# 14 Language Features](events/202506%20Build%202025/BRK114%20CS%2014%20Language%20Features%20and%20Beyond/README.Sonnet4.md)** ⭐️  
   *Latest C# language enhancements and best practices*
-- **[.NET App Modernization](202506%20Build%202025/BRK101%20Dotnet%20app%20modernization/README.Sonnet4.md)**  
+- **[.NET App Modernization](events/202506%20Build%202025/BRK101%20Dotnet%20app%20modernization/README.Sonnet4.md)**  
   *AI-powered strategies for modernizing .NET applications*
-- **[Write Better C# Code](202506%20Build%202025/DEM515%20Write%20better%20C%23%20code/README.GPT5.md)**  
+- **[Write Better C# Code](events/202506%20Build%202025/DEM515%20Write%20better%20C%23%20code/README.GPT5.md)**  
   *Code quality, patterns, and best practices*
 
 ---
@@ -84,9 +84,9 @@ Troubleshooting guides for GitHub Actions, CI/CD, authentication, and developmen
 
 #### 🔐 Security & Identity
 
-- **[Azure AD External Users Authentication](20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/01.%20External%20Users%20Authentication%20in%20Azure%20AD%20Explained.md)** 🆕  
+- **[Azure AD External Users Authentication](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/01.%20External%20Users%20Authentication%20in%20Azure%20AD%20Explained.md)** 🆕  
   *Understanding external user authentication in Azure AD*
-- **[External Users Types & Invitation Process](20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/02.%20External%20Users%20types%20and%20invitation%20process.md)** 🆕  
+- **[External Users Types & Invitation Process](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/02.%20External%20Users%20types%20and%20invitation%20process.md)** 🆕  
   *B2B collaboration and guest access management*
 
 #### 💾 Data & Storage Services
@@ -257,11 +257,16 @@ Troubleshooting guides for GitHub Actions, CI/CD, authentication, and developmen
 
 ## 🚀 Recent Additions
 
-🆕 **Azure AD External Users** - Authentication and B2B collaboration  
-🆕 **Azure Web Apps** - Complete Q&A and CLI guides  
-🆕 **Blob Storage** - Access options and limitations  
-🆕 **API Testing** - Comprehensive HTTP testing tools comparison  
-🆕 **Build 2025** - 40+ session notes from Microsoft Build
+🆕 **[Nov 02] [Azure AD External Users](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/)** - Complete authentication and B2B collaboration guide  
+🆕 **[Oct 21] [Blob Storage Access](202510%20Developer%20Update/20251021%20BlobStorage%20Access%20options/)** - Access options, limitations, and best practices  
+🆕 **[Oct 10] [Azure Web Apps](202510%20Developer%20Update/01.%20Azure%20Apps/)** - Complete Q&A, limitations, and CLI guides  
+🆕 **[Oct 10] [Azure Functions](202510%20Developer%20Update/01.%20Azure%20Functions/)** - Serverless development Q&A and constraints  
+🆕 **[Oct 10] [Azure Key Vault](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/)** - Secrets management and best practices  
+🆕 **[Oct 10] [Azure App Configuration](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/)** - Configuration management patterns  
+🆕 **[Oct 10] [Azure Containers](202510%20Developer%20Update/05.%20Azure%20Containers/)** - Container Apps and environments  
+🆕 **[Oct 10] [C# DateTime Formatting](202510%20Developer%20Update/Lang01%20CSharp/01.%20Format%20strings%20-%20DateTime,%20DateTimeOffset%20and%20TimeSpan.md)** - Complete format strings guide  
+🆕 **[Jul 13] [API Testing](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/)** - Comprehensive HTTP testing tools comparison  
+🆕 **[Jun 25] [Build 2025](events/202506%20Build%202025/)** - 40+ session notes from Microsoft Build
 
 ---
 
@@ -314,19 +319,31 @@ See [LICENSE](LICENSE) file for details.
 - **[Query Cost Metrics with Diginsight](20250817%20Query%20Cost%20Metrics%20with%20Diginsight/README-CosmosDbQueryCostMetrics.md)**  
   *Performance monitoring and cost optimization*
 
-## 📅 Latest Content (October 2025)
+## 📅 Latest Content (November 2025)
 
 ### Recent Additions
 
-- **[Oct 18] [GitHub Actions Artifact Storage Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/README.md)** - Solution for workflow storage quota issues
-- **[Oct 13] [No-IP DDNS Setup Guide](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/README.md)** - Complete home computer exposure tutorial
+- **[Nov 02] [Azure AD External Users Authentication](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/01.%20External%20Users%20Authentication%20in%20Azure%20AD%20Explained.md)** - Understanding external user authentication in Azure AD
+- **[Nov 02] [External Users Types & Invitation](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/02.%20External%20Users%20types%20and%20invitation%20process.md)** - B2B collaboration and guest access management
+- **[Oct 21] [Blob Storage Access Options](202510%20Developer%20Update/20251021%20BlobStorage%20Access%20options/01.%20Blob%20Storage%20Access%20options.md)** - Accessing and managing Azure Blob Storage
+- **[Oct 21] [Blob Storage Limitations](202510%20Developer%20Update/20251021%20BlobStorage%20Access%20options/02.%20Blob%20Storage%20Limitations.md)** - Understanding service limits and constraints
+- **[Oct 18] [GitHub Actions Artifact Storage Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)** - Solution for workflow storage quota issues
+- **[Oct 13] [No-IP DDNS Setup Guide](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/HowTo.Expose%20My%20Computer%20with%20No-IP%20DDNS.md)** - Complete home computer exposure tutorial
+- **[Oct 10] [Azure Container Apps](202510%20Developer%20Update/05.%20Azure%20Containers/01.%20Azure%20Container%20App.md)** - Introduction to Azure Container Apps
+- **[Oct 10] [Azure Containers Q&A](202510%20Developer%20Update/05.%20Azure%20Containers/99.%20Azure%20Containers%20QA.md)** - Common questions about container services
 - **[Oct 10] [Azure Monitor Q&A](202510%20Developer%20Update/04.%20Monitor%20App%20Performance/01.%20Azure%20Monitor%20QA.md)** - Application performance monitoring essentials
 - **[Oct 10] [Azure App Configuration Exercise](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/03.%20Azure%20App%20Configuration%20Exercise.md)** - Hands-on Key Vault integration
 - **[Oct 10] [Azure App Configuration Q&A](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/01.%20Azure%20App%20Configuration%20QA.md)** - Configuration management patterns
 - **[Oct 10] [Azure Key Vault Limitations](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/02.%20Azure%20Key%20Vault%20Limitations.md)** - Understanding service constraints
 - **[Oct 10] [Azure Key Vault Q&A](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/01.%20Azure%20KeyVault%20QA.md)** - Key management best practices
+- **[Oct 10] [HowTo: Create and Retrieve Secrets](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/03.%20HowTo.Create%20and%20retrieve%20secrets%20from%20Azure%20Key%20Vault.md)** - Step-by-step Key Vault operations
 - **[Oct 10] [Azure Functions Limitations](202510%20Developer%20Update/01.%20Azure%20Functions/02.%20Azure%20Functions%20Limitations.md)** - Service constraints and workarounds
 - **[Oct 10] [Azure Functions Q&A](202510%20Developer%20Update/01.%20Azure%20Functions/01.%20Azure%20Functions%20QA.md)** - Serverless development essentials
+- **[Oct 10] [Azure Web Apps Q&A](202510%20Developer%20Update/01.%20Azure%20Apps/01.%20Azure%20Apps%20QA.md)** - Common questions about Azure Web Apps
+- **[Oct 10] [Azure Web App Limitations](202510%20Developer%20Update/01.%20Azure%20Apps/02.%20Azure%20WebApp%20Limitations.md)** - Service constraints and workarounds
+- **[Oct 10] [Azure Web App CLI Guide](202510%20Developer%20Update/01.%20Azure%20Apps/04.%20Azure%20Web%20App%20CLI%20Commands%20Guide.md)** - Comprehensive CLI commands reference
+- **[Oct 10] [C# DateTime Format Strings](202510%20Developer%20Update/Lang01%20CSharp/01.%20Format%20strings%20-%20DateTime,%20DateTimeOffset%20and%20TimeSpan.md)** - Complete formatting guide
+- **[Oct 10] [GitHub CLI Commands](202510%20Developer%20Update/Cli/Cli%20commands%20for%20Github.md)** - GitHub CLI reference
 - **[Oct 05] [Podcast & RSS Feed Analysis](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)** - Feed architecture and protocols deep-dive
 - **[Sep 02] [Learning Hub Overview](20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - New conceptual framework for learning
 - **[Aug 27] [YQ Overview](20250827%20what%20is%20yq%20overview/README.md)** - YAML processing tool comprehensive guide
@@ -366,6 +383,8 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 | **BRK226** | Development Productivity | Developer Tools | Beginner |
 | **BRK229** | Copilot Solutions & MCP | Integration Patterns | Advanced |
 
+> 📁 Browse all [Build 2025 sessions](events/202506%20Build%202025/)
+
 ### Hands-On Demonstrations
 
 | Demo | Topic | Duration | Level |
@@ -391,10 +410,10 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 #### 🔷 .NET Ecosystem
 
-- [.NET Aspire Development](202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/) *(Build 2025)*
-- [C# 14 Language Features](202506%20Build%202025/BRK114%20CS%2014%20Language%20Features%20and%20Beyond/) *(Build 2025)*
-- [.NET App Modernization](202506%20Build%202025/BRK101%20Dotnet%20app%20modernization/) *(Build 2025)*
-- [Testing with Playwright](202506%20Build%202025/DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/) *(Build 2025)*
+- [.NET Aspire Development](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/) *(Build 2025)*
+- [C# 14 Language Features](events/202506%20Build%202025/BRK114%20CS%2014%20Language%20Features%20and%20Beyond/) *(Build 2025)*
+- [.NET App Modernization](events/202506%20Build%202025/BRK101%20Dotnet%20app%20modernization/) *(Build 2025)*
+- [Testing with Playwright](events/202506%20Build%202025/DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/) *(Build 2025)*
 
 :::
 
@@ -422,9 +441,9 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 - [Quarto Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/)
 - [yq YAML Processor](20250827%20what%20is%20yq%20overview/)
 - [No-IP DDNS Setup](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/)
-- [Debug Like a Pro](202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/) *(Build 2025)*
-- [VS Code Git Workflow](202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/) *(Build 2025)*
-- [PowerToys Extensions](202506%20Build%202025/DEM571%20Extending%20your%20application%20with%20powertoys/) *(Build 2025)*
+- [Debug Like a Pro](events/202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/) *(Build 2025)*
+- [VS Code Git Workflow](events/202506%20Build%202025/BRK122%20Supercharge%20Your%20Git%20workflow%20with%20VS%20Code/) *(Build 2025)*
+- [PowerToys Extensions](events/202506%20Build%202025/DEM571%20Extending%20your%20application%20with%20powertoys/) *(Build 2025)*
 
 :::
 
@@ -432,12 +451,12 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 #### 🤖 AI & Machine Learning
 
-- [Local AI Development](202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/) *(Build 2025)*
-- [MCP Server Development](202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/) *(Build 2025)*
-- [AI Apps with Graph Data](202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/) *(Build 2025)*
-- [Azure AI Foundry](202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/) *(Build 2025)*
-- [Windows AI APIs](202506%20Build%202025/BRK224%20Integrate%20AI%20using%20Windows%20AI%20APIs/) *(Build 2025)*
-- [Local LLM Deployment](202506%20Build%202025/DEM524%20Running%20Large%20Language%20Models%20on%20your%20local%20machine/) *(Build 2025)*
+- [Local AI Development](events/202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/) *(Build 2025)*
+- [MCP Server Development](events/202506%20Build%202025/DEM517%20Build,%20Deploy,%20&%20Use%20Your%20First%20MCP%20Server/) *(Build 2025)*
+- [AI Apps with Graph Data](events/202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/) *(Build 2025)*
+- [Azure AI Foundry](events/202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/) *(Build 2025)*
+- [Windows AI APIs](events/202506%20Build%202025/BRK224%20Integrate%20AI%20using%20Windows%20AI%20APIs/) *(Build 2025)*
+- [Local LLM Deployment](events/202506%20Build%202025/DEM524%20Running%20Large%20Language%20Models%20on%20your%20local%20machine/) *(Build 2025)*
 
 :::
 
@@ -445,10 +464,10 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 #### 🏢 Microsoft 365 & Copilot
 
-- [365 Copilot Agents SDK](202506%20Build%202025/BRK163%20Create%20agents%20for%20365%20Copilot%20with%20365%20Agents%20SDK/) *(Build 2025)*
-- [Building 365 Copilot Agents](202506%20Build%202025/BRK165%20Building%20agents%20for%20Microsoft%20365%20Copilot/) *(Build 2025)*
-- [Copilot Studio Solutions](202506%20Build%202025/BRK176%20agent%20solutions%20with%20Copilot%20Studio%20and%20M365%20Agents%20SDK/) *(Build 2025)*
-- [Copilot Solutions Overview](202506%20Build%202025/BRK229%20Introducing%20Copilot%20Solutions/) *(Build 2025)*
+- [365 Copilot Agents SDK](events/202506%20Build%202025/BRK163%20Create%20agents%20for%20365%20Copilot%20with%20365%20Agents%20SDK/) *(Build 2025)*
+- [Building 365 Copilot Agents](events/202506%20Build%202025/BRK165%20Building%20agents%20for%20Microsoft%20365%20Copilot/) *(Build 2025)*
+- [Copilot Studio Solutions](events/202506%20Build%202025/BRK176%20agent%20solutions%20with%20Copilot%20Studio%20and%20M365%20Agents%20SDK/) *(Build 2025)*
+- [Copilot Solutions Overview](events/202506%20Build%202025/BRK229%20Introducing%20Copilot%20Solutions/) *(Build 2025)*
 
 :::
 
@@ -458,7 +477,7 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 - [OpenTelemetry Implementation](20250808%20OpenTelemetry/)
 - [Cost Metrics with Diginsight](20250817%20Query%20Cost%20Metrics%20with%20Diginsight/)
-- [Sentry & Copilot Integration](202506%20Build%202025/ODFP957%20Sentry%20and%20Copilot%20Integration%20for%20AI%20Debugging/) *(Build 2025)*
+- [Sentry & Copilot Integration](events/202506%20Build%202025/ODFP957%20Sentry%20and%20Copilot%20Integration%20for%20AI%20Debugging/) *(Build 2025)*
 
 :::
 
@@ -509,12 +528,12 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 1. **Foundation**: Start with [Azure Naming Conventions](20250702%20Azure%20Naming%20conventions/) for enterprise-grade practices
 2. **Productivity**: Explore [HTTP File Testing](20250711%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/) for immediate gains
-3. **Modern Development**: Deep dive into [.NET Aspire](202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/) for cloud-native applications
-4. **AI Integration**: Begin with [Local AI Development](202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/)
+3. **Modern Development**: Deep dive into [.NET Aspire](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/) for cloud-native applications
+4. **AI Integration**: Begin with [Local AI Development](events/202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/)
 
 ### For Conference Attendees
 
-Browse the comprehensive [Build 2025 session notes](202506%20Build%202025/) featuring:
+Browse the comprehensive [Build 2025 session notes](events/202506%20Build%202025/) featuring:
 
 - **30+ session breakdowns** with detailed notes and timestamps
 - **Code examples** and practical implementations
