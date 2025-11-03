@@ -12,11 +12,11 @@ project:
     - "**/README.md"
     - "**/SUMMARY.md"
     - "**/*.md"
-    - "20250702 Azure Naming conventions/README.md"
+    - "tech/Azure/20250702 Azure Naming conventions/README.md"
     - "202510 Developer Update/20250704 TableStorageAccess options/README.md"
     - "202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.md"
     - "202510 Developer Update/20250706 CosmosDB Access options/02. CosmosDB Partitioning Strategies.md"
-    - "20250709 Manage GitRepo from commandline/README.md"
+    - "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
     - "20250711 Use http files for easy and repeatable test/README.md"
     - "20250712 Use QUARTO doc for Github repos doc/000.000 README.md"
     - "20250713 Use http files for easy and repeatable test/README.md"
@@ -31,7 +31,7 @@ project:
     - "events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.md"
     # Add recently created content
     - "20250723 EventHub Access options/README.md"
-    - "20250825 Github repositories limitations/README.md"
+    - "tech/Github/01.Repositories/20250825 Github repositories limitations/README.md"
     - "20250827 what is yq overview/README.md"
     - "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
     - "20250815 DIY ebike/SUMMARY.md"
@@ -71,16 +71,16 @@ project:
     - "tech/Authentication/20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.md"
     # Add HTTP Testing articles
     - "20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.md"
-    - "20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client).md"
+    - "20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client)"
     - "20250713 Use http files for easy and repeatable test/02. Using HTTP Files for API Testing (Visual Studio).md"
     # Add DDNS article
     - "20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.md"
     # Add GitHub Actions issue solution
-    - "20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.md"
-    - "20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.md"
-    - "20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.md"
-    - "20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.md"
-    - "20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.md"
+    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.md"
+    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.md"
+    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.md"
+    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.md"
+    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.md"
 
 website:
   title: "Dario's Learning Journey"
@@ -189,7 +189,7 @@ website:
       - text: "Azure"
         menu:
           - text: "Azure Best Practices"
-            href: "20250702 Azure Naming conventions/README.md"
+            href: "tech/Azure/20250702 Azure Naming conventions/README.md"
           - text: "---"
           - text: "Security & Identity"
           - href: "tech/Authentication/20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.md"
@@ -246,7 +246,7 @@ website:
             text: "Azure Containers Q&A"
       - text: "Development Tools"
         menu:
-          - href: "20250709 Manage GitRepo from commandline/README.md"
+          - href: "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
             text: "Git Command Line"
           - href: "202510 Developer Update/Cli/Cli commands for Github.md"
             text: "GitHub CLI Commands"
@@ -254,7 +254,7 @@ website:
           - text: "API Testing"
           - href: "20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.md"
             text: "HTTP/REST API Testing Tools Comparison"
-          - href: "20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client).md"
+          - href: "20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client)"
             text: "VS Code REST Client Guide"
           - href: "20250713 Use http files for easy and repeatable test/02. Using HTTP Files for API Testing (Visual Studio).md"
             text: "Visual Studio HTTP Files Guide"
@@ -508,7 +508,7 @@ website:
         contents:
           - section: "Azure Best Practices"
             contents:
-              - href: "20250702 Azure Naming conventions/README.md"
+              - href: "tech/Azure/20250702 Azure Naming conventions/README.md"
                 text: "Azure Naming Conventions"
           - section: "Security & Identity"
             contents:
@@ -581,9 +581,9 @@ website:
               - href: "20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.md"
                 text: "C# Reference Classes for Reading Feeds"
           - section: "Development Tools"
-            href: "20250709 Manage GitRepo from commandline/README.md"
+            href: "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
             contents:
-              - href: "20250709 Manage GitRepo from commandline/README.md"
+              - href: "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
                 text: "Git Command Line"
               - href: "202510 Developer Update/Cli/Cli commands for Github.md"
                 text: "GitHub CLI Commands"
@@ -652,19 +652,19 @@ website:
                 text: "Sample Issue Documentation"
           - section: "GitHub & CI/CD Issues"
             contents:
-              - href: "20250825 Github repositories limitations/README.md"
+              - href: "tech/Github/01.Repositories/20250825 Github repositories limitations/README.md"
                 text: "GitHub Repository Limitations"
               - section: "GitHub Actions: Artifact Storage Quota Fix"
                 contents:
-                  - href: "20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.md"
+                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.md"
                     text: "Overview"
-                  - href: "20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.md"
+                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.md"
                     text: "Quick Start"
-                  - href: "20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.md"
+                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.md"
                     text: "Solution Summary"
-                  - href: "20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.md"
+                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.md"
                     text: "Final Solution (No Artifacts)"
-                  - href: "20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.md"
+                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.md"
                     text: "WSL Error Fix"
       
       - text: "---"

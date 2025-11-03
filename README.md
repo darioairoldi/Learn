@@ -79,7 +79,7 @@ Troubleshooting guides for GitHub Actions, CI/CD, authentication, and developmen
 
 #### ☁️ Azure Best Practices
 
-- **[Azure Naming Conventions Guide](20250702%20Azure%20Naming%20conventions/README.md)** ⭐️  
+- **[Azure Naming Conventions Guide](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md)** ⭐️  
   *Comprehensive naming standards for Azure resources across environments*
 
 #### 🔐 Security & Identity
@@ -167,9 +167,9 @@ Troubleshooting guides for GitHub Actions, CI/CD, authentication, and developmen
 
 - **[HTTP/REST API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md)** 🆕 ⭐️  
   *Comprehensive comparison of API testing tools and approaches*
-- **[VS Code REST Client Guide](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/01.%20Using%20HTTP%20Files%20for%20API%20Testing%20(VSCode%20Rest%20Client).md)** 🆕  
+- **[VS Code REST Client Guide](<20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/01.%20Using%20HTTP%20Files%20for%20API%20Testing%20(VSCode%20Rest%20Client)>)** 🆕  
   *Using .http files in VS Code for API testing*
-- **[Visual Studio HTTP Files Guide](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/02.%20Using%20HTTP%20Files%20for%20API%20Testing%20(Visual%20Studio).md)** 🆕  
+- **[Visual Studio HTTP Files Guide](<20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/02.%20Using%20HTTP%20Files%20for%20API%20Testing%20(Visual%20Studio).md>)** 🆕  
   *HTTP file testing in Visual Studio*
 
 #### 📝 Documentation & Tools
@@ -178,7 +178,7 @@ Troubleshooting guides for GitHub Actions, CI/CD, authentication, and developmen
   *Creating beautiful documentation with Quarto*
 - **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)**  
   *Processing YAML files with yq command-line tool*
-- **[Git Command Line](20250709%20Manage%20GitRepo%20from%20commandline/README.md)**  
+- **[Git Command Line](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)**  
   *Essential Git commands for repository management*
 - **[GitHub CLI Commands](202510%20Developer%20Update/Cli/Cli%20commands%20for%20Github.md)**  
   *GitHub CLI reference guide*
@@ -204,17 +204,17 @@ Troubleshooting guides for GitHub Actions, CI/CD, authentication, and developmen
 
 #### 🚀 GitHub & CI/CD
 
-- **[GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/README.md)**  
+- **[GitHub Repository Limitations](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/README.md)**  
   *Understanding GitHub's service limits and constraints*
 
 **GitHub Actions: Artifact Storage Quota Fix** ✅
-- **[Overview](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)**  
+- **[Overview](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)**  
   *Understanding the artifact storage quota issue*
-- **[Quick Start](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/02.%20QUICKSTART.md)**  
+- **[Quick Start](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/02.%20QUICKSTART.md)**  
   *Fast track to solving the problem*
-- **[Solution Summary](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/03.%20SOLUTION_SUMMARY.md)**  
+- **[Solution Summary](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/03.%20SOLUTION_SUMMARY.md)**  
   *Comprehensive solution overview*
-- **[Final Solution](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/05.%20FINAL_SOLUTION_NO_ARTIFACTS.md)**  
+- **[Final Solution](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/05.%20FINAL_SOLUTION_NO_ARTIFACTS.md)**  
   *Deploy without using artifacts*
 
 ---
@@ -290,13 +290,13 @@ See [LICENSE](LICENSE) file for details.
 **Conference Sessions**: 40+  
 **Azure Services Covered**: 15+
 
-- **[Testing with .NET Aspire and Playwright](202506%20Build%202025/DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/README.Sonnet4.md)** *(Build 2025)*  
+- **[Testing with .NET Aspire and Playwright](events/202506%20Build%202025/DEM508%20Streamlining%20Application%20Testing%20with%20.NET%20Aspire%20and%20Playwright/README.Sonnet4.md)** *(Build 2025)*  
   *Modern testing approaches for cloud-native applications*
 - **[HTTP Files for API Testing](20250711%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/README.md)**  
   *Streamlined API testing with HTTP files*
-- **[Debug Like a Pro](202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/README.Sonnet4.md)** *(Build 2025)*  
+- **[Debug Like a Pro](events/202506%20Build%202025/BRK119%20Debug%20Like%20a%20Pro%20-%20Improve%20Your%20Efficiency/README.Sonnet4.md)** *(Build 2025)*  
   *Advanced debugging techniques and productivity tips*
-- **[Git Command Line](20250709%20Manage%20GitRepo%20from%20commandline/README.md)**  
+- **[Git Command Line](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)**  
   *Efficient repository management from the command line*
 - **[Quarto Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)**  
   *Professional documentation with GitHub Pages*
@@ -305,16 +305,16 @@ See [LICENSE](LICENSE) file for details.
 
 #### 🌐 Infrastructure & Networking
 
-- **[No-IP DDNS Setup](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/README.md)**  
+- **[No-IP DDNS Setup](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/HowTo.Expose%20My%20Computer%20with%20No-IP%20DDNS.md)**  
   *Complete guide to exposing your computer with dynamic DNS*
 - **[Podcast & RSS Feed Analysis](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)**  
   *Feed architectures and protocol analysis*
 
 #### 🐛 Troubleshooting & Solutions
 
-- **[GitHub Actions Storage Quota Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/README.md)**  
+- **[GitHub Actions Storage Quota Fix](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)**  
   *Solving artifact storage quota issues in GitHub Actions*
-- **[GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/README.md)**  
+- **[GitHub Repository Limitations](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/README.md)**  
   *Strategies for working with free tier constraints*
 - **[Query Cost Metrics with Diginsight](20250817%20Query%20Cost%20Metrics%20with%20Diginsight/README-CosmosDbQueryCostMetrics.md)**  
   *Performance monitoring and cost optimization*
@@ -327,7 +327,7 @@ See [LICENSE](LICENSE) file for details.
 - **[Nov 02] [External Users Types & Invitation](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/02.%20External%20Users%20types%20and%20invitation%20process.md)** - B2B collaboration and guest access management
 - **[Oct 21] [Blob Storage Access Options](202510%20Developer%20Update/20251021%20BlobStorage%20Access%20options/01.%20Blob%20Storage%20Access%20options.md)** - Accessing and managing Azure Blob Storage
 - **[Oct 21] [Blob Storage Limitations](202510%20Developer%20Update/20251021%20BlobStorage%20Access%20options/02.%20Blob%20Storage%20Limitations.md)** - Understanding service limits and constraints
-- **[Oct 18] [GitHub Actions Artifact Storage Fix](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)** - Solution for workflow storage quota issues
+- **[Oct 18] [GitHub Actions Artifact Storage Fix](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)** - Solution for workflow storage quota issues
 - **[Oct 13] [No-IP DDNS Setup Guide](20251013%20HowTo%20Expose%20My%20Computer%20with%20No-IP%20DDNS/HowTo.Expose%20My%20Computer%20with%20No-IP%20DDNS.md)** - Complete home computer exposure tutorial
 - **[Oct 10] [Azure Container Apps](202510%20Developer%20Update/05.%20Azure%20Containers/01.%20Azure%20Container%20App.md)** - Introduction to Azure Container Apps
 - **[Oct 10] [Azure Containers Q&A](202510%20Developer%20Update/05.%20Azure%20Containers/99.%20Azure%20Containers%20QA.md)** - Common questions about container services
@@ -347,7 +347,7 @@ See [LICENSE](LICENSE) file for details.
 - **[Oct 05] [Podcast & RSS Feed Analysis](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)** - Feed architecture and protocols deep-dive
 - **[Sep 02] [Learning Hub Overview](20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - New conceptual framework for learning
 - **[Aug 27] [YQ Overview](20250827%20what%20is%20yq%20overview/README.md)** - YAML processing tool comprehensive guide
-- **[Aug 25] [GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/README.md)** - Strategies for free tier constraints
+- **[Aug 25] [GitHub Repository Limitations](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/README.md)** - Strategies for free tier constraints
 - **[Aug 17] [Query Cost Metrics with Diginsight](20250817%20Query%20Cost%20Metrics%20with%20Diginsight/README-CosmosDbQueryCostMetrics.md)** - Performance monitoring solutions
 - **[Aug 15] [DIY E-bike Guide](20250815%20DIY%20ebike/SUMMARY.md)** & **[Battery Pack](20250815%20DIY%20Battery%20Pack/README.md)** - Hardware projects and technical guides
 - **[Jul 23] [EventHub Access Options](20250723%20EventHub%20Access%20options/README.md)** - Azure event streaming solutions
@@ -421,14 +421,14 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 #### ☁️ Azure Services
 
-- [Resource Naming Conventions](20250702%20Azure%20Naming%20conventions/)
+- [Resource Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/)
 - [Azure Functions](202510%20Developer%20Update/01.%20Azure%20Functions/)
 - [Key Vault](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/)
 - [App Configuration](202510%20Developer%20Update/03.%20Azure%20App%20Configuration/)
-- [Table Storage Access](20250704%20TableStorageAccess%20options/)
-- [CosmosDB Optimization](20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)
+- [Table Storage Access](202510%20Developer%20Update/20250704%20TableStorageAccess%20options/)
+- [CosmosDB Optimization](202510%20Developer%20Update/20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)
 - [EventHub Integration](20250723%20EventHub%20Access%20options/)
-- [Azure AI Search & RAG](202506%20Build%202025/BRK141%20RAG%20for%20enterprise%20agents%20with%20Azure%20AI%20Search/) *(Build 2025)*
+- [Azure AI Search & RAG](events/202506%20Build%202025/BRK141%20RAG%20for%20enterprise%20agents%20with%20Azure%20AI%20Search/) *(Build 2025)*
 
 :::
 
@@ -436,7 +436,7 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 #### 🛠️ Development Tools
 
-- [Git Command Line](20250709%20Manage%20GitRepo%20from%20commandline/)
+- [Git Command Line](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/)
 - [HTTP File Testing](20250711%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/)
 - [Quarto Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/)
 - [yq YAML Processor](20250827%20what%20is%20yq%20overview/)
@@ -485,8 +485,8 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 #### 🐛 Issues & Solutions
 
-- [GitHub Actions Storage Quota](20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/)
-- [GitHub Repository Limits](20250825%20Github%20repositories%20limitations/)
+- [GitHub Actions Storage Quota](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/)
+- [GitHub Repository Limits](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/)
 - [Visual Studio Clone Error](https://github.com/darioairoldi/Learn/tree/main/_ISSUES/20250709%20fatal%20error%20cloning%20a%20repo%20with%20Visual%20Studio)
 
 :::
@@ -526,7 +526,7 @@ Microsoft Build 2025 sessions with actionable insights and practical examples:
 
 ### For Developers New to the Topics
 
-1. **Foundation**: Start with [Azure Naming Conventions](20250702%20Azure%20Naming%20conventions/) for enterprise-grade practices
+1. **Foundation**: Start with [Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/) for enterprise-grade practices
 2. **Productivity**: Explore [HTTP File Testing](20250711%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/) for immediate gains
 3. **Modern Development**: Deep dive into [.NET Aspire](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/) for cloud-native applications
 4. **AI Integration**: Begin with [Local AI Development](events/202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/)
@@ -585,7 +585,7 @@ Each article includes:
 - [DIY Battery Pack](20250815%20DIY%20Battery%20Pack/) - Battery management and safety
 
 ### Platform Limitations & Solutions
-- [GitHub Repository Limitations](20250825%20Github%20repositories%20limitations/) - Comprehensive strategies for free tier constraints
+- [GitHub Repository Limitations](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/) - Comprehensive strategies for free tier constraints
 - [YQ Overview](20250827%20what%20is%20yq%20overview/) - YAML processing and manipulation
 
 ### Travel & Documentation
