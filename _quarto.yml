@@ -12,6 +12,7 @@ project:
     - "**/README.md"
     - "**/SUMMARY.md"
     - "**/*.md"
+    - "_howto/**/*.md"
     - "tech/Azure/20250702 Azure Naming conventions/README.md"
     - "202510 Developer Update/20250704 TableStorageAccess options/README.md"
     - "202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.md"
@@ -269,7 +270,9 @@ website:
           - href: "202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.md"
             text: "C# DateTime Format Strings"
           - text: "---"
-          - text: "Networking"
+          - text: "HowTo Guides"
+          - href: "_howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md"
+            text: "Configure .prompt Files for Markdown Preview"
           - href: "20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.md"
             text: "No-IP DDNS Setup"
       # - text: "Development Tools"
@@ -635,8 +638,10 @@ website:
             contents:
               - href: "202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.md"
                 text: "C# DateTime Format Strings"
-          - section: "Networking & Infrastructure"
+          - section: "HowTo Guides"
             contents:
+              - href: "_howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md"
+                text: "Configure .prompt Files for Markdown Preview in VS"
               - href: "20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.md"
                 text: "Expose Computer with No-IP DDNS"
       

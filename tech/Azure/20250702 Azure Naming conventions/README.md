@@ -40,7 +40,9 @@ This document establishes a standardized naming convention for Azure resources b
 **Document Information:**
 - **Version**: 2.0
 - **Date**: October 19, 2025
-- **Based on**: [Microsoft Cloud Adoption Framework - Resource Naming](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
+- **Based on**: 
+  - [Microsoft Cloud Adoption Framework - Resource Naming](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
+  - [Microsoft CAF - Official Resource Abbreviations](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
 
 ---
 
@@ -280,6 +282,14 @@ Standard Azure region abbreviations (2-4 letters):
 | **Managed Identity** | `mi` or `id` | Resource Group | 3-128 | Alphanumerics, underscores, hyphens | `samples-prod-id-eus-01` |
 
 **Note**: Microsoft's official abbreviation for Key Vault is `kv` and for Managed Identity is `id`.
+
+### Backup & Disaster Recovery
+
+| Resource Type | Abbreviation | Scope | Length | Valid Characters | Example |
+|---------------|--------------|-------|--------|------------------|---------|
+| **Recovery Services Vault** | `rsv` | Resource Group | 2-50 | Alphanumerics and hyphens, start/end with alphanumeric | `samples-prod-rsv-eus-01` |
+
+**Note**: Recovery Services Vault uses `rsv` per Microsoft CAF official abbreviations.
 
 ---
 
@@ -807,6 +817,7 @@ This pattern provides the best balance between Microsoft's recommendations and p
 | AKS Cluster | `aks` | Container Instance | `ci` | Data Factory | `adf` |
 | Synapse Workspace | `synw` | Databricks | `dbw` | Fabric Capacity | `fc` |
 | Stream Analytics | `asa` | Data Lake Storage | `dls` | File Share | `share` |
+| Recovery Services Vault | `rsv` | | | | |
 
 #### Common Environment Codes
 
