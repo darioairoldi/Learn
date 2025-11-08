@@ -462,7 +462,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">C# DateTime Format Strings</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Networking</li>
+        <li class="dropdown-header">HowTo Guides</li>
+        <li>
+    <a class="dropdown-item" href="../../../_howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md">
+ <span class="dropdown-text">Configure .prompt Files for Markdown Preview</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../../20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html">
  <span class="dropdown-text">No-IP DDNS Setup</span></a>
@@ -1776,12 +1780,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true">
- <span class="menu-text">Networking &amp; Infrastructure</span></a>
+ <span class="menu-text">HowTo Guides</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-51" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-51" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../_howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Configure .prompt Files for Markdown Preview in VS</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html" class="sidebar-item-text sidebar-link">
@@ -1967,6 +1977,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#container-orchestration" id="toc-container-orchestration" class="nav-link" data-scroll-target="#container-orchestration">Container Orchestration</a></li>
   <li><a href="#analytics-data-platform" id="toc-analytics-data-platform" class="nav-link" data-scroll-target="#analytics-data-platform">Analytics &amp; Data Platform</a></li>
   <li><a href="#security-services" id="toc-security-services" class="nav-link" data-scroll-target="#security-services">Security Services</a></li>
+  <li><a href="#backup-disaster-recovery" id="toc-backup-disaster-recovery" class="nav-link" data-scroll-target="#backup-disaster-recovery">Backup &amp; Disaster Recovery</a></li>
   </ul></li>
   <li><a href="#practical-examples" id="toc-practical-examples" class="nav-link" data-scroll-target="#practical-examples">Practical Examples</a>
   <ul class="collapse">
@@ -2059,7 +2070,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 3, 2025</p>
+      <p class="date-modified">November 8, 2025</p>
     </div>
   </div>
     
@@ -2101,7 +2112,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Version</strong>: 2.0</li>
 <li><strong>Date</strong>: October 19, 2025</li>
-<li><strong>Based on</strong>: <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft Cloud Adoption Framework - Resource Naming</a></li>
+<li><strong>Based on</strong>:
+<ul>
+<li><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Microsoft Cloud Adoption Framework - Resource Naming</a></li>
+<li><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations">Microsoft CAF - Official Resource Abbreviations</a></li>
+</ul></li>
 </ul>
 <hr>
 </section>
@@ -3124,6 +3139,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><strong>Note</strong>: Microsoft’s official abbreviation for Key Vault is <code>kv</code> and for Managed Identity is <code>id</code>.</p>
+</section>
+<section id="backup-disaster-recovery" class="level3">
+<h3 class="anchored" data-anchor-id="backup-disaster-recovery">Backup &amp; Disaster Recovery</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 25%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource Type</th>
+<th>Abbreviation</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Recovery Services Vault</strong></td>
+<td><code>rsv</code></td>
+<td>Resource Group</td>
+<td>2-50</td>
+<td>Alphanumerics and hyphens, start/end with alphanumeric</td>
+<td><code>samples-prod-rsv-eus-01</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Recovery Services Vault uses <code>rsv</code> per Microsoft CAF official abbreviations.</p>
 <hr>
 </section>
 </section>
@@ -3780,6 +3829,14 @@ var webAppName = '${workloadName}-${environmentName}-app-${regionCode}-${instanc
 <td><code>dls</code></td>
 <td>File Share</td>
 <td><code>share</code></td>
+</tr>
+<tr class="odd">
+<td>Recovery Services Vault</td>
+<td><code>rsv</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
