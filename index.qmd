@@ -88,13 +88,14 @@ Check the [Issues & Solutions](tech/Github/02.Actions/) section for troubleshoot
 - **[Quarto Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)** - Beautiful docs with Quarto
 - **[Git Command Line](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)** - Essential Git workflows
 - **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)** - YAML processing tool
-- **[Configure .prompt Files](_howto/20251108%20HowTo%20-%20Configure%20Promot%20Files%20for%20Markdown%20Preview%20in%20Visual%20Studio.md)** - VS markdown preview setup 🆕
+- **[Configure .prompt Files](howto/20251108%20HowTo%20-%20Configure%20Promot%20Files%20for%20Markdown%20Preview%20in%20Visual%20Studio.md)** - VS markdown preview setup 🆕
 
 ### 🐛 **Problem Solving**
 
 - **[GitHub Actions Artifact Quota Fix](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)** - CI/CD storage solutions ✅
-- **[VS Clone Error Fix](_ISSUES/20250709%20fatal%20error%20cloning%20a%20repo%20with%20Visual%20Studio/README.md)** - Repository cloning issues ✅
+- **[VS Clone Error on ReFS](issues/20250709%20fatal%20error%20cloning%20a%20repo%20with%20Visual%20Studio/README.md)** - Repository cloning issues on ReFS ✅
 - **[GitHub Repository Limitations](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/README.md)** - Service constraints
+- **[FeedId Cannot Contain Forward Slash](issues/20251107%20FeedId%20cannot%20contain%20forward%20slash/ISSUE%20Template.md)** - Issue template 🆕
 
 ---
 
