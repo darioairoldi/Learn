@@ -86,6 +86,13 @@ project:
     - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.md"
     - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.md"
     - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.md"
+    # Add Prompt Engineering articles
+    - "tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md"
+    - "tech/PromptEngineering/01.01 Q&A Github copilot uses prompt and markdown files.md"
+    - "tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.md"
+    - "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
+    # Add Hardware article
+    - "tech/Hardware/Surface Laptop 6 Features analysis.md"
 
 website:
   title: "Dario's Learning Journey"
@@ -256,6 +263,16 @@ website:
           - href: "202510 Developer Update/Cli/Cli commands for Github.md"
             text: "GitHub CLI Commands"
           - text: "---"
+          - text: "AI & Prompt Engineering"
+          - href: "tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md"
+            text: "How GitHub Copilot Uses Markdown and Prompt Folders"
+          - href: "tech/PromptEngineering/01.01 Q&A Github copilot uses prompt and markdown files.md"
+            text: "Q&A: GitHub Copilot Prompt and Markdown Files"
+          - href: "tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.md"
+            text: "How to Name and Organize Prompt Files"
+          - href: "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
+            text: "How to Structure Content for Copilot Prompt Files"
+          - text: "---"
           - text: "API Testing"
           - href: "20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.md"
             text: "HTTP/REST API Testing Tools Comparison"
@@ -273,6 +290,10 @@ website:
           - text: "Programming Languages"
           - href: "202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.md"
             text: "C# DateTime Format Strings"
+          - text: "---"
+          - text: "Hardware"
+          - href: "tech/Hardware/Surface Laptop 6 Features analysis.md"
+            text: "Surface Laptop 6 Features Analysis"
           - text: "---"
           - text: "HowTo Guides"
           - href: "howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md"
@@ -577,6 +598,16 @@ website:
       - section: "Tools"
         icon: tools
         contents:
+          - section: "AI & Prompt Engineering"
+            contents:
+              - href: "tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md"
+                text: "How GitHub Copilot Uses Markdown and Prompt Folders"
+              - href: "tech/PromptEngineering/01.01 Q&A Github copilot uses prompt and markdown files.md"
+                text: "Q&A: GitHub Copilot Prompt and Markdown Files"
+              - href: "tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.md"
+                text: "How to Name and Organize Prompt Files"
+              - href: "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
+                text: "How to Structure Content for Copilot Prompt Files"
           - section: "Feed Architectures & Protocols"
             contents:
               - href: "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
@@ -646,10 +677,12 @@ website:
             contents:
               - href: "howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md"
                 text: "Configure .prompt Files for Markdown Preview in VS"
-              - href: "_howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md"
-                text: "Configure .prompt Files for Markdown Preview in VS"
               - href: "20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.md"
                 text: "Expose Computer with No-IP DDNS"
+          - section: "Hardware"
+            contents:
+              - href: "tech/Hardware/Surface Laptop 6 Features analysis.md"
+                text: "Surface Laptop 6 Features Analysis"
       
       - section: "Issues & Solutions"
         icon: wrench-adjustable

@@ -1,173 +1,285 @@
 ---
 title: "Dario's Learning Journey"
-subtitle: "Technical Notes, Conference Insights & Development Guides"
+subtitle: "A Living Knowledge Base for Modern Software Development"
 date: last-modified
 author: "Dario Airoldi"
-description: "A comprehensive collection of technical learning notes, conference insights, Azure guides, and development solutions."
+description: "A comprehensive learning hub documenting my journey through modern software development—combining hands-on technical learning, conference insights, Azure guides, and practical solutions to real-world development challenges."
 ---
 
 # 🚀 Welcome to My Learning Hub
 
-This repository is a **living knowledge base** documenting my journey through modern software development. It combines hands-on technical learning with real-world problem solving, featuring conference insights, Azure cloud development guides, development tools, and practical solutions to everyday challenges.
+> **A living knowledge base** that grows with every challenge solved, every technology explored, and every concept mastered.
 
-## 📚 What You'll Find Here
+This repository represents my continuous journey through modern software development, thoughtfully organized to help both my future self and fellow developers navigate the ever-evolving landscape of technology. From conference insights to troubleshooting guides, from Azure cloud patterns to prompt engineering techniques—this is where theory meets practice.
+
+## 🎯 Learning Hub Philosophy
+
+This isn't just documentation—it's a **curated learning experience**. Each article, note, and guide reflects:
+- **Hands-on exploration** of technologies and tools
+- **Real-world problem solving** with actionable solutions
+- **Conference learnings** distilled into practical insights
+- **Progressive complexity** from fundamentals to advanced topics
+- **Continuous refinement** as technologies evolve
+
+---
+
+## 📚 What You'll Discover Here
+
+### 🤖 **AI & Intelligent Development**
+Exploring the frontiers of AI-powered development:
+- **Prompt Engineering** - Crafting effective prompts, organizing prompt files for GitHub Copilot
+- **Azure AI Foundry** - Building enterprise AI applications and agents
+- **Local AI Development** - Running LLMs locally with .NET integration
+- **RAG Patterns** - Retrieval-augmented generation for enterprise scenarios
+- **.NET Aspire AI** - Cloud-native AI application development
 
 ### 🎯 **Conference Notes & Insights**
-Deep dives into **40+ sessions from Build 2025**, covering the latest in:
-- **AI & Machine Learning** - Azure AI Foundry, local AI development, RAG patterns
-- **.NET Development** - C# 14 features, .NET Aspire, Blazor, ASP.NET Core
-- **Developer Tools** - GitHub Copilot, Visual Studio enhancements, debugging techniques
-- **Microsoft 365 & Copilot** - Building agents and extending Microsoft 365
+Deep dives into **40+ sessions from Build 2025**, covering the cutting edge of:
+- **AI & Machine Learning** - Azure AI Foundry, local AI development, RAG patterns, agentic applications
+- **.NET Development** - C# 14 features, .NET Aspire, Blazor, ASP.NET Core modernization
+- **Developer Tools** - GitHub Copilot, Visual Studio enhancements, advanced debugging techniques
+- **Microsoft 365 & Copilot** - Building intelligent agents and extending Microsoft 365
+- **Windows AI** - Windows AI Foundry, Model Context Protocol (MCP), local AI APIs
 
 ### ☁️ **Azure Cloud Development**
-Practical guides and learning paths for Azure services:
-- **Compute** - Azure Apps, Functions, Container Apps, and deployment strategies
-- **Data Services** - Cosmos DB, Table Storage, Blob Storage with access patterns
-- **Security** - Key Vault, Azure AD, external user authentication
-- **Messaging** - Event Hubs, Service Bus patterns
-- **Best Practices** - Naming conventions, limitations, and common pitfalls
+Practical, production-ready guides for Azure services:
+- **Compute & Hosting** - Azure Apps, Functions, Container Apps, deployment strategies
+- **Data Services** - Cosmos DB, Table Storage, Blob Storage with access patterns and partitioning
+- **Security & Identity** - Key Vault secrets management, Azure AD, external user authentication
+- **Messaging & Events** - Event Hubs, Service Bus, event-driven architectures
+- **Best Practices** - Naming conventions, service limitations, cost optimization, common pitfalls
 
-### 🛠️ **Development Tools & Techniques**
-Tools and workflows that enhance productivity:
-- **Version Control** - Git command-line workflows, GitHub CLI
-- **API Testing** - HTTP file testing with VS Code and Visual Studio
-- **Documentation** - Quarto for technical documentation and GitHub Pages
-- **Data Processing** - yq for YAML processing, Diginsight for telemetry
-- **HowTo Guides** - Step-by-step tutorials for common tasks
+### 🛠️ **Development Tools & Workflows**
+Tools and techniques that elevate productivity:
+- **Prompt Engineering** - Crafting effective prompts, organizing prompt files for GitHub Copilot 🆕
+- **Version Control** - Git command-line workflows, GitHub CLI commands, repository management
+- **API Testing** - Comprehensive comparison of HTTP/REST testing tools, .http files in VS Code/Visual Studio
+- **Documentation** - Quarto for beautiful technical documentation, GitHub Pages deployment
+- **Data Processing** - yq for YAML processing, Diginsight for telemetry and query cost metrics
+- **Feed Architectures** - RSS/Atom protocols, podcast feeds, C# reference implementations
+- **HowTo Guides** - Step-by-step tutorials for common development tasks
 
 ### 🐛 **Real-World Problem Solving**
-Solutions to actual issues encountered in development:
-- **GitHub Actions** - Artifact storage quota fixes, CI/CD optimizations
-- **Authentication** - Azure AD configurations, external users
-- **Development Environment** - Visual Studio troubleshooting, WSL fixes
-- **Repository Management** - GitHub limitations and workarounds
+Battle-tested solutions to actual development challenges:
+- **GitHub Actions** - Artifact storage quota fixes, CI/CD optimizations, workflow troubleshooting
+- **Authentication & Security** - Azure AD configurations, external user management
+- **Development Environment** - Visual Studio troubleshooting, WSL fixes, ReFS compatibility issues
+- **Repository Management** - GitHub limitations, workarounds, and best practices
+- **Azure Service Constraints** - Understanding and working within service limits
 
-### 🎨 **Beyond Code**
-- **DIY Projects** - Battery packs, e-bike builds
-- **Travel & Culture** - Paris cultural journey 2025
+### 🔧 **Hardware & DIY Projects**
+Beyond software—exploring the physical side of technology:
+- **Surface Laptop 6** - Feature analysis and hardware insights 🆕
+- **DIY Battery Packs** - Building custom Li-Ion battery solutions
+- **E-Bike Projects** - Electric bike builds and customization
 
----
-
-## 🌟 Getting Started
-
-### For Conference Session Notes
-Start with the [Build 2025 Overview](events/202506%20Build%202025/Readme.md) to explore sessions by topic.
-
-### For Azure Learning
-Follow the structured [Azure Developer Learning Path](202510%20Developer%20Update/) from basics to advanced topics.
-
-### For Quick Solutions
-Check the [Issues & Solutions](tech/Github/02.Actions/) section for troubleshooting guides.
+### 🌍 **Beyond Code**
+Technology intersects with culture and exploration:
+- **Travel & Culture** - Paris cultural journey 2025, combining technology conferences with cultural experiences
 
 ---
 
-## 📖 Featured Content
+## 🧭 Navigation Guide
+
+### 🎓 For Learners
+**New to a technology?** Start with the structured learning paths:
+- **Azure Beginners** → [Azure Developer Learning Path](202510%20Developer%20Update/) - From basics to production
+- **AI Development** → [Build 2025: AI Sessions](events/202506%20Build%202025/Readme.md) - Latest AI patterns and practices
+- **Prompt Engineering** → [GitHub Copilot Prompt Files Guide](tech/PromptEngineering/) - Master AI-assisted development 🆕
+
+### 📖 For Conference Attendees
+**Exploring Build 2025 content?** Navigate by topic:
+- [Build 2025 Overview](events/202506%20Build%202025/Readme.md) - All 40+ sessions organized
+- Focus areas: AI & ML, .NET Development, Azure Services, Developer Tools
+
+### 🔧 For Problem Solvers
+**Hit a roadblock?** Check solutions to common issues:
+- [Issues & Solutions](tech/Github/02.Actions/) - GitHub Actions, authentication, environment setup
+- [Azure Service Limitations](tech/Azure/) - Working within service constraints
+
+### 🚀 For Quick Reference
+**Need a specific guide?** Jump to popular how-tos:
+- [HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md) ⭐
+- [Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md) ⭐
+- [Quarto Documentation Guide](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)
+
+---
+
+## 🌟 Featured Content
 
 ### 🤖 **AI & Intelligent Development**
 
-- **[.NET Aspire: AI, Cloud, and Beyond](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐  
-  *Complete guide to .NET Aspire's evolution into a full-stack platform*
-- **[Local AI Development with Foundry](events/202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)**  
-  *Run AI models locally with .NET integration*
-- **[Building AI Apps with Microsoft Graph](events/202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)**  
-  *Creating intelligent applications using Microsoft Graph data*
-- **[Azure AI Foundry Overview](events/202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/SUMMARY.md)**  
-  *Microsoft's comprehensive AI development platform*
+#### Prompt Engineering 🆕
+- **[How GitHub Copilot Uses Markdown and Prompt Folders](tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)** ⭐  
+  *Understanding the .github folder structure and how Copilot discovers custom instructions*
+- **[How to Name and Organize Prompt Files](tech/PromptEngineering/02.%20how_to_name_and_organize_prompt_files.md)**  
+  *Best practices for structuring your prompt engineering workflow*
+- **[How to Structure Content for Copilot Prompt Files](tech/PromptEngineering/03.%20how_to_structure_content_for_copilot_prompt_files.md)**  
+  *Creating effective, maintainable prompt instructions*
 
-### 🤖 **Azure Development Guides**
+#### Azure AI & .NET
+- **[.NET Aspire: AI, Cloud, and Beyond](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐  
+  *Complete guide to .NET Aspire's evolution into a full-stack AI platform*
+- **[Local AI Development with Foundry](events/202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)**  
+  *Run AI models locally with seamless .NET integration*
+- **[Building AI Apps with Microsoft Graph](events/202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)**  
+  *Creating intelligent applications using Microsoft Graph data and AI*
+- **[Azure AI Foundry Overview](events/202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/SUMMARY.md)**  
+  *Microsoft's comprehensive platform for building AI apps and agents*
+
+### ☁️ **Azure Development Guides**
 
 - **[Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md)** - Standards for resource naming ⭐
-- **[Azure AD External Users](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/01.%20External%20Users%20Authentication%20in%20Azure%20AD%20Explained.md)** - External authentication explained 🆕
-- **[Cosmos DB Access Options](202510%20Developer%20Update/20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)** - Database access patterns
-- **[Key Vault HowTo](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/03.%20HowTo.Create%20and%20retrieve%20secrets%20from%20Azure%20Key%20Vault.md)** - Secrets management
-- **[Container Apps Guide](202510%20Developer%20Update/05.%20Azure%20Containers/01.%20Azure%20Container%20App.md)** - Containerized applications
+- **[Azure AD External Users](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/01.%20External%20Users%20Authentication%20in%20Azure%20AD%20Explained.md)** - External authentication deep dive 🆕
+- **[Cosmos DB Access Options](202510%20Developer%20Update/20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)** - Database access patterns and best practices
+- **[Key Vault HowTo](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/03.%20HowTo.Create%20and%20retrieve%20secrets%20from%20Azure%20Key%20Vault.md)** - Secrets management walkthrough
+- **[Container Apps Guide](202510%20Developer%20Update/05.%20Azure%20Containers/01.%20Azure%20Container%20App.md)** - Containerized applications on Azure
 
 ### 🛠️ **Development Tools & Productivity**
 
-- **[HTTP API Testing Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md)** - Testing tools overview ⭐ 🆕
-- **[Quarto Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)** - Beautiful docs with Quarto
-- **[Git Command Line](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)** - Essential Git workflows
-- **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)** - YAML processing tool
-- **[Configure .prompt Files](howto/20251108%20HowTo%20-%20Configure%20Promot%20Files%20for%20Markdown%20Preview%20in%20Visual%20Studio.md)** - VS markdown preview setup 🆕
+- **[HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md)** - Comprehensive testing tools overview ⭐ 🆕
+- **[Using .http Files in VS Code](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/01.%20Using%20HTTP%20Files%20for%20API%20Testing%20(VSCode%20Rest%20Client))** - REST Client extension guide
+- **[Quarto Documentation Guide](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)** - Beautiful documentation with Quarto
+- **[Git Command Line Workflows](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)** - Essential Git operations
+- **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)** - YAML processing and transformation
+- **[RSS/Atom Feed Architectures](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)** - Feed protocols and C# implementations
 
 ### 🐛 **Problem Solving**
 
-- **[GitHub Actions Artifact Quota Fix](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)** - CI/CD storage solutions ✅
-- **[VS Clone Error on ReFS](issues/20250709%20fatal%20error%20cloning%20a%20repo%20with%20Visual%20Studio/README.md)** - Repository cloning issues on ReFS ✅
-- **[GitHub Repository Limitations](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/README.md)** - Service constraints
-- **[FeedId Cannot Contain Forward Slash](issues/20251107%20FeedId%20cannot%20contain%20forward%20slash/ISSUE%20Template.md)** - Issue template 🆕
+- **[GitHub Actions Artifact Quota Fix](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)** - Complete CI/CD storage solution ✅
+- **[VS Clone Error on ReFS](issues/20250709%20fatal%20error%20cloning%20a%20repo%20with%20Visual%20Studio/README.md)** - Repository cloning on ReFS filesystems ✅
+- **[GitHub Repository Limitations](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/README.md)** - Understanding service constraints
+
+### 🔧 **Hardware**
+
+- **[Surface Laptop 6 Features Analysis](tech/Hardware/Surface%20Laptop%206%20Features%20analysis.md)** - Comprehensive hardware review 🆕
 
 ---
 
 ## 📊 Content Organization
 
-### By Topic Area
-- **Events** - 40+ Build 2025 conference sessions
-- **Azure** - Cloud services organized by type (compute, data, security, messaging)
-- **Development Tools** - Git, API testing, documentation, programming languages
-- **Issues & Solutions** - Real-world troubleshooting guides
-- **HowTo Guides** - Step-by-step tutorials
-- **DIY Projects** - Hardware projects and builds
+This learning hub contains **200+ articles** organized into clear categories:
 
-### By Skill Level
-- **Beginner** - Start with HowTo guides and Q&A articles
-- **Intermediate** - Explore Azure learning paths and conference sessions
-- **Advanced** - Deep dive into architecture patterns and problem-solving
+### 📁 By Topic Area
+- **🎯 Events** - 40+ Build 2025 conference sessions with summaries and detailed notes
+- **☁️ Azure** - Cloud services organized by type (compute, data, security, messaging)
+- **🤖 AI & Prompt Engineering** - Practical guides for AI-assisted development
+- **🛠️ Development Tools** - Git, API testing, documentation, data processing
+- **🏗️ Architectures** - Feed protocols, RSS/Atom, architectural patterns
+- **🐛 Issues & Solutions** - Real-world troubleshooting with battle-tested fixes
+- **📚 HowTo Guides** - Step-by-step tutorials for common tasks
+- **🔧 Hardware** - Device analysis and DIY projects
+
+### 🎓 By Learning Path
+- **🌱 Beginner** - Start with HowTo guides, Q&A articles, and introductory content
+- **🚀 Intermediate** - Explore Azure learning paths, conference sessions, and tool comparisons
+- **🔬 Advanced** - Deep dive into architecture patterns, problem-solving, and optimization
+
+### 📈 Content Status
+- ⭐ **Featured** - Highly recommended starting points
+- 🆕 **New** - Recently added content
+- ✅ **Solved** - Issues with complete solutions
 
 ---
 
-## 🚀 How to Use This Repository
+## 🚀 How to Use This Learning Hub
 
-1. **Browse by Navigation** - Use the sidebar to explore topics systematically
-2. **Search** - Use the search feature to find specific topics quickly
-3. **Follow Learning Paths** - Azure Developer Learning Path provides structured guidance
-4. **Bookmark Favorites** - Keep track of articles relevant to your current projects
-5. **Check What's New** - Recently added content is marked with 🆕
+### 🎯 Different Paths for Different Goals
+
+**Learning a New Technology?**
+1. Start with the **structured learning paths** (e.g., Azure Developer Learning Path)
+2. Review **conference sessions** for latest patterns and practices
+3. Consult **HowTo guides** for hands-on implementation
+4. Check **Issues & Solutions** for common pitfalls
+
+**Solving a Specific Problem?**
+1. Use the **search feature** to find relevant troubleshooting guides
+2. Check the **Issues & Solutions** section
+3. Review **Azure service limitations** if working with cloud resources
+
+**Staying Current?**
+1. Browse **🆕 marked content** for recent additions
+2. Explore **Build 2025 sessions** for latest industry trends
+3. Check **Prompt Engineering** for AI-assisted development techniques
+
+**Building Reference Knowledge?**
+1. Bookmark **⭐ featured articles** as go-to references
+2. Use the **sidebar navigation** to explore systematically
+3. Follow **architectural pattern** articles for design insights
 
 ---
 
 ## 📝 About This Learning Hub
 
-This repository represents a **learning-by-doing** approach to software development. Each article is created while working through real projects, attending conferences, or solving actual problems. The content evolves as technologies and understanding deepen.
+> **Learning by doing, documented for future reference**
 
-### Content Philosophy
-- **Practical over theoretical** - Focus on real-world applications
-- **Context matters** - Include why, not just how
-- **Learning in public** - Share the journey, including mistakes
-- **Continuously evolving** - Update as understanding improves
+This repository embodies a **hands-on learning philosophy**—every article originates from real projects, conference attendance, or actual problem-solving. It's not just documentation; it's a **living laboratory** where theory meets practice.
 
----
+### What Makes This Different
+- **🔬 Experiential Learning** - Content created while actively working through challenges
+- **🎯 Context-Rich** - Includes the "why" and "when," not just the "how"
+- **🌱 Growth Mindset** - Documents the learning journey, including pivots and discoveries
+- **🔄 Living Documentation** - Continuously refined as understanding deepens and technologies evolve
+- **🤝 Learning in Public** - Sharing knowledge to help others (and future me)
 
-## 🔗 Quick Links
-
-### Conference Coverage
-- [Build 2025 All Sessions](events/202506%20Build%202025/Readme.md)
-
-### Azure Essentials
-- [Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md)
-- [Azure Developer Learning Path](202510%20Developer%20Update/)
-
-### Popular Guides
-- [HTTP API Testing Tools](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md)
-- [Quarto Documentation](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)
-- [Git Command Line](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)
-
-### Problem Solving
-- [GitHub Actions Issues](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/)
-- [Development Issues](_ISSUES/)
+### Content Evolution
+Each article is a snapshot of learning at a specific point in time. As technologies mature and understanding deepens, content is revisited and enhanced—making this truly a **living knowledge base**.
 
 ---
 
-## 🤝 Contributing
+## 🔗 Essential Quick Links
 
-This is a personal learning repository, but if you find errors or have suggestions, feel free to open an issue!
+### 🎯 Start Here
+- **[Learning Hub Introduction](20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - Philosophy and approach
+- **[Using This Hub for Learning](20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)** - How to maximize value
+
+### 🤖 AI & Prompt Engineering
+- [GitHub Copilot Prompt Files](tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)
+- [Organizing Prompt Files](tech/PromptEngineering/02.%20how_to_name_and_organize_prompt_files.md)
+
+### ☁️ Azure Essentials
+- [Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md) ⭐
+- [Azure Developer Learning Path](202510%20Developer%20Update/) - Structured journey
+
+### 🎯 Conference Insights
+- [Build 2025 All Sessions](events/202506%20Build%202025/Readme.md) - 40+ sessions
+
+### 🛠️ Popular Guides
+- [HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md) ⭐
+- [Quarto Documentation Guide](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)
+- [Git Command Line Workflows](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)
+
+### 🐛 Problem Solving
+- [GitHub Actions Artifact Quota](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/) ✅
+- [All Development Issues](issues/)
 
 ---
 
-## 📄 License
+## 🤝 Feedback & Contributions
+
+While this is a personal learning repository, **feedback is welcome!** If you:
+- Find errors or outdated information
+- Have suggestions for improvements
+- Want to discuss a topic
+- Encounter broken links
+
+Feel free to **[open an issue](https://github.com/darioairoldi/Learn/issues)** on GitHub.
+
+---
+
+## 📄 License & Usage
 
 Content is available for personal and educational use. See [LICENSE](LICENSE) for details.
 
 ---
 
-**Last Updated:** November 2025 | **Total Articles:** 100+ | **Conference Sessions:** 40+
+<div align="center">
+
+**🌟 Happy Learning! 🌟**
+
+*Last Updated: November 2025 | Total Articles: 200+ | Conference Sessions: 40+ | Topics Covered: 15+*
+
+[⬆️ Back to Top](#-welcome-to-my-learning-hub)
+
+</div>
+
