@@ -230,8 +230,8 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 ## 🔗 Essential Quick Links
 
 ### 🎯 Start Here
-- **[Learning Hub Introduction](20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - Philosophy and approach
-- **[Using This Hub for Learning](20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)** - How to maximize value
+- **[Learning Hub Introduction](idea/LearnHub/20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - Philosophy and approach
+- **[Using This Hub for Learning](idea/LearnHub/20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)** - How to maximize value
 
 ### 🤖 AI & Prompt Engineering
 - [GitHub Copilot Prompt Files](tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)

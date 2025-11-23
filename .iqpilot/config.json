@@ -1,0 +1,38 @@
+{
+    "extends": "./config.default.json",
+    "site": {
+        "name": "Learn Hub",
+        "type": "learning-documentation",
+        "author": "Dario Airoldi",
+        "repository": "https://github.com/darioairoldi/Learn",
+        "editorialStandards": ".github/copilot-instructions.md"
+    },
+    "templates": {
+        "customTemplates": [
+            {
+                "name": "recording-summary",
+                "path": ".github/templates/recording-summary-template.md"
+            },
+            {
+                "name": "recording-analysis",
+                "path": ".github/templates/recording-analysis-template.md"
+            }
+        ]
+    },
+    "validation": {
+        "readability": {
+            "targetGradeLevel": 9,
+            "fleschScoreMin": 65
+        }
+    },
+    "filePatterns": {
+        "exclude": [
+            "README.md",
+            "node_modules/**",
+            "_site/**",
+            "docs/**",
+            "site_libs/**",
+            "README_files/**"
+        ]
+    }
+}

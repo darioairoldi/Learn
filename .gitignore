@@ -403,6 +403,11 @@ FodyWeavers.xsd
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+!.vscode/extensions/
+
+# Built VS Code extension output
+.vscode/extensions/*/out/
+.vscode/extensions/*/node_modules/
 
 # Local History for Visual Studio Code
 .history/
@@ -437,3 +442,7 @@ yq.exe
 # Note: navigation.json IS versioned (not ignored)
 # It's generated from _quarto.yml but should be committed to repo
 
+# MetadataWatcher Build Output
+.copilot/bin/
+src/MetadataWatcher/bin/
+src/MetadataWatcher/obj/

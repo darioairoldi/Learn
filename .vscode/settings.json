@@ -2,5 +2,68 @@
     "azureAutomation.directory.basePath": "c:\\Program Files\\Microsoft VS Code",
     "markdown.styles": [
         "markdown-preview.css"
-    ]
+    ],
+    // IQPilot Configuration
+    "iqpilot.enabled": true,
+    "iqpilot.mode": "mcp", // "mcp" | "prompts-only" | "off"
+    "iqpilot.autoStart": true,
+    "iqpilot.logLevel": "Information",
+    // Metadata Watcher Configuration (deprecated - use iqpilot.* instead)
+    "metadataWatcher.enabled": true,
+    "metadataWatcher.logLevel": "Information",
+    // File Associations
+    "files.associations": {
+        "*.metadata.yml": "yaml",
+        "*.prompt.md": "markdown"
+    },
+    // Markdown Validation
+    "markdown.validate.enabled": true,
+    "markdown.validate.fileLinks.enabled": true,
+    "markdown.validate.referenceLinks.enabled": true,
+    "markdown.validate.fragmentLinks.enabled": true,
+    // GitHub Copilot
+    "github.copilot.enable": {
+        "*": true,
+        "markdown": true,
+        "yaml": true
+    },
+    // Search Exclusions
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.vscode-test": true,
+        "**/out": true,
+        "**/_site": true,
+        "**/_freeze": true,
+        "**/site_libs": true,
+        "**/.quarto": true
+    },
+    // Files to Watch
+    "files.watcherExclude": {
+        "**/_site/**": true,
+        "**/_freeze/**": true,
+        "**/site_libs/**": true,
+        "**/.quarto/**": true,
+        "**/node_modules/**": true
+    },
+    // TypeScript/JavaScript
+    "typescript.tsdk": ".vscode/extensions/metadata-watcher/node_modules/typescript/lib",
+    // Editor Configuration
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    // YAML Settings
+    "yaml.schemas": {
+        ".github/templates/metadata-template.yml": "**/*.metadata.yml"
+    },
+    // Tasks Auto-Run
+    "task.autoDetect": "on",
+    // Terminal
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        }
+    }
 }

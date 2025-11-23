@@ -1,4 +1,4 @@
-# Microsoft Build 2025 - Session Articles
+# Microsoft Ignite 2025 - Session Articles
 
 This directory contains detailed notes and summaries from Microsoft Build 2025 sessions, focusing on .NET Aspire, AI development, testing, and modern development practices.
 

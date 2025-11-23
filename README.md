@@ -23,7 +23,41 @@ This isn't just documentation—it's a **curated learning experience**. Each art
 
 ---
 
-## 📚 What You'll Discover Here
+## �️ Setup & Tools
+
+### IQPilot - AI-Assisted Content Development
+
+This repository includes **IQPilot**, an optional MCP server that enhances GitHub Copilot with specialized validation, metadata management, and content quality tools.
+
+#### Quick Setup (One-Time)
+
+```powershell
+# Run the build script
+.\.copilot\scripts\build-metadata-watcher.ps1
+
+# Reload VS Code
+Ctrl+Shift+P → "Developer: Reload Window"
+```
+
+See [GETTING-STARTED.md](GETTING-STARTED.md) for setup instructions and operating modes.
+
+📖 **Documentation:**
+- 🚀 [Quick Start Guide](METADATA-WATCHER-QUICKSTART.md) - User-friendly setup
+- 📖 [Implementation Details](METADATA-WATCHER-IMPLEMENTATION.md) - Technical architecture
+- 🔧 [Technical README](src/MetadataWatcher/README.md) - Development guide
+
+#### What It Does
+
+When you rename an article:
+- **Before**: `article-old.md` + `article-old.metadata.yml`
+- **Action**: Rename file in VS Code (F2)
+- **After**: `article-new.md` + `article-new.metadata.yml` ✨ (automatic!)
+
+The YAML `filename` field is updated automatically—no manual work needed!
+
+---
+
+## �📚 What You'll Discover Here
 
 ### 🤖 **AI & Intelligent Development**
 Exploring the frontiers of AI-powered development:

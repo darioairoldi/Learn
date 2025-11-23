@@ -1,0 +1,73 @@
+{
+  "name": "metadata-watcher",
+  "displayName": "Metadata Watcher",
+  "description": "Automatically synchronize metadata files when articles are renamed",
+  "version": "1.0.0",
+  "publisher": "darioairoldi",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Metadata Watcher",
+      "properties": {
+        "metadataWatcher.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic metadata synchronization"
+        },
+        "metadataWatcher.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path to MetadataWatcher server executable (leave empty for auto-detection)"
+        },
+        "metadataWatcher.logLevel": {
+          "type": "string",
+          "enum": [
+            "Error",
+            "Warning",
+            "Information",
+            "Debug"
+          ],
+          "default": "Information",
+          "description": "Logging level for the metadata watcher"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "metadataWatcher.restart",
+        "title": "Metadata Watcher: Restart Server"
+      },
+      {
+        "command": "metadataWatcher.showLogs",
+        "title": "Metadata Watcher: Show Logs"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}

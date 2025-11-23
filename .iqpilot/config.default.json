@@ -1,0 +1,86 @@
+{
+    "$schema": "./config-schema.json",
+    "site": {
+        "name": "Documentation Site",
+        "type": "documentation",
+        "author": null,
+        "repository": null,
+        "editorialStandards": null
+    },
+    "metadata": {
+        "structure": "dual-yaml",
+        "topBlock": {
+            "requiredFields": [
+                "title",
+                "author",
+                "date"
+            ],
+            "optionalFields": [
+                "categories",
+                "description",
+                "draft",
+                "toc"
+            ]
+        },
+        "bottomBlock": {
+            "format": "html-comment-yaml",
+            "sections": [
+                "validations",
+                "article_metadata",
+                "cross_references"
+            ]
+        }
+    },
+    "templates": {
+        "directory": ".iqpilot/templates",
+        "useDefaults": true,
+        "customTemplates": []
+    },
+    "prompts": {
+        "directory": ".iqpilot/prompts",
+        "useDefaults": true,
+        "enabled": [
+            "grammar-review",
+            "readability-review",
+            "structure-validation",
+            "fact-checking",
+            "logic-analysis",
+            "understandability-review",
+            "publish-ready"
+        ]
+    },
+    "validation": {
+        "grammar": {
+            "enabled": true,
+            "autoFix": false
+        },
+        "readability": {
+            "enabled": true,
+            "targetGradeLevel": 10,
+            "fleschScoreMin": 60
+        },
+        "facts": {
+            "enabled": true,
+            "requireSources": true
+        },
+        "structure": {
+            "enabled": true,
+            "requireToc": true,
+            "requireReferences": true
+        }
+    },
+    "workflows": {
+        "autoValidateOnSave": false,
+        "autoSyncMetadata": true,
+        "validateBeforeCommit": false
+    },
+    "filePatterns": {
+        "articles": "**/*.md",
+        "exclude": [
+            "README.md",
+            "node_modules/**",
+            "_site/**",
+            "docs/**"
+        ]
+    }
+}

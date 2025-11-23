@@ -44,8 +44,8 @@ project:
     - "20250712 Use QUARTO doc for Github repos doc/*.md"
     # Add main README for homepage
     - "README.md"
-    - "20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
-    - "20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
+    - "idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
+    - "idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
     # Add Feeds architectures and protocols
     - "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
     - "20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.md"
@@ -329,9 +329,9 @@ website:
         text: "Home"
         icon: house-fill
         contents:
-          - href: "20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
+          - href: "idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
             text: "Learning Hub Concept"
-          - href: "20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
+          - href: "idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
             text: "Using Learning Hub for Learning Technologies"
       
       - section: "Events"
