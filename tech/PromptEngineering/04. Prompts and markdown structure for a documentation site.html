@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -2001,14 +2035,28 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#prompt-files-for-task-automation" id="toc-prompt-files-for-task-automation" class="nav-link" data-scroll-target="#prompt-files-for-task-automation">📝 Prompt Files for Task Automation</a>
   <ul class="collapse">
   <li><a href="#content-generation-prompts" id="toc-content-generation-prompts" class="nav-link" data-scroll-target="#content-generation-prompts">Content Generation Prompts</a></li>
+  <li><a href="#quality-validation-prompts" id="toc-quality-validation-prompts" class="nav-link" data-scroll-target="#quality-validation-prompts">Quality Validation Prompts</a></li>
+  <li><a href="#analysis-and-discovery-prompts" id="toc-analysis-and-discovery-prompts" class="nav-link" data-scroll-target="#analysis-and-discovery-prompts">Analysis and Discovery Prompts</a></li>
+  <li><a href="#prompt-configuration-features" id="toc-prompt-configuration-features" class="nav-link" data-scroll-target="#prompt-configuration-features">Prompt Configuration Features</a></li>
   </ul></li>
   <li><a href="#template-files-for-consistent-structure" id="toc-template-files-for-consistent-structure" class="nav-link" data-scroll-target="#template-files-for-consistent-structure">📋 Template Files for Consistent Structure</a>
   <ul class="collapse">
   <li><a href="#article-templates" id="toc-article-templates" class="nav-link" data-scroll-target="#article-templates">Article Templates</a></li>
   <li><a href="#workflow-templates" id="toc-workflow-templates" class="nav-link" data-scroll-target="#workflow-templates">Workflow Templates</a></li>
-  <li><a href="#other-context-instruction-files" id="toc-other-context-instruction-files" class="nav-link" data-scroll-target="#other-context-instruction-files">3. Other Context &amp; Instruction Files</a></li>
-  <li><a href="#article-metadata-format" id="toc-article-metadata-format" class="nav-link" data-scroll-target="#article-metadata-format">4. Article Metadata Format</a></li>
   </ul></li>
+  <li><a href="#context-and-instruction-files" id="toc-context-and-instruction-files" class="nav-link" data-scroll-target="#context-and-instruction-files">📚 Context and Instruction Files</a>
+  <ul class="collapse">
+  <li><a href="#global-instructions" id="toc-global-instructions" class="nav-link" data-scroll-target="#global-instructions">Global Instructions</a></li>
+  <li><a href="#scoped-instructions" id="toc-scoped-instructions" class="nav-link" data-scroll-target="#scoped-instructions">Scoped Instructions</a></li>
+  <li><a href="#extended-context-materials" id="toc-extended-context-materials" class="nav-link" data-scroll-target="#extended-context-materials">Extended Context Materials</a></li>
+  </ul></li>
+  <li><a href="#article-metadata-management" id="toc-article-metadata-management" class="nav-link" data-scroll-target="#article-metadata-management">🏷️ Article Metadata Management</a>
+  <ul class="collapse">
+  <li><a href="#dual-yaml-block-architecture" id="toc-dual-yaml-block-architecture" class="nav-link" data-scroll-target="#dual-yaml-block-architecture">Dual YAML Block Architecture</a></li>
+  <li><a href="#embedded-metadata-benefits" id="toc-embedded-metadata-benefits" class="nav-link" data-scroll-target="#embedded-metadata-benefits">Embedded Metadata Benefits</a></li>
+  </ul></li>
+  <li><a href="#implementation-best-practices" id="toc-implementation-best-practices" class="nav-link" data-scroll-target="#implementation-best-practices">🎯 Implementation Best Practices</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📖 References</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/PromptEngineering/04. Prompts and markdown structure for a documentation site.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -2059,20 +2107,42 @@ ul.task-list li input[type="checkbox"] {
 <p>Prompt files are the backbone of an AI-enhanced documentation workflow. Each prompt automates a specific task, making it easy to maintain quality and consistency across your documentation site. Store these files in <code>.github/prompts/</code> for automatic recognition by both VS Code and Visual Studio.</p>
 <section id="content-generation-prompts" class="level3">
 <h3 class="anchored" data-anchor-id="content-generation-prompts">Content Generation Prompts</h3>
-<p>For each automated activity you listed, create a dedicated <code>*.prompt.md</code> under <code>.github/prompts/</code> (this location is recognized by both VS Code and Visual Studio for workspace prompts). Typical prompts include:</p>
-<ol type="1">
-<li><strong>Article Writing (<code>article-writing.prompt.md</code>)</strong> – Generate a draft article given a topic and outline. The prompt can retrieve related research with <code>#fetch</code> to enrich content.</li>
-<li><strong>Grammar Review (<code>grammar-review.prompt.md</code>)</strong> – Check and correct grammar and spelling in a selected file.</li>
-<li><strong>Understandability Review (<code>understandability-review.prompt.md</code>)</strong> – Evaluate how comprehensible the article is to your intended audience and suggest improvements.</li>
-<li><strong>Readability &amp; Redundancy Review (<code>readability-review.prompt.md</code>)</strong> – Assess consistency, clarity, and redundancy, and propose edits to improve flow.</li>
-<li><strong>Gap Analysis (<code>gap-analysis.prompt.md</code>)</strong> – Identify missing concepts or perspectives by comparing the article to relevant sources (using <code>#fetch</code> or a URL list).</li>
-<li><strong>Logical Flow Analysis (<code>logic-analysis.prompt.md</code>)</strong> – Check whether ideas flow coherently and identify structural leaks or non-sequiturs.</li>
-<li><strong>Structure Validation (<code>structure-validation.prompt.md</code>)</strong> – Ensure required components are present (e.g.&nbsp;TOC, introduction, conclusion, references).</li>
-<li><strong>Facts Checking (<code>fact-checking.prompt.md</code>)</strong> – Verify accuracy against specified sources or automatically fetched authoritative references and suggest citations.</li>
-<li><strong>Series Validation (<code>series-validation.prompt.md</code>)</strong> – Review multiple articles/topics to ensure consistent scope, logical connections, and non-redundancy.</li>
-<li><strong>Correlated Subjects Discovery (<code>correlated-topics.prompt.md</code>)</strong> – Suggest related topics or further reading based on the article’s subject.</li>
-</ol>
-<p>Each of these prompts can leverage VS Code’s <code>${input:...}</code> variables or Visual Studio’s <code>#file</code> references to specify parameters like the target file or topic. In VS Code, prompts can also reference tools such as <code>#fetch</code> (to retrieve web content) or <code>#codebase</code> for searching your repository. In Visual Studio (starting with v17.10), prompt files in <code>.github/prompts</code> can be triggered via <code>#promptName</code>.</p>
+<p><strong>Article Writing (<code>article-writing.prompt.md</code>)</strong><br>
+Generates complete draft articles from a topic and outline. This prompt leverages <code>#fetch</code> to retrieve authoritative sources and research, enriching the content with verified information. It follows your article templates to ensure structural consistency and includes proper metadata initialization.</p>
+</section>
+<section id="quality-validation-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="quality-validation-prompts">Quality Validation Prompts</h3>
+<p><strong>Grammar Review (<code>grammar-review.prompt.md</code>)</strong><br>
+Performs comprehensive grammar, spelling, and punctuation checks. This prompt identifies errors, suggests corrections, and updates the article’s embedded validation metadata with results. It implements validation caching to avoid redundant checks on unchanged content.</p>
+<p><strong>Readability &amp; Redundancy Review (<code>readability-review.prompt.md</code>)</strong><br>
+Evaluates writing clarity, consistency, and flow. It calculates readability scores (Flesch-Kincaid), identifies redundant content, checks terminology consistency, and suggests improvements for better comprehension. Results are tracked in the article’s embedded metadata.</p>
+<p><strong>Understandability Review (<code>understandability-review.prompt.md</code>)</strong><br>
+Assesses whether content effectively communicates to the target audience. This prompt evaluates concept clarity, identifies assumption gaps, checks progressive complexity, and ensures examples support explanations appropriately for the intended reader level.</p>
+<p><strong>Structure Validation (<code>structure-validation.prompt.md</code>)</strong><br>
+Verifies articles contain all required components: table of contents, introduction, proper heading hierarchy, conclusion, references section, and embedded metadata. It ensures compliance with your documentation templates and standards.</p>
+<p><strong>Facts Checking (<code>fact-checking.prompt.md</code>)</strong><br>
+Validates factual accuracy against authoritative sources. This prompt identifies claims requiring verification, checks information currency, validates citations, and confirms that references actually support stated facts. It uses <code>#fetch</code> to retrieve and verify source content.</p>
+<p><strong>Logic Analysis (<code>logic-analysis.prompt.md</code>)</strong><br>
+Examines logical flow and conceptual connections throughout articles. It checks whether ideas build coherently, concepts are introduced before use, transitions are smooth, and no logical leaps exist. This ensures articles follow sound pedagogical structure.</p>
+</section>
+<section id="analysis-and-discovery-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-and-discovery-prompts">Analysis and Discovery Prompts</h3>
+<p><strong>Gap Analysis (<code>gap-analysis.prompt.md</code>)</strong><br>
+Identifies missing information by comparing article content to authoritative sources. It discovers omitted concepts, unexplained prerequisites, common reader questions not addressed, and related topics that should be linked or covered.</p>
+<p><strong>Series Validation (<code>series-validation.prompt.md</code>)</strong><br>
+Reviews multiple related articles to ensure logical progression, consistent terminology, appropriate cross-referencing, and non-redundancy. This prompt is essential for multi-part tutorials or article series, maintaining coherence across the entire collection.</p>
+<p><strong>Correlated Subjects Discovery (<code>correlated-topics.prompt.md</code>)</strong><br>
+Suggests related topics, prerequisite knowledge, and advanced follow-up subjects based on article content. It helps build comprehensive learning paths by identifying connections between topics and discovering content opportunities.</p>
+</section>
+<section id="prompt-configuration-features" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-configuration-features">Prompt Configuration Features</h3>
+<p>Each prompt can leverage powerful IDE features:</p>
+<ul>
+<li><strong>VS Code</strong>: Use <code>\${input:...}\</code> variables for parameters, <code>#fetch</code> for web content retrieval, <code>#codebase</code> for repository searches, and <code>#file</code> for specific file references</li>
+<li><strong>Visual Studio</strong> (v17.10+): Trigger prompts via <code>#promptName</code> syntax and use <code>#file</code> references for content specification</li>
+<li><strong>Model Selection</strong>: Configure preferred AI models (e.g., <code>claude-sonnet-4.5</code>, <code>gpt-4o</code>) in prompt frontmatter</li>
+<li><strong>Agent Modes</strong>: Specify <code>agent: ask</code> for analysis, <code>agent: edit</code> for direct modifications, or <code>agent: agent</code> for complex workflows</li>
+</ul>
 </section>
 </section>
 <section id="template-files-for-consistent-structure" class="level2">
@@ -2096,39 +2166,199 @@ Structure for documenting recorded sessions, interviews, or presentations. Inclu
 <p><strong><code>recording-analysis-template.md</code></strong><br>
 Deeper analysis framework for recorded content, identifying themes, patterns, unanswered questions, insights, and follow-up research directions.</p>
 </section>
-<section id="other-context-instruction-files" class="level3">
-<h3 class="anchored" data-anchor-id="other-context-instruction-files">3. Other Context &amp; Instruction Files</h3>
+</section>
+<section id="context-and-instruction-files" class="level2">
+<h2 class="anchored" data-anchor-id="context-and-instruction-files">📚 Context and Instruction Files</h2>
+<p>Context files guide AI assistants to produce higher-quality, more consistent outputs aligned with your editorial standards and domain knowledge.</p>
+<section id="global-instructions" class="level3">
+<h3 class="anchored" data-anchor-id="global-instructions">Global Instructions</h3>
+<p><strong><code>.github/copilot-instructions.md</code></strong><br>
+Your site’s editorial constitution. This file codifies universal standards such as:</p>
 <ul>
-<li><p><strong>Global instructions</strong>: Create <code>.github/copilot-instructions.md</code> to codify your editorial standards. For instance:</p>
-<ul>
-<li>“Always cross-verify facts with authoritative sources and cite them.”</li>
-<li>“Focus on readability: keep sentences concise and structure sections logically.”</li>
-<li>“Follow the article template; include a table of contents, introduction, conclusion and references.” These instructions apply automatically in both VS Code and Visual Studio (v17.10+), provided that you enable “Use Instruction Files” in VS Code settings or Visual Studio options.</li>
-</ul></li>
-<li><p><strong>Scoped instructions</strong>: Use <code>.github/instructions/</code> to store file- or language-specific guidelines. For example, a <code>docs.instructions.md</code> could enforce Markdown style rules across the <code>/docs</code> directory, while a separate <code>api.instructions.md</code> could set conditions when testing API examples.</p></li>
-<li><p><strong>Extended context</strong>: Optionally, maintain a <code>.copilot/context/</code> folder containing data schemas, glossaries, style guides, coding patterns, domain knowledge, or any supporting research. Copilot’s semantic search prioritizes content in this directory; including it helps the assistant produce higher-quality results.</p></li>
+<li>Cross-verification of facts with authoritative sources</li>
+<li>Citation requirements for all claims</li>
+<li>Readability targets (sentence length, grade level)</li>
+<li>Required article structure (TOC, introduction, conclusion, references)</li>
+<li>Dual metadata block architecture rules</li>
+<li>Validation caching policies</li>
 </ul>
+<p>These instructions apply automatically in VS Code and Visual Studio (v17.10+) when “Use Instruction Files” is enabled. They influence every AI interaction within your workspace.</p>
 </section>
-<section id="article-metadata-format" class="level3">
-<h3 class="anchored" data-anchor-id="article-metadata-format">4. Article Metadata Format</h3>
-<p>To track analyses and validations effectively, store metadata alongside each article. Two common patterns:</p>
-<ol type="1">
-<li><strong>Embedded front matter</strong>: Include YAML front matter at the top of each article file: <code>markdown     ---     title: Effective Prompt Design for Learning Docs     author: Dario Airoldi     created: 2024-11-10     last-updated: 2025-11-16     tags: [prompt engineering, documentation]     validations:       grammar:         last-run: 2025-11-15         model: GPT-4         outcome: "No major errors; updated with minor fixes."       readability:         last-run: 2025-09-20         model: GPT-4         outcome: "Grade level 9.0. Improved by simplifying some sentences."       facts:         last-run: 2025-10-01         model: GPT-4         sources:           - "https://example.com/reputable_article"         outcome: "All statements verified and up to date."     ---</code></li>
-<li><strong>Separate metadata file</strong>: Save a separate YAML or JSON file (e.g., <code>article-name.metadata.yml</code>) next to each article. This decouples metadata from content and avoids mixing data with reader-facing prose.<br>
-A typical <code>.metadata.yaml</code> file might include:
-<ul>
-<li>Core fields: <code>title</code>, <code>author</code>, <code>created</code>, <code>last-updated</code>, <code>tags</code>.</li>
-<li><strong>Validations</strong>: sections (e.g.&nbsp;<code>grammar</code>, <code>readability</code>, <code>logic</code>, <code>facts</code>) with attributes like <code>last-run</code>, <code>model</code>, <code>tool</code>, and <code>outcome</code>.</li>
-<li><strong>Cross-references</strong>: links to related articles or correlated topics discovered.</li>
-<li><strong>Sources</strong>: citations used in fact-checking.</li>
-</ul></li>
-</ol>
-<p>Storing validation results (model, timestamp, outcome) allows future prompts to check whether a new run is needed (e.g., if an article has been updated or if a new model is available). When a prompt runs, it can read this metadata file (via <code>#file</code>) and decide whether to skip repeated work.</p>
-<hr>
-<p>By combining well-structured prompts, templates, context files, and metadata, you’ll create a powerful, AI-enhanced documentation workflow. Copilot can then generate, review, and validate articles according to your standards, saving time while ensuring consistency and reliability across your learning site.</p>
+<section id="scoped-instructions" class="level3">
+<h3 class="anchored" data-anchor-id="scoped-instructions">Scoped Instructions</h3>
+<p><strong><code>.github/instructions/</code></strong><br>
+File- or directory-specific guidelines that override or extend global instructions. Examples:</p>
+<p><strong><code>documentation.instructions.md</code></strong> (applies to <code>**/*.md</code>)<br>
+Enforces Markdown style rules, heading conventions, link formatting, and code block standards across all documentation.</p>
+<p><strong><code>prompts.instructions.md</code></strong> (applies to <code>tech/PromptEngineering/**/*.md</code>)<br>
+Specialized rules for prompt engineering content, emphasizing practical examples, tool-specific guidance, and version-specific feature documentation.</p>
+<p><strong><code>tech-articles.instructions.md</code></strong> (applies to <code>tech/**/*.md</code>)<br>
+Technical accuracy requirements, code example standards, version specification mandates, and security consideration checklists for technical content.</p>
+</section>
+<section id="extended-context-materials" class="level3">
+<h3 class="anchored" data-anchor-id="extended-context-materials">Extended Context Materials</h3>
+<p><strong><code>.copilot/context/</code></strong><br>
+Supporting materials that enhance AI understanding of your domain and standards:</p>
+<p><strong><code>dual-yaml-helpers.md</code></strong><br>
+Complete guide to parsing and updating dual YAML metadata blocks, including code examples, schemas, and validation rules.</p>
+<p><strong><code>validation-schemas.md</code></strong><br>
+Detailed schemas for all validation types (grammar, readability, facts, logic, structure, understandability) with expected outcomes and metrics.</p>
+<p><strong><code>glossary.md</code></strong><br>
+Domain-specific terminology definitions ensuring consistent usage across all content.</p>
+<p><strong><code>style-guide.md</code></strong><br>
+Writing conventions, formatting standards, and editorial preferences specific to your documentation site.</p>
+<p>GitHub Copilot’s semantic search prioritizes content in <code>.copilot/context/</code>, making this directory highly effective for storing reference materials that should influence AI outputs.</p>
+</section>
+</section>
+<section id="article-metadata-management" class="level2">
+<h2 class="anchored" data-anchor-id="article-metadata-management">🏷️ Article Metadata Management</h2>
+<p>Effective metadata tracking enables validation caching, prevents redundant AI calls, and maintains audit trails of content quality checks.</p>
+<section id="dual-yaml-block-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="dual-yaml-block-architecture">Dual YAML Block Architecture</h3>
+<p>This repository implements a dual metadata system that separates concerns while keeping all data with the article:</p>
+<p><strong>Top YAML Block (Quarto Metadata)</strong><br>
+Standard frontmatter at the file beginning with <code>---</code> delimiters:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Prompts and Markdown Structure for a Documentation Site"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dario Airoldi"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025-11-23"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">categories</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">prompt engineering</span><span class="kw">,</span><span class="at"> documentation</span><span class="kw">,</span><span class="at"> workflow</span><span class="kw">]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Comprehensive guide to organizing prompt files, templates, and metadata for AI-enhanced documentation sites"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This block contains document properties used by Quarto for site generation and is modified manually by authors.</p>
+<p><strong>Bottom HTML Comment Block (Article Additional Metadata)</strong><br>
+Embedded at the file end within HTML comment tags for complete invisibility in rendered output:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">validations:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">  grammar:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    last_run: "2025-11-23T10:30:00Z"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    model: "claude-sonnet-4.5"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    outcome: "passed"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    issues_found: 0</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    notes: "No errors detected"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">  readability:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    last_run: "2025-11-23T10:35:00Z"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    flesch_score: 65</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    grade_level: 9.2</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    outcome: "passed"</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">  structure:</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    last_run: "2025-11-23T10:40:00Z"</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">    has_toc: true</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    has_introduction: true</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    has_conclusion: true</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    has_references: true</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    outcome: "passed"</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">  facts:</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">    last_run: "2025-11-20T14:00:00Z"</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">    model: "claude-sonnet-4.5"</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">    sources_checked: 5</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">    outcome: "passed"</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">  logic:</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">    last_run: "2025-11-23T11:00:00Z"</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">    flow_score: 8</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">    outcome: "passed"</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">  understandability:</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">    last_run: "2025-11-23T11:15:00Z"</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">    target_audience: "intermediate"</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">    comprehension_score: 8</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">    outcome: "passed"</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">article_metadata:</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">  filename: "04. Prompts and markdown structure for a documentation site.md"</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">  created: "2025-11-15"</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">  last_updated: "2025-11-23"</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">  version: "1.2"</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">  status: "published"</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">  word_count: 2850</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">  primary_topic: "Prompt Engineering"</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">cross_references:</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">  related_articles:</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">    - "03. Effective GitHub Copilot prompt files.md"</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">    - "05. AI-assisted content validation workflows.md"</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">  series: "Prompt Engineering for Documentation"</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co">  prerequisites: []</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This block is managed by validation prompts and tools, never by manual editing or document rendering systems.</p>
+</section>
+<section id="embedded-metadata-benefits" class="level3">
+<h3 class="anchored" data-anchor-id="embedded-metadata-benefits">Embedded Metadata Benefits</h3>
+<p><strong>Atomicity</strong>: Article and its validation history travel together. No orphaned metadata files when articles are moved or renamed.</p>
+<p><strong>Invisibility</strong>: HTML comments are completely hidden in rendered output, keeping reader-facing content clean.</p>
+<p><strong>Automatic Sync</strong>: Tools like IQPilot automatically update <code>article_metadata.filename</code> when articles are renamed, maintaining perfect synchronization.</p>
+<p><strong>Validation Caching</strong>: Prompts check <code>last_run</code> timestamps and content hashes to skip redundant validations, reducing AI API costs by 80-90%.</p>
+<p><strong>Audit Trail</strong>: Complete history of quality checks, models used, and outcomes provides accountability and continuous improvement insights.</p>
+<p><strong>Single Source of Truth</strong>: No confusion about which metadata file corresponds to which article or whether metadata is current.</p>
+</section>
+</section>
+<section id="implementation-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-best-practices">🎯 Implementation Best Practices</h2>
+<p><strong>Start with Templates</strong>: When creating new content, always begin with the appropriate template from <code>.github/templates/</code>. Templates include pre-initialized metadata blocks and proper structure.</p>
+<p><strong>Enable Instruction Files</strong>: In VS Code settings or Visual Studio options, enable “Use Instruction Files” to automatically apply editorial standards from <code>.github/copilot-instructions.md</code> and scoped instructions.</p>
+<p><strong>Leverage Validation Caching</strong>: Run validation prompts incrementally as you edit. Prompts check timestamps and skip unnecessary work, making frequent validation checks cost-effective.</p>
+<p><strong>Maintain Context Materials</strong>: Keep <code>.copilot/context/</code> updated with current standards, schemas, and domain knowledge. This directory has high semantic search priority.</p>
+<p><strong>Use Consistent Naming</strong>: Follow naming conventions for prompt files (<code>task-name.prompt.md</code>), templates (<code>type-template.md</code>), and instruction files (<code>scope.instructions.md</code>).</p>
+<p><strong>Document Custom Prompts</strong>: When creating specialized prompts, include clear frontmatter describing the prompt’s purpose, required inputs, and expected outputs.</p>
+<p><strong>Version Control Metadata</strong>: Track changes to embedded metadata blocks in git to understand content evolution and validation history over time.</p>
+<p><strong>Regular Metadata Review</strong>: Periodically check articles for outdated validations (e.g., facts checked more than 30 days ago, grammar not checked in 7+ days) and re-run appropriate prompts.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">📖 References</h2>
+<p><strong>GitHub Copilot Documentation - Prompt Files</strong><br>
+<a href="https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot">https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot</a><br>
+Official documentation for creating and using prompt files in VS Code and Visual Studio. Essential reading for understanding prompt file syntax, variables, tool references, and best practices for effective prompt engineering.</p>
+<p><strong>Visual Studio 2022 v17.10+ - GitHub Copilot Prompt Files</strong><br>
+<a href="https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context">https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context</a><br>
+Microsoft’s guide to using GitHub Copilot prompt files in Visual Studio, including <code>#file</code> references, <code>#promptName</code> syntax, and integration with Visual Studio’s context features.</p>
+<p><strong>Quarto Publishing System</strong><br>
+<a href="https://quarto.org/docs/reference/">https://quarto.org/docs/reference/</a><br>
+Documentation for Quarto’s YAML frontmatter structure and metadata handling. Critical for understanding how the top YAML block integrates with static site generation and why separating it from validation metadata is important.</p>
+<p><strong>YAML Specification</strong><br>
+<a href="https://yaml.org/spec/1.2.2/">https://yaml.org/spec/1.2.2/</a><br>
+Complete YAML syntax specification. Useful reference for ensuring valid YAML structure in both frontmatter and embedded metadata blocks, avoiding parsing errors that could break automation.</p>
+<p><strong>Markdown Specification (CommonMark)</strong><br>
+<a href="https://spec.commonmark.org/">https://spec.commonmark.org/</a><br>
+Authoritative Markdown specification ensuring your templates and articles use valid, portable Markdown syntax that renders consistently across different platforms and tools.</p>
+<p><strong>GitHub Copilot Best Practices</strong><br>
+<a href="https://github.blog/developer-skills/github/how-to-write-better-prompts-for-github-copilot/">https://github.blog/developer-skills/github/how-to-write-better-prompts-for-github-copilot/</a><br>
+GitHub’s official guide to writing effective prompts for Copilot. Provides insights into prompt structure, context provision, and techniques for getting higher-quality AI outputs.</p>
+<p><strong>VS Code GitHub Copilot Extension Documentation</strong><br>
+<a href="https://code.visualstudio.com/docs/copilot/overview">https://code.visualstudio.com/docs/copilot/overview</a><br>
+Comprehensive guide to using GitHub Copilot in VS Code, including chat features, inline suggestions, workspace context, and instruction file configuration.</p>
+<p><strong>Semantic Search and AI Context Management</strong><br>
+<a href="https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/">https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/</a><br>
+Explains how GitHub Copilot uses semantic search to prioritize relevant context from your workspace, including the special role of context directories in improving AI understanding and output quality.</p>
+<!-- 
 
 
-</section>
+
+---
+validations:
+  grammar: {last_run: null, model: null, outcome: null}
+  readability: {last_run: null, flesch_score: null, outcome: null}
+  structure: {last_run: null, has_toc: true, has_introduction: true, outcome: null}
+  facts: {last_run: null, model: null, outcome: null}
+  logic: {last_run: null, flow_score: null, outcome: null}
+  understandability: {last_run: null, target_audience: "intermediate", outcome: null}
+article_metadata:
+  filename: "04. Prompts and markdown structure for a documentation site.md"
+  created: "2025-11-23"
+  last_updated: "2025-11-23"
+  version: "1.0"
+  status: "draft"
+  word_count: 0
+  primary_topic: "Prompt Engineering"
+cross_references:
+  related_articles: []
+  series: "Prompt Engineering for Documentation"
+  prerequisites: []
+---
+
+
+
+-->
+
+
 </section>
 </section>
 

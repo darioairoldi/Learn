@@ -2043,42 +2043,58 @@ ul.task-list li input[type="checkbox"] {
 <p>GitHub Copilot looks in specific subfolders of <code>.github/</code> to find <mark>prompt files, instructions and (in VS Code) custom agent definitions</mark>.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 69%">
-<col style="width: 17%">
-<col style="width: 13%">
+<col style="width: 80%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Path</th>
 <th>Purpose</th>
-<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>————————————</td>
-<td>———</td>
-<td>——-</td>
-</tr>
-<tr class="even">
 <td><mark><strong><code>.github/prompts/</code></strong></mark></td>
 <td><mark><strong>Workspace prompt files.</strong></mark> Each <code>*.prompt.md</code> file here becomes a slash-command (<code>/promptName</code> in VS Code) or a hashtag command (<code>#promptName</code> or <code>#prompt:&lt;prompt-name&gt;</code> in Visual Studio) when using Copilot Chat. This folder is recognized by VS Code and <strong>Visual Studio 2022 (version 17.10+)</strong>. Older versions of Visual Studio (before 17.10) do not support prompt files. <mark><strong>Note that prompt files must use the <code>.prompt.md</code> extension</strong></mark>; <mark><strong>there is no official support for a plain <code>.prompt</code> extension</strong></mark>. The <code>.prompt</code> extension (without <code>.md</code>) is not recognized by Copilot in VS Code or Visual Studio. Each file can start with YAML front matter specifying metadata (<code>name</code>, <code>description</code>, <code>agent</code>, <code>model</code>, <code>tools</code>, etc.) followed by the Markdown content of the prompt.</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><mark><strong><code>.github/copilot-instructions.md</code></strong></mark></td>
-<td><mark><strong>Repository-level custom instructions.</strong></mark> This file provides guidance on how Copilot should behave for your project (coding standards, tool preferences, naming conventions, etc.). <mark>It’s automatically applied to all chat requests when the “custom instructions” feature is enabled</mark>, and is supported by both VS Code and Visual Studio 17.10+.</td>
-<td></td>
 </tr>
 <tr class="even">
+<td><mark><strong><code>.github/copilot-instructions.md</code></strong></mark></td>
+<td><mark><strong>Repository-level custom instructions.</strong></mark> This file provides guidance on how Copilot should behave for your project (coding standards, tool preferences, naming conventions, etc.). <mark>It’s automatically applied to all chat requests when the “custom instructions” feature is enabled</mark>, and is supported by both VS Code and Visual Studio 17.10+.</td>
+</tr>
+<tr class="odd">
 <td><mark><strong><code>.github/instructions/</code></strong></mark></td>
 <td><mark><strong>Path- or language-specific instructions.</strong></mark> Store one or more <code>.instructions.md</code> files here. Each file uses YAML front matter fields like <code>applyTo</code> to specify globs (e.g., <code>**/*.cs</code>, <code>docs/**/*.md</code>) that determine when the instructions should be applied. Supported in both VS Code and Visual Studio 17.10+.</td>
-<td></td>
+</tr>
+<tr class="even">
+<td><mark><strong><code>.github/agents/</code></strong></mark></td>
+<td><mark><strong>Custom agents for VS Code / Copilot CLI</strong></mark> (preview). In VS Code 1.106 (Preview) and Copilot CLI, <code>.agent.md</code> files here define specialized personas (e.g., “planning agent,” “test specialist”). Each file contains YAML to declare allowed tools, a description, optional handoffs, and a Markdown body describing the agent’s behavior. <mark>These are not used by Visual Studio Chat, which instead employs a separate <code>AGENTS.md</code> mechanism</mark>.</td>
+</tr>
+<tr class="odd">
+<td><strong><code>.github/copilot/</code></strong></td>
+<td><strong>Community convention for shared context.</strong> Some teams create a <code>.github/copilot/</code> folder to gather prompts and domain knowledge (e.g.&nbsp;<code>knowledge/</code>, <code>examples/</code>) in one place. <mark>Only a subfolder named <code>prompts/</code> under <code>.github</code> is recognized by default</mark>; other subfolders under <code>.github/copilot</code> serve as shared documentation and must be referenced manually in prompts or instructions.</td>
+</tr>
+<tr class="even">
+<td><mark><strong><code>.github/copilot-instructions.md</code></strong></mark></td>
+<td><mark><strong>Repository-level custom instructions.</strong></mark> This file provides guidance on how Copilot should behave for your project (coding standards, tool preferences, naming conventions, etc.). <mark>It’s automatically applied to all chat requests when the “custom instructions” feature is enabled</mark>, and is supported by both VS Code and Visual Studio 17.10+.</td>
+</tr>
+<tr class="odd">
+<td><mark><strong><code>.github/instructions/</code></strong></mark></td>
+<td><mark><strong>Path- or language-specific instructions.</strong></mark> Store one or more <code>.instructions.md</code> files here. Each file uses YAML front matter fields like <code>applyTo</code> to specify globs (e.g., <code>**/*.cs</code>, <code>docs/**/*.md</code>) that determine when the instructions should be applied. Supported in both VS Code and Visual Studio 17.10+.</td>
+</tr>
+<tr class="even">
+<td><mark><strong><code>.github/agents/</code></strong></mark></td>
+<td><mark><strong>Custom agents for VS Code / Copilot CLI</strong></mark> (preview). In VS Code 1.106 (Preview) and Copilot CLI, <code>.agent.md</code> files here define specialized personas (e.g., “planning agent,” “test specialist”). Each file contains YAML to declare allowed tools, a description, optional handoffs, and a Markdown body describing the agent’s behavior. <mark>These are not used by Visual Studio Chat, which instead employs a separate <code>AGENTS.md</code> mechanism</mark>.</td>
+</tr>
+<tr class="odd">
+<td><mark><strong><code>.github/copilot/</code></strong></mark></td>
+<td><strong>Community convention for shared context.</strong> Some teams create a <code>.github/copilot/</code> folder to gather prompts and domain knowledge (e.g.&nbsp;<code>knowledge/</code>, <code>examples/</code>) in one place. Only a subfolder named <code>prompts/</code> under <code>.github</code> is recognized by default; other <mark>subfolders under <code>.github/copilot</code> serve as shared documentation and must be referenced manually in prompts or instructions</mark>.</td>
 </tr>
 </tbody>
 </table>
 <blockquote class="blockquote">
-<p><strong>Note about <code>.prompt.yml</code> files</strong>: GitHub also supports <code>.prompt.yml</code> or <code>.prompt.yaml</code> files for storing prompts intended for other GitHub AI tools (such as GitHub Models). These YAML-based prompt files are <strong>not used by GitHub Copilot Chat</strong> in VS Code or Visual Studio. For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format. | <mark><strong><code>.github/agents/</code></strong></mark> | <mark><strong>Custom agents for VS Code / Copilot CLI</strong></mark> (preview). In VS Code 1.106 (Preview) and Copilot CLI, <code>.agent.md</code> files here define specialized personas (e.g., “planning agent,” “test specialist”). Each file contains YAML to declare allowed tools, a description, optional handoffs, and a Markdown body describing the agent’s behavior. <mark>These are not used by Visual Studio Chat, which instead employs a separate <code>AGENTS.md</code> mechanism</mark>. | | <strong><code>.github/copilot/</code></strong> | <strong>Community convention for shared context.</strong> Some teams create a <code>.github/copilot/</code> folder to gather prompts and domain knowledge (e.g.&nbsp;<code>knowledge/</code>, <code>examples/</code>) in one place. <mark>Only a subfolder named <code>prompts/</code> under <code>.github</code> is recognized by default</mark>; other subfolders under <code>.github/copilot</code> serve as shared documentation and must be referenced manually in prompts or instructions. | | <mark><strong><code>.github/copilot-instructions.md</code></strong></mark> | <mark><strong>Repository-level custom instructions.</strong></mark> This file provides guidance on how Copilot should behave for your project (coding standards, tool preferences, naming conventions, etc.). <mark>It’s automatically applied to all chat requests when the “custom instructions” feature is enabled</mark>, and is supported by both VS Code and Visual Studio 17.10+. | | <strong><code>.github/instructions/</code></strong> | <strong>Path- or language-specific instructions.</strong> Store one or more <code>.instructions.md</code> files here. Each file uses YAML front matter fields like <code>applyTo</code> to specify globs (e.g., <code>**/*.cs</code>, <code>docs/**/*.md</code>) that determine when the instructions should be applied. Supported in both VS Code and Visual Studio 17.10+. | | <strong><code>.github/agents/</code></strong> | <strong>Custom agents for VS Code / Copilot CLI</strong> (preview). In VS Code 1.106 (Preview) and Copilot CLI, <code>.agent.md</code> files here define specialized personas (e.g., “planning agent,” “test specialist”). Each file contains YAML to declare allowed tools, a description, optional handoffs, and a Markdown body describing the agent’s behavior. These are not used by Visual Studio Chat, which instead employs a separate <code>AGENTS.md</code> mechanism. | | <strong><code>.github/copilot/</code></strong> | <strong>Community convention for shared context.</strong> Some teams create a <code>.github/copilot/</code> folder to gather prompts and domain knowledge (e.g.&nbsp;<code>knowledge/</code>, <code>examples/</code>) in one place. Only a subfolder named <code>prompts/</code> under <code>.github</code> is recognized by default; other subfolders under <code>.github/copilot</code> serve as shared documentation and must be referenced manually in prompts or instructions. |</p>
+<p><strong>Note about <code>.prompt.yml</code> files</strong>: GitHub also supports <code>.prompt.yml</code> or <code>.prompt.yaml</code> files for storing prompts intended for other GitHub AI tools (such as GitHub Models).<br>
+These YAML-based prompt files are <strong>not used by GitHub Copilot Chat</strong> in VS Code or Visual Studio.<br>
+For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 </blockquote>
 <section id="naming-guidelines-for-prompt-files" class="level3">
 <h3 class="anchored" data-anchor-id="naming-guidelines-for-prompt-files">Naming Guidelines for Prompt Files</h3>
