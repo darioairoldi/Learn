@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../tech/PromptEngineering/01.01 Q&amp;A Github copilot uses prompt and markdown files.html" rel="next">
+<link href="../../tech/PromptEngineering/01.01 Q&amp;A Github copilot uses prompt and markdown files.md" rel="next">
 <link href="../../202510 Developer Update/05. Azure Containers/99. Azure Containers QA.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -401,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">How GitHub Copilot Uses Markdown and Prompt Folders</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../tech/PromptEngineering/01.01 Q&amp;A Github copilot uses prompt and markdown files.html">
+    <a class="dropdown-item" href="../../tech/PromptEngineering/01.01 Q&amp;A Github copilot uses prompt and markdown files.md">
  <span class="dropdown-text">Q&amp;A: GitHub Copilot Prompt and Markdown Files</span></a>
   </li>  
         <li>
@@ -541,13 +541,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../20250902 Learning Hub Overview/01 - Learning Hub Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Learning Hub Concept</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.html" class="sidebar-item-text sidebar-link">
+  <a href="../../idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Learning Hub for Learning Technologies</span></a>
   </div>
 </li>
@@ -1565,7 +1565,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tech/PromptEngineering/01.01 Q&amp;A Github copilot uses prompt and markdown files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../tech/PromptEngineering/01.01 Q&amp;A Github copilot uses prompt and markdown files.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Q&amp;A: GitHub Copilot Prompt and Markdown Files</span></a>
   </div>
 </li>
@@ -2060,17 +2060,25 @@ The remainder is the prompt body, written in Markdown, containing the instructio
 For example, a security audit prompt might instruct Copilot to review an API and output a list of vulnerabilities.</p>
 <p>Prompt files were first introduced in <mark>VS Code</mark> and <mark>JetBrains IDEs</mark>.<br>
 <mark><strong>As of Visual Studio 2022 version 17.10 and later (including Visual Studio 2026), Visual Studio also supports prompt files</strong></mark> stored under <code>.github/prompts</code> with a <code>.prompt.md</code> extension.<br>
+<mark>In Visual Studio, you can reference these prompts by typing <code>#prompt:&lt;prompt-name&gt;</code> (or using the “+” icon) to attach the prompt to the chat</mark>.<br>
 For earlier Visual Studio versions (pre-17.10), prompt files are not recognized.</p>
 <section id="required-locations" class="level3">
 <h3 class="anchored" data-anchor-id="required-locations">Required Locations</h3>
 <ul>
-<li><mark><strong><code>.github/prompts/</code></strong></mark> (workspace prompts). This is the default folder for <mark><strong>workspace-level prompt files</strong></mark> and is recognized automatically by both VS Code and Visual Studio (17.10+). Any <code>.prompt.md</code> file here becomes available in Copilot Chat: <mark>in VS Code it appears as <code>/promptName</code>, and in Visual Studio it appears as <code>#promptName</code></mark>.</li>
-<li><strong>User prompt files</strong> (VS Code only). <mark>User-scope prompts</mark> are stored in a folder within your VS Code profile (e.g., <code>%APPDATA%\Code\User\prompts\</code> on Windows, <code>~/Library/Application Support/Code/User/prompts/</code> on macOS, or <code>~/.config/Code/User/prompts/</code> on Linux). These prompts are available across all your VS Code workspaces. They do <mark><strong>not synchronise to your team via Git</strong></mark>, but you can enable Settings Sync to share them across your own machines. Visual Studio currently has no equivalent mechanism; it only consumes repository-level prompt files.</li>
+<li><mark><strong><code>.github/prompts/</code></strong></mark> (workspace prompts). This is the default folder for <mark><strong>workspace-level prompt files</strong></mark> and is recognized automatically by both VS Code and Visual Studio (17.10+). Any <code>.prompt.md</code> file here becomes available in Copilot Chat: <mark>in VS Code it appears as <code>/promptName</code>, and in Visual Studio it appears as <code>#promptName</code> or <code>#prompt:&lt;prompt-name&gt;</code></mark>.</li>
+<li><strong>User prompt files</strong> (VS Code only). <mark>User-scope prompts</mark> are stored in a folder within your VS Code profile:
+<ul>
+<li><strong>Windows</strong>: <code>%APPDATA%\Code\User\prompts\</code> (stable) or <code>%APPDATA%\Code - Insiders\User\prompts\</code> (Insiders)</li>
+<li><strong>macOS</strong>: <code>~/Library/Application Support/Code/User/prompts/</code></li>
+<li><strong>Linux</strong>: <code>~/.config/Code/User/prompts/</code></li>
+</ul>
+These prompts are available across all your VS Code workspaces and appear as slash commands (e.g., <code>/my-prompt</code>). They do <mark><strong>not synchronise to your team via Git</strong></mark>, but you can enable <mark><strong>VS Code’s Settings Sync</strong></mark> to share them across your own machines. Visual Studio currently has no equivalent mechanism; it only consumes repository-level prompt files.</li>
 </ul>
 </section>
 <section id="location-not-automatically-supported" class="level3">
 <h3 class="anchored" data-anchor-id="location-not-automatically-supported">Location <strong>not</strong> automatically supported</h3>
-<p>Some community blogs suggest grouping Copilot files under a <code>.github/copilot/prompts/</code> folder. <mark><strong>Officially, this location is not recognised by default</strong></mark>. Both VS Code and Visual Studio expect prompt files in <code>.github/prompts/</code> unless you change VS Code’s <code>chat.promptFilesLocations</code> setting. Visual Studio does not provide a configurable prompt-file location, so it cannot automatically read from <code>.github/copilot/prompts/</code>.</p>
+<p>Some community blogs suggest grouping Copilot files under a <code>.github/copilot/prompts/</code> folder. <mark><strong>Officially, this location is not recognised by default</strong></mark>. Both VS Code and Visual Studio expect prompt files in <code>.github/prompts/</code> unless you change VS Code’s <code>chat.promptFilesLocations</code> setting to include the custom path. Visual Studio does not provide a configurable prompt-file location, so it cannot automatically read from <code>.github/copilot/prompts/</code>.</p>
+<p><mark><strong>Important</strong>: Files stored in <code>.github/copilot/prompts/</code> will not automatically show up in Copilot Chat</mark> unless you explicitly configure VS Code settings or manually attach them. The official, out-of-the-box location is <code>.github/prompts/</code>.</p>
 </section>
 </section>
 <section id="custom-instructions-cross-ide-context" class="level1">
@@ -7911,7 +7919,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../tech/PromptEngineering/01.01 Q&amp;A Github copilot uses prompt and markdown files.html" class="pagination-link" aria-label="Q&amp;A: GitHub Copilot Prompt and Markdown Files">
+      <a href="../../tech/PromptEngineering/01.01 Q&amp;A Github copilot uses prompt and markdown files.md" class="pagination-link" aria-label="Q&amp;A: GitHub Copilot Prompt and Markdown Files">
         <span class="nav-page-text">Q&amp;A: GitHub Copilot Prompt and Markdown Files</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

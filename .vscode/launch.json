@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch MetadataWatcher (Debug)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build MetadataWatcher",
+      "program": "${workspaceFolder}/src/MetadataWatcher/bin/Debug/net8.0/MetadataWatcher.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "Launch Extension (Development Host)",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/.vscode/extensions/metadata-watcher"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/.vscode/extensions/metadata-watcher/out/**/*.js"
+      ],
+      "preLaunchTask": "Build Extension"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "MetadataWatcher Full Stack",
+      "configurations": [
+        "Launch MetadataWatcher (Debug)",
+        "Launch Extension (Development Host)"
+      ],
+      "presentation": {
+        "hidden": false,
+        "group": "",
+        "order": 1
+      }
+    }
+  ]
+}
