@@ -600,8 +600,6 @@ website:
             contents:
               - href: "tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md"
                 text: "How GitHub Copilot Uses Markdown and Prompt Folders"
-              - href: "tech/PromptEngineering/01.01 Q&A Github copilot uses prompt and markdown files.md"
-                text: "Q&A: GitHub Copilot Prompt and Markdown Files"
               - href: "tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.md"
                 text: "How to Name and Organize Prompt Files"
               - href: "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
