@@ -2039,9 +2039,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#define-the-role-and-objective" id="toc-define-the-role-and-objective" class="nav-link" data-scroll-target="#define-the-role-and-objective">Define the Role and Objective</a></li>
   <li><a href="#use-bullet-points" id="toc-use-bullet-points" class="nav-link" data-scroll-target="#use-bullet-points">Use Bullet Points</a></li>
+  <li><a href="#gather-input-information-dynamically" id="toc-gather-input-information-dynamically" class="nav-link" data-scroll-target="#gather-input-information-dynamically">Gather Input Information Dynamically</a></li>
   <li><a href="#provide-an-input-template" id="toc-provide-an-input-template" class="nav-link" data-scroll-target="#provide-an-input-template">Provide an Input Template</a></li>
   <li><a href="#include-examples-optional" id="toc-include-examples-optional" class="nav-link" data-scroll-target="#include-examples-optional">Include Examples (Optional)</a></li>
   <li><a href="#reference-tools-files-and-variables" id="toc-reference-tools-files-and-variables" class="nav-link" data-scroll-target="#reference-tools-files-and-variables">Reference Tools, Files and Variables</a></li>
+  </ul></li>
+  <li><a href="#advanced-prompt-structuring-patterns" id="toc-advanced-prompt-structuring-patterns" class="nav-link" data-scroll-target="#advanced-prompt-structuring-patterns">🎨 Advanced Prompt Structuring Patterns</a>
+  <ul class="collapse">
+  <li><a href="#the-three-part-prompt-architecture" id="toc-the-three-part-prompt-architecture" class="nav-link" data-scroll-target="#the-three-part-prompt-architecture">The Three-Part Prompt Architecture</a>
+  <ul class="collapse">
+  <li><a href="#system-message" id="toc-system-message" class="nav-link" data-scroll-target="#system-message">1. System Message</a></li>
+  <li><a href="#user-prompt-template" id="toc-user-prompt-template" class="nav-link" data-scroll-target="#user-prompt-template">2. User Prompt Template</a></li>
+  <li><a href="#example-usage" id="toc-example-usage" class="nav-link" data-scroll-target="#example-usage">3. Example Usage</a></li>
+  </ul></li>
+  <li><a href="#organizing-prompts-by-categories" id="toc-organizing-prompts-by-categories" class="nav-link" data-scroll-target="#organizing-prompts-by-categories">Organizing Prompts by Categories</a></li>
+  <li><a href="#recommended-model-specification" id="toc-recommended-model-specification" class="nav-link" data-scroll-target="#recommended-model-specification">Recommended Model Specification</a></li>
   </ul></li>
   <li><a href="#organize-supporting-materials" id="toc-organize-supporting-materials" class="nav-link" data-scroll-target="#organize-supporting-materials">📁 Organize Supporting Materials</a></li>
   <li><a href="#environment-specific-considerations" id="toc-environment-specific-considerations" class="nav-link" data-scroll-target="#environment-specific-considerations">⚙️ Environment-Specific Considerations</a></li>
@@ -2051,6 +2063,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#official-github-copilot-documentation" id="toc-official-github-copilot-documentation" class="nav-link" data-scroll-target="#official-github-copilot-documentation">Official GitHub Copilot Documentation</a></li>
   <li><a href="#prompt-engineering-best-practices" id="toc-prompt-engineering-best-practices" class="nav-link" data-scroll-target="#prompt-engineering-best-practices">Prompt Engineering Best Practices</a></li>
   <li><a href="#community-resources-and-examples" id="toc-community-resources-and-examples" class="nav-link" data-scroll-target="#community-resources-and-examples">Community Resources and Examples</a></li>
+  </ul></li>
+  <li><a href="#appendix-a-yaml-frontmatter-metadata-reference" id="toc-appendix-a-yaml-frontmatter-metadata-reference" class="nav-link" data-scroll-target="#appendix-a-yaml-frontmatter-metadata-reference">Appendix A: YAML Frontmatter Metadata Reference</a>
+  <ul class="collapse">
+  <li><a href="#core-metadata-fields" id="toc-core-metadata-fields" class="nav-link" data-scroll-target="#core-metadata-fields">Core Metadata Fields</a>
+  <ul class="collapse">
+  <li><a href="#name" id="toc-name" class="nav-link" data-scroll-target="#name"><code>name</code></a></li>
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description"><code>description</code></a></li>
+  <li><a href="#agent" id="toc-agent" class="nav-link" data-scroll-target="#agent"><code>agent</code></a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model"><code>model</code></a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><code>tools</code></a></li>
+  <li><a href="#argument-hint" id="toc-argument-hint" class="nav-link" data-scroll-target="#argument-hint"><code>argument-hint</code></a></li>
+  </ul></li>
+  <li><a href="#extended-metadata-fields" id="toc-extended-metadata-fields" class="nav-link" data-scroll-target="#extended-metadata-fields">Extended Metadata Fields</a>
+  <ul class="collapse">
+  <li><a href="#version" id="toc-version" class="nav-link" data-scroll-target="#version"><code>version</code></a></li>
+  <li><a href="#author" id="toc-author" class="nav-link" data-scroll-target="#author"><code>author</code></a></li>
+  <li><a href="#tags" id="toc-tags" class="nav-link" data-scroll-target="#tags"><code>tags</code></a></li>
+  <li><a href="#category" id="toc-category" class="nav-link" data-scroll-target="#category"><code>category</code></a></li>
+  </ul></li>
+  <li><a href="#custom-agent-metadata-.agent.md-files" id="toc-custom-agent-metadata-.agent.md-files" class="nav-link" data-scroll-target="#custom-agent-metadata-.agent.md-files">Custom Agent Metadata (<code>.agent.md</code> files)</a>
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><code>instructions</code></a></li>
+  <li><a href="#functions-proposed" id="toc-functions-proposed" class="nav-link" data-scroll-target="#functions-proposed"><code>functions</code> (Proposed)</a></li>
+  </ul></li>
+  <li><a href="#platform-specific-metadata" id="toc-platform-specific-metadata" class="nav-link" data-scroll-target="#platform-specific-metadata">Platform-Specific Metadata</a>
+  <ul class="collapse">
+  <li><a href="#vs-code-specific" id="toc-vs-code-specific" class="nav-link" data-scroll-target="#vs-code-specific">VS Code Specific</a></li>
+  <li><a href="#visual-studio-specific" id="toc-visual-studio-specific" class="nav-link" data-scroll-target="#visual-studio-specific">Visual Studio Specific</a></li>
+  </ul></li>
+  <li><a href="#complete-example-with-all-common-fields" id="toc-complete-example-with-all-common-fields" class="nav-link" data-scroll-target="#complete-example-with-all-common-fields">Complete Example with All Common Fields</a></li>
+  <li><a href="#validation-and-best-practices" id="toc-validation-and-best-practices" class="nav-link" data-scroll-target="#validation-and-best-practices">Validation and Best Practices</a></li>
+  <li><a href="#future-metadata-fields-proposed" id="toc-future-metadata-fields-proposed" class="nav-link" data-scroll-target="#future-metadata-fields-proposed">Future Metadata Fields (Proposed)</a></li>
+  </ul></li>
+  <li><a href="#appendix-b-tools-and-capabilities-reference" id="toc-appendix-b-tools-and-capabilities-reference" class="nav-link" data-scroll-target="#appendix-b-tools-and-capabilities-reference">Appendix B: Tools and Capabilities Reference</a>
+  <ul class="collapse">
+  <li><a href="#core-built-in-tools" id="toc-core-built-in-tools" class="nav-link" data-scroll-target="#core-built-in-tools">Core Built-in Tools</a>
+  <ul class="collapse">
+  <li><a href="#codebase" id="toc-codebase" class="nav-link" data-scroll-target="#codebase"><code>codebase</code></a></li>
+  <li><a href="#editor" id="toc-editor" class="nav-link" data-scroll-target="#editor"><code>editor</code></a></li>
+  <li><a href="#filesystem" id="toc-filesystem" class="nav-link" data-scroll-target="#filesystem"><code>filesystem</code></a></li>
+  <li><a href="#fetch" id="toc-fetch" class="nav-link" data-scroll-target="#fetch"><code>fetch</code></a></li>
+  <li><a href="#web_search" id="toc-web_search" class="nav-link" data-scroll-target="#web_search"><code>web_search</code></a></li>
+  </ul></li>
+  <li><a href="#mcp-model-context-protocol-server-tools" id="toc-mcp-model-context-protocol-server-tools" class="nav-link" data-scroll-target="#mcp-model-context-protocol-server-tools">MCP (Model Context Protocol) Server Tools</a>
+  <ul class="collapse">
+  <li><a href="#built-in-mcp-servers" id="toc-built-in-mcp-servers" class="nav-link" data-scroll-target="#built-in-mcp-servers">Built-in MCP Servers</a></li>
+  <li><a href="#custom-mcp-servers" id="toc-custom-mcp-servers" class="nav-link" data-scroll-target="#custom-mcp-servers">Custom MCP Servers</a></li>
+  </ul></li>
+  <li><a href="#tool-access-patterns" id="toc-tool-access-patterns" class="nav-link" data-scroll-target="#tool-access-patterns">Tool Access Patterns</a>
+  <ul class="collapse">
+  <li><a href="#minimal-access-fast-focused" id="toc-minimal-access-fast-focused" class="nav-link" data-scroll-target="#minimal-access-fast-focused">Minimal Access (Fast, Focused)</a></li>
+  <li><a href="#local-workspace-access-code-focused" id="toc-local-workspace-access-code-focused" class="nav-link" data-scroll-target="#local-workspace-access-code-focused">Local Workspace Access (Code-Focused)</a></li>
+  <li><a href="#research-enabled-external-resources" id="toc-research-enabled-external-resources" class="nav-link" data-scroll-target="#research-enabled-external-resources">Research-Enabled (External Resources)</a></li>
+  <li><a href="#full-access-all-capabilities" id="toc-full-access-all-capabilities" class="nav-link" data-scroll-target="#full-access-all-capabilities">Full Access (All Capabilities)</a></li>
+  </ul></li>
+  <li><a href="#tool-combinations-by-use-case" id="toc-tool-combinations-by-use-case" class="nav-link" data-scroll-target="#tool-combinations-by-use-case">Tool Combinations by Use Case</a>
+  <ul class="collapse">
+  <li><a href="#code-review-prompt" id="toc-code-review-prompt" class="nav-link" data-scroll-target="#code-review-prompt">Code Review Prompt</a></li>
+  <li><a href="#documentation-generator" id="toc-documentation-generator" class="nav-link" data-scroll-target="#documentation-generator">Documentation Generator</a></li>
+  <li><a href="#scaffolding-prompt" id="toc-scaffolding-prompt" class="nav-link" data-scroll-target="#scaffolding-prompt">Scaffolding Prompt</a></li>
+  <li><a href="#security-audit-prompt" id="toc-security-audit-prompt" class="nav-link" data-scroll-target="#security-audit-prompt">Security Audit Prompt</a></li>
+  </ul></li>
+  <li><a href="#tool-restrictions-and-security" id="toc-tool-restrictions-and-security" class="nav-link" data-scroll-target="#tool-restrictions-and-security">Tool Restrictions and Security</a>
+  <ul class="collapse">
+  <li><a href="#why-restrict-tools" id="toc-why-restrict-tools" class="nav-link" data-scroll-target="#why-restrict-tools">Why Restrict Tools?</a></li>
+  <li><a href="#security-considerations-by-tool" id="toc-security-considerations-by-tool" class="nav-link" data-scroll-target="#security-considerations-by-tool">Security Considerations by Tool</a></li>
+  <li><a href="#recommended-restrictions" id="toc-recommended-restrictions" class="nav-link" data-scroll-target="#recommended-restrictions">Recommended Restrictions</a></li>
+  </ul></li>
+  <li><a href="#tool-availability-by-platform" id="toc-tool-availability-by-platform" class="nav-link" data-scroll-target="#tool-availability-by-platform">Tool Availability by Platform</a></li>
+  <li><a href="#tool-usage-best-practices" id="toc-tool-usage-best-practices" class="nav-link" data-scroll-target="#tool-usage-best-practices">Tool Usage Best Practices</a>
+  <ul class="collapse">
+  <li><a href="#start-minimal-expand-as-needed" id="toc-start-minimal-expand-as-needed" class="nav-link" data-scroll-target="#start-minimal-expand-as-needed">Start Minimal, Expand as Needed</a></li>
+  <li><a href="#explicit-is-better-than-implicit" id="toc-explicit-is-better-than-implicit" class="nav-link" data-scroll-target="#explicit-is-better-than-implicit">Explicit is Better Than Implicit</a></li>
+  <li><a href="#document-tool-requirements" id="toc-document-tool-requirements" class="nav-link" data-scroll-target="#document-tool-requirements">Document Tool Requirements</a></li>
+  <li><a href="#test-with-restricted-tools" id="toc-test-with-restricted-tools" class="nav-link" data-scroll-target="#test-with-restricted-tools">Test with Restricted Tools</a></li>
+  </ul></li>
+  <li><a href="#future-tool-capabilities-proposed" id="toc-future-tool-capabilities-proposed" class="nav-link" data-scroll-target="#future-tool-capabilities-proposed">Future Tool Capabilities (Proposed)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -2069,10 +2158,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="#-yaml-frontmatter">📋 YAML Frontmatter</a></li>
 <li><a href="#️-compose-clear-and-structured-content">✍️ Compose Clear and Structured Content</a></li>
+<li><a href="#-advanced-prompt-structuring-patterns">🎨 Advanced Prompt Structuring Patterns</a></li>
 <li><a href="#-organize-supporting-materials">📁 Organize Supporting Materials</a></li>
 <li><a href="#️-environment-specific-considerations">⚙️ Environment-Specific Considerations</a></li>
 <li><a href="#-conclusion">🎯 Conclusion</a></li>
 <li><a href="#-references">📚 References</a></li>
+<li><a href="#-appendix-yaml-frontmatter-metadata-reference">Appendix A: YAML Frontmatter Metadata Reference</a></li>
+<li><a href="#-appendix-tools-and-capabilities-reference">Appendix B: Tools and Capabilities Reference</a></li>
 </ul>
 </section>
 </section>
@@ -2115,18 +2207,264 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create <code>.env</code> placeholders for environment variables.</li>
 <li>Generate dependency files if needed.</li>
 </ul>
+<p><strong>Example: Scaffolding with TODO and .env Placeholders</strong></p>
+<p>When generating scaffolds, combine <code>.env</code> configuration templates with <code>TODO</code> markers to guide implementation:</p>
+<p><strong>File: <code>.env.template</code></strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy this file to .env and replace placeholder values</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Azure OpenAI Configuration</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="va">AZURE_OPENAI_ENDPOINT</span><span class="op">=</span>https://your-resource-name.openai.azure.com/</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="va">AZURE_OPENAI_API_KEY</span><span class="op">=</span>your_api_key_here</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="va">AZURE_OPENAI_DEPLOYMENT_NAME</span><span class="op">=</span>gpt-4</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Database Configuration</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_URL</span><span class="op">=</span>postgresql://user:password@localhost:5432/myapp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>File: <code>app.py</code></strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load environment variables</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AIService:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Service for interacting with Azure OpenAI."""</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Initialize Azure OpenAI client with credentials from environment</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Add connection validation and error handling</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generate_response(<span class="va">self</span>, prompt: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">        Generate AI response for the given prompt.</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">        Args:</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">            prompt: User's input text</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">            </span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns:</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">            Generated response text</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Call Azure OpenAI API with prompt</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Implement retry logic for transient failures</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Add response validation and sanitization</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DatabaseService:</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Service for database operations."""</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        db_url <span class="op">=</span> os.getenv(<span class="st">"DATABASE_URL"</span>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Establish database connection using db_url</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Implement connection pooling</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save_interaction(<span class="va">self</span>, prompt: <span class="bu">str</span>, response: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Save user interaction to database."""</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Insert prompt and response into interactions table</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: Add transaction handling and rollback on error</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This approach creates a clear implementation roadmap where developers use GitHub Copilot to fill in the <code>TODO</code> sections while the <code>.env.template</code> file documents all required configuration.</p>
+</section>
+<section id="gather-input-information-dynamically" class="level3">
+<h3 class="anchored" data-anchor-id="gather-input-information-dynamically">Gather Input Information Dynamically</h3>
+<p>Modern prompt files can collect input from multiple sources in a flexible, intelligent way rather than requiring manual template filling. This approach enables more natural workflows and reduces friction for users.</p>
+<p><strong>Available Input Sources:</strong></p>
+<ol type="1">
+<li><strong>Explicit User Input</strong> (Manual templates with <code>{placeholders}</code>)
+<ul>
+<li>User fills in structured template before submission</li>
+<li>Highest priority when conflicts occur</li>
+<li>Best for: Complex requirements gathering, initial project setup</li>
+</ul></li>
+<li><strong>Active File/Selection</strong>
+<ul>
+<li>Automatically use content from currently open file or selected text</li>
+<li>No manual input needed if user has file open</li>
+<li>Best for: Refactoring, reviewing, transforming existing content</li>
+</ul></li>
+<li><strong>Attached Files</strong> (Using <code>#file</code>)
+<ul>
+<li>User attaches files directly in chat: <code>#file:path/to/document.md</code></li>
+<li>Supports multiple files simultaneously</li>
+<li>Best for: Processing specific documents, comparing files</li>
+</ul></li>
+<li><strong>Workspace Context</strong>
+<ul>
+<li>Automatically discover files by common patterns or content analysis</li>
+<li>Search for configuration files, detect project structure</li>
+<li>Best for: Project-aware operations, smart defaults</li>
+</ul></li>
+<li><strong>Chat Variables</strong> (VS Code)
+<ul>
+<li><code>${workspaceFolder}</code>, <code>${file}</code>, <code>${selection}</code>, <code>${activeEditor}</code></li>
+<li>Dynamically inject current context into prompts</li>
+<li>Best for: Context-aware code generation</li>
+</ul></li>
+<li><strong>Tool Integration</strong>
+<ul>
+<li><code>#codebase</code> - Semantic search across repository</li>
+<li><code>#fetch &lt;url&gt;</code> - Pull external documentation</li>
+<li>Web search for latest information</li>
+<li>Best for: Research, documentation lookup, external resources</li>
+</ul></li>
+</ol>
+<p><strong>Example: Multi-Source Input Strategy</strong></p>
+<p>Here’s how a prompt can intelligently combine multiple sources:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Input Sources (Collect from all available sources)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>**Gather information from ALL available sources:**</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>User-provided information in chat (structured sections or <span class="in">`{placeholders}`</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Active file or selection (detect content type automatically)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Attached files with <span class="in">`#file`</span> (analyze content, don't rely solely on filenames)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Workspace context files (search by common names or content patterns)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Explicit file paths provided as arguments</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>**Content Detection (intelligent analysis):**</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Analyze file structure and content to determine type</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Look for metadata patterns (dates, speakers, timestamps)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identify language, framework, or technology from imports/syntax</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Detect purpose from content structure (config, source, docs)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>**Information Priority (when conflicts occur):**</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Explicit user input** - Override everything</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Active file/selection** - Current workspace context</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Attached files** - Explicitly provided resources</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Workspace context** - Discovered automatically</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Inferred/derived** - Calculated from other sources</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>**Workflow Example:**</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Check for explicit user input (highest priority)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Check active file - analyze to identify type/purpose</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Check attached files - analyze content</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Search workspace for related files by pattern</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Merge information using priority rules</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Ask user for clarification only if critical info missing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Practical Workflow Example: Session Summary Generation</strong></p>
+<p>A real-world prompt (like <code>article-generate-techsession-summary.prompt.md</code>) demonstrates this multi-source approach:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>**Scenario A: User has files open**</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>User opens <span class="in">`SUMMARY.md`</span> in editor</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Runs <span class="in">`/techsession-summary`</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Prompt detects open file contains session metadata</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Auto-searches workspace for <span class="in">`transcript.txt`</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Generates summary, outputs to <span class="in">`SUMMARY.md`</span> (overwrites existing)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>**Scenario B: User provides partial info**</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>User types: <span class="in">`/techsession-summary {{session title: "AI Agents Workshop"}}`</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Prompt uses title from user input (priority 1)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Searches workspace for summary/transcript files</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Finds files, extracts remaining metadata</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Generates summary with user-specified title</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>**Scenario C: User attaches files**</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>User types: <span class="in">`/techsession-summary #file:session-notes.md #file:recording.txt`</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Prompt analyzes attached files (detect types by content)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Merges metadata from both files</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Generates new summary with descriptive filename</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>**Scenario D: Nothing available**</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>User runs <span class="in">`/techsession-summary`</span> in empty folder</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Prompt lists current directory contents</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Asks user to either:</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Attach files with <span class="in">`#file:`</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Provide file paths as arguments</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Navigate to correct folder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Benefits of Multi-Source Strategy:</strong></p>
+<ul>
+<li><strong>Flexibility</strong>: Works with various user workflows</li>
+<li><strong>Efficiency</strong>: Reduces manual input when context available</li>
+<li><strong>Intelligence</strong>: Makes smart decisions based on available data</li>
+<li><strong>Graceful degradation</strong>: Falls back to asking user when needed</li>
+<li><strong>Priority-based conflicts</strong>: Clear rules for handling duplicates</li>
+</ul>
+<p><strong>When to Use Each Approach:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>When to Use</th>
+<th>User Effort</th>
+<th>Flexibility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Manual Template</strong></td>
+<td>Complex requirements, initial setup</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td><strong>Active File</strong></td>
+<td>Refactoring, reviewing existing code</td>
+<td>None</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td><strong>Attached Files</strong></td>
+<td>Specific documents, multiple inputs</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td><strong>Workspace Context</strong></td>
+<td>Project-aware operations</td>
+<td>None</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td><strong>Chat Variables</strong></td>
+<td>Context-aware generation</td>
+<td>None</td>
+<td>Medium</td>
+</tr>
+<tr class="even">
+<td><strong>Tool Integration</strong></td>
+<td>Research, external docs</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td><strong>Combined Strategy</strong></td>
+<td>Production prompts</td>
+<td>Low-Medium</td>
+<td>Very High</td>
+</tr>
+</tbody>
+</table>
+<p>Modern prompts should default to <strong>combined strategy</strong> for best user experience, using manual templates only as a fallback or for complex scenarios where auto-detection isn’t sufficient.</p>
 </section>
 <section id="provide-an-input-template" class="level3">
 <h3 class="anchored" data-anchor-id="provide-an-input-template">Provide an Input Template</h3>
-<p>For prompts that require user input, include a <mark><strong>user-editable template</strong></mark> with placeholders. <mark>Wrap variable sections in double braces</mark> to signal that they should be replaced. Organize these placeholders under subheadings, such as:</p>
-<pre><code>## Use Case
-{{Describe the business problem and high-level goal.}}
-
-## Target Functionality
-{{List the key methods or endpoints to implement.}}
-
-## Technologies
-{{Specify languages, frameworks and versions.}}</code></pre>
+<p>For prompts that require user input, include a <mark><strong>user-editable template</strong></mark> with placeholders. <mark>Wrap variable sections in double braces</mark> to signal that they should be replaced. Microsoft’s AI Prompt Book demonstrates an effective pattern where each placeholder includes both <strong>a field description AND a concrete example</strong>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Use Case Description</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>{{Briefly describe the idea, challenge, or opportunity.</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>e.g., "We want to use generative AI to streamline our employee onboarding process by automating answers to policy questions."}}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Target Users</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>{{Who will use the prototype?</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>e.g., "New employees at a large enterprise, HR support staff."}}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Expected Inputs</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>{{What will the system take as input?</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>e.g., "Natural language questions from employees about policies or processes."}}</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Expected Outputs</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>{{What should the system return?</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>e.g., "Helpful answers, links to internal documents, or a checklist of onboarding tasks."}}</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Constraints or Assumptions</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>{{Are there any limitations or technical context to be aware of?</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>e.g., "Must work with existing SharePoint knowledge base; IT has approved Azure OpenAI."}}</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>Generate a well-structured set of requirements to guide the rapid prototyping of this solution.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This dual-layer approach (instruction + example) helps users understand both <strong>what</strong> to provide and <strong>how</strong> to format it, reducing ambiguity and improving prompt effectiveness.</p>
 </section>
 <section id="include-examples-optional" class="level3">
 <h3 class="anchored" data-anchor-id="include-examples-optional">Include Examples (Optional)</h3>
@@ -2140,6 +2478,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use <code>#fetch &lt;url&gt;</code> to pull content from a URL, or <code>#codebase</code> to search your repository. These features are fully supported in VS Code Chat and may be partially available in Visual Studio Chat (depending on version).</li>
 </ul>
 <p>Visual Studio currently supports fewer chat variables/tools; check the official docs for the latest list of supported chat commands.</p>
+</section>
+</section>
+<section id="advanced-prompt-structuring-patterns" class="level1">
+<h1>🎨 Advanced Prompt Structuring Patterns</h1>
+<p>Building on Microsoft’s AI Prompt Book approach, sophisticated prompt files often follow a <strong>three-part architecture</strong> that separates concerns and maximizes reusability:</p>
+<section id="the-three-part-prompt-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="the-three-part-prompt-architecture">The Three-Part Prompt Architecture</h2>
+<section id="system-message" class="level3">
+<h3 class="anchored" data-anchor-id="system-message">1. System Message</h3>
+<p>The <mark><strong>System Message</strong></mark> defines the AI’s role, expertise level, mission, and operational guidelines. It sets the context for <strong>how</strong> the AI should behave throughout the interaction.</p>
+<p><strong>Key elements to include:</strong></p>
+<ul>
+<li><strong>Persona definition</strong>: “You are a senior solution architect…”</li>
+<li><strong>Core mission</strong>: “…tasked with gathering and structuring solution requirements…”</li>
+<li><strong>Step-by-step process</strong>: Numbered instructions for systematic execution</li>
+<li><strong>Deliverable specification</strong>: Clear description of expected output format</li>
+<li><strong>Quality criteria</strong>: Standards the output must meet</li>
+</ul>
+<p><strong>Example System Message:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## System Message</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>You are a senior software engineer preparing code scaffolding to support a rapid prototype for a developer using GitHub Copilot.</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Your mission:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generate a code scaffold (file structure, function/method definitions, class stubs)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Include clear, concise doc-comments describing intended behavior, input/output, and edge cases</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add TODO markers signaling where GitHub Copilot should implement logic</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Include .env placeholders and dependency files (requirements.txt, package.json, csproj)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reflect the use case, technologies, data access patterns, and requirements as specified</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Format each file using appropriate code fences and filenames</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Output **only** scaffold code - no implementation - so developers can use GitHub Copilot to build the full solution</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>This ensures Copilot has the right structural context to generate meaningful code while keeping architecture aligned with the developer's intent.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="user-prompt-template" class="level3">
+<h3 class="anchored" data-anchor-id="user-prompt-template">2. User Prompt Template</h3>
+<p>The <mark><strong>User Prompt Template</strong></mark> provides a structured input form with semantic sections and placeholder syntax. Each field should include:</p>
+<ul>
+<li><strong>Section heading</strong> describing the information category</li>
+<li><strong>Placeholder with instruction</strong> in <code>{double braces}</code></li>
+<li><strong>Inline example</strong> showing concrete input (using <code>e.g., "..."</code> format)</li>
+</ul>
+<p><strong>Example User Prompt Template:</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## User Prompt Template</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Use Case</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>{{Describe the prototype use case and goal.</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>e.g., "Search and summarize HR policy documents via natural language queries."}}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Target Functionality</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>{{High-level behavior to enable via GitHub Copilot.</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>e.g., "Accept user question, retrieve relevant policy docs, generate short summaries, support follow-ups."}}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Technologies / Frameworks</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>{{List languages, frameworks, and services.</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>e.g., "Python, Semantic Kernel, Azure OpenAI, Azure AI Search"}}</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Access</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>{{Describe data source or access methods.</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>e.g., "Local JSON/CSV file of policy documents, no external APIs"}}</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>Generate scaffold code optimized for use with GitHub Copilot.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="example-usage" class="level3">
+<h3 class="anchored" data-anchor-id="example-usage">3. Example Usage</h3>
+<p>The <mark><strong>Example Usage</strong></mark> section demonstrates proper prompt execution by showing the User Prompt Template <strong>filled out</strong> with realistic, concrete values. This serves multiple purposes:</p>
+<ul>
+<li><strong>Training users</strong> on appropriate level of detail</li>
+<li><strong>Validating template design</strong> by testing with real scenarios</li>
+<li><strong>Providing copy-paste starting points</strong> for common use cases</li>
+</ul>
+<p><strong>Example Usage Section:</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example Usage</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Use Case</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Prototype for searching and summarizing HR policy documents via natural language queries.</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Target Functionality</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Accept a user question</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Search across a set of HR policy documents</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retrieve relevant documents and generate brief summaries</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Support follow-up queries (e.g., "What is the maternity leave policy?")</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Technologies / Frameworks</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>Python, Semantic Kernel, Azure OpenAI, Azure AI Search</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Access</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Local JSON/CSV file containing policy documents</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>No external APIs required for data access</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>Generate scaffold code for use with GitHub Copilot.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="organizing-prompts-by-categories" class="level2">
+<h2 class="anchored" data-anchor-id="organizing-prompts-by-categories">Organizing Prompts by Categories</h2>
+<p>Microsoft’s AI Prompt Book organizes prompts into <strong>engagement-stage categories</strong> that align with solution development lifecycle:</p>
+<ul>
+<li><strong>🔍 Discovery</strong>: Use case ideation, evaluation, research, resource gathering</li>
+<li><strong>⚡ Rapid Prototyping</strong>: Requirements definition, data generation, code scaffolding, code generation</li>
+<li><strong>🚚 Delivery</strong>: Architecture design, deployment planning, webinar content</li>
+<li><strong>💻 GitHub Copilot</strong>: Repository-specific prompts for in-IDE workflows</li>
+</ul>
+<p>Consider organizing your <code>.github/prompts/</code> directory with subdirectories matching your team’s workflow stages:</p>
+<pre><code>.github/prompts/
+├── discovery/
+│   ├── use-case-ideation.prompt.md
+│   └── requirements-gathering.prompt.md
+├── development/
+│   ├── code-scaffolding.prompt.md
+│   └── code-generation.prompt.md
+├── quality/
+│   ├── grammar-review.prompt.md
+│   └── security-review.prompt.md
+└── documentation/
+    ├── article-writing.prompt.md
+    └── api-docs-generation.prompt.md</code></pre>
+</section>
+<section id="recommended-model-specification" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-model-specification">Recommended Model Specification</h2>
+<p>Include a <mark><strong>Recommended Model</strong></mark> field in your prompt documentation (can be in YAML frontmatter or as a Markdown section) to guide users on model selection:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> code-scaffolding</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> o3</span><span class="co">  # or "gpt-5", "claude-sonnet-4.5"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Generate code scaffolds for GitHub Copilot implementation"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or as a Markdown section:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recommended Model</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>o3 or GitHub Copilot (for in-IDE scaffolding)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>gpt-5 (for Azure AI Foundry Chat Playground)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="organize-supporting-materials" class="level1">
@@ -2193,7 +2662,7 @@ Organize these resources strategically:</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>🎯 Conclusion</h1>
-<p><mark>Effective prompt-file design combines a well-crafted YAML header with a clear, structured body and often includes templates or examples</mark>. By respecting the official file locations (e.g., <code>.github/prompts/</code> for prompt files) and understanding the differences between VS Code and Visual Studio capabilities, you can create prompt libraries that provide consistent and high-quality results across your development environments.</p>
+<p><mark>Effective prompt-file design combines a well-crafted YAML header with a clear, structured body and often includes templates or examples</mark>. For sophisticated, reusable prompts, consider adopting the <strong>three-part architecture</strong> (System Message, User Prompt Template, Example Usage) demonstrated by Microsoft’s AI Prompt Book—this pattern separates concerns, maximizes reusability, and provides clear guidance for both AI models and human users. By respecting the official file locations (e.g., <code>.github/prompts/</code> for prompt files), organizing prompts by workflow categories, and understanding the differences between VS Code and Visual Studio capabilities, you can create prompt libraries that provide consistent and high-quality results across your development environments.</p>
 </section>
 <section id="references" class="level1">
 <h1>📚 References</h1>
@@ -2220,11 +2689,847 @@ Organize these resources strategically:</p>
 <section id="community-resources-and-examples" class="level2">
 <h2 class="anchored" data-anchor-id="community-resources-and-examples">Community Resources and Examples</h2>
 <ul>
+<li><p><strong><a href="https://github.com/microsoft-partner-solutions-ai/ai-prompt-book">Microsoft AI Prompt Book for Architects</a></strong><br>
+<em>A curated collection of production-ready prompts organized by solution development lifecycle stages (Discovery, Rapid Prototyping, Delivery). This repository demonstrates the three-part prompt architecture (System Message, User Prompt Template, Example Usage) discussed in this article and provides concrete examples of prompts for requirements gathering, code scaffolding, architecture design, and more. Essential reference for understanding enterprise-grade prompt structuring.</em></p></li>
 <li><p><strong><a href="https://github.com/jmathai/awesome-copilot">Awesome GitHub Copilot</a></strong><br>
 <em>A curated list of resources, examples, and community-contributed prompt patterns for GitHub Copilot. This repository is valuable for seeing real-world examples of prompt files and learning from how other developers structure their reusable prompts.</em></p></li>
 <li><p><strong><a href="https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/copilot-vscode-features.md">VS Code Copilot Extension Changelog</a></strong><br>
 <em>Tracking the VS Code Copilot extension’s feature updates helps readers stay current with new capabilities (like custom agents and tool restrictions) that affect how prompt files can be structured and what functionality they can leverage.</em></p></li>
 </ul>
+<hr>
+</section>
+</section>
+<section id="appendix-a-yaml-frontmatter-metadata-reference" class="level1">
+<h1>Appendix A: YAML Frontmatter Metadata Reference</h1>
+<p>This appendix provides comprehensive documentation of all metadata fields supported in <code>.prompt.md</code> YAML frontmatter across GitHub Copilot implementations and related tools.</p>
+<ul>
+<li><p><strong>Core Metadata Fields</strong> - Complete specifications for the 6 essential YAML fields:</p>
+<ul>
+<li><code>name</code> - Command identifier for invoking prompts</li>
+<li><code>description</code> - UI display text shown in prompt picker</li>
+<li><code>agent</code> - Execution mode (<code>ask</code>, <code>edit</code>, <code>agent</code>, or custom)</li>
+<li><code>model</code> - LLM selection for specific capabilities</li>
+<li><code>tools</code> - Capability restrictions for security/focus</li>
+<li><code>argument-hint</code> - Usage guidance displayed to users</li>
+</ul></li>
+<li><p><strong>Extended Metadata Fields</strong> - Experimental and custom fields for advanced use cases:</p>
+<ul>
+<li><code>version</code>, <code>author</code>, <code>tags</code>, <code>category</code> for organization and tracking</li>
+</ul></li>
+<li><p><strong>Custom Agent Metadata</strong> - Additional fields for <code>.agent.md</code> files defining specialized personas</p></li>
+<li><p><strong>Platform-Specific Differences</strong> - Distinctions between VS Code and Visual Studio implementations</p></li>
+<li><p><strong>Complete Examples</strong> - Full YAML headers showing all fields working together</p></li>
+<li><p><strong>Validation &amp; Best Practices</strong> - Essential guidance including:</p>
+<ul>
+<li>Required vs optional fields checklist</li>
+<li>Common mistakes and how to avoid them</li>
+<li>Recommended configurations for different scenarios</li>
+</ul></li>
+<li><p><strong>Future Proposed Fields</strong> - Community-requested capabilities planned for future releases</p></li>
+</ul>
+<p>Each field entry includes: <strong>type</strong>, <strong>support status</strong>, <strong>purpose</strong>, <strong>code examples</strong>, and <strong>best practices</strong>. Use this appendix as your go-to reference when authoring or troubleshooting prompt files.</p>
+<section id="core-metadata-fields" class="level2">
+<h2 class="anchored" data-anchor-id="core-metadata-fields">Core Metadata Fields</h2>
+<section id="name" class="level3">
+<h3 class="anchored" data-anchor-id="name"><code>name</code></h3>
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Required</strong>: No (defaults to filename without extension)</li>
+<li><strong>Purpose</strong>: Defines the command name used to invoke the prompt</li>
+<li><strong>VS Code</strong>: Invoked as <code>/name</code> (slash command)</li>
+<li><strong>Visual Studio</strong>: Invoked as <code>#name</code> (hashtag command)</li>
+<li><strong>Example</strong>: <code>name: react-form</code> → Use <code>/react-form</code> in VS Code</li>
+<li><strong>Best Practice</strong>: Use lowercase with hyphens for multi-word names</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> code-review</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="description" class="level3">
+<h3 class="anchored" data-anchor-id="description"><code>description</code></h3>
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Required</strong>: No (but highly recommended)</li>
+<li><strong>Purpose</strong>: Human-readable explanation shown in prompt picker/autocomplete</li>
+<li><strong>Visibility</strong>: Appears in UI when selecting prompts</li>
+<li><strong>Character Limit</strong>: Keep under 100 characters for best display</li>
+<li><strong>Best Practice</strong>: Write clear, action-oriented descriptions</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Review code for security vulnerabilities and best practices"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="agent" class="level3">
+<h3 class="anchored" data-anchor-id="agent"><code>agent</code></h3>
+<ul>
+<li><strong>Type</strong>: String (enum)</li>
+<li><strong>Required</strong>: No (defaults to user’s current chat mode)</li>
+<li><strong>Purpose</strong>: Specifies the execution mode for the prompt</li>
+<li><strong>Supported Values</strong>:
+<ul>
+<li><code>ask</code> - Research/analysis mode (no file edits)</li>
+<li><code>edit</code> - Direct file modification mode</li>
+<li><code>agent</code> - Autonomous multi-step agent mode</li>
+<li>Custom agent names (if <code>.agent.md</code> files defined)</li>
+</ul></li>
+<li><strong>VS Code</strong>: Fully supported (1.106+)</li>
+<li><strong>Visual Studio</strong>: Limited support (check version docs)</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span><span class="co">  # Use autonomous agent mode</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Agent Mode Comparison:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Mode</th>
+<th>File Edits</th>
+<th>Multi-step</th>
+<th>Tool Access</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ask</code></td>
+<td>No</td>
+<td>Limited</td>
+<td>Yes</td>
+<td>Analysis, Q&amp;A, research</td>
+</tr>
+<tr class="even">
+<td><code>edit</code></td>
+<td>Yes</td>
+<td>No</td>
+<td>Limited</td>
+<td>Direct code modifications</td>
+</tr>
+<tr class="odd">
+<td><code>agent</code></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Full</td>
+<td>Complex workflows, automation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="model" class="level3">
+<h3 class="anchored" data-anchor-id="model"><code>model</code></h3>
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Required</strong>: No (uses user’s default model)</li>
+<li><strong>Purpose</strong>: Specifies which LLM to use for this prompt</li>
+<li><strong>Common Values</strong>:
+<ul>
+<li><code>gpt-4</code> or <code>GPT-4</code></li>
+<li><code>gpt-4-turbo</code></li>
+<li><code>gpt-3.5-turbo</code></li>
+<li><code>claude-sonnet-4.5</code></li>
+<li><code>o1-preview</code></li>
+<li><code>o3</code></li>
+</ul></li>
+<li><strong>Availability</strong>: Depends on user’s Copilot subscription and enabled models</li>
+<li><strong>Best Practice</strong>: Only specify when prompt requires specific model capabilities</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4.5</span><span class="co">  # Use Claude for this prompt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tools" class="level3">
+<h3 class="anchored" data-anchor-id="tools"><code>tools</code></h3>
+<ul>
+<li><strong>Type</strong>: Array of strings</li>
+<li><strong>Required</strong>: No (all tools available by default)</li>
+<li><strong>Purpose</strong>: Restricts which tools/capabilities the prompt can use</li>
+<li><strong>Supported Values</strong>:
+<ul>
+<li><code>codebase</code> - Semantic search across repository</li>
+<li><code>editor</code> - File read/write operations</li>
+<li><code>filesystem</code> - Directory listing, file operations</li>
+<li><code>fetch</code> - Web content retrieval</li>
+<li><code>web_search</code> - Internet search capabilities</li>
+<li>MCP server names (e.g., <code>github</code>, <code>azure</code>)</li>
+</ul></li>
+<li><strong>Use Case</strong>: Security, performance, or focus constraints</li>
+<li><strong>VS Code</strong>: Full support</li>
+<li><strong>Visual Studio</strong>: Limited support</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Restrict to local operations only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Tool Access Patterns:</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimal tools (fast, focused)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Code-focused (no external access)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Research-enabled (includes external data)</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Full access (all available tools)</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # or omit the field entirely</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="argument-hint" class="level3">
+<h3 class="anchored" data-anchor-id="argument-hint"><code>argument-hint</code></h3>
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Required</strong>: No</li>
+<li><strong>Purpose</strong>: Shows usage hint in chat input field</li>
+<li><strong>Visibility</strong>: Displayed as placeholder text when invoking prompt</li>
+<li><strong>Best Practice</strong>: Use concise syntax examples</li>
+<li><strong>Format</strong>: Suggest argument patterns users should provide</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'fields=name:string,age:number,email:string'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Effective Argument Hints:</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File path argument</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'path/to/file.ts'</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Key-value pairs</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'component=Button props=variant,size'</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional parameters</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'[language] [framework]'</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple files</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'file1.ts file2.ts ...'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="extended-metadata-fields" class="level2">
+<h2 class="anchored" data-anchor-id="extended-metadata-fields">Extended Metadata Fields</h2>
+<section id="version" class="level3">
+<h3 class="anchored" data-anchor-id="version"><code>version</code></h3>
+<ul>
+<li><strong>Type</strong>: String (semantic version)</li>
+<li><strong>Status</strong>: Not officially documented but supported by some tools</li>
+<li><strong>Purpose</strong>: Track prompt file versions for compatibility</li>
+<li><strong>Format</strong>: Follow semantic versioning (major.minor.patch)</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.2.0"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="author" class="level3">
+<h3 class="anchored" data-anchor-id="author"><code>author</code></h3>
+<ul>
+<li><strong>Type</strong>: String or array</li>
+<li><strong>Status</strong>: Not officially documented</li>
+<li><strong>Purpose</strong>: Document prompt creator(s)</li>
+<li><strong>Use Case</strong>: Team attribution, maintenance responsibility</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Development Team"</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"Alice Smith"</span><span class="kw">,</span><span class="at"> </span><span class="st">"Bob Jones"</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tags" class="level3">
+<h3 class="anchored" data-anchor-id="tags"><code>tags</code></h3>
+<ul>
+<li><strong>Type</strong>: Array of strings</li>
+<li><strong>Status</strong>: Experimental/custom</li>
+<li><strong>Purpose</strong>: Categorize prompts for searching/filtering</li>
+<li><strong>Use Case</strong>: Large prompt libraries with organizational needs</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'security'</span><span class="kw">,</span><span class="at"> </span><span class="st">'code-review'</span><span class="kw">,</span><span class="at"> </span><span class="st">'python'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="category" class="level3">
+<h3 class="anchored" data-anchor-id="category"><code>category</code></h3>
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Status</strong>: Custom/organizational</li>
+<li><strong>Purpose</strong>: High-level prompt classification</li>
+<li><strong>Use Case</strong>: Aligns with prompt organization structure</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> </span><span class="st">"quality-assurance"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="custom-agent-metadata-.agent.md-files" class="level2">
+<h2 class="anchored" data-anchor-id="custom-agent-metadata-.agent.md-files">Custom Agent Metadata (<code>.agent.md</code> files)</h2>
+<p>When defining custom agents in <code>.github/agents/*.agent.md</code>, additional fields are available:</p>
+<section id="instructions" class="level3">
+<h3 class="anchored" data-anchor-id="instructions"><code>instructions</code></h3>
+<ul>
+<li><strong>Type</strong>: Markdown content (in body, not YAML)</li>
+<li><strong>Purpose</strong>: Define agent’s system instructions and behavior</li>
+<li><strong>Location</strong>: Main content after YAML frontmatter</li>
+</ul>
+</section>
+<section id="functions-proposed" class="level3">
+<h3 class="anchored" data-anchor-id="functions-proposed"><code>functions</code> (Proposed)</h3>
+<ul>
+<li><strong>Type</strong>: Array of function definitions</li>
+<li><strong>Status</strong>: Experimental</li>
+<li><strong>Purpose</strong>: Define custom capabilities for specialized agents</li>
+</ul>
+</section>
+</section>
+<section id="platform-specific-metadata" class="level2">
+<h2 class="anchored" data-anchor-id="platform-specific-metadata">Platform-Specific Metadata</h2>
+<section id="vs-code-specific" class="level3">
+<h3 class="anchored" data-anchor-id="vs-code-specific">VS Code Specific</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># VS Code Preview features (1.106+)</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> my-prompt</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> custom-agent-name</span><span class="co">  # Reference .agent.md file</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@mcp-server-name'</span><span class="kw">]</span><span class="co">  # MCP server integration</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="visual-studio-specific" class="level3">
+<h3 class="anchored" data-anchor-id="visual-studio-specific">Visual Studio Specific</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual Studio 17.10+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> my-prompt</span><span class="co">  # Invoked as #my-prompt (not /my-prompt)</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: Limited tool/agent support compared to VS Code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="complete-example-with-all-common-fields" class="level2">
+<h2 class="anchored" data-anchor-id="complete-example-with-all-common-fields">Complete Example with All Common Fields</h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> comprehensive-code-review</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Perform security audit and best practices review with detailed report"</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4.5</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'[focus=security|performance|style]'</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"2.1.0"</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Security Team"</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'security'</span><span class="kw">,</span><span class="at"> </span><span class="st">'code-review'</span><span class="kw">,</span><span class="at"> </span><span class="st">'audit'</span><span class="kw">]</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> </span><span class="st">"quality-assurance"</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprehensive Code Review Prompt</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Prompt content here...</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="validation-and-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="validation-and-best-practices">Validation and Best Practices</h2>
+<p><strong>Required Fields Checklist:</strong></p>
+<ul>
+<li>✅ <code>name</code> (or rely on filename)</li>
+<li>✅ <code>description</code> (strongly recommended)</li>
+</ul>
+<p><strong>Optional but Recommended:</strong></p>
+<ul>
+<li><code>agent</code> - Specify if prompt needs specific mode</li>
+<li><code>model</code> - Specify if prompt requires specific capabilities</li>
+<li><code>tools</code> - Restrict for security/performance</li>
+<li><code>argument-hint</code> - Guide users on usage</li>
+</ul>
+<p><strong>Common Mistakes:</strong></p>
+<ul>
+<li>❌ Using spaces in <code>name</code> (use hyphens: <code>code-review</code> not <code>code review</code>)</li>
+<li>❌ Overly long <code>description</code> (keep under 100 chars)</li>
+<li>❌ Specifying unavailable models (check user’s subscription)</li>
+<li>❌ Over-restricting tools (limits functionality unnecessarily)</li>
+<li>❌ Vague argument hints (be specific about expected format)</li>
+</ul>
+</section>
+<section id="future-metadata-fields-proposed" class="level2">
+<h2 class="anchored" data-anchor-id="future-metadata-fields-proposed">Future Metadata Fields (Proposed)</h2>
+<p>Based on community requests and tool evolution:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proposed future fields</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">requires</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'extension-id'</span><span class="kw">]</span><span class="co">  # Extension dependencies</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">min-version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.95.0"</span><span class="co">       # Minimum VS Code version</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">max-tokens</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span><span class="co">            # Token limit for responses</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">temperature</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span><span class="co">            # Model temperature override</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">context-files</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'docs/**'</span><span class="kw">]</span><span class="co">   # Auto-include file patterns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These fields are not currently supported but represent potential future capabilities.</p>
+<hr>
+</section>
+</section>
+<section id="appendix-b-tools-and-capabilities-reference" class="level1">
+<h1>Appendix B: Tools and Capabilities Reference</h1>
+<p>Tools are capabilities that prompts can use to gather information, interact with code, access external resources, and perform operations. The <code>tools</code> YAML field controls which capabilities are available to a specific prompt, enabling fine-grained control over prompt behavior for security, performance, or focus reasons.</p>
+<p>This appendix provides comprehensive documentation of all tools that can be specified in the <code>tools</code> YAML field, their capabilities, use cases, and access patterns.</p>
+<p><strong>Core Built-in Tools:</strong></p>
+<ul>
+<li><strong><code>codebase</code></strong> - Semantic search across workspace for code patterns, symbols, and implementations</li>
+<li><strong><code>editor</code></strong> - File read/write operations including creating, modifying, and deleting files</li>
+<li><strong><code>filesystem</code></strong> - Directory navigation, file queries, and metadata access (read-only)</li>
+<li><strong><code>fetch</code></strong> - Retrieve content from web URLs and REST APIs</li>
+<li><strong><code>web_search</code></strong> - Search the internet for current information and documentation</li>
+</ul>
+<p><strong>MCP (Model Context Protocol) Server Tools:</strong></p>
+<ul>
+<li><strong><code>@github</code></strong> - GitHub API integration for repository data, issues, and pull requests</li>
+<li><strong><code>@azure</code></strong> - Azure resource management, queries, and documentation access</li>
+<li><strong>Custom servers</strong> - Organization-specific tools (e.g., <code>@company-wiki</code>, <code>@internal-api-docs</code>)</li>
+</ul>
+<p><strong>Common Tool Combinations:</strong></p>
+<ul>
+<li><strong>Local only</strong>: <code>['codebase', 'editor', 'filesystem']</code> - No external network access</li>
+<li><strong>Research-enabled</strong>: <code>['codebase', 'editor', 'fetch', 'web_search']</code> - Includes external resources</li>
+<li><strong>Full access</strong>: <code>[]</code> or omit field - All available tools enabled</li>
+</ul>
+<section id="core-built-in-tools" class="level2">
+<h2 class="anchored" data-anchor-id="core-built-in-tools">Core Built-in Tools</h2>
+<section id="codebase" class="level3">
+<h3 class="anchored" data-anchor-id="codebase"><code>codebase</code></h3>
+<ul>
+<li><strong>Purpose</strong>: Semantic search across the entire workspace/repository</li>
+<li><strong>Capabilities</strong>:
+<ul>
+<li>Search for code patterns, functions, classes, and symbols</li>
+<li>Find related code implementations</li>
+<li>Locate definitions and references</li>
+<li>Understand project structure and relationships</li>
+</ul></li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Code review prompts needing context from multiple files</li>
+<li>Refactoring operations requiring cross-file analysis</li>
+<li>Documentation generation from existing code</li>
+<li>Finding similar patterns or implementations</li>
+</ul></li>
+<li><strong>Performance</strong>: Moderate (indexes workspace on first use)</li>
+<li><strong>Security</strong>: Low risk (read-only access to workspace)</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">]</span><span class="co">  # Enable semantic code search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Example Query Patterns:</strong></p>
+<ul>
+<li>“Find all implementations of the UserService interface”</li>
+<li>“Locate error handling patterns in this project”</li>
+<li>“Search for security vulnerabilities in authentication code”</li>
+</ul>
+</section>
+<section id="editor" class="level3">
+<h3 class="anchored" data-anchor-id="editor"><code>editor</code></h3>
+<ul>
+<li><strong>Purpose</strong>: File read/write operations</li>
+<li><strong>Capabilities</strong>:
+<ul>
+<li>Read file contents</li>
+<li>Create new files</li>
+<li>Modify existing files</li>
+<li>Delete files</li>
+<li>Rename/move files</li>
+</ul></li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Code generation prompts that create new files</li>
+<li>Refactoring prompts that modify multiple files</li>
+<li>Scaffolding prompts that build project structures</li>
+</ul></li>
+<li><strong>Performance</strong>: Fast (direct file system operations)</li>
+<li><strong>Security</strong>: Moderate risk (can modify workspace files)</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span><span class="co">  # Enable file operations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Always preview changes before applying</li>
+<li>Use with <code>agent</code> mode for multi-file operations</li>
+<li>Combine with <code>codebase</code> for context-aware edits</li>
+</ul>
+</section>
+<section id="filesystem" class="level3">
+<h3 class="anchored" data-anchor-id="filesystem"><code>filesystem</code></h3>
+<ul>
+<li><strong>Purpose</strong>: Directory navigation and file system queries</li>
+<li><strong>Capabilities</strong>:
+<ul>
+<li>List directory contents</li>
+<li>Check file/directory existence</li>
+<li>Get file metadata (size, modified date)</li>
+<li>Traverse directory structures</li>
+<li>Search for files by pattern</li>
+</ul></li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Project structure analysis</li>
+<li>Finding configuration files</li>
+<li>Discovering test files</li>
+<li>Validating project setup</li>
+</ul></li>
+<li><strong>Performance</strong>: Fast (file system queries)</li>
+<li><strong>Security</strong>: Low risk (read-only operations)</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Enable directory operations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Example Operations:</strong></p>
+<ul>
+<li>List all <code>.json</code> config files</li>
+<li>Find test files matching pattern <code>*.test.ts</code></li>
+<li>Check if <code>.env</code> file exists</li>
+<li>Get workspace folder structure</li>
+</ul>
+</section>
+<section id="fetch" class="level3">
+<h3 class="anchored" data-anchor-id="fetch"><code>fetch</code></h3>
+<ul>
+<li><strong>Purpose</strong>: Retrieve content from web URLs</li>
+<li><strong>Capabilities</strong>:
+<ul>
+<li>Download web pages</li>
+<li>Access REST APIs</li>
+<li>Retrieve documentation from URLs</li>
+<li>Fetch external resources</li>
+</ul></li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Documentation research prompts</li>
+<li>API integration verification</li>
+<li>External resource validation</li>
+<li>Pulling in reference materials</li>
+</ul></li>
+<li><strong>Performance</strong>: Variable (depends on network and remote server)</li>
+<li><strong>Security</strong>: Moderate risk (external network access)</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'fetch'</span><span class="kw">]</span><span class="co">  # Enable web content retrieval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Supported Protocols:</strong></p>
+<ul>
+<li><code>https://</code> (recommended)</li>
+<li><code>http://</code> (use with caution)</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>May be rate-limited by remote servers</li>
+<li>Authentication not supported for private APIs</li>
+<li>Subject to CORS and other web restrictions</li>
+</ul>
+</section>
+<section id="web_search" class="level3">
+<h3 class="anchored" data-anchor-id="web_search"><code>web_search</code></h3>
+<ul>
+<li><strong>Purpose</strong>: Search the internet for information</li>
+<li><strong>Capabilities</strong>:
+<ul>
+<li>Find current information online</li>
+<li>Locate documentation and tutorials</li>
+<li>Research best practices</li>
+<li>Discover recent developments</li>
+</ul></li>
+<li><strong>Use Cases</strong>:
+<ul>
+<li>Research prompts needing latest information</li>
+<li>Finding solutions to errors or issues</li>
+<li>Discovering new libraries or tools</li>
+<li>Validating current best practices</li>
+</ul></li>
+<li><strong>Performance</strong>: Variable (depends on search provider)</li>
+<li><strong>Security</strong>: Moderate risk (external network access)</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'web_search'</span><span class="kw">]</span><span class="co">  # Enable internet search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Use for information not available in workspace</li>
+<li>Verify results from authoritative sources</li>
+<li>Consider that results may change over time</li>
+</ul>
+</section>
+</section>
+<section id="mcp-model-context-protocol-server-tools" class="level2">
+<h2 class="anchored" data-anchor-id="mcp-model-context-protocol-server-tools">MCP (Model Context Protocol) Server Tools</h2>
+<p>MCP servers extend GitHub Copilot with additional capabilities through standardized protocols. Reference MCP tools using <code>@server-name</code> notation.</p>
+<section id="built-in-mcp-servers" class="level3">
+<h3 class="anchored" data-anchor-id="built-in-mcp-servers">Built-in MCP Servers</h3>
+<section id="github" class="level4">
+<h4 class="anchored" data-anchor-id="github"><code>@github</code></h4>
+<ul>
+<li><strong>Purpose</strong>: GitHub API integration</li>
+<li><strong>Capabilities</strong>:
+<ul>
+<li>Access repository information</li>
+<li>Read issues and pull requests</li>
+<li>Get commit history</li>
+<li>Query GitHub metadata</li>
+</ul></li>
+<li><strong>Availability</strong>: VS Code with GitHub Copilot extension</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@github'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="azure" class="level4">
+<h4 class="anchored" data-anchor-id="azure"><code>@azure</code></h4>
+<ul>
+<li><strong>Purpose</strong>: Azure resource management and queries</li>
+<li><strong>Capabilities</strong>:
+<ul>
+<li>List Azure resources</li>
+<li>Query resource properties</li>
+<li>Access Azure documentation</li>
+<li>Azure service integration</li>
+</ul></li>
+<li><strong>Availability</strong>: With Azure GitHub Copilot extension</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@azure'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="custom-mcp-servers" class="level3">
+<h3 class="anchored" data-anchor-id="custom-mcp-servers">Custom MCP Servers</h3>
+<p>Organizations can create custom MCP servers for proprietary tools and services:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@company-wiki'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@internal-api-docs'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Configuration</strong>: Custom MCP servers must be registered in VS Code settings or workspace configuration.</p>
+</section>
+</section>
+<section id="tool-access-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="tool-access-patterns">Tool Access Patterns</h2>
+<section id="minimal-access-fast-focused" class="level3">
+<h3 class="anchored" data-anchor-id="minimal-access-fast-focused">Minimal Access (Fast, Focused)</h3>
+<p>Best for simple, targeted operations with no external dependencies.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Simple file edits</li>
+<li>Code formatting</li>
+<li>Comment generation</li>
+</ul>
+</section>
+<section id="local-workspace-access-code-focused" class="level3">
+<h3 class="anchored" data-anchor-id="local-workspace-access-code-focused">Local Workspace Access (Code-Focused)</h3>
+<p>Enables comprehensive workspace analysis without external network access.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Refactoring operations</li>
+<li>Project-wide code analysis</li>
+<li>Internal documentation generation</li>
+<li>Cross-file consistency checks</li>
+</ul>
+</section>
+<section id="research-enabled-external-resources" class="level3">
+<h3 class="anchored" data-anchor-id="research-enabled-external-resources">Research-Enabled (External Resources)</h3>
+<p>Allows access to external information while maintaining workspace capabilities.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Documentation research</li>
+<li>API integration</li>
+<li>Best practices lookup</li>
+<li>Technology evaluation</li>
+</ul>
+</section>
+<section id="full-access-all-capabilities" class="level3">
+<h3 class="anchored" data-anchor-id="full-access-all-capabilities">Full Access (All Capabilities)</h3>
+<p>Provides complete tool access for complex, autonomous operations.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # or omit the field entirely</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Enables all available tools by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Complex agent workflows</li>
+<li>Multi-source research tasks</li>
+<li>Comprehensive code generation</li>
+<li>Advanced automation</li>
+</ul>
+</section>
+</section>
+<section id="tool-combinations-by-use-case" class="level2">
+<h2 class="anchored" data-anchor-id="tool-combinations-by-use-case">Tool Combinations by Use Case</h2>
+<section id="code-review-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="code-review-prompt">Code Review Prompt</h3>
+<div class="sourceCode" id="cb41"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Search code for patterns (<code>codebase</code>)</li>
+<li>Find related test files (<code>filesystem</code>)</li>
+<li>Check external coding standards (<code>fetch</code>)</li>
+</ul>
+</section>
+<section id="documentation-generator" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-generator">Documentation Generator</h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Analyze code structure (<code>codebase</code>)</li>
+<li>Create documentation files (<code>editor</code>)</li>
+<li>Discover existing docs (<code>filesystem</code>)</li>
+<li>Research API documentation formats (<code>web_search</code>)</li>
+</ul>
+</section>
+<section id="scaffolding-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="scaffolding-prompt">Scaffolding Prompt</h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Create project files (<code>editor</code>)</li>
+<li>Check for existing structure (<code>filesystem</code>)</li>
+<li>Download templates/boilerplates (<code>fetch</code>)</li>
+</ul>
+</section>
+<section id="security-audit-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="security-audit-prompt">Security Audit Prompt</h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Search for security patterns (<code>codebase</code>)</li>
+<li>Find configuration files (<code>filesystem</code>)</li>
+<li>Look up CVEs and vulnerabilities (<code>web_search</code>)</li>
+</ul>
+</section>
+</section>
+<section id="tool-restrictions-and-security" class="level2">
+<h2 class="anchored" data-anchor-id="tool-restrictions-and-security">Tool Restrictions and Security</h2>
+<section id="why-restrict-tools" class="level3">
+<h3 class="anchored" data-anchor-id="why-restrict-tools">Why Restrict Tools?</h3>
+<ol type="1">
+<li><strong>Security</strong>: Limit external network access</li>
+<li><strong>Performance</strong>: Reduce tool overhead for simple tasks</li>
+<li><strong>Focus</strong>: Prevent prompt from using irrelevant capabilities</li>
+<li><strong>Cost</strong>: Some tools may have usage costs or limits</li>
+</ol>
+</section>
+<section id="security-considerations-by-tool" class="level3">
+<h3 class="anchored" data-anchor-id="security-considerations-by-tool">Security Considerations by Tool</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Risk Level</th>
+<th>Considerations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>codebase</code></td>
+<td>Low</td>
+<td>Read-only workspace access</td>
+</tr>
+<tr class="even">
+<td><code>editor</code></td>
+<td>Moderate</td>
+<td>Can modify files; review changes</td>
+</tr>
+<tr class="odd">
+<td><code>filesystem</code></td>
+<td>Low</td>
+<td>Read-only; limited metadata access</td>
+</tr>
+<tr class="even">
+<td><code>fetch</code></td>
+<td>Moderate</td>
+<td>External network; validate URLs</td>
+</tr>
+<tr class="odd">
+<td><code>web_search</code></td>
+<td>Moderate</td>
+<td>External network; results may vary</td>
+</tr>
+<tr class="even">
+<td>MCP Servers</td>
+<td>Variable</td>
+<td>Depends on server implementation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="recommended-restrictions" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-restrictions">Recommended Restrictions</h3>
+<p><strong>Public/Shared Prompts:</strong></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # No external access</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Enterprise/Internal Prompts:</strong></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@internal-docs'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Research-Heavy Prompts:</strong></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span><span class="co">  # External research OK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="tool-availability-by-platform" class="level2">
+<h2 class="anchored" data-anchor-id="tool-availability-by-platform">Tool Availability by Platform</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 31%">
+<col style="width: 43%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>VS Code 1.106+</th>
+<th>Visual Studio 17.10+</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>codebase</code></td>
+<td>✅ Full support</td>
+<td>✅ Full support</td>
+<td>Core functionality</td>
+</tr>
+<tr class="even">
+<td><code>editor</code></td>
+<td>✅ Full support</td>
+<td>✅ Full support</td>
+<td>Core functionality</td>
+</tr>
+<tr class="odd">
+<td><code>filesystem</code></td>
+<td>✅ Full support</td>
+<td>✅ Full support</td>
+<td>Core functionality</td>
+</tr>
+<tr class="even">
+<td><code>fetch</code></td>
+<td>✅ Full support</td>
+<td>⚠️ Limited</td>
+<td>Check version docs</td>
+</tr>
+<tr class="odd">
+<td><code>web_search</code></td>
+<td>✅ Full support</td>
+<td>⚠️ Limited</td>
+<td>May require settings</td>
+</tr>
+<tr class="even">
+<td><code>@github</code></td>
+<td>✅ With extension</td>
+<td>❌ Not supported</td>
+<td>VS Code only</td>
+</tr>
+<tr class="odd">
+<td><code>@azure</code></td>
+<td>✅ With extension</td>
+<td>⚠️ Different impl.</td>
+<td>Platform-specific</td>
+</tr>
+<tr class="even">
+<td>Custom MCP</td>
+<td>✅ Preview feature</td>
+<td>❌ Not supported</td>
+<td>VS Code 1.106+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-usage-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="tool-usage-best-practices">Tool Usage Best Practices</h2>
+<section id="start-minimal-expand-as-needed" class="level3">
+<h3 class="anchored" data-anchor-id="start-minimal-expand-as-needed">Start Minimal, Expand as Needed</h3>
+<div class="sourceCode" id="cb48"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with minimal tools</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add tools only when required</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">]</span><span class="co">  # Added codebase for context</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable research when needed</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span><span class="co">  # Added fetch for docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="explicit-is-better-than-implicit" class="level3">
+<h3 class="anchored" data-anchor-id="explicit-is-better-than-implicit">Explicit is Better Than Implicit</h3>
+<div class="sourceCode" id="cb49"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ Unclear intent</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # All tools enabled</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ Clear intent</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Local operations only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="document-tool-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="document-tool-requirements">Document Tool Requirements</h3>
+<div class="sourceCode" id="cb50"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> security-audit</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Audit code for vulnerabilities (requires internet for CVE lookup)"</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Security Audit Prompt</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="ot">**Required</span><span class="at"> Tools:**</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`codebase`</span><span class="kw">:</span><span class="at"> Search code for security patterns</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`filesystem`</span><span class="kw">:</span><span class="at"> Find configuration files</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`web_search`</span><span class="kw">:</span><span class="at"> Look up CVEs and best practices</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="test-with-restricted-tools" class="level3">
+<h3 class="anchored" data-anchor-id="test-with-restricted-tools">Test with Restricted Tools</h3>
+<p>Before deploying prompts, test with restricted tool access to ensure graceful handling of missing capabilities:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Development version</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Production version (more restrictive)</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="future-tool-capabilities-proposed" class="level2">
+<h2 class="anchored" data-anchor-id="future-tool-capabilities-proposed">Future Tool Capabilities (Proposed)</h2>
+<p>Based on community feedback and tool evolution:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proposed future tools</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'codebase'</span><span class="kw">,</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'editor'</span><span class="kw">,</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'terminal'</span><span class="kw">,</span><span class="co">        # Execute commands</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'debugger'</span><span class="kw">,</span><span class="co">        # Debugging integration</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'git'</span><span class="kw">,</span><span class="co">             # Version control operations</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'package-manager'</span><span class="kw">,</span><span class="co"> # npm/pip/maven operations</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'database'</span><span class="kw">,</span><span class="co">        # Database queries</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'cloud-provider'</span><span class="co">   # Cloud resource management</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These tools are not currently supported but represent potential future extensions to the GitHub Copilot tools ecosystem.</p>
 
 
 </section>
