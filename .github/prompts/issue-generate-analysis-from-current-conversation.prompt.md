@@ -1,3 +1,12 @@
+---
+name: issue-generate-analysis
+description: Generate analysis from current conversation
+agent: agent
+model: claude-sonnet-4.5
+tools: ['codebase', 'fetch']
+argument-hint: 'topic="Your Article Topic" outline="key points to cover"'
+---
+
 # Generate analysis from current conversation
 
 ## Goal
