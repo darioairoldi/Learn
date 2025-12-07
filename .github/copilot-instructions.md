@@ -1,127 +1,125 @@
 # Global GitHub Copilot Instructions for Learning Documentation Site
 
-## Purpose
-This repository is a **learning and personal development documentation site** focused on creating high-quality, accurate, and accessible educational content.
+## Repository Architecture
+Personal knowledge management system for Microsoft technical content, session notes, and project documentation.
 
-## Core Principles
+**Folder Structure:**
+- `tech/` - Technical articles and guides
+- `events/` - Conference/workshop notes (date-prefixed: YYYYMMDD)
+- `projects/` - Project documentation and plans
+- `meetings/` - Meeting summaries and transcripts
+- `issues/` - Issue tracking and resolution notes
+- `00.draft/` - Work in progress
+- `01.templates/` - Content templates
+- `.github/` - Instructions, prompts, templates, workflows
+- `.copilot/` - Context files, scripts, MCP servers
 
-### Dual Metadata Block Structure
-**All articles use two metadata blocks for clean separation:**
+## Critical Pattern: Dual YAML Metadata
+**ALL articles use two separate metadata blocks - NEVER confuse them:**
 
-1. **Top YAML Block** (Quarto Metadata):
-   - Location: Beginning of file (lines 1-X)
-   - Format: Standard YAML frontmatter (`---` delimiters)
-   - Contains: `title`, `author`, `date`, `categories`, `description`
-   - Purpose: Quarto rendering and site generation
-   - Visibility: Visible in source, used by Quarto
-   - Modified by: Authors manually (NOT by validation prompts or watcher)
-   
-2. **Bottom HTML Comment Block with YAML** (Article additional metadata):
-   - Location: End of file (after References section)
-   - Format: HTML comment containing YAML (`<!-- \n---\nYAML\n---\n-->`)
-   - Contains: `validations`, `article_metadata`, `cross_references`
-   - Purpose: Quality tracking, analytics, cross-referencing
-   - Visibility: **Completely hidden from rendered output**
-   - Modified by: Validation prompts and content management tools (eg.IQPilot)
-
-**Critical Rules:**
-- ❌ Validation prompts must NEVER modify top YAML block
-- ✅ Validation prompts update only their section in bottom metadata
-- ✅ IQPilot tools updates `article_metadata.filename` in bottom metadata
-- ✅ Bottom metadata wrapped in HTML comment for complete invisibility
-- ✅ All metadata travels with the article 
-
-**Example Structure:**
-```markdown
+### Top YAML Block (Quarto Metadata)
+```yaml
 ---
 title: "Article Title"
 author: "Author Name"
-date: "2025-11-21"
+date: "2025-12-06"
+categories: [tech, azure]
+description: "Brief description"
 ---
+```
+- **Location:** Beginning of file
+- **Purpose:** Quarto rendering and site generation
+- **Modified by:** Authors manually ONLY
+- **❌ NEVER modify from validation prompts or automation**
 
-# Article Content
-
-...
-
+### Bottom HTML Comment Block (Validation Metadata)
+```markdown
 <!-- 
 ---
 validations:
-  grammar: {...}
+  grammar:
+    status: "passed"
+    last_run: "2025-12-06T10:30:00Z"
+    model: "claude-sonnet-4.5"
 article_metadata:
   filename: "article.md"
+  last_updated: "2025-12-06T10:00:00Z"
 ---
 -->
 ```
+- **Location:** End of file (after References section)
+- **Purpose:** Validation history, quality tracking
+- **Modified by:** Validation prompts and content tools
+- **Visibility:** Hidden in rendered output
+- **✅ Only this block gets updated by automation**
 
-See `.copilot/context/dual-yaml-helpers.md` for complete parsing guidelines.
+**Critical Rules:**
+- ❌ Validation prompts must NEVER touch top YAML
+- ✅ Update only your validation section in bottom metadata
+- ✅ Check `last_run` timestamp before running validations
+- ✅ Skip validation if `last_run < 7 days` AND content unchanged
 
-**Note on Metadata:** Some articles may contain an HTML comment block at the end with YAML metadata managed by validation tools. This metadata tracks validation history and quality metrics. Validation prompts should update only this bottom metadata block, never the top YAML frontmatter.
+📖 **Complete parsing guidelines:** `.copilot/context/dual-yaml-helpers.md`
 
-### Content Quality Standards
-- **Accuracy First**: Always verify facts against authoritative sources before publishing
-- **Citation Required**: Include references section with links to all sources used
-- **Up-to-Date Information**: Check that information is current; flag outdated content
-- **Evidence-Based**: Support claims with verifiable evidence or documentation
+## Validation Workflow
+**Six validation prompts in `.github/prompts/`:**
+1. `grammar-review.prompt.md` - Grammar and spelling
+2. `readability-review.prompt.md` - Reading level and clarity
+3. `structure-validation.prompt.md` - Article structure compliance
+4. `fact-checking.prompt.md` - Accuracy verification
+5. `logic-analysis.prompt.md` - Logical flow and connections
+6. `publish-ready.prompt.md` - Final pre-publish checklist
 
-### Writing Standards
-- **Clarity**: Use clear, concise language appropriate for the target audience
-- **Structure**: Follow standard article templates with TOC, introduction, body, conclusion, and references
-- **Consistency**: Maintain consistent terminology, formatting, and style across articles
-- **Readability**: Aim for Grade 9-10 reading level unless technical depth requires higher complexity
-- **Non-Redundancy**: Avoid repeating information; link to existing content instead
+**Validation Caching (7-Day Rule):**
+```yaml
+# Before running validation, check bottom metadata:
+if validations.{type}.last_run < 7 days AND content unchanged:
+  skip_validation()
+else:
+  run_validation()
+  update_bottom_metadata()
+```
 
-### Technical Standards
-- **Markdown Format**: All content in Markdown with proper heading hierarchy
-- **Code Examples**: Include syntax highlighting, explanations, and working examples
-- **Accessibility**: Use descriptive link text, alt text for images, and semantic HTML
-- **Cross-References**: Link related articles and maintain series navigation
+**Update Pattern (Bottom Metadata Only):**
+```yaml
+validations:
+  grammar:  # Update only this section
+    status: "passed"
+    last_run: "2025-12-06T10:30:00Z"
+    model: "claude-sonnet-4.5"
+    issues_found: 0
+```
 
-### Validation Requirements
-- Check grammar and spelling before finalizing content
-- Verify logical flow and concept connections
-- Ensure all required sections are present (TOC, references, etc.)
-- Validate metadata is complete and up-to-date
-- Run fact-checking against official documentation sources
 
-### Metadata Management
-- Metadata may be embedded in articles using dual YAML blocks
-- Top YAML: Document properties (title, author, date) - manual only
-- Bottom YAML (in HTML comment): Article additional metadata - updated by validation prompts
-- Automatic sync: Some tools may update filename on rename
+## Key Files for Reference
+- `.github/copilot-instructions.md` - This file (global AI agent guidance)
+- `.github/STRUCTURE-README.md` - Complete repository structure documentation
+- `.github/templates/article-template.md` - New article template with both YAML blocks
+- `.copilot/context/dual-yaml-helpers.md` - Metadata parsing guidelines
+- `.copilot/scripts/validate-metadata.ps1` - PowerShell validation script
 
-## Tools and Automation
-- Use prompt files from `.github/prompts/` for consistent automation
-- Follow templates from `.github/templates/` for new content
-- Reference context materials in `.copilot/context/` for guidance
-- Leverage validation caching to avoid redundant checks
-- Use PowerShell scripts in `.copilot/scripts/` for programmatic tasks
+## Common Mistakes to Avoid
+❌ **DON'T:**
+- Modify top YAML from validation prompts
+- Skip `last_run` check before validating
+- Overwrite entire bottom metadata block (update only your section)
+- Create articles without both YAML blocks
+- Repeat validations within 7 days if content unchanged
 
-## Preferred Models and Modes
-- Default to Claude Sonnet 4.5 for complex analysis and generation
-- Use agent mode for multi-step workflows
-- Use ask mode for analysis and review tasks
-- Use edit mode for inline content improvements
+✅ **DO:**
+- Read `.copilot/context/dual-yaml-helpers.md` before parsing metadata
+- Check bottom metadata `last_run` timestamps
+- Update only your validation section in bottom metadata
+- Use templates from `.github/templates/`
+- Verify facts against official sources
+- Link to related articles instead of duplicating content
 
-## When Creating Content
-1. Start with appropriate template from `.github/templates/`
-2. Initialize metadata file using `metadata-init` prompt
-3. Draft content following structure guidelines
-4. Run validation prompts (grammar, readability, structure)
-5. Verify facts using `fact-checking` prompt
-6. Update metadata with validation results
-7. Check for gaps and logical flow
-8. Run final `publish-ready` checklist
+## Quick Start for New Articles
+1. Copy `.github/templates/article-template.md`
+2. Fill top YAML with title, author, date
+3. Write content following structure requirements
+4. Add References section
+5. Run validation prompts (they'll add bottom metadata)
+6. Verify bottom metadata block exists and is in HTML comment
 
-## When Reviewing Content
-1. Check metadata for last validation dates
-2. Skip validations if article unchanged and recent
-3. Focus on modified sections for efficiency
-4. Update metadata with new validation results
-5. Suggest improvements with clear rationale
-6. Maintain constructive, educational tone
-
-## File Organization
-- Articles stored in subject-specific folders (e.g., `tech/`, `howto/`)
-- Metadata files adjacent to articles (`.metadata.yml`)
-- Images in article-specific subdirectories
-- Series navigation maintained in parent folders
+**Model Preference:** Claude Sonnet 4.5 for complex analysis and generation
