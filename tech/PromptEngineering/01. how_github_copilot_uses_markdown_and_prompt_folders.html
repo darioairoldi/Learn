@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -2003,10 +2037,36 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#prompt-files-what-they-are-and-where-they-work" id="toc-prompt-files-what-they-are-and-where-they-work" class="nav-link" data-scroll-target="#prompt-files-what-they-are-and-where-they-work">📝 Prompt Files: What They Are and Where They Work</a>
   <ul class="collapse">
   <li><a href="#required-locations" id="toc-required-locations" class="nav-link" data-scroll-target="#required-locations">Required Locations</a></li>
+  <li><a href="#prompt-file-variables" id="toc-prompt-file-variables" class="nav-link" data-scroll-target="#prompt-file-variables">Prompt File Variables</a></li>
+  <li><a href="#tool-references-in-prompts" id="toc-tool-references-in-prompts" class="nav-link" data-scroll-target="#tool-references-in-prompts">Tool References in Prompts</a></li>
   <li><a href="#location-not-automatically-supported" id="toc-location-not-automatically-supported" class="nav-link" data-scroll-target="#location-not-automatically-supported">Location <strong>not</strong> automatically supported</a></li>
   </ul></li>
-  <li><a href="#custom-instructions-cross-ide-context" id="toc-custom-instructions-cross-ide-context" class="nav-link" data-scroll-target="#custom-instructions-cross-ide-context">📚 Custom Instructions: Cross-IDE Context</a></li>
+  <li><a href="#custom-instructions-cross-ide-context" id="toc-custom-instructions-cross-ide-context" class="nav-link" data-scroll-target="#custom-instructions-cross-ide-context">📚 Custom Instructions: Cross-IDE Context</a>
+  <ul class="collapse">
+  <li><a href="#instructions-file-frontmatter" id="toc-instructions-file-frontmatter" class="nav-link" data-scroll-target="#instructions-file-frontmatter">Instructions File Frontmatter</a></li>
+  </ul></li>
+  <li><a href="#chat-modes-in-vs-code" id="toc-chat-modes-in-vs-code" class="nav-link" data-scroll-target="#chat-modes-in-vs-code">🤖 Chat Modes in VS Code</a></li>
+  <li><a href="#custom-agents" id="toc-custom-agents" class="nav-link" data-scroll-target="#custom-agents">🔧 Custom Agents</a>
+  <ul class="collapse">
+  <li><a href="#agent-file-locations" id="toc-agent-file-locations" class="nav-link" data-scroll-target="#agent-file-locations">Agent File Locations</a></li>
+  <li><a href="#agent-file-structure" id="toc-agent-file-structure" class="nav-link" data-scroll-target="#agent-file-structure">Agent File Structure</a></li>
+  <li><a href="#handoffs-multi-agent-workflows" id="toc-handoffs-multi-agent-workflows" class="nav-link" data-scroll-target="#handoffs-multi-agent-workflows">Handoffs: Multi-Agent Workflows</a></li>
+  <li><a href="#agents.md-vs-.agent.md" id="toc-agents.md-vs-.agent.md" class="nav-link" data-scroll-target="#agents.md-vs-.agent.md">AGENTS.md vs .agent.md</a></li>
+  </ul></li>
+  <li><a href="#model-context-protocol-mcp" id="toc-model-context-protocol-mcp" class="nav-link" data-scroll-target="#model-context-protocol-mcp">🔌 Model Context Protocol (MCP)</a>
+  <ul class="collapse">
+  <li><a href="#what-mcp-enables" id="toc-what-mcp-enables" class="nav-link" data-scroll-target="#what-mcp-enables">What MCP Enables</a></li>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
+  </ul></li>
   <li><a href="#optional-.copilot-folder-enhancing-local-context" id="toc-optional-.copilot-folder-enhancing-local-context" class="nav-link" data-scroll-target="#optional-.copilot-folder-enhancing-local-context">📁 Optional <code>.copilot/</code> Folder: Enhancing Local Context</a></li>
+  <li><a href="#vs-code-settings-reference" id="toc-vs-code-settings-reference" class="nav-link" data-scroll-target="#vs-code-settings-reference">⚙️ VS Code Settings Reference</a>
+  <ul class="collapse">
+  <li><a href="#prompt-files-settings" id="toc-prompt-files-settings" class="nav-link" data-scroll-target="#prompt-files-settings">Prompt Files Settings</a></li>
+  <li><a href="#instructions-settings" id="toc-instructions-settings" class="nav-link" data-scroll-target="#instructions-settings">Instructions Settings</a></li>
+  <li><a href="#agent-settings" id="toc-agent-settings" class="nav-link" data-scroll-target="#agent-settings">Agent Settings</a></li>
+  <li><a href="#mcp-settings" id="toc-mcp-settings" class="nav-link" data-scroll-target="#mcp-settings">MCP Settings</a></li>
+  <li><a href="#settings-sync" id="toc-settings-sync" class="nav-link" data-scroll-target="#settings-sync">Settings Sync</a></li>
+  </ul></li>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">🔑 Key Takeaways</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">🔗 References</a>
   <ul class="collapse">
@@ -2014,7 +2074,21 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#visual-studio-support" id="toc-visual-studio-support" class="nav-link" data-scroll-target="#visual-studio-support">Visual Studio Support</a></li>
   <li><a href="#community-best-practices-and-patterns" id="toc-community-best-practices-and-patterns" class="nav-link" data-scroll-target="#community-best-practices-and-patterns">Community Best Practices and Patterns</a></li>
   <li><a href="#additional-context-and-architecture" id="toc-additional-context-and-architecture" class="nav-link" data-scroll-target="#additional-context-and-architecture">Additional Context and Architecture</a></li>
+  <li><a href="#model-context-protocol-and-tools" id="toc-model-context-protocol-and-tools" class="nav-link" data-scroll-target="#model-context-protocol-and-tools">Model Context Protocol and Tools</a></li>
+  <li><a href="#prompt-engineering-fundamentals" id="toc-prompt-engineering-fundamentals" class="nav-link" data-scroll-target="#prompt-engineering-fundamentals">Prompt Engineering Fundamentals</a></li>
+  <li><a href="#research" id="toc-research" class="nav-link" data-scroll-target="#research">Research</a></li>
   </ul></li>
+  <li><a href="#appendix-a-legacy-.chatmode.md-migration" id="toc-appendix-a-legacy-.chatmode.md-migration" class="nav-link" data-scroll-target="#appendix-a-legacy-.chatmode.md-migration">📎 Appendix A: Legacy .chatmode.md Migration</a>
+  <ul class="collapse">
+  <li><a href="#migration-steps" id="toc-migration-steps" class="nav-link" data-scroll-target="#migration-steps">Migration Steps</a></li>
+  </ul></li>
+  <li><a href="#appendix-b-jetbrains-ide-support" id="toc-appendix-b-jetbrains-ide-support" class="nav-link" data-scroll-target="#appendix-b-jetbrains-ide-support">📎 Appendix B: JetBrains IDE Support</a>
+  <ul class="collapse">
+  <li><a href="#supported-files" id="toc-supported-files" class="nav-link" data-scroll-target="#supported-files">Supported Files</a></li>
+  <li><a href="#global-instructions-location" id="toc-global-instructions-location" class="nav-link" data-scroll-target="#global-instructions-location">Global Instructions Location</a></li>
+  <li><a href="#differences-from-vs-code" id="toc-differences-from-vs-code" class="nav-link" data-scroll-target="#differences-from-vs-code">Differences from VS Code</a></li>
+  </ul></li>
+  <li><a href="#appendix-c-deprecated-vs-code-settings" id="toc-appendix-c-deprecated-vs-code-settings" class="nav-link" data-scroll-target="#appendix-c-deprecated-vs-code-settings">📎 Appendix C: Deprecated VS Code Settings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -2036,9 +2110,16 @@ These files guide Copilot by encoding reusable prompts, coding standards, busine
 <ul>
 <li><a href="#-prompt-files-what-they-are-and-where-they-work">📝 Prompt Files: What They Are and Where They Work</a></li>
 <li><a href="#-custom-instructions-cross-ide-context">📚 Custom Instructions: Cross-IDE Context</a></li>
+<li><a href="#-chat-modes-in-vs-code">🤖 Chat Modes in VS Code</a></li>
+<li><a href="#-custom-agents">🔧 Custom Agents</a></li>
+<li><a href="#-model-context-protocol-mcp">🔌 Model Context Protocol (MCP)</a></li>
 <li><a href="#-optional-copilot-folder-enhancing-local-context">📁 Optional <code>.copilot/</code> Folder: Enhancing Local Context</a></li>
+<li><a href="#️-vs-code-settings-reference">⚙️ VS Code Settings Reference</a></li>
 <li><a href="#-key-takeaways">🔑 Key Takeaways</a></li>
 <li><a href="#-references">🔗 References</a></li>
+<li><a href="#-appendix-a-legacy-chatmodemd-migration">📎 Appendix A: Legacy .chatmode.md Migration</a></li>
+<li><a href="#-appendix-b-jetbrains-ide-support">📎 Appendix B: JetBrains IDE Support</a></li>
+<li><a href="#-appendix-c-deprecated-vs-code-settings">📎 Appendix C: Deprecated VS Code Settings</a></li>
 </ul>
 </section>
 </section>
@@ -2065,6 +2146,78 @@ For earlier Visual Studio versions (pre-17.10), prompt files are not recognized.
 These prompts are available across all your VS Code workspaces and appear as slash commands (e.g., <code>/my-prompt</code>). They do <mark><strong>not synchronise to your team via Git</strong></mark>, but you can enable <mark><strong>VS Code’s Settings Sync</strong></mark> to share them across your own machines. Visual Studio currently has no equivalent mechanism; it only consumes repository-level prompt files.</li>
 </ul>
 </section>
+<section id="prompt-file-variables" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-file-variables">Prompt File Variables</h3>
+<p>Prompt files support <mark><strong>variable substitution</strong></mark> to make them dynamic and context-aware:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>${selection}</code></td>
+<td>Currently selected text in the editor</td>
+</tr>
+<tr class="even">
+<td><code>${selectedText}</code></td>
+<td>Alias for <code>${selection}</code></td>
+</tr>
+<tr class="odd">
+<td><code>${file}</code></td>
+<td>Full path of the current file</td>
+</tr>
+<tr class="even">
+<td><code>${fileBasename}</code></td>
+<td>Filename without path</td>
+</tr>
+<tr class="odd">
+<td><code>${fileDirname}</code></td>
+<td>Directory containing the current file</td>
+</tr>
+<tr class="even">
+<td><code>${workspaceFolder}</code></td>
+<td>Root folder of the workspace</td>
+</tr>
+<tr class="odd">
+<td><code>${workspaceFolderBasename}</code></td>
+<td>Name of the workspace folder</td>
+</tr>
+<tr class="even">
+<td><code>${input:variableName}</code></td>
+<td>Prompts user for input</td>
+</tr>
+<tr class="odd">
+<td><code>${input:variableName:placeholder}</code></td>
+<td>User input with placeholder text</td>
+</tr>
+</tbody>
+</table>
+<p>Example usage in a prompt file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Analyze the following code from ${fileBasename}:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>${selection}</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Focus on: ${input:focus:What aspect should I focus on?}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tool-references-in-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="tool-references-in-prompts">Tool References in Prompts</h3>
+<p>Prompt files and instructions can reference specific tools using the <mark><strong><code>#tool:&lt;tool-name&gt;</code></strong></mark> syntax:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Use #tool:githubRepo to search for similar implementations.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Check #tool:terminalLastCommand for recent command output.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Common tool references:</p>
+<ul>
+<li><code>#tool:githubRepo</code> – Search GitHub repositories</li>
+<li><code>#tool:terminalLastCommand</code> – Access recent terminal output</li>
+<li><code>#tool:problems</code> – Get current workspace errors/warnings</li>
+<li><code>#tool:codebase</code> – Search the codebase semantically</li>
+</ul>
+</section>
 <section id="location-not-automatically-supported" class="level3">
 <h3 class="anchored" data-anchor-id="location-not-automatically-supported">Location <strong>not</strong> automatically supported</h3>
 <p>Some community blogs suggest grouping Copilot files under a <code>.github/copilot/prompts/</code> folder. <mark><strong>Officially, this location is not recognised by default</strong></mark>. Both VS Code and Visual Studio expect prompt files in <code>.github/prompts/</code> unless you change VS Code’s <code>chat.promptFilesLocations</code> setting to include the custom path. Visual Studio does not provide a configurable prompt-file location, so it cannot automatically read from <code>.github/copilot/prompts/</code>.</p>
@@ -2078,6 +2231,224 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <li><p><mark><strong><code>.github/copilot-instructions.md</code></strong></mark> is the <mark><strong>repository-wide</strong></mark> instructions file. Both VS Code and Visual Studio support this file, provided that the “Use Instruction Files” feature is enabled. The file should contain concise, self-contained statements about your project’s coding guidelines or tooling requirements. In Visual Studio, you must enable custom instructions in the Copilot settings (Tools &gt; Options &gt; GitHub &gt; Copilot &gt; Copilot Chat). Once enabled, instructions are injected into every chat request but remain hidden from view.</p></li>
 <li><p><mark><strong><code>.github/instructions/</code></strong></mark> holds one or more <code>.instructions.md</code> files for <mark><strong>path- or language-specific guidance</strong></mark>. Each file can specify front-matter fields like <code>applyTo</code> to control which files or folders the instructions apply to (e.g., only <code>**/*.cs</code> for C# files). This feature is supported by both VS Code and Visual Studio 17.10+ (though Visual Studio requires the custom instructions feature to be enabled). Visual Studio 2022 versions prior to 17.10 do not support custom instructions.</p></li>
 </ul>
+<section id="instructions-file-frontmatter" class="level3">
+<h3 class="anchored" data-anchor-id="instructions-file-frontmatter">Instructions File Frontmatter</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">applyTo</span><span class="kw">:</span><span class="at"> </span><span class="st">"**/*.ts"</span><span class="co">           # Glob pattern for matching files</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">excludeAgent</span><span class="kw">:</span><span class="at"> </span><span class="st">"code-review"</span><span class="co">   # Exclude from specific agents</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <mark><strong><code>excludeAgent</code></strong></mark> property controls which agents should NOT use these instructions:</p>
+<ul>
+<li><code>"code-review"</code> – Excludes instructions from Copilot code review</li>
+<li><code>"coding-agent"</code> – Excludes instructions from the GitHub Copilot coding agent</li>
+</ul>
+</section>
+</section>
+<section id="chat-modes-in-vs-code" class="level1">
+<h1>🤖 Chat Modes in VS Code</h1>
+<p>GitHub Copilot Chat provides <mark><strong>four built-in chat modes</strong></mark> accessible via the agent picker in the chat input:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 44%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mode</th>
+<th>Description</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><strong>Agent</strong></mark></td>
+<td>Autonomous mode that determines necessary changes and applies them directly to your workspace</td>
+<td>Complex multi-file refactoring, feature implementation</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Plan</strong></mark></td>
+<td>Creates detailed implementation plans without modifying files (read-only)</td>
+<td>Architecture planning, understanding approach before execution</td>
+</tr>
+<tr class="odd">
+<td><mark><strong>Ask</strong></mark></td>
+<td>Q&amp;A mode for questions without file modifications</td>
+<td>Learning, code explanations, debugging assistance</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Edit</strong></mark></td>
+<td>Direct code editing mode for targeted changes</td>
+<td>Quick fixes, single-file modifications</td>
+</tr>
+</tbody>
+</table>
+<p>These built-in modes <mark><strong>supersede many custom multi-phase agent patterns</strong></mark> that were previously required. For example, a three-phase “analyze → plan → implement” workflow can now be achieved by using Plan mode first, then switching to Agent mode for execution.</p>
+</section>
+<section id="custom-agents" class="level1">
+<h1>🔧 Custom Agents</h1>
+<p><mark><strong>Custom agents</strong></mark> (previously called “chat modes”) allow you to define specialized AI personas with specific tools, instructions, and workflows. These are stored as <mark><strong><code>.agent.md</code></strong></mark> files and are available from <mark><strong>VS Code 1.106+</strong></mark>.</p>
+<section id="agent-file-locations" class="level3">
+<h3 class="anchored" data-anchor-id="agent-file-locations">Agent File Locations</h3>
+<ul>
+<li><mark><strong><code>.github/agents/</code></strong></mark> – Workspace-level agents shared via Git with your team</li>
+<li><strong>User profile folder</strong> (VS Code only) – Personal agents available across all workspaces</li>
+</ul>
+</section>
+<section id="agent-file-structure" class="level3">
+<h3 class="anchored" data-anchor-id="agent-file-structure">Agent File Structure</h3>
+<p>Each <code>.agent.md</code> file includes:</p>
+<ul>
+<li><strong>YAML frontmatter</strong> specifying tools, model preferences, and target environment</li>
+<li><strong>Markdown body</strong> containing the agent’s persona, instructions, and workflow</li>
+<li><strong>Handoffs</strong> (optional) for orchestrating multi-step workflows between agents</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> security-auditor</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> Reviews code for security vulnerabilities</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> grep_search</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">target</span><span class="kw">:</span><span class="at"> vscode</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">You are a security expert. Analyze the provided code for</span><span class="kw">:</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> SQL injection vulnerabilities</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> XSS attack vectors</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> Authentication bypasses</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Supported frontmatter fields:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>name</code></td>
+<td>Agent identifier</td>
+</tr>
+<tr class="even">
+<td><code>description</code></td>
+<td>Brief description shown in agent picker</td>
+</tr>
+<tr class="odd">
+<td><code>argument-hint</code></td>
+<td>Placeholder text in chat input</td>
+</tr>
+<tr class="even">
+<td><code>tools</code></td>
+<td>List of tools/tool sets the agent can use</td>
+</tr>
+<tr class="odd">
+<td><code>model</code></td>
+<td>Preferred AI model (e.g., <code>claude-sonnet-4</code>, <code>gpt-4o</code>)</td>
+</tr>
+<tr class="even">
+<td><code>target</code></td>
+<td>Environment: <code>vscode</code> or <code>github-copilot</code></td>
+</tr>
+<tr class="odd">
+<td><code>mcp-servers</code></td>
+<td>MCP server configs (for <code>github-copilot</code> target)</td>
+</tr>
+<tr class="even">
+<td><code>handoffs</code></td>
+<td>Workflow transitions to other agents</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="handoffs-multi-agent-workflows" class="level3">
+<h3 class="anchored" data-anchor-id="handoffs-multi-agent-workflows">Handoffs: Multi-Agent Workflows</h3>
+<p><mark><strong>Handoffs</strong></mark> enable orchestrating multi-step workflows between agents:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> architect</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> Plans implementation approach</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> Start Implementation</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> implementer</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">prompt</span><span class="kw">:</span><span class="at"> Now implement the plan outlined above.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # false = user reviews before sending</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When the architect agent completes its task, the user sees a “Start Implementation” button to hand off to the implementer agent.</p>
+</section>
+<section id="agents.md-vs-.agent.md" class="level3">
+<h3 class="anchored" data-anchor-id="agents.md-vs-.agent.md">AGENTS.md vs .agent.md</h3>
+<p><mark><strong>Important distinction:</strong></mark></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Used By</th>
+<th>Execution</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>AGENTS.md</code></strong></td>
+<td>GitHub Copilot coding agent</td>
+<td>Asynchronous (runs on GitHub, creates PRs)</td>
+<td>Repo root (or subfolders*)</td>
+</tr>
+<tr class="even">
+<td><strong><code>CLAUDE.md</code></strong></td>
+<td>Alternative to AGENTS.md</td>
+<td>Same as AGENTS.md</td>
+<td>Repo root</td>
+</tr>
+<tr class="odd">
+<td><strong><code>GEMINI.md</code></strong></td>
+<td>Alternative to AGENTS.md</td>
+<td>Same as AGENTS.md</td>
+<td>Repo root</td>
+</tr>
+<tr class="even">
+<td><strong><code>.agent.md</code></strong></td>
+<td>VS Code chat agents</td>
+<td>Interactive (runs locally in IDE)</td>
+<td><code>.github/agents/</code></td>
+</tr>
+</tbody>
+</table>
+<p>*<small>Nested <code>AGENTS.md</code> files in subfolders are supported experimentally via the <code>chat.useNestedAgentsMdFiles</code> setting. The nearest file in the directory tree takes precedence.</small></p>
+<p>Visual Studio uses <code>AGENTS.md</code> (or alternatives) for its coding agent integration but does not currently support <code>.agent.md</code> files for chat.</p>
+</section>
+</section>
+<section id="model-context-protocol-mcp" class="level1">
+<h1>🔌 Model Context Protocol (MCP)</h1>
+<p>The <mark><strong>Model Context Protocol (MCP)</strong></mark> is now generally available in VS Code (1.102+). MCP provides a <mark><strong>standardized way to connect Copilot to external data sources and tools</strong></mark>.</p>
+<section id="what-mcp-enables" class="level3">
+<h3 class="anchored" data-anchor-id="what-mcp-enables">What MCP Enables</h3>
+<ul>
+<li><strong>Structured tool access</strong> – Connect to databases, APIs, cloud services</li>
+<li><strong>Typed data retrieval</strong> – Get data in formats Copilot can reason about</li>
+<li><strong>Reduced tool clash</strong> – Narrowly-scoped tool definitions prevent conflicts</li>
+</ul>
+</section>
+<section id="configuration" class="level3">
+<h3 class="anchored" data-anchor-id="configuration">Configuration</h3>
+<p>MCP servers are configured via <code>mcp.json</code> files in your workspace or user settings. The GitHub MCP registry at <a href="https://github.com/mcp">github.com/mcp</a> provides pre-built servers for common integrations.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"servers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"azure-devops"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"npx"</span><span class="fu">,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"args"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"@azure/mcp-server-ado"</span><span class="ot">]</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>MCP is particularly valuable for building specialized agents that need access to external systems—such as an Azure DevOps agent that can query work items, or a database agent that can inspect schemas.</p>
+</section>
 </section>
 <section id="optional-.copilot-folder-enhancing-local-context" class="level1">
 <h1>📁 Optional <code>.copilot/</code> Folder: Enhancing Local Context</h1>
@@ -2086,6 +2457,141 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <li><mark><code>context/</code></mark> (e.g.&nbsp;data schemas, API contracts, code patterns, workflows, guidelines, examples) – <mark>Copilot will index files here and use them to inform its responses</mark>.</li>
 <li><code>architecture/</code>, <code>troubleshooting/</code>, <code>examples/</code>, <code>images/</code>, <code>data/</code>, <code>reference/</code> – these are suggested subfolders used in some community guides. <mark>None of these files automatically generate chat commands; they simply improve the semantic search</mark> used by Copilot in both VS Code and Visual Studio.</li>
 </ul>
+</section>
+<section id="vs-code-settings-reference" class="level1">
+<h1>⚙️ VS Code Settings Reference</h1>
+<p>The following settings control how VS Code handles Copilot customization files:</p>
+<section id="prompt-files-settings" class="level2">
+<h2 class="anchored" data-anchor-id="prompt-files-settings">Prompt Files Settings</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 41%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chat.promptFiles</code></td>
+<td>Enable/disable prompt file support</td>
+<td><code>true</code></td>
+</tr>
+<tr class="even">
+<td><code>chat.promptFilesLocations</code></td>
+<td>Additional folders to search for <code>.prompt.md</code> files</td>
+<td><code>[]</code></td>
+</tr>
+<tr class="odd">
+<td><code>chat.promptFilesRecommendations</code></td>
+<td>Show prompts as recommended actions when starting new chat</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="instructions-settings" class="level2">
+<h2 class="anchored" data-anchor-id="instructions-settings">Instructions Settings</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 41%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chat.instructionsFilesLocations</code></td>
+<td>Additional folders to search for <code>.instructions.md</code> files</td>
+<td><code>[]</code></td>
+</tr>
+<tr class="even">
+<td><code>github.copilot.chat.reviewSelection.instructions</code></td>
+<td>Custom instructions for code review</td>
+<td><code>[]</code></td>
+</tr>
+<tr class="odd">
+<td><code>github.copilot.chat.commitMessageGeneration.instructions</code></td>
+<td>Instructions for commit message generation</td>
+<td><code>[]</code></td>
+</tr>
+<tr class="even">
+<td><code>github.copilot.chat.pullRequestDescriptionGeneration.instructions</code></td>
+<td>Instructions for PR description generation</td>
+<td><code>[]</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="agent-settings" class="level2">
+<h2 class="anchored" data-anchor-id="agent-settings">Agent Settings</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 41%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chat.useNestedAgentsMdFiles</code></td>
+<td><strong>Experimental:</strong> Enable <code>AGENTS.md</code> files in subfolders</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mcp-settings" class="level2">
+<h2 class="anchored" data-anchor-id="mcp-settings">MCP Settings</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 41%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chat.mcp.discovery.enabled</code></td>
+<td>Auto-discover MCP servers from <code>mcp.json</code> files</td>
+<td><code>true</code></td>
+</tr>
+<tr class="even">
+<td><code>chat.mcp.gallery.enabled</code></td>
+<td>Enable the MCP server gallery in Extensions view</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="settings-sync" class="level2">
+<h2 class="anchored" data-anchor-id="settings-sync">Settings Sync</h2>
+<p>You can synchronize prompt files and instructions across devices using VS Code’s Settings Sync. Enable via: <strong>Settings Sync: Configure</strong> → Check <strong>Prompts and Instructions</strong></p>
+<hr>
+</section>
 </section>
 <section id="key-takeaways" class="level1">
 <h1>🔑 Key Takeaways</h1>
@@ -2131,8 +2637,20 @@ These prompts are available across all your VS Code workspaces and appear as sla
 </tr>
 <tr class="odd">
 <td><strong>Custom agents</strong> (<code>.github/agents/*.agent.md</code>)</td>
-<td>Supported from VS Code 1.106 (Preview). Each <code>.agent.md</code> defines a specialized persona and workflow in VS Code. Not supported by the Visual Studio chat; Visual Studio uses a separate <code>AGENTS.md</code> mechanism.</td>
-<td>Not recognized by Visual Studio for chat; instead, Visual Studio uses its own <code>AGENTS.md</code> file for guiding its coding agents.</td>
+<td>Supported from VS Code 1.106+. Each <code>.agent.md</code> defines a specialized persona, tools, and workflow. Supports handoffs for multi-agent orchestration.</td>
+<td>Not supported for chat; Visual Studio uses <code>AGENTS.md</code>, <code>CLAUDE.md</code>, or <code>GEMINI.md</code> for its async coding agent (creates PRs).</td>
+<td>Not available</td>
+</tr>
+<tr class="even">
+<td><strong>Chat modes</strong> (Agent, Plan, Ask, Edit)</td>
+<td>Built-in modes available via agent picker. Agent mode enables autonomous file editing; Plan mode creates implementation plans.</td>
+<td>Not applicable; Visual Studio has different interaction patterns.</td>
+<td>Not available</td>
+</tr>
+<tr class="odd">
+<td><strong>MCP servers</strong> (<code>mcp.json</code>)</td>
+<td>Generally available (VS Code 1.102+). Connect to external data sources and tools via Model Context Protocol.</td>
+<td>Not currently supported.</td>
 <td>Not available</td>
 </tr>
 <tr class="even">
@@ -2150,10 +2668,10 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <h1>🔗 References</h1>
 <section id="official-github-copilot-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="official-github-copilot-documentation">Official GitHub Copilot Documentation</h2>
-<p><strong><a href="https://docs.github.com/en/copilot/customizing-copilot/using-prompt-files-with-github-copilot">GitHub Copilot Documentation - Using prompt files with GitHub Copilot</a></strong><br>
-This is the official GitHub documentation for prompt files. It provides comprehensive guidance on creating reusable prompt files with <code>.prompt.md</code> extensions, YAML frontmatter configuration, and how to invoke them in supported IDEs. Essential reading for understanding the official specification and best practices for prompt file creation.</p>
-<p><strong><a href="https://docs.github.com/en/copilot/customizing-copilot/using-instruction-files">GitHub Copilot Documentation - Using instruction files</a></strong><br>
-The authoritative guide to custom instructions in GitHub Copilot. Explains how to create repository-wide instructions (<code>.github/copilot-instructions.md</code>) and path-specific instructions (<code>.github/instructions/*.instructions.md</code>) with frontmatter patterns. Critical for understanding how to inject project-specific coding standards and guidelines into every Copilot interaction.</p>
+<p><strong><a href="https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions">GitHub Copilot Documentation - Repository Instructions</a></strong><br>
+The official GitHub documentation for customizing Copilot with repository-level instructions. Covers prompt files (<code>.prompt.md</code>), instruction files (<code>.github/copilot-instructions.md</code> and <code>.github/instructions/</code>), and <code>AGENTS.md</code> configuration. Essential reading for understanding the official specification and best practices.</p>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/overview">VS Code Copilot Customization Overview</a></strong><br>
+Microsoft’s comprehensive guide to customizing GitHub Copilot in VS Code. Covers custom agents, custom instructions, prompt files, and MCP server configuration. The authoritative source for VS Code-specific features and settings.</p>
 <p><strong><a href="https://code.visualstudio.com/docs/copilot/copilot-chat">Visual Studio Code - GitHub Copilot Chat</a></strong><br>
 VS Code’s official documentation for GitHub Copilot Chat features, including slash commands, context variables, and prompt file integration. Provides practical examples of using Copilot within the VS Code environment and configuring chat settings.</p>
 </section>
@@ -2168,8 +2686,10 @@ Microsoft’s comprehensive guide to using GitHub Copilot in Visual Studio, incl
 <h2 class="anchored" data-anchor-id="community-best-practices-and-patterns">Community Best Practices and Patterns</h2>
 <p><strong><a href="https://github.blog/developer-skills/github/how-to-use-github-copilot-prompts-tips-and-use-cases/">GitHub Blog - How to use GitHub Copilot: Prompts, tips, and use cases</a></strong><br>
 GitHub’s official blog post covering prompt engineering best practices, effective communication patterns with Copilot, and real-world use cases. Valuable for understanding how to write effective prompts and structure your instructions for optimal results.</p>
-<p><strong><a href="https://github.com/skills/copilot-workspace">GitHub Skills - Copilot Workspace Course</a></strong><br>
-Interactive learning resource from GitHub Skills that teaches how to set up and optimize a repository for GitHub Copilot. Covers workspace organization, prompt file creation, and instruction file patterns through hands-on exercises.</p>
+<p><strong><a href="https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/">How to write a great AGENTS.md: Lessons from over 2,500 repositories</a></strong><br>
+Comprehensive analysis of over 2,500 agent.md files identifying patterns that separate successful custom agents from failures. Covers the six core areas (commands, testing, project structure, code style, git workflow, and boundaries) with practical templates and real-world examples.</p>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode">VS Code Agent Mode Documentation</a></strong><br>
+Documentation for the Agent mode in VS Code that enables autonomous file editing and code generation. Explains how Agent mode, combined with Plan mode, provides powerful multi-step workflows.</p>
 </section>
 <section id="additional-context-and-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="additional-context-and-architecture">Additional Context and Architecture</h2>
@@ -2177,11 +2697,171 @@ Interactive learning resource from GitHub Skills that teaches how to set up and 
 For developers building VS Code extensions that integrate with Copilot Chat. Explains the chat API, participant patterns, and how extensions can contribute custom slash commands. Relevant for understanding the extensibility model and how prompt files fit into the broader VS Code chat architecture.</p>
 <p><strong><a href="https://resources.github.com/copilot-trust-center/">GitHub Copilot Trust Center</a></strong><br>
 Official resource covering security, privacy, and data handling in GitHub Copilot. Important for understanding how your prompts, instructions, and code context are processed, what data is sent to GitHub, and compliance considerations for enterprise use.</p>
-<hr>
-<p><em>Last updated: November 2025</em></p>
-
-
 </section>
+<section id="model-context-protocol-and-tools" class="level2">
+<h2 class="anchored" data-anchor-id="model-context-protocol-and-tools">Model Context Protocol and Tools</h2>
+<p><strong><a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP) Specification</a></strong><br>
+The protocol specification for connecting AI assistants to external data sources and tools. MCP provides structured, typed access to external systems, enabling narrowly-scoped tool definitions that reduce tool clash and improve reliability.</p>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers">VS Code MCP Servers Documentation</a></strong><br>
+Official VS Code documentation for configuring MCP servers. Explains how to set up <code>mcp.json</code> files and connect Copilot to external data sources like databases, cloud services, and APIs.</p>
+</section>
+<section id="prompt-engineering-fundamentals" class="level2">
+<h2 class="anchored" data-anchor-id="prompt-engineering-fundamentals">Prompt Engineering Fundamentals</h2>
+<p><strong><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering">Prompt engineering techniques - Microsoft Azure AI</a></strong><br>
+Microsoft’s comprehensive guide to prompt engineering techniques covering instruction design, primary content structuring, few-shot learning, and output specification. Includes detailed examples of breaking down tasks and specifying output structures.</p>
+<p><strong><a href="https://platform.openai.com/docs/guides/prompt-engineering">Prompt engineering - OpenAI</a></strong><br>
+OpenAI’s official prompt engineering guide providing foundational strategies for working with GPT models. Covers core techniques including instruction clarity, systematic approaches to prompt construction, and best practices for reducing hallucination.</p>
+<p><strong><a href="https://platform.openai.com/docs/guides/reasoning-best-practices">Reasoning best practices - OpenAI</a></strong><br>
+OpenAI’s guidance on best practices for reasoning models, covering chain-of-thought prompting, step-by-step breakdowns, and techniques for improving model accuracy.</p>
+</section>
+<section id="research" class="level2">
+<h2 class="anchored" data-anchor-id="research">Research</h2>
+<p><strong><a href="https://arxiv.org/abs/2307.03172">Lost in the Middle: How Language Models Use Long Contexts</a></strong><br>
+Academic research on context window attention patterns, documenting the phenomenon where models under-weight middle content. Foundational research for understanding why commands should be placed early in prompts and why context placement matters.</p>
+<hr>
+</section>
+</section>
+<section id="appendix-a-legacy-.chatmode.md-migration" class="level1">
+<h1>📎 Appendix A: Legacy .chatmode.md Migration</h1>
+<p>Prior to VS Code 1.106, custom agents were called “chat modes” and used different file conventions:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Legacy</th>
+<th>Current</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.chatmode.md</code> extension</td>
+<td><code>.agent.md</code> extension</td>
+</tr>
+<tr class="even">
+<td><code>.github/chatmodes/</code> folder</td>
+<td><code>.github/agents/</code> folder</td>
+</tr>
+</tbody>
+</table>
+<section id="migration-steps" class="level3">
+<h3 class="anchored" data-anchor-id="migration-steps">Migration Steps</h3>
+<ol type="1">
+<li>VS Code automatically recognizes legacy <code>.chatmode.md</code> files</li>
+<li>A <strong>Quick Fix</strong> action appears to migrate files to the new format</li>
+<li>Rename files from <code>*.chatmode.md</code> to <code>*.agent.md</code></li>
+<li>Move files from <code>.github/chatmodes/</code> to <code>.github/agents/</code></li>
+</ol>
+<p><mark><strong>Recommendation:</strong></mark> Migrate to the new format for consistency with current documentation and to ensure future compatibility.</p>
+<hr>
+</section>
+</section>
+<section id="appendix-b-jetbrains-ide-support" class="level1">
+<h1>📎 Appendix B: JetBrains IDE Support</h1>
+<p>JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, etc.) support GitHub Copilot with their own conventions:</p>
+<section id="supported-files" class="level2">
+<h2 class="anchored" data-anchor-id="supported-files">Supported Files</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 35%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File Type</th>
+<th>Location</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Workspace instructions</strong></td>
+<td><code>.github/copilot-instructions.md</code></td>
+<td>Same as VS Code/Visual Studio</td>
+</tr>
+<tr class="even">
+<td><strong>Global instructions</strong></td>
+<td>OS-specific path (see below)</td>
+<td>Personal instructions across all projects</td>
+</tr>
+<tr class="odd">
+<td><strong>Prompt files</strong></td>
+<td><code>.github/prompts/*.prompt.md</code></td>
+<td>Invoked via <code>/promptName</code> commands</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="global-instructions-location" class="level2">
+<h2 class="anchored" data-anchor-id="global-instructions-location">Global Instructions Location</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>OS</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Windows</strong></td>
+<td><code>%APPDATA%\JetBrains\&lt;product&gt;&lt;version&gt;\copilot\global-copilot-instructions.md</code></td>
+</tr>
+<tr class="even">
+<td><strong>macOS</strong></td>
+<td><code>~/Library/Application Support/JetBrains/&lt;product&gt;&lt;version&gt;/copilot/global-copilot-instructions.md</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Linux</strong></td>
+<td><code>~/.config/JetBrains/&lt;product&gt;&lt;version&gt;/copilot/global-copilot-instructions.md</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>Replace <code>&lt;product&gt;&lt;version&gt;</code> with your IDE (e.g., <code>IntelliJIdea2024.3</code>, <code>PyCharm2024.3</code>).</em></p>
+</section>
+<section id="differences-from-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="differences-from-vs-code">Differences from VS Code</h2>
+<ul>
+<li>JetBrains does <strong>not</strong> support <code>.agent.md</code> files (custom agents)</li>
+<li>JetBrains does <strong>not</strong> support MCP server configuration</li>
+<li>Path-specific <code>.instructions.md</code> files work the same as VS Code</li>
+<li>Prompt files use <code>/promptName</code> syntax (same as VS Code)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="appendix-c-deprecated-vs-code-settings" class="level1">
+<h1>📎 Appendix C: Deprecated VS Code Settings</h1>
+<p>The following settings are <mark><strong>deprecated as of VS Code 1.102</strong></mark>. Use <code>.instructions.md</code> files instead:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 65%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Deprecated Setting</th>
+<th>Migration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>github.copilot.chat.codeGeneration.instructions</code></td>
+<td>Use <code>.github/instructions/*.instructions.md</code> with <code>applyTo</code> patterns</td>
+</tr>
+<tr class="even">
+<td><code>github.copilot.chat.testGeneration.instructions</code></td>
+<td>Use <code>.github/instructions/*.instructions.md</code> with <code>applyTo</code> patterns</td>
+</tr>
+</tbody>
+</table>
+<p><mark><strong>Recommendation:</strong></mark> Remove these deprecated settings from your VS Code configuration and migrate to instruction files for better maintainability and version control.</p>
+<hr>
+<p><em>Last updated: December 2025</em></p>
+
+
 </section>
 
 </main> <!-- /main -->

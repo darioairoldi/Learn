@@ -2055,7 +2055,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#organizing-prompts-by-categories" id="toc-organizing-prompts-by-categories" class="nav-link" data-scroll-target="#organizing-prompts-by-categories">Organizing Prompts by Categories</a></li>
   <li><a href="#recommended-model-specification" id="toc-recommended-model-specification" class="nav-link" data-scroll-target="#recommended-model-specification">Recommended Model Specification</a></li>
   </ul></li>
-  <li><a href="#organize-supporting-materials" id="toc-organize-supporting-materials" class="nav-link" data-scroll-target="#organize-supporting-materials">📁 Organize Supporting Materials</a></li>
+  <li><a href="#organize-supporting-materials" id="toc-organize-supporting-materials" class="nav-link" data-scroll-target="#organize-supporting-materials">📁 Organize Supporting Materials</a>
+  <ul class="collapse">
+  <li><a href="#targeted-instructions-with-.instructions.md-files" id="toc-targeted-instructions-with-.instructions.md-files" class="nav-link" data-scroll-target="#targeted-instructions-with-.instructions.md-files">Targeted Instructions with .instructions.md Files</a></li>
+  </ul></li>
   <li><a href="#environment-specific-considerations" id="toc-environment-specific-considerations" class="nav-link" data-scroll-target="#environment-specific-considerations">⚙️ Environment-Specific Considerations</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">🎯 Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📚 References</a>
@@ -2620,6 +2623,44 @@ Organize these resources strategically:</p>
 <li><mark><strong>Project documentation</strong></mark>: Use a <code>.copilot/context/</code> (optional) folder to store rich information—API contracts, data schemas, domain terms, architecture decisions and diagrams—which <mark>the Copilot engine can search</mark>. VS Code and Visual Studio both index these files to improve the relevance of suggestions.</li>
 <li><strong>Example outputs</strong>: Including example outputs (e.g., a table of tests to generate) can guide the model’s formatting and structure. When adding examples, clearly mark them so readers know they’re illustrative.</li>
 </ul>
+<section id="targeted-instructions-with-.instructions.md-files" class="level2">
+<h2 class="anchored" data-anchor-id="targeted-instructions-with-.instructions.md-files">Targeted Instructions with .instructions.md Files</h2>
+<p>In addition to prompt files (<code>.prompt.md</code>), Visual Studio 17.12+ supports <mark><strong>targeted instruction files</strong></mark> that automatically apply context based on file patterns. These <code>.instructions.md</code> files provide more flexibility than a single global <code>copilot-instructions.md</code> file.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Multiple instruction files for different contexts (languages, frameworks, file types)</li>
+<li>Automatic application based on glob patterns</li>
+<li>YAML frontmatter for configuration</li>
+</ul>
+<p><strong>File Structure:</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "C# coding standards for this project"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="an">applyTo:</span><span class="co"> "**/*.cs"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># C# Instructions</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Write clear and concise comments for each function.</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use PascalCase for component names, method names, and public members.</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use camelCase for private fields and local variables.</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add a newline before the opening curly brace of any code block.</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ensure that the final <span class="in">`return`</span> statement of a method is on its own line.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Usage Pattern:</strong></p>
+<ol type="1">
+<li>Create <code>.github/instructions/</code> directory</li>
+<li>Add <code>*.instructions.md</code> files for different contexts</li>
+<li>Use <code>applyTo</code> glob patterns to target specific files</li>
+<li>Enable in Visual Studio via Tools &gt; Options &gt; GitHub &gt; Copilot &gt; Copilot Chat</li>
+</ol>
+<p><strong>Example Organization:</strong></p>
+<pre><code>.github/instructions/
+├── csharp-backend.instructions.md     (applyTo: "src/backend/**/*.cs")
+├── typescript-frontend.instructions.md (applyTo: "src/frontend/**/*.ts")
+├── python-ml.instructions.md          (applyTo: "ml/**/*.py")
+└── sql-migrations.instructions.md     (applyTo: "db/migrations/**/*.sql")</code></pre>
+<p>When Copilot processes your request, it automatically detects and applies relevant instruction files based on your current context. The applied instructions are listed in the References section of Copilot’s response.</p>
+<p>For more examples, see the <a href="https://github.com/github/awesome-copilot">instruction samples on GitHub</a>.</p>
+</section>
 </section>
 <section id="environment-specific-considerations" class="level1">
 <h1>⚙️ Environment-Specific Considerations</h1>
@@ -2640,7 +2681,17 @@ Organize these resources strategically:</p>
 <tr class="odd">
 <td><strong>.prompt.md support</strong></td>
 <td>Yes. Slash commands <code>/promptName</code> run workspace or user prompts.</td>
-<td>Yes, since version 17.10. Hashtag commands <code>#promptName</code> run workspace prompts.</td>
+<td>Yes, since version 17.10. Reference with <code>#prompt:promptName</code> in chat input.</td>
+</tr>
+<tr class="even">
+<td><strong>Prompt invocation syntax</strong></td>
+<td><code>/promptName</code> - Slash commands invoke prompts directly</td>
+<td><code>#prompt:</code> - Reference prompts as context in chat using <code>#prompt:promptName</code></td>
+</tr>
+<tr class="odd">
+<td><strong>.instructions.md support</strong></td>
+<td>Support varies; check VS Code release notes for current status</td>
+<td>Yes, since version 17.12. Files in <code>.github/instructions/</code> with <code>applyTo</code> glob patterns.</td>
 </tr>
 <tr class="even">
 <td><strong>User prompt files</strong></td>
@@ -2655,7 +2706,7 @@ Organize these resources strategically:</p>
 <tr class="even">
 <td><strong>Custom agents</strong></td>
 <td><code>.agent.md</code> files in <code>.github/agents</code> define specialized personas. Available in VS Code 1.106+ (Preview).</td>
-<td>Custom agents are not defined via <code>.agent.md</code> files. Visual Studio uses a separate <code>AGENTS.md</code> concept for guiding its coding agents.</td>
+<td>Agent mode available in VS 17.14+. Custom agent profiles can be defined, but mechanism differs from VS Code.</td>
 </tr>
 </tbody>
 </table>
@@ -2669,32 +2720,30 @@ Organize these resources strategically:</p>
 <section id="official-github-copilot-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="official-github-copilot-documentation">Official GitHub Copilot Documentation</h2>
 <ul>
-<li><p><strong><a href="https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot">GitHub Copilot Prompt Engineering Guide</a></strong><br>
+<li><p><strong><a href="https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot">GitHub Copilot Prompt Engineering Guide</a></strong> <code>[📘 Official]</code><br>
 <em>This comprehensive guide from GitHub provides foundational strategies for crafting effective prompts when working with GitHub Copilot. It covers general prompt engineering principles that apply across different Copilot interfaces and is essential reading for understanding how to communicate effectively with the AI assistant.</em></p></li>
-<li><p><strong><a href="https://code.visualstudio.com/docs/copilot/copilot-custom-prompts">Creating Custom Prompts for GitHub Copilot</a></strong><br>
-<em>The official VS Code documentation explains how to create and use <code>.prompt.md</code> files in your workspace. This reference is directly relevant as it details the YAML frontmatter options, file locations, and slash command syntax covered in this article.</em></p></li>
-<li><p><strong><a href="https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-extension">GitHub Copilot in Visual Studio</a></strong><br>
+<li><p><strong><a href="https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=visualstudio">Customize Chat Responses and Set Context (Visual Studio)</a></strong> <code>[📘 Official]</code><br>
+<em>The official Visual Studio documentation explains how to create and use <code>.prompt.md</code> files, custom instructions, and targeted <code>.instructions.md</code> files in your workspace. This reference details the YAML frontmatter options, file locations, and prompt invocation syntax for Visual Studio.</em></p></li>
+<li><p><strong><a href="https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-extension">GitHub Copilot in Visual Studio</a></strong> <code>[📘 Official]</code><br>
 <em>Microsoft’s documentation for GitHub Copilot in Visual Studio provides specific information about prompt file support (available from version 17.10+) and explains the differences in functionality between Visual Studio and VS Code, which is crucial for understanding the environment-specific considerations discussed in this article.</em></p></li>
 </ul>
 </section>
 <section id="prompt-engineering-best-practices" class="level2">
 <h2 class="anchored" data-anchor-id="prompt-engineering-best-practices">Prompt Engineering Best Practices</h2>
 <ul>
-<li><p><strong><a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt Engineering Guide</a></strong><br>
+<li><p><strong><a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt Engineering Guide</a></strong> <code>[📘 Official]</code><br>
 <em>While this guide is focused on OpenAI’s models, the prompt engineering principles it discusses (clarity, specificity, providing examples, and iterative refinement) are universally applicable to GitHub Copilot. This reference helps readers understand the underlying LLM behavior that makes structured prompts effective.</em></p></li>
-<li><p><strong><a href="https://docs.anthropic.com/en/docs/prompt-engineering">Anthropic’s Prompt Engineering Tutorial</a></strong><br>
+<li><p><strong><a href="https://docs.claude.com/en/docs/prompt-engineering">Anthropic’s Prompt Engineering Tutorial</a></strong> <code>[📘 Official]</code><br>
 <em>This tutorial offers insights into how large language models interpret instructions, including the importance of clear role definition, structured formatting, and providing context—all concepts that directly support the best practices outlined in this article for creating effective prompt files.</em></p></li>
 </ul>
 </section>
 <section id="community-resources-and-examples" class="level2">
 <h2 class="anchored" data-anchor-id="community-resources-and-examples">Community Resources and Examples</h2>
 <ul>
-<li><p><strong><a href="https://github.com/microsoft-partner-solutions-ai/ai-prompt-book">Microsoft AI Prompt Book for Architects</a></strong><br>
+<li><p><strong><a href="https://github.com/microsoft-partner-solutions-ai/ai-prompt-book">Microsoft AI Prompt Book for Architects</a></strong> <code>[📘 Official]</code><br>
 <em>A curated collection of production-ready prompts organized by solution development lifecycle stages (Discovery, Rapid Prototyping, Delivery). This repository demonstrates the three-part prompt architecture (System Message, User Prompt Template, Example Usage) discussed in this article and provides concrete examples of prompts for requirements gathering, code scaffolding, architecture design, and more. Essential reference for understanding enterprise-grade prompt structuring.</em></p></li>
-<li><p><strong><a href="https://github.com/jmathai/awesome-copilot">Awesome GitHub Copilot</a></strong><br>
-<em>A curated list of resources, examples, and community-contributed prompt patterns for GitHub Copilot. This repository is valuable for seeing real-world examples of prompt files and learning from how other developers structure their reusable prompts.</em></p></li>
-<li><p><strong><a href="https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/copilot-vscode-features.md">VS Code Copilot Extension Changelog</a></strong><br>
-<em>Tracking the VS Code Copilot extension’s feature updates helps readers stay current with new capabilities (like custom agents and tool restrictions) that affect how prompt files can be structured and what functionality they can leverage.</em></p></li>
+<li><p><strong><a href="https://github.com/github/awesome-copilot">GitHub Awesome Copilot Repository</a></strong> <code>[📘 Official]</code><br>
+<em>GitHub’s official curated list of resources, instruction examples, and prompt patterns for GitHub Copilot. This repository provides real-world examples and best practices for custom instructions files that complement the guidance in this article.</em></p></li>
 </ul>
 <hr>
 </section>
@@ -2741,7 +2790,7 @@ Organize these resources strategically:</p>
 <li><strong>Example</strong>: <code>name: react-form</code> → Use <code>/react-form</code> in VS Code</li>
 <li><strong>Best Practice</strong>: Use lowercase with hyphens for multi-word names</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> code-review</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> code-review</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="description" class="level3">
 <h3 class="anchored" data-anchor-id="description"><code>description</code></h3>
@@ -2753,7 +2802,7 @@ Organize these resources strategically:</p>
 <li><strong>Character Limit</strong>: Keep under 100 characters for best display</li>
 <li><strong>Best Practice</strong>: Write clear, action-oriented descriptions</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Review code for security vulnerabilities and best practices"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Review code for security vulnerabilities and best practices"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="agent" class="level3">
 <h3 class="anchored" data-anchor-id="agent"><code>agent</code></h3>
@@ -2771,7 +2820,7 @@ Organize these resources strategically:</p>
 <li><strong>VS Code</strong>: Fully supported (1.106+)</li>
 <li><strong>Visual Studio</strong>: Limited support (check version docs)</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span><span class="co">  # Use autonomous agent mode</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span><span class="co">  # Use autonomous agent mode</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Agent Mode Comparison:</strong></p>
 <table class="caption-top table">
 <thead>
@@ -2826,7 +2875,7 @@ Organize these resources strategically:</p>
 <li><strong>Availability</strong>: Depends on user’s Copilot subscription and enabled models</li>
 <li><strong>Best Practice</strong>: Only specify when prompt requires specific model capabilities</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4.5</span><span class="co">  # Use Claude for this prompt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4.5</span><span class="co">  # Use Claude for this prompt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="tools" class="level3">
 <h3 class="anchored" data-anchor-id="tools"><code>tools</code></h3>
@@ -2847,19 +2896,19 @@ Organize these resources strategically:</p>
 <li><strong>VS Code</strong>: Full support</li>
 <li><strong>Visual Studio</strong>: Limited support</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Restrict to local operations only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Restrict to local operations only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Tool Access Patterns:</strong></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimal tools (fast, focused)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Code-focused (no external access)</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Research-enabled (includes external data)</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Full access (all available tools)</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # or omit the field entirely</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimal tools (fast, focused)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Code-focused (no external access)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Research-enabled (includes external data)</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Full access (all available tools)</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # or omit the field entirely</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="argument-hint" class="level3">
 <h3 class="anchored" data-anchor-id="argument-hint"><code>argument-hint</code></h3>
@@ -2871,19 +2920,19 @@ Organize these resources strategically:</p>
 <li><strong>Best Practice</strong>: Use concise syntax examples</li>
 <li><strong>Format</strong>: Suggest argument patterns users should provide</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'fields=name:string,age:number,email:string'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'fields=name:string,age:number,email:string'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Effective Argument Hints:</strong></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File path argument</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'path/to/file.ts'</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Key-value pairs</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'component=Button props=variant,size'</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional parameters</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'[language] [framework]'</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple files</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'file1.ts file2.ts ...'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File path argument</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'path/to/file.ts'</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Key-value pairs</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'component=Button props=variant,size'</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional parameters</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'[language] [framework]'</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple files</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'file1.ts file2.ts ...'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="extended-metadata-fields" class="level2">
@@ -2896,7 +2945,7 @@ Organize these resources strategically:</p>
 <li><strong>Purpose</strong>: Track prompt file versions for compatibility</li>
 <li><strong>Format</strong>: Follow semantic versioning (major.minor.patch)</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.2.0"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.2.0"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="author" class="level3">
 <h3 class="anchored" data-anchor-id="author"><code>author</code></h3>
@@ -2906,9 +2955,9 @@ Organize these resources strategically:</p>
 <li><strong>Purpose</strong>: Document prompt creator(s)</li>
 <li><strong>Use Case</strong>: Team attribution, maintenance responsibility</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Development Team"</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"Alice Smith"</span><span class="kw">,</span><span class="at"> </span><span class="st">"Bob Jones"</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Development Team"</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"Alice Smith"</span><span class="kw">,</span><span class="at"> </span><span class="st">"Bob Jones"</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="tags" class="level3">
 <h3 class="anchored" data-anchor-id="tags"><code>tags</code></h3>
@@ -2918,7 +2967,7 @@ Organize these resources strategically:</p>
 <li><strong>Purpose</strong>: Categorize prompts for searching/filtering</li>
 <li><strong>Use Case</strong>: Large prompt libraries with organizational needs</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'security'</span><span class="kw">,</span><span class="at"> </span><span class="st">'code-review'</span><span class="kw">,</span><span class="at"> </span><span class="st">'python'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'security'</span><span class="kw">,</span><span class="at"> </span><span class="st">'code-review'</span><span class="kw">,</span><span class="at"> </span><span class="st">'python'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="category" class="level3">
 <h3 class="anchored" data-anchor-id="category"><code>category</code></h3>
@@ -2928,7 +2977,7 @@ Organize these resources strategically:</p>
 <li><strong>Purpose</strong>: High-level prompt classification</li>
 <li><strong>Use Case</strong>: Aligns with prompt organization structure</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> </span><span class="st">"quality-assurance"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> </span><span class="st">"quality-assurance"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="custom-agent-metadata-.agent.md-files" class="level2">
@@ -2955,36 +3004,36 @@ Organize these resources strategically:</p>
 <h2 class="anchored" data-anchor-id="platform-specific-metadata">Platform-Specific Metadata</h2>
 <section id="vs-code-specific" class="level3">
 <h3 class="anchored" data-anchor-id="vs-code-specific">VS Code Specific</h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># VS Code Preview features (1.106+)</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> my-prompt</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> custom-agent-name</span><span class="co">  # Reference .agent.md file</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@mcp-server-name'</span><span class="kw">]</span><span class="co">  # MCP server integration</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># VS Code Preview features (1.106+)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> my-prompt</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> custom-agent-name</span><span class="co">  # Reference .agent.md file</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@mcp-server-name'</span><span class="kw">]</span><span class="co">  # MCP server integration</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="visual-studio-specific" class="level3">
 <h3 class="anchored" data-anchor-id="visual-studio-specific">Visual Studio Specific</h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual Studio 17.10+</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> my-prompt</span><span class="co">  # Invoked as #my-prompt (not /my-prompt)</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: Limited tool/agent support compared to VS Code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual Studio 17.10+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> my-prompt</span><span class="co">  # Invoked as #my-prompt (not /my-prompt)</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: Limited tool/agent support compared to VS Code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="complete-example-with-all-common-fields" class="level2">
 <h2 class="anchored" data-anchor-id="complete-example-with-all-common-fields">Complete Example with All Common Fields</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> comprehensive-code-review</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Perform security audit and best practices review with detailed report"</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4.5</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'[focus=security|performance|style]'</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"2.1.0"</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Security Team"</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'security'</span><span class="kw">,</span><span class="at"> </span><span class="st">'code-review'</span><span class="kw">,</span><span class="at"> </span><span class="st">'audit'</span><span class="kw">]</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> </span><span class="st">"quality-assurance"</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprehensive Code Review Prompt</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Prompt content here...</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> comprehensive-code-review</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Perform security audit and best practices review with detailed report"</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4.5</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'[focus=security|performance|style]'</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"2.1.0"</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Security Team"</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'security'</span><span class="kw">,</span><span class="at"> </span><span class="st">'code-review'</span><span class="kw">,</span><span class="at"> </span><span class="st">'audit'</span><span class="kw">]</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> </span><span class="st">"quality-assurance"</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprehensive Code Review Prompt</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Prompt content here...</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="validation-and-best-practices" class="level2">
 <h2 class="anchored" data-anchor-id="validation-and-best-practices">Validation and Best Practices</h2>
@@ -3012,12 +3061,12 @@ Organize these resources strategically:</p>
 <section id="future-metadata-fields-proposed" class="level2">
 <h2 class="anchored" data-anchor-id="future-metadata-fields-proposed">Future Metadata Fields (Proposed)</h2>
 <p>Based on community requests and tool evolution:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proposed future fields</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">requires</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'extension-id'</span><span class="kw">]</span><span class="co">  # Extension dependencies</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">min-version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.95.0"</span><span class="co">       # Minimum VS Code version</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">max-tokens</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span><span class="co">            # Token limit for responses</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">temperature</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span><span class="co">            # Model temperature override</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">context-files</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'docs/**'</span><span class="kw">]</span><span class="co">   # Auto-include file patterns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proposed future fields</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">requires</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'extension-id'</span><span class="kw">]</span><span class="co">  # Extension dependencies</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">min-version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.95.0"</span><span class="co">       # Minimum VS Code version</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">max-tokens</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span><span class="co">            # Token limit for responses</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">temperature</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span><span class="co">            # Model temperature override</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">context-files</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'docs/**'</span><span class="kw">]</span><span class="co">   # Auto-include file patterns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>These fields are not currently supported but represent potential future capabilities.</p>
 <hr>
 </section>
@@ -3069,7 +3118,7 @@ Organize these resources strategically:</p>
 <li><strong>Performance</strong>: Moderate (indexes workspace on first use)</li>
 <li><strong>Security</strong>: Low risk (read-only access to workspace)</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">]</span><span class="co">  # Enable semantic code search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">]</span><span class="co">  # Enable semantic code search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Example Query Patterns:</strong></p>
 <ul>
 <li>“Find all implementations of the UserService interface”</li>
@@ -3098,7 +3147,7 @@ Organize these resources strategically:</p>
 <li><strong>Performance</strong>: Fast (direct file system operations)</li>
 <li><strong>Security</strong>: Moderate risk (can modify workspace files)</li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span><span class="co">  # Enable file operations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span><span class="co">  # Enable file operations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Best Practices:</strong></p>
 <ul>
 <li>Always preview changes before applying</li>
@@ -3128,7 +3177,7 @@ Organize these resources strategically:</p>
 <li><strong>Performance</strong>: Fast (file system queries)</li>
 <li><strong>Security</strong>: Low risk (read-only operations)</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Enable directory operations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Enable directory operations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Example Operations:</strong></p>
 <ul>
 <li>List all <code>.json</code> config files</li>
@@ -3158,7 +3207,7 @@ Organize these resources strategically:</p>
 <li><strong>Performance</strong>: Variable (depends on network and remote server)</li>
 <li><strong>Security</strong>: Moderate risk (external network access)</li>
 </ul>
-<div class="sourceCode" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'fetch'</span><span class="kw">]</span><span class="co">  # Enable web content retrieval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'fetch'</span><span class="kw">]</span><span class="co">  # Enable web content retrieval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Supported Protocols:</strong></p>
 <ul>
 <li><code>https://</code> (recommended)</li>
@@ -3192,7 +3241,7 @@ Organize these resources strategically:</p>
 <li><strong>Performance</strong>: Variable (depends on search provider)</li>
 <li><strong>Security</strong>: Moderate risk (external network access)</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'web_search'</span><span class="kw">]</span><span class="co">  # Enable internet search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'web_search'</span><span class="kw">]</span><span class="co">  # Enable internet search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Best Practices:</strong></p>
 <ul>
 <li>Use for information not available in workspace</li>
@@ -3219,7 +3268,7 @@ Organize these resources strategically:</p>
 </ul></li>
 <li><strong>Availability</strong>: VS Code with GitHub Copilot extension</li>
 </ul>
-<div class="sourceCode" id="cb34"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@github'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@github'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="azure" class="level4">
 <h4 class="anchored" data-anchor-id="azure"><code>@azure</code></h4>
@@ -3234,13 +3283,13 @@ Organize these resources strategically:</p>
 </ul></li>
 <li><strong>Availability</strong>: With Azure GitHub Copilot extension</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@azure'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@azure'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="custom-mcp-servers" class="level3">
 <h3 class="anchored" data-anchor-id="custom-mcp-servers">Custom MCP Servers</h3>
 <p>Organizations can create custom MCP servers for proprietary tools and services:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@company-wiki'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@internal-api-docs'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@company-wiki'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@internal-api-docs'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Configuration</strong>: Custom MCP servers must be registered in VS Code settings or workspace configuration.</p>
 </section>
 </section>
@@ -3249,7 +3298,7 @@ Organize these resources strategically:</p>
 <section id="minimal-access-fast-focused" class="level3">
 <h3 class="anchored" data-anchor-id="minimal-access-fast-focused">Minimal Access (Fast, Focused)</h3>
 <p>Best for simple, targeted operations with no external dependencies.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Use Cases:</strong></p>
 <ul>
 <li>Simple file edits</li>
@@ -3260,7 +3309,7 @@ Organize these resources strategically:</p>
 <section id="local-workspace-access-code-focused" class="level3">
 <h3 class="anchored" data-anchor-id="local-workspace-access-code-focused">Local Workspace Access (Code-Focused)</h3>
 <p>Enables comprehensive workspace analysis without external network access.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Use Cases:</strong></p>
 <ul>
 <li>Refactoring operations</li>
@@ -3272,7 +3321,7 @@ Organize these resources strategically:</p>
 <section id="research-enabled-external-resources" class="level3">
 <h3 class="anchored" data-anchor-id="research-enabled-external-resources">Research-Enabled (External Resources)</h3>
 <p>Allows access to external information while maintaining workspace capabilities.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Use Cases:</strong></p>
 <ul>
 <li>Documentation research</li>
@@ -3284,8 +3333,8 @@ Organize these resources strategically:</p>
 <section id="full-access-all-capabilities" class="level3">
 <h3 class="anchored" data-anchor-id="full-access-all-capabilities">Full Access (All Capabilities)</h3>
 <p>Provides complete tool access for complex, autonomous operations.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # or omit the field entirely</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Enables all available tools by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # or omit the field entirely</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Enables all available tools by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Use Cases:</strong></p>
 <ul>
 <li>Complex agent workflows</li>
@@ -3299,7 +3348,7 @@ Organize these resources strategically:</p>
 <h2 class="anchored" data-anchor-id="tool-combinations-by-use-case">Tool Combinations by Use Case</h2>
 <section id="code-review-prompt" class="level3">
 <h3 class="anchored" data-anchor-id="code-review-prompt">Code Review Prompt</h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Search code for patterns (<code>codebase</code>)</li>
 <li>Find related test files (<code>filesystem</code>)</li>
@@ -3308,7 +3357,7 @@ Organize these resources strategically:</p>
 </section>
 <section id="documentation-generator" class="level3">
 <h3 class="anchored" data-anchor-id="documentation-generator">Documentation Generator</h3>
-<div class="sourceCode" id="cb42"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Analyze code structure (<code>codebase</code>)</li>
 <li>Create documentation files (<code>editor</code>)</li>
@@ -3318,7 +3367,7 @@ Organize these resources strategically:</p>
 </section>
 <section id="scaffolding-prompt" class="level3">
 <h3 class="anchored" data-anchor-id="scaffolding-prompt">Scaffolding Prompt</h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Create project files (<code>editor</code>)</li>
 <li>Check for existing structure (<code>filesystem</code>)</li>
@@ -3327,7 +3376,7 @@ Organize these resources strategically:</p>
 </section>
 <section id="security-audit-prompt" class="level3">
 <h3 class="anchored" data-anchor-id="security-audit-prompt">Security Audit Prompt</h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Search for security patterns (<code>codebase</code>)</li>
 <li>Find configuration files (<code>filesystem</code>)</li>
@@ -3393,11 +3442,11 @@ Organize these resources strategically:</p>
 <section id="recommended-restrictions" class="level3">
 <h3 class="anchored" data-anchor-id="recommended-restrictions">Recommended Restrictions</h3>
 <p><strong>Public/Shared Prompts:</strong></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # No external access</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # No external access</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Enterprise/Internal Prompts:</strong></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@internal-docs'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'@internal-docs'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Research-Heavy Prompts:</strong></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span><span class="co">  # External research OK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span><span class="co">  # External research OK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="tool-availability-by-platform" class="level2">
@@ -3473,63 +3522,94 @@ Organize these resources strategically:</p>
 <h2 class="anchored" data-anchor-id="tool-usage-best-practices">Tool Usage Best Practices</h2>
 <section id="start-minimal-expand-as-needed" class="level3">
 <h3 class="anchored" data-anchor-id="start-minimal-expand-as-needed">Start Minimal, Expand as Needed</h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with minimal tools</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add tools only when required</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">]</span><span class="co">  # Added codebase for context</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable research when needed</span></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span><span class="co">  # Added fetch for docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with minimal tools</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'editor'</span><span class="kw">]</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add tools only when required</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">]</span><span class="co">  # Added codebase for context</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable research when needed</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">]</span><span class="co">  # Added fetch for docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="explicit-is-better-than-implicit" class="level3">
 <h3 class="anchored" data-anchor-id="explicit-is-better-than-implicit">Explicit is Better Than Implicit</h3>
-<div class="sourceCode" id="cb49"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ Unclear intent</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # All tools enabled</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ Clear intent</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Local operations only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ Unclear intent</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # All tools enabled</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ Clear intent</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">]</span><span class="co">  # Local operations only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="document-tool-requirements" class="level3">
 <h3 class="anchored" data-anchor-id="document-tool-requirements">Document Tool Requirements</h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> security-audit</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Audit code for vulnerabilities (requires internet for CVE lookup)"</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Security Audit Prompt</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="ot">**Required</span><span class="at"> Tools:**</span></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`codebase`</span><span class="kw">:</span><span class="at"> Search code for security patterns</span></span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`filesystem`</span><span class="kw">:</span><span class="at"> Find configuration files</span></span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`web_search`</span><span class="kw">:</span><span class="at"> Look up CVEs and best practices</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> security-audit</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'filesystem'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Audit code for vulnerabilities (requires internet for CVE lookup)"</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Security Audit Prompt</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="ot">**Required</span><span class="at"> Tools:**</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`codebase`</span><span class="kw">:</span><span class="at"> Search code for security patterns</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`filesystem`</span><span class="kw">:</span><span class="at"> Find configuration files</span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">`web_search`</span><span class="kw">:</span><span class="at"> Look up CVEs and best practices</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="test-with-restricted-tools" class="level3">
 <h3 class="anchored" data-anchor-id="test-with-restricted-tools">Test with Restricted Tools</h3>
 <p>Before deploying prompts, test with restricted tool access to ensure graceful handling of missing capabilities:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Development version</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Production version (more restrictive)</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Development version</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">,</span><span class="at"> </span><span class="st">'fetch'</span><span class="kw">,</span><span class="at"> </span><span class="st">'web_search'</span><span class="kw">]</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Production version (more restrictive)</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'codebase'</span><span class="kw">,</span><span class="at"> </span><span class="st">'editor'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="future-tool-capabilities-proposed" class="level2">
 <h2 class="anchored" data-anchor-id="future-tool-capabilities-proposed">Future Tool Capabilities (Proposed)</h2>
 <p>Based on community feedback and tool evolution:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proposed future tools</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'codebase'</span><span class="kw">,</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'editor'</span><span class="kw">,</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'terminal'</span><span class="kw">,</span><span class="co">        # Execute commands</span></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'debugger'</span><span class="kw">,</span><span class="co">        # Debugging integration</span></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'git'</span><span class="kw">,</span><span class="co">             # Version control operations</span></span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'package-manager'</span><span class="kw">,</span><span class="co"> # npm/pip/maven operations</span></span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'database'</span><span class="kw">,</span><span class="co">        # Database queries</span></span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'cloud-provider'</span><span class="co">   # Cloud resource management</span></span>
-<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proposed future tools</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'codebase'</span><span class="kw">,</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'editor'</span><span class="kw">,</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'terminal'</span><span class="kw">,</span><span class="co">        # Execute commands</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'debugger'</span><span class="kw">,</span><span class="co">        # Debugging integration</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'git'</span><span class="kw">,</span><span class="co">             # Version control operations</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'package-manager'</span><span class="kw">,</span><span class="co"> # npm/pip/maven operations</span></span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'database'</span><span class="kw">,</span><span class="co">        # Database queries</span></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="st">'cloud-provider'</span><span class="co">   # Cloud resource management</span></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>These tools are not currently supported but represent potential future extensions to the GitHub Copilot tools ecosystem.</p>
+<hr>
+<!-- 
+
+
+
+
+---
+validations:
+  consistency_review:
+    status: "completed"
+    last_run: "2025-12-07T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    references_checked: 8
+    references_valid: 6
+    references_broken: 2
+    references_updated: 2
+    gaps_identified: 3
+    gaps_addressed: 3
+    changes_summary: "Fixed broken reference URLs (VS Code custom prompts, Anthropic docs); Added .instructions.md files documentation; Enhanced Visual Studio prompt invocation syntax; Added reference classification markers; Removed broken community links"
+article_metadata:
+  filename: "03. how_to_structure_content_for_copilot_prompt_files.md"
+  last_updated: "2025-12-07T00:00:00Z"
+  version_history:
+    - date: "2025-12-07"
+      changes: "Consistency and gap review - Updated references, added .instructions.md coverage, enhanced VS-specific guidance"
+---
+
+
+
+
+-->
 
 
 </section>
