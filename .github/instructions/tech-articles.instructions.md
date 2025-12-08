@@ -34,6 +34,6 @@ applyTo: 'tech/**/*.md'
 
 ## Security Considerations
 - Highlight security implications
-- Never include real credentials or secrets in examples
+- **Never** include real credentials or secrets in examples
 - Use placeholder values clearly marked as examples
 - Reference security best practices documentation

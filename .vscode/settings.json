@@ -14,7 +14,8 @@
     // File Associations
     "files.associations": {
         "*.metadata.yml": "yaml",
-        "*.prompt.md": "markdown"
+        "*.prompt.md": "markdown",
+        "*.agent.md": "markdown"
     },
     // Markdown Validation
     "markdown.validate.enabled": true,
@@ -65,5 +66,6 @@
             "source": "PowerShell",
             "icon": "terminal-powershell"
         }
-    }
+    },
+    "chat.promptFilesRecommendations": {}
 }

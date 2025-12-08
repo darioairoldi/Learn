@@ -1,25 +1,20 @@
 ---
 description: Instructions for creating and updating custom agent files
-applyTo: '.github/agents/**/*.md'
+applyTo: '.github/agents/**/*.agent.md'
 ---
 
 # Custom Agent File Creation & Update Instructions
 
 ## Purpose
-Custom agents are **specialized assistants for specific roles or implementation tasks**. They operate at the implementation level with detailed technical instructions, tool access, and autonomous execution capabilities.
+Custom agents are **specialized assistants for specific roles or implementation tasks**.  
+They operate at the implementation level with detailed technical instructions, tool access, and autonomous execution capabilities.
 
-## Agents vs Prompts
+## Core Principles (Agent Engineering)
 
-| Aspect | Agents | Prompts |
-|--------|--------|---------|
-| **Level** | Implementation (tactical) | Planning/workflow (strategic) |
-| **Focus** | HOW to implement specific tasks | WHAT needs to be done and approach |
-| **Autonomy** | High - can execute multi-step workflows | Variable - often requires checkpoints |
-| **Scope** | Narrow specialist (test-agent, docs-agent) | Broader task workflows |
-| **Duration** | Persistent across conversations | Single-use per invocation |
-| **User** | Invoked by `@agent-name` in chat | Invoked by prompt selection |
-
-## Core Principles (Context Engineering)
+- [ ] The chat mode has a non empty `description` field.
+- [ ] The file name is lower case, with words separated by hyphens.
+- [ ] Encourage the use of `tools`, but it's not required.
+- [ ] Strongly encourage the use of `model` to specify the model that the chat mode is optimised for.
 
 ### 1. Start with Clear, Specific Goals
 - **One agent = One specialized role**
