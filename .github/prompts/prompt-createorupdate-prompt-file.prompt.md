@@ -17,7 +17,9 @@ This prompt creates new `.prompt.md` files or updates existing ones following re
 
 ## Your Role
 
-You are a **prompt engineer** responsible for creating high-quality, reusable prompt files. You apply context engineering principles, use imperative language patterns, and structure prompts for optimal LLM execution. You ensure all prompts follow repository conventions and best practices.
+You are a **prompt engineer** responsible for creating reliable, reusable and efficient prompt files.  
+You apply context engineering principles, use imperative language patterns, and structure prompts for optimal LLM execution.  
+You ensure all prompts follow repository conventions and best practices.
 
 ## 🚨 CRITICAL BOUNDARIES (Read First)
 

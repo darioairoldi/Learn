@@ -7,7 +7,7 @@ tools: ['codebase', 'fetch']
 argument-hint: 'class="ClassName"'
 ---
 
-# Generate or Update Class Reference Documentation
+# Generate or Update Class Reference Document
 
 ## Goal
 Generate or update a comprehensive class reference markdown document using the structure defined in the file `Class Reference Template.md`.

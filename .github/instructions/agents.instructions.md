@@ -9,90 +9,32 @@ applyTo: '.github/agents/**/*.agent.md'
 Custom agents are **specialized assistants for specific roles or implementation tasks**.  
 They operate at the implementation level with detailed technical instructions, tool access, and autonomous execution capabilities.
 
-## Core Principles (Agent Engineering)
+## Context Engineering Principles
 
-- [ ] The chat mode has a non empty `description` field.
-- [ ] The file name is lower case, with words separated by hyphens.
-- [ ] Encourage the use of `tools`, but it's not required.
-- [ ] Strongly encourage the use of `model` to specify the model that the chat mode is optimised for.
+**📖 Complete guidance:** `.copilot/context/prompt-engineering/context-engineering-principles.md`
 
-### 1. Start with Clear, Specific Goals
-- **One agent = One specialized role**
-- Define narrow expertise domain
-- Examples from 2,500+ repo analysis:
-  - `@docs-agent` - Documentation only, never touches source code
-  - `@test-agent` - Writes tests, never removes failing tests
-  - `@lint-agent` - Fixes style, never changes logic
+**Key principles for agents** (see context file for full details):
+1. **Narrow Scope** - One agent = One specialized role
+2. **Early Commands** - Executable commands in first sections
+3. **Imperative Language** - Direct, action-oriented instructions  
+4. **Three-Tier Boundaries** - Always Do / Ask First / Never Do
+5. **Context Minimization** - Reference external files, don't embed
+6. **Tool Scoping** - Only essential tools for agent role
 
-### 2. Put Commands Early
-- List executable commands in first major section
-- Include full command syntax with flags
-- Example:
-  ```markdown
-  ## Commands You Can Use
-  - Build docs: `npm run docs:build` (checks for broken links)
-  - Lint markdown: `npx markdownlint docs/` (validates your work)
-  - Run tests: `npm test -- --coverage` (must pass before commits)
-  ```
+## Tool Selection
 
-### 3. Be Specific and Direct
-- Direct, sometimes blunt language is appropriate
-- Agents are for AI consumption, not human readability
-- Example: "Write to docs/. Never modify src/." not "Please consider writing documentation files to the docs directory while being careful not to modify source code."
+**📖 Complete guidance:** `.copilot/context/prompt-engineering/tool-composition-guide.md`
 
-### 4. Provide Examples
-- Show concrete code style examples (good vs bad)
-- Include file naming conventions
-- Demonstrate expected output formats
-- Example from successful agents:
-  ```typescript
-  // ✅ Good - descriptive names, proper error handling
-  async function fetchUserById(id: string): Promise<User> {
-    if (!id) throw new Error(''User ID required'');
-    const response = await api.get(`/users/${id}`);
-    return response.data;
-  }
-  
-  // ❌ Bad - vague names, no error handling
-  async function get(x) {
-    return await api.get(''/users/'' + x).data;
-  }
-  ```
+**Agent/Tool Alignment:**
+- `agent: plan` (read-only) + [read_file, grep_search, semantic_search]
+- `agent: agent` (full access) + read + write tools
+- **Never** mix `agent: plan` with write tools
 
-### 5. Use Structured Sections
-Standard agent structure:
-```markdown
-## Persona/Role
-## Project Knowledge  
-## Commands You Can Use
-## Standards/Practices
-## Boundaries
-```
-
-### 6. Set Clear Boundaries
-**Three-tier system** (most important for agents):
-
-```markdown
-## Boundaries
-
-### ✅ Always Do
-- Run tests before committing code
-- Follow naming conventions in all files
-- Create intermediary reports for complex tasks
-- Ask for clarification on ambiguous requirements
-
-### ⚠️ Ask First
-- Before database schema changes
-- Before adding new dependencies
-- Before modifying CI/CD configuration
-- When scope expands beyond original request
-
-### 🚫 Never Do
-- Commit secrets or API keys
-- Modify files in node_modules/ or vendor/
-- Remove failing tests to make builds pass
-- Edit production configuration files
-```
+**Tool selection by role:**
+- **Researcher**: semantic_search, grep_search, read_file, file_search, list_dir
+- **Builder**: read_file, semantic_search, create_file, file_search
+- **Validator**: read_file, grep_search, file_search (read-only)
+- **Updater**: read_file, grep_search, replace_string_in_file, multi_replace_string_in_file
 
 ## Required YAML Frontmatter
 
@@ -113,103 +55,28 @@ model: claude-sonnet-4.5  # Optional: specify preferred model
   - Test agent: `[''codebase'', ''editor'', ''terminal'']`
   - API agent: `[''codebase'', ''editor'', ''terminal'', ''web_search'']`
 
-## Agent File Structure Template
+## Agent Templates
 
-```markdown
----
-name: role-agent
-description: "Expert [role] for this project"
-tools: [''essential'', ''tools'', ''only'']
----
+**Use specialized templates for agent creation:**
 
-# Agent Name
+**Existing specialized agents** in `.github/agents/`:
+1. **`prompt-researcher.agent.md`** - Research specialist for requirements and pattern discovery
+2. **`prompt-builder.agent.md`** - File creation specialist following validated patterns
+3. **`prompt-validator.agent.md`** - Quality assurance specialist for comprehensive validation
+4. **`prompt-updater.agent.md`** - Update specialist for fixing validation issues
 
-You are an expert [technical writer/test engineer/security analyst/database admin] for this project.
-
-## Your Role
-- You specialize in [specific domain]
-- You understand [key technologies/patterns]
-- Your output: [specific deliverables] that [quality criteria]
-
-## Project Knowledge
-**Tech Stack:** [Technologies with versions]
-- Framework: React 18 with TypeScript
-- Build: Vite 5.x
-- Testing: Jest + Playwright
-- Styling: Tailwind CSS
-
-**File Structure:**
-- `src/` – Application source (you READ from here)
-- `tests/` – Test files (you WRITE to here)  
-- `docs/` – Documentation (you WRITE to here)
-- `config/` – Configuration (you NEVER modify)
-
-**Key Patterns:**
-- [Repository-specific conventions]
-- [Naming standards]
-- [Architecture decisions]
-
-## Commands You Can Use
-List exact commands with flags and what they do:
-- **Build:** `npm run build` (compiles TypeScript, outputs to dist/)
-- **Test:** `npm test` (runs Jest, must pass before commits)
-- **Lint:** `npm run lint --fix` (auto-fixes ESLint errors)
-- **Type Check:** `npx tsc --noEmit` (validates TypeScript without building)
-
-## Standards
-
-### Naming Conventions
-- Functions: camelCase (`getUserData`, `calculateTotal`)
-- Classes: PascalCase (`UserService`, `DataController`)
-- Constants: UPPER_SNAKE_CASE (`API_KEY`, `MAX_RETRIES`)
-- Files: kebab-case (`user-service.ts`, `api-client.ts`)
-
-### Code Style Examples
-[Include actual code examples from the codebase]
-
-### Documentation Practices
-[Specific to this project - reference existing docs]
-
-### Testing Approach
-[Project-specific testing patterns]
-
-## Boundaries
-
-### ✅ Always Do
-- [Specific actions for this agent''s role]
-- Run relevant validation commands
-- Follow established patterns in codebase
-
-### ⚠️ Ask First
-- [Role-specific items requiring confirmation]
-- Actions outside primary responsibility
-- Changes affecting other teams/components
-
-### 🚫 Never Do
-- [Role-specific forbidden actions]
-- Modify files outside designated directories
-- Common mistakes to explicitly prohibit
-
-## Workflow Pattern
-[Optional: Multi-phase workflow if needed]
-
-### Phase 1: Analysis
-1. Understand requirements
-2. Review existing code/docs
-3. Present plan and wait for approval
-
-### Phase 2: Implementation
-1. Execute approved plan
-2. Follow established patterns
-3. Run validation commands
-
-### Phase 3: Verification
-1. Confirm outputs meet requirements
-2. Run final checks
-3. Report completion with summary
-```
+**To create new agents:** Use `@prompt-create-orchestrator` with type `agent` specified.
 
 ## Repository-Specific Patterns
+
+### Validation Caching
+**📖 Complete guidance:** `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+
+Agents working with article files must:
+- ❌ **NEVER modify top YAML** (Quarto metadata)
+- ✅ **Update bottom metadata block only** (HTML comment at end)
+- Check `last_run` timestamps before validation
+- Skip validation if `last_run < 7 days` AND content unchanged
 
 ### Dual YAML Metadata (THIS Repository)
 Agents working with article files must understand:
