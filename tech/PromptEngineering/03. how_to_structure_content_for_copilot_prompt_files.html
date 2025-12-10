@@ -2066,6 +2066,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#official-github-copilot-documentation" id="toc-official-github-copilot-documentation" class="nav-link" data-scroll-target="#official-github-copilot-documentation">Official GitHub Copilot Documentation</a></li>
   <li><a href="#prompt-engineering-best-practices" id="toc-prompt-engineering-best-practices" class="nav-link" data-scroll-target="#prompt-engineering-best-practices">Prompt Engineering Best Practices</a></li>
   <li><a href="#community-resources-and-examples" id="toc-community-resources-and-examples" class="nav-link" data-scroll-target="#community-resources-and-examples">Community Resources and Examples</a></li>
+  <li><a href="#related-articles-in-this-series" id="toc-related-articles-in-this-series" class="nav-link" data-scroll-target="#related-articles-in-this-series">Related Articles in This Series</a></li>
   </ul></li>
   <li><a href="#appendix-a-yaml-frontmatter-metadata-reference" id="toc-appendix-a-yaml-frontmatter-metadata-reference" class="nav-link" data-scroll-target="#appendix-a-yaml-frontmatter-metadata-reference">Appendix A: YAML Frontmatter Metadata Reference</a>
   <ul class="collapse">
@@ -2177,9 +2178,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><mark><strong>name</strong></mark>: Identifier for the slash/hashtag command. If omitted, Copilot uses the filename.</li>
 <li><mark><strong>description</strong></mark>: Shown when selecting the prompt in the picker. Provides context to your team.</li>
-<li><mark><strong>agent</strong></mark>: Sets the chat mode (<code>ask</code>, <code>edit</code>, <code>agent</code> or a custom agent name).</li>
+<li><mark><strong>agent</strong></mark>: Sets the chat mode (<code>ask</code>, <code>edit</code>, <code>agent</code> or a custom agent name). When referencing a custom agent, the prompt inherits that agent’s default tools and behavior. See <a href="../../tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html">How to Structure Content for Copilot Agent Files</a> for details on custom agents.</li>
 <li><mark><strong>model</strong></mark>: Chooses a specific LLM; otherwise Copilot uses the default.</li>
-<li><mark><strong>tools</strong></mark>: Restricts which tools (e.g., <code>fetch</code>, <code>codebase</code>, specific MCP servers) the prompt can access.</li>
+<li><mark><strong>tools</strong></mark>: Restricts which tools (e.g., <code>fetch</code>, <code>codebase</code>, specific MCP servers) the prompt can access. <mark><strong>Tool Priority</strong></mark>: Tools specified in the prompt override tools from the referenced agent, which override default tools (Prompt &gt; Agent &gt; Default).</li>
 <li><strong><mark>argument-hint</mark></strong>: Suggests how to provide arguments when running the prompt (visible in the input field).</li>
 </ul>
 <p>These metadata fields are supported in <strong>VS Code</strong> and in <strong>Visual Studio 17.10+</strong>; however, not all features (such as custom agent names or specific tools) may be fully supported by Visual Studio yet. Check the release notes for your version to see which fields are functional.</p>
@@ -2620,6 +2621,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Organize these resources strategically:</p>
 <ul>
 <li><mark><strong>Prompt snippets</strong></mark>: Create a folder such as <code>.github/prompt-snippets/</code> for reusable sections (e.g., code review guidelines, test boilerplates) that you reference from multiple prompts via Markdown links.</li>
+<li><mark><strong>Custom agents</strong></mark>: For reusable personas that multiple prompts can reference, create <code>.agent.md</code> files in <code>.github/agents/</code>. See <a href="../../tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html">How to Structure Content for Copilot Agent Files</a> for detailed guidance on agent design.</li>
 <li><mark><strong>Project documentation</strong></mark>: Use a <code>.copilot/context/</code> (optional) folder to store rich information—API contracts, data schemas, domain terms, architecture decisions and diagrams—which <mark>the Copilot engine can search</mark>. VS Code and Visual Studio both index these files to improve the relevance of suggestions.</li>
 <li><strong>Example outputs</strong>: Including example outputs (e.g., a table of tests to generate) can guide the model’s formatting and structure. When adding examples, clearly mark them so readers know they’re illustrative.</li>
 </ul>
@@ -2744,6 +2746,17 @@ Organize these resources strategically:</p>
 <em>A curated collection of production-ready prompts organized by solution development lifecycle stages (Discovery, Rapid Prototyping, Delivery). This repository demonstrates the three-part prompt architecture (System Message, User Prompt Template, Example Usage) discussed in this article and provides concrete examples of prompts for requirements gathering, code scaffolding, architecture design, and more. Essential reference for understanding enterprise-grade prompt structuring.</em></p></li>
 <li><p><strong><a href="https://github.com/github/awesome-copilot">GitHub Awesome Copilot Repository</a></strong> <code>[📘 Official]</code><br>
 <em>GitHub’s official curated list of resources, instruction examples, and prompt patterns for GitHub Copilot. This repository provides real-world examples and best practices for custom instructions files that complement the guidance in this article.</em></p></li>
+</ul>
+</section>
+<section id="related-articles-in-this-series" class="level2">
+<h2 class="anchored" data-anchor-id="related-articles-in-this-series">Related Articles in This Series</h2>
+<ul>
+<li><p><strong><a href="../../tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html">How GitHub Copilot Uses Markdown and Prompt Folders</a></strong><br>
+<em>Foundational article explaining the file locations and basic structure of prompts, agents, and instructions. Read this first to understand where files should be stored and how Copilot discovers them.</em></p></li>
+<li><p><strong><a href="../../tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.html">How to Name and Organize Prompt Files</a></strong><br>
+<em>Best practices for organizing GitHub Copilot files in your repository, including naming conventions, folder structure, and the distinction between workspace and user-scope files.</em></p></li>
+<li><p><strong><a href="../../tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html">How to Structure Content for Copilot Agent Files</a></strong><br>
+<em>Comprehensive guide to creating custom agents with <code>.agent.md</code> files. Learn how to design agent personas, configure tools, create handoff workflows, and understand how agents interact with prompts and instructions.</em></p></li>
 </ul>
 <hr>
 </section>

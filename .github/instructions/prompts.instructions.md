@@ -8,219 +8,105 @@ applyTo: '.github/prompts/**/*.md'
 ## Purpose
 Prompt files are **reusable, plan-level workflows** for common development tasks. They define WHAT should be done and HOW to approach it, operating at the strategic/planning layer rather than implementation details.
 
-## Core Principles (Context Engineering)
+## Context Engineering Principles
 
-### 1. Start with Clear, Specific Goals
-- **Never try to solve everything in one prompt file**
-- Define narrow scope for precise execution
-- Broad prompts suffer from context rot and tool clash
-- Example: `grammar-review.prompt.md` checks ONLY grammar, not readability or structure
+**📖 Complete guidance:** `.copilot/context/prompt-engineering/context-engineering-principles.md`
 
-### 2. Put Commands Early
-- Place critical instructions in first sections
-- Models under-weight middle content ("lost in the middle" problem)
-- Front-load executable commands, boundaries, and key workflows
+**Key principles** (see context file for full details):
+1. **Narrow Scope** - One specific task per prompt
+2. **Early Commands** - Critical instructions up front
+3. **Imperative Language** - Direct, action-oriented instructions
+4. **Three-Tier Boundaries** - Always Do / Ask First / Never Do
+5. **Context Minimization** - Reference external files, don't embed
+6. **Tool Scoping** - Only essential tools to prevent tool clash
 
-### 3. Be Specific and Direct
-- Avoid polite filler ("Please kindly consider...")
-- Every token counts - LLMs consume each character
-- Use concise, actionable language
-- Example: "Check these files" not "It would be helpful if you could please review"
+## Tool Selection
 
-### 4. Provide Examples
-- Show expected output formats explicitly
-- Include file naming patterns and structure examples
-- Reference specific file collections for complex cases
-- Use code blocks to demonstrate expected formats
+**📖 Complete guidance:** `.copilot/context/prompt-engineering/tool-composition-guide.md`
 
-### 5. Use Structured Sections
-- Organize with clear markdown headings
-- Standard sections: Purpose → Process → Boundaries → Expected Output
-- LLMs process structured information more effectively
+**Tool/Agent Alignment:**
+- `agent: plan` + read-only tools (read_file, grep_search, semantic_search)
+- `agent: agent` + write tools (create_file, replace_string_in_file)
+- **Never** mix `agent: plan` with write tools (validation fails)
 
-### 6. Set Clear Boundaries
-Use three-tier boundary system:
-
-```markdown
-## Boundaries
-
-### ✅ Always Do
-- Validate input before processing
-- Create intermediary reports before final output
-- Ask for clarification on ambiguous requirements
-
-### ⚠️ Ask First  
-- Before deleting any file
-- Before modifying configuration files
-- When scope appears to expand beyond original task
-
-### 🚫 Never Do
-- Modify files outside designated directories
-- Execute destructive operations without confirmation
-- Assume context from previous conversations
-```
+**Tool scoping prevents**: Tool clash, distraction, context bloat
 
 ## Required YAML Frontmatter
-
-All prompt files MUST include:
 
 ```yaml
 ---
 name: prompt-file-name
-description: "One-sentence description of what this prompt does"
-agent: agent  # or: edit, plan
-model: claude-sonnet-4.5  # or: gpt-4o, gemini-2.0-flash
-tools: ['codebase', 'editor', 'filesystem', 'web_search', 'fetch']  # Narrow tool scope
-argument-hint: 'Works with files in active folder or specify paths'  # Optional
----
-```
-
-**Key Decisions:**
-- `agent: agent` - Full autonomy with file editing (implementation level)
-- `agent: plan` - Planning/analysis only, no file modifications
-- `agent: edit` - Focused editing tasks with validation
-- **Tools**: Specify ONLY required tools to prevent tool clash
-
-## Prompt File Structure Template
-
-```markdown
----
-name: task-name
-description: "Specific task description"
-agent: agent
+description: "One-sentence description"
+agent: plan  # or: agent
 model: claude-sonnet-4.5
-tools: ['relevant', 'tools', 'only']
+tools:
+  - read_file
+  - grep_search
+argument-hint: 'Expected input format'  # Optional
 ---
-
-# Task Name
-
-[One paragraph explaining the prompt''s purpose and when to use it]
-
-## Your Role
-You are [specific role/persona: editor, analyst, architect] for this task.
-
-## Goal  
-[2-3 sentences defining the specific objective]
-
-## Process
-
-### Phase 1: [Discovery/Analysis]
-1. Step-by-step instructions
-2. What to look for
-3. Where to search
-
-### Phase 2: [Execution]
-1. What actions to take
-2. Expected outputs
-3. Validation steps
-
-### Phase 3: [Verification] 
-1. Quality checks
-2. Update metadata (if applicable)
-3. Report results
-
-## Context Requirements
-- List what context must be discovered
-- Reference instruction files to read first
-- Specify repository patterns to understand
-
-## Expected Output
-[Describe format, location, naming conventions]
-
-## Boundaries
-
-### ✅ Always Do
-- [Specific actions that should always happen]
-
-### ⚠️ Ask First
-- [Actions requiring user confirmation]
-
-### �� Never Do  
-- [Forbidden actions that could cause issues]
-
-## Examples
-[Show expected formats, naming patterns, or sample outputs]
 ```
 
+## Prompt Templates
+
+**Use specialized templates** from `.github/templates/`:
+
+1. **`prompt-simple-validation-template.md`** - Read-only validation with 7-day caching
+2. **`prompt-implementation-template.md`** - File creation/modification workflows  
+3. **`prompt-multi-agent-orchestration-template.md`** - Coordinates multiple specialized agents
+4. **`prompt-analysis-only-template.md`** - Research and reporting
+
+**To create new prompts:** Use `@prompt-create-orchestrator` which coordinates researcher → builder → validator agents.
 ## Repository-Specific Patterns
 
-### Dual YAML Metadata
-**CRITICAL**: All article-related prompts must respect dual YAML blocks:
-
-1. **Top YAML (Quarto)**: title, author, date, categories
-   - ❌ **NEVER modify from prompts**
-   - Only authors edit manually
-
-2. **Bottom YAML (Validation)**: grammar, readability, structure, etc.
-   - ✅ **Update validation sections only**
-   - Check `last_run` timestamp before validating
-   - Skip if `last_run < 7 days` AND content unchanged
-
-See: `.copilot/context/dual-yaml-helpers.md`
-
 ### Validation Caching (7-Day Rule)
-```markdown
-### Step 1: Check Existing Validation
-1. Read entire article including both YAML blocks
-2. Parse bottom YAML to extract validation section
-3. Check `{type}.last_run` timestamp  
-4. If validated within 7 days AND content unchanged:
-   - Skip validation
-   - Report existing outcome
+
+**📖 Complete guidance:** `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+
+**Critical rules:**
+- ❌ **NEVER modify top YAML** (Quarto metadata) from validation prompts
+- ✅ **Update bottom metadata block only** (HTML comment at end of file)
+- Check `last_run` timestamp before running validation
+- Skip validation if `last_run < 7 days` AND content unchanged
+
+**Dual YAML architecture:**
+```yaml
+# Top YAML (Quarto) - NEVER touch from prompts
+---
+title: "Article Title"
+author: "Author"
+date: "2025-12-06"
+---
+
+# Bottom YAML (Validation) - Update your section only
+<!-- 
+---
+validations:
+  grammar:
+    status: "passed"
+    last_run: "2025-12-06T10:30:00Z"
+---
+-->
 ```
 
-### Phase-Based Workflows
-For complex tasks, use checkpoint pattern:
+## Naming Conventions
 
-```markdown
-### Phase 1: Scan and Plan
-1. Analyze requirements
-2. Present plan to user
-3. **STOP and wait for "go ahead"**
+**Prompt files:**
+- Location: `.github/prompts/`
+- Format: `[task-name].prompt.md`
+- Examples: `grammar-review.prompt.md`, `structure-validation.prompt.md`
 
-### Phase 2: Implementation  
-1. Execute approved plan
-2. Generate intermediary reports
-3. Validate outputs
-```
+**Template files:**
+- Location: `.github/templates/`
+- Format: `prompt-[type]-template.md`
+- Examples: `prompt-simple-validation-template.md`, `prompt-implementation-template.md`
 
-## Tool Scoping Strategy
+## Best Practices
 
-**Narrow tool access prevents**:
-- Tool clash (selecting wrong tool from large manifest)
-- Distraction by irrelevant capabilities  
-- Context bloat from unnecessary tool definitions
-
-**Common tool combinations**:
-- Read-only analysis: `[''codebase'', ''semantic_search'']`
-- Content validation: `[''editor'', ''filesystem'']`
-- Research tasks: `[''web_search'', ''fetch'', ''codebase'']`
-- Implementation: `[''codebase'', ''editor'', ''filesystem'', ''terminal'']`
-
-## Context Rot Prevention
-
-### The Problem
-Quality degrades beyond ~10,000 tokens due to:
-1. **Poisoning**: Wrong info propagates as ground truth
-2. **Distraction**: Peripheral info competes for attention
-3. **Tunnel Vision**: Models focus on start/end, under-weight middle
-4. **Confusion**: Attention problems mix unrelated concepts
-5. **Clash**: Too many tools reduce selection accuracy
-
-### Solutions in Prompts
-1. **Narrow scope**: One specific task per prompt
-2. **Early commands**: Critical instructions up front
-3. **Limited tools**: Only essential capabilities
-4. **Structured sections**: Clear organization aids parsing
-5. **Intermediary reports**: Text with semantic structure between phases
-
-## Testing & Iteration
-
-1. **Start minimal**: Core task only
-2. **Test execution**: Run on real repository content  
-3. **Add detail**: When prompt makes mistakes, add specific guidance
-4. **Iterate boundaries**: Tighten "Never do" based on observed errors
-5. **Monitor token usage**: Keep prompts concise
+1. **Start with template** - Use appropriate template from `.github/templates/`
+2. **Reference context files** - Don't embed shared principles
+3. **Narrow tool scope** - Only essential tools for the task
+4. **Test execution** - Run on real repository content
+5. **Iterate boundaries** - Tighten based on observed errors
 
 ## References
 
