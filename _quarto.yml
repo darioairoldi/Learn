@@ -606,6 +606,10 @@ website:
                 text: "How to Name and Organize Prompt Files"
               - href: "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
                 text: "How to Structure Content for Copilot Prompt Files"
+              - href: "tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md"
+                text: "How to Structure Content for Copilot Agent Files"
+              - href: "tech/PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.md"
+                text: "How to Structure Content for Copilot Instruction Files"
           - section: "Feed Architectures & Protocols"
             contents:
               - href: "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
