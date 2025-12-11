@@ -23,41 +23,7 @@ This isn't just documentation—it's a **curated learning experience**. Each art
 
 ---
 
-## �️ Setup & Tools
-
-### IQPilot - AI-Assisted Content Development
-
-This repository includes **IQPilot**, an optional MCP server that enhances GitHub Copilot with specialized validation, metadata management, and content quality tools.
-
-#### Quick Setup (One-Time)
-
-```powershell
-# Run the build script
-.\.copilot\scripts\build-metadata-watcher.ps1
-
-# Reload VS Code
-Ctrl+Shift+P → "Developer: Reload Window"
-```
-
-See [GETTING-STARTED.md](GETTING-STARTED.md) for setup instructions and operating modes.
-
-📖 **Documentation:**
-- 🚀 [Quick Start Guide](METADATA-WATCHER-QUICKSTART.md) - User-friendly setup
-- 📖 [Implementation Details](METADATA-WATCHER-IMPLEMENTATION.md) - Technical architecture
-- 🔧 [Technical README](src/MetadataWatcher/README.md) - Development guide
-
-#### What It Does
-
-When you rename an article:
-- **Before**: `article-old.md` + `article-old.metadata.yml`
-- **Action**: Rename file in VS Code (F2)
-- **After**: `article-new.md` + `article-new.metadata.yml` ✨ (automatic!)
-
-The YAML `filename` field is updated automatically—no manual work needed!
-
----
-
-## �📚 What You'll Discover Here
+## 📚 What You'll Discover Here
 
 ### 🤖 **AI & Intelligent Development**
 Exploring the frontiers of AI-powered development:
@@ -150,6 +116,10 @@ Technology intersects with culture and exploration:
   *Best practices for structuring your prompt engineering workflow*
 - **[How to Structure Content for Copilot Prompt Files](tech/PromptEngineering/03.%20how_to_structure_content_for_copilot_prompt_files.md)**  
   *Creating effective, maintainable prompt instructions*
+- **[How to Structure Content for Copilot Agent Files](tech/PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)**  
+  *Building autonomous AI agents with .agent.md files*
+- **[How to Structure Content for Copilot Instruction Files](tech/PromptEngineering/05.%20how_to_structure_content_for_copilot_instruction_files.md)**  
+  *Path-specific custom instructions with .instructions.md files*
 
 #### Azure AI & .NET
 - **[.NET Aspire: AI, Cloud, and Beyond](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐  
@@ -264,8 +234,8 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 ## 🔗 Essential Quick Links
 
 ### 🎯 Start Here
-- **[Learning Hub Introduction](20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - Philosophy and approach
-- **[Using This Hub for Learning](20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)** - How to maximize value
+- **[Learning Hub Introduction](idea/LearnHub/20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - Philosophy and approach
+- **[Using This Hub for Learning](idea/LearnHub/20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)** - How to maximize value
 
 ### 🤖 AI & Prompt Engineering
 - [GitHub Copilot Prompt Files](tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)

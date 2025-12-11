@@ -116,6 +116,10 @@ Technology intersects with culture and exploration:
   *Best practices for structuring your prompt engineering workflow*
 - **[How to Structure Content for Copilot Prompt Files](tech/PromptEngineering/03.%20how_to_structure_content_for_copilot_prompt_files.md)**  
   *Creating effective, maintainable prompt instructions*
+- **[How to Structure Content for Copilot Agent Files](tech/PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)**  
+  *Building autonomous AI agents with .agent.md files*
+- **[How to Structure Content for Copilot Instruction Files](tech/PromptEngineering/05.%20how_to_structure_content_for_copilot_instruction_files.md)**  
+  *Path-specific custom instructions with .instructions.md files*
 
 #### Azure AI & .NET
 - **[.NET Aspire: AI, Cloud, and Beyond](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐  

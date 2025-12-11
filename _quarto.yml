@@ -91,6 +91,8 @@ project:
     - "tech/PromptEngineering/01.01 Q&A Github copilot uses prompt and markdown files.md"
     - "tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.md"
     - "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
+    - "tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md"
+    - "tech/PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.md"
     # Add Hardware article
     - "tech/Hardware/Surface Laptop 6 Features analysis.md"
 
