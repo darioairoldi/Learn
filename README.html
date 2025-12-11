@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-12-10">
+<meta name="dcterms.date" content="2025-12-11">
 <meta name="description" content="A comprehensive learning hub documenting my journey through modern software development—combining hands-on technical learning, conference insights, Azure guides, and practical solutions to real-world development challenges.">
 
 <title>Dario’s Learning Journey</title>
@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -2034,11 +2000,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#welcome-to-my-learning-hub" id="toc-welcome-to-my-learning-hub" class="nav-link active" data-scroll-target="#welcome-to-my-learning-hub">🚀 Welcome to My Learning Hub</a>
   <ul class="collapse">
   <li><a href="#learning-hub-philosophy" id="toc-learning-hub-philosophy" class="nav-link" data-scroll-target="#learning-hub-philosophy">🎯 Learning Hub Philosophy</a></li>
-  <li><a href="#setup-tools" id="toc-setup-tools" class="nav-link" data-scroll-target="#setup-tools">�️ Setup &amp; Tools</a>
-  <ul class="collapse">
-  <li><a href="#iqpilot---ai-assisted-content-development" id="toc-iqpilot---ai-assisted-content-development" class="nav-link" data-scroll-target="#iqpilot---ai-assisted-content-development">IQPilot - AI-Assisted Content Development</a></li>
-  </ul></li>
-  <li><a href="#what-youll-discover-here" id="toc-what-youll-discover-here" class="nav-link" data-scroll-target="#what-youll-discover-here">�📚 What You’ll Discover Here</a>
+  <li><a href="#what-youll-discover-here" id="toc-what-youll-discover-here" class="nav-link" data-scroll-target="#what-youll-discover-here">📚 What You’ll Discover Here</a>
   <ul class="collapse">
   <li><a href="#ai-intelligent-development" id="toc-ai-intelligent-development" class="nav-link" data-scroll-target="#ai-intelligent-development">🤖 <strong>AI &amp; Intelligent Development</strong></a></li>
   <li><a href="#conference-notes-insights" id="toc-conference-notes-insights" class="nav-link" data-scroll-target="#conference-notes-insights">🎯 <strong>Conference Notes &amp; Insights</strong></a></li>
@@ -2121,7 +2083,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 10, 2025</p>
+      <p class="date">December 11, 2025</p>
     </div>
   </div>
   
@@ -2151,41 +2113,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <hr>
 </section>
-<section id="setup-tools" class="level2">
-<h2 class="anchored" data-anchor-id="setup-tools">�️ Setup &amp; Tools</h2>
-<section id="iqpilot---ai-assisted-content-development" class="level3">
-<h3 class="anchored" data-anchor-id="iqpilot---ai-assisted-content-development">IQPilot - AI-Assisted Content Development</h3>
-<p>This repository includes <strong>IQPilot</strong>, an optional MCP server that enhances GitHub Copilot with specialized validation, metadata management, and content quality tools.</p>
-<section id="quick-setup-one-time" class="level4">
-<h4 class="anchored" data-anchor-id="quick-setup-one-time">Quick Setup (One-Time)</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the build script</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="op">.</span><span class="fu">copilot</span>\scripts\build-metadata-watcher<span class="op">.</span><span class="fu">ps1</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reload VS Code</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Ctrl<span class="op">+</span>Shift<span class="op">+</span>P → <span class="st">"Developer: Reload Window"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>See <a href="./GETTING-STARTED.html">GETTING-STARTED.md</a> for setup instructions and operating modes.</p>
-<p>📖 <strong>Documentation:</strong></p>
-<ul>
-<li>🚀 <a href="METADATA-WATCHER-QUICKSTART.md">Quick Start Guide</a> - User-friendly setup</li>
-<li>📖 <a href="METADATA-WATCHER-IMPLEMENTATION.md">Implementation Details</a> - Technical architecture</li>
-<li>🔧 <a href="src/MetadataWatcher/README.md">Technical README</a> - Development guide</li>
-</ul>
-</section>
-<section id="what-it-does" class="level4">
-<h4 class="anchored" data-anchor-id="what-it-does">What It Does</h4>
-<p>When you rename an article:</p>
-<ul>
-<li><strong>Before</strong>: <code>article-old.md</code> + <code>article-old.metadata.yml</code></li>
-<li><strong>Action</strong>: Rename file in VS Code (F2)</li>
-<li><strong>After</strong>: <code>article-new.md</code> + <code>article-new.metadata.yml</code> ✨ (automatic!)</li>
-</ul>
-<p>The YAML <code>filename</code> field is updated automatically—no manual work needed!</p>
-<hr>
-</section>
-</section>
-</section>
 <section id="what-youll-discover-here" class="level2">
-<h2 class="anchored" data-anchor-id="what-youll-discover-here">�📚 What You’ll Discover Here</h2>
+<h2 class="anchored" data-anchor-id="what-youll-discover-here">📚 What You’ll Discover Here</h2>
 <section id="ai-intelligent-development" class="level3">
 <h3 class="anchored" data-anchor-id="ai-intelligent-development">🤖 <strong>AI &amp; Intelligent Development</strong></h3>
 <p>Exploring the frontiers of AI-powered development:</p>
@@ -2312,6 +2241,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <em>Best practices for structuring your prompt engineering workflow</em></li>
 <li><strong><a href="./tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.html">How to Structure Content for Copilot Prompt Files</a></strong><br>
 <em>Creating effective, maintainable prompt instructions</em></li>
+<li><strong><a href="./tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html">How to Structure Content for Copilot Agent Files</a></strong><br>
+<em>Building autonomous AI agents with .agent.md files</em></li>
+<li><strong><a href="./tech/PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.html">How to Structure Content for Copilot Instruction Files</a></strong><br>
+<em>Path-specific custom instructions with .instructions.md files</em></li>
 </ul>
 </section>
 <section id="azure-ai-.net" class="level4">
@@ -2458,8 +2391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="start-here" class="level3">
 <h3 class="anchored" data-anchor-id="start-here">🎯 Start Here</h3>
 <ul>
-<li><strong><a href="20250902 Learning Hub Overview/01 - Learning Hub Introduction.md">Learning Hub Introduction</a></strong> - Philosophy and approach</li>
-<li><strong><a href="20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md">Using This Hub for Learning</a></strong> - How to maximize value</li>
+<li><strong><a href="./idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.html">Learning Hub Introduction</a></strong> - Philosophy and approach</li>
+<li><strong><a href="./idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.html">Using This Hub for Learning</a></strong> - How to maximize value</li>
 </ul>
 </section>
 <section id="ai-prompt-engineering" class="level3">

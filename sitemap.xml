@@ -2,626 +2,630 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://darioairoldi.github.io/Learn/README.html</loc>
-    <lastmod>2025-12-10T21:42:06.020Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.267Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/tech/Github/01.Repositories/20250825 Github repositories limitations/README.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.493Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/20250815 DIY Battery Pack/README.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.243Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/Travel/Paris 2025/README.html</loc>
-    <lastmod>2025-12-10T21:42:06.020Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.279Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/20250711 Use http files for easy and repeatable test/README.html</loc>
-    <lastmod>2025-12-10T21:42:05.973Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.232Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20250704 TableStorageAccess options/README.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.258Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/05. how_to_create_a_prompt_interacting_with_agents.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/07. Prompts and markdown structure for a documentation site.html</loc>
+    <lastmod>2025-12-11T16:32:50.506Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.html</loc>
+    <lastmod>2025-12-11T16:32:50.503Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.html</loc>
+    <lastmod>2025-12-11T16:32:50.501Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/Hardware/Surface Laptop 6 Features analysis.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html</loc>
+    <lastmod>2025-12-11T16:32:50.497Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.html</loc>
+    <lastmod>2025-12-11T16:32:50.495Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.494Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/Authentication/20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.html</loc>
-    <lastmod>2025-12-10T21:42:06.240Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.html</loc>
+    <lastmod>2025-12-11T16:32:50.493Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/issues/20251107 FeedId cannot contain forward slash/ISSUE Template.html</loc>
-    <lastmod>2025-12-10T21:42:06.232Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/tech/Authentication/20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.html</loc>
+    <lastmod>2025-12-11T16:32:50.474Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.html</loc>
+    <lastmod>2025-12-11T16:32:50.450Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/idea/IQPilot/02. IQPilot Getting started.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/idea/IQPilot/03. IQPilot Implementation details.html</loc>
+    <lastmod>2025-12-11T16:32:50.448Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/idea/IQPilot/01. IQPilot overview.html</loc>
+    <lastmod>2025-12-11T16:32:50.446Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202511 Ignite 2025/03. Migrate and modernize/BRK431 - Cloud Native Innovations with Mark Russinovich/Summary.html</loc>
+    <lastmod>2025-12-11T16:32:50.445Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.2.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.442Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/Readme.html</loc>
+    <lastmod>2025-12-11T16:32:50.440Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.433Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM571 Extending your application with powertoys/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.432Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM524 Running Large Language Models on your local machine/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM571 Extending your application with powertoys/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.430Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/Qwen25-Samples-README.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.422Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM519 Agent mode for serious developers/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/PACKAGE-STATUS.html</loc>
+    <lastmod>2025-12-11T16:32:50.413Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM518 dotnet run app/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM519 Agent mode for serious developers/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.411Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM517 Build, Deploy, &amp; Use Your First MCP Server/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM515 Write better C# code/README.GPT5.html</loc>
-    <lastmod>2025-11-17T14:52:12.186Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM509 Essential AI Prompts for Developers/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK229 Introducing Copilot Solutions/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK226 Boost Development Productivity/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK224 Integrate AI using Windows AI APIs/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK223 An overview of Windows AI Foundry/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK204 Whats new in Microsoft Databases/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK199 Accelerate Modernization/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/README.Sonnet4.clean.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK141 RAG for enterprise agents with Azure AI Search/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/sample/SECURITY.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.052Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/01. Passkey Authentication Information.html</loc>
-    <lastmod>2025-12-10T21:42:06.052Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.052Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK106 Elevating Development with .NET Aspire AI/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK103 Microsoft Developers Use AI/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK101 Dotnet app modernization/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/DOCUMENTATION-INDEX.html</loc>
-    <lastmod>2025-12-10T21:42:06.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.html</loc>
-    <lastmod>2025-12-10T21:42:06.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20251021 BlobStorage Access options/02. Blob Storage Limitations.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20250706 CosmosDB Access options/02. CosmosDB Partitioning Strategies.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/99. Azure Containers QA.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create ACI.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/01. Azure Container App.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/02. Azure Key Vault/03. HowTo.Create and retrieve secrets from Azure Key Vault.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Apps/03. cli commands.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250827 what is yq overview/appendix-advanced-techniques.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250815 DIY ebike/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250713 Use http files for easy and repeatable test/02. Using HTTP Files for API Testing (Visual Studio).html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/010.002 Deploying a Quarto site to Storage Accounts.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/009.020 Sidebar Page Transition Optimization.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/009.000 How does sidebar works.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/003.010 Quarto specific markdown features.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/001.010 Quarto.yml document structure.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/001.002 Architecture - Monolithic vs. Modular Deployment.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/000.000 README.html</loc>
-    <lastmod>2025-12-10T21:42:05.973Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/index.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/001.001 Architecture - How quarto works.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/001.003 Architecture - Split Navigation Build from content rendering.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/002.010 Quarto Theming and Styling.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/007.010 Optimizing Quarto build and deploy.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/009.010 Navigation workflow.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/010.001 Deploying a Quarto site to GitHub Pages.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250815 DIY Battery Pack/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20250827 what is yq overview/appendix-yq-tool.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/04. Monitor App Performance/01. Azure Monitor QA.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/02. Azure Container App Environments Overview.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create azure container app.md.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20251021 BlobStorage Access options/01. Blob Storage Access options.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/Cli/Cli commands for Github.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html</loc>
-    <lastmod>2025-12-10T21:42:06.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.html</loc>
-    <lastmod>2025-12-10T21:42:06.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html</loc>
-    <lastmod>2025-12-10T21:42:06.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/GETTING-STARTED.html</loc>
-    <lastmod>2025-12-10T21:42:06.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK101 Dotnet app modernization/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK103 Microsoft Developers Use AI/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/Appendix A - CS Version History and Features.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.052Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/02. Inside Observability with .net 10.html</loc>
-    <lastmod>2025-12-10T21:42:06.052Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/sample/CODE_OF_CONDUCT.html</loc>
-    <lastmod>2025-12-10T21:42:06.052Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/sample/SUPPORT.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK155 Azure AI Foundry - app and Agent Factory/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK199 Accelerate Modernization/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK204 Wharts new in Microsoft Databases/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK204 Whats new in Microsoft Databases/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK223 An overview of Windows AI Foundry/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK225 Bring your own model to Windows using Windows ML/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK226 Boost Development Productivity/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM508 Streamlining Application Testing with .NET Aspire and Playwright/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM509 Essential AI Prompts for Developers/SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM518 dotnet run app/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.409Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM515 Write better C# code/SUMMARY.html</loc>
     <lastmod>2025-11-17T14:52:12.186Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM518 dotnet run app/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM509 Essential AI Prompts for Developers/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.405Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM519 Agent mode for serious developers/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.192Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM508 Streamlining Application Testing with .NET Aspire and Playwright/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.403Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/PACKAGE-STATUS.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.401Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK226 Boost Development Productivity/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.398Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM571 Extending your application with powertoys/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK225 Bring your own model to Windows using Windows ML/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.396Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK223 An overview of Windows AI Foundry/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.393Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK204 Whats new in Microsoft Databases/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.390Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/Readme.html</loc>
-    <lastmod>2025-12-10T21:42:06.208Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK204 Wharts new in Microsoft Databases/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.389Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK199 Accelerate Modernization/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.387Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/events/202511 Ignite 2025/03. Migrate and modernize/BRK431 - Cloud Native Innovations with Mark Russinovich/Summary.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.385Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/idea/IQPilot/01. IQPilot overview.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.383Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/idea/IQPilot/03. IQPilot Implementation details.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.381Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.379Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/Authentication/20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.html</loc>
-    <lastmod>2025-12-10T21:42:06.240Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK155 Azure AI Foundry - app and Agent Factory/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.377Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.374Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.372Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/sample/SUPPORT.html</loc>
+    <lastmod>2025-12-11T16:32:50.368Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/sample/CODE_OF_CONDUCT.html</loc>
+    <lastmod>2025-12-11T16:32:50.305Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/02. Inside Observability with .net 10.html</loc>
+    <lastmod>2025-12-11T16:32:50.300Z</lastmod>
   </url>
   <url>
-    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/05. Prompts and markdown structure for a documentation site.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.296Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/Appendix A - CS Version History and Features.html</loc>
+    <lastmod>2025-12-11T16:32:50.295Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK103 Microsoft Developers Use AI/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK101 Dotnet app modernization/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/GETTING-STARTED.html</loc>
+    <lastmod>2025-12-11T16:32:50.267Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html</loc>
+    <lastmod>2025-12-11T16:32:50.266Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.html</loc>
+    <lastmod>2025-12-11T16:32:50.265Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html</loc>
+    <lastmod>2025-12-11T16:32:50.263Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/Cli/Cli commands for Github.html</loc>
+    <lastmod>2025-12-11T16:32:50.261Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20251021 BlobStorage Access options/01. Blob Storage Access options.html</loc>
+    <lastmod>2025-12-11T16:32:50.260Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.html</loc>
+    <lastmod>2025-12-11T16:32:50.259Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create azure container app.md.html</loc>
+    <lastmod>2025-12-11T16:32:50.256Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/02. Azure Container App Environments Overview.html</loc>
+    <lastmod>2025-12-11T16:32:50.256Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/04. Monitor App Performance/01. Azure Monitor QA.html</loc>
+    <lastmod>2025-12-11T16:32:50.254Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/03. Azure App Configuration/01. Azure App Configuration QA.html</loc>
+    <lastmod>2025-12-11T16:32:50.253Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/02. Azure Key Vault/02. Azure Key Vault Limitations.html</loc>
+    <lastmod>2025-12-11T16:32:50.252Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Functions/02. Azure Functions Limitations.html</loc>
+    <lastmod>2025-12-11T16:32:50.251Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.html</loc>
+    <lastmod>2025-12-11T16:32:50.249Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.html</loc>
+    <lastmod>2025-12-11T16:32:50.248Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250827 what is yq overview/appendix-yq-tool.html</loc>
+    <lastmod>2025-12-11T16:32:50.247Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html</loc>
+    <lastmod>2025-12-11T16:32:50.244Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250815 DIY Battery Pack/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.html</loc>
+    <lastmod>2025-12-11T16:32:50.239Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/010.001 Deploying a Quarto site to GitHub Pages.html</loc>
+    <lastmod>2025-12-11T16:32:50.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/009.010 Navigation workflow.html</loc>
+    <lastmod>2025-12-11T16:32:50.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/007.010 Optimizing Quarto build and deploy.html</loc>
+    <lastmod>2025-12-11T16:32:50.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/002.010 Quarto Theming and Styling.html</loc>
+    <lastmod>2025-12-11T16:32:50.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/001.003 Architecture - Split Navigation Build from content rendering.html</loc>
+    <lastmod>2025-12-11T16:32:50.234Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/001.001 Architecture - How quarto works.html</loc>
+    <lastmod>2025-12-11T16:32:50.233Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/index.html</loc>
+    <lastmod>2025-12-11T16:32:50.451Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/000.000 README.html</loc>
+    <lastmod>2025-12-11T16:32:50.233Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/001.002 Architecture - Monolithic vs. Modular Deployment.html</loc>
+    <lastmod>2025-12-11T16:32:50.234Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/001.010 Quarto.yml document structure.html</loc>
+    <lastmod>2025-12-11T16:32:50.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/003.010 Quarto specific markdown features.html</loc>
+    <lastmod>2025-12-11T16:32:50.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/009.000 How does sidebar works.html</loc>
+    <lastmod>2025-12-11T16:32:50.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/009.020 Sidebar Page Transition Optimization.html</loc>
+    <lastmod>2025-12-11T16:32:50.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250712 Use QUARTO doc for Github repos doc/010.002 Deploying a Quarto site to Storage Accounts.html</loc>
+    <lastmod>2025-12-11T16:32:50.238Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250713 Use http files for easy and repeatable test/02. Using HTTP Files for API Testing (Visual Studio).html</loc>
+    <lastmod>2025-12-11T16:32:50.240Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250815 DIY ebike/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.244Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20250827 what is yq overview/appendix-advanced-techniques.html</loc>
+    <lastmod>2025-12-11T16:32:50.246Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Apps/01. Azure Apps QA.html</loc>
+    <lastmod>2025-12-11T16:32:50.247Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Apps/03. cli commands.html</loc>
+    <lastmod>2025-12-11T16:32:50.249Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/01. Azure Functions/01. Azure Functions QA.html</loc>
+    <lastmod>2025-12-11T16:32:50.250Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/02. Azure Key Vault/01. Azure KeyVault QA.html</loc>
+    <lastmod>2025-12-11T16:32:50.251Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/02. Azure Key Vault/03. HowTo.Create and retrieve secrets from Azure Key Vault.html</loc>
+    <lastmod>2025-12-11T16:32:50.253Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/03. Azure App Configuration/03. Azure App Configuration Exercise.html</loc>
+    <lastmod>2025-12-11T16:32:50.254Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/01. Azure Container App.html</loc>
+    <lastmod>2025-12-11T16:32:50.255Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create ACI.html</loc>
+    <lastmod>2025-12-11T16:32:50.256Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/05. Azure Containers/99. Azure Containers QA.html</loc>
+    <lastmod>2025-12-11T16:32:50.257Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20250706 CosmosDB Access options/02. CosmosDB Partitioning Strategies.html</loc>
+    <lastmod>2025-12-11T16:32:50.259Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/20251021 BlobStorage Access options/02. Blob Storage Limitations.html</loc>
+    <lastmod>2025-12-11T16:32:50.260Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.html</loc>
+    <lastmod>2025-12-11T16:32:50.262Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.html</loc>
+    <lastmod>2025-12-11T16:32:50.264Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.html</loc>
+    <lastmod>2025-12-11T16:32:50.265Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/DOCUMENTATION-INDEX.html</loc>
+    <lastmod>2025-12-11T16:32:50.266Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK101 Dotnet app modernization/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.287Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK103 Microsoft Developers Use AI/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK104 Building the Next Generation of Apps with AI and .NET/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK106 Elevating Development with .NET Aspire AI/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.294Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.296Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK119 Debug Like a Pro - Improve Your Efficiency/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.298Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/01. Passkey Authentication Information.html</loc>
+    <lastmod>2025-12-11T16:32:50.300Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.301Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK122 Supercharge Your Git workflow with VS Code/sample/SECURITY.html</loc>
+    <lastmod>2025-12-11T16:32:50.368Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.372Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.373Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK141 RAG for enterprise agents with Azure AI Search/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.376Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK163 Create agents for 365 Copilot with 365 Agents SDK/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.379Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK165 Building agents for Microsoft 365 Copilot/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.381Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/README.Sonnet4.clean.html</loc>
+    <lastmod>2025-12-11T16:32:50.383Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK176 agent solutions with Copilot Studio and M365 Agents SDK/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.384Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK195 Inside Azure innovations with Mark Russinovich/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.385Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK199 Accelerate Modernization/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.387Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK204 Whats new in Microsoft Databases/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.390Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK223 An overview of Windows AI Foundry/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.393Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK224 Integrate AI using Windows AI APIs/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.395Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK226 Boost Development Productivity/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.397Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK229 Introducing Copilot Solutions/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.399Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/BRK229 Unlock agents for your apps using MCP on Windows/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.401Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM509 Essential AI Prompts for Developers/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.405Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM515 Write better C# code/README.GPT5.html</loc>
+    <lastmod>2025-11-17T14:52:12.186Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM517 Build, Deploy, &amp; Use Your First MCP Server/README.Sonnet4.html</loc>
+    <lastmod>2025-12-11T16:32:50.407Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM518 dotnet run app/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.409Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM519 Agent mode for serious developers/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.412Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM520 Local AI Development with Foundry Local and .NET Aspire/Qwen25-Samples-README.html</loc>
+    <lastmod>2025-12-11T16:32:50.421Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM524 Running Large Language Models on your local machine/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM571 Extending your application with powertoys/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.430Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/DEM581 Transforming Microsoft Learn with AI/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.432Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/ODFP957 Sentry and Copilot Integration for AI Debugging/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.434Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.2.html</loc>
+    <lastmod>2025-12-11T16:32:50.441Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/events/202506 Build 2025/STUDIO14 Agents AI and Azure AI Foundry/SUMMARY.html</loc>
+    <lastmod>2025-12-11T16:32:50.443Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.html</loc>
+    <lastmod>2025-12-11T16:32:50.445Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/idea/IQPilot/02. IQPilot Getting started.html</loc>
+    <lastmod>2025-12-11T16:32:50.447Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.html</loc>
+    <lastmod>2025-12-11T16:32:50.449Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/issues/20251107 FeedId cannot contain forward slash/ISSUE Template.html</loc>
+    <lastmod>2025-12-11T16:32:50.454Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/tech/Authentication/20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.html</loc>
+    <lastmod>2025-12-11T16:32:50.474Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.html</loc>
+    <lastmod>2025-12-11T16:32:50.494Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.html</loc>
+    <lastmod>2025-12-11T16:32:50.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/tech/Hardware/Surface Laptop 6 Features analysis.html</loc>
+    <lastmod>2025-12-11T16:32:50.496Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.html</loc>
+    <lastmod>2025-12-11T16:32:50.500Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html</loc>
+    <lastmod>2025-12-11T16:32:50.502Z</lastmod>
+  </url>
+  <url>
+    <loc>https://darioairoldi.github.io/Learn/tech/PromptEngineering/06. how_to_create_a_prompt_interacting_with_agents.html</loc>
+    <lastmod>2025-12-11T16:32:50.504Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/tech/Azure/20250702 Azure Naming conventions/README.html</loc>
-    <lastmod>2025-12-10T21:42:06.250Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.476Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.html</loc>
-    <lastmod>2025-12-10T21:42:06.256Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.492Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/20250713 Use http files for easy and repeatable test/README.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.240Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/issues/20250709 fatal error cloning a repo with Visual Studio/README.html</loc>
-    <lastmod>2025-12-10T21:42:06.223Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.452Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/20250723 EventHub Access options/README.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.242Z</lastmod>
   </url>
   <url>
     <loc>https://darioairoldi.github.io/Learn/20250827 what is yq overview/README.html</loc>
-    <lastmod>2025-12-10T21:42:05.989Z</lastmod>
+    <lastmod>2025-12-11T16:32:50.246Z</lastmod>
   </url>
 </urlset>
