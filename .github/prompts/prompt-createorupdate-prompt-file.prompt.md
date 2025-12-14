@@ -114,9 +114,10 @@ Gather the following information from all available sources:
 - Apply user-requested changes
 
 **4. Validate Requirements:**
-- Ensure prompt has narrow scope (one specific task)
+- Ensure prompt has well defined, narrow scope (one specific task)
 - Verify tools list is minimal and necessary
 - Check that boundaries are specific and actionable
+
 
 **Output: Requirements Summary**
 
