@@ -2052,6 +2052,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#the-prompt-creation-system" id="toc-the-prompt-creation-system" class="nav-link" data-scroll-target="#the-prompt-creation-system">The Prompt Creation System</a></li>
   <li><a href="#why-separate-prompt-vs.-agent-specialists" id="toc-why-separate-prompt-vs.-agent-specialists" class="nav-link" data-scroll-target="#why-separate-prompt-vs.-agent-specialists">Why Separate Prompt vs.&nbsp;Agent Specialists?</a></li>
+  <li><a href="#advanced-agent-deployment-options" id="toc-advanced-agent-deployment-options" class="nav-link" data-scroll-target="#advanced-agent-deployment-options">Advanced Agent Deployment Options</a></li>
+  <li><a href="#sharing-agents-across-teams" id="toc-sharing-agents-across-teams" class="nav-link" data-scroll-target="#sharing-agents-across-teams">Sharing Agents Across Teams</a></li>
+  <li><a href="#cross-platform-compatibility-claude-skills" id="toc-cross-platform-compatibility-claude-skills" class="nav-link" data-scroll-target="#cross-platform-compatibility-claude-skills">Cross-Platform Compatibility: Claude Skills</a></li>
   </ul></li>
   <li><a href="#the-specialized-agent-pattern" id="toc-the-specialized-agent-pattern" class="nav-link" data-scroll-target="#the-specialized-agent-pattern">📋 The Specialized Agent Pattern</a>
   <ul class="collapse">
@@ -2059,19 +2062,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-four-prompt-specialists" id="toc-the-four-prompt-specialists" class="nav-link" data-scroll-target="#the-four-prompt-specialists">The Four Prompt Specialists</a></li>
   <li><a href="#extending-agents-with-mcp-servers" id="toc-extending-agents-with-mcp-servers" class="nav-link" data-scroll-target="#extending-agents-with-mcp-servers">Extending Agents with MCP Servers</a></li>
   </ul></li>
+  <li><a href="#use-case-challenge-methodology" id="toc-use-case-challenge-methodology" class="nav-link" data-scroll-target="#use-case-challenge-methodology">🎯 Use Case Challenge Methodology</a>
+  <ul class="collapse">
+  <li><a href="#why-use-case-challenge" id="toc-why-use-case-challenge" class="nav-link" data-scroll-target="#why-use-case-challenge">Why Use Case Challenge?</a></li>
+  <li><a href="#complexity-assessment" id="toc-complexity-assessment" class="nav-link" data-scroll-target="#complexity-assessment">Complexity Assessment</a></li>
+  <li><a href="#use-case-generation-process" id="toc-use-case-generation-process" class="nav-link" data-scroll-target="#use-case-generation-process">Use Case Generation Process</a></li>
+  <li><a href="#real-example-prompt-creation-orchestrator" id="toc-real-example-prompt-creation-orchestrator" class="nav-link" data-scroll-target="#real-example-prompt-creation-orchestrator">Real Example: Prompt Creation Orchestrator</a></li>
+  <li><a href="#role-challenge-for-agents" id="toc-role-challenge-for-agents" class="nav-link" data-scroll-target="#role-challenge-for-agents">Role Challenge for Agents</a></li>
+  </ul></li>
   <li><a href="#orchestrator-design-phase-based-coordination" id="toc-orchestrator-design-phase-based-coordination" class="nav-link" data-scroll-target="#orchestrator-design-phase-based-coordination">🔀 Orchestrator Design: Phase-Based Coordination</a>
   <ul class="collapse">
   <li><a href="#orchestrator-structure" id="toc-orchestrator-structure" class="nav-link" data-scroll-target="#orchestrator-structure">Orchestrator Structure</a></li>
   <li><a href="#phase-flow" id="toc-phase-flow" class="nav-link" data-scroll-target="#phase-flow">Phase Flow</a></li>
   <li><a href="#handoff-configuration-send-true-vs-send-false" id="toc-handoff-configuration-send-true-vs-send-false" class="nav-link" data-scroll-target="#handoff-configuration-send-true-vs-send-false">Handoff Configuration: <code>send: true</code> vs <code>send: false</code></a></li>
   </ul></li>
-  <li><a href="#intelligent-architecture-analysis-phase-3" id="toc-intelligent-architecture-analysis-phase-3" class="nav-link" data-scroll-target="#intelligent-architecture-analysis-phase-3">🧠 Intelligent Architecture Analysis (Phase 3)</a>
+  <li><a href="#structure-definition-architecture-analysis-phase-3" id="toc-structure-definition-architecture-analysis-phase-3" class="nav-link" data-scroll-target="#structure-definition-architecture-analysis-phase-3">🧠 Structure Definition &amp; Architecture Analysis (Phase 3)</a>
   <ul class="collapse">
   <li><a href="#the-architecture-decision-problem" id="toc-the-architecture-decision-problem" class="nav-link" data-scroll-target="#the-architecture-decision-problem">The Architecture Decision Problem</a></li>
   <li><a href="#phase-3-architecture-analysis-process" id="toc-phase-3-architecture-analysis-process" class="nav-link" data-scroll-target="#phase-3-architecture-analysis-process">Phase 3: Architecture Analysis Process</a></li>
   <li><a href="#decision-framework" id="toc-decision-framework" class="nav-link" data-scroll-target="#decision-framework">Decision Framework</a></li>
   <li><a href="#existing-agent-inventory" id="toc-existing-agent-inventory" class="nav-link" data-scroll-target="#existing-agent-inventory">Existing Agent Inventory</a></li>
   <li><a href="#new-agent-opportunities" id="toc-new-agent-opportunities" class="nav-link" data-scroll-target="#new-agent-opportunities">New Agent Opportunities</a></li>
+  <li><a href="#tool-composition-validation" id="toc-tool-composition-validation" class="nav-link" data-scroll-target="#tool-composition-validation">Tool Composition Validation</a></li>
+  <li><a href="#agent-dependencies-planning-phases-5-6" id="toc-agent-dependencies-planning-phases-5-6" class="nav-link" data-scroll-target="#agent-dependencies-planning-phases-5-6">Agent Dependencies Planning (Phases 5-6)</a></li>
   </ul></li>
   <li><a href="#handling-agent-creation-within-the-workflow" id="toc-handling-agent-creation-within-the-workflow" class="nav-link" data-scroll-target="#handling-agent-creation-within-the-workflow">🔧 Handling Agent Creation Within the Workflow</a>
   <ul class="collapse">
@@ -2092,6 +2105,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#automatic-validation-after-build" id="toc-automatic-validation-after-build" class="nav-link" data-scroll-target="#automatic-validation-after-build">3. Automatic Validation After Build</a></li>
   <li><a href="#automatic-re-validation-after-fix" id="toc-automatic-re-validation-after-fix" class="nav-link" data-scroll-target="#automatic-re-validation-after-fix">4. Automatic Re-validation After Fix</a></li>
   <li><a href="#user-approval-for-research-and-build" id="toc-user-approval-for-research-and-build" class="nav-link" data-scroll-target="#user-approval-for-research-and-build">5. User Approval for Research and Build</a></li>
+  <li><a href="#validation-loop-limits" id="toc-validation-loop-limits" class="nav-link" data-scroll-target="#validation-loop-limits">Validation Loop Limits</a></li>
+  <li><a href="#pre-save-validation" id="toc-pre-save-validation" class="nav-link" data-scroll-target="#pre-save-validation">Pre-Save Validation</a></li>
   </ul></li>
   <li><a href="#context-engineering-for-orchestrators" id="toc-context-engineering-for-orchestrators" class="nav-link" data-scroll-target="#context-engineering-for-orchestrators">🎛️ Context Engineering for Orchestrators</a>
   <ul class="collapse">
@@ -2104,11 +2119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#the-orchestrator-yaml" id="toc-the-orchestrator-yaml" class="nav-link" data-scroll-target="#the-orchestrator-yaml">The Orchestrator YAML</a></li>
   <li><a href="#phase-3-architecture-decision-output" id="toc-phase-3-architecture-decision-output" class="nav-link" data-scroll-target="#phase-3-architecture-decision-output">Phase 3 Architecture Decision Output</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">🎯 Conclusion</a>
-  <ul class="collapse">
-  <li><a href="#design-principles" id="toc-design-principles" class="nav-link" data-scroll-target="#design-principles">Design Principles</a></li>
-  <li><a href="#the-pattern" id="toc-the-pattern" class="nav-link" data-scroll-target="#the-pattern">The Pattern</a></li>
+  <li><a href="#real-validator-output-format" id="toc-real-validator-output-format" class="nav-link" data-scroll-target="#real-validator-output-format">Real Validator Output Format</a></li>
   <li><a href="#when-to-use-this-pattern" id="toc-when-to-use-this-pattern" class="nav-link" data-scroll-target="#when-to-use-this-pattern">When to Use This Pattern</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📚 References</a>
@@ -2136,14 +2147,29 @@ Tasks like “create a new prompt following best practices” involve multiple d
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="#-the-problem-complex-multi-phase-workflows">🎯 The Problem: Complex Multi-Phase Workflows</a></li>
-<li><a href="#️-architecture-overview">🏗️ Architecture Overview</a></li>
+<li><a href="#️-architecture-overview">🏗️ Architecture Overview</a>
+<ul>
+<li><a href="#advanced-agent-deployment-options">Advanced Agent Deployment Options</a></li>
+<li><a href="#sharing-agents-across-teams">Sharing Agents Across Teams</a></li>
+<li><a href="#cross-platform-compatibility-claude-skills">Cross-Platform Compatibility: Claude Skills</a></li>
+</ul></li>
 <li><a href="#-the-specialized-agent-pattern">📋 The Specialized Agent Pattern</a></li>
+<li><a href="#-use-case-challenge-methodology">🎯 Use Case Challenge Methodology</a></li>
 <li><a href="#-orchestrator-design-phase-based-coordination">🔀 Orchestrator Design: Phase-Based Coordination</a></li>
-<li><a href="#-intelligent-architecture-analysis-phase-3">🧠 Intelligent Architecture Analysis (Phase 3)</a></li>
+<li><a href="#-structure-definition--architecture-analysis-phase-3">🧠 Structure Definition &amp; Architecture Analysis (Phase 3)</a>
+<ul>
+<li><a href="#tool-composition-validation">Tool Composition Validation</a></li>
+<li><a href="#agent-dependencies-planning-phases-5-6">Agent Dependencies Planning (Phases 5-6)</a></li>
+</ul></li>
 <li><a href="#-handling-agent-creation-within-the-workflow">🔧 Handling Agent Creation Within the Workflow</a></li>
 <li><a href="#-the-complete-workflow">🔄 The Complete Workflow</a></li>
-<li><a href="#-key-design-decisions">💡 Key Design Decisions</a></li>
+<li><a href="#-key-design-decisions">💡 Key Design Decisions</a>
+<ul>
+<li><a href="#validation-loop-limits">Validation Loop Limits</a></li>
+<li><a href="#pre-save-validation">Pre-Save Validation</a></li>
+</ul></li>
 <li><a href="#-implementation-example">📝 Implementation Example</a></li>
+<li><a href="#-real-implementation-case-study">📊 Real Implementation Case Study</a></li>
 <li><a href="#-conclusion">🎯 Conclusion</a></li>
 <li><a href="#-references">📚 References</a></li>
 </ul>
@@ -2292,57 +2318,204 @@ SPECIALIZED AGENTS (Agent Domain) - Created when needed
 </table>
 <p>A <code>prompt-builder</code> trained on prompt patterns may not produce optimal agent files. Hence the need for specialized <code>agent-builder</code> when creating agents.</p>
 </section>
+<section id="advanced-agent-deployment-options" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-agent-deployment-options">Advanced Agent Deployment Options</h3>
+<p>Custom agents aren’t limited to interactive chat sessions. VS Code provides multiple deployment contexts for your orchestrated workflows:</p>
+<section id="background-agents" class="level4">
+<h4 class="anchored" data-anchor-id="background-agents">Background Agents</h4>
+<p><mark><strong>Background agents</strong></mark> run custom agents autonomously without blocking your workflow. Once configured, a background agent executes tasks in the background while you continue working.</p>
+<p><strong>Use cases for orchestrations:</strong></p>
+<ul>
+<li>Long-running validation workflows that check entire codebases</li>
+<li>Automated documentation generation triggered by file changes</li>
+<li>Scheduled code quality audits using your specialized agents</li>
+</ul>
+</section>
+<section id="cloud-agents" class="level4">
+<h4 class="anchored" data-anchor-id="cloud-agents">Cloud Agents</h4>
+<p><mark><strong>Cloud agents</strong></mark> execute your custom agents in GitHub’s cloud infrastructure, enabling autonomous task completion without keeping VS Code open.</p>
+<p><strong>Benefits for multi-agent workflows:</strong></p>
+<ul>
+<li>Offload complex orchestrations to cloud compute</li>
+<li>Continue agent workflows across sessions</li>
+<li>Scale resource-intensive validation tasks</li>
+</ul>
+<p>Both background and cloud agents can reuse the same <code>.agent.md</code> files you create for interactive use, making your orchestrator patterns portable across execution contexts.</p>
+</section>
+<section id="subagents-experimental" class="level4">
+<h4 class="anchored" data-anchor-id="subagents-experimental">Subagents (Experimental)</h4>
+<p>VS Code supports <mark><strong>subagents</strong></mark>—the ability to spawn child agents from within a parent agent’s execution. This enables dynamic orchestration patterns where agents can delegate subtasks programmatically.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> code-review-orchestrator</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Orchestrates code review workflow"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> runSubagent</span><span class="co">  # Enables spawning child agents</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">infer</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Allow this agent to be used as a subagent (default)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Subagent patterns:</strong></p>
+<ul>
+<li>Parent orchestrator spawns specialized reviewers on-demand</li>
+<li>Dynamic agent selection based on file types discovered</li>
+<li>Recursive workflows where validators can trigger fixers</li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> Subagent support is experimental. Set <code>infer: false</code> in agent YAML to prevent an agent from being invoked as a subagent.</p>
+</blockquote>
+<p>Learn more: <a href="https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_use-a-custom-agent-with-subagents-experimental">VS Code Subagents with Custom Agents</a></p>
+</section>
+</section>
+<section id="sharing-agents-across-teams" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-agents-across-teams">Sharing Agents Across Teams</h3>
+<p>Orchestrated workflows become more valuable when shared across your organization:</p>
+<section id="workspace-level-sharing" class="level4">
+<h4 class="anchored" data-anchor-id="workspace-level-sharing">Workspace-Level Sharing</h4>
+<p>Store agents in <code>.github/agents/</code> folder—they’re automatically available to anyone who clones the repository:</p>
+<pre><code>repository/
+├── .github/
+│   ├── agents/
+│   │   ├── prompt-researcher.agent.md
+│   │   ├── prompt-builder.agent.md
+│   │   └── code-review-orchestrator.agent.md
+│   └── prompts/
+│       └── prompt-design-and-create.prompt.md</code></pre>
+</section>
+<section id="organization-level-sharing-experimental" class="level4">
+<h4 class="anchored" data-anchor-id="organization-level-sharing-experimental">Organization-Level Sharing (Experimental)</h4>
+<p>For enterprises, VS Code supports <mark><strong>organization-level custom agents</strong></mark> defined at the GitHub organization level. These agents appear automatically for all organization members.</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Centralized agent libraries maintained by platform teams</li>
+<li>Consistent tooling across all repositories</li>
+<li>Version-controlled agent definitions with org-wide rollout</li>
+</ul>
+<p><strong>Enable discovery:</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">settings.json</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents"</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Organization agents appear in the Agents dropdown alongside personal and workspace agents.</p>
+<p>Learn more: <a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents">GitHub - Create Custom Agents for Organizations</a></p>
+</section>
+</section>
+<section id="cross-platform-compatibility-claude-skills" class="level3">
+<h3 class="anchored" data-anchor-id="cross-platform-compatibility-claude-skills">Cross-Platform Compatibility: Claude Skills</h3>
+<p>If your team uses Claude across multiple platforms, VS Code can integrate <mark><strong>Claude skills</strong></mark>—reusable instruction sets that work across Claude interfaces.</p>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>Define skills in <code>SKILL.md</code> files</li>
+<li>Store in <code>~/.claude/skills/skill-name/SKILL.md</code> (user-level) or <code>.claude/skills/skill-name/SKILL.md</code> (workspace)</li>
+<li>VS Code loads skills on-demand when the <code>read</code> tool is enabled</li>
+</ul>
+<p><strong>Example skill structure:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Code Review Skill</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>You are an expert code reviewer focused on:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Security vulnerabilities</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Performance anti-patterns</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Code maintainability</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Process</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Analyze code structure</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identify issues by severity</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Suggest specific fixes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Enable Claude skills in VS Code:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">settings.json</span> <span class="er">(experimental)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"chat.useClaudeSkills"</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>When to use Claude skills vs.&nbsp;custom agents:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 38%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Claude Skills</th>
+<th>Custom Agents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Scope</strong></td>
+<td>Cross-platform (Claude.ai, API, VS Code)</td>
+<td>VS Code only</td>
+</tr>
+<tr class="even">
+<td><strong>Tools</strong></td>
+<td>Limited (<code>allowed-tools</code> not supported in VS Code)</td>
+<td>Full tool configuration</td>
+</tr>
+<tr class="odd">
+<td><strong>Handoffs</strong></td>
+<td>Not supported</td>
+<td>Full handoff orchestration</td>
+</tr>
+<tr class="even">
+<td><strong>Best for</strong></td>
+<td>Portable personas/instructions</td>
+<td>Complex orchestrated workflows</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> The <code>allowed-tools</code> attribute in Claude skills is not currently supported in VS Code. For tool-specific workflows, use custom agents.</p>
+</blockquote>
+</section>
 </section>
 <section id="the-specialized-agent-pattern" class="level2">
 <h2 class="anchored" data-anchor-id="the-specialized-agent-pattern">📋 The Specialized Agent Pattern</h2>
 <p>Each specialized agent follows a consistent structure:</p>
 <section id="agent-anatomy" class="level3">
 <h3 class="anchored" data-anchor-id="agent-anatomy">Agent Anatomy</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"One-sentence specialist description"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> plan</span><span class="co">  # or: agent (for write access)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> tool_1</span><span class="co">    # Narrow scope: 3-7 tools max</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> tool_2</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Next Step"</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> next-agent</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # automatic or false for user approval</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Agent Name</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Role description - what this specialist does</span><span class="kw">]</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">## Your Expertise</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Capability</span><span class="dv"> 1</span><span class="kw">]</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Capability</span><span class="dv"> 2</span><span class="kw">]</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">## 🚨 CRITICAL BOUNDARIES</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">### ✅ Always Do</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Required behaviors</span><span class="kw">]</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">### ⚠️ Ask First  </span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Actions requiring confirmation</span><span class="kw">]</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">### 🚫 Never Do</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Prohibited actions</span><span class="kw">]</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">## Process</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Phase-by-phase workflow</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"One-sentence specialist description"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> plan</span><span class="co">  # or: agent (for write access)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> tool_1</span><span class="co">    # Narrow scope: 3-7 tools max</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> tool_2</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Next Step"</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> next-agent</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # automatic or false for user approval</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Agent Name</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Role description - what this specialist does</span><span class="kw">]</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">## Your Expertise</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Capability</span><span class="dv"> 1</span><span class="kw">]</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Capability</span><span class="dv"> 2</span><span class="kw">]</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">## 🚨 CRITICAL BOUNDARIES</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">### ✅ Always Do</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Required behaviors</span><span class="kw">]</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">### ⚠️ Ask First  </span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Actions requiring confirmation</span><span class="kw">]</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">### 🚫 Never Do</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at">Prohibited actions</span><span class="kw">]</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co">## Process</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Phase-by-phase workflow</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="the-four-prompt-specialists" class="level3">
 <h3 class="anchored" data-anchor-id="the-four-prompt-specialists">The Four Prompt Specialists</h3>
 <section id="prompt-researcher.agent.md" class="level4">
 <h4 class="anchored" data-anchor-id="prompt-researcher.agent.md">1. prompt-researcher.agent.md</h4>
 <p><strong>Role</strong>: Research specialist (read-only)</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> plan</span><span class="co">  # Read-only</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> file_search</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> grep_search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> plan</span><span class="co">  # Read-only</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> file_search</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> grep_search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Responsibilities</strong>:</p>
 <ul>
 <li>Find similar existing prompts (3-5 examples)</li>
@@ -2355,16 +2528,16 @@ SPECIALIZED AGENTS (Agent Domain) - Created when needed
 <section id="prompt-builder.agent.md" class="level4">
 <h4 class="anchored" data-anchor-id="prompt-builder.agent.md">2. prompt-builder.agent.md</h4>
 <p><strong>Role</strong>: File creation specialist</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span><span class="co">  # Write access</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> create_file</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> file_search</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate Prompt"</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Automatic validation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span><span class="co">  # Write access</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> create_file</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> file_search</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate Prompt"</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Automatic validation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Responsibilities</strong>:</p>
 <ul>
 <li>Load and customize templates</li>
@@ -2377,11 +2550,11 @@ SPECIALIZED AGENTS (Agent Domain) - Created when needed
 <section id="prompt-validator.agent.md" class="level4">
 <h4 class="anchored" data-anchor-id="prompt-validator.agent.md">3. prompt-validator.agent.md</h4>
 <p><strong>Role</strong>: Quality assurance specialist (read-only)</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> plan</span><span class="co">  # Read-only</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> grep_search</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> file_search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> plan</span><span class="co">  # Read-only</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> grep_search</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> file_search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Responsibilities</strong>:</p>
 <ul>
 <li>Validate structure against template</li>
@@ -2394,16 +2567,16 @@ SPECIALIZED AGENTS (Agent Domain) - Created when needed
 <section id="prompt-updater.agent.md" class="level4">
 <h4 class="anchored" data-anchor-id="prompt-updater.agent.md">4. prompt-updater.agent.md</h4>
 <p><strong>Role</strong>: Fix specialist</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span><span class="co">  # Write access</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> grep_search</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> replace_string_in_file</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> multi_replace_string_in_file</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Re-validate After Update"</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Automatic re-validation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span><span class="co">  # Write access</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> grep_search</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> replace_string_in_file</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> multi_replace_string_in_file</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Re-validate After Update"</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Automatic re-validation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Responsibilities</strong>:</p>
 <ul>
 <li>Apply fixes from validation report</li>
@@ -2418,13 +2591,13 @@ SPECIALIZED AGENTS (Agent Domain) - Created when needed
 <h3 class="anchored" data-anchor-id="extending-agents-with-mcp-servers">Extending Agents with MCP Servers</h3>
 <p>Custom agents can use tools from <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP) servers</a>, enabling access to external systems like databases, APIs, and file systems beyond VS Code’s built-in capabilities.</p>
 <p>MCP tools are referenced in agent YAML just like built-in tools:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> database-analyzer</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mcp.database-server.query</span><span class="co">  # MCP tool</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mcp.database-server.schema</span><span class="co"> # MCP tool</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> database-analyzer</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mcp.database-server.query</span><span class="co">  # MCP tool</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mcp.database-server.schema</span><span class="co"> # MCP tool</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>When to use MCP for orchestrations:</strong></p>
 <ul>
 <li>Agent needs database access (PostgreSQL, MongoDB, etc.)</li>
@@ -2434,30 +2607,202 @@ SPECIALIZED AGENTS (Agent Domain) - Created when needed
 <p>Learn more: <a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers">VS Code MCP Servers</a></p>
 </section>
 </section>
+<section id="use-case-challenge-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="use-case-challenge-methodology">🎯 Use Case Challenge Methodology</h2>
+<p>Before building any prompt or agent, validate that the <strong>goal is clear and actionable</strong> by generating realistic use cases. This battle-tested methodology prevents scope creep and reveals tool/boundary requirements early.</p>
+<section id="why-use-case-challenge" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-case-challenge">Why Use Case Challenge?</h3>
+<p>Goals often seem clear until tested against real scenarios. A prompt like “validate code quality” sounds straightforward, but:</p>
+<ul>
+<li>Does it include security checks?</li>
+<li>Should it analyze test coverage?</li>
+<li>What about documentation completeness?</li>
+</ul>
+<p>The <strong>Use Case Challenge</strong> generates 3/5/7 scenarios (based on complexity) to stress-test goal clarity before any implementation begins.</p>
+</section>
+<section id="complexity-assessment" class="level3">
+<h3 class="anchored" data-anchor-id="complexity-assessment">Complexity Assessment</h3>
+<p>First, determine task complexity:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Complexity</th>
+<th>Indicators</th>
+<th>Use Cases to Generate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Simple</strong></td>
+<td>Clear single task, standard role, well-defined scope</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><strong>Moderate</strong></td>
+<td>Multiple objectives, domain-specific knowledge, some ambiguity</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><strong>Complex</strong></td>
+<td>Broad scope, novel workflow, cross-domain expertise needed</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="use-case-generation-process" class="level3">
+<h3 class="anchored" data-anchor-id="use-case-generation-process">Use Case Generation Process</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Use Case Challenge Results</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>**Initial Goal**: <span class="co">[</span><span class="ot">starting goal definition</span><span class="co">]</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>**Complexity Level**: <span class="co">[</span><span class="ot">Simple/Moderate/Complex</span><span class="co">]</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>**Use Cases Generated**: <span class="co">[</span><span class="ot">3/5/7</span><span class="co">]</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>**Use Case 1: [Common Case]**</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Scenario**: User asks to <span class="co">[</span><span class="ot">realistic situation</span><span class="co">]</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Test**: Does goal provide clear guidance for this case?</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Result**: <span class="co">[</span><span class="ot">✅ Clear / ⚠️ Ambiguous / ❌ Gap</span><span class="co">]</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tool Discovered**: <span class="co">[</span><span class="ot">if scenario reveals tool need</span><span class="co">]</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Boundary Discovered**: <span class="co">[</span><span class="ot">if scenario reveals scope limit</span><span class="co">]</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Refinement**: <span class="co">[</span><span class="ot">specific goal adjustment</span><span class="co">]</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>**Use Case 2: [Edge Case]**</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">...repeat pattern...</span><span class="co">]</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>**Use Case 3: [Conflict Case]**</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">...repeat pattern...</span><span class="co">]</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>**Validation Status**:</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ Goal appropriately scoped → Proceed to Phase 2</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>⚠️ Goal needs refinement → <span class="co">[</span><span class="ot">proposed changes, ask user</span><span class="co">]</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>❌ Goal fundamentally unclear → BLOCK, ask user for direction</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>**Refined Goal**: <span class="co">[</span><span class="ot">updated goal definition</span><span class="co">]</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>**Tools Discovered**: <span class="co">[</span><span class="ot">list with justifications</span><span class="co">]</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>**Scope Boundaries**: </span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>IN: <span class="co">[</span><span class="ot">what's included</span><span class="co">]</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>OUT: <span class="co">[</span><span class="ot">what's excluded</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="real-example-prompt-creation-orchestrator" class="level3">
+<h3 class="anchored" data-anchor-id="real-example-prompt-creation-orchestrator">Real Example: Prompt Creation Orchestrator</h3>
+<p>When designing the prompt creation system, the Use Case Challenge revealed:</p>
+<p><strong>Initial Goal</strong>: “Create prompts following best practices”</p>
+<p><strong>Use Case Challenge (5 cases for Moderate complexity)</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 32%">
+<col style="width: 25%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Scenario</th>
+<th>Result</th>
+<th>Discovery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Simple validation prompt</td>
+<td>✅ Clear</td>
+<td>Needs template selection</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Multi-phase workflow prompt</td>
+<td>⚠️ Ambiguous</td>
+<td>When to recommend orchestrator vs.&nbsp;single prompt?</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Prompt requiring new agents</td>
+<td>❌ Gap</td>
+<td>No guidance on agent creation sub-workflow</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Prompt with conflicting requirements</td>
+<td>⚠️ Ambiguous</td>
+<td>How to handle tool count &gt;7?</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Updating existing prompt</td>
+<td>❌ Gap</td>
+<td>Build vs.&nbsp;Update are different workflows</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Refinements Applied</strong>:</p>
+<ul>
+<li>Split into two orchestrators: <code>design-and-create</code> vs.&nbsp;<code>review-and-validate</code></li>
+<li>Added Phase 3 architecture analysis for complexity detection</li>
+<li>Added agent dependency planning phases (5-6)</li>
+<li>Added tool count enforcement with decomposition strategy</li>
+</ul>
+</section>
+<section id="role-challenge-for-agents" class="level3">
+<h3 class="anchored" data-anchor-id="role-challenge-for-agents">Role Challenge for Agents</h3>
+<p>When creating agents (not prompts), apply additional <strong>Role Challenge</strong> tests:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Role Challenge Tests</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>**Agent**: <span class="co">[</span><span class="ot">agent name</span><span class="co">]</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>**Initial Role**: <span class="co">[</span><span class="ot">starting role definition</span><span class="co">]</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>**Test 1: Authority Test**</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Question: Does this agent have authority to <span class="co">[</span><span class="ot">action</span><span class="co">]</span>?</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Result: <span class="co">[</span><span class="ot">✅/❌</span><span class="co">]</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implication: <span class="co">[</span><span class="ot">adjust boundaries</span><span class="co">]</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>**Test 2: Expertise Test**  </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Question: Is this agent the best specialist for <span class="co">[</span><span class="ot">task</span><span class="co">]</span>?</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Result: <span class="co">[</span><span class="ot">✅/❌</span><span class="co">]</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implication: <span class="co">[</span><span class="ot">refine or split role</span><span class="co">]</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>**Test 3: Specificity Test**</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Question: Is this role too broad or too narrow?</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Result: <span class="co">[</span><span class="ot">✅/❌</span><span class="co">]</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implication: <span class="co">[</span><span class="ot">adjust scope</span><span class="co">]</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>**Validated Role**: <span class="co">[</span><span class="ot">final role definition</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
 <section id="orchestrator-design-phase-based-coordination" class="level2">
 <h2 class="anchored" data-anchor-id="orchestrator-design-phase-based-coordination">🔀 Orchestrator Design: Phase-Based Coordination</h2>
 <p>The orchestrator prompt coordinates the workflow through distinct phases:</p>
 <section id="orchestrator-structure" class="level3">
 <h3 class="anchored" data-anchor-id="orchestrator-structure">Orchestrator Structure</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> prompt-create-orchestrator</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Orchestrates specialized agents to research, build, and validate"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span><span class="co">        # For Phase 1 requirements analysis only</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span><span class="co">  # For Phase 3 architecture analysis only</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">  # Note: Minimal tools for orchestrator - agents have specialized tools</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Research prompt requirements"</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-researcher</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews research</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build prompt file"</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-builder</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews file</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate prompt quality"</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # Automatic validation</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> prompt-create-orchestrator</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Orchestrates specialized agents to research, build, and validate"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span><span class="co">        # For Phase 1 requirements analysis only</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span><span class="co">  # For Phase 3 architecture analysis only</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">  # Note: Minimal tools for orchestrator - agents have specialized tools</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Research prompt requirements"</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-researcher</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews research</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build prompt file"</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-builder</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews file</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate prompt quality"</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # Automatic validation</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="phase-flow" class="level3">
 <h3 class="anchored" data-anchor-id="phase-flow">Phase Flow</h3>
@@ -2465,39 +2810,61 @@ SPECIALIZED AGENTS (Agent Domain) - Created when needed
     │
     │ User provides: "Create a prompt for X"
     │ Orchestrator extracts: type, scope, tools, constraints
+    │ ✓ Use Case Challenge validates goal clarity
     │
     ▼
 Phase 2: Research (→ prompt-researcher)
     │
     │ Researcher returns: patterns, template recommendation, guidance
     │ Orchestrator presents findings to user
+    │ □ USER APPROVAL CHECKPOINT
     │
     ▼
-Phase 3: Architecture Analysis (Orchestrator)
+Phase 3: Structure Definition &amp; Architecture Analysis (Orchestrator)
     │
     │ Orchestrator determines: single-prompt vs. orchestrator+agents
+    │ ✓ Tool Composition Validation
     │ If complex: identifies which agents to create
+    │ □ USER APPROVAL CHECKPOINT
+    │
+    ┣───────────────────────────┫
+    │                            │
+    ▼ (Simple)                   ▼ (Complex)
+Phase 4: Build                 Phase 5: Agent Updates Plan
+(→ prompt-builder)            │ □ USER APPROVAL CHECKPOINT
+    │                          │
+    │                          ▼
+    │                      Phase 6: New Agent Creation Plan
+    │                          │ □ USER APPROVAL CHECKPOINT
+    │                          │
+    │                          ▼
+    │                      Phase 4a: Create Agents (Iterative)
+    │                      (→ agent-builder, max 2 recursion)
+    │                          │
+    │                          ▼
+    │                      Phase 4b: Create Orchestrator
+    │                      (→ prompt-builder)
+    │                          │
+    ┣───────────────────────────┫
     │
     ▼
-Phase 4/4a/4b: Build (→ prompt-builder or agent-builder)
-    │
-    │ Builder creates file(s) following research
-    │ Orchestrator presents results to user
-    │
-    ▼
-Phase 5: Validation (→ prompt-validator)
+Phase 7: Validation (→ prompt-validator)
     │
     │ Validator checks quality, reports issues
     │ Automatic handoff (send: true)
     │
-    ▼
-Phase 6: Fix (Optional → prompt-updater)
+    ├─── PASSED → ✅ Complete
     │
-    │ If issues found: updater applies fixes
+    ▼ (FAILED)
+Phase 8: Fix (→ prompt-updater)
+    │
+    │ Updater applies fixes (max 3 iterations)
     │ Re-validates automatically
     │
-    ▼
-✅ Complete</code></pre>
+    ├─── Iteration &lt; 3 → Loop to Phase 7
+    │
+    ▼ (Iteration = 3, still failing)
+    ❌ Escalate to user</code></pre>
 </section>
 <section id="handoff-configuration-send-true-vs-send-false" class="level3">
 <h3 class="anchored" data-anchor-id="handoff-configuration-send-true-vs-send-false">Handoff Configuration: <code>send: true</code> vs <code>send: false</code></h3>
@@ -2536,9 +2903,9 @@ Phase 6: Fix (Optional → prompt-updater)
 </ul>
 </section>
 </section>
-<section id="intelligent-architecture-analysis-phase-3" class="level2">
-<h2 class="anchored" data-anchor-id="intelligent-architecture-analysis-phase-3">🧠 Intelligent Architecture Analysis (Phase 3)</h2>
-<p>The orchestrator’s most important job is <strong>determining optimal architecture</strong> for the task. This happens in Phase 3.</p>
+<section id="structure-definition-architecture-analysis-phase-3" class="level2">
+<h2 class="anchored" data-anchor-id="structure-definition-architecture-analysis-phase-3">🧠 Structure Definition &amp; Architecture Analysis (Phase 3)</h2>
+<p>The orchestrator’s most important job is <strong>determining optimal architecture</strong> for the task. This happens in Phase 3, which now includes tool composition validation and agent dependency planning.</p>
 <section id="the-architecture-decision-problem" class="level3">
 <h3 class="anchored" data-anchor-id="the-architecture-decision-problem">The Architecture Decision Problem</h3>
 <p>When a user requests “Create a prompt for code review,” should we create:</p>
@@ -2557,26 +2924,26 @@ Phase 6: Fix (Optional → prompt-updater)
 </section>
 <section id="phase-3-architecture-analysis-process" class="level3">
 <h3 class="anchored" data-anchor-id="phase-3-architecture-analysis-process">Phase 3: Architecture Analysis Process</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Phase 3: Prompt and Agent Structure Definition (Orchestrator)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>**Goal:** Analyze task requirements to determine optimal architecture.</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 1. Task Complexity Assessment</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Analyze requirements from Phase 1 and research from Phase 2:</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>**Multi-phase workflow?**</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Does task divide into distinct phases? (analyze → execute → validate)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Are phases sequential with clear handoff points?</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>**Cross-domain expertise?**</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Does task span multiple domains? (code, tests, docs)</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Would different specialists have different tool needs?</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>**Complexity Level:**</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Low**: Single focused task, one domain</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Medium**: 2-3 steps, same tools</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**High**: 3+ phases, multiple domains, different tools per phase</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Phase 3: Prompt and Agent Structure Definition (Orchestrator)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>**Goal:** Analyze task requirements to determine optimal architecture.</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 1. Task Complexity Assessment</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>Analyze requirements from Phase 1 and research from Phase 2:</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>**Multi-phase workflow?**</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Does task divide into distinct phases? (analyze → execute → validate)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Are phases sequential with clear handoff points?</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>**Cross-domain expertise?**</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Does task span multiple domains? (code, tests, docs)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Would different specialists have different tool needs?</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>**Complexity Level:**</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Low**: Single focused task, one domain</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Medium**: 2-3 steps, same tools</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**High**: 3+ phases, multiple domains, different tools per phase</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="decision-framework" class="level3">
 <h3 class="anchored" data-anchor-id="decision-framework">Decision Framework</h3>
@@ -2625,49 +2992,171 @@ Phase 6: Fix (Optional → prompt-updater)
 <section id="existing-agent-inventory" class="level3">
 <h3 class="anchored" data-anchor-id="existing-agent-inventory">Existing Agent Inventory</h3>
 <p>Before recommending new agents, the orchestrator checks what already exists:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2. Existing Agent Inventory</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>Search <span class="in">`.github/agents/`</span> directory for applicable agents:</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>List all agents: <span class="in">`file_search`</span> in <span class="in">`.github/agents/*.agent.md`</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Read agent descriptions (YAML frontmatter + purpose sections)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Match agent capabilities to task phases</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Evaluate: Can existing agents be reused or extended?</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>**Analysis output:**</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">### Existing Agents Applicable to Task</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>**Directly applicable:**</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`prompt-researcher`</span> → Research phase (100% match)</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`prompt-validator`</span> → Validation phase (100% match)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>**Coverage:** 50% existing, 25% new, 25% orchestrator-only</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2. Existing Agent Inventory</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>Search <span class="in">`.github/agents/`</span> directory for applicable agents:</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>List all agents: <span class="in">`file_search`</span> in <span class="in">`.github/agents/*.agent.md`</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Read agent descriptions (YAML frontmatter + purpose sections)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Match agent capabilities to task phases</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Evaluate: Can existing agents be reused or extended?</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>**Analysis output:**</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">### Existing Agents Applicable to Task</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>**Directly applicable:**</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`prompt-researcher`</span> → Research phase (100% match)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`prompt-validator`</span> → Validation phase (100% match)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>**Coverage:** 50% existing, 25% new, 25% orchestrator-only</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="new-agent-opportunities" class="level3">
 <h3 class="anchored" data-anchor-id="new-agent-opportunities">New Agent Opportunities</h3>
 <p>When existing agents don’t cover all phases:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 3. New Agent Opportunities</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>**Criteria for new agent:**</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Represents reusable specialist persona (not task-specific)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Has distinct tool needs from other agents</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Could be coordinated by multiple orchestrators</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Has clear boundaries and single responsibility</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>**Anti-patterns (don't create agent):**</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Task-specific logic with no reuse potential</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Same tools as existing agent (extend instead)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>One-off implementation need</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>**Recommendation:**</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recommended New Agents</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>**Agent 1: security-analyzer.agent.md**</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Purpose:** Analyze code for security vulnerabilities</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Reusability:** Security audits, PR reviews, compliance checks</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Justification:** Distinct expertise, reusable across multiple workflows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 3. New Agent Opportunities</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>**Criteria for new agent:**</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Represents reusable specialist persona (not task-specific)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Has distinct tool needs from other agents</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Could be coordinated by multiple orchestrators</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Has clear boundaries and single responsibility</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>**Anti-patterns (don't create agent):**</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Task-specific logic with no reuse potential</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Same tools as existing agent (extend instead)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>One-off implementation need</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>**Recommendation:**</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recommended New Agents</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>**Agent 1: security-analyzer.agent.md**</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Purpose:** Analyze code for security vulnerabilities</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Reusability:** Security audits, PR reviews, compliance checks</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Justification:** Distinct expertise, reusable across multiple workflows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tool-composition-validation" class="level3">
+<h3 class="anchored" data-anchor-id="tool-composition-validation">Tool Composition Validation</h3>
+<p>Before finalizing architecture, validate tool composition to prevent common failures:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tool Composition Validation Report</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>**Prompt/Agent**: <span class="co">[</span><span class="ot">name</span><span class="co">]</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>**Agent Mode**: <span class="co">[</span><span class="ot">plan/agent</span><span class="co">]</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 1. Tool Count Check</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>**Count**: <span class="co">[</span><span class="ot">N</span><span class="co">]</span> tools</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>✅ 3-7 tools: Optimal scope</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>⚠️ &lt;3 tools: May be insufficient for task</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>❌ &gt;7 tools: Tool clash risk - MUST decompose</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>**If &gt;7 tools detected:**</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>→ Decompose into orchestrator + specialized agents</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>→ Each agent gets subset of tools (3-7 each)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>→ Re-run architecture analysis</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2. Agent/Tool Alignment Check</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>| Agent Mode | Allowed Tools | Status |</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>|------------|---------------|--------|</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>| <span class="in">`plan`</span> | Read-only tools only | <span class="co">[</span><span class="ot">✅/❌</span><span class="co">]</span> |</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>| <span class="in">`agent`</span> | Read + Write tools | <span class="co">[</span><span class="ot">✅/❌</span><span class="co">]</span> |</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>**Write tools** (require <span class="in">`agent: agent`</span>):</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`create_file`</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`replace_string_in_file`</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`multi_replace_string_in_file`</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`run_in_terminal`</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>**Alignment failures:**</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`plan`</span> + write tools → ❌ FAIL (agent can't execute writes)</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`agent`</span> + only read tools → ⚠️ Warning (may be intentional, but verify)</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 3. Tool Redundancy Check</span></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Overlapping capabilities: <span class="co">[</span><span class="ot">list any</span><span class="co">]</span></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Recommendation: <span class="co">[</span><span class="ot">consolidate or justify</span><span class="co">]</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>**Validation Result**: <span class="co">[</span><span class="ot">✅ PASSED / ⚠️ WARNINGS / ❌ FAILED</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="agent-dependencies-planning-phases-5-6" class="level3">
+<h3 class="anchored" data-anchor-id="agent-dependencies-planning-phases-5-6">Agent Dependencies Planning (Phases 5-6)</h3>
+<p>When Phase 3 identifies agent dependencies, dedicated phases plan their creation:</p>
+<section id="phase-5-agent-update-planning" class="level4">
+<h4 class="anchored" data-anchor-id="phase-5-agent-update-planning">Phase 5: Agent Update Planning</h4>
+<p>For <strong>existing agents</strong> that need modification:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 5: Agent Updates Required</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Update Queue</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>**1. prompt-researcher.agent.md**</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Change Type**: Behavioral</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Changes**: Add use case challenge validation to research output</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Impact**: Low - additive only</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Approval**: Required before proceeding</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>**2. prompt-validator.agent.md**</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Change Type**: Structural  </span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Changes**: Add tool alignment validation checks</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Impact**: Medium - affects validation output format</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Approval**: Required before proceeding</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### Change Impact Categories</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>| Category | Definition | Approval |</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>|----------|------------|----------|</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>| **Structural** | Changes file organization, sections, or YAML | Required |</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>| **Behavioral** | Changes what agent does or how | Required |</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>| **Cosmetic** | Formatting, typos, clarifications | Optional |</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>| **Fix** | Addresses validation failure | Auto-approved |</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>**Approve update plan? (yes/no/modify)**</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="phase-6-new-agent-creation-planning" class="level4">
+<h4 class="anchored" data-anchor-id="phase-6-new-agent-creation-planning">Phase 6: New Agent Creation Planning</h4>
+<p>For <strong>new agents</strong> that need to be created:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 6: New Agent Creation Plan</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agents to Create</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>**1. agent-researcher.agent.md**</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Purpose**: Research agent patterns and conventions</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Role**: Read-only specialist for agent domain</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tools**: <span class="co">[</span><span class="ot">semantic_search, read_file, file_search, grep_search</span><span class="co">]</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Agent mode**: plan (read-only)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Boundaries**:</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Always: Search .github/agents/ first</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Ask First: When no similar agents found</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Never: Create or modify files</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Handoffs**: None (returns to orchestrator)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Template**: agent-researcher-template.md</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>**2. agent-builder.agent.md**</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Purpose**: Create new agent files</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Role**: Write specialist for agent domain</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tools**: <span class="co">[</span><span class="ot">read_file, semantic_search, create_file, file_search</span><span class="co">]</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Agent mode**: agent (write access)</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Boundaries**:</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Always: Follow template structure</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Ask First: When tool count approaches 7</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Never: Modify existing agents</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Handoffs**: → agent-validator (send: true)</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Template**: agent-builder-template.md</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recursion Control</span></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>**Maximum recursion depth**: 2 levels</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Level 0: Main orchestrator creates prompt</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Level 1: Prompt creation requires new agent</span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Level 2: Agent creation can use existing agents only</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>❌ If Level 2 requires new agents → STOP, escalate to user</span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### Processing Recommendation</span></span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>Create agents using: <span class="in">`@agent-design-and-create`</span></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>**Approve creation plan? (yes/no/modify)**</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 </section>
 <section id="handling-agent-creation-within-the-workflow" class="level2">
@@ -2702,22 +3191,22 @@ Phase 5: Validate All Files</code></pre>
 <section id="the-agent-creation-sub-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="the-agent-creation-sub-workflow">The Agent Creation Sub-Workflow</h3>
 <p>When creating agents, we need <strong>agent-specific specialists</strong>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Phase 4a handoff for each new agent</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">handoff</span><span class="kw">:</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build agent file: security-analyzer"</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-builder</span><span class="co">  # NOT prompt-builder!</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">  context</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    Build new agent file from Phase 3 recommendations.</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    Agent specifications:</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    - Name: security-analyzer</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    - Purpose: Analyze code for security vulnerabilities</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    - Persona: Security expert</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    - Tools: [read_file, grep_search, semantic_search]</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    - Agent type: plan (read-only analysis)</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    Create file at: .github/agents/security-analyzer.agent.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Phase 4a handoff for each new agent</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">handoff</span><span class="kw">:</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build agent file: security-analyzer"</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-builder</span><span class="co">  # NOT prompt-builder!</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">  context</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    Build new agent file from Phase 3 recommendations.</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    Agent specifications:</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    - Name: security-analyzer</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    - Purpose: Analyze code for security vulnerabilities</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    - Persona: Security expert</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    - Tools: [read_file, grep_search, semantic_search]</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    - Agent type: plan (read-only analysis)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    Create file at: .github/agents/security-analyzer.agent.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="why-separate-agent-builder-from-prompt-builder" class="level3">
 <h3 class="anchored" data-anchor-id="why-separate-agent-builder-from-prompt-builder">Why Separate <code>agent-builder</code> from <code>prompt-builder</code>?</h3>
@@ -2762,20 +3251,20 @@ Phase 5: Validate All Files</code></pre>
 <section id="iterative-agent-creation" class="level3">
 <h3 class="anchored" data-anchor-id="iterative-agent-creation">Iterative Agent Creation</h3>
 <p>When multiple agents are needed, create them iteratively:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 4a Progress: Agent Creation</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>**Agents to create:** 2</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>**Agents completed:** 1</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agent 1: security-analyzer.agent.md</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>**Status:** ✅ Created</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>**Path:** <span class="in">`.github/agents/security-analyzer.agent.md`</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>**Tools:** <span class="co">[</span><span class="ot">read_file, grep_search, semantic_search</span><span class="co">]</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agent 2: performance-analyzer.agent.md</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>**Status:** 🔄 In Progress</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>**Proceed with Agent 2? (yes/no/review Agent 1)**</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 4a Progress: Agent Creation</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>**Agents to create:** 2</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>**Agents completed:** 1</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agent 1: security-analyzer.agent.md</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>**Status:** ✅ Created</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>**Path:** <span class="in">`.github/agents/security-analyzer.agent.md`</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>**Tools:** <span class="co">[</span><span class="ot">read_file, grep_search, semantic_search</span><span class="co">]</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agent 2: performance-analyzer.agent.md</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>**Status:** 🔄 In Progress</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>**Proceed with Agent 2? (yes/no/review Agent 1)**</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="the-complete-workflow" class="level2">
@@ -2886,31 +3375,82 @@ Phase 5: Validate All → prompt-validator
 </section>
 <section id="automatic-validation-after-build" class="level3">
 <h3 class="anchored" data-anchor-id="automatic-validation-after-build">3. Automatic Validation After Build</h3>
-<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate"</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Automatic</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate"</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Automatic</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Why?</strong> Builder already self-checks, validation is routine, reduces user fatigue.</p>
 </section>
 <section id="automatic-re-validation-after-fix" class="level3">
 <h3 class="anchored" data-anchor-id="automatic-re-validation-after-fix">4. Automatic Re-validation After Fix</h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In prompt-updater</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Re-validate After Update"</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Automatic</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In prompt-updater</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Re-validate After Update"</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Automatic</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Why?</strong> Ensures fixes actually resolved issues, creates feedback loop.</p>
 </section>
 <section id="user-approval-for-research-and-build" class="level3">
 <h3 class="anchored" data-anchor-id="user-approval-for-research-and-build">5. User Approval for Research and Build</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Research"</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-researcher</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build"</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-builder</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Research"</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-researcher</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build"</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-builder</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Why?</strong> User should validate research direction and review generated files before validation.</p>
+</section>
+<section id="validation-loop-limits" class="level3">
+<h3 class="anchored" data-anchor-id="validation-loop-limits">Validation Loop Limits</h3>
+<p>Validation/fix cycles can loop indefinitely without limits. Apply these constraints:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Validation Loop Rules</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>**Maximum iterations**: 3</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>**Current iteration**: <span class="co">[</span><span class="ot">1/2/3</span><span class="co">]</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>**After each iteration:**</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Iteration 1: Apply fixes, re-validate automatically</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Iteration 2: Apply fixes, re-validate automatically  </span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Iteration 3: If still failing → STOP, escalate to user</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>**Escalation message:**</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>"Validation failed after 3 fix attempts. Issues remaining:</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">issue 1</span><span class="co">]</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">issue 2</span><span class="co">]</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>Options:</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Continue with current state (acknowledge issues)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Manually review and provide guidance</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Abandon and restart with different approach"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Why?</strong> Prevents infinite loops when validation and fixing can’t converge on a solution.</p>
+</section>
+<section id="pre-save-validation" class="level3">
+<h3 class="anchored" data-anchor-id="pre-save-validation">Pre-Save Validation</h3>
+<p>Builders must self-validate <strong>before</strong> saving files to catch issues early:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pre-Save Validation Checklist</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>**Before saving file, verify:**</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> **Tool count**: <span class="co">[</span><span class="ot">N</span><span class="co">]</span> tools (MUST be 3-7)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>If &lt;3: Verify task is narrow enough</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>If &gt;7: STOP → decompose into multiple agents</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> **Agent mode / tool alignment**:</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span><span class="in">`plan`</span> + write tools = ❌ FAIL</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span><span class="in">`agent`</span> + only read tools = ⚠️ Verify intentional</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> **Three-tier boundaries complete**:</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>✅ Always Do section present</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>⚠️ Ask First section present  </span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="ss">      - </span>🚫 Never Do section present</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> **Bottom metadata block present** (for articles)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> **Examples included** (minimum 2 usage examples)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>**If any critical check fails**: STOP, report issue, do not save</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Why?</strong> Catching issues before file creation is cheaper than validation/fix cycles.</p>
 </section>
 </section>
 <section id="context-engineering-for-orchestrators" class="level2">
@@ -2920,11 +3460,11 @@ Phase 5: Validate All → prompt-validator
 <h3 class="anchored" data-anchor-id="lazy-loading-pattern">Lazy Loading Pattern</h3>
 <p>Orchestrators should <strong>not</strong> preload all context in Phase 1:</p>
 <p>❌ <strong>Inefficient:</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="an">Phase 1:</span><span class="co"> Read all templates, all context files, all existing agents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="an">Phase 1:</span><span class="co"> Read all templates, all context files, all existing agents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>✅ <strong>Efficient:</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="an">Phase 1:</span><span class="co"> Gather requirements only</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="an">Phase 2:</span><span class="co"> Agent loads only relevant templates</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="an">Phase 3:</span><span class="co"> Agent accesses only needed context</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="an">Phase 1:</span><span class="co"> Gather requirements only</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="an">Phase 2:</span><span class="co"> Agent loads only relevant templates</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="an">Phase 3:</span><span class="co"> Agent accesses only needed context</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="context-caching" class="level3">
 <h3 class="anchored" data-anchor-id="context-caching">Context Caching</h3>
@@ -2959,94 +3499,221 @@ Phase 5: Validate All → prompt-validator
 <h2 class="anchored" data-anchor-id="implementation-example">📝 Implementation Example</h2>
 <section id="the-orchestrator-yaml" class="level3">
 <h3 class="anchored" data-anchor-id="the-orchestrator-yaml">The Orchestrator YAML</h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> prompt-create-orchestrator</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Orchestrates specialized agents to research, build, and validate new prompt/agent files"</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4.5</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Research prompt requirements and patterns"</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-researcher</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build prompt file from research"</span></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-builder</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build agent file from research"</span></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-builder</span></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate prompt quality"</span></span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate agent quality"</span></span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-validator</span></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'Describe the prompt: ${input:purpose:What is the prompt purpose?}'</span></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> prompt-design-and-create</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Orchestrate prompt file design and creation using specialized agents with use case challenge validation"</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4.5</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span><span class="co">        # Phase 1: Requirements analysis</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span><span class="co">  # Phase 3: Architecture analysis</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">handoffs</span><span class="kw">:</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Research prompt requirements and patterns"</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-researcher</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews research findings</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build prompt file from validated specification"</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-builder</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews created file</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build agent file from validated specification"</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-builder</span></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews created agent</span></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate prompt quality and compliance"</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-validator</span></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # Automatic validation after build</span></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate agent quality and compliance"</span></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-validator</span></span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # Automatic validation after build</span></span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Fix validation issues"</span></span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> prompt-updater</span></span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">send</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # User reviews fixes if issues persist</span></span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="st">'Describe the prompt purpose: what task it should accomplish, expected inputs/outputs, any constraints'</span></span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Prompt Design and Create Orchestrator</span></span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a><span class="at">You coordinate specialized agents to design and create prompt files following repository best practices.</span></span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a><span class="co">## 🚨 CRITICAL BOUNDARIES</span></span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a><span class="co">### ✅ Always Do</span></span>
+<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> Gather complete requirements before any handoffs</span></span>
+<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> Challenge goals with use cases before accepting</span></span>
+<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> Wait for user approval at each phase transition</span></span>
+<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> Delegate all research/build/validate/update to specialists</span></span>
+<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> Validate files before declaring completion</span></span>
+<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a><span class="co">### ⚠️ Ask First</span></span>
+<span id="cb36-45"><a href="#cb36-45" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> When requirements are ambiguous after use case challenge</span></span>
+<span id="cb36-46"><a href="#cb36-46" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> When Phase 3 identifies agent dependencies</span></span>
+<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> When validation finds critical issues (&gt;3 iterations)</span></span>
+<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-49"><a href="#cb36-49" aria-hidden="true" tabindex="-1"></a><span class="co">### 🚫 Never Do</span></span>
+<span id="cb36-50"><a href="#cb36-50" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> NEVER skip requirements gathering (Phase 1)</span></span>
+<span id="cb36-51"><a href="#cb36-51" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> NEVER skip use case challenge validation</span></span>
+<span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> NEVER build without approved specification</span></span>
+<span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> NEVER skip validation phase</span></span>
+<span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> NEVER implement yourself - orchestrate only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="phase-3-architecture-decision-output" class="level3">
 <h3 class="anchored" data-anchor-id="phase-3-architecture-decision-output">Phase 3 Architecture Decision Output</h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 3 Complete: Architecture Analysis</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Task Complexity</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>**Level:** High</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>**Phases identified:** 4</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Phase 1: Security analysis</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Phase 2: Style review</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Phase 3: Performance analysis</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Phase 4: Test coverage check</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>**Domains:** <span class="co">[</span><span class="ot">security, style, performance, testing</span><span class="co">]</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>**Tool variation:** Yes (different tools per phase)</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agent Inventory</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>**Existing agents applicable:** 0</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>**New agents recommended:** 4</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`security-reviewer`</span> → Phase 1 (reusable for: security audits)</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`style-reviewer`</span> → Phase 2 (reusable for: PR reviews)</span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`performance-reviewer`</span> → Phase 3 (reusable for: optimization)</span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`test-reviewer`</span> → Phase 4 (reusable for: coverage checks)</span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### Architecture Recommendation</span></span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>**Recommended approach:** Orchestrator + Agents</span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>**Justification:**</span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>Task has 4 distinct phases spanning multiple domains. Each phase benefits from specialized expertise and different tool sets. All 4 proposed agents are highly reusable for other workflows.</span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>**Implementation strategy:**</span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Create 4 new agents first (Phase 4a)</span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Create orchestrator to coordinate them (Phase 4b)</span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Validate all files (Phase 5)</span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>**Proceed to build phase? (yes/no/modify)**</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 3 Complete: Architecture Analysis</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Task Complexity</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>**Level:** High</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>**Phases identified:** 4</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Phase 1: Security analysis</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Phase 2: Style review</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Phase 3: Performance analysis</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Phase 4: Test coverage check</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>**Domains:** <span class="co">[</span><span class="ot">security, style, performance, testing</span><span class="co">]</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>**Tool variation:** Yes (different tools per phase)</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agent Inventory</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>**Existing agents applicable:** 0</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>**New agents recommended:** 4</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`security-reviewer`</span> → Phase 1 (reusable for: security audits)</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`style-reviewer`</span> → Phase 2 (reusable for: PR reviews)</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`performance-reviewer`</span> → Phase 3 (reusable for: optimization)</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`test-reviewer`</span> → Phase 4 (reusable for: coverage checks)</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### Architecture Recommendation</span></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>**Recommended approach:** Orchestrator + Agents</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>**Justification:**</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>Task has 4 distinct phases spanning multiple domains. Each phase benefits from specialized expertise and different tool sets. All 4 proposed agents are highly reusable for other workflows.</span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>**Implementation strategy:**</span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Create 4 new agents first (Phase 4a)</span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Create orchestrator to coordinate them (Phase 4b)</span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Validate all files (Phase 5)</span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>**Proceed to build phase? (yes/no/modify)**</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">🎯 Conclusion</h2>
-<p>Building complex AI workflows requires moving beyond monolithic prompts to orchestrated multi-agent systems. The key principles are:</p>
-<section id="design-principles" class="level3">
-<h3 class="anchored" data-anchor-id="design-principles">Design Principles</h3>
-<ol type="1">
-<li><strong>Separation of Concerns</strong>: Each agent does one thing well</li>
-<li><strong>Narrow Tool Scope</strong>: 3-7 tools per agent maximum</li>
-<li><strong>Clear Handoffs</strong>: Explicit transitions between agents</li>
-<li><strong>Architecture Intelligence</strong>: Orchestrator analyzes complexity before building</li>
-<li><strong>Iterative Creation</strong>: Build agents one at a time with validation</li>
-<li><strong>Automatic Validation</strong>: Reduce friction for routine quality checks</li>
-<li><strong>Context Optimization</strong>: Lazy loading, context caching, minimal orchestrator tools</li>
-</ol>
-</section>
-<section id="the-pattern" class="level3">
-<h3 class="anchored" data-anchor-id="the-pattern">The Pattern</h3>
-<pre><code>Orchestrator (coordinates, never implements)
-    │
-    ├── Researcher (read-only, discovers patterns)
-    ├── Builder (write, creates new files)
-    ├── Validator (read-only, checks quality)
-    └── Updater (write, fixes issues)</code></pre>
+<section id="real-validator-output-format" class="level3">
+<h3 class="anchored" data-anchor-id="real-validator-output-format">Real Validator Output Format</h3>
+<p>Validators produce structured reports that enable automated fix cycles:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Validation Report: prompt-design-and-create.prompt.md</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>**Overall Status**: ⚠️ WARNINGS (1 critical, 2 minor)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>**Validation Iteration**: 1/3</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agent-Specific Checks</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>| Check | Result | Details |</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>|-------|--------|--------|</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>| Tool Count | ✅ PASS | 2 tools (within 3-7 range for orchestrator) |</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>| Agent/Tool Alignment | ✅ PASS | <span class="in">`agent`</span> mode with read-only tools (intentional) |</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>| Handoff Validity | ✅ PASS | 6 handoffs, all targets exist |</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>| Three-Tier Boundaries | ✅ PASS | Always/Ask/Never sections present |</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### Structure Checks</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>| Check | Result | Details |</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>|-------|--------|--------|</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>| YAML Frontmatter | ✅ PASS | All required fields present |</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>| Description Length | ⚠️ WARN | 98 chars (recommend &lt;80) |</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>| Role Section | ✅ PASS | Clear specialist description |</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>| Process Section | ✅ PASS | Phases documented |</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Content Checks</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>| Check | Result | Details |</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>|-------|--------|--------|</span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>| Examples Included | ❌ FAIL | 0 examples (minimum 2 required) |</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>| Boundary Specificity | ⚠️ WARN | "Never Do" could be more specific |</span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Issues Summary</span></span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>**Critical (must fix)**:</span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Missing usage examples - add at least 2 examples</span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>**Minor (should fix)**:</span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Description exceeds 80 characters</span>
+<span id="cb38-38"><a href="#cb38-38" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>"Never Do" boundaries could reference specific anti-patterns</span>
+<span id="cb38-39"><a href="#cb38-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-40"><a href="#cb38-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recommended Actions</span></span>
+<span id="cb38-41"><a href="#cb38-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-42"><a href="#cb38-42" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb38-43"><a href="#cb38-43" aria-hidden="true" tabindex="-1"></a><span class="fu">fixes</span><span class="kw">:</span></span>
+<span id="cb38-44"><a href="#cb38-44" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> </span><span class="st">"add_section"</span></span>
+<span id="cb38-45"><a href="#cb38-45" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">location</span><span class="kw">:</span><span class="at"> </span><span class="st">"after Process section"</span></span>
+<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">content</span><span class="kw">:</span><span class="at"> </span><span class="st">"## Usage Examples</span><span class="sc">\n\n</span><span class="st">### Example 1: Simple Prompt...</span><span class="sc">\n</span><span class="st">### Example 2: Complex Orchestration..."</span></span>
+<span id="cb38-47"><a href="#cb38-47" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> </span><span class="st">"edit"</span></span>
+<span id="cb38-48"><a href="#cb38-48" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">target</span><span class="kw">:</span><span class="at"> </span><span class="st">"description"</span></span>
+<span id="cb38-49"><a href="#cb38-49" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">current</span><span class="kw">:</span><span class="at"> </span><span class="st">"Orchestrate prompt file design and creation using specialized agents with use case challenge validation"</span></span>
+<span id="cb38-50"><a href="#cb38-50" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">proposed</span><span class="kw">:</span><span class="at"> </span><span class="st">"Orchestrate prompt creation with specialized agents and use case validation"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Handoff to updater? (auto if critical issues)</strong></p>
+<pre><code>
+## 📊 Real Implementation Case Study
+
+The patterns in this article were battle-tested by designing and implementing a complete prompt/agent creation system. The case study documents:
+
+### What Was Built
+
+- **4 Orchestration Prompts**:
+  - `prompt-design-and-create.prompt.md` - Creates new prompts/agents
+  - `prompt-review-and-validate.prompt.md` - Improves existing prompts/agents
+  - `agent-design-and-create.prompt.md` - Creates new agents specifically
+  - `agent-review-and-validate.prompt.md` - Improves existing agents
+
+- **8 Specialized Agents** (4 for prompts, 4 for agents):
+  - Researchers (read-only pattern discovery)
+  - Builders (file creation)
+  - Validators (quality assurance)
+  - Updaters (targeted fixes)
+
+### Lessons Learned
+
+| Challenge | Solution Applied |
+|-----------|------------------|
+| Goals seemed clear but failed edge cases | Use Case Challenge methodology (3/5/7 scenarios) |
+| Tool count exceeded 7 in initial designs | Tool Composition Validation with decomposition |
+| Validation/fix loops didn't converge | Maximum 3 iterations before escalating |
+| Agents created with wrong mode/tool combos | Agent/tool alignment validation (`plan` + write = FAIL) |
+| Recursive agent creation caused complexity explosion | Maximum recursion depth: 2 levels |
+| File changes without user awareness | Explicit approval checkpoints at each phase |
+
+### Success Metrics Achieved
+
+- **Reliability**: 100% of created files pass validation within 3 iterations
+- **Quality**: All agents have complete three-tier boundaries
+- **Workflow**: Clear approval checkpoints prevent unwanted changes
+- **Reusability**: Agents used across multiple orchestrators
+
+### Full Case Study
+
+For complete specifications, implementation roadmap, and detailed agent designs, see:
+
+**[📝 Prompt Creation Multi-Agent Flow - Implementation Plan](./06.1%20example_prompt_interacting_with_agents_plan.md)** `[📒 Internal]`
+
+This companion document includes:
+- Complete YAML specifications for all 4 orchestrators
+- Detailed agent specifications with boundaries
+- 2-week staged implementation roadmap
+- Success criteria and validation checklists
+
+## 🎯 Conclusion
+
+Building complex AI workflows requires moving beyond monolithic prompts to orchestrated multi-agent systems. The key principles are:
+
+### Design Principles
+
+1. **Separation of Concerns**: Each agent does one thing well
+2. **Narrow Tool Scope**: 3-7 tools per agent maximum (enforced)
+3. **Clear Handoffs**: Explicit transitions between agents with approval checkpoints
+4. **Use Case Challenge**: Validate goals with 3/5/7 scenarios before building
+5. **Architecture Intelligence**: Orchestrator analyzes complexity before building
+6. **Tool Composition Validation**: `plan` + write tools = automatic failure
+7. **Iterative Creation**: Build agents one at a time with validation
+8. **Validation Loop Limits**: Maximum 3 fix iterations before escalating
+9. **Pre-Save Validation**: Builders self-check before creating files
+10. **Context Optimization**: Lazy loading, context caching, minimal orchestrator tools
+
+### The Pattern
+</code></pre>
+<p>Orchestrator (coordinates, never implements) │ ├── Researcher (read-only, discovers patterns) ├── Builder (write, creates new files, pre-validates) ├── Validator (read-only, checks quality, max 3 iterations) └── Updater (write, fixes issues) ```</p>
 </section>
 <section id="when-to-use-this-pattern" class="level3">
 <h3 class="anchored" data-anchor-id="when-to-use-this-pattern">When to Use This Pattern</h3>
@@ -3089,6 +3756,10 @@ Phase 5: Validate All → prompt-validator
 <h3 class="anchored" data-anchor-id="official-documentation">Official Documentation</h3>
 <p><strong><a href="https://code.visualstudio.com/docs/copilot/copilot-customization">VS Code - Customize Chat to Your Workflow</a></strong> <code>[📘 Official]</code><br>
 Comprehensive VS Code documentation covering custom agents, prompt files, custom instructions, language models, and MCP integration. Authoritative source for VS Code-specific Copilot customization features.</p>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents">VS Code - Custom Agents</a></strong> <code>[📘 Official]</code><br>
+Detailed guide to creating custom agents in VS Code, including agent file structure, YAML frontmatter fields, handoff configuration, and sharing agents across teams. Covers background agents, cloud agents, and subagent integration.</p>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/prompt-files">VS Code - Prompt Files</a></strong> <code>[📘 Official]</code><br>
+Official guide to creating reusable prompt files with YAML frontmatter, tool configuration, variables, and integration with custom agents. Essential for understanding the building blocks orchestrators coordinate.</p>
 <p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers">VS Code - Use MCP Servers</a></strong> <code>[📘 Official]</code><br>
 Official guide to integrating Model Context Protocol (MCP) servers with VS Code Copilot. Covers MCP tool configuration, resource access, tool sets, and how agents can leverage MCP capabilities for database access, external APIs, and custom integrations.</p>
 <p><strong><a href="https://modelcontextprotocol.io/">Model Context Protocol Documentation</a></strong> <code>[📘 Official]</code><br>
@@ -3105,24 +3776,23 @@ Central hub for GitHub Copilot features including chat, CLI, code review, coding
 </section>
 <section id="internal-reference-materials" class="level3">
 <h3 class="anchored" data-anchor-id="internal-reference-materials">Internal Reference Materials</h3>
+<p><strong><a href="../../tech/PromptEngineering/06.1 example_prompt_interacting_with_agents_plan.html">06.1 Prompt Creation Multi-Agent Flow - Implementation Plan</a></strong> <code>[📒 Internal]</code><br>
+Complete case study documenting the real-world implementation of the multi-agent prompt creation system. Includes detailed YAML specifications for all orchestrators and agents, 2-week implementation roadmap, and battle-tested patterns that informed this article.</p>
 <p><strong><a href="../../tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html">04. How to Structure Content for Copilot Agent Files</a></strong> <code>[📒 Community]</code><br>
 Detailed guide to agent file structure, personas, handoffs, tool configuration, and composing agents with prompts. Companion article covering implementation details for the patterns described here.</p>
 <p><strong><a href="../../tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.html">03. How to Structure Content for Copilot Prompt Files</a></strong> <code>[📒 Community]</code><br>
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.</p>
-<p><strong><a href="./.copilot/context/prompt-engineering/context-engineering-principles.md">Context Engineering Principles</a></strong> <code>[📒 Community]</code><br>
+<p><strong>Context Engineering Principles</strong> (<code>.copilot/context/prompt-engineering/context-engineering-principles.md</code>) <code>[📒 Internal]</code><br>
 Repository-specific guidelines for narrow scope, imperative language, three-tier boundaries, context minimization, and lazy loading patterns. Critical for building efficient multi-agent orchestrations.</p>
-<p><strong><a href="./.copilot/context/prompt-engineering/tool-composition-guide.md">Tool Composition Guide</a></strong> <code>[📒 Community]</code><br>
+<p><strong>Tool Composition Guide</strong> (<code>.copilot/context/prompt-engineering/tool-composition-guide.md</code>) <code>[📒 Internal]</code><br>
 Patterns and recipes for tool selection by role, performance optimization, and avoiding tool clash. Explains orchestrator tool patterns and agent tool specialization.</p>
 <hr>
 <!-- 
-
-
-
 ---
 article_metadata:
-  filename: "05. how_to_create_a_prompt_interacting_with_agents.md"
+  filename: "06. how_to_create_a_prompt_interacting_with_agents.md"
   created: "2025-12-10T00:00:00Z"
-  last_updated: "2025-12-11T00:00:00Z"
+  last_updated: "2025-12-14T00:00:00Z"
   author: "prompt-builder"
   
 validations:
@@ -3134,19 +3804,17 @@ validations:
     last_run: null
   consistency_review:
     status: "completed"
-    last_run: "2025-12-11T00:00:00Z"
+    last_run: "2025-12-14T00:00:00Z"
     model: "claude-sonnet-4.5"
-    references_checked: 5
-    references_valid: 5
+    references_checked: 11
+    references_valid: 11
     references_broken: 0
-    references_added: 8
-    gaps_identified: 8
-    gaps_addressed: 8
-    changes_summary: "Added MCP integration section, context engineering optimization section, enhanced tool configuration details, updated references with classifications and 8 new sources"
+    references_path_issues: 0
+    references_added: 5
+    gaps_identified: 10
+    gaps_addressed: 10
+    changes_summary: "Major update integrating real implementation experience from case study (06.1). Added: Use Case Challenge Methodology section with 3/5/7 scenario generation; Tool Composition Validation with agent/tool alignment checks; Agent Dependencies Planning (Phases 5-6) with recursion limits; Pre-Save Validation checklist for builders; Validation Loop Limits (max 3 iterations); Updated phase flow diagrams with approval checkpoints; Real validator output format example; Real Implementation Case Study section with lessons learned. Updated orchestrator YAML with complete boundaries and fix handoff. Renamed case study file to 06.1 for companion reference."
 ---
-
-
-
 -->
 
 
