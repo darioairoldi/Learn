@@ -52,9 +52,9 @@ Practical, production-ready guides for Azure services:
 ### 🛠️ **Development Tools & Workflows**
 Tools and techniques that elevate productivity:
 - **Prompt Engineering** - Crafting effective prompts, organizing prompt files for GitHub Copilot 🆕
+- **Markdown Documentation** - Quarto and MkDocs guides for building beautiful documentation sites 🆕
 - **Version Control** - Git command-line workflows, GitHub CLI commands, repository management
 - **API Testing** - Comprehensive comparison of HTTP/REST testing tools, .http files in VS Code/Visual Studio
-- **Documentation** - Quarto for beautiful technical documentation, GitHub Pages deployment
 - **Data Processing** - yq for YAML processing, Diginsight for telemetry and query cost metrics
 - **Feed Architectures** - RSS/Atom protocols, podcast feeds, C# reference implementations
 - **HowTo Guides** - Step-by-step tutorials for common development tasks
@@ -112,6 +112,8 @@ Technology intersects with culture and exploration:
 #### Prompt Engineering 🆕
 - **[How GitHub Copilot Uses Markdown and Prompt Folders](tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)** ⭐  
   *Understanding the .github folder structure and how Copilot discovers custom instructions*
+- **[Q&A: Copilot Prompt & Markdown Files](tech/PromptEngineering/01.01%20Q%26A%20Github%20copilot%20uses%20prompt%20and%20markdown%20files.md)** 🆕  
+  *Common questions answered about Copilot's prompt file system*
 - **[How to Name and Organize Prompt Files](tech/PromptEngineering/02.%20how_to_name_and_organize_prompt_files.md)**  
   *Best practices for structuring your prompt engineering workflow*
 - **[How to Structure Content for Copilot Prompt Files](tech/PromptEngineering/03.%20how_to_structure_content_for_copilot_prompt_files.md)**  
@@ -120,6 +122,10 @@ Technology intersects with culture and exploration:
   *Building autonomous AI agents with .agent.md files*
 - **[How to Structure Content for Copilot Instruction Files](tech/PromptEngineering/05.%20how_to_structure_content_for_copilot_instruction_files.md)**  
   *Path-specific custom instructions with .instructions.md files*
+- **[Creating Prompts That Interact with Agents](tech/PromptEngineering/06.%20how_to_create_a_prompt_interacting_with_agents.md)** 🆕  
+  *Advanced techniques for agent-aware prompt design*
+- **[Prompts for Documentation Sites](tech/PromptEngineering/07.%20Prompts%20and%20markdown%20structure%20for%20a%20documentation%20site.md)** 🆕  
+  *Specialized prompts for documentation workflows*
 
 #### Azure AI & .NET
 - **[.NET Aspire: AI, Cloud, and Beyond](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐  
@@ -141,9 +147,21 @@ Technology intersects with culture and exploration:
 
 ### 🛠️ **Development Tools & Productivity**
 
+#### Markdown Documentation Tools 🆕
+- **[Using Quarto (Overview)](tech/Markdown/01.%20QUARTO%20Doc/000.000%20Using%20Quarto.md)** ⭐  
+  *Complete guide to building documentation sites with Quarto*
+- **[Quarto Architecture: How It Works](tech/Markdown/01.%20QUARTO%20Doc/001.001%20Architecture%20-%20How%20quarto%20works.md)**  
+  *Understanding Quarto's internal architecture and rendering pipeline*
+- **[Quarto Theming and Styling](tech/Markdown/01.%20QUARTO%20Doc/002.010%20Quarto%20Theming%20and%20Styling.md)**  
+  *Customizing your Quarto site's appearance*
+- **[Using MkDocs (Overview)](tech/Markdown/02.%20MkDocs/000.000%20Using%20MkDocs.md)** ⭐  
+  *Python-based documentation with MkDocs and Material theme*
+- **[MkDocs Architecture](tech/Markdown/02.%20MkDocs/001.001%20Architecture%20-%20How%20MkDocs%20works.md)**  
+  *Understanding MkDocs build and plugin system*
+
+#### API Testing & Development
 - **[HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md)** - Comprehensive testing tools overview ⭐ 🆕
 - **[Using .http Files in VS Code](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/01.%20Using%20HTTP%20Files%20for%20API%20Testing%20(VSCode%20Rest%20Client))** - REST Client extension guide
-- **[Quarto Documentation Guide](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)** - Beautiful documentation with Quarto
 - **[Git Command Line Workflows](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)** - Essential Git operations
 - **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)** - YAML processing and transformation
 - **[RSS/Atom Feed Architectures](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)** - Feed protocols and C# implementations
@@ -167,8 +185,9 @@ This learning hub contains **200+ articles** organized into clear categories:
 ### 📁 By Topic Area
 - **🎯 Events** - 40+ Build 2025 conference sessions with summaries and detailed notes
 - **☁️ Azure** - Cloud services organized by type (compute, data, security, messaging)
-- **🤖 AI & Prompt Engineering** - Practical guides for AI-assisted development
-- **🛠️ Development Tools** - Git, API testing, documentation, data processing
+- **🤖 AI & Prompt Engineering** - 8+ comprehensive guides for AI-assisted development
+- **📝 Markdown Documentation** - Quarto and MkDocs guides for documentation sites 🆕
+- **🛠️ Development Tools** - Git, API testing, data processing tools
 - **🏗️ Architectures** - Feed protocols, RSS/Atom, architectural patterns
 - **🐛 Issues & Solutions** - Real-world troubleshooting with battle-tested fixes
 - **📚 HowTo Guides** - Step-by-step tutorials for common tasks
@@ -281,7 +300,7 @@ Content is available for personal and educational use. See [LICENSE](LICENSE) fo
 
 **🌟 Happy Learning! 🌟**
 
-*Last Updated: November 2025 | Total Articles: 200+ | Conference Sessions: 40+ | Topics Covered: 15+*
+*Last Updated: December 2025 | Total Articles: 220+ | Conference Sessions: 40+ | Topics Covered: 18+*
 
 [⬆️ Back to Top](#-welcome-to-my-learning-hub)
 
