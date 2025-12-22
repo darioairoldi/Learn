@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Dario Airoldi">
+<meta name="dcterms.date" content="2025-12-16">
+<meta name="description" content="Comprehensive analysis of deployment strategies for MkDocs documentation sites, from monolithic builds to modular architectures">
 
-<title>summary – Dario's Learning Journey</title>
+<title>MkDocs Architecture - Monolithic vs.&nbsp;Modular Deployment – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html" rel="next">
-<link href="../../../events/202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html" rel="prev">
+<link href="../../../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" rel="next">
+<link href="../../../tech/Markdown/02. MkDocs/001.001 Architecture - How MkDocs works.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -633,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/Readme.html">Events</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/Readme.html">Build Conference 2025</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html">BRK127: AI and Dev Box Developer Potential</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html">Summary</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Tools</li><li class="breadcrumb-item">Markdown Documentation Guides</li><li class="breadcrumb-item"><a href="../../../tech/Markdown/02. MkDocs/000.000 Using MkDocs.html">MkDocs</a></li><li class="breadcrumb-item"><a href="../../../tech/Markdown/02. MkDocs/001.002 Architecture - Monolithic vs. Modular Deployment.html">Monolithic vs.&nbsp;Modular Deployment</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -876,16 +879,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
  <span class="menu-text">BRK127: AI and Dev Box Developer Potential</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth3 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -1831,13 +1834,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true">
  <span class="menu-text">MkDocs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-48" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-48" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-48" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../tech/Markdown/02. MkDocs/000.000 Using MkDocs.html" class="sidebar-item-text sidebar-link">
@@ -1852,7 +1855,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tech/Markdown/02. MkDocs/001.002 Architecture - Monolithic vs. Modular Deployment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../tech/Markdown/02. MkDocs/001.002 Architecture - Monolithic vs. Modular Deployment.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Monolithic vs.&nbsp;Modular Deployment</span></a>
   </div>
 </li>
@@ -2283,626 +2286,1296 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#unleash-developer-potential-with-ai-and-dev-box" id="toc-unleash-developer-potential-with-ai-and-dev-box" class="nav-link active" data-scroll-target="#unleash-developer-potential-with-ai-and-dev-box">Unleash Developer Potential with AI and Dev Box</a>
+  <li><a href="#mkdocs-monolithic-vs.-modular-deployment" id="toc-mkdocs-monolithic-vs.-modular-deployment" class="nav-link active" data-scroll-target="#mkdocs-monolithic-vs.-modular-deployment">MkDocs Monolithic vs.&nbsp;Modular Deployment</a>
+  <ul>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">📋 <strong>Table of Contents</strong></a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">📖 <strong>Overview</strong></a></li>
+  <li><a href="#monolithic-vs.-modular-deployment" id="toc-monolithic-vs.-modular-deployment" class="nav-link" data-scroll-target="#monolithic-vs.-modular-deployment">🏗️ <strong>Monolithic vs.&nbsp;Modular Deployment</strong></a>
   <ul class="collapse">
-  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a></li>
-  <li><a href="#key-topics-covered" id="toc-key-topics-covered" class="nav-link" data-scroll-target="#key-topics-covered">Key Topics Covered</a>
-  <ul class="collapse">
-  <li><a href="#the-development-environment-revolution" id="toc-the-development-environment-revolution" class="nav-link" data-scroll-target="#the-development-environment-revolution">?? <strong>1. The Development Environment Revolution</strong></a></li>
-  <li><a href="#microsoft-dev-box-the-ai-native-solution" id="toc-microsoft-dev-box-the-ai-native-solution" class="nav-link" data-scroll-target="#microsoft-dev-box-the-ai-native-solution">?? <strong>2. Microsoft Dev Box: The AI-Native Solution</strong></a></li>
-  <li><a href="#mcp-server-integration-conversational-development" id="toc-mcp-server-integration-conversational-development" class="nav-link" data-scroll-target="#mcp-server-integration-conversational-development">?? <strong>3. MCP Server Integration: Conversational Development</strong></a></li>
-  <li><a href="#serverless-gpu-compute-on-demand-ai-processing" id="toc-serverless-gpu-compute-on-demand-ai-processing" class="nav-link" data-scroll-target="#serverless-gpu-compute-on-demand-ai-processing">? <strong>4. Serverless GPU Compute: On-Demand AI Processing</strong></a></li>
-  <li><a href="#azure-ai-foundry-integration-enterprise-ai-access" id="toc-azure-ai-foundry-integration-enterprise-ai-access" class="nav-link" data-scroll-target="#azure-ai-foundry-integration-enterprise-ai-access">?? <strong>5. Azure AI Foundry Integration: Enterprise AI Access</strong></a></li>
-  <li><a href="#manual-snapshots-developer-safety-net" id="toc-manual-snapshots-developer-safety-net" class="nav-link" data-scroll-target="#manual-snapshots-developer-safety-net">?? <strong>6. Manual Snapshots: Developer Safety Net</strong></a></li>
-  <li><a href="#vs-code-direct-integration" id="toc-vs-code-direct-integration" class="nav-link" data-scroll-target="#vs-code-direct-integration">?? <strong>7. VS Code Direct Integration</strong></a></li>
-  <li><a href="#platform-for-teams-customization-at-scale" id="toc-platform-for-teams-customization-at-scale" class="nav-link" data-scroll-target="#platform-for-teams-customization-at-scale">??? <strong>8. Platform for Teams: Customization at Scale</strong></a></li>
-  <li><a href="#enterprise-trust-governance-at-scale" id="toc-enterprise-trust-governance-at-scale" class="nav-link" data-scroll-target="#enterprise-trust-governance-at-scale">?? <strong>9. Enterprise Trust: Governance at Scale</strong></a></li>
+  <li><a href="#default-monolithic-approach" id="toc-default-monolithic-approach" class="nav-link" data-scroll-target="#default-monolithic-approach">Default Monolithic Approach</a></li>
+  <li><a href="#when-sites-grow-scalability-challenges" id="toc-when-sites-grow-scalability-challenges" class="nav-link" data-scroll-target="#when-sites-grow-scalability-challenges">When Sites Grow: Scalability Challenges</a></li>
   </ul></li>
-  <li><a href="#session-highlights" id="toc-session-highlights" class="nav-link" data-scroll-target="#session-highlights">Session Highlights</a></li>
-  <li><a href="#technical-architecture-deep-dive" id="toc-technical-architecture-deep-dive" class="nav-link" data-scroll-target="#technical-architecture-deep-dive">Technical Architecture Deep Dive</a>
+  <li><a href="#deployment-strategies" id="toc-deployment-strategies" class="nav-link" data-scroll-target="#deployment-strategies">🔧 <strong>Deployment Strategies</strong></a>
   <ul class="collapse">
-  <li><a href="#dev-box-ai-native-platform" id="toc-dev-box-ai-native-platform" class="nav-link" data-scroll-target="#dev-box-ai-native-platform">Dev Box AI-Native Platform</a></li>
-  <li><a href="#team-customization-platform" id="toc-team-customization-platform" class="nav-link" data-scroll-target="#team-customization-platform">Team Customization Platform</a></li>
-  <li><a href="#enterprise-governance-framework" id="toc-enterprise-governance-framework" class="nav-link" data-scroll-target="#enterprise-governance-framework">Enterprise Governance Framework</a></li>
+  <li><a href="#strategy-1-configuration-inheritance" id="toc-strategy-1-configuration-inheritance" class="nav-link" data-scroll-target="#strategy-1-configuration-inheritance">Strategy 1: Configuration Inheritance</a></li>
+  <li><a href="#strategy-2-multi-site-with-shared-navigation" id="toc-strategy-2-multi-site-with-shared-navigation" class="nav-link" data-scroll-target="#strategy-2-multi-site-with-shared-navigation">Strategy 2: Multi-Site with Shared Navigation</a></li>
+  <li><a href="#strategy-3-monorepo-with-selective-builds" id="toc-strategy-3-monorepo-with-selective-builds" class="nav-link" data-scroll-target="#strategy-3-monorepo-with-selective-builds">Strategy 3: Monorepo with Selective Builds</a></li>
+  <li><a href="#strategy-4-plugin-based-modular-architecture" id="toc-strategy-4-plugin-based-modular-architecture" class="nav-link" data-scroll-target="#strategy-4-plugin-based-modular-architecture">Strategy 4: Plugin-Based Modular Architecture</a></li>
+  <li><a href="#strategy-5-versioned-documentation" id="toc-strategy-5-versioned-documentation" class="nav-link" data-scroll-target="#strategy-5-versioned-documentation">Strategy 5: Versioned Documentation</a></li>
   </ul></li>
-  <li><a href="#implementation-guidelines" id="toc-implementation-guidelines" class="nav-link" data-scroll-target="#implementation-guidelines">Implementation Guidelines</a>
+  <li><a href="#architecture-comparison-matrix" id="toc-architecture-comparison-matrix" class="nav-link" data-scroll-target="#architecture-comparison-matrix">📊 <strong>Architecture Comparison Matrix</strong></a></li>
+  <li><a href="#implementation-roadmap" id="toc-implementation-roadmap" class="nav-link" data-scroll-target="#implementation-roadmap">🗺️ <strong>Implementation Roadmap</strong></a>
   <ul class="collapse">
-  <li><a href="#getting-started-with-dev-box" id="toc-getting-started-with-dev-box" class="nav-link" data-scroll-target="#getting-started-with-dev-box">Getting Started with Dev Box</a></li>
-  <li><a href="#ai-integration-best-practices" id="toc-ai-integration-best-practices" class="nav-link" data-scroll-target="#ai-integration-best-practices">AI Integration Best Practices</a></li>
-  <li><a href="#team-customization-strategy" id="toc-team-customization-strategy" class="nav-link" data-scroll-target="#team-customization-strategy">Team Customization Strategy</a></li>
+  <li><a href="#phase-1-assessment-1-week" id="toc-phase-1-assessment-1-week" class="nav-link" data-scroll-target="#phase-1-assessment-1-week">Phase 1: Assessment (1 week)</a></li>
+  <li><a href="#phase-2-proof-of-concept-2-weeks" id="toc-phase-2-proof-of-concept-2-weeks" class="nav-link" data-scroll-target="#phase-2-proof-of-concept-2-weeks">Phase 2: Proof of Concept (2 weeks)</a></li>
+  <li><a href="#phase-3-migration-2-4-weeks" id="toc-phase-3-migration-2-4-weeks" class="nav-link" data-scroll-target="#phase-3-migration-2-4-weeks">Phase 3: Migration (2-4 weeks)</a></li>
   </ul></li>
-  <li><a href="#future-roadmap-and-announcements" id="toc-future-roadmap-and-announcements" class="nav-link" data-scroll-target="#future-roadmap-and-announcements">Future Roadmap and Announcements</a>
+  <li><a href="#technical-implementation-details" id="toc-technical-implementation-details" class="nav-link" data-scroll-target="#technical-implementation-details">⚙️ <strong>Technical Implementation Details</strong></a>
   <ul class="collapse">
-  <li><a href="#general-availability-features" id="toc-general-availability-features" class="nav-link" data-scroll-target="#general-availability-features">General Availability Features</a></li>
-  <li><a href="#public-preview-features" id="toc-public-preview-features" class="nav-link" data-scroll-target="#public-preview-features">Public Preview Features</a></li>
-  <li><a href="#coming-soon" id="toc-coming-soon" class="nav-link" data-scroll-target="#coming-soon">Coming Soon</a></li>
+  <li><a href="#github-pages-deployment-script" id="toc-github-pages-deployment-script" class="nav-link" data-scroll-target="#github-pages-deployment-script">GitHub Pages Deployment Script</a></li>
+  <li><a href="#combined-search-index-script" id="toc-combined-search-index-script" class="nav-link" data-scroll-target="#combined-search-index-script">Combined Search Index Script</a></li>
   </ul></li>
-  <li><a href="#resources-and-further-learning" id="toc-resources-and-further-learning" class="nav-link" data-scroll-target="#resources-and-further-learning">Resources and Further Learning</a>
+  <li><a href="#benefits-and-trade-offs-analysis" id="toc-benefits-and-trade-offs-analysis" class="nav-link" data-scroll-target="#benefits-and-trade-offs-analysis">⚖️ <strong>Benefits and Trade-offs Analysis</strong></a>
   <ul class="collapse">
-  <li><a href="#official-documentation-and-access" id="toc-official-documentation-and-access" class="nav-link" data-scroll-target="#official-documentation-and-access">Official Documentation and Access</a></li>
-  <li><a href="#ai-integration-resources" id="toc-ai-integration-resources" class="nav-link" data-scroll-target="#ai-integration-resources">AI Integration Resources</a></li>
-  <li><a href="#community-and-support" id="toc-community-and-support" class="nav-link" data-scroll-target="#community-and-support">Community and Support</a></li>
+  <li><a href="#benefits-of-modular-architecture" id="toc-benefits-of-modular-architecture" class="nav-link" data-scroll-target="#benefits-of-modular-architecture">Benefits of Modular Architecture</a></li>
+  <li><a href="#trade-offs-and-challenges" id="toc-trade-offs-and-challenges" class="nav-link" data-scroll-target="#trade-offs-and-challenges">Trade-offs and Challenges</a></li>
   </ul></li>
-  <li><a href="#about-the-speakers" id="toc-about-the-speakers" class="nav-link" data-scroll-target="#about-the-speakers">About the Speakers</a></li>
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">💡 <strong>Recommendations</strong></a>
+  <ul class="collapse">
+  <li><a href="#decision-framework" id="toc-decision-framework" class="nav-link" data-scroll-target="#decision-framework">Decision Framework</a></li>
+  <li><a href="#recommended-approach-by-scenario" id="toc-recommended-approach-by-scenario" class="nav-link" data-scroll-target="#recommended-approach-by-scenario">Recommended Approach by Scenario</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📖 <strong>References</strong></a>
+  <ul class="collapse">
+  <li><a href="#official-documentation" id="toc-official-documentation" class="nav-link" data-scroll-target="#official-documentation">Official Documentation</a></li>
+  <li><a href="#plugins-and-tools" id="toc-plugins-and-tools" class="nav-link" data-scroll-target="#plugins-and-tools">Plugins and Tools</a></li>
+  </ul></li>
+  <li><a href="#appendix-a-quarto-vs-mkdocs-comparison" id="toc-appendix-a-quarto-vs-mkdocs-comparison" class="nav-link" data-scroll-target="#appendix-a-quarto-vs-mkdocs-comparison">📊 <strong>Appendix A: Quarto vs MkDocs Comparison</strong></a>
+  <ul class="collapse">
+  <li><a href="#overview-comparison" id="toc-overview-comparison" class="nav-link" data-scroll-target="#overview-comparison">Overview Comparison</a></li>
+  <li><a href="#feature-comparison" id="toc-feature-comparison" class="nav-link" data-scroll-target="#feature-comparison">Feature Comparison</a></li>
+  <li><a href="#architecture-comparison" id="toc-architecture-comparison" class="nav-link" data-scroll-target="#architecture-comparison">Architecture Comparison</a>
+  <ul class="collapse">
+  <li><a href="#quarto-architecture" id="toc-quarto-architecture" class="nav-link" data-scroll-target="#quarto-architecture">Quarto Architecture</a></li>
+  <li><a href="#mkdocs-architecture" id="toc-mkdocs-architecture" class="nav-link" data-scroll-target="#mkdocs-architecture">MkDocs Architecture</a></li>
+  </ul></li>
+  <li><a href="#when-to-choose-quarto" id="toc-when-to-choose-quarto" class="nav-link" data-scroll-target="#when-to-choose-quarto">When to Choose Quarto</a></li>
+  <li><a href="#when-to-choose-mkdocs" id="toc-when-to-choose-mkdocs" class="nav-link" data-scroll-target="#when-to-choose-mkdocs">When to Choose MkDocs</a></li>
+  <li><a href="#performance-comparison" id="toc-performance-comparison" class="nav-link" data-scroll-target="#performance-comparison">Performance Comparison</a></li>
+  <li><a href="#integration-comparison" id="toc-integration-comparison" class="nav-link" data-scroll-target="#integration-comparison">Integration Comparison</a></li>
+  <li><a href="#migration-considerations" id="toc-migration-considerations" class="nav-link" data-scroll-target="#migration-considerations">Migration Considerations</a>
+  <ul class="collapse">
+  <li><a href="#from-quarto-to-mkdocs" id="toc-from-quarto-to-mkdocs" class="nav-link" data-scroll-target="#from-quarto-to-mkdocs">From Quarto to MkDocs</a></li>
+  <li><a href="#from-mkdocs-to-quarto" id="toc-from-mkdocs-to-quarto" class="nav-link" data-scroll-target="#from-mkdocs-to-quarto">From MkDocs to Quarto</a></li>
+  </ul></li>
+  <li><a href="#summary-recommendation" id="toc-summary-recommendation" class="nav-link" data-scroll-target="#summary-recommendation">Summary Recommendation</a></li>
+  </ul></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/Markdown/02. MkDocs/001.002 Architecture - Monolithic vs. Modular Deployment.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/Readme.html">Events</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/Readme.html">Build Conference 2025</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html">BRK127: AI and Dev Box Developer Potential</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html">Summary</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Tools</li><li class="breadcrumb-item">Markdown Documentation Guides</li><li class="breadcrumb-item"><a href="../../../tech/Markdown/02. MkDocs/000.000 Using MkDocs.html">MkDocs</a></li><li class="breadcrumb-item"><a href="../../../tech/Markdown/02. MkDocs/001.002 Architecture - Monolithic vs. Modular Deployment.html">Monolithic vs.&nbsp;Modular Deployment</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">MkDocs Architecture - Monolithic vs.&nbsp;Modular Deployment</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">mkdocs</div>
+    <div class="quarto-category">architecture</div>
+    <div class="quarto-category">deployment</div>
+    <div class="quarto-category">devops</div>
+    <div class="quarto-category">modular</div>
+  </div>
+  </div>
 
-
-
-<section id="unleash-developer-potential-with-ai-and-dev-box" class="level1">
-<h1>Unleash Developer Potential with AI and Dev Box</h1>
-<p><strong>Session Date:</strong> May 22, 2025<br>
-<strong>Duration:</strong> 1 hour<br>
-<strong>Venue:</strong> Build 2025 Conference - BRK127<br>
-<strong>Speakers:</strong> Denizhan Yigitbas (Senior Product Manager, Microsoft), Dhruv Chand (Product Manager, Microsoft)<br>
-<strong>Link:</strong> [Microsoft Build 2025 Session BRK127]</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/dev-box-ai-unleash-potential.png" class="img-fluid figure-img"></p>
-<figcaption>Microsoft Dev Box AI Integration</figcaption>
-</figure>
+<div>
+  <div class="description">
+    Comprehensive analysis of deployment strategies for MkDocs documentation sites, from monolithic builds to modular architectures
+  </div>
 </div>
-<hr>
-<section id="executive-summary" class="level2">
-<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
-<p>Denizhan Yigitbas and Dhruv Chand demonstrate how Microsoft Dev Box revolutionizes AI development with its customizable, project-centric cloud workstation platform. This comprehensive session showcases the evolution from traditional VDI solutions to AI-native development environments, featuring live demonstrations of MCP server integration, serverless GPU compute, Azure AI Foundry integration, and enterprise-scale deployment strategies. The presentation reveals how Dev Box enables seamless experimentation, instant productivity, and enterprise control while supporting Microsoft’s 45,000+ internal developers.</p>
-<hr>
-</section>
-<section id="key-topics-covered" class="level2">
-<h2 class="anchored" data-anchor-id="key-topics-covered">Key Topics Covered</h2>
-<section id="the-development-environment-revolution" class="level3">
-<h3 class="anchored" data-anchor-id="the-development-environment-revolution">?? <strong>1. The Development Environment Revolution</strong></h3>
-<section id="the-historical-context" class="level4">
-<h4 class="anchored" data-anchor-id="the-historical-context">The Historical Context</h4>
-<p><strong>Denizhan’s Opening Reflection:</strong> &gt; “So, 30 years ago, this is what development looked like. Nice and simple. But this right here is what development looks like today. Developers are building in an environment where tools, frameworks, and models are evolving almost by the week.”</p>
-<p><strong>The Exponential Change Challenge:</strong></p>
-<pre><code>Modern Development Complexity:
-??? Weekly Evolution: Tools, frameworks, and models changing constantly
-??? AI Integration: Exponential change rate in AI-native development
-??? Traditional Limitations: Local machines not scaling for modern needs
-??? Setup Burden: Days/weeks of onboarding vs. desired minutes
-??? Experimentation Barriers: Complex setup preventing innovation</code></pre>
-</section>
-<section id="the-time-machine-exercise" class="level4">
-<h4 class="anchored" data-anchor-id="the-time-machine-exercise">The Time Machine Exercise</h4>
-<p><strong>Developer Onboarding Reality Check:</strong> &gt; “I want everyone to go back to the first day they got their development machine for whatever company that you’re working at right now. How long did it take you to set everything up? Five days? Ten days? One month?”</p>
-<p><strong>Traditional Environment Problems:</strong></p>
-<ul>
-<li><strong>Local machines not scaling</strong> - Performance and configuration limitations</li>
-<li><strong>Generic cloud desktops</strong> - Not optimized for developer-specific needs</li>
-<li><strong>Lengthy onboarding</strong> - Days/weeks instead of minutes for productivity</li>
-<li><strong>Management complexity</strong> - IT hurdles for monitoring and controlling dev teams</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="microsoft-dev-box-the-ai-native-solution" class="level3">
-<h3 class="anchored" data-anchor-id="microsoft-dev-box-the-ai-native-solution">?? <strong>2. Microsoft Dev Box: The AI-Native Solution</strong></h3>
-<section id="core-design-principles" class="level4">
-<h4 class="anchored" data-anchor-id="core-design-principles">Core Design Principles</h4>
-<p><strong>Revolutionary Development Platform:</strong> &gt; “That’s why we built Microsoft Dev Box. Cloud-powered, secure, a truly ready-to-code development environments designed for this AI-native world.”</p>
-<p><strong>Three Foundational Pillars:</strong></p>
-<pre><code>Dev Box Architecture:
-??? Developer Experience: High performance, fast startup, deep AI integrations
-??? Team Flexibility: Easy standardization and project-specific customization
-??? Enterprise Trust: IT guardrails without innovation barriers</code></pre>
-</section>
-<section id="beyond-traditional-vdi" class="level4">
-<h4 class="anchored" data-anchor-id="beyond-traditional-vdi">Beyond Traditional VDI</h4>
-<p><strong>Developer-Native Experience Features:</strong></p>
-<ul>
-<li><strong>Self-serve capabilities</strong> - Create machines as needed without tickets</li>
-<li><strong>Project-scoped customizations</strong> - Team-specific tools and configurations</li>
-<li><strong>Instant productivity</strong> - Ready-to-code environments from first login</li>
-<li><strong>AI-ready design</strong> - Built for AI-native workflows and experimentation</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="mcp-server-integration-conversational-development" class="level3">
-<h3 class="anchored" data-anchor-id="mcp-server-integration-conversational-development">?? <strong>3. MCP Server Integration: Conversational Development</strong></h3>
-<section id="model-context-protocol-revolution" class="level4">
-<h4 class="anchored" data-anchor-id="model-context-protocol-revolution">Model Context Protocol Revolution</h4>
-<p><strong>The MCP Transformation:</strong> &gt; “MCP, or Model Context Protocol, is basically coming in like a tidal wave… MCP is truly the super powerful protocol that empowers LLMs and agents to be able to interact with additional tools and APIs.”</p>
-<p><strong>From Responder to Doer:</strong></p>
-<ul>
-<li><strong>Natural Language Control</strong> - Interact with development environments through conversation</li>
-<li><strong>API Abstraction</strong> - No need to understand underlying APIs or infrastructure</li>
-<li><strong>Plain English Commands</strong> - Speak to your development environment directly</li>
-<li><strong>Tool Integration</strong> - LLMs evolve from text generators to active development partners</li>
-</ul>
-</section>
-<section id="live-mcp-server-demonstration" class="level4">
-<h4 class="anchored" data-anchor-id="live-mcp-server-demonstration">Live MCP Server Demonstration</h4>
-<p><strong>Conversational Project Discovery:</strong></p>
-<pre><code>Developer Query: "I want to create this AI chatbot that creates embeddings 
-of documents, and it's going to generate a summary of the best matching chunks. 
-Find which project do I work on."
 
-AI Response: "There's this AI explorations project. It's optimized for AI ML 
-workloads. It has that serverless GPU access, LLM API integrations with AI services."</code></pre>
-<p><strong>Automated Environment Creation:</strong></p>
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dario Airoldi </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 16, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">December 22, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="mkdocs-monolithic-vs.-modular-deployment" class="level1">
+<h1>MkDocs Monolithic vs.&nbsp;Modular Deployment</h1>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">📋 <strong>Table of Contents</strong></h2>
+<ul>
+<li><a href="#-overview">📖 Overview</a></li>
+<li><a href="#️-monolithic-vs-modular-deployment">🏗️ Monolithic vs.&nbsp;Modular Deployment</a></li>
+<li><a href="#-deployment-strategies">🔧 Deployment Strategies</a></li>
+<li><a href="#-architecture-comparison-matrix">📊 Architecture Comparison Matrix</a></li>
+<li><a href="#️-implementation-roadmap">🗺️ Implementation Roadmap</a></li>
+<li><a href="#️-technical-implementation-details">⚙️ Technical Implementation Details</a></li>
+<li><a href="#️-benefits-and-trade-offs-analysis">⚖️ Benefits and Trade-offs Analysis</a></li>
+<li><a href="#-recommendations">💡 Recommendations</a></li>
+<li><a href="#-references">📖 References</a></li>
+<li><a href="#-appendix-a-quarto-vs-mkdocs-comparison">📊 Appendix A: Quarto vs MkDocs Comparison</a></li>
+</ul>
+<hr>
+</section>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">📖 <strong>Overview</strong></h2>
+<p>This document focuses specifically on <strong>deployment architecture strategies</strong> for MkDocs documentation sites, exploring how to move from monolithic deployment to modular approaches where <strong>content sections can be built and deployed independently</strong>.</p>
+<blockquote class="blockquote">
+<p><strong>Note</strong>: For understanding how MkDocs’ core architecture and rendering works, see <a href="../../../tech/Markdown/02. MkDocs/001.001 Architecture - How MkDocs works.html">001.001 Architecture - How MkDocs works.md</a>.</p>
+</blockquote>
+<p><strong>Key Questions Addressed:</strong></p>
+<ul>
+<li>Can <strong>individual pages or sections be built independently</strong> from the full site?</li>
+<li>How can <strong>multi-site documentation</strong> be deployed as a unified experience?</li>
+<li>What are the performance implications of different deployment approaches?</li>
+<li>When should you consider modular vs.&nbsp;monolithic deployment strategies?</li>
+</ul>
+<p><strong>Real-World Context:</strong></p>
+<p>MkDocs is designed as a <strong>monolithic build system</strong>, but several strategies exist for scaling large documentation sites while maintaining fast build times and independent deployment cycles.</p>
+</section>
+<section id="monolithic-vs.-modular-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="monolithic-vs.-modular-deployment">🏗️ <strong>Monolithic vs.&nbsp;Modular Deployment</strong></h2>
+<section id="default-monolithic-approach" class="level3">
+<h3 class="anchored" data-anchor-id="default-monolithic-approach">Default Monolithic Approach</h3>
+<p>MkDocs’ default deployment follows a <strong>monolithic pattern</strong> where all content deploys together:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    MkDocs Monolithic Build                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│   ┌──────────┐    ┌─────────────┐    ┌─────────────┐            │
+│   │mkdocs.yml│───▶│Configuration│───▶│    File     │            │
+│   │          │    │   Loading   │    │  Discovery  │            │
+│   └──────────┘    └─────────────┘    └──────┬──────┘            │
+│                                             │                     │
+│   ┌──────────┐                              │                     │
+│   │  docs/   │─────────────────────────────▶│                     │
+│   │  *.md    │                              │                     │
+│   └──────────┘                              ▼                     │
+│                                      ┌─────────────┐             │
+│                                      │  Navigation │             │
+│                                      │   Builder   │             │
+│                                      └──────┬──────┘             │
+│                                             │                     │
+│                                             ▼                     │
+│                                      ┌─────────────┐             │
+│                                      │   Render    │             │
+│                                      │  All Pages  │             │
+│                                      └──────┬──────┘             │
+│                                             │                     │
+│                                             ▼                     │
+│                                      ┌─────────────┐             │
+│                                      │   site/     │             │
+│                                      │  (Output)   │             │
+│                                      └─────────────┘             │
+│                                             │                     │
+│                                             ▼                     │
+│                                      ┌─────────────┐             │
+│                                      │   Deploy    │             │
+│                                      │   Single    │             │
+│                                      │   Bundle    │             │
+│                                      └─────────────┘             │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<p><strong>Monolithic Characteristics:</strong></p>
+<ul>
+<li><strong>Atomic Builds</strong>: <mark>All pages rendered at each deployment</mark></li>
+<li><strong>Consistent State</strong>: Navigation always matches available content</li>
+<li><strong>Single Configuration</strong>: One <code>mkdocs.yml</code> controls everything</li>
+<li><strong>Simple Deployment</strong>: Output is a single directory to deploy</li>
+</ul>
+<p><strong>Example Monolithic Configuration:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mkdocs.yml - Everything builds together</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> My Documentation</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">docs_dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">site_dir</span><span class="kw">:</span><span class="at"> site</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nav</span><span class="kw">:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Home</span><span class="kw">:</span><span class="at"> index.md</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Getting Started</span><span class="kw">:</span><span class="at"> getting-started.md</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">User Guide</span><span class="kw">:</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">Installation</span><span class="kw">:</span><span class="at"> user-guide/installation.md</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">Configuration</span><span class="kw">:</span><span class="at"> user-guide/configuration.md</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">API Reference</span><span class="kw">:</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">Overview</span><span class="kw">:</span><span class="at"> api/index.md</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">Endpoints</span><span class="kw">:</span><span class="at"> api/endpoints.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="when-sites-grow-scalability-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="when-sites-grow-scalability-challenges">When Sites Grow: Scalability Challenges</h3>
+<p>As MkDocs sites grow in size and complexity, the monolithic approach can become a bottleneck:</p>
+<p><strong>Common Pain Points:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Issue</th>
+<th>Impact</th>
+<th>Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Build Time</strong></td>
+<td>Developer productivity</td>
+<td>&gt; 30 seconds</td>
+</tr>
+<tr class="even">
+<td><strong>CI/CD Duration</strong></td>
+<td>Deployment frequency</td>
+<td>&gt; 5 minutes</td>
+</tr>
+<tr class="odd">
+<td><strong>Team Conflicts</strong></td>
+<td>Collaboration friction</td>
+<td>&gt; 3 contributors</td>
+</tr>
+<tr class="even">
+<td><strong>Content Volume</strong></td>
+<td>Resource consumption</td>
+<td>&gt; 200 pages</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to Consider Modular Approaches:</strong></p>
+<ul>
+<li><strong>Build times</strong> consistently exceed 30 seconds to 1 minute</li>
+<li><strong>Multiple teams</strong> contributing content simultaneously</li>
+<li><strong>High-frequency updates</strong> (multiple times per day)</li>
+<li><strong>Large content volume</strong> (300+ pages)</li>
+<li><strong>Independent versioning</strong> requirements for different sections</li>
+</ul>
+</section>
+</section>
+<section id="deployment-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="deployment-strategies">🔧 <strong>Deployment Strategies</strong></h2>
+<section id="strategy-1-configuration-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-1-configuration-inheritance">Strategy 1: Configuration Inheritance</h3>
+<p><strong>Concept</strong>: Use MkDocs’ <code>INHERIT</code> feature to share common configuration across multiple documentation sites.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># base.yml - Shared configuration</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> material</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">palette</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">primary</span><span class="kw">:</span><span class="at"> indigo</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">markdown_extensions</span><span class="kw">:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> admonition</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> codehilite</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">toc</span><span class="kw">:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">permalink</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># project-a/mkdocs.yml</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">INHERIT</span><span class="kw">:</span><span class="at"> ../base.yml</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> Project A Documentation</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">site_url</span><span class="kw">:</span><span class="at"> https://docs.example.com/project-a/</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">docs_dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">site_dir</span><span class="kw">:</span><span class="at"> site</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">nav</span><span class="kw">:</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Home</span><span class="kw">:</span><span class="at"> index.md</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Guide</span><span class="kw">:</span><span class="at"> guide.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># project-b/mkdocs.yml</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">INHERIT</span><span class="kw">:</span><span class="at"> ../base.yml</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> Project B Documentation</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">site_url</span><span class="kw">:</span><span class="at"> https://docs.example.com/project-b/</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">docs_dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">site_dir</span><span class="kw">:</span><span class="at"> site</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">nav</span><span class="kw">:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Home</span><span class="kw">:</span><span class="at"> index.md</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">API</span><span class="kw">:</span><span class="at"> api.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>File Structure:</strong></p>
+<pre><code>documentation/
+├── base.yml                 # Shared configuration
+├── project-a/
+│   ├── mkdocs.yml          # Inherits from base.yml
+│   ├── docs/
+│   │   ├── index.md
+│   │   └── guide.md
+│   └── site/               # Built output
+├── project-b/
+│   ├── mkdocs.yml          # Inherits from base.yml
+│   ├── docs/
+│   │   ├── index.md
+│   │   └── api.md
+│   └── site/               # Built output
+└── deploy/                  # Combined deployment
+    ├── project-a/
+    └── project-b/</code></pre>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>✅ <strong>Consistent styling</strong> across all documentation</li>
+<li>✅ <strong>Independent builds</strong> for each project</li>
+<li>✅ <strong>Shared maintenance</strong> of common configuration</li>
+<li>✅ <strong>Selective deployment</strong> of individual projects</li>
+</ul>
+</section>
+<section id="strategy-2-multi-site-with-shared-navigation" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-2-multi-site-with-shared-navigation">Strategy 2: Multi-Site with Shared Navigation</h3>
+<p><strong>Concept</strong>: Build multiple MkDocs sites that link to each other, sharing a common navigation shell.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># site-a/mkdocs.yml</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> Product Documentation</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">site_url</span><span class="kw">:</span><span class="at"> https://docs.example.com/</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nav</span><span class="kw">:</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Home</span><span class="kw">:</span><span class="at"> index.md</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Products</span><span class="kw">:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">Product A</span><span class="kw">:</span><span class="at"> https://docs.example.com/product-a/</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">Product B</span><span class="kw">:</span><span class="at"> https://docs.example.com/product-b/</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Resources</span><span class="kw">:</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">Blog</span><span class="kw">:</span><span class="at"> https://blog.example.com/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Cross-Site Navigation Script:</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scripts/generate_cross_nav.py</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yaml</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>sites <span class="op">=</span> [</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'name'</span>: <span class="st">'Product A'</span>, <span class="st">'url'</span>: <span class="st">'/product-a/'</span>, <span class="st">'path'</span>: <span class="st">'product-a/mkdocs.yml'</span>},</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'name'</span>: <span class="st">'Product B'</span>, <span class="st">'url'</span>: <span class="st">'/product-b/'</span>, <span class="st">'path'</span>: <span class="st">'product-b/mkdocs.yml'</span>},</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_cross_site_nav():</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Generate navigation links across all sites."""</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    nav_items <span class="op">=</span> []</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> site <span class="kw">in</span> sites:</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        nav_items.append({site[<span class="st">'name'</span>]: site[<span class="st">'url'</span>]})</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> nav_items</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Inject into each site's navigation</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> site <span class="kw">in</span> sites:</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(site[<span class="st">'path'</span>], <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        config <span class="op">=</span> yaml.safe_load(f)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    config.setdefault(<span class="st">'extra'</span>, {})</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    config[<span class="st">'extra'</span>][<span class="st">'cross_site_nav'</span>] <span class="op">=</span> generate_cross_site_nav()</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(site[<span class="st">'path'</span>], <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        yaml.dump(config, f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="strategy-3-monorepo-with-selective-builds" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-3-monorepo-with-selective-builds">Strategy 3: Monorepo with Selective Builds</h3>
+<p><strong>Concept</strong>: Single repository with multiple documentation sections, using CI/CD to build only changed sections.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .github/workflows/docs.yml</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build Documentation</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">'docs/**'</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">'mkdocs.yml'</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">detect-changes</span><span class="kw">:</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">outputs</span><span class="kw">:</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">sections</span><span class="kw">:</span><span class="at"> ${{ steps.changes.outputs.sections }}</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">fetch-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> changes</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>          # Detect which sections changed</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>          CHANGED_SECTIONS=$(git diff --name-only HEAD~1 | grep '^docs/' | cut -d'/' -f2 | sort -u | jq -R -s -c 'split("\n") | map(select(length &gt; 0))')</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>          echo "sections=$CHANGED_SECTIONS" &gt;&gt; $GITHUB_OUTPUT</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">needs</span><span class="kw">:</span><span class="at"> detect-changes</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">section</span><span class="kw">:</span><span class="at"> ${{ fromJson(needs.detect-changes.outputs.sections) }}</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build section</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>          pip install mkdocs mkdocs-material</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>          mkdocs build --config-file docs/${{ matrix.section }}/mkdocs.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>File Structure:</strong></p>
+<pre><code>monorepo/
+├── docs/
+│   ├── api/
+│   │   ├── mkdocs.yml
+│   │   └── docs/
+│   ├── guides/
+│   │   ├── mkdocs.yml
+│   │   └── docs/
+│   └── tutorials/
+│       ├── mkdocs.yml
+│       └── docs/
+├── .github/
+│   └── workflows/
+│       └── docs.yml
+└── scripts/
+    └── build-all.sh</code></pre>
+</section>
+<section id="strategy-4-plugin-based-modular-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-4-plugin-based-modular-architecture">Strategy 4: Plugin-Based Modular Architecture</h3>
+<p><strong>Concept</strong>: Use MkDocs plugins to dynamically include content from multiple sources.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mkdocs.yml with monorepo plugin</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> Unified Documentation</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> search</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">monorepo</span><span class="kw">:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">      # Include documentation from subprojects</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">docs_dir</span><span class="kw">:</span><span class="at"> docs/</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">nav</span><span class="kw">:</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Home</span><span class="kw">:</span><span class="at"> index.md</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">API</span><span class="kw">:</span><span class="at"> </span><span class="st">'!include ./api/mkdocs.yml'</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Guides</span><span class="kw">:</span><span class="at"> </span><span class="st">'!include ./guides/mkdocs.yml'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Popular Plugins for Modular Documentation:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Plugin</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mkdocs-monorepo-plugin</code></td>
+<td>Include docs from multiple directories</td>
+</tr>
+<tr class="even">
+<td><code>mkdocs-multirepo-plugin</code></td>
+<td>Pull docs from multiple repositories</td>
+</tr>
+<tr class="odd">
+<td><code>mkdocs-awesome-pages-plugin</code></td>
+<td>Simplify navigation configuration</td>
+</tr>
+<tr class="even">
+<td><code>mkdocs-include-markdown-plugin</code></td>
+<td>Include markdown from external files</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="strategy-5-versioned-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-5-versioned-documentation">Strategy 5: Versioned Documentation</h3>
+<p><strong>Concept</strong>: Maintain multiple versions of documentation with version switching.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mkdocs.yml with mike versioning</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> My Library</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">site_url</span><span class="kw">:</span><span class="at"> https://docs.example.com/</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> search</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">mike</span><span class="kw">:</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">version_selector</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">css_dir</span><span class="kw">:</span><span class="at"> css</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">javascript_dir</span><span class="kw">:</span><span class="at"> js</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">extra</span><span class="kw">:</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">version</span><span class="kw">:</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">provider</span><span class="kw">:</span><span class="at"> mike</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Deployment Commands:</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy version 1.0</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mike</span> deploy <span class="at">--push</span> <span class="at">--update-aliases</span> 1.0 latest</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy version 2.0</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">mike</span> deploy <span class="at">--push</span> <span class="at">--update-aliases</span> 2.0 latest</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set default version</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ex">mike</span> set-default <span class="at">--push</span> latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Generated Structure:</strong></p>
+<pre><code>site/
+├── 1.0/
+│   ├── index.html
+│   └── ...
+├── 2.0/
+│   ├── index.html
+│   └── ...
+├── latest -&gt; 2.0/
+└── versions.json</code></pre>
+</section>
+</section>
+<section id="architecture-comparison-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-comparison-matrix">📊 <strong>Architecture Comparison Matrix</strong></h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 25%">
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Monolithic</th>
+<th>Config Inheritance</th>
+<th>Multi-Site</th>
+<th>Monorepo</th>
+<th>Plugin-Based</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Build Speed</strong></td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr class="even">
+<td><strong>Complexity</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+</tr>
+<tr class="odd">
+<td><strong>Consistency</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr class="even">
+<td><strong>Team Independence</strong></td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr class="odd">
+<td><strong>Search Integration</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr class="even">
+<td><strong>Maintenance</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr class="odd">
+<td><strong>Best For</strong></td>
+<td>Small-Medium</td>
+<td>Enterprise</td>
+<td>Multi-product</td>
+<td>Large teams</td>
+<td>Versioning</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="implementation-roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-roadmap">🗺️ <strong>Implementation Roadmap</strong></h2>
+<section id="phase-1-assessment-1-week" class="level3">
+<h3 class="anchored" data-anchor-id="phase-1-assessment-1-week">Phase 1: Assessment (1 week)</h3>
+<p><strong>Objectives:</strong></p>
+<ul>
+<li>Measure current build performance</li>
+<li>Identify content update patterns</li>
+<li>Map team workflows and pain points</li>
+</ul>
+<p><strong>Deliverables:</strong></p>
+<pre><code>assessment/
+├── build-metrics.md        # Current build times
+├── content-analysis.md     # Update frequency by section
+├── team-survey.md          # Developer pain points
+└── recommendations.md      # Strategy selection</code></pre>
+</section>
+<section id="phase-2-proof-of-concept-2-weeks" class="level3">
+<h3 class="anchored" data-anchor-id="phase-2-proof-of-concept-2-weeks">Phase 2: Proof of Concept (2 weeks)</h3>
+<p><strong>Objectives:</strong></p>
+<ul>
+<li>Implement chosen strategy on subset of content</li>
+<li>Validate performance improvements</li>
+<li>Test team workflows</li>
+</ul>
+<p><strong>Success Criteria:</strong></p>
+<ul>
+<li><strong>Build time reduction</strong>: &gt; 50% for targeted content</li>
+<li><strong>Deployment independence</strong>: Sections deploy separately</li>
+<li><strong>No functionality loss</strong>: All features work correctly</li>
+</ul>
+</section>
+<section id="phase-3-migration-2-4-weeks" class="level3">
+<h3 class="anchored" data-anchor-id="phase-3-migration-2-4-weeks">Phase 3: Migration (2-4 weeks)</h3>
+<p><strong>Objectives:</strong></p>
+<ul>
+<li>Migrate production content to new architecture</li>
+<li>Update CI/CD pipelines</li>
+<li>Train team on new workflows</li>
+</ul>
+<p><strong>Migration Steps:</strong></p>
 <ol type="1">
-<li><strong>Project Metadata Analysis</strong> - AI examines available projects and their capabilities</li>
-<li><strong>Intelligent Recommendation</strong> - Suggests optimal project based on requirements</li>
-<li><strong>Customization Integration</strong> - “Make sure to include VS Code on that Dev Box and Python”</li>
-<li><strong>Instant Provisioning</strong> - Dev Box created with specified tools and configurations</li>
+<li><strong>Prepare infrastructure</strong>
+<ul>
+<li>Set up new repository structure</li>
+<li>Configure CI/CD pipelines</li>
+<li>Create deployment scripts</li>
+</ul></li>
+<li><strong>Migrate content incrementally</strong>
+<ul>
+<li>Start with least-critical sections</li>
+<li>Validate each migration</li>
+<li>Update internal links</li>
+</ul></li>
+<li><strong>Switch over</strong>
+<ul>
+<li>Deploy new architecture</li>
+<li>Monitor for issues</li>
+<li>Roll back if needed</li>
+</ul></li>
 </ol>
 </section>
-<section id="public-preview-announcement" class="level4">
-<h4 class="anchored" data-anchor-id="public-preview-announcement">Public Preview Announcement</h4>
-<p><strong>Dev Box MCP Server Capabilities:</strong></p>
+</section>
+<section id="technical-implementation-details" class="level2">
+<h2 class="anchored" data-anchor-id="technical-implementation-details">⚙️ <strong>Technical Implementation Details</strong></h2>
+<section id="github-pages-deployment-script" class="level3">
+<h3 class="anchored" data-anchor-id="github-pages-deployment-script">GitHub Pages Deployment Script</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .github/workflows/deploy-multi-site.yml</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy Documentation</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">site</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">api</span><span class="kw">,</span><span class="at"> guides</span><span class="kw">,</span><span class="at"> tutorials</span><span class="kw">]</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Setup Python</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v4</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.11'</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>          pip install mkdocs mkdocs-material</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build ${{ matrix.site }}</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>          cd docs/${{ matrix.site }}</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>          mkdocs build --site-dir ../../output/${{ matrix.site }}</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload artifact</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v3</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ${{ matrix.site }}</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> output/${{ matrix.site }}</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">deploy</span><span class="kw">:</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">needs</span><span class="kw">:</span><span class="at"> build</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Download all artifacts</span></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/download-artifact@v3</span></span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">path</span><span class="kw">:</span><span class="at"> site</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create index</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>          cat &gt; site/index.html &lt;&lt; 'EOF'</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>          &lt;!DOCTYPE html&gt;</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>          &lt;html&gt;</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>          &lt;head&gt;&lt;title&gt;Documentation&lt;/title&gt;&lt;/head&gt;</span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>          &lt;body&gt;</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>            &lt;h1&gt;Documentation&lt;/h1&gt;</span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>            &lt;ul&gt;</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>              &lt;li&gt;&lt;a href="/api/"&gt;API Reference&lt;/a&gt;&lt;/li&gt;</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>              &lt;li&gt;&lt;a href="/guides/"&gt;User Guides&lt;/a&gt;&lt;/li&gt;</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>              &lt;li&gt;&lt;a href="/tutorials/"&gt;Tutorials&lt;/a&gt;&lt;/li&gt;</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>            &lt;/ul&gt;</span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>          &lt;/body&gt;</span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>          &lt;/html&gt;</span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>          EOF</span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy to GitHub Pages</span></span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> peaceiris/actions-gh-pages@v3</span></span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">github_token</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">publish_dir</span><span class="kw">:</span><span class="at"> ./site</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="combined-search-index-script" class="level3">
+<h3 class="anchored" data-anchor-id="combined-search-index-script">Combined Search Index Script</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scripts/combine_search.py</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">"""Combine search indexes from multiple MkDocs sites."""</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> combine_search_indexes(site_dirs: <span class="bu">list</span>[<span class="bu">str</span>], output_path: <span class="bu">str</span>):</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Combine search indexes from multiple sites."""</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    combined <span class="op">=</span> {</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'config'</span>: {<span class="st">'lang'</span>: [<span class="st">'en'</span>]},</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'docs'</span>: []</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> site_dir <span class="kw">in</span> site_dirs:</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        index_path <span class="op">=</span> Path(site_dir) <span class="op">/</span> <span class="st">'search'</span> <span class="op">/</span> <span class="st">'search_index.json'</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> index_path.exists():</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(index_path) <span class="im">as</span> f:</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                site_index <span class="op">=</span> json.load(f)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Prefix URLs with site path</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>            site_name <span class="op">=</span> Path(site_dir).name</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> doc <span class="kw">in</span> site_index.get(<span class="st">'docs'</span>, []):</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>                doc[<span class="st">'location'</span>] <span class="op">=</span> <span class="ss">f'/</span><span class="sc">{</span>site_name<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>doc[<span class="st">"location"</span>]<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>                combined[<span class="st">'docs'</span>].append(doc)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write combined index</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    output_file <span class="op">=</span> Path(output_path) <span class="op">/</span> <span class="st">'search'</span> <span class="op">/</span> <span class="st">'search_index.json'</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    output_file.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(output_file, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>        json.dump(combined, f)</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    combine_search_indexes(</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>        site_dirs<span class="op">=</span>[<span class="st">'output/api'</span>, <span class="st">'output/guides'</span>, <span class="st">'output/tutorials'</span>],</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>        output_path<span class="op">=</span><span class="st">'output'</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="benefits-and-trade-offs-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-and-trade-offs-analysis">⚖️ <strong>Benefits and Trade-offs Analysis</strong></h2>
+<section id="benefits-of-modular-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="benefits-of-modular-architecture">Benefits of Modular Architecture</h3>
+<p><strong>Performance Improvements:</strong></p>
 <ul>
-<li><strong>Search project metadata</strong> - Understand available development environments</li>
-<li><strong>Create Dev Boxes</strong> - Provision environments through natural language</li>
-<li><strong>Instant personalization</strong> - Customize environments within VS Code</li>
-<li><strong>Agent-based automation</strong> - Direct integration into development workflows</li>
+<li>✅ <strong>Faster builds</strong>: Only build changed sections</li>
+<li>✅ <strong>Parallel processing</strong>: Build sections concurrently</li>
+<li>✅ <strong>Reduced CI/CD time</strong>: Targeted deployments</li>
+<li>✅ <strong>Better caching</strong>: Cache per-section artifacts</li>
+</ul>
+<p><strong>Development Experience:</strong></p>
+<ul>
+<li>✅ <strong>Team independence</strong>: Teams own their documentation</li>
+<li>✅ <strong>Reduced conflicts</strong>: Fewer merge conflicts</li>
+<li>✅ <strong>Faster iteration</strong>: Quick feedback loops</li>
+<li>✅ <strong>Clear ownership</strong>: Section-based responsibility</li>
+</ul>
+</section>
+<section id="trade-offs-and-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="trade-offs-and-challenges">Trade-offs and Challenges</h3>
+<p><strong>Increased Complexity:</strong></p>
+<ul>
+<li>⚠️ <strong>Multiple configurations</strong>: More files to maintain</li>
+<li>⚠️ <strong>Cross-site navigation</strong>: Requires custom solutions</li>
+<li>⚠️ <strong>Search integration</strong>: May need custom search</li>
+<li>⚠️ <strong>Deployment orchestration</strong>: More complex CI/CD</li>
+</ul>
+<p><strong>Consistency Challenges:</strong></p>
+<ul>
+<li>⚠️ <strong>Styling drift</strong>: Sections may diverge visually</li>
+<li>⚠️ <strong>Version mismatches</strong>: Different MkDocs versions</li>
+<li>⚠️ <strong>Link validation</strong>: Cross-site links harder to validate</li>
+<li>⚠️ <strong>SEO considerations</strong>: Multiple sitemaps to manage</li>
+</ul>
+</section>
+</section>
+<section id="recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="recommendations">💡 <strong>Recommendations</strong></h2>
+<section id="decision-framework" class="level3">
+<h3 class="anchored" data-anchor-id="decision-framework">Decision Framework</h3>
+<pre><code>                    ┌────────────────────────────────────────┐
+                    │         Site Size Assessment           │
+                    └───────────────────┬────────────────────┘
+                                        │
+                    ┌───────────────────┴────────────────────┐
+                    │                                         │
+              &lt; 100 pages                              &gt; 100 pages
+                    │                                         │
+                    ▼                                         ▼
+           ┌───────────────┐                    ┌────────────────────┐
+           │  Monolithic   │                    │  Build time &gt; 30s? │
+           │   Approach    │                    └─────────┬──────────┘
+           └───────────────┘                              │
+                                              ┌───────────┴───────────┐
+                                              │                       │
+                                             Yes                      No
+                                              │                       │
+                                              ▼                       ▼
+                                   ┌─────────────────┐      ┌─────────────────┐
+                                   │ Multiple teams? │      │   Monolithic    │
+                                   └────────┬────────┘      │   + Caching     │
+                                            │               └─────────────────┘
+                                  ┌─────────┴─────────┐
+                                  │                   │
+                                 Yes                  No
+                                  │                   │
+                                  ▼                   ▼
+                         ┌────────────────┐  ┌────────────────┐
+                         │  Multi-Site    │  │   Monorepo +   │
+                         │  Architecture  │  │ Selective Build│
+                         └────────────────┘  └────────────────┘</code></pre>
+</section>
+<section id="recommended-approach-by-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-approach-by-scenario">Recommended Approach by Scenario</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Single team, &lt; 100 pages</strong></td>
+<td>Monolithic</td>
+</tr>
+<tr class="even">
+<td><strong>Single team, 100-300 pages</strong></td>
+<td>Monolithic + caching</td>
+</tr>
+<tr class="odd">
+<td><strong>Multiple teams, shared product</strong></td>
+<td>Config inheritance</td>
+</tr>
+<tr class="even">
+<td><strong>Multiple products</strong></td>
+<td>Multi-site architecture</td>
+</tr>
+<tr class="odd">
+<td><strong>Versioned documentation</strong></td>
+<td>Mike plugin</td>
+</tr>
+<tr class="even">
+<td><strong>Large enterprise</strong></td>
+<td>Monorepo with selective builds</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">📖 <strong>References</strong></h2>
+<section id="official-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="official-documentation">Official Documentation</h3>
+<ul>
+<li><a href="https://www.mkdocs.org/user-guide/configuration/">MkDocs Configuration</a> - Official configuration reference</li>
+<li><a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">MkDocs Deployment</a> - Deployment strategies</li>
+<li><a href="https://docs.github.com/en/pages">GitHub Pages</a> - GitHub hosting documentation</li>
+</ul>
+</section>
+<section id="plugins-and-tools" class="level3">
+<h3 class="anchored" data-anchor-id="plugins-and-tools">Plugins and Tools</h3>
+<ul>
+<li><a href="https://github.com/backstage/mkdocs-monorepo-plugin">mkdocs-monorepo-plugin</a> - Monorepo support</li>
+<li><a href="https://github.com/jimporter/mike">mike</a> - Version management</li>
+<li><a href="https://github.com/jdoiro3/mkdocs-multirepo-plugin">mkdocs-multirepo-plugin</a> - Multi-repository docs</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="serverless-gpu-compute-on-demand-ai-processing" class="level3">
-<h3 class="anchored" data-anchor-id="serverless-gpu-compute-on-demand-ai-processing">? <strong>4. Serverless GPU Compute: On-Demand AI Processing</strong></h3>
-<section id="the-gpu-accessibility-challenge" class="level4">
-<h4 class="anchored" data-anchor-id="the-gpu-accessibility-challenge">The GPU Accessibility Challenge</h4>
-<p><strong>Traditional GPU Problems:</strong> &gt; “Who thinks getting GPUs is easy? Raise your hands if you think it’s easy. Exactly. I hope nobody’s raising their hands… getting GPUs and configuring it and making sure it has everything that you need is not easy today.”</p>
-<p><strong>Serverless GPU Solution:</strong></p>
-<pre><code>Dev Box GPU Architecture:
-??? No Setup Required: Instant GPU access without configuration
-??? No Tickets Needed: Self-service provisioning for developers
-??? No Idle Spend: Pay only for actual computation time
-??? Enterprise Controls: Security, governance, and cost management
-??? On-Demand Provisioning: GPUs available exactly when needed</code></pre>
+<section id="appendix-a-quarto-vs-mkdocs-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-a-quarto-vs-mkdocs-comparison">📊 <strong>Appendix A: Quarto vs MkDocs Comparison</strong></h2>
+<p>This appendix provides a detailed comparison between <strong>Quarto</strong> and <strong>MkDocs</strong> to help teams choose the right documentation tool.</p>
+<section id="overview-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="overview-comparison">Overview Comparison</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Quarto</th>
+<th>MkDocs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Primary Language</strong></td>
+<td>Multiple (R, Python, Julia, JS)</td>
+<td>Python</td>
+</tr>
+<tr class="even">
+<td><strong>Configuration Format</strong></td>
+<td>YAML (<code>_quarto.yml</code>)</td>
+<td>YAML (<code>mkdocs.yml</code>)</td>
+</tr>
+<tr class="odd">
+<td><strong>Template Engine</strong></td>
+<td>Pandoc + Lua filters</td>
+<td>Jinja2</td>
+</tr>
+<tr class="even">
+<td><strong>Markdown Processor</strong></td>
+<td>Pandoc</td>
+<td>Python-Markdown</td>
+</tr>
+<tr class="odd">
+<td><strong>Primary Use Case</strong></td>
+<td>Scientific/Technical publishing</td>
+<td>Project documentation</td>
+</tr>
+<tr class="even">
+<td><strong>Learning Curve</strong></td>
+<td>Moderate-Steep</td>
+<td>Easy-Moderate</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="live-gpu-integration-demonstration" class="level4">
-<h4 class="anchored" data-anchor-id="live-gpu-integration-demonstration">Live GPU Integration Demonstration</h4>
-<p><strong>Dev Box GPU Shell Experience:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access GPU shell from Windows Terminal</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Select <span class="st">"Dev Box GPU shell"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Behind the scenes: Azure Container Apps + T4 GPU container</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Immediate connection with user credentials and security</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify GPU access</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> nvidia-smi</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows: GPU availability and specifications</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>VS Code Tunnel Integration:</strong></p>
+<section id="feature-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="feature-comparison">Feature Comparison</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Quarto</th>
+<th>MkDocs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Static HTML Generation</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr class="even">
+<td><strong>Live Preview Server</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr class="odd">
+<td><strong>Built-in Search</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes (Lunr.js)</td>
+</tr>
+<tr class="even">
+<td><strong>Code Execution</strong></td>
+<td>✅ Yes (R, Python, Julia)</td>
+<td>❌ No (static only)</td>
+</tr>
+<tr class="odd">
+<td><strong>PDF Generation</strong></td>
+<td>✅ Yes (via LaTeX)</td>
+<td>⚠️ Via plugins</td>
+</tr>
+<tr class="even">
+<td><strong>Jupyter Notebook Support</strong></td>
+<td>✅ Native</td>
+<td>⚠️ Via plugins</td>
+</tr>
+<tr class="odd">
+<td><strong>Reveal.js Presentations</strong></td>
+<td>✅ Built-in</td>
+<td>❌ No</td>
+</tr>
+<tr class="even">
+<td><strong>Multi-format Output</strong></td>
+<td>✅ HTML, PDF, Word, ePub</td>
+<td>✅ HTML only</td>
+</tr>
+<tr class="odd">
+<td><strong>Cross-references</strong></td>
+<td>✅ Built-in</td>
+<td>⚠️ Via plugins</td>
+</tr>
+<tr class="even">
+<td><strong>Citations/Bibliography</strong></td>
+<td>✅ Built-in</td>
+<td>⚠️ Via plugins</td>
+</tr>
+<tr class="odd">
+<td><strong>GitHub Pages Deploy</strong></td>
+<td>✅ Via Actions</td>
+<td>✅ Built-in command</td>
+</tr>
+<tr class="even">
+<td><strong>Plugin Ecosystem</strong></td>
+<td>Growing</td>
+<td>Mature</td>
+</tr>
+<tr class="odd">
+<td><strong>Theme Variety</strong></td>
+<td>Limited</td>
+<td>Extensive</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="architecture-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="architecture-comparison">Architecture Comparison</h3>
+<section id="quarto-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-architecture">Quarto Architecture</h4>
+<pre><code>Source Files (.qmd, .md, .ipynb)
+         │
+         ▼
+┌─────────────────┐
+│     Pandoc      │◀──── Lua Filters
+│   (Converter)   │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Knitr/Jupyter  │ (Optional: Code Execution)
+│    Engine       │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│ Output Format   │
+│ (HTML/PDF/etc.) │
+└─────────────────┘</code></pre>
+</section>
+<section id="mkdocs-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="mkdocs-architecture">MkDocs Architecture</h4>
+<pre><code>Source Files (.md)
+         │
+         ▼
+┌─────────────────┐
+│ Python-Markdown │◀──── Extensions
+│   (Converter)   │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Jinja2         │◀──── Theme Templates
+│  Templates      │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│   Static HTML   │
+└─────────────────┘</code></pre>
+</section>
+</section>
+<section id="when-to-choose-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-choose-quarto">When to Choose Quarto</h3>
+<p>✅ <strong>Choose Quarto when:</strong></p>
 <ul>
-<li><strong>Remote GPU connection</strong> - VS Code directly connected to GPU compute</li>
-<li><strong>Seamless development</strong> - Local IDE experience with cloud GPU power</li>
-<li><strong>Instant provisioning</strong> - Container spins up automatically when needed</li>
-<li><strong>Automatic cleanup</strong> - GPU deallocated when connection closed</li>
+<li>You need <strong>executable code</strong> in documentation (R, Python, Julia)</li>
+<li>You’re creating <strong>scientific or academic</strong> content</li>
+<li>You need <strong>multiple output formats</strong> (HTML, PDF, Word, ePub)</li>
+<li>You work with <strong>Jupyter notebooks</strong> extensively</li>
+<li>You need built-in <strong>cross-references and citations</strong></li>
+<li>You’re creating <strong>presentations</strong> alongside documentation</li>
+<li>You need <strong>LaTeX-quality</strong> mathematical typesetting</li>
 </ul>
 </section>
-<section id="embedding-generation-live-demo" class="level4">
-<h4 class="anchored" data-anchor-id="embedding-generation-live-demo">Embedding Generation Live Demo</h4>
-<p><strong>Real-World AI Workload:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Document processing with GPU acceleration</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> python document_embedder.py</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Processing documents: onboarding, architecture, deployment, bug triage</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: Vector embeddings generated using GPU compute</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Result: Massive vectors created quickly with GPU acceleration</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Serverless Benefits Demonstrated:</strong></p>
+<section id="when-to-choose-mkdocs" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-choose-mkdocs">When to Choose MkDocs</h3>
+<p>✅ <strong>Choose MkDocs when:</strong></p>
 <ul>
-<li><strong>Instant access</strong> - GPU available immediately when needed</li>
-<li><strong>No idle costs</strong> - Billing stops when GPU connection closed</li>
-<li><strong>Enterprise integration</strong> - Full security and governance maintained</li>
-<li><strong>Storage persistence</strong> - Coming soon with Dev Box Workspaces</li>
+<li>You’re documenting a <strong>software project</strong></li>
+<li>You need <strong>fast, simple</strong> static site generation</li>
+<li>You want a <strong>mature plugin ecosystem</strong></li>
+<li>You prefer <strong>Python-based</strong> tooling</li>
+<li>You need <strong>extensive theme options</strong> (Material for MkDocs)</li>
+<li>You value <strong>simplicity over features</strong></li>
+<li>Your team is familiar with <strong>Python/Jinja2</strong></li>
 </ul>
+</section>
+<section id="performance-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="performance-comparison">Performance Comparison</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Quarto</th>
+<th>MkDocs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Build Speed (100 pages)</strong></td>
+<td>15-30 seconds</td>
+<td>5-10 seconds</td>
+</tr>
+<tr class="even">
+<td><strong>Build Speed (500 pages)</strong></td>
+<td>60-120 seconds</td>
+<td>30-60 seconds</td>
+</tr>
+<tr class="odd">
+<td><strong>Memory Usage</strong></td>
+<td>Higher (Pandoc)</td>
+<td>Lower</td>
+</tr>
+<tr class="even">
+<td><strong>Incremental Builds</strong></td>
+<td>Limited</td>
+<td>Yes (via serve)</td>
+</tr>
+<tr class="odd">
+<td><strong>Cold Start Time</strong></td>
+<td>Slower</td>
+<td>Faster</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="integration-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="integration-comparison">Integration Comparison</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Integration</th>
+<th>Quarto</th>
+<th>MkDocs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>GitHub Actions</strong></td>
+<td>Official action</td>
+<td>Multiple options</td>
+</tr>
+<tr class="even">
+<td><strong>GitLab CI</strong></td>
+<td>Good support</td>
+<td>Excellent support</td>
+</tr>
+<tr class="odd">
+<td><strong>Read the Docs</strong></td>
+<td>Not native</td>
+<td>Native support</td>
+</tr>
+<tr class="even">
+<td><strong>VS Code</strong></td>
+<td>Official extension</td>
+<td>Community extensions</td>
+</tr>
+<tr class="odd">
+<td><strong>RStudio</strong></td>
+<td>Native integration</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="migration-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="migration-considerations">Migration Considerations</h3>
+<section id="from-quarto-to-mkdocs" class="level4">
+<h4 class="anchored" data-anchor-id="from-quarto-to-mkdocs">From Quarto to MkDocs</h4>
+<ul>
+<li>Remove code execution blocks</li>
+<li>Convert <code>.qmd</code> files to <code>.md</code></li>
+<li>Adapt cross-references syntax</li>
+<li>Replace callouts with admonitions</li>
+<li>Update configuration format</li>
+</ul>
+</section>
+<section id="from-mkdocs-to-quarto" class="level4">
+<h4 class="anchored" data-anchor-id="from-mkdocs-to-quarto">From MkDocs to Quarto</h4>
+<ul>
+<li>Rename <code>.md</code> to <code>.qmd</code> (optional)</li>
+<li>Update configuration to <code>_quarto.yml</code></li>
+<li>Replace admonitions with callouts</li>
+<li>Update internal link syntax</li>
+<li>Adapt theme/styling approach</li>
+</ul>
+</section>
+</section>
+<section id="summary-recommendation" class="level3">
+<h3 class="anchored" data-anchor-id="summary-recommendation">Summary Recommendation</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Software project docs</strong></td>
+<td>MkDocs</td>
+</tr>
+<tr class="even">
+<td><strong>Data science documentation</strong></td>
+<td>Quarto</td>
+</tr>
+<tr class="odd">
+<td><strong>API documentation</strong></td>
+<td>MkDocs</td>
+</tr>
+<tr class="even">
+<td><strong>Research papers/books</strong></td>
+<td>Quarto</td>
+</tr>
+<tr class="odd">
+<td><strong>Corporate knowledge base</strong></td>
+<td>MkDocs</td>
+</tr>
+<tr class="even">
+<td><strong>Educational content</strong></td>
+<td>Quarto</td>
+</tr>
+<tr class="odd">
+<td><strong>Simple project README → website</strong></td>
+<td>MkDocs</td>
+</tr>
+<tr class="even">
+<td><strong>Multi-format publishing</strong></td>
+<td>Quarto</td>
+</tr>
+</tbody>
+</table>
 <hr>
-</section>
-</section>
-<section id="azure-ai-foundry-integration-enterprise-ai-access" class="level3">
-<h3 class="anchored" data-anchor-id="azure-ai-foundry-integration-enterprise-ai-access">?? <strong>5. Azure AI Foundry Integration: Enterprise AI Access</strong></h3>
-<section id="seamless-ai-service-integration" class="level4">
-<h4 class="anchored" data-anchor-id="seamless-ai-service-integration">Seamless AI Service Integration</h4>
-<p><strong>Zero-Setup AI Access:</strong> &gt; “Microsoft Dev Box’s new integration with the Azure AI Foundry, that’s all abstracted away. You get secure enterprise-ready access to all the Foundry models directly inside of your Dev Box.”</p>
-<p><strong>Enterprise AI Benefits:</strong></p>
-<pre><code>AI Foundry Integration:
-??? Zero Setup: No API key management or model deployment
-??? Secure Access: Enterprise-ready security and governance
-??? Full Integration: Never leave Dev Box environment
-??? Governed Access: Fully managed and compliant AI services
-??? Developer Focus: Concentrate on logic and experience</code></pre>
-</section>
-<section id="live-ai-service-demonstration" class="level4">
-<h4 class="anchored" data-anchor-id="live-ai-service-demonstration">Live AI Service Demonstration</h4>
-<p><strong>Command-Line AI Management:</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access AI services directly from Dev Box</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> dev <span class="ex">box</span> ai</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> List models: Available models from Azure AI Foundry</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> List deployments: Already deployed models for project</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Deploy model: Instant model deployment from command line</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Go to Foundry: Direct access to Azure AI Foundry portal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Real-Time Model Deployment:</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View available models</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> dev <span class="ex">box</span> ai list models</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Result: Full catalog of AI Foundry models</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check current deployments</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> dev <span class="ex">box</span> ai list deployments</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows: GPT-4.1 mini already deployed</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy additional model</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> dev <span class="ex">box</span> ai deploy gpt-4.1-nano</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Result: Instant deployment and availability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="qa-bot-application-integration" class="level4">
-<h4 class="anchored" data-anchor-id="qa-bot-application-integration">QA Bot Application Integration</h4>
-<p><strong>End-to-End AI Application:</strong></p>
-<ul>
-<li><strong>Document Processing</strong> - Convert internal docs to embeddings using GPU</li>
-<li><strong>AI-Powered Search</strong> - Find relevant document chunks for queries</li>
-<li><strong>LLM Summarization</strong> - Generate responses using deployed AI models</li>
-<li><strong>Enterprise Integration</strong> - Seamless access to AI services without configuration</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="manual-snapshots-developer-safety-net" class="level3">
-<h3 class="anchored" data-anchor-id="manual-snapshots-developer-safety-net">?? <strong>6. Manual Snapshots: Developer Safety Net</strong></h3>
-<section id="the-oh-shoot-moment-solution" class="level4">
-<h4 class="anchored" data-anchor-id="the-oh-shoot-moment-solution">The “Oh Shoot” Moment Solution</h4>
-<p><strong>Risk-Free Experimentation:</strong> &gt; “Can you think about that last time that you had an ‘oh shoot’ moment in your machine? I often have this feeling of just being like undo, undo, undo, undo, undo, undo, undo, until I get back to my original state.”</p>
-<p><strong>Manual Snapshots Features:</strong></p>
-<pre><code>Developer Safety Net:
-??? One-Click Snapshots: Create restore points at any moment
-??? Self-Service Restoration: No help desk tickets required
-??? Time-Based Recovery: Restore to any previous state
-??? No Time Lost: Instant recovery from problematic states
-??? Experimentation Freedom: Break things without fear</code></pre>
-<p><strong>Modern Development Paradigm:</strong></p>
-<ul>
-<li><strong>Speed with safety</strong> - Fast iteration without risk of data loss</li>
-<li><strong>Developer autonomy</strong> - Self-service snapshot and restore capabilities</li>
-<li><strong>Seamless integration</strong> - Built into Dev Box platform without additional tools</li>
-<li><strong>Risk elimination</strong> - Experimentation without fear of irreversible changes</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="vs-code-direct-integration" class="level3">
-<h3 class="anchored" data-anchor-id="vs-code-direct-integration">?? <strong>7. VS Code Direct Integration</strong></h3>
-<section id="eliminating-connection-friction" class="level4">
-<h4 class="anchored" data-anchor-id="eliminating-connection-friction">Eliminating Connection Friction</h4>
-<p><strong>Local Development Experience:</strong> &gt; “Today, we’re excited to announce that you can now connect to Dev Boxes directly from VS Code. This means that you don’t have to jump through portals, you don’t have to even RDP connect at all.”</p>
-<p><strong>One-Click Development:</strong></p>
-<pre><code>VS Code Integration Benefits:
-??? No Portal Navigation: Direct connection from VS Code
-??? No RDP Required: Native development experience
-??? Local Feel: Extensions, workflows, and preferences preserved
-??? Cloud Power: Dev Box compute, storage, and networking
-??? Seamless Transition: Switch between local and cloud effortlessly</code></pre>
-<p><strong>Hybrid Development Experience:</strong></p>
-<ul>
-<li><strong>Local familiarity</strong> - Keep personal extensions and customizations</li>
-<li><strong>Cloud capabilities</strong> - Access to enterprise resources and private networks</li>
-<li><strong>Performance scaling</strong> - Leverage cloud compute for intensive workloads</li>
-<li><strong>Unified workflow</strong> - Single tool for local and cloud development</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="platform-for-teams-customization-at-scale" class="level3">
-<h3 class="anchored" data-anchor-id="platform-for-teams-customization-at-scale">??? <strong>8. Platform for Teams: Customization at Scale</strong></h3>
-<section id="the-onboarding-challenge" class="level4">
-<h4 class="anchored" data-anchor-id="the-onboarding-challenge">The Onboarding Challenge</h4>
-<p><strong>Dhruv’s Team Management Perspective:</strong> &gt; “If you’re a developer like me, you know how frustrating it could be to get started working on a new repository for the first time. You have to maybe read a long readme file, maybe bribe a co-worker over lunch to show you how to set it up.”</p>
-<p><strong>Organizational Impact:</strong></p>
-<ul>
-<li><strong>Time Accumulation</strong> - Setup time multiplied across development teams</li>
-<li><strong>Project Uniqueness</strong> - Every team has specific toolchain requirements</li>
-<li><strong>IT Limitations</strong> - One-size-fits-all solutions slow everyone down</li>
-<li><strong>Maintenance Burden</strong> - Keeping setup instructions current and accurate</li>
-</ul>
-</section>
-<section id="project-centric-customization" class="level4">
-<h4 class="anchored" data-anchor-id="project-centric-customization">Project-Centric Customization</h4>
-<p><strong>Delegated Control Model:</strong></p>
-<pre><code>Team Customization Architecture:
-??? IT Foundation: Base security, networking, and compliance
-??? Project Delegation: Team leads control project-specific tools
-??? Self-Service Management: No tickets required for team changes
-??? Isolated Environments: Projects don't interfere with each other
-??? Common Base: Shared security and governance policies</code></pre>
-</section>
-<section id="copilot-powered-image-creation" class="level4">
-<h4 class="anchored" data-anchor-id="copilot-powered-image-creation">Copilot-Powered Image Creation</h4>
-<p><strong>AI-Assisted Environment Definition:</strong></p>
-<pre><code>Copilot Automation Flow:
-Developer: "Copilot, create a new Dev Box image definition for this repository."
+<p><strong>Document Status</strong>: ✅ <strong>Complete</strong> | <strong>Last Updated</strong>: 2025-12-16 | <strong>Version</strong>: 1.0</p>
+<p>This deployment architecture analysis provides a comprehensive foundation for making informed decisions about MkDocs site scaling strategies and comparing MkDocs with Quarto for documentation needs.</p>
+<!-- 
 
-Copilot Analysis:
-
-- Repository structure examination
-- README file analysis
-- Technology stack detection
-- Dependency identification
-
-Generated Configuration:
-
-- Docker installation via WinGet
-- Visual Studio Code with extensions
-- .NET SDK with appropriate version
-- Git configuration and setup
-- PowerShell automation scripts</code></pre>
-<p><strong>Image Definition as Code:</strong></p>
-<ul>
-<li><strong>Version Control</strong> - Image definitions stored in repository</li>
-<li><strong>Team Distribution</strong> - Developers inherit project-specific environments</li>
-<li><strong>Instant Productivity</strong> - Ready-to-code environments from first creation</li>
-<li><strong>Optimization Pipeline</strong> - YAML definitions compiled to custom images</li>
-</ul>
-</section>
-<section id="microsoft-scale-success" class="level4">
-<h4 class="anchored" data-anchor-id="microsoft-scale-success">Microsoft Scale Success</h4>
-<p><strong>Internal Adoption Metrics:</strong></p>
-<pre><code>Microsoft Dev Box Usage:
-??? 45,000+ Developers: Active user base across Microsoft
-??? 65% Primary Usage: Developers using as main development machine
-??? 200+ Projects: Team-maintained custom environments
-??? Self-Service Model: Teams manage their own image definitions
-??? Instant Readiness: No setup time for new repositories</code></pre>
-<hr>
-</section>
-</section>
-<section id="enterprise-trust-governance-at-scale" class="level3">
-<h3 class="anchored" data-anchor-id="enterprise-trust-governance-at-scale">?? <strong>9. Enterprise Trust: Governance at Scale</strong></h3>
-<section id="balancing-innovation-and-control" class="level4">
-<h4 class="anchored" data-anchor-id="balancing-innovation-and-control">Balancing Innovation and Control</h4>
-<p><strong>The Enterprise Challenge:</strong> &gt; “There’s really a bigger picture that we need to talk about… this balancing act between… developers want the agility… performance… freedom to innovate. But on the other side, you have platform engineers and IT… accountable for the security, the governance, and the cost.”</p>
-<p><strong>Enterprise Foundation Pillars:</strong></p>
-<pre><code>Dev Box Enterprise Architecture:
-??? Project Management: Secure isolation with delegated control
-??? Device Management: Global fleet management at scale
-??? Cost Controls: Optimized spend without team slowdown
-??? Security Integration: Built-in enterprise security tools
-??? Compliance Support: Regulatory and policy adherence</code></pre>
-</section>
-<section id="fujitsu-global-deployment-case-study" class="level4">
-<h4 class="anchored" data-anchor-id="fujitsu-global-deployment-case-study">Fujitsu Global Deployment Case Study</h4>
-<p><strong>Enterprise Success Story:</strong></p>
-<ul>
-<li><strong>Thousands of developers</strong> - Global rollout across Fujitsu worldwide</li>
-<li><strong>Immediate productivity</strong> - Pre-configured environments eliminate setup time</li>
-<li><strong>GitHub Copilot integration</strong> - AI-powered development acceleration</li>
-<li><strong>Operations efficiency</strong> - Reduced hardware management burden</li>
-<li><strong>Secure onboarding</strong> - Streamlined developer access with governance</li>
-</ul>
-</section>
-<section id="project-policies-and-network-isolation" class="level4">
-<h4 class="anchored" data-anchor-id="project-policies-and-network-isolation">Project Policies and Network Isolation</h4>
-<p><strong>General Availability Announcement:</strong></p>
-<pre><code>Project Policy Controls:
-??? Machine SKUs: Define allowed compute configurations per project
-??? Base Images: Control available operating systems and tools
-??? Network Access: Isolated virtual networks per project
-??? Resource Limits: Cost and usage controls scoped by project
-??? Delegated Management: Team autonomy within IT guardrails</code></pre>
-<p><strong>Azure Virtual Network Integration:</strong></p>
-<ul>
-<li><strong>Project isolation</strong> - Secure networks restricting resource access</li>
-<li><strong>Existing topology integration</strong> - Seamless integration with enterprise networking</li>
-<li><strong>Firewall compatibility</strong> - Works with centralized security configurations</li>
-<li><strong>Routing flexibility</strong> - Traffic flows through existing network policies</li>
-</ul>
-</section>
-<section id="global-scale-and-availability" class="level4">
-<h4 class="anchored" data-anchor-id="global-scale-and-availability">Global Scale and Availability</h4>
-<p><strong>Expanded Regional Support:</strong></p>
-<ul>
-<li><strong>23 Azure regions</strong> - Global availability for high performance</li>
-<li><strong>New regions added</strong> - Spain Central and UAE North</li>
-<li><strong>Regulatory compliance</strong> - Local data residency requirements</li>
-<li><strong>Performance optimization</strong> - Reduced latency through regional deployment</li>
-</ul>
-</section>
-<section id="cost-management-and-optimization" class="level4">
-<h4 class="anchored" data-anchor-id="cost-management-and-optimization">Cost Management and Optimization</h4>
-<p><strong>Financial Control Features:</strong></p>
-<pre><code>Cost Optimization Tools:
-??? Auto-Stop Schedules: Automated shutdown to prevent idle spend
-??? Hibernation on Disconnect: Immediate resource conservation
-??? Project-Level Limits: Budget controls per development team
-??? Usage Monitoring: Detailed cost tracking and reporting
-??? Predictable Budgets: Enterprise financial planning support</code></pre>
-<p><strong>General Availability Features:</strong></p>
-<ul>
-<li><strong>Auto-stop scheduling</strong> - Enterprise-wide automated shutdown policies</li>
-<li><strong>Hibernate on disconnect</strong> - Instant resource conservation when developers step away</li>
-<li><strong>Landing Zone Accelerator</strong> - Enterprise deployment templates and best practices</li>
-<li><strong>Infrastructure as Code</strong> - Pre-built templates for rapid enterprise rollout</li>
-</ul>
-<hr>
-</section>
-</section>
-</section>
-<section id="session-highlights" class="level2">
-<h2 class="anchored" data-anchor-id="session-highlights">Session Highlights</h2>
-<blockquote class="blockquote">
-<p><em>“Developers are building in an environment where tools, frameworks, and models are evolving almost by the week. And in this era of AI, this change isn’t just fast. It’s truly exponential right now.”</em> - Denizhan Yigitbas</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>“MCP is truly the super powerful protocol that empowers LLMs and agents to be able to interact with additional tools and APIs. So suddenly an LLM just evolved from being this natural language responder to a true doer.”</em> - Denizhan Yigitbas</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>“Who thinks getting GPUs is easy? Raise your hands if you think it’s easy. Exactly.”</em> - Denizhan Yigitbas</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>“We have over 45,000 developers using Dev Box, with over 65 of them using it as their primary dev machine.”</em> - Dhruv Chand</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>“There’s really a bigger picture… this balancing act between… developers want the agility… but on the other side, you have platform engineers and IT… accountable for the security, the governance, and the cost.”</em> - Denizhan Yigitbas</p>
-</blockquote>
-<hr>
-</section>
-<section id="technical-architecture-deep-dive" class="level2">
-<h2 class="anchored" data-anchor-id="technical-architecture-deep-dive">Technical Architecture Deep Dive</h2>
-<section id="dev-box-ai-native-platform" class="level3">
-<h3 class="anchored" data-anchor-id="dev-box-ai-native-platform">Dev Box AI-Native Platform</h3>
-<pre><code>Cloud Workstation Architecture:
-??? MCP Server Integration: Natural language environment control
-??? Serverless GPU Compute: On-demand AI processing capabilities
-??? Azure AI Foundry: Enterprise AI services integration
-??? Manual Snapshots: Developer safety and experimentation support
-??? VS Code Direct Connect: Seamless local-to-cloud development</code></pre>
-</section>
-<section id="team-customization-platform" class="level3">
-<h3 class="anchored" data-anchor-id="team-customization-platform">Team Customization Platform</h3>
-<pre><code>Project-Centric Development:
-??? Image Definition as Code: YAML-based environment specifications
-??? Copilot-Powered Creation: AI-assisted configuration generation
-??? Custom Image Pipeline: Automated optimization and deployment
-??? Project Delegation: Team autonomy within enterprise guardrails
-??? Self-Service Management: No IT tickets for team customization</code></pre>
-</section>
-<section id="enterprise-governance-framework" class="level3">
-<h3 class="anchored" data-anchor-id="enterprise-governance-framework">Enterprise Governance Framework</h3>
-<pre><code>Enterprise Control Architecture:
-??? Project Policies: Granular controls per development team
-??? Network Isolation: Azure Virtual Network integration
-??? Cost Management: Auto-stop, hibernation, and budget controls
-??? Security Integration: Microsoft Intune, Entra ID, Defender
-??? Global Deployment: 23 Azure regions with compliance support</code></pre>
-<hr>
-</section>
-</section>
-<section id="implementation-guidelines" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-guidelines">Implementation Guidelines</h2>
-<section id="getting-started-with-dev-box" class="level3">
-<h3 class="anchored" data-anchor-id="getting-started-with-dev-box">Getting Started with Dev Box</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>**Prerequisites:**</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Azure subscription with Dev Box service access</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Microsoft Entra ID tenant for identity management</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Network planning for project isolation</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cost management policies and budgets</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>**Basic Setup Process:**</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Create Dev Box dev center in Azure portal</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Define projects with appropriate policies</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Configure base images and customizations</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Set up network isolation and security</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Enable developer self-service access</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="ai-integration-best-practices" class="level3">
-<h3 class="anchored" data-anchor-id="ai-integration-best-practices">AI Integration Best Practices</h3>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>**MCP Server Implementation:**</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Install Dev Box MCP server in public preview</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Configure VS Code with agent mode for natural language control</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Train developers on conversational environment management</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement governance for AI-assisted environment creation</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>**Serverless GPU Optimization:**</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Plan GPU workloads for cost efficiency</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement automatic cleanup policies</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor usage patterns for optimization</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Design workflows for persistent storage needs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="team-customization-strategy" class="level3">
-<h3 class="anchored" data-anchor-id="team-customization-strategy">Team Customization Strategy</h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>**Image Definition Development:**</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use Copilot for initial configuration generation</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Version control image definitions with source code</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement testing pipelines for custom images</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Plan optimization cycles for performance improvement</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>**Project Management:**</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Delegate project control to engineering leads</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Establish base image policies and security requirements</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement cost controls and monitoring per project</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create templates for common development scenarios</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-</section>
-<section id="future-roadmap-and-announcements" class="level2">
-<h2 class="anchored" data-anchor-id="future-roadmap-and-announcements">Future Roadmap and Announcements</h2>
-<section id="general-availability-features" class="level3">
-<h3 class="anchored" data-anchor-id="general-availability-features">General Availability Features</h3>
-<ul>
-<li><strong>Team Customizations and Imaging</strong> - Configuration as code with single-click optimization</li>
-<li><strong>Project Policies</strong> - Granular enterprise controls per development team</li>
-<li><strong>Auto-Stop Schedules</strong> - Enterprise-wide cost optimization policies</li>
-<li><strong>Hibernation on Disconnect</strong> - Instant resource conservation</li>
-</ul>
-</section>
-<section id="public-preview-features" class="level3">
-<h3 class="anchored" data-anchor-id="public-preview-features">Public Preview Features</h3>
-<ul>
-<li><strong>Dev Box MCP Server</strong> - Natural language environment control</li>
-<li><strong>Authoring Agent</strong> - AI-assisted customization creation</li>
-<li><strong>Serverless GPU Compute</strong> - On-demand AI processing capabilities</li>
-<li><strong>Azure AI Foundry Integration</strong> - Enterprise AI services access</li>
-</ul>
-</section>
-<section id="coming-soon" class="level3">
-<h3 class="anchored" data-anchor-id="coming-soon">Coming Soon</h3>
-<ul>
-<li><strong>Dev Box Workspaces</strong> - Persistent storage across GPU sessions</li>
-<li><strong>Enhanced Regional Support</strong> - Additional global deployment options</li>
-<li><strong>Advanced Cost Analytics</strong> - Detailed usage and optimization insights</li>
-<li><strong>Extended AI Integration</strong> - Deeper AI-native development features</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="resources-and-further-learning" class="level2">
-<h2 class="anchored" data-anchor-id="resources-and-further-learning">Resources and Further Learning</h2>
-<section id="official-documentation-and-access" class="level3">
-<h3 class="anchored" data-anchor-id="official-documentation-and-access">Official Documentation and Access</h3>
-<ul>
-<li><strong><a href="https://devbox.microsoft.com/">Microsoft Developer Portal</a></strong> - Central hub for Dev Box creation and management</li>
-<li><strong><a href="https://docs.microsoft.com/azure/dev-box/">Dev Box Documentation</a></strong> - Complete technical documentation</li>
-<li><strong><a href="https://azure.microsoft.com/pricing/details/dev-box/">Azure Dev Box Pricing</a></strong> - Cost planning and optimization</li>
-<li><strong><a href="https://aka.ms/devbox-landing-zone">Landing Zone Accelerator</a></strong> - Enterprise deployment templates</li>
-</ul>
-</section>
-<section id="ai-integration-resources" class="level3">
-<h3 class="anchored" data-anchor-id="ai-integration-resources">AI Integration Resources</h3>
-<ul>
-<li><strong><a href="https://modelcontextprotocol.io/">Model Context Protocol</a></strong> - MCP specification and implementation</li>
-<li><strong><a href="https://docs.microsoft.com/azure/ai-foundry/">Azure AI Foundry</a></strong> - Enterprise AI services integration</li>
-<li><strong><a href="https://marketplace.visualstudio.com/vscode">VS Code Extensions</a></strong> - Development environment customization</li>
-<li><strong><a href="https://docs.github.com/copilot">GitHub Copilot</a></strong> - AI-powered development assistance</li>
-</ul>
-</section>
-<section id="community-and-support" class="level3">
-<h3 class="anchored" data-anchor-id="community-and-support">Community and Support</h3>
-<ul>
-<li><strong><a href="https://aka.ms/build-labs">Build 2025 Labs</a></strong> - Hands-on Dev Box experience</li>
-<li><strong><a href="https://techcommunity.microsoft.com/t5/azure-dev-box/ct-p/AzureDevBox">Microsoft Tech Community</a></strong> - Developer discussions and support</li>
-<li><strong><a href="https://azure.microsoft.com/support/">Azure Support</a></strong> - Enterprise support and guidance</li>
-<li><strong><a href="https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4">Feature Requests</a></strong> - Product feedback and roadmap input</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="about-the-speakers" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-speakers">About the Speakers</h2>
-<p><strong>Denizhan Yigitbas</strong><br>
-Senior Product Manager<br>
-Microsoft<br>
-<em>Senior Product Manager focused on advancing developer productivity through AI and cloud-first tools. Over three years of contributions to Visual Studio IDE, C# Dev Kit for VS Code, and early GitHub Copilot incubation. Currently leads Microsoft Dev Box AI Incubation team, exploring next-generation AI development experiences in cloud workstations.</em></p>
-<p><strong>Dhruv Chand</strong><br>
-Product Manager<br>
-Microsoft<br>
-<em>Product Manager for Microsoft Dev Box, focusing on team customization, enterprise deployment, and developer onboarding optimization. Deep expertise in developer platform engineering and cloud workstation architecture for enterprise-scale development teams.</em></p>
-<hr>
-<p><em>This comprehensive session demonstrates Microsoft’s vision for the future of cloud development environments, where AI-native workflows, enterprise governance, and developer productivity converge in a unified platform. Dev Box represents the evolution from traditional development machines to intelligent, scalable, and secure cloud workstations that adapt to the exponential pace of modern software development.</em></p>
 
 
+
+---
+validations:
+  grammar:
+    last_run: null
+    model: null
+    outcome: null
+    issues_found: 0
+  
+  structure:
+    last_run: null
+    model: null
+    outcome: null
+    has_toc: true
+    has_introduction: true
+    has_conclusion: true
+    has_references: true
+
+article_metadata:
+  filename: "001.002 Architecture - Monolithic vs. Modular Deployment.md"
+  last_updated: "2025-12-16"
+  version: "1.0"
+---
+
+
+
+
+-->
+
+
+</section>
 </section>
 </section>
 
@@ -8626,13 +9299,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../events/202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html" class="pagination-link" aria-label="Session Details">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session Details</span>
+      <a href="../../../tech/Markdown/02. MkDocs/001.001 Architecture - How MkDocs works.html" class="pagination-link" aria-label="MkDocs Architecture">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">MkDocs Architecture</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html" class="pagination-link" aria-label="Session Details">
-        <span class="nav-page-text">Session Details</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="pagination-link" aria-label="Podcast and RSS Feed Analysis">
+        <span class="nav-page-text">Podcast and RSS Feed Analysis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -8641,4 +9314,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/Markdown/02. MkDocs/001.002 Architecture - Monolithic vs. Modular Deployment.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

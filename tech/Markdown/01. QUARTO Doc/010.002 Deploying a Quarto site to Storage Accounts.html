@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Dario Airoldi">
+<meta name="dcterms.date" content="2025-01-15">
+<meta name="description" content="Complete guide to deploying Quarto documentation to Azure Storage Account static websites with automated CI/CD">
 
-<title>summary – Dario's Learning Journey</title>
+<title>deploying-a-quarto-site-to-storage-accounts – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html" rel="next">
-<link href="../../../events/202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html" rel="prev">
+<link href="../../../tech/Markdown/02. MkDocs/000.000 Using MkDocs.html" rel="next">
+<link href="../../../tech/Markdown/01. QUARTO Doc/010.001 Deploying a Quarto site to GitHub Pages.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -633,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/Readme.html">Events</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/Readme.html">Build Conference 2025</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html">BRK127: AI and Dev Box Developer Potential</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html">Summary</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Tools</li><li class="breadcrumb-item">Markdown Documentation Guides</li><li class="breadcrumb-item"><a href="../../../tech/Markdown/01. QUARTO Doc/000.000 Using Quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../../tech/Markdown/01. QUARTO Doc/010.002 Deploying a Quarto site to Storage Accounts.html">Deploy to Azure Storage</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -876,16 +879,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
  <span class="menu-text">BRK127: AI and Dev Box Developer Potential</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth3 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -1742,13 +1745,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-46" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="true">
  <span class="menu-text">Quarto</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-47" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-47" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-47" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../tech/Markdown/01. QUARTO Doc/000.000 Using Quarto.html" class="sidebar-item-text sidebar-link">
@@ -1823,7 +1826,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../tech/Markdown/01. QUARTO Doc/010.002 Deploying a Quarto site to Storage Accounts.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../tech/Markdown/01. QUARTO Doc/010.002 Deploying a Quarto site to Storage Accounts.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Deploy to Azure Storage</span></a>
   </div>
 </li>
@@ -2283,624 +2286,814 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#unleash-developer-potential-with-ai-and-dev-box" id="toc-unleash-developer-potential-with-ai-and-dev-box" class="nav-link active" data-scroll-target="#unleash-developer-potential-with-ai-and-dev-box">Unleash Developer Potential with AI and Dev Box</a>
+  <li><a href="#deploying-a-quarto-site-to-azure-storage-accounts" id="toc-deploying-a-quarto-site-to-azure-storage-accounts" class="nav-link active" data-scroll-target="#deploying-a-quarto-site-to-azure-storage-accounts">Deploying a Quarto Site to Azure Storage Accounts</a>
   <ul class="collapse">
-  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a></li>
-  <li><a href="#key-topics-covered" id="toc-key-topics-covered" class="nav-link" data-scroll-target="#key-topics-covered">Key Topics Covered</a>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">📋 Table of Contents</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">📖 Overview</a>
   <ul class="collapse">
-  <li><a href="#the-development-environment-revolution" id="toc-the-development-environment-revolution" class="nav-link" data-scroll-target="#the-development-environment-revolution">?? <strong>1. The Development Environment Revolution</strong></a></li>
-  <li><a href="#microsoft-dev-box-the-ai-native-solution" id="toc-microsoft-dev-box-the-ai-native-solution" class="nav-link" data-scroll-target="#microsoft-dev-box-the-ai-native-solution">?? <strong>2. Microsoft Dev Box: The AI-Native Solution</strong></a></li>
-  <li><a href="#mcp-server-integration-conversational-development" id="toc-mcp-server-integration-conversational-development" class="nav-link" data-scroll-target="#mcp-server-integration-conversational-development">?? <strong>3. MCP Server Integration: Conversational Development</strong></a></li>
-  <li><a href="#serverless-gpu-compute-on-demand-ai-processing" id="toc-serverless-gpu-compute-on-demand-ai-processing" class="nav-link" data-scroll-target="#serverless-gpu-compute-on-demand-ai-processing">? <strong>4. Serverless GPU Compute: On-Demand AI Processing</strong></a></li>
-  <li><a href="#azure-ai-foundry-integration-enterprise-ai-access" id="toc-azure-ai-foundry-integration-enterprise-ai-access" class="nav-link" data-scroll-target="#azure-ai-foundry-integration-enterprise-ai-access">?? <strong>5. Azure AI Foundry Integration: Enterprise AI Access</strong></a></li>
-  <li><a href="#manual-snapshots-developer-safety-net" id="toc-manual-snapshots-developer-safety-net" class="nav-link" data-scroll-target="#manual-snapshots-developer-safety-net">?? <strong>6. Manual Snapshots: Developer Safety Net</strong></a></li>
-  <li><a href="#vs-code-direct-integration" id="toc-vs-code-direct-integration" class="nav-link" data-scroll-target="#vs-code-direct-integration">?? <strong>7. VS Code Direct Integration</strong></a></li>
-  <li><a href="#platform-for-teams-customization-at-scale" id="toc-platform-for-teams-customization-at-scale" class="nav-link" data-scroll-target="#platform-for-teams-customization-at-scale">??? <strong>8. Platform for Teams: Customization at Scale</strong></a></li>
-  <li><a href="#enterprise-trust-governance-at-scale" id="toc-enterprise-trust-governance-at-scale" class="nav-link" data-scroll-target="#enterprise-trust-governance-at-scale">?? <strong>9. Enterprise Trust: Governance at Scale</strong></a></li>
+  <li><a href="#key-benefits" id="toc-key-benefits" class="nav-link" data-scroll-target="#key-benefits">Key Benefits</a></li>
   </ul></li>
-  <li><a href="#session-highlights" id="toc-session-highlights" class="nav-link" data-scroll-target="#session-highlights">Session Highlights</a></li>
-  <li><a href="#technical-architecture-deep-dive" id="toc-technical-architecture-deep-dive" class="nav-link" data-scroll-target="#technical-architecture-deep-dive">Technical Architecture Deep Dive</a>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">✅ Prerequisites</a></li>
+  <li><a href="#architecture-overview" id="toc-architecture-overview" class="nav-link" data-scroll-target="#architecture-overview">🏗️ Architecture Overview</a></li>
+  <li><a href="#setup-azure-infrastructure" id="toc-setup-azure-infrastructure" class="nav-link" data-scroll-target="#setup-azure-infrastructure">⚙️ Setup Azure Infrastructure</a>
   <ul class="collapse">
-  <li><a href="#dev-box-ai-native-platform" id="toc-dev-box-ai-native-platform" class="nav-link" data-scroll-target="#dev-box-ai-native-platform">Dev Box AI-Native Platform</a></li>
-  <li><a href="#team-customization-platform" id="toc-team-customization-platform" class="nav-link" data-scroll-target="#team-customization-platform">Team Customization Platform</a></li>
-  <li><a href="#enterprise-governance-framework" id="toc-enterprise-governance-framework" class="nav-link" data-scroll-target="#enterprise-governance-framework">Enterprise Governance Framework</a></li>
+  <li><a href="#step-1-create-storage-account" id="toc-step-1-create-storage-account" class="nav-link" data-scroll-target="#step-1-create-storage-account">Step 1: Create Storage Account</a></li>
+  <li><a href="#step-2-configure-quarto-for-azure-deployment" id="toc-step-2-configure-quarto-for-azure-deployment" class="nav-link" data-scroll-target="#step-2-configure-quarto-for-azure-deployment">Step 2: Configure Quarto for Azure Deployment</a></li>
   </ul></li>
-  <li><a href="#implementation-guidelines" id="toc-implementation-guidelines" class="nav-link" data-scroll-target="#implementation-guidelines">Implementation Guidelines</a>
+  <li><a href="#deployment-methods" id="toc-deployment-methods" class="nav-link" data-scroll-target="#deployment-methods">🚀 Deployment Methods</a>
   <ul class="collapse">
-  <li><a href="#getting-started-with-dev-box" id="toc-getting-started-with-dev-box" class="nav-link" data-scroll-target="#getting-started-with-dev-box">Getting Started with Dev Box</a></li>
-  <li><a href="#ai-integration-best-practices" id="toc-ai-integration-best-practices" class="nav-link" data-scroll-target="#ai-integration-best-practices">AI Integration Best Practices</a></li>
-  <li><a href="#team-customization-strategy" id="toc-team-customization-strategy" class="nav-link" data-scroll-target="#team-customization-strategy">Team Customization Strategy</a></li>
+  <li><a href="#method-1-github-actions-deployment" id="toc-method-1-github-actions-deployment" class="nav-link" data-scroll-target="#method-1-github-actions-deployment">Method 1: GitHub Actions Deployment</a></li>
+  <li><a href="#method-2-azure-devops-pipeline" id="toc-method-2-azure-devops-pipeline" class="nav-link" data-scroll-target="#method-2-azure-devops-pipeline">Method 2: Azure DevOps Pipeline</a></li>
+  <li><a href="#method-3-manual-deployment-with-azure-cli" id="toc-method-3-manual-deployment-with-azure-cli" class="nav-link" data-scroll-target="#method-3-manual-deployment-with-azure-cli">Method 3: Manual Deployment with Azure CLI</a></li>
   </ul></li>
-  <li><a href="#future-roadmap-and-announcements" id="toc-future-roadmap-and-announcements" class="nav-link" data-scroll-target="#future-roadmap-and-announcements">Future Roadmap and Announcements</a>
+  <li><a href="#azure-cdn-integration" id="toc-azure-cdn-integration" class="nav-link" data-scroll-target="#azure-cdn-integration">🌐 Azure CDN Integration</a>
   <ul class="collapse">
-  <li><a href="#general-availability-features" id="toc-general-availability-features" class="nav-link" data-scroll-target="#general-availability-features">General Availability Features</a></li>
-  <li><a href="#public-preview-features" id="toc-public-preview-features" class="nav-link" data-scroll-target="#public-preview-features">Public Preview Features</a></li>
-  <li><a href="#coming-soon" id="toc-coming-soon" class="nav-link" data-scroll-target="#coming-soon">Coming Soon</a></li>
+  <li><a href="#why-use-azure-cdn" id="toc-why-use-azure-cdn" class="nav-link" data-scroll-target="#why-use-azure-cdn">Why Use Azure CDN?</a></li>
+  <li><a href="#setting-up-azure-cdn" id="toc-setting-up-azure-cdn" class="nav-link" data-scroll-target="#setting-up-azure-cdn">Setting up Azure CDN</a></li>
+  <li><a href="#cdn-configuration-for-quarto-sites" id="toc-cdn-configuration-for-quarto-sites" class="nav-link" data-scroll-target="#cdn-configuration-for-quarto-sites">CDN Configuration for Quarto Sites</a></li>
   </ul></li>
-  <li><a href="#resources-and-further-learning" id="toc-resources-and-further-learning" class="nav-link" data-scroll-target="#resources-and-further-learning">Resources and Further Learning</a>
+  <li><a href="#custom-domain-configuration" id="toc-custom-domain-configuration" class="nav-link" data-scroll-target="#custom-domain-configuration">🌍 Custom Domain Configuration</a>
   <ul class="collapse">
-  <li><a href="#official-documentation-and-access" id="toc-official-documentation-and-access" class="nav-link" data-scroll-target="#official-documentation-and-access">Official Documentation and Access</a></li>
-  <li><a href="#ai-integration-resources" id="toc-ai-integration-resources" class="nav-link" data-scroll-target="#ai-integration-resources">AI Integration Resources</a></li>
-  <li><a href="#community-and-support" id="toc-community-and-support" class="nav-link" data-scroll-target="#community-and-support">Community and Support</a></li>
+  <li><a href="#step-1-add-custom-domain-to-cdn" id="toc-step-1-add-custom-domain-to-cdn" class="nav-link" data-scroll-target="#step-1-add-custom-domain-to-cdn">Step 1: Add Custom Domain to CDN</a></li>
+  <li><a href="#step-2-dns-configuration" id="toc-step-2-dns-configuration" class="nav-link" data-scroll-target="#step-2-dns-configuration">Step 2: DNS Configuration</a></li>
+  <li><a href="#step-3-update-quarto-configuration" id="toc-step-3-update-quarto-configuration" class="nav-link" data-scroll-target="#step-3-update-quarto-configuration">Step 3: Update Quarto Configuration</a></li>
   </ul></li>
-  <li><a href="#about-the-speakers" id="toc-about-the-speakers" class="nav-link" data-scroll-target="#about-the-speakers">About the Speakers</a></li>
+  <li><a href="#advanced-configuration" id="toc-advanced-configuration" class="nav-link" data-scroll-target="#advanced-configuration">🔧 Advanced Configuration</a>
+  <ul class="collapse">
+  <li><a href="#environment-specific-deployments" id="toc-environment-specific-deployments" class="nav-link" data-scroll-target="#environment-specific-deployments">Environment-Specific Deployments</a></li>
+  <li><a href="#security-headers" id="toc-security-headers" class="nav-link" data-scroll-target="#security-headers">Security Headers</a></li>
+  <li><a href="#analytics-integration" id="toc-analytics-integration" class="nav-link" data-scroll-target="#analytics-integration">Analytics Integration</a></li>
+  </ul></li>
+  <li><a href="#monitoring-and-optimization" id="toc-monitoring-and-optimization" class="nav-link" data-scroll-target="#monitoring-and-optimization">📊 Monitoring and Optimization</a>
+  <ul class="collapse">
+  <li><a href="#cost-monitoring" id="toc-cost-monitoring" class="nav-link" data-scroll-target="#cost-monitoring">Cost Monitoring</a></li>
+  <li><a href="#performance-monitoring" id="toc-performance-monitoring" class="nav-link" data-scroll-target="#performance-monitoring">Performance Monitoring</a></li>
+  <li><a href="#backup-and-disaster-recovery" id="toc-backup-and-disaster-recovery" class="nav-link" data-scroll-target="#backup-and-disaster-recovery">Backup and Disaster Recovery</a></li>
+  </ul></li>
+  <li><a href="#troubleshooting-common-issues" id="toc-troubleshooting-common-issues" class="nav-link" data-scroll-target="#troubleshooting-common-issues">🔍 Troubleshooting Common Issues</a>
+  <ul class="collapse">
+  <li><a href="#files-not-serving-correctly" id="toc-files-not-serving-correctly" class="nav-link" data-scroll-target="#files-not-serving-correctly">1. Files Not Serving Correctly</a></li>
+  <li><a href="#cdn-not-updating" id="toc-cdn-not-updating" class="nav-link" data-scroll-target="#cdn-not-updating">2. CDN Not Updating</a></li>
+  <li><a href="#custom-domain-ssl-issues" id="toc-custom-domain-ssl-issues" class="nav-link" data-scroll-target="#custom-domain-ssl-issues">3. Custom Domain SSL Issues</a></li>
+  </ul></li>
+  <li><a href="#cost-optimization" id="toc-cost-optimization" class="nav-link" data-scroll-target="#cost-optimization">💰 Cost Optimization</a>
+  <ul class="collapse">
+  <li><a href="#storage-costs" id="toc-storage-costs" class="nav-link" data-scroll-target="#storage-costs">Storage Costs</a></li>
+  <li><a href="#cdn-costs" id="toc-cdn-costs" class="nav-link" data-scroll-target="#cdn-costs">CDN Costs</a></li>
+  </ul></li>
+  <li><a href="#migration-from-other-platforms" id="toc-migration-from-other-platforms" class="nav-link" data-scroll-target="#migration-from-other-platforms">🔄 Migration from Other Platforms</a>
+  <ul class="collapse">
+  <li><a href="#from-github-pages" id="toc-from-github-pages" class="nav-link" data-scroll-target="#from-github-pages">From GitHub Pages</a></li>
+  <li><a href="#from-netlify" id="toc-from-netlify" class="nav-link" data-scroll-target="#from-netlify">From Netlify</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">🎯 Conclusion</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">📚 Additional Resources</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/Markdown/01. QUARTO Doc/010.002 Deploying a Quarto site to Storage Accounts.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/Readme.html">Events</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/Readme.html">Build Conference 2025</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html">BRK127: AI and Dev Box Developer Potential</a></li><li class="breadcrumb-item"><a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.html">Summary</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
 
-
-
-
-<section id="unleash-developer-potential-with-ai-and-dev-box" class="level1">
-<h1>Unleash Developer Potential with AI and Dev Box</h1>
-<p><strong>Session Date:</strong> May 22, 2025<br>
-<strong>Duration:</strong> 1 hour<br>
-<strong>Venue:</strong> Build 2025 Conference - BRK127<br>
-<strong>Speakers:</strong> Denizhan Yigitbas (Senior Product Manager, Microsoft), Dhruv Chand (Product Manager, Microsoft)<br>
-<strong>Link:</strong> [Microsoft Build 2025 Session BRK127]</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/dev-box-ai-unleash-potential.png" class="img-fluid figure-img"></p>
-<figcaption>Microsoft Dev Box AI Integration</figcaption>
-</figure>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Tools</li><li class="breadcrumb-item">Markdown Documentation Guides</li><li class="breadcrumb-item"><a href="../../../tech/Markdown/01. QUARTO Doc/000.000 Using Quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../../tech/Markdown/01. QUARTO Doc/010.002 Deploying a Quarto site to Storage Accounts.html">Deploy to Azure Storage</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Deploying a Quarto Site to Azure Storage Accounts</h1>
 </div>
-<hr>
-<section id="executive-summary" class="level2">
-<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
-<p>Denizhan Yigitbas and Dhruv Chand demonstrate how Microsoft Dev Box revolutionizes AI development with its customizable, project-centric cloud workstation platform. This comprehensive session showcases the evolution from traditional VDI solutions to AI-native development environments, featuring live demonstrations of MCP server integration, serverless GPU compute, Azure AI Foundry integration, and enterprise-scale deployment strategies. The presentation reveals how Dev Box enables seamless experimentation, instant productivity, and enterprise control while supporting Microsoft’s 45,000+ internal developers.</p>
-<hr>
-</section>
-<section id="key-topics-covered" class="level2">
-<h2 class="anchored" data-anchor-id="key-topics-covered">Key Topics Covered</h2>
-<section id="the-development-environment-revolution" class="level3">
-<h3 class="anchored" data-anchor-id="the-development-environment-revolution">?? <strong>1. The Development Environment Revolution</strong></h3>
-<section id="the-historical-context" class="level4">
-<h4 class="anchored" data-anchor-id="the-historical-context">The Historical Context</h4>
-<p><strong>Denizhan’s Opening Reflection:</strong> &gt; “So, 30 years ago, this is what development looked like. Nice and simple. But this right here is what development looks like today. Developers are building in an environment where tools, frameworks, and models are evolving almost by the week.”</p>
-<p><strong>The Exponential Change Challenge:</strong></p>
-<pre><code>Modern Development Complexity:
-??? Weekly Evolution: Tools, frameworks, and models changing constantly
-??? AI Integration: Exponential change rate in AI-native development
-??? Traditional Limitations: Local machines not scaling for modern needs
-??? Setup Burden: Days/weeks of onboarding vs. desired minutes
-??? Experimentation Barriers: Complex setup preventing innovation</code></pre>
-</section>
-<section id="the-time-machine-exercise" class="level4">
-<h4 class="anchored" data-anchor-id="the-time-machine-exercise">The Time Machine Exercise</h4>
-<p><strong>Developer Onboarding Reality Check:</strong> &gt; “I want everyone to go back to the first day they got their development machine for whatever company that you’re working at right now. How long did it take you to set everything up? Five days? Ten days? One month?”</p>
-<p><strong>Traditional Environment Problems:</strong></p>
-<ul>
-<li><strong>Local machines not scaling</strong> - Performance and configuration limitations</li>
-<li><strong>Generic cloud desktops</strong> - Not optimized for developer-specific needs</li>
-<li><strong>Lengthy onboarding</strong> - Days/weeks instead of minutes for productivity</li>
-<li><strong>Management complexity</strong> - IT hurdles for monitoring and controlling dev teams</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="microsoft-dev-box-the-ai-native-solution" class="level3">
-<h3 class="anchored" data-anchor-id="microsoft-dev-box-the-ai-native-solution">?? <strong>2. Microsoft Dev Box: The AI-Native Solution</strong></h3>
-<section id="core-design-principles" class="level4">
-<h4 class="anchored" data-anchor-id="core-design-principles">Core Design Principles</h4>
-<p><strong>Revolutionary Development Platform:</strong> &gt; “That’s why we built Microsoft Dev Box. Cloud-powered, secure, a truly ready-to-code development environments designed for this AI-native world.”</p>
-<p><strong>Three Foundational Pillars:</strong></p>
-<pre><code>Dev Box Architecture:
-??? Developer Experience: High performance, fast startup, deep AI integrations
-??? Team Flexibility: Easy standardization and project-specific customization
-??? Enterprise Trust: IT guardrails without innovation barriers</code></pre>
-</section>
-<section id="beyond-traditional-vdi" class="level4">
-<h4 class="anchored" data-anchor-id="beyond-traditional-vdi">Beyond Traditional VDI</h4>
-<p><strong>Developer-Native Experience Features:</strong></p>
-<ul>
-<li><strong>Self-serve capabilities</strong> - Create machines as needed without tickets</li>
-<li><strong>Project-scoped customizations</strong> - Team-specific tools and configurations</li>
-<li><strong>Instant productivity</strong> - Ready-to-code environments from first login</li>
-<li><strong>AI-ready design</strong> - Built for AI-native workflows and experimentation</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="mcp-server-integration-conversational-development" class="level3">
-<h3 class="anchored" data-anchor-id="mcp-server-integration-conversational-development">?? <strong>3. MCP Server Integration: Conversational Development</strong></h3>
-<section id="model-context-protocol-revolution" class="level4">
-<h4 class="anchored" data-anchor-id="model-context-protocol-revolution">Model Context Protocol Revolution</h4>
-<p><strong>The MCP Transformation:</strong> &gt; “MCP, or Model Context Protocol, is basically coming in like a tidal wave… MCP is truly the super powerful protocol that empowers LLMs and agents to be able to interact with additional tools and APIs.”</p>
-<p><strong>From Responder to Doer:</strong></p>
-<ul>
-<li><strong>Natural Language Control</strong> - Interact with development environments through conversation</li>
-<li><strong>API Abstraction</strong> - No need to understand underlying APIs or infrastructure</li>
-<li><strong>Plain English Commands</strong> - Speak to your development environment directly</li>
-<li><strong>Tool Integration</strong> - LLMs evolve from text generators to active development partners</li>
-</ul>
-</section>
-<section id="live-mcp-server-demonstration" class="level4">
-<h4 class="anchored" data-anchor-id="live-mcp-server-demonstration">Live MCP Server Demonstration</h4>
-<p><strong>Conversational Project Discovery:</strong></p>
-<pre><code>Developer Query: "I want to create this AI chatbot that creates embeddings 
-of documents, and it's going to generate a summary of the best matching chunks. 
-Find which project do I work on."
 
-AI Response: "There's this AI explorations project. It's optimized for AI ML 
-workloads. It has that serverless GPU access, LLM API integrations with AI services."</code></pre>
-<p><strong>Automated Environment Creation:</strong></p>
+<div>
+  <div class="description">
+    Complete guide to deploying Quarto documentation to Azure Storage Account static websites with automated CI/CD
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dario Airoldi </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 15, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">December 22, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="deploying-a-quarto-site-to-azure-storage-accounts" class="level1">
+<h1>Deploying a Quarto Site to Azure Storage Accounts</h1>
+<p>This appendix provides a comprehensive guide to deploying your Quarto documentation site to Azure Storage Account Static Website hosting, including setup, configuration, CDN integration, and automated deployment workflows.</p>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">📋 Table of Contents</h2>
+<ul>
+<li><a href="#-overview">📖 Overview</a></li>
+<li><a href="#-prerequisites">✅ Prerequisites</a></li>
+<li><a href="#️-architecture-overview">🏗️ Architecture Overview</a></li>
+<li><a href="#️-setup-azure-infrastructure">⚙️ Setup Azure Infrastructure</a></li>
+<li><a href="#-deployment-methods">🚀 Deployment Methods</a></li>
+<li><a href="#-azure-cdn-integration">🌐 Azure CDN Integration</a></li>
+<li><a href="#-custom-domain-configuration">🌍 Custom Domain Configuration</a></li>
+<li><a href="#-advanced-configuration">🔧 Advanced Configuration</a></li>
+<li><a href="#-monitoring-and-optimization">📊 Monitoring and Optimization</a></li>
+<li><a href="#-troubleshooting-common-issues">🔍 Troubleshooting Common Issues</a></li>
+<li><a href="#-cost-optimization">💰 Cost Optimization</a></li>
+<li><a href="#-migration-from-other-platforms">🔄 Migration from Other Platforms</a></li>
+<li><a href="#-conclusion">🎯 Conclusion</a></li>
+<li><a href="#-additional-resources">📚 Additional Resources</a></li>
+</ul>
+</section>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">📖 Overview</h2>
+<p><strong>Azure Storage Account Static Website</strong> hosting provides a <mark>cost-effective</mark>, <mark>scalable</mark> solution for hosting Quarto documentation sites.</p>
+<p>It offers <mark>excellent performance</mark>, <mark>global distribution</mark> via Azure CDN, and seamless integration with Azure DevOps and GitHub Actions.</p>
+<section id="key-benefits" class="level3">
+<h3 class="anchored" data-anchor-id="key-benefits">Key Benefits</h3>
+<ul>
+<li>💰 <strong>Cost-effective</strong>: Pay only for storage and bandwidth used</li>
+<li>🚀 <strong>High performance</strong>: Built-in CDN integration</li>
+<li>🌍 <strong>Global distribution</strong>: Azure’s worldwide infrastructure</li>
+<li>🔒 <strong>Secure</strong>: HTTPS by default, custom domain support</li>
+<li>🔄 <strong>CI/CD integration</strong>: Works with Azure DevOps, GitHub Actions</li>
+<li>📈 <strong>Scalable</strong>: Handles traffic spikes automatically</li>
+</ul>
+</section>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">✅ Prerequisites</h2>
+<p>Before deploying to Azure Storage, ensure you have:</p>
+<ul>
+<li>Azure subscription with appropriate permissions</li>
+<li>Azure CLI or Azure PowerShell installed</li>
+<li>Quarto installed locally</li>
+<li>Basic understanding of Azure services</li>
+<li>Repository with your Quarto project (GitHub, Azure DevOps, etc.)</li>
+</ul>
+</section>
+<section id="architecture-overview" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-overview">🏗️ Architecture Overview</h2>
+<pre><code>┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Source Code   │───▶│  Build Pipeline  │───▶│ Azure Storage   │
+│ (GitHub/DevOps) │    │ (GitHub Actions/ │    │ Static Website  │
+└─────────────────┘    │  Azure DevOps)   │    └─────────────────┘
+                       └──────────────────┘              │
+                                                         ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│  Custom Domain  │◀───│   Azure CDN      │◀───│   $web Container│
+│  (docs.site.com)│    │ (Optional but    │    │   (HTML files)  │
+└─────────────────┘    │  Recommended)    │    └─────────────────┘
+                       └──────────────────┘</code></pre>
+</section>
+<section id="setup-azure-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="setup-azure-infrastructure">⚙️ Setup Azure Infrastructure</h2>
+<section id="step-1-create-storage-account" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-create-storage-account">Step 1: Create Storage Account</h3>
+<section id="using-azure-cli" class="level4">
+<h4 class="anchored" data-anchor-id="using-azure-cli">Using Azure CLI</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set variables</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">RESOURCE_GROUP</span><span class="op">=</span><span class="st">"docs-rg"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">STORAGE_ACCOUNT</span><span class="op">=</span><span class="st">"yourdocsstorage"</span>  <span class="co"># Must be globally unique</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="va">LOCATION</span><span class="op">=</span><span class="st">"East US"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create resource group</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> group create <span class="at">--name</span> <span class="va">$RESOURCE_GROUP</span> <span class="at">--location</span> <span class="st">"</span><span class="va">$LOCATION</span><span class="st">"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create storage account</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage account create <span class="dt">\</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="va">$STORAGE_ACCOUNT</span> <span class="dt">\</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--location</span> <span class="st">"</span><span class="va">$LOCATION</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--sku</span> Standard_LRS <span class="dt">\</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">--kind</span> StorageV2 <span class="dt">\</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">--access-tier</span> Hot</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable static website hosting</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage blob service-properties update <span class="dt">\</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">--account-name</span> <span class="va">$STORAGE_ACCOUNT</span> <span class="dt">\</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">--static-website</span> <span class="dt">\</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">--index-document</span> index.html <span class="dt">\</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">--404-document</span> 404.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="using-azure-powershell" class="level4">
+<h4 class="anchored" data-anchor-id="using-azure-powershell">Using Azure PowerShell</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set variables</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">$ResourceGroupName</span> <span class="op">=</span> <span class="st">"docs-rg"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">$StorageAccountName</span> <span class="op">=</span> <span class="st">"yourdocsstorage"</span>  <span class="co"># Must be globally unique</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">$Location</span> <span class="op">=</span> <span class="st">"East US"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create resource group</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>New-AzResourceGroup <span class="op">-</span>Name <span class="va">$ResourceGroupName</span> <span class="op">-</span>Location <span class="va">$Location</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create storage account</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="va">$storageAccount</span> <span class="op">=</span> New-AzStorageAccount `</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>ResourceGroupName <span class="va">$ResourceGroupName</span> `</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>Name <span class="va">$StorageAccountName</span> `</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>Location <span class="va">$Location</span> `</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>SkuName <span class="st">"Standard_LRS"</span> `</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>Kind <span class="st">"StorageV2"</span> `</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>AccessTier Hot</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable static website hosting</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>Enable-AzStorageStaticWebsite `</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>Context <span class="va">$storageAccount</span><span class="op">.</span><span class="fu">Context</span> `</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>IndexDocument <span class="st">"index.html"</span> `</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>ErrorDocument404Path <span class="st">"404.html"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="step-2-configure-quarto-for-azure-deployment" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-configure-quarto-for-azure-deployment">Step 2: Configure Quarto for Azure Deployment</h3>
+<p>Update your <code>_quarto.yml</code> for Azure hosting:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Documentation Site"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://yourdocsstorage.z13.web.core.windows.net"</span><span class="co">  # Your storage URL</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Technical documentation hosted on Azure"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background</span><span class="kw">:</span><span class="at"> primary</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> github</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/username/repository"</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">anchor-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">smooth-scroll</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-copy</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">html-math-method</span><span class="kw">:</span><span class="at"> katex</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">link-external-newwindow</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">    # Optimize for CDN caching</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">minimal</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="deployment-methods" class="level2">
+<h2 class="anchored" data-anchor-id="deployment-methods">🚀 Deployment Methods</h2>
+<section id="method-1-github-actions-deployment" class="level3">
+<h3 class="anchored" data-anchor-id="method-1-github-actions-deployment">Method 1: GitHub Actions Deployment</h3>
+<p>Create <code>.github/workflows/deploy-azure-storage.yml</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy Quarto Site to Azure Storage</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">AZURE_STORAGE_ACCOUNT</span><span class="kw">:</span><span class="at"> yourdocsstorage</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">AZURE_STORAGE_CONTAINER</span><span class="kw">:</span><span class="at"> $web</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build-and-deploy</span><span class="kw">:</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Setup Quarto</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/setup@v2</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">'release'</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="at">        </span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        # Add any additional dependencies</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        # pip install -r requirements.txt</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        # npm install</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Quarto project</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">run</span><span class="kw">:</span><span class="at"> quarto render</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Login to Azure</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> azure/login@v1</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">creds</span><span class="kw">:</span><span class="at"> ${{ secrets.AZURE_CREDENTIALS }}</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="at">        </span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload to Azure Storage</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> azure/CLI@v1</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="fu">        inlineScript</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>          # Remove existing files (optional - for clean deployment)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>          az storage blob delete-batch \</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>            --account-name $AZURE_STORAGE_ACCOUNT \</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>            --source $AZURE_STORAGE_CONTAINER \</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>            --pattern "*"</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>          # Upload new files</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>          az storage blob upload-batch \</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>            --account-name $AZURE_STORAGE_ACCOUNT \</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>            --destination $AZURE_STORAGE_CONTAINER \</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>            --source ./docs \</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>            --overwrite true</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>          # Set content types for proper serving</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>          az storage blob upload-batch \</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>            --account-name $AZURE_STORAGE_ACCOUNT \</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>            --destination $AZURE_STORAGE_CONTAINER \</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>            --source ./docs \</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>            --pattern "*.html" \</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>            --content-type "text/html" \</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>            --overwrite true</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>          az storage blob upload-batch \</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>            --account-name $AZURE_STORAGE_ACCOUNT \</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>            --destination $AZURE_STORAGE_CONTAINER \</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>            --source ./docs \</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>            --pattern "*.css" \</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>            --content-type "text/css" \</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>            --overwrite true</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>          az storage blob upload-batch \</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>            --account-name $AZURE_STORAGE_ACCOUNT \</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>            --destination $AZURE_STORAGE_CONTAINER \</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>            --source ./docs \</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>            --pattern "*.js" \</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>            --content-type "text/javascript" \</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>            --overwrite true</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Purge CDN Cache (if using CDN)</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> azure/CLI@v1</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="fu">        inlineScript</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>          # Replace with your CDN profile and endpoint names</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>          az cdn endpoint purge \</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>            --resource-group ${{ env.RESOURCE_GROUP }} \</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>            --profile-name your-cdn-profile \</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>            --name your-endpoint \</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>            --content-paths "/*"</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">continue-on-error</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="setting-up-azure-service-principal" class="level4">
+<h4 class="anchored" data-anchor-id="setting-up-azure-service-principal">Setting up Azure Service Principal</h4>
 <ol type="1">
-<li><strong>Project Metadata Analysis</strong> - AI examines available projects and their capabilities</li>
-<li><strong>Intelligent Recommendation</strong> - Suggests optimal project based on requirements</li>
-<li><strong>Customization Integration</strong> - “Make sure to include VS Code on that Dev Box and Python”</li>
-<li><strong>Instant Provisioning</strong> - Dev Box created with specified tools and configurations</li>
+<li><strong>Create Service Principal</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> ad sp create-for-rbac <span class="dt">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"QuartoDeployment"</span> <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--role</span> contributor <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--scopes</span> /subscriptions/{subscription-id}/resourceGroups/{resource-group} <span class="dt">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--sdk-auth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Add GitHub Secret</strong>:
+<ul>
+<li>Go to GitHub repository settings</li>
+<li>Add secret named <code>AZURE_CREDENTIALS</code></li>
+<li>Paste the JSON output from the service principal creation</li>
+</ul></li>
 </ol>
 </section>
-<section id="public-preview-announcement" class="level4">
-<h4 class="anchored" data-anchor-id="public-preview-announcement">Public Preview Announcement</h4>
-<p><strong>Dev Box MCP Server Capabilities:</strong></p>
-<ul>
-<li><strong>Search project metadata</strong> - Understand available development environments</li>
-<li><strong>Create Dev Boxes</strong> - Provision environments through natural language</li>
-<li><strong>Instant personalization</strong> - Customize environments within VS Code</li>
-<li><strong>Agent-based automation</strong> - Direct integration into development workflows</li>
-</ul>
-<hr>
 </section>
+<section id="method-2-azure-devops-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="method-2-azure-devops-pipeline">Method 2: Azure DevOps Pipeline</h3>
+<p>Create <code>azure-pipelines.yml</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">trigger</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> main</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pool</span><span class="kw">:</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">vmImage</span><span class="kw">:</span><span class="at"> </span><span class="st">'ubuntu-latest'</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">storageAccountName</span><span class="kw">:</span><span class="at"> </span><span class="st">'yourdocsstorage'</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">containerName</span><span class="kw">:</span><span class="at"> </span><span class="st">'$web'</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">stages</span><span class="kw">:</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> Build</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">displayName</span><span class="kw">:</span><span class="at"> </span><span class="st">'Build Quarto Site'</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">job</span><span class="kw">:</span><span class="at"> Build</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">displayName</span><span class="kw">:</span><span class="at"> </span><span class="st">'Build'</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">task</span><span class="kw">:</span><span class="at"> UsePythonVersion@0</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">inputs</span><span class="kw">:</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">versionSpec</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.x'</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">addToPath</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="at">        </span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="kw">    - </span><span class="fu">script</span><span class="kw">:</span><span class="at"> </span><span class="ch">|</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        # Install Quarto</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        sudo dpkg -i quarto-linux-amd64.deb</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">displayName</span><span class="kw">:</span><span class="at"> </span><span class="st">'Install Quarto'</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="kw">    - </span><span class="fu">script</span><span class="kw">:</span><span class="at"> </span><span class="ch">|</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        quarto render</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">displayName</span><span class="kw">:</span><span class="at"> </span><span class="st">'Render Quarto Project'</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">task</span><span class="kw">:</span><span class="at"> PublishBuildArtifacts@1</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">inputs</span><span class="kw">:</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">pathtoPublish</span><span class="kw">:</span><span class="at"> </span><span class="st">'docs'</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">artifactName</span><span class="kw">:</span><span class="at"> </span><span class="st">'quarto-site'</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="at">        </span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> Deploy</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">displayName</span><span class="kw">:</span><span class="at"> </span><span class="st">'Deploy to Azure Storage'</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">dependsOn</span><span class="kw">:</span><span class="at"> Build</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">condition</span><span class="kw">:</span><span class="at"> succeeded()</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">deployment</span><span class="kw">:</span><span class="at"> Deploy</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">displayName</span><span class="kw">:</span><span class="at"> </span><span class="st">'Deploy'</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span><span class="at"> </span><span class="st">'production'</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">runOnce</span><span class="kw">:</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">deploy</span><span class="kw">:</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">task</span><span class="kw">:</span><span class="at"> DownloadBuildArtifacts@0</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">inputs</span><span class="kw">:</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">buildType</span><span class="kw">:</span><span class="at"> </span><span class="st">'current'</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">downloadType</span><span class="kw">:</span><span class="at"> </span><span class="st">'single'</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">artifactName</span><span class="kw">:</span><span class="at"> </span><span class="st">'quarto-site'</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">downloadPath</span><span class="kw">:</span><span class="at"> </span><span class="st">'$(System.ArtifactsDirectory)'</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="at">              </span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">task</span><span class="kw">:</span><span class="at"> AzureCLI@2</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">displayName</span><span class="kw">:</span><span class="at"> </span><span class="st">'Deploy to Storage Account'</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">inputs</span><span class="kw">:</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">azureSubscription</span><span class="kw">:</span><span class="at"> </span><span class="st">'your-service-connection'</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">scriptType</span><span class="kw">:</span><span class="at"> </span><span class="st">'bash'</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">scriptLocation</span><span class="kw">:</span><span class="at"> </span><span class="st">'inlineScript'</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="fu">              inlineScript</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>                # Upload files to storage account</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>                az storage blob upload-batch \</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>                  --account-name $(storageAccountName) \</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>                  --destination $(containerName) \</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>                  --source $(System.ArtifactsDirectory)/quarto-site \</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>                  --overwrite true</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>                  </span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>                # Set proper content types</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>                az storage blob upload-batch \</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>                  --account-name $(storageAccountName) \</span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>                  --destination $(containerName) \</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>                  --source $(System.ArtifactsDirectory)/quarto-site \</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>                  --pattern "*.html" \</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>                  --content-type "text/html" \</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>                  --overwrite true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="serverless-gpu-compute-on-demand-ai-processing" class="level3">
-<h3 class="anchored" data-anchor-id="serverless-gpu-compute-on-demand-ai-processing">? <strong>4. Serverless GPU Compute: On-Demand AI Processing</strong></h3>
-<section id="the-gpu-accessibility-challenge" class="level4">
-<h4 class="anchored" data-anchor-id="the-gpu-accessibility-challenge">The GPU Accessibility Challenge</h4>
-<p><strong>Traditional GPU Problems:</strong> &gt; “Who thinks getting GPUs is easy? Raise your hands if you think it’s easy. Exactly. I hope nobody’s raising their hands… getting GPUs and configuring it and making sure it has everything that you need is not easy today.”</p>
-<p><strong>Serverless GPU Solution:</strong></p>
-<pre><code>Dev Box GPU Architecture:
-??? No Setup Required: Instant GPU access without configuration
-??? No Tickets Needed: Self-service provisioning for developers
-??? No Idle Spend: Pay only for actual computation time
-??? Enterprise Controls: Security, governance, and cost management
-??? On-Demand Provisioning: GPUs available exactly when needed</code></pre>
-</section>
-<section id="live-gpu-integration-demonstration" class="level4">
-<h4 class="anchored" data-anchor-id="live-gpu-integration-demonstration">Live GPU Integration Demonstration</h4>
-<p><strong>Dev Box GPU Shell Experience:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access GPU shell from Windows Terminal</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Select <span class="st">"Dev Box GPU shell"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Behind the scenes: Azure Container Apps + T4 GPU container</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Immediate connection with user credentials and security</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify GPU access</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> nvidia-smi</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows: GPU availability and specifications</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>VS Code Tunnel Integration:</strong></p>
-<ul>
-<li><strong>Remote GPU connection</strong> - VS Code directly connected to GPU compute</li>
-<li><strong>Seamless development</strong> - Local IDE experience with cloud GPU power</li>
-<li><strong>Instant provisioning</strong> - Container spins up automatically when needed</li>
-<li><strong>Automatic cleanup</strong> - GPU deallocated when connection closed</li>
-</ul>
-</section>
-<section id="embedding-generation-live-demo" class="level4">
-<h4 class="anchored" data-anchor-id="embedding-generation-live-demo">Embedding Generation Live Demo</h4>
-<p><strong>Real-World AI Workload:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Document processing with GPU acceleration</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> python document_embedder.py</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Processing documents: onboarding, architecture, deployment, bug triage</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: Vector embeddings generated using GPU compute</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Result: Massive vectors created quickly with GPU acceleration</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Serverless Benefits Demonstrated:</strong></p>
-<ul>
-<li><strong>Instant access</strong> - GPU available immediately when needed</li>
-<li><strong>No idle costs</strong> - Billing stops when GPU connection closed</li>
-<li><strong>Enterprise integration</strong> - Full security and governance maintained</li>
-<li><strong>Storage persistence</strong> - Coming soon with Dev Box Workspaces</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="azure-ai-foundry-integration-enterprise-ai-access" class="level3">
-<h3 class="anchored" data-anchor-id="azure-ai-foundry-integration-enterprise-ai-access">?? <strong>5. Azure AI Foundry Integration: Enterprise AI Access</strong></h3>
-<section id="seamless-ai-service-integration" class="level4">
-<h4 class="anchored" data-anchor-id="seamless-ai-service-integration">Seamless AI Service Integration</h4>
-<p><strong>Zero-Setup AI Access:</strong> &gt; “Microsoft Dev Box’s new integration with the Azure AI Foundry, that’s all abstracted away. You get secure enterprise-ready access to all the Foundry models directly inside of your Dev Box.”</p>
-<p><strong>Enterprise AI Benefits:</strong></p>
-<pre><code>AI Foundry Integration:
-??? Zero Setup: No API key management or model deployment
-??? Secure Access: Enterprise-ready security and governance
-??? Full Integration: Never leave Dev Box environment
-??? Governed Access: Fully managed and compliant AI services
-??? Developer Focus: Concentrate on logic and experience</code></pre>
-</section>
-<section id="live-ai-service-demonstration" class="level4">
-<h4 class="anchored" data-anchor-id="live-ai-service-demonstration">Live AI Service Demonstration</h4>
-<p><strong>Command-Line AI Management:</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access AI services directly from Dev Box</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> dev <span class="ex">box</span> ai</span>
+<section id="method-3-manual-deployment-with-azure-cli" class="level3">
+<h3 class="anchored" data-anchor-id="method-3-manual-deployment-with-azure-cli">Method 3: Manual Deployment with Azure CLI</h3>
+<p>For quick testing or one-off deployments:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Render site locally</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> List models: Available models from Azure AI Foundry</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> List deployments: Already deployed models for project</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Deploy model: Instant model deployment from command line</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Go to Foundry: Direct access to Azure AI Foundry portal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Real-Time Model Deployment:</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View available models</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> dev <span class="ex">box</span> ai list models</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Result: Full catalog of AI Foundry models</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check current deployments</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> dev <span class="ex">box</span> ai list deployments</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows: GPT-4.1 mini already deployed</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy additional model</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> dev <span class="ex">box</span> ai deploy gpt-4.1-nano</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Result: Instant deployment and availability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload to Azure Storage</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage blob upload-batch <span class="dt">\</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--account-name</span> yourdocsstorage <span class="dt">\</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--destination</span> <span class="st">'$web'</span> <span class="dt">\</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--source</span> ./docs <span class="dt">\</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--overwrite</span> true</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Set content types</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage blob upload-batch <span class="dt">\</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--account-name</span> yourdocsstorage <span class="dt">\</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--destination</span> <span class="st">'$web'</span> <span class="dt">\</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">--source</span> ./docs <span class="dt">\</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">--pattern</span> <span class="st">"*.html"</span> <span class="dt">\</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">--content-type</span> <span class="st">"text/html"</span> <span class="dt">\</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">--overwrite</span> true</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage blob upload-batch <span class="dt">\</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">--account-name</span> yourdocsstorage <span class="dt">\</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">--destination</span> <span class="st">'$web'</span> <span class="dt">\</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">--source</span> ./docs <span class="dt">\</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">--pattern</span> <span class="st">"*.css"</span> <span class="dt">\</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">--content-type</span> <span class="st">"text/css"</span> <span class="dt">\</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">--overwrite</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="qa-bot-application-integration" class="level4">
-<h4 class="anchored" data-anchor-id="qa-bot-application-integration">QA Bot Application Integration</h4>
-<p><strong>End-to-End AI Application:</strong></p>
+</section>
+<section id="azure-cdn-integration" class="level2">
+<h2 class="anchored" data-anchor-id="azure-cdn-integration">🌐 Azure CDN Integration</h2>
+<section id="why-use-azure-cdn" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-azure-cdn">Why Use Azure CDN?</h3>
 <ul>
-<li><strong>Document Processing</strong> - Convert internal docs to embeddings using GPU</li>
-<li><strong>AI-Powered Search</strong> - Find relevant document chunks for queries</li>
-<li><strong>LLM Summarization</strong> - Generate responses using deployed AI models</li>
-<li><strong>Enterprise Integration</strong> - Seamless access to AI services without configuration</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="manual-snapshots-developer-safety-net" class="level3">
-<h3 class="anchored" data-anchor-id="manual-snapshots-developer-safety-net">?? <strong>6. Manual Snapshots: Developer Safety Net</strong></h3>
-<section id="the-oh-shoot-moment-solution" class="level4">
-<h4 class="anchored" data-anchor-id="the-oh-shoot-moment-solution">The “Oh Shoot” Moment Solution</h4>
-<p><strong>Risk-Free Experimentation:</strong> &gt; “Can you think about that last time that you had an ‘oh shoot’ moment in your machine? I often have this feeling of just being like undo, undo, undo, undo, undo, undo, undo, until I get back to my original state.”</p>
-<p><strong>Manual Snapshots Features:</strong></p>
-<pre><code>Developer Safety Net:
-??? One-Click Snapshots: Create restore points at any moment
-??? Self-Service Restoration: No help desk tickets required
-??? Time-Based Recovery: Restore to any previous state
-??? No Time Lost: Instant recovery from problematic states
-??? Experimentation Freedom: Break things without fear</code></pre>
-<p><strong>Modern Development Paradigm:</strong></p>
-<ul>
-<li><strong>Speed with safety</strong> - Fast iteration without risk of data loss</li>
-<li><strong>Developer autonomy</strong> - Self-service snapshot and restore capabilities</li>
-<li><strong>Seamless integration</strong> - Built into Dev Box platform without additional tools</li>
-<li><strong>Risk elimination</strong> - Experimentation without fear of irreversible changes</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="vs-code-direct-integration" class="level3">
-<h3 class="anchored" data-anchor-id="vs-code-direct-integration">?? <strong>7. VS Code Direct Integration</strong></h3>
-<section id="eliminating-connection-friction" class="level4">
-<h4 class="anchored" data-anchor-id="eliminating-connection-friction">Eliminating Connection Friction</h4>
-<p><strong>Local Development Experience:</strong> &gt; “Today, we’re excited to announce that you can now connect to Dev Boxes directly from VS Code. This means that you don’t have to jump through portals, you don’t have to even RDP connect at all.”</p>
-<p><strong>One-Click Development:</strong></p>
-<pre><code>VS Code Integration Benefits:
-??? No Portal Navigation: Direct connection from VS Code
-??? No RDP Required: Native development experience
-??? Local Feel: Extensions, workflows, and preferences preserved
-??? Cloud Power: Dev Box compute, storage, and networking
-??? Seamless Transition: Switch between local and cloud effortlessly</code></pre>
-<p><strong>Hybrid Development Experience:</strong></p>
-<ul>
-<li><strong>Local familiarity</strong> - Keep personal extensions and customizations</li>
-<li><strong>Cloud capabilities</strong> - Access to enterprise resources and private networks</li>
-<li><strong>Performance scaling</strong> - Leverage cloud compute for intensive workloads</li>
-<li><strong>Unified workflow</strong> - Single tool for local and cloud development</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="platform-for-teams-customization-at-scale" class="level3">
-<h3 class="anchored" data-anchor-id="platform-for-teams-customization-at-scale">??? <strong>8. Platform for Teams: Customization at Scale</strong></h3>
-<section id="the-onboarding-challenge" class="level4">
-<h4 class="anchored" data-anchor-id="the-onboarding-challenge">The Onboarding Challenge</h4>
-<p><strong>Dhruv’s Team Management Perspective:</strong> &gt; “If you’re a developer like me, you know how frustrating it could be to get started working on a new repository for the first time. You have to maybe read a long readme file, maybe bribe a co-worker over lunch to show you how to set it up.”</p>
-<p><strong>Organizational Impact:</strong></p>
-<ul>
-<li><strong>Time Accumulation</strong> - Setup time multiplied across development teams</li>
-<li><strong>Project Uniqueness</strong> - Every team has specific toolchain requirements</li>
-<li><strong>IT Limitations</strong> - One-size-fits-all solutions slow everyone down</li>
-<li><strong>Maintenance Burden</strong> - Keeping setup instructions current and accurate</li>
+<li><strong>Global Performance</strong>: Content cached at edge locations worldwide</li>
+<li><strong>Custom Domain Support</strong>: Use your own domain with SSL</li>
+<li><strong>Compression</strong>: Automatic gzip compression</li>
+<li><strong>Caching Control</strong>: Fine-grained cache control</li>
+<li><strong>DDoS Protection</strong>: Built-in protection against attacks</li>
 </ul>
 </section>
-<section id="project-centric-customization" class="level4">
-<h4 class="anchored" data-anchor-id="project-centric-customization">Project-Centric Customization</h4>
-<p><strong>Delegated Control Model:</strong></p>
-<pre><code>Team Customization Architecture:
-??? IT Foundation: Base security, networking, and compliance
-??? Project Delegation: Team leads control project-specific tools
-??? Self-Service Management: No tickets required for team changes
-??? Isolated Environments: Projects don't interfere with each other
-??? Common Base: Shared security and governance policies</code></pre>
+<section id="setting-up-azure-cdn" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-azure-cdn">Setting up Azure CDN</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create CDN profile</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn profile create <span class="dt">\</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--sku</span> Standard_Microsoft</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create CDN endpoint</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn endpoint create <span class="dt">\</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">--origin</span> yourdocsstorage.z13.web.core.windows.net <span class="dt">\</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--origin-host-header</span> yourdocsstorage.z13.web.core.windows.net</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure caching rules</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn endpoint rule add <span class="dt">\</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">--order</span> 1 <span class="dt">\</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">--rule-name</span> <span class="st">"CacheHTML"</span> <span class="dt">\</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">--match-variable</span> RequestUri <span class="dt">\</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">--operator</span> EndsWith <span class="dt">\</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">--match-values</span> <span class="st">"*.html"</span> <span class="dt">\</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">--action-name</span> CacheExpiration <span class="dt">\</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cache-behavior</span> Override <span class="dt">\</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cache-duration</span> <span class="st">"1.00:00:00"</span>  <span class="co"># 1 day</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="copilot-powered-image-creation" class="level4">
-<h4 class="anchored" data-anchor-id="copilot-powered-image-creation">Copilot-Powered Image Creation</h4>
-<p><strong>AI-Assisted Environment Definition:</strong></p>
-<pre><code>Copilot Automation Flow:
-Developer: "Copilot, create a new Dev Box image definition for this repository."
+<section id="cdn-configuration-for-quarto-sites" class="level3">
+<h3 class="anchored" data-anchor-id="cdn-configuration-for-quarto-sites">CDN Configuration for Quarto Sites</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up compression</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn endpoint update <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--content-types-to-compress</span> <span class="dt">\</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text/html"</span> <span class="dt">\</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text/css"</span> <span class="dt">\</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"application/javascript"</span> <span class="dt">\</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text/javascript"</span> <span class="dt">\</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"application/json"</span> <span class="dt">\</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text/plain"</span> <span class="dt">\</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--is-compression-enabled</span> true</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure HTTPS redirect</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn endpoint update <span class="dt">\</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">--https-redirect</span> Enabled</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="custom-domain-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="custom-domain-configuration">🌍 Custom Domain Configuration</h2>
+<section id="step-1-add-custom-domain-to-cdn" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-add-custom-domain-to-cdn">Step 1: Add Custom Domain to CDN</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add custom domain to CDN endpoint</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn custom-domain create <span class="dt">\</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-domain"</span> <span class="dt">\</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--endpoint-name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--hostname</span> <span class="st">"docs.yoursite.com"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable HTTPS on custom domain</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn custom-domain enable-https <span class="dt">\</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-domain"</span> <span class="dt">\</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">--endpoint-name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2-dns-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-dns-configuration">Step 2: DNS Configuration</h3>
+<p>Configure your DNS provider:</p>
+<pre class="text"><code># CNAME record for subdomain
+docs.yoursite.com. CNAME docs-endpoint.azureedge.net.
 
-Copilot Analysis:
-
-- Repository structure examination
-- README file analysis
-- Technology stack detection
-- Dependency identification
-
-Generated Configuration:
-
-- Docker installation via WinGet
-- Visual Studio Code with extensions
-- .NET SDK with appropriate version
-- Git configuration and setup
-- PowerShell automation scripts</code></pre>
-<p><strong>Image Definition as Code:</strong></p>
-<ul>
-<li><strong>Version Control</strong> - Image definitions stored in repository</li>
-<li><strong>Team Distribution</strong> - Developers inherit project-specific environments</li>
-<li><strong>Instant Productivity</strong> - Ready-to-code environments from first creation</li>
-<li><strong>Optimization Pipeline</strong> - YAML definitions compiled to custom images</li>
-</ul>
+# Or for apex domain, use Azure DNS
+@. ALIAS docs-endpoint.azureedge.net.</code></pre>
 </section>
-<section id="microsoft-scale-success" class="level4">
-<h4 class="anchored" data-anchor-id="microsoft-scale-success">Microsoft Scale Success</h4>
-<p><strong>Internal Adoption Metrics:</strong></p>
-<pre><code>Microsoft Dev Box Usage:
-??? 45,000+ Developers: Active user base across Microsoft
-??? 65% Primary Usage: Developers using as main development machine
-??? 200+ Projects: Team-maintained custom environments
-??? Self-Service Model: Teams manage their own image definitions
-??? Instant Readiness: No setup time for new repositories</code></pre>
-<hr>
+<section id="step-3-update-quarto-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-update-quarto-configuration">Step 3: Update Quarto Configuration</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://docs.yoursite.com"</span><span class="co">  # Your custom domain</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="enterprise-trust-governance-at-scale" class="level3">
-<h3 class="anchored" data-anchor-id="enterprise-trust-governance-at-scale">?? <strong>9. Enterprise Trust: Governance at Scale</strong></h3>
-<section id="balancing-innovation-and-control" class="level4">
-<h4 class="anchored" data-anchor-id="balancing-innovation-and-control">Balancing Innovation and Control</h4>
-<p><strong>The Enterprise Challenge:</strong> &gt; “There’s really a bigger picture that we need to talk about… this balancing act between… developers want the agility… performance… freedom to innovate. But on the other side, you have platform engineers and IT… accountable for the security, the governance, and the cost.”</p>
-<p><strong>Enterprise Foundation Pillars:</strong></p>
-<pre><code>Dev Box Enterprise Architecture:
-??? Project Management: Secure isolation with delegated control
-??? Device Management: Global fleet management at scale
-??? Cost Controls: Optimized spend without team slowdown
-??? Security Integration: Built-in enterprise security tools
-??? Compliance Support: Regulatory and policy adherence</code></pre>
+<section id="advanced-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-configuration">🔧 Advanced Configuration</h2>
+<section id="environment-specific-deployments" class="level3">
+<h3 class="anchored" data-anchor-id="environment-specific-deployments">Environment-Specific Deployments</h3>
+<p>Create different storage accounts for different environments:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># _quarto-dev.yml</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://devdocsstorage.z13.web.core.windows.net"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># _quarto-prod.yml</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://docs.yoursite.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Deploy with environment-specific configuration:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Development</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="at">--profile</span> dev</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Production</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="at">--profile</span> prod</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="fujitsu-global-deployment-case-study" class="level4">
-<h4 class="anchored" data-anchor-id="fujitsu-global-deployment-case-study">Fujitsu Global Deployment Case Study</h4>
-<p><strong>Enterprise Success Story:</strong></p>
-<ul>
-<li><strong>Thousands of developers</strong> - Global rollout across Fujitsu worldwide</li>
-<li><strong>Immediate productivity</strong> - Pre-configured environments eliminate setup time</li>
-<li><strong>GitHub Copilot integration</strong> - AI-powered development acceleration</li>
-<li><strong>Operations efficiency</strong> - Reduced hardware management burden</li>
-<li><strong>Secure onboarding</strong> - Streamlined developer access with governance</li>
-</ul>
+<section id="security-headers" class="level3">
+<h3 class="anchored" data-anchor-id="security-headers">Security Headers</h3>
+<p>Add security headers using CDN rules:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add security headers via CDN rules</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn endpoint rule add <span class="dt">\</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--order</span> 2 <span class="dt">\</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--rule-name</span> <span class="st">"SecurityHeaders"</span> <span class="dt">\</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--action-name</span> ModifyResponseHeader <span class="dt">\</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--header-action</span> Append <span class="dt">\</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--header-name</span> <span class="st">"X-Frame-Options"</span> <span class="dt">\</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--header-value</span> <span class="st">"DENY"</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn endpoint rule add <span class="dt">\</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">--order</span> 3 <span class="dt">\</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">--rule-name</span> <span class="st">"ContentSecurityPolicy"</span> <span class="dt">\</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">--action-name</span> ModifyResponseHeader <span class="dt">\</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">--header-action</span> Append <span class="dt">\</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">--header-name</span> <span class="st">"Content-Security-Policy"</span> <span class="dt">\</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">--header-value</span> <span class="st">"default-src 'self'; script-src 'self' 'unsafe-inline';"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="project-policies-and-network-isolation" class="level4">
-<h4 class="anchored" data-anchor-id="project-policies-and-network-isolation">Project Policies and Network Isolation</h4>
-<p><strong>General Availability Announcement:</strong></p>
-<pre><code>Project Policy Controls:
-??? Machine SKUs: Define allowed compute configurations per project
-??? Base Images: Control available operating systems and tools
-??? Network Access: Isolated virtual networks per project
-??? Resource Limits: Cost and usage controls scoped by project
-??? Delegated Management: Team autonomy within IT guardrails</code></pre>
-<p><strong>Azure Virtual Network Integration:</strong></p>
-<ul>
-<li><strong>Project isolation</strong> - Secure networks restricting resource access</li>
-<li><strong>Existing topology integration</strong> - Seamless integration with enterprise networking</li>
-<li><strong>Firewall compatibility</strong> - Works with centralized security configurations</li>
-<li><strong>Routing flexibility</strong> - Traffic flows through existing network policies</li>
-</ul>
-</section>
-<section id="global-scale-and-availability" class="level4">
-<h4 class="anchored" data-anchor-id="global-scale-and-availability">Global Scale and Availability</h4>
-<p><strong>Expanded Regional Support:</strong></p>
-<ul>
-<li><strong>23 Azure regions</strong> - Global availability for high performance</li>
-<li><strong>New regions added</strong> - Spain Central and UAE North</li>
-<li><strong>Regulatory compliance</strong> - Local data residency requirements</li>
-<li><strong>Performance optimization</strong> - Reduced latency through regional deployment</li>
-</ul>
-</section>
-<section id="cost-management-and-optimization" class="level4">
-<h4 class="anchored" data-anchor-id="cost-management-and-optimization">Cost Management and Optimization</h4>
-<p><strong>Financial Control Features:</strong></p>
-<pre><code>Cost Optimization Tools:
-??? Auto-Stop Schedules: Automated shutdown to prevent idle spend
-??? Hibernation on Disconnect: Immediate resource conservation
-??? Project-Level Limits: Budget controls per development team
-??? Usage Monitoring: Detailed cost tracking and reporting
-??? Predictable Budgets: Enterprise financial planning support</code></pre>
-<p><strong>General Availability Features:</strong></p>
-<ul>
-<li><strong>Auto-stop scheduling</strong> - Enterprise-wide automated shutdown policies</li>
-<li><strong>Hibernate on disconnect</strong> - Instant resource conservation when developers step away</li>
-<li><strong>Landing Zone Accelerator</strong> - Enterprise deployment templates and best practices</li>
-<li><strong>Infrastructure as Code</strong> - Pre-built templates for rapid enterprise rollout</li>
-</ul>
-<hr>
+<section id="analytics-integration" class="level3">
+<h3 class="anchored" data-anchor-id="analytics-integration">Analytics Integration</h3>
+<p>Enable Azure Application Insights for detailed analytics:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Add to _includes/analytics.html --&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">"text/javascript"</span><span class="dt">&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> appInsights<span class="op">=</span><span class="bu">window</span><span class="op">.</span><span class="at">appInsights</span><span class="op">||</span><span class="kw">function</span>(a){</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">b</span>(a){c[a]<span class="op">=</span><span class="kw">function</span>(){<span class="kw">var</span> b<span class="op">=</span><span class="kw">arguments</span><span class="op">;</span>c<span class="op">.</span><span class="at">queue</span><span class="op">.</span><span class="fu">push</span>(<span class="kw">function</span>(){c[a]<span class="op">.</span><span class="fu">apply</span>(c<span class="op">,</span>b)})}}<span class="kw">var</span> c<span class="op">=</span>{<span class="dt">config</span><span class="op">:</span>a}<span class="op">,</span>d<span class="op">=</span><span class="bu">document</span><span class="op">,</span>e<span class="op">=</span><span class="bu">window</span><span class="op">;</span><span class="pp">setTimeout</span>(<span class="kw">function</span>(){<span class="kw">var</span> b<span class="op">=</span>d<span class="op">.</span><span class="fu">createElement</span>(<span class="st">"script"</span>)<span class="op">;</span>b<span class="op">.</span><span class="at">src</span><span class="op">=</span>a<span class="op">.</span><span class="at">url</span><span class="op">||</span><span class="st">"https://az416426.vo.msecnd.net/scripts/a/ai.0.js"</span><span class="op">,</span>d<span class="op">.</span><span class="fu">getElementsByTagName</span>(<span class="st">"script"</span>)[<span class="dv">0</span>]<span class="op">.</span><span class="at">parentNode</span><span class="op">.</span><span class="fu">appendChild</span>(b)})<span class="op">;</span><span class="cf">try</span>{c<span class="op">.</span><span class="at">cookie</span><span class="op">=</span>d<span class="op">.</span><span class="at">cookie</span>}<span class="cf">catch</span>(a){}c<span class="op">.</span><span class="at">queue</span><span class="op">=</span>[]<span class="op">;</span><span class="cf">for</span>(<span class="kw">var</span> f<span class="op">=</span>[<span class="st">"Event"</span><span class="op">,</span><span class="st">"Exception"</span><span class="op">,</span><span class="st">"Metric"</span><span class="op">,</span><span class="st">"PageView"</span><span class="op">,</span><span class="st">"Trace"</span><span class="op">,</span><span class="st">"Dependency"</span>]<span class="op">;</span>f<span class="op">.</span><span class="at">length</span><span class="op">;</span>)<span class="fu">b</span>(<span class="st">"track"</span><span class="op">+</span>f<span class="op">.</span><span class="fu">pop</span>())<span class="op">;</span><span class="cf">if</span>(<span class="fu">b</span>(<span class="st">"setAuthenticatedUserContext"</span>)<span class="op">,</span><span class="fu">b</span>(<span class="st">"clearAuthenticatedUserContext"</span>)<span class="op">,</span><span class="fu">b</span>(<span class="st">"startTrackEvent"</span>)<span class="op">,</span><span class="fu">b</span>(<span class="st">"stopTrackEvent"</span>)<span class="op">,</span><span class="fu">b</span>(<span class="st">"startTrackPage"</span>)<span class="op">,</span><span class="fu">b</span>(<span class="st">"stopTrackPage"</span>)<span class="op">,</span><span class="fu">b</span>(<span class="st">"flush"</span>)<span class="op">,!</span>a<span class="op">.</span><span class="at">disableExceptionTracking</span>){f<span class="op">=</span><span class="st">"onerror"</span><span class="op">,</span><span class="fu">b</span>(<span class="st">"_"</span><span class="op">+</span>f)<span class="op">;</span><span class="kw">var</span> g<span class="op">=</span>e[f]<span class="op">;</span>e[f]<span class="op">=</span><span class="kw">function</span>(a<span class="op">,</span>b<span class="op">,</span>d<span class="op">,</span>e<span class="op">,</span>h){<span class="kw">var</span> i<span class="op">=</span>g<span class="op">&amp;&amp;</span><span class="fu">g</span>(a<span class="op">,</span>b<span class="op">,</span>d<span class="op">,</span>e<span class="op">,</span>h)<span class="op">;</span><span class="cf">return</span><span class="op">!</span><span class="dv">0</span><span class="op">!==</span>i<span class="op">&amp;&amp;</span>c[<span class="st">"_"</span><span class="op">+</span>f](a<span class="op">,</span>b<span class="op">,</span>d<span class="op">,</span>e<span class="op">,</span>h)<span class="op">,</span>i}}<span class="cf">return</span> c</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    }({</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">instrumentationKey</span><span class="op">:</span> <span class="st">"YOUR_INSTRUMENTATION_KEY"</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="bu">window</span><span class="op">.</span><span class="at">appInsights</span><span class="op">=</span>appInsights<span class="op">,</span>appInsights<span class="op">.</span><span class="at">queue</span><span class="op">&amp;&amp;</span><span class="dv">0</span><span class="op">===</span>appInsights<span class="op">.</span><span class="at">queue</span><span class="op">.</span><span class="at">length</span><span class="op">&amp;&amp;</span>appInsights<span class="op">.</span><span class="fu">trackPageView</span>()<span class="op">;</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Include in Quarto configuration:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-in-header</span><span class="kw">:</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> _includes/analytics.html</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
+<section id="monitoring-and-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="monitoring-and-optimization">📊 Monitoring and Optimization</h2>
+<section id="cost-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="cost-monitoring">Cost Monitoring</h3>
+<p>Set up cost alerts in Azure:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create budget for storage account</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> consumption budget create <span class="dt">\</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--budget-name</span> <span class="st">"docs-site-budget"</span> <span class="dt">\</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--amount</span> 50 <span class="dt">\</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--time-grain</span> Monthly <span class="dt">\</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--start-date</span> <span class="st">"2025-01-01T00:00:00Z"</span> <span class="dt">\</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--end-date</span> <span class="st">"2025-12-31T00:00:00Z"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="session-highlights" class="level2">
-<h2 class="anchored" data-anchor-id="session-highlights">Session Highlights</h2>
-<blockquote class="blockquote">
-<p><em>“Developers are building in an environment where tools, frameworks, and models are evolving almost by the week. And in this era of AI, this change isn’t just fast. It’s truly exponential right now.”</em> - Denizhan Yigitbas</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>“MCP is truly the super powerful protocol that empowers LLMs and agents to be able to interact with additional tools and APIs. So suddenly an LLM just evolved from being this natural language responder to a true doer.”</em> - Denizhan Yigitbas</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>“Who thinks getting GPUs is easy? Raise your hands if you think it’s easy. Exactly.”</em> - Denizhan Yigitbas</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>“We have over 45,000 developers using Dev Box, with over 65 of them using it as their primary dev machine.”</em> - Dhruv Chand</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><em>“There’s really a bigger picture… this balancing act between… developers want the agility… but on the other side, you have platform engineers and IT… accountable for the security, the governance, and the cost.”</em> - Denizhan Yigitbas</p>
-</blockquote>
-<hr>
+<section id="performance-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="performance-monitoring">Performance Monitoring</h3>
+<p>Monitor your site performance:</p>
+<ol type="1">
+<li><strong>Azure Monitor</strong>: Set up alerts for storage account metrics</li>
+<li><strong>Application Insights</strong>: Track user behavior and performance</li>
+<li><strong>CDN Analytics</strong>: Monitor cache hit ratios and bandwidth usage</li>
+</ol>
 </section>
-<section id="technical-architecture-deep-dive" class="level2">
-<h2 class="anchored" data-anchor-id="technical-architecture-deep-dive">Technical Architecture Deep Dive</h2>
-<section id="dev-box-ai-native-platform" class="level3">
-<h3 class="anchored" data-anchor-id="dev-box-ai-native-platform">Dev Box AI-Native Platform</h3>
-<pre><code>Cloud Workstation Architecture:
-??? MCP Server Integration: Natural language environment control
-??? Serverless GPU Compute: On-demand AI processing capabilities
-??? Azure AI Foundry: Enterprise AI services integration
-??? Manual Snapshots: Developer safety and experimentation support
-??? VS Code Direct Connect: Seamless local-to-cloud development</code></pre>
-</section>
-<section id="team-customization-platform" class="level3">
-<h3 class="anchored" data-anchor-id="team-customization-platform">Team Customization Platform</h3>
-<pre><code>Project-Centric Development:
-??? Image Definition as Code: YAML-based environment specifications
-??? Copilot-Powered Creation: AI-assisted configuration generation
-??? Custom Image Pipeline: Automated optimization and deployment
-??? Project Delegation: Team autonomy within enterprise guardrails
-??? Self-Service Management: No IT tickets for team customization</code></pre>
-</section>
-<section id="enterprise-governance-framework" class="level3">
-<h3 class="anchored" data-anchor-id="enterprise-governance-framework">Enterprise Governance Framework</h3>
-<pre><code>Enterprise Control Architecture:
-??? Project Policies: Granular controls per development team
-??? Network Isolation: Azure Virtual Network integration
-??? Cost Management: Auto-stop, hibernation, and budget controls
-??? Security Integration: Microsoft Intune, Entra ID, Defender
-??? Global Deployment: 23 Azure regions with compliance support</code></pre>
-<hr>
+<section id="backup-and-disaster-recovery" class="level3">
+<h3 class="anchored" data-anchor-id="backup-and-disaster-recovery">Backup and Disaster Recovery</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable soft delete for blobs</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage account blob-service-properties update <span class="dt">\</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--account-name</span> <span class="va">$STORAGE_ACCOUNT</span> <span class="dt">\</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--enable-delete-retention</span> true <span class="dt">\</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--delete-retention-days</span> 30</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable versioning</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage account blob-service-properties update <span class="dt">\</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--account-name</span> <span class="va">$STORAGE_ACCOUNT</span> <span class="dt">\</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--enable-versioning</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="implementation-guidelines" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-guidelines">Implementation Guidelines</h2>
-<section id="getting-started-with-dev-box" class="level3">
-<h3 class="anchored" data-anchor-id="getting-started-with-dev-box">Getting Started with Dev Box</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>**Prerequisites:**</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Azure subscription with Dev Box service access</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Microsoft Entra ID tenant for identity management</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Network planning for project isolation</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cost management policies and budgets</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>**Basic Setup Process:**</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Create Dev Box dev center in Azure portal</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Define projects with appropriate policies</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Configure base images and customizations</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Set up network isolation and security</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Enable developer self-service access</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="troubleshooting-common-issues" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-common-issues">🔍 Troubleshooting Common Issues</h2>
+<section id="files-not-serving-correctly" class="level3">
+<h3 class="anchored" data-anchor-id="files-not-serving-correctly">1. Files Not Serving Correctly</h3>
+<p><strong>Problem</strong>: HTML files download instead of displaying.</p>
+<p><strong>Solution</strong>: Set correct content types during upload:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> storage blob upload-batch <span class="dt">\</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--account-name</span> <span class="va">$STORAGE_ACCOUNT</span> <span class="dt">\</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--destination</span> <span class="st">'$web'</span> <span class="dt">\</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--source</span> ./docs <span class="dt">\</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--pattern</span> <span class="st">"*.html"</span> <span class="dt">\</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--content-type</span> <span class="st">"text/html"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="ai-integration-best-practices" class="level3">
-<h3 class="anchored" data-anchor-id="ai-integration-best-practices">AI Integration Best Practices</h3>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>**MCP Server Implementation:**</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Install Dev Box MCP server in public preview</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Configure VS Code with agent mode for natural language control</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Train developers on conversational environment management</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement governance for AI-assisted environment creation</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>**Serverless GPU Optimization:**</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Plan GPU workloads for cost efficiency</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement automatic cleanup policies</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor usage patterns for optimization</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Design workflows for persistent storage needs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="cdn-not-updating" class="level3">
+<h3 class="anchored" data-anchor-id="cdn-not-updating">2. CDN Not Updating</h3>
+<p><strong>Problem</strong>: Changes don’t appear due to CDN caching.</p>
+<p><strong>Solution</strong>: Purge CDN cache after deployment:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn endpoint purge <span class="dt">\</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span> <span class="dt">\</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--content-paths</span> <span class="st">"/*"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="team-customization-strategy" class="level3">
-<h3 class="anchored" data-anchor-id="team-customization-strategy">Team Customization Strategy</h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>**Image Definition Development:**</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use Copilot for initial configuration generation</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Version control image definitions with source code</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement testing pipelines for custom images</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Plan optimization cycles for performance improvement</span>
+<section id="custom-domain-ssl-issues" class="level3">
+<h3 class="anchored" data-anchor-id="custom-domain-ssl-issues">3. Custom Domain SSL Issues</h3>
+<p><strong>Problem</strong>: HTTPS not working on custom domain.</p>
+<p><strong>Solutions</strong>:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check certificate status</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn custom-domain show <span class="dt">\</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"docs-domain"</span> <span class="dt">\</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--endpoint-name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>**Project Management:**</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Delegate project control to engineering leads</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Establish base image policies and security requirements</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement cost controls and monitoring per project</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create templates for common development scenarios</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Validate domain ownership</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="ex">az</span> cdn custom-domain list <span class="dt">\</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--endpoint-name</span> <span class="st">"docs-endpoint"</span> <span class="dt">\</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--profile-name</span> <span class="st">"docs-cdn-profile"</span> <span class="dt">\</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">--resource-group</span> <span class="va">$RESOURCE_GROUP</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="future-roadmap-and-announcements" class="level2">
-<h2 class="anchored" data-anchor-id="future-roadmap-and-announcements">Future Roadmap and Announcements</h2>
-<section id="general-availability-features" class="level3">
-<h3 class="anchored" data-anchor-id="general-availability-features">General Availability Features</h3>
+<section id="cost-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="cost-optimization">💰 Cost Optimization</h2>
+<section id="storage-costs" class="level3">
+<h3 class="anchored" data-anchor-id="storage-costs">Storage Costs</h3>
 <ul>
-<li><strong>Team Customizations and Imaging</strong> - Configuration as code with single-click optimization</li>
-<li><strong>Project Policies</strong> - Granular enterprise controls per development team</li>
-<li><strong>Auto-Stop Schedules</strong> - Enterprise-wide cost optimization policies</li>
-<li><strong>Hibernation on Disconnect</strong> - Instant resource conservation</li>
+<li>Use <strong>Hot</strong> access tier for frequently accessed documentation</li>
+<li>Enable <strong>lifecycle management</strong> for old versions</li>
+<li>Monitor storage usage with Azure Cost Management</li>
 </ul>
 </section>
-<section id="public-preview-features" class="level3">
-<h3 class="anchored" data-anchor-id="public-preview-features">Public Preview Features</h3>
+<section id="cdn-costs" class="level3">
+<h3 class="anchored" data-anchor-id="cdn-costs">CDN Costs</h3>
 <ul>
-<li><strong>Dev Box MCP Server</strong> - Natural language environment control</li>
-<li><strong>Authoring Agent</strong> - AI-assisted customization creation</li>
-<li><strong>Serverless GPU Compute</strong> - On-demand AI processing capabilities</li>
-<li><strong>Azure AI Foundry Integration</strong> - Enterprise AI services access</li>
+<li>Configure appropriate <strong>caching rules</strong> to maximize cache hit ratios</li>
+<li>Use <strong>compression</strong> to reduce bandwidth costs</li>
+<li>Consider <strong>geo-filtering</strong> if your audience is in specific regions</li>
 </ul>
 </section>
-<section id="coming-soon" class="level3">
-<h3 class="anchored" data-anchor-id="coming-soon">Coming Soon</h3>
+</section>
+<section id="migration-from-other-platforms" class="level2">
+<h2 class="anchored" data-anchor-id="migration-from-other-platforms">🔄 Migration from Other Platforms</h2>
+<section id="from-github-pages" class="level3">
+<h3 class="anchored" data-anchor-id="from-github-pages">From GitHub Pages</h3>
+<ol type="1">
+<li>Export/clone your repository</li>
+<li>Set up Azure Storage Account</li>
+<li>Update <code>site-url</code> in <code>_quarto.yml</code></li>
+<li>Configure new deployment pipeline</li>
+</ol>
+</section>
+<section id="from-netlify" class="level3">
+<h3 class="anchored" data-anchor-id="from-netlify">From Netlify</h3>
+<ol type="1">
+<li>Download site files or use Git repository</li>
+<li>Update build commands for Azure deployment</li>
+<li>Migrate environment variables to Azure Key Vault</li>
+<li>Set up custom domain in Azure CDN</li>
+</ol>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">🎯 Conclusion</h2>
+<p>Azure Storage Account static website hosting provides a robust, scalable, and cost-effective solution for hosting Quarto documentation sites. Key advantages include:</p>
 <ul>
-<li><strong>Dev Box Workspaces</strong> - Persistent storage across GPU sessions</li>
-<li><strong>Enhanced Regional Support</strong> - Additional global deployment options</li>
-<li><strong>Advanced Cost Analytics</strong> - Detailed usage and optimization insights</li>
-<li><strong>Extended AI Integration</strong> - Deeper AI-native development features</li>
+<li><strong>Global Performance</strong>: CDN integration for worldwide content delivery</li>
+<li><strong>Enterprise Integration</strong>: Seamless integration with Azure DevOps and other Azure services</li>
+<li><strong>Cost Control</strong>: Pay-per-use pricing with predictable costs</li>
+<li><strong>Security</strong>: Built-in security features and custom domain SSL support</li>
+<li><strong>Scalability</strong>: Automatic scaling to handle traffic spikes</li>
 </ul>
-<hr>
-</section>
-</section>
-<section id="resources-and-further-learning" class="level2">
-<h2 class="anchored" data-anchor-id="resources-and-further-learning">Resources and Further Learning</h2>
-<section id="official-documentation-and-access" class="level3">
-<h3 class="anchored" data-anchor-id="official-documentation-and-access">Official Documentation and Access</h3>
+<p>This solution is ideal for:</p>
 <ul>
-<li><strong><a href="https://devbox.microsoft.com/">Microsoft Developer Portal</a></strong> - Central hub for Dev Box creation and management</li>
-<li><strong><a href="https://docs.microsoft.com/azure/dev-box/">Dev Box Documentation</a></strong> - Complete technical documentation</li>
-<li><strong><a href="https://azure.microsoft.com/pricing/details/dev-box/">Azure Dev Box Pricing</a></strong> - Cost planning and optimization</li>
-<li><strong><a href="https://aka.ms/devbox-landing-zone">Landing Zone Accelerator</a></strong> - Enterprise deployment templates</li>
+<li><strong>Enterprise documentation</strong> requiring integration with Azure services</li>
+<li><strong>High-traffic sites</strong> needing global CDN distribution</li>
+<li><strong>Multi-environment deployments</strong> (dev, staging, production)</li>
+<li><strong>Sites requiring advanced monitoring and analytics</strong></li>
 </ul>
 </section>
-<section id="ai-integration-resources" class="level3">
-<h3 class="anchored" data-anchor-id="ai-integration-resources">AI Integration Resources</h3>
+<section id="additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources">📚 Additional Resources</h2>
 <ul>
-<li><strong><a href="https://modelcontextprotocol.io/">Model Context Protocol</a></strong> - MCP specification and implementation</li>
-<li><strong><a href="https://docs.microsoft.com/azure/ai-foundry/">Azure AI Foundry</a></strong> - Enterprise AI services integration</li>
-<li><strong><a href="https://marketplace.visualstudio.com/vscode">VS Code Extensions</a></strong> - Development environment customization</li>
-<li><strong><a href="https://docs.github.com/copilot">GitHub Copilot</a></strong> - AI-powered development assistance</li>
+<li><a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website">Azure Storage Static Website Documentation</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/cdn/">Azure CDN Documentation</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/devops/">Azure DevOps Documentation</a></li>
+<li><a href="https://github.com/Azure/actions">GitHub Actions for Azure</a></li>
+<li><a href="https://docs.microsoft.com/en-us/cli/azure/">Azure CLI Reference</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/cost-management-billing/">Azure Cost Management</a></li>
 </ul>
-</section>
-<section id="community-and-support" class="level3">
-<h3 class="anchored" data-anchor-id="community-and-support">Community and Support</h3>
-<ul>
-<li><strong><a href="https://aka.ms/build-labs">Build 2025 Labs</a></strong> - Hands-on Dev Box experience</li>
-<li><strong><a href="https://techcommunity.microsoft.com/t5/azure-dev-box/ct-p/AzureDevBox">Microsoft Tech Community</a></strong> - Developer discussions and support</li>
-<li><strong><a href="https://azure.microsoft.com/support/">Azure Support</a></strong> - Enterprise support and guidance</li>
-<li><strong><a href="https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4">Feature Requests</a></strong> - Product feedback and roadmap input</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="about-the-speakers" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-speakers">About the Speakers</h2>
-<p><strong>Denizhan Yigitbas</strong><br>
-Senior Product Manager<br>
-Microsoft<br>
-<em>Senior Product Manager focused on advancing developer productivity through AI and cloud-first tools. Over three years of contributions to Visual Studio IDE, C# Dev Kit for VS Code, and early GitHub Copilot incubation. Currently leads Microsoft Dev Box AI Incubation team, exploring next-generation AI development experiences in cloud workstations.</em></p>
-<p><strong>Dhruv Chand</strong><br>
-Product Manager<br>
-Microsoft<br>
-<em>Product Manager for Microsoft Dev Box, focusing on team customization, enterprise deployment, and developer onboarding optimization. Deep expertise in developer platform engineering and cloud workstation architecture for enterprise-scale development teams.</em></p>
-<hr>
-<p><em>This comprehensive session demonstrates Microsoft’s vision for the future of cloud development environments, where AI-native workflows, enterprise governance, and developer productivity converge in a unified platform. Dev Box represents the evolution from traditional development machines to intelligent, scalable, and secure cloud workstations that adapt to the exponential pace of modern software development.</em></p>
 
 
 </section>
@@ -8626,13 +8819,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../events/202506 Build 2025/BRK123 Build AI Apps with Microsoft Graph Data/README.Sonnet4.html" class="pagination-link" aria-label="Session Details">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Session Details</span>
+      <a href="../../../tech/Markdown/01. QUARTO Doc/010.001 Deploying a Quarto site to GitHub Pages.html" class="pagination-link" aria-label="Deploy to GitHub Pages">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Deploy to GitHub Pages</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/README.Sonnet4.html" class="pagination-link" aria-label="Session Details">
-        <span class="nav-page-text">Session Details</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../tech/Markdown/02. MkDocs/000.000 Using MkDocs.html" class="pagination-link" aria-label="Using MkDocs (Overview)">
+        <span class="nav-page-text">Using MkDocs (Overview)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -8641,4 +8834,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/events/202506 Build 2025/BRK127 Unleash developer potential with AI and Dev Box/SUMMARY.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/Markdown/01. QUARTO Doc/010.002 Deploying a Quarto site to Storage Accounts.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
