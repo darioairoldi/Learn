@@ -2326,6 +2326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#event-priority" id="toc-event-priority" class="nav-link" data-scroll-target="#event-priority">Event Priority</a></li>
   <li><a href="#plugin-registration" id="toc-plugin-registration" class="nav-link" data-scroll-target="#plugin-registration">Plugin Registration</a></li>
   </ul></li>
+  <li><a href="#hooks-lightweight-plugins" id="toc-hooks-lightweight-plugins" class="nav-link" data-scroll-target="#hooks-lightweight-plugins">🪝 <strong>Hooks (Lightweight Plugins)</strong></a></li>
   <li><a href="#search-system" id="toc-search-system" class="nav-link" data-scroll-target="#search-system">🔍 <strong>Search System</strong></a>
   <ul class="collapse">
   <li><a href="#search-architecture" id="toc-search-architecture" class="nav-link" data-scroll-target="#search-architecture">Search Architecture</a></li>
@@ -2346,6 +2347,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#live-reload-server" id="toc-live-reload-server" class="nav-link" data-scroll-target="#live-reload-server">Live Reload Server</a></li>
   <li><a href="#server-architecture" id="toc-server-architecture" class="nav-link" data-scroll-target="#server-architecture">Server Architecture</a></li>
   <li><a href="#watch-configuration" id="toc-watch-configuration" class="nav-link" data-scroll-target="#watch-configuration">Watch Configuration</a></li>
+  </ul></li>
+  <li><a href="#advanced-configuration-features" id="toc-advanced-configuration-features" class="nav-link" data-scroll-target="#advanced-configuration-features">⚙️ <strong>Advanced Configuration Features</strong></a>
+  <ul class="collapse">
+  <li><a href="#configuration-inheritance-inherit" id="toc-configuration-inheritance-inherit" class="nav-link" data-scroll-target="#configuration-inheritance-inherit">Configuration Inheritance (INHERIT)</a></li>
+  <li><a href="#special-yaml-tags" id="toc-special-yaml-tags" class="nav-link" data-scroll-target="#special-yaml-tags">Special YAML Tags</a></li>
+  <li><a href="#validation-configuration-mkdocs-1.5" id="toc-validation-configuration-mkdocs-1.5" class="nav-link" data-scroll-target="#validation-configuration-mkdocs-1.5">Validation Configuration (MkDocs 1.5+)</a></li>
+  <li><a href="#draft-and-excluded-documents-mkdocs-1.5" id="toc-draft-and-excluded-documents-mkdocs-1.5" class="nav-link" data-scroll-target="#draft-and-excluded-documents-mkdocs-1.5">Draft and Excluded Documents (MkDocs 1.5+)</a></li>
   </ul></li>
   <li><a href="#performance-considerations" id="toc-performance-considerations" class="nav-link" data-scroll-target="#performance-considerations">📊 <strong>Performance Considerations</strong></a>
   <ul class="collapse">
@@ -2403,7 +2411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 22, 2025</p>
+      <p class="date-modified">December 23, 2025</p>
     </div>
   </div>
     
@@ -2424,9 +2432,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#️-build-pipeline">⚙️ Build Pipeline</a></li>
 <li><a href="#-template-system">🎨 Template System</a></li>
 <li><a href="#-plugin-architecture">🔌 Plugin Architecture</a></li>
+<li><a href="#-hooks-lightweight-plugins">🪝 Hooks (Lightweight Plugins)</a></li>
 <li><a href="#-search-system">🔍 Search System</a></li>
 <li><a href="#-file-processing">📁 File Processing</a></li>
 <li><a href="#-development-server">🌐 Development Server</a></li>
+<li><a href="#️-advanced-configuration-features">⚙️ Advanced Configuration Features</a></li>
 <li><a href="#-performance-considerations">📊 Performance Considerations</a></li>
 <li><a href="#-references">📖 References</a></li>
 </ul>
@@ -2434,7 +2444,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">📖 <strong>Overview</strong></h2>
-<p>MkDocs is a <strong>Python-based static site generator</strong> designed specifically for creating project documentation. Understanding its architecture helps developers:</p>
+<p>MkDocs is a <strong><mark>Python-based static site generator</mark></strong> designed specifically for creating project documentation.<br>
+Understanding its architecture helps developers:</p>
 <ul>
 <li><strong>Customize</strong> themes and templates effectively</li>
 <li><strong>Extend</strong> functionality through plugins</li>
@@ -2455,23 +2466,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Static Generation</strong></td>
+<td><strong><mark>Static Generation</mark></strong></td>
 <td>Generates pure HTML/CSS/JS—no server-side processing required</td>
 </tr>
 <tr class="even">
-<td><strong>Markdown-First</strong></td>
+<td><strong><mark>Markdown-First</mark></strong></td>
 <td>Content authored in Markdown, converted via Python-Markdown</td>
 </tr>
 <tr class="odd">
-<td><strong>Configuration-Driven</strong></td>
+<td><strong><mark>Configuration-Driven</mark></strong></td>
 <td>Single YAML file controls all behavior</td>
 </tr>
 <tr class="even">
-<td><strong>Event-Based Plugins</strong></td>
+<td><strong><mark>Event-Based Plugins</mark></strong></td>
 <td>Extensible through well-defined lifecycle events</td>
 </tr>
 <tr class="odd">
-<td><strong>Template-Based Theming</strong></td>
+<td><strong><mark>Template-Based Theming</mark></strong></td>
 <td>Jinja2 templates power all HTML generation</td>
 </tr>
 </tbody>
@@ -2703,7 +2714,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="template-system-1">🎨 <strong>Template System</strong></h2>
 <section id="jinja2-integration" class="level3">
 <h3 class="anchored" data-anchor-id="jinja2-integration">Jinja2 Integration</h3>
-<p>MkDocs uses <strong>Jinja2</strong> as its templating engine. Themes are collections of Jinja2 templates.</p>
+<p>MkDocs uses <strong>Jinja2</strong> as its templating engine.<br>
+Themes are collections of Jinja2 templates.</p>
 <section id="basic-template-structure" class="level4">
 <h4 class="anchored" data-anchor-id="basic-template-structure">Basic Template Structure</h4>
 <div class="sourceCode" id="cb11"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- main.html - Main page template --&gt;</span></span>
@@ -2854,7 +2866,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mkdocs.config.base <span class="im">import</span> Config</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyPluginConfig(Config):</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Plugin configuration schema."""</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Plugin configuration schema (MkDocs 1.4+ recommended approach)."""</span></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    enabled <span class="op">=</span> c.Type(<span class="bu">bool</span>, default<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    option_name <span class="op">=</span> c.Type(<span class="bu">str</span>, default<span class="op">=</span><span class="st">'default_value'</span>)</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -2892,7 +2904,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="event-priority" class="level3">
 <h3 class="anchored" data-anchor-id="event-priority">Event Priority</h3>
-<p>Control execution order with <code>@event_priority</code>:</p>
+<p>Control execution order with <code>@event_priority</code> (MkDocs 1.4+):</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mkdocs.plugins <span class="im">import</span> event_priority</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyPlugin(BasePlugin):</span>
@@ -2922,6 +2934,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
+<section id="hooks-lightweight-plugins" class="level2">
+<h2 class="anchored" data-anchor-id="hooks-lightweight-plugins">🪝 <strong>Hooks (Lightweight Plugins)</strong></h2>
+<p><em>New in MkDocs 1.4</em></p>
+<p>For simple customizations without creating a full plugin package, MkDocs supports <strong>hooks</strong>—Python scripts that implement event handlers directly:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mkdocs.yml</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hooks</span><span class="kw">:</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> my_hooks.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># my_hooks.py - No plugin class needed!</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> on_page_markdown(markdown, page, config, files):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Transform markdown before rendering."""</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> markdown.replace(<span class="st">'TODO'</span>, <span class="st">'⚠️ TODO'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> on_config(config):</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Modify configuration at build start."""</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Building: </span><span class="sc">{</span>config<span class="sc">.</span>site_name<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Differences from Plugins:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 30%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Hooks</th>
+<th>Plugins</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Installation</strong></td>
+<td>Just a <code>.py</code> file</td>
+<td>Requires packaging &amp; pip install</td>
+</tr>
+<tr class="even">
+<td><strong>Configuration</strong></td>
+<td>No config schema</td>
+<td>Full config validation</td>
+</tr>
+<tr class="odd">
+<td><strong>Distribution</strong></td>
+<td>Copy file</td>
+<td>PyPI package</td>
+</tr>
+<tr class="even">
+<td><strong>Use Case</strong></td>
+<td>Project-specific tweaks</td>
+<td>Reusable functionality</td>
+</tr>
+<tr class="odd">
+<td><strong>Event Handlers</strong></td>
+<td>Functions (no <code>self</code>)</td>
+<td>Methods on <code>BasePlugin</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> Hook files can import adjacent Python modules normally (MkDocs 1.6+). In older versions, you need to add the path to <code>sys.path</code>.</p>
+</blockquote>
+<hr>
+</section>
 <section id="search-system" class="level2">
 <h2 class="anchored" data-anchor-id="search-system">🔍 <strong>Search System</strong></h2>
 <section id="search-architecture" class="level3">
@@ -2946,38 +3021,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="search-index-structure" class="level3">
 <h3 class="anchored" data-anchor-id="search-index-structure">Search Index Structure</h3>
 <p>The generated <code>search_index.json</code>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"config"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"lang"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"en"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"separator"</span><span class="fu">:</span> <span class="st">"[</span><span class="ch">\\</span><span class="st">s</span><span class="ch">\\</span><span class="st">-]+"</span><span class="fu">,</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"pipeline"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"stemmer"</span><span class="ot">]</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"docs"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"location"</span><span class="fu">:</span> <span class="st">"index.html"</span><span class="fu">,</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Home"</span><span class="fu">,</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Welcome to the documentation..."</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"location"</span><span class="fu">:</span> <span class="st">"guide/installation.html"</span><span class="fu">,</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Installation"</span><span class="fu">,</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Install the package using pip..."</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"index"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        <span class="er">//</span> <span class="er">Pre-built</span> <span class="er">Lunr.js</span> <span class="er">index</span> <span class="er">(optional)</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"config"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"lang"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"en"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"separator"</span><span class="fu">:</span> <span class="st">"[</span><span class="ch">\\</span><span class="st">s</span><span class="ch">\\</span><span class="st">-]+"</span><span class="fu">,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"pipeline"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"stemmer"</span><span class="ot">]</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"docs"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"location"</span><span class="fu">:</span> <span class="st">"index.html"</span><span class="fu">,</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Home"</span><span class="fu">,</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Welcome to the documentation..."</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"location"</span><span class="fu">:</span> <span class="st">"guide/installation.html"</span><span class="fu">,</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Installation"</span><span class="fu">,</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"Install the package using pip..."</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"index"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>        <span class="er">//</span> <span class="er">Pre-built</span> <span class="er">Lunr.js</span> <span class="er">index</span> <span class="er">(optional)</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="search-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="search-configuration">Search Configuration</h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">search</span><span class="kw">:</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">lang</span><span class="kw">:</span><span class="at"> en</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">separator</span><span class="kw">:</span><span class="at"> </span><span class="st">'[\s\-\.]+'</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min_search_length</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">prebuild_index</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Requires Node.js</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">indexing</span><span class="kw">:</span><span class="at"> full</span><span class="co">        # 'full', 'sections', or 'titles'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">search</span><span class="kw">:</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">lang</span><span class="kw">:</span><span class="at"> en</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">separator</span><span class="kw">:</span><span class="at"> </span><span class="st">'[\s\-\.]+'</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min_search_length</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">prebuild_index</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Requires Node.js</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">indexing</span><span class="kw">:</span><span class="at"> full</span><span class="co">        # 'full', 'sections', or 'titles'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="file-processing" class="level2">
@@ -3024,7 +3099,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>MkDocs supports two URL styles:</p>
 <section id="directory-urls-default" class="level4">
 <h4 class="anchored" data-anchor-id="directory-urls-default">Directory URLs (Default)</h4>
-<div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_directory_urls</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_directory_urls</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -3054,7 +3129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="flat-urls" class="level4">
 <h4 class="anchored" data-anchor-id="flat-urls">Flat URLs</h4>
-<div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_directory_urls</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_directory_urls</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -3089,7 +3164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="live-reload-server" class="level3">
 <h3 class="anchored" data-anchor-id="live-reload-server">Live Reload Server</h3>
 <p>MkDocs includes a development server with live reloading:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mkdocs</span> serve</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mkdocs</span> serve</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Features:</strong></p>
 <ul>
 <li><strong>Auto-rebuild</strong>: Rebuilds on file changes</li>
@@ -3100,34 +3175,104 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="server-architecture" class="level3">
 <h3 class="anchored" data-anchor-id="server-architecture">Server Architecture</h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simplified server architecture</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LiveReloadServer:</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, config):</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.config <span class="op">=</span> config</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.watcher <span class="op">=</span> FileWatcher(config.docs_dir)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> serve(<span class="va">self</span>):</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Initial build</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.build()</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Start watching for changes</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.watcher.on_change(<span class="va">self</span>.rebuild)</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Start HTTP server</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.start_server()</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> rebuild(<span class="va">self</span>, changed_files):</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Incremental rebuild</span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.build()</span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Notify browser to reload</span></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.notify_clients()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simplified server architecture</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LiveReloadServer:</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, config):</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.config <span class="op">=</span> config</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.watcher <span class="op">=</span> FileWatcher(config.docs_dir)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> serve(<span class="va">self</span>):</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Initial build</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.build()</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Start watching for changes</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.watcher.on_change(<span class="va">self</span>.rebuild)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Start HTTP server</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.start_server()</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> rebuild(<span class="va">self</span>, changed_files):</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Incremental rebuild</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.build()</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Notify browser to reload</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.notify_clients()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="watch-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="watch-configuration">Watch Configuration</h3>
 <p>Control which directories trigger rebuilds:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">watch</span><span class="kw">:</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> custom_theme/</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> includes/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">watch</span><span class="kw">:</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> custom_theme/</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> includes/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="advanced-configuration-features" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-configuration-features">⚙️ <strong>Advanced Configuration Features</strong></h2>
+<section id="configuration-inheritance-inherit" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-inheritance-inherit">Configuration Inheritance (INHERIT)</h3>
+<p>Multiple MkDocs sites can share common configuration:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># base.yml - Shared configuration</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span><span class="kw">:</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> material</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">markdown_extensions</span><span class="kw">:</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">toc</span><span class="kw">:</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">permalink</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mkdocs.yml - Site-specific config</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">INHERIT</span><span class="kw">:</span><span class="at"> ../base.yml</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> My Project</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">site_url</span><span class="kw">:</span><span class="at"> https://example.com/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>MkDocs deep-merges the configurations, allowing overrides while inheriting defaults.</p>
+</section>
+<section id="special-yaml-tags" class="level3">
+<h3 class="anchored" data-anchor-id="special-yaml-tags">Special YAML Tags</h3>
+<p>MkDocs supports dynamic configuration values:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Environment variables with fallback</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> !ENV [SITE_NAME, 'Default Site']</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> search</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">expensive-plugin</span><span class="kw">:</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">enabled</span><span class="kw">:</span><span class="at"> !ENV [CI, false]</span><span class="co">  # Only enable in CI</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Relative paths (useful for extensions)</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="fu">markdown_extensions</span><span class="kw">:</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">pymdownx.snippets</span><span class="kw">:</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">base_path</span><span class="kw">:</span><span class="at"> !relative</span><span class="co">  # Relative to current Markdown file</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co">      # Or: !relative $docs_dir</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co">      # Or: !relative $config_dir</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="validation-configuration-mkdocs-1.5" class="level3">
+<h3 class="anchored" data-anchor-id="validation-configuration-mkdocs-1.5">Validation Configuration (MkDocs 1.5+)</h3>
+<p>Control strictness of link and navigation validation:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">validation</span><span class="kw">:</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">omitted_files</span><span class="kw">:</span><span class="at"> warn</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">absolute_links</span><span class="kw">:</span><span class="at"> warn</span><span class="co">  # Or 'relative_to_docs' (1.6+)</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">unrecognized_links</span><span class="kw">:</span><span class="at"> warn</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">anchors</span><span class="kw">:</span><span class="at"> warn</span><span class="co">  # New in 1.6</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">nav</span><span class="kw">:</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">omitted_files</span><span class="kw">:</span><span class="at"> info</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">not_found</span><span class="kw">:</span><span class="at"> warn</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">absolute_links</span><span class="kw">:</span><span class="at"> ignore</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">links</span><span class="kw">:</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">not_found</span><span class="kw">:</span><span class="at"> warn</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">anchors</span><span class="kw">:</span><span class="at"> warn</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">absolute_links</span><span class="kw">:</span><span class="at"> relative_to_docs</span><span class="co">  # Validate and convert</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="draft-and-excluded-documents-mkdocs-1.5" class="level3">
+<h3 class="anchored" data-anchor-id="draft-and-excluded-documents-mkdocs-1.5">Draft and Excluded Documents (MkDocs 1.5+)</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude files from build entirely</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exclude_docs</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  drafts/           # Directory anywhere</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  *.py              # Python files</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  /requirements.txt # Top-level only</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  !.assets          # Except .assets</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Draft files: available in serve, excluded from build (1.6+)</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">draft_docs</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  _draft.md         # Files ending in _draft.md</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  wip/              # Work-in-progress directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
 <section id="performance-considerations" class="level2">
@@ -3173,23 +3318,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="large-site-optimizations" class="level3">
 <h3 class="anchored" data-anchor-id="large-site-optimizations">Large Site Optimizations</h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optimizations for large documentation sites</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">search</span><span class="kw">:</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">prebuild_index</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">    # Pre-build search index</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">indexing</span><span class="kw">:</span><span class="at"> sections</span><span class="co">      # Index less content</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude non-documentation files</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">exclude_docs</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  drafts/</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  *.py</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  *.sh</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Reduce validation overhead</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">validation</span><span class="kw">:</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">links</span><span class="kw">:</span></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">not_found</span><span class="kw">:</span><span class="at"> ignore</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">anchors</span><span class="kw">:</span><span class="at"> ignore</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optimizations for large documentation sites</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plugins</span><span class="kw">:</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">search</span><span class="kw">:</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">prebuild_index</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">    # Pre-build search index</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">indexing</span><span class="kw">:</span><span class="at"> sections</span><span class="co">      # Index less content</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude non-documentation files</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">exclude_docs</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  drafts/</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  *.py</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  *.sh</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Reduce validation overhead</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="fu">validation</span><span class="kw">:</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">links</span><span class="kw">:</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">not_found</span><span class="kw">:</span><span class="at"> ignore</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">anchors</span><span class="kw">:</span><span class="at"> ignore</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="build-time-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="build-time-comparison">Build Time Comparison</h3>
@@ -3230,25 +3375,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://www.mkdocs.org/dev-guide/plugins/">MkDocs Plugin Development</a> - Guide to creating plugins</li>
 <li><a href="https://www.mkdocs.org/dev-guide/themes/">MkDocs Theme Development</a> - Guide to creating themes</li>
 <li><a href="https://www.mkdocs.org/user-guide/configuration/">MkDocs Configuration</a> - Complete configuration reference</li>
+<li><a href="https://www.mkdocs.org/about/release-notes/">MkDocs Release Notes</a> - Version history and changelog</li>
+<li><a href="https://www.mkdocs.org/dev-guide/translations/">MkDocs Translation Guide</a> - Theme localization/i18n</li>
 </ul>
 </section>
 <section id="technical-references" class="level3">
 <h3 class="anchored" data-anchor-id="technical-references">Technical References</h3>
 <ul>
-<li><a href="https://python-markdown.github.io/">Python-Markdown</a> - Markdown processing library</li>
-<li><a href="https://jinja.palletsprojects.com/">Jinja2 Documentation</a> - Template engine documentation</li>
+<li><a href="https://python-markdown.github.io/">Python-Markdown</a> - Markdown processing library (v3.10)</li>
+<li><a href="https://jinja.palletsprojects.com/">Jinja2 Documentation</a> - Template engine documentation (v3.1)</li>
 <li><a href="https://lunrjs.com/">Lunr.js</a> - Client-side search library</li>
 </ul>
 </section>
 <section id="related-resources" class="level3">
 <h3 class="anchored" data-anchor-id="related-resources">Related Resources</h3>
 <ul>
-<li><a href="https://github.com/mkdocs/catalog">MkDocs Plugin Catalog</a> - Curated plugin list</li>
-<li><a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> - Popular theme documentation</li>
+<li><a href="https://github.com/mkdocs/catalog">MkDocs Plugin Catalog</a> - Curated catalog of 300+ plugins and themes</li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> - Popular theme with 25K+ GitHub stars</li>
 </ul>
 <hr>
-<p><strong>Document Status</strong>: ✅ <strong>Complete</strong> | <strong>Last Updated</strong>: 2025-12-16 | <strong>Version</strong>: 1.0</p>
-<p>This architecture guide provides the foundation for understanding MkDocs internals, enabling effective customization, plugin development, and performance optimization.</p>
+<p><strong>Document Status</strong>: ✅ <strong>Complete</strong> | <strong>Last Updated</strong>: 2025-12-23 | <strong>Version</strong>: 1.1</p>
+<p>This architecture guide provides the foundation for understanding MkDocs internals, enabling effective customization, plugin development, and performance optimization. Covers MkDocs versions through 1.6.</p>
 <!-- 
 
 
@@ -3271,10 +3418,27 @@ validations:
     has_conclusion: true
     has_references: true
 
+  consistency_review:
+    status: "completed"
+    last_run: "2025-12-23T12:00:00Z"
+    model: "claude-sonnet-4.5"
+    references_checked: 9
+    references_valid: 9
+    references_broken: 0
+    references_added: 2
+    gaps_identified: 8
+    gaps_addressed: 5
+    change_summary: "Added Hooks section, Advanced Configuration Features section (INHERIT, YAML tags, validation, drafts), updated plugin examples with version annotations, expanded references"
+
 article_metadata:
   filename: "001.001 Architecture - How MkDocs works.md"
-  last_updated: "2025-12-16"
-  version: "1.0"
+  last_updated: "2025-12-23"
+  version: "1.1"
+  version_history:
+    - date: "2025-12-23"
+      changes: "Added MkDocs 1.4-1.6 features: Hooks, Configuration Inheritance, Special YAML Tags, Validation, Draft Documents"
+    - date: "2025-12-16"
+      changes: "Initial article creation"
 ---
 
 
