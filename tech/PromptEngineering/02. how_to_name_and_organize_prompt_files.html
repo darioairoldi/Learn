@@ -2298,6 +2298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#official-github-copilot-documentation" id="toc-official-github-copilot-documentation" class="nav-link" data-scroll-target="#official-github-copilot-documentation">Official GitHub Copilot Documentation</a></li>
   <li><a href="#vs-code-copilot-features" id="toc-vs-code-copilot-features" class="nav-link" data-scroll-target="#vs-code-copilot-features">VS Code Copilot Features</a></li>
+  <li><a href="#vs-code-release-notes" id="toc-vs-code-release-notes" class="nav-link" data-scroll-target="#vs-code-release-notes">VS Code Release Notes</a></li>
   <li><a href="#visual-studio-copilot-features" id="toc-visual-studio-copilot-features" class="nav-link" data-scroll-target="#visual-studio-copilot-features">Visual Studio Copilot Features</a></li>
   <li><a href="#community-best-practices" id="toc-community-best-practices" class="nav-link" data-scroll-target="#community-best-practices">Community Best Practices</a></li>
   <li><a href="#semantic-search-and-context" id="toc-semantic-search-and-context" class="nav-link" data-scroll-target="#semantic-search-and-context">Semantic Search and Context</a></li>
@@ -2334,10 +2335,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>📁 Use the <code>.github</code> folder for team-shared prompts and instructions</h1>
 <p>GitHub Copilot looks in specific subfolders of <code>.github/</code> to find <mark>prompt files, instructions and (in VS Code) custom agent definitions</mark>.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 80%">
-<col style="width: 19%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Path</th>
@@ -2359,7 +2356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><mark><strong><code>.github/agents/</code></strong></mark></td>
-<td><mark><strong>Custom agents for VS Code / Copilot CLI</strong></mark>. In VS Code 1.106+ and Copilot CLI, <code>.agent.md</code> files here define specialized personas (e.g., “planning agent,” “test specialist”). Each file contains YAML frontmatter to declare allowed <code>tools</code>, a <code>description</code>, optional <code>handoffs</code> for workflow transitions, <code>model</code> selection, and a Markdown body describing the agent’s behavior. Legacy <code>.chatmode.md</code> files are still recognized but can be migrated using VS Code’s Quick Fix action. <mark><strong>Note:</strong> This is different from <code>AGENTS.md</code> files (see below)</mark>.</td>
+<td><mark><strong>Custom agents for VS Code / Copilot CLI</strong></mark>. In VS Code 1.106+ and Copilot CLI, <code>.agent.md</code> files here define specialized personas (e.g., “planning agent,” “test specialist”). Each file contains YAML frontmatter to declare allowed <code>tools</code>, a <code>description</code>, optional <code>handoffs</code> for workflow transitions, <code>model</code> selection, and a Markdown body describing the agent’s behavior. Legacy <code>.chatmode.md</code> files are still recognized but can be migrated using VS Code’s Quick Fix action. <mark><strong>Note:</strong> This is different from <code>AGENTS.md</code> files (see below)</mark>. <br><br><strong>v1.107+ Features:</strong> <mark><strong>Claude Skills support</strong></mark> for extended agent capabilities. Agents can execute in three contexts: <mark><strong>local</strong></mark> (interactive), <mark><strong>background</strong></mark> (work tree isolated), or <mark><strong>cloud</strong></mark> (GitHub PRs). See <a href="../../tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html#-appendix-d-unified-agent-architecture-v1107">How GitHub Copilot Uses Markdown and Prompt Folders</a> for details.</td>
 </tr>
 <tr class="odd">
 <td><strong><code>AGENTS.md</code></strong> (anywhere in repo)</td>
@@ -2447,6 +2444,13 @@ Documentation on using <code>.github/instructions/</code> folder with <code>.ins
 Comprehensive guide to using Copilot Chat in VS Code, including chat participants, slash commands, and context variables like <code>#file</code> and <code>#fetch</code>. Essential for understanding how to reference files and external resources within your prompts and how to leverage VS Code’s chat interface effectively.</p></li>
 <li><p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents">Custom Agents in VS Code</a></strong> <code>[📘 Official]</code><br>
 Documentation for creating custom agents using <code>.agent.md</code> files in <code>.github/agents/</code>. Explains how to define specialized AI personas with specific tools, behaviors, handoff capabilities for workflow transitions, and model selection. Custom agents (formerly “chat modes”) became stable in VS Code 1.106. Important for teams building advanced workflow automation with multiple specialized agents.</p></li>
+</ul>
+</section>
+<section id="vs-code-release-notes" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-release-notes">VS Code Release Notes</h2>
+<ul>
+<li><strong><a href="https://code.visualstudio.com/updates/v1_107">VS Code v1.107 Release Notes</a></strong> <code>[📘 Official]</code><br>
+December 2024 release introducing Agent HQ unified interface, background agents with work tree isolation, MCP 1.0 features, GitHub MCP Server (Preview), enhanced Language Models Editor with BYOK support, and Claude skills integration. Essential for understanding the latest agentic development capabilities and agent execution contexts.</li>
 </ul>
 </section>
 <section id="visual-studio-copilot-features" class="level2">

@@ -2364,6 +2364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📚 References</a>
   <ul class="collapse">
   <li><a href="#official-documentation" id="toc-official-documentation" class="nav-link" data-scroll-target="#official-documentation">Official Documentation</a></li>
+  <li><a href="#vs-code-release-notes" id="toc-vs-code-release-notes" class="nav-link" data-scroll-target="#vs-code-release-notes">VS Code Release Notes</a></li>
   <li><a href="#best-practices-and-community-resources" id="toc-best-practices-and-community-resources" class="nav-link" data-scroll-target="#best-practices-and-community-resources">Best Practices and Community Resources</a></li>
   <li><a href="#related-articles-in-this-series" id="toc-related-articles-in-this-series" class="nav-link" data-scroll-target="#related-articles-in-this-series">Related Articles in This Series</a></li>
   </ul></li>
@@ -2477,6 +2478,10 @@ Unlike prompt files (which are invoked on-demand) or agent files (which define p
 <tr class="even">
 <td><strong>Tool Control</strong></td>
 <td>None (relies on agent/prompt tool configuration)</td>
+</tr>
+<tr class="odd">
+<td><strong>Execution Contexts</strong></td>
+<td>Works across all agent contexts: local, background, and cloud (v1.107+)</td>
 </tr>
 </tbody>
 </table>
@@ -3272,6 +3277,11 @@ Microsoft’s official documentation for custom instructions in VS Code. Explain
 <p><strong><a href="https://code.visualstudio.com/docs/copilot/copilot-customization">VS Code: Copilot Customization Overview</a></strong> <code>[📘 Official]</code><br>
 Comprehensive overview of all Copilot customization options in VS Code, including instructions, prompts, and agents. Explains how different customization types work together and when to use each. Critical for understanding the broader context of instruction files within the customization ecosystem.</p>
 </section>
+<section id="vs-code-release-notes" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-release-notes">VS Code Release Notes</h2>
+<p><strong><a href="https://code.visualstudio.com/updates/v1_107">VS Code v1.107 Release Notes</a></strong> <code>[📘 Official]</code><br>
+December 2024 release introducing Agent HQ unified interface, background agents with work tree isolation, and Claude skills support. Instruction files continue to work across all agent execution contexts (local, background, and cloud), with the <code>excludeAgent</code> field providing control over which agent types receive specific instructions.</p>
+</section>
 <section id="best-practices-and-community-resources" class="level2">
 <h2 class="anchored" data-anchor-id="best-practices-and-community-resources">Best Practices and Community Resources</h2>
 <p><strong><a href="https://github.blog/developer-skills/github/how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/">GitHub Blog: How to Use GitHub Copilot - Tips, Tricks, and Best Practices</a></strong> <code>[📗 Verified Community]</code><br>
@@ -3308,9 +3318,12 @@ validations:
 article_metadata:
   filename: "05. how_to_structure_content_for_copilot_instruction_files.md"
   created: "2025-12-11"
-  last_updated: "2025-12-11"
-  version: "1.0"
+  last_updated: "2025-12-24"
+  version: "1.1"
   status: "draft"
+  version_history:
+    - date: "2025-12-24"
+      changes: "Added v1.107 release notes reference, execution contexts characteristic, cross-context compatibility note"
   word_count: 6200
   reading_time_minutes: 25
   primary_topic: "GitHub Copilot Instructions"

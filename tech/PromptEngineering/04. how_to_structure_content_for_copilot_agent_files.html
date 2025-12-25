@@ -2291,6 +2291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#why-use-custom-agents" id="toc-why-use-custom-agents" class="nav-link" data-scroll-target="#why-use-custom-agents">Why Use Custom Agents?</a></li>
   <li><a href="#availability" id="toc-availability" class="nav-link" data-scroll-target="#availability">Availability</a></li>
+  <li><a href="#execution-contexts-v1.107" id="toc-execution-contexts-v1.107" class="nav-link" data-scroll-target="#execution-contexts-v1.107">Execution Contexts (v1.107+)</a></li>
   </ul></li>
   <li><a href="#how-agents-differ-from-prompts-and-instructions" id="toc-how-agents-differ-from-prompts-and-instructions" class="nav-link" data-scroll-target="#how-agents-differ-from-prompts-and-instructions">🔄 How Agents Differ from Prompts and Instructions</a>
   <ul class="collapse">
@@ -2384,8 +2385,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📚 References</a>
   <ul class="collapse">
   <li><a href="#official-github-copilot-documentation" id="toc-official-github-copilot-documentation" class="nav-link" data-scroll-target="#official-github-copilot-documentation">Official GitHub Copilot Documentation</a></li>
+  <li><a href="#vs-code-release-notes" id="toc-vs-code-release-notes" class="nav-link" data-scroll-target="#vs-code-release-notes">VS Code Release Notes</a></li>
   <li><a href="#related-articles-in-this-series" id="toc-related-articles-in-this-series" class="nav-link" data-scroll-target="#related-articles-in-this-series">Related Articles in This Series</a></li>
   <li><a href="#community-resources" id="toc-community-resources" class="nav-link" data-scroll-target="#community-resources">Community Resources</a></li>
+  </ul></li>
+  <li><a href="#appendix-unified-agent-architecture-v1.107" id="toc-appendix-unified-agent-architecture-v1.107" class="nav-link" data-scroll-target="#appendix-unified-agent-architecture-v1.107">📎 Appendix: Unified Agent Architecture (v1.107+)</a>
+  <ul class="collapse">
+  <li><a href="#agent-hq-interface" id="toc-agent-hq-interface" class="nav-link" data-scroll-target="#agent-hq-interface">Agent HQ Interface</a></li>
+  <li><a href="#execution-context-details" id="toc-execution-context-details" class="nav-link" data-scroll-target="#execution-context-details">Execution Context Details</a>
+  <ul class="collapse">
+  <li><a href="#local-agents" id="toc-local-agents" class="nav-link" data-scroll-target="#local-agents">Local Agents</a></li>
+  <li><a href="#background-agents" id="toc-background-agents" class="nav-link" data-scroll-target="#background-agents">Background Agents</a></li>
+  <li><a href="#cloud-agents" id="toc-cloud-agents" class="nav-link" data-scroll-target="#cloud-agents">Cloud Agents</a></li>
+  </ul></li>
+  <li><a href="#delegation-flow" id="toc-delegation-flow" class="nav-link" data-scroll-target="#delegation-flow">Delegation Flow</a></li>
+  <li><a href="#claude-skills-support" id="toc-claude-skills-support" class="nav-link" data-scroll-target="#claude-skills-support">Claude Skills Support</a></li>
+  <li><a href="#impact-on-agent-design" id="toc-impact-on-agent-design" class="nav-link" data-scroll-target="#impact-on-agent-design">Impact on Agent Design</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -2414,6 +2429,7 @@ This article explores how to structure agent files effectively and explains how 
 <li><a href="#-decision-framework-when-to-use-each-file-type">💡 Decision Framework: When to Use Each File Type</a></li>
 <li><a href="#-conclusion">🎯 Conclusion</a></li>
 <li><a href="#-references">📚 References</a></li>
+<li><a href="#-appendix-unified-agent-architecture-v1107">📎 Appendix: Unified Agent Architecture (v1.107+)</a></li>
 </ul>
 </section>
 </section>
@@ -2445,6 +2461,48 @@ When you switch to a custom agent, all subsequent chat interactions adopt that a
 <li>User profile: Personal agents available across all workspaces</li>
 </ul></li>
 </ul>
+</section>
+<section id="execution-contexts-v1.107" class="level3">
+<h3 class="anchored" data-anchor-id="execution-contexts-v1.107">Execution Contexts (v1.107+)</h3>
+<p>VS Code 1.107 introduced <mark><strong>Agent HQ</strong></mark>, a unified interface for managing agent sessions across three execution contexts:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 25%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Context</th>
+<th>Description</th>
+<th>Isolation</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Local</strong></td>
+<td>Interactive agent in current workspace</td>
+<td>None—modifies workspace directly</td>
+<td>Quick tasks, interactive refinement</td>
+</tr>
+<tr class="even">
+<td><strong>Background</strong></td>
+<td>Runs autonomously using Git work trees</td>
+<td>Full—uses isolated work tree</td>
+<td>Long-running tasks without blocking workflow</td>
+</tr>
+<tr class="odd">
+<td><strong>Cloud</strong></td>
+<td>Runs on GitHub infrastructure, creates PRs</td>
+<td>Full—new branch and PR</td>
+<td>Large changes, async collaboration</td>
+</tr>
+</tbody>
+</table>
+<p><mark><strong>Claude Skills support</strong></mark> is also available in v1.107+, extending agent capabilities through the Claude skills ecosystem.</p>
+<p>For comprehensive coverage of Agent HQ, session management, and work tree isolation workflows, see <a href="#-appendix-unified-agent-architecture-v1107">📎 Appendix: Unified Agent Architecture</a>.</p>
 </section>
 </section>
 <section id="how-agents-differ-from-prompts-and-instructions" class="level1">
@@ -2588,12 +2646,6 @@ When you switch to a custom agent, all subsequent chat interactions adopt that a
 <section id="core-fields" class="level3">
 <h3 class="anchored" data-anchor-id="core-fields">Core Fields</h3>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 16%">
-<col style="width: 27%">
-<col style="width: 36%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Field</th>
@@ -2631,13 +2683,13 @@ When you switch to a custom agent, all subsequent chat interactions adopt that a
 <td><code>model</code></td>
 <td>String</td>
 <td>No</td>
-<td>Preferred AI model (e.g., “Claude Sonnet 4”, “GPT-4o”)</td>
+<td>Preferred AI model (e.g., “Claude Sonnet 4”, “GPT-4o”). BYOK models supported in v1.107+</td>
 </tr>
 <tr class="even">
 <td><code>target</code></td>
 <td>String</td>
 <td>No</td>
-<td><code>vscode</code> (local) or <code>github-copilot</code> (remote)</td>
+<td><code>vscode</code> (local execution) or <code>github-copilot</code> (cloud/remote execution). Affects available tools and execution context. See <a href="#execution-contexts-v1107">Execution Contexts</a></td>
 </tr>
 </tbody>
 </table>
@@ -3426,6 +3478,17 @@ handoffs:
 <em>Comprehensive reference for GitHub Copilot tools including built-in tools, MCP tools, and tool sets. Explains tool approval process, how to reference tools with <code>#tool:</code> syntax, and tool configuration in agents and prompts. Essential for understanding agent capabilities and tool priority.</em></p></li>
 </ul>
 </section>
+<section id="vs-code-release-notes" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-release-notes">VS Code Release Notes</h2>
+<ul>
+<li><p><strong><a href="https://code.visualstudio.com/updates/v1_107">VS Code v1.107 Release Notes</a></strong> <code>[📘 Official]</code><br>
+<em>December 2024 release introducing Agent HQ unified interface, background agents with work tree isolation, Claude skills support, MCP 1.0 features (Tasks, Sampling, Elicitation), and enhanced Language Models Editor with BYOK support. Essential reading for understanding unified agent architecture and execution contexts.</em></p></li>
+<li><p><strong><a href="https://code.visualstudio.com/docs/copilot/agents/background-agents">VS Code Background Agents Documentation</a></strong> <code>[📘 Official]</code><br>
+<em>Official guide for using background agents with Git worktrees for isolation. Explains workflow for background agent creation, worktree management, and change application.</em></p></li>
+<li><p><strong><a href="https://code.visualstudio.com/docs/copilot/agents/agents-tutorial">VS Code Agents Tutorial</a></strong> <code>[📘 Official]</code><br>
+<em>Official tutorial for agent workflows covering local, background, and cloud agents. Demonstrates unified agent experience and delegation patterns.</em></p></li>
+</ul>
+</section>
 <section id="related-articles-in-this-series" class="level2">
 <h2 class="anchored" data-anchor-id="related-articles-in-this-series">Related Articles in This Series</h2>
 <ul>
@@ -3442,6 +3505,153 @@ handoffs:
 <ul>
 <li><strong><a href="https://github.com/github/awesome-copilot/tree/main">Awesome GitHub Copilot - Custom Agents Examples</a></strong> <code>[📒 Community]</code><br>
 <em>Community-curated collection of custom agents, prompts, and instructions. Browse real-world examples of agent personas, handoff workflows, and composition patterns. Valuable for learning from practical implementations.</em></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="appendix-unified-agent-architecture-v1.107" class="level1">
+<h1>📎 Appendix: Unified Agent Architecture (v1.107+)</h1>
+<p>VS Code 1.107 introduced a paradigm shift in how agents execute, providing a <mark>unified interface for managing agent sessions</mark> across multiple execution contexts.</p>
+<section id="agent-hq-interface" class="level2">
+<h2 class="anchored" data-anchor-id="agent-hq-interface">Agent HQ Interface</h2>
+<p><mark><strong>Agent HQ</strong></mark> is the centralized interface for managing all agent sessions:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 62%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Recent Sessions List</strong></td>
+<td>Displays local, background, and cloud sessions with unified status</td>
+</tr>
+<tr class="even">
+<td><strong>Read/Unread Markers</strong></td>
+<td>Blue dots indicate unread completed sessions</td>
+</tr>
+<tr class="odd">
+<td><strong>Filtering &amp; Search</strong></td>
+<td>Filter by session type, search across session history</td>
+</tr>
+<tr class="even">
+<td><strong>Archive Capability</strong></td>
+<td>Move completed sessions to archive for cleaner workspace</td>
+</tr>
+<tr class="odd">
+<td><strong>Expand to Sidebar</strong></td>
+<td>Full sidebar view for detailed session management</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="execution-context-details" class="level2">
+<h2 class="anchored" data-anchor-id="execution-context-details">Execution Context Details</h2>
+<section id="local-agents" class="level3">
+<h3 class="anchored" data-anchor-id="local-agents">Local Agents</h3>
+<ul>
+<li>Execute in the current VS Code session</li>
+<li>Interactive—user can observe and intervene in real-time</li>
+<li>No isolation—changes affect workspace directly</li>
+<li>Best for: Quick tasks, iterative refinement, learning agent behavior</li>
+</ul>
+</section>
+<section id="background-agents" class="level3">
+<h3 class="anchored" data-anchor-id="background-agents">Background Agents</h3>
+<ul>
+<li>Execute autonomously without blocking VS Code</li>
+<li>Use <mark><strong>Git work trees</strong></mark> for complete filesystem isolation</li>
+<li>Sessions continue even when VS Code loses focus</li>
+<li>Changes reviewed and merged after completion</li>
+<li>Best for: Long-running tasks, parallel work on multiple features</li>
+</ul>
+<p><strong>Work Tree Workflow:</strong></p>
+<ol type="1">
+<li>Create background agent session (dropdown option to use work tree)</li>
+<li>Agent works in isolated work tree—no conflicts with local changes</li>
+<li>Work tree appears in Source Control view</li>
+<li>Review changes after completion</li>
+<li>Use “Apply” action to integrate changes into main workspace</li>
+</ol>
+</section>
+<section id="cloud-agents" class="level3">
+<h3 class="anchored" data-anchor-id="cloud-agents">Cloud Agents</h3>
+<ul>
+<li>Execute on GitHub infrastructure</li>
+<li>Automatically create branch and pull request</li>
+<li>Fully asynchronous—can close VS Code entirely</li>
+<li>Best for: Large changes, team collaboration, code review workflows</li>
+</ul>
+</section>
+</section>
+<section id="delegation-flow" class="level2">
+<h2 class="anchored" data-anchor-id="delegation-flow">Delegation Flow</h2>
+<p>The unified architecture enables seamless delegation between execution contexts:</p>
+<pre><code>Planning Mode → Local Agent → Background Agent → Cloud Agent
+      ↓              ↓              ↓               ↓
+   Creates      Implements     Isolates via      Creates
+    Plan         Locally      Work Trees     Branch + PR</code></pre>
+<p><strong>“Continue In” options</strong> available from:</p>
+<ul>
+<li>Chat view “Continue in” button</li>
+<li>Planning mode delegation dropdown</li>
+<li>Untitled prompt file button</li>
+</ul>
+</section>
+<section id="claude-skills-support" class="level2">
+<h2 class="anchored" data-anchor-id="claude-skills-support">Claude Skills Support</h2>
+<p>VS Code 1.107 added <mark><strong>Claude Skills</strong></mark> support, enabling agents to leverage the growing Claude skills ecosystem for extended capabilities. This allows custom agents to access specialized tools and behaviors defined in Claude skill files.</p>
+</section>
+<section id="impact-on-agent-design" class="level2">
+<h2 class="anchored" data-anchor-id="impact-on-agent-design">Impact on Agent Design</h2>
+<p>When designing custom agents, consider the execution context:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 48%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Agent Type</th>
+<th>Recommended Context</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Planning agents</strong></td>
+<td>Local</td>
+<td>Interactive refinement of plans</td>
+</tr>
+<tr class="even">
+<td><strong>Implementation agents</strong></td>
+<td>Background or Cloud</td>
+<td>Long-running, benefits from isolation</td>
+</tr>
+<tr class="odd">
+<td><strong>Review agents</strong></td>
+<td>Local</td>
+<td>Interactive feedback needed</td>
+</tr>
+<tr class="even">
+<td><strong>Documentation agents</strong></td>
+<td>Background</td>
+<td>Can run while developer works</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Use <code>target: github-copilot</code> for agents intended for cloud execution</li>
+<li>Design agents to work autonomously for background execution</li>
+<li>Include clear success criteria so background/cloud agents know when complete</li>
+<li>Consider using handoffs to transition from planning (local) to implementation (background/cloud)</li>
 </ul>
 <hr>
 <!-- 
@@ -3463,9 +3673,12 @@ validations:
 article_metadata:
   filename: "04. how_to_structure_content_for_copilot_agent_files.md"
   created: "2025-12-10T00:00:00Z"
-  last_updated: "2025-12-10T00:00:00Z"
+  last_updated: "2025-12-24T00:00:00Z"
   series: "GitHub Copilot Prompt Engineering"
   article_number: 4
+  version_history:
+    - date: "2025-12-24"
+      changes: "Added v1.107 unified agent architecture appendix, execution contexts, Claude Skills support, updated references"
   related_articles:
     - "01. how_github_copilot_uses_markdown_and_prompt_folders.md"
     - "02. how_to_name_and_organize_prompt_files.md"

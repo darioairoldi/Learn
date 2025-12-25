@@ -2285,6 +2285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a>
   <ul class="collapse">
+  <li><a href="#v1.107-enhancements" id="toc-v1.107-enhancements" class="nav-link" data-scroll-target="#v1.107-enhancements">v1.107 Enhancements</a></li>
   <li><a href="#files-to-createupdate-summary" id="toc-files-to-createupdate-summary" class="nav-link" data-scroll-target="#files-to-createupdate-summary">Files to Create/Update Summary</a></li>
   </ul></li>
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
@@ -2329,6 +2330,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#stage-4-integration-testing-week-2-days-9-10" id="toc-stage-4-integration-testing-week-2-days-9-10" class="nav-link" data-scroll-target="#stage-4-integration-testing-week-2-days-9-10">Stage 4: Integration Testing (Week 2, Days 9-10)</a></li>
   <li><a href="#stage-5-documentation-and-migration-week-2-days-11-12" id="toc-stage-5-documentation-and-migration-week-2-days-11-12" class="nav-link" data-scroll-target="#stage-5-documentation-and-migration-week-2-days-11-12">Stage 5: Documentation and Migration (Week 2, Days 11-12)</a></li>
   </ul></li>
+  <li><a href="#v1.107-testing-checklist" id="toc-v1.107-testing-checklist" class="nav-link" data-scroll-target="#v1.107-testing-checklist">v1.107 Testing Checklist</a>
+  <ul class="collapse">
+  <li><a href="#agent-hq-features" id="toc-agent-hq-features" class="nav-link" data-scroll-target="#agent-hq-features">Agent HQ Features</a></li>
+  <li><a href="#continue-in-delegation" id="toc-continue-in-delegation" class="nav-link" data-scroll-target="#continue-in-delegation">“Continue in” Delegation</a></li>
+  <li><a href="#work-tree-isolation" id="toc-work-tree-isolation" class="nav-link" data-scroll-target="#work-tree-isolation">Work Tree Isolation</a></li>
+  <li><a href="#planning-mode" id="toc-planning-mode" class="nav-link" data-scroll-target="#planning-mode">Planning Mode</a></li>
+  </ul></li>
   <li><a href="#success-criteria" id="toc-success-criteria" class="nav-link" data-scroll-target="#success-criteria">Success Criteria</a>
   <ul class="collapse">
   <li><a href="#reliability-metrics" id="toc-reliability-metrics" class="nav-link" data-scroll-target="#reliability-metrics">Reliability Metrics</a></li>
@@ -2362,8 +2370,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Multi-Agent Orchestration Plan V2 for Prompt and Agent File Creation</h1>
 <p><strong>Purpose</strong>: Comprehensive plan to break down monolithic <code>*-createorupdate-*-v2.prompt.md</code> files into robust, reliable multi-agent orchestrations with enhanced requirements validation.</p>
 <p><strong>Date</strong>: 2025-12-14<br>
-<strong>Version</strong>: 2.0<br>
-<strong>Status</strong>: Planning Phase</p>
+<strong>Version</strong>: 2.1<br>
+<strong>Status</strong>: Planning Phase<br>
+<strong>Updated</strong>: 2025-12-25 - Added v1.107 features (Agent HQ, “Continue in”, planning mode, work tree isolation)</p>
 <hr>
 <section id="executive-summary" class="level2">
 <h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
@@ -2373,7 +2382,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Adding Use Case Challenge Validation</strong> - Goals and roles are actively tested against realistic scenarios</li>
 <li><strong>Integrating Agent Dependency Planning</strong> - Phases 5-6 handle agent updates and creation plans</li>
 <li><strong>Cross-Prompt Coordination</strong> - Agent creation plans flow to <code>agent-design-and-create.prompt.md</code></li>
+<li><strong>Leveraging v1.107 Features</strong> - Agent HQ session management, “Continue in” delegation, planning mode, work tree isolation</li>
 </ol>
+<section id="v1.107-enhancements" class="level3">
+<h3 class="anchored" data-anchor-id="v1.107-enhancements">v1.107 Enhancements</h3>
+<p>The orchestration system now leverages:</p>
+<ul>
+<li><strong>Agent HQ</strong>: Unified interface for tracking all orchestration phases across local/background/cloud sessions</li>
+<li><strong>“Continue in” Workflow</strong>: Primary delegation mechanism from orchestrator to specialist agents</li>
+<li><strong>Planning Mode</strong>: Optional Phase 0 for upfront implementation planning</li>
+<li><strong>Work Tree Isolation</strong>: Background agents run in isolated Git work trees to avoid conflicts</li>
+<li><strong>Session Management</strong>: Read/unread markers, filtering, archiving for complex multi-phase workflows</li>
+</ul>
+</section>
 <section id="files-to-createupdate-summary" class="level3">
 <h3 class="anchored" data-anchor-id="files-to-createupdate-summary">Files to Create/Update Summary</h3>
 <table class="caption-top table">
@@ -2517,12 +2538,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>User approval checkpoints at phase transitions</li>
 <li>Automatic handoffs within validation loops</li>
+<li><strong>v1.107</strong>: “Continue in” buttons for delegating to background/cloud</li>
 </ul></li>
 <li><strong>Reusable Components</strong>
 <ul>
 <li>Prompt agents reusable for prompt workflows</li>
 <li>Agent agents reusable for agent workflows</li>
 <li>Cross-pollination where appropriate</li>
+<li><strong>v1.107</strong>: Same agents work across local/background/cloud contexts</li>
+</ul></li>
+<li><strong>Session Management</strong> (v1.107)
+<ul>
+<li>Agent HQ tracks all orchestration phases</li>
+<li>Work tree isolation for background agents prevents conflicts</li>
+<li>Planning mode (optional Phase 0) for upfront design</li>
 </ul></li>
 </ol>
 </section>
@@ -2540,28 +2569,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 │ PROMPT-DESIGN-AND-    │       │ AGENT-DESIGN-AND-     │
 │ CREATE                │       │ CREATE                │
 │ (Orchestrator)        │       │ (Orchestrator)        │
+│ agent: plan (opt)     │       │ agent: plan (opt)     │
+│ ▶ Agent HQ Session    │       │ ▶ Agent HQ Session    │
 └───────────┬───────────┘       └───────────┬───────────┘
             │                               │
+            │ Phase 0: Planning (if agent:plan)
             │ Phase 1-4                     │ Phase 1-6
+            │ ▶ "Continue in" delegation    │ ▶ "Continue in" delegation
             │                               │
 ┌───────────┼───────────────────────────────┼───────────┐
 │           │     RESEARCH &amp; BUILD          │           │
+│           │     (Background/Cloud)        │           │
 │           ▼                               ▼           │
 │   ┌──────────────┐               ┌──────────────┐     │
 │   │   prompt-    │               │   agent-     │     │
 │   │  researcher  │               │  researcher  │     │
+│   │  ▶ Work Tree │               │  ▶ Work Tree │     │
 │   └──────┬───────┘               └──────┬───────┘     │
 │          │                              │             │
 │          ▼                              ▼             │
 │   ┌──────────────┐               ┌──────────────┐     │
 │   │   prompt-    │               │   agent-     │     │
 │   │   builder    │               │   builder    │     │
+│   │  ▶ Work Tree │               │  ▶ Work Tree │     │
 │   └──────────────┘               └──────────────┘     │
 └───────────────────────────────────────────────────────┘
                             │
+                            │ ▶ Agent HQ marks complete
                             ▼
 ┌───────────────────────────────────────────────────────┐
 │                    VALIDATION                          │
+│                  (Can run in Background)               │
 │                                                        │
 │   ┌──────────────┐               ┌──────────────┐     │
 │   │   prompt-    │               │   agent-     │     │
@@ -2585,7 +2623,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 │ VALIDATE              │       │ VALIDATE              │
 │ (For standalone       │       │ (For standalone       │
 │  validation)          │       │  validation)          │
-└───────────────────────┘       └───────────────────────┘</code></pre>
+└───────────────────────┘       └───────────────────────┘
+
+Legend:
+  ▶ Agent HQ Session = Tracked in Agent HQ interface
+  ▶ Work Tree = Runs in isolated Git work tree (background agents)
+  ▶ "Continue in" = Delegation via "Continue in Background/Cloud" button</code></pre>
 <hr>
 </section>
 </section>
@@ -3969,6 +4012,11 @@ handoffs:
 <td>Test all 4 agents independently</td>
 <td>Test results documented</td>
 </tr>
+<tr class="even">
+<td>3</td>
+<td><strong>v1.107 Testing</strong>: Test agents in background context with work trees</td>
+<td>Verify isolation works</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4009,6 +4057,11 @@ handoffs:
 <td>Update <code>prompt-updater.agent.md</code></td>
 <td>Added change categorization</td>
 </tr>
+<tr class="odd">
+<td>4</td>
+<td><strong>v1.107 Testing</strong>: Test “Continue in” delegation from chat</td>
+<td>Verify context transfer</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4032,7 +4085,7 @@ handoffs:
 <tr class="odd">
 <td>5</td>
 <td>Create <code>agent-design-and-create.prompt.md</code></td>
-<td>Full orchestrator with Phase 1-8</td>
+<td>Full orchestrator with Phase 0-8 (planning mode)</td>
 </tr>
 <tr class="even">
 <td>6</td>
@@ -4042,12 +4095,17 @@ handoffs:
 <tr class="odd">
 <td>7</td>
 <td>Update <code>prompt-design-and-create.prompt.md</code></td>
-<td>Enhanced with Phase 5-6</td>
+<td>Enhanced with Phase 0, 5-6</td>
 </tr>
 <tr class="even">
 <td>8</td>
 <td>Update <code>prompt-review-and-validate.prompt.md</code></td>
 <td>Minor enhancements</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td><strong>v1.107 Testing</strong>: Test Agent HQ session management</td>
+<td>Verify all phases tracked</td>
 </tr>
 </tbody>
 </table>
@@ -4079,14 +4137,24 @@ handoffs:
 <td>Working agent file</td>
 </tr>
 <tr class="odd">
+<td>9</td>
+<td><strong>v1.107 Testing</strong>: Test planning mode (Phase 0)</td>
+<td>Verify plan generation works</td>
+</tr>
+<tr class="even">
 <td>10</td>
 <td>End-to-end test: Validation workflows</td>
 <td>Both review-validate prompts working</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>10</td>
 <td>End-to-end test: Agent dependencies</td>
 <td>Phase 5-6 agent plans work</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td><strong>v1.107 Testing</strong>: Test background validation with work trees</td>
+<td>Verify parallel execution</td>
 </tr>
 </tbody>
 </table>
@@ -4118,17 +4186,66 @@ handoffs:
 <td>Mark stages complete</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>Team training documentation</td>
-<td>Usage guide for new workflows</td>
+<td>11</td>
+<td><strong>v1.107 Documentation</strong>: Document Agent HQ workflow patterns</td>
+<td>Usage guide for session management</td>
 </tr>
 <tr class="even">
 <td>12</td>
+<td>Team training documentation</td>
+<td>Usage guide for new workflows + v1.107 features</td>
+</tr>
+<tr class="odd">
+<td>12</td>
 <td>Update tech/ articles</td>
-<td>References to new system</td>
+<td>References to new system and v1.107 capabilities</td>
 </tr>
 </tbody>
 </table>
+<hr>
+</section>
+</section>
+<section id="v1.107-testing-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="v1.107-testing-checklist">v1.107 Testing Checklist</h2>
+<section id="agent-hq-features" class="level3">
+<h3 class="anchored" data-anchor-id="agent-hq-features">Agent HQ Features</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Verify all orchestration phases appear in Agent HQ sessions list</label></li>
+<li><label><input type="checkbox">Test filtering sessions by agent name</label></li>
+<li><label><input type="checkbox">Test archiving completed sessions</label></li>
+<li><label><input type="checkbox">Verify read/unread markers work correctly</label></li>
+<li><label><input type="checkbox">Test side-by-side session view (v1.107.1)</label></li>
+</ul>
+</section>
+<section id="continue-in-delegation" class="level3">
+<h3 class="anchored" data-anchor-id="continue-in-delegation">“Continue in” Delegation</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Test “Continue in Background” from orchestrator</label></li>
+<li><label><input type="checkbox">Test “Continue in Cloud” from orchestrator</label></li>
+<li><label><input type="checkbox">Verify context transfer to specialist agents</label></li>
+<li><label><input type="checkbox">Test notification when background session completes</label></li>
+<li><label><input type="checkbox">Verify Agent HQ marks session complete</label></li>
+</ul>
+</section>
+<section id="work-tree-isolation" class="level3">
+<h3 class="anchored" data-anchor-id="work-tree-isolation">Work Tree Isolation</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Test background agent creates isolated work tree</label></li>
+<li><label><input type="checkbox">Verify no conflicts with main workspace edits</label></li>
+<li><label><input type="checkbox">Test “Apply” action to merge changes back</label></li>
+<li><label><input type="checkbox">Verify parallel execution (validation while building)</label></li>
+<li><label><input type="checkbox">Test cleanup of work trees after completion</label></li>
+</ul>
+</section>
+<section id="planning-mode" class="level3">
+<h3 class="anchored" data-anchor-id="planning-mode">Planning Mode</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Test <code>agent: plan</code> in orchestrator YAML</label></li>
+<li><label><input type="checkbox">Verify implementation plan generation</label></li>
+<li><label><input type="checkbox">Test delegation from plan to builder agents</label></li>
+<li><label><input type="checkbox">Verify plan includes agent dependencies</label></li>
+<li><label><input type="checkbox">Test user approval checkpoint after planning</label></li>
+</ul>
 <hr>
 </section>
 </section>

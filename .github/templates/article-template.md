@@ -63,8 +63,23 @@ description: "Brief description for SEO and previews"
 
 ## References
 
-- [Reference 1](https://example.com)
-- [Reference 2](https://example.com)
+**All references must be classified according to `.github/instructions/documentation.instructions.md`**
+
+### Official Documentation
+
+**[Official Product Documentation](https://docs.microsoft.com/...)** `[📘 Official]`  
+Official Microsoft documentation covering [topic]. Provides comprehensive reference for [key features/concepts]. Essential reading for understanding [specific aspect covered in article].
+
+**[API Reference Guide](https://learn.microsoft.com/...)** `[📘 Official]`  
+Complete API reference for [technology/framework]. Includes detailed parameter descriptions, return types, and code examples. Referenced throughout this article for technical specifications.
+
+### Community Resources
+
+**[Expert Tutorial Series](https://github.blog/...)** `[📗 Verified Community]`  
+Official blog post series by [recognized expert/team] covering advanced [topic] patterns. Provides real-world implementation guidance and best practices discussed in this article.
+
+**[Community Implementation Example](https://dev.to/author/article)** `[📒 Community]`  
+Community tutorial demonstrating practical application of concepts covered in this article. Useful for developers seeking additional implementation examples and troubleshooting tips.
 
 <!-- 
 ---

@@ -2298,7 +2298,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#instructions-file-frontmatter" id="toc-instructions-file-frontmatter" class="nav-link" data-scroll-target="#instructions-file-frontmatter">Instructions File Frontmatter</a></li>
   </ul></li>
-  <li><a href="#chat-modes-in-vs-code" id="toc-chat-modes-in-vs-code" class="nav-link" data-scroll-target="#chat-modes-in-vs-code">🤖 Chat Modes in VS Code</a></li>
+  <li><a href="#chat-modes-in-vs-code" id="toc-chat-modes-in-vs-code" class="nav-link" data-scroll-target="#chat-modes-in-vs-code">🤖 Chat Modes in VS Code</a>
+  <ul class="collapse">
+  <li><a href="#unified-agent-architecture-v1.107" id="toc-unified-agent-architecture-v1.107" class="nav-link" data-scroll-target="#unified-agent-architecture-v1.107">Unified Agent Architecture (v1.107+)</a></li>
+  </ul></li>
   <li><a href="#custom-agents" id="toc-custom-agents" class="nav-link" data-scroll-target="#custom-agents">🔧 Custom Agents</a>
   <ul class="collapse">
   <li><a href="#agent-file-locations" id="toc-agent-file-locations" class="nav-link" data-scroll-target="#agent-file-locations">Agent File Locations</a></li>
@@ -2309,6 +2312,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#model-context-protocol-mcp" id="toc-model-context-protocol-mcp" class="nav-link" data-scroll-target="#model-context-protocol-mcp">🔌 Model Context Protocol (MCP)</a>
   <ul class="collapse">
   <li><a href="#what-mcp-enables" id="toc-what-mcp-enables" class="nav-link" data-scroll-target="#what-mcp-enables">What MCP Enables</a></li>
+  <li><a href="#mcp-1.0-features-december-2024" id="toc-mcp-1.0-features-december-2024" class="nav-link" data-scroll-target="#mcp-1.0-features-december-2024">MCP 1.0 Features (December 2024)</a></li>
+  <li><a href="#mcp-registry-and-discovery" id="toc-mcp-registry-and-discovery" class="nav-link" data-scroll-target="#mcp-registry-and-discovery">MCP Registry and Discovery</a></li>
+  <li><a href="#github-mcp-server-preview" id="toc-github-mcp-server-preview" class="nav-link" data-scroll-target="#github-mcp-server-preview">GitHub MCP Server (Preview)</a></li>
   <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
   </ul></li>
   <li><a href="#optional-.copilot-folder-enhancing-local-context" id="toc-optional-.copilot-folder-enhancing-local-context" class="nav-link" data-scroll-target="#optional-.copilot-folder-enhancing-local-context">📁 Optional <code>.copilot/</code> Folder: Enhancing Local Context</a></li>
@@ -2328,6 +2334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#community-best-practices-and-patterns" id="toc-community-best-practices-and-patterns" class="nav-link" data-scroll-target="#community-best-practices-and-patterns">Community Best Practices and Patterns</a></li>
   <li><a href="#additional-context-and-architecture" id="toc-additional-context-and-architecture" class="nav-link" data-scroll-target="#additional-context-and-architecture">Additional Context and Architecture</a></li>
   <li><a href="#model-context-protocol-and-tools" id="toc-model-context-protocol-and-tools" class="nav-link" data-scroll-target="#model-context-protocol-and-tools">Model Context Protocol and Tools</a></li>
+  <li><a href="#vs-code-release-notes" id="toc-vs-code-release-notes" class="nav-link" data-scroll-target="#vs-code-release-notes">VS Code Release Notes</a></li>
   <li><a href="#prompt-engineering-fundamentals" id="toc-prompt-engineering-fundamentals" class="nav-link" data-scroll-target="#prompt-engineering-fundamentals">Prompt Engineering Fundamentals</a></li>
   <li><a href="#research" id="toc-research" class="nav-link" data-scroll-target="#research">Research</a></li>
   </ul></li>
@@ -2342,6 +2349,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#differences-from-vs-code" id="toc-differences-from-vs-code" class="nav-link" data-scroll-target="#differences-from-vs-code">Differences from VS Code</a></li>
   </ul></li>
   <li><a href="#appendix-c-deprecated-vs-code-settings" id="toc-appendix-c-deprecated-vs-code-settings" class="nav-link" data-scroll-target="#appendix-c-deprecated-vs-code-settings">📎 Appendix C: Deprecated VS Code Settings</a></li>
+  <li><a href="#appendix-d-unified-agent-architecture-v1.107" id="toc-appendix-d-unified-agent-architecture-v1.107" class="nav-link" data-scroll-target="#appendix-d-unified-agent-architecture-v1.107">📎 Appendix D: Unified Agent Architecture (v1.107+)</a>
+  <ul class="collapse">
+  <li><a href="#agent-hq-interface" id="toc-agent-hq-interface" class="nav-link" data-scroll-target="#agent-hq-interface">Agent HQ Interface</a>
+  <ul class="collapse">
+  <li><a href="#session-types-comparison" id="toc-session-types-comparison" class="nav-link" data-scroll-target="#session-types-comparison">Session Types Comparison</a></li>
+  </ul></li>
+  <li><a href="#work-tree-isolation-workflow" id="toc-work-tree-isolation-workflow" class="nav-link" data-scroll-target="#work-tree-isolation-workflow">Work Tree Isolation Workflow</a>
+  <ul class="collapse">
+  <li><a href="#work-tree-benefits" id="toc-work-tree-benefits" class="nav-link" data-scroll-target="#work-tree-benefits">Work Tree Benefits</a></li>
+  <li><a href="#enabling-work-trees" id="toc-enabling-work-trees" class="nav-link" data-scroll-target="#enabling-work-trees">Enabling Work Trees</a></li>
+  </ul></li>
+  <li><a href="#planning-agent-delegation" id="toc-planning-agent-delegation" class="nav-link" data-scroll-target="#planning-agent-delegation">Planning → Agent Delegation</a></li>
+  <li><a href="#v1.107.1-improvements" id="toc-v1.107.1-improvements" class="nav-link" data-scroll-target="#v1.107.1-improvements">v1.107.1 Improvements</a></li>
+  <li><a href="#entry-points-for-delegation" id="toc-entry-points-for-delegation" class="nav-link" data-scroll-target="#entry-points-for-delegation">Entry Points for Delegation</a></li>
+  </ul></li>
+  <li><a href="#appendix-e-bring-your-own-key-model-management" id="toc-appendix-e-bring-your-own-key-model-management" class="nav-link" data-scroll-target="#appendix-e-bring-your-own-key-model-management">📎 Appendix E: Bring-Your-Own-Key Model Management</a>
+  <ul class="collapse">
+  <li><a href="#language-models-editor" id="toc-language-models-editor" class="nav-link" data-scroll-target="#language-models-editor">Language Models Editor</a>
+  <ul class="collapse">
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
+  <li><a href="#filter-syntax" id="toc-filter-syntax" class="nav-link" data-scroll-target="#filter-syntax">Filter Syntax</a></li>
+  </ul></li>
+  <li><a href="#byok-providers" id="toc-byok-providers" class="nav-link" data-scroll-target="#byok-providers">BYOK Providers</a>
+  <ul class="collapse">
+  <li><a href="#adding-a-byok-provider" id="toc-adding-a-byok-provider" class="nav-link" data-scroll-target="#adding-a-byok-provider">Adding a BYOK Provider</a></li>
+  <li><a href="#model-capabilities-display" id="toc-model-capabilities-display" class="nav-link" data-scroll-target="#model-capabilities-display">Model Capabilities Display</a></li>
+  </ul></li>
+  <li><a href="#huggingface-integration" id="toc-huggingface-integration" class="nav-link" data-scroll-target="#huggingface-integration">HuggingFace Integration</a>
+  <ul class="collapse">
+  <li><a href="#features-1" id="toc-features-1" class="nav-link" data-scroll-target="#features-1">Features</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#extension-id" id="toc-extension-id" class="nav-link" data-scroll-target="#extension-id">Extension ID</a></li>
+  </ul></li>
+  <li><a href="#quota-considerations" id="toc-quota-considerations" class="nav-link" data-scroll-target="#quota-considerations">Quota Considerations</a></li>
+  <li><a href="#claude-skills-support" id="toc-claude-skills-support" class="nav-link" data-scroll-target="#claude-skills-support">Claude Skills Support</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -2373,6 +2416,8 @@ These files guide Copilot by encoding reusable prompts, coding standards, busine
 <li><a href="#-appendix-a-legacy-chatmodemd-migration">📎 Appendix A: Legacy .chatmode.md Migration</a></li>
 <li><a href="#-appendix-b-jetbrains-ide-support">📎 Appendix B: JetBrains IDE Support</a></li>
 <li><a href="#-appendix-c-deprecated-vs-code-settings">📎 Appendix C: Deprecated VS Code Settings</a></li>
+<li><a href="#-appendix-d-unified-agent-architecture-v1107">📎 Appendix D: Unified Agent Architecture (v1.107+)</a></li>
+<li><a href="#-appendix-e-bring-your-own-key-model-management">📎 Appendix E: Bring-Your-Own-Key Model Management</a></li>
 </ul>
 </section>
 </section>
@@ -2537,6 +2582,48 @@ These prompts are available across all your VS Code workspaces and appear as sla
 </tbody>
 </table>
 <p>These built-in modes <mark><strong>supersede many custom multi-phase agent patterns</strong></mark> that were previously required. For example, a three-phase “analyze → plan → implement” workflow can now be achieved by using Plan mode first, then switching to Agent mode for execution.</p>
+<section id="unified-agent-architecture-v1.107" class="level3">
+<h3 class="anchored" data-anchor-id="unified-agent-architecture-v1.107">Unified Agent Architecture (v1.107+)</h3>
+<p>VS Code 1.107 introduced <mark><strong>Agent HQ</strong></mark>, a unified interface for managing agent sessions across three execution contexts:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Context</th>
+<th>Execution</th>
+<th>Isolation</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><strong>Local</strong></mark></td>
+<td>Interactive, in current workspace</td>
+<td>None—shares your workspace</td>
+<td>Quick tasks, interactive debugging</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Background</strong></mark></td>
+<td>Runs autonomously using Git work trees</td>
+<td>Full—uses isolated work tree</td>
+<td>Long-running tasks without blocking workflow</td>
+</tr>
+<tr class="odd">
+<td><mark><strong>Cloud</strong></mark></td>
+<td>Runs on GitHub, creates PRs</td>
+<td>Full—separate branch</td>
+<td>Async work, team collaboration, overnight tasks</td>
+</tr>
+</tbody>
+</table>
+<p><mark><strong>Planning mode now integrates with agent delegation</strong></mark>: After Plan mode generates an implementation plan, you can use the <strong>“Start Implementation”</strong> button to delegate execution to a local, background, or cloud agent.</p>
+<p>For comprehensive coverage of Agent HQ, session management, work tree isolation workflows, and visual walkthroughs, see <a href="#-appendix-d-unified-agent-architecture-v1107">📎 Appendix D: Unified Agent Architecture</a>.</p>
+</section>
 </section>
 <section id="custom-agents" class="level1">
 <h1>🔧 Custom Agents</h1>
@@ -2689,6 +2776,92 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <li><strong>Typed data retrieval</strong> – Get data in formats Copilot can reason about</li>
 <li><strong>Reduced tool clash</strong> – Narrowly-scoped tool definitions prevent conflicts</li>
 </ul>
+</section>
+<section id="mcp-1.0-features-december-2024" class="level3">
+<h3 class="anchored" data-anchor-id="mcp-1.0-features-december-2024">MCP 1.0 Features (December 2024)</h3>
+<p>The <mark><strong>MCP 1.0 anniversary release</strong></mark> introduced production-ready features:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><strong>Tasks</strong></mark></td>
+<td>Durable, resumable operations that persist across sessions</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Sampling</strong></mark></td>
+<td>MCP servers can request LLM completions from the client</td>
+</tr>
+<tr class="odd">
+<td><mark><strong>Elicitation</strong></mark></td>
+<td>Servers can prompt users for input (URL mode, traditional dialogs)</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Custom Icons</strong></mark></td>
+<td>Servers can provide icons for tools and resources</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mcp-registry-and-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="mcp-registry-and-discovery">MCP Registry and Discovery</h3>
+<p><mark><strong>Discover MCP servers via <code>@mcp</code> search</strong></mark> in the Extensions view. The curated registry includes servers for:</p>
+<ul>
+<li><strong>Playwright</strong> – Browser automation and testing</li>
+<li><strong>GitHub</strong> – Repository operations and issue management<br>
+</li>
+<li><strong>Wikipedia</strong> – Knowledge base queries</li>
+<li><strong>Microsoft Learn</strong> – Azure and Microsoft documentation</li>
+</ul>
+<p>One-click installation adds servers directly to your <code>mcp.json</code> configuration.</p>
+</section>
+<section id="github-mcp-server-preview" class="level3">
+<h3 class="anchored" data-anchor-id="github-mcp-server-preview">GitHub MCP Server (Preview)</h3>
+<p>VS Code 1.107 includes a <mark><strong>built-in GitHub MCP server</strong></mark> for remote agent operations:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 41%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>github.copilot.chat.githubMcpServer.enabled</code></td>
+<td>Enable GitHub MCP server</td>
+<td><code>false</code></td>
+</tr>
+<tr class="even">
+<td><code>github.copilot.chat.githubMcpServer.toolsets</code></td>
+<td>Enable tool categories (issues, prs, repos, etc.)</td>
+<td>All enabled</td>
+</tr>
+<tr class="odd">
+<td><code>github.copilot.chat.githubMcpServer.readonly</code></td>
+<td>Restrict to read-only operations</td>
+<td><code>false</code></td>
+</tr>
+<tr class="even">
+<td><code>github.copilot.chat.githubMcpServer.lockdown</code></td>
+<td>Limit to current repository only</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="configuration" class="level3">
 <h3 class="anchored" data-anchor-id="configuration">Configuration</h3>
@@ -2850,12 +3023,6 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <section id="key-takeaways" class="level1">
 <h1>🔑 Key Takeaways</h1>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Capability</th>
@@ -2902,8 +3069,20 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <td>Not available</td>
 </tr>
 <tr class="odd">
+<td><strong>Unified Agent Architecture</strong> (v1.107+)</td>
+<td>Agent HQ provides unified interface for local, background (work tree), and cloud agent sessions with seamless delegation. See <a href="#-appendix-d-unified-agent-architecture-v1107">Appendix D</a>.</td>
+<td>Cloud agents via Copilot coding agent (creates PRs).</td>
+<td>Not available</td>
+</tr>
+<tr class="even">
 <td><strong>MCP servers</strong> (<code>mcp.json</code>)</td>
-<td>Generally available (VS Code 1.102+). Connect to external data sources and tools via Model Context Protocol.</td>
+<td>MCP 1.0 GA (VS Code 1.102+). Features: Tasks, Sampling, Elicitation, Custom Icons. MCP Registry via <code>@mcp</code> search. GitHub MCP Server (Preview) built-in.</td>
+<td>Not currently supported.</td>
+<td>Not available</td>
+</tr>
+<tr class="odd">
+<td><strong>BYOK / Model Management</strong> (v1.107+)</td>
+<td>Language Models Editor with BYOK support (Cerebras, OpenRouter, Ollama, etc.). HuggingFace extension for open-weights models. See <a href="#-appendix-e-bring-your-own-key-model-management">Appendix E</a>.</td>
 <td>Not currently supported.</td>
 <td>Not available</td>
 </tr>
@@ -2954,10 +3133,19 @@ Official resource covering security, privacy, and data handling in GitHub Copilo
 </section>
 <section id="model-context-protocol-and-tools" class="level2">
 <h2 class="anchored" data-anchor-id="model-context-protocol-and-tools">Model Context Protocol and Tools</h2>
-<p><strong><a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP) Specification</a></strong><br>
+<p><strong><a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP) Specification</a></strong> <code>[📘 Official]</code><br>
 The protocol specification for connecting AI assistants to external data sources and tools. MCP provides structured, typed access to external systems, enabling narrowly-scoped tool definitions that reduce tool clash and improve reliability.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers">VS Code MCP Servers Documentation</a></strong><br>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers">VS Code MCP Servers Documentation</a></strong> <code>[📘 Official]</code><br>
 Official VS Code documentation for configuring MCP servers. Explains how to set up <code>mcp.json</code> files and connect Copilot to external data sources like databases, cloud services, and APIs.</p>
+</section>
+<section id="vs-code-release-notes" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-release-notes">VS Code Release Notes</h2>
+<p><strong><a href="https://code.visualstudio.com/updates/v1_107">VS Code v1.107 Release Notes</a></strong> <code>[📘 Official]</code><br>
+December 2024 release introducing Agent HQ unified interface, background agents with work tree isolation, MCP 1.0 features (Tasks, Sampling, Elicitation), GitHub MCP Server (Preview), enhanced Language Models Editor with BYOK support, and Claude skills integration. Essential reading for understanding the latest agentic development capabilities.</p>
+<p><strong><a href="https://code.visualstudio.com/updates/v1_106">VS Code v1.106 Release Notes</a></strong> <code>[📘 Official]</code><br>
+November 2024 release that made custom agents (<code>.agent.md</code> files) stable, introduced handoff workflows between agents, and added the <code>target</code> field for distinguishing VS Code vs GitHub Copilot execution contexts.</p>
+<p><strong><a href="https://marketplace.visualstudio.com/items?itemName=huggingface.huggingface-vscode">HuggingFace for VS Code Extension</a></strong> <code>[📘 Official]</code><br>
+Official extension for using HuggingFace models in VS Code Copilot Chat. Provides access to open-weights models (Llama, Mistral, DeepSeek, Qwen) via multiple inference providers with automatic cost/speed optimization.</p>
 </section>
 <section id="prompt-engineering-fundamentals" class="level2">
 <h2 class="anchored" data-anchor-id="prompt-engineering-fundamentals">Prompt Engineering Fundamentals</h2>
@@ -3113,9 +3301,423 @@ Academic research on context window attention patterns, documenting the phenomen
 </table>
 <p><mark><strong>Recommendation:</strong></mark> Remove these deprecated settings from your VS Code configuration and migrate to instruction files for better maintainability and version control.</p>
 <hr>
+</section>
+<section id="appendix-d-unified-agent-architecture-v1.107" class="level1">
+<h1>📎 Appendix D: Unified Agent Architecture (v1.107+)</h1>
+<p>VS Code 1.107 introduced <mark><strong>Agent HQ</strong></mark>, a unified interface for managing agent sessions across local, background, and cloud execution contexts. This appendix provides detailed coverage of the architecture, workflows, and best practices.</p>
+<section id="agent-hq-interface" class="level2">
+<h2 class="anchored" data-anchor-id="agent-hq-interface">Agent HQ Interface</h2>
+<p>Agent HQ provides a centralized view of all agent sessions:</p>
+<ul>
+<li><strong>Recent Sessions List</strong> – View all local, background, and cloud sessions with filtering and search</li>
+<li><strong>Session State Indicators</strong> – Read/unread markers, input-required flags, completion status</li>
+<li><strong>Quick Actions</strong> – Archive, continue, copy workspace changes, delegate to different context</li>
+</ul>
+<section id="session-types-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="session-types-comparison">Session Types Comparison</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│                        AGENT EXECUTION CONTEXTS                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌─────────────┐      ┌─────────────────┐      ┌─────────────────────────┐  │
+│  │   LOCAL     │      │   BACKGROUND    │      │        CLOUD            │  │
+│  │   AGENT     │      │     AGENT       │      │        AGENT            │  │
+│  ├─────────────┤      ├─────────────────┤      ├─────────────────────────┤  │
+│  │ Interactive │      │ Autonomous      │      │ Async (GitHub)          │  │
+│  │ Same window │      │ Git work tree   │      │ Creates PRs             │  │
+│  │ Blocks UI   │      │ Non-blocking    │      │ Team collaboration      │  │
+│  │             │      │                 │      │                         │  │
+│  │ Best for:   │      │ Best for:       │      │ Best for:               │  │
+│  │ • Quick     │      │ • Long tasks    │      │ • Overnight work        │  │
+│  │   fixes     │      │ • Parallel      │      │ • Complex refactors     │  │
+│  │ • Iterative │      │   exploration   │      │ • Team review           │  │
+│  │   work      │      │ • Large changes │      │                         │  │
+│  └─────────────┘      └─────────────────┘      └─────────────────────────┘  │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘</code></pre>
+</section>
+</section>
+<section id="work-tree-isolation-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="work-tree-isolation-workflow">Work Tree Isolation Workflow</h2>
+<p><mark><strong>Background agents use Git work trees</strong></mark> for complete isolation from your main workspace:</p>
+<pre><code>┌──────────────────────────────────────────────────────────────────────────────┐
+│                    WORK TREE ISOLATION WORKFLOW                               │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│  1. REQUEST                                                                   │
+│     ┌─────────────────────┐                                                   │
+│     │ "Create background  │                                                   │
+│     │  agent session"     │                                                   │
+│     └─────────┬───────────┘                                                   │
+│               │                                                               │
+│               ▼                                                               │
+│  2. WORK TREE CREATION                                                        │
+│     ┌─────────────────────────────────────────────────┐                       │
+│     │ Git creates isolated work tree:                 │                       │
+│     │ /repo/.git/worktrees/agent-session-xyz/         │                       │
+│     │                                                 │                       │
+│     │ • Full copy of current branch state             │                       │
+│     │ • Independent staging area                      │                       │
+│     │ • No interference with main workspace           │                       │
+│     └─────────┬───────────────────────────────────────┘                       │
+│               │                                                               │
+│               ▼                                                               │
+│  3. AGENT EXECUTION                                                           │
+│     ┌─────────────────────────────────────────────────┐                       │
+│     │ Agent works in isolated work tree:              │                       │
+│     │ • Makes changes without affecting main          │                       │
+│     │ • Can run tests, builds in isolation            │                       │
+│     │ • Session visible in Agent HQ                   │                       │
+│     └─────────┬───────────────────────────────────────┘                       │
+│               │                                                               │
+│               ▼                                                               │
+│  4. REVIEW &amp; INTEGRATE                                                        │
+│     ┌─────────────────────────────────────────────────┐                       │
+│     │ User reviews changes in Agent HQ:               │                       │
+│     │                                                 │                       │
+│     │  ┌─────────────┐  ┌─────────────┐              │                       │
+│     │  │ Direct      │  │ Create PR   │              │                       │
+│     │  │ Apply       │  │ for Review  │              │                       │
+│     │  └─────────────┘  └─────────────┘              │                       │
+│     │                                                 │                       │
+│     │ Work tree cleaned up after integration          │                       │
+│     └─────────────────────────────────────────────────┘                       │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘</code></pre>
+<section id="work-tree-benefits" class="level3">
+<h3 class="anchored" data-anchor-id="work-tree-benefits">Work Tree Benefits</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Benefit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><strong>No Conflicts</strong></mark></td>
+<td>Agent changes don’t interfere with your local uncommitted work</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Parallel Exploration</strong></mark></td>
+<td>Run multiple agents exploring different approaches simultaneously</td>
+</tr>
+<tr class="odd">
+<td><mark><strong>Safe Experimentation</strong></mark></td>
+<td>Agent can make breaking changes without affecting your environment</td>
+</tr>
+<tr class="even">
+<td><mark><strong>SCM Integration</strong></mark></td>
+<td>Changes appear in Source Control view with clear session attribution</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="enabling-work-trees" class="level3">
+<h3 class="anchored" data-anchor-id="enabling-work-trees">Enabling Work Trees</h3>
+<p>Work tree isolation is available via a dropdown when starting background sessions:</p>
+<ol type="1">
+<li>Open Agent HQ or use <strong>“Continue in…”</strong> from chat</li>
+<li>Select <strong>“Background (Work Tree)”</strong> from the execution context dropdown</li>
+<li>Agent session starts in isolated work tree</li>
+<li>Review changes in Agent HQ → <strong>“Direct Apply”</strong> or <strong>“Create PR”</strong></li>
+</ol>
+</section>
+</section>
+<section id="planning-agent-delegation" class="level2">
+<h2 class="anchored" data-anchor-id="planning-agent-delegation">Planning → Agent Delegation</h2>
+<p><mark><strong>Plan mode integrates with agent delegation</strong></mark> for seamless workflows:</p>
+<pre><code>┌───────────────────────────────────────────────────────────────────┐
+│                   PLAN → DELEGATE WORKFLOW                         │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│  1. PLAN MODE                                                      │
+│     ┌───────────────────────────────────────────┐                  │
+│     │ User: "Plan authentication refactoring"   │                  │
+│     │                                           │                  │
+│     │ Copilot generates detailed plan:          │                  │
+│     │ • Step 1: Extract auth middleware         │                  │
+│     │ • Step 2: Create token service            │                  │
+│     │ • Step 3: Update route handlers           │                  │
+│     │ • Step 4: Add unit tests                  │                  │
+│     └─────────────────┬─────────────────────────┘                  │
+│                       │                                            │
+│                       ▼                                            │
+│  2. DELEGATION OPTIONS                                             │
+│     ┌───────────────────────────────────────────┐                  │
+│     │     ┌─────────────────────────────────┐   │                  │
+│     │     │  [Start Implementation]          │   │                  │
+│     │     │                                  │   │                  │
+│     │     │  Execute as:                     │   │                  │
+│     │     │  ○ Local Agent (interactive)     │   │                  │
+│     │     │  ○ Background Agent (work tree)  │   │                  │
+│     │     │  ○ Cloud Agent (GitHub PR)       │   │                  │
+│     │     └─────────────────────────────────┘   │                  │
+│     └───────────────────────────────────────────┘                  │
+│                                                                    │
+└───────────────────────────────────────────────────────────────────┘</code></pre>
+</section>
+<section id="v1.107.1-improvements" class="level2">
+<h2 class="anchored" data-anchor-id="v1.107.1-improvements">v1.107.1 Improvements</h2>
+<p>The v1.107.1 patch release added refinements to the agent experience:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Improvement</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Side-by-Side View</strong></td>
+<td>Agent sessions view defaults to side-by-side layout for easier comparison</td>
+</tr>
+<tr class="even">
+<td><strong>Input-Required Markers</strong></td>
+<td>Sessions requiring user input are clearly marked in Agent HQ</td>
+</tr>
+<tr class="odd">
+<td><strong>Workspace Copying</strong></td>
+<td>Support for copying workspace changes when creating background sessions</td>
+</tr>
+<tr class="even">
+<td><strong>Persistent Chat Prompt</strong></td>
+<td>Chat prompt is not cleared when creating a new session</td>
+</tr>
+<tr class="odd">
+<td><strong>Collapsed Tool Calls</strong></td>
+<td>Tool calls in cloud sessions are collapsed by default for cleaner UI</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="entry-points-for-delegation" class="level2">
+<h2 class="anchored" data-anchor-id="entry-points-for-delegation">Entry Points for Delegation</h2>
+<p>You can delegate to different agent contexts from multiple entry points:</p>
+<ul>
+<li><strong>Chat View</strong> – “Continue in…” button in chat response</li>
+<li><strong>Agent HQ</strong> – Session actions menu → “Continue as…”</li>
+<li><strong>Command Palette</strong> – “GitHub Copilot: Start Background Session”</li>
+<li><strong>Untitled Prompt Files</strong> – “Continue in…” button when drafting prompts</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="appendix-e-bring-your-own-key-model-management" class="level1">
+<h1>📎 Appendix E: Bring-Your-Own-Key Model Management</h1>
+<p>VS Code 1.107 enhanced model management with the <mark><strong>Language Models Editor</strong></mark> and expanded <mark><strong>bring-your-own-key (BYOK)</strong></mark> support.</p>
+<section id="language-models-editor" class="level2">
+<h2 class="anchored" data-anchor-id="language-models-editor">Language Models Editor</h2>
+<p>Access via <strong>Settings</strong> → <strong>GitHub Copilot</strong> → <strong>Language Models</strong> or Command Palette → “GitHub Copilot: Manage Language Models”</p>
+<section id="features" class="level3">
+<h3 class="anchored" data-anchor-id="features">Features</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><strong>Model Visibility</strong></mark></td>
+<td>Hide unused models from the picker for a cleaner interface</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Capability Filtering</strong></mark></td>
+<td>Filter by vision support, tool calling, context window size</td>
+</tr>
+<tr class="odd">
+<td><mark><strong>Provider Management</strong></mark></td>
+<td>Add models from installed providers without leaving the editor</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Search with Highlighting</strong></mark></td>
+<td>Find models by name, provider, or capability</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="filter-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="filter-syntax">Filter Syntax</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>@provider:openai</code></td>
+<td>Show only OpenAI models</td>
+</tr>
+<tr class="even">
+<td><code>@capability:vision</code></td>
+<td>Models with vision/image support</td>
+</tr>
+<tr class="odd">
+<td><code>@capability:tools</code></td>
+<td>Models with tool/function calling</td>
+</tr>
+<tr class="even">
+<td><code>@visible:true/false</code></td>
+<td>Show visible or hidden models</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="byok-providers" class="level2">
+<h2 class="anchored" data-anchor-id="byok-providers">BYOK Providers</h2>
+<p><mark><strong>Bring-your-own-key</strong></mark> allows using models from external providers with your own API keys:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 50%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Provider</th>
+<th>Models Available</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><mark><strong>Cerebras</strong></mark></td>
+<td>Llama 3.3, DeepSeek v3.2, GLM-4.6</td>
+<td>Extremely fast inference</td>
+</tr>
+<tr class="even">
+<td><mark><strong>OpenRouter</strong></mark></td>
+<td>100+ models</td>
+<td>Unified API for multiple providers</td>
+</tr>
+<tr class="odd">
+<td><mark><strong>Ollama</strong></mark></td>
+<td>Local models</td>
+<td>Fully local, no API calls</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Azure OpenAI</strong></mark></td>
+<td>GPT-4o, GPT-4 Turbo</td>
+<td>Enterprise deployment</td>
+</tr>
+<tr class="odd">
+<td><mark><strong>Anthropic (direct)</strong></mark></td>
+<td>Claude models</td>
+<td>Direct API access</td>
+</tr>
+</tbody>
+</table>
+<section id="adding-a-byok-provider" class="level3">
+<h3 class="anchored" data-anchor-id="adding-a-byok-provider">Adding a BYOK Provider</h3>
+<ol type="1">
+<li>Open Command Palette → “GitHub Copilot: Add API Key”</li>
+<li>Select provider (Cerebras, OpenRouter, etc.)</li>
+<li>Enter your API key</li>
+<li>New models appear in the model picker</li>
+</ol>
+</section>
+<section id="model-capabilities-display" class="level3">
+<h3 class="anchored" data-anchor-id="model-capabilities-display">Model Capabilities Display</h3>
+<p>The model picker now shows capability indicators:</p>
+<pre><code>┌──────────────────────────────────────────────────────────┐
+│  Select Model                                             │
+├──────────────────────────────────────────────────────────┤
+│  Claude Sonnet 4        [200K] [👁️] [🔧]                 │
+│  GPT-4o                 [128K] [👁️] [🔧]                 │
+│  DeepSeek v3.2          [64K]  [🔧]                       │
+│  Llama 3.3 70B          [128K] [🔧]                       │
+│  o3                     [200K] [🔧] [💭]                  │
+├──────────────────────────────────────────────────────────┤
+│  Legend: [context] [👁️ vision] [🔧 tools] [💭 reasoning] │
+└──────────────────────────────────────────────────────────┘</code></pre>
+</section>
+</section>
+<section id="huggingface-integration" class="level2">
+<h2 class="anchored" data-anchor-id="huggingface-integration">HuggingFace Integration</h2>
+<p>The <mark><strong>HuggingFace Inference Provider extension</strong></mark> enables access to open-weights models:</p>
+<section id="features-1" class="level3">
+<h3 class="anchored" data-anchor-id="features-1">Features</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Multiple Inference Providers</strong></td>
+<td>HuggingFace Inference API, Nebius, SambaNova, Together AI, more</td>
+</tr>
+<tr class="even">
+<td><strong>Fastest/Cheapest Mode</strong></td>
+<td>Automatic routing to optimal provider based on cost or speed</td>
+</tr>
+<tr class="odd">
+<td><strong>Open-Weights Models</strong></td>
+<td>Access to Llama, Mistral, DeepSeek, Qwen, and other open models</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="installation" class="level3">
+<h3 class="anchored" data-anchor-id="installation">Installation</h3>
+<ol type="1">
+<li>Install <strong>“HuggingFace for VS Code”</strong> extension from marketplace</li>
+<li>Sign in with HuggingFace account</li>
+<li>Models appear in Copilot’s model picker</li>
+<li>Select fastest/cheapest based on your preference</li>
+</ol>
+</section>
+<section id="extension-id" class="level3">
+<h3 class="anchored" data-anchor-id="extension-id">Extension ID</h3>
+<p><code>huggingface.huggingface-vscode</code></p>
+</section>
+</section>
+<section id="quota-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="quota-considerations">Quota Considerations</h2>
+<p><mark><strong>Important:</strong></mark> BYOK models do not consume GitHub Copilot quota, but:</p>
+<ul>
+<li>Active Copilot subscription is still required</li>
+<li>Background query refinement (using GPT-4o Mini) doesn’t count against quota</li>
+<li>BYOK costs are billed directly by the provider</li>
+<li>Full prompt logging available in output channel for debugging/optimization</li>
+</ul>
+</section>
+<section id="claude-skills-support" class="level2">
+<h2 class="anchored" data-anchor-id="claude-skills-support">Claude Skills Support</h2>
+<p>VS Code 1.107 added support for <mark><strong>Claude skills</strong></mark>—reusable capability definitions that extend Claude’s abilities:</p>
+<ul>
+<li>Skills can be referenced in agent files via the <code>tools</code> field</li>
+<li>Skills provide specialized behaviors (web browsing, file analysis, etc.)</li>
+<li>Growing ecosystem of community and official skills</li>
+</ul>
+<hr>
 <p><em>Last updated: December 2025</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
