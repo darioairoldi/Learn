@@ -504,6 +504,9 @@ Analyze THREE gap categories:
 
 **Goal:** Consolidate all references (existing + new), apply single classification pass, organize by category, and prepare final reference list for article.
 
+**CRITICAL: Apply centralized classification rules from:**
+`.github/instructions/documentation.instructions.md` - Reference Classification section
+
 **Process:**
 
 **Step 1: Merge reference collections**
@@ -513,25 +516,22 @@ Analyze THREE gap categories:
 
 **Step 2: Apply emoji classification ONCE (domain-based rules)**
 
-For each URL, classify using these domain-based rules:
+Classify each URL using the centralized rules in `documentation.instructions.md`:
+- `📘 Official` - Official Microsoft/GitHub docs, learn.microsoft.com, code.visualstudio.com/docs
+- `📗 Verified Community` - Official blogs (github.blog, devblogs.microsoft.com), recognized experts
+- `📒 Community` - Personal blogs, medium.com, dev.to, tutorials
+- `📕 Unverified` - Broken links, unknown/unreliable sources
 
-| Classification | Domain Patterns | Examples |
-|---------------|-----------------|----------|
-| `📘 **Official**` | `*.microsoft.com`, `docs.github.com`, `learn.microsoft.com`, `code.visualstudio.com/docs` | Official product documentation |
-| `📗 **Verified Community**` | `github.blog`, `devblogs.microsoft.com`, recognized expert domains, academic sources | Official blogs, peer-reviewed content |
-| `📒 **Community**` | `medium.com`, `dev.to`, personal blogs, `stackoverflow.com`, tutorials | General community content |
-| `📕 **Unverified**` | Broken links (from Phase 2), unknown domains, questionable sources | Inaccessible or unreliable |
-
-**Special cases:**
-- Broken links from Phase 2: Always `📕 Unverified`
-- Redirected links: Use final destination domain for classification
-- Mixed content (e.g., GitHub repos): Classify by context (official repos = `📘`, community = `📒`)
+**See `documentation.instructions.md` for:**
+- Complete classification table with domain patterns
+- Special cases (GitHub repos, recording links, redirects, mixed content)
+- Classification examples
 
 **Step 3: Organize by category and classification**
 
-Group references into categories matching workspace article patterns:
+Group references into categories (see `documentation.instructions.md` for patterns):
 - "Official Documentation" (`📘` sources only)
-- "Community Best Practices" (`📗` `📒` sources)
+- "Community Resources" (`📗` `📒` sources)  
 - Product-specific categories as appropriate (e.g., "VS Code Features", "Visual Studio Support")
 
 **Step 4: Order by relevance within categories**
@@ -540,12 +540,14 @@ Group references into categories matching workspace article patterns:
 - Core topics → advanced scenarios
 
 **Step 5: Format reference entries**
+
+Follow format from `documentation.instructions.md`:
 ```markdown
 **[Title](url)** `[📘 Official]`  
-Description explaining content and why it's valuable (2-4 sentences).
+Description explaining content and why it's valuable (2-4 sentences). Include what topics it covers and when readers should reference it.
 ```
 
-**Output: Consolidated References Section** (ready for article)
+**Output: Consolidated References Section** (ready for article, following documentation.instructions.md standards)
 
 ### Phase 5: Gap Analysis & Prioritization
 

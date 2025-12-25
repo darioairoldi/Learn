@@ -56,6 +56,7 @@ Your responsibilities:
 - **Structural hierarchy**: Use 2-level maximum for TOC, with emojis for level 1 headings
 - **Demo separation**: Keep main content focused on concepts, move procedures to appendices
 - **Reference quality**: Include only authoritative sources with explanations of relevance
+- **Reference classification**: Classify all references according to `.github/instructions/documentation.instructions.md` Reference Classification rules
 - **Readability focus**: Maintain focus on core concepts, appendices for tangential content
 
 **Output Format:**
@@ -65,7 +66,7 @@ Your responsibilities:
 - Main content sections with timestamps (HH:MM:SS format) and durations (Xm Ys)
 - Speaker attribution for each major discussion segment
 - Appendix sections for demos and off-topic content with cross-references
-- **References Section**: Follow the format specified in `.github/templates/techsession-analysis-template.md` (authoritative sources with full title, URL, 2-3 sentence explanation, relevance statement)
+- **References Section**: Follow the format specified in `.github/templates/techsession-analysis-template.md` AND classify all references according to `.github/instructions/documentation.instructions.md` Reference Classification rules (📘 Official, 📗 Verified Community, 📒 Community with 2-4 sentence descriptions)
 
 ## Input Sources (Collect from all available sources)
 
@@ -176,11 +177,12 @@ e.g., "HH:MM:SS for start, duration as 'Xm Ys'" (default), "Minutes only", "Incl
 
 **Reference Types:**
 {{Types of references to include in the References section.
-e.g., "Official docs, whitepapers, GitHub repos, related articles" (default), "Only Microsoft official sources", "Include community resources and blog posts", "Academic papers and technical specifications"}}
+e.g., "Official docs, whitepapers, GitHub repos, related articles" (default), "Only Microsoft official sources", "Include community resources and blog posts", "Academic papers and technical specifications"
+NOTE: All references must be classified according to `.github/instructions/documentation.instructions.md` with emoji markers (📘 Official, 📗 Verified Community, 📒 Community)}}
 
 **Reference Detail Level:**
 {{How much explanation for each reference.
-e.g., "2-3 sentences explaining content and relevance" (default), "Brief one-sentence description", "Detailed paragraph with key takeaways"}}
+e.g., "2-4 sentences explaining content and relevance per documentation.instructions.md" (default), "Brief one-sentence description", "Detailed paragraph with key takeaways"}}
 
 ### Content Focus
 
@@ -276,9 +278,10 @@ HH:MM:SS for start time, duration as "Xm Ys" (e.g., "00:15:30" start, "12m 45s" 
 - GitHub sample repositories
 - Related Microsoft Learn modules
 - Community best practices articles
+(NOTE: All references will be classified per `.github/instructions/documentation.instructions.md` with 📘 Official, 📗 Verified Community, 📒 Community markers)
 
 **Reference Detail Level:**
-Follow template format (2-3 sentences per reference: what it covers + why it's relevant)
+Follow template format (2-4 sentences per reference: what it covers + why it's relevant, per documentation.instructions.md standards)
 
 #### Content Focus
 
@@ -376,9 +379,10 @@ MM:SS format only (session under 2 hours), duration as "Xm" (e.g., "23:45" start
 - Open-source agent frameworks (LangChain, Semantic Kernel)
 - Internal architecture decision records (ADRs)
 - Industry best practices and case studies
+(NOTE: All references will be classified per `.github/instructions/documentation.instructions.md` with 📘 Official, 📗 Verified Community, 📒 Community markers)
 
 **Reference Detail Level:**
-Follow template format (2-3 sentences per reference: what it covers + why it's relevant)
+Follow template format (2-4 sentences per reference: what it covers + why it's relevant, per documentation.instructions.md standards)
 
 #### Content Focus
 

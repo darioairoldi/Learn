@@ -1,0 +1,1702 @@
+Welcome with Kai Maetzel and Olivia Guzzardo McVicker
+1:46
+Hello, hello everyone. Welcome to the VS Code release event. My name is Olivia.
+1:52
+I'm an advocate working with the VS Code team. I'm very excited to be here with you all today. We have an amazing lineup
+1:58
+for you all going through the biggest items from the latest release that just dropped yesterday. Um, so let's get into
+2:04
+it. I'm here today with Kai Metzel. Hey Kai. Hey Olivia. How are you?
+2:09
+Good. How are you doing? I'm I'm great. I'm excited to be here. First time us, too. Yeah. It's been a while since
+2:16
+we've had you on one of these live streams, so I think everyone's going to be very excited to have you here. Do you
+2:22
+want to do just a quick intro for folks who maybe don't know you? Sure. Uh my name is Kai Metel. I'm located in Seattle. I run the VS Code
+2:29
+engineering team. Uh, and you know, maybe one tiny little detail, one of the
+2:35
+things that you actually see from me on a regular basis are our monthly plans that I publish on VS Code.
+2:41
+Yes. Yes, you're definitely everywhere. Um, on that note, VS Code is an open source
+2:46
+project, so you can always see all the great latest updates in those iteration plans. With that, I cannot believe that
+2:54
+we are at the end of the year. Just had the last VS Code release of the year. And this has been a big year for VS
+3:01
+Code. Um, I mean looking back there's been, you know, open sourcing the AI
+3:07
+capabilities, big leaps for agentic dev, so many uh
+3:12
+updates to the terminal experience. It's been a big year. So, what would you say are kind of the biggest standout moments
+3:18
+for Yukon? Oh, no. First of all, I've got to say it's like it's like mindblowing as a year, right? When you think about it,
+3:24
+you mentioned a couple of things, but go backwards. We didn't even have any agentic experience at the beginning of
+3:30
+the year, right? We we didn't have NES, you know, next edit suggest and tap tap tap, right? So, yeah, a lot of things
+3:37
+have changed, right? And when you think about this, right, we started without now we actually at the, you know, we we
+3:44
+have a really good agent experience now, right? Just in the last release actually
+3:49
+we brought in a new way of actually presenting our chats right running chats
+3:56
+in the background in the cloud you know you don't have to have your editor open so yeah it's uh you know came a long
+4:03
+long way right but there was also when you think about this for agent mode in particular right it was not just working
+4:09
+on agent mode was supporting all the different models that came along right we worked a lot on bring your own key
+4:16
+right so that for example you can use providers like Cerebras for example right that are in the marketplace so we
+4:23
+there's a lot of work on customization right so you can not just have the
+4:28
+actually co-pilot instructions but you we support agent MD files for example
+4:34
+right just now we started picking up clot skills right so there was a lot of these kinds of things that that actually
+4:40
+happened right and also a lot of small tiny things right so like for example right we introduced was uh notifications
+4:49
+for long running tasks, right? Or when you actually needed uh to confirm a tool
+4:54
+call for example, right? So those those tiny little things and it's all over the place, right? Uh big highlight also MCP,
+5:03
+right? We have the most complete MCP implementation out there of any client tool, right? And we have been keeping up
+5:10
+to date with this all along, right? Um, yeah. So, those are those are the big
+5:17
+hitting items, right? It's always mind-blowing to me when I'm reminded that literally at the start of
+5:23
+this year, we didn't even have agent mode or really so much of kind of what's what's um in VS Code today. How does the
+5:30
+team um adjust to write such a changing landscape? You know, I know you mentioned the iteration plans um that
+5:37
+happen monthly, but how do you all really approach, you know, staying up to date with all, you know, the cutting
+5:43
+edge of where we're at in development?
+5:48
+Yeah, you uh that's a very good question. So, how do you stay up to date? You know, you
+5:54
+have your ear pretty much on, you know, what happens in the world out there, right? You you do competitive analysis.
+6:01
+You do a lot of self-hosting, of course, right? Because if you actually don't use it yourself, you you don't have a good
+6:08
+impression about what is needed and what is not needed, right? Like for example,
+6:13
+the feedback that our own team gave in order to improve for example our NES experience, right? Was absolutely
+6:20
+fundamental, right? So in order to get the timing right, in order to get the UI
+6:25
+right, right? How at what moment do you think it's actually useful compared to what moment is it a little bit
+6:31
+distracting, right? remove the distractions and that's very very small increments of feedback that you need on
+6:38
+a continuous basis right uh we also collaborate with with others quite
+6:43
+closely right when you think about how we collaborate for example with the AI labs for the new models when they come
+6:48
+out right there's also some knowledge transfer happening there so but it's a lot of research continuous reachers
+6:55
+working very closely with data science folks right and and seeing what happens around you
+7:01
+um you touched on one of I would say one of our top questions we get is does the VS code team use VS Code to build VS
+7:08
+Code and yes I mean the name is an insiders non-stop. Uh oh. Yeah, right. I mean, you look at this,
+7:14
+right? We have there's a reason we have the insiders release, right? There's a reason sometimes the insider release all
+7:20
+of a sudden stops rolling out because we realize, oh, wait a moment, there's something not quite working the way it
+7:25
+should. We push in new insiders, right? An hour later, you have a new build. So, yeah, right. All of us are on insiders.
+7:32
+Uh there are also the pre-release extensions, right? So, that is pretty much the insider version of individual
+7:38
+extensions, right? Then we combine clearly the pre-release extensions with the insiders itself right and yeah every
+7:46
+you push something and few hours later you actually self host on it that has been true pretty much forever
+7:53
+right and that's the beauty of developer tools right I mean if you do software for for some other business you cannot
+7:59
+really do this but but we can right so that's very watching how the team really
+8:06
+interacts um and you know takes all the community feedback back and and um is
+8:11
+just constantly in the tools and and everyone's so motivated to make it the best because they use it. It's a tool that they use, too.
+8:17
+Um Okay. Well, that's a great kind of look back at some of those big ships. Um we
+8:23
+just shipped the last release of the year yesterday. Um and uh I can't
+8:29
+believe how much made it into that release. Uh the team has so many great features that were jam-packed in this
+8:35
+release. Um would you want to go over just some of the highlights uh that stand out to you?
+8:40
+Yeah, absolutely. I mean at at Universe that already seems, you know, years ago,
+8:45
+but it was only a month ago. Uh we actually introduced agent HQ, right? So that's actually where you can pretty
+8:52
+much see all of your running agents, those that run in the background in the cloud, those that you have in VS Code directly in the foreground, right? And
+9:01
+that was a that was a good stepping stone, right? uh but it was not perfect. So we put a lot of effort for this
+9:07
+release in how to make that experience actually more smooth right and that's what what you see right and I think
+9:13
+Bridget is the one that will actually show this today in the live stream right so there was a lot of finesse and a lot
+9:20
+of tiny iterations actually went through this in order to make that so we're not done yet right so don't get this the
+9:26
+wrong way but uh I think that is a big big stepping stone right then also we
+9:31
+brought in we had ro trees for quite a while but you know it was not the the most intuitive kind of way of work with
+9:39
+rock trees. Now when you actually start a background agent, you have the choice right in the drop down to say that you
+9:45
+actually want to use rock trees, right? That gives you isolation for your for your uh background agent so that they
+9:52
+don't step on your feet in the foreground. I already had set cloud
+9:57
+skills, right? that that was a that was also interesting because cloud skills really are uh growing very quickly. you
+10:05
+see a lot of people putting a lot of uh effort into those right so that's one of the customizations clearly that we
+10:11
+wanted them take up right uh but also I mean NES I mentioned that before right
+10:18
+there's always we rolled out new production model for NES right that
+10:24
+really makes the experience much much nicer but now we started for the first time to actually integrate NES with
+10:30
+language server support so like for example you make a change to a symbol And that this very moment when you make
+10:37
+a change to a symbol, we figure out that this is potentially a rename. And then you have an ability to hand it over to
+10:44
+the language server to actually perform the real rename refactoring, right? And that makes it first of all more precise,
+10:50
+but secondly actually less steps to perform the same, right? And that's clearly some some path we want to go go
+10:57
+forward, right? And then the last thing that I want to call out is lots of we
+11:03
+put a lot of improvement in actually the visual representation of how chat actually looks right in what we do with
+11:10
+thinking tokens and so on. And for some technical limitations we we had uh
+11:15
+thinking tokens not yet on set models right or on anthropic models. And that
+11:21
+actually now changed with this release. So now across pretty much all of the major models that we support you have
+11:28
+really nice thinking token support right we kind of collapse for example the and compact the presentation of this and
+11:35
+that makes it more digestible right and I I think yeah those I would say are the
+11:40
+those are the I mean it's a long release note I always just can can point at
+11:46
+highlights right but uh yeah that's those are it's hard to pick just a few out I I
+11:53
+definitely recommend everyone go and read the release notes because there's so much in this release. Um as Kai mentioned, some of these we'll be
+11:59
+covering um in the stream in just a few moments um to hear straight from the VS Code team of folks who worked on the
+12:05
+features themselves. Um so you'll see a lot of those in action. Um so yeah, that was a lot um just in this final release.
+12:12
+I know you mentioned that there are refinements always in process, especially right if folks are using VS Code Insiders, so you can get those
+12:18
+daily builds. Um I was wondering if you could speak a little bit to what themes you see emerging then um that are
+12:24
+helping shape what development's going to be looking like next year from the team and anything you can share there.
+12:30
+No, next year if you talk about January that's that's more uh predictable,
+12:36
+right? Again, think about what we just talked about what the year this year looked like, right? And I don't see it
+12:42
+slowing down anytime soon, right? So, uh but a couple of things we we already see, right? So, we push for
+12:48
+example custom agents, right? And custom agents is your way of pretty much
+12:54
+telling the agentic loop how to behave for your concrete use cases, right? And
+13:00
+as good as generic agents are custom agents that you can actually control,
+13:06
+test and so on in order to make sure that they run properly. I I think that will really take off, right? And what we
+13:13
+actually try to make sure is that custom agents run locally. You can actually use VS Code as your development environment
+13:20
+for custom agents, but then they also can be picked up by background agents or in the cloud, right? And I I think that
+13:27
+will really continue, right? And we really just have touched the I think the
+13:32
+first couple of of interesting problems around custom agents. And then related
+13:39
+is right we we have a a planning agent or we call it planning mode right and
+13:45
+right now you get the plan you as an individual right but think about if the
+13:51
+complexity of those problems really increases right now maybe I need your
+13:56
+opinion on if the plan makes sense right and then it's the agent you and I right
+14:02
+and that actually creates this kind of collaborative nature of all planning and that's clearly something that will also
+14:08
+go after right and also one other aspect right uh at universe we
+14:15
+had our integration or our collaboration with open AI right for the codeex
+14:20
+integration into agent HQ right I think that kind of type of collaboration will
+14:28
+will continue also with others right so it's an opening up right it's it's
+14:34
+pushing for collaborative planning it's more custom agents, right? And you mentioned that before, right? We went
+14:41
+open source this year. Um, big big step for us, right? As a traditional
+14:46
+open-source project or traditionally being an open source project, right? It was always kind of awkward for us that
+14:53
+that everything we did with AI was closed source, right? So clearly people can can come and and do this with us
+15:00
+together, right? So that's that's exciting. I think one of the things that really stands out to me looking at this
+15:06
+year is just VS Code really trying to in the age of AI stay true to its core
+15:11
+principles, right? Open sourcing um the AI capabilities so we can get closer to our community. Um you know, we're
+15:17
+talking about BYO functionality with extensions be able to contribute models like just really leaning to that extensibility mindset. Um I think that
+15:24
+that's a really great thing to see. Um, and to your point about, you know, having the community help shape uh and
+15:30
+give feedback so we can uh just make the experience even better is a great thing to, I think, end on here. But is there
+15:36
+anything else that you want to cover before we turn it over to some of the rest of the team to showcase some of those great features you talked about?
+15:43
+I mean, maybe just saying thank you to everyone, right, who uses VS Code, who gives feedback, right, who who sends
+15:49
+PRs, particularly those who send PRs. Thank you very very much. They try to call you out in release notes every
+15:55
+single time, but um you know, thank you from the bottom of my heart. Um yeah,
+16:01
+and clearly also thanks to to my team. They're awesome. They are. I'm biased, but it's it's a
+16:07
+really great team to be a part of. Cool. All right. Well, Kai, thank you so much for being here. Uh definitely look
+16:13
+forward to having you on in the new year and we can maybe like do a sidebyside clip of this of where uh looking forward
+16:20
+in the new year and see where we're at in six months time. That's a great idea. We should do that.
+16:26
+Okay. Thank you so much, Kai, for being here. Thank you. Have a good one. Byebye.
+16:33
+All right, y'all. That's going to bring us into kind of the next portion of the VS Code release stream. Um, where we bring on members from the VS Code team
+16:40
+and special guests to talk about some of the great features from the latest release. Um, this is meant to be interactive. So, please make sure that
+16:46
+you're dropping any questions in the chat. Um, with that, let's dive right into it and we're going to bring Bridget on to talk a little bit more about the
+16:52
+Agentic experience. Hey Bridget. Hey Olivia. How's it going? Good. How are you? Thanks so much for
+Agentic experience with Brigit Murtaugh
+16:58
+coming on. I love anytime that you are on this stream. It's always a good time. Thank you. I love being here. So, super
+17:05
+excited to to be in the final stream. I know. I know. Oh my gosh. I cannot believe it every time I hear that. Um,
+17:11
+okay. So, obviously I know who you are, but some of our viewers might not. So, if you could do just a quick intro to yourself and then I think we can dive
+17:16
+into what you're showing. Sounds great. So, I'm Bridget. I'm a product manager on the VS Code team here
+17:21
+at Microsoft. Um, I've been on the team for over five years now, I think. And
+17:27
+some of my current focuses include the next edit suggestions experience and all of our agentic experiences moving
+17:33
+between background cloud local all those kinds of cool flows. Yeah, tons of
+17:39
+amazing work that we've seen from you and the team um this year. So what you
+17:44
+know I know Kai kind of alluded to it but um what is the latest in the release that just dropped yesterday that people
+17:51
+need to get their hands on? Yes. So, we've made a ton of changes to
+17:56
+how users can interact with, kick off, hand off between different kinds of agents. And when you open up the chat
+18:03
+panel, you're actually going to pretty much immediately see the change there. And so, I think we could probably just get into the demo and take a look at it.
+18:09
+That sounds good. Okay. So, I have gone ahead and opened up the chat panel here, which you can
+18:15
+always do via this toggle chat button. And right at the top here, we're going to see we have this recent sessions
+18:20
+list. Now, this is going to be recent different kinds of egentic sessions that I've kicked off, whether they're local,
+18:26
+which is just regular agent mode as I'm in here. Um, or it could be background sessions, or it could be cloud sessions.
+18:33
+I could go ahead and explore these different sessions. And something that's also cool is we now have this button
+18:39
+here that allows you to expand into this agent sidebar as well. So depending on how you kind of like to manage your
+18:45
+work, review your work, chat with co-pilot, um we we're kind of building in these different kinds of flows to
+18:50
+make it feel as powerful and as extensible as possible to you. Um now with this as well, we have where
+18:57
+maybe if you have a bunch of different sessions, you can do things like you could archive them. So for instance, if I have a few sessions and maybe I was
+19:04
+kind of working on similar tasks in them, I don't really need to worry about some of those. I could go ahead and say
+19:09
+archive um and move that over to an archive section. And at any point too, I could
+19:15
+go ahead and filter my different kinds of sessions. I could search them to find them. Um and I can again move between
+19:21
+different kinds of views and also go ahead and create different kinds of um chat conversations as well. So here I'm
+19:27
+just in kind of regular local agent mode. I could also go ahead and switch over to specifically a background agent
+19:33
+conversation or a cloud agent conversation as well. I know that's kind of like a quick overview. I'll pause
+19:39
+there. Very cool. Yeah, I think that they're I mean, first of all, these uh updates are
+19:46
+amazing, right? Because I know if you're using all your different agents as much as I do, right, you have such a so many
+19:53
+different sessions and so being able to just filter through them is so helpful. Um I was wondering if you could touch and maybe you're going to do the same
+19:58
+demo a little bit more on just kind of the difference between that local background cloud um interaction and how that works.
+20:04
+Absolutely. So, we could go ahead and kick off and I will zoom in just maybe we'll stay right about here.
+20:13
+Too zoomed and you then can't see your screen. Yeah. Like never mind. We'll stay here. We can resize if if we need to. Um, so
+20:21
+kind of go through a typical flow that maybe I would do. So maybe uh you and Kai were just discussing as well like
+20:26
+planning mode. We have that. So maybe I want to do some planning for my current repo. So for instance, this is actually
+20:31
+a real website that our our team develops and publishes. It's all about dev containers, which is another feature
+20:36
+of VS Code that I love and that I work on. And maybe I want to find ways to make this site even more user friendly.
+20:42
+So I could work with uh either local agent mode or the planning mode and local uh conversations and say um what
+20:48
+are some ways that I could make my site more user
+20:54
+friendly? And I'll go ahead and send this off to uh kind of just work on a
+21:00
+plan for me. And something that's also cool that we added this iteration is that I can let local conversations,
+21:06
+whether it's local agent mode or planning mode, continue working in the background. So I can go back and we see
+21:11
+here that this session continues in progress. I could choose to check in on it if I like, but I don't have to keep it in the foreground focused on it. I
+21:17
+could go kick off some other work if I'd like. So I want to kind of let that plan work on things. And then in the
+21:23
+meantime, I maybe have some other work that I'd like to go ahead and kick off and maybe I'd even like to go ahead and kick off some things additionally in the
+21:28
+background. So, for instance, something that as I'm in the kind of the mindset of ways to make this website more
+21:35
+readable or more contributable by new folks coming into it, maybe I'd like to go ahead and add some more testing
+21:41
+instructions to the readme. Maybe that's something that's top of mind for me. So, I could say add testing instructions to
+21:48
+my readme. And I could go ahead and kick that off uh to again work in just a local agent
+21:55
+mode session. I'll kick that off. I can let that work in the background some more. Um and I'll see that continues uh
+22:02
+working and thinking there. Um now, as I kicked off that on agent mode, that's
+22:07
+going to go ahead and create changes just to my local files here in my workspace here. So, they're not going to kind of be isolated from if I kicked off
+22:14
+another agent mode session. It is possible that maybe those changes could conflict. So if I really want to go
+22:19
+ahead and kick off some background work, um it's helpful to actually use a background session. So that way it will
+22:25
+work on a git work tree if I'd like. So I'll go ahead and we have a few different ways actually. So what I could
+22:30
+do here is I have this continue chatin button. So if you're typing here, you're just working in agent or ask mode and
+22:36
+then you realize, hey, I'd like to send something off to the background to the to the cloud. You can actually use this button to then continue your
+22:42
+conversation there. Or if you kind of decide from the beginning that you'd like to go ahead and work with a background agent, you can also plus and
+22:49
+create a new background agent directly from here, which is where we're then going to see that dropdown where I can choose to work on a work tree, which is
+22:55
+going to be an isolated git work tree that's not going to then impact my other local files directly. Or if I didn't
+23:01
+want to use that, I could also choose to go back to the workspace option. And is it pretty much as long as you're in a GitHub repo or a git repo, you have
+23:08
+the access to work tree and the work trees will just magically work. Okay. Exactly. Yep. Um, and under the scenes
+23:15
+as well, the background agent is powered by the co-pilot CLI. So folks are using the C-pilot CLI outside of VS Code, we
+23:21
+also now have these integrations directly within the editor. Um, so maybe I want to say add a glossery page to my
+23:29
+site and also link to it from the readme. This is a scenario where it
+23:35
+might end up conflicting with some of those local changes I was going to have because, hey, I was adding testing instructions to the readme. I'm also
+23:41
+going to add some other information to the readme. It's nice to be able to kind of kick these things off in different
+23:46
+isolated background or cloud sessions if I'd like. So here, um, I check this up. We also have a model picker for the
+23:52
+background agent sessions as well. And I'll go ahead and send this off. And now we see immediately as a response that
+23:59
+the background agent went ahead and created an isolated work tree. And it's going to go ahead and actually make those changes on the work tree. If I
+24:06
+check over in the SCM view, I'll see that work tree was created and my changes are going to exist on this work
+24:11
+tree instead of potentially conflicting on my local repo. Very nice. Um, how do you usually uh
+24:18
+decide for your personal workflow if you're going to delegate it to a background agent or to a cloud agent?
+24:24
+That's a great question. And so I found that sometimes if it's what I expect to maybe be a longer running task or
+24:31
+something that I really don't want to or feel like I need to immediately see the results of, sending it to the cloud can
+24:37
+be nice. Um I I also feel like if I want to automatically have a pull request
+24:42
+generated and maybe go ahead and collaborate with Copilot on that PR, collaborate with other teammates on that PR, it's really nice because the cloud
+24:49
+agent is going to go ahead and create a new branch and PR for that session. And so if that's something that I feel like
+24:55
+I'd get value of for this kind of task, I find that to be a really great opportunity to de delegate to the cloud.
+25:01
+That makes a lot of sense. Okay, great. And we could take a look at an example of delegating to the cloud. I could do
+25:06
+it uh from this kind of continue in button here so folks can see that flow as well. So maybe something I'd like to
+25:13
+do is add a theme toggle to my site. I expect that to maybe be a little bit a little bit more longunning. Maybe I want
+25:19
+um the coding agent to take a little bit more creativity with it. So, I think this is a good task to try sending off
+25:24
+to the the um cloud agent. So, maybe I'll say add a theme toggle to my site.
+25:31
+I can use this and say cloud. We're also going to pick up if you have any uh
+25:36
+outstanding local changes and you can choose to decide if you want to include those in your uh cloud agent session or
+25:42
+not. I don't think that they're relevant because I haven't been doing work that's quite relevant to this. But if you have been doing some work and you have some
+25:48
+things that you want to package up and also include in cloud cloud agent session, this flow is great for that. So I'm just going to say delegate. And then
+25:55
+it's going to go ahead and automatically create a branch, kick off a PR, and go ahead and work in that branch and PR.
+26:02
+And if I then go back here, we can kind of see the different status that we've ended up at. So let's go ahead and take
+26:08
+a look at some of our sessions here. Um, so I can see that co-pilot planning mode
+26:13
+here came up with a plan for ways that I can make my site more user friendly. And I have a few different next steps I
+26:19
+could take from here. Either I could continue iterating with copilot locally on the plan, maybe break it down, expand on it, totally pivot with it. Or if I
+26:27
+like this plan, we now have this dropdown and you could continue with this plan and delegate it to the background or to the cloud. And so we're
+26:33
+trying to make it as seamless as possible of you could delegate the whole plan. You could decide just to say, "Hey, I just want to implement
+26:41
+step one." And then you could go ahead and choose to delegate that to the background or cloud. Either way, whatever works for you.
+26:48
+Very cool. Okay. There are a couple questions. If I can pause just for a second. Um, one question in the um
+26:54
+sidebar where you see the blue um dots next to some of the chat sessions. Can
+26:59
+you talk a little bit again about what that um indicator is? Yes, that's a great question. And so we
+27:04
+have a few different statuses here. And so blue means that a session is completed and I haven't yet clicked into
+27:10
+it. So if I'd like, I'll go ahead and click into it. And then we see now that the session is basically marked as red.
+27:16
+And we also have this capability where you can choose to mark sessions as red or unread with the rightclick option.
+27:22
+And so for instance, if I was working on a plan or working on a change and I think, hey, I'd like to remember to come
+27:27
+back to that, I can go ahead and mark it as unread. Um, I I find this is helpful when I want to do things like if I
+27:34
+generated a plan and I'm like, "Hey, that plan's going to take some time to kind of cook in the background." Um, I want to be able to remember where it was
+27:40
+in this list of sessions I have ongoing. It's nice that we can go ahead and decide, hey, I want to mark it as unread and come back to it. And you can also
+27:46
+then choose to filter just to read or unread sessions as well. Okay, that's great. Um, thank you for the overview.
+27:53
+We're also getting a lot of good feedback in the comments. I just want to do a call out for that. Thank you all so much for doing that. Um, that's one of
+27:59
+the best parts about the team being here is that we're reading all that feedback. Um, so we will definitely take note of
+28:04
+all of that. Um, okay, Bridget, is there anything else that you want to show them? No, I think that this is a a good
+28:11
+overview of some of the changes that have landed. Um, we can check in on the SCM view here. We'll see we have different work trees, different changes
+28:17
+committed here. Um, also folks want to really have power over their pull requests and issues directly in the
+28:23
+editor since we also have integration with the co-pilot coding agent in PRs. Installing the GitHub pull request
+28:28
+extension is a great next step as well. It'll give you some even more capabilities. And then when you have those kinds of cloud sessions that get
+28:34
+kicked off, you'll be able to click into them and um see the PRs that were generated, be able to interact with the
+28:41
+PRs, apply changes from them, check out um if you have that other extension installed as well. Awesome. Cool. And I know that this was
+28:48
+like literally just touching the surface of all the updates. Um, so this was a great overview, but I do just want to do
+28:53
+a plug because um, we are currently streaming to the AI Dev Days event. Um, and we actually have a whole breakout
+28:59
+session on the unified agent experience in VS Code um, from Josh Valdo on the
+29:04
+team um, later today. So that's another great chance to see all of this in action and kind of dive a little bit
+29:09
+deeper, too. So just want to do a quick plug there. Yeah, sounds great. All right. Well, thank you so much, Bridget, for being here as always. Um,
+29:17
+and I'm sure we'll see you a ton in the new year. Thank you so much and happy new year everyone.
+29:22
+All right, thanks Bridget. Um, with that that's going to go ahead and bring us to our next guest and demo with Logan.
+Model management with Logan Ramos
+29:31
+Hey Logan, how are you? Hi Olivia, how are you? Thanks. Um, is this your first time on
+29:37
+one of the VS Code release live streams? I can't remember. I think so. I did a podcast at one point about this feature, but I don't think
+29:42
+I've done a live stream yet. Yeah, good good um VS Code. Yeah, right. for the VS Code Insiders podcast.
+29:48
+Definitely check that out. Logan has a great episode there. Um, well, so can you go ahead and do just a quick intro uh of yourself?
+29:55
+Yeah, so I'm Logan. I work a lot on uh kind of the model adoption and model
+30:01
+integrations within uh Copilot Chat. So a lot of the new models that you see come in uh have been kind of added by
+30:07
+me. And then I also work on the bring your own key experience which is about bringing access to users to bring
+30:13
+whatever model they want uh to use within Copilot. So that's what I'll be kind of shoving off a little bit today.
+30:20
+Cool. That sounds great. Yeah, I know models um you know Kai mentioned it um in his opening. Um but all the model
+30:25
+work is a huge huge piece of all the work that's been done this year from the VS Code team. So super excited to have
+30:30
+you on the stream today and show this off. So with that, yeah, we can go ahead and dive into your demo. Yeah, sure. So here I'm just in uh
+30:38
+copilot chat. I'm actually using my copilot free account. So it didn't cost me anything to sign up for this. You can
+30:43
+see I open this and I have some you know quota for chat messages. Uh but maybe I want to you know I already pay for some
+30:50
+API usage or I don't I want to experiment with different models. Uh we actually support bring your own keys so
+30:57
+that you can access different LLM. So the way I do that is I click here into the model picker and you can see I have
+31:03
+you know at the top here all these models that were provided uh by copilot directly and this is included in your
+31:08
+subscription and then I have this other section at the bottom here where you can see other models that I've contributed
+31:15
+via an API token. So if I click manage models here we'll actually bring ourselves into this new management flow
+31:20
+that we've been working on. And so here I just have a few providers uh listed
+31:26
+but there's many more than this. So if I click add models for example, I can go and add API keys for even more of these
+31:32
+or install more providers from the the marketplace. But this is just what I've set up for now. And so we have copilot
+31:39
+and this is like not super bring your own key because copilot's of course included. Uh but this flow does allow
+31:46
+you to also manage the models in your picker. So let's say you know we have GPT5 mini, GPT40 and GPT41. I might not
+31:54
+really want to use four or 41 anymore now that we have five mini and now our new in-house raptor mini model. So, it
+32:01
+just might make sense to click the little I button here and hide those and now I have a cleaner uh kind of model
+32:08
+experience to work with, which is really nice. This is such an underrated feature. I feel like like I've been like shouting this one from the rooftops like, "Oh,
+32:13
+you don't want a giant list in your model." You can configure that. Yeah, it's not too bad with the free
+32:19
+accounts because of course with the free accounts we have to limit the number of models we can provide. Uh but with the pro accounts you can get quite an
+32:25
+exhaustive model list and it definitely helps cut down on things and that's why we also started providing auto as an
+32:30
+option to just help with that that mental fatigue of what model should I be using because there's just so many
+32:35
+options. So we want to cater to the gamut of I would love to experiment with models that copilot doesn't even provide
+32:41
+which is why bringer and key exist or I'd like to not think about models at all. I just want to use AI and that's
+32:47
+kind of where auto uh comes into play uh there. So yeah, so that's kind of the
+32:54
+copilot models, but then the actual bring your own key experience. So I've added keys so far for Cerebrris and open
+33:00
+router. And I have OAMA running on my machine as well. So you can see I have all my models listed here. Uh they show
+33:06
+their context windows so I can decide, you know, maybe I don't need a model that can take a million tokens or maybe
+33:12
+I do. Uh whether or not supports tools or vision. So if you're working with images and things like that, you might
+33:17
+want to to specifically select a model that has that support. Uh for cobot
+33:22
+chat, because a lot of things are going agentic, we definitely recommend picking tool selected models. So for Cerebrus,
+33:28
+you'll see I've only selected GLM46 and that's because their other models at the moment do not support tool calling and
+33:34
+it doesn't really create that really nice wow experience um without being able to do tools. So, another fun
+33:41
+feature is if I click on these little, you know, blocks. So, if I click vision, then it'll actually filter the list down
+33:47
+to to vision only models and allow you to kind of pick and choose. So, I've
+33:54
+already chosen a few here. I can choose, you know, maybe another one just to just
+33:59
+to play around with. So, we can try to add DeepSeek V32. There it gets added in. And these models work exactly the
+34:06
+same as normal copilot chat models. So I can just go here. I can say, you know, I
+34:12
+have this little project called my site. Create me a website of VS Code showing product info.
+34:22
+And the the thing I like about Cerebrris that we'll see is it's just like an incredibly fast inference provider. So
+34:28
+it makes it very easy to to do these quick little demos here. So we're going to rip through these files. And this is
+34:34
+all real time, you know, nothing sped up or recorded. And
+34:39
+that's why I love these live demos because people can see like this. We get Yeah. Hopefully it doesn't make
+34:44
+me look bad. You never know. The demo gods are a little um finicky.
+34:50
+Depending on how you do AI, you could review these files. I won't. Um keep.
+34:56
+And then I'm going to close my other tabs just because I don't have a lot of screen space here. And we can just open up the site here. And look, I got a
+35:02
+broken image, but other than that, it looks like I have what appears to be a copy and paste of
+35:07
+our old site. Nice. And I can view this all within VS Code,
+35:12
+everything like that. I can now I could even do this add element to chat thing, which is really cool, and say my image
+35:18
+is broken, and it will try to fix it for me. Look
+35:26
+at that. Amazing. A real time. It even made that SVG itself which I thought was absolutely
+35:32
+crazy that it got right. Oh man. Now we have these get is some sort of
+35:37
+plane fighter jet looking thing but um and so yeah so these are all the quality
+35:44
+and experience is exactly the same as if you used a coat model. We can even kind of prove this to you. So you can see in my output channel here I'm seeing that
+35:51
+all my requests are flighted to uh the ZI. I can click these markdown
+35:57
+files and these markdown files actually contain you know the entire prompts that
+36:02
+we're sending. So if you are really wanting to get into the nitty-gritty which is kind of what BY caters to of
+36:10
+bring your own model experiment with it see what works best for you. You can see that you can view these whole prompts
+36:16
+here and see everything we send to the model how many tokens it consumes and
+36:22
+and everything uh related to that. So it's a really cool feature. It's it
+36:27
+really helps with the fact that no matter how much we'd love to provide every single model on on the planet, you
+36:32
+know, each time you add a model to copilot, you take the pool of GPUs that are available and have to divide them,
+36:38
+you know, so that each model gets some sliver of capacity and that makes it really really hard for us to provide
+36:44
+everything. So it's really great. So, I'll read like an AI article, a new
+36:50
+model will come out. I'll be like, "Oh my gosh, I want to go try, you know, this model I've never heard of. I've
+36:55
+never heard of a lot of these models to be honest. Some of them are come from big players, but I've never heard of
+37:00
+this like step fun model, for example, and maybe it's really good and maybe I want to play around with it." So, that's
+37:05
+where I think that the bring your own key experience really shines. And it works completely the same uh as any
+37:12
+in-house model would and it does not consume you know any of your your budget as well. So I still have 4% as I showed
+37:19
+before. So that also is a benefit if you don't want to use your cobalt
+37:24
+subscription and you want to save it for you know using whatever model and you want to just pay by API key. So that's
+37:32
+really all I have to show Olivia. Uh yeah, I think just a couple questions we
+37:38
+usually get around this experience in general. Um yeah, I think thank you for showing this. I think it really just like really hones in on the message of
+37:43
+model choice, right? You're not just limited to the models that are built into Copilot, even though um depending
+37:49
+on your skew, you can have a lot. Um but if you want to try out the latest model
+37:55
+of some provider, um you have those options to do that. Um and so I really
+38:00
+love that uh capability. Um, one question uh that we get a lot is do you
+38:06
+still need to be signed into GitHub copilot though? Because while it doesn't uh count against your GitHub Copilot
+38:11
+usage, how does kind of that relationship work? Yeah. So, at the moment, you do still need to be signed into GitHub Copilot
+38:17
+because we often will do things like you can see in my logs, we use GPT4 Mini here and we use GPT4 Mini for creating
+38:24
+this like nice create a website title and other background requests for fine-tuning
+38:30
+kind of some some of the requests in the background use this for mini model to
+38:35
+fine-tune your query and make it better. And then there's features in co-pilot chat that can don't have a model picker
+38:42
+associated with them. So I don't have it right now, but if I had the source control, we do the auto commit generation with the sparkle or like the
+38:50
+F2 rename with the sparkle. These all don't have a model picker associated with them. And the way to power these features is via 40omin as well. So none
+38:58
+of those count against you in terms of cost, but they do require that you are signed in and have a active cop
+39:05
+subscription. Okay, that makes a lot of sense. Cool. All right. Well, this was a great overview of BY. Um, we actually have a
+39:11
+great next demo kind of showing how you can use hugging face with this experience. Um, so Logan, is there anything else you want to touch on um or
+39:17
+talk about before we No, that's all. Thank you so much for having me. Thank you, Logan. Have a great one.
+39:23
+All right, that's going to bring us straight into our next segment um with Selena from Hugging Face.
+Use models from HuggingFace in VS Code with Celina Hanouti
+39:30
+How are you? Super excited to be here. Thanks for having me. Oh, we're so happy to have you here. Um
+39:36
+yeah, I did a quick intro that you're from Hugging Face, but if you could just do an intro of yourself and then what you'll be showing today, that would be
+39:42
+Yeah. Yeah. Um so I'm Selena. I'm a software engineer at Hugging Face for more than a year now. I'm the
+39:49
+co-maintainer of the HuggingFace SDKs and I also work on our serverless uh
+39:54
+inference service called HuggingFace inference providers uh that I will be
+39:59
+talking today um and how to use it uh inside VS Code. Uh so quick word on
+40:05
+interest providers. If you can show my screen. Yeah. Um so quick word on this uh it's
+40:12
+basically uh the easiest way to get access to state-of-the-art open weights models via one single uh API and the
+40:20
+inference runs on uh worldclass uh inference providers like Siri Grog
+40:26
+fireworks and a bunch of others and you get fast reliable access to pretty much any uh open weight uh model you can
+40:33
+think of and because we uh support municipal providers you get flexibility in term of um cost uh speed and
+40:40
+availability without being tied um like to a single vendor and uh it's also cost
+40:46
+effective in the sense that we don't uh add any uh extra markup on top of uh provider. Now the the part I'm
+40:53
+especially excited about uh is that you can use this open weight uh models directly uh inside VS code copilot chat
+41:00
+uh with the uh extension called plug-in face uh provider for GitHub copilot that
+41:06
+you can find on the marketplace. Uh I think you cannot miss it. It's the uh the extension with the cute uh the
+41:12
+cutest logo. Uh so yeah, by the way, huge thanks to the VS Code team for
+41:17
+implementing the tooling uh that made this super easy for us uh to build. It's based on on the bring your own key
+41:24
+feature that uh Logan was presenting before and as he was explaining it basically allows you to contribute your
+41:31
+language models um through an API to VSC copilot chat and uh VSC being open
+41:37
+source is such a great a great thing for us as well. It helped build this kind of
+41:43
+uh of features. Um so yeah um another thing about the the extension uh we
+41:50
+think it's uh very cool uh for us because we constantly release uh new features on our side and uh the
+41:57
+extension being outside of VS Code allows us to iterate faster add new
+42:02
+features integrations bug fixes and um all of that without relying on on VS
+42:08
+Code releases. Uh so yeah a quick demo setting this up is straightforward. You
+42:13
+just need to install the hugging face um provider extension. Once it's installed
+42:19
+uh go to copilot chat uh click on the model picker then manage models click on
+42:26
+add models and then you will find the hugging face in the list. Click on hugging face and then it will ask you
+42:32
+for your hugging face uh API key. So this is your hugging face access token and you can find this in your uh hugging
+42:39
+face settings. just make sure to um add permissions to providers. So I will copy
+42:45
+my um token here.
+42:50
+Click enter and then you can select any available
+42:55
+models uh to use uh inside uh copilot chat. Uh so yeah uh a couple of useful
+43:02
+things here uh is that you can actually filter uh models uh by provider uh that
+43:09
+are that supports this model. For example, if I want to um show all models that are supported by fireworks, I can
+43:16
+just uh look for uh fireworks and uh it will give me all the models that are served through fireworks. Um you can
+43:23
+also pick uh either the fastest mode uh which will select uh the fastest
+43:29
+provider for that model uh mean the highest support uh for for that model.
+43:34
+We have also a cheapest mode which will select the the most cost efficient um
+43:40
+provider for that model. So yeah so let's select uh for example the latest
+43:47
+deepseek model which should be a deepseek v3.2 two uh with the fastest
+43:54
+provider and let's select GLM 4.6 six another uh
+44:00
+open weight models that has uh great performance for coding and once you uh
+44:06
+enable visibility here you will find uh the models here direct directly uh to
+44:11
+use um yeah so let's try um a quick uh
+44:17
+demo here um let's build something real actually so uh I have this feature request uh I was supposed to implement
+44:25
+today so the on on the hugging face hub repo which is the hugging face uh python
+44:31
+SDK. So yeah, let's just ask GLM to implement uh this this feature directly.
+44:38
+Love it. So just ask um GLM to to implement this by giving
+44:46
+the URL directly to uh to the GitHub uh issue. Let's add a bit of context
+44:58
+and let's hope I don't get any uh demo effect here but it should be
+45:05
+yeah uh actually I for this kind of features I really like using local agents um instead of assigning I don't
+45:12
+know the the issue straight to GitHub uh copilot because it feels much more uh
+45:17
+interactive and I get to steal the implementation step by step. Uh I can
+45:23
+refine the prompt and uh I just like watch I just like watch it like uh until
+45:28
+it completes uh its work. Uh so yeah um I also estimated roughly
+45:33
+how much it costs for this kind of session. I mean this kind of request and it roughly around uh 20 to 30 cents uh
+45:42
+if you want to like have JM implement this uh feature. And I'm not even uh
+45:47
+using the cheapest uh provider. So, it's quite cheap compared to other uh other
+45:53
+models. And with the free hugging face account, you get some uh free credits to try things out. And then with a pro
+45:59
+account, you get uh even more um monthly credits, free credits, and then it's pay as you go. Um after that, um yeah, so I
+46:08
+think it's it's going really well for now. It takes like one to two minutes.
+46:13
+Um, and as of the extension, the implementation is obviously open source.
+46:20
+Uh, so you can just check out uh the code and open issues if you have any uh
+46:25
+bug reports or feature requests. Um, we're super uh happy to to get like some
+46:32
+feedback on that. Yeah, we'll definitely make sure to share out that um repo link so people can um contribute to that. Um yeah, I
+46:39
+love like there's a couple things I just want to highlight that you showed up. First, I love the be able to filter for cheapest and fastest because I mean like
+46:45
+at the end of the day, right, a lot of people don't necessarily know what all these models are. Want to know what's what's something I can try that's cheap
+46:50
+or what's something I can try that's going to get my task done fastest. So, I think that that's a really really great user experience. Um, and then to your
+46:57
+point about um just this being in its own extension, um Logan touched on this a little bit too. Um, but it just really
+47:03
+allows y'all to be able to get the latest updates out to folks as quick as possible rather than to your point
+47:09
+waiting for maybe monthly stable release to go out. Yeah. Yeah. Actually, for the cheapest and fastest uh mode, we shipped that a
+47:16
+couple of weeks ago after releasing the extension. So, I just had like to release another um version uh of of the
+47:24
+extension and then ship that into uh copilot chat. So, it's uh it's very very
+47:29
+cool. Um there is a question um on if these models can be handed to the cloud agent
+47:36
+um or your local sessions. Yeah. Yeah. Yeah. I think I think it can be used to cloud agent. I tried this uh
+47:43
+I think a couple of days ago. So it should be working fine also for with cloud agents background agents. Um I'm
+47:49
+more of a local agent to be honest. But yeah, it can be used as well.
+47:57
+And we see this kind of um like the other thing I think that's really great to show with the extension too is then it kind of gets all the error handling
+48:04
+from y'all as well too. So that way you know it's a model that's supported by hugging face um and that you can make
+48:10
+sure that all the responses are being uh uh requested properly um and that you
+48:16
+can see kind of that great user experience there. Yeah. Yeah. Yeah. Um I think it helps also that we have like um we are open
+48:24
+AAI uh compatible which makes it really easy to implement this uh for the VS
+48:30
+code copilot chat. So um yeah it's it's um it's it's really a good uh a good
+48:36
+thing to have uh this uh this thing of the bring your own key uh feature uh in
+48:41
+VS Code and the way it's implemented as well. Mhm. Absolutely. Cool.
+48:47
+Let's see. It looks like it's Yeah. All done successfully. Yeah.
+48:52
+Yeah. I think it did the job. Um Yeah. And and then I can I mean using
+49:00
+this I can just iterate ask for tests or if I don't like something uh I can just
+49:05
+like um do do the job locally and then uh push a final version of it uh after
+49:12
+reviewing the the agent work. Yeah. I I like I just think it's really cool how it's you still get kind of this
+49:17
+native exper youth to in chat, but you get to bring all these extra models in. Um and I know hugging faces like that
+49:24
+was like one of the uh top ones that people are like, "Oh, when can I put in hugging face models here?" Um so uh
+49:30
+that's a really great I'll put out the um link again real quick um so people know where to look for. Um, you can
+49:36
+either search in the extension marketplace in VS Code for hugging face inference provider um for copilot chat I
+49:42
+think it's called or we have the link up um right now too for how to get to that extension page. Awesome. All right. Is there anything
+49:48
+else that you want to share or not that hugging face will be um coming in the future?
+49:53
+Um I think though that that's it. We will I think we're communicating about it like every time we have like new
+49:59
+features and we we try to uh to improve that and see what next features new
+50:05
+features of VS Code and how to integrate that on our side. Awesome. Cool. Well, thank you so much Selena for being here. Appreciate it. Um
+50:13
+have a great day. You too. Bye. All right. That's going to bring us to our next demo um with Connor who's be
+MCP Updates with Connor Peet
+50:19
+talking some MCP updates which I know we've already has asked for in the chat. Hey Connor. Hi.
+50:24
+Good to see you. Yeah, it's I think it's been a few months since I've been on here, but um yeah, great to be here.
+50:30
+Cool. And we get we get a twofer for you today, right? Because you're here and then you're on with Tyler later for AI
+50:36
+Dev Days, right? Um to kind of I'm on at 10:35 Pacific. So about I
+50:41
+think uh two or an hour and a half from now. Um so if you want to learn more about Love it. Cool.
+50:47
+Check it out. All right. Well, I guess with that, right, obviously I know you, but do you want to do a quick intro um just uh for
+50:53
+what you do on the VS Code team? Uh yeah. So, um I'm um I'm Connor. Um I
+50:58
+work on uh uh debugging, testing, and then also like relevant to this. Um um I build out uh many of the MCP features in
+51:06
+VS Code alongside Tyler um and Sandep who've been on here in the past. Um and
+51:12
+um and it's actually good timing on the last release because the the latest MCP spec just dropped. um uh um at the end
+51:20
+of uh November um it had the first like anniversary of of MSP and there's a
+51:25
+bunch of like new features in there that are super cool um and that uh we actually already support in VS Code. So
+51:31
+um I'm going to show some of the uh some of those to you today. Awesome. Cool. Should we go ahead and
+51:36
+dive into the demo then? Yeah, definitely. You can uh go ahead and put my screen on the screen. There we go.
+51:42
+Um, yeah. So, uh, one cool thing that I just wanted to mention that we've actually talked about before, I think on here, but if you haven't seen, we also
+51:49
+support now the new the new MCP registry. Um, so if you just type at MCP
+51:54
+in your extensions view, you get to see all these all these cool MCP servers. So you have like playright, you have you
+51:59
+know um like 7, Microsoft learn, GitHub um you have like things like wiki which
+52:05
+is super useful um especially if you have you talking to like a project that um is on GitHub that like might be new
+52:11
+and like maybe like not indexed already by um a language model and you can just hit install and then uh just like that
+52:18
+you've installed this NTP server and you're good to go. Um and then um and then um actually now also in recent
+52:25
+versions of VS Code, you don't have to like start manually or anything. It'll just be started automatically the first time you send a chat message and then we'll discover it tools and then go
+52:32
+ahead and and use it. Um cool. And then when you say um MCP registry, that's essentially um an
+52:38
+official curated um list of MCP servers that you now see in um VS Code, right?
+52:44
+Um and so the MC registry is actually sort of just a spec. Uh there is also the the open source the official um MCP
+52:51
+registry. Uh currently VS code is pointing at the GitHub uh registry which is a more created kind of like a tested
+52:58
+and tailored uh registry but um as the like open source like public as open
+53:03
+source and public registry is is gaining momentum. Um I think I think that we're starting to kind of have that be be like
+53:09
+an upstream to the regry that we use in VS Code. So uh like one of the story is
+53:14
+that like um it's there it's not like directly uh publishable to yet. Um it's
+53:20
+really good if you want to just consume these MTP servers and then uh probably over the next few months uh like we got to the point where um this this becomes
+53:27
+more of like just a mirror of the public uh open source registry. Um so there's there's behind the scenes. It's kind of
+53:32
+evolved very quickly over the last few months. Um but um it's getting there and
+53:38
+and if you're like a developer who wants to use these servers, you can go there. A good chance if if you have a server
+53:44
+that like debug or playrider or or any major server, it's probably already there. It's probably already um
+53:49
+available and just um hit it install with like a button press. So cool. Thank you for that overview.
+53:56
+Awesome. All right. What would you like to show then? Yeah. For some of the latest MCP updates then. Yeah. So these are brand new like off
+54:02
+the press and so I think most servers don't really support um like a lot of the cool things yet but um I just set up
+54:08
+a uh basically like a local test server. I like clawed vibe code the NMCP server and so I'm going to show that to you
+54:14
+today. So I'm going to first um add my server. I just have a local host server. So I'm going to point it at localhost
+54:21
+3000 mcp and then um
+54:27
+this is just a server that um will help me like design a website. So we can see now it created JSON it created the
+54:35
+server and and it found six tools and so uh so this exposes a few different
+54:41
+tools. So basically it it is a um there we go. Yeah. So, first a first like new
+54:49
+thing in spec is that um a servers and tools actually can now have custom icons. And so, I just like made a little
+54:55
+rocket icon for the server. Uh but um if you're um I'm a developer, you can have
+55:00
+these icons and it makes it just a much easier to to identify uh your different servers and tools. Um and so, first
+55:06
+thing I want to do is probably call the start project tool. So, I'll go ahead and do that. Um
+55:13
+there we go. Let's let think about it for a second. Um
+55:19
+there we go. Um and so I'm going to allow this to happen. Um so uh one thing
+55:25
+that you see is um uh like recently we we improved how we deal with uh uh with
+55:32
+resources. And so um um MCP tools uh can return resources which which you can
+55:38
+like see attached now to the tool call and you can also download those. This just returned basically a like a a JSON
+55:45
+blob here. But um I'll do more with that in a minute. So um yes, let's say we can
+55:51
+have design. We can now configure settings and build and deploy it. So let's go ahead and start designing it. So I'll say start with the design.
+56:00
+Um, and so this is going to use um a new feature called called URL mode um
+56:06
+elicitation, which is basically a fancy way to say it's a way for a server to like ask for input uh that that happens
+56:14
+on a website um that you can then navigate to. So I'm going to go here and this is a tool that will let me sketch
+56:19
+out my website design and then I'll be able to then give it back to the tool. So, I'll just do like a simple um I'll
+56:26
+have like a you know like a content there. Uh maybe like a like logo here and then like sidebar here. Um I'll say
+56:35
+this is this is my logo maybe. I'm not sure. Yeah, I'm not sure that
+56:41
+works. But anyway, this is probably good enough for the tool to figure out what happens. So, I'll say done. And now we
+56:47
+actually see that this got returned to the model. And we can see that that also um is a resource. My my beautiful sketch
+56:53
+there uh returned as resource. If I think this is super cool um um and I
+56:58
+want to save it, I can go ahead and download those. I can save those anywhere I want to. Um so that's cool. And I'll say okay, so
+57:06
+I have my you know basic beautiful design and now I'll I'll say configure my site and see what happens here.
+57:15
+There we go. Um so this is using the more standard like traditional like elicitation where um a server can ask
+57:22
+for just like kind of text rule or uh numbers or like picker input. So I can go ahead and respond here. I have like a
+57:28
+few like various things and so I'll say this is a creative site. I do single page sure whatever that color is sounds
+57:35
+great. Um uh yes animations and then this is also like just one small new feature as well
+57:41
+that uh came in the latest spec is that uh they have a
+57:46
+way to actually um ask for like multiple things that you can like check and support. I'll say I want both both a contact form and a newsletter and then
+57:52
+I'll hit okay. Um you see the output from my station here and then we have
+57:58
+that kind of all all configured and set up. Cool. Um, so now I will say uh yeah,
+58:03
+let's let's just a go ahead engineering content. I'm I'm probably actually going to maybe change into uh a full setup for
+58:11
+this because like this is kind of a a more heavier task whereas like haiku is is great for fast short things but um
+58:18
+I'll go ahead and generate it and say generate content. You got this because models always need some encouragement.
+58:25
+Uh yeah, so uh that's so many features. Um also one thing that is not really
+58:30
+visible here but that came uh recently is oh actually is a tool. Okay. Oh yeah.
+58:35
+So this actually showing uh one new feature as well called sampling and and the sampling is essentially just a way
+58:41
+for the model to say I want to make make a request like on behalf of the user sort of. So it's way for the MCP server
+58:48
+to make their own uh requests to the the LM. Um, and so I'll say I'll now this
+58:55
+I'll be in the session. And so behind the scenes it's going to be going and making requests. Um, I can actually see those in the copilot debug view. Um, and
+59:04
+we can say that um, or eventually it's going to make a request here. There we
+59:10
+go. It's pro I think it's probably this this guy. Let's see what it let's see what it's saying. Okay. So the MTP
+59:18
+server like just asked it to generate content for a landing page site. Um and so we'll see that um it made all this
+59:25
+all this content here and so it created this landing page resource which I think
+59:30
+maybe my my my demo server is like not like super smart it probably written that to HTML document itself but I can
+59:37
+go ahead and download this and and I'll say that I'll I'll call this like landing.html
+59:43
+um and close that out. Go back here I click on things and we can see how this
+59:49
+landing page site looks. It seems like it wrapped that in in a code block, which is not the best thing in the world to do, but uh yeah, so it seems like
+59:56
+that basically like combined all of the the the things that I gave it. Um I think maybe it didn't really follow my
+1:00:02
+my my sketch too well um because it didn't create a sidebar, but maybe my sketch was uh was was not good enough
+1:00:09
+for it to release a bas. I thought it was a great car. Thank you.
+1:00:14
+Um yeah but anyway the other thing that I want to mention which kind of a which kind of a behind the scenes thing is uh
+1:00:21
+tasks and so that is a new feature in latest uh latest like MCB spec which
+1:00:26
+basically allows uh servers to handle uh uh long running operations like um if
+1:00:32
+server if server like ask like asks user for input during a tool call for example uh that could potentially take like you
+1:00:38
+know a few minutes for um a user to actually like execute um and so that princip
+1:00:44
+And so that like presents a problem like when you deal with like network and when you and when you can deal with
+1:00:50
+like things that are like proxies that could like time out the request. And so tasks are are a way that um a tool calls
+1:00:56
+sampling and can basically be created as like async task that the server or the
+1:01:02
+client can pull for completion in. Um and so that basically solves like a lot of issues like for example if if if your
+1:01:08
+crashes then you don't necessarily have to like lose your tool state or you or lose your state of sampling or listation
+1:01:14
+because that can be stored as a task that can be like reconnected to um um and resumed in a durable way and and so
+1:01:21
+VS code so VS code also supports that transparently like there's no really like UI impact for that but but you
+1:01:26
+should see for servers that support tasks you should see like better uh you better reliability especially like uh um
+1:01:33
+I coding on airplanes And so like if you're on an airplane or something or you have like just like a bad network
+1:01:38
+then tasks the tasks like should be a way to be able to um have your have your
+1:01:44
+uh sessions and servers work a lot more a lot more lively than they would otherwise. Um so yeah I think that's
+1:01:51
+kind of the the few things I wanted to go through here. Um I'm not sure if the audience has any
+1:01:56
+questions but yeah there's a few questions comments. Um, so, uh, one comment is just that it would be really cool if our custom MCP
+1:02:02
+could use tools of other MCP servers, um, and kind of bring those together. So, cool comment there of, uh, things
+1:02:09
+that would be helpful. Yes, actually that is the only thing in the, uh, in the latest spec that we
+1:02:16
+don't support yet. Uh, they actually did also add um, on the notion of sampling with tool calls. uh uh give us some more
+1:02:24
+kind of like things that we have to change like internally to make that work. But um I expect that should come probably um um like in the next release
+1:02:30
+which is always on insiders first. But uh that yeah but that basically does
+1:02:36
+does have a way for um uh sampling requests to to include tools that model
+1:02:42
+can call as if it was actually in a full agent session. And so definitely like keep your eye on that. Um I think I have
+1:02:48
+an issue for that um on GitHub as well at track. But that is something that I'll be looking at uh probably shortly
+1:02:54
+here. Awesome. That's great. And then um one other I guess a couple questions around
+1:02:59
+sampling. Um one is sampling um a new request or is it all part of the same request? And then two, can sampling also
+1:03:06
+use tools? Yeah. So sampling uh uh can use tools like with uh the feature that I
+1:03:12
+mentioned before. Um so it's not supported yet, but it will be supported very soon. Um um I think a lot of SDKs a
+1:03:18
+lot of SDKs for MCP are still coming out with that support. So since it might not actually be in your SDK yet um but uh
+1:03:25
+soon TM um and sampling actually is kind of a distinct request. Um so it's so
+1:03:32
+it's basically a standalone request. It's basically a a standalone request that server can make basically tell the
+1:03:38
+client to make. Um the of course um like um if that sampling request like is a
+1:03:44
+result of of of a of a tool call which is the common case that then the MCP
+1:03:50
+server could have as a parameter like to the tool like include a summary of of your conversation or include a summary
+1:03:55
+of like whatever you're wanting it to do and then it and then it can use that to actually generate.
+1:04:00
+Sorry I don't understand. Apparent apparently Siri uh heard me like that's so relatable.
+1:04:06
+Yeah. But um yeah, but then the server actually can use that include that as context um into the request um that it
+1:04:14
+makes. Cool. Awesome. Well, thank you so much for this overview, Connor. Um like we
+1:04:20
+mentioned, you're actually doing kind of a a deeper dive with Tyler later at AI Dev Days. Um on that note, actually, if
+1:04:26
+you all are watching from the VS Code channel, stay put. We still have one more final demo. Um, but if y'all are
+1:04:32
+watching on the AI Dev Day stream, I'm actually going to kick it back to James and Katie um, in studio there for them
+1:04:38
+to keep the fun going over there. All right. Well, Connor, thank you so much for being here today. We really
+1:04:43
+appreciate it. Uh, looking forward to seeing more of your demo later today um, and just seeing what great things uh, come from the team for the rest of the
+1:04:49
+year. Yeah, thank you. All right. Thank you. All right. Like I mentioned, that's going to bring us to
+1:04:55
+our last and final demo today. So, we have David coming on. Hey, David. Hey there. How are you?
+SQL Python driver GA with David Levy
+1:05:00
+Good. How are you doing great? Really happy to be here. Oh my gosh. I know. I love anytime we
+1:05:06
+get like we always say like special guests um because this is a great chance for um VS Code team members to come on, but it's also a great chance for um
+1:05:12
+other folks who obviously are using all the great work that VS Code um puts out um to really see that in action. So with
+1:05:18
+that, I this is your first time on the release live stream. Um I would love if you could just do a quick intro of
+1:05:24
+yourself and what you do uh here at Microsoft. Sure. Hi, I'm Dave Levi. I am a product
+1:05:30
+manager on the uh Microsoft SQL Server drivers team. Um we handle basically all
+1:05:37
+the connectivity with our first party drivers to SQL server. So your SQL server on prem your Azure SQL database
+1:05:44
+and SQL database and fabric you know we cover that all plus we also get you
+1:05:49
+connectivi connected to uh SQL DW and all those other things. So kind of a big
+1:05:56
+space. Mhm. Yeah, very cool. Um I know literally anytime you say anything with
+1:06:01
+like SQL or Python, our audience usually is like, "Yes, that's like very relevant to me." So, um definitely chat, keep the
+1:06:07
+questions coming throughout um this final demo. Um because David's here to hang out and answer your questions. Um
+1:06:13
+but with that, what will you be showing today? So, I want to show off the SQL Python
+1:06:18
+driver that we released uh to GA back in November. We actually Ged Ignite. Um,
+1:06:24
+it's our first firstparty Python driver. You know, typically or historically, I
+1:06:29
+should say, we had contributed to open source projects like PIODBC. Uh, but with the growth of the Python community,
+1:06:35
+it really seemed like a good idea to have a first-party driver and make sure that we're landing all of our new
+1:06:40
+features as quickly as possible in Python. So, um, really what I want to
+1:06:47
+show today is I've got a couple demos. We've got a repeatable um project here
+1:06:54
+and really it shows that how easy it is to use the new Python driver where we really emphasized on sharability. You
+1:07:01
+know, being able to collaborate with your co-workers or share a script with business users. So, we made sure that
+1:07:07
+our driver installs with a single line pip install makes it very very easy to share with other users. It also makes it
+1:07:14
+very easy to deploy it. rather than having to create separate containers for everything, you can just put this on the
+1:07:20
+server and you don't have to worry about people updating drivers or DSNs or anything like that breaking your project
+1:07:25
+and we live right within this folder. So, you know, typically people use, you know, virtual environments and things
+1:07:30
+like that in Python, but we saw an emergence of a new tool called UV that handles virtual environments, um,
+1:07:37
+packages, all all the stuff that you kind of have to do a bunch of different scripts for. Um, so I want to demo that
+1:07:43
+as part of the script here. there's part of the project. So, um I've got this
+1:07:48
+project in VS Code and my zoom looks pretty good. So, um basically what we've
+1:07:54
+got is I have um imported you know the normal libraries. I've got uh our I'm a
+1:08:00
+SQL Python driver. I've got environment to be able to use environment variable or environment files. And then I've got
+1:08:07
+rich console rich.progress and rich.t. Um so I'm going to put some formatted
+1:08:12
+results out. And also I've got just an argument parser so I can um slow things down if I want to show. So kind of what
+1:08:20
+I do and this is a quick start that's available on our website. We'll share a link later. But I like to create little
+1:08:25
+stub projects that I can use later for actual work. So all these quick starts
+1:08:30
+and demos that I have are actually just in case I ever need to do this in real life. I've got something ready to go
+1:08:36
+that I can just customize. I've shared it with you. So now you've got something ready to go that you can just customize
+1:08:42
+too. With that, let's start digging in here. Um, so I'm using a a global
+1:08:47
+connection. I'm only single threaded here, but if I had multiple different paths through here, um, it's nice to
+1:08:53
+share the connection. Um, so I go ahead, I load the environment variables and I
+1:08:58
+go ahead and connect. Um, let's take a look real quick at what's in my environment variables. So it's a typical
+1:09:05
+connection string. The part I want to show is we're using Active Directory default.
+1:09:12
+I'm on a Mac. You're not supposed to be able to do that, right?
+1:09:17
+We we spent a lot of time doing making this work. Um and I'll show you the secret real quick here. Um the trick is
+1:09:23
+you need to be logged in as your um entry authentication account. And the
+1:09:29
+way you do that is you use an extension like Azure resources. uh you add that
+1:09:35
+extension, you connect it to your Azure account and then you have VS Code authentication. Once you have that token
+1:09:41
+in VS Code, we can pick it up and we can use it. So no more having to sign in and
+1:09:48
+go get your phone and you know enter a code every time you want to run a script.
+1:09:53
+It was so painful. We're like we have to fix this, right? So it basically just like loops into the
+1:10:00
+VS Code authentication at that point. Exactly. Um and It's using Active Directory default. So if you don't if
+1:10:07
+you're not in VS Code, if you're using like AZ CLI, you can do a login and we'll pick up that token, too.
+1:10:13
+Okay. So default authentication is not something you really want to use for production apps. Like if you're going to
+1:10:18
+have lots of users connecting to an app, um you you've written something with Django or Fast API, you you'd actually
+1:10:25
+want to use a specific uh security model, like a specific security option
+1:10:30
+to say don't try them all. But if you're sharing a script with other users or even just working on your machine,
+1:10:37
+you're not going to notice a slowdown from using Active Directory default because what it does, it goes through
+1:10:42
+and it tries all the different authentication models or uh options until it gets to one that works and then
+1:10:48
+it uses that. So it makes it super super easy for sharing scripts with other users or you know just working on your
+1:10:55
+own. Um but it's it's going to have a performance hit if you try and use it for like your production website. Okay.
+1:11:02
+So, um let's look here. We've got our connection that we've created and we've got our queries. I just like to I
+1:11:11
+started programming in like VB6 and we had to have all our constants pulled out. So, I still like to do that. Um I'm
+1:11:17
+sure there's other folks out there that can relate. Um but we get our connection, we um create our cursor, we
+1:11:25
+execute our query, and we return our cursor. Super easy. we get our results.
+1:11:30
+And you know, for me, this was kind of me being um you know, having fun. I I
+1:11:36
+wanted to do the fancy spinners for the progress to show like, hey, I'm doing this, I'm doing that, and you know, kind
+1:11:42
+of be like the the edgy developer, I guess, right? So, I did that and this is all in the
+1:11:49
+quick start for you to have, too. But we take and we format a table and um we do
+1:11:54
+a cursor fetch all and then for each record, we just dump it into the table. I mean, this is super super easy. This
+1:12:00
+is what I love about Python. And then, uh, we go ahead and close the cursor. And I've actually put sleeps in
+1:12:06
+here, so I can slow this thing down and actually see the the progress updates. Um, but then we've got our main and uh,
+1:12:14
+we parse the arguments and we get results. So, you know, instead of
+1:12:19
+looking at the code, why don't we just run it? U,, so let's do uvun
+1:12:24
+main.py. Pi. So, we see we're connecting to SQL
+1:12:31
+and boom, it's done. Um, now I had a couple different updates in there. Actually, I had two. So, let's just do
+1:12:39
+sleep time and we'll just do let's do five. 5 seconds.
+1:12:45
+Okay. So, now we're connecting to SQL. This is going to take five seconds.
+1:12:50
+Now, we're formatting results. So, see, um I love these little spinners. That's
+1:12:56
+so cool. Um but now we're we're doing we've got our table orders by customers. So, this
+1:13:01
+is like, you know, super cool. But like what if I want to share this with other users? So, we've got all of our files
+1:13:09
+that UV created for us. And I I didn't show that, but you just do UV innit and dot in a folder. and it's going to
+1:13:15
+create all these folders for or all these files for you with like your dependencies like what version of
+1:13:20
+Python, what version of your um libraries, things like that. And then
+1:13:27
+it's going to create the virtual environment for you to use so you know everything will work the same. If you
+1:13:33
+want to share this with other users, the virtual environment is huge. So if you try to zip up this folder into a zip
+1:13:39
+file, it's going to make it really unwieldy to share. So, what you can do,
+1:13:44
+and we'll just delete it. Yeah. Move it to trash. So, now I can
+1:13:49
+zip up this folder that's just text files. This is, you know, maybe a meg if
+1:13:54
+that. Um, probably way smaller. You can attach it to an email, send it in Teams, whatever. and another user can take it,
+1:14:01
+they can unzip it into their machine, uh, open up the folder in VS Code, and
+1:14:07
+all they have to do, you know, if you're used to Python and you've done like, uh,
+1:14:12
+like a pip install requirements.ext-r and things like that and trying to get everything all set up, you're going to
+1:14:18
+love this. So, I've got this folder. There's no virtual environment, just these config files. I do uvun main.py.
+1:14:25
+So, I'm not changing the command at all. Mhm. It's going to create my virtual environment. It installed all the
+1:14:31
+packages and we're already running. How cool is that for being able to share
+1:14:37
+things across and that's all in that uh starter project that you mentioned. Yeah. Yeah. These are all in our quick
+1:14:43
+starts. We'll share a link to that at the end here. Um but it's just it's so neat like
+1:14:49
+you know taking what's already out there you know this this open uh freeto use uv product and then um you know adding a
+1:14:58
+single line pip install so we don't have any dependencies you can just drop this onto a machine UV run and it just works
+1:15:06
+um with the authentication you know being able to use active directory default you don't have to mess around
+1:15:11
+with anything so even for users that aren't that savvy you're able to say, "Here, just run this
+1:15:18
+and it's just going to work." It's so neat. It is like I I feel like it's one of those things like if we have people
+1:15:24
+watching who like aren't deep in Python or like don't really use Python, they're like, "I don't get it." But if you use
+1:15:29
+Python, you get it. It Yeah, if you want to try Python,
+1:15:34
+because I know there's a ton of people out there that are like, "Wow, Python's really popular. I should learn it." um
+1:15:39
+these quick starts have all the steps to get your machine set up with Visual Studio Code and um Python and UV and all
+1:15:47
+that. So if you just walk through the steps, then it's going to make it super easy to get your machine set up and
+1:15:53
+start building things. Then all you have to do is connect it to your data and you just change the connection string in the
+1:15:59
+environment folder or environment file and change the format of the table and
+1:16:04
+now you've got something that you can show to your teammates and you know start iterating on.
+1:16:09
+Yeah, it's a really powerful um way to just get you started with pain points
+1:16:15
+that maybe would be very intimidating and make you be like, "Oh, I don't want to do this now."
+1:16:21
+Yeah, it's so neat. I I um you know I
+1:16:27
+came through college in the '9s. I'm really dating myself here, but um you
+1:16:32
+know, Python was kind of a thing that was like wasn't a thing anymore. So
+1:16:37
+seeing it come back and be huge um you know, I had I hadn't really paid
+1:16:43
+attention to it. So now getting back into this space and really, you know, digging in, I'm like, "Wow, there's so
+1:16:49
+much cool stuff you can do." Um, you know, there's tools like Streamlit out there that will let you create, you
+1:16:55
+know, interactive web pages. So, if you're like a report developer and you
+1:17:01
+don't want to go create a bunch of um, fact and and uh, dimension tables and,
+1:17:06
+you know, go build out everything and create a PowerBI report and do all the work just to find out that you um, may
+1:17:13
+or may not meet what the customer wanted. You can very quickly create something in Python where you're running
+1:17:18
+simple queries like this and bind it to uh a Streamlit page and have an
+1:17:24
+interactive like this is what the report's going to be like like build a rapid prototype. We've actually got a quick start out there on the on the
+1:17:30
+website for that too. Um where you can say like is this what you're thinking?
+1:17:36
+How should I build this? You know, is this am I on track or do you want me to do something else? So you don't have to
+1:17:43
+invest all the time to go back and and have to refit later. Really neat stuff.
+1:17:49
+Okay. Sorry, I'm doing a ton of talking about No, this is great. This I mean this is what this is for is for people to show
+1:17:55
+off the work that they're doing. Yeah, I really love this stuff. The team, you know, we've got some great engineers that did such a great job with
+1:18:02
+this and they keep building stuff. Um like right now we're working on BCP to be able to stream, you know, huge
+1:18:08
+amounts of data directly into a SQL table. Uh so there's a lot of excitement about that. We're really excited. The
+1:18:15
+we'll hopefully have that out there soon. Um no dates yet. Yeah. But it's always nice to kind of
+1:18:21
+hear like what's top of mind for the team um as they're working on it. Right. Okay. So let me show off a little
+1:18:26
+bit here with Jupyter Notebooks. Um, for the data folks out there, um, Jupyter notebooks are great because,
+1:18:34
+you know, we often have to troubleshoot an issue like once or twice a year and
+1:18:40
+being able to say instead of having everything in a word doc and then trying to copy and paste all the queries over
+1:18:46
+toss SMS or something like that. Um, you know, being able to have it all in
+1:18:52
+one place to be able to walk through it so you can say, "Oh, I remember this. I remember these steps and then here's the
+1:18:58
+SQL. So, all I need to do is connect and run it. Um, it's super super powerful. It's also great if you're one of the
+1:19:05
+more senior people on your team and you need to create runbooks for the junior folks to use to be able to um, you know,
+1:19:13
+execute on daily tasks. Like if you've got a customized restore process where you need to run a a data scrub after or
+1:19:19
+something, you can put that all into a Jupyter notebook and then anybody who follows along can just read what they're
+1:19:25
+supposed to do and then run the cells. So from a data perspective, like a DBA
+1:19:31
+perspective, this is super super cool. Um, so here's what we've got here. I've
+1:19:38
+got my I kind of broke out my uh notebook. So, I have my imports all in one cell. So, I just know where to go
+1:19:44
+find them. And we can just we can run the cell. You know, imports are going to run fast. Um here I'm defining my
+1:19:50
+queries. So, we've got our orders by customer and we've got our spend by category.
+1:19:57
+So, let's go ahead and run that. So, we've got our queries. Okay. Next up, what we're going to do is we're going to
+1:20:03
+print orders by customer and display in a table. This code should look really really familiar. This is what we did in
+1:20:10
+the other demo, right? Um, I did change it up a little bit though. I want to show off the context
+1:20:15
+managers. So, in a lot of different languages, you have to manage your connections very
+1:20:22
+very tightly. So, when you create a connection, you have to close it. Um, when you create a connection, you have
+1:20:29
+to make sure you have exception handling, you know, try catch, all those things.
+1:20:34
+Python has this con con uh concept of um connection or context managers sorry um
+1:20:41
+where you can say with and an object and it handles it. So once the object goes
+1:20:46
+out of scope it's cleaned up. If you have an exception it handles the exceptions for you. You can still add
+1:20:52
+your own custom exception handling, but this makes it super super easy just to write good solid code, robust code with
+1:21:01
+still being able to go very very fast. So here you see we load our connection information, we connect uh we then
+1:21:09
+create a context manager for our cursor and then we execute our query. If the
+1:21:14
+cursor has anything then we we just go through and you know print it out. Um so let's go ahead and run this.
+1:21:24
+There we go. We've got our table that we saw in the last demo. Now, you know, I can't just do the same
+1:21:29
+code over again, right? Well, you got to spice things up. Yeah, we got to take it up a level. So,
+1:21:36
+how about a chart? Charts are cool, right? I love visualization in Jupiter notebooks. It's so good.
+1:21:43
+It is so cool. Um, we should show them what we're talking about, right? First of all, we're so excited.
+1:21:49
+Yes. Yeah. So, you know, I I didn't really spend a lot of time putting um words around what's
+1:21:56
+going on here, but you know, we got titles. So, display spend by category in a horizontal bar chart. Like here, you
+1:22:01
+could have entire paragraphs that say like this is what I think is going on and you know, if you see this, run this.
+1:22:06
+But, um here we create a connection manager and we go and we run a query and
+1:22:12
+we bind it to a Pandanda's data frame. We then um define what our I got to stop
+1:22:18
+with the mouse. We define what our chart should look like and then we go ahead
+1:22:23
+and we create our bar chart. You know, we pass our data to it. Here's our two columns. Done. Let's go ahead and run
+1:22:29
+it. There we go. Now, you're going to get
+1:22:34
+this warning right now with our driver because we're not in SQL Alchemy yet. Uh
+1:22:39
+we are working very closely with that team. So, actually in the release that's going out very soon, we've got three
+1:22:46
+fixes. We're hoping it's the last three fixes that we need to be able to support SQL Alchemy and pass all their tests so
+1:22:52
+we can get rolled out over there, too. But, um, after that little sidebar, um,
+1:22:58
+here's our chart. So, I can take this, I can copy it, I can, you know, save it
+1:23:03
+off. So, if you're trying to do something with other users in your company, like this is so neat because
+1:23:09
+you can say like, "Hey, here's the analysis I came up with. Here's the chart I have." You share the notebook
+1:23:15
+with them or you could, you know, delete the virtual environment and share the um the folder because this is I used UV for
+1:23:22
+this as well. Um you know, you could do that too. So, super super neat and it
+1:23:27
+makes you super productive. Really easy collaboration. um like super super easy collaboration
+1:23:34
+being able to share with other users and have them pick up right where you left off. Um you mentioned right like oh this will
+1:23:41
+be changed in the next um release. We have a few things. What's the best way for people to kind of know when those
+1:23:46
+releases hit um and when to kind of expect those changes. Is there like a blog that you'll have or anything?
+1:23:52
+The best way is to go to our GitHub. Um, so we've got um
+1:24:00
+actually we've got a landing page and let's see here.
+1:24:08
+Sorry, I lost my tabs. I need I'm like the worst with just having 10,000 tabs.
+1:24:14
+Um, okay. So, we've got our main landing page. You can get to this by going to
+1:24:20
+aka.ms or I'm sorry, yeah, aka.msmssql-python
+1:24:29
+and that will land you right on this page. What you'll get here is you'll get our get started where you've got all of
+1:24:35
+our quick starts. So everything I showed plus the rapid prototyping with streamlit is available for you to go and
+1:24:42
+make it your own. Um, we also link off to our documentation which is our wiki
+1:24:48
+on GitHub. Okay. Um, you know, we try to maintain our documentation in one place. So, it makes
+1:24:53
+it super easy. So, everything happens on the GitHub. And then you're able to also
+1:24:58
+hit the link down here and go directly to our GitHub page. And here you're able to, you know,
+1:25:06
+follow along with our releases. You can file issues. Uh we've actually got
+1:25:11
+really good communicate or really good community uh participation where folks
+1:25:16
+are filing PRs. So if there's anything you want to see and you feel really strongly about, you know, go ahead and
+1:25:23
+create it and then submit a PR and you know, we'll get you worked in.
+1:25:30
+That's yeah, that's uh I feel like anytime that it's all on GitHub and an open repo and we can have community
+1:25:36
+contributions, I'm always very excited. Um, we'll make sure that, like I said, that the this link is in our show notes
+1:25:42
+so that way anyone can find this after. Awesome. Cool. So, I'm running out of things to talk
+1:25:48
+about. I was going to say, is there anything else you want to show? I feel like we saw a lot of really great things that just like bring um a lot of pain points
+1:25:55
+out of the equation. Yeah, it's um you know, we really wanted to make things easy, make it real easy
+1:26:02
+to collaborate. And you know, we see the potential. I mean, we were, you know, as
+1:26:07
+we're building things out and trying things out, you know, testing code and doing different scenarios, we're often
+1:26:13
+like laughing at how like just advanced the Python community is like the all the
+1:26:20
+different things that people have already thought of that are just so easy. You just include it. Um, I mean
+1:26:27
+like the Streamlit example where you're able to create a an interactive web page in like 40 50 lines of code. Um, it's
+1:26:37
+just it's unreal. Um, so, you know, we love being a part of this community and
+1:26:42
+we're trying to embrace the spirit of just making things easy, making it super easy to collaborate and um,
+1:26:51
+really yeah, just have that Python experience. Yeah, that makes a lot of sense. Um, and I think that it's just really cool to
+1:26:57
+see all the different tools that are at our disposal to help make all those experiences um, as seamless as possible.
+1:27:04
+And to your point, like if you're just kind of getting started with Python, like this is something that lowers that barrier. Um, and yeah, Python,
+1:27:10
+especially in the age of AI, right, Python is it's everywhere. Yeah. Um, and so it's a great great time to get
+1:27:17
+started with Python if you already um if you're deep in Python, it's a great time to just reevaluate all the tools that
+1:27:23
+are at your disposal now to help make it an even more seamless dev experience.
+1:27:28
+Definitely. All right, David, anything else you want to leave us on? Like I said, we'll make sure that any of those um links are in
+1:27:34
+our show notes. Um yeah, I want to give you the floor again. That's really it. Like I I build a lot
+1:27:41
+of these demos for myself, you know, these quick starts for myself to be able to come back later, but it's for you
+1:27:46
+too. So go to aka.mssql-python
+1:27:51
+and, you know, try the quick starts. It'll get your machine set up. You can start building things and then, you
+1:27:56
+know, use it with your data. Make it your own. And, you know, if you can, if work lets you, show off what you built.
+1:28:02
+I'd really be excited to see it. Yeah. Awesome. Well, thank you so much, David, for coming on and showing that.
+1:28:08
+We really appreciate it. Um, and yeah, hopefully we see you again in the new year to see just even more of um, how
+1:28:13
+this experience has evolved. I'd love that. Thanks so much for having me. Thank you. Have it going. All right,
+1:28:19
+y'all. That brings us to the end of our final release live stream of the year. Um, I just wanted to take a moment and
+Thank you! From Olivia Guzzardo McVicker
+1:28:26
+say thank you to all of our guests today, to the VS Code team for just creating an editor um, that everyone
+1:28:31
+loves and just iterating over. And most importantly, I want to take a second to just say thank you to our community. Um,
+1:28:37
+it's very very hard to uh uh state just how much the community means to our
+1:28:44
+team. Um Kai mentioned it at the very beginning that uh community is truly the heart of the VS Code team. Um if you ask
+1:28:51
+any of the VS Code team members, probably their number one reason for joining the team was because of the great open source community. Um so I
+1:28:56
+just wanted to take a second to thank you all to all of our contributors, those who create PRs, file feedback, we couldn't do it without you. All those
+1:29:03
+who are here watching the VS Code live streams, we really appreciate it. Um,
+1:29:08
+with that, make sure to subscribe to our YouTube channel so that you can watch this on demand and a lot of other really great content. Um, but I'll go ahead and
+1:29:16
+leave y'all with a happy holidays and we will see y'all next year. Thanks so much for being here.
+Wrap
+1:29:28
+[Music] [Applause]

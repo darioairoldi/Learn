@@ -120,29 +120,44 @@ description: "Summary of [event name] recording"
 ## 📚 Resources and References
 
 **Format Specification:**
-- Include only resources/references directly mentioned or highly relevant to the session
+- All references must be classified according to `.github/instructions/documentation.instructions.md`
+- Use emoji markers: `📘 Official`, `📗 Verified Community`, `📒 Community`
+- Group by category: Official Documentation / Session Materials / Community Resources
 - For EVERY reference provide:
   * Full title and clickable URL
-  * 2-3 sentence explanation of what the reference covers
-  * Clear statement of why it's relevant to this session
+  * Classification marker
+  * 2-4 sentence description of content and relevance
 
 **Example:**
 ```markdown
 ## 📚 Resources and References
 
-**[Azure Service Fabric Documentation](https://docs.microsoft.com/azure/service-fabric/)**
-This is the official Microsoft documentation for Azure Service Fabric, covering architecture, deployment patterns, and operational best practices. It was referenced multiple times during the session as the foundational resource for understanding Service Fabric concepts.
+### Official Documentation
 
-**[Microservices Patterns GitHub Repository](https://github.com/microservices-patterns/ftgo-application)**
-Sample microservices application demonstrating key patterns discussed in this session, including saga patterns and event sourcing. The speaker used this repository to illustrate real-world implementation approaches.
+**[Azure Service Fabric Documentation](https://docs.microsoft.com/azure/service-fabric/)** `[📘 Official]`  
+Official Microsoft documentation for Azure Service Fabric, covering architecture, deployment patterns, and operational best practices. Referenced multiple times during the session as the foundational resource for understanding Service Fabric concepts. Essential reading for anyone implementing Service Fabric solutions.
+
+**[VS Code Copilot Documentation](https://code.visualstudio.com/docs/copilot/)** `[📘 Official]`  
+Comprehensive official guide to VS Code Copilot features including customization, agent creation, and MCP integration. The authoritative source for all Copilot capabilities discussed in this session.
+
+### Session Materials
+
+**[Session Recording](https://youtube.com/microsoft/...)** `[📘 Official]`  
+Full session recording from Microsoft Build 2025. Includes all demos and Q&A segments referenced in this summary.
+
+**[Sample Code Repository](https://github.com/microsoft/sample-app)** `[📘 Official]`  
+Official Microsoft sample application demonstrating patterns discussed in the session. Includes complete implementation with tests and deployment scripts.
+
+### Community Resources
+
+**[How to Write Great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)** `[📗 Verified Community]`  
+Official GitHub blog post analyzing patterns from 2,500+ repositories. Provides data-driven insights into effective agent file creation referenced during the session.
+
+**[Community Tutorial on Custom Agents](https://dev.to/example/custom-agents)** `[📒 Community]`  
+Community tutorial demonstrating custom agent creation with practical examples. Useful supplementary resource for developers getting started with agent customization.
 ```
 
 [Your actual resources and references here following the format above]
-
-**Session Materials:**
-- [Slides](URL) - [Description]
-- [Code repository](URL) - [Description]
-- [Additional resources](URL) - [Description]
 
 ## Follow-Up Topics
 

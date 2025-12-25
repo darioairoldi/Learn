@@ -81,6 +81,18 @@ When analyzing source files, look for:
 - Provide brief demo summaries with outcomes, not step-by-step details
 - Include speaker attribution and timestamps for major topics
 - Ensure TOC uses proper emoji format and anchor links
+- **Classify all references according to `.github/instructions/documentation.instructions.md` Reference Classification rules**
+
+## Reference Classification
+
+**All references must be classified according to the centralized rules in:**
+`.github/instructions/documentation.instructions.md` - Reference Classification section
+
+Key points:
+- Use domain-based emoji markers: `📘 Official`, `📗 Verified Community`, `📒 Community`, `📕 Unverified`
+- Group by category: Official Documentation / Session Materials / Community Resources
+- Include 2-4 sentence descriptions for each reference
+- See documentation.instructions.md for complete classification table, special cases, and examples
 
 ## Example Invocations
 
