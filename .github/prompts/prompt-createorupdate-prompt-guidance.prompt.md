@@ -40,7 +40,7 @@ Understand the enhanced structure including:
 - instruction files should apply to creation and update of prompts and agents files
 - prompts and agents should Start with Clear, Specific Goals
 - prompts shoud work at plan level / workflow definition
-- agents should focus at implementation leve land task specific instructions
+- agents should focus at implementation level and task specific instructions
 - prompts and agents shoud use proper tools to avoid clash 
 - prompts and agents shoud discover the relevant context to avoid Poisoning
 - prompts and agents shoud select the useful context to avoid distraction, confusion or tunnel vision 
