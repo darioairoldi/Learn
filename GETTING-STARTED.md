@@ -1,3 +1,11 @@
+---
+title: "Getting Started with IQPilot in Learn Hub"
+author: "Dario Airoldi"
+date: "2025-12-26"
+categories: [getting-started, iqpilot, guide]
+description: "Quick start guide for IQPilot - optional AI-assisted content development tool enhancing GitHub Copilot"
+---
+
 # Getting Started with IQPilot in Learn Hub
 
 ## 🎯 Overview

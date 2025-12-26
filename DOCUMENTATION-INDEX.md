@@ -1,3 +1,11 @@
+---
+title: "Documentation Index"
+author: "Dario Airoldi"
+date: "2025-12-26"
+categories: [documentation, index, reference]
+description: "Complete guide to all documentation automation files and resources in this repository"
+---
+
 # 📚 Documentation Index
 
 Complete guide to all documentation automation files and resources in this repository.
