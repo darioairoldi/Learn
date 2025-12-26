@@ -32,7 +32,7 @@ format:
 
 This document focuses specifically on **deployment architecture strategies** for Quarto sites, exploring how to move from monolithic deployment to modular approaches where **static site infrastructure and content pages can be deployed independently**.
 
-> **Note**: For understanding how Quarto's core architecture and rendering works, see [001.001 Architecture - How quarto works.md](001.001%20Quarto%20Architecture%20-%20How%20quarto%20works.md).
+> **Note**: For understanding how Quarto's core architecture and rendering works, see [01-how-quarto-works.md](01-how-quarto-works.md).
 
 **Key Questions Addressed:**
 

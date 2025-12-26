@@ -96,7 +96,7 @@ This article series focuses on **Quarto website projects** for technical documen
 - [🎯 Conclusion](#-conclusion)
 - [📚 References](#-references)
 - [📑 APPENDIXES](#-appendixes)
-  - [APPENDIX A: Quarto.yml Document Structure](#appendix-a-quartoyml-document-structure---complete-reference-guide)
+  - [APPENDIX A: _quarto.yml Document Structure](#appendix-a-quartoyml-document-structure---complete-reference-guide)
   - [APPENDIX B: Quarto Specific Markdown Features](#appendix-b-quarto-specific-markdown-features---complete-guide)
   - [APPENDIX C: Quarto Theming and Styling](#appendix-c-quarto-theming-and-styling---complete-guide)
   - [APPENDIX D: Configuring Your Learn Repository for Quarto](#appendix-d-configuring-your-learn-repository-for-quarto)
@@ -462,35 +462,35 @@ Best practices for creating maintainable, community-friendly documentation proje
 
 ## 📑 APPENDIXES
 
-### APPENDIX A: [Quarto Architecture - How Quarto Works](001.001%20Quarto%20Architecture%20-%20How%20quarto%20works.md)
+### APPENDIX A: [Quarto Architecture - How Quarto Works](01-how-quarto-works.md)
 
 A deep dive into Quarto's core architecture, site initialization, page loading, and rendering mechanisms. This fundamental guide explains how Quarto's static-first approach works, the site initialization process, how pages are loaded and rendered, and the relationship between static content and dynamic features. Essential for understanding the technical foundations of Quarto and how it generates fast, accessible static sites with optional JavaScript enhancement.
 
-### APPENDIX B: [Quarto Architecture - Monolithic vs. Modular Deployment](001.002%20Quarto%20Architecture%20-%20Monolithic%20vs.%20Modular%20Deployment.md)
+### APPENDIX B: [Quarto Architecture - Monolithic vs. Modular Deployment](02-monolithic-vs-modular-deployment.md)
 
 A comprehensive analysis of deployment strategies for separating content from navigation infrastructure to enable independent deployment cycles. This strategic guide covers monolithic vs. modular deployment approaches, performance and scalability implications, four specific strategies for modular architecture, and practical recommendations with implementation roadmaps. Essential for understanding when and how to scale Quarto sites while maintaining the benefits of static generation.
 
-### APPENDIX C: [Quarto.yml Document Structure - Complete Reference Guide](001.01.%20Quarto.yml%20document%20structure.md)
+### APPENDIX C: [_quarto.yml Document Structure - Complete Reference Guide](03-quarto-yml-structure.md)
 
 An in-depth technical reference covering every aspect of the `_quarto.yml` configuration file. This companion article provides detailed explanations of all configuration sections including project settings, website configuration, format options, metadata, engines, filters, and advanced features. Essential for understanding the full capabilities of Quarto configuration and implementing complex documentation setups with custom navigation, themes, and publishing workflows.
 
-### APPENDIX D: [Quarto Specific Markdown Features - Complete Guide](003.01.%20Quarto%20specific%20markdown%20features.md)
+### APPENDIX D: [Quarto Specific Markdown Features - Complete Guide](04-markdown-features.md)
 
 A comprehensive guide to Quarto's extended markdown syntax and features that go beyond standard Markdown. This technical reference covers div blocks, CSS styling, grid layouts, callout blocks, interactive elements, and advanced formatting options. Essential for creating rich, interactive documentation with sophisticated layouts, highlighting messages, and custom styling using Quarto's unique markdown extensions.
 
-### APPENDIX E: [Quarto Theming and Styling - Complete Guide](002.01.%20Quarto%20Theming%20and%20Styling.md)
+### APPENDIX E: [Quarto Theming and Styling - Complete Guide](05-theming-and-styling.md)
 
 An extensive guide to Quarto's theming and styling capabilities, covering built-in themes, custom CSS integration, SCSS customization, Bootstrap integration, and responsive design. This technical reference includes practical examples of color schemes, typography, layout customization, dark mode support, and brand integration. Essential for creating professionally designed documentation websites that reflect your organization's visual identity and design standards.
 
-### APPENDIX F: [How Sidebar Works - Complete Guide](009.00%20How%20does%20sidebar%20works.md)
+### APPENDIX F: [How Sidebar Works - Complete Guide](06-sidebar-layout.md)
 
 A comprehensive guide to Quarto's layout system including sidebars, navigation, and custom enhancements. This technical reference covers the three-panel architecture, layout components structure, client-side rendering process, and extension options. Includes detailed analysis of the Related Pages implementation and best practices for layout customization.
 
-### APPENDIX G: [Navigation Workflow - Complete Guide](009.01%20Navigation%20workflow.md)
+### APPENDIX G: [Navigation Workflow - Complete Guide](06-navigation-workflow.md)
 
 A complete guide covering the navigation workflow for Quarto sites, including automated navigation generation, Related Pages functionality, and integration with GitHub Pages deployment. This technical reference covers navigation architecture, data flow, client-side intelligence, and troubleshooting strategies for complex navigation systems.
 
-### APPENDIX H: [Optimizing Quarto Build and Deploy](007.01.%20Optimizing%20Quarto%20build%20and%20deploy.md)
+### APPENDIX H: [Optimizing Quarto Build and Deploy](07-build-optimization.md)
 
 A comprehensive guide to optimizing Quarto build and deployment processes for better performance, faster builds, and more efficient workflows. This technical reference covers build optimization strategies, deployment pipeline improvements, and performance monitoring techniques.
 
@@ -557,7 +557,7 @@ format:
 - **Maintain Git History**: No need to move files, preserving commit history
 - **SEO Friendly**: Each section gets its own landing page with proper metadata
 
-### APPENDIX J: [Deploying a Quarto Site to GitHub Pages](000.001%20Deploying%20a%20Quarto%20site%20to%20GitHub%20Pages.md)
+### APPENDIX J: [Deploying a Quarto Site to GitHub Pages](09-github-pages-deployment.md)
 
 A comprehensive technical guide covering all aspects of deploying Quarto sites to GitHub Pages. This appendix includes detailed setup instructions, automated deployment workflows, custom domain configuration, troubleshooting common issues, and optimization techniques. Essential for understanding GitHub Actions integration, repository configuration, and best practices for maintaining documentation sites on GitHub's free hosting platform.
 

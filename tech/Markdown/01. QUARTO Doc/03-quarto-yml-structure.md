@@ -1,5 +1,5 @@
 ---
-title: "Quarto.yml Document Structure"
+title: "_quarto.yml Document Structure"
 description: "Comprehensive reference for all configuration options available in the _quarto.yml file"
 author: "Dario Airoldi"
 date: "2025-01-16"

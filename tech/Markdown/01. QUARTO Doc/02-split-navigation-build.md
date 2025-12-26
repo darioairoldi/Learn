@@ -30,7 +30,7 @@ format:
 
 This document provides a **step-by-step implementation guide** for splitting Quarto navigation build from content rendering, based on **Strategy 1: Content-Navigation Separation** from the modular deployment architecture.
 
-> **Prerequisites**: Understanding of [001.002 Architecture - Monolithic vs. Modular Deployment.md](001.002%20Architecture%20-%20Monolithic%20vs.%20Modular%20Deployment.md)
+> **Prerequisites**: Understanding of [02-monolithic-vs-modular-deployment.md](02-monolithic-vs-modular-deployment.md)
 
 **What You'll Achieve:**
 
