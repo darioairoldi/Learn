@@ -2287,6 +2287,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#workflows-processes" id="toc-workflows-processes" class="nav-link" data-scroll-target="#workflows-processes">🔄 Workflows &amp; Processes</a></li>
   <li><a href="#ai-prompt-files" id="toc-ai-prompt-files" class="nav-link" data-scroll-target="#ai-prompt-files">🤖 AI Prompt Files</a></li>
   <li><a href="#path-specific-instructions" id="toc-path-specific-instructions" class="nav-link" data-scroll-target="#path-specific-instructions">📋 Path-Specific Instructions</a></li>
+  </ul></li>
+  <li><a href="#prompt-engineering-ecosystem" id="toc-prompt-engineering-ecosystem" class="nav-link" data-scroll-target="#prompt-engineering-ecosystem">🤖 Prompt Engineering Ecosystem</a>
+  <ul class="collapse">
+  <li><a href="#core-architecture" id="toc-core-architecture" class="nav-link" data-scroll-target="#core-architecture">Core Architecture</a></li>
+  <li><a href="#context-files-shared-principles" id="toc-context-files-shared-principles" class="nav-link" data-scroll-target="#context-files-shared-principles">Context Files (Shared Principles)</a></li>
+  <li><a href="#prompt-files" id="toc-prompt-files" class="nav-link" data-scroll-target="#prompt-files">Prompt Files</a></li>
+  <li><a href="#agent-files" id="toc-agent-files" class="nav-link" data-scroll-target="#agent-files">Agent Files</a></li>
+  <li><a href="#tech-articles-learning" id="toc-tech-articles-learning" class="nav-link" data-scroll-target="#tech-articles-learning">Tech Articles (Learning)</a></li>
+  <li><a href="#templates" id="toc-templates" class="nav-link" data-scroll-target="#templates">Templates</a></li>
+  <li><a href="#quick-reference-creating-new-files" id="toc-quick-reference-creating-new-files" class="nav-link" data-scroll-target="#quick-reference-creating-new-files">Quick Reference: Creating New Files</a></li>
   <li><a href="#automation-scripts" id="toc-automation-scripts" class="nav-link" data-scroll-target="#automation-scripts">🔧 Automation Scripts</a></li>
   <li><a href="#vs-code-configuration" id="toc-vs-code-configuration" class="nav-link" data-scroll-target="#vs-code-configuration">⚙️ VS Code Configuration</a></li>
   <li><a href="#source-code" id="toc-source-code" class="nav-link" data-scroll-target="#source-code">📦 Source Code</a></li>
@@ -2630,11 +2640,231 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><a href=".github/instructions/prompts.instructions.md">.github/instructions/prompts.instructions.md</a></td>
-<td><code>tech/PromptEngineering/**/*.md</code></td>
-<td>Prompt engineering articles</td>
+<td><code>.github/prompts/**/*.md</code></td>
+<td>Prompt file creation</td>
+</tr>
+<tr class="even">
+<td><a href=".github/instructions/agents.instructions.md">.github/instructions/agents.instructions.md</a></td>
+<td><code>.github/agents/**/*.agent.md</code></td>
+<td>Agent file creation</td>
+</tr>
+<tr class="odd">
+<td><a href=".github/instructions/context-files.instructions.md">.github/instructions/context-files.instructions.md</a></td>
+<td><code>.copilot/context/**/*.md</code></td>
+<td>Context file creation</td>
 </tr>
 </tbody>
 </table>
+<hr>
+</section>
+</section>
+<section id="prompt-engineering-ecosystem" class="level2">
+<h2 class="anchored" data-anchor-id="prompt-engineering-ecosystem">🤖 Prompt Engineering Ecosystem</h2>
+<p>Complete guide to prompt, agent, and context engineering in this repository.</p>
+<section id="core-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="core-architecture">Core Architecture</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    INSTRUCTION LAYER                            │
+│  .github/instructions/*.instructions.md                         │
+│  (Auto-applied based on file path globs)                       │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    CONTEXT LAYER                                │
+│  .copilot/context/prompt-engineering/*.md                       │
+│  (Shared principles, patterns, and guidelines)                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    OPERATIONAL LAYER                            │
+│  .github/prompts/*.prompt.md  |  .github/agents/*.agent.md     │
+│  (Task workflows)             |  (Role-based specialists)       │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+</section>
+<section id="context-files-shared-principles" class="level3">
+<h3 class="anchored" data-anchor-id="context-files-shared-principles">Context Files (Shared Principles)</h3>
+<p><strong>Location</strong>: <code>.copilot/context/prompt-engineering/</code></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+<th>Key Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href=".copilot/context/prompt-engineering/context-engineering-principles.md">context-engineering-principles.md</a></td>
+<td>Core principles</td>
+<td>6 principles: Narrow Scope, Early Commands, Imperative Language, Three-Tier Boundaries, Context Minimization, Tool Scoping</td>
+</tr>
+<tr class="even">
+<td><a href=".copilot/context/prompt-engineering/tool-composition-guide.md">tool-composition-guide.md</a></td>
+<td>Tool selection</td>
+<td>Priority rules, role-based tool sets, composition patterns</td>
+</tr>
+<tr class="odd">
+<td><a href=".copilot/context/prompt-engineering/validation-caching-pattern.md">validation-caching-pattern.md</a></td>
+<td>7-day caching</td>
+<td>Dual YAML architecture, cache check workflow</td>
+</tr>
+<tr class="even">
+<td><a href=".copilot/context/prompt-engineering/handoffs-pattern.md">handoffs-pattern.md</a></td>
+<td>Multi-agent coordination</td>
+<td>Handoff patterns: Linear Chain, Parallel Research, Validation Loop, Supervised</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="prompt-files" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-files">Prompt Files</h3>
+<p><strong>Location</strong>: <code>.github/prompts/</code></p>
+<p><strong>Prompt Creation/Update</strong>:</p>
+<ul>
+<li><a href=".github/prompts/prompt-createorupdate-prompt-file-v2.prompt.md">prompt-createorupdate-prompt-file-v2.prompt.md</a> - ✅ <strong>Recommended</strong> - Multi-agent orchestration</li>
+<li><a href=".github/prompts/prompt-createorupdate-prompt-file.prompt.md">prompt-createorupdate-prompt-file.prompt.md</a> - ⚠️ Deprecated (use v2)</li>
+<li><a href=".github/prompts/prompt-design-and-create.prompt.md">prompt-design-and-create.prompt.md</a> - Design from scratch</li>
+<li><a href=".github/prompts/prompt-review-and-validate.prompt.md">prompt-review-and-validate.prompt.md</a> - Validate existing prompts</li>
+</ul>
+<p><strong>Guidance Maintenance</strong>:</p>
+<ul>
+<li><a href=".github/prompts/prompt-createorupdate-prompt-guidance.prompt.md">prompt-createorupdate-prompt-guidance.prompt.md</a> - Update instruction and context files</li>
+</ul>
+</section>
+<section id="agent-files" class="level3">
+<h3 class="anchored" data-anchor-id="agent-files">Agent Files</h3>
+<p><strong>Location</strong>: <code>.github/agents/</code></p>
+<p><strong>Agent Creation/Update</strong>:</p>
+<ul>
+<li><a href=".github/prompts/agent-createorupdate-agent-file-v2.prompt.md">agent-createorupdate-agent-file-v2.prompt.md</a> - ✅ <strong>Recommended</strong> - Multi-agent orchestration</li>
+<li><a href=".github/prompts/agent-createorupdate-agent-file.prompt.md">agent-createorupdate-agent-file.prompt.md</a> - ⚠️ Deprecated (use v2)</li>
+<li><a href=".github/prompts/agent-design-and-create.prompt.md">agent-design-and-create.prompt.md</a> - Design from scratch</li>
+<li><a href=".github/prompts/agent-review-and-validate.prompt.md">agent-review-and-validate.prompt.md</a> - Validate existing agents</li>
+</ul>
+<p><strong>Specialized Agents by Role</strong>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Agent</th>
+<th>Purpose</th>
+<th>Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Researcher</td>
+<td><a href=".github/agents/prompt-researcher.agent.md"><span class="citation" data-cites="prompt-researcher">@prompt-researcher</span></a></td>
+<td>Pattern discovery</td>
+<td>Read-only</td>
+</tr>
+<tr class="even">
+<td>Builder</td>
+<td><a href=".github/agents/prompt-builder.agent.md"><span class="citation" data-cites="prompt-builder">@prompt-builder</span></a></td>
+<td>File creation</td>
+<td>Read + Write</td>
+</tr>
+<tr class="odd">
+<td>Validator</td>
+<td><a href=".github/agents/prompt-validator.agent.md"><span class="citation" data-cites="prompt-validator">@prompt-validator</span></a></td>
+<td>Quality assurance</td>
+<td>Read-only</td>
+</tr>
+<tr class="even">
+<td>Updater</td>
+<td><a href=".github/agents/prompt-updater.agent.md"><span class="citation" data-cites="prompt-updater">@prompt-updater</span></a></td>
+<td>Fix issues</td>
+<td>Read + Write</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tech-articles-learning" class="level3">
+<h3 class="anchored" data-anchor-id="tech-articles-learning">Tech Articles (Learning)</h3>
+<p><strong>Location</strong>: <code>tech/PromptEngineering/</code></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Article</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="tech/PromptEngineering/01. how_to_write_prompts_copilot_file_consumption.md">01. Copilot File Consumption</a></td>
+<td>How Copilot reads files</td>
+</tr>
+<tr class="even">
+<td><a href="tech/PromptEngineering/02. how_to_write_prompts_naming_conventions.md">02. Naming Conventions</a></td>
+<td>File and folder organization</td>
+</tr>
+<tr class="odd">
+<td><a href="tech/PromptEngineering/03. how_to_write_prompts_prompt_structure.md">03. Prompt Structure</a></td>
+<td>YAML frontmatter and sections</td>
+</tr>
+<tr class="even">
+<td><a href="tech/PromptEngineering/04. how_to_write_prompts_agent_structure.md">04. Agent Structure</a></td>
+<td>Personas, handoffs, boundaries</td>
+</tr>
+<tr class="odd">
+<td><a href="tech/PromptEngineering/05. how_to_write_prompts_instruction_structure.md">05. Instruction Structure</a></td>
+<td>Path-specific instructions</td>
+</tr>
+<tr class="even">
+<td><a href="tech/PromptEngineering/06. how_to_write_prompts_multi_agent_prompts.md">06. Multi-Agent Prompts</a></td>
+<td>Orchestration patterns</td>
+</tr>
+<tr class="odd">
+<td><a href="tech/PromptEngineering/07. how_to_write_prompts_example_with_agents.md">07. Implementation Example</a></td>
+<td>Real-world multi-agent workflow</td>
+</tr>
+<tr class="even">
+<td><a href="tech/PromptEngineering/08. how_to_write_prompts_documentation_site_patterns.md">08. Documentation Site</a></td>
+<td>Repository-specific patterns</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="templates" class="level3">
+<h3 class="anchored" data-anchor-id="templates">Templates</h3>
+<p><strong>Location</strong>: <code>.github/templates/</code></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Template</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href=".github/templates/prompt-simple-validation-template.md">prompt-simple-validation-template.md</a></td>
+<td>Read-only validation with 7-day caching</td>
+</tr>
+<tr class="even">
+<td><a href=".github/templates/prompt-implementation-template.md">prompt-implementation-template.md</a></td>
+<td>File creation/modification workflows</td>
+</tr>
+<tr class="odd">
+<td><a href=".github/templates/prompt-multi-agent-orchestration-template.md">prompt-multi-agent-orchestration-template.md</a></td>
+<td>Multi-agent coordination</td>
+</tr>
+<tr class="even">
+<td><a href=".github/templates/prompt-analysis-only-template.md">prompt-analysis-only-template.md</a></td>
+<td>Research and reporting</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="quick-reference-creating-new-files" class="level3">
+<h3 class="anchored" data-anchor-id="quick-reference-creating-new-files">Quick Reference: Creating New Files</h3>
+<p><strong>To create a new prompt</strong>:</p>
+<pre><code>/prompt-createorupdate-prompt-file-v2 [describe purpose]</code></pre>
+<p><strong>To create a new agent</strong>:</p>
+<pre><code>/agent-createorupdate-agent-file-v2 [describe role]</code></pre>
+<p><strong>To update guidance files</strong>:</p>
+<pre><code>/prompt-createorupdate-prompt-guidance [describe updates needed]</code></pre>
 </section>
 <section id="automation-scripts" class="level3">
 <h3 class="anchored" data-anchor-id="automation-scripts">🔧 Automation Scripts</h3>

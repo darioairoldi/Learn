@@ -10,7 +10,7 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 ## Context Engineering Principles
 
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/context-engineering-principles.md`
+**📖 Complete guidance:** [.copilot/context/prompt-engineering/context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md)
 
 **Key principles** (see context file for full details):
 1. **Narrow Scope** - One specific task per prompt
@@ -22,7 +22,7 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 ## Tool Selection
 
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/tool-composition-guide.md`
+**📖 Complete guidance:** [.copilot/context/prompt-engineering/tool-composition-guide.md](.copilot/context/prompt-engineering/tool-composition-guide.md)
 
 **Tool/Agent Alignment:**
 - `agent: plan` + read-only tools (read_file, grep_search, semantic_search)
@@ -60,7 +60,7 @@ argument-hint: 'Expected input format'  # Optional
 
 ### Validation Caching (7-Day Rule)
 
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+**📖 Complete guidance:** [.copilot/context/prompt-engineering/validation-caching-pattern.md](.copilot/context/prompt-engineering/validation-caching-pattern.md)
 
 **Critical rules:**
 - ❌ **NEVER modify top YAML** (Quarto metadata) from validation prompts
