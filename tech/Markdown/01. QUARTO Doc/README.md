@@ -20,11 +20,11 @@ A comprehensive guide to using Quarto for technical documentation websites, cove
 
 ### 01 - Introduction & Fundamentals
 
-**1. [Using Quarto](01-introduction-to-quarto.md)** (formerly 000.000)  
+**1. [Using Quarto](01.01-introduction-to-quarto.md)** (formerly 000.000)  
 Introduction to Quarto, project structure, GitHub Pages deployment basics  
 📊 ~4000 words | ⏱️ 20 min
 
-**2. [How Quarto Works](01-how-quarto-works.md)** (formerly 001.001)  
+**2. [How Quarto Works](01.02-how-quarto-works.md)** (formerly 001.001)  
 Core architecture, site initialization, page loading, rendering mechanisms  
 📊 ~5000 words | ⏱️ 25 min
 
@@ -32,11 +32,11 @@ Core architecture, site initialization, page loading, rendering mechanisms
 
 ### 02 - Architecture & Deployment Strategies
 
-**3. [Monolithic vs. Modular Deployment](02-monolithic-vs-modular-deployment.md)** (formerly 001.002)  
+**3. [Monolithic vs. Modular Deployment](02.01-monolithic-vs-modular-deployment.md)** (formerly 001.002)  
 Deployment architecture strategies, scaling considerations, when to use modular approaches  
 📊 ~6000 words | ⏱️ 30 min
 
-**4. [Split Navigation Build from Content Rendering](02-split-navigation-build.md)** (formerly 001.003)  
+**4. [Split Navigation Build from Content Rendering](02.02-split-navigation-build.md)** (formerly 001.003)  
 Step-by-step implementation of modular architecture with separated navigation shell  
 📊 ~4500 words | ⏱️ 25 min
 
@@ -44,7 +44,7 @@ Step-by-step implementation of modular architecture with separated navigation sh
 
 ### 03 - Configuration
 
-**5. [Quarto.yml Document Structure](03-quarto-yml-structure.md)** (formerly 001.010)  
+**5. [Quarto.yml Document Structure](03.01-quarto-yml-structure.md)** (formerly 001.010)  
 Comprehensive reference for all `_quarto.yml` configuration options  
 📊 ~3500 words | ⏱️ 20 min
 
@@ -52,7 +52,7 @@ Comprehensive reference for all `_quarto.yml` configuration options
 
 ### 04 - Content Creation
 
-**6. [Quarto-Specific Markdown Features](04-markdown-features.md)** (formerly 003.010)  
+**6. [Quarto-Specific Markdown Features](04.01-markdown-features.md)** (formerly 003.010)  
 Extended markdown syntax: div blocks, callouts, cross-references, interactive elements  
 📊 ~3000 words | ⏱️ 15 min
 
@@ -60,7 +60,7 @@ Extended markdown syntax: div blocks, callouts, cross-references, interactive el
 
 ### 05 - Styling & Theming
 
-**7. [Quarto Theming and Styling](05-theming-and-styling.md)** (formerly 002.010)  
+**7. [Quarto Theming and Styling](05.01-theming-and-styling.md)** (formerly 002.010)  
 Built-in themes, custom CSS/SCSS, Bootstrap integration, typography, color schemes  
 📊 ~4000 words | ⏱️ 20 min
 
@@ -68,15 +68,15 @@ Built-in themes, custom CSS/SCSS, Bootstrap integration, typography, color schem
 
 ### 06 - Navigation & Layout
 
-**8. [How Sidebar Layout Works](06-sidebar-layout.md)** (formerly 009.000)  
+**8. [How Sidebar Layout Works](06.01-sidebar-layout.md)** (formerly 009.000)  
 Three-panel layout architecture, sidebar configuration, related pages implementation  
 📊 ~2000 words | ⏱️ 10 min
 
-**9. [Navigation Workflow](06-navigation-workflow.md)** (formerly 009.010)  
+**9. [Navigation Workflow](06.02-navigation-workflow.md)** (formerly 009.010)  
 Automated navigation.json generation, navbar/sidebar config, workflows  
 📊 ~3000 words | ⏱️ 15 min
 
-**10. [Sidebar Page Transition Optimization](06-transition-optimization.md)** (formerly 009.020)  
+**10. [Sidebar Page Transition Optimization](06.03-transition-optimization.md)** (formerly 009.020)  
 Performance optimization for sidebar state restoration during page transitions  
 📊 ~500 words | ⏱️ 5 min
 
@@ -84,7 +84,7 @@ Performance optimization for sidebar state restoration during page transitions
 
 ### 07 - Optimization & Performance
 
-**11. [Optimizing Quarto Build and Deploy](07-build-optimization.md)** (formerly 007.010)  
+**11. [Optimizing Quarto Build and Deploy](07.01-build-optimization.md)** (formerly 007.010)  
 Build performance improvements, caching strategies, GitHub Actions optimization  
 📊 ~3500 words | ⏱️ 20 min
 
@@ -92,7 +92,7 @@ Build performance improvements, caching strategies, GitHub Actions optimization
 
 ### 08 - Troubleshooting
 
-**12. [Troubleshooting Quarto Sites](08-troubleshooting-guide.md)** ⭐ NEW  
+**12. [Troubleshooting Quarto Sites](08.01-troubleshooting-guide.md)** ⭐ NEW  
 Common errors, debugging techniques, build/navigation/deployment issues  
 📊 ~2500 words | ⏱️ 15 min
 
@@ -100,11 +100,11 @@ Common errors, debugging techniques, build/navigation/deployment issues
 
 ### 09 - Deployment
 
-**13. [Deploying to GitHub Pages](09-github-pages-deployment.md)** (formerly 010.001)  
+**13. [Deploying to GitHub Pages](09.01-github-pages-deployment.md)** (formerly 010.001)  
 Complete GitHub Pages deployment guide with automated workflows  
 📊 ~3000 words | ⏱️ 15 min
 
-**14. [Deploying to Azure Storage](09-azure-storage-deployment.md)** (formerly 010.002)  
+**14. [Deploying to Azure Storage](09.02-azure-storage-deployment.md)** (formerly 010.002)  
 Azure Storage Account static websites, CDN integration, custom domains  
 📊 ~4000 words | ⏱️ 20 min
 
