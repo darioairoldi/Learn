@@ -1,0 +1,2013 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Analyzing Atom and RSS Specifications},
+  pdfauthor={Dario Airoldi},
+  pdfkeywords={RSS 2.0, Atom Syndication, Feed Specifications, WebSub
+Protocol, Push Notifications, Pull Mechanisms, Feed Metadata},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Analyzing Atom and RSS Specifications}
+\author{Dario Airoldi}
+\date{2025-10-10}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{📊 Analyzing Atom and RSS
+Specifications}\label{analyzing-atom-and-rss-specifications}
+
+\begin{quote}
+A deep dive into the data structures, notification mechanisms, and
+architectural differences between the two dominant feed syndication
+standards.
+\end{quote}
+
+\subsection{📋 Table of Contents}\label{table-of-contents}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \hyperref[-introduction]{🎯 Introduction}
+\item
+  \hyperref[-rss-20-specification-analysis]{📰 RSS 2.0 Specification
+  Analysis}
+\item
+  \hyperref[-atom-specification-analysis]{⚛️ Atom Specification
+  Analysis}
+\item
+  \hyperref[-comparative-analysis]{⚖️ Comparative Analysis}
+\item
+  \hyperref[-references]{📚 References}
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{🎯 Introduction}\label{introduction}
+
+Feed syndication has become a cornerstone of content distribution on the
+web, with \textbf{RSS 2.0} and \textbf{Atom} representing the two
+primary standards. While both serve similar purposes---enabling
+efficient content distribution and updates---they differ significantly
+in their data models, notification mechanisms, and philosophical
+approaches to standardization.
+
+This analysis examines:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Data structures} and available metadata fields
+\item
+  \textbf{Notification mechanisms} (push vs.~pull)
+\item
+  \textbf{Protocol support} and implementation patterns
+\item
+  \textbf{Key architectural differences} between the specifications
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{📰 RSS 2.0 Specification
+Analysis}\label{rss-2.0-specification-analysis}
+
+\subsubsection{Overview}\label{overview}
+
+\textbf{RSS 2.0} (Really Simple Syndication) is the most widely adopted
+feed format, particularly in podcasting and blog syndication. Developed
+by UserLand Software and published in 2002, RSS 2.0 emphasizes
+simplicity and backward compatibility.
+
+\begin{quote}
+📖 \textbf{Specification}: RSS 2.0 is defined in the
+\href{https://cyber.harvard.edu/rss/rss.html}{RSS 2.0 Specification}
+maintained by Harvard's Berkman Center.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{📦 Data Available from RSS
+Notifications}\label{data-available-from-rss-notifications}
+
+RSS 2.0 provides a hierarchical structure with channel-level and
+item-level metadata.
+
+\paragraph{\texorpdfstring{\textbf{Channel-Level Data} (Feed
+Metadata)}{Channel-Level Data (Feed Metadata)}}\label{channel-level-data-feed-metadata}
+
+Channel elements describe the overall feed and apply to all items within
+it.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1556}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2889}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Field
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{\textless{}title\textgreater{}}} & Text & ✅ Yes &
+Human-readable name of the feed & \texttt{"Tech\ News\ Daily"} \\
+\textbf{\texttt{\textless{}link\textgreater{}}} & URL & ✅ Yes & Website
+URL associated with the feed &
+\texttt{"https://technews.example.com"} \\
+\textbf{\texttt{\textless{}description\textgreater{}}} & Text & ✅ Yes &
+Brief description of the feed content &
+\texttt{"Daily\ technology\ news\ and\ analysis"} \\
+\textbf{\texttt{\textless{}language\textgreater{}}} & Code & ❌ Optional
+& ISO 639 language code & \texttt{"en-us"}, \texttt{"fr-fr"} \\
+\textbf{\texttt{\textless{}copyright\textgreater{}}} & Text & ❌
+Optional & Copyright notice for the feed content &
+\texttt{"©\ 2025\ TechNews\ Corp"} \\
+\textbf{\texttt{\textless{}managingEditor\textgreater{}}} & Email & ❌
+Optional & Email address of the content editor &
+\texttt{"editor@technews.example.com"} \\
+\textbf{\texttt{\textless{}webMaster\textgreater{}}} & Email & ❌
+Optional & Email address of technical contact &
+\texttt{"webmaster@technews.example.com"} \\
+\textbf{\texttt{\textless{}pubDate\textgreater{}}} & RFC 822 & ❌
+Optional & Publication date of the feed content &
+\texttt{"Fri,\ 10\ Oct\ 2025\ 12:00:00\ GMT"} \\
+\textbf{\texttt{\textless{}lastBuildDate\textgreater{}}} & RFC 822 & ❌
+Optional & Last modification date of the feed &
+\texttt{"Fri,\ 10\ Oct\ 2025\ 14:30:00\ GMT"} \\
+\textbf{\texttt{\textless{}category\textgreater{}}} & Text & ❌ Optional
+& Content categorization (repeatable) & \texttt{"Technology/News"} \\
+\textbf{\texttt{\textless{}generator\textgreater{}}} & Text & ❌
+Optional & Software used to generate the feed &
+\texttt{"WordPress\ 6.4"} \\
+\textbf{\texttt{\textless{}docs\textgreater{}}} & URL & ❌ Optional &
+Link to RSS specification &
+\texttt{"https://cyber.harvard.edu/rss/rss.html"} \\
+\textbf{\texttt{\textless{}cloud\textgreater{}}} & Complex & ❌ Optional
+& Cloud notification endpoint for push updates & See WebSub section
+below \\
+\textbf{\texttt{\textless{}ttl\textgreater{}}} & Integer & ❌ Optional &
+Time-to-live in minutes (caching hint) & \texttt{60} (refresh after 60
+minutes) \\
+\textbf{\texttt{\textless{}image\textgreater{}}} & Complex & ❌ Optional
+& Feed logo/branding image & Contains
+\texttt{\textless{}url\textgreater{}},
+\texttt{\textless{}title\textgreater{}},
+\texttt{\textless{}link\textgreater{}} \\
+\textbf{\texttt{\textless{}textInput\textgreater{}}} & Complex & ❌
+Optional & Search box specification & Rarely used in practice \\
+\textbf{\texttt{\textless{}skipHours\textgreater{}}} & List & ❌
+Optional & Hours when aggregators should skip updates & \texttt{0-23} \\
+\textbf{\texttt{\textless{}skipDays\textgreater{}}} & List & ❌ Optional
+& Days when aggregators should skip updates & \texttt{Monday},
+\texttt{Tuesday}, etc. \\
+\end{longtable}
+
+\paragraph{\texorpdfstring{\textbf{Item-Level Data} (Entry
+Metadata)}{Item-Level Data (Entry Metadata)}}\label{item-level-data-entry-metadata}
+
+Item elements represent individual entries (articles, episodes, posts)
+within the feed.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1556}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2889}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Field
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{\textless{}title\textgreater{}}} & Text & * & Title of
+the item & \texttt{"Breaking:\ New\ AI\ Breakthrough"} \\
+\textbf{\texttt{\textless{}link\textgreater{}}} & URL & * & Permanent
+URL for the item &
+\texttt{"https://technews.example.com/article-123"} \\
+\textbf{\texttt{\textless{}description\textgreater{}}} & HTML/Text & * &
+Item content or summary & Can contain full HTML content \\
+\textbf{\texttt{\textless{}author\textgreater{}}} & Email & ❌ Optional
+& Author's email address &
+\texttt{"jane.doe@example.com\ (Jane\ Doe)"} \\
+\textbf{\texttt{\textless{}category\textgreater{}}} & Text & ❌ Optional
+& Item categorization (repeatable) &
+\texttt{"Artificial\ Intelligence"} \\
+\textbf{\texttt{\textless{}comments\textgreater{}}} & URL & ❌ Optional
+& URL to comments page &
+\texttt{"https://technews.example.com/article-123\#comments"} \\
+\textbf{\texttt{\textless{}enclosure\textgreater{}}} & Complex & ❌
+Optional & Attached media file (podcast audio, video) & See table
+below \\
+\textbf{\texttt{\textless{}guid\textgreater{}}} & Text & ❌ Optional &
+Globally unique identifier & \texttt{"article-123"} or permalink URL \\
+\textbf{\texttt{\textless{}pubDate\textgreater{}}} & RFC 822 & ❌
+Optional & Publication date of the item &
+\texttt{"Thu,\ 09\ Oct\ 2025\ 18:45:00\ GMT"} \\
+\textbf{\texttt{\textless{}source\textgreater{}}} & Complex & ❌
+Optional & Original feed if republished content & Contains
+\texttt{\textless{}url\textgreater{}} and
+\texttt{\textless{}title\textgreater{}} \\
+\end{longtable}
+
+\textbf{Note}: * indicates that \textbf{at least one} of
+\texttt{\textless{}title\textgreater{}} or
+\texttt{\textless{}description\textgreater{}} must be present.
+
+\paragraph{\texorpdfstring{\textbf{Enclosure Element} (Media
+Attachments)}{Enclosure Element (Media Attachments)}}\label{enclosure-element-media-attachments}
+
+The \texttt{\textless{}enclosure\textgreater{}} element enables podcast
+and media distribution:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2245}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1224}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2041}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2653}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1837}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Attribute
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{url}} & URL & ✅ Yes & Direct URL to the media file &
+\texttt{"https://cdn.example.com/episode42.mp3"} \\
+\textbf{\texttt{length}} & Integer & ✅ Yes & File size in bytes &
+\texttt{48234567} (48.2 MB) \\
+\textbf{\texttt{type}} & MIME & ✅ Yes & Media type &
+\texttt{"audio/mpeg"}, \texttt{"video/mp4"} \\
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{enclosure}\OtherTok{ url=}\StringTok{"https://cdn.example.com/episode42.mp3"} 
+\OtherTok{           length=}\StringTok{"48234567"} 
+\OtherTok{           type=}\StringTok{"audio/mpeg"}\NormalTok{/\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{\texorpdfstring{\textbf{Namespace
+Extensions}}{Namespace Extensions}}\label{namespace-extensions}
+
+RSS 2.0 supports XML namespaces for additional metadata. The most common
+is the \textbf{iTunes podcast namespace}:
+
+\subparagraph{\texorpdfstring{iTunes Podcast Extensions
+(\texttt{xmlns:itunes})}{iTunes Podcast Extensions (xmlns:itunes)}}\label{itunes-podcast-extensions-xmlnsitunes}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2903}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4194}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2903}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Element
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{\textless{}itunes:author\textgreater{}}} &
+Podcast/episode author & \texttt{"Jane\ Tech"} \\
+\textbf{\texttt{\textless{}itunes:subtitle\textgreater{}}} & Short
+description & \texttt{"AI\ in\ Healthcare"} \\
+\textbf{\texttt{\textless{}itunes:summary\textgreater{}}} & Full
+description &
+\texttt{"A\ deep\ dive\ into\ medical\ AI\ applications"} \\
+\textbf{\texttt{\textless{}itunes:duration\textgreater{}}} & Episode
+length & \texttt{"45:30"} (HH:MM:SS or seconds) \\
+\textbf{\texttt{\textless{}itunes:image\textgreater{}}} & Artwork URL &
+\texttt{\textless{}itunes:image\ href="artwork.jpg"/\textgreater{}} \\
+\textbf{\texttt{\textless{}itunes:explicit\textgreater{}}} & Content
+rating & \texttt{"true"}, \texttt{"false"}, \texttt{"clean"} \\
+\textbf{\texttt{\textless{}itunes:category\textgreater{}}} & Podcast
+category &
+\texttt{\textless{}itunes:category\ text="Technology"/\textgreater{}} \\
+\textbf{\texttt{\textless{}itunes:owner\textgreater{}}} & Publisher
+contact & Contains \texttt{\textless{}itunes:name\textgreater{}} and
+\texttt{\textless{}itunes:email\textgreater{}} \\
+\textbf{\texttt{\textless{}itunes:type\textgreater{}}} & Show type &
+\texttt{"episodic"} or \texttt{"serial"} \\
+\textbf{\texttt{\textless{}itunes:episode\textgreater{}}} & Episode
+number & \texttt{42} \\
+\textbf{\texttt{\textless{}itunes:season\textgreater{}}} & Season number
+& \texttt{3} \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{🔔 How RSS Notifications Are
+Received}\label{how-rss-notifications-are-received}
+
+RSS 2.0 primarily uses a \textbf{pull-based model}, with limited support
+for push notifications.
+
+\paragraph{\texorpdfstring{\textbf{1. Pull Mechanism (Standard
+Approach)}}{1. Pull Mechanism (Standard Approach)}}\label{pull-mechanism-standard-approach}
+
+\textbf{Protocol}: HTTP/HTTPS GET requests
+
+\textbf{Process Flow}:
+
+\begin{verbatim}
+┌─────────────┐                                    ┌─────────────┐
+│   Client    │                                    │ RSS Server  │
+│ (Aggregator)│                                    │             │
+└──────┬──────┘                                    └──────┬──────┘
+       │                                                  │
+       │  1. HTTP GET /feed.xml                          │
+       ├─────────────────────────────────────────────────>│
+       │                                                  │
+       │  2. 200 OK + XML Content                        │
+       │<─────────────────────────────────────────────────┤
+       │                                                  │
+       │  3. Parse XML                                    │
+       │  4. Compare <guid> or <pubDate>                  │
+       │  5. Download new items                           │
+       │                                                  │
+       │  6. Wait (based on <ttl> or schedule)           │
+       │  ...                                             │
+       │  7. HTTP GET /feed.xml (repeat)                 │
+       ├─────────────────────────────────────────────────>│
+\end{verbatim}
+
+\textbf{Key Characteristics}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Polling Interval}: Client determines frequency (hourly, daily,
+  based on \texttt{\textless{}ttl\textgreater{}})
+\item
+  \textbf{Change Detection}: Compare
+  \texttt{\textless{}lastBuildDate\textgreater{}},
+  \texttt{\textless{}pubDate\textgreater{}}, or individual
+  \texttt{\textless{}guid\textgreater{}} values
+\item
+  \textbf{Conditional Requests}: Use HTTP headers
+  (\texttt{If-Modified-Since}, \texttt{ETag}) to minimize bandwidth
+\item
+  \textbf{Caching}: Respect \texttt{\textless{}ttl\textgreater{}}
+  (time-to-live) hint to avoid excessive server load
+\end{itemize}
+
+\textbf{Advantages}: - ✅ Universal compatibility (works with all RSS
+feeds) - ✅ Simple implementation - ✅ Client controls update frequency
+- ✅ No additional infrastructure required
+
+\textbf{Disadvantages}: - ❌ Update latency (delay between publication
+and discovery) - ❌ Bandwidth waste (polling unchanged feeds) - ❌
+Server load (multiple clients polling simultaneously) - ❌ Not real-time
+
+\paragraph{\texorpdfstring{\textbf{2. Push Mechanism (Cloud Element /
+RSSCloud)}}{2. Push Mechanism (Cloud Element / RSSCloud)}}\label{push-mechanism-cloud-element-rsscloud}
+
+RSS 2.0 includes an optional \texttt{\textless{}cloud\textgreater{}}
+element for push notifications.
+
+\textbf{Protocol}: RSSCloud (proprietary notification system)
+
+\textbf{XML Structure}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{cloud}\OtherTok{ domain=}\StringTok{"rpc.example.com"} 
+\OtherTok{       port=}\StringTok{"80"} 
+\OtherTok{       path=}\StringTok{"/RPC2"} 
+\OtherTok{       registerProcedure=}\StringTok{"pleaseNotify"} 
+\OtherTok{       protocol=}\StringTok{"xml{-}rpc"}\NormalTok{/\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Attribute Meanings}:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3939}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2727}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Attribute
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{domain}} & Notification server hostname &
+\texttt{"rpc.example.com"} \\
+\textbf{\texttt{port}} & Server port & \texttt{80}, \texttt{443} \\
+\textbf{\texttt{path}} & Endpoint path & \texttt{"/RPC2"} \\
+\textbf{\texttt{registerProcedure}} & Registration method name &
+\texttt{"pleaseNotify"} \\
+\textbf{\texttt{protocol}} & Notification protocol & \texttt{"xml-rpc"},
+\texttt{"soap"}, \texttt{"http-post"} \\
+\end{longtable}
+
+\textbf{Process Flow}:
+
+\begin{verbatim}
+┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+│   Client    │         │Cloud Server │         │ RSS Server  │
+└──────┬──────┘         └──────┬──────┘         └──────┬──────┘
+       │                       │                        │
+       │ 1. Register for       │                        │
+       │    notifications      │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │                       │  2. Content updated    │
+       │                       │<───────────────────────┤
+       │                       │                        │
+       │ 3. Notification       │                        │
+       │    (feed changed)     │                        │
+       │<──────────────────────┤                        │
+       │                       │                        │
+       │ 4. HTTP GET /feed.xml │                        │
+       ├───────────────────────┼───────────────────────>│
+       │                       │                        │
+       │ 5. 200 OK + New Content                        │
+       │<───────────────────────┼────────────────────────┤
+\end{verbatim}
+
+\textbf{Advantages}: - ✅ Immediate notification of updates - ✅ Reduced
+polling overhead - ✅ More efficient bandwidth usage
+
+\textbf{Disadvantages}: - ❌ Extremely rare in practice (almost no
+implementations) - ❌ Not standardized (multiple competing protocols) -
+❌ Complex infrastructure requirements - ❌ Largely superseded by WebSub
+
+\paragraph{\texorpdfstring{\textbf{3. Push Mechanism (WebSub
+Integration)}}{3. Push Mechanism (WebSub Integration)}}\label{push-mechanism-websub-integration}
+
+Modern RSS feeds often integrate \textbf{WebSub} (formerly PubSubHubbub)
+for real-time notifications.
+
+\textbf{Protocol}: WebSub (W3C Recommendation)
+
+\textbf{Discovery via HTTP Link Headers}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{HTTP/1.1 200 OK}
+\NormalTok{Link: \textless{}https://hub.example.com/\textgreater{}; rel="hub"}
+\NormalTok{Link: \textless{}https://publisher.example.com/feed.xml\textgreater{}; rel="self"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Or via RSS XML Elements}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{rss}\OtherTok{ version=}\StringTok{"2.0"}\OtherTok{ xmlns:atom=}\StringTok{"http://www.w3.org/2005/Atom"}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{channel}\NormalTok{\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{atom:link}\OtherTok{ href=}\StringTok{"https://hub.example.com/"}\OtherTok{ rel=}\StringTok{"hub"}\NormalTok{/\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{atom:link}\OtherTok{ href=}\StringTok{"https://publisher.example.com/feed.xml"}\OtherTok{ rel=}\StringTok{"self"}\NormalTok{/\textgreater{}}
+    \CommentTok{\textless{}!{-}{-} Feed content {-}{-}\textgreater{}}
+\NormalTok{  \textless{}/}\KeywordTok{channel}\NormalTok{\textgreater{}}
+\NormalTok{\textless{}/}\KeywordTok{rss}\NormalTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Process Flow}:
+
+\begin{verbatim}
+┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+│ Subscriber  │         │  WebSub Hub │         │  Publisher  │
+└──────┬──────┘         └──────┬──────┘         └──────┬──────┘
+       │                       │                        │
+       │ 1. Subscribe to topic │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │ 2. Verify intent      │                        │
+       │<──────────────────────┤                        │
+       │                       │                        │
+       │ 3. Confirm            │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │                       │  4. Publish update     │
+       │                       │<───────────────────────┤
+       │                       │                        │
+       │ 5. Content push       │                        │
+       │    (full feed XML)    │                        │
+       │<──────────────────────┤                        │
+\end{verbatim}
+
+\textbf{Key Operations}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Discovery}: Client finds hub URL in feed or HTTP headers
+\item
+  \textbf{Subscription}: Client sends POST to hub with callback URL and
+  topic
+\item
+  \textbf{Verification}: Hub confirms subscription via GET to callback
+  URL
+\item
+  \textbf{Publishing}: Publisher notifies hub when content changes
+\item
+  \textbf{Distribution}: Hub pushes updated feed to all subscribers
+\end{enumerate}
+
+\textbf{Advantages}: - ✅ Real-time updates (sub-second latency
+possible) - ✅ Standardized W3C protocol - ✅ Decentralized architecture
+- ✅ Efficient bandwidth usage
+
+\textbf{Disadvantages}: - ❌ Limited adoption in RSS ecosystem (more
+common with Atom) - ❌ Requires public callback URL (challenging for
+mobile/desktop apps) - ❌ Additional infrastructure complexity - ❌
+Potential reliability issues if hub is unavailable
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{📊 RSS Data Summary}\label{rss-data-summary}
+
+\textbf{Data Richness}: \textbf{Moderate to High} - Extensible via
+namespaces (iTunes, Dublin Core, Media RSS) - Basic metadata sufficient
+for most use cases - Podcast-specific extensions widely supported
+
+\textbf{Notification Model}: \textbf{Primarily Pull, Optional Push} -
+Default: HTTP polling (pull) - Legacy: RSSCloud (rarely implemented) -
+Modern: WebSub integration (growing adoption)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{⚛️ Atom Specification
+Analysis}\label{atom-specification-analysis}
+
+\subsubsection{Overview}\label{overview-1}
+
+\textbf{Atom} is an IETF-standardized syndication format designed to
+address ambiguities and limitations in RSS. Published as RFC 4287 in
+2005, Atom emphasizes formal specification, validation, and protocol
+clarity.
+
+\begin{quote}
+📖 \textbf{Specification}: Atom is defined in
+\href{https://tools.ietf.org/html/rfc4287}{RFC 4287} and the publishing
+protocol in \href{https://tools.ietf.org/html/rfc5023}{RFC 5023}.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{📦 Data Available from Atom
+Notifications}\label{data-available-from-atom-notifications}
+
+Atom provides a more structured and formally defined data model than
+RSS.
+
+\paragraph{\texorpdfstring{\textbf{Feed-Level Data} (Feed
+Metadata)}{Feed-Level Data (Feed Metadata)}}\label{feed-level-data-feed-metadata}
+
+Feed elements describe the overall feed container.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1915}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1277}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2128}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2766}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1915}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Element
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{\textless{}id\textgreater{}}} & IRI & ✅ Yes &
+Permanent, globally unique feed identifier (IRI) &
+\texttt{"https://example.com/feeds/blog"} \\
+\textbf{\texttt{\textless{}title\textgreater{}}} & Text & ✅ Yes &
+Human-readable feed title & \texttt{"Tech\ Insights\ Blog"} \\
+\textbf{\texttt{\textless{}updated\textgreater{}}} & RFC 3339 & ✅ Yes &
+Last modification timestamp & \texttt{"2025-10-10T14:30:00Z"} \\
+\textbf{\texttt{\textless{}author\textgreater{}}} & Person & ❌
+Optional* & Feed author information & See Person Construct below \\
+\textbf{\texttt{\textless{}link\textgreater{}}} & Link & ❌ Optional &
+Related resources (website, self-reference) & See Link Construct
+below \\
+\textbf{\texttt{\textless{}category\textgreater{}}} & Category & ❌
+Optional & Feed categorization (repeatable) & See Category Construct
+below \\
+\textbf{\texttt{\textless{}contributor\textgreater{}}} & Person & ❌
+Optional & Additional contributors & See Person Construct below \\
+\textbf{\texttt{\textless{}generator\textgreater{}}} & Text & ❌
+Optional & Software generating the feed & \texttt{"WordPress\ 6.4"} with
+optional \texttt{uri} and \texttt{version} \\
+\textbf{\texttt{\textless{}icon\textgreater{}}} & IRI & ❌ Optional &
+Small icon (square, recommended 1:1 aspect) &
+\texttt{"https://example.com/icon.png"} \\
+\textbf{\texttt{\textless{}logo\textgreater{}}} & IRI & ❌ Optional &
+Larger logo (recommended 2:1 aspect) &
+\texttt{"https://example.com/logo.png"} \\
+\textbf{\texttt{\textless{}rights\textgreater{}}} & Text & ❌ Optional &
+Copyright/licensing information &
+\texttt{"©\ 2025\ Example\ Corp.\ All\ rights\ reserved."} \\
+\textbf{\texttt{\textless{}subtitle\textgreater{}}} & Text & ❌ Optional
+& Feed description/tagline &
+\texttt{"Exploring\ technology\ trends\ and\ insights"} \\
+\end{longtable}
+
+\textbf{Note}: * If an entry lacks an
+\texttt{\textless{}author\textgreater{}} element, the feed MUST have an
+\texttt{\textless{}author\textgreater{}} element.
+
+\paragraph{\texorpdfstring{\textbf{Entry-Level Data} (Individual Item
+Metadata)}{Entry-Level Data (Individual Item Metadata)}}\label{entry-level-data-individual-item-metadata}
+
+Entry elements represent individual items within the feed.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1915}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1277}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2128}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2766}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1915}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Element
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{\textless{}id\textgreater{}}} & IRI & ✅ Yes &
+Permanent, globally unique entry identifier &
+\texttt{"https://example.com/posts/2025/10/article-123"} \\
+\textbf{\texttt{\textless{}title\textgreater{}}} & Text & ✅ Yes &
+Human-readable entry title &
+\texttt{"Understanding\ Quantum\ Computing"} \\
+\textbf{\texttt{\textless{}updated\textgreater{}}} & RFC 3339 & ✅ Yes &
+Last modification timestamp & \texttt{"2025-10-09T18:45:00Z"} \\
+\textbf{\texttt{\textless{}author\textgreater{}}} & Person & ❌
+Optional* & Entry author information & See Person Construct below \\
+\textbf{\texttt{\textless{}content\textgreater{}}} & Content & ❌
+Optional** & Full or partial entry content & See Content Construct
+below \\
+\textbf{\texttt{\textless{}link\textgreater{}}} & Link & ❌ Optional** &
+Related resources (alternate, enclosure) & See Link Construct below \\
+\textbf{\texttt{\textless{}summary\textgreater{}}} & Text & ❌
+Optional** & Brief entry summary or excerpt &
+\texttt{"An\ introduction\ to\ quantum\ computing\ principles"} \\
+\textbf{\texttt{\textless{}category\textgreater{}}} & Category & ❌
+Optional & Entry categorization (repeatable) & See Category Construct
+below \\
+\textbf{\texttt{\textless{}contributor\textgreater{}}} & Person & ❌
+Optional & Additional contributors & See Person Construct below \\
+\textbf{\texttt{\textless{}published\textgreater{}}} & RFC 3339 & ❌
+Optional & Original publication timestamp &
+\texttt{"2025-10-09T10:00:00Z"} \\
+\textbf{\texttt{\textless{}rights\textgreater{}}} & Text & ❌ Optional &
+Copyright/licensing for entry & \texttt{"CC\ BY-SA\ 4.0"} \\
+\textbf{\texttt{\textless{}source\textgreater{}}} & Feed & ❌ Optional &
+Original feed metadata if aggregated & Contains feed-level elements \\
+\end{longtable}
+
+\textbf{Notes}: - * If entry lacks
+\texttt{\textless{}author\textgreater{}}, feed MUST have
+\texttt{\textless{}author\textgreater{}} - ** Entry MUST contain at
+least one \texttt{\textless{}link\ rel="alternate"\textgreater{}} or
+\texttt{\textless{}content\textgreater{}}
+
+\paragraph{\texorpdfstring{\textbf{Atom Constructs} (Complex Data
+Types)}{Atom Constructs (Complex Data Types)}}\label{atom-constructs-complex-data-types}
+
+Atom uses reusable constructs for structured data:
+
+\subparagraph{\texorpdfstring{\textbf{Person Construct}
+(\texttt{\textless{}author\textgreater{}},
+\texttt{\textless{}contributor\textgreater{}})}{Person Construct (\textless author\textgreater, \textless contributor\textgreater)}}\label{person-construct-author-contributor}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{author}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{name}\NormalTok{\textgreater{}Jane Smith\textless{}/}\KeywordTok{name}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{uri}\NormalTok{\textgreater{}https://janesmith.com\textless{}/}\KeywordTok{uri}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{email}\NormalTok{\textgreater{}jane@example.com\textless{}/}\KeywordTok{email}\NormalTok{\textgreater{}}
+\NormalTok{\textless{}/}\KeywordTok{author}\NormalTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3611}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2778}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3611}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Sub-element
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{\textless{}name\textgreater{}}} & ✅ Yes & Person's
+name \\
+\textbf{\texttt{\textless{}uri\textgreater{}}} & ❌ Optional & IRI
+associated with person (homepage, profile) \\
+\textbf{\texttt{\textless{}email\textgreater{}}} & ❌ Optional & Email
+address \\
+\end{longtable}
+
+\subparagraph{\texorpdfstring{\textbf{Link Construct}
+(\texttt{\textless{}link\textgreater{}})}{Link Construct (\textless link\textgreater)}}\label{link-construct-link}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{link}\OtherTok{ rel=}\StringTok{"alternate"}\OtherTok{ type=}\StringTok{"text/html"}\OtherTok{ href=}\StringTok{"https://example.com/post"}\NormalTok{/\textgreater{}}
+\NormalTok{\textless{}}\KeywordTok{link}\OtherTok{ rel=}\StringTok{"enclosure"}\OtherTok{ type=}\StringTok{"audio/mpeg"}\OtherTok{ href=}\StringTok{"https://cdn.example.com/audio.mp3"}\OtherTok{ length=}\StringTok{"48234567"}\NormalTok{/\textgreater{}}
+\NormalTok{\textless{}}\KeywordTok{link}\OtherTok{ rel=}\StringTok{"self"}\OtherTok{ href=}\StringTok{"https://example.com/feed.xml"}\NormalTok{/\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2558}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2326}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3023}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2093}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Attribute
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{href}} & ✅ Yes & IRI reference &
+\texttt{"https://example.com/post"} \\
+\textbf{\texttt{rel}} & ❌ Optional & Link relationship type &
+\texttt{"alternate"}, \texttt{"enclosure"}, \texttt{"self"},
+\texttt{"related"} \\
+\textbf{\texttt{type}} & ❌ Optional & MIME media type &
+\texttt{"text/html"}, \texttt{"audio/mpeg"} \\
+\textbf{\texttt{hreflang}} & ❌ Optional & Language of linked resource &
+\texttt{"en-US"}, \texttt{"fr-FR"} \\
+\textbf{\texttt{title}} & ❌ Optional & Human-readable title &
+\texttt{"Read\ full\ article"} \\
+\textbf{\texttt{length}} & ❌ Optional & Size in bytes (for enclosures)
+& \texttt{48234567} \\
+\end{longtable}
+
+\textbf{Common \texttt{rel} Values}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{alternate}}: HTML version of the entry/feed
+\item
+  \textbf{\texttt{enclosure}}: Related media file (podcast audio,
+  attachments)
+\item
+  \textbf{\texttt{self}}: The feed's own URL
+\item
+  \textbf{\texttt{related}}: Related resource
+\item
+  \textbf{\texttt{via}}: Source of the information
+\item
+  \textbf{\texttt{hub}}: WebSub hub URL (for push notifications)
+\end{itemize}
+
+\subparagraph{\texorpdfstring{\textbf{Category Construct}
+(\texttt{\textless{}category\textgreater{}})}{Category Construct (\textless category\textgreater)}}\label{category-construct-category}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{category}\OtherTok{ term=}\StringTok{"technology"}\OtherTok{ scheme=}\StringTok{"http://example.com/categories"}\OtherTok{ label=}\StringTok{"Technology"}\NormalTok{/\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2558}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2326}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3023}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2093}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Attribute
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{term}} & ✅ Yes & Category identifier &
+\texttt{"technology"} \\
+\textbf{\texttt{scheme}} & ❌ Optional & Categorization scheme IRI &
+\texttt{"http://example.com/categories"} \\
+\textbf{\texttt{label}} & ❌ Optional & Human-readable label &
+\texttt{"Technology"} \\
+\end{longtable}
+
+\subparagraph{\texorpdfstring{\textbf{Content Construct}
+(\texttt{\textless{}content\textgreater{}})}{Content Construct (\textless content\textgreater)}}\label{content-construct-content}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\textless{}!{-}{-} Text content {-}{-}\textgreater{}}
+\NormalTok{\textless{}}\KeywordTok{content}\OtherTok{ type=}\StringTok{"text"}\NormalTok{\textgreater{}This is plain text content.\textless{}/}\KeywordTok{content}\NormalTok{\textgreater{}}
+
+\CommentTok{\textless{}!{-}{-} HTML content {-}{-}\textgreater{}}
+\NormalTok{\textless{}}\KeywordTok{content}\OtherTok{ type=}\StringTok{"html"}\NormalTok{\textgreater{}}\DecValTok{\&lt;}\NormalTok{p}\DecValTok{\&gt;}\NormalTok{This is }\DecValTok{\&lt;}\NormalTok{strong}\DecValTok{\&gt;}\NormalTok{HTML}\DecValTok{\&lt;}\NormalTok{/strong}\DecValTok{\&gt;}\NormalTok{ content.}\DecValTok{\&lt;}\NormalTok{/p}\DecValTok{\&gt;}\NormalTok{\textless{}/}\KeywordTok{content}\NormalTok{\textgreater{}}
+
+\CommentTok{\textless{}!{-}{-} XHTML content {-}{-}\textgreater{}}
+\NormalTok{\textless{}}\KeywordTok{content}\OtherTok{ type=}\StringTok{"xhtml"}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{div}\OtherTok{ xmlns=}\StringTok{"http://www.w3.org/1999/xhtml"}\NormalTok{\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{p}\NormalTok{\textgreater{}This is \textless{}}\KeywordTok{strong}\NormalTok{\textgreater{}XHTML\textless{}/}\KeywordTok{strong}\NormalTok{\textgreater{} content.\textless{}/}\KeywordTok{p}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}/}\KeywordTok{div}\NormalTok{\textgreater{}}
+\NormalTok{\textless{}/}\KeywordTok{content}\NormalTok{\textgreater{}}
+
+\CommentTok{\textless{}!{-}{-} External content {-}{-}\textgreater{}}
+\NormalTok{\textless{}}\KeywordTok{content}\OtherTok{ type=}\StringTok{"audio/mpeg"}\OtherTok{ src=}\StringTok{"https://example.com/audio.mp3"}\NormalTok{/\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3438}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4062}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Attribute
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Values
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{type}} & Content media type & \texttt{"text"},
+\texttt{"html"}, \texttt{"xhtml"}, or MIME type \\
+\textbf{\texttt{src}} & External content IRI & Used for out-of-line
+content \\
+\end{longtable}
+
+\textbf{Content Type Handling}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{text}}: Plain text (no markup)
+\item
+  \textbf{\texttt{html}}: HTML markup (escaped)
+\item
+  \textbf{\texttt{xhtml}}: XHTML markup (inline XML)
+\item
+  \textbf{MIME type}: Binary content via \texttt{src} attribute
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{🔔 How Atom Notifications Are
+Received}\label{how-atom-notifications-are-received}
+
+Atom supports both pull and push mechanisms, with stronger emphasis on
+push via WebSub.
+
+\paragraph{\texorpdfstring{\textbf{1. Pull Mechanism (Standard
+HTTP)}}{1. Pull Mechanism (Standard HTTP)}}\label{pull-mechanism-standard-http}
+
+\textbf{Protocol}: HTTP/HTTPS GET requests
+
+\textbf{Process Flow}:
+
+\begin{verbatim}
+┌─────────────┐                                    ┌─────────────┐
+│   Client    │                                    │ Atom Server │
+│ (Aggregator)│                                    │             │
+└──────┬──────┘                                    └──────┬──────┘
+       │                                                  │
+       │  1. HTTP GET /feed.xml                          │
+       ├─────────────────────────────────────────────────>│
+       │                                                  │
+       │  2. 200 OK + Atom XML                           │
+       │     Link: <https://hub.com/>; rel="hub"         │
+       │<─────────────────────────────────────────────────┤
+       │                                                  │
+       │  3. Parse Atom XML                              │
+       │  4. Compare <updated> or <id> timestamps        │
+       │  5. Download new entries                        │
+       │                                                  │
+       │  6. Wait (based on cache headers or schedule)   │
+       │  ...                                             │
+       │  7. HTTP GET /feed.xml (repeat)                 │
+       ├─────────────────────────────────────────────────>│
+\end{verbatim}
+
+\textbf{Key Characteristics}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Change Detection}: Compare
+  \texttt{\textless{}updated\textgreater{}} timestamps at feed and entry
+  level
+\item
+  \textbf{Unique Identifiers}: Use \texttt{\textless{}id\textgreater{}}
+  elements (permanent IRIs) to track entries
+\item
+  \textbf{HTTP Headers}: Support \texttt{ETag}, \texttt{Last-Modified},
+  \texttt{If-Modified-Since}, \texttt{If-None-Match}
+\item
+  \textbf{Caching}: Respect HTTP cache-control headers
+\end{itemize}
+
+\textbf{Advantages}: - ✅ Universal compatibility - ✅ Simple
+implementation - ✅ Well-defined timestamp semantics
+
+\textbf{Disadvantages}: - ❌ Update latency - ❌ Bandwidth overhead for
+unchanged content - ❌ Server load from polling
+
+\paragraph{\texorpdfstring{\textbf{2. Push Mechanism (WebSub -
+Recommended)}}{2. Push Mechanism (WebSub - Recommended)}}\label{push-mechanism-websub---recommended}
+
+Atom has strong integration with \textbf{WebSub} (W3C Recommendation),
+making it the preferred protocol for push notifications.
+
+\textbf{Protocol}: WebSub (formerly PubSubHubbub)
+
+\textbf{Discovery in Atom Feed}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\textless{}?xml}\OtherTok{ version=}\StringTok{"1.0"}\OtherTok{ encoding=}\StringTok{"utf{-}8"}\FunctionTok{?\textgreater{}}
+\NormalTok{\textless{}}\KeywordTok{feed}\OtherTok{ xmlns=}\StringTok{"http://www.w3.org/2005/Atom"}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{id}\NormalTok{\textgreater{}https://example.com/feed\textless{}/}\KeywordTok{id}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{title}\NormalTok{\textgreater{}Tech Blog\textless{}/}\KeywordTok{title}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{updated}\NormalTok{\textgreater{}2025{-}10{-}10T14:30:00Z\textless{}/}\KeywordTok{updated}\NormalTok{\textgreater{}}
+  
+  \CommentTok{\textless{}!{-}{-} WebSub Hub Discovery {-}{-}\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{link}\OtherTok{ rel=}\StringTok{"hub"}\OtherTok{ href=}\StringTok{"https://pubsubhubbub.appspot.com/"}\NormalTok{/\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{link}\OtherTok{ rel=}\StringTok{"self"}\OtherTok{ href=}\StringTok{"https://example.com/feed.xml"}\NormalTok{/\textgreater{}}
+  
+  \CommentTok{\textless{}!{-}{-} Feed content {-}{-}\textgreater{}}
+\NormalTok{\textless{}/}\KeywordTok{feed}\NormalTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Or via HTTP Headers}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{HTTP/1.1 200 OK}
+\NormalTok{Content{-}Type: application/atom+xml}
+\NormalTok{Link: \textless{}https://pubsubhubbub.appspot.com/\textgreater{}; rel="hub"}
+\NormalTok{Link: \textless{}https://example.com/feed.xml\textgreater{}; rel="self"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Process Flow}:
+
+\begin{verbatim}
+┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+│ Subscriber  │         │  WebSub Hub │         │  Publisher  │
+└──────┬──────┘         └──────┬──────┘         └──────┬──────┘
+       │                       │                        │
+       │ 1. POST Subscribe     │                        │
+       │    topic: feed URL    │                        │
+       │    callback: https:// │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │ 2. GET Verify Intent  │                        │
+       │    ?hub.challenge=... │                        │
+       │<──────────────────────┤                        │
+       │                       │                        │
+       │ 3. 200 OK             │                        │
+       │    (echo challenge)   │                        │
+       ├──────────────────────>│                        │
+       │                       │                        │
+       │                       │  4. POST Publish       │
+       │                       │<───────────────────────┤
+       │                       │                        │
+       │ 5. POST Content       │                        │
+       │    (full Atom feed)   │                        │
+       │<──────────────────────┤                        │
+       │                       │                        │
+       │ 6. 200 OK             │                        │
+       ├──────────────────────>│                        │
+\end{verbatim}
+
+\textbf{Subscription Request}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{POST /subscribe HTTP/1.1}
+\NormalTok{Host: pubsubhubbub.appspot.com}
+\NormalTok{Content{-}Type: application/x{-}www{-}form{-}urlencoded}
+
+\NormalTok{hub.mode=subscribe}
+\NormalTok{\&hub.topic=https://example.com/feed.xml}
+\NormalTok{\&hub.callback=https://subscriber.example.com/webhook}
+\NormalTok{\&hub.lease\_seconds=864000}
+\NormalTok{\&hub.secret=my\_secret\_key}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Parameters}:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3235}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2941}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3824}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Parameter
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\texttt{hub.mode}} & ✅ Yes & \texttt{"subscribe"} or
+\texttt{"unsubscribe"} \\
+\textbf{\texttt{hub.topic}} & ✅ Yes & Feed URL to subscribe to \\
+\textbf{\texttt{hub.callback}} & ✅ Yes & Subscriber's webhook URL \\
+\textbf{\texttt{hub.lease\_seconds}} & ❌ Optional & Subscription
+duration (default: hub-specific) \\
+\textbf{\texttt{hub.secret}} & ❌ Optional & Shared secret for HMAC
+verification \\
+\end{longtable}
+
+\textbf{Intent Verification}:
+
+The hub verifies the subscription by sending a GET request to the
+callback URL:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{GET /webhook?hub.mode=subscribe}
+\NormalTok{            \&hub.topic=https://example.com/feed.xml}
+\NormalTok{            \&hub.challenge=random\_string\_12345}
+\NormalTok{            \&hub.lease\_seconds=864000 HTTP/1.1}
+\NormalTok{Host: subscriber.example.com}
+\end{Highlighting}
+\end{Shaded}
+
+Subscriber must respond with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{HTTP/1.1 200 OK}
+\NormalTok{Content{-}Type: text/plain}
+
+\NormalTok{random\_string\_12345}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Content Distribution}:
+
+When the publisher updates the feed, the hub pushes the full Atom feed
+to all subscribers:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{POST /webhook HTTP/1.1}
+\NormalTok{Host: subscriber.example.com}
+\NormalTok{Content{-}Type: application/atom+xml}
+\NormalTok{X{-}Hub{-}Signature: sha256=abc123...}
+
+\NormalTok{\textless{}?xml version="1.0" encoding="utf{-}8"?\textgreater{}}
+\NormalTok{\textless{}feed xmlns="http://www.w3.org/2005/Atom"\textgreater{}}
+\NormalTok{  \textless{}!{-}{-} Updated feed content {-}{-}\textgreater{}}
+\NormalTok{\textless{}/feed\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Advantages}: - ✅ Real-time updates (typically \textless{} 1
+second latency) - ✅ Efficient bandwidth usage (push only when changed)
+- ✅ Standardized W3C protocol - ✅ Decentralized (no vendor lock-in) -
+✅ Built-in security via HMAC signatures
+
+\textbf{Disadvantages}: - ❌ Requires public callback URL (challenging
+for clients behind NAT/firewalls) - ❌ Additional infrastructure for
+webhook endpoints - ❌ Hub availability dependency - ❌ Not suitable for
+mobile apps without backend infrastructure
+
+\paragraph{\texorpdfstring{\textbf{3. Atom Publishing Protocol
+(AtomPub)}}{3. Atom Publishing Protocol (AtomPub)}}\label{atom-publishing-protocol-atompub}
+
+Atom also defines a \textbf{publishing protocol} (RFC 5023) for creating
+and editing feed content.
+
+\textbf{Protocol}: AtomPub (HTTP-based RESTful API)
+
+\textbf{Operations}:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{GET}: Retrieve feed or entry
+\item
+  \textbf{POST}: Create new entry
+\item
+  \textbf{PUT}: Update existing entry
+\item
+  \textbf{DELETE}: Remove entry
+\end{itemize}
+
+\textbf{Example - Creating an Entry}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{POST /blog/entries HTTP/1.1}
+\NormalTok{Host: example.com}
+\NormalTok{Content{-}Type: application/atom+xml;type=entry}
+
+\NormalTok{\textless{}?xml version="1.0"?\textgreater{}}
+\NormalTok{\textless{}entry xmlns="http://www.w3.org/2005/Atom"\textgreater{}}
+\NormalTok{  \textless{}title\textgreater{}New Blog Post\textless{}/title\textgreater{}}
+\NormalTok{  \textless{}content type="xhtml"\textgreater{}}
+\NormalTok{    \textless{}div xmlns="http://www.w3.org/1999/xhtml"\textgreater{}}
+\NormalTok{      \textless{}p\textgreater{}This is the content.\textless{}/p\textgreater{}}
+\NormalTok{    \textless{}/div\textgreater{}}
+\NormalTok{  \textless{}/content\textgreater{}}
+\NormalTok{  \textless{}author\textgreater{}}
+\NormalTok{    \textless{}name\textgreater{}Jane Smith\textless{}/name\textgreater{}}
+\NormalTok{  \textless{}/author\textgreater{}}
+\NormalTok{\textless{}/entry\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Note}: AtomPub is primarily a publishing mechanism, not a
+notification system, but it complements Atom's ecosystem.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{📊 Atom Data Summary}\label{atom-data-summary}
+
+\textbf{Data Richness}: \textbf{High} - Formally specified with strict
+validation - Rich metadata constructs (Person, Link, Category) - Strong
+internationalization support (IRI-based identifiers) - Clear content
+type semantics
+
+\textbf{Notification Model}: \textbf{Pull and Push (WebSub Integrated)}
+- Default: HTTP polling (pull) - Recommended: WebSub for real-time push
+notifications - Strong standardization for push mechanisms - Publishing
+protocol available (AtomPub)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{⚖️ Comparative Analysis}\label{comparative-analysis}
+
+\subsubsection{📊 Data Structure
+Comparison}\label{data-structure-comparison}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3478}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3913}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2609}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Aspect
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RSS 2.0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Atom
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Standardization} & Informal specification (UserLand) & Formal
+IETF standard (RFC 4287) \\
+\textbf{Required Fields} & \texttt{\textless{}title\textgreater{}},
+\texttt{\textless{}link\textgreater{}},
+\texttt{\textless{}description\textgreater{}}
+(channel)\texttt{\textless{}title\textgreater{}} OR
+\texttt{\textless{}description\textgreater{}} (item) &
+\texttt{\textless{}id\textgreater{}},
+\texttt{\textless{}title\textgreater{}},
+\texttt{\textless{}updated\textgreater{}} (feed \& entry)Plus
+\texttt{\textless{}author\textgreater{}} or
+\texttt{\textless{}link\textgreater{}} \\
+\textbf{Unique Identifiers} & \texttt{\textless{}guid\textgreater{}}
+(optional, can be permalink) & \texttt{\textless{}id\textgreater{}}
+(required, must be permanent IRI) \\
+\textbf{Timestamps} & \texttt{\textless{}pubDate\textgreater{}},
+\texttt{\textless{}lastBuildDate\textgreater{}} (RFC 822) &
+\texttt{\textless{}updated\textgreater{}},
+\texttt{\textless{}published\textgreater{}} (RFC 3339) \\
+\textbf{Author Metadata} & Simple text or email string & Structured
+Person construct (\texttt{\textless{}name\textgreater{}},
+\texttt{\textless{}uri\textgreater{}},
+\texttt{\textless{}email\textgreater{}}) \\
+\textbf{Content Representation} &
+\texttt{\textless{}description\textgreater{}} (HTML or text) &
+\texttt{\textless{}content\textgreater{}} (text, HTML, XHTML, external)
++ \texttt{\textless{}summary\textgreater{}} \\
+\textbf{Media Attachments} & \texttt{\textless{}enclosure\textgreater{}}
+element & \texttt{\textless{}link\ rel="enclosure"\textgreater{}}
+element \\
+\textbf{Categorization} & \texttt{\textless{}category\textgreater{}}
+(simple text) & \texttt{\textless{}category\textgreater{}} (term,
+scheme, label) \\
+\textbf{Extensibility} & XML namespaces (iTunes, Dublin Core) & Limited
+namespace usage (prefers inline constructs) \\
+\textbf{Validation} & Loose, permissive parsing & Strict schema
+validation required \\
+\textbf{Date Format} & RFC 822
+(\texttt{Fri,\ 10\ Oct\ 2025\ 12:00:00\ GMT}) & RFC 3339
+(\texttt{2025-10-10T12:00:00Z}) \\
+\textbf{Multiple Links} & Single \texttt{\textless{}link\textgreater{}}
+per item & Multiple \texttt{\textless{}link\textgreater{}} with
+\texttt{rel} attributes \\
+\textbf{Self-Reference} & No standard mechanism & Required
+\texttt{\textless{}link\ rel="self"\textgreater{}} \\
+\textbf{Internationalization} & Limited (XML \texttt{lang} attribute) &
+Strong (IRI-based, structured language support) \\
+\end{longtable}
+
+\subsubsection{🔔 Notification Mechanism
+Comparison}\label{notification-mechanism-comparison}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3478}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3913}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2609}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Aspect
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RSS 2.0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Atom
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Default Model} & Pull (HTTP polling) & Pull (HTTP polling) \\
+\textbf{Pull Protocol} & HTTP GET & HTTP GET \\
+\textbf{Change Detection} &
+\texttt{\textless{}lastBuildDate\textgreater{}},
+\texttt{\textless{}pubDate\textgreater{}},
+\texttt{\textless{}guid\textgreater{}} &
+\texttt{\textless{}updated\textgreater{}},
+\texttt{\textless{}id\textgreater{}} \\
+\textbf{HTTP Caching} & \texttt{\textless{}ttl\textgreater{}} hint +
+HTTP headers & HTTP cache-control headers \\
+\textbf{Legacy Push} & \texttt{\textless{}cloud\textgreater{}} element
+(RSSCloud) & Not applicable \\
+\textbf{Modern Push} & WebSub (via Atom namespace) & WebSub (native
+\texttt{\textless{}link\ rel="hub"\textgreater{}}) \\
+\textbf{Push Standardization} & No standard push mechanism & W3C WebSub
+standard \\
+\textbf{Push Adoption} & Low (RSSCloud obsolete) & Moderate (WebSub
+growing) \\
+\textbf{Publishing Protocol} & No standard & AtomPub (RFC 5023) \\
+\textbf{Real-time Capability} & Limited (via WebSub integration) &
+Strong (WebSub native) \\
+\end{longtable}
+
+\subsubsection{🎯 Key Differences
+Summary}\label{key-differences-summary}
+
+\paragraph{\texorpdfstring{\textbf{1. Philosophy and
+Design}}{1. Philosophy and Design}}\label{philosophy-and-design}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RSS 2.0}: Pragmatic simplicity and backward compatibility
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Evolved organically from earlier RSS versions
+  \item
+    Prioritizes ease of implementation
+  \item
+    Tolerant of variations and extensions
+  \end{itemize}
+\item
+  \textbf{Atom}: Formal standardization and clarity
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Designed from scratch as IETF standard
+  \item
+    Prioritizes unambiguous specification
+  \item
+    Strict validation requirements
+  \end{itemize}
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{2. Data
+Richness}}{2. Data Richness}}\label{data-richness}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RSS 2.0}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ✅ Extensible via namespaces (especially iTunes for podcasts)
+  \item
+    ✅ Sufficient for most syndication use cases
+  \item
+    ❌ Less structured metadata
+  \item
+    ❌ Ambiguous semantics for some elements
+  \end{itemize}
+\item
+  \textbf{Atom}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ✅ Rich, structured metadata constructs
+  \item
+    ✅ Clear semantics for all elements
+  \item
+    ✅ Strong internationalization (IRI-based)
+  \item
+    ❌ More verbose XML structure
+  \end{itemize}
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{3. Notification
+Ecosystem}}{3. Notification Ecosystem}}\label{notification-ecosystem}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RSS 2.0}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ✅ Universal pull-based compatibility
+  \item
+    ✅ Simple polling implementation
+  \item
+    ❌ No standard push mechanism (RSSCloud obsolete)
+  \item
+    ⚠️ WebSub support via Atom namespace integration
+  \end{itemize}
+\item
+  \textbf{Atom}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ✅ Native WebSub integration
+  \item
+    ✅ Clear discovery via
+    \texttt{\textless{}link\ rel="hub"\textgreater{}}
+  \item
+    ✅ Publishing protocol (AtomPub)
+  \item
+    ❌ WebSub still requires additional infrastructure
+  \end{itemize}
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{4. Adoption and
+Ecosystem}}{4. Adoption and Ecosystem}}\label{adoption-and-ecosystem}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RSS 2.0}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ✅ Dominant in podcasting (99\%+ of podcast feeds)
+  \item
+    ✅ Wide client support
+  \item
+    ✅ Extensive tooling and libraries
+  \item
+    ✅ iTunes extension is de facto standard
+  \end{itemize}
+\item
+  \textbf{Atom}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ✅ Preferred by many blog platforms (WordPress, Blogger)
+  \item
+    ✅ Used by Google services (YouTube, Blogger)
+  \item
+    ✅ Strong in general RSS readers
+  \item
+    ❌ Limited podcast ecosystem adoption
+  \end{itemize}
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{5. Validation and
+Compliance}}{5. Validation and Compliance}}\label{validation-and-compliance}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RSS 2.0}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ⚠️ Loose specification allows variations
+  \item
+    ⚠️ Many ``valid'' RSS feeds deviate from spec
+  \item
+    ✅ Parsers typically very tolerant
+  \end{itemize}
+\item
+  \textbf{Atom}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ✅ Strict XML schema validation
+  \item
+    ✅ Clear error messages for invalid feeds
+  \item
+    ❌ Less tolerance for non-compliant feeds
+  \end{itemize}
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{6. Use Case
+Recommendations}}{6. Use Case Recommendations}}\label{use-case-recommendations}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2703}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5135}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2162}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Use Case
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Recommended Format
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Reason
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Podcasting} & RSS 2.0 & Universal client support, iTunes
+extensions \\
+\textbf{Blog Syndication} & Either (slight preference for Atom) & Both
+widely supported \\
+\textbf{Real-time Updates} & Atom with WebSub & Native push
+integration \\
+\textbf{Complex Metadata} & Atom & Richer data structures \\
+\textbf{Simple Implementation} & RSS 2.0 & Less strict validation,
+easier parsing \\
+\textbf{Formal Compliance} & Atom & IETF standard, clear
+specification \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{📈 Visual Summary}\label{visual-summary}
+
+\begin{verbatim}
+┌─────────────────────────────────────────────────────────────┐
+│                    RSS 2.0 vs Atom                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  RSS 2.0                            Atom                    │
+│  ├─ Simple, pragmatic              ├─ Formal, standardized  │
+│  ├─ Loose validation               ├─ Strict validation     │
+│  ├─ Namespace extensions           ├─ Inline constructs     │
+│  ├─ Podcast dominance              ├─ Blog platforms        │
+│  ├─ Pull-based (default)           ├─ Pull + WebSub         │
+│  └─ RFC 822 dates                  └─ RFC 3339 dates        │
+│                                                             │
+│  Notification Models:                                       │
+│  ┌──────────────┐     ┌──────────────┐                    │
+│  │ HTTP Polling │◄────┤ Both Support │                    │
+│  └──────────────┘     └──────────────┘                    │
+│                                                             │
+│  ┌──────────────┐     ┌──────────────┐                    │
+│  │   RSSCloud   │     │    WebSub    │◄──── Atom Native   │
+│  │  (Obsolete)  │     │ (W3C Standard)│                    │
+│  └──────────────┘     └──────────────┘                    │
+│       ▲                      ▲                              │
+│       │                      │                              │
+│  RSS (rare)           Both (growing)                        │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{References}\label{references}
+
+\subsubsection{Official Specifications}\label{official-specifications}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{RSS 2.0 Specification} - Harvard Berkman Center\\
+  \url{https://cyber.harvard.edu/rss/rss.html}\strut \\
+  \emph{The canonical RSS 2.0 specification defining channel structure,
+  item elements, and extension mechanisms. Essential reference for RSS
+  feed generation and parsing.}
+\item
+  \textbf{Atom Syndication Format (RFC 4287)} - IETF\\
+  \url{https://tools.ietf.org/html/rfc4287}\strut \\
+  \emph{IETF standard for Atom feeds, providing formal XML schema,
+  element definitions, and validation requirements. The authoritative
+  source for Atom implementation.}
+\item
+  \textbf{Atom Publishing Protocol (RFC 5023)} - IETF\\
+  \url{https://tools.ietf.org/html/rfc5023}\strut \\
+  \emph{Defines the AtomPub protocol for creating, editing, and deleting
+  Atom feed entries via HTTP. Complements Atom syndication with
+  publishing capabilities.}
+\item
+  \textbf{WebSub Specification} - W3C Recommendation\\
+  \url{https://www.w3.org/TR/websub/}\strut \\
+  \emph{W3C standard for real-time content distribution using pub/sub
+  architecture. The modern approach to push notifications for both RSS
+  and Atom feeds.}
+\end{enumerate}
+
+\subsubsection{Technical Standards}\label{technical-standards}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  \textbf{RFC 822 - Standard for ARPA Internet Text Messages}\\
+  \url{https://tools.ietf.org/html/rfc822}\strut \\
+  \emph{Date format specification used by RSS 2.0 (\texttt{pubDate},
+  \texttt{lastBuildDate}). Understanding RFC 822 dates is essential for
+  proper RSS timestamp handling.}
+\item
+  \textbf{RFC 3339 - Date and Time on the Internet: Timestamps}\\
+  \url{https://tools.ietf.org/html/rfc3339}\strut \\
+  \emph{Date format specification used by Atom (\texttt{updated},
+  \texttt{published}). Provides unambiguous timestamp representation for
+  Atom feeds.}
+\item
+  \textbf{RFC 3986 - Uniform Resource Identifier (URI): Generic
+  Syntax}\\
+  \url{https://tools.ietf.org/html/rfc3986}\strut \\
+  \emph{URI syntax standard referenced by both RSS and Atom. Critical
+  for understanding feed URLs, links, and identifiers.}
+\item
+  \textbf{RFC 3987 - Internationalized Resource Identifiers (IRIs)}\\
+  \url{https://tools.ietf.org/html/rfc3987}\strut \\
+  \emph{IRI specification used extensively in Atom for internationalized
+  identifiers. Extends URI syntax to support non-ASCII characters.}
+\end{enumerate}
+
+\subsubsection{Namespace Extensions}\label{namespace-extensions-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\item
+  \textbf{iTunes Podcast RSS Namespace} - Apple Developer\\
+  \url{https://help.apple.com/itc/podcasts_connect/\#/itcb54353390}\strut \\
+  \emph{Apple's podcast-specific RSS extensions defining
+  \texttt{itunes:*} elements. Essential for podcast feed creation and
+  distribution to Apple Podcasts and other directories.}
+\item
+  \textbf{Media RSS Specification} - Yahoo! Developer Network
+  (Archive)\\
+  \url{http://www.rssboard.org/media-rss}\strut \\
+  \emph{RSS extension for multimedia content, defining \texttt{media:*}
+  elements for images, videos, and audio with rich metadata.}
+\item
+  \textbf{Dublin Core Metadata Initiative}\\
+  \url{https://www.dublincore.org/specifications/dublin-core/dcmi-terms/}\strut \\
+  \emph{Metadata vocabulary often used as RSS namespace extension for
+  additional descriptive elements like \texttt{dc:creator},
+  \texttt{dc:rights}, etc.}
+\end{enumerate}
+
+\subsubsection{Validation Tools}\label{validation-tools}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{11}
+\item
+  \textbf{W3C Feed Validation Service}\\
+  \url{https://validator.w3.org/feed/}\strut \\
+  \emph{Official validator for RSS and Atom feeds, providing syntax
+  checking and compliance verification. Essential tool for testing feed
+  implementations.}
+\item
+  \textbf{RSS Board Validator}\\
+  \url{http://www.rssboard.org/rss-validator/}\strut \\
+  \emph{RSS-specific validation service maintained by the RSS Advisory
+  Board. Checks RSS 2.0 compliance and provides detailed error reports.}
+\end{enumerate}
+
+\subsubsection{Protocol Documentation}\label{protocol-documentation}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{13}
+\item
+  \textbf{HTTP/1.1 Specification (RFC 7231)} - IETF\\
+  \url{https://tools.ietf.org/html/rfc7231}\strut \\
+  \emph{HTTP protocol specification covering request methods, status
+  codes, and caching. Fundamental for understanding feed retrieval and
+  conditional requests.}
+\item
+  \textbf{HTTP Caching (RFC 7234)} - IETF\\
+  \url{https://tools.ietf.org/html/rfc7234}\strut \\
+  \emph{HTTP caching mechanisms including \texttt{ETag},
+  \texttt{Last-Modified}, \texttt{If-Modified-Since}, and cache-control
+  headers. Critical for efficient feed polling.}
+\end{enumerate}
+
+\subsubsection{Industry Resources}\label{industry-resources}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{15}
+\item
+  \textbf{RSS Advisory Board}\\
+  \url{http://www.rssboard.org/}\strut \\
+  \emph{Organization maintaining RSS specifications and best practices.
+  Provides clarifications and guidance on RSS implementation.}
+\item
+  \textbf{Podcast Index Namespace} - Podcast Index\\
+  \url{https://github.com/Podcastindex-org/podcast-namespace}\strut \\
+  \emph{Modern podcast-specific RSS extensions including transcripts,
+  chapters, value-for-value, and location data. Represents evolving
+  podcast feed capabilities.}
+\item
+  \textbf{Feed Autodiscovery (RFC 5785)} - IETF\\
+  \url{https://tools.ietf.org/html/rfc5785}\strut \\
+  \emph{Defines well-known URIs for feed discovery, enabling clients to
+  locate feeds from website URLs automatically.}
+\end{enumerate}
+
+\subsubsection{Historical Context}\label{historical-context}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{18}
+\item
+  \textbf{``The Myth of RSS Compatibility''} - Mark Pilgrim (Archive)\\
+  \url{https://web.archive.org/web/20110726121600/http://diveintomark.org/archives/2004/02/04/incompatible-rss}\strut \\
+  \emph{Historical perspective on RSS evolution and compatibility issues
+  that led to Atom's creation. Essential for understanding the
+  philosophical differences.}
+\item
+  \textbf{``Why Atom 1.0?''} - Tim Bray (Archive)\\
+  \url{https://www.tbray.org/ongoing/When/200x/2005/07/15/Atom-1.0}\strut \\
+  \emph{Rationale for Atom's design decisions and improvements over RSS.
+  Written by one of Atom's primary authors.}
+\end{enumerate}
+
+\subsubsection{Open Source
+Implementations}\label{open-source-implementations}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{20}
+\item
+  \textbf{Universal Feed Parser} - Python Library\\
+  \url{https://github.com/kurtmckee/feedparser}\strut \\
+  \emph{Popular Python library supporting RSS and Atom parsing.
+  Excellent reference implementation demonstrating practical feed
+  handling.}
+\item
+  \textbf{Rome} - Java RSS/Atom Library\\
+  \url{https://github.com/rometools/rome}\strut \\
+  \emph{Comprehensive Java library for RSS and Atom feed parsing and
+  generation. Shows enterprise-grade feed processing.}
+\item
+  \textbf{Syndication (System.ServiceModel.Syndication)} - .NET\\
+  \url{https://docs.microsoft.com/en-us/dotnet/api/system.servicemodel.syndication}\strut \\
+  \emph{Microsoft's .NET framework classes for RSS and Atom feed
+  handling. Official implementation for .NET applications.}
+\end{enumerate}
+
+\subsubsection{Research and Analysis}\label{research-and-analysis}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{23}
+\item
+  \textbf{``RSS and Atom Compared''} - IBM developerWorks (Archive)\\
+  \url{https://web.archive.org/web/20180808013923/https://www.ibm.com/developerworks/library/x-atom10/index.html}\strut \\
+  \emph{Technical comparison of RSS and Atom from IBM's developer
+  resources. Provides practical insights into choosing between formats.}
+\item
+  \textbf{``The Evolution of Web Syndication''} - ACM Queue\\
+  \url{https://queue.acm.org/detail.cfm?id=1036497}\strut \\
+  \emph{Academic perspective on syndication format evolution and the
+  forces that shaped RSS and Atom development.}
+\end{enumerate}
+
+\subsubsection{Platform-Specific
+Documentation}\label{platform-specific-documentation}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{25}
+\item
+  \textbf{WordPress Feed Documentation}\\
+  \url{https://wordpress.org/support/article/wordpress-feeds/}\strut \\
+  \emph{Documentation for WordPress's RSS and Atom feed implementation,
+  showing practical application in major CMS.}
+\item
+  \textbf{Google Reader API Documentation (Archive)}\\
+  \url{https://web.archive.org/web/20130701000000*/https://developers.google.com/google-apps/reader/}\strut \\
+  \emph{Historical documentation from Google Reader, demonstrating
+  enterprise-scale feed aggregation architecture.}
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\emph{Document created: October 10, 2025 \textbar{} Version: 1.0}\\
+\emph{Part of the Feed Architectures and Protocols series}
+
+
+
+
+\end{document}
