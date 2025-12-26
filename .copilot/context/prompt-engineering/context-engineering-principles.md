@@ -479,7 +479,8 @@ Use this checklist when creating or reviewing prompts, agents, or instructions:
 ## References
 
 - **Official Documentation**: [VS Code Copilot Custom Agents](https://code.visualstudio.com/docs/copilot/copilot-customization)
-- **Repository Articles**: `.github/prompts/01-04. how_to_*.md` series
+- **Repository Articles**: `tech/PromptEngineering/` series
 - **Related Context**: 
-  - `.copilot/context/prompt-engineering/tool-composition-guide.md`
-  - `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+  - [tool-composition-guide.md](tool-composition-guide.md) - Tool selection patterns
+  - [validation-caching-pattern.md](validation-caching-pattern.md) - 7-day caching rules
+  - [handoffs-pattern.md](handoffs-pattern.md) - Multi-agent orchestration

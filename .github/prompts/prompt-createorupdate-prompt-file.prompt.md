@@ -1,6 +1,6 @@
 ---
 name: prompt-createorupdate
-description: "Create new prompt files or update existing ones following repository best practices and context engineering principles"
+description: "[DEPRECATED] Use prompt-createorupdate-prompt-file-v2.prompt.md instead. Create new prompt files or update existing ones following repository best practices and context engineering principles"
 agent: agent
 model: claude-sonnet-4.5
 tools:
@@ -10,6 +10,8 @@ tools:
   - fetch_webpage      # Research external best practices
 argument-hint: 'Describe the prompt purpose, or attach existing prompt with #file to update'
 ---
+
+> ⚠️ **DEPRECATION NOTICE**: This prompt is superseded by [`prompt-createorupdate-prompt-file-v2.prompt.md`](prompt-createorupdate-prompt-file-v2.prompt.md) which provides improved multi-agent orchestration, adaptive validation, and better handoff patterns. Use the v2 version for all new prompt creation tasks.
 
 # Create or Update Prompt File
 

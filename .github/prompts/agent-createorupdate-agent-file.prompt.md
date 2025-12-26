@@ -1,6 +1,6 @@
 ---
 name: agent-createorupdate
-description: "Create new agent files or update existing ones following repository best practices and agent engineering principles"
+description: "[DEPRECATED] Use agent-createorupdate-agent-file-v2.prompt.md instead. Create new agent files or update existing ones following repository best practices and agent engineering principles"
 agent: agent
 model: claude-sonnet-4.5
 tools:
@@ -10,6 +10,8 @@ tools:
   - fetch_webpage      # Research external best practices
 argument-hint: 'Describe the agent role/purpose, or attach existing agent with #file to update'
 ---
+
+> ⚠️ **DEPRECATION NOTICE**: This prompt is superseded by [`agent-createorupdate-agent-file-v2.prompt.md`](agent-createorupdate-agent-file-v2.prompt.md) which provides improved multi-agent orchestration, adaptive validation, and better handoff patterns. Use the v2 version for all new agent creation tasks.
 
 # Create or Update Agent File
 

@@ -118,7 +118,125 @@ Automatically applied to files in specific folders:
 |------|-----------|---------|
 | [.github/instructions/documentation.instructions.md](.github/instructions/documentation.instructions.md) | `**/*.md` | All Markdown files |
 | [.github/instructions/tech-articles.instructions.md](.github/instructions/tech-articles.instructions.md) | `tech/**/*.md` | Technical content |
-| [.github/instructions/prompts.instructions.md](.github/instructions/prompts.instructions.md) | `tech/PromptEngineering/**/*.md` | Prompt engineering articles |
+| [.github/instructions/prompts.instructions.md](.github/instructions/prompts.instructions.md) | `.github/prompts/**/*.md` | Prompt file creation |
+| [.github/instructions/agents.instructions.md](.github/instructions/agents.instructions.md) | `.github/agents/**/*.agent.md` | Agent file creation |
+| [.github/instructions/context-files.instructions.md](.github/instructions/context-files.instructions.md) | `.copilot/context/**/*.md` | Context file creation |
+
+---
+
+## 🤖 Prompt Engineering Ecosystem
+
+Complete guide to prompt, agent, and context engineering in this repository.
+
+### Core Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    INSTRUCTION LAYER                            │
+│  .github/instructions/*.instructions.md                         │
+│  (Auto-applied based on file path globs)                       │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    CONTEXT LAYER                                │
+│  .copilot/context/prompt-engineering/*.md                       │
+│  (Shared principles, patterns, and guidelines)                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    OPERATIONAL LAYER                            │
+│  .github/prompts/*.prompt.md  |  .github/agents/*.agent.md     │
+│  (Task workflows)             |  (Role-based specialists)       │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Context Files (Shared Principles)
+
+**Location**: `.copilot/context/prompt-engineering/`
+
+| File | Purpose | Key Content |
+|------|---------|-------------|
+| [context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md) | Core principles | 6 principles: Narrow Scope, Early Commands, Imperative Language, Three-Tier Boundaries, Context Minimization, Tool Scoping |
+| [tool-composition-guide.md](.copilot/context/prompt-engineering/tool-composition-guide.md) | Tool selection | Priority rules, role-based tool sets, composition patterns |
+| [validation-caching-pattern.md](.copilot/context/prompt-engineering/validation-caching-pattern.md) | 7-day caching | Dual YAML architecture, cache check workflow |
+| [handoffs-pattern.md](.copilot/context/prompt-engineering/handoffs-pattern.md) | Multi-agent coordination | Handoff patterns: Linear Chain, Parallel Research, Validation Loop, Supervised |
+
+### Prompt Files
+
+**Location**: `.github/prompts/`
+
+**Prompt Creation/Update**:
+- [prompt-createorupdate-prompt-file-v2.prompt.md](.github/prompts/prompt-createorupdate-prompt-file-v2.prompt.md) - ✅ **Recommended** - Multi-agent orchestration
+- [prompt-createorupdate-prompt-file.prompt.md](.github/prompts/prompt-createorupdate-prompt-file.prompt.md) - ⚠️ Deprecated (use v2)
+- [prompt-design-and-create.prompt.md](.github/prompts/prompt-design-and-create.prompt.md) - Design from scratch
+- [prompt-review-and-validate.prompt.md](.github/prompts/prompt-review-and-validate.prompt.md) - Validate existing prompts
+
+**Guidance Maintenance**:
+- [prompt-createorupdate-prompt-guidance.prompt.md](.github/prompts/prompt-createorupdate-prompt-guidance.prompt.md) - Update instruction and context files
+
+### Agent Files
+
+**Location**: `.github/agents/`
+
+**Agent Creation/Update**:
+- [agent-createorupdate-agent-file-v2.prompt.md](.github/prompts/agent-createorupdate-agent-file-v2.prompt.md) - ✅ **Recommended** - Multi-agent orchestration
+- [agent-createorupdate-agent-file.prompt.md](.github/prompts/agent-createorupdate-agent-file.prompt.md) - ⚠️ Deprecated (use v2)
+- [agent-design-and-create.prompt.md](.github/prompts/agent-design-and-create.prompt.md) - Design from scratch
+- [agent-review-and-validate.prompt.md](.github/prompts/agent-review-and-validate.prompt.md) - Validate existing agents
+
+**Specialized Agents by Role**:
+
+| Role | Agent | Purpose | Tools |
+|------|-------|---------|-------|
+| Researcher | [@prompt-researcher](.github/agents/prompt-researcher.agent.md) | Pattern discovery | Read-only |
+| Builder | [@prompt-builder](.github/agents/prompt-builder.agent.md) | File creation | Read + Write |
+| Validator | [@prompt-validator](.github/agents/prompt-validator.agent.md) | Quality assurance | Read-only |
+| Updater | [@prompt-updater](.github/agents/prompt-updater.agent.md) | Fix issues | Read + Write |
+
+### Tech Articles (Learning)
+
+**Location**: `tech/PromptEngineering/`
+
+| Article | Topic |
+|---------|-------|
+| [01. Copilot File Consumption](tech/PromptEngineering/01.%20how_to_write_prompts_copilot_file_consumption.md) | How Copilot reads files |
+| [02. Naming Conventions](tech/PromptEngineering/02.%20how_to_write_prompts_naming_conventions.md) | File and folder organization |
+| [03. Prompt Structure](tech/PromptEngineering/03.%20how_to_write_prompts_prompt_structure.md) | YAML frontmatter and sections |
+| [04. Agent Structure](tech/PromptEngineering/04.%20how_to_write_prompts_agent_structure.md) | Personas, handoffs, boundaries |
+| [05. Instruction Structure](tech/PromptEngineering/05.%20how_to_write_prompts_instruction_structure.md) | Path-specific instructions |
+| [06. Multi-Agent Prompts](tech/PromptEngineering/06.%20how_to_write_prompts_multi_agent_prompts.md) | Orchestration patterns |
+| [07. Implementation Example](tech/PromptEngineering/07.%20how_to_write_prompts_example_with_agents.md) | Real-world multi-agent workflow |
+| [08. Documentation Site](tech/PromptEngineering/08.%20how_to_write_prompts_documentation_site_patterns.md) | Repository-specific patterns |
+
+### Templates
+
+**Location**: `.github/templates/`
+
+| Template | Use Case |
+|----------|----------|
+| [prompt-simple-validation-template.md](.github/templates/prompt-simple-validation-template.md) | Read-only validation with 7-day caching |
+| [prompt-implementation-template.md](.github/templates/prompt-implementation-template.md) | File creation/modification workflows |
+| [prompt-multi-agent-orchestration-template.md](.github/templates/prompt-multi-agent-orchestration-template.md) | Multi-agent coordination |
+| [prompt-analysis-only-template.md](.github/templates/prompt-analysis-only-template.md) | Research and reporting |
+
+### Quick Reference: Creating New Files
+
+**To create a new prompt**:
+```
+/prompt-createorupdate-prompt-file-v2 [describe purpose]
+```
+
+**To create a new agent**:
+```
+/agent-createorupdate-agent-file-v2 [describe role]
+```
+
+**To update guidance files**:
+```
+/prompt-createorupdate-prompt-guidance [describe updates needed]
+```
 
 ### 🔧 Automation Scripts
 

@@ -11,7 +11,7 @@ They operate at the implementation level with detailed technical instructions, t
 
 ## Context Engineering Principles
 
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/context-engineering-principles.md`
+**📖 Complete guidance:** [.copilot/context/prompt-engineering/context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md)
 
 **Key principles for agents** (see context file for full details):
 1. **Narrow Scope** - One agent = One specialized role
@@ -23,7 +23,7 @@ They operate at the implementation level with detailed technical instructions, t
 
 ## Tool Selection
 
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/tool-composition-guide.md`
+**📖 Complete guidance:** [.copilot/context/prompt-engineering/tool-composition-guide.md](.copilot/context/prompt-engineering/tool-composition-guide.md)
 
 **Agent/Tool Alignment:**
 - `agent: plan` (read-only) + [read_file, grep_search, semantic_search]
@@ -70,7 +70,7 @@ model: claude-sonnet-4.5  # Optional: specify preferred model
 ## Repository-Specific Patterns
 
 ### Validation Caching
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+**📖 Complete guidance:** [.copilot/context/prompt-engineering/validation-caching-pattern.md](.copilot/context/prompt-engineering/validation-caching-pattern.md)
 
 Agents working with article files must:
 - ❌ **NEVER modify top YAML** (Quarto metadata)
