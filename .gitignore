@@ -446,3 +446,5 @@ yq.exe
 .copilot/bin/
 src/MetadataWatcher/bin/
 src/MetadataWatcher/obj/
+
+**/*.quarto_ipynb

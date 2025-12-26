@@ -101,7 +101,7 @@ Technology intersects with culture and exploration:
 **Need a specific guide?** Jump to popular how-tos:
 - [HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md) ⭐
 - [Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md) ⭐
-- [Quarto Documentation Guide](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)
+- [Quarto Documentation Guide](tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)
 
 ---
 
@@ -148,11 +148,11 @@ Technology intersects with culture and exploration:
 ### 🛠️ **Development Tools & Productivity**
 
 #### Markdown Documentation Tools 🆕
-- **[Using Quarto (Overview)](tech/Markdown/01.%20QUARTO%20Doc/000.000%20Using%20Quarto.md)** ⭐  
+- **[Using Quarto (Overview)](tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)** ⭐  
   *Complete guide to building documentation sites with Quarto*
-- **[Quarto Architecture: How It Works](tech/Markdown/01.%20QUARTO%20Doc/001.001%20Architecture%20-%20How%20quarto%20works.md)**  
+- **[Quarto Architecture: How It Works](tech/Markdown/01.%20QUARTO%20Doc/01.02-how-quarto-works.md)**  
   *Understanding Quarto's internal architecture and rendering pipeline*
-- **[Quarto Theming and Styling](tech/Markdown/01.%20QUARTO%20Doc/002.010%20Quarto%20Theming%20and%20Styling.md)**  
+- **[Quarto Theming and Styling](tech/Markdown/01.%20QUARTO%20Doc/05.01-theming-and-styling.md)**  
   *Customizing your Quarto site's appearance*
 - **[Using MkDocs (Overview)](tech/Markdown/02.%20MkDocs/000.000%20Using%20MkDocs.md)** ⭐  
   *Python-based documentation with MkDocs and Material theme*
@@ -268,7 +268,7 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 
 ### 🛠️ Popular Guides
 - [HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md) ⭐
-- [Quarto Documentation Guide](20250712%20Use%20QUARTO%20doc%20for%20Github%20repos%20doc/000.000%20README.md)
+- [Quarto Documentation Guide](tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)
 - [Git Command Line Workflows](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)
 
 ### 🐛 Problem Solving

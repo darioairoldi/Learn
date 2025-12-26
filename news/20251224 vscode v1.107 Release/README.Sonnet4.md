@@ -179,7 +179,7 @@ Released shortly after 1.107.0:
 
 ---
 
-## 🧠 Model Management and BYOK
+## 🧠 Model Management and <mark>BYOK</mark>
 
 **Start Time:** 00:29:30 | **Duration:** 10m 0s  
 **Speaker:** Logan Ramos (Engineer)
@@ -191,7 +191,7 @@ Logan articulated the challenge driving BYOK:
 **Quote [36:32]:**
 > "Each time you add a model to copilot, you take the pool of GPUs that are available and have to divide them... that makes it really really hard for us to provide everything."
 
-BYOK solves this by allowing developers to bring their own API keys for providers like Cerebras, OpenRouter, and Ollama.
+<mark>BYOK</mark> solves this by allowing developers to bring their own <mark>API keys</mark> for providers like <mark>Cerebras</mark>, <mark>OpenRouter</mark>, and <mark>Ollama</mark>.
 
 ### Language Models Editor
 
@@ -199,12 +199,12 @@ The new centralized interface for model management:
 
 | Capability | Description |
 |------------|-------------|
-| **Model Visibility Toggling** | Hide unused models from picker for cleaner interface |
-| **Add Models from Providers** | Activate additional providers without leaving editor |
-| **Search with Highlighting** | Text search with match highlighting |
-| **Capability Filtering** | Filter by vision (`@vision:true`), tools (`@tools:true`), visibility |
-| **Grouping Options** | Organize by provider or visibility status |
-| **Model Information** | Context size, capabilities, billing details at a glance |
+| **<mark>Model Visibility Toggling</mark>** | Hide unused models from picker for cleaner interface |
+| **<mark>Add Models from Providers</mark>** | Activate additional providers without leaving editor |
+| **<mark>Search with Highlighting</mark>** | Text search with match highlighting |
+| **<mark>Capability Filtering</mark>** | Filter by vision (`@vision:true`), tools (`@tools:true`), visibility |
+| **<mark>Grouping Options</mark>** | Organize by provider or visibility status |
+| **<mark>Model Information</mark>** | Context size, capabilities, billing details at a glance |
 
 **Access via:** Model picker in chat or Command Palette: `Chat: Manage Language Models`
 
@@ -212,11 +212,11 @@ The new centralized interface for model management:
 
 | Aspect | Implementation |
 |--------|----------------|
-| **Quota Usage** | BYOK models don't consume GitHub Copilot quota |
-| **Subscription Requirement** | Active Copilot subscription still required for background operations |
-| **Background Operations** | GPT-4o Mini used for query refinement, commit messages, rename suggestions |
-| **Debug Logging** | Full prompt logging available in output channel |
-| **Prompt Files** | Markdown files with complete request/response data |
+| **<mark>Quota Usage</mark>** | BYOK models don't consume GitHub Copilot quota |
+| **<mark>Subscription Requirement</mark>** | Active Copilot subscription still required for background operations |
+| **<mark>Background Operations</mark>** | GPT-4o Mini used for query refinement, commit messages, rename suggestions |
+| **<mark>Debug Logging</mark>** | Full prompt logging available in output channel |
+| **<mark>Prompt Files</mark>** | Markdown files with complete request/response data |
 
 **Demo Summary [30:38-38:00]:**
 Logan demonstrated using Copilot Free account with Cerebras API:
@@ -271,14 +271,14 @@ Celina implemented a real GitHub issue for HuggingFace Hub Python SDK:
 
 ### MCP Registry Integration
 
-The new MCP registry is accessible via `@mcp` search in the extensions view:
+The new MCP registry is accessible via <mark>`@mcp`</mark> search in the extensions view:
 
 | Server | Purpose |
 |--------|---------|
-| **Playwright** | Browser automation and testing |
-| **GitHub** | Repository operations |
-| **Microsoft Learn** | Documentation access |
-| **Wikipedia** | Knowledge retrieval |
+| **<mark>Playwright</mark>** | Browser automation and testing |
+| **<mark>GitHub</mark>** | Repository operations |
+| **<mark>Microsoft Learn</mark>** | Documentation access |
+| **<mark>Wikipedia</mark>** | Knowledge retrieval |
 
 **Key Features:**
 - One-click installation of curated servers
