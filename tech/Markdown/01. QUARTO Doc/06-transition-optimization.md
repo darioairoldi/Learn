@@ -1,4 +1,27 @@
+---
+title: "Sidebar Page Transition Optimization"
+description: "Performance optimization for sidebar state restoration during page transitions"
+author: "Dario Airoldi"
+date: "2025-01-30"
+date-modified: last-modified
+categories: [quarto, navigation, optimization, performance, sidebar]
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
 # Sidebar Page Transition Optimization
+
+## 📋 Table of Contents
+
+- [Problem Solved](#problem-solved)
+- [Solution Implemented](#solution-implemented)
+- [Performance Improvements](#performance-improvements)
+- [User Experience](#user-experience)
+- [Related Articles](#related-articles)
+
+---
 
 ## Problem Solved
 
@@ -82,3 +105,53 @@ if (isPageTransition) {
 ```
 
 The solution maintains full compatibility with existing functionality while dramatically improving the user experience during page navigation.
+---
+
+## Related Articles
+
+For more context on Quarto navigation and sidebar functionality:
+
+- [06-sidebar-layout.md](06-sidebar-layout.md) - Understanding sidebar layout architecture
+- [06-navigation-workflow.md](06-navigation-workflow.md) - Complete navigation workflow guide
+- [07-build-optimization.md](07-build-optimization.md) - General performance optimization
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "06-transition-optimization.md"
+  word_count: 600
+  created_date: "2025-01-30"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 10
+    total_parts: 14
+    previous: "06-navigation-workflow.md"
+    next: "07-build-optimization.md"
+  related_articles:
+    - "06-sidebar-layout.md"
+    - "06-navigation-workflow.md"
+  prerequisites:
+    - "06-sidebar-layout.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 10
+    total_articles: 14
+    consistency_score: 10
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Specific optimization case study for sidebar performance. Now includes proper frontmatter, TOC, and metadata"
+---
+-->

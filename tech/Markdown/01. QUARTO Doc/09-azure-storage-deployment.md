@@ -2,7 +2,7 @@
 title: "Deploying a Quarto Site to Azure Storage Accounts"
 description: "Complete guide to deploying Quarto documentation to Azure Storage Account static websites with automated CI/CD"
 author: "Dario Airoldi"
-date: "January 15, 2025"
+date: "2025-01-15"
 date-modified: last-modified
 categories: [quarto, azure, storage-account, static-website, deployment]
 format:
@@ -740,3 +740,45 @@ This solution is ideal for:
 - [GitHub Actions for Azure](https://github.com/Azure/actions)
 - [Azure CLI Reference](https://docs.microsoft.com/en-us/cli/azure/)
 - [Azure Cost Management](https://docs.microsoft.com/en-us/azure/cost-management-billing/)
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "09-azure-storage-deployment.md"
+  word_count: 4000
+  created_date: "2025-01-15"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 14
+    total_parts: 14
+    previous: "09-github-pages-deployment.md"
+    next: null
+  related_articles:
+    - "01-introduction-to-quarto.md"
+    - "09-github-pages-deployment.md"
+    - "07-build-optimization.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 14
+    total_articles: 14
+    consistency_score: 9
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Comprehensive Azure deployment guide with CDN and security configuration"
+---
+-->

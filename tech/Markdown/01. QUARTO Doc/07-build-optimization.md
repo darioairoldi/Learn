@@ -2,7 +2,7 @@
 title: "Optimizing Quarto Build and Deploy Performance"
 description: "Comprehensive guide to speeding up Quarto site builds and deployments"
 author: "Dario Airoldi"
-date: "January 16, 2025"
+date: "2025-01-16"
 date-modified: last-modified
 categories: [quarto, optimization, github-actions, performance]
 format:
@@ -601,3 +601,45 @@ Based on our optimization implementation:
 3. **Parallel Processing**: 30-50% improvement for full builds
 4. **Change Detection**: 100% time saving for non-doc changes
 5. **Incremental Rendering**: 60-80% improvement for small changes
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "07-build-optimization.md"
+  word_count: 3500
+  created_date: "2025-01-16"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 11
+    total_parts: 14
+    previous: "06-transition-optimization.md"
+    next: "08-troubleshooting-guide.md"
+  related_articles:
+    - "02-monolithic-vs-modular-deployment.md"
+    - "01-how-quarto-works.md"
+    - "02-split-navigation-build.md"
+  prerequisites:
+    - "01-how-quarto-works.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 11
+    total_articles: 14
+    consistency_score: 9
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Comprehensive optimization guide with measurable performance improvements"
+---
+-->

@@ -2,7 +2,7 @@
 title: "Quarto Theming and Styling"
 description: "Comprehensive guide to Quarto's theming system, from built-in themes to custom styling approaches"
 author: "Dario Airoldi"
-date: "January 16, 2025"
+date: "2025-01-16"
 date-modified: last-modified
 categories: [quarto, theming, styling, css, scss, design]
 format:
@@ -875,3 +875,46 @@ format:
 ---
 
 This comprehensive guide covers all aspects of Quarto theming and styling, from basic theme selection to advanced custom component creation. Use these techniques to create professional, branded documentation that reflects your organization's visual identity.
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "05-theming-and-styling.md"
+  word_count: 4000
+  created_date: "2025-01-16"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 7
+    total_parts: 14
+    previous: "04-markdown-features.md"
+    next: "06-sidebar-layout.md"
+  related_articles:
+    - "03-quarto-yml-structure.md"
+    - "04-markdown-features.md"
+    - "06-sidebar-layout.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+    - "03-quarto-yml-structure.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 7
+    total_articles: 14
+    consistency_score: 9
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Comprehensive theming guide from basic to advanced with practical examples"
+---
+-->

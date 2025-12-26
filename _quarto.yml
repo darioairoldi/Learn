@@ -105,15 +105,6 @@ project:
     - "tech/PromptEngineering/06. how_to_create_a_prompt_interacting_with_agents.md"
     - "tech/PromptEngineering/06.1 example_prompt_interacting_with_agents_plan.md"
     - "tech/PromptEngineering/07. Prompts and markdown structure for a documentation site.md"
-  exclude:
-    - ".copilot/**"
-    - ".github/**"
-    - ".vscode/**"
-    - "node_modules/**"
-    - "_site/**"
-    - "_freeze/**"
-    - "site_libs/**"
-    - ".quarto/**"
 
 website:
   title: "Dario's Learning Journey"

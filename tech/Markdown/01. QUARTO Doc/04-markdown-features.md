@@ -2,7 +2,7 @@
 title: "Quarto-Specific Markdown Features"
 description: "Complete guide to Quarto's extended markdown syntax and unique features beyond traditional Markdown"
 author: "Dario Airoldi"
-date: "January 16, 2025"
+date: "2025-01-16"
 date-modified: last-modified
 categories: [quarto, markdown, syntax, features, interactive]
 format:
@@ -530,3 +530,45 @@ Detailed reports
 ---
 
 This guide covers the essential Quarto-specific markdown features that extend beyond standard Markdown. These features enable the creation of sophisticated, interactive, and beautifully styled documentation websites.
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "04-markdown-features.md"
+  word_count: 3000
+  created_date: "2025-01-16"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 6
+    total_parts: 14
+    previous: "03-quarto-yml-structure.md"
+    next: "05-theming-and-styling.md"
+  related_articles:
+    - "03-quarto-yml-structure.md"
+    - "05-theming-and-styling.md"
+    - "01-introduction-to-quarto.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 6
+    total_articles: 14
+    consistency_score: 9
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Complete guide to Quarto-specific markdown extensions with working examples"
+---
+-->

@@ -2,7 +2,7 @@
 title: "How does quarto site layout works"
 description: "Comprehensive guide to Quarto's layout system including sidebars, navigation, and custom enhancements"
 author: "Dario Airoldi"
-date: "July 2, 2025"
+date: "2025-07-02"
 date-modified: last-modified
 categories: [quarto, layout, navigation]
 format:
@@ -442,3 +442,46 @@ async function loadSiteConfig() {
 The beauty of Quarto's layout system is that it uses standard web technologies while providing powerful extension points for custom functionality. The Related Pages implementation demonstrates how to create sophisticated features that feel native to the Quarto experience.
 
 Would you like me to help you implement a specific layout enhancement or explore advanced customization techniques?
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "06-sidebar-layout.md"
+  word_count: 2000
+  created_date: "2025-07-02"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 8
+    total_parts: 14
+    previous: "05-theming-and-styling.md"
+    next: "06-navigation-workflow.md"
+  related_articles:
+    - "06-navigation-workflow.md"
+    - "06-transition-optimization.md"
+    - "03-quarto-yml-structure.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+    - "03-quarto-yml-structure.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 8
+    total_articles: 14
+    consistency_score: 9
+    completeness_score: 9
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Focused guide on sidebar layout configuration and customization"
+---
+-->

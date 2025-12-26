@@ -1,0 +1,1223 @@
+---
+title: "Troubleshooting Quarto Sites"
+description: "Comprehensive guide to debugging and resolving common issues with Quarto website projects"
+author: "Dario Airoldi"
+date: "2025-12-26"
+date-modified: last-modified
+categories: [quarto, troubleshooting, debugging, errors, solutions]
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+# Troubleshooting Quarto Sites
+
+## 📋 Table of Contents
+
+- [📖 Overview](#-overview)
+- [🔧 Diagnostic Tools](#-diagnostic-tools)
+- [🏗️ Build Errors](#️-build-errors)
+- [🎨 Rendering Issues](#-rendering-issues)
+- [🧭 Navigation Problems](#-navigation-problems)
+- [🚀 Deployment Issues](#-deployment-issues)
+- [⚡ Performance Problems](#-performance-problems)
+- [🔍 Advanced Debugging](#-advanced-debugging)
+- [💡 Common Error Messages](#-common-error-messages)
+- [✅ Preventive Maintenance](#-preventive-maintenance)
+- [📚 References](#-references)
+
+---
+
+## 📖 Overview
+
+This guide provides systematic approaches to diagnosing and resolving common issues encountered when building, rendering, and deploying Quarto website projects.
+
+**When to Use This Guide:**
+- Build commands fail or hang
+- Site renders incorrectly or incompletely
+- Navigation or search doesn't work
+- Deployment succeeds but site shows errors
+- Performance is unexpectedly slow
+
+**Troubleshooting Approach:**
+1. **Identify** the error category (build, render, deploy, runtime)
+2. **Diagnose** using appropriate tools
+3. **Isolate** the problem to specific files or configuration
+4. **Fix** using recommended solutions
+5. **Verify** the fix resolves the issue
+6. **Prevent** recurrence with best practices
+
+---
+
+## 🔧 Diagnostic Tools
+
+### Quarto Built-in Tools
+
+#### `quarto check`
+
+Validates your Quarto installation and environment:
+
+```bash
+# Check Quarto installation
+quarto check
+
+# Check with verbose output
+quarto check --verbose
+```
+
+**Checks:**
+- ✅ Quarto version and installation
+- ✅ Pandoc availability
+- ✅ Deno runtime
+- ✅ R/Python environments (if used)
+
+**Use When:**
+- Fresh installation
+- After system updates
+- Rendering behaves unexpectedly
+
+---
+
+#### `quarto render --debug`
+
+Renders with detailed debugging information:
+
+```bash
+# Render entire project with debug output
+quarto render --debug
+
+# Render specific file with debug
+quarto render path/to/file.qmd --debug
+
+# Capture output to file
+quarto render --debug > debug-log.txt 2>&1
+```
+
+**Output Includes:**
+- File discovery and filtering
+- Template processing
+- Pandoc command execution
+- Resource copying
+- Plugin and filter execution
+
+**Use When:**
+- Renders fail silently
+- Need to understand processing order
+- Investigating performance issues
+
+---
+
+#### `quarto preview --verbose`
+
+Runs preview server with detailed logging:
+
+```bash
+# Preview with verbose output
+quarto preview --verbose
+
+# Specify port
+quarto preview --port 4200 --verbose
+```
+
+**Use When:**
+- Preview doesn't start
+- Hot reload not working
+- Need to debug watch behavior
+
+---
+
+### Browser Developer Tools
+
+**Essential for runtime issues:**
+
+#### Console (F12 → Console Tab)
+
+```javascript
+// Check for JavaScript errors
+// Look for:
+- Failed resource loads (404s)
+- CORS errors
+- JavaScript exceptions
+- Navigation errors
+```
+
+**Common Console Errors:**
+
+| Error | Likely Cause | Solution |
+|-------|--------------|----------|
+| `404 navigation.json` | File missing or wrong path | Check `_quarto.yml` output-dir |
+| `CORS policy` | Serving from file:// | Use `quarto preview` instead |
+| `Bootstrap undefined` | Quarto libs not loaded | Check site_libs directory |
+| `Unexpected token <` | HTML returned for JS | Check file paths in config |
+
+---
+
+#### Network Tab (F12 → Network)
+
+**Monitor resource loading:**
+
+```
+Check for:
+✅ All CSS/JS files load (200 status)
+✅ navigation.json present
+✅ Images load correctly
+❌ 404 errors (missing files)
+❌ 500 errors (server issues)
+```
+
+**Common Network Issues:**
+
+- **404 on site_libs/***: Quarto libraries not copied → Re-render project
+- **404 on images**: Incorrect relative paths → Check image references
+- **Slow loads**: Large unoptimized images → Compress assets
+
+---
+
+#### Elements/Inspector Tab
+
+**Inspect DOM structure:**
+
+```html
+<!-- Check for: -->
+- Proper HTML structure
+- CSS classes applied
+- Missing elements
+- Incorrect nesting
+```
+
+**Use When:**
+- Layout looks broken
+- Navigation menu missing
+- Search box not showing
+- Custom styling not applying
+
+---
+
+### File System Checks
+
+#### Verify Output Directory
+
+```powershell
+# Check docs/ directory structure
+Get-ChildItem -Recurse "docs/" | Select-Object FullName
+
+# Check for critical files
+Test-Path "docs/index.html"
+Test-Path "docs/site_libs"
+Test-Path "docs/search.json"
+```
+
+**Expected Structure:**
+
+```
+docs/
+├── index.html
+├── site_libs/           # Quarto runtime libraries
+│   ├── bootstrap/
+│   ├── quarto-html/
+│   └── ...
+├── search.json          # If search enabled
+├── navigation.json      # If using custom nav
+└── [your-pages].html
+```
+
+---
+
+#### Check File Permissions
+
+```powershell
+# Windows: Check file attributes
+Get-Acl "path/to/file.md" | Format-List
+
+# Ensure files are not read-only
+Get-ChildItem -Recurse "*.md" | Where-Object {$_.IsReadOnly} | Select-Object FullName
+```
+
+```bash
+# Linux/Mac: Check permissions
+ls -la *.md
+
+# Fix permissions if needed
+chmod 644 *.md
+chmod 755 _quarto.yml
+```
+
+---
+
+## 🏗️ Build Errors
+
+### YAML Syntax Errors
+
+**Error Message:**
+```
+Error: YAML parse error at line X:
+  mapping values are not allowed here
+```
+
+**Common Causes:**
+
+1. **Missing quotes around special characters**
+
+```yaml
+# ❌ Wrong
+title: My Site: A Guide
+
+# ✅ Correct
+title: "My Site: A Guide"
+```
+
+2. **Inconsistent indentation**
+
+```yaml
+# ❌ Wrong (mixed spaces/tabs)
+website:
+  title: "My Site"
+	navbar:  # Tab used here
+    left:
+
+# ✅ Correct (2 spaces throughout)
+website:
+  title: "My Site"
+  navbar:
+    left:
+```
+
+3. **Missing colons or spaces**
+
+```yaml
+# ❌ Wrong
+website
+  title: "My Site"
+
+# ✅ Correct
+website:
+  title: "My Site"
+```
+
+**Solution:**
+1. Use YAML validator: [yamllint.com](https://www.yamllint.com/)
+2. Use editor with YAML syntax highlighting
+3. Run `quarto check` to validate config
+
+---
+
+### Path Resolution Errors
+
+**Error Message:**
+```
+ERROR: Unable to find file: path/to/file.qmd
+```
+
+**Common Causes:**
+
+**1. Incorrect relative paths in `_quarto.yml`:**
+
+```yaml
+# ❌ Wrong (absolute path)
+sidebar:
+  contents:
+    - href: /docs/guide.qmd
+
+# ✅ Correct (relative to _quarto.yml)
+sidebar:
+  contents:
+    - href: guide.qmd
+```
+
+**2. Special characters in filenames:**
+
+```yaml
+# ❌ Problematic
+- href: "file with spaces.qmd"
+- href: "file#hash.qmd"
+
+# ✅ Better
+- href: "file-with-dashes.qmd"
+- href: "file-hash.qmd"
+```
+
+**3. Case sensitivity (Linux/Mac):**
+
+```yaml
+# ❌ Fails on Linux if file is Guide.qmd
+- href: guide.qmd
+
+# ✅ Match exact case
+- href: Guide.qmd
+```
+
+**Solution:**
+
+```bash
+# Find the actual file
+Get-ChildItem -Recurse -Filter "*guide*"
+
+# Check current working directory
+Get-Location
+
+# Verify path exists
+Test-Path "path/to/file.qmd"
+```
+
+---
+
+### Missing Dependencies
+
+**Error Message:**
+```
+Error: Pandoc version X.XX or higher is required
+Error: Python/R not found
+```
+
+**Solutions:**
+
+**Pandoc:**
+```bash
+# Check Pandoc version
+pandoc --version
+
+# Update Pandoc
+# Windows (via Chocolatey)
+choco upgrade pandoc
+
+# Mac
+brew upgrade pandoc
+
+# Linux
+sudo apt-get update && sudo apt-get install pandoc
+```
+
+**Python:**
+```bash
+# Check Python
+python --version
+
+# Install Python packages for Quarto
+pip install jupyter matplotlib pandas
+```
+
+**R:**
+```bash
+# Check R installation
+R --version
+
+# Install required R packages
+R -e "install.packages('rmarkdown')"
+```
+
+---
+
+### Render Hangs or Freezes
+
+**Symptoms:**
+- `quarto render` runs indefinitely
+- No error messages
+- CPU usage high but no progress
+
+**Common Causes:**
+
+**1. Infinite loop in executable code:**
+
+````markdown
+```{python}
+# ❌ Infinite loop
+while True:
+    print("This never ends")
+```
+````
+
+**Solution:** Set execution timeout:
+
+```yaml
+execute:
+  timeout: 300  # 5 minutes max
+  error: continue  # Don't stop on errors
+```
+
+**2. Large file processing:**
+
+````markdown
+```{python}
+# Processing huge dataset
+import pandas as pd
+df = pd.read_csv('10GB_file.csv')  # Takes forever
+```
+````
+
+**Solution:** Use caching:
+
+```yaml
+execute:
+  cache: true
+  freeze: auto
+```
+
+**3. Network requests hanging:**
+
+````markdown
+```{python}
+import requests
+response = requests.get('https://slow-api.com')  # Timeout
+```
+````
+
+**Solution:** Add timeouts to requests:
+
+```python
+requests.get('https://api.com', timeout=10)
+```
+
+---
+
+## 🎨 Rendering Issues
+
+### Sidebar Not Showing
+
+**Symptoms:**
+- Sidebar completely missing
+- Content spans full width
+
+**Diagnosis:**
+
+1. **Check browser console** for JavaScript errors
+2. **Inspect HTML** - search for `id="quarto-sidebar"`
+3. **Verify `_quarto.yml`** sidebar configuration
+
+**Common Causes:**
+
+**1. Sidebar not configured:**
+
+```yaml
+# ❌ Missing sidebar config
+website:
+  title: "My Site"
+  navbar:
+    left:
+      - index.qmd
+
+# ✅ Add sidebar
+website:
+  title: "My Site"
+  navbar:
+    left:
+      - index.qmd
+  sidebar:
+    contents:
+      - index.qmd
+      - guide.qmd
+```
+
+**2. Invalid sidebar syntax:**
+
+```yaml
+# ❌ Wrong structure
+sidebar:
+  - index.qmd  # Direct list (invalid)
+
+# ✅ Correct structure
+sidebar:
+  contents:
+    - index.qmd
+```
+
+**3. JavaScript not loading:**
+
+Check browser console for:
+```
+Failed to load resource: site_libs/quarto-nav/quarto-nav.js
+```
+
+**Solution:**
+```bash
+# Re-render to regenerate site_libs
+quarto render
+```
+
+---
+
+### Navigation Links Broken
+
+**Symptoms:**
+- Clicking nav links gives 404
+- Links work locally but not when deployed
+
+**Common Causes:**
+
+**1. Incorrect output-dir in deployment:**
+
+```yaml
+# _quarto.yml
+project:
+  output-dir: docs  # Must match deployment source
+
+# GitHub Pages expects: docs/ or root
+# Azure Storage expects: uploaded path
+```
+
+**2. Absolute vs relative paths:**
+
+```yaml
+# ❌ Absolute path (breaks with base path)
+navbar:
+  left:
+    - href: /guide.html
+
+# ✅ Relative path
+navbar:
+  left:
+    - href: guide.html
+```
+
+**3. Base path not configured for subdirectory deployment:**
+
+If deploying to `https://example.com/docs/`:
+
+```yaml
+website:
+  site-url: "https://example.com"
+  repo-url: "https://github.com/user/repo"
+```
+
+---
+
+### Search Not Working
+
+**Symptoms:**
+- Search box present but doesn't return results
+- Search box missing entirely
+
+**Diagnosis:**
+
+1. Check for `search.json` in output directory
+2. Verify search enabled in `_quarto.yml`
+3. Check browser console for errors
+
+**Solutions:**
+
+**Enable search:**
+
+```yaml
+website:
+  title: "My Site"
+  search: true  # Enable search
+```
+
+**Configure search options:**
+
+```yaml
+website:
+  search:
+    location: navbar  # or sidebar
+    type: overlay     # or textbox
+    limit: 20
+```
+
+**Regenerate search index:**
+
+```bash
+# Full re-render to rebuild search.json
+quarto render
+```
+
+**Check search.json exists:**
+
+```powershell
+Test-Path "docs/search.json"
+```
+
+---
+
+### CSS Styles Not Applying
+
+**Symptoms:**
+- Custom CSS ignored
+- Theme not loading
+- Styles work locally but not deployed
+
+**Common Causes:**
+
+**1. CSS file not referenced correctly:**
+
+```yaml
+# ❌ Wrong path
+format:
+  html:
+    css: /styles/custom.css
+
+# ✅ Correct relative path
+format:
+  html:
+    css: custom.css
+```
+
+**2. CSS file not in output:**
+
+```bash
+# Check if CSS copied to output
+Get-ChildItem -Recurse "docs/*.css"
+
+# If missing, ensure CSS file is in project root or resources folder
+```
+
+**3. CSS specificity issues:**
+
+```css
+/* ❌ Too weak selector */
+.navbar {
+  background: red;
+}
+
+/* ✅ More specific or use !important */
+#quarto-header .navbar {
+  background: red !important;
+}
+```
+
+**4. SCSS not compiling:**
+
+```yaml
+# Ensure SCSS theme specified
+format:
+  html:
+    theme: custom.scss  # Will compile to CSS
+```
+
+---
+
+## 🧭 Navigation Problems
+
+### Sidebar State Not Persisting
+
+**Symptom:** Sidebar collapses/expands reset on page change
+
+**Solution:** See [06-transition-optimization.md](06-transition-optimization.md) for detailed fix
+
+**Quick Fix:**
+
+Ensure sidebar state script is loaded:
+
+```html
+<!-- Should be present in rendered HTML -->
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+```
+
+---
+
+### Related Pages Not Showing
+
+**Symptom:** Related pages widget missing from right margin
+
+**Diagnosis:**
+
+1. Check if `navigation.json` exists in output
+2. Verify script inclusion in HTML
+3. Check browser console for errors
+
+**Solution:**
+
+```bash
+# Regenerate navigation.json
+# (Assuming you have generation script)
+pwsh scripts/generate-navigation.ps1
+
+# Re-render site
+quarto render
+```
+
+---
+
+## 🚀 Deployment Issues
+
+### GitHub Pages Shows 404
+
+**Symptoms:**
+- Deployment succeeds but site shows 404
+- Homepage works but other pages 404
+
+**Common Causes:**
+
+**1. Wrong source directory configured:**
+
+```
+GitHub Settings → Pages → Source:
+✅ Deploy from a branch: main → /docs
+❌ If output-dir is not 'docs', change it
+```
+
+**2. `index.html` missing:**
+
+```bash
+# Verify index.html exists
+Test-Path "docs/index.html"
+
+# If missing, check _quarto.yml has index.qmd
+```
+
+**3. Relative path issues with repository name:**
+
+For `https://username.github.io/repository/`:
+
+```yaml
+# Add site-url
+website:
+  site-url: "https://username.github.io/repository"
+```
+
+**4. Jekyll processing interfering:**
+
+```bash
+# Add .nojekyll to docs/ directory
+New-Item -Path "docs/.nojekyll" -ItemType File
+git add docs/.nojekyll
+git commit -m "Disable Jekyll processing"
+git push
+```
+
+---
+
+### Azure Storage 404 Errors
+
+**Symptoms:**
+- Index page works
+- Navigation to other pages gives 404
+
+**Solution:**
+
+**1. Enable static website error document:**
+
+```bash
+# Azure CLI
+az storage blob service-properties update \
+    --account-name <account> \
+    --static-website \
+    --404-document 404.html
+
+# Or use index.html for SPA behavior
+az storage blob service-properties update \
+    --account-name <account> \
+    --static-website \
+    --404-document index.html
+```
+
+**2. Verify $web container contents:**
+
+```bash
+# List files in $web
+az storage blob list \
+    --account-name <account> \
+    --container-name '$web' \
+    --output table
+
+# Check specific file
+az storage blob show \
+    --account-name <account> \
+    --container-name '$web' \
+    --name index.html
+```
+
+**3. Check CDN cache:**
+
+```bash
+# Purge CDN cache
+az cdn endpoint purge \
+    --resource-group <rg> \
+    --profile-name <profile> \
+    --name <endpoint> \
+    --content-paths '/*'
+```
+
+---
+
+### Deployment Succeeds But Changes Not Visible
+
+**Cause:** Browser or CDN caching
+
+**Solutions:**
+
+**1. Hard refresh browser:**
+- **Windows:** `Ctrl + Shift + R` or `Ctrl + F5`
+- **Mac:** `Cmd + Shift + R`
+- **Incognito/Private:** Open in private window
+
+**2. Clear GitHub Pages cache:**
+
+```bash
+# Make a dummy commit
+echo "" >> README.md
+git add README.md
+git commit -m "Trigger rebuild"
+git push
+
+# Wait 2-5 minutes for deployment
+```
+
+**3. Check deployment logs:**
+
+```
+GitHub → Actions → View workflow run
+Look for errors in "Deploy to GitHub Pages" step
+```
+
+**4. Verify files updated in repository:**
+
+```bash
+# Check commit history
+git log -n 5 --oneline docs/
+
+# View file on GitHub
+# Navigate to docs/ folder on GitHub website
+```
+
+---
+
+## ⚡ Performance Problems
+
+### Slow Build Times
+
+**Symptom:** `quarto render` takes >5 minutes
+
+**Solutions:**
+
+**1. Enable caching:**
+
+```yaml
+execute:
+  cache: true
+  freeze: auto
+```
+
+**2. Use incremental rendering:**
+
+```bash
+# Only render changed files
+quarto render --incremental
+```
+
+**3. Exclude large files from render:**
+
+```yaml
+project:
+  render:
+    - "*.qmd"
+    - "!large-analysis.qmd"  # Exclude specific files
+```
+
+**4. Optimize images before including:**
+
+```bash
+# Compress images
+magick convert large.png -quality 85 optimized.png
+
+# Or use tinypng.com, squoosh.app
+```
+
+**5. Profile build to find slow pages:**
+
+```bash
+# Render with timing
+quarto render --profile
+```
+
+**See Also:** [07-build-optimization.md](07-build-optimization.md)
+
+---
+
+### Large Output Files
+
+**Symptom:** `docs/` directory >100MB
+
+**Solutions:**
+
+**1. Exclude unnecessary files:**
+
+```yaml
+project:
+  output-dir: docs
+  resources:
+    - "!*.psd"      # Exclude Photoshop files
+    - "!*.ai"       # Exclude Illustrator files
+    - "!raw-data/*" # Exclude raw data folders
+```
+
+**2. Optimize images:**
+
+```yaml
+format:
+  html:
+    fig-width: 8
+    fig-height: 6
+    fig-dpi: 96  # Lower DPI for web
+```
+
+**3. Minify HTML/CSS:**
+
+```yaml
+format:
+  html:
+    minimal: true  # Reduces whitespace
+```
+
+---
+
+## 🔍 Advanced Debugging
+
+### Isolate Problem Files
+
+**Strategy:** Binary search to find problematic file
+
+```yaml
+# Step 1: Render only first half of files
+project:
+  render:
+    - "section-a/*.qmd"
+    # - "section-b/*.qmd"  # Commented out
+
+# If succeeds, problem is in section-b
+# If fails, problem is in section-a
+# Repeat until single file identified
+```
+
+---
+
+### Compare Working vs Broken States
+
+```bash
+# Check git history for when it broke
+git log --oneline --all --graph
+
+# Compare config between commits
+git diff HEAD~5 _quarto.yml
+
+# Restore previous working version
+git checkout HEAD~5 _quarto.yml
+quarto render  # Test if it works
+
+# If works, inspect differences
+git diff HEAD HEAD~5 _quarto.yml
+```
+
+---
+
+### Enable Verbose Logging
+
+```yaml
+# _quarto.yml
+execute:
+  debug: true
+
+project:
+  preview:
+    watch-inputs: true
+```
+
+```bash
+# Render with maximum verbosity
+quarto render --log-level debug --log-file debug.log
+
+# Review log
+cat debug.log | Select-String "ERROR"
+cat debug.log | Select-String "WARNING"
+```
+
+---
+
+## 💡 Common Error Messages
+
+### Error: Could not resolve format
+
+```
+Error: Could not resolve format: html
+```
+
+**Cause:** Typo or invalid format specification
+
+**Solution:**
+
+```yaml
+# ❌ Wrong
+format:
+  htm:  # Typo
+
+# ✅ Correct
+format:
+  html:
+```
+
+---
+
+### Error: Duplicate identifier
+
+```
+Error: Duplicate identifier: 'my-section'
+```
+
+**Cause:** Multiple headings or elements with same ID
+
+**Solution:**
+
+```markdown
+<!-- ❌ Wrong: Duplicate IDs -->
+## Introduction {#intro}
+...
+## Introduction {#intro}  <!-- Duplicate! -->
+
+<!-- ✅ Correct: Unique IDs -->
+## Introduction {#intro}
+...
+## Summary {#summary}
+```
+
+---
+
+### Error: Navigation item not found
+
+```
+Error: Navigation item not found: guide.qmd
+```
+
+**Cause:** File referenced in sidebar doesn't exist
+
+**Solution:**
+
+```bash
+# Find the file
+Get-ChildItem -Recurse -Filter "guide*"
+
+# Update _quarto.yml with correct path
+```
+
+---
+
+## ✅ Preventive Maintenance
+
+### Regular Checks
+
+**Weekly:**
+- ✅ Run `quarto check` after system updates
+- ✅ Test `quarto preview` functionality
+- ✅ Verify deployed site loads correctly
+
+**Monthly:**
+- ✅ Update Quarto to latest version
+- ✅ Check for broken links (use link checker)
+- ✅ Review build times for degradation
+- ✅ Audit output directory size
+
+**Quarterly:**
+- ✅ Review Quarto changelog for breaking changes
+- ✅ Update dependencies (Python/R packages)
+- ✅ Test on different browsers
+- ✅ Validate accessibility (screen readers, keyboard nav)
+
+---
+
+### Best Practices
+
+**Configuration Management:**
+
+```yaml
+# Use environment-specific configs
+_quarto.yml           # Base config
+_quarto-dev.yml       # Development overrides
+_quarto-prod.yml      # Production overrides
+
+# Render with specific config
+quarto render --profile dev
+```
+
+**Version Control:**
+
+```bash
+# Always commit _quarto.yml changes with description
+git add _quarto.yml
+git commit -m "config: Enable search and add custom theme"
+
+# Never commit output directory
+# Add to .gitignore:
+docs/
+_site/
+```
+
+**Testing Before Deploy:**
+
+```bash
+# 1. Clean build
+Remove-Item -Recurse -Force docs/
+quarto render
+
+# 2. Test locally
+quarto preview
+
+# 3. Verify all pages load
+# Click through entire site
+
+# 4. Check console for errors
+# F12 → Console (should be clean)
+
+# 5. Deploy
+git push
+```
+
+---
+
+## 📚 References
+
+### Official Documentation
+- [Quarto Troubleshooting Guide](https://quarto.org/docs/troubleshooting/)
+- [Quarto CLI Commands](https://quarto.org/docs/reference/cli/)
+- [Quarto GitHub Discussions](https://github.com/quarto-dev/quarto-cli/discussions)
+
+### Related Articles in This Series
+- [03-quarto-yml-structure.md](03-quarto-yml-structure.md) - Configuration reference
+- [06-navigation-workflow.md](06-navigation-workflow.md) - Navigation setup
+- [07-build-optimization.md](07-build-optimization.md) - Performance tuning
+- [09-github-pages-deployment.md](09-github-pages-deployment.md) - GitHub deployment
+- [09-azure-storage-deployment.md](09-azure-storage-deployment.md) - Azure deployment
+
+### Community Resources
+- [Quarto Community Forum](https://github.com/quarto-dev/quarto-cli/discussions)
+- [Stack Overflow - Quarto Tag](https://stackoverflow.com/questions/tagged/quarto)
+- [RStudio Community](https://community.rstudio.com/c/quarto/57)
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "08-troubleshooting-guide.md"
+  word_count: 2500
+  created_date: "2025-12-26"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 12
+    total_parts: 14
+    previous: "07-build-optimization.md"
+    next: "09-github-pages-deployment.md"
+  related_articles:
+    - "03-quarto-yml-structure.md"
+    - "06-navigation-workflow.md"
+    - "07-build-optimization.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 12
+    total_articles: 14
+    consistency_score: 10
+    completeness_score: 9
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Comprehensive troubleshooting guide covering build, render, navigation, deployment, and performance issues"
+---
+-->

@@ -2,7 +2,7 @@
 title: "Navbars Navigation Workflow"
 description: "Comprehensive guide to Quarto navigation systems, automated navigation.json generation, and deployment workflows"
 author: "Dario Airoldi"
-date: "January 16, 2025"
+date: "2025-01-16"
 date-modified: last-modified
 categories: [quarto, navigation, workflow, deployment, automation]
 format:
@@ -415,3 +415,46 @@ async function loadDynamicNavigation() {
 ```
 
 This comprehensive navigation workflow ensures a seamless user experience while providing developers with powerful tools for customization and automation.
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "06-navigation-workflow.md"
+  word_count: 3000
+  created_date: "2025-01-16"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 9
+    total_parts: 14
+    previous: "06-sidebar-layout.md"
+    next: "06-transition-optimization.md"
+  related_articles:
+    - "06-sidebar-layout.md"
+    - "03-quarto-yml-structure.md"
+    - "02-split-navigation-build.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+    - "03-quarto-yml-structure.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 9
+    total_articles: 14
+    consistency_score: 9
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Complete navigation workflow guide with implementation details and automation scripts"
+---
+-->

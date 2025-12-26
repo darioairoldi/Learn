@@ -1,0 +1,11 @@
+# Quarto ignore file - exclude internal/config files from rendering
+.copilot/
+.github/
+.vscode/
+node_modules/
+_site/
+_freeze/
+site_libs/
+.quarto/
+src/
+scripts/

@@ -2,7 +2,7 @@
 title: "Quarto.yml Document Structure"
 description: "Comprehensive reference for all configuration options available in the _quarto.yml file"
 author: "Dario Airoldi"
-date: "January 16, 2025"
+date: "2025-01-16"
 date-modified: last-modified
 categories: [quarto, configuration, yaml, reference]
 format:
@@ -721,3 +721,45 @@ project:
 ```
 
 This comprehensive reference covers all major aspects of the `_quarto.yml` configuration file. Use it as a guide to customize your Quarto projects according to your specific needs and requirements.
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "03-quarto-yml-structure.md"
+  word_count: 3500
+  created_date: "2025-01-16"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 5
+    total_parts: 14
+    previous: "02-split-navigation-build.md"
+    next: "04-markdown-features.md"
+  related_articles:
+    - "01-introduction-to-quarto.md"
+    - "05-theming-and-styling.md"
+    - "06-sidebar-layout.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 5
+    total_articles: 14
+    consistency_score: 10
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Comprehensive configuration reference with all major _quarto.yml options documented"
+---
+-->

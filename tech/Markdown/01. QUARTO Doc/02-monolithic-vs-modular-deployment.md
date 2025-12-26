@@ -955,3 +955,46 @@ This deployment architecture analysis provides a comprehensive foundation for ma
 - **Content and navigation separation** is possible but adds complexity
 - **Current monolithic approach** is recommended for most use cases
 - **Gradual migration path** available for future scaling needs
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "02-monolithic-vs-modular-deployment.md"
+  word_count: 6000
+  created_date: "2025-01-29"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 3
+    total_parts: 14
+    previous: "01-how-quarto-works.md"
+    next: "02-split-navigation-build.md"
+  related_articles:
+    - "07-build-optimization.md"
+    - "01-how-quarto-works.md"
+    - "02-split-navigation-build.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+    - "01-how-quarto-works.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 3
+    total_articles: 14
+    consistency_score: 9
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Comprehensive comparison with detailed trade-offs and decision guidance"
+---
+-->

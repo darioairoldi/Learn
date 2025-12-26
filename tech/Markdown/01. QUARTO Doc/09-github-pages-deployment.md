@@ -2,7 +2,7 @@
 title: "Deploying a Quarto Site to GitHub Pages"
 description: "Complete guide to deploying Quarto documentation to GitHub Pages with automated workflows"
 author: "Dario Airoldi"
-date: "January 15, 2025"
+date: "2025-01-15"
 date-modified: last-modified
 categories: [quarto, github-pages, deployment, automation]
 format:
@@ -475,3 +475,45 @@ Choose Method 1 (deploy from `/docs`) for simple sites with infrequent updates, 
 - [Quarto GitHub Actions](https://github.com/quarto-dev/quarto-actions)
 - [GitHub Pages Custom Domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
+
+---
+
+<!-- 
+---
+article_metadata:
+  filename: "09-github-pages-deployment.md"
+  word_count: 3000
+  created_date: "2025-01-15"
+  last_updated: "2025-12-26T00:00:00Z"
+  
+cross_references:
+  series:
+    name: "Quarto Documentation Guide"
+    part: 13
+    total_parts: 14
+    previous: "08-troubleshooting-guide.md"
+    next: "09-azure-storage-deployment.md"
+  related_articles:
+    - "01-introduction-to-quarto.md"
+    - "07-build-optimization.md"
+    - "09-azure-storage-deployment.md"
+  prerequisites:
+    - "01-introduction-to-quarto.md"
+
+validations:
+  series_validation:
+    last_run: "2025-12-26T00:00:00Z"
+    model: "claude-sonnet-4.5"
+    series_name: "Quarto Documentation Guide"
+    article_position: 13
+    total_articles: 14
+    consistency_score: 9
+    completeness_score: 10
+    redundancy_score: 10
+    issues_found: 0
+    issues_critical: 0
+    issues_medium: 0
+    issues_low: 0
+    notes: "Complete GitHub Pages deployment guide with automated workflows"
+---
+-->
