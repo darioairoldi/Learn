@@ -2330,6 +2330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#agent-file-locations" id="toc-agent-file-locations" class="nav-link" data-scroll-target="#agent-file-locations">Agent File Locations</a></li>
   <li><a href="#agent-file-structure" id="toc-agent-file-structure" class="nav-link" data-scroll-target="#agent-file-structure">Agent File Structure</a></li>
   <li><a href="#handoffs-multi-agent-workflows" id="toc-handoffs-multi-agent-workflows" class="nav-link" data-scroll-target="#handoffs-multi-agent-workflows">Handoffs: Multi-Agent Workflows</a></li>
+  <li><a href="#practical-example-creating-a-documentation-agent" id="toc-practical-example-creating-a-documentation-agent" class="nav-link" data-scroll-target="#practical-example-creating-a-documentation-agent">Practical Example: Creating a Documentation Agent</a></li>
   <li><a href="#agents.md-vs-.agent.md" id="toc-agents.md-vs-.agent.md" class="nav-link" data-scroll-target="#agents.md-vs-.agent.md">AGENTS.md vs .agent.md</a></li>
   </ul></li>
   <li><a href="#model-context-protocol-mcp" id="toc-model-context-protocol-mcp" class="nav-link" data-scroll-target="#model-context-protocol-mcp">🔌 Model Context Protocol (MCP)</a>
@@ -2361,17 +2362,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#prompt-engineering-fundamentals" id="toc-prompt-engineering-fundamentals" class="nav-link" data-scroll-target="#prompt-engineering-fundamentals">Prompt Engineering Fundamentals</a></li>
   <li><a href="#research" id="toc-research" class="nav-link" data-scroll-target="#research">Research</a></li>
   </ul></li>
-  <li><a href="#appendix-c-legacy-.chatmode.md-migration" id="toc-appendix-c-legacy-.chatmode.md-migration" class="nav-link" data-scroll-target="#appendix-c-legacy-.chatmode.md-migration">📎 Appendix C: Legacy .chatmode.md Migration</a>
-  <ul class="collapse">
-  <li><a href="#migration-steps" id="toc-migration-steps" class="nav-link" data-scroll-target="#migration-steps">Migration Steps</a></li>
-  </ul></li>
-  <li><a href="#appendix-d-jetbrains-ide-support" id="toc-appendix-d-jetbrains-ide-support" class="nav-link" data-scroll-target="#appendix-d-jetbrains-ide-support">📎 Appendix D: JetBrains IDE Support</a>
-  <ul class="collapse">
-  <li><a href="#supported-files" id="toc-supported-files" class="nav-link" data-scroll-target="#supported-files">Supported Files</a></li>
-  <li><a href="#global-instructions-location" id="toc-global-instructions-location" class="nav-link" data-scroll-target="#global-instructions-location">Global Instructions Location</a></li>
-  <li><a href="#differences-from-vs-code" id="toc-differences-from-vs-code" class="nav-link" data-scroll-target="#differences-from-vs-code">Differences from VS Code</a></li>
-  </ul></li>
-  <li><a href="#appendix-e-deprecated-vs-code-settings" id="toc-appendix-e-deprecated-vs-code-settings" class="nav-link" data-scroll-target="#appendix-e-deprecated-vs-code-settings">📎 Appendix E: Deprecated VS Code Settings</a></li>
   <li><a href="#appendix-a-unified-agent-architecture-v1.107" id="toc-appendix-a-unified-agent-architecture-v1.107" class="nav-link" data-scroll-target="#appendix-a-unified-agent-architecture-v1.107">📎 Appendix A: Unified Agent Architecture (v1.107+)</a>
   <ul class="collapse">
   <li><a href="#agent-hq-interface" id="toc-agent-hq-interface" class="nav-link" data-scroll-target="#agent-hq-interface">Agent HQ Interface</a>
@@ -2387,7 +2377,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#v1.107.1-improvements" id="toc-v1.107.1-improvements" class="nav-link" data-scroll-target="#v1.107.1-improvements">v1.107.1 Improvements</a></li>
   <li><a href="#entry-points-for-delegation" id="toc-entry-points-for-delegation" class="nav-link" data-scroll-target="#entry-points-for-delegation">Entry Points for Delegation</a></li>
   </ul></li>
-  <li><a href="#appendix-b-bring-your-own-key-model-management" id="toc-appendix-b-bring-your-own-key-model-management" class="nav-link" data-scroll-target="#appendix-b-bring-your-own-key-model-management">📎 Appendix B: Bring-Your-Own-Key Model Management</a>
+  <li><a href="#appendix-b-deprecated-vs-code-settings" id="toc-appendix-b-deprecated-vs-code-settings" class="nav-link" data-scroll-target="#appendix-b-deprecated-vs-code-settings">📎 Appendix B: Deprecated VS Code Settings</a></li>
+  <li><a href="#appendix-c-feature-compatibility-matrix" id="toc-appendix-c-feature-compatibility-matrix" class="nav-link" data-scroll-target="#appendix-c-feature-compatibility-matrix">📎 Appendix C: Feature Compatibility Matrix</a>
+  <ul class="collapse">
+  <li><a href="#supported-files" id="toc-supported-files" class="nav-link" data-scroll-target="#supported-files">Supported Files</a></li>
+  <li><a href="#global-instructions-location" id="toc-global-instructions-location" class="nav-link" data-scroll-target="#global-instructions-location">Global Instructions Location</a></li>
+  <li><a href="#differences-from-vs-code" id="toc-differences-from-vs-code" class="nav-link" data-scroll-target="#differences-from-vs-code">Differences from VS Code</a></li>
+  </ul></li>
+  <li><a href="#appendix-d-bring-your-own-key-model-management" id="toc-appendix-d-bring-your-own-key-model-management" class="nav-link" data-scroll-target="#appendix-d-bring-your-own-key-model-management">📎 Appendix D: Bring-Your-Own-Key Model Management</a>
   <ul class="collapse">
   <li><a href="#language-models-editor" id="toc-language-models-editor" class="nav-link" data-scroll-target="#language-models-editor">Language Models Editor</a>
   <ul class="collapse">
@@ -2408,52 +2405,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#quota-considerations" id="toc-quota-considerations" class="nav-link" data-scroll-target="#quota-considerations">Quota Considerations</a></li>
   <li><a href="#claude-skills-support" id="toc-claude-skills-support" class="nav-link" data-scroll-target="#claude-skills-support">Claude Skills Support</a></li>
   </ul></li>
-  <li><a href="#appendix-f-github-copilot-vs-alternative-ai-coding-tools" id="toc-appendix-f-github-copilot-vs-alternative-ai-coding-tools" class="nav-link" data-scroll-target="#appendix-f-github-copilot-vs-alternative-ai-coding-tools">📎 Appendix F: GitHub Copilot vs Alternative AI Coding Tools</a>
+  <li><a href="#appendix-e-legacy-.chatmode.md-migration" id="toc-appendix-e-legacy-.chatmode.md-migration" class="nav-link" data-scroll-target="#appendix-e-legacy-.chatmode.md-migration">📎 Appendix E: Legacy .chatmode.md Migration</a>
   <ul class="collapse">
-  <li><a href="#tool-overview-comparison" id="toc-tool-overview-comparison" class="nav-link" data-scroll-target="#tool-overview-comparison">Tool Overview Comparison</a></li>
-  <li><a href="#configuration-file-comparison" id="toc-configuration-file-comparison" class="nav-link" data-scroll-target="#configuration-file-comparison">Configuration File Comparison</a>
-  <ul class="collapse">
-  <li><a href="#github-copilot" id="toc-github-copilot" class="nav-link" data-scroll-target="#github-copilot">GitHub Copilot</a></li>
-  <li><a href="#cursor" id="toc-cursor" class="nav-link" data-scroll-target="#cursor">Cursor</a></li>
-  <li><a href="#cline" id="toc-cline" class="nav-link" data-scroll-target="#cline">Cline</a></li>
-  <li><a href="#continue-dev" id="toc-continue-dev" class="nav-link" data-scroll-target="#continue-dev">Continue Dev</a></li>
-  <li><a href="#windsurf" id="toc-windsurf" class="nav-link" data-scroll-target="#windsurf">Windsurf</a></li>
+  <li><a href="#migration-steps" id="toc-migration-steps" class="nav-link" data-scroll-target="#migration-steps">Migration Steps</a></li>
   </ul></li>
-  <li><a href="#feature-comparison-matrix" id="toc-feature-comparison-matrix" class="nav-link" data-scroll-target="#feature-comparison-matrix">Feature Comparison Matrix</a></li>
-  <li><a href="#migration-scenarios" id="toc-migration-scenarios" class="nav-link" data-scroll-target="#migration-scenarios">Migration Scenarios</a>
+  <li><a href="#appendix-f-jetbrains-ide-support" id="toc-appendix-f-jetbrains-ide-support" class="nav-link" data-scroll-target="#appendix-f-jetbrains-ide-support">📎 Appendix F: JetBrains IDE Support</a>
   <ul class="collapse">
-  <li><a href="#from-cursor-to-copilot" id="toc-from-cursor-to-copilot" class="nav-link" data-scroll-target="#from-cursor-to-copilot">From Cursor to Copilot</a></li>
-  <li><a href="#from-continue-dev-to-copilot" id="toc-from-continue-dev-to-copilot" class="nav-link" data-scroll-target="#from-continue-dev-to-copilot">From Continue Dev to Copilot</a></li>
-  <li><a href="#from-copilot-to-cursor" id="toc-from-copilot-to-cursor" class="nav-link" data-scroll-target="#from-copilot-to-cursor">From Copilot to Cursor</a></li>
-  </ul></li>
-  <li><a href="#unique-advantages" id="toc-unique-advantages" class="nav-link" data-scroll-target="#unique-advantages">Unique Advantages</a>
-  <ul class="collapse">
-  <li><a href="#github-copilot-strengths" id="toc-github-copilot-strengths" class="nav-link" data-scroll-target="#github-copilot-strengths">GitHub Copilot Strengths</a></li>
-  <li><a href="#when-copilot-is-the-right-choice" id="toc-when-copilot-is-the-right-choice" class="nav-link" data-scroll-target="#when-copilot-is-the-right-choice">When Copilot is the Right Choice</a></li>
-  <li><a href="#when-alternatives-might-be-better" id="toc-when-alternatives-might-be-better" class="nav-link" data-scroll-target="#when-alternatives-might-be-better">When Alternatives Might Be Better</a></li>
-  </ul></li>
-  <li><a href="#hybrid-approaches" id="toc-hybrid-approaches" class="nav-link" data-scroll-target="#hybrid-approaches">Hybrid Approaches</a></li>
-  <li><a href="#key-takeaways-1" id="toc-key-takeaways-1" class="nav-link" data-scroll-target="#key-takeaways-1">Key Takeaways</a></li>
-  </ul></li>
-  <li><a href="#appendix-g-feature-compatibility-matrix" id="toc-appendix-g-feature-compatibility-matrix" class="nav-link" data-scroll-target="#appendix-g-feature-compatibility-matrix">📎 Appendix G: Feature Compatibility Matrix</a>
-  <ul class="collapse">
-  <li><a href="#ide-version-requirements" id="toc-ide-version-requirements" class="nav-link" data-scroll-target="#ide-version-requirements">IDE Version Requirements</a></li>
-  <li><a href="#feature-support-matrix" id="toc-feature-support-matrix" class="nav-link" data-scroll-target="#feature-support-matrix">Feature Support Matrix</a></li>
-  <li><a href="#prompt-file-syntax-compatibility" id="toc-prompt-file-syntax-compatibility" class="nav-link" data-scroll-target="#prompt-file-syntax-compatibility">Prompt File Syntax Compatibility</a></li>
-  <li><a href="#agent-file-syntax-compatibility" id="toc-agent-file-syntax-compatibility" class="nav-link" data-scroll-target="#agent-file-syntax-compatibility">Agent File Syntax Compatibility</a></li>
-  <li><a href="#instruction-file-syntax-compatibility" id="toc-instruction-file-syntax-compatibility" class="nav-link" data-scroll-target="#instruction-file-syntax-compatibility">Instruction File Syntax Compatibility</a></li>
-  <li><a href="#command-invocation-syntax" id="toc-command-invocation-syntax" class="nav-link" data-scroll-target="#command-invocation-syntax">Command Invocation Syntax</a></li>
-  <li><a href="#context-variable-support" id="toc-context-variable-support" class="nav-link" data-scroll-target="#context-variable-support">Context Variable Support</a></li>
-  <li><a href="#settings-and-configuration" id="toc-settings-and-configuration" class="nav-link" data-scroll-target="#settings-and-configuration">Settings and Configuration</a></li>
-  <li><a href="#versioning-and-deprecation" id="toc-versioning-and-deprecation" class="nav-link" data-scroll-target="#versioning-and-deprecation">Versioning and Deprecation</a></li>
-  <li><a href="#best-practices-for-cross-ide-compatibility" id="toc-best-practices-for-cross-ide-compatibility" class="nav-link" data-scroll-target="#best-practices-for-cross-ide-compatibility">Best Practices for Cross-IDE Compatibility</a>
-  <ul class="collapse">
-  <li><a href="#maximum-compatibility-approach" id="toc-maximum-compatibility-approach" class="nav-link" data-scroll-target="#maximum-compatibility-approach">Maximum Compatibility Approach</a></li>
-  <li><a href="#vs-code-only-team-approach" id="toc-vs-code-only-team-approach" class="nav-link" data-scroll-target="#vs-code-only-team-approach">VS Code-Only Team Approach</a></li>
-  <li><a href="#visual-studio-first-approach" id="toc-visual-studio-first-approach" class="nav-link" data-scroll-target="#visual-studio-first-approach">Visual Studio-First Approach</a></li>
-  </ul></li>
-  <li><a href="#testing-compatibility" id="toc-testing-compatibility" class="nav-link" data-scroll-target="#testing-compatibility">Testing Compatibility</a></li>
-  <li><a href="#migration-timing" id="toc-migration-timing" class="nav-link" data-scroll-target="#migration-timing">Migration Timing</a></li>
+  <li><a href="#supported-files-1" id="toc-supported-files-1" class="nav-link" data-scroll-target="#supported-files-1">Supported Files</a></li>
+  <li><a href="#global-instructions-location-1" id="toc-global-instructions-location-1" class="nav-link" data-scroll-target="#global-instructions-location-1">Global Instructions Location</a></li>
+  <li><a href="#differences-from-vs-code-1" id="toc-differences-from-vs-code-1" class="nav-link" data-scroll-target="#differences-from-vs-code-1">Differences from VS Code</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -2522,10 +2482,11 @@ These files guide Copilot by encoding reusable prompts, coding standards, busine
 <li><a href="#-key-takeaways">🔑 Key Takeaways</a></li>
 <li><a href="#-references">🔗 References</a></li>
 <li><a href="#-appendix-a-unified-agent-architecture-v1107">📎 Appendix A: Unified Agent Architecture (v1.107+)</a></li>
-<li><a href="#-appendix-b-bring-your-own-key-model-management">📎 Appendix B: Bring-Your-Own-Key Model Management</a></li>
-<li><a href="#-appendix-c-legacy-chatmodemd-migration">📎 Appendix C: Legacy .chatmode.md Migration</a></li>
-<li><a href="#-appendix-d-jetbrains-ide-support">📎 Appendix D: JetBrains IDE Support</a></li>
-<li><a href="#-appendix-e-deprecated-vs-code-settings">📎 Appendix E: Deprecated VS Code Settings</a></li>
+<li><a href="#-appendix-b-deprecated-vs-code-settings">📎 Appendix B: Deprecated VS Code Settings</a></li>
+<li><a href="#-appendix-c-feature-compatibility-matrix">📎 Appendix C: Feature Compatibility Matrix</a></li>
+<li><a href="#-appendix-d-bring-your-own-key-model-management">📎 Appendix D: Bring-Your-Own-Key Model Management</a></li>
+<li><a href="#-appendix-e-legacy-chatmodemd-migration">📎 Appendix E: Legacy .chatmode.md Migration</a></li>
+<li><a href="#-appendix-f-jetbrains-ide-support">📎 Appendix F: JetBrains IDE Support</a></li>
 </ul>
 </section>
 </section>
@@ -2536,16 +2497,15 @@ It typically begins with an optional <mark><strong>YAML header</strong></mark> s
 The remainder is the prompt body, written in Markdown, containing the instructions or template you want Copilot to follow.<br>
 For example, a security audit prompt might instruct Copilot to review an API and output a list of vulnerabilities.</p>
 <p>Prompt files were first introduced in <mark>VS Code</mark> and <mark>JetBrains IDEs</mark>.<br>
-<mark><strong>As of Visual Studio 2022 version 17.10 and later (including Visual Studio 2026), Visual Studio also supports prompt files</strong></mark> stored under <code>.github/prompts</code> with a <code>.prompt.md</code> extension.<br>
-<mark>In Visual Studio, you can reference these prompts by typing <code>#prompt:&lt;prompt-name&gt;</code> (or using the “+” icon) to attach the prompt to the chat</mark>.<br>
-For earlier Visual Studio versions (pre-17.10), prompt files are not recognized.</p>
+<mark>and Visual Studio 2022 version 17.10 and later (including Visual Studio 2026)</mark>.<br>
+In Visual Studio, you can reference these prompts by typing <mark><code>#prompt:&lt;prompt-name&gt;</code> (or using the “+” icon) to attach the prompt to the chat</mark>.</p>
 <section id="required-locations" class="level3">
 <h3 class="anchored" data-anchor-id="required-locations">Required Locations</h3>
 <ul>
-<li><mark><strong><code>.github/prompts/</code></strong></mark> (workspace prompts). This is the default folder for <mark><strong>workspace-level prompt files</strong></mark> and is recognized automatically by both VS Code and Visual Studio (17.10+). Any <code>.prompt.md</code> file here becomes available in Copilot Chat: <mark>in VS Code it appears as <code>/promptName</code>, and in Visual Studio it appears as <code>#promptName</code> or <code>#prompt:&lt;prompt-name&gt;</code></mark>.</li>
+<li><mark><strong><code>.github/prompts/</code></strong></mark> (workspace prompts). This is the default folder for <mark><strong>workspace-level prompt files</strong></mark> and is recognized automatically by both VS Code and Visual Studio (17.10+). Any <code>.prompt.md</code> file here becomes available in Copilot Chat: <mark>in <strong>VS Code</strong> it appears as <code>/promptName</code></mark>, and <mark>in <strong>Visual Studio</strong> it appears as <code>#promptName</code> or <code>#prompt:&lt;prompt-name&gt;</code></mark>.</li>
 <li><strong>User prompt files</strong> (VS Code only). <mark>User-scope prompts</mark> are stored in a folder within your VS Code profile:
 <ul>
-<li><strong>Windows</strong>: <code>%APPDATA%\Code\User\prompts\</code> (stable) or <code>%APPDATA%\Code - Insiders\User\prompts\</code> (Insiders)</li>
+<li><strong>Windows</strong>: <mark><code>%APPDATA%\Code\User\prompts\</code></mark> (stable) or <code>%APPDATA%\Code - Insiders\User\prompts\</code> (Insiders)</li>
 <li><strong>macOS</strong>: <code>~/Library/Application Support/Code/User/prompts/</code></li>
 <li><strong>Linux</strong>: <code>~/.config/Code/User/prompts/</code></li>
 </ul>
@@ -2653,6 +2613,12 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <section id="chat-modes-in-vs-code" class="level1">
 <h1>🤖 Chat Modes in VS Code</h1>
 <p>GitHub Copilot Chat provides <mark><strong>four built-in chat modes</strong></mark> accessible via the agent picker in the chat input:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01.001 GitHub copilot modes.png" class="img-fluid figure-img"></p>
+<figcaption>alt text</figcaption>
+</figure>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -2729,7 +2695,13 @@ These prompts are available across all your VS Code workspaces and appear as sla
 </tr>
 </tbody>
 </table>
-<p><mark><strong>Planning mode now integrates with agent delegation</strong></mark>: After Plan mode generates an implementation plan, you can use the <strong>“Start Implementation”</strong> button to delegate execution to a local, background, or cloud agent.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/001.02 continuein.png" class="img-fluid figure-img"></p>
+<figcaption>alt text</figcaption>
+</figure>
+</div>
+<p><strong>Planning mode now integrates with agent delegation</strong>: After Plan mode generates an implementation plan, you can use the <strong>“Start Implementation”</strong> button to delegate execution to a local, background, or cloud agent.</p>
 <p>For comprehensive coverage of Agent HQ, session management, work tree isolation workflows, and visual walkthroughs, see <a href="#-appendix-a-unified-agent-architecture-v1107">📎 Appendix A: Unified Agent Architecture</a>.</p>
 </section>
 </section>
@@ -2829,6 +2801,39 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When the architect agent completes its task, the user sees a “Start Implementation” button to hand off to the implementer agent.</p>
 </section>
+<section id="practical-example-creating-a-documentation-agent" class="level3">
+<h3 class="anchored" data-anchor-id="practical-example-creating-a-documentation-agent">Practical Example: Creating a Documentation Agent</h3>
+<p>Here’s a complete example of creating a documentation review agent:</p>
+<p><strong><code>.github/agents/doc-reviewer.agent.md</code>:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> doc-reviewer</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> Reviews documentation for clarity and completeness</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> Path to documentation file</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> read_file</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> grep_search</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> semantic_search</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> claude-sonnet-4</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">target</span><span class="kw">:</span><span class="at"> vscode</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">You are a technical documentation expert. When reviewing documentation</span><span class="kw">:</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">1. **Structure Check**</span><span class="kw">:</span><span class="at"> Verify proper heading hierarchy (H1 → H2 → H3)</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">2. **Completeness**</span><span class="kw">:</span><span class="at"> Ensure all code examples are tested and include output</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">3. **Clarity**</span><span class="kw">:</span><span class="at"> Flag jargon without definitions, identify unclear explanations</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">4. **References**</span><span class="kw">:</span><span class="at"> Verify all links are accessible and properly formatted</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="at">Provide specific line numbers and actionable recommendations.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Usage workflow:</strong></p>
+<ol type="1">
+<li>Save the file to <code>.github/agents/doc-reviewer.agent.md</code></li>
+<li>Reload VS Code window (Cmd/Ctrl+Shift+P → “Developer: Reload Window”)</li>
+<li>Open the file you want to review</li>
+<li>In Copilot Chat, select <code>@doc-reviewer</code> from the agent picker</li>
+<li>Type: “Review this documentation file”</li>
+</ol>
+<p>The agent will analyze structure, completeness, and clarity based on its instructions.</p>
+</section>
 <section id="agents.md-vs-.agent.md" class="level3">
 <h3 class="anchored" data-anchor-id="agents.md-vs-.agent.md">AGENTS.md vs .agent.md</h3>
 <p><mark><strong>Important distinction:</strong></mark></p>
@@ -2927,7 +2932,7 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <h3 class="anchored" data-anchor-id="mcp-registry-and-discovery">MCP Registry and Discovery</h3>
 <p><mark><strong>Discover MCP servers via <code>@mcp</code> search</strong></mark> in the Extensions view. The curated registry includes servers for:</p>
 <ul>
-<li><strong><mark>&gt;Playwright</mark></strong> – Browser automation and testing</li>
+<li><strong><mark>Playwright</mark></strong> – Browser automation and testing</li>
 <li><strong><mark>GitHub</mark></strong> – Repository operations and issue management<br>
 </li>
 <li><strong><mark>Wikipedia</mark></strong> – Knowledge base queries</li>
@@ -2978,14 +2983,14 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <section id="configuration" class="level3">
 <h3 class="anchored" data-anchor-id="configuration">Configuration</h3>
 <p>MCP servers are configured via <code>mcp.json</code> files in your workspace or user settings. The GitHub MCP registry at <a href="https://github.com/mcp">github.com/mcp</a> provides pre-built servers for common integrations.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"servers"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"azure-devops"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"npx"</span><span class="fu">,</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"args"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"@azure/mcp-server-ado"</span><span class="ot">]</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"servers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"azure-devops"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"npx"</span><span class="fu">,</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"args"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"@azure/mcp-server-ado"</span><span class="ot">]</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>MCP is particularly valuable for building specialized agents that need access to external systems—such as an Azure DevOps agent that can query work items, or a database agent that can inspect schemas.</p>
 </section>
 </section>
@@ -3145,61 +3150,61 @@ These prompts are available across all your VS Code workspaces and appear as sla
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Workspace prompt files</strong> (<code>.github/prompts/*.prompt.md</code>)</td>
+<td><strong><mark>Workspace prompt files</mark></strong> (<code>.github/prompts/*.prompt.md</code>)</td>
 <td>Supported; slash commands <code>/promptName</code> appear in chat</td>
 <td>Supported; use hashtag commands <code>#promptName</code> (since 17.10)</td>
 <td>Not supported prior to 17.10</td>
 </tr>
 <tr class="even">
-<td><strong>User prompt files</strong> (<code>\.prompt.md</code> in VS Code profile)</td>
+<td><strong><mark>User prompt files</mark></strong> (<code>\.prompt.md</code> in VS Code profile)</td>
 <td>Available as personal slash commands across all projects</td>
 <td>Not supported</td>
 <td>Not applicable</td>
 </tr>
 <tr class="odd">
-<td><strong>Repo-level instructions</strong> (<code>.github/copilot-instructions.md</code>)</td>
+<td><strong><mark>Repo-level instructions</mark></strong> (<code>.github/copilot-instructions.md</code>)</td>
 <td>Supported (requires enabling the “Use Instruction Files” setting)</td>
 <td>Supported (requires enabling custom instructions in options)</td>
 <td>Not supported prior to 17.10</td>
 </tr>
 <tr class="even">
-<td><strong>Path-specific instructions</strong> (<code>.github/instructions/*.instructions.md</code>)</td>
+<td><strong><mark>Path-specific instructions</mark></strong> (<code>.github/instructions/*.instructions.md</code>)</td>
 <td>Supported with <code>applyTo</code> patterns</td>
 <td>Supported (requires enabling custom instructions)</td>
 <td>Not supported prior to 17.10</td>
 </tr>
 <tr class="odd">
-<td><strong>Custom agents</strong> (<code>.github/agents/*.agent.md</code>)</td>
+<td><strong><mark>Custom agents</mark></strong> (<code>.github/agents/*.agent.md</code>)</td>
 <td>Supported from VS Code 1.106+. Each <code>.agent.md</code> defines a specialized persona, tools, and workflow. Supports handoffs for multi-agent orchestration.</td>
 <td>Not supported for chat; Visual Studio uses <code>AGENTS.md</code>, <code>CLAUDE.md</code>, or <code>GEMINI.md</code> for its async coding agent (creates PRs).</td>
 <td>Not available</td>
 </tr>
 <tr class="even">
-<td><strong>Chat modes</strong> (Agent, Plan, Ask, Edit)</td>
+<td><strong><mark>Chat modes</mark></strong> (Agent, Plan, Ask, Edit)</td>
 <td>Built-in modes available via agent picker. Agent mode enables autonomous file editing; Plan mode creates implementation plans.</td>
 <td>Not applicable; Visual Studio has different interaction patterns.</td>
 <td>Not available</td>
 </tr>
 <tr class="odd">
-<td><strong>Unified Agent Architecture</strong> (v1.107+)</td>
+<td><strong><mark>Unified Agent Architecture</mark></strong> (v1.107+)</td>
 <td>Agent HQ provides unified interface for local, background (work tree), and cloud agent sessions with seamless delegation. See <a href="#-appendix-a-unified-agent-architecture-v1107">Appendix A</a>.</td>
 <td>Cloud agents via Copilot coding agent (creates PRs).</td>
 <td>Not available</td>
 </tr>
 <tr class="even">
-<td><strong>MCP servers</strong> (<code>mcp.json</code>)</td>
+<td><strong><mark>MCP servers</mark></strong> (<code>mcp.json</code>)</td>
 <td>MCP 1.0 GA (VS Code 1.102+). Features: Tasks, Sampling, Elicitation, Custom Icons. MCP Registry via <code>@mcp</code> search. GitHub MCP Server (Preview) built-in.</td>
 <td>Not currently supported.</td>
 <td>Not available</td>
 </tr>
 <tr class="odd">
-<td><strong>BYOK / Model Management</strong> (v1.107+)</td>
+<td><strong><mark>BYOK / Model Management</mark></strong> (v1.107+)</td>
 <td>Language Models Editor with BYOK support (Cerebras, OpenRouter, Ollama, etc.). HuggingFace extension for open-weights models. See <a href="#-appendix-b-bring-your-own-key-model-management">Appendix B</a>.</td>
 <td>Not currently supported.</td>
 <td>Not available</td>
 </tr>
 <tr class="even">
-<td><strong><code>.github/copilot/</code> directory</strong></td>
+<td><strong><mark><code>.github/copilot/</code> directory</mark></strong></td>
 <td>Optional; backed by community best practices for storing shared context, knowledge, patterns and examples. These files improve context but don’t create commands.</td>
 <td>Optional; improves local semantic search in Visual Studio.</td>
 <td>Optional (if user chooses), but not part of official features.</td>
@@ -3213,34 +3218,34 @@ These prompts are available across all your VS Code workspaces and appear as sla
 <h1>🔗 References</h1>
 <section id="official-github-copilot-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="official-github-copilot-documentation">Official GitHub Copilot Documentation</h2>
-<p><strong><a href="https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions">GitHub Copilot Documentation - Repository Instructions</a></strong><br>
+<p><strong><a href="https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions">GitHub Copilot Documentation - Repository Instructions</a></strong> <code>[📘 Official]</code><br>
 The official GitHub documentation for customizing Copilot with repository-level instructions. Covers prompt files (<code>.prompt.md</code>), instruction files (<code>.github/copilot-instructions.md</code> and <code>.github/instructions/</code>), and <code>AGENTS.md</code> configuration. Essential reading for understanding the official specification and best practices.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/overview">VS Code Copilot Customization Overview</a></strong><br>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/overview">VS Code Copilot Customization Overview</a></strong> <code>[📘 Official]</code><br>
 Microsoft’s comprehensive guide to customizing GitHub Copilot in VS Code. Covers custom agents, custom instructions, prompt files, and MCP server configuration. The authoritative source for VS Code-specific features and settings.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/copilot-chat">Visual Studio Code - GitHub Copilot Chat</a></strong><br>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/copilot-chat">Visual Studio Code - GitHub Copilot Chat</a></strong> <code>[📘 Official]</code><br>
 VS Code’s official documentation for GitHub Copilot Chat features, including slash commands, context variables, and prompt file integration. Provides practical examples of using Copilot within the VS Code environment and configuring chat settings.</p>
 </section>
 <section id="visual-studio-support" class="level2">
 <h2 class="anchored" data-anchor-id="visual-studio-support">Visual Studio Support</h2>
-<p><strong><a href="https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes">Visual Studio 2022 Release Notes - GitHub Copilot Features</a></strong><br>
+<p><strong><a href="https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes">Visual Studio 2022 Release Notes - GitHub Copilot Features</a></strong> <code>[📘 Official]</code><br>
 Official Microsoft release notes documenting when GitHub Copilot features were added to Visual Studio 2022. Version 17.10 introduced support for prompt files and custom instructions. Essential for understanding feature compatibility across different Visual Studio versions.</p>
-<p><strong><a href="https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-extension">Visual Studio GitHub Copilot Documentation</a></strong><br>
+<p><strong><a href="https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-extension">Visual Studio GitHub Copilot Documentation</a></strong> <code>[📘 Official]</code><br>
 Microsoft’s comprehensive guide to using GitHub Copilot in Visual Studio, including configuration, chat features, and how to enable custom instructions through Tools &gt; Options &gt; GitHub &gt; Copilot settings. Relevant for Visual Studio users who need to configure Copilot properly.</p>
 </section>
 <section id="community-best-practices-and-patterns" class="level2">
 <h2 class="anchored" data-anchor-id="community-best-practices-and-patterns">Community Best Practices and Patterns</h2>
-<p><strong><a href="https://github.blog/developer-skills/github/how-to-use-github-copilot-prompts-tips-and-use-cases/">GitHub Blog - How to use GitHub Copilot: Prompts, tips, and use cases</a></strong><br>
-GitHub’s official blog post covering prompt engineering best practices, effective communication patterns with Copilot, and real-world use cases. Valuable for understanding how to write effective prompts and structure your instructions for optimal results.</p>
-<p><strong><a href="https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/">How to write a great AGENTS.md: Lessons from over 2,500 repositories</a></strong><br>
-Comprehensive analysis of over 2,500 agent.md files identifying patterns that separate successful custom agents from failures. Covers the six core areas (commands, testing, project structure, code style, git workflow, and boundaries) with practical templates and real-world examples.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode">VS Code Agent Mode Documentation</a></strong><br>
+<p><strong><a href="https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot">How to use GitHub Copilot: Prompts, tips, and use cases</a></strong> <code>[📘 Official]</code><br>
+Official GitHub documentation covering prompt engineering best practices, effective communication patterns with Copilot, and real-world use cases. Includes examples of clear instructions, providing context, and breaking down complex tasks for optimal results.</p>
+<p><strong><a href="https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/">How to write a great AGENTS.md: Lessons from over 2,500 repositories</a></strong> <code>[📗 Verified Community]</code><br>
+Official GitHub blog post analyzing over 2,500 agent.md files to identify patterns that separate successful custom agents from failures. Covers the six core areas (commands, testing, project structure, code style, git workflow, and boundaries) with practical templates and real-world examples.</p>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode">VS Code Agent Mode Documentation</a></strong> <code>[📘 Official]</code><br>
 Documentation for the Agent mode in VS Code that enables autonomous file editing and code generation. Explains how Agent mode, combined with Plan mode, provides powerful multi-step workflows.</p>
 </section>
 <section id="additional-context-and-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="additional-context-and-architecture">Additional Context and Architecture</h2>
-<p><strong><a href="https://code.visualstudio.com/api/extension-guides/chat">VS Code API - Chat Extension Guide</a></strong><br>
+<p><strong><a href="https://code.visualstudio.com/api/extension-guides/chat">VS Code API - Chat Extension Guide</a></strong> <code>[📘 Official]</code><br>
 For developers building VS Code extensions that integrate with Copilot Chat. Explains the chat API, participant patterns, and how extensions can contribute custom slash commands. Relevant for understanding the extensibility model and how prompt files fit into the broader VS Code chat architecture.</p>
-<p><strong><a href="https://resources.github.com/copilot-trust-center/">GitHub Copilot Trust Center</a></strong><br>
+<p><strong><a href="https://resources.github.com/copilot-trust-center/">GitHub Copilot Trust Center</a></strong> <code>[📘 Official]</code><br>
 Official resource covering security, privacy, and data handling in GitHub Copilot. Important for understanding how your prompts, instructions, and code context are processed, what data is sent to GitHub, and compliance considerations for enterprise use.</p>
 </section>
 <section id="model-context-protocol-and-tools" class="level2">
@@ -3261,158 +3266,19 @@ Official extension for using HuggingFace models in VS Code Copilot Chat. Provide
 </section>
 <section id="prompt-engineering-fundamentals" class="level2">
 <h2 class="anchored" data-anchor-id="prompt-engineering-fundamentals">Prompt Engineering Fundamentals</h2>
-<p><strong><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering">Prompt engineering techniques - Microsoft Azure AI</a></strong><br>
-Microsoft’s comprehensive guide to prompt engineering techniques covering instruction design, primary content structuring, few-shot learning, and output specification. Includes detailed examples of breaking down tasks and specifying output structures.</p>
-<p><strong><a href="https://platform.openai.com/docs/guides/prompt-engineering">Prompt engineering - OpenAI</a></strong><br>
+<p><strong><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering">Prompt engineering techniques - Microsoft Azure AI</a></strong> <code>[📘 Official]</code><br>
+Microsoft’s comprehensive guide to prompt engineering techniques covering instruction design, primary content structuring, few-shot learning, and output specification. Includes detailed examples of breaking down tasks, specifying output structures, temperature settings, and grounding context. Note: These techniques apply to GPT models; reasoning models (gpt-5, o-series) require different approaches.</p>
+<p><strong><a href="https://platform.openai.com/docs/guides/prompt-engineering">Prompt engineering - OpenAI</a></strong> <code>[📘 Official]</code><br>
 OpenAI’s official prompt engineering guide providing foundational strategies for working with GPT models. Covers core techniques including instruction clarity, systematic approaches to prompt construction, and best practices for reducing hallucination.</p>
-<p><strong><a href="https://platform.openai.com/docs/guides/reasoning-best-practices">Reasoning best practices - OpenAI</a></strong><br>
-OpenAI’s guidance on best practices for reasoning models, covering chain-of-thought prompting, step-by-step breakdowns, and techniques for improving model accuracy.</p>
+<p><strong><a href="https://platform.openai.com/docs/guides/reasoning-best-practices">Reasoning best practices - OpenAI</a></strong> <code>[📘 Official]</code><br>
+OpenAI’s guidance on best practices for reasoning models (o-series). Explains when to use reasoning models vs GPT models, covering seven use case categories including needle-in-haystack retrieval, visual reasoning, code review, and multistep planning. Emphasizes keeping prompts simple and avoiding chain-of-thought instructions.</p>
 </section>
 <section id="research" class="level2">
 <h2 class="anchored" data-anchor-id="research">Research</h2>
-<p><strong><a href="https://arxiv.org/abs/2307.03172">Lost in the Middle: How Language Models Use Long Contexts</a></strong><br>
-Academic research on context window attention patterns, documenting the phenomenon where models under-weight middle content. Foundational research for understanding why commands should be placed early in prompts and why context placement matters.</p>
+<p><strong><a href="https://arxiv.org/abs/2307.03172">Lost in the Middle: How Language Models Use Long Contexts</a></strong> <code>[📗 Verified Community]</code><br>
+Academic research (Liu et al., 2023, TACL) on context window attention patterns, documenting the phenomenon where models under-weight middle content in long contexts. Performance is significantly better when relevant information appears at beginning or end of prompts. Foundational research for understanding why commands should be placed early in prompts and why context placement matters for agent instructions.</p>
 <hr>
 </section>
-</section>
-<section id="appendix-c-legacy-.chatmode.md-migration" class="level1">
-<h1>📎 Appendix C: Legacy .chatmode.md Migration</h1>
-<p>Prior to VS Code 1.106, custom agents were called “chat modes” and used different file conventions:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Legacy</th>
-<th>Current</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>.chatmode.md</code> extension</td>
-<td><code>.agent.md</code> extension</td>
-</tr>
-<tr class="even">
-<td><code>.github/chatmodes/</code> folder</td>
-<td><code>.github/agents/</code> folder</td>
-</tr>
-</tbody>
-</table>
-<section id="migration-steps" class="level3">
-<h3 class="anchored" data-anchor-id="migration-steps">Migration Steps</h3>
-<ol type="1">
-<li>VS Code automatically recognizes legacy <code>.chatmode.md</code> files</li>
-<li>A <strong>Quick Fix</strong> action appears to migrate files to the new format</li>
-<li>Rename files from <code>*.chatmode.md</code> to <code>*.agent.md</code></li>
-<li>Move files from <code>.github/chatmodes/</code> to <code>.github/agents/</code></li>
-</ol>
-<p><mark><strong>Recommendation:</strong></mark> Migrate to the new format for consistency with current documentation and to ensure future compatibility.</p>
-<hr>
-</section>
-</section>
-<section id="appendix-d-jetbrains-ide-support" class="level1">
-<h1>📎 Appendix D: JetBrains IDE Support</h1>
-<p>JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, etc.) support GitHub Copilot with their own conventions:</p>
-<section id="supported-files" class="level2">
-<h2 class="anchored" data-anchor-id="supported-files">Supported Files</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 39%">
-<col style="width: 35%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>File Type</th>
-<th>Location</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Workspace instructions</strong></td>
-<td><code>.github/copilot-instructions.md</code></td>
-<td>Same as VS Code/Visual Studio</td>
-</tr>
-<tr class="even">
-<td><strong>Global instructions</strong></td>
-<td>OS-specific path (see below)</td>
-<td>Personal instructions across all projects</td>
-</tr>
-<tr class="odd">
-<td><strong>Prompt files</strong></td>
-<td><code>.github/prompts/*.prompt.md</code></td>
-<td>Invoked via <code>/promptName</code> commands</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="global-instructions-location" class="level2">
-<h2 class="anchored" data-anchor-id="global-instructions-location">Global Instructions Location</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 40%">
-<col style="width: 60%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>OS</th>
-<th>Path</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Windows</strong></td>
-<td><code>%APPDATA%\JetBrains\&lt;product&gt;&lt;version&gt;\copilot\global-copilot-instructions.md</code></td>
-</tr>
-<tr class="even">
-<td><strong>macOS</strong></td>
-<td><code>~/Library/Application Support/JetBrains/&lt;product&gt;&lt;version&gt;/copilot/global-copilot-instructions.md</code></td>
-</tr>
-<tr class="odd">
-<td><strong>Linux</strong></td>
-<td><code>~/.config/JetBrains/&lt;product&gt;&lt;version&gt;/copilot/global-copilot-instructions.md</code></td>
-</tr>
-</tbody>
-</table>
-<p><em>Replace <code>&lt;product&gt;&lt;version&gt;</code> with your IDE (e.g., <code>IntelliJIdea2024.3</code>, <code>PyCharm2024.3</code>).</em></p>
-</section>
-<section id="differences-from-vs-code" class="level2">
-<h2 class="anchored" data-anchor-id="differences-from-vs-code">Differences from VS Code</h2>
-<ul>
-<li>JetBrains does <strong>not</strong> support <code>.agent.md</code> files (custom agents)</li>
-<li>JetBrains does <strong>not</strong> support MCP server configuration</li>
-<li>Path-specific <code>.instructions.md</code> files work the same as VS Code</li>
-<li>Prompt files use <code>/promptName</code> syntax (same as VS Code)</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="appendix-e-deprecated-vs-code-settings" class="level1">
-<h1>📎 Appendix E: Deprecated VS Code Settings</h1>
-<p>The following settings are <mark><strong>deprecated as of VS Code 1.102</strong></mark>. Use <code>.instructions.md</code> files instead:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 65%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Deprecated Setting</th>
-<th>Migration</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>github.copilot.chat.codeGeneration.instructions</code></td>
-<td>Use <code>.github/instructions/*.instructions.md</code> with <code>applyTo</code> patterns</td>
-</tr>
-<tr class="even">
-<td><code>github.copilot.chat.testGeneration.instructions</code></td>
-<td>Use <code>.github/instructions/*.instructions.md</code> with <code>applyTo</code> patterns</td>
-</tr>
-</tbody>
-</table>
-<p><mark><strong>Recommendation:</strong></mark> Remove these deprecated settings from your VS Code configuration and migrate to instruction files for better maintainability and version control.</p>
-<hr>
 </section>
 <section id="appendix-a-unified-agent-architecture-v1.107" class="level1">
 <h1>📎 Appendix A: Unified Agent Architecture (v1.107+)</h1>
@@ -3623,8 +3489,113 @@ Academic research on context window attention patterns, documenting the phenomen
 <hr>
 </section>
 </section>
-<section id="appendix-b-bring-your-own-key-model-management" class="level1">
-<h1>📎 Appendix B: Bring-Your-Own-Key Model Management</h1>
+<section id="appendix-b-deprecated-vs-code-settings" class="level1">
+<h1>📎 Appendix B: Deprecated VS Code Settings</h1>
+<p>The following settings are <mark><strong>deprecated as of VS Code 1.102</strong></mark>. Use <code>.instructions.md</code> files instead:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 65%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Deprecated Setting</th>
+<th>Migration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>github.copilot.chat.codeGeneration.instructions</code></td>
+<td>Use <code>.github/instructions/*.instructions.md</code> with <code>applyTo</code> patterns</td>
+</tr>
+<tr class="even">
+<td><code>github.copilot.chat.testGeneration.instructions</code></td>
+<td>Use <code>.github/instructions/*.instructions.md</code> with <code>applyTo</code> patterns</td>
+</tr>
+</tbody>
+</table>
+<p><mark><strong>Recommendation:</strong></mark> Remove these deprecated settings from your VS Code configuration and migrate to instruction files for better maintainability and version control.</p>
+<hr>
+</section>
+<section id="appendix-c-feature-compatibility-matrix" class="level1">
+<h1>📎 Appendix C: Feature Compatibility Matrix</h1>
+<section id="supported-files" class="level2">
+<h2 class="anchored" data-anchor-id="supported-files">Supported Files</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 35%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File Type</th>
+<th>Location</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Workspace instructions</strong></td>
+<td><code>.github/copilot-instructions.md</code></td>
+<td>Same as VS Code/Visual Studio</td>
+</tr>
+<tr class="even">
+<td><strong>Global instructions</strong></td>
+<td>OS-specific path (see below)</td>
+<td>Personal instructions across all projects</td>
+</tr>
+<tr class="odd">
+<td><strong>Prompt files</strong></td>
+<td><code>.github/prompts/*.prompt.md</code></td>
+<td>Invoked via <code>/promptName</code> commands</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="global-instructions-location" class="level2">
+<h2 class="anchored" data-anchor-id="global-instructions-location">Global Instructions Location</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>OS</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Windows</strong></td>
+<td><code>%APPDATA%\JetBrains\&lt;product&gt;&lt;version&gt;\copilot\global-copilot-instructions.md</code></td>
+</tr>
+<tr class="even">
+<td><strong>macOS</strong></td>
+<td><code>~/Library/Application Support/JetBrains/&lt;product&gt;&lt;version&gt;/copilot/global-copilot-instructions.md</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Linux</strong></td>
+<td><code>~/.config/JetBrains/&lt;product&gt;&lt;version&gt;/copilot/global-copilot-instructions.md</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>Replace <code>&lt;product&gt;&lt;version&gt;</code> with your IDE (e.g., <code>IntelliJIdea2024.3</code>, <code>PyCharm2024.3</code>).</em></p>
+</section>
+<section id="differences-from-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="differences-from-vs-code">Differences from VS Code</h2>
+<ul>
+<li>JetBrains does <strong>not</strong> support <code>.agent.md</code> files (custom agents)</li>
+<li>JetBrains does <strong>not</strong> support MCP server configuration</li>
+<li>Path-specific <code>.instructions.md</code> files work the same as VS Code</li>
+<li>Prompt files use <code>/promptName</code> syntax (same as VS Code)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="appendix-d-bring-your-own-key-model-management" class="level1">
+<h1>📎 Appendix D: Bring-Your-Own-Key Model Management</h1>
 <p>VS Code 1.107 enhanced model management with the <mark><strong>Language Models Editor</strong></mark> and expanded <mark><strong>bring-your-own-key (BYOK)</strong></mark> support.</p>
 <section id="language-models-editor" class="level2">
 <h2 class="anchored" data-anchor-id="language-models-editor">Language Models Editor</h2>
@@ -3830,1174 +3801,115 @@ Academic research on context window attention patterns, documenting the phenomen
 <hr>
 </section>
 </section>
-<section id="appendix-f-github-copilot-vs-alternative-ai-coding-tools" class="level1">
-<h1>📎 Appendix F: GitHub Copilot vs Alternative AI Coding Tools</h1>
-<p>As AI coding assistants proliferate, teams often ask how GitHub Copilot compares to alternatives like Cursor, Cline, Continue Dev, and Windsurf. Understanding these differences helps teams choose the right tool—or use them together strategically.</p>
-<section id="tool-overview-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="tool-overview-comparison">Tool Overview Comparison</h2>
+<section id="appendix-e-legacy-.chatmode.md-migration" class="level1">
+<h1>📎 Appendix E: Legacy .chatmode.md Migration</h1>
+<p>Prior to VS Code 1.106, custom agents were called “chat modes” and used different file conventions:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 20%">
-<col style="width: 35%">
-<col style="width: 24%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Tool</th>
-<th>Type</th>
-<th>Integration</th>
-<th>Customization Approach</th>
-<th>License Model</th>
+<th>Legacy</th>
+<th>Current</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>GitHub Copilot</strong></td>
-<td>IDE Extension</td>
-<td>Native VS Code/Visual Studio/JetBrains</td>
-<td><code>.prompt.md</code>, <code>.agent.md</code>, <code>.instructions.md</code></td>
-<td>Commercial (paid)</td>
+<td><code>.chatmode.md</code> extension</td>
+<td><code>.agent.md</code> extension</td>
 </tr>
 <tr class="even">
-<td><strong>Cursor</strong></td>
-<td>Forked IDE</td>
-<td>Standalone VS Code fork</td>
-<td><code>.cursorrules</code> file + composer prompts</td>
-<td>Commercial (paid)</td>
-</tr>
-<tr class="odd">
-<td><strong>Cline</strong></td>
-<td>VS Code Extension</td>
-<td>Extension-based</td>
-<td>Task-based prompts, no file-based config</td>
-<td>Free (MIT)</td>
-</tr>
-<tr class="even">
-<td><strong>Continue Dev</strong></td>
-<td>VS Code Extension</td>
-<td>Extension-based</td>
-<td><code>config.json</code> + custom slash commands</td>
-<td>Free (Apache 2.0)</td>
-</tr>
-<tr class="odd">
-<td><strong>Windsurf</strong></td>
-<td>Forked IDE</td>
-<td>Standalone VS Code fork</td>
-<td><code>.windsurfrules</code> file</td>
-<td>Commercial (paid)</td>
+<td><code>.github/chatmodes/</code> folder</td>
+<td><code>.github/agents/</code> folder</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="configuration-file-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="configuration-file-comparison">Configuration File Comparison</h2>
-<section id="github-copilot" class="level3">
-<h3 class="anchored" data-anchor-id="github-copilot">GitHub Copilot</h3>
-<p><strong>Configuration files:</strong></p>
-<pre><code>.github/
-├── copilot-instructions.md     # Repository-wide instructions
-├── prompts/
-│   └── *.prompt.md             # Reusable prompts (slash commands)
-├── agents/
-│   └── *.agent.md              # Custom agents with personas
-└── instructions/
-    └── *.instructions.md       # Path-specific rules</code></pre>
-<p><strong>Key characteristics:</strong></p>
-<ul>
-<li>✅ <strong>Multi-file approach</strong> - Separate concerns cleanly</li>
-<li>✅ <strong>YAML frontmatter</strong> - Rich metadata (tools, model, handoffs)</li>
-<li>✅ <strong>Glob pattern matching</strong> - Instructions auto-apply based on file patterns</li>
-<li>✅ <strong>Cross-IDE support</strong> - Works in VS Code, Visual Studio, JetBrains (with variations)</li>
-<li>✅ <strong>Handoff support</strong> - Agents can transfer control to other agents</li>
-<li>❌ <strong>Requires paid subscription</strong> - No free tier</li>
-</ul>
-</section>
-<section id="cursor" class="level3">
-<h3 class="anchored" data-anchor-id="cursor">Cursor</h3>
-<p><strong>Configuration files:</strong></p>
-<pre><code>.cursorrules              # Repository-wide rules (single file)
-docs/                     # Referenced in composer mode</code></pre>
-<p><strong>Key characteristics:</strong></p>
-<ul>
-<li>✅ <strong>Simple single-file config</strong> - All rules in one place</li>
-<li>✅ <strong>Composer mode</strong> - Multi-file editing with planning</li>
-<li>✅ <strong><span class="citation" data-cites="docs">@docs</span> reference</strong> - Index documentation folders for context</li>
-<li>✅ <strong>Apply mode</strong> - Incremental edits with verification</li>
-<li>❌ <strong>No multi-agent orchestration</strong> - Single context model</li>
-<li>❌ <strong>Proprietary format</strong> - Not compatible with other tools</li>
-<li>❌ <strong>Requires Cursor IDE</strong> - Standalone application, not a plugin</li>
-</ul>
-<p><strong>Example <code>.cursorrules</code> file:</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># General Rules</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use TypeScript strict mode</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Prefer functional components in React</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Write tests for all new features</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Code Style</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use 2-space indentation</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Single quotes for strings</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Trailing commas in multiline objects</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Testing</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Jest for unit tests</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>React Testing Library for component tests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="cline" class="level3">
-<h3 class="anchored" data-anchor-id="cline">Cline</h3>
-<p><strong>Configuration files:</strong></p>
-<pre><code>None - Task-based, no persistent config files</code></pre>
-<p><strong>Key characteristics:</strong></p>
-<ul>
-<li>✅ <strong>Completely free</strong> - MIT licensed</li>
-<li>✅ <strong>Task-oriented</strong> - Describe tasks in natural language</li>
-<li>✅ <strong>Tool-use focused</strong> - Can execute commands, edit files, browse web</li>
-<li>✅ <strong>API key flexibility</strong> - Bring your own Anthropic/OpenAI key</li>
-<li>❌ <strong>No repository-level configuration</strong> - Must specify context each time</li>
-<li>❌ <strong>No reusable prompt library</strong> - No equivalent to <code>.prompt.md</code> files</li>
-<li>❌ <strong>Limited IDE integration</strong> - VS Code only</li>
-</ul>
-</section>
-<section id="continue-dev" class="level3">
-<h3 class="anchored" data-anchor-id="continue-dev">Continue Dev</h3>
-<p><strong>Configuration files:</strong></p>
-<pre><code>.continue/
-└── config.json           # Model configuration, slash commands, context providers</code></pre>
-<p><strong>Key characteristics:</strong></p>
-<ul>
-<li>✅ <strong>Open source</strong> - Apache 2.0 license</li>
-<li>✅ <strong>Model agnostic</strong> - Supports 20+ LLM providers</li>
-<li>✅ <strong>Custom slash commands</strong> - Define your own commands in JSON</li>
-<li>✅ <strong>Context providers</strong> - Integrate with GitHub, GitLab, Jira, etc.</li>
-<li>✅ <strong>Autocomplete + chat</strong> - Both inline and chat interfaces</li>
-<li>❌ <strong>JSON configuration</strong> - Less readable than Markdown</li>
-<li>❌ <strong>No multi-agent support</strong> - Single context model</li>
-<li>❌ <strong>Limited instruction flexibility</strong> - No glob-based pattern matching</li>
-</ul>
-<p><strong>Example <code>config.json</code> slash command:</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"slashCommands"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"test"</span><span class="fu">,</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Generate unit tests"</span><span class="fu">,</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"prompt"</span><span class="fu">:</span> <span class="st">"Generate comprehensive unit tests for the selected code. Use Jest and React Testing Library."</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="windsurf" class="level3">
-<h3 class="anchored" data-anchor-id="windsurf">Windsurf</h3>
-<p><strong>Configuration files:</strong></p>
-<pre><code>.windsurfrules            # Repository-wide rules (single file)</code></pre>
-<p><strong>Key characteristics:</strong></p>
-<ul>
-<li>✅ <strong>Flows feature</strong> - Multi-step task automation</li>
-<li>✅ <strong>Cascade mode</strong> - Context-aware multi-file editing</li>
-<li>✅ <strong>Simple configuration</strong> - Single rules file</li>
-<li>❌ <strong>Proprietary format</strong> - Not compatible with other tools</li>
-<li>❌ <strong>Requires Windsurf IDE</strong> - Standalone application</li>
-<li>❌ <strong>Newer tool</strong> - Smaller community, fewer established patterns</li>
-</ul>
-</section>
-</section>
-<section id="feature-comparison-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="feature-comparison-matrix">Feature Comparison Matrix</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 15%">
-<col style="width: 13%">
-<col style="width: 18%">
-<col style="width: 18%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Copilot</th>
-<th>Cursor</th>
-<th>Cline</th>
-<th>Continue</th>
-<th>Windsurf</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Inline completion</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr class="even">
-<td><strong>Chat interface</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr class="odd">
-<td><strong>Multi-file editing</strong></td>
-<td>⚠️ Limited</td>
-<td>✅ Composer</td>
-<td>⚠️ Manual</td>
-<td>⚠️ Limited</td>
-<td>✅ Cascade</td>
-</tr>
-<tr class="even">
-<td><strong>Custom instructions</strong></td>
-<td>✅ Multiple files</td>
-<td>✅ Single file</td>
-<td>❌</td>
-<td>⚠️ JSON only</td>
-<td>✅ Single file</td>
-</tr>
-<tr class="odd">
-<td><strong>Reusable prompts</strong></td>
-<td>✅ <code>.prompt.md</code></td>
-<td>⚠️ Via composer</td>
-<td>❌</td>
-<td>✅ Slash commands</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong>Multi-agent workflow</strong></td>
-<td>✅ Handoffs</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="odd">
-<td><strong>Pattern-based rules</strong></td>
-<td>✅ Glob patterns</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong>Model choice</strong></td>
-<td>⚠️ Limited</td>
-<td>✅ Multiple</td>
-<td>✅ BYOK</td>
-<td>✅ 20+ providers</td>
-<td>⚠️ Limited</td>
-</tr>
-<tr class="odd">
-<td><strong>Open source</strong></td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong>Cross-IDE support</strong></td>
-<td>✅ 3+ IDEs</td>
-<td>❌ Cursor only</td>
-<td>❌ VS Code only</td>
-<td>❌ VS Code only</td>
-<td>❌ Windsurf only</td>
-</tr>
-<tr class="odd">
-<td><strong>Enterprise features</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>❌</td>
-<td>⚠️ Self-hosted</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="migration-scenarios" class="level2">
-<h2 class="anchored" data-anchor-id="migration-scenarios">Migration Scenarios</h2>
-<section id="from-cursor-to-copilot" class="level3">
-<h3 class="anchored" data-anchor-id="from-cursor-to-copilot">From Cursor to Copilot</h3>
-<p><strong>What transfers:</strong></p>
-<ul>
-<li>General coding guidelines from <code>.cursorrules</code> → <code>.github/copilot-instructions.md</code></li>
-<li>Documentation references → <code>.copilot/context/</code> folder</li>
-</ul>
-<p><strong>What requires recreation:</strong></p>
-<ul>
-<li>Composer-specific workflows → Custom agents with handoffs</li>
-<li><code>@docs</code> indexed folders → Explicit references in instructions</li>
-</ul>
-<p><strong>Migration strategy:</strong></p>
+<section id="migration-steps" class="level3">
+<h3 class="anchored" data-anchor-id="migration-steps">Migration Steps</h3>
 <ol type="1">
-<li>Copy content from <code>.cursorrules</code> to <code>.github/copilot-instructions.md</code></li>
-<li>Split large rule sections into separate <code>.instructions.md</code> files with <code>applyTo</code> patterns</li>
-<li>Convert common composer prompts to <code>.prompt.md</code> files</li>
-<li>Create custom agents for multi-step workflows that used composer mode</li>
+<li>VS Code automatically recognizes legacy <code>.chatmode.md</code> files</li>
+<li>A <strong>Quick Fix</strong> action appears to migrate files to the new format</li>
+<li>Rename files from <code>*.chatmode.md</code> to <code>*.agent.md</code></li>
+<li>Move files from <code>.github/chatmodes/</code> to <code>.github/agents/</code></li>
 </ol>
-</section>
-<section id="from-continue-dev-to-copilot" class="level3">
-<h3 class="anchored" data-anchor-id="from-continue-dev-to-copilot">From Continue Dev to Copilot</h3>
-<p><strong>What transfers:</strong></p>
-<ul>
-<li>Slash command prompts → <code>.prompt.md</code> files in <code>.github/prompts/</code></li>
-<li>General guidelines → <code>.github/copilot-instructions.md</code></li>
-</ul>
-<p><strong>What requires recreation:</strong></p>
-<ul>
-<li>Context providers (GitHub, GitLab) → Use native Copilot integrations</li>
-<li>Custom model configurations → Use Copilot’s model picker or BYOK</li>
-</ul>
-<p><strong>Migration strategy:</strong></p>
-<ol type="1">
-<li><p>Extract <code>prompt</code> content from each <code>slashCommands</code> entry in <code>config.json</code></p></li>
-<li><p>Create corresponding <code>.prompt.md</code> files with YAML frontmatter:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> test</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> Generate unit tests</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Prompt content from config.json</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Move general instructions to <code>.github/copilot-instructions.md</code></p></li>
-</ol>
-</section>
-<section id="from-copilot-to-cursor" class="level3">
-<h3 class="anchored" data-anchor-id="from-copilot-to-cursor">From Copilot to Cursor</h3>
-<p><strong>What transfers:</strong></p>
-<ul>
-<li><code>.github/copilot-instructions.md</code> → <code>.cursorrules</code></li>
-<li><code>.copilot/context/</code> documentation → <code>docs/</code> folder (for <code>@docs</code> indexing)</li>
-</ul>
-<p><strong>What requires recreation:</strong></p>
-<ul>
-<li>Individual <code>.prompt.md</code> files → Manual prompts in Composer</li>
-<li><code>.agent.md</code> files with handoffs → Multi-step manual workflows</li>
-<li>Path-specific <code>.instructions.md</code> → Consolidated in single <code>.cursorrules</code></li>
-</ul>
-<p><strong>Migration strategy:</strong></p>
-<ol type="1">
-<li>Consolidate all <code>.instructions.md</code> files into a single <code>.cursorrules</code> file</li>
-<li>Add file path context manually (Cursor doesn’t support glob patterns)</li>
-<li>Copy <code>.github/copilot-instructions.md</code> content to <code>.cursorrules</code></li>
-<li>Document prompt workflows in team wiki (no direct equivalent)</li>
-</ol>
-</section>
-</section>
-<section id="unique-advantages" class="level2">
-<h2 class="anchored" data-anchor-id="unique-advantages">Unique Advantages</h2>
-<section id="github-copilot-strengths" class="level3">
-<h3 class="anchored" data-anchor-id="github-copilot-strengths">GitHub Copilot Strengths</h3>
-<ul>
-<li><strong>Multi-agent orchestration</strong> - Handoffs enable complex workflows</li>
-<li><strong>Glob pattern matching</strong> - Instructions auto-apply based on file patterns</li>
-<li><strong>Cross-IDE consistency</strong> - Same prompts work in VS Code, Visual Studio, JetBrains</li>
-<li><strong>Enterprise integration</strong> - GitHub Advanced Security, audit logs, policy enforcement</li>
-<li><strong>Rich metadata</strong> - YAML frontmatter with tools, models, handoffs, targets</li>
-</ul>
-</section>
-<section id="when-copilot-is-the-right-choice" class="level3">
-<h3 class="anchored" data-anchor-id="when-copilot-is-the-right-choice">When Copilot is the Right Choice</h3>
-<ul>
-<li>✅ Enterprise organizations with GitHub Enterprise subscriptions</li>
-<li>✅ Teams using multiple IDEs (VS Code + Visual Studio + JetBrains)</li>
-<li>✅ Projects requiring granular, path-specific coding standards</li>
-<li>✅ Complex workflows needing multiple specialized agents</li>
-<li>✅ Organizations prioritizing GitHub ecosystem integration</li>
-</ul>
-</section>
-<section id="when-alternatives-might-be-better" class="level3">
-<h3 class="anchored" data-anchor-id="when-alternatives-might-be-better">When Alternatives Might Be Better</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 50%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Use Case</th>
-<th>Recommended Tool</th>
-<th>Reason</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Startups with tight budgets</strong></td>
-<td>Cline or Continue Dev</td>
-<td>Free, open-source, BYOK model flexibility</td>
-</tr>
-<tr class="even">
-<td><strong>Multi-file refactoring</strong></td>
-<td>Cursor</td>
-<td>Composer mode excels at large-scale edits</td>
-</tr>
-<tr class="odd">
-<td><strong>Model experimentation</strong></td>
-<td>Continue Dev</td>
-<td>Supports 20+ LLM providers natively</td>
-</tr>
-<tr class="even">
-<td><strong>Simple, single-IDE workflow</strong></td>
-<td>Cursor or Windsurf</td>
-<td>Less configuration overhead</td>
-</tr>
-<tr class="odd">
-<td><strong>Self-hosted requirements</strong></td>
-<td>Continue Dev</td>
-<td>Can run entirely on-premises</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="hybrid-approaches" class="level2">
-<h2 class="anchored" data-anchor-id="hybrid-approaches">Hybrid Approaches</h2>
-<p>Many teams use <strong>multiple tools strategically</strong>:</p>
-<p><strong>Example 1: Copilot + Cline</strong></p>
-<ul>
-<li>Copilot for daily coding (inline completion, chat, code review)</li>
-<li>Cline for complex refactoring tasks requiring extensive file changes</li>
-<li>Benefit: Copilot’s reusable prompts + Cline’s powerful task execution</li>
-</ul>
-<p><strong>Example 2: Copilot + Continue Dev</strong></p>
-<ul>
-<li>Copilot as primary tool (team-wide standards, cross-IDE consistency)</li>
-<li>Continue Dev for developers wanting specific model choices (e.g., Claude Opus vs GPT-4)</li>
-<li>Benefit: Consistent prompts, flexible model selection</li>
-</ul>
-<p><strong>Example 3: Cursor for Prototyping, Copilot for Production</strong></p>
-<ul>
-<li>Cursor during rapid prototyping phase (Composer’s multi-file editing)</li>
-<li>Migrate to Copilot for team development (standardized prompts, enterprise features)</li>
-<li>Benefit: Speed during exploration, consistency in collaboration</li>
-</ul>
-</section>
-<section id="key-takeaways-1" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways-1">Key Takeaways</h2>
-<ul>
-<li><strong>GitHub Copilot</strong> excels at enterprise scale, cross-IDE workflows, and multi-agent orchestration</li>
-<li><strong>Cursor</strong> leads in multi-file editing workflows with Composer mode</li>
-<li><strong>Cline</strong> and <strong>Continue Dev</strong> offer free, open-source alternatives with BYOK flexibility</li>
-<li><strong>Configuration formats are incompatible</strong> - migration requires manual conversion</li>
-<li><strong>Hybrid approaches</strong> can leverage strengths of multiple tools</li>
-</ul>
-<p>Choose based on:</p>
-<ul>
-<li>Team size and budget</li>
-<li>IDE diversity (single vs.&nbsp;multiple IDEs)</li>
-<li>Need for custom instructions and reusable prompts</li>
-<li>Model flexibility requirements</li>
-<li>Enterprise integration needs</li>
-</ul>
+<p><mark><strong>Recommendation:</strong></mark> Migrate to the new format for consistency with current documentation and to ensure future compatibility.</p>
 <hr>
 </section>
 </section>
-<section id="appendix-g-feature-compatibility-matrix" class="level1">
-<h1>📎 Appendix G: Feature Compatibility Matrix</h1>
-<p>GitHub Copilot’s features vary significantly across IDEs and versions. This matrix helps teams understand which capabilities are available in different environments.</p>
-<section id="ide-version-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="ide-version-requirements">IDE Version Requirements</h2>
+<section id="appendix-f-jetbrains-ide-support" class="level1">
+<h1>📎 Appendix F: JetBrains IDE Support</h1>
+<p>JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, etc.) support GitHub Copilot with their own conventions:</p>
+<section id="supported-files-1" class="level2">
+<h2 class="anchored" data-anchor-id="supported-files-1">Supported Files</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 5%">
+<col style="width: 39%">
 <col style="width: 35%">
-<col style="width: 36%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>IDE</th>
-<th>Minimum Version for Prompt Files</th>
-<th>Minimum Version for Custom Agents</th>
-<th>Latest Tested Version</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>VS Code</strong></td>
-<td>1.93</td>
-<td>1.106 (stable agents)</td>
-<td>1.107 (Dec 2024)</td>
-</tr>
-<tr class="even">
-<td><strong>Visual Studio</strong></td>
-<td>17.10</td>
-<td>Not supported</td>
-<td>17.12 (Nov 2024)</td>
-</tr>
-<tr class="odd">
-<td><strong>JetBrains</strong></td>
-<td>2024.1</td>
-<td>Not supported</td>
-<td>2024.3</td>
-</tr>
-<tr class="even">
-<td><strong>Copilot CLI</strong></td>
-<td>1.0</td>
-<td>1.0 (via <code>.agent.md</code>)</td>
-<td>1.4</td>
-</tr>
-<tr class="odd">
-<td><strong>GitHub.com</strong></td>
-<td>N/A (web-based)</td>
-<td>Coding Agent only</td>
-<td>Current</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="feature-support-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="feature-support-matrix">Feature Support Matrix</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 21%">
-<col style="width: 15%">
-<col style="width: 18%">
-<col style="width: 17%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>VS Code</th>
-<th>Visual Studio</th>
-<th>JetBrains</th>
-<th>Copilot CLI</th>
-<th>GitHub.com</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong><code>.prompt.md</code> files</strong></td>
-<td>✅ 1.93+</td>
-<td>✅ 17.10+</td>
-<td>✅ 2024.1+</td>
-<td>✅</td>
-<td>⚠️ PR Copilot only</td>
-</tr>
-<tr class="even">
-<td><strong><code>.github/copilot-instructions.md</code></strong></td>
-<td>✅ 1.93+</td>
-<td>✅ 17.10+</td>
-<td>✅ 2024.1+</td>
-<td>❌</td>
-<td>⚠️ PR Copilot only</td>
-</tr>
-<tr class="odd">
-<td><strong><code>.instructions.md</code> with <code>applyTo</code></strong></td>
-<td>✅ 1.95+</td>
-<td>✅ 17.10+</td>
-<td>✅ 2024.2+</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong><code>.agent.md</code> files</strong></td>
-<td>✅ 1.106+</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr class="odd">
-<td><strong>Agent handoffs</strong></td>
-<td>✅ 1.106+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong>User-scope prompts</strong></td>
-<td>✅ 1.93+</td>
-<td>❌</td>
-<td>⚠️ Via settings</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="odd">
-<td><strong>YAML frontmatter in prompts</strong></td>
-<td>✅ 1.93+</td>
-<td>⚠️ Limited</td>
-<td>✅ 2024.1+</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong><code>tools</code> field in prompts</strong></td>
-<td>✅ 1.95+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="odd">
-<td><strong><code>model</code> field in prompts</strong></td>
-<td>✅ 1.100+</td>
-<td>❌</td>
-<td>❌</td>
-<td>⚠️ CLI-wide only</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong>Background agents</strong></td>
-<td>✅ 1.107+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="odd">
-<td><strong>Cloud agents (GitHub PRs)</strong></td>
-<td>✅ 1.107+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="even">
-<td><strong>BYOK (Bring Your Own Key)</strong></td>
-<td>✅ 1.102+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="odd">
-<td><strong>MCP server integration</strong></td>
-<td>✅ 1.102+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong><code>AGENTS.md</code> support</strong></td>
-<td>✅ 1.100+</td>
-<td>✅ 17.11+</td>
-<td>✅ 2024.2+</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr class="odd">
-<td><strong>Inline completion</strong></td>
-<td>✅ All</td>
-<td>✅ All</td>
-<td>✅ All</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="even">
-<td><strong>Chat interface</strong></td>
-<td>✅ All</td>
-<td>✅ All</td>
-<td>✅ All</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Legend:</strong></p>
-<ul>
-<li>✅ Fully supported</li>
-<li>⚠️ Partially supported or different implementation</li>
-<li>❌ Not supported</li>
-</ul>
-</section>
-<section id="prompt-file-syntax-compatibility" class="level2">
-<h2 class="anchored" data-anchor-id="prompt-file-syntax-compatibility">Prompt File Syntax Compatibility</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 13%">
-<col style="width: 22%">
-<col style="width: 16%">
-<col style="width: 19%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>YAML Field</th>
-<th>VS Code</th>
-<th>Visual Studio</th>
-<th>JetBrains</th>
-<th>Copilot CLI</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>name</code></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>Used as command name</td>
-</tr>
-<tr class="even">
-<td><code>description</code></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>Shown in UI</td>
-</tr>
-<tr class="odd">
-<td><code>agent</code></td>
-<td>✅ 1.95+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td><code>ask</code>, <code>edit</code>, <code>agent</code> modes</td>
-</tr>
-<tr class="even">
-<td><code>model</code></td>
-<td>✅ 1.100+</td>
-<td>❌</td>
-<td>❌</td>
-<td>⚠️</td>
-<td>VS Code only</td>
-</tr>
-<tr class="odd">
-<td><code>tools</code></td>
-<td>✅ 1.95+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>Limit available tools</td>
-</tr>
-<tr class="even">
-<td><code>argument-hint</code></td>
-<td>✅ 1.96+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>Help text for arguments</td>
-</tr>
-<tr class="odd">
-<td><code>variables</code></td>
-<td>✅ 1.99+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>Variable declarations</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="agent-file-syntax-compatibility" class="level2">
-<h2 class="anchored" data-anchor-id="agent-file-syntax-compatibility">Agent File Syntax Compatibility</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 13%">
-<col style="width: 22%">
-<col style="width: 16%">
-<col style="width: 19%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>YAML Field</th>
-<th>VS Code</th>
-<th>Visual Studio</th>
-<th>JetBrains</th>
-<th>Copilot CLI</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>description</code></td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-<td>Agent summary</td>
-</tr>
-<tr class="even">
-<td><code>tools</code></td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-<td>Available tools</td>
-</tr>
-<tr class="odd">
-<td><code>model</code></td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>⚠️</td>
-<td>Model selection</td>
-</tr>
-<tr class="even">
-<td><code>handoffs</code></td>
-<td>✅ 1.106+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>Workflow transitions</td>
-</tr>
-<tr class="odd">
-<td><code>target</code></td>
-<td>✅ 1.107+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td><code>vscode</code>, <code>github-copilot</code></td>
-</tr>
-<tr class="even">
-<td><code>mcp-servers</code></td>
-<td>✅ 1.107+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>Cloud agents only</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="instruction-file-syntax-compatibility" class="level2">
-<h2 class="anchored" data-anchor-id="instruction-file-syntax-compatibility">Instruction File Syntax Compatibility</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 13%">
-<col style="width: 22%">
-<col style="width: 16%">
-<col style="width: 19%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>YAML Field</th>
-<th>VS Code</th>
-<th>Visual Studio</th>
-<th>JetBrains</th>
-<th>Copilot CLI</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>applyTo</code></td>
-<td>✅ 1.95+</td>
-<td>✅ 17.10+</td>
-<td>✅ 2024.2+</td>
-<td>❌</td>
-<td>Glob pattern matching</td>
-</tr>
-<tr class="even">
-<td><code>excludeAgent</code></td>
-<td>✅ 1.106+</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>Agent exclusion list</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="command-invocation-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="command-invocation-syntax">Command Invocation Syntax</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 26%">
 <col style="width: 25%">
-<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>IDE</th>
-<th>Prompt Command</th>
-<th>Agent Command</th>
-<th>Instruction Application</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>VS Code</strong></td>
-<td><code>/promptName</code></td>
-<td><code>@agentName</code></td>
-<td>Automatic (glob match)</td>
-</tr>
-<tr class="even">
-<td><strong>Visual Studio</strong></td>
-<td><code>#promptName</code> or <code>#prompt:&lt;prompt-name&gt;</code></td>
-<td>Not supported</td>
-<td>Automatic (glob match)</td>
-</tr>
-<tr class="odd">
-<td><strong>JetBrains</strong></td>
-<td><code>/promptName</code></td>
-<td>Not supported</td>
-<td>Automatic (glob match)</td>
-</tr>
-<tr class="even">
-<td><strong>Copilot CLI</strong></td>
-<td><code>gh copilot --prompt promptName</code></td>
-<td><code>gh copilot --agent agentName</code></td>
-<td>Not supported</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="context-variable-support" class="level2">
-<h2 class="anchored" data-anchor-id="context-variable-support">Context Variable Support</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>VS Code</th>
-<th>Visual Studio</th>
-<th>JetBrains</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>#file</code></td>
-<td>✅</td>
-<td>⚠️ Limited</td>
-<td>❌</td>
-<td>Reference files in chat</td>
-</tr>
-<tr class="even">
-<td><code>#fetch</code></td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>Fetch remote content</td>
-</tr>
-<tr class="odd">
-<td><code>#selection</code></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>Current editor selection</td>
-</tr>
-<tr class="even">
-<td><code>#editor</code></td>
-<td>✅</td>
-<td>⚠️</td>
-<td>⚠️</td>
-<td>Active editor content</td>
-</tr>
-<tr class="odd">
-<td><code>#codebase</code></td>
-<td>✅ 1.95+</td>
-<td>❌</td>
-<td>❌</td>
-<td>Entire codebase context</td>
-</tr>
-<tr class="even">
-<td><code>@workspace</code></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>Workspace-wide search</td>
-</tr>
-<tr class="odd">
-<td><code>@terminal</code></td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>Terminal context</td>
-</tr>
-<tr class="even">
-<td><code>@vscode</code></td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>VS Code API help</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="settings-and-configuration" class="level2">
-<h2 class="anchored" data-anchor-id="settings-and-configuration">Settings and Configuration</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 27%">
-<col style="width: 20%">
-<col style="width: 18%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>VS Code</th>
-<th>Visual Studio</th>
-<th>JetBrains</th>
+<th>File Type</th>
 <th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Enable custom instructions</strong></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>IDE settings</td>
-</tr>
-<tr class="even">
-<td><strong>Enable workspace prompts</strong></td>
-<td>✅ Auto</td>
-<td>✅ Auto</td>
-<td>✅ Auto</td>
-<td>Automatic discovery</td>
-</tr>
-<tr class="odd">
-<td><strong>Enable user prompts</strong></td>
-<td>✅</td>
-<td>❌</td>
-<td>⚠️ Manual</td>
-<td>User profile</td>
-</tr>
-<tr class="even">
-<td><strong>Model selection</strong></td>
-<td>✅ UI picker</td>
-<td>⚠️ Limited</td>
-<td>❌</td>
-<td>IDE-specific</td>
-</tr>
-<tr class="odd">
-<td><strong>BYOK configuration</strong></td>
-<td>✅ UI + JSON</td>
-<td>❌</td>
-<td>❌</td>
-<td><code>languageModels.json</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="versioning-and-deprecation" class="level2">
-<h2 class="anchored" data-anchor-id="versioning-and-deprecation">Versioning and Deprecation</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 22%">
-<col style="width: 22%">
-<col style="width: 24%">
-<col style="width: 13%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Introduced</th>
-<th>Deprecated</th>
-<th>Replacement</th>
 <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><code>.chatmode.md</code></strong></td>
-<td>VS Code 1.93</td>
-<td>VS Code 1.106</td>
-<td><code>.agent.md</code></td>
-<td>Migration via Quick Fix</td>
+<td><strong>Workspace instructions</strong></td>
+<td><code>.github/copilot-instructions.md</code></td>
+<td>Same as VS Code/Visual Studio</td>
 </tr>
 <tr class="even">
-<td><strong><code>@workspace</code></strong></td>
-<td>VS Code 1.90</td>
-<td>Not deprecated</td>
-<td><code>#codebase</code> preferred</td>
-<td>Both still work</td>
+<td><strong>Global instructions</strong></td>
+<td>OS-specific path (see below)</td>
+<td>Personal instructions across all projects</td>
 </tr>
 <tr class="odd">
-<td><strong>Mode-specific participants</strong></td>
-<td>VS Code 1.93</td>
-<td>VS Code 1.106</td>
-<td>Agents with <code>target</code></td>
-<td><code>/edit</code>, <code>/ask</code> deprecated</td>
-</tr>
-<tr class="even">
-<td><strong><code>.github/chatmodes/</code></strong></td>
-<td>VS Code 1.93</td>
-<td>VS Code 1.106</td>
-<td><code>.github/agents/</code></td>
-<td>Folder rename</td>
+<td><strong>Prompt files</strong></td>
+<td><code>.github/prompts/*.prompt.md</code></td>
+<td>Invoked via <code>/promptName</code> commands</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="best-practices-for-cross-ide-compatibility" class="level2">
-<h2 class="anchored" data-anchor-id="best-practices-for-cross-ide-compatibility">Best Practices for Cross-IDE Compatibility</h2>
-<section id="maximum-compatibility-approach" class="level3">
-<h3 class="anchored" data-anchor-id="maximum-compatibility-approach">Maximum Compatibility Approach</h3>
-<p>To ensure your prompts work across all supported IDEs:</p>
-<p>✅ <strong>DO:</strong></p>
-<ul>
-<li>Use basic YAML fields only (<code>name</code>, <code>description</code>)</li>
-<li>Keep prompt content in Markdown body</li>
-<li>Store prompts in <code>.github/prompts/</code></li>
-<li>Use <code>.github/copilot-instructions.md</code> for repository-wide rules</li>
-<li>Use <code>.instructions.md</code> with <code>applyTo</code> for path-specific rules</li>
-<li>Document IDE-specific syntax differences in team wiki</li>
-</ul>
-<p>❌ <strong>AVOID:</strong></p>
-<ul>
-<li>Advanced YAML fields (<code>tools</code>, <code>model</code>, <code>handoffs</code>) if Visual Studio users need prompts</li>
-<li>Custom agents (<code>.agent.md</code>) for cross-IDE teams</li>
-<li>User-scope prompts for team-wide workflows</li>
-<li>VS Code-specific context variables (<code>#fetch</code>, <code>#codebase</code>)</li>
-</ul>
+<section id="global-instructions-location-1" class="level2">
+<h2 class="anchored" data-anchor-id="global-instructions-location-1">Global Instructions Location</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>OS</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Windows</strong></td>
+<td><code>%APPDATA%\JetBrains\&lt;product&gt;&lt;version&gt;\copilot\global-copilot-instructions.md</code></td>
+</tr>
+<tr class="even">
+<td><strong>macOS</strong></td>
+<td><code>~/Library/Application Support/JetBrains/&lt;product&gt;&lt;version&gt;/copilot/global-copilot-instructions.md</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Linux</strong></td>
+<td><code>~/.config/JetBrains/&lt;product&gt;&lt;version&gt;/copilot/global-copilot-instructions.md</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>Replace <code>&lt;product&gt;&lt;version&gt;</code> with your IDE (e.g., <code>IntelliJIdea2024.3</code>, <code>PyCharm2024.3</code>).</em></p>
 </section>
-<section id="vs-code-only-team-approach" class="level3">
-<h3 class="anchored" data-anchor-id="vs-code-only-team-approach">VS Code-Only Team Approach</h3>
-<p>If your entire team uses VS Code, leverage advanced features:</p>
-<p>✅ <strong>USE:</strong></p>
+<section id="differences-from-vs-code-1" class="level2">
+<h2 class="anchored" data-anchor-id="differences-from-vs-code-1">Differences from VS Code</h2>
 <ul>
-<li>Custom agents with handoffs for complex workflows</li>
-<li><code>tools</code> field to limit available tools per prompt</li>
-<li><code>model</code> field for prompt-specific model selection</li>
-<li>Background agents for long-running tasks</li>
-<li>BYOK for cost control and model flexibility</li>
-<li>MCP servers for extended capabilities</li>
+<li>JetBrains does <strong>not</strong> support <code>.agent.md</code> files (custom agents)</li>
+<li>JetBrains does <strong>not</strong> support MCP server configuration</li>
+<li>Path-specific <code>.instructions.md</code> files work the same as VS Code</li>
+<li>Prompt files use <code>/promptName</code> syntax (same as VS Code)</li>
 </ul>
-</section>
-<section id="visual-studio-first-approach" class="level3">
-<h3 class="anchored" data-anchor-id="visual-studio-first-approach">Visual Studio-First Approach</h3>
-<p>For teams primarily using Visual Studio:</p>
-<p>✅ <strong>FOCUS ON:</strong></p>
-<ul>
-<li>Basic <code>.prompt.md</code> files without advanced YAML</li>
-<li><code>.github/copilot-instructions.md</code> for standards</li>
-<li><code>.instructions.md</code> with <code>applyTo</code> patterns</li>
-<li>Hashtag command syntax (<code>#promptName</code>)</li>
-<li><code>AGENTS.md</code> files for Coding Agent guidance</li>
-</ul>
-</section>
-</section>
-<section id="testing-compatibility" class="level2">
-<h2 class="anchored" data-anchor-id="testing-compatibility">Testing Compatibility</h2>
-<p>Before committing prompt files, test in all IDEs your team uses:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checklist for prompt file validation</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1.</span> ✅ File is in <span class="kw">`</span><span class="ex">.github/prompts/</span><span class="kw">`</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2.</span> ✅ Extension is <span class="kw">`</span><span class="ex">.prompt.md</span><span class="kw">`</span> <span class="er">(</span><span class="ex">not</span> <span class="kw">`</span><span class="ex">.prompt</span><span class="kw">`)</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">3.</span> ✅ YAML frontmatter is valid <span class="er">(</span><span class="ex">parse</span> with yamllint<span class="kw">)</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">4.</span> ✅ Test in VS Code: <span class="kw">`</span><span class="ex">/promptName</span><span class="kw">`</span> appears</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ex">5.</span> ✅ Test in Visual Studio: <span class="kw">`</span><span class="co">#promptName</span><span class="kw">`</span> works</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ex">6.</span> ✅ Test in JetBrains: <span class="kw">`</span><span class="ex">/promptName</span><span class="kw">`</span> appears</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="ex">7.</span> ✅ Verify description shows in all UIs</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="ex">8.</span> ✅ Advanced fields gracefully ignored in older IDEs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="migration-timing" class="level2">
-<h2 class="anchored" data-anchor-id="migration-timing">Migration Timing</h2>
-<p>When new features stabilize in VS Code, consider:</p>
-<ul>
-<li><strong>VS Code 1.107</strong> (Dec 2024): Background agents, cloud agents, enhanced BYOK</li>
-<li><strong>Visual Studio 17.12</strong> (Nov 2024): Improved prompt file support, better YAML parsing</li>
-<li><strong>JetBrains 2024.3</strong>: Enhanced custom instruction handling</li>
-</ul>
-<p>Check IDE release notes quarterly to identify new feature opportunities.</p>
 <hr>
-<p><em>Last updated: December 2025</em></p>
 
 
 </section>
