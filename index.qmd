@@ -12,6 +12,19 @@ description: "A comprehensive learning hub documenting my journey through modern
 
 This repository represents my continuous journey through modern software development, thoughtfully organized to help both my future self and fellow developers navigate the ever-evolving landscape of technology. From conference insights to troubleshooting guides, from Azure cloud patterns to prompt engineering techniques—this is where theory meets practice.
 
+## 📋 Quick Navigation
+
+| Section | Description |
+|---------|-------------|
+| [📰 News](#-news--updates) | Latest updates on VS Code releases and developer tools |
+| [🤖 AI & Prompt Engineering](#-ai--intelligent-development) | AI-assisted development and prompt file organization |
+| [🎯 Conference Notes](#-conference-notes--insights) | 40+ Build 2025 sessions with detailed analysis |
+| [☁️ Azure Development](#️-azure-development-guides) | Practical Azure service guides and patterns |
+| [🛠️ Development Tools](#️-development-tools--productivity) | Documentation tools, API testing, version control |
+| [💡 Ideas & Projects](#-ideas--projects) | IQPilot and Learning Hub concepts |
+| [🐛 Problem Solving](#-problem-solving) | Real-world issue solutions |
+| [🔧 Hardware & DIY](#-hardware) | Surface analysis and DIY projects |
+
 ## 🎯 Learning Hub Philosophy
 
 This isn't just documentation—it's a **curated learning experience**. Each article, note, and guide reflects:
@@ -20,6 +33,16 @@ This isn't just documentation—it's a **curated learning experience**. Each art
 - **Conference learnings** distilled into practical insights
 - **Progressive complexity** from fundamentals to advanced topics
 - **Continuous refinement** as technologies evolve
+
+---
+
+## 📰 News & Updates
+
+### VS Code Releases
+- **[VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md)** 🆕  
+  *Deep analysis of unified agentic experiences, model management, MCP protocol updates*
+- **[VS Code v1.107 Summary](news/20251224%20vscode%20v1.107%20Release/Summary.md)** 🆕  
+  *Quick overview of the December 2024 release highlights*
 
 ---
 
@@ -72,6 +95,14 @@ Beyond software—exploring the physical side of technology:
 - **Surface Laptop 6** - Feature analysis and hardware insights 🆕
 - **DIY Battery Packs** - Building custom Li-Ion battery solutions
 - **E-Bike Projects** - Electric bike builds and customization
+
+### 💡 **Ideas & Projects**
+Exploring new concepts and tool development:
+- **IQPilot** - AI-powered content quality assurance tool 🆕
+  - Automated validation for documentation quality
+  - Integrated with GitHub Copilot for intelligent checks
+  - Metadata management and publishing workflows
+- **Learning Hub Concepts** - The philosophy behind this knowledge base
 
 ### 🌍 **Beyond Code**
 Technology intersects with culture and exploration:
@@ -176,21 +207,34 @@ Technology intersects with culture and exploration:
 
 - **[Surface Laptop 6 Features Analysis](tech/Hardware/Surface%20Laptop%206%20Features%20analysis.md)** - Comprehensive hardware review 🆕
 
+### 💡 **Ideas & Projects**
+
+#### IQPilot - AI Content Quality Tool 🆕
+- **[IQPilot Overview](idea/IQPilot/01.%20IQPilot%20overview.md)** ⭐  
+  *Introduction to AI-assisted content quality assurance*
+- **[Getting Started with IQPilot](idea/IQPilot/02.%20IQPilot%20Getting%20started.md)**  
+  *Quick start guide and setup instructions*
+- **[IQPilot Implementation Details](idea/IQPilot/03.%20IQPilot%20Implementation%20details.md)**  
+  *Technical architecture and integration patterns*
+
 ---
 
 ## 📊 Content Organization
 
-This learning hub contains **200+ articles** organized into clear categories:
+This learning hub contains **250+ articles** organized into clear categories:
 
 ### 📁 By Topic Area
+- **📰 News** - Latest tool releases and industry updates (VS Code, development tools)
 - **🎯 Events** - 40+ Build 2025 conference sessions with summaries and detailed notes
 - **☁️ Azure** - Cloud services organized by type (compute, data, security, messaging)
 - **🤖 AI & Prompt Engineering** - Practical guides for AI-assisted development
-- **🛠️ Development Tools** - Git, API testing, documentation, data processing
+- **🛠️ Development Tools** - Git, API testing, documentation (Quarto, MkDocs), data processing
 - **🏗️ Architectures** - Feed protocols, RSS/Atom, architectural patterns
+- **💡 Ideas & Projects** - IQPilot and experimental concepts
 - **🐛 Issues & Solutions** - Real-world troubleshooting with battle-tested fixes
 - **📚 HowTo Guides** - Step-by-step tutorials for common tasks
 - **🔧 Hardware** - Device analysis and DIY projects
+- **🌍 Travel & Culture** - Beyond code experiences
 
 ### 🎓 By Learning Path
 - **🌱 Beginner** - Start with HowTo guides, Q&A articles, and introductory content
@@ -252,12 +296,21 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 ## 🔗 Essential Quick Links
 
 ### 🎯 Start Here
+- **[Getting Started](GETTING-STARTED.md)** - How to navigate this learning hub
+- **[Documentation Index](DOCUMENTATION-INDEX.md)** - Complete content listing
 - **[Learning Hub Introduction](idea/LearnHub/20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - Philosophy and approach
 - **[Using This Hub for Learning](idea/LearnHub/20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)** - How to maximize value
+
+### 📰 News & Updates
+- [VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md) 🆕
 
 ### 🤖 AI & Prompt Engineering
 - [GitHub Copilot Prompt Files](tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)
 - [Organizing Prompt Files](tech/PromptEngineering/02.%20how_to_name_and_organize_prompt_files.md)
+- [Creating Multi-Agent Prompts](tech/PromptEngineering/06.%20how_to_create_a_prompt_interacting_with_agents.md) 🆕
+
+### 💡 Ideas & Projects
+- [IQPilot Overview](idea/IQPilot/01.%20IQPilot%20overview.md) 🆕
 
 ### ☁️ Azure Essentials
 - [Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md) ⭐
@@ -299,7 +352,7 @@ Content is available for personal and educational use. See [LICENSE](LICENSE) fo
 
 **🌟 Happy Learning! 🌟**
 
-*Last Updated: November 2025 | Total Articles: 200+ | Conference Sessions: 40+ | Topics Covered: 15+*
+*Last Updated: December 2025 | Total Articles: 250+ | Conference Sessions: 40+ | Topics Covered: 18+*
 
 [⬆️ Back to Top](#-welcome-to-my-learning-hub)
 

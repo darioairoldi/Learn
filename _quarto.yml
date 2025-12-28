@@ -20,7 +20,6 @@ project:
     - "202510 Developer Update/20250706 CosmosDB Access options/02. CosmosDB Partitioning Strategies.md"
     - "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
     - "20250711 Use http files for easy and repeatable test/README.md"
-    - "20250712 Use QUARTO doc for Github repos doc/000.000 README.md"
     - "20250713 Use http files for easy and repeatable test/README.md"
     - "Travel/Paris 2025/README.md"
     - "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
@@ -40,8 +39,6 @@ project:
     - "20250827 what is yq overview/README.md"
     - "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
     - "20250815 DIY ebike/SUMMARY.md"
-    # Add ALL Quarto documentation files
-    - "20250712 Use QUARTO doc for Github repos doc/*.md"
     # Add main README for homepage
     - "README.md"
     - "idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
@@ -105,6 +102,21 @@ project:
     - "tech/PromptEngineering/06. how_to_create_a_prompt_interacting_with_agents.md"
     - "tech/PromptEngineering/06.1 example_prompt_interacting_with_agents_plan.md"
     - "tech/PromptEngineering/07. Prompts and markdown structure for a documentation site.md"
+    # Add News articles
+    - "news/20251224 vscode v1.107 Release/README.Sonnet4.md"
+    - "news/20251224 vscode v1.107 Release/Summary.md"
+    # Add IQPilot articles
+    - "idea/IQPilot/01. IQPilot overview.md"
+    - "idea/IQPilot/02. IQPilot Getting started.md"
+    - "idea/IQPilot/03. IQPilot Implementation details.md"
+    # Add yq appendices
+    - "20250827 what is yq overview/appendix-advanced-techniques.md"
+    - "20250827 what is yq overview/appendix-yq-tool.md"
+    # Add Quarto README
+    - "tech/Markdown/01. QUARTO Doc/README.md"
+    # Add root documentation files
+    - "GETTING-STARTED.md"
+    - "DOCUMENTATION-INDEX.md"
 
 website:
   title: "Dario's Learning Journey"
@@ -125,6 +137,13 @@ website:
       - icon: house-fill
         href: index.qmd
         text: "Home"
+      - text: "News"
+        menu:
+          - text: "Latest Updates"
+          - href: "news/20251224 vscode v1.107 Release/README.Sonnet4.md"
+            text: "VS Code v1.107 Release Analysis"
+          - href: "news/20251224 vscode v1.107 Release/Summary.md"
+            text: "VS Code v1.107 Release Summary"
       - text: "Events"
         menu:
           - href: "events/202506 Build 2025/Readme.md"
@@ -340,9 +359,11 @@ website:
           - href: "20250713 Use http files for easy and repeatable test/02. Using HTTP Files for API Testing (Visual Studio).md"
             text: "Visual Studio HTTP Files Guide"
           - text: "---"
-          - text: "Documentation"
-          - href: "20250712 Use QUARTO doc for Github repos doc/000.000 README.md"
+          - text: "Documentation Tools"
+          - href: "tech/Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.md"
             text: "Quarto Documentation"
+          - href: "tech/Markdown/02. MkDocs/000.000 Using MkDocs.md"
+            text: "MkDocs Documentation"
           - href: "20250827 what is yq overview/README.md"
             text: "yq YAML Processor"
           - text: "---"
@@ -390,10 +411,24 @@ website:
         text: "Home"
         icon: house-fill
         contents:
+          - href: "GETTING-STARTED.md"
+            text: "Getting Started"
+          - href: "DOCUMENTATION-INDEX.md"
+            text: "Documentation Index"
           - href: "idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
             text: "Learning Hub Concept"
           - href: "idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
             text: "Using Learning Hub for Learning Technologies"
+
+      - section: "News & Updates"
+        icon: newspaper
+        contents:
+          - section: "VS Code Releases"
+            contents:
+              - href: "news/20251224 vscode v1.107 Release/README.Sonnet4.md"
+                text: "VS Code v1.107 Release Analysis"
+              - href: "news/20251224 vscode v1.107 Release/Summary.md"
+                text: "VS Code v1.107 Summary"
 
       - section: "Events"
         icon: calendar-event
@@ -736,35 +771,6 @@ website:
                 text: "GitHub CLI Commands"
               - href: "20250711 Use http files for easy and repeatable test/README.md"
                 text: "HTTP Files Testing"
-              - section: "Quarto Documentation"
-                href: "20250712 Use QUARTO doc for Github repos doc/000.000 README.md"
-                contents:
-                  - href: "20250712 Use QUARTO doc for Github repos doc/000.000 README.md"
-                    text: "Using Quarto"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/001.001 Architecture - How quarto works.md"
-                    text: "How Quarto Works"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/001.002 Architecture - Monolithic vs. Modular Deployment.md"
-                    text: "Monolithic vs. Modular Deployment"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/001.003 Architecture - Split Navigation Build from content rendering.md"
-                    text: "Split Navigation Build from Content Rendering"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/001.010 Quarto.yml document structure.md"
-                    text: "Quarto.yml document structure"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/003.010 Quarto specific markdown features.md"
-                    text: "Quarto specific markdown features"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/002.010 Quarto Theming and Styling.md"
-                    text: "Quarto Theming and Styling"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/007.010 Optimizing Quarto build and deploy.md"
-                    text: "Optimizing Quarto Build and Deploy"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/009.000 How does sidebar works.md"
-                    text: "How does sidebar works"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/009.010 Navigation workflow.md"
-                    text: "Navigation workflow"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/009.020 Sidebar Page Transition Optimization.md"
-                    text: "Sidebar Page Transition Optimization"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/010.001 Deploying a Quarto site to GitHub Pages.md"
-                    text: "Deploying to GitHub Pages"
-                  - href: "20250712 Use QUARTO doc for Github repos doc/010.002 Deploying a Quarto site to Storage Accounts.md"
-                    text: "Deploying to Azure Storage"
               - href: "20250713 Use http files for easy and repeatable test/README.md"
                 text: "HTTP Files (Extended)"
               - section: "Diginsight"
@@ -774,8 +780,14 @@ website:
                     text: "CosmosDB Query Cost Metrics with Diginsight"
           - section: "Data Processing"
             contents:
-              - href: "20250827 what is yq overview/README.md"
-                text: "yq YAML Processor Overview"
+              - section: "yq YAML Processor"
+                contents:
+                  - href: "20250827 what is yq overview/README.md"
+                    text: "yq Overview"
+                  - href: "20250827 what is yq overview/appendix-yq-tool.md"
+                    text: "yq Tool Reference"
+                  - href: "20250827 what is yq overview/appendix-advanced-techniques.md"
+                    text: "yq Advanced Techniques"
               - href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
                 text: "Query Cost Metrics with Diginsight"
           - section: "Programming Languages"
@@ -825,6 +837,20 @@ website:
                     text: "Final Solution (No Artifacts)"
                   - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.md"
                     text: "WSL Error Fix"
+
+      - text: "---"
+
+      - section: "Ideas & Projects"
+        icon: lightbulb
+        contents:
+          - section: "IQPilot - AI Content Quality Tool"
+            contents:
+              - href: "idea/IQPilot/01. IQPilot overview.md"
+                text: "IQPilot Overview"
+              - href: "idea/IQPilot/02. IQPilot Getting started.md"
+                text: "Getting Started with IQPilot"
+              - href: "idea/IQPilot/03. IQPilot Implementation details.md"
+                text: "IQPilot Implementation Details"
 
       - text: "---"
 
