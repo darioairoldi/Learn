@@ -1756,6 +1756,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-47" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How GitHub Copilot Uses Markdown and Prompt Folders</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Name and Organize Prompt Files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Structure Content for Copilot Prompt Files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Structure Content for Copilot Agent Files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tech/PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Structure Content for Copilot Instruction Files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tech/PromptEngineering/06. how_to_create_a_prompt_interacting_with_agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Create a Prompt Interacting with Agents</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tech/PromptEngineering/06.1 example_prompt_interacting_with_agents_plan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example: Prompt Interacting with Agents (Plan)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tech/PromptEngineering/07. Prompts and markdown structure for a documentation site.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prompts and Markdown Structure for Documentation Sites</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -8078,13 +8126,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+        // Flag to prevent infinite loops
+
+        let isUpdating = false;
+
+
+
         // Observe sidebar visibility changes from Quarto's native toggle
 
         const observer = new MutationObserver(function (mutations) {
 
+            if (isUpdating) return; // Prevent recursive updates
+
+
+
             mutations.forEach(function (mutation) {
 
                 if (mutation.attributeName === 'class') {
+
+                    isUpdating = true;
+
+
 
                     const isSidebarVisible = !sidebar.classList.contains('hidden');
 
@@ -8105,6 +8167,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
 
                     console.log('🔄 Sidebar visibility changed:', isSidebarVisible ? 'visible' : 'hidden');
+
+
+
+                    isUpdating = false;
 
                 }
 
