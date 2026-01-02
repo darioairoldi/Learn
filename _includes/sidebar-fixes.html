@@ -35,30 +35,11 @@
     }
 
     /* MOBILE RESPONSIVE FIXES */
-    /* Ensure sidebar toggle button works on mobile */
+    /* Hide duplicate hamburger - use only Quarto's navbar toggle */
     @media (max-width: 991px) {
-
-        .quarto-sidebar-toggle,
-        #quarto-sidebar-toggle {
-            position: fixed !important;
-            top: 0.5rem !important;
-            left: 0.5rem !important;
-            z-index: 1050 !important;
-            background: #2780e3 !important;
-            color: white !important;
-            border: none !important;
-            padding: 0.5rem !important;
-            border-radius: 6px !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-            cursor: pointer !important;
-        }
-
-        /* Hamburger icon for mobile */
-        .quarto-sidebar-toggle::before,
-        #quarto-sidebar-toggle::before {
-            content: '☰' !important;
-            font-size: 1.5rem !important;
-            line-height: 1 !important;
+        /* Hide any custom sidebar toggle we might create */
+        .custom-sidebar-toggle {
+            display: none !important;
         }
     }
 
@@ -1682,49 +1663,45 @@
             return;
         }
 
-        // Create or find the sidebar toggle button
-        let toggleButton = document.querySelector('.quarto-sidebar-toggle') ||
-            document.getElementById('quarto-sidebar-toggle');
-
-        if (!toggleButton) {
-            // Create toggle button if it doesn't exist
-            toggleButton = document.createElement('button');
-            toggleButton.className = 'quarto-sidebar-toggle';
-            toggleButton.setAttribute('aria-label', 'Toggle sidebar');
-            toggleButton.setAttribute('aria-expanded', 'false');
-            document.body.insertBefore(toggleButton, document.body.firstChild);
+        // Use Quarto's existing navbar toggle button
+        const navbarToggle = document.querySelector('.navbar-toggler');
+        if (!navbarToggle) {
+            console.warn('⚠️ Navbar toggle not found');
+            return;
         }
 
-        // Toggle sidebar on button click
-        toggleButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+        // Observe sidebar visibility changes from Quarto's native toggle
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'class') {
+                    const isSidebarVisible = !sidebar.classList.contains('hidden');
+                    
+                    if (isSidebarVisible) {
+                        sidebar.classList.add('show');
+                        document.body.classList.add('sidebar-open');
+                    } else {
+                        sidebar.classList.remove('show');
+                        document.body.classList.remove('sidebar-open');
+                    }
+                    console.log('🔄 Sidebar visibility changed:', isSidebarVisible ? 'visible' : 'hidden');
+                }
+            });
+        });
 
-            const isOpen = sidebar.classList.contains('show');
-
-            if (isOpen) {
-                sidebar.classList.remove('show');
-                document.body.classList.remove('sidebar-open');
-                toggleButton.setAttribute('aria-expanded', 'false');
-            } else {
-                sidebar.classList.add('show');
-                document.body.classList.add('sidebar-open');
-                toggleButton.setAttribute('aria-expanded', 'true');
-            }
-
-            console.log('🔄 Sidebar toggled:', !isOpen ? 'open' : 'closed');
+        observer.observe(sidebar, {
+            attributes: true,
+            attributeFilter: ['class']
         });
 
         // Close sidebar when clicking on backdrop
         document.addEventListener('click', function (e) {
             const isOpen = sidebar.classList.contains('show');
             const clickedInSidebar = sidebar.contains(e.target);
-            const clickedToggle = toggleButton.contains(e.target);
+            const clickedInNavbar = navbarToggle.contains(e.target);
 
-            if (isOpen && !clickedInSidebar && !clickedToggle) {
-                sidebar.classList.remove('show');
-                document.body.classList.remove('sidebar-open');
-                toggleButton.setAttribute('aria-expanded', 'false');
+            if (isOpen && !clickedInSidebar && !clickedInNavbar) {
+                // Trigger Quarto's toggle to close sidebar
+                navbarToggle.click();
                 console.log('🔄 Sidebar closed by backdrop click');
             }
         });
@@ -1740,7 +1717,6 @@
                     // Desktop mode - ensure sidebar is visible and body class is removed
                     sidebar.classList.remove('show');
                     document.body.classList.remove('sidebar-open');
-                    toggleButton.setAttribute('aria-expanded', 'false');
                 }
             }, 250);
         });
@@ -1748,9 +1724,8 @@
         // Close sidebar on Escape key
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && sidebar.classList.contains('show')) {
-                sidebar.classList.remove('show');
-                document.body.classList.remove('sidebar-open');
-                toggleButton.setAttribute('aria-expanded', 'false');
+                // Trigger Quarto's toggle to close sidebar
+                navbarToggle.click();
                 console.log('🔄 Sidebar closed by Escape key');
             }
         });

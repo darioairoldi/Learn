@@ -773,14 +773,16 @@ body>.custom-toc-addition {
     -webkit-overflow-scrolling: touch !important;
   }
 
-  /* Hide sidebar by default on mobile */
+  /* Hide sidebar completely by default on mobile */
   #quarto-sidebar:not(.show) {
     transform: translateX(-100%) !important;
+    visibility: hidden !important;
   }
 
   /* Show sidebar when toggled */
   #quarto-sidebar.show {
     transform: translateX(0) !important;
+    visibility: visible !important;
   }
 
   /* Overlay backdrop when sidebar is open */
@@ -807,17 +809,17 @@ body>.custom-toc-addition {
     padding: 1rem !important;
   }
 
-  /* Ensure sidebar toggle button is visible and functional */
-  .quarto-sidebar-toggle,
-  #quarto-sidebar-toggle {
-    display: block !important;
-    z-index: 1050 !important;
+  /* Use Quarto's native navbar toggle */
+  .navbar-toggler {
+    display: inline-block !important;
   }
 
   /* Adjust main content margins on mobile */
-  #quarto-content {
+  #quarto-content,
+  .quarto-container {
     margin-left: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
