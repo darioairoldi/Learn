@@ -173,12 +173,12 @@ jobs:
         
         Write-Host "✓ Site deployed to gh-pages branch!"
         
-    - name: Trigger Pages Rebuild
-      continue-on-error: true  # Don't fail the workflow if this step fails
-      shell: pwsh
-      run: |
-        Write-Host "Triggering GitHub Pages rebuild..."
-        gh api -X POST repos/$env:GITHUB_REPOSITORY/pages/builds
-        Write-Host "✓ Pages rebuild triggered!"
-      env:
-        GH_TOKEN: ${{ github.token }}
+    # - name: Trigger Pages Rebuild
+    #   continue-on-error: true  # Don't fail the workflow if this step fails
+    #   shell: pwsh
+    #   run: |
+    #     Write-Host "Triggering GitHub Pages rebuild..."
+    #     gh api -X POST repos/$env:GITHUB_REPOSITORY/pages/builds
+    #     Write-Host "✓ Pages rebuild triggered!"
+    #   env:
+    #     GH_TOKEN: ${{ github.token }}

@@ -37,6 +37,7 @@
     /* MOBILE RESPONSIVE FIXES */
     /* Hide duplicate hamburger - use only Quarto's navbar toggle */
     @media (max-width: 991px) {
+
         /* Hide any custom sidebar toggle we might create */
         .custom-sidebar-toggle {
             display: none !important;
@@ -1671,11 +1672,11 @@
         }
 
         // Observe sidebar visibility changes from Quarto's native toggle
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
                 if (mutation.attributeName === 'class') {
                     const isSidebarVisible = !sidebar.classList.contains('hidden');
-                    
+
                     if (isSidebarVisible) {
                         sidebar.classList.add('show');
                         document.body.classList.add('sidebar-open');
