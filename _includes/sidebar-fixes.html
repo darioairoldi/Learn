@@ -33,6 +33,34 @@
   transition: all 0.3s ease !important;
 }
 
+/* MOBILE RESPONSIVE FIXES */
+/* Ensure sidebar toggle button works on mobile */
+@media (max-width: 991px) {
+  .quarto-sidebar-toggle,
+  #quarto-sidebar-toggle {
+    position: fixed !important;
+    top: 0.5rem !important;
+    left: 0.5rem !important;
+    z-index: 1050 !important;
+    background: #2780e3 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.5rem !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    cursor: pointer !important;
+  }
+
+  /* Hamburger icon for mobile */
+  .quarto-sidebar-toggle::before,
+  #quarto-sidebar-toggle::before {
+    content: '☰' !important;
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+  }
+}
+
+
 /* Home link special styling - make it white and prominent but allow collapse */
 .sidebar .nav-link[href="index.qmd"],
 .sidebar .sidebar-item-text[href="index.qmd"],
@@ -1629,4 +1657,99 @@ setTimeout(() => {
 }, 2000);
 
 console.log('✅ Sidebar persistence system initialized');
+
+// ==========================================
+// MOBILE SIDEBAR RESPONSIVE HANDLER
+// ==========================================
+
+function initMobileSidebar() {
+    const sidebar = document.getElementById('quarto-sidebar');
+    if (!sidebar) {
+        console.warn('⚠️ Sidebar not found for mobile initialization');
+        return;
+    }
+
+    // Create or find the sidebar toggle button
+    let toggleButton = document.querySelector('.quarto-sidebar-toggle') || 
+                      document.getElementById('quarto-sidebar-toggle');
+    
+    if (!toggleButton) {
+        // Create toggle button if it doesn't exist
+        toggleButton = document.createElement('button');
+        toggleButton.className = 'quarto-sidebar-toggle';
+        toggleButton.setAttribute('aria-label', 'Toggle sidebar');
+        toggleButton.setAttribute('aria-expanded', 'false');
+        document.body.insertBefore(toggleButton, document.body.firstChild);
+    }
+
+    // Toggle sidebar on button click
+    toggleButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isOpen = sidebar.classList.contains('show');
+        
+        if (isOpen) {
+            sidebar.classList.remove('show');
+            document.body.classList.remove('sidebar-open');
+            toggleButton.setAttribute('aria-expanded', 'false');
+        } else {
+            sidebar.classList.add('show');
+            document.body.classList.add('sidebar-open');
+            toggleButton.setAttribute('aria-expanded', 'true');
+        }
+        
+        console.log('🔄 Sidebar toggled:', !isOpen ? 'open' : 'closed');
+    });
+
+    // Close sidebar when clicking on backdrop
+    document.addEventListener('click', function(e) {
+        const isOpen = sidebar.classList.contains('show');
+        const clickedInSidebar = sidebar.contains(e.target);
+        const clickedToggle = toggleButton.contains(e.target);
+        
+        if (isOpen && !clickedInSidebar && !clickedToggle) {
+            sidebar.classList.remove('show');
+            document.body.classList.remove('sidebar-open');
+            toggleButton.setAttribute('aria-expanded', 'false');
+            console.log('🔄 Sidebar closed by backdrop click');
+        }
+    });
+
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            const isMobile = window.innerWidth < 992;
+            
+            if (!isMobile) {
+                // Desktop mode - ensure sidebar is visible and body class is removed
+                sidebar.classList.remove('show');
+                document.body.classList.remove('sidebar-open');
+                toggleButton.setAttribute('aria-expanded', 'false');
+            }
+        }, 250);
+    });
+
+    // Close sidebar on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('show')) {
+            sidebar.classList.remove('show');
+            document.body.classList.remove('sidebar-open');
+            toggleButton.setAttribute('aria-expanded', 'false');
+            console.log('🔄 Sidebar closed by Escape key');
+        }
+    });
+
+    console.log('✅ Mobile sidebar handler initialized');
+}
+
+// Initialize mobile sidebar after DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileSidebar);
+} else {
+    initMobileSidebar();
+}
+
 </script>
