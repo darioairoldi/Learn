@@ -331,8 +331,9 @@ website:
           - href: "202510 Developer Update/Cli/Cli commands for Github.md"
             text: "GitHub CLI Commands"
           - text: "---"
-          - "tech/PromptEngineering/"  # ← Items appear directly, no label
-          - text: "---"
+          - text: "AI & Prompt Engineering"
+            menu: "tech/PromptEngineering/"
+          - text: "---"  
           - text: "API Testing"
           - href: "20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.md"
             text: "HTTP/REST API Testing Tools Comparison"
