@@ -1671,10 +1671,17 @@
             return;
         }
 
+        // Flag to prevent infinite loops
+        let isUpdating = false;
+
         // Observe sidebar visibility changes from Quarto's native toggle
         const observer = new MutationObserver(function (mutations) {
+            if (isUpdating) return; // Prevent recursive updates
+
             mutations.forEach(function (mutation) {
                 if (mutation.attributeName === 'class') {
+                    isUpdating = true;
+
                     const isSidebarVisible = !sidebar.classList.contains('hidden');
 
                     if (isSidebarVisible) {
@@ -1685,6 +1692,8 @@
                         document.body.classList.remove('sidebar-open');
                     }
                     console.log('🔄 Sidebar visibility changed:', isSidebarVisible ? 'visible' : 'hidden');
+
+                    isUpdating = false;
                 }
             });
         });

@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Need write permission to push to gh-pages
-  pages: write     # Need write permission to trigger Pages rebuild
+  contents: write # Need write permission to push to gh-pages
+  pages: write # Need write permission to trigger Pages rebuild
 
 concurrency:
   group: "pages"
@@ -18,161 +18,161 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: self-hosted
-    
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0  # Fetch all history for proper gh-pages handling
 
-    - name: Setup Quarto (Native Windows)
-      shell: pwsh
-      run: |
-        Write-Host "Setting up Quarto using native Windows installation..."
-        
-        # Check if Quarto is already installed
-        try {
-          $existing = quarto --version 2>$null
-          if ($existing) {
-            Write-Host "Quarto already installed: $existing"
-            exit 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for proper gh-pages handling
+
+      - name: Setup Quarto (Native Windows)
+        shell: pwsh
+        run: |
+          Write-Host "Setting up Quarto using native Windows installation..."
+
+          # Check if Quarto is already installed
+          try {
+            $existing = quarto --version 2>$null
+            if ($existing) {
+              Write-Host "Quarto already installed: $existing"
+              exit 0
+            }
+          } catch {
+            Write-Host "Quarto not found, proceeding with installation..."
           }
-        } catch {
-          Write-Host "Quarto not found, proceeding with installation..."
-        }
-        
-        # Download and install Quarto for Windows
-        $quartoVersion = "1.4.550"
-        $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"
-        
-        Write-Host "Downloading Quarto from: $quartoUrl"
-        try {
-          Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
-          Write-Host "Download completed successfully"
-          Write-Host "File size: $((Get-Item 'quarto-installer.msi').Length) bytes"
-        } catch {
-          Write-Host "Download failed: $_"
-          exit 1
-        }
-        
-        # Install Quarto silently
-        Write-Host "Installing Quarto..."
-        try {
-          $process = Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait -PassThru
-          Write-Host "Installation completed with exit code: $($process.ExitCode)"
-        } catch {
-          Write-Host "Installation failed: $_"
-          exit 1
-        }
-        
-        # Add Quarto to PATH for current session
-        $quartoPath = "C:\Program Files\Quarto\bin"
-        if (Test-Path $quartoPath) {
-          $env:PATH = "$quartoPath;$env:PATH"
-          Write-Host "Added $quartoPath to PATH"
-          
-          # Persist PATH for subsequent steps
-          echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-          
-          # Verify installation
-          $version = & "$quartoPath\quarto.exe" --version
-          Write-Host "Quarto installed successfully: $version"
-        } else {
-          Write-Host "Quarto installation directory not found at $quartoPath"
-          # Check alternative locations
-          $altPath = "C:\Program Files (x86)\Quarto\bin"
-          if (Test-Path $altPath) {
-            Write-Host "Found Quarto at alternative location: $altPath"
-            $env:PATH = "$altPath;$env:PATH"
-            echo $altPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-          } else {
-            Write-Host "Quarto not found in expected locations"
+
+          # Download and install Quarto for Windows
+          $quartoVersion = "1.4.550"
+          $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"
+
+          Write-Host "Downloading Quarto from: $quartoUrl"
+          try {
+            Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
+            Write-Host "Download completed successfully"
+            Write-Host "File size: $((Get-Item 'quarto-installer.msi').Length) bytes"
+          } catch {
+            Write-Host "Download failed: $_"
             exit 1
           }
-        }
-        
-    - name: Check for Python requirements
-      id: check-python
-      shell: pwsh
-      run: |
-        if ((Test-Path "requirements.txt") -or (Test-Path "pyproject.toml")) {
-          echo "python-needed=true" >> $env:GITHUB_OUTPUT
-        } else {
-          echo "python-needed=false" >> $env:GITHUB_OUTPUT
-        }
-        
-    - name: Setup Python (if needed for computations)
-      if: steps.check-python.outputs.python-needed == 'true'
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-        cache: 'pip'
-        
-    - name: Install Python dependencies (if needed)
-      if: steps.check-python.outputs.python-needed == 'true'
-      shell: pwsh
-      run: |
-        if (Test-Path "requirements.txt") {
-          pip install -r requirements.txt
-        } elseif (Test-Path "pyproject.toml") {
-          pip install -e .
-        }
 
-    - name: Render Quarto Project
-      shell: pwsh
-      run: |
-        Write-Host "Rendering Quarto project..."
-        quarto render --to html
-        
-        Write-Host "Verifying output directory..."
-        if (Test-Path "docs") {
-          $htmlFiles = Get-ChildItem "docs" -Filter "*.html" -Recurse
-          Write-Host "Generated $($htmlFiles.Count) HTML files"
-          
-          # Check if navigation.json was copied
-          if (Test-Path "docs/navigation.json") {
-            Write-Host "✓ navigation.json found in output"
-          } else {
-            Write-Warning "⚠ navigation.json not found in output"
+          # Install Quarto silently
+          Write-Host "Installing Quarto..."
+          try {
+            $process = Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait -PassThru
+            Write-Host "Installation completed with exit code: $($process.ExitCode)"
+          } catch {
+            Write-Host "Installation failed: $_"
+            exit 1
           }
-        } else {
-          Write-Error "✗ docs directory not found after rendering"
-          exit 1
-        }
-    
-    - name: Deploy to gh-pages branch
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      shell: pwsh
-      run: |
-        Write-Host "Deploying to gh-pages branch..."
-        
-        # Configure git
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        
-        # Create or switch to gh-pages branch
-        git checkout --orphan gh-pages || git checkout gh-pages
-        
-        # Remove all files except docs
-        Get-ChildItem -Force | Where-Object { $_.Name -ne 'docs' -and $_.Name -ne '.git' } | Remove-Item -Recurse -Force
-        
-        # Move docs contents to root
-        if (Test-Path "docs") {
-          Get-ChildItem "docs" -Force | Move-Item -Destination . -Force
-          Remove-Item "docs" -Force -Recurse
-        }
-        
-        # Add all files
-        git add -A
-        
-        # Commit
-        git commit -m "🚀 Deploy site - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -m "Auto-deployed from commit $env:GITHUB_SHA"
-        
-        # Force push to gh-pages
-        git push origin gh-pages --force
-        
-        Write-Host "✓ Site deployed to gh-pages branch!"
-        
+
+          # Add Quarto to PATH for current session
+          $quartoPath = "C:\Program Files\Quarto\bin"
+          if (Test-Path $quartoPath) {
+            $env:PATH = "$quartoPath;$env:PATH"
+            Write-Host "Added $quartoPath to PATH"
+            
+            # Persist PATH for subsequent steps
+            echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+            
+            # Verify installation
+            $version = & "$quartoPath\quarto.exe" --version
+            Write-Host "Quarto installed successfully: $version"
+          } else {
+            Write-Host "Quarto installation directory not found at $quartoPath"
+            # Check alternative locations
+            $altPath = "C:\Program Files (x86)\Quarto\bin"
+            if (Test-Path $altPath) {
+              Write-Host "Found Quarto at alternative location: $altPath"
+              $env:PATH = "$altPath;$env:PATH"
+              echo $altPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+            } else {
+              Write-Host "Quarto not found in expected locations"
+              exit 1
+            }
+          }
+
+      - name: Check for Python requirements
+        id: check-python
+        shell: pwsh
+        run: |
+          if ((Test-Path "requirements.txt") -or (Test-Path "pyproject.toml")) {
+            echo "python-needed=true" >> $env:GITHUB_OUTPUT
+          } else {
+            echo "python-needed=false" >> $env:GITHUB_OUTPUT
+          }
+
+      - name: Setup Python (if needed for computations)
+        if: steps.check-python.outputs.python-needed == 'true'
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Python dependencies (if needed)
+        if: steps.check-python.outputs.python-needed == 'true'
+        shell: pwsh
+        run: |
+          if (Test-Path "requirements.txt") {
+            pip install -r requirements.txt
+          } elseif (Test-Path "pyproject.toml") {
+            pip install -e .
+          }
+
+      - name: Render Quarto Project
+        shell: pwsh
+        run: |
+          Write-Host "Rendering Quarto project..."
+          quarto render --to html
+
+          Write-Host "Verifying output directory..."
+          if (Test-Path "docs") {
+            $htmlFiles = Get-ChildItem "docs" -Filter "*.html" -Recurse
+            Write-Host "Generated $($htmlFiles.Count) HTML files"
+            
+            # Check if navigation.json was copied
+            if (Test-Path "docs/navigation.json") {
+              Write-Host "✓ navigation.json found in output"
+            } else {
+              Write-Warning "⚠ navigation.json not found in output"
+            }
+          } else {
+            Write-Error "✗ docs directory not found after rendering"
+            exit 1
+          }
+
+      - name: Deploy to gh-pages branch
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        shell: pwsh
+        run: |
+          Write-Host "Deploying to gh-pages branch..."
+
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Create or switch to gh-pages branch
+          git checkout --orphan gh-pages || git checkout gh-pages
+
+          # Remove all files except docs
+          Get-ChildItem -Force | Where-Object { $_.Name -ne 'docs' -and $_.Name -ne '.git' } | Remove-Item -Recurse -Force
+
+          # Move docs contents to root
+          if (Test-Path "docs") {
+            Get-ChildItem "docs" -Force | Move-Item -Destination . -Force
+            Remove-Item "docs" -Force -Recurse
+          }
+
+          # Add all files
+          git add -A
+
+          # Commit
+          git commit -m "🚀 Deploy site - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -m "Auto-deployed from commit $env:GITHUB_SHA"
+
+          # Force push to gh-pages
+          git push origin gh-pages --force
+
+          Write-Host "✓ Site deployed to gh-pages branch!"
+
     # - name: Trigger Pages Rebuild
     #   continue-on-error: true  # Don't fail the workflow if this step fails
     #   shell: pwsh
