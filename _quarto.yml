@@ -692,8 +692,9 @@ website:
       - section: "Tools"
         icon: tools
         contents:
-          - text: "AI & Prompt Engineering"
-            href: tech/PromptEngineering
+          - section: "AI & Prompt Engineering"
+            contents:
+              - tech/PromptEngineering/
           - section: "Markdown Documentation Guides"
             contents:
               - section: "Quarto"
