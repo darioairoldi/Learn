@@ -4676,6 +4676,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     @media (max-width: 991px) {
 
+
+
         /* Hide any custom sidebar toggle we might create */
 
         .custom-sidebar-toggle {
@@ -7944,15 +7946,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Observe sidebar visibility changes from Quarto's native toggle
 
-        const observer = new MutationObserver(function(mutations) {
+        const observer = new MutationObserver(function (mutations) {
 
-            mutations.forEach(function(mutation) {
+            mutations.forEach(function (mutation) {
 
                 if (mutation.attributeName === 'class') {
 
                     const isSidebarVisible = !sidebar.classList.contains('hidden');
 
-                    
+
 
                     if (isSidebarVisible) {
 
