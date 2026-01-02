@@ -694,7 +694,22 @@ website:
         contents:
           - section: "AI & Prompt Engineering"
             contents:
-              - tech/PromptEngineering/
+              - href: "tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md"
+                text: "How GitHub Copilot Uses Markdown and Prompt Folders"
+              - href: "tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.md"
+                text: "How to Name and Organize Prompt Files"
+              - href: "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
+                text: "How to Structure Content for Copilot Prompt Files"
+              - href: "tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md"
+                text: "How to Structure Content for Copilot Agent Files"
+              - href: "tech/PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.md"
+                text: "How to Structure Content for Copilot Instruction Files"
+              - href: "tech/PromptEngineering/06. how_to_create_a_prompt_interacting_with_agents.md"
+                text: "How to Create a Prompt Interacting with Agents"
+              - href: "tech/PromptEngineering/06.1 example_prompt_interacting_with_agents_plan.md"
+                text: "Example: Prompt Interacting with Agents (Plan)"
+              - href: "tech/PromptEngineering/07. Prompts and markdown structure for a documentation site.md"
+                text: "Prompts and Markdown Structure for Documentation Sites"
           - section: "Markdown Documentation Guides"
             contents:
               - section: "Quarto"
