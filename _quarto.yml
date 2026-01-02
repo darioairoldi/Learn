@@ -1,4 +1,4 @@
-project:
+﻿project:
   type: website
   output-dir: docs
   pre-render:
@@ -332,20 +332,7 @@ website:
             text: "GitHub CLI Commands"
           - text: "---"
           - text: "AI & Prompt Engineering"
-          - href: "tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md"
-            text: "How GitHub Copilot Uses Markdown and Prompt Folders"
-          - href: "tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.md"
-            text: "How to Name and Organize Prompt Files"
-          - href: "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
-            text: "How to Structure Copilot Prompt Files"
-          - href: "tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md"
-            text: "How to Structure Copilot Agent Files"
-          - href: "tech/PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.md"
-            text: "How to Structure Copilot Instruction Files"
-          - href: "tech/PromptEngineering/06. how_to_create_a_prompt_interacting_with_agents.md"
-            text: "Creating Prompts That Interact with Agents"
-          - href: "tech/PromptEngineering/07. Prompts and markdown structure for a documentation site.md"
-            text: "Prompts for Documentation Sites"
+          - "tech/PromptEngineering/"  # ← Single line replaces 7 entries!
           - text: "---"
           - text: "API Testing"
           - href: "20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.md"
