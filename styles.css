@@ -756,6 +756,7 @@ body>.custom-toc-addition {
 
 /* Mobile and Tablet (up to 991px) */
 @media (max-width: 991px) {
+
   /* Sidebar should be overlay-style on mobile */
   #quarto-sidebar {
     position: fixed !important;
@@ -830,6 +831,7 @@ body>.custom-toc-addition {
 
 /* Desktop (992px and up) */
 @media (min-width: 992px) {
+
   /* Sidebar is always visible and positioned statically */
   #quarto-sidebar {
     position: relative !important;
