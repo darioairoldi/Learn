@@ -749,6 +749,26 @@ body > .custom-toc-addition {
   }
 }
 
+/* Sidebar responsive behavior - ensure it works on mobile */
+@media (max-width: 991px) {
+  /* Let Quarto handle sidebar collapse naturally */
+  #quarto-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure sidebar doesn't interfere with content when collapsed */
+  body.sidebar-collapse #quarto-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  /* Fix sidebar content width on mobile */
+  .sidebar-navigation {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 mark, .mark {
     background-color: var(--bs-highlight-bg) !important;
 }
