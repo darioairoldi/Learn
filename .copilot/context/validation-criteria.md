@@ -1,0 +1,364 @@
+# Validation Criteria for Learning Documentation Site
+
+This document defines what makes content "ready to publish" and establishes quality thresholds for validation.
+
+## Overall Quality Threshold
+
+Content is considered **publish-ready** when:
+- All critical validations passed
+- No broken links or errors
+- Facts verified within last 30 days
+- Metadata complete and current
+- Template structure followed
+- Target audience appropriately served
+
+## Validation Dimensions
+
+### 1. Grammar and Mechanics
+
+**Pass Criteria:**
+- Zero spelling errors
+- No grammar mistakes
+- Proper punctuation
+- Consistent capitalization
+- No sentence fragments (unless intentional)
+- Proper use of technical terms
+
+**Acceptable Minor Issues:**
+- Stylistic preferences (Oxford comma, etc.)
+- Technical jargon proper to domain
+- Intentional fragments for emphasis
+
+**Automatic Fail:**
+- Multiple spelling errors (> 5)
+- Grammar errors that impede understanding
+- Inconsistent terminology usage
+
+### 2. Readability
+
+**Target Metrics:**
+- Flesch Reading Ease: 50-70 (fairly easy to standard)
+- Grade Level: 9-10 for general content, 11-12 for advanced technical
+- Average Sentence Length: 15-25 words
+- Paragraph Length: 3-5 sentences
+
+**Pass Criteria:**
+- Readability score within range for target audience
+- Clear paragraph structure
+- Logical flow between sentences
+- Appropriate use of transitions
+- No redundancy or repetition
+
+**Acceptable Variance:**
+- Higher complexity justified by technical depth
+- Lower readability for code-heavy content (code examples excluded from calculation)
+- Audience-specific adjustments (beginner vs. advanced)
+
+**Automatic Fail:**
+- Readability significantly off-target without justification
+- Excessive redundancy (same information repeated multiple times)
+- Confusing or contradictory statements
+
+### 3. Structure
+
+**Required Elements (All Articles):**
+- ✅ Single H1 title
+- ✅ Table of Contents (if > 500 words)
+- ✅ Introduction section
+- ✅ Body with logical section breaks
+- ✅ Conclusion section
+- ✅ References section (if sources cited)
+
+**Heading Requirements:**
+- ✅ Proper hierarchy (no skipped levels)
+- ✅ Descriptive headings
+- ✅ Consistent formatting
+
+**Markdown Quality:**
+- ✅ Code blocks have language specified
+- ✅ Links formatted properly
+- ✅ Images have alt text
+- ✅ Lists properly formatted
+- ✅ No broken Markdown syntax
+
+**Pass Criteria:**
+All required elements present, proper hierarchy, valid Markdown
+
+**Automatic Fail:**
+- Missing required sections
+- Broken Markdown that affects rendering
+- Skipped heading levels
+- Code blocks without language specification
+
+### 4. Logical Flow
+
+**Pass Criteria:**
+- Concepts introduced before used
+- Ideas build upon each other
+- No circular dependencies
+- Smooth transitions between sections
+- Conclusion follows from content
+- Prerequisites clearly stated
+
+**Evaluation Points:**
+- Does introduction set up the content?
+- Do sections follow a logical sequence?
+- Are jumps in complexity justified?
+- Are connections between concepts explicit?
+- Does conclusion summarize effectively?
+
+**Automatic Fail:**
+- Critical prerequisite not explained
+- Concepts used before introduction
+- Contradictory statements
+- Disconnected sections without context
+
+### 5. Factual Accuracy
+
+**Pass Criteria:**
+- All factual claims verified against authoritative sources
+- Version information current
+- Links to official documentation
+- Statistics/benchmarks cited
+- Code examples tested and functional
+- No outdated information
+
+**Source Requirements:**
+- Official documentation preferred
+- GitHub repositories for open source
+- Academic papers for algorithms/theory
+- Industry-standard resources
+- Sources dated within reasonable timeframe
+
+**Verification Frequency:**
+- Technical details: Verify quarterly or with major version changes
+- Statistics: Re-verify annually
+- General concepts: Verify at publication, review annually
+
+**Automatic Fail:**
+- Factually incorrect information
+- Broken or outdated links
+- Uncited statistics or benchmarks
+- Code examples that don't work
+- Security vulnerabilities in examples
+
+### 6. Completeness (Gap Analysis)
+
+**Pass Criteria (Comprehensive):**
+- All major aspects of topic covered
+- Common use cases explained
+- Prerequisites adequately addressed
+- Common questions answered
+- Examples included where needed
+
+**Acceptable (Minor Gaps):**
+- Some nice-to-have topics not covered
+- Advanced edge cases not fully explored
+- Optional enhancements not detailed
+- Links to external resources for deep dives
+
+**Needs Work (Major Gaps):**
+- Critical concepts not explained
+- Common use cases missing
+- No examples for complex topics
+- Prerequisites assumed but not stated
+
+**Evaluation Questions:**
+- Are readers' likely questions answered?
+- Are common use cases covered?
+- Is prerequisite knowledge addressed?
+- Are examples sufficient?
+- Are limitations or caveats noted?
+
+### 7. Understandability
+
+**Pass Criteria:**
+- Target audience can comprehend content
+- Technical depth appropriate for audience level
+- Jargon defined or linked
+- Examples clarify concepts
+- Progressive complexity manageable
+
+**Audience-Specific Thresholds:**
+
+**Beginner Content:**
+- Every technical term defined
+- Multiple examples provided
+- Step-by-step explanations
+- Links to prerequisite learning
+- No assumed knowledge
+
+**Intermediate Content:**
+- Common terms referenced, not redefined
+- Examples show realistic usage
+- Some prior knowledge assumed but stated
+- Links to foundational concepts
+
+**Advanced Content:**
+- Domain expertise assumed
+- Focus on optimization, edge cases
+- Complex examples appropriate
+- References to theory or research
+
+**Automatic Fail:**
+- Audience mismatch not addressed
+- Unexplained jargon blocks understanding
+- Examples don't clarify concepts
+- Sudden jumps in complexity without bridge
+
+## Series-Specific Validation
+
+**Series Consistency:**
+- Terminology consistent across articles
+- Style and format uniform
+- Cross-references working
+- Non-redundant (or justified redundancy)
+- Logical progression
+
+**Series Completeness:**
+- All promised topics covered
+- Prerequisites clear
+- Navigation functional
+- Gaps between articles bridged
+
+## Metadata Requirements
+
+**Complete Metadata:**
+```yaml
+✅ Title, author, dates filled
+✅ Tags relevant and complete
+✅ Status appropriate for content state
+✅ Series info (if applicable)
+✅ All validation sections updated
+✅ Cross-references current
+✅ Analytics computed
+```
+
+**Validation History:**
+- Timestamps recent (< 7 days for critical validations)
+- Models used noted
+- Outcomes recorded
+- Issues documented
+
+## Pre-Publication Checklist
+
+### Critical (Must Pass)
+- [ ] Grammar validated: passed
+- [ ] Structure validated: passed
+- [ ] Facts checked: passed (<30 days)
+- [ ] Links verified: all working
+- [ ] Code tested: functional
+- [ ] No placeholder content (TODO, TBD, etc.)
+
+### Important (Should Pass)
+- [ ] Readability validated: passed or justified
+- [ ] Logic validated: passed
+- [ ] Gap analysis: comprehensive or minor_gaps
+- [ ] Understandability: passed for target audience
+- [ ] Metadata complete and current
+
+### Recommended
+- [ ] Series validated (if applicable)
+- [ ] Correlated topics identified
+- [ ] Cross-references added
+- [ ] Examples tested in multiple environments
+
+## Continuous Quality
+
+### Review Triggers
+
+Re-validation required when:
+- Content modified
+- Technology version updates
+- Links break or sources move
+- Reader feedback identifies issues
+- More than 90 days since last review
+
+### Maintenance Standards
+
+**Quarterly Review:**
+- Check fact currency
+- Update version information
+- Verify links
+- Assess if content needs refresh
+
+**Annual Review:**
+- Comprehensive validation run
+- Gap analysis
+- Audience relevance check
+- Consider if content should be archived
+
+## Quality Scoring
+
+### Validation Outcome Definitions
+
+**Passed:**
+- Meets all criteria for dimension
+- No critical issues
+- Minor issues acceptable and noted
+
+**Minor Issues:**
+- Meets most criteria
+- Issues don't block understanding
+- Improvements suggested but not required
+- Can publish with notes
+
+**Needs Revision:**
+- Fails some criteria
+- Issues impede understanding or usability
+- Must be addressed before publication
+- Re-validation required after fixes
+
+**Failed:**
+- Fails critical criteria
+- Significant errors or omissions
+- Cannot publish in current state
+- Major revision required
+
+### Overall Readiness
+
+**Ready to Publish:**
+- All critical validations: Passed
+- Important validations: Passed or Minor Issues
+- No broken links/errors
+- Metadata complete
+
+**Needs Minor Work:**
+- Critical validations: Passed
+- Some important validations: Needs Revision
+- Can publish after addressing specific issues
+
+**Not Ready:**
+- Any critical validation: Failed or Needs Revision
+- Multiple important validations: Failed
+- Significant work required
+
+## Special Considerations
+
+### Code-Heavy Content
+
+- Readability metrics adjusted (code excluded)
+- Structure may deviate for reference docs
+- Examples must be tested and working
+- Comments and explanations required
+
+### Series Articles
+
+- Consistency with series more important than standalone perfection
+- Cross-reference validation critical
+- Terminology must match across series
+- Can trade some comprehensiveness for focused scope
+
+### Time-Sensitive Content
+
+- Fact-checking more frequent
+- Version info prominently displayed
+- Regular review schedule
+- Deprecation plan if outdated
+
+### Reference Material
+
+- Completeness more critical than narrative flow
+- Structure allows for quick lookup
+- Examples exhaustive
+- Updates tracked meticulously
