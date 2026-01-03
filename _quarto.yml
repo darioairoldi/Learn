@@ -320,18 +320,7 @@ website:
         contents:
           - section: "Build Conference 2025"
             icon: microsoft
-            href: "events/202506 Build 2025/Readme.md"
-            contents:
-              - text: "Overview"
-                href: "events/202506 Build 2025/Readme.md"
-              - section: "BRK - Breakout Sessions"
-                contents: "events/202506 Build 2025/BRK/**/*.md"
-              - section: "DEM - Demonstrations"
-                contents: "events/202506 Build 2025/DEM/**/*.md"
-              - section: "ODF - On-Demand Features"
-                contents: "events/202506 Build 2025/ODF/**/*.md"
-              - section: "STUDIO - Studio Sessions"
-                contents: "events/202506 Build 2025/STUDIO/**/*.md"
+            href: "events/202506 Build 2025/**/*.md"
 
       - section: "Technologies"
         icon: cpu
