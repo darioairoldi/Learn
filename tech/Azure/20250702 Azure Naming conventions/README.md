@@ -11,6 +11,8 @@ format:
     toc-depth: 3
 ---
 
+# Azure Naming Conventions
+
 ## Table of Contents
 
 1. [Overview](#overview)

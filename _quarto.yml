@@ -449,14 +449,17 @@ website:
         icon: tools
         contents:
           - section: "AI & Prompt Engineering"
-            contents: "tech/PromptEngineering/**/*.md"
+            contents: "tech/PromptEngineering/*.md"
           - section: "Markdown Documentation Guides"
-            contents: "tech/Markdown/01. QUARTO Doc/**/*.md"
+            contents:
+              - section: "Quarto"
+                contents: "tech/Markdown/01. QUARTO Doc/*.md"
+              - section: "MkDocs"
+                contents: "tech/Markdown/02. MkDocs/*.md"
           - section: "Feed Architectures & Protocols"
-            contents: "20251005 Feeds architectures and protocols/**/*.md"
+            contents: "20251005 Feeds architectures and protocols/*.md"
           - section: "Development Tools"
-            href: "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
-            contents: 
+            contents:
               - href: "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
                 text: "Git Command Line"
               - href: "202510 Developer Update/Cli/Cli commands for Github.md"
@@ -482,16 +485,19 @@ website:
                     text: "yq Advanced Techniques"
               - href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
                 text: "Query Cost Metrics with Diginsight"
+
           - section: "Programming Languages"
             contents:
               - href: "202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.md"
                 text: "C# DateTime Format Strings"
+
           - section: "HowTo Guides"
             contents:
               - href: "howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md"
                 text: "Configure .prompt Files for Markdown Preview in VS"
               - href: "20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.md"
                 text: "Expose Computer with No-IP DDNS"
+
           - section: "Hardware"
             contents:
               - href: "tech/Hardware/Surface Laptop 6 Features analysis.md"
