@@ -398,7 +398,7 @@ website:
 
   sidebar:
     style: "floating"
-    search: true
+    search: false
     collapse-level: 3
     contents:
       - href: index.qmd
@@ -416,102 +416,68 @@ website:
 
       - section: "News & Updates"
         icon: newspaper
-        contents:
-          - section: "VS Code Releases"
-            contents:
-              - href: "news/20251224 vscode v1.107 Release/README.Sonnet4.md"
-                text: "VS Code v1.107 Release Analysis"
-              - href: "news/20251224 vscode v1.107 Release/Summary.md"
-                text: "VS Code v1.107 Summary"
+        contents: "news/**/*.md"
 
       - section: "Events"
         icon: calendar-event
         contents:
           - section: "Build Conference 2025"
+            icon: microsoft
             href: "events/202506 Build 2025/*.md"
             contents: "events/202506 Build 2025/**/*.md"
 
-      - section: "Azure Topics"
-        icon: cloud
+      - section: "Technologies"
+        icon: cpu
         contents:
-          - section: "Azure Best Practices"
-            contents: "tech/Azure/20250702 Azure Naming conventions/**/*.md"
-          - section: "Security & Identity"
-            contents: "tech/Authentication/20251102 Authenticating External Users in Azure AD/**/*.md"
-          - section: "Azure Data Services"
-            contents: "202510 Developer Update/20250704 TableStorageAccess options/**/*.md"
-          - section: "Azure Messaging & Events"
-            contents: "20250723 EventHub Access options/**/*.md"
-          - section: "Azure Developer Learning Path"
-            contents: "202510 Developer Update/01. Azure Apps/**/*.md"
+          - section: "Authentication"
+            icon: shield-lock
+            contents: "tech/Authentication/**/*.md"
+          - section: "Azure"
+            icon: cloud
+            contents: "tech/Azure/**/*.md"
+          - section: "Data"
+            icon: database
+            contents: "tech/Data/**/*.md"
+          - section: "Programming Languages"
+            icon: code-slash
+            contents: "tech/Programming Languages/**/*.md"
+          - section: "Feed Architectures & Protocols"
+            icon: rss
+            contents: "tech/Feed/**/*.md"
 
       - section: "Tools"
         icon: tools
         contents:
-          - section: "Prompt Engineering"
+          - section: "GitHub"
+            icon: github
+            contents: "tech/Github/**/*.md"
+          - section: "GitHub Copilot"
+            icon: chat-dots
             contents: "tech/PromptEngineering/**/*.md"
           - section: "Diginsight"
+            icon: graph-up
             contents: "tech/Diginsight/**/*.md"
-          - section: "GitHub"
-            contents: "tech/Github/**/*.md"
-          - section: "Markdown Documentation Guides"
+          - section: "Markdown Compilers"
+            icon: book
             contents:
               - section: "Quarto"
+                icon: file-richtext
                 contents: "tech/Markdown/01. QUARTO Doc/*.md"
               - section: "MkDocs"
+                icon: book-half
                 contents: "tech/Markdown/02. MkDocs/*.md"
-          - section: "Feed Architectures & Protocols"
-            contents: "20251005 Feeds architectures and protocols/*.md"
-          - section: "Data Processing"
-            contents:
-              - section: "yq YAML Processor"
-                contents: "20250827 what is yq overview/**/*.md"
-
-          - section: "Programming Languages"
-            contents:
-              - href: "202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.md"
-                text: "C# DateTime Format Strings"
 
           - section: "HowTo Guides"
+            icon: question-circle
             contents: "howto/**/*.md"
 
           - section: "Hardware"
-            contents:
-              - href: "tech/Hardware/Surface Laptop 6 Features analysis.md"
-                text: "Surface Laptop 6 Features Analysis"
+            icon: cpu-fill
+            contents: "tech/Hardware/**/*.md"
 
       - section: "Issues & Solutions"
         icon: wrench-adjustable
-        contents:
-          - section: "Development Issues"
-            href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
-            contents:
-              - href: "issues/20250709 fatal error cloning a repo with Visual Studio/README.md"
-                text: "VS Clone Error on ReFS (solved)"
-              - href: "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
-                text: "VS Clone Error Fix (solved)"
-              - href: "issues/20250710 sample/README.md"
-                text: "Sample Issue (Empty)"
-              - href: "_ISSUES/20250710 sample/README.md"
-                text: "Sample Issue Documentation"
-              - href: "issues/20251107 FeedId cannot contain forward slash/ISSUE Template.md"
-                text: "FeedId Cannot Contain Forward Slash (Template)"
-          - section: "GitHub & CI/CD Issues"
-            contents:
-              - href: "tech/Github/01.Repositories/20250825 Github repositories limitations/README.md"
-                text: "GitHub Repository Limitations"
-              - section: "GitHub Actions: Artifact Storage Quota Fix"
-                contents:
-                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.md"
-                    text: "Overview"
-                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.md"
-                    text: "Quick Start"
-                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.md"
-                    text: "Solution Summary"
-                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.md"
-                    text: "Final Solution (No Artifacts)"
-                  - href: "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.md"
-                    text: "WSL Error Fix"
+        contents: "issues/**/*.md"
 
       - text: "---"
 
@@ -519,13 +485,8 @@ website:
         icon: lightbulb
         contents:
           - section: "IQPilot - AI Content Quality Tool"
-            contents:
-              - href: "idea/IQPilot/01. IQPilot overview.md"
-                text: "IQPilot Overview"
-              - href: "idea/IQPilot/02. IQPilot Getting started.md"
-                text: "Getting Started with IQPilot"
-              - href: "idea/IQPilot/03. IQPilot Implementation details.md"
-                text: "IQPilot Implementation Details"
+            icon: stars
+            contents: "idea/**/*.md"
 
       - text: "---"
 
