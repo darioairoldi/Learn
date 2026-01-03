@@ -320,7 +320,8 @@ website:
         contents:
           - section: "Build Conference 2025"
             icon: microsoft
-            href: "events/202506 Build 2025/**/*.md"
+            href: "events/202506 Build 2025/Readme.md"
+            contents: "events/202506 Build 2025/**/*.md"
 
       - section: "Technologies"
         icon: cpu
