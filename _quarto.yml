@@ -448,8 +448,12 @@ website:
       - section: "Tools"
         icon: tools
         contents:
-          - section: "AI & Prompt Engineering"
-            contents: "tech/PromptEngineering/*.md"
+          - section: "Prompt Engineering"
+            contents: "tech/PromptEngineering/**/*.md"
+          - section: "Diginsight"
+            contents: "tech/Diginsight/**/*.md"
+          - section: "GitHub"
+            contents: "tech/Github/**/*.md"
           - section: "Markdown Documentation Guides"
             contents:
               - section: "Quarto"
@@ -458,33 +462,10 @@ website:
                 contents: "tech/Markdown/02. MkDocs/*.md"
           - section: "Feed Architectures & Protocols"
             contents: "20251005 Feeds architectures and protocols/*.md"
-          - section: "Development Tools"
-            contents:
-              - href: "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
-                text: "Git Command Line"
-              - href: "202510 Developer Update/Cli/Cli commands for Github.md"
-                text: "GitHub CLI Commands"
-              - href: "20250711 Use http files for easy and repeatable test/README.md"
-                text: "HTTP Files Testing"
-              - href: "20250713 Use http files for easy and repeatable test/README.md"
-                text: "HTTP Files (Extended)"
-              - section: "Diginsight"
-                href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
-                contents:
-                  - href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
-                    text: "CosmosDB Query Cost Metrics with Diginsight"
           - section: "Data Processing"
             contents:
               - section: "yq YAML Processor"
-                contents:
-                  - href: "20250827 what is yq overview/README.md"
-                    text: "yq Overview"
-                  - href: "20250827 what is yq overview/appendix-yq-tool.md"
-                    text: "yq Tool Reference"
-                  - href: "20250827 what is yq overview/appendix-advanced-techniques.md"
-                    text: "yq Advanced Techniques"
-              - href: "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
-                text: "Query Cost Metrics with Diginsight"
+                contents: "20250827 what is yq overview/**/*.md"
 
           - section: "Programming Languages"
             contents:
@@ -492,11 +473,7 @@ website:
                 text: "C# DateTime Format Strings"
 
           - section: "HowTo Guides"
-            contents:
-              - href: "howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.md"
-                text: "Configure .prompt Files for Markdown Preview in VS"
-              - href: "20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.md"
-                text: "Expose Computer with No-IP DDNS"
+            contents: "howto/**/*.md"
 
           - section: "Hardware"
             contents:
