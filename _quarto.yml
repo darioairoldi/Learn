@@ -10,105 +10,6 @@
     - "**/*.md"
     - "_howto/**/*.md"
     - "howto/**/*.md"
-    - "tech/Azure/20250702 Azure Naming conventions/README.md"
-    - "202510 Developer Update/20250704 TableStorageAccess options/README.md"
-    - "202510 Developer Update/20250706 CosmosDB Access options/01. Azure CosmosDB Access Options.md"
-    - "202510 Developer Update/20250706 CosmosDB Access options/02. CosmosDB Partitioning Strategies.md"
-    - "tech/Github/01.Repositories/20250709 Manage GitRepo from commandline/README.md"
-    - "20250711 Use http files for easy and repeatable test/README.md"
-    - "20250713 Use http files for easy and repeatable test/README.md"
-    - "Travel/Paris 2025/README.md"
-    - "_ISSUES/20250709 fatal error cloning a repo with Visual Studio/README.md"
-    - "_ISSUES/20250710 sample/README.md"
-    - "issues/20250709 fatal error cloning a repo with Visual Studio/README.md"
-    - "issues/20250710 sample/README.md"
-    - "issues/20251107 FeedId cannot contain forward slash/ISSUE Template.md"
-    - "20250815 DIY Battery Pack/README.md"
-    - "20250815 DIY ebike/SUMMARY.md"
-    # Explicitly include Build 2025 session files
-    - "events/202506 Build 2025/**/*.md"
-    - "events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/SUMMARY.md"
-    - "events/202506 Build 2025/BRK114 CS 14 Language Features and Beyond/README.Sonnet4.md"
-    # Add recently created content
-    - "20250723 EventHub Access options/README.md"
-    - "tech/Github/01.Repositories/20250825 Github repositories limitations/README.md"
-    - "20250827 what is yq overview/README.md"
-    - "20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.md"
-    - "20250815 DIY ebike/SUMMARY.md"
-    # Add main README for homepage
-    - "README.md"
-    - "idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
-    - "idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
-    # Add Feeds architectures and protocols
-    - "20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.md"
-    - "20251005 Feeds architectures and protocols/02. Analyzing Atom and RSS specifications.md"
-    - "20251005 Feeds architectures and protocols/03. Additional metadata for RSS and Atom feeds.md"
-    - "20251005 Feeds architectures and protocols/04. C# Reference Classes for Reading Feeds.md"
-    # Add Issues section files
-    - "_ISSUES/20250710 sample/README.md"
-    # Add DIY projects
-    - "20250815 DIY ebike/SUMMARY.md"
-    # Add Developer Update articles
-    - "202510 Developer Update/**/*.md"
-    - "202510 Developer Update/01. Azure Apps/01. Azure Apps QA.md"
-    - "202510 Developer Update/01. Azure Apps/02. Azure WebApp Limitations.md"
-    - "202510 Developer Update/01. Azure Apps/03. cli commands.md"
-    - "202510 Developer Update/01. Azure Apps/04. Azure Web App CLI Commands Guide.md"
-    - "202510 Developer Update/02. Azure Key Vault/03. HowTo.Create and retrieve secrets from Azure Key Vault.md"
-    - "202510 Developer Update/04. Monitor App Performance/01. Azure Monitor QA.md"
-    - "202510 Developer Update/05. Azure Containers/01. Azure Container App.md"
-    - "202510 Developer Update/05. Azure Containers/02. Azure Container App Environments Overview.md"
-    - "202510 Developer Update/05. Azure Containers/03. HowTo. Use az cli to create azure container app.md.md"
-    - "202510 Developer Update/05. Azure Containers/99. Azure Containers QA.md"
-    - "202510 Developer Update/20251021 BlobStorage Access options/01. Blob Storage Access options.md"
-    - "202510 Developer Update/20251021 BlobStorage Access options/02. Blob Storage Limitations.md"
-    - "202510 Developer Update/Cli/Cli commands for Github.md"
-    - "202510 Developer Update/Lang01 CSharp/01. Format strings - DateTime, DateTimeOffset and TimeSpan.md"
-    # Add Azure AD External Users
-    - "tech/Authentication/20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.md"
-    - "tech/Authentication/20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.md"
-    # Add HTTP Testing articles
-    - "20250713 Use http files for easy and repeatable test/00. HTTP REST API Testing Tools - Comprehensive Comparison.md"
-    - "20250713 Use http files for easy and repeatable test/01. Using HTTP Files for API Testing (VSCode Rest Client)"
-    - "20250713 Use http files for easy and repeatable test/02. Using HTTP Files for API Testing (Visual Studio).md"
-    # Add DDNS article
-    - "20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.md"
-    # Add GitHub Actions issue solution
-    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/01. README.md"
-    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/02. QUICKSTART.md"
-    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/03. SOLUTION_SUMMARY.md"
-    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/05. FINAL_SOLUTION_NO_ARTIFACTS.md"
-    - "tech/Github/02.Actions/20251018 ISSUE Github action fails with Artifact storage quota has been hit/99. WSL_ERROR_FIX.md"
-    # Add Prompt Engineering articles
-    - "tech/PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.md"
-    - "tech/PromptEngineering/02. how_to_name_and_organize_prompt_files.md"
-    - "tech/PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.md"
-    - "tech/PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md"
-    - "tech/PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.md"
-    # Add Hardware article
-    - "tech/Hardware/Surface Laptop 6 Features analysis.md"
-    # Add Markdown Documentation articles (moved from old location)
-    - "tech/Markdown/01. QUARTO Doc/*.md"
-    - "tech/Markdown/02. MkDocs/*.md"
-    # Add Travel articles
-    - "Travel/Seattle 2026/00. Gita a San Francisco e Seattle.prep.md"
-    # Add new Prompt Engineering articles
-    - "tech/PromptEngineering/06. how_to_create_a_prompt_interacting_with_agents.md"
-    - "tech/PromptEngineering/06.1 example_prompt_interacting_with_agents_plan.md"
-    - "tech/PromptEngineering/07. Prompts and markdown structure for a documentation site.md"
-    # Add News articles
-    - "news/20251224 vscode v1.107 Release/README.Sonnet4.md"
-    - "news/20251224 vscode v1.107 Release/Summary.md"
-    # Add IQPilot articles
-    - "idea/IQPilot/01. IQPilot overview.md"
-    - "idea/IQPilot/02. IQPilot Getting started.md"
-    - "idea/IQPilot/03. IQPilot Implementation details.md"
-    # Add yq appendices
-    - "20250827 what is yq overview/appendix-advanced-techniques.md"
-    - "20250827 what is yq overview/appendix-yq-tool.md"
-    # Add Quarto README
-    - "tech/Markdown/01. QUARTO Doc/README.md"
-    # Add root documentation files
     - "GETTING-STARTED.md"
     - "DOCUMENTATION-INDEX.md"
 
@@ -419,8 +320,18 @@ website:
         contents:
           - section: "Build Conference 2025"
             icon: microsoft
-            href: "events/202506 Build 2025/*.md"
-            contents: "events/202506 Build 2025/**/*.md"
+            href: "events/202506 Build 2025/Readme.md"
+            contents:
+              - text: "Overview"
+                href: "events/202506 Build 2025/Readme.md"
+              - section: "BRK - Breakout Sessions"
+                contents: "events/202506 Build 2025/BRK/**/*.md"
+              - section: "DEM - Demonstrations"
+                contents: "events/202506 Build 2025/DEM/**/*.md"
+              - section: "ODF - On-Demand Features"
+                contents: "events/202506 Build 2025/ODF/**/*.md"
+              - section: "STUDIO - Studio Sessions"
+                contents: "events/202506 Build 2025/STUDIO/**/*.md"
 
       - section: "Technologies"
         icon: cpu
