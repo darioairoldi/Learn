@@ -404,15 +404,11 @@ website:
       - href: index.qmd
         text: "Home"
         icon: house-fill
-        contents:
-          - href: "GETTING-STARTED.md"
-            text: "Getting Started"
-          - href: "DOCUMENTATION-INDEX.md"
-            text: "Documentation Index"
-          - href: "idea/LearnHub/20250902 Learning Hub Overview/01 - Learning Hub Introduction.md"
-            text: "Learning Hub Concept"
-          - href: "idea/LearnHub/20250902 Learning Hub Overview/02 - Using Learning Hub for learning technologies.md"
-            text: "Using Learning Hub for Learning Technologies"
+        contents: "idea/LearnHub/20250902 Learning Hub Overview/*.md"
+          # - href: "GETTING-STARTED.md"
+          #   text: "Getting Started"
+          # - href: "DOCUMENTATION-INDEX.md"
+          #   text: "Documentation Index"
 
       - section: "News & Updates"
         icon: newspaper

@@ -8,9 +8,11 @@ description: "A comprehensive learning hub documenting my journey through modern
 
 # 🚀 Welcome to My Learning Hub
 
-> **A living knowledge base** that grows with every challenge solved, every technology explored, and every concept mastered.
+> A **living knowledge hub** that evolves continuously with **reduced verification and update overhead** and **assisted reasoning**.
 
-This repository represents my continuous journey through modern software development, thoughtfully organized to help both my future self and fellow developers navigate the ever-evolving landscape of technology. From conference insights to troubleshooting guides, from Azure cloud patterns to prompt engineering techniques—this is where theory meets practice.
+This is my experiment about **learning from AI**, **learning how to work with AI** and understand **how the learning process can change** when assisted by it.  
+
+From 40+ **Build**, **Ignite** and **YouTube** sessions analysis to Azure production patterns, from prompt engineering techniques to real-world troubleshooting—**250+ articles where learning happens in the open**.
 
 ## 📋 Quick Navigation
 
@@ -23,7 +25,7 @@ This repository represents my continuous journey through modern software develop
 | [🛠️ Development Tools](#️-development-tools--productivity) | Documentation tools, API testing, version control |
 | [💡 Ideas & Projects](#-ideas--projects) | IQPilot and Learning Hub concepts |
 | [🐛 Problem Solving](#-problem-solving) | Real-world issue solutions |
-| [🔧 Hardware & DIY](#-hardware--diy-projects) | Surface analysis and DIY projects |
+| [🔧 Hardware & DIY](#-hardware) | Surface analysis and DIY projects |
 
 ## 🎯 Learning Hub Philosophy
 
