@@ -115,22 +115,50 @@ Based on user request, identify target folders:
 
 | Pattern | Example | Navigation Strategy | Section Name Rule |
 |---------|---------|---------------------|-------------------|
-| `XX.YY Category/` | `03.00 tech/` | Manual section with icon | Remove prefix → "Technologies" |
-| `XX.YY Subcategory/` | `05.01 Github/` | Nested subsection | Remove prefix → "GitHub" |
+| `XX.YY Category/`<br>(or XX.YYY, XXX.YY, etc.) | `03.00 tech/`<br>`05.02 PromptEngineering/` | Manual section with icon | Remove entire numeric prefix → "Technologies", "Prompt Engineering" |
 | `YYYYMMDD Topic/` | `20251224 vscode v1.107/` | Auto-included by parent glob | Not in sidebar explicitly |
 | `YYYYMM Event/` | `202506 Build 2025/` | Manual section if important | Use event name as-is |
 
-**Repository Structure Reference:**
+**Pattern Rules:**
+- Numeric prefixes use format: `[digits].[digits]` (e.g., `01.00`, `05.02`, `120.345`)
+- Number of digits can vary in integer or fractional parts
+- ALWAYS remove complete prefix up to and including the space after it
+- Apply same rules regardless of digit count
+
+**Repository Structure Reference (Example)**
+
+> **⚠️ Note:** This is an example structure from one repository. Your repository may have completely different folders. Apply the same pattern recognition and naming rules to your actual folder structure.
+
 ```
 01.00 news/          → Section: "News & Updates" (icon: newspaper)
 02.00 events/        → Section: "Events" (icon: calendar-event)
 03.00 tech/          → Section: "Technologies" (icon: cpu)
+  01.01Authentication/        → Subsection: "Authentication" (icon: shield-lock)
+  02.01 Azure/                → Subsection: "Azure" (icon: cloud)
+  03.01 Data/                 → Subsection: "Data" (icon: database)
+  04.01 Programming Languages/→ Subsection: "Programming Languages" (icon: code-slash)
+  05.01 Github/               → Subsection: "GitHub" (icon: github)
+  05.02 PromptEngineering/    → Subsection: "Prompt Engineering" (icon: chat-dots)
+  10.01 HttpClient/           → Subsection: "HTTP Client" (icon: plug)
+  20.01 Markdown/             → Subsection: "Markdown Compilers" (icon: book)
+  21.01. Feed/                → Subsection: "Feed Architectures & Protocols" (icon: rss)
+  30.01 Diginsight/           → Subsection: "Diginsight" (icon: graph-up)
+  60.01 Hardware/             → Subsection: "Hardware" (icon: cpu-fill)
 04.00 howto/         → Section: "How-To Guides" (icon: tools)
 05.00 issues/        → Section: "Issues & Solutions" (icon: wrench-adjustable)
 06.00 idea/          → Section: "Ideas & Projects" (icon: lightbulb)
 07.00 projects/      → Section: "Projects" (icon: briefcase)
 90.00 travel/        → Section: "Travel" (icon: geo-alt)
 ```
+
+**CRITICAL: Folder-to-Section Name Mapping Rules**
+1. **Remove complete numeric prefix** (everything before folder name): `05.02 PromptEngineering/` → `PromptEngineering`
+2. **Add spaces for readability**: `PromptEngineering` → `Prompt Engineering`
+3. **Use actual folder name only** - DO NOT substitute with parent folder or custom names
+4. **Examples:**
+   - `05.02 PromptEngineering/` → "Prompt Engineering" ✅ (NOT "GitHub Copilot" ❌)
+   - `01.01Authentication/` → "Authentication" ✅
+   - `120.345 LongFolderName/` → "Long Folder Name" ✅
 
 #### Step 3: Determine Scope
 
@@ -172,105 +200,69 @@ Based on user request, identify target folders:
 
 #### Step 4: Icon Selection
 
-**Choose Bootstrap Icons based on semantic meaning:**
+**Choose Bootstrap Icons semantically** - icon should match section purpose.
 
-**Technology/Tools:**
-- `cpu`, `cpu-fill` - Technologies, computing
-- `code-slash`, `terminal` - Programming, development
-- `database`, `server` - Data systems
-- `cloud`, `cloud-fill` - Cloud services
-- `gear`, `tools` - Configuration, utilities
-- `github` - GitHub specifically
-- `microsoft` - Microsoft products
+**Common Categories:**
+- **Tech/Dev:** `cpu`, `code-slash`, `database`, `cloud`, `github`, `terminal`
+- **Content:** `newspaper`, `calendar-event`, `book`, `lightbulb`, `briefcase`  
+- **System:** `tools`, `gear`, `shield-lock`, `graph-up`
+- **Navigation:** `house-fill`, `folder2-open`, `geo-alt`
 
-**Content Types:**
-- `newspaper` - News, updates
-- `calendar-event` - Events, conferences
-- `book`, `journal` - Documentation
-- `lightbulb` - Ideas, projects
-- `question-circle` - Issues, help
-- `briefcase` - Projects, work
-- `shield-lock` - Security
-- `graph-up` - Analytics, metrics
-
-**Navigation:**
-- `house-fill` - Home
-- `arrow-right`, `chevron-right` - Forward navigation
-- `folder2-open` - File/folder contents
-- `geo-alt` - Location, travel
-
-**Process:**
-1. Identify section purpose (tech/tool/content/navigation)
-2. Choose icon from appropriate category
-3. Prefer filled variants for top-level (`house-fill` > `house`)
-4. Use outline variants for nested sections
+**Selection Rules:**
+1. Match icon to section purpose semantically
+2. Prefer filled variants for top-level sections (`cpu-fill` > `cpu`)
+3. Use outline variants for nested sections
+4. Full icon list: https://icons.getbootstrap.com/
 
 **Example:**
 ```yaml
-# ✅ Good - semantic match
-- section: "GitHub"
-  icon: github
-  
-# ✅ Good - technology icon for tech category  
+# ✅ Semantic match
 - section: "Technologies"
   icon: cpu
 
-# ❌ Bad - non-semantic
+# ❌ Non-semantic
 - section: "Technologies"
-  icon: airplane  # Not related to tech
+  icon: airplane
 ```
 
 #### Step 5: Content Strategy
 
-**Determine glob pattern vs explicit paths:**
+**Prefer glob patterns for automatic adaptation:**
 
-**✅ Use Glob Patterns When:**
+**✅ Use Glob Patterns (`"folder/**/*.md"`) When:**
 - Folder contains date-prefixed items (YYYYMMDD, YYYYMM)
-- Content changes frequently (additions/removals expected)
+- Content changes frequently
 - All markdown files should be included
-- Automatic adaptation desired
-
-**Pattern:** `"foldername/**/*.md"`
 
 **Example:**
 ```yaml
-# ✅ Robust - adapts to new news items automatically
 - section: "News & Updates"
   icon: newspaper
-  contents: "01.00 news/**/*.md"
-
-# ✅ Robust - includes all event subfolders
-- section: "Events"
-  icon: calendar-event
-  contents: "02.00 events/**/*.md"
+  contents: "01.00 news/**/*.md"  # Auto-adapts to new articles
 ```
 
 **⚠️ Use Explicit Paths Only When:**
-- Specific entry point (index/readme) needed
-- Curated subset of files (not all files)
-- Order matters and can't rely on alphabetical
+- Specific entry point needed (index/readme)
+- Curated subset (not all files)
+- Order matters (can't rely on alphabetical)
 
 **Example:**
 ```yaml
-# ⚠️ Acceptable - specific entry point plus catch-all
 - href: "events/202506 Build 2025/Readme.md"
   text: "Build Conference 2025"
-  icon: microsoft
-  contents: "events/202506 Build 2025/**/*.md"
 ```
 
 #### Step 6: Nesting Strategy
 
-**Hierarchy Levels:**
+**Keep hierarchy ≤2 levels for usability.**
 
-**Level 1 (Top-level)** - Major categories from XX.00 folders
+**Level 1** - Major categories (XX.00 folders):
 ```yaml
 - section: "Technologies"
   icon: cpu
-  contents: [...]
 ```
 
-**Level 2 (Subsections)** - Subcategories from XX.YY folders
+**Level 2** - Subcategories (XX.YY folders):
 ```yaml
 - section: "Technologies"
   icon: cpu
@@ -278,19 +270,14 @@ Based on user request, identify target folders:
     - section: "Azure"
       icon: cloud
       contents: "03.00 tech/02.01 Azure/**/*.md"
-    - section: "GitHub"
-      icon: github
-      contents: "03.00 tech/05.01 Github/**/*.md"
 ```
 
-**Level 3 (Items)** - Individual files or auto-included via glob
-```yaml
-# Auto-included by glob - no explicit entry needed
+**Level 3** - Auto-included via glob (no explicit entry):
+```
+# These files auto-appear via glob pattern:
 # 03.00 tech/02.01 Azure/20251201 Functions.md
 # 03.00 tech/02.01 Azure/20251210 Storage.md
 ```
-
-**Best Practice: Keep nesting ≤2 levels for usability**
 
 **Output: Structure Plan**
 
@@ -327,12 +314,10 @@ Based on user request, identify target folders:
 1. Extract current `sidebar.contents` section
 2. Insert/modify/remove target section
 3. Preserve all other sections unchanged
-4. Maintain 2-space indentation
-5. Ensure YAML array syntax correct
+4. Maintain 2-space indentation throughout
+5. Ensure valid YAML array syntax
 
-**YAML Formatting Rules:**
-
-**Indentation:** 2 spaces per level (NEVER tabs)
+**YAML Formatting (2 spaces per level, NEVER tabs):**
 ```yaml
 contents:
   - section: "Level 1"
@@ -341,108 +326,43 @@ contents:
       - section: "Level 2"
         icon: icon-name
         contents: "path/**/*.md"
-```
-
-**Arrays:** Consistent dash placement
-```yaml
-contents:
-  - item1
-  - item2
-  - item3
-```
-
-**Text Separators:** Simple string value
-```yaml
-- text: "---"
-```
-
-**Strings:** Quote when needed (paths, special chars)
-```yaml
-contents: "path/**/*.md"  # Quoted
-text: "Technologies"      # Quoted (optional but consistent)
+  - text: "---"  # Text separators
 ```
 
 #### Step 8: Show Before/After Diff
 
-**For significant changes (add/remove/reorder sections):**
-
-Present clear before/after comparison:
+**For significant changes, show clear comparison:**
 
 ```markdown
 ## Proposed Changes
 
-**Current (lines 45-52):**
+**Current:**
 ```yaml
 - section: "Tools"
-  icon: tools
   contents:
     - section: "Markdown"
-      icon: markdown
       contents: "tech/Markdown/**/*.md"
 ```
 
 **Updated:**
 ```yaml
 - section: "Tools"
-  icon: tools
   contents:
     - section: "Markdown"
-      icon: markdown
       contents: "tech/Markdown/**/*.md"
     - section: "Containers"
       icon: box
       contents: "tech/Containers/**/*.md"
 ```
 
-**Summary:**
-- Added "Containers" subsection under "Tools"
-- Icon: `box` (semantic match for container technology)
-- Contents: Glob pattern matches 8 markdown files
+**Summary:** Added "Containers" subsection (matches 8 files)
 
-**Proceed with modification? [User confirms]**
+**Proceed? [User confirms]**
 ```
 
 #### Step 9: Apply Changes
 
-**Use `replace_string_in_file` to update `_quarto.yml`:**
-
-**Strategy:**
-- Include 3-5 lines context before/after for unambiguous matching
-- Preserve all formatting and indentation exactly
-- Only modify `sidebar.contents` section
-- Leave project, format, execute sections untouched
-
-**Example:**
-```yaml
-# OLD STRING (with context)
-website:
-  sidebar:
-    style: "floating"
-    search: false
-    collapse-level: 3
-    contents:
-      - section: "Tools"
-        icon: tools
-        contents:
-          - section: "Markdown"
-            icon: markdown
-
-# NEW STRING (same context + modification)
-website:
-  sidebar:
-    style: "floating"
-    search: false
-    collapse-level: 3
-    contents:
-      - section: "Tools"
-        icon: tools
-        contents:
-          - section: "Markdown"
-            icon: markdown
-          - section: "Containers"
-            icon: box
-            contents: "tech/Containers/**/*.md"
-```
+Use `replace_string_in_file` with 3-5 lines context for unambiguous matching. Only modify `sidebar.contents` section.
 
 ---
 
@@ -453,44 +373,73 @@ website:
 #### Step 10: Verify Changes
 
 **Validation Checklist:**
+- [ ] Changes applied correctly to `_quarto.yml`
+- [ ] YAML indentation consistent (2 spaces)
+- [ ] Only `sidebar.contents` modified
+- [ ] Glob patterns use correct syntax (`**/*.md`)
+- [ ] Icon names are valid Bootstrap Icons
+- [ ] No YAML syntax errors (colons, quotes, dashes)
 
-- [ ] Read modified `_quarto.yml` to confirm changes applied
-- [ ] Check YAML indentation (2 spaces consistently)
-- [ ] Verify no other sections were modified
-- [ ] Confirm glob patterns use correct syntax
-- [ ] Validate icon names are valid Bootstrap Icons
-- [ ] Check for common YAML errors (extra spaces, tabs, missing colons)
-
-**YAML Validation (manual checks):**
+**Common YAML Errors:**
 ```yaml
 # ✅ Valid
 - section: "Name"
   icon: icon-name
   contents: "path/**/*.md"
 
-# ❌ Invalid - inconsistent indentation
+# ❌ Invalid - wrong indentation
 - section: "Name"
-   icon: icon-name  # 3 spaces instead of 2
+   icon: icon-name  # 3 spaces
 
 # ❌ Invalid - missing colon
 - section "Name"
-
-# ❌ Invalid - wrong array syntax
-contents:
-  "path/**/*.md"  # Should be: contents: "path/**/*.md"
 ```
 
-#### Step 11: Next Steps Guidance
+#### Step 11: Update project.render Node
+
+**CRITICAL: Ensure all markdown files are in render list**
+
+**Process:**
+1. Read current `project.render` section from `_quarto.yml`
+2. Discover all `.md` files (exclude `.github/`, `.copilot/`, `node_modules/`, `docs/`)
+3. Compare discovered files vs. current render list
+4. Identify and add missing files
+5. Show diff and confirm with user
+
+**Include in Render List:**
+- ✅ All `.qmd` files
+- ✅ Root documentation (README.md, GETTING-STARTED.md)
+- ✅ Content folders (01.00 news/, 02.00 events/, 03.00 tech/)
+- ✅ Special locations (scripts/README.md, src/*/README.md)
+
+**Exclude from Render List:**
+- ❌ Dot-folders (.github/, .copilot/, .vscode/)
+- ❌ Build output (docs/, dist/, build/)
+- ❌ Dependencies (node_modules/, packages/)
+
+**Output:**
+```markdown
+## project.render Analysis
+
+**Current:** [N] files
+**Discovered:** [M] eligible files
+**Missing:** [M-N] files to add
+
+**Proceed with update? [User confirms]**
+```
+
+#### Step 12: Next Steps Guidance
 
 **Provide clear completion message:**
 
 ```markdown
-## ✅ Sidebar Updated Successfully
+## ✅ Sidebar and Render List Updated Successfully
 
 **Changes Applied:**
-- Added "Section Name" to sidebar
+- Added/Updated "Section Name" in sidebar
 - Icon: `icon-name`
 - Contents: `path/**/*.md` (matches [N] files)
+- Updated project.render with [X] new markdown files
 
 **Next Steps:**
 
@@ -498,7 +447,10 @@ contents:
    ```powershell
    quarto preview
    ```
-   Navigate to site and verify sidebar navigation works as expected.
+   Navigate to site and verify:
+   - Sidebar navigation works as expected
+   - All pages render correctly
+   - No missing links or broken navigation
 
 2. **Regenerate navigation.json (automatic):**
    The `navigation.json` file is auto-generated when Quarto builds/previews the site.
@@ -510,17 +462,24 @@ contents:
    Get-ChildItem -Path "path" -Recurse -Filter "*.md"
    ```
 
-4. **Commit Changes:**
+4. **Verify All Pages Render:**
+   Check that newly added files appear in the build output:
+   ```powershell
+   Get-ChildItem -Path "docs" -Recurse -Filter "*.html"
+   ```
+
+5. **Commit Changes:**
    ```powershell
    git add _quarto.yml
-   git commit -m "Add [Section Name] to sidebar navigation"
+   git commit -m "Update sidebar navigation and render list"
    ```
 
 **Files Modified:**
-- `_quarto.yml` - Updated sidebar.contents section
+- `_quarto.yml` - Updated sidebar.contents and project.render sections
 
 **Files Auto-Generated (on next build):**
 - `navigation.json` - Will reflect new sidebar structure
+- `docs/**/*.html` - HTML output for all rendered markdown files
 ```
 
 ---
@@ -537,7 +496,9 @@ contents:
 4. Identify orphaned sections → suggest removals
 5. Check numeric prefixes removed from names
 6. Verify glob patterns vs explicit paths
-7. Present comprehensive change plan
+7. Verify folder-to-section name mapping (e.g., `05.02 PromptEngineering` → "Prompt Engineering", not "GitHub Copilot")
+8. Present comprehensive change plan
+9. **Update project.render list** with any newly discovered markdown files
 
 ### Case 2: Remove Deprecated Section
 
@@ -555,6 +516,7 @@ contents:
 - ✅ Keep physical files in repository (no file deletion)
 - ⚠️ Remove navigation links (users can't browse these articles via sidebar)
 - ⚠️ Articles still accessible via direct URLs
+- ⚠️ Files remain in project.render list (still rendered as HTML)
 
 **Alternatives:**
 1. **Archive section:** Move to bottom with "Archive" label
@@ -595,76 +557,88 @@ contents:
 **What would you like to do?**
 ```
 
+### Case 5: New Content Added to Repository
+
+**When new markdown files are added but not yet in sidebar or render list:**
+
+1. **Discover new files** using file_search
+2. **Identify parent folder** to determine appropriate section
+3. **Check if folder has glob pattern** in sidebar
+   - If YES: File will be auto-included in navigation (no sidebar change needed)
+   - If NO: Suggest adding parent folder to sidebar with glob pattern
+4. **Always check project.render list**
+   - New files should be added to render list regardless of sidebar strategy
+   - Show files to be added
+   - Apply updates
+
+**Example:**
+```markdown
+## New Content Detected
+
+**New Files:**
+- `03.00 tech/05.02 PromptEngineering/08. new_prompting_technique.md`
+
+**Sidebar Status:**
+- ✅ Parent folder "Prompt Engineering" exists in sidebar
+- ✅ Uses glob pattern: `"03.00 tech/05.02 PromptEngineering/**/*.md"`
+- ✅ File will be auto-included in navigation
+
+**Render List Status:**
+- ⚠️ File not in project.render list
+- **Action:** Add file to render list
+
+**Proceed with render list update? [YES/NO]**
+```
+
 ---
 
 ## Troubleshooting
 
-### Issue: YAML Syntax Error After Edit
+### YAML Syntax Error
+**Symptoms:** Quarto fails to build  
+**Fix:** Validate YAML indentation (2 spaces), check colons/quotes, use `replace_string_in_file` to fix
 
-**Symptoms:** Quarto fails to build/preview
-**Cause:** Malformed YAML (indentation, colons, quotes)
+### Empty Sidebar Section
+**Symptoms:** Section appears but has no articles  
+**Fix:** Verify glob pattern syntax (`path/**/*.md`), check folder path spelling/case
 
-**Solution:**
-1. Read `_quarto.yml` and locate error region
-2. Validate YAML syntax (check indentation with regex)
-3. Use `replace_string_in_file` to fix issue
-4. Re-run `quarto preview` to confirm
+### Icons Not Displaying
+**Symptoms:** Icon name shown as text  
+**Fix:** Verify icon name at https://icons.getbootstrap.com/, check for typos
 
-### Issue: Sidebar Section Empty
+### Incorrect Section Names
+**Symptoms:** `05.02 PromptEngineering` shows as "GitHub Copilot" instead of "Prompt Engineering"  
+**Fix:** Use actual folder name after removing numeric prefix, add spaces to camelCase
 
-**Symptoms:** Section appears but has no articles
-**Cause:** Glob pattern doesn't match any files OR files aren't markdown
+**Example:**
+```yaml
+# ❌ WRONG
+- section: "GitHub Copilot"
+  contents: "03.00 tech/05.02 PromptEngineering/**/*.md"
 
-**Solution:**
-1. Use `file_search` to verify files exist: `file_search(query: "path/*.md")`
-2. Check pattern syntax (should be `path/**/*.md` for recursive)
-3. Verify folder path is correct (no typos, correct casing on Linux)
-4. Update pattern if needed
+# ✅ CORRECT
+- section: "Prompt Engineering"
+  contents: "03.00 tech/05.02 PromptEngineering/**/*.md"
+```
 
-### Issue: Icons Not Displaying
-
-**Symptoms:** Icon name shown as text instead of icon
-**Cause:** Invalid Bootstrap Icon name
-
-**Solution:**
-1. Verify icon name at Bootstrap Icons documentation
-2. Check for typos (cpu-fill vs cpufill)
-3. Use valid alternative (list common icons in boundaries)
-4. Update icon name in sidebar
-
-### Issue: Circular Navigation
-
-**Symptoms:** Infinite loop or deep nesting
-**Cause:** Section A contains section B, section B contains section A
-
-**Solution:**
-1. Map section structure to identify cycle
-2. Break cycle by removing one reference
-3. Restructure hierarchy if needed
-4. Validate no other cycles exist
+### Files Not Appearing on Website
+**Symptoms:** Markdown files exist but don't render  
+**Fix:** Check if file is in `project.render` list, run Step 11 to update render list
 
 ---
 
 ## Reference Information
 
-**Bootstrap Icons (Common Subset):**
-- Navigation: house-fill, arrow-right, folder2-open
-- Tech: cpu, code-slash, database, cloud, server, terminal, github, microsoft
-- Content: newspaper, calendar-event, book, journal, file-text
-- Purpose: lightbulb, briefcase, tools, gear, wrench-adjustable
-- Status: question-circle, shield-lock, graph-up, stars
-- Location: geo-alt, map
+**Bootstrap Icons:** https://icons.getbootstrap.com/
 
-**Full list:** https://icons.getbootstrap.com/
+**Quarto Docs:**
+- Navigation: https://quarto.org/docs/websites/website-navigation.html#side-navigation
+- Repository: `tech/Markdown/01. QUARTO Doc/06.02-navigation-workflow.md` (if available)
 
-**Quarto Sidebar Documentation:**
-- Repository: `tech/Markdown/01. QUARTO Doc/06.02-navigation-workflow.md`
-- Official: https://quarto.org/docs/websites/website-navigation.html#side-navigation
-
-**Repository Structure:**
+**Repository Files:**
 - Instructions: `.github/instructions/documentation.instructions.md`
 - Templates: `.github/templates/`
-- Current `_quarto.yml`: Root of repository
+- Config: `_quarto.yml` (root)
 
 ---
 
