@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-12-26">
+<meta name="dcterms.date" content="2026-01-04">
 <meta name="description" content="Complete guide to all documentation automation files and resources in this repository">
 
 <title>Documentation Index – Dario’s Learning Journey</title>
@@ -2706,7 +2706,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 26, 2025</p>
+      <p class="date">January 4, 2026</p>
     </div>
   </div>
   
@@ -2855,6 +2855,21 @@ ul.task-list li input[type="checkbox"] {
 <td>Writers</td>
 </tr>
 <tr class="odd">
+<td><a href=".github/templates/techsession-summary-template.md">.github/templates/techsession-summary-template.md</a></td>
+<td>Tech session summary template</td>
+<td>Writers</td>
+</tr>
+<tr class="even">
+<td><a href=".github/templates/techsession-analysis-template.md">.github/templates/techsession-analysis-template.md</a></td>
+<td>Tech session analysis template</td>
+<td>Writers</td>
+</tr>
+<tr class="odd">
+<td><a href=".github/templates/prompt-template.md">.github/templates/prompt-template.md</a></td>
+<td>Blank prompt file template</td>
+<td>Writers</td>
+</tr>
+<tr class="even">
 <td><a href=".github/templates/metadata-template.yml">.github/templates/metadata-template.yml</a></td>
 <td>Metadata schema template</td>
 <td>Writers</td>
@@ -2930,10 +2945,14 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>IQPilot supports dual-mode operation:</strong></p>
 <section id="standalone-prompts-work-without-iqpilot" class="level4">
 <h4 class="anchored" data-anchor-id="standalone-prompts-work-without-iqpilot">Standalone Prompts (Work Without IQPilot)</h4>
-<p>Located in <code>.github/prompts/</code> - accessible via natural language with GitHub Copilot:</p>
-<p><strong>Content Creation:</strong></p>
+<p>Located in <code>.github/prompts/</code> and subdirectories - accessible via natural language with GitHub Copilot:</p>
+<p><strong>Article Prompts</strong> (<code>.github/prompts/article/</code>):</p>
 <ul>
-<li><a href=".github/prompts/article-writing.prompt.md">article-writing.prompt.md</a> - Generate articles from topics</li>
+<li><a href=".github/prompts/article/article-design-and-create.prompt.md">article-design-and-create.prompt.md</a> - Design articles from scratch</li>
+<li><a href=".github/prompts/article/article-generate-techsession-summary.prompt.md">article-generate-techsession-summary.prompt.md</a> - Generate tech session summaries</li>
+<li><a href=".github/prompts/article/article-generate-techsession-analysis.prompt.md">article-generate-techsession-analysis.prompt.md</a> - Generate tech session analysis</li>
+<li><a href=".github/prompts/article/article-review-for-consistency-gaps-and-extensions.prompt.md">article-review-for-consistency-gaps-and-extensions.prompt.md</a> - Review article for consistency and gaps</li>
+<li><a href=".github/prompts/article/article-review-series-for-consistency-gaps-and-extensions.prompt.md">article-review-series-for-consistency-gaps-and-extensions.prompt.md</a> - Review article series</li>
 </ul>
 <p><strong>Validation:</strong></p>
 <ul>
@@ -3070,27 +3089,24 @@ ul.task-list li input[type="checkbox"] {
 <section id="prompt-files" class="level3">
 <h3 class="anchored" data-anchor-id="prompt-files">Prompt Files</h3>
 <p><strong>Location</strong>: <code>.github/prompts/</code></p>
-<p><strong>Prompt Creation/Update</strong>:</p>
+<p><strong>Prompt Creation/Update</strong> (<code>.github/prompts/</code>):</p>
 <ul>
 <li><a href=".github/prompts/prompt-createorupdate-prompt-file-v2.prompt.md">prompt-createorupdate-prompt-file-v2.prompt.md</a> - ✅ <strong>Recommended</strong> - Multi-agent orchestration</li>
-<li><a href=".github/prompts/prompt-createorupdate-prompt-file.prompt.md">prompt-createorupdate-prompt-file.prompt.md</a> - ⚠️ Deprecated (use v2)</li>
-<li><a href=".github/prompts/prompt-design-and-create.prompt.md">prompt-design-and-create.prompt.md</a> - Design from scratch</li>
-<li><a href=".github/prompts/prompt-review-and-validate.prompt.md">prompt-review-and-validate.prompt.md</a> - Validate existing prompts</li>
 </ul>
-<p><strong>Guidance Maintenance</strong>:</p>
+<p><strong>Guidance Maintenance</strong> (<code>.github/prompts/promptengineering/</code>):</p>
 <ul>
-<li><a href=".github/prompts/prompt-createorupdate-prompt-guidance.prompt.md">prompt-createorupdate-prompt-guidance.prompt.md</a> - Update instruction and context files</li>
+<li><a href=".github/prompts/promptengineering/prompt-createorupdate-prompt-guidance.prompt.md">prompt-createorupdate-prompt-guidance.prompt.md</a> - Update instruction and context files</li>
 </ul>
 </section>
 <section id="agent-files" class="level3">
 <h3 class="anchored" data-anchor-id="agent-files">Agent Files</h3>
 <p><strong>Location</strong>: <code>.github/agents/</code></p>
-<p><strong>Agent Creation/Update</strong>:</p>
+<p><strong>Agent Creation/Update</strong> (<code>.github/prompts/promptengineering/</code>):</p>
 <ul>
-<li><a href=".github/prompts/agent-createorupdate-agent-file-v2.prompt.md">agent-createorupdate-agent-file-v2.prompt.md</a> - ✅ <strong>Recommended</strong> - Multi-agent orchestration</li>
-<li><a href=".github/prompts/agent-createorupdate-agent-file.prompt.md">agent-createorupdate-agent-file.prompt.md</a> - ⚠️ Deprecated (use v2)</li>
-<li><a href=".github/prompts/agent-design-and-create.prompt.md">agent-design-and-create.prompt.md</a> - Design from scratch</li>
-<li><a href=".github/prompts/agent-review-and-validate.prompt.md">agent-review-and-validate.prompt.md</a> - Validate existing agents</li>
+<li><a href=".github/prompts/promptengineering/agent-createorupdate-agent-file-v2.prompt.md">agent-createorupdate-agent-file-v2.prompt.md</a> - ✅ <strong>Recommended</strong> - Multi-agent orchestration</li>
+<li><a href=".github/prompts/promptengineering/agent-createorupdate-agent-file.prompt.md">agent-createorupdate-agent-file.prompt.md</a> - ⚠️ Deprecated (use v2)</li>
+<li><a href=".github/prompts/promptengineering/agent-design-and-create.prompt.md">agent-design-and-create.prompt.md</a> - Design from scratch</li>
+<li><a href=".github/prompts/promptengineering/agent-review-and-validate.prompt.md">agent-review-and-validate.prompt.md</a> - Validate existing agents</li>
 </ul>
 <p><strong>Specialized Agents by Role</strong>:</p>
 <table class="caption-top table">
@@ -3104,27 +3120,51 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Researcher</td>
+<td>Prompt Researcher</td>
 <td><a href=".github/agents/prompt-researcher.agent.md"><span class="citation" data-cites="prompt-researcher">@prompt-researcher</span></a></td>
-<td>Pattern discovery</td>
+<td>Prompt pattern discovery</td>
 <td>Read-only</td>
 </tr>
 <tr class="even">
-<td>Builder</td>
+<td>Prompt Builder</td>
 <td><a href=".github/agents/prompt-builder.agent.md"><span class="citation" data-cites="prompt-builder">@prompt-builder</span></a></td>
-<td>File creation</td>
+<td>Prompt file creation</td>
 <td>Read + Write</td>
 </tr>
 <tr class="odd">
-<td>Validator</td>
+<td>Prompt Validator</td>
 <td><a href=".github/agents/prompt-validator.agent.md"><span class="citation" data-cites="prompt-validator">@prompt-validator</span></a></td>
-<td>Quality assurance</td>
+<td>Prompt quality assurance</td>
 <td>Read-only</td>
 </tr>
 <tr class="even">
-<td>Updater</td>
+<td>Prompt Updater</td>
 <td><a href=".github/agents/prompt-updater.agent.md"><span class="citation" data-cites="prompt-updater">@prompt-updater</span></a></td>
-<td>Fix issues</td>
+<td>Fix prompt issues</td>
+<td>Read + Write</td>
+</tr>
+<tr class="odd">
+<td>Agent Researcher</td>
+<td><a href=".github/agents/agent-researcher.agent.md"><span class="citation" data-cites="agent-researcher">@agent-researcher</span></a></td>
+<td>Agent pattern discovery</td>
+<td>Read-only</td>
+</tr>
+<tr class="even">
+<td>Agent Builder</td>
+<td><a href=".github/agents/agent-builder.agent.md"><span class="citation" data-cites="agent-builder">@agent-builder</span></a></td>
+<td>Agent file creation</td>
+<td>Read + Write</td>
+</tr>
+<tr class="odd">
+<td>Agent Validator</td>
+<td><a href=".github/agents/agent-validator.agent.md"><span class="citation" data-cites="agent-validator">@agent-validator</span></a></td>
+<td>Agent quality assurance</td>
+<td>Read-only</td>
+</tr>
+<tr class="even">
+<td>Agent Updater</td>
+<td><a href=".github/agents/agent-updater.agent.md"><span class="citation" data-cites="agent-updater">@agent-updater</span></a></td>
+<td>Fix agent issues</td>
 <td>Read + Write</td>
 </tr>
 </tbody>
@@ -3209,11 +3249,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="quick-reference-creating-new-files" class="level3">
 <h3 class="anchored" data-anchor-id="quick-reference-creating-new-files">Quick Reference: Creating New Files</h3>
 <p><strong>To create a new prompt</strong>:</p>
-<pre><code>/prompt-createorupdate-prompt-file-v2 [describe purpose]</code></pre>
+<pre><code>@workspace /prompt-createorupdate-prompt-file-v2 [describe purpose]</code></pre>
 <p><strong>To create a new agent</strong>:</p>
-<pre><code>/agent-createorupdate-agent-file-v2 [describe role]</code></pre>
+<pre><code>@workspace /agent-createorupdate-agent-file-v2 [describe role]</code></pre>
 <p><strong>To update guidance files</strong>:</p>
-<pre><code>/prompt-createorupdate-prompt-guidance [describe updates needed]</code></pre>
+<pre><code>@workspace /prompt-createorupdate-prompt-guidance [describe updates needed]</code></pre>
 </section>
 <section id="automation-scripts" class="level3">
 <h3 class="anchored" data-anchor-id="automation-scripts">🔧 Automation Scripts</h3>
@@ -3496,7 +3536,7 @@ ul.task-list li input[type="checkbox"] {
 <li>✅ Start writing real content!</li>
 </ol>
 <hr>
-<p><strong>Last Updated:</strong> 2025-11-23<br>
+<p><strong>Last Updated:</strong> 2026-01-04<br>
 <strong>Total Documentation Files:</strong> 34<br>
 <strong>Repository:</strong> <a href="https://github.com/darioairoldi/Learn">darioairoldi/Learn</a></p>
 
