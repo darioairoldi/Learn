@@ -41,9 +41,9 @@ This isn't just documentation—it's a **curated learning experience**. Each art
 ## 📰 News & Updates
 
 ### VS Code Releases
-- **[VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md)** 🆕  
+- **[VS Code v1.107 Release Analysis](01.00%20news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md)** 🆕  
   *Deep analysis of unified agentic experiences, model management, MCP protocol updates*
-- **[VS Code v1.107 Summary](news/20251224%20vscode%20v1.107%20Release/Summary.md)** 🆕  
+- **[VS Code v1.107 Summary](01.00%20news/20251224%20vscode%20v1.107%20Release/Summary.md)** 🆕  
   *Quick overview of the December 2024 release highlights*
 
 ---
@@ -117,24 +117,24 @@ Technology intersects with culture and exploration:
 ### 🎓 For Learners
 **New to a technology?** Start with the structured learning paths:
 - **Azure Beginners** → [Azure Developer Learning Path](202510%20Developer%20Update/) - From basics to production
-- **AI Development** → [Build 2025: AI Sessions](events/202506%20Build%202025/Readme.md) - Latest AI patterns and practices
-- **Prompt Engineering** → [GitHub Copilot Prompt Files Guide](tech/PromptEngineering/) - Master AI-assisted development 🆕
+- **AI Development** → [Build 2025: AI Sessions](02.00%20events/202506%20Build%202025/Readme.md) - Latest AI patterns and practices
+- **Prompt Engineering** → [GitHub Copilot Prompt Files Guide](03.00%20tech/PromptEngineering/) - Master AI-assisted development 🆕
 
 ### 📖 For Conference Attendees
 **Exploring Build 2025 content?** Navigate by topic:
-- [Build 2025 Overview](events/202506%20Build%202025/Readme.md) - All 40+ sessions organized
+- [Build 2025 Overview](02.00%20events/202506%20Build%202025/Readme.md) - All 40+ sessions organized
 - Focus areas: AI & ML, .NET Development, Azure Services, Developer Tools
 
 ### 🔧 For Problem Solvers
 **Hit a roadblock?** Check solutions to common issues:
-- [Issues & Solutions](tech/Github/02.Actions/) - GitHub Actions, authentication, environment setup
-- [Azure Service Limitations](tech/Azure/) - Working within service constraints
+- [Issues & Solutions](03.00%20tech/Github/02.Actions/) - GitHub Actions, authentication, environment setup
+- [Azure Service Limitations](03.00%20tech/Azure/) - Working within service constraints
 
 ### 🚀 For Quick Reference
 **Need a specific guide?** Jump to popular how-tos:
-- [HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md) ⭐
-- [Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md) ⭐
-- [Quarto Documentation Guide](tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)
+- [HTTP API Testing Tools Comparison](03.00%20tech/10.01%20HttpClient/20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md) ⭐
+- [Azure Naming Conventions](03.00%20tech/Azure/20250702%20Azure%20Naming%20conventions/README.md) ⭐
+- [Quarto Documentation Guide](03.00%20tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)
 
 ---
 
@@ -143,80 +143,80 @@ Technology intersects with culture and exploration:
 ### 🤖 **AI & Intelligent Development**
 
 #### Prompt Engineering 🆕
-- **[How GitHub Copilot Uses Markdown and Prompt Folders](tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)** ⭐  
+- **[How GitHub Copilot Uses Markdown and Prompt Folders](03.00%20tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)** ⭐  
   *Understanding the .github folder structure and how Copilot discovers custom instructions*
-- **[Q&A: Copilot Prompt & Markdown Files](tech/PromptEngineering/01.01%20Q%26A%20Github%20copilot%20uses%20prompt%20and%20markdown%20files.md)** 🆕  
+- **[Q&A: Copilot Prompt & Markdown Files](03.00%20tech/PromptEngineering/01.01%20Q%26A%20Github%20copilot%20uses%20prompt%20and%20markdown%20files.md)** 🆕  
   *Common questions answered about Copilot's prompt file system*
-- **[How to Name and Organize Prompt Files](tech/PromptEngineering/02.%20how_to_name_and_organize_prompt_files.md)**  
+- **[How to Name and Organize Prompt Files](03.00%20tech/PromptEngineering/02.%20how_to_name_and_organize_prompt_files.md)**  
   *Best practices for structuring your prompt engineering workflow*
-- **[How to Structure Content for Copilot Prompt Files](tech/PromptEngineering/03.%20how_to_structure_content_for_copilot_prompt_files.md)**  
+- **[How to Structure Content for Copilot Prompt Files](03.00%20tech/PromptEngineering/03.%20how_to_structure_content_for_copilot_prompt_files.md)**  
   *Creating effective, maintainable prompt instructions*
-- **[How to Structure Content for Copilot Agent Files](tech/PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)**  
+- **[How to Structure Content for Copilot Agent Files](03.00%20tech/PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)**  
   *Building autonomous AI agents with .agent.md files*
-- **[How to Structure Content for Copilot Instruction Files](tech/PromptEngineering/05.%20how_to_structure_content_for_copilot_instruction_files.md)**  
+- **[How to Structure Content for Copilot Instruction Files](03.00%20tech/PromptEngineering/05.%20how_to_structure_content_for_copilot_instruction_files.md)**  
   *Path-specific custom instructions with .instructions.md files*
-- **[Creating Prompts That Interact with Agents](tech/PromptEngineering/06.%20how_to_create_a_prompt_interacting_with_agents.md)** 🆕  
+- **[Creating Prompts That Interact with Agents](03.00%20tech/PromptEngineering/06.%20how_to_create_a_prompt_interacting_with_agents.md)** 🆕  
   *Advanced techniques for agent-aware prompt design*
-- **[Prompts for Documentation Sites](tech/PromptEngineering/07.%20Prompts%20and%20markdown%20structure%20for%20a%20documentation%20site.md)** 🆕  
+- **[Prompts for Documentation Sites](03.00%20tech/PromptEngineering/07.%20Prompts%20and%20markdown%20structure%20for%20a%20documentation%20site.md)** 🆕  
   *Specialized prompts for documentation workflows*
 
 #### Azure AI & .NET
-- **[.NET Aspire: AI, Cloud, and Beyond](events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐  
+- **[.NET Aspire: AI, Cloud, and Beyond](02.00%20events/202506%20Build%202025/BRK106%20Elevating%20Development%20with%20.NET%20Aspire%20AI/README.Sonnet4.md)** ⭐  
   *Complete guide to .NET Aspire's evolution into a full-stack AI platform*
-- **[Local AI Development with Foundry](events/202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)**  
+- **[Local AI Development with Foundry](02.00%20events/202506%20Build%202025/DEM520%20Local%20AI%20Development%20with%20Foundry%20Local%20and%20.NET%20Aspire/README.Sonnet4.md)**  
   *Run AI models locally with seamless .NET integration*
-- **[Building AI Apps with Microsoft Graph](events/202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)**  
+- **[Building AI Apps with Microsoft Graph](02.00%20events/202506%20Build%202025/BRK123%20Build%20AI%20Apps%20with%20Microsoft%20Graph%20Data/README.Sonnet4.md)**  
   *Creating intelligent applications using Microsoft Graph data and AI*
-- **[Azure AI Foundry Overview](events/202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/SUMMARY.md)**  
+- **[Azure AI Foundry Overview](02.00%20events/202506%20Build%202025/BRK155%20Azure%20AI%20Foundry%20-%20app%20and%20Agent%20Factory/SUMMARY.md)**  
   *Microsoft's comprehensive platform for building AI apps and agents*
 
 ### ☁️ **Azure Development Guides**
 
-- **[Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md)** - Standards for resource naming ⭐
-- **[Azure AD External Users](tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/01.%20External%20Users%20Authentication%20in%20Azure%20AD%20Explained.md)** - External authentication deep dive 🆕
-- **[Cosmos DB Access Options](202510%20Developer%20Update/20250706%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)** - Database access patterns and best practices
-- **[Key Vault HowTo](202510%20Developer%20Update/02.%20Azure%20Key%20Vault/03.%20HowTo.Create%20and%20retrieve%20secrets%20from%20Azure%20Key%20Vault.md)** - Secrets management walkthrough
-- **[Container Apps Guide](202510%20Developer%20Update/05.%20Azure%20Containers/01.%20Azure%20Container%20App.md)** - Containerized applications on Azure
+- **[Azure Naming Conventions](03.00%20tech/Azure/20250702%20Azure%20Naming%20conventions/README.md)** - Standards for resource naming ⭐
+- **[Azure AD External Users](03.00%20tech/Authentication/20251102%20Authenticating%20External%20Users%20in%20Azure%20AD/01.%20External%20Users%20Authentication%20in%20Azure%20AD%20Explained.md)** - External authentication deep dive 🆕
+- **[Cosmos DB Access Options](03.00%20tech/03.01%20Data/02.%20CosmosDB%20Access%20options/01.%20Azure%20CosmosDB%20Access%20Options.md)** - Database access patterns and best practices
+- **[Key Vault HowTo](03.00%20tech/02.01%20Azure/02.%20Azure%20Key%20Vault/03.%20HowTo.Create%20and%20retrieve%20secrets%20from%20Azure%20Key%20Vault.md)** - Secrets management walkthrough
+- **[Container Apps Guide](03.00%20tech/02.01%20Azure/05.%20Azure%20Containers/01.%20Azure%20Container%20App.md)** - Containerized applications on Azure
 
 ### 🛠️ **Development Tools & Productivity**
 
 #### Markdown Documentation Tools 🆕
-- **[Using Quarto (Overview)](tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)** ⭐  
+- **[Using Quarto (Overview)](03.00%20tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)** ⭐  
   *Complete guide to building documentation sites with Quarto*
-- **[Quarto Architecture: How It Works](tech/Markdown/01.%20QUARTO%20Doc/01.02-how-quarto-works.md)**  
+- **[Quarto Architecture: How It Works](03.00%20tech/Markdown/01.%20QUARTO%20Doc/01.02-how-quarto-works.md)**  
   *Understanding Quarto's internal architecture and rendering pipeline*
-- **[Quarto Theming and Styling](tech/Markdown/01.%20QUARTO%20Doc/05.01-theming-and-styling.md)**  
+- **[Quarto Theming and Styling](03.00%20tech/Markdown/01.%20QUARTO%20Doc/05.01-theming-and-styling.md)**  
   *Customizing your Quarto site's appearance*
-- **[Using MkDocs (Overview)](tech/Markdown/02.%20MkDocs/000.000%20Using%20MkDocs.md)** ⭐  
+- **[Using MkDocs (Overview)](03.00%20tech/Markdown/02.%20MkDocs/000.000%20Using%20MkDocs.md)** ⭐  
   *Python-based documentation with MkDocs and Material theme*
-- **[MkDocs Architecture](tech/Markdown/02.%20MkDocs/001.001%20Architecture%20-%20How%20MkDocs%20works.md)**  
+- **[MkDocs Architecture](03.00%20tech/Markdown/02.%20MkDocs/001.001%20Architecture%20-%20How%20MkDocs%20works.md)**  
   *Understanding MkDocs build and plugin system*
 
 #### API Testing & Development
-- **[HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md)** - Comprehensive testing tools overview ⭐ 🆕
-- **[Using .http Files in VS Code](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/01.%20Using%20HTTP%20Files%20for%20API%20Testing%20(VSCode%20Rest%20Client))** - REST Client extension guide
-- **[Git Command Line Workflows](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)** - Essential Git operations
-- **[yq YAML Processor](20250827%20what%20is%20yq%20overview/README.md)** - YAML processing and transformation
-- **[RSS/Atom Feed Architectures](20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)** - Feed protocols and C# implementations
+- **[HTTP API Testing Tools Comparison](03.00%20tech/10.01%20HttpClient/20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md)** - Comprehensive testing tools overview ⭐ 🆕
+- **[Using .http Files in VS Code](03.00%20tech/10.01%20HttpClient/20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/01.%20Using%20HTTP%20Files%20for%20API%20Testing%20(VSCode%20Rest%20Client))** - REST Client extension guide
+- **[Git Command Line Workflows](03.00%20tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)** - Essential Git operations
+- **[yq YAML Processor](03.00%20tech/04.01%20Programming%20Languages/20250827%20what%20is%20yq%20overview/README.md)** - YAML processing and transformation
+- **[RSS/Atom Feed Architectures](03.00%20tech/21.01.%20Feed/20251005%20Feeds%20architectures%20and%20protocols/01%20Podcast%20and%20RSS%20Feed%20Information%20Gathering%20and%20Analysis.md)** - Feed protocols and C# implementations
 
 ### 🐛 **Problem Solving**
 
-- **[GitHub Actions Artifact Quota Fix](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)** - Complete CI/CD storage solution ✅
-- **[VS Clone Error on ReFS](issues/20250709%20fatal%20error%20cloning%20a%20repo%20with%20Visual%20Studio/README.md)** - Repository cloning on ReFS filesystems ✅
-- **[GitHub Repository Limitations](tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/README.md)** - Understanding service constraints
+- **[GitHub Actions Artifact Quota Fix](03.00%20tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/01.%20README.md)** - Complete CI/CD storage solution ✅
+- **[VS Clone Error on ReFS](05.00%20issues/20250709%20fatal%20error%20cloning%20a%20repo%20with%20Visual%20Studio/README.md)** - Repository cloning on ReFS filesystems ✅
+- **[GitHub Repository Limitations](03.00%20tech/Github/01.Repositories/20250825%20Github%20repositories%20limitations/README.md)** - Understanding service constraints
 
 ### 🔧 **Hardware**
 
-- **[Surface Laptop 6 Features Analysis](tech/Hardware/Surface%20Laptop%206%20Features%20analysis.md)** - Comprehensive hardware review 🆕
+- **[Surface Laptop 6 Features Analysis](03.00%20tech/Hardware/Surface%20Laptop%206%20Features%20analysis.md)** - Comprehensive hardware review 🆕
 
 ### 💡 **Ideas & Projects**
 
 #### IQPilot - AI Content Quality Tool 🆕
-- **[IQPilot Overview](idea/IQPilot/01.%20IQPilot%20overview.md)** ⭐  
+- **[IQPilot Overview](06.00%20idea/IQPilot/01.%20IQPilot%20overview.md)** ⭐  
   *Introduction to AI-assisted content quality assurance*
-- **[Getting Started with IQPilot](idea/IQPilot/02.%20IQPilot%20Getting%20started.md)**  
+- **[Getting Started with IQPilot](06.00%20idea/IQPilot/02.%20IQPilot%20Getting%20started.md)**  
   *Quick start guide and setup instructions*
-- **[IQPilot Implementation Details](idea/IQPilot/03.%20IQPilot%20Implementation%20details.md)**  
+- **[IQPilot Implementation Details](06.00%20idea/IQPilot/03.%20IQPilot%20Implementation%20details.md)**  
   *Technical architecture and integration patterns*
 
 ---
@@ -300,35 +300,35 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 ### 🎯 Start Here
 - **[Getting Started](GETTING-STARTED.md)** - How to navigate this learning hub
 - **[Documentation Index](DOCUMENTATION-INDEX.md)** - Complete content listing
-- **[Learning Hub Introduction](idea/LearnHub/20250902%20Learning%20Hub%20Overview/01%20-%20Learning%20Hub%20Introduction.md)** - Philosophy and approach
-- **[Using This Hub for Learning](idea/LearnHub/20250902%20Learning%20Hub%20Overview/02%20-%20Using%20Learning%20Hub%20for%20learning%20technologies.md)** - How to maximize value
+- **[Learning Hub Introduction](06.00%20idea/LearnHub/01.%20Learning%20Hub%20Overview/01.%20Learning-Hub-Introduction.md)** - Philosophy and approach
+- **[Using This Hub for Learning](06.00%20idea/LearnHub/01.%20Learning%20Hub%20Overview/02.%20Using-Learning-Hub-for-learning-technologies.md)** - How to maximize value
 
 ### 📰 News & Updates
-- [VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md) 🆕
+- [VS Code v1.107 Release Analysis](01.00%20news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md) 🆕
 
 ### 🤖 AI & Prompt Engineering
-- [GitHub Copilot Prompt Files](tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)
-- [Organizing Prompt Files](tech/PromptEngineering/02.%20how_to_name_and_organize_prompt_files.md)
-- [Creating Multi-Agent Prompts](tech/PromptEngineering/06.%20how_to_create_a_prompt_interacting_with_agents.md) 🆕
+- [GitHub Copilot Prompt Files](03.00%20tech/PromptEngineering/01.%20how_github_copilot_uses_markdown_and_prompt_folders.md)
+- [Organizing Prompt Files](03.00%20tech/PromptEngineering/02.%20how_to_name_and_organize_prompt_files.md)
+- [Creating Multi-Agent Prompts](03.00%20tech/PromptEngineering/06.%20how_to_create_a_prompt_interacting_with_agents.md) 🆕
 
 ### 💡 Ideas & Projects
-- [IQPilot Overview](idea/IQPilot/01.%20IQPilot%20overview.md) 🆕
+- [IQPilot Overview](06.00%20idea/IQPilot/01.%20IQPilot%20overview.md) 🆕
 
 ### ☁️ Azure Essentials
-- [Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md) ⭐
+- [Azure Naming Conventions](03.00%20tech/Azure/20250702%20Azure%20Naming%20conventions/README.md) ⭐
 - [Azure Developer Learning Path](202510%20Developer%20Update/) - Structured journey
 
 ### 🎯 Conference Insights
-- [Build 2025 All Sessions](events/202506%20Build%202025/Readme.md) - 40+ sessions
+- [Build 2025 All Sessions](02.00%20events/202506%20Build%202025/Readme.md) - 40+ sessions
 
 ### 🛠️ Popular Guides
-- [HTTP API Testing Tools Comparison](20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md) ⭐
-- [Quarto Documentation Guide](tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)
-- [Git Command Line Workflows](tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)
+- [HTTP API Testing Tools Comparison](03.00%20tech/10.01%20HttpClient/20250713%20Use%20http%20files%20for%20easy%20and%20repeatable%20test/00.%20HTTP%20REST%20API%20Testing%20Tools%20-%20Comprehensive%20Comparison.md) ⭐
+- [Quarto Documentation Guide](03.00%20tech/Markdown/01.%20QUARTO%20Doc/01.01-introduction-to-quarto.md)
+- [Git Command Line Workflows](03.00%20tech/Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)
 
 ### 🐛 Problem Solving
-- [GitHub Actions Artifact Quota](tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/) ✅
-- [All Development Issues](issues/)
+- [GitHub Actions Artifact Quota](03.00%20tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/) ✅
+- [All Development Issues](05.00%20issues/)
 
 ---
 
