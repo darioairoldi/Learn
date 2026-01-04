@@ -1,7 +1,7 @@
 ---
 title: "Documentation Index"
 author: "Dario Airoldi"
-date: "2025-12-26"
+date: "2026-01-04"
 categories: [documentation, index, reference]
 description: "Complete guide to all documentation automation files and resources in this repository"
 ---
@@ -57,6 +57,9 @@ Complete guide to all documentation automation files and resources in this repos
 | [.github/templates/issue-template.md](.github/templates/issue-template.md) | Problem + solution template | Writers |
 | [.github/templates/recording-summary-template.md](.github/templates/recording-summary-template.md) | Conference/video notes template | Writers |
 | [.github/templates/recording-analysis-template.md](.github/templates/recording-analysis-template.md) | Deep analysis template | Writers |
+| [.github/templates/techsession-summary-template.md](.github/templates/techsession-summary-template.md) | Tech session summary template | Writers |
+| [.github/templates/techsession-analysis-template.md](.github/templates/techsession-analysis-template.md) | Tech session analysis template | Writers |
+| [.github/templates/prompt-template.md](.github/templates/prompt-template.md) | Blank prompt file template | Writers |
 | [.github/templates/metadata-template.yml](.github/templates/metadata-template.yml) | Metadata schema template | Writers |
 
 ### 📏 Editorial Standards
@@ -81,10 +84,14 @@ Complete guide to all documentation automation files and resources in this repos
 **IQPilot supports dual-mode operation:**
 
 #### Standalone Prompts (Work Without IQPilot)
-Located in `.github/prompts/` - accessible via natural language with GitHub Copilot:
+Located in `.github/prompts/` and subdirectories - accessible via natural language with GitHub Copilot:
 
-**Content Creation:**
-- [article-writing.prompt.md](.github/prompts/article-writing.prompt.md) - Generate articles from topics
+**Article Prompts** (`.github/prompts/article/`):
+- [article-design-and-create.prompt.md](.github/prompts/article/article-design-and-create.prompt.md) - Design articles from scratch
+- [article-generate-techsession-summary.prompt.md](.github/prompts/article/article-generate-techsession-summary.prompt.md) - Generate tech session summaries
+- [article-generate-techsession-analysis.prompt.md](.github/prompts/article/article-generate-techsession-analysis.prompt.md) - Generate tech session analysis
+- [article-review-for-consistency-gaps-and-extensions.prompt.md](.github/prompts/article/article-review-for-consistency-gaps-and-extensions.prompt.md) - Review article for consistency and gaps
+- [article-review-series-for-consistency-gaps-and-extensions.prompt.md](.github/prompts/article/article-review-series-for-consistency-gaps-and-extensions.prompt.md) - Review article series
 
 **Validation:**
 - [structure-validation.prompt.md](.github/prompts/structure-validation.prompt.md) - Document structure check
@@ -167,33 +174,34 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **Location**: `.github/prompts/`
 
-**Prompt Creation/Update**:
+**Prompt Creation/Update** (`.github/prompts/`):
 - [prompt-createorupdate-prompt-file-v2.prompt.md](.github/prompts/prompt-createorupdate-prompt-file-v2.prompt.md) - ✅ **Recommended** - Multi-agent orchestration
-- [prompt-createorupdate-prompt-file.prompt.md](.github/prompts/prompt-createorupdate-prompt-file.prompt.md) - ⚠️ Deprecated (use v2)
-- [prompt-design-and-create.prompt.md](.github/prompts/prompt-design-and-create.prompt.md) - Design from scratch
-- [prompt-review-and-validate.prompt.md](.github/prompts/prompt-review-and-validate.prompt.md) - Validate existing prompts
 
-**Guidance Maintenance**:
-- [prompt-createorupdate-prompt-guidance.prompt.md](.github/prompts/prompt-createorupdate-prompt-guidance.prompt.md) - Update instruction and context files
+**Guidance Maintenance** (`.github/prompts/promptengineering/`):
+- [prompt-createorupdate-prompt-guidance.prompt.md](.github/prompts/promptengineering/prompt-createorupdate-prompt-guidance.prompt.md) - Update instruction and context files
 
 ### Agent Files
 
 **Location**: `.github/agents/`
 
-**Agent Creation/Update**:
-- [agent-createorupdate-agent-file-v2.prompt.md](.github/prompts/agent-createorupdate-agent-file-v2.prompt.md) - ✅ **Recommended** - Multi-agent orchestration
-- [agent-createorupdate-agent-file.prompt.md](.github/prompts/agent-createorupdate-agent-file.prompt.md) - ⚠️ Deprecated (use v2)
-- [agent-design-and-create.prompt.md](.github/prompts/agent-design-and-create.prompt.md) - Design from scratch
-- [agent-review-and-validate.prompt.md](.github/prompts/agent-review-and-validate.prompt.md) - Validate existing agents
+**Agent Creation/Update** (`.github/prompts/promptengineering/`):
+- [agent-createorupdate-agent-file-v2.prompt.md](.github/prompts/promptengineering/agent-createorupdate-agent-file-v2.prompt.md) - ✅ **Recommended** - Multi-agent orchestration
+- [agent-createorupdate-agent-file.prompt.md](.github/prompts/promptengineering/agent-createorupdate-agent-file.prompt.md) - ⚠️ Deprecated (use v2)
+- [agent-design-and-create.prompt.md](.github/prompts/promptengineering/agent-design-and-create.prompt.md) - Design from scratch
+- [agent-review-and-validate.prompt.md](.github/prompts/promptengineering/agent-review-and-validate.prompt.md) - Validate existing agents
 
 **Specialized Agents by Role**:
 
 | Role | Agent | Purpose | Tools |
 |------|-------|---------|-------|
-| Researcher | [@prompt-researcher](.github/agents/prompt-researcher.agent.md) | Pattern discovery | Read-only |
-| Builder | [@prompt-builder](.github/agents/prompt-builder.agent.md) | File creation | Read + Write |
-| Validator | [@prompt-validator](.github/agents/prompt-validator.agent.md) | Quality assurance | Read-only |
-| Updater | [@prompt-updater](.github/agents/prompt-updater.agent.md) | Fix issues | Read + Write |
+| Prompt Researcher | [@prompt-researcher](.github/agents/prompt-researcher.agent.md) | Prompt pattern discovery | Read-only |
+| Prompt Builder | [@prompt-builder](.github/agents/prompt-builder.agent.md) | Prompt file creation | Read + Write |
+| Prompt Validator | [@prompt-validator](.github/agents/prompt-validator.agent.md) | Prompt quality assurance | Read-only |
+| Prompt Updater | [@prompt-updater](.github/agents/prompt-updater.agent.md) | Fix prompt issues | Read + Write |
+| Agent Researcher | [@agent-researcher](.github/agents/agent-researcher.agent.md) | Agent pattern discovery | Read-only |
+| Agent Builder | [@agent-builder](.github/agents/agent-builder.agent.md) | Agent file creation | Read + Write |
+| Agent Validator | [@agent-validator](.github/agents/agent-validator.agent.md) | Agent quality assurance | Read-only |
+| Agent Updater | [@agent-updater](.github/agents/agent-updater.agent.md) | Fix agent issues | Read + Write |
 
 ### Tech Articles (Learning)
 
@@ -225,17 +233,17 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **To create a new prompt**:
 ```
-/prompt-createorupdate-prompt-file-v2 [describe purpose]
+@workspace /prompt-createorupdate-prompt-file-v2 [describe purpose]
 ```
 
 **To create a new agent**:
 ```
-/agent-createorupdate-agent-file-v2 [describe role]
+@workspace /agent-createorupdate-agent-file-v2 [describe role]
 ```
 
 **To update guidance files**:
 ```
-/prompt-createorupdate-prompt-guidance [describe updates needed]
+@workspace /prompt-createorupdate-prompt-guidance [describe updates needed]
 ```
 
 ### 🔧 Automation Scripts
@@ -404,6 +412,6 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ---
 
-**Last Updated:** 2025-11-23  
+**Last Updated:** 2026-01-04  
 **Total Documentation Files:** 34  
 **Repository:** [darioairoldi/Learn](https://github.com/darioairoldi/Learn)
