@@ -63,9 +63,14 @@
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.profiles.windows": {
         "PowerShell": {
-            "source": "PowerShell",
+            "path": "D:\\Program Files\\PowerShell\\7\\pwsh.exe",
             "icon": "terminal-powershell"
         }
+    },
+    // PowerShell Extension
+    "powershell.powerShellDefaultVersion": "PowerShell (x64) v7.5.4",
+    "powershell.powerShellAdditionalExePaths": {
+        "PowerShell (x64) v7.5.4": "D:\\Program Files\\PowerShell\\7\\pwsh.exe"
     },
     "chat.promptFilesRecommendations": {}
 }
