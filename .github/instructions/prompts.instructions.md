@@ -108,6 +108,105 @@ validations:
 4. **Test execution** - Run on real repository content
 5. **Iterate boundaries** - Tighten based on observed errors
 
+## Production-Ready Prompt Requirements
+
+**Applies to ALL prompt files** - based on Mario Fontana's ["6 VITAL Rules for Production-Ready Copilot Agents"](https://www.linkedin.com/learning/mastering-ai-agents-the-prompt-engineering-masterclass):
+
+### 1. Response Management (Data Gaps Handling)
+
+**Every prompt MUST include** a section defining professional responses when information is missing:
+
+```markdown
+## Response Management
+
+### When Information is Missing
+I couldn't find [specific] in [locations searched].
+I did find [partial context] in [location].
+Recommendation: [escalation path or alternative]
+```
+
+**Required scenarios** (customize per prompt type):
+- Missing context/information
+- Ambiguous requirements (present options, don't guess)
+- Tool failures (fallback behavior)
+
+**Templates provide** prompt-type-specific scenarios:
+- **Orchestration**: Agent not found, phase validation failure, handoff ambiguity
+- **Implementation**: Pattern not found, file access failure, convention unclear
+- **Analysis**: No matches found, contradictory sources, insufficient data
+- **Validation**: Missing metadata, ambiguous rules, caching issues
+
+### 2. Error Recovery Workflows
+
+**Define fallback behavior for every critical tool:**
+
+```markdown
+### When Tool Failures Occur
+
+- `semantic_search` returns nothing → Try grep_search, then escalate
+- `read_file` fails → Verify path, report error with context
+- `create_file` fails → Check permissions, suggest manual creation
+```
+
+**Golden rule:** NEVER proceed with invented data or half-implemented changes.
+
+### 3. Embedded Test Scenarios
+
+**Every prompt MUST include 3-5 test scenarios** to validate behavioral reliability:
+
+```markdown
+## Embedded Test Scenarios
+
+### Test 1: Standard Case (Happy Path)
+**Input:** [well-formed input]
+**Expected:** [success behavior]
+**Pass Criteria:** [specific outcomes]
+
+### Test 2: Ambiguous Input
+**Input:** [vague/conflicting requirements]
+**Expected:** Asks clarifying questions (doesn't guess)
+**Pass Criteria:** Lists options, requests guidance
+
+### Test 3: Missing Context (Plausible Trap)
+**Input:** [incomplete/incorrect data that looks plausible]
+**Expected:** Detects gap, reports what's missing
+**Pass Criteria:** Doesn't hallucinate, uses "I couldn't find X" template
+
+[Add 1-2 more tests specific to prompt type]
+```
+
+**Required test types:**
+- **Happy Path** - Expected success scenario
+- **Ambiguous Input** - Should ask clarification, not guess
+- **Out of Scope** - Professional refusal for beyond-capability tasks
+- **Plausible Trap** - Detects incorrect but believable data
+
+### 4. Token Budget Compliance
+
+**Type-specific limits** (prevent Context Rot):
+- Simple validation prompts: **< 500 tokens**
+- Multi-step workflow prompts: **< 1500 tokens**
+- Multi-agent orchestrators: **< 2500 tokens**
+
+**Optimization techniques:**
+- Reference context files instead of embedding principles
+- Use imperative language (no filler)
+- Place critical instructions in first 30% of prompt
+- Factor large prompts into multiple smaller, focused prompts
+
+**Validation:** `@prompt-validator` checks token count in Phase 5 (Production Readiness).
+
+### 5. Explicit Uncertainty Management
+
+**Principle 7** from `context-engineering-principles.md`: All prompts must define professional "I don't know" responses.
+
+**Three-part template:**
+1. **Transparency** - What's missing: "I couldn't find X in Y"
+2. **Partial Value** - What was found: "I did find Z"
+3. **Actionable** - Next steps: "Recommendation: [escalation]"
+
+**See full guidance:** [.copilot/context/prompt-engineering/context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md#7-explicit-uncertainty-management)
+
 ## References
 
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) - Best practices from 2,500+ repos

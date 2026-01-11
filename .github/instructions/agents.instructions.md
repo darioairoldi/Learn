@@ -273,6 +273,93 @@ Before finalizing an agent file:
 - [ ] Role/persona clearly defined
 - [ ] Tested with real repository tasks
 
+## Production-Ready Agent Requirements
+
+**Applies to ALL agent files** - based on Mario Fontana's ["6 VITAL Rules for Production-Ready Copilot Agents"](https://www.linkedin.com/learning/mastering-ai-agents-the-prompt-engineering-masterclass):
+
+### 1. Response Management Sections
+
+All agents MUST include context-appropriate "I don't know" templates per **Principle 7: Explicit Uncertainty Management**.
+
+**See full guidance:** [.copilot/context/prompt-engineering/context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md#7-explicit-uncertainty-management)
+
+**Required for all agents:**
+- Missing information scenario with three-part template
+- Ambiguous requirements scenario with options presentation
+- Tool failure scenarios with fallback behavior
+
+**Role-specific scenarios:**
+- **Researchers**: No matches found, contradictory sources, insufficient data
+- **Builders**: Pattern not found, file access failure, convention unclear
+- **Validators**: Missing metadata, ambiguous validation rules, cache issues
+- **Updaters**: Cannot locate target code, conflicting patterns, unsafe changes
+
+### 2. Embedded Test Scenarios
+
+Agents with complex decision-making should include test scenarios:
+
+```markdown
+## Test Scenarios (Internal Validation)
+
+### Test 1: Standard Case
+**Input:** [typical request]
+**Expected:** [correct behavior]
+
+### Test 2: Ambiguous Input
+**Input:** [vague request]
+**Expected:** Asks clarifying questions
+
+### Test 3: Missing Context
+**Input:** [incomplete information]
+**Expected:** Uses "I couldn't find X" template, doesn't hallucinate
+```
+
+**When to include tests:**
+- Agents that make autonomous decisions (updaters, builders)
+- Agents that validate complex patterns (validators, reviewers)
+- Agents coordinating workflows (orchestrators)
+
+**When to skip:**
+- Simple utility agents with deterministic behavior
+- Pure pass-through/delegation agents
+
+### 3. Token Budget Awareness
+
+**Agent file limits:** < 1500 tokens (recommended)
+
+**Optimization techniques:**
+- Reference context files extensively (`.copilot/context/`)
+- Use imperative language (no filler)
+- Factor complex agents into specialist + orchestrator
+- Embed only role-critical knowledge
+
+**Context Rot Prevention** (already implemented in this repository):
+- SHA-256 content hashing for change detection
+- 7-day validation caching to reduce redundant processing
+- Timestamp-based validation skip logic
+
+**See existing implementation:** `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+
+### 4. Tool Alignment Validation
+
+**Critical check** - prevents runtime failures:
+
+```markdown
+## Tool Configuration
+
+agent: plan  # READ-ONLY MODE
+tools:
+  - read_file
+  - semantic_search
+  - grep_search
+  # ❌ NEVER include write tools with agent: plan
+```
+
+**Validator checks** (`@prompt-validator` Phase 5):
+- `agent: plan` + write tools → ❌ FAIL (misalignment)
+- `agent: agent` + only read tools → ⚠️ WARNING (consider `plan` mode)
+- Excessive tools (>10) → ⚠️ WARNING (tool clash risk)
+
 ## References
 
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) - Analysis of 2,500+ agent files
