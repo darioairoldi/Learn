@@ -305,7 +305,97 @@ Compare against similar files:
 **Pattern Score:** [X]/[Y] patterns followed
 ```
 
-### Phase 5: Quality Assessment
+### Phase 5: Production Readiness Validation
+
+**Goal:** Verify prompt includes uncertainty handling and error recovery (based on Mario Fontana's "6 VITAL Rules for Production-Ready Copilot Agents").
+
+**Check these critical production requirements:**
+
+1. **Data Gaps & Missing Context Behavior**
+   - [ ] Has "Response Management" or "Data Gaps" section
+   - [ ] Defines what to do when required information is missing
+   - [ ] Specifies how to acknowledge gaps professionally
+   - [ ] Provides escalation/fallback path for incomplete data
+
+2. **"I Don't Know" Response Templates**
+   - [ ] Has explicit response template for uncertainty
+   - [ ] Follows pattern: "I couldn't find X in Y. I did find Z. Recommendation: [path]"
+   - [ ] Avoids hallucination language (e.g., "likely", "probably", "seems")
+   - [ ] Reports what WAS found (establishes thorough search)
+
+3. **Error Recovery & Fallback Behavior**
+   - [ ] Defines behavior for tool failures (read_file fails, semantic_search returns nothing)
+   - [ ] Specifies invalid input handling
+   - [ ] Has fallback strategies for common failures
+   - [ ] Doesn't proceed with invented data when tools fail
+
+4. **Embedded Test Scenarios** (for validation/analysis prompts)
+   - [ ] Includes 3-5 test scenarios covering:
+     * Happy path (everything works correctly)
+     * Ambiguous input (should ask for clarification)
+     * Out of scope (should refuse gracefully)
+     * Plausible trap (incomplete data - must not hallucinate)
+   - [ ] Each test defines: input, expected behavior, pass criteria
+
+5. **Prompt Size & Context Rot Prevention**
+   - [ ] Token count appropriate for prompt type:
+     * Simple task: < 500 tokens (~375 words)
+     * Multi-step workflow: < 1,500 tokens (~1,100 words)
+     * Orchestrator: < 2,500 tokens (~1,875 words)
+   - [ ] No redundant content that could be in context files
+   - [ ] Examples limited to 1-2 representative cases
+   - [ ] Uses references instead of embedding large content
+
+**Output: Production Readiness Assessment**
+```markdown
+## Production Readiness Validation
+
+### Data Gaps Handling
+- **Present:** Yes/No
+- **Location:** Lines [N-M] or "Missing"
+- **Quality:** ✅ Complete / ⚠️ Incomplete / ❌ Missing
+- **Issues:**
+  - [If incomplete] Missing: [what's not defined]
+  - [If missing] No guidance for missing information scenarios
+
+### "I Don't Know" Responses
+- **Template present:** Yes/No
+- **Follows professional pattern:** Yes/No
+- **Issues:**
+  - [If weak] Uses hallucination language at line [N]: "[phrase]"
+  - [If missing] No uncertainty response template defined
+
+### Error Recovery
+- **Tool failure handling:** ✅ Defined / ⚠️ Partial / ❌ Missing
+- **Coverage:** [X]/[Y] tools have fallback behavior
+- **Issues:**
+  - Tool `[tool-name]` has no failure handling
+  - Invalid input handling not defined
+
+### Embedded Tests
+- **Present:** Yes/No
+- **Count:** [N] scenarios
+- **Coverage:** ✅ Complete / ⚠️ Partial / ❌ Missing
+- **Missing test types:**
+  - [ ] Happy path
+  - [ ] Ambiguous input
+  - [ ] Out of scope
+  - [ ] Plausible trap (hallucination prevention)
+
+### Token Count & Context Rot
+- **Estimated tokens:** ~[N] tokens (~[M] words)
+- **Status:** ✅ Optimal / ⚠️ Long / 🔴 Too large
+- **Issues:**
+  - [If over limit] Exceeds [type] limit by [N] tokens
+  - Redundant content at lines [N-M]: [description]
+  - Large embedded content that could be referenced: [location]
+
+**Production Readiness Score:** [X]/5 criteria met
+
+**Recommendation:** ✅ Production-ready / ⚠️ Production-ready with improvements / ❌ Not production-ready (critical gaps)
+```
+
+### Phase 6: Quality Assessment
 
 Evaluate content quality:
 
@@ -362,7 +452,7 @@ Evaluate content quality:
 **Quality Score:** [X]/[Y] criteria met
 ```
 
-### Phase 6: Validation Report Generation
+### Phase 7: Validation Report Generation
 
 Compile all findings into comprehensive report:
 
@@ -389,9 +479,11 @@ See "Output Format" section below.
 [1-2 sentence summary of validation outcome]
 
 ### Scores Summary
+- **Tool Alignment:** ✅ PASS / ❌ FAIL (CRITICAL)
 - **Structure:** [X]/[Y] checks passed
 - **Conventions:** [X]/[Y] checks passed
 - **Patterns:** [X]/[Y] patterns followed
+- **Production Readiness:** [X]/5 criteria met
 - **Quality:** [X]/[Y] criteria met
 - **Overall:** [X]/[Y] total ([percentage]%)
 
@@ -448,7 +540,71 @@ See "Output Format" section below.
 
 ---
 
-### 2. Convention Compliance
+### 4. Production Readiness
+
+#### Data Gaps Handling
+**Status:** ✅ Complete / ⚠️ Incomplete / ❌ Missing
+
+**Findings:**
+- [✅/⚠️/❌] Response Management section present
+- [✅/⚠️/❌] Missing context behavior defined
+- [✅/⚠️/❌] Escalation path specified
+
+**Issues:**
+- [If any] Line [N]: [Issue description]
+
+#### "I Don't Know" Response Templates
+**Status:** ✅ Complete / ⚠️ Partial / ❌ Missing
+
+**Findings:**
+- [✅/❌] Professional uncertainty template present
+- [✅/❌] Follows "couldn't find X, did find Y, recommend Z" pattern
+- [✅/❌] Avoids hallucination language
+
+**Issues:**
+- [If any] Line [N]: Uses problematic phrase "[phrase]"
+
+#### Error Recovery
+**Status:** ✅ Complete / ⚠️ Partial / ❌ Missing
+
+**Tool failure coverage:** [X]/[Y] tools
+
+**Findings:**
+- [List tools with fallback defined]
+- [List tools missing fallback]
+
+**Issues:**
+- [If any] Tool `[tool]` has no error handling defined
+
+#### Embedded Test Scenarios
+**Status:** ✅ Present / ❌ Missing
+**Count:** [N] scenarios
+
+**Coverage:**
+- [✅/❌] Happy path test
+- [✅/❌] Ambiguous input test
+- [✅/❌] Out of scope test
+- [✅/❌] Plausible trap test (hallucination prevention)
+
+**Issues:**
+- [If incomplete] Missing test types: [list]
+
+#### Token Count & Context Rot
+**Estimated:** ~[N] tokens (~[M] words)
+**Status:** ✅ Optimal / ⚠️ Long / 🔴 Exceeds limit
+
+**Appropriate for:** [prompt type]
+**Limit:** [token limit for type]
+
+**Issues:**
+- [If over] Exceeds limit by ~[N] tokens
+- [If redundant] Lines [N-M]: Could be referenced instead of embedded
+
+**Production Readiness:** [X]/5 criteria met
+
+---
+
+### 5. Quality Assessment
 
 #### Naming Conventions
 - **File name:** `[name]` - [✅ Valid / ❌ Invalid: reason]
@@ -503,9 +659,9 @@ All required fields: [✅ Present / ❌ Missing: list]
 
 ---
 
-### 4. Quality Assessment
+### 2. Convention Compliance
 
-#### Clarity Score: [X]/[Y]
+#### Naming Conventions
 - [ ] Role clearly defined
 - [ ] Imperative language used
 - [ ] Instructions specific and actionable

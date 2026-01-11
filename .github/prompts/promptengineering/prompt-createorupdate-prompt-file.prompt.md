@@ -271,6 +271,77 @@ Result:
 - [ ] Quality checklist at end
 ```
 
+### Phase 2.5: Production Readiness Validation
+
+**Goal:** Ensure prompt specifications include production-ready uncertainty handling and behavioral testing as defined in Mario Fontana's "6 VITAL Rules for Production-Ready Copilot Agents."
+
+**Process:**
+
+1. **Validate Response Management Requirements:**
+   - [ ] Specifications include how to handle **missing context/information**
+   - [ ] Specifications include how to respond to **ambiguous requirements**
+   - [ ] Specifications include how to handle **tool failures** gracefully
+   - [ ] Each scenario has explicit template: "Couldn't find X in Y. Did find Z. Recommend: [action]"
+
+2. **Validate Error Recovery Workflows:**
+   - [ ] Defines fallback behavior for each critical tool
+   - [ ] Specifies escalation path when tools fail
+   - [ ] NEVER proceeds with half-implemented changes or invented data
+
+3. **Validate Embedded Test Coverage:**
+   - [ ] Specifications include 3-5 test scenarios
+   - [ ] Tests include **Happy Path** (well-formed input, expected success)
+   - [ ] Tests include **Ambiguous Input** (vague requirements, should ask clarification)
+   - [ ] Tests include **Out of Scope** (beyond capabilities, should refuse professionally)
+   - [ ] Tests include **Plausible Trap** (incorrect but plausible data, should detect and challenge)
+
+4. **Validate Token Budget Compliance:**
+   
+   **Type-Specific Limits** (from context-engineering-principles.md):
+   - Simple validation prompts: **< 500 tokens**
+   - Multi-step workflow prompts: **< 1500 tokens**
+   - Multi-agent orchestrators: **< 2500 tokens**
+   
+   **Check:** Estimate prompt template size + typical variable expansion
+   - If approaching limit → Factor into multiple smaller prompts
+   - If exceeding limit → **MUST** refactor before proceeding
+
+**Output:**
+```markdown
+## Production Readiness Checklist
+
+### Response Management (Rule 1: Data Gaps)
+- [ ] Missing information scenario defined with template
+- [ ] Ambiguous requirements scenario defined with options
+- [ ] Tool failure scenarios defined with fallbacks
+- [ ] NEVER hallucinates or proceeds with insufficient data
+
+### Error Recovery (Rule 2: "I Don't Know")
+- [ ] Each critical tool has defined fallback
+- [ ] Escalation paths specified
+- [ ] Professional "I couldn't find X" templates included
+
+### Embedded Tests (Rule 3-5: Output Verification)
+- [ ] Happy Path test defined (expected success)
+- [ ] Ambiguous Input test defined (should ask clarification)
+- [ ] Out of Scope test defined (professional refusal)
+- [ ] Plausible Trap test defined (detects incorrect data)
+- [ ] [Optional] Tool Failure test defined (graceful degradation)
+
+### Token Optimization (Rule 6: Context Rot)
+- [ ] Estimated token count within type limits
+- [ ] Critical instructions in first 30% of prompt
+- [ ] No redundant explanations or examples
+- [ ] References context files instead of embedding principles
+```
+
+**If any checks fail:**
+- **STOP** prompt generation
+- **ASK USER** to clarify missing production readiness specifications
+- Suggest defaults from template Response Management sections
+
+**Reference:** See Principle 7 (Explicit Uncertainty Management) in `.copilot/context/prompt-engineering/context-engineering-principles.md`
+
 ### Phase 3: Prompt Generation
 
 **Goal:** Generate the complete prompt file using template structure and gathered requirements.

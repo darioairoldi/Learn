@@ -239,6 +239,113 @@ handoffs:
 
 ---
 
+### 7. Explicit Uncertainty Management
+
+**Principle**: Define professional "I don't know" responses and data gap handling patterns that prevent hallucination and maintain user trust.
+
+**Why it matters**:
+- AI models have a bias toward providing answers even when lacking sufficient context
+- Admitting uncertainty prevents confidently stated misinformation
+- Explicit templates create consistent, professional uncertainty handling
+- Missing data scenarios are inevitable in production systems
+- Referenced from: **Mario Fontana's "6 VITAL Rules for Production-Ready Copilot Agents"** (Rule 1: Data Gaps, Rule 2: "I Don't Know")
+
+**Three-Part "I Don't Know" Template**:
+
+```markdown
+I couldn't find [specific information] in [locations searched].
+I did find [partial/related context] in [location].
+Recommendation: [escalation path or alternative approach]
+```
+
+**Why this structure works**:
+1. **Transparency**: Explicit about what's missing
+2. **Partial Value**: Shares what *was* found
+3. **Actionable**: Suggests next steps
+
+**Application Examples**:
+
+**Validation Agent** (missing metadata):
+```markdown
+I couldn't find validation metadata in the bottom YAML comment block.
+I did find top-level Quarto metadata (title, author, date).
+Recommendation: Add validation metadata block using template from dual-yaml-helpers.md.
+```
+
+**Implementation Agent** (no pattern found):
+```markdown
+I couldn't find existing patterns for Azure Functions HTTP trigger authentication in .github/templates/.
+I did find related patterns: Azure Functions timer trigger (tech/02.01 Azure/01. Azure Functions/timer-example.md).
+Recommendation: Proceed with Microsoft official documentation pattern or request reference file.
+```
+
+**Orchestrator Agent** (agent doesn't exist):
+```markdown
+Agent @azure-deployment-specialist doesn't exist in .github/agents/.
+Available Azure-related agents: @prompt-validator, @agent-builder.
+Recommendation: Use @agent-builder to create azure-deployment-specialist or use generic implementation agent.
+```
+
+**Data Gap Scenarios to Define**:
+
+| Scenario | Response Pattern |
+|----------|------------------|
+| **Information Missing** | "Couldn't find X in Y. Did find Z. Recommend: [action]" |
+| **Ambiguous Requirements** | "Could mean A or B. Which interpretation? [list trade-offs]" |
+| **Tool Failure** | "Tool failed: [reason]. Tried: [fallbacks]. Recommend: [escalation]" |
+| **Out of Scope** | "This requires [capability not in tools]. Recommend: [manual step / alternative tool]" |
+| **Conflicting Data** | "Found contradictory patterns: [list with evidence]. Recommend: [user guidance needed]" |
+
+**Error Recovery Workflows**:
+
+```markdown
+### When `semantic_search` Returns Nothing
+1. Try `grep_search` with specific keywords
+2. Try `file_search` with glob patterns
+3. Report: "Couldn't find matches. Searched: [tools tried]. Recommend: verify search terms or provide file path."
+
+### When `read_file` Fails
+1. Verify file path with `file_search`
+2. Check if file exists with `list_dir`
+3. Report: "Cannot read [file]. Reason: [error]. Tried: [verification steps]. Recommend: verify path or permissions."
+
+### When Reference Files Don't Exist
+1. Search for similar patterns in related directories
+2. Check instruction files for guidance
+3. Report: "Reference file [path] doesn't exist. Similar files: [list]. Recommend: use similar pattern or ask for correct path."
+```
+
+**Integration with Templates**:
+All prompt templates now include:
+- **Response Management section** with scenario-specific "I don't know" patterns
+- **Embedded Test Scenarios** including "plausible trap" tests (user provides incorrect info, agent should catch it)
+
+**Anti-Patterns to Avoid**:
+
+❌ **Bad** (hallucination):
+```markdown
+Based on common patterns, I'll implement authentication using JWT tokens with Azure AD B2C...
+```
+
+✅ **Good** (explicit uncertainty):
+```markdown
+I couldn't find authentication patterns in this repository.
+I did find Azure AD documentation reference in tech/01.01 Authentication/.
+Recommendation: Review existing auth implementations or provide reference file before proceeding.
+```
+
+**Confidence Indicators**:
+When conclusions must be drawn from partial data, qualify with confidence levels:
+
+```markdown
+**High Confidence**: Found 5+ consistent examples in codebase
+**Medium Confidence**: Found 2-4 examples, some variation in approach
+**Low Confidence**: Found 1 example or conflicting patterns
+**No Confidence**: No examples found, proceeding with industry best practices
+```
+
+---
+
 ## Application by File Type
 
 ### For Prompt Files (.prompt.md)

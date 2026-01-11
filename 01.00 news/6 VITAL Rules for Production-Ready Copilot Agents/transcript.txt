@@ -1,0 +1,548 @@
+1
+00:00:00,160 --> 00:00:05,552
+Il tuo agente AI ha appena inventato uno sconto del 40% in produzione sul contratto di un nuovo cliente.
+
+2
+00:00:05,552 --> 00:00:15,137
+Il cliente ha già firmato giorno del live, centinaia di utenti, prime ore il tuo profilo liscio, poi l'installation e non c'è nessun, non c'è nessun errore tracciato, sono delle risposte perfettamente costruite, perfettamente plausibili, perfettamente sbagliate.
+
+3
+00:00:15,137 --> 00:00:16,775
+E poi quando chiedi al team, ma com'è possibile?
+
+4
+00:00:16,775 --> 00:00:21,328
+La risposta è sempre la stessa nei test, rispondeva sempre corretto, sempre deciso, sembrava affidabile.
+
+5
+00:00:21,408 --> 00:00:34,747
+Esatto, sembrava, sembrava perché un LLM quindi non è addestrato per inseguire la verità, ma per massimizzare la probabilità statistica della prossima parola e quindi una ottimizzazione matematica verso la vera somiglianza, non certo verso la correttezza, tantomeno verso la verità e quando non la trova completa improvvisa crea allucinazione.
+
+6
+00:00:34,747 --> 00:00:38,502
+Io sono Microsoft, negli ultimi tre anni ho portato centinaia di agenti in produzione.
+
+7
+00:00:38,502 --> 00:00:47,848
+Questo è il mio podcast dove contro la mia esperienza se vuoi ridurre veramente le allucinazioni la risposta non è cambio modello, non è aggiungi più dati e sicuramente non è spero che vada meglio.
+
+8
+00:00:47,848 --> 00:00:51,322
+La risposta è un'altra tratta il tuo system come una vera infrastruttura applicativa.
+
+9
+00:00:51,442 --> 00:00:52,720
+Ma cos'è un system prompt?
+
+10
+00:00:52,880 --> 00:01:00,189
+È il contratto tra te e il tuo agente e hai è l'insieme di istruzioni che definiscono che l'agente cosa può fare, come deve comportarsi e soprattutto cosa non deve fare.
+
+11
+00:01:00,189 --> 00:01:09,854
+Spesso però è scritto è l'unica cosa tra te e inventato, perché un agente senza un system robusto è come un pilota senza una checklist dove in condizioni normali sembra andare bene.
+
+12
+00:01:10,014 --> 00:01:33,458
+in questo episodio ti voglio mostrare la mia personale checklist le prime sei regole legate al prompt che uso sul campo ogni giorno quando faccio oppure quando creo i miei agenti personali sei regole per trasformare una sistema di studio da semplice testo a vera e propria ingegneria del comportamento che fanno la differenza tra essere un professionista ma prima di entrare nelle regole dobbiamo guardare in faccia una verità una verità alquanto scomoda
+
+13
+00:01:33,618 --> 00:01:39,969
+Molte volte mi sento rivolgere sempre le stesse domande: quando arriverà il modello perfetto, quando ci sarà un modello senza errori, quello con zero allucinazioni.
+
+14
+00:01:39,969 --> 00:01:44,282
+E purtroppo la risposta è molto semplice: non arriverà, perché non può esistere, non nel prossimo futuro.
+
+15
+00:01:44,282 --> 00:01:48,356
+Infatti c'è un paper che già nel 2024 aveva espresso chiaramente questi avranno sempre le allucinazioni.
+
+16
+00:01:48,356 --> 00:01:54,187
+Anche più recentemente, nel giugno 2025, un nuovo paper che va ancora più in profondità perché non possiamo semplicemente aspettare il modello migliore.
+
+17
+00:01:54,307 --> 00:02:24,142
+questo paper si intitola l'impossibilità fondamentale di controllare le allucinazioni chiamato anche teorema dell'impossibilità che non esiste un meccanismo di inferenza quindi di risposta che possa essere al tempo stesso veritiero, completo, informativo e ottimale ed è proprio un limite matematico, non è un bug da correggere nel modello, ma fortunatamente lo stesso paper conosce anche un'altra cosa, cioè quando hai un'architettura progettata puoi ridurre la frequenza delle allucinazioni, certo non le elimini, ma le rendi misurabili, gestibili ingegnerizzabili, è un comportamento che programmi della gente è il primo punto che regge il tutto.
+
+18
+00:02:24,182 --> 00:02:54,136
+agente è come uno specchio riflette la qualità della knowledge e la precisione del comportamento nasce proprio qui dalla precisione del prompt engineer il primo punto di rottura di un agente in produzione non è il modello e non vedere quella linea invisibile che demarca un prompt per una chat da un prompt per un agente perché quella linea quando la attraversi cambia tutto succede sempre così ti serve partire hai una deadline scrivi un po di istruzioni e poi testi quindi la gente risponde magari con sicurezza però spesso senza basi verificabili qui non stiamo parlando di scrivere meglio una risposta come stiamo parlando di progettare il comportamento della gente perché un prompt utente la chat è temporaneo è la domanda di un momento
+
+19
+00:02:54,536 --> 00:03:15,544
+un system prompt è permanente permanente nel senso di configurazione di produzione non immutabile è l'ambiente operativo e nel tuo agente è codice di produzione scritto in linguaggio e il codice di produzione o lo testi o molto probabilmente esplode ti faccio un esempio di un system prompt di un agente che tempo fa incontrato e recitava così rispondi sulla base dei documenti forniti se la domanda non riguarda non rispondere sì preciso non allucinare
+
+20
+00:03:15,823 --> 00:03:44,220
+questo podcast sarebbe già finito ora sarebbe scarso in produzione è semplicemente pericoloso perché perché non dice che la gente non dice cosa conta come fonte non dice cosa fare quando manca qualcosa non dice cosa è consentito e soprattutto non dice cosa fare quando le fonti si contraddicono quando arriva una domanda del tipo qual è lo sconto massimo per un nuovo cliente la gente cerca dei propri documenti cerca una policy magari trova rinnovi del 15% ma non trova lo sconto per il nuovo cliente ed è proprio in questo momento che così la gente deve scegliere dire non lo so e sembra poco utile oppure completare
+
+21
+00:03:44,540 --> 00:04:13,536
+cosa genera ha trovato non perché esiste ma perché probabilmente gli suonava veritiero Questa è proprio una allucinazione non da modello poco efficace ma è un'allucinazione da prompt design che ha fallito ed allora è proprio qui che cambia la prospettiva non è scrittura creativa e come ogni sistema ingegnerizzato un sistema si basa su framework ma seguono delle regole completamente diverse ad esempio costar ottimi per le chat sono dei framework ma nei system servono strutture orientate al guardrail come ad esempio l' RTF il roll task
+
+22
+00:04:14,295 --> 00:04:44,050
+che non sono standard Official Microsoft ma sono dei pattern pratici allineati al modo in cui lo studio si aspetta che tu struttu perché non basta dire cosa fare devi esplicitare come comportarsi quando le cose vanno male ad esempio le regole di fullback dell'instruction eventuali azioni di escalation tramite Power automatato chiamate a tool specifici e poi all'interno di questi frame applichi le tecniche ragionamento della risposta tramite self consistency l'esito più consistente fino ad arrivare a pattern veri e propri per gli agenti tipo che alterna ragionamento e azioni con esterni
+
+23
+00:04:44,409 --> 00:05:11,768
+Questi sono i mattoni operativi, ma è la struttura completa del system prompt che deve diventare qualcosa di profondamente diverso, un qualcosa che specifichi il ruolo, l'identità sia specifico sui documenti che deve considerare attendibili, gestione della risposta a seconda del tipo di domanda, domande ambigue o complesse affinché in qualche modo sia in grado di rispondere quando sono fuori contesto o fuori ambito, domande parzialmente correlate, come gestire eventuali assenze o lacune di dati, come gestire conflitti, una sezione dedicata agli aspetti di privacy e riservatezza, importante soprattutto per quegli agenti in ambiente
+
+24
+00:05:12,247 --> 00:05:22,072
+Infine la sezione finale di un controllo qualità, una lista di regole da seguire da non fare o da non scrivere e perché no, una sezione di gestione degli errori affinché abbia una chiara idea di quali siano i suoi confini e come gestirli.
+
+25
+00:05:22,072 --> 00:05:33,255
+Alla domanda su un nuovo cliente, la gente non spara un numero inventato, risponde: non ho trovato la policy specifica per i nuovi clienti, ho trovato il 15% per i nuovi clienti per casi non documentati contatta l'ufficio commerciale.
+
+26
+00:05:33,255 --> 00:05:34,453
+Ecco quindi che.
+
+27
+00:05:34,972 --> 00:05:36,650
+Non inventa il nostro agente, non improvvisa perché?
+
+28
+00:05:36,650 --> 00:05:38,567
+Perché gli ha dato delle regole per non dover improvvisare.
+
+29
+00:05:38,567 --> 00:05:48,752
+Bene, abbiamo parlato della differenza tra uno sconto inventato e un agente capace di ammettere quando non lo sa, ma così non è sicuramente intuitivo, serve un metodo e le prossime 6 regole sul campo per costruire che possano reggere in produzione.
+
+30
+00:05:48,752 --> 00:05:54,263
+E ora siamo pronti per iniziare con la prima regola tratta il system come software, come codice di produzione.
+
+31
+00:05:54,343 --> 00:06:02,451
+Infatti devi iniziare pensando a come gestisci oggi il tuo system perché i prompt in produzione non sono dei semplici testi, sono un componente essenziale della tua soluzione.
+
+32
+00:06:02,611 --> 00:06:27,133
+questo concetto oggi anche un nome c'è un paper recente che lo formalizza si chiama promptware Engineering promptware come software e dice una cosa semplice i prompt sono codice scritto software vanno trattati ad esempio nel mondo di studio mi riferisco al versioni di solution come un semplice testo succede sempre così oggi domani arriva una richiesta nuova domani un caso particolare da gestire e dopo una settimana la gente inizia a fare cose che non avevi mai autorizzato ed è per questo che consiglio sempre di partire da un
+
+33
+00:06:27,773 --> 00:06:32,725
+percorso di governance perché assolutamente bisogna evitare modifiche live senza un processo che governa.
+
+34
+00:06:32,885 --> 00:06:35,161
+Ma sai qual è il vero problema?
+
+35
+00:06:35,241 --> 00:06:42,750
+E non puoi debuggare in produzione una cosa che non è mai versionato e spesso ti trovi lì nella fretta in emergenza durante un'escalation con un prompt versionato a mano del tipo.
+
+36
+00:06:42,830 --> 00:06:48,940
+Ecco, quel file è un sintomo, è un sintomo che stai gestendo il cuore meglio il cervello di gente con la logica.
+
+37
+00:06:48,940 --> 00:06:53,893
+Invece il sistema deve vivere in un repository, che vuoi, ma devono esserci versioni con delle review.
+
+38
+00:06:53,853 --> 00:07:16,419
+Quindi esporta sempre l'agente, ad esempio una solution, tieni la stessa solution abbia un tag, abbia una versione e questo dal mio punto di vista non è una opzione, non è quando hai tempo, è il fondamento di un agente produttivo, perché se domani succede che inventa il 40% del uno sconto, tu vuoi e devi poter rispondere a tre domande subito uno quando è cambiato il comportamento due chi ha cambiato che cosa tre quale testa ha salito soprattutto perché non l'ha firmato quindi cosa andiamo a versionare davvero non solo il test.
+
+39
+00:07:16,379 --> 00:07:24,087
+tutto ciò che definisce il comportamento, ovviamente gli agenti instruction, riferimento alle action, le policy su quando e cosa può chiamare, le fallback, il formato di risposta, gli starter prompt.
+
+40
+00:07:24,087 --> 00:07:29,759
+Quindi il messaggio è non versionare prompt e configuration separati e ovviamente questo dipende poi dalla tecnologia che stai usando per sviluppare.
+
+41
+00:07:29,759 --> 00:07:40,582
+Nel caso di studio comportamento è l'interazione di 5 variabili strettamente correlate, le istruzioni testuali, tools, action, i dati nella knowledge, i limiti di scope e il formato della perché se ne cambia una e non l'altra modificato il sistema senza saperlo.
+
+42
+00:07:40,582 --> 00:07:43,658
+Per questo vi consiglio di esportare tutto insieme una soluzione, una versione.
+
+43
+00:07:43,737 --> 00:08:13,412
+che anche i connettori siano tutti della stessa soluzione perché trattando di software modifica è una release non è un ritochino è una release infatti esistono proprio per trattare modifica come una release non come un editing live spot ora però quando dico test non intendo ho provato tre prompt a mano intendo un processo io normalmente faccio così definisco una ventina di casi 5 facili andare tutto bene 5 ambigui deve fermarsi o chiedere 5 fuori scope dove deve rifiutare in modo corretto e 5 trappole plausibili ma sbagliate e li valuto su criteri comportamentali ha citato le fonti ha usato incertezza quando manca un dato hai evitato numeri inventati
+
+44
+00:08:13,732 --> 00:08:38,095
+il formato che io ho imposto ha chiamato i tool solo quando consentito quindi dalla mia esperienza non servono 200 test ne servono una decina una ventina ma fatti bene con la testa magari integrati con kpi che puoi leggere in Analytics errori per scenario perché ancora una volta non stai testando l'intelligenza del modello stai testando il comportamento che gli hai programmato con il system prompt l'ultima parte della regola 1 è il deployment utilizza le principali tecniche che già conosci Io ad esempio consiglio Canary gente a pochi
+
+45
+00:08:38,455 --> 00:08:55,429
+Se funziona o no, il famoso 5 25 100 in come studio canale legittima di permessi tramite canali puoi pubblicare ad esempio la gente su un canale Teams specifico e lo rende accessibile solo a un determinato security group all'interno di poi guardi le analytics per quel periodo e cambi i permessi di condivisione della gente da solo quel solo dai testi user a everyone a chi ci deve accedere veramente.
+
+46
+00:08:55,908 --> 00:08:59,143
+Seconda tecnica è il ring, quindi lo espandi a cerchi dall'interno verso l'esterno.
+
+47
+00:08:59,143 --> 00:09:01,180
+Di solito abbiamo un internal data di tutti.
+
+48
+00:09:01,180 --> 00:09:04,695
+Questo è un pattern nativo supportato tramite le Power Platform environment e le pipeline.
+
+49
+00:09:04,695 --> 00:09:12,004
+Di solito si hanno appunto questi tre environment separati, dove sviluppi ring uno test beta, cioè usi una pipeline per muovere la soluzione e un ring due la produzione.
+
+50
+00:09:12,004 --> 00:09:15,279
+Quindi se il ring uno ha passato il test, promuovi le soluzioni produzione.
+
+51
+00:09:15,279 --> 00:09:17,555
+Ultimo modello che consiglio è il feature flag, dove?
+
+52
+00:09:17,675 --> 00:09:31,055
+Puoi spegnere una nuova funzionalità con un click senza deployment, quindi una specie di soft rollback dove puoi facilmente tramite dell'agente inizia ad allucinare in produzione cambia la variabile d'ambiente, ad esempio in pochi minuti tutti gli agenti smettono di usare la nuova logica più sicuro senza aver fatto un nuovo.
+
+53
+00:09:31,055 --> 00:09:36,926
+Insomma, questa è la base, ma ci sarebbe molto di più perché l'agente che blocca i problemi prima che arrivi in produzione.
+
+54
+00:09:37,165 --> 00:09:40,121
+Il sistema di test che ti ho mostrato vive qui automatizzato ogni deployment.
+
+55
+00:09:40,121 --> 00:09:53,501
+Ci sono le che, come dicevo, automatizzano i deployment così non fai a mano, ad esempio, e questi hanno all'interno degli approval git con rollback pronto senza stress, cioè la puoi usare che ti mostra dove la gente sta salendo perché non sembra che vada bene, servono i dati, cioè quali soluzioni causano problemi.
+
+56
+00:09:53,900 --> 00:09:59,452
+Abbiamo il kit per questi 20 casi di così ogni pipeline si esegue automaticamente ogni release del tuo nuovo sistema.
+
+57
+00:09:59,452 --> 00:10:01,249
+Ultimamente c'è il nuovo contro system.
+
+58
+00:10:01,289 --> 00:10:14,509
+Questo è una dashboard centrale per gli amministratori che vedi tutti gli agenti che li usa e se rispettano le polizze aziendali oggi in tutti questi argomenti sono scopi interessa scrivono che lo approfondiamo bene abbiamo capito che è una release il problema successivo è perché molte volte quando.
+
+59
+00:10:14,789 --> 00:10:19,182
+di farlo ragionare bene, il tuo agente ti scrive un ragionamento perfetto per arrivare magari una risposta sbagliata.
+
+60
+00:10:19,182 --> 00:10:25,812
+E questo succede anche quando usi la frase più abusata di tutte: "Pensa passo dopo passo step" e proprio questo tema lo trattiamo nella regola numero 2.
+
+61
+00:10:25,812 --> 00:10:34,599
+C'è una frase che hai visto ovunque nei prompt, in articoli, nei tutorial, sui social che è "Pensa passo dopo passo step" è diventata quasi un mantra, come se aggiungere questa frase magica rendesse la gente più intelligente.
+
+62
+00:10:34,599 --> 00:10:37,634
+Invece in produzione questa frase da sola potrebbe addirittura essere un problema.
+
+63
+00:10:37,914 --> 00:10:43,505
+Ora pensa un sistema come questo che dice rispondi alla domanda dell'utente su un argomento e infine termina pensa passo dopo passo prima di rispondere.
+
+64
+00:10:43,505 --> 00:10:46,860
+Ora in una chat su domande semplici può aiutare, è proprio alla base del cosiddetto.
+
+65
+00:10:46,860 --> 00:10:50,894
+Ma il problema è che non è una soluzione, non è un controllo per un agente in produzione.
+
+66
+00:10:50,894 --> 00:10:59,002
+Perché il punto non è pensare di più, il punto è pensare i passi giusti e se il modello non sa quali passi fare ti produce un ragionamento bellissimo che però spesso porta a una risposta
+
+67
+00:10:59,042 --> 00:11:27,998
+di questo tipo un dipendente part-time trasferito da Italia Germania a metà anno fiscale ha diritto al bonus natalizio e la gente quindi ti sforna una checklist generica sembra ragionato ma la risposta molto probabilmente è sbagliata perché quel caso è molti country è a metà anno ha tutta una serie di eccezioni il modello non ha una procedura concreta da seguire ha pensato passo passo certo ma non sapeva quali passi fare soprattutto non sapeva come verificare i dati di input si è basato su una conoscenza generale
+
+68
+00:11:28,157 --> 00:11:49,565
+E in HR in ambienti legali la conoscenza generale di questo approccio è spesso insufficiente, serve agire, verificare, correggere ed è qui che entra in gioco molto più indicato per system prompt di agenti non è pensa meglio è più ragiona e agisci non resta nel testo quindi consulta le fonti usa i tool recuperare policy verifica le eccezioni non sostituisce il ragionamento, lo estende con l'interazione con l'ambiente rendendo il modello più affidabile soprattutto su task che richiedono dei dati esterni.
+
+69
+00:11:49,565 --> 00:11:51,402
+Questo è un vero pattern da agente.
+
+70
+00:11:51,402 --> 00:11:54,158
+Pensa, agisci, osserva cosa hai trovato, pensa di nuovo, quindi un loop.
+
+71
+00:11:54,158 --> 00:12:02,705
+E però è proprio qui che spesso incontro dei problemi, perché molti lo usano se fosse una frase da incollare, come dicevo prima, ma realtà funziona davvero quando è una cosa invece molto semplice ma molto efficace.
+
+72
+00:12:02,705 --> 00:12:18,202
+Non dai al modello il permesso di ragionare in generale gli insegni come ragionare in scenari specifici con precedenti con degli esempi curati, una checklist operativa di dominio, quindi non come pensare ma che sequenza di mosse fare per i diversi scenari e torniamo alla gente di prima con un prompt generico pensa passo dopo passo risultato sarà ragionamento generico risposta probabilmente sbagliata con un prompt curato.
+
+73
+00:12:18,321 --> 00:12:46,758
+con react fatto bene avremo una parte di pensa cioè dove deve capire quali giurisdizioni sono coinvolte ci sarà il momento di action quindi estrae le giurisdizioni menzionate Francia Italia o Germania qui Francia Italia ma potrebbe essere una qualsiasi altra nazione perché è l'esempio che contano sono le nazioni observation quindi ha identificato Francia Italia come paesi rilevanti e pensa quindi verifica se esiste una policy sui trasferimenti a metallo e a quel punto c'è una action ad esempio può cercare il database o fa utilizzare altri tool infine observation nessuna policy trovata quindi a questo punto la risposta finale sarà non ho trovato la policy per il trasferimento a metano ho trovato
+
+74
+00:12:46,838 --> 00:13:16,314
+le policy di una singola nazione consiglio l'escalation a creare per un caso non documentato non ragiona genericamente ma sa cosa fare identifica le giurisdizioni recupera le policy del trasferimento e se manca segnale gap ma soprattutto non inventa ma non perché gli hai detto di non inventare perché gli hai dato una procedura che non gli lascia spazio per improvvisare quindi il punto chiave è questo react non è il pensa passo dopo passo scritto una sola volta react e ecco come li muovi in situazioni come questa e poi non mostri non un esempio generico ma un esempio specifico dominio con il tuo tipo di domanda il tipo di fallimento che vuoi evitare
+
+75
+00:13:16,713 --> 00:13:41,635
+di solito consiglio primo identifica 3 5 scenari più critici o ambigui secondo ognuno scrivi un esempio completo domanda tipo checklist decisionale i tool le fonti da utilizzare e il tipo di risposta finale e terzo metti questi esempi dove li puoi vedere sempre così il modello li usa come precedenti operativi quindi il valore non è della frase magica negli esempi che vuoi e nei passi che insegni nel loop più observation che hai progettato ok però adesso potremmo incontrare
+
+76
+00:13:41,875 --> 00:13:51,980
+un paradosso molto curioso, perché più esempi aggiungi, più cerchi di essere preciso nel coprire scenario, più il tuo system prompt cresce, ma se cresce troppo potrebbe non diventare più intelligente, ma peggio ancora potenzialmente più contraddittorio.
+
+77
+00:13:51,980 --> 00:13:53,897
+Indovina cosa fa un agente con uno scope contraddittorio?
+
+78
+00:13:53,897 --> 00:13:54,176
+Avvisa.
+
+79
+00:13:54,176 --> 00:13:56,133
+Quindi, fortunatamente per questo c'è l'arriva tre.
+
+80
+00:13:57,811 --> 00:14:02,803
+Ora hai scritto il tuo bel system prompt, ruolo definito esempi curati, struttura solida, sembra completo e qui molti si fermano.
+
+81
+00:14:02,883 --> 00:14:03,442
+Ok, fatto.
+
+82
+00:14:03,442 --> 00:14:04,281
+Lo metto in produzione.
+
+83
+00:14:04,401 --> 00:14:06,318
+No, perché quasi sempre, se non sempre,
+
+84
+00:14:06,757 --> 00:14:33,915
+e c'è un motivo pratico quando scrivi un sistema completo tende a diventare lungo è molto facile che inizi a contraddirsi quando si contraddice tu non hai più un sistema omogene hai un set di regole che potenzialmente tra di loro decide chi vince ogni volta il modello come ovviamente con la probabilità io spesso vedo agenti e poi di solito cosa succede nella tua scrivi ad esempio 15 rispondi solo su clause contrattuali nel repository legal poi scorri magari 850 righe alla 167.
+
+85
+00:14:33,956 --> 00:15:03,192
+scrivi per domande su workflow usa documenti nel repository HR e poi giusto per non farti mancare niente alla riga 245 scrivi non rispondere mai su argomenti fuori dal repository legal in questi casi ti dovresti chiedere sì ma lo scope qual è solo legale oppure anche HR oppure mai fuori Legal o cosa chi decide tu no perché la maggior parte delle volte non vedi queste contraddizioni decide il modello quindi l'essenza della virgola 3 è che dopo la prima stesura serve una riduzione Io vi propongo sempre un obiettivo concreto 10 20% più corto senza perdere ovviamente informazione critica mi piace introdurre un po' come il target di sprint cioè ogni refactor pron di ridurre il 10% i token senza perdere comportamenti chiari e questa riduzione ti dà tra l'altro
+
+86
+00:15:03,232 --> 00:15:26,037
+vantaggi tutti insieme uno più coerenza perché hai meno tradizioni meno allucinazioni più prevedibilità perché hai un comportamento stabile terzo meno costi meno token di risparmio è reale Ok ma come si fa a farlo senza incasinare tutto e quindi devi pensare come regolo uno iterazione non durante la scrittura la faccio così uno elimino le ridondanze lo stesso concetto ripetuto in tre in tante sezioni ne tengo uno elimino gli altri ad esempio invece di scrivere deposito di documentazione tecnica 15 volte definisco un alias all'inizio Tech ripo uguale
+
+87
+00:15:26,237 --> 00:15:54,873
+e poi uso dappertutto risultato 20% di in meno stessa chiarezza molto meno due risolvo le contraddizioni quando trovo solo X poi anche Y scelgo io in modo inequivocabile non lascio il modello la decisione se una policy ambigua per te sarà anche per il modello quindi va chiarita prima esempio non mostro 5 esempi completi identici mostro il pattern una volta domanda risposta poi un esempio completo davvero ben curato ed eventualmente sotto altri casi simili scenario B scenario C che devono avere qualcosa di diverso e quindi avremo lo stesso valore metà spazio molto più leggibile dopo ogni riduzione quindi faccio girare gli scenari chiave comportamento invariato ok
+
+88
+00:15:55,033 --> 00:16:09,731
+è cambiato beh valutiamo e qui di solito taglia anche tutti i filler per favore gentilmente se possibile cerca di non servono il modello non ha bisogno di questo ogni parola è inutile è un token è un sistema ha bisogno di precisione non di cortesia ma sei proprio più forte di te ecco quella cortesia la metti nell'interfaccia
+
+89
+00:16:09,891 --> 00:16:34,254
+non esiste pronto quindi precisione e iterazione proprio come il codice e se vuoi andare ancora più in profondità esistono delle tecniche avanzate di compression tipo lingua che comprime anche molto aggressivamente e altri framework efficaci però se ti interessa un episodio dedicato scrivilo nei commenti così diamo il giusto spazio ma torniamo al nostro prompt legal perché dopo una revisione con queste tecniche magari riesce a passare da 300 rig a 150 180 però questa volta zero ridondanza zero contraddizioni stessa capacità comportamento molto più prevedibile e magari fino al 30% in meno di token su ogni interazione e non dimenticare i vantaggi accennati prima
+
+90
+00:16:34,254 --> 00:16:42,002
+Coerenza, meno allucinazioni e meno costi che tra l'altro quello che la compliance vogliono dire nei report inevitabile, ma è mai possibile che nell'era io debba passare ore a definire pronto ridondanze a mano?
+
+91
+00:16:42,002 --> 00:16:44,119
+Beh, casualmente per questo c'è proprio la regola quattro.
+
+92
+00:16:44,119 --> 00:17:01,492
+Ora il modo più professionale di scrivere pronto oggi è non scriverli o meglio non rifinirli a mano perché la review umana ha tre problemi strutturali tempo un sistema da centinaia di righe a chiederti magari 2 3 ore di attenzione vera inizia a perdere focus sicuramente ti scappa.
+
+93
+00:17:01,732 --> 00:17:03,689
+diventa una mezza giornata di review.
+
+94
+00:17:03,689 --> 00:17:10,877
+Il problema è che quando non scala inizia a saltarla, è umano, però quando salti la review torna lì il statico sconto inventato del 40%.
+
+95
+00:17:10,877 --> 00:17:17,468
+Quindi il salto di livello è questo: o ti puoi creare un tuo agente dedicato con un solo scopo, criticare e migliorare le tue agenti instruction.
+
+96
+00:17:17,627 --> 00:17:28,691
+Non è un tool, è proprio un agente reviewer, un agente che guarda sempre le stesse cose senza stancarsi ridondanze, contraddizioni, scopo ambiguo, fallback mancanti, esempi troppo generici, vincono intestati restituisce due output.
+
+97
+00:17:28,891 --> 00:17:58,726
+uno un'analisi strutturata dei problemi e una versione proposta più robusta ora ricordi il prompt legal lo passi al tuo nuovo agente reviewer e dopo 30 secondi non ti dà un referto quindi tempo umano 1 2 ore 3 ore tempo agente 30 secondi e soprattutto ti trova tutte le condizioni che il suo sistema di controllo è in grado di vedere non alcune e questa è non è una scorciatoia furba è proprio un pattern in pratica stai usando un modello per migliorare il punto non è far scrivere tutto intelligenza artificiale il punto è avere una review costante ripetibile scalabile un processo che puoi eseguire su ogni modifica su ogni agente senza dipendere dalla
+
+98
+00:17:58,845 --> 00:17:59,485
+di qualche persona.
+
+99
+00:17:59,485 --> 00:18:01,242
+Ma quindi come costruiamo il prompt reviewer?
+
+100
+00:18:01,402 --> 00:18:13,823
+Esattamente questo il modo di pensare di un professionista di agenti deve imporre disciplina cosa devi controllare, come deve classificare gli errori, come devi indicare dove li ha trovati, che impatto hanno in produzione e che correzione concreta propone.
+
+101
+00:18:13,823 --> 00:18:19,175
+E poi una cosa fondamentale, il formato dell'output deve essere strutturato diventa testabile e diventa confrontabile tra le diverse versioni.
+
+102
+00:18:19,334 --> 00:18:29,319
+Questo anche di usare lo stesso output in test batch in pipeline in un futuro quando implementerai magari e se il review non è sicuro di un problema lo deve segnalare esplicitamente e dove facciamo girare questo.
+
+103
+00:18:30,158 --> 00:18:59,274
+dove ti più comodo puoi crearlo dove vuoi basta che lo fai serve solo la decisione di farlo e il vantaggio sui prossimi agenti sarà enorme ma quindi come lo usiamo nel concreto come creiamo qual è il nostro di lavoro io consiglio una cosa molto semplice scrivi un tuo system in versione grezza la passi l'analisi vedi che cosa ti ha proposto come output lo testi fai le tue valutazioni poi lo ripassi al front reviewer fino a quando non sei soddisfatto completamente poi a questo punto fai deployment quando non ci sono più delle problematiche critiche fine che guarda caso è la stessa logica del quality gate che si implementa
+
+104
+00:18:59,354 --> 00:19:28,390
+quando scopri un nuovo tipo di errore in produzione non è che lo aggiungi ai controlli del tuo prompt reviewer e quindi quella gente evolve con te non è un asse importante del tuo sistema diventa parte della tua piattaforma di controllo esattamente come il control system lo è per gli amministratori lo stesso concetto se vuoi puoi usare un prompt coach agent per migliorare le richieste quotidiane o usarlo come template per farne uno più customizzato e ora un ultimo spunto che ci ricollega un po' alla regola uno è software quindi mi raccomando nuovamente
+
+105
+00:19:28,749 --> 00:19:31,186
+Non dobbiamo più avere prompt reviewer finalisti non versione 7.
+
+106
+00:19:31,186 --> 00:19:32,863
+Ok, questa volta è quella buona.
+
+107
+00:19:33,063 --> 00:19:34,860
+è codice e va trattato come tale sempre.
+
+108
+00:19:34,860 --> 00:19:39,693
+Quindi il concetto fondamentale di questa regola è automatizzi la review in 30 secondi hai un referto e smetti di andare a istinto.
+
+109
+00:19:39,693 --> 00:19:45,923
+Ma attenzione perché anche se il tuo pronto è perfetto, il tuo agente hai può ancora allucinare per una causa molto ma molto più banale, il contesto.
+
+110
+00:19:45,923 --> 00:19:50,676
+E già perché molti system prom falliscono non per come ragionano, ma per come sono condizionati, condizionati dal contesto che hanno.
+
+111
+00:19:50,836 --> 00:19:52,833
+E qui la regola 5 ci dà proprio una grande mano.
+
+112
+00:19:54,470 --> 00:19:54,910
+Vediamo come.
+
+113
+00:19:55,109 --> 00:20:05,893
+Oggi scrivere non significa scrivere tutto, significa scrivere il necessario, ma per capire cosa è necessario devi sapere in che architettura, perché se metti nel sistema cose che l'architettura può già fornire, di fatto stai pagando due volte con complessità e con fragilità.
+
+114
+00:20:05,893 --> 00:20:13,322
+Novembre 2025 Ignite ha introdotto il e non è un proprio un layer architettura di e gli agenti e questo cambia un aspetto fondamentale.
+
+115
+00:20:13,322 --> 00:20:36,926
+cosa devi mettere nelle agenti ma soprattutto cosa non devi mettere in un unico layer perché prima di in tanti progetti che ho visto veniva scritto nel pronto tutto il contesto organizzativo procedure chi approva che cosa chi è di cosa e sembra utile certo finché non cambia perché quando una persona cambia ruolo o un team viene riorganizzato un progetto cambiamento non aggiornato così è potenzialmente un pericolo perché ti genera risposte plausibili ma aggiornate
+
+116
+00:20:38,044 --> 00:20:53,101
+e più contesto andiamo a scrivere nel system prompt quindi arcoded nel prompt più c'è il rischio di contraddizioni più difficile mantenere coerenza tra le diverse versioni invece con un'idea diversa insieme tre componenti i dati quindi le relazioni tra il meeting chat come il lavoro è connesso la memoria preferenze di abitudine come lo vuoi tu e la
+
+117
+00:20:53,461 --> 00:21:18,104
+non solo la chat organizzativa ma anche la con cui effettivamente interagisce soprattutto resta sempre consapevole dei permessi quindi la parte di Security sotto controllo è tracciabile in ogni passaggio fornisce dei segnali al modello e poi decide come usarli in base al prompt e la conseguenza è questa il suo agente non deve più avere tutto il contesto nelle instruction quando disponibile può tenerlo dinamicamente tramite intelligence layer quindi la separazione diventa chiara e il comportamento cosa fa la gente che ragiona quando scala come risponde quando manca qualcosa
+
+118
+00:21:18,423 --> 00:21:19,422
+nel contesto.
+
+119
+00:21:19,422 --> 00:21:21,898
+Facciamo un esempio con il nostro Legal Agent.
+
+120
+00:21:21,898 --> 00:21:29,087
+Prima infatti mettevano in formazioni come se l'utente è nel Legal Team Tono business se lavora sul progetto X prioritizza documenti Y e via dicendo.
+
+121
+00:21:29,087 --> 00:21:32,761
+Questo è fragile perché stai trasformando il system in una mini anagrafica aziendale.
+
+122
+00:21:32,761 --> 00:21:42,626
+Invece, scrivi la regola, non la lista ad esempio adatta il tono in base al ruolo reale dell'utente prioritizza le fonti rilevanti per il lavoro attuale e se il ruolo non è disponibile o non ci sono fonti rilevanti, devi dire cosa fare in quei casi.
+
+123
+00:21:42,626 --> 00:21:47,619
+Insomma, non ripetere il contesto organizzativo che può essere fornito dinamicamente.
+
+124
+00:21:47,619 --> 00:21:51,453
+Ricordiamoci che se vuoi che tu non deve poter dire che non lo sa e quindi deve decidere cosa fare.
+
+125
+00:21:51,533 --> 00:21:57,923
+Quindi non è molto più semplice e separa il comportamento da contesto perché ogni volta che quindi scrivi a mano nel contesto del.
+
+126
+00:21:58,323 --> 00:22:25,961
+stai costruendo della fragilità nel tuo sistema ora che hai però separato il comportamento e il contesto c'è un'altra piccola variabile che molti ignorano le caratteristiche del modello perché il buon prompt generico non esiste esiste un buon prompt per quel modello specifico e infatti la regola spiega benissimo abbiamo parlato di approccio di come scrivere eppure c'è un piccolo dettaglio così evidente che comunque molti ignorano le regole del modello che stai usando perché il prompt che funziona sul modello non è detto che funzioni uguali su un altro e soprattutto quello che funziona oggi può cambiare domani quando
+
+127
+00:22:26,200 --> 00:22:41,218
+Hai ridotto il momento in cui aggiorni il modello, sembra logico, stessa cambia la sensibilità ad alcuni vincoli, cambia come gestisci magari l'ambiguità e tu ti ritrovi a dire: ma è possibile non ha cambiato qualcosa, come se avessi.
+
+128
+00:22:41,457 --> 00:23:05,900
+cambiato il compilatore quindi la regola è tutto sommato semplicissima ogni volta che cambi modello cambi versione devi prenderti il tempo di leggere la prompt guide ufficiale di quel modello e collegare il cambio modello ad una pipeline di test aggiornato alle ultime novità della guida ufficiale non un articolo che riassume le caratteristiche della guida ufficiale perché lì dentro trovi le cose che ti cambiano il comportamento cosa segue in modo affidabile e cosa è cambiato rispetto alla versione precedente
+
+129
+00:23:06,180 --> 00:23:31,222
+perché senza questo passaggio stai facendo di nuovo utilizzatore di agenti apri una chat di copilot e gli chiedi come ottimizzo questo prompt per la nuova versione oppure meglio ancora aggiorni il tuo agent prompt reviewer e se serve potresti addirittura creare un agent prompt review per ogni modello che usi regolarmente e qui entra un aspetto secondo me importantissimo per copilot studio ma non solo perché era un agente uguale un modello oggi non è più così a settembre 2025 Microsoft ha annunciato la
+
+130
+00:23:31,462 --> 00:23:47,318
+Ma già a maggio 2025 il concetto di porta il tuo modello dove puoi connettere modelli supportati da studio no, ora il catalogo ad oggi offre più di 11.000 modelli, però ricordati che puoi usare solo quelli chat completion e compatibili, quindi hai capito bene, cioè ogni prompt del tuo agente può usare un.
+
+131
+00:23:47,557 --> 00:24:00,298
+Modello diverso utilizzato per il task specifico, non sei più obbligato a scegliere il modello migliore, puoi scegliere quale modello per quale task e quando inizi a fare questa cosa può succedere che l'agget distraction principale uso modello, poi l'analisi di documenti lunghi ne uso un'altro, un task reasoning complesso ne usa un'altro ancora e quindi funziona tutto benissimo.
+
+132
+00:24:02,335 --> 00:24:17,711
+Bene, oggi abbiamo visto le prime sei regole, quelle che costruiscono la base, le fondamenta: il prompt engineering come architettura, non come testo, il prompt engineering come mindset, versione review test fatto bene con esempi reali, riduzione della lunghezza del sistema prompt per eliminare contraddizione, separazione tra comportamento e contesto e soprattutto il prompt giusto per il modello giusto.
+
+133
+00:24:17,951 --> 00:24:18,271
+Eppure.
+
+134
+00:24:18,470 --> 00:24:23,223
+Se ti fermi qui l'incup del 40% inventato può succedere lo stesso perché questo era solo il primo punto di rottura.
+
+135
+00:24:23,223 --> 00:24:28,815
+Il secondo è un pochino più subdolo è più pericoloso perché non riguarda cosa la gente pensa, riguarda da dove prende la verità.
+
+136
+00:24:28,815 --> 00:24:34,846
+Infatti nel prossimo episodio entriamo nella zona dove gli agenti sembrano soldi, ma poi ci trovano commenti sbagliati, confondono fonti diventano manipolabili.
+
+137
+00:24:34,846 --> 00:24:42,035
+Parleremo quindi di grounding esplicito, gasrail testing quello fatto bene monitoring in produzione e arriviamo insieme a come ridurre al minimo i rischi ma non per magima perché
+
