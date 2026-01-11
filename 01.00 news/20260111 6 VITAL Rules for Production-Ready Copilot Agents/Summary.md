@@ -10,13 +10,12 @@ description: "Professional prompt engineering techniques for deploying AI agents
 
 **Recording Date:** 2026-01-11  
 **Summary Date:** 2026-01-11  
-**Summarized By:** GitHub Copilot  
+**Summarized By:** Dario Airoldi  
 **Recording Link:** [YouTube Podcast](https://www.youtube.com/@ioeilmiocopilot)  
 **Duration:** ~48 minutes  
 **Speaker:** Mario Fontana (Microsoft)  
 
-![Session Title](<images/001.01a session title.png>)
-
+![Session Title](<images/001.01b session title.png>)
 ---
 
 ## Executive Summary
