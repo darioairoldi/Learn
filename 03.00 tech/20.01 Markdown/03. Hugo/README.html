@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-01-16">
-<meta name="description" content="Comprehensive guide to speeding up Quarto site builds and deployments">
 
-<title>Optimizing Quarto Build and Deploy Performance – Dario’s Learning Journey</title>
+<title>readme – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -67,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/08.01-troubleshooting-guide.html" rel="next">
-<link href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html" rel="prev">
+<link href="../../../03.00 tech/21.01. Feed/20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" rel="next">
+<link href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -306,60 +269,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-markdown--docs">    
         <li class="dropdown-header">Quarto Documentation</li>
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.01-introduction-to-quarto.html">
  <span class="dropdown-text">Using Quarto (Overview)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.02-how-quarto-works.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.02-how-quarto-works.html">
  <span class="dropdown-text">Quarto Architecture: How It Works</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/02.01-monolithic-vs-modular-deployment.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.01-monolithic-vs-modular-deployment.html">
  <span class="dropdown-text">Quarto: Monolithic vs.&nbsp;Modular Deployment</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/02.02-split-navigation-build.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.02-split-navigation-build.html">
  <span class="dropdown-text">Quarto: Split Navigation Build</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/03.01-quarto-yml-structure.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/03.01-quarto-yml-structure.html">
  <span class="dropdown-text">Quarto.yml Document Structure</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/05.01-theming-and-styling.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/05.01-theming-and-styling.html">
  <span class="dropdown-text">Quarto Theming and Styling</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/04.01-markdown-features.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/04.01-markdown-features.html">
  <span class="dropdown-text">Quarto-Specific Markdown Features</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/07.01-build-optimization.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/07.01-build-optimization.html">
  <span class="dropdown-text">Optimizing Quarto Build &amp; Deploy</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.01-sidebar-layout.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.01-sidebar-layout.html">
  <span class="dropdown-text">How Quarto Sidebar Works</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.02-navigation-workflow.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.02-navigation-workflow.html">
  <span class="dropdown-text">Quarto Navigation Workflow</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.03-transition-optimization.html">
  <span class="dropdown-text">Sidebar Page Transition Optimization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/08.01-troubleshooting-guide.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/08.01-troubleshooting-guide.html">
  <span class="dropdown-text">Troubleshooting Quarto Sites</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/09.01-github-pages-deployment.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/09.01-github-pages-deployment.html">
  <span class="dropdown-text">Deploying Quarto to GitHub Pages</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/09.02-azure-storage-deployment.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/09.02-azure-storage-deployment.html">
  <span class="dropdown-text">Deploying Quarto to Azure Storage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/10.01-customizing-markdown-rendering-with-lua-filters.html">
+ <span class="dropdown-text">Customizing with Lua Filters</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">MkDocs Documentation</li>
@@ -374,6 +341,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/02. MkDocs/001.002 Architecture - Monolithic vs.&nbsp;Modular Deployment.html">
  <span class="dropdown-text">MkDocs: Monolithic vs.&nbsp;Modular Deployment</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Hugo Documentation</li>
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/README.html">
+ <span class="dropdown-text">Hugo Series Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.01-introduction-to-hugo.html">
+ <span class="dropdown-text">Introduction to Hugo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.02-hugo-core-concepts.html">
+ <span class="dropdown-text">Hugo Core Concepts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.03-goldmark-markdown-processing.html">
+ <span class="dropdown-text">Goldmark Markdown Processing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.04-hugo-vs-quarto.html">
+ <span class="dropdown-text">Hugo vs Quarto Comparison</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html">
+ <span class="dropdown-text">Rendering Learning Hub with Hugo</span></a>
   </li>  
     </ul>
   </li>
@@ -523,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item">Markdown Compilers</li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/07.01-build-optimization.html">Optimizing Quarto Build and Deploy Performance</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item">Markdown Compilers</li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.01-introduction-to-hugo.html">Hugo</a></li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/README.html">Hugo Static Site Generator Article Series</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -2210,101 +2203,107 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-81" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-82" role="navigation" aria-expanded="true"><i class="bi bi-file-richtext" role="img">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-82" role="navigation" aria-expanded="false"><i class="bi bi-file-richtext" role="img">
 </i> 
  <span class="menu-text">Quarto</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-82" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-82" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-82" class="collapse list-unstyled sidebar-section depth3 show">  
+      <ul id="quarto-sidebar-section-82" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.01-introduction-to-quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.02-how-quarto-works.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.02-how-quarto-works.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How Quarto Works</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/02.01-monolithic-vs-modular-deployment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.01-monolithic-vs-modular-deployment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Monolithic vs.&nbsp;Modular Deployment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/02.02-split-navigation-build.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.02-split-navigation-build.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Split Navigation Build from Content Rendering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/03.01-quarto-yml-structure.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/03.01-quarto-yml-structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">_quarto.yml Document Structure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/04.01-markdown-features.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/04.01-markdown-features.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto-Specific Markdown Features</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/05.01-theming-and-styling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/05.01-theming-and-styling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Theming and Styling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.01-sidebar-layout.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.01-sidebar-layout.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How does quarto site layout works</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.02-navigation-workflow.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.02-navigation-workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Navbars Navigation Workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.03-transition-optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sidebar Page Transition Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/07.01-build-optimization.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/07.01-build-optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimizing Quarto Build and Deploy Performance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/08.01-troubleshooting-guide.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/08.01-troubleshooting-guide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Troubleshooting Quarto Sites</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/09.01-github-pages-deployment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/09.01-github-pages-deployment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Deploying a Quarto Site to GitHub Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/09.02-azure-storage-deployment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/09.02-azure-storage-deployment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Deploying a Quarto Site to Azure Storage Accounts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/10.01-customizing-markdown-rendering-with-lua-filters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Customizing Markdown Rendering with Lua Filters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Documentation Series</span></a>
   </div>
 </li>
@@ -2340,27 +2339,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-      </ul>
-  </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-84" role="navigation" aria-expanded="true"><i class="bi bi-rss" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-84" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
 </i> 
- <span class="menu-text">Feed Architectures &amp; Protocols</span></a>
+ <span class="menu-text">Hugo</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-84" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-84" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-84" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.01-introduction-to-hugo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Hugo Static Site Generator</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.02-hugo-core-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hugo Core Concepts: Content Organization and Management</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.03-goldmark-markdown-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Goldmark Markdown Processing in Hugo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.04-hugo-vs-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hugo vs Quarto: Comprehensive Comparison for Learning Hub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rendering Learning Hub with Hugo: Practical Implementation Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/README.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Hugo Static Site Generator Article Series</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-85" role="navigation" aria-expanded="false">
- <span class="menu-text">20251005 Feeds architectures and protocols</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-85" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-85" role="navigation" aria-expanded="true"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text">Feed Architectures &amp; Protocols</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-85" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-85" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-85" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-86" role="navigation" aria-expanded="false">
+ <span class="menu-text">20251005 Feeds architectures and protocols</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-86" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-86" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../03.00 tech/21.01. Feed/20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="sidebar-item-text sidebar-link">
@@ -2391,23 +2438,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-86" role="navigation" aria-expanded="true"><i class="bi bi-graph-up" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-87" role="navigation" aria-expanded="true"><i class="bi bi-graph-up" role="img">
 </i> 
  <span class="menu-text">Diginsight</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-86" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-87" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-86" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-87" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-87" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-88" role="navigation" aria-expanded="false">
  <span class="menu-text">20250817 Query Cost Metrics with Diginsight</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-87" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-88" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-87" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-88" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../03.00 tech/30.01 Diginsight/20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
@@ -2420,26 +2467,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-88" role="navigation" aria-expanded="true"><i class="bi bi-cpu-fill" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-89" role="navigation" aria-expanded="true"><i class="bi bi-cpu-fill" role="img">
 </i> 
  <span class="menu-text">Hardware</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-88" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-88" class="collapse list-unstyled sidebar-section depth2 show">  
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-89" role="navigation" aria-expanded="true"><i class="bi bi-pencil-square" role="img">
-</i> 
- <span class="menu-text">Technical Writing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-89" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-89" class="collapse list-unstyled sidebar-section depth2 show">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-90" role="navigation" aria-expanded="true"><i class="bi bi-pencil-square" role="img">
+</i> 
+ <span class="menu-text">Technical Writing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-90" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-90" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../03.00 tech/40.00 Technical writing/00-foundations-of-technical-documentation.html" class="sidebar-item-text sidebar-link">
@@ -2490,14 +2537,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-90" role="navigation" aria-expanded="false"><i class="bi bi-microsoft" role="img">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-91" role="navigation" aria-expanded="false"><i class="bi bi-microsoft" role="img">
 </i> 
  <span class="menu-text">Microsoft Writing Style Guide</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-90" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-91" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-90" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-91" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../03.00 tech/40.00 Technical writing/Microsoft Writing Style Guide/00-microsoft-style-guide-overview.html" class="sidebar-item-text sidebar-link">
@@ -2536,14 +2583,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-91" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-92" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
 </i> 
  <span class="menu-text">How-To Guides</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-91" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-92" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-91" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-92" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../04.00 howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.html" class="sidebar-item-text sidebar-link">
@@ -2552,13 +2599,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-92" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-93" role="navigation" aria-expanded="true">
  <span class="menu-text">20251013 HowTo Expose My Computer with No-IP DDNS</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-92" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-93" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-92" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-93" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../04.00 howto/20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html" class="sidebar-item-text sidebar-link">
@@ -2571,23 +2618,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-93" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-94" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
 </i> 
  <span class="menu-text">Issues &amp; Solutions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-93" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-93" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-94" role="navigation" aria-expanded="true">
- <span class="menu-text">20250709 fatal error cloning a repo with Visual Studio</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-94" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-94" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-94" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-95" role="navigation" aria-expanded="true">
+ <span class="menu-text">20250709 fatal error cloning a repo with Visual Studio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-95" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-95" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../05.00 issues/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
@@ -2598,13 +2645,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-95" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-96" role="navigation" aria-expanded="true">
  <span class="menu-text">20251107 FeedId cannot contain forward slash</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-95" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-96" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-95" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-96" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../05.00 issues/20251107 FeedId cannot contain forward slash/ISSUE Template.html" class="sidebar-item-text sidebar-link">
@@ -2615,13 +2662,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-96" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-97" role="navigation" aria-expanded="true">
  <span class="menu-text">YYYYMMDD sample</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-96" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-97" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-96" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-97" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../05.00 issues/YYYYMMDD sample/README.html" class="sidebar-item-text sidebar-link">
@@ -2635,24 +2682,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-97" role="navigation" aria-expanded="true"><i class="bi bi-lightbulb" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-98" role="navigation" aria-expanded="true"><i class="bi bi-lightbulb" role="img">
 </i> 
  <span class="menu-text">Ideas &amp; Projects</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-97" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-97" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-98" role="navigation" aria-expanded="true"><i class="bi bi-stars" role="img">
-</i> 
- <span class="menu-text">IQPilot</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-98" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-98" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-98" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-99" role="navigation" aria-expanded="true"><i class="bi bi-stars" role="img">
+</i> 
+ <span class="menu-text">IQPilot</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-99" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-99" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../06.00 idea/IQPilot/01. IQPilot overview.html" class="sidebar-item-text sidebar-link">
@@ -2675,23 +2722,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-99" role="navigation" aria-expanded="true"><i class="bi bi-book-half" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-100" role="navigation" aria-expanded="true"><i class="bi bi-book-half" role="img">
 </i> 
  <span class="menu-text">LearnHub</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-99" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-100" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-99" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-100" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-100" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-101" role="navigation" aria-expanded="false">
  <span class="menu-text">01. Learning Hub Overview</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-100" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-101" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-100" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-101" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../06.00 idea/LearnHub/01. Learning Hub Overview/01. Learning-Hub-Introduction.html" class="sidebar-item-text sidebar-link">
@@ -2713,14 +2760,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-101" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-102" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
 </i> 
  <span class="menu-text">Other Technologies</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-101" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-102" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-101" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-102" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../20250815 DIY Battery Pack/README.html" class="sidebar-item-text sidebar-link">
@@ -2738,14 +2785,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-102" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-103" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
 </i> 
  <span class="menu-text">Culture &amp; Travel</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-102" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-103" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-102" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-103" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../90.00 travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
@@ -2770,690 +2817,462 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#optimizing-quarto-build-and-deploy-performance" id="toc-optimizing-quarto-build-and-deploy-performance" class="nav-link active" data-scroll-target="#optimizing-quarto-build-and-deploy-performance">Optimizing Quarto Build and Deploy Performance</a>
+  <li><a href="#hugo-static-site-generator-article-series" id="toc-hugo-static-site-generator-article-series" class="nav-link active" data-scroll-target="#hugo-static-site-generator-article-series">Hugo Static Site Generator Article Series</a>
   <ul class="collapse">
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">📋 Table of Contents</a></li>
-  <li><a href="#quick-performance-wins" id="toc-quick-performance-wins" class="nav-link" data-scroll-target="#quick-performance-wins">⚡ Quick Performance Wins</a>
+  <li><a href="#series-overview" id="toc-series-overview" class="nav-link" data-scroll-target="#series-overview">📚 Series Overview</a></li>
+  <li><a href="#article-series-structure" id="toc-article-series-structure" class="nav-link" data-scroll-target="#article-series-structure">📖 Article Series Structure</a>
   <ul class="collapse">
-  <li><a href="#enable-quarto-built-in-caching" id="toc-enable-quarto-built-in-caching" class="nav-link" data-scroll-target="#enable-quarto-built-in-caching">Enable Quarto Built-in Caching</a></li>
-  <li><a href="#optimize-github-actions-checkout" id="toc-optimize-github-actions-checkout" class="nav-link" data-scroll-target="#optimize-github-actions-checkout">Optimize GitHub Actions Checkout</a></li>
+  <li><a href="#series-1-foundations-01.xx" id="toc-series-1-foundations-01.xx" class="nav-link" data-scroll-target="#series-1-foundations-01.xx">Series 1: Foundations (01.xx)</a></li>
+  <li><a href="#series-2-performance-02.xx" id="toc-series-2-performance-02.xx" class="nav-link" data-scroll-target="#series-2-performance-02.xx">Series 2: Performance (02.xx)</a></li>
+  <li><a href="#series-3-customization-03.xx" id="toc-series-3-customization-03.xx" class="nav-link" data-scroll-target="#series-3-customization-03.xx">Series 3: Customization (03.xx)</a></li>
+  <li><a href="#series-4-deployment-04.xx" id="toc-series-4-deployment-04.xx" class="nav-link" data-scroll-target="#series-4-deployment-04.xx">Series 4: Deployment (04.xx)</a></li>
+  <li><a href="#series-5-advanced-topics-05.xx" id="toc-series-5-advanced-topics-05.xx" class="nav-link" data-scroll-target="#series-5-advanced-topics-05.xx">Series 5: Advanced Topics (05.xx)</a></li>
+  <li><a href="#series-6-reference-06.xx" id="toc-series-6-reference-06.xx" class="nav-link" data-scroll-target="#series-6-reference-06.xx">Series 6: Reference (06.xx)</a></li>
   </ul></li>
-  <li><a href="#intermediate-optimizations" id="toc-intermediate-optimizations" class="nav-link" data-scroll-target="#intermediate-optimizations">🔧 Intermediate Optimizations</a>
+  <li><a href="#learning-paths" id="toc-learning-paths" class="nav-link" data-scroll-target="#learning-paths">🎯 Learning Paths</a>
   <ul class="collapse">
-  <li><a href="#implement-incremental-builds" id="toc-implement-incremental-builds" class="nav-link" data-scroll-target="#implement-incremental-builds">Implement Incremental Builds</a></li>
-  <li><a href="#enable-parallel-processing" id="toc-enable-parallel-processing" class="nav-link" data-scroll-target="#enable-parallel-processing">Enable Parallel Processing</a></li>
-  <li><a href="#add-workflow-caching" id="toc-add-workflow-caching" class="nav-link" data-scroll-target="#add-workflow-caching">Add Workflow Caching</a></li>
+  <li><a href="#quick-start-1-2-hours" id="toc-quick-start-1-2-hours" class="nav-link" data-scroll-target="#quick-start-1-2-hours">Quick Start (1-2 hours)</a></li>
+  <li><a href="#complete-hugo-foundations-4-6-hours" id="toc-complete-hugo-foundations-4-6-hours" class="nav-link" data-scroll-target="#complete-hugo-foundations-4-6-hours">Complete Hugo Foundations (4-6 hours)</a></li>
+  <li><a href="#performance-focus-3-4-hours" id="toc-performance-focus-3-4-hours" class="nav-link" data-scroll-target="#performance-focus-3-4-hours">Performance Focus (3-4 hours)</a></li>
+  <li><a href="#migration-planning-2-3-hours" id="toc-migration-planning-2-3-hours" class="nav-link" data-scroll-target="#migration-planning-2-3-hours">Migration Planning (2-3 hours)</a></li>
+  <li><a href="#complete-series-20-30-hours" id="toc-complete-series-20-30-hours" class="nav-link" data-scroll-target="#complete-series-20-30-hours">Complete Series (20-30 hours)</a></li>
   </ul></li>
-  <li><a href="#advanced-build-strategies" id="toc-advanced-build-strategies" class="nav-link" data-scroll-target="#advanced-build-strategies">🚀 Advanced Build Strategies</a>
+  <li><a href="#current-progress" id="toc-current-progress" class="nav-link" data-scroll-target="#current-progress">📊 Current Progress</a></li>
+  <li><a href="#related-content" id="toc-related-content" class="nav-link" data-scroll-target="#related-content">🔗 Related Content</a>
   <ul class="collapse">
-  <li><a href="#smart-change-detection" id="toc-smart-change-detection" class="nav-link" data-scroll-target="#smart-change-detection">Smart Change Detection</a></li>
-  <li><a href="#conditional-rendering" id="toc-conditional-rendering" class="nav-link" data-scroll-target="#conditional-rendering">Conditional Rendering</a></li>
-  <li><a href="#build-artifact-optimization" id="toc-build-artifact-optimization" class="nav-link" data-scroll-target="#build-artifact-optimization">Build Artifact Optimization</a></li>
+  <li><a href="#learning-hub-context" id="toc-learning-hub-context" class="nav-link" data-scroll-target="#learning-hub-context">Learning Hub Context</a></li>
+  <li><a href="#external-resources" id="toc-external-resources" class="nav-link" data-scroll-target="#external-resources">External Resources</a></li>
   </ul></li>
-  <li><a href="#infrastructure-optimizations" id="toc-infrastructure-optimizations" class="nav-link" data-scroll-target="#infrastructure-optimizations">🏗️ Infrastructure Optimizations</a>
+  <li><a href="#article-series-design-principles" id="toc-article-series-design-principles" class="nav-link" data-scroll-target="#article-series-design-principles">💡 Article Series Design Principles</a>
   <ul class="collapse">
-  <li><a href="#self-hosted-runner-optimization" id="toc-self-hosted-runner-optimization" class="nav-link" data-scroll-target="#self-hosted-runner-optimization">Self-Hosted Runner Optimization</a></li>
-  <li><a href="#native-windows-installation" id="toc-native-windows-installation" class="nav-link" data-scroll-target="#native-windows-installation">Native Windows Installation</a></li>
+  <li><a href="#content-strategy" id="toc-content-strategy" class="nav-link" data-scroll-target="#content-strategy">Content Strategy</a></li>
+  <li><a href="#technical-approach" id="toc-technical-approach" class="nav-link" data-scroll-target="#technical-approach">Technical Approach</a></li>
+  <li><a href="#metadata-standards" id="toc-metadata-standards" class="nav-link" data-scroll-target="#metadata-standards">Metadata Standards</a></li>
   </ul></li>
-  <li><a href="#monitoring-and-metrics" id="toc-monitoring-and-metrics" class="nav-link" data-scroll-target="#monitoring-and-metrics">📊 Monitoring and Metrics</a>
-  <ul class="collapse">
-  <li><a href="#build-performance-tracking" id="toc-build-performance-tracking" class="nav-link" data-scroll-target="#build-performance-tracking">Build Performance Tracking</a></li>
-  <li><a href="#performance-benchmarking" id="toc-performance-benchmarking" class="nav-link" data-scroll-target="#performance-benchmarking">Performance Benchmarking</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📚 References</a>
-  <ul class="collapse">
-  <li><a href="#official-documentation" id="toc-official-documentation" class="nav-link" data-scroll-target="#official-documentation">Official Documentation</a></li>
-  <li><a href="#troubleshooting-resources" id="toc-troubleshooting-resources" class="nav-link" data-scroll-target="#troubleshooting-resources">Troubleshooting Resources</a></li>
-  </ul></li>
-  <li><a href="#appendix-a-complex-parallel-job-strategies" id="toc-appendix-a-complex-parallel-job-strategies" class="nav-link" data-scroll-target="#appendix-a-complex-parallel-job-strategies">📋 Appendix A: Complex Parallel Job Strategies</a>
-  <ul class="collapse">
-  <li><a href="#multi-job-parallel-builds" id="toc-multi-job-parallel-builds" class="nav-link" data-scroll-target="#multi-job-parallel-builds">Multi-Job Parallel Builds</a></li>
-  </ul></li>
-  <li><a href="#appendix-b-technical-implementation-details" id="toc-appendix-b-technical-implementation-details" class="nav-link" data-scroll-target="#appendix-b-technical-implementation-details">🔧 Appendix B: Technical Implementation Details</a>
-  <ul class="collapse">
-  <li><a href="#wsl-vs-native-windows-analysis" id="toc-wsl-vs-native-windows-analysis" class="nav-link" data-scroll-target="#wsl-vs-native-windows-analysis">WSL vs Native Windows Analysis</a></li>
-  <li><a href="#github-actions-artifact-handling" id="toc-github-actions-artifact-handling" class="nav-link" data-scroll-target="#github-actions-artifact-handling">GitHub Actions Artifact Handling</a></li>
-  <li><a href="#performance-measurement-results" id="toc-performance-measurement-results" class="nav-link" data-scroll-target="#performance-measurement-results">Performance Measurement Results</a></li>
-  </ul></li>
+  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">📝 Contributing</a></li>
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">📄 License</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/20.01 Markdown/01. QUARTO Doc/07.01-build-optimization.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/20.01 Markdown/03. Hugo/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item">Markdown Compilers</li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/07.01-build-optimization.html">Optimizing Quarto Build and Deploy Performance</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Optimizing Quarto Build and Deploy Performance</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">quarto</div>
-    <div class="quarto-category">optimization</div>
-    <div class="quarto-category">github-actions</div>
-    <div class="quarto-category">performance</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Comprehensive guide to speeding up Quarto site builds and deployments
-  </div>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item">Markdown Compilers</li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.01-introduction-to-hugo.html">Hugo</a></li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/README.html">Hugo Static Site Generator Article Series</a></li></ol></nav></header>
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dario Airoldi </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 16, 2025</p>
-    </div>
-  </div>
-  
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">January 14, 2026</p>
-    </div>
-  </div>
-    
-  </div>
-  
 
 
-</header>
-
-
-<section id="optimizing-quarto-build-and-deploy-performance" class="level1">
-<h1>Optimizing Quarto Build and Deploy Performance</h1>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">📋 Table of Contents</h2>
+<section id="hugo-static-site-generator-article-series" class="level1">
+<h1>Hugo Static Site Generator Article Series</h1>
+<p>Complete guide to Hugo static site generator with practical comparisons to Quarto and implementation examples for the Learning Hub documentation site.</p>
+<section id="series-overview" class="level2">
+<h2 class="anchored" data-anchor-id="series-overview">📚 Series Overview</h2>
+<p>This comprehensive article series covers Hugo from fundamentals to advanced topics, with specific focus on:</p>
 <ul>
-<li><a href="#-quick-performance-wins">⚡ Quick Performance Wins</a></li>
-<li><a href="#-intermediate-optimizations">🔧 Intermediate Optimizations</a></li>
-<li><a href="#-advanced-build-strategies">🚀 Advanced Build Strategies</a></li>
-<li><a href="#️-infrastructure-optimizations">🏗️ Infrastructure Optimizations</a></li>
-<li><a href="#-monitoring-and-metrics">📊 Monitoring and Metrics</a></li>
-<li><a href="#-references">📚 References</a></li>
-<li><a href="#-appendix-a-complex-parallel-job-strategies">📋 Appendix A: Complex Parallel Job Strategies</a></li>
-<li><a href="#-appendix-b-technical-implementation-details">🔧 Appendix B: Technical Implementation Details</a></li>
+<li>Performance optimization for large documentation sites</li>
+<li>Comparison with Quarto (Learning Hub’s current generator)</li>
+<li>Practical implementation guide for rendering Learning Hub with Hugo</li>
+<li>Best practices for technical documentation sites</li>
 </ul>
-<hr>
+<p><strong>Target Audience:</strong> Web developers familiar with HTML/CSS/JavaScript, markdown, and static site concepts.</p>
+<p><strong>Learning Hub Context:</strong> This workspace uses Quarto with 500+ markdown files. The series evaluates Hugo as an alternative, providing migration paths and performance comparisons.</p>
 </section>
-<section id="quick-performance-wins" class="level2">
-<h2 class="anchored" data-anchor-id="quick-performance-wins">⚡ Quick Performance Wins</h2>
-<p>These are the easiest optimizations that provide immediate performance benefits with minimal implementation effort.</p>
-<section id="enable-quarto-built-in-caching" class="level3">
-<h3 class="anchored" data-anchor-id="enable-quarto-built-in-caching">Enable Quarto Built-in Caching</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? Immediate 60-80% speed improvement for unchanged content</li>
-<li>? Simple one-line configuration change</li>
-<li>? Built into Quarto, no external dependencies</li>
-<li>? Works automatically once enabled</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Only helps with computational content (code execution)</li>
-<li>? First build is still slow</li>
-<li>? Cache invalidation can be tricky to debug</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>Add to your <code>_quarto.yml</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> auto</span><span class="co">    # Only re-execute when source files change</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">     # Cache computational results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 60-80% faster builds for content with executable code blocks.</p>
-</section>
-<section id="optimize-github-actions-checkout" class="level3">
-<h3 class="anchored" data-anchor-id="optimize-github-actions-checkout">Optimize GitHub Actions Checkout</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? 30-50% faster repository checkout</li>
-<li>? Single line change</li>
-<li>? Reduces network overhead</li>
-<li>? No side effects</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Minimal impact on overall build time</li>
-<li>? May cause issues if you need full git history</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>Update your checkout step:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository  </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fetch-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span><span class="co">  # Shallow clone for faster checkout</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 30-50% faster checkout, 5-10% overall build improvement.</p>
-<hr>
-</section>
-</section>
-<section id="intermediate-optimizations" class="level2">
-<h2 class="anchored" data-anchor-id="intermediate-optimizations">🔧 Intermediate Optimizations</h2>
-<p>These optimizations require moderate configuration changes but provide significant performance benefits.</p>
-<section id="implement-incremental-builds" class="level3">
-<h3 class="anchored" data-anchor-id="implement-incremental-builds">Implement Incremental Builds</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? 70-90% faster builds for small changes</li>
-<li>? Automatically detects what needs rebuilding</li>
-<li>? Scales well with site size</li>
-<li>? Built into Quarto ecosystem</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Requires careful cache management</li>
-<li>? Can have inconsistent behavior with complex dependencies</li>
-<li>? Debugging cache issues can be time-consuming</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>Update your render step:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Quarto Project (Optimized)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> pwsh</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">  run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    Write-Host "Starting optimized Quarto render..."</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    # Check if we can do incremental build</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    if (Test-Path "docs") {</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      Write-Host "Incremental build detected, using cache..."</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      quarto render --cache refresh</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    } else {</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      Write-Host "Full build required..."</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      quarto render</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 70-90% faster builds for incremental changes.</p>
-</section>
-<section id="enable-parallel-processing" class="level3">
-<h3 class="anchored" data-anchor-id="enable-parallel-processing">Enable Parallel Processing</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? 30-50% faster full builds</li>
-<li>? Utilizes multi-core processors effectively</li>
-<li>? Simple environment variable configuration</li>
-<li>? Works with existing workflow</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Higher memory usage during build</li>
-<li>? May cause resource contention on limited hardware</li>
-<li>? Debugging parallel issues is harder</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>Add to your render step:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Quarto Project</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> pwsh</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">  run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    # Enable parallel processing</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    $env:QUARTO_DENO_WORKERS = "4"  # Use 4 workers</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 30-50% faster full builds on multi-core systems.</p>
-</section>
-<section id="add-workflow-caching" class="level3">
-<h3 class="anchored" data-anchor-id="add-workflow-caching">Add Workflow Caching</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? 90% faster builds for unchanged content</li>
-<li>? Caches across workflow runs</li>
-<li>? Handles complex dependency patterns</li>
-<li>? GitHub Actions native support</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Cache size limitations (10GB per repository)</li>
-<li>? Cache invalidation complexity</li>
-<li>? Additional workflow complexity</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>Add before your render step:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Quarto Environment</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v3</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">    path</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      .quarto/</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      docs/</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      _freeze/</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> quarto-${{ runner.os }}-${{ hashFiles('_quarto.yml', '**/*.qmd', '**/*.md') }}</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">    restore-keys</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      quarto-${{ runner.os }}-</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 90% faster builds when cache is valid.</p>
-<hr>
-</section>
-</section>
-<section id="advanced-build-strategies" class="level2">
-<h2 class="anchored" data-anchor-id="advanced-build-strategies">🚀 Advanced Build Strategies</h2>
-<p>These optimizations require significant workflow changes but provide the best performance for large sites.</p>
-<section id="smart-change-detection" class="level3">
-<h3 class="anchored" data-anchor-id="smart-change-detection">Smart Change Detection</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? Skip entire builds when no documentation changes</li>
-<li>? Massive time savings for non-doc commits</li>
-<li>? Intelligent file pattern matching</li>
-<li>? Granular control over what triggers builds</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Complex logic to implement correctly</li>
-<li>? Risk of missing important changes</li>
-<li>? Debugging workflow logic issues</li>
-<li>? Maintenance overhead</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>Add change detection step:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check for Changed Files</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> changed-files</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> pwsh</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">  run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    $changedFiles = git diff --name-only HEAD~1 HEAD</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    $docFiles = $changedFiles | Where-Object { </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      $_ -match '\.(md|qmd)$' -or </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      $_ -match '_quarto\.yml$' -or </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      $_ -match '\.(css|scss)$' </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    if ($docFiles.Count -eq 0) {</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>      echo "render-needed=false" &gt;&gt; $env:GITHUB_OUTPUT</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    } else {</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>      echo "render-needed=true" &gt;&gt; $env:GITHUB_OUTPUT</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Quarto Project</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> steps.changed-files.outputs.render-needed == 'true'</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> pwsh</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> quarto render</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 100% time saving when no documentation files changed.</p>
-</section>
-<section id="conditional-rendering" class="level3">
-<h3 class="anchored" data-anchor-id="conditional-rendering">Conditional Rendering</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? Only render specific sections that changed</li>
-<li>? Massive time savings for large sites</li>
-<li>? Granular build control</li>
-<li>? Scales linearly with site sections</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Complex workflow logic</li>
-<li>? Risk of broken cross-references</li>
-<li>? Site-wide changes still require full build</li>
-<li>? Navigation and index pages complexity</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Detect Changed Sections</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> sections</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">  run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    # Detect which major sections changed</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    echo "build2025=$(git diff --name-only HEAD~1 HEAD | grep -q '202506 Build 2025' &amp;&amp; echo 'true' || echo 'false')" &gt;&gt; $GITHUB_OUTPUT</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    echo "azure=$(git diff --name-only HEAD~1 HEAD | grep -q 'Azure' &amp;&amp; echo 'true' || echo 'false')" &gt;&gt; $GITHUB_OUTPUT</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Build 2025 Section</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> steps.sections.outputs.build2025 == 'true'</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> quarto render "202506 Build 2025"</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Azure Section  </span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">if</span><span class="kw">:</span><span class="at"> steps.sections.outputs.azure == 'true'</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> quarto render "20250*Azure*"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 50-90% faster builds depending on changed sections.</p>
-</section>
-<section id="build-artifact-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="build-artifact-optimization">Build Artifact Optimization</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? Faster artifact upload/download</li>
-<li>? Reduced storage usage</li>
-<li>? Better separation of build/deploy phases</li>
-<li>? More reliable deployments</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Complex artifact management</li>
-<li>? Multiple workflow files to maintain</li>
-<li>? Artifact size limitations</li>
-<li>? Additional failure points</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>Split build and deploy with optimized artifacts:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build job - optimized artifact creation</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload Pages artifact (Optimized)</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> github-pages-build-${{ github.run_id }}</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">retention-days</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy job - separate Ubuntu runner</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">deploy</span><span class="kw">:</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span><span class="at"> build</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Download Pages artifact</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/download-artifact@v4</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">name</span><span class="kw">:</span><span class="at"> github-pages-build-${{ github.run_id }}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 20-30% faster deployments, better reliability.</p>
-<hr>
-</section>
-</section>
-<section id="infrastructure-optimizations" class="level2">
-<h2 class="anchored" data-anchor-id="infrastructure-optimizations">🏗️ Infrastructure Optimizations</h2>
-<p>These optimizations focus on the underlying infrastructure and tooling setup.</p>
-<section id="self-hosted-runner-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="self-hosted-runner-optimization">Self-Hosted Runner Optimization</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? Full control over hardware specifications</li>
-<li>? Persistent caches across builds</li>
-<li>? No GitHub Actions minutes usage</li>
-<li>? Custom software pre-installation</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Infrastructure maintenance overhead</li>
-<li>? Security responsibilities</li>
-<li>? Hardware costs</li>
-<li>? Network connectivity dependencies</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>We identified in our analysis that running as Administrator is crucial:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure runner service with proper permissions</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\svc<span class="op">.</span><span class="fu">bat</span> install <span class="st">"QuartoRunner"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\svc<span class="op">.</span><span class="fu">bat</span> <span class="fu">start</span> <span class="st">"QuartoRunner"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure service runs with Administrator privileges</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Services.msc -&gt; QuartoRunner -&gt; Properties -&gt; Log On -&gt; Local System</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 40-60% faster builds with proper hardware and caching.</p>
-</section>
-<section id="native-windows-installation" class="level3">
-<h3 class="anchored" data-anchor-id="native-windows-installation">Native Windows Installation</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? Avoids WSL compatibility issues</li>
-<li>? Better performance on Windows runners</li>
-<li>? Simpler dependency management</li>
-<li>? More reliable for Windows environments</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Platform-specific implementation</li>
-<li>? Different behavior than Linux environments</li>
-<li>? Some GitHub Actions may not work</li>
-<li>? Maintenance of Windows-specific code</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<p>Our analysis showed the native approach works better:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Setup Quarto (Native Windows)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> pwsh</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">  run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    # Download and install Quarto for Windows</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    $quartoVersion = "1.4.550"</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi"</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet" -Wait</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Expected Impact:</strong> 100% success rate vs WSL issues, 20-30% performance improvement.</p>
-<hr>
-</section>
-</section>
-<section id="monitoring-and-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="monitoring-and-metrics">📊 Monitoring and Metrics</h2>
-<section id="build-performance-tracking" class="level3">
-<h3 class="anchored" data-anchor-id="build-performance-tracking">Build Performance Tracking</h3>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>? Data-driven optimization decisions</li>
-<li>? Trend analysis over time</li>
-<li>? Bottleneck identification</li>
-<li>? ROI measurement for optimizations</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>? Additional workflow complexity</li>
-<li>? Storage and analysis overhead</li>
-<li>? Requires tooling setup</li>
-</ul>
-<p><strong>Implementation:</strong></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Track Build Performance</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">shell</span><span class="kw">:</span><span class="at"> pwsh</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">  run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    $startTime = Get-Date</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    quarto render</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    $endTime = Get-Date</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    $duration = ($endTime - $startTime).TotalSeconds</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    Write-Host "Build completed in $duration seconds"</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    echo "build-duration=$duration" &gt;&gt; $env:GITHUB_OUTPUT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="performance-benchmarking" class="level3">
-<h3 class="anchored" data-anchor-id="performance-benchmarking">Performance Benchmarking</h3>
-<p>Track improvements over time by measuring:</p>
-<ul>
-<li>Total build time</li>
-<li>Individual step durations</li>
-<li>Cache hit rates</li>
-<li>File change patterns</li>
-<li>Resource utilization</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">📚 References</h2>
-<section id="official-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="official-documentation">Official Documentation</h3>
-<p><strong><a href="https://quarto.org/docs/guide/performance.html">Quarto Performance Guide</a></strong> <code>[📘 Official]</code><br>
-Official Quarto documentation on performance optimization with authoritative recommendations for speeding up builds, reducing resource usage, and improving rendering efficiency. Primary reference for understanding Quarto-specific optimization strategies and built-in performance features.</p>
-<p><strong><a href="https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows">GitHub Actions Caching</a></strong> <code>[📘 Official]</code><br>
-GitHub’s official documentation on caching dependencies to speed up workflows. Essential reference for implementing native caching strategies in CI/CD pipelines, reducing build times, and optimizing resource usage in GitHub Actions.</p>
-<p><strong><a href="https://quarto.org/docs/projects/code-execution.html#freeze">Quarto Freeze Feature</a></strong> <code>[📘 Official]</code><br>
-Official documentation on Quarto’s built-in freeze feature for incremental builds and computational caching. Reference when implementing strategies to avoid re-executing unchanged code blocks and speeding up documentation builds with computational content.</p>
-<p><strong><a href="https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration">GitHub Actions Performance Best Practices</a></strong> <code>[📘 Official]</code><br>
-GitHub’s official guide to resource limits and optimization strategies for Actions workflows. Reference for understanding billing implications, usage limits, and best practices for efficient workflow design and execution.</p>
-<p><strong><a href="https://quarto.org/docs/reference/cli.html">Quarto CLI Reference</a></strong> <code>[📘 Official]</code><br>
-Complete reference for Quarto command-line interface options and parameters. Reference when implementing command-line optimization strategies, understanding available flags for performance tuning, and automating builds with specific performance-related options.</p>
-<p><strong><a href="https://docs.github.com/en/actions/hosting-your-own-runners">Self-Hosted Runners Guide</a></strong> <code>[📘 Official]</code><br>
-GitHub’s official documentation for setting up and maintaining self-hosted runners. Reference when considering infrastructure upgrades beyond GitHub-hosted runners, including setup, security considerations, and maintenance requirements.</p>
-</section>
-<section id="troubleshooting-resources" class="level3">
-<h3 class="anchored" data-anchor-id="troubleshooting-resources">Troubleshooting Resources</h3>
-<p><strong><a href="https://quarto.org/docs/troubleshooting/">Quarto Troubleshooting</a></strong> <code>[📘 Official]</code><br>
-Official Quarto troubleshooting guide covering common issues and solutions. Reference when debugging build failures, unexpected behavior, or performance problems in Quarto projects.</p>
-<p><strong><a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows">GitHub Actions Debugging</a></strong> <code>[📘 Official]</code><br>
-GitHub’s official guide to workflow debugging techniques and monitoring. Reference for diagnosing issues in CI/CD pipelines, understanding workflow execution, and troubleshooting deployment failures.</p>
-<p><strong><a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources">Windows GitHub Actions</a></strong> <code>[📘 Official]</code><br>
-Official documentation on GitHub-hosted runners including supported operating systems and hardware specifications. Reference when considering Windows-specific optimizations or understanding runner capabilities and limitations.</p>
-<hr>
-</section>
-</section>
-<section id="appendix-a-complex-parallel-job-strategies" class="level2">
-<h2 class="anchored" data-anchor-id="appendix-a-complex-parallel-job-strategies">📋 Appendix A: Complex Parallel Job Strategies</h2>
-<section id="multi-job-parallel-builds" class="level3">
-<h3 class="anchored" data-anchor-id="multi-job-parallel-builds">Multi-Job Parallel Builds</h3>
-<p>For extremely large sites, you can implement parallel job strategies that split the build across multiple runners. This approach is overly complex for most use cases but can provide significant benefits for sites with hundreds or thousands of pages.</p>
-<p><strong>Implementation Complexity: Very High</strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">detect-changes</span><span class="kw">:</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">outputs</span><span class="kw">:</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">build2025</span><span class="kw">:</span><span class="at"> ${{ steps.changes.outputs.build2025 }}</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">azure-topics</span><span class="kw">:</span><span class="at"> ${{ steps.changes.outputs.azure-topics }}</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dev-tools</span><span class="kw">:</span><span class="at"> ${{ steps.changes.outputs.dev-tools }}</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> dorny/paths-filter@v2</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">id</span><span class="kw">:</span><span class="at"> changes</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">        filters</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>          build2025:</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>            - '202506 Build 2025/**'</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>          azure-topics:</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>            - '202507* Azure*/**'</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>          dev-tools:</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>            - '202507* Manage*/**'</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build-section-1</span><span class="kw">:</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">needs</span><span class="kw">:</span><span class="at"> detect-changes</span></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">if</span><span class="kw">:</span><span class="at"> needs.detect-changes.outputs.build2025 == 'true'</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> self-hosted</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render Build 2025 Section</span></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>        # Complex logic to render only specific sections</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>        quarto render --files "202506 Build 2025/**/*.md"</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload Section Artifact</span></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">name</span><span class="kw">:</span><span class="at"> build2025-section</span></span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/build2025/</span></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">combine-artifacts</span><span class="kw">:</span></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">needs</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">build-section</span><span class="dv">-1</span><span class="kw">,</span><span class="at"> build-section</span><span class="dv">-2</span><span class="kw">,</span><span class="at"> build-section</span><span class="dv">-3</span><span class="kw">]</span></span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Download All Sections</span></span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/download-artifact@v4</span></span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Combine Site Sections</span></span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>        # Complex merging logic</span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        # Risk of broken cross-references</span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>        # Navigation updates required</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Why This Is Overly Complex:</strong></p>
-<ul>
-<li>Requires maintaining separate build logic for each section</li>
-<li>Cross-references between sections break</li>
-<li>Navigation and search indices need special handling</li>
-<li>Artifact coordination becomes complex</li>
-<li>Debugging distributed builds is extremely difficult</li>
-<li>Maintenance overhead is very high</li>
-</ul>
-</section>
-</section>
-<section id="appendix-b-technical-implementation-details" class="level2">
-<h2 class="anchored" data-anchor-id="appendix-b-technical-implementation-details">🔧 Appendix B: Technical Implementation Details</h2>
-<section id="wsl-vs-native-windows-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="wsl-vs-native-windows-analysis">WSL vs Native Windows Analysis</h3>
-<p>During our troubleshooting, we discovered several critical issues with WSL-based Quarto installations on Windows self-hosted runners:</p>
-<p><strong>WSL Issues Encountered:</strong></p>
-<pre><code>WSL Installation Diagnostics:
-
-- File not found: C:\Windows\System32\wsl.exe
-- Windows Features: Unable to check - requires elevation
-- Registry: No WSL registry entries found
-- User Context: Running as AIROLDI01$ (Network Service)
-- Admin Status: False</code></pre>
-<p><strong>Native Windows Solution:</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Direct MSI installation approach</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="va">$quartoVersion</span> <span class="op">=</span> <span class="st">"1.4.550"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="va">$quartoUrl</span> <span class="op">=</span> <span class="st">"https://github.com/quarto-dev/quarto-cli/releases/download/v</span><span class="va">$quartoVersion</span><span class="st">/quarto-</span><span class="va">$quartoVersion</span><span class="st">-win.msi"</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Start-Process</span> <span class="op">-</span>FilePath <span class="st">"msiexec.exe"</span> <span class="op">-</span>ArgumentList <span class="st">"/i"</span><span class="op">,</span> <span class="st">"quarto-installer.msi"</span><span class="op">,</span> <span class="st">"/quiet"</span><span class="op">,</span> <span class="st">"/norestart"</span> <span class="op">-</span>Wait <span class="op">-</span>PassThru</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="github-actions-artifact-handling" class="level3">
-<h3 class="anchored" data-anchor-id="github-actions-artifact-handling">GitHub Actions Artifact Handling</h3>
-<p><strong>WSL Dependency Issue:</strong> The <code>actions/upload-pages-artifact@v3</code> action has a hidden WSL dependency that causes failures on Windows runners:</p>
-<pre><code>Error: Windows Subsystem for Linux has no installed distributions
-Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NOT_FOUND</code></pre>
-<p><strong>Solution - Split Architecture:</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build on Windows (self-hosted)</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload Pages artifact</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> github-pages-build</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy on Linux (GitHub-hosted)</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">deploy</span><span class="kw">:</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Download artifact</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/download-artifact@v4</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Upload to GitHub Pages</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-pages-artifact@v3</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">path</span><span class="kw">:</span><span class="at"> pages/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="performance-measurement-results" class="level3">
-<h3 class="anchored" data-anchor-id="performance-measurement-results">Performance Measurement Results</h3>
-<p>Based on our optimization implementation:</p>
-<p><strong>Before Optimization:</strong></p>
-<ul>
-<li>Full build time: ~15-20 minutes</li>
-<li>WSL setup failures: 100% failure rate</li>
-<li>No incremental builds</li>
-<li>No caching</li>
-</ul>
-<p><strong>After Optimization:</strong></p>
-<ul>
-<li>Full build time: ~8-12 minutes (40% improvement)</li>
-<li>Native Windows: 100% success rate</li>
-<li>Incremental builds: 60-80% time savings</li>
-<li>Workflow caching: 90% faster for unchanged content</li>
-</ul>
-<p><strong>Optimization Impact Summary:</strong></p>
+<section id="article-series-structure" class="level2">
+<h2 class="anchored" data-anchor-id="article-series-structure">📖 Article Series Structure</h2>
+<section id="series-1-foundations-01.xx" class="level3">
+<h3 class="anchored" data-anchor-id="series-1-foundations-01.xx">Series 1: Foundations (01.xx)</h3>
 <ol type="1">
-<li><strong>Native Windows Installation</strong>: Eliminated WSL failures</li>
-<li><strong>Workflow Caching</strong>: 90% improvement for cache hits</li>
-<li><strong>Parallel Processing</strong>: 30-50% improvement for full builds</li>
-<li><strong>Change Detection</strong>: 100% time saving for non-doc changes</li>
-<li><strong>Incremental Rendering</strong>: 60-80% improvement for small changes</li>
+<li><strong><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.01-introduction-to-hugo.html">01.01 Introduction to Hugo</a></strong> ✅
+<ul>
+<li>Architecture and core features</li>
+<li>Single-binary design</li>
+<li>Go template system overview</li>
+<li>Speed comparison with Quarto</li>
+<li>Installation and first site setup</li>
+</ul></li>
+<li><strong><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.02-hugo-core-concepts.html">01.02 Hugo Core Concepts</a></strong> ✅
+<ul>
+<li>Page bundles (leaf vs branch)</li>
+<li>Taxonomies (tags, categories, custom)</li>
+<li>Content sections and organization</li>
+<li>Front matter architecture</li>
+<li>Learning Hub structure mapping</li>
+</ul></li>
+<li><strong><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.03-goldmark-markdown-processing.html">01.03 Goldmark Markdown Processing</a></strong> ✅
+<ul>
+<li>Goldmark parser configuration</li>
+<li>Markdown extensions (tables, footnotes, task lists)</li>
+<li>Syntax highlighting with Chroma</li>
+<li>Custom render hooks</li>
+<li>Comparison with Pandoc/Quarto markdown</li>
+</ul></li>
+<li><strong><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.04-hugo-vs-quarto.html">01.04 Hugo vs Quarto</a></strong> ✅
+<ul>
+<li>Detailed feature comparison</li>
+<li>Performance benchmarks (Learning Hub: 500 pages)</li>
+<li>Migration complexity analysis</li>
+<li>Decision framework</li>
+<li>When to choose each tool</li>
+</ul></li>
+<li><strong>01.05 Hugo vs Other Engines</strong> (Coming Soon)
+<ul>
+<li>Jekyll (Ruby, traditional blogs)</li>
+<li>Gatsby (React, JavaScript ecosystem)</li>
+<li>MkDocs (Python, documentation focus)</li>
+<li>Docusaurus (React, Facebook’s framework)</li>
+<li>Next.js (React with SSG)</li>
+</ul></li>
+<li><strong>01.06 When to Choose Hugo</strong> (Coming Soon)
+<ul>
+<li>Decision matrix</li>
+<li>Use case analysis</li>
+<li>Team skill considerations</li>
+<li>Project requirements mapping</li>
+</ul></li>
 </ol>
-<hr>
-<!-- 
-
-
-
-
----
-article_metadata:
-  filename: "07-build-optimization.md"
-  word_count: 3500
-  created_date: "2025-01-16"
-  last_updated: "2025-12-26T00:00:00Z"
-  
-cross_references:
-  series:
-    name: "Quarto Documentation Guide"
-    part: 11
-    total_parts: 14
-    previous: "06-transition-optimization.md"
-    next: "08-troubleshooting-guide.md"
-  related_articles:
-    - "02-monolithic-vs-modular-deployment.md"
-    - "01-how-quarto-works.md"
-    - "02-split-navigation-build.md"
-  prerequisites:
-    - "01-how-quarto-works.md"
-
-validations:
-  series_validation:
-    last_run: "2025-12-26T00:00:00Z"
-    model: "claude-sonnet-4.5"
-    series_name: "Quarto Documentation Guide"
-    article_position: 11
-    total_articles: 14
-    consistency_score: 9
-    completeness_score: 10
-    redundancy_score: 10
-    issues_found: 0
-    issues_critical: 0
-    issues_medium: 0
-    issues_low: 0
-    notes: "Comprehensive optimization guide with measurable performance improvements"
----
-
-
-
-
--->
-
-
 </section>
+<section id="series-2-performance-02.xx" class="level3">
+<h3 class="anchored" data-anchor-id="series-2-performance-02.xx">Series 2: Performance (02.xx)</h3>
+<ol type="1">
+<li><strong>02.01 Build Speed Optimization</strong> (Coming Soon)
+<ul>
+<li>Parallel processing techniques</li>
+<li>Incremental builds</li>
+<li><code>--gc</code> flag usage</li>
+<li>Development vs production builds</li>
+</ul></li>
+<li><strong>02.02 Asset Pipeline (Hugo Pipes)</strong> (Coming Soon)
+<ul>
+<li>SCSS/SASS processing</li>
+<li>JavaScript bundling with esbuild</li>
+<li>CSS/JS minification</li>
+<li>Fingerprinting for cache-busting</li>
+</ul></li>
+<li><strong>02.03 Image Optimization</strong> (Coming Soon)
+<ul>
+<li>Resize and crop techniques</li>
+<li>WebP conversion</li>
+<li>Lazy loading implementation</li>
+<li>Responsive images</li>
+</ul></li>
+<li><strong>02.04 Caching Strategies</strong> (Coming Soon)
+<ul>
+<li>Build caching configuration</li>
+<li>Resource caching</li>
+<li>CDN integration</li>
+<li>Browser caching headers</li>
+</ul></li>
+<li><strong>02.05 Performance Benchmarking</strong> (Coming Soon)
+<ul>
+<li>Measuring build times</li>
+<li>Lighthouse scores</li>
+<li>Comparison metrics</li>
+<li>Real-world Learning Hub benchmarks</li>
+</ul></li>
+</ol>
+</section>
+<section id="series-3-customization-03.xx" class="level3">
+<h3 class="anchored" data-anchor-id="series-3-customization-03.xx">Series 3: Customization (03.xx)</h3>
+<ol type="1">
+<li><strong>03.01 Theme Architecture</strong> (Coming Soon)
+<ul>
+<li>Theme structure overview</li>
+<li>baseof.html and template hierarchy</li>
+<li>Blocks and template inheritance</li>
+<li>Layout lookup order</li>
+</ul></li>
+<li><strong>03.02 Partial Templates</strong> (Coming Soon)
+<ul>
+<li>Creating reusable components</li>
+<li>Context passing</li>
+<li>DRY principles</li>
+<li>Common partial patterns</li>
+</ul></li>
+<li><strong>03.03 Shortcodes and Render Hooks</strong> (Coming Soon)
+<ul>
+<li>Built-in shortcodes</li>
+<li>Custom shortcode development</li>
+<li>Render hooks for links, images, headings</li>
+<li>Language-specific code block hooks</li>
+</ul></li>
+<li><strong>03.04 Custom Output Formats</strong> (Coming Soon)
+<ul>
+<li>JSON search index</li>
+<li>AMP pages</li>
+<li>RSS/Atom feeds</li>
+<li>Custom XML sitemaps</li>
+</ul></li>
+<li><strong>03.05 Multilingual Sites</strong> (Coming Soon)
+<ul>
+<li>i18n configuration</li>
+<li>Translation files</li>
+<li>Language switchers</li>
+<li>Content translation strategies</li>
+</ul></li>
+<li><strong>03.06 Data-Driven Content</strong> (Coming Soon)
+<ul>
+<li>Data files (YAML/JSON/TOML)</li>
+<li>Dynamic page generation</li>
+<li>External data sources</li>
+<li>API integration</li>
+</ul></li>
+</ol>
+</section>
+<section id="series-4-deployment-04.xx" class="level3">
+<h3 class="anchored" data-anchor-id="series-4-deployment-04.xx">Series 4: Deployment (04.xx)</h3>
+<ol type="1">
+<li><strong>04.01 GitHub Pages Deployment</strong> (Coming Soon)
+<ul>
+<li>GitHub Actions workflow</li>
+<li>gh-pages branch strategy</li>
+<li>Custom domains</li>
+<li>HTTPS configuration</li>
+</ul></li>
+<li><strong>04.02 Azure Static Web Apps</strong> (Coming Soon)
+<ul>
+<li>SWA configuration</li>
+<li>Staging environments</li>
+<li>Custom routes and redirects</li>
+<li>Azure integration</li>
+</ul></li>
+<li><strong>04.03 Azure Blob Storage</strong> (Coming Soon)
+<ul>
+<li>Static website hosting</li>
+<li>Azure CDN setup</li>
+<li>Cost optimization</li>
+<li>CI/CD with Azure Pipelines</li>
+</ul></li>
+<li><strong>04.04 Netlify and Vercel</strong> (Coming Soon)
+<ul>
+<li>Configuration files</li>
+<li>Build settings</li>
+<li>Redirects and headers</li>
+<li>Edge functions</li>
+</ul></li>
+<li><strong>04.05 CI/CD Best Practices</strong> (Coming Soon)
+<ul>
+<li>Build caching in CI</li>
+<li>Environment-specific configs</li>
+<li>Deployment strategies (blue-green, canary)</li>
+<li>Automated testing</li>
+</ul></li>
+</ol>
+</section>
+<section id="series-5-advanced-topics-05.xx" class="level3">
+<h3 class="anchored" data-anchor-id="series-5-advanced-topics-05.xx">Series 5: Advanced Topics (05.xx)</h3>
+<ol type="1">
+<li><strong>05.01 Content Organization at Scale</strong> (Coming Soon)
+<ul>
+<li>Handling 1000+ pages</li>
+<li>Section organization strategies</li>
+<li>Related content algorithms</li>
+<li>Content maintenance</li>
+</ul></li>
+<li><strong>05.02 Search Implementation</strong> (Coming Soon)
+<ul>
+<li>JSON index generation</li>
+<li>Lunr.js integration</li>
+<li>Algolia setup</li>
+<li>Fuse.js alternative</li>
+</ul></li>
+<li><strong><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html">05.03 Rendering Learning Hub with Hugo</a></strong> ✅
+<ul>
+<li>Practical implementation guide</li>
+<li>Content migration strategy</li>
+<li>Theme development for Learning Hub</li>
+<li>Series navigation implementation</li>
+<li>Deployment to GitHub Pages</li>
+</ul></li>
+<li><strong>05.04 Troubleshooting Common Issues</strong> (Coming Soon)
+<ul>
+<li>Template errors</li>
+<li>Build failures</li>
+<li>Deployment problems</li>
+<li>Performance bottlenecks</li>
+</ul></li>
+<li><strong>05.05 Hugo Maintenance Guide</strong> (Coming Soon)
+<ul>
+<li>Version upgrades</li>
+<li>Dependency management</li>
+<li>Long-term support strategies</li>
+<li>Community resources</li>
+</ul></li>
+</ol>
+</section>
+<section id="series-6-reference-06.xx" class="level3">
+<h3 class="anchored" data-anchor-id="series-6-reference-06.xx">Series 6: Reference (06.xx)</h3>
+<ol type="1">
+<li><strong>06.01 Decision Matrix</strong> (Coming Soon)
+<ul>
+<li>Hugo vs Quarto vs Jekyll vs others</li>
+<li>Comparison tables</li>
+<li>Use case recommendations</li>
+<li>Migration effort estimates</li>
+</ul></li>
+<li><strong>06.02 Performance Principles</strong> (Coming Soon)
+<ul>
+<li>Consolidated optimization checklist</li>
+<li>Performance monitoring</li>
+<li>Build time targets</li>
+<li>Asset optimization guidelines</li>
+</ul></li>
+<li><strong>06.03 Customization Principles</strong> (Coming Soon)
+<ul>
+<li>Theme development best practices</li>
+<li>Template organization</li>
+<li>Maintainability strategies</li>
+<li>Code reuse patterns</li>
+</ul></li>
+<li><strong>06.04 Deployment Comparison</strong> (Coming Soon)
+<ul>
+<li>Platform comparison (GitHub, Azure, Netlify, Vercel)</li>
+<li>Feature matrix</li>
+<li>Cost analysis</li>
+<li>Recommendation by use case</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="learning-paths" class="level2">
+<h2 class="anchored" data-anchor-id="learning-paths">🎯 Learning Paths</h2>
+<section id="quick-start-1-2-hours" class="level3">
+<h3 class="anchored" data-anchor-id="quick-start-1-2-hours">Quick Start (1-2 hours)</h3>
+<ol type="1">
+<li><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.01-introduction-to-hugo.html">01.01 Introduction to Hugo</a></li>
+<li><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.02-hugo-core-concepts.html">01.02 Hugo Core Concepts</a></li>
+<li><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html">05.03 Rendering Learning Hub with Hugo</a></li>
+</ol>
+</section>
+<section id="complete-hugo-foundations-4-6-hours" class="level3">
+<h3 class="anchored" data-anchor-id="complete-hugo-foundations-4-6-hours">Complete Hugo Foundations (4-6 hours)</h3>
+<ul>
+<li>All Series 1 articles (01.01 - 01.06)</li>
+<li><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html">05.03 Rendering Learning Hub with Hugo</a></li>
+</ul>
+</section>
+<section id="performance-focus-3-4-hours" class="level3">
+<h3 class="anchored" data-anchor-id="performance-focus-3-4-hours">Performance Focus (3-4 hours)</h3>
+<ul>
+<li>All Series 2 articles (02.01 - 02.05)</li>
+<li><a href="06.xx">06.02 Performance Principles</a></li>
+</ul>
+</section>
+<section id="migration-planning-2-3-hours" class="level3">
+<h3 class="anchored" data-anchor-id="migration-planning-2-3-hours">Migration Planning (2-3 hours)</h3>
+<ul>
+<li><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.04-hugo-vs-quarto.html">01.04 Hugo vs Quarto</a></li>
+<li>01.05 Hugo vs Other Engines</li>
+<li><a href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html">05.03 Rendering Learning Hub with Hugo</a></li>
+<li>06.01 Decision Matrix</li>
+</ul>
+</section>
+<section id="complete-series-20-30-hours" class="level3">
+<h3 class="anchored" data-anchor-id="complete-series-20-30-hours">Complete Series (20-30 hours)</h3>
+<ul>
+<li>All articles in order</li>
+</ul>
+</section>
+</section>
+<section id="current-progress" class="level2">
+<h2 class="anchored" data-anchor-id="current-progress">📊 Current Progress</h2>
+<p><strong>Completed:</strong> 5 / 31 articles (16%)</p>
+<p><strong>Series 1 (Foundations):</strong> 4 / 6 (67%)</p>
+<ul>
+<li>✅ 01.01 Introduction to Hugo</li>
+<li>✅ 01.02 Hugo Core Concepts</li>
+<li>✅ 01.03 Goldmark Markdown Processing</li>
+<li>✅ 01.04 Hugo vs Quarto</li>
+<li>⏳ 01.05 Hugo vs Other Engines</li>
+<li>⏳ 01.06 When to Choose Hugo</li>
+</ul>
+<p><strong>Series 2 (Performance):</strong> 0 / 5 (0%)</p>
+<p><strong>Series 3 (Customization):</strong> 0 / 6 (0%)</p>
+<p><strong>Series 4 (Deployment):</strong> 0 / 5 (0%)</p>
+<p><strong>Series 5 (Advanced):</strong> 1 / 5 (20%)</p>
+<ul>
+<li>⏳ 05.01 Content Organization at Scale</li>
+<li>⏳ 05.02 Search Implementation</li>
+<li>✅ 05.03 Rendering Learning Hub with Hugo</li>
+<li>⏳ 05.04 Troubleshooting Common Issues</li>
+<li>⏳ 05.05 Hugo Maintenance Guide</li>
+</ul>
+<p><strong>Series 6 (Reference):</strong> 0 / 4 (0%)</p>
+</section>
+<section id="related-content" class="level2">
+<h2 class="anchored" data-anchor-id="related-content">🔗 Related Content</h2>
+<section id="learning-hub-context" class="level3">
+<h3 class="anchored" data-anchor-id="learning-hub-context">Learning Hub Context</h3>
+<p>This Hugo series is part of the <strong>Markdown Rendering</strong> documentation category in the Learning Hub:</p>
+<ul>
+<li><strong>Current location:</strong> <code>03.00 tech/20.01 Markdown/03. Hugo/</code></li>
+<li><strong>Sibling series:</strong>
+<ul>
+<li><a href="../01. QUARTO Doc/">01. QUARTO Doc</a> - Current Learning Hub renderer</li>
+<li><a href="../02. MkDocs/">02. MkDocs</a> - Python-based documentation generator</li>
+</ul></li>
+</ul>
+</section>
+<section id="external-resources" class="level3">
+<h3 class="anchored" data-anchor-id="external-resources">External Resources</h3>
+<ul>
+<li><strong><a href="https://gohugo.io/documentation/">Hugo Official Documentation</a></strong> 📘 Official</li>
+<li><strong><a href="https://discourse.gohugo.io/">Hugo Discourse Forum</a></strong> 📗 Community Support</li>
+<li><strong><a href="https://themes.gohugo.io/">Hugo Themes</a></strong> 📘 500+ themes</li>
+<li><strong><a href="https://github.com/theNewDynamic/awesome-hugo">Awesome Hugo</a></strong> 📗 Curated resources</li>
+</ul>
+</section>
+</section>
+<section id="article-series-design-principles" class="level2">
+<h2 class="anchored" data-anchor-id="article-series-design-principles">💡 Article Series Design Principles</h2>
+<section id="content-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="content-strategy">Content Strategy</h3>
+<ol type="1">
+<li><strong>Non-redundant</strong> - Each article covers distinct topics without repetition</li>
+<li><strong>Readable</strong> - Clear explanations with code examples</li>
+<li><strong>Practical</strong> - Real-world examples from Learning Hub</li>
+<li><strong>Comparative</strong> - Regular comparisons with Quarto and alternatives</li>
+<li><strong>Progressive</strong> - Builds complexity gradually</li>
+</ol>
+</section>
+<section id="technical-approach" class="level3">
+<h3 class="anchored" data-anchor-id="technical-approach">Technical Approach</h3>
+<ol type="1">
+<li><strong>Assume web development experience</strong> - HTML, CSS, JavaScript basics</li>
+<li><strong>Provide complete code examples</strong> - Copy-paste ready</li>
+<li><strong>Include Learning Hub context</strong> - Practical migration scenarios</li>
+<li><strong>Reference official docs</strong> - Link to authoritative sources</li>
+<li><strong>Maintain consistency</strong> - Uniform structure and formatting</li>
+</ol>
+</section>
+<section id="metadata-standards" class="level3">
+<h3 class="anchored" data-anchor-id="metadata-standards">Metadata Standards</h3>
+<p>Each article includes:</p>
+<ul>
+<li><strong>Dual YAML metadata</strong> - Top for rendering, bottom for validation</li>
+<li><strong>Series information</strong> - Position in 31-article series</li>
+<li><strong>Categories/tags</strong> - For taxonomic organization</li>
+<li><strong>References</strong> - With emoji markers (📘 Official, 📗 Verified Community, etc.)</li>
+</ul>
+</section>
+</section>
+<section id="contributing" class="level2">
+<h2 class="anchored" data-anchor-id="contributing">📝 Contributing</h2>
+<p>This series is part of the Learning Hub documentation. Contributions welcome:</p>
+<ol type="1">
+<li><strong>Corrections</strong> - Fix technical errors or typos</li>
+<li><strong>Updates</strong> - Keep content current with Hugo releases</li>
+<li><strong>Examples</strong> - Add practical examples from real projects</li>
+<li><strong>Comparisons</strong> - Expand comparisons with other tools</li>
+</ol>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">📄 License</h2>
+<p>Content licensed under same terms as Learning Hub repository.</p>
+<hr>
+<p><strong>Last Updated:</strong> 2026-01-14<br>
+<strong>Hugo Version:</strong> 0.122.0<br>
+<strong>Series Status:</strong> In Progress (5/31 articles completed)</p>
+
+
 </section>
 </section>
 
@@ -3882,13 +3701,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html" class="pagination-link" aria-label="Sidebar Page Transition Optimization">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sidebar Page Transition Optimization</span>
+      <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html" class="pagination-link" aria-label="Rendering Learning Hub with Hugo: Practical Implementation Guide">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Rendering Learning Hub with Hugo: Practical Implementation Guide</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/08.01-troubleshooting-guide.html" class="pagination-link" aria-label="Troubleshooting Quarto Sites">
-        <span class="nav-page-text">Troubleshooting Quarto Sites</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../03.00 tech/21.01. Feed/20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="pagination-link" aria-label="Podcast and RSS Feed: Information Gathering and Analysis">
+        <span class="nav-page-text">Podcast and RSS Feed: Information Gathering and Analysis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -3897,4 +3716,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/20.01 Markdown/01. QUARTO Doc/07.01-build-optimization.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/20.01 Markdown/03. Hugo/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

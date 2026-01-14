@@ -7,11 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-01-16">
-<meta name="keywords" content="quarto, navigation, navbar, sidebar, automation, workflow, deployment, github-pages">
-<meta name="description" content="Comprehensive guide to Quarto navigation systems, automated navigation.json generation, and deployment workflows">
+<meta name="dcterms.date" content="2025-01-29">
+<meta name="description" content="Deep dive into Quarto’s core architecture, site initialization, page loading, and rendering mechanisms">
 
-<title>Navbars Navigation Workflow – Dario’s Learning Journey</title>
+<title>How Quarto Works – Dario’s Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,17 +67,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html" rel="next">
-<link href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.01-sidebar-layout.html" rel="prev">
+<link href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.01-monolithic-vs-modular-deployment.html" rel="next">
+<link href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.01-introduction-to-quarto.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-8906a4dcdb6be437af4fa3976ae7fd76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-3a62b57c7ce0f47a491e97fb1cd0ccc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,7 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -308,60 +306,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-markdown--docs">    
         <li class="dropdown-header">Quarto Documentation</li>
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.01-introduction-to-quarto.html">
  <span class="dropdown-text">Using Quarto (Overview)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.02-how-quarto-works.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.02-how-quarto-works.html">
  <span class="dropdown-text">Quarto Architecture: How It Works</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/02.01-monolithic-vs-modular-deployment.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.01-monolithic-vs-modular-deployment.html">
  <span class="dropdown-text">Quarto: Monolithic vs.&nbsp;Modular Deployment</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/02.02-split-navigation-build.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.02-split-navigation-build.html">
  <span class="dropdown-text">Quarto: Split Navigation Build</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/03.01-quarto-yml-structure.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/03.01-quarto-yml-structure.html">
  <span class="dropdown-text">Quarto.yml Document Structure</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/05.01-theming-and-styling.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/05.01-theming-and-styling.html">
  <span class="dropdown-text">Quarto Theming and Styling</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/04.01-markdown-features.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/04.01-markdown-features.html">
  <span class="dropdown-text">Quarto-Specific Markdown Features</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/07.01-build-optimization.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/07.01-build-optimization.html">
  <span class="dropdown-text">Optimizing Quarto Build &amp; Deploy</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.01-sidebar-layout.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.01-sidebar-layout.html">
  <span class="dropdown-text">How Quarto Sidebar Works</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.02-navigation-workflow.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.02-navigation-workflow.html">
  <span class="dropdown-text">Quarto Navigation Workflow</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.03-transition-optimization.html">
  <span class="dropdown-text">Sidebar Page Transition Optimization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/08.01-troubleshooting-guide.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/08.01-troubleshooting-guide.html">
  <span class="dropdown-text">Troubleshooting Quarto Sites</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/09.01-github-pages-deployment.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/09.01-github-pages-deployment.html">
  <span class="dropdown-text">Deploying Quarto to GitHub Pages</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/09.02-azure-storage-deployment.html">
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/09.02-azure-storage-deployment.html">
  <span class="dropdown-text">Deploying Quarto to Azure Storage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/01. QUARTO/10.01-customizing-markdown-rendering-with-lua-filters.html">
+ <span class="dropdown-text">Customizing with Lua Filters</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">MkDocs Documentation</li>
@@ -376,6 +378,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/02. MkDocs/001.002 Architecture - Monolithic vs.&nbsp;Modular Deployment.html">
  <span class="dropdown-text">MkDocs: Monolithic vs.&nbsp;Modular Deployment</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Hugo Documentation</li>
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/README.html">
+ <span class="dropdown-text">Hugo Series Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.01-introduction-to-hugo.html">
+ <span class="dropdown-text">Introduction to Hugo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.02-hugo-core-concepts.html">
+ <span class="dropdown-text">Hugo Core Concepts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.03-goldmark-markdown-processing.html">
+ <span class="dropdown-text">Goldmark Markdown Processing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.04-hugo-vs-quarto.html">
+ <span class="dropdown-text">Hugo vs Quarto Comparison</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html">
+ <span class="dropdown-text">Rendering Learning Hub with Hugo</span></a>
   </li>  
     </ul>
   </li>
@@ -525,7 +553,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item">Markdown Compilers</li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.02-navigation-workflow.html">Navbars Navigation Workflow</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item">Markdown Compilers</li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.01-introduction-to-quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.02-how-quarto-works.html">How Quarto Works</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -2222,91 +2250,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-82" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.01-introduction-to-quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.02-how-quarto-works.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.02-how-quarto-works.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">How Quarto Works</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/02.01-monolithic-vs-modular-deployment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.01-monolithic-vs-modular-deployment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Monolithic vs.&nbsp;Modular Deployment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/02.02-split-navigation-build.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.02-split-navigation-build.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Split Navigation Build from Content Rendering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/03.01-quarto-yml-structure.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/03.01-quarto-yml-structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">_quarto.yml Document Structure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/04.01-markdown-features.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/04.01-markdown-features.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto-Specific Markdown Features</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/05.01-theming-and-styling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/05.01-theming-and-styling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Theming and Styling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.01-sidebar-layout.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.01-sidebar-layout.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How does quarto site layout works</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.02-navigation-workflow.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.02-navigation-workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Navbars Navigation Workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/06.03-transition-optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sidebar Page Transition Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/07.01-build-optimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/07.01-build-optimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimizing Quarto Build and Deploy Performance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/08.01-troubleshooting-guide.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/08.01-troubleshooting-guide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Troubleshooting Quarto Sites</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/09.01-github-pages-deployment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/09.01-github-pages-deployment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Deploying a Quarto Site to GitHub Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/09.02-azure-storage-deployment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/09.02-azure-storage-deployment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Deploying a Quarto Site to Azure Storage Accounts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/README.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/10.01-customizing-markdown-rendering-with-lua-filters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Customizing Markdown Rendering with Lua Filters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/README.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Documentation Series</span></a>
   </div>
 </li>
@@ -2342,27 +2376,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-84" role="navigation" aria-expanded="false"><i class="bi bi-lightning-charge" role="img">
+</i> 
+ <span class="menu-text">Hugo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-84" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-84" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.01-introduction-to-hugo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Hugo Static Site Generator</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.02-hugo-core-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hugo Core Concepts: Content Organization and Management</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.03-goldmark-markdown-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Goldmark Markdown Processing in Hugo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/01.04-hugo-vs-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hugo vs Quarto: Comprehensive Comparison for Learning Hub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/05.03-rendering-learning-hub-with-hugo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rendering Learning Hub with Hugo: Practical Implementation Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../03.00 tech/20.01 Markdown/03. Hugo/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hugo Static Site Generator Article Series</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-84" role="navigation" aria-expanded="true"><i class="bi bi-rss" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-85" role="navigation" aria-expanded="true"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text">Feed Architectures &amp; Protocols</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-84" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-85" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-84" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-85" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-85" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-86" role="navigation" aria-expanded="false">
  <span class="menu-text">20251005 Feeds architectures and protocols</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-85" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-86" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-85" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-86" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../03.00 tech/21.01. Feed/20251005 Feeds architectures and protocols/01 Podcast and RSS Feed Information Gathering and Analysis.html" class="sidebar-item-text sidebar-link">
@@ -2393,23 +2475,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-86" role="navigation" aria-expanded="true"><i class="bi bi-graph-up" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-87" role="navigation" aria-expanded="true"><i class="bi bi-graph-up" role="img">
 </i> 
  <span class="menu-text">Diginsight</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-86" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-87" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-86" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-87" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-87" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-88" role="navigation" aria-expanded="false">
  <span class="menu-text">20250817 Query Cost Metrics with Diginsight</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-87" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-88" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-87" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-88" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../03.00 tech/30.01 Diginsight/20250817 Query Cost Metrics with Diginsight/README-CosmosDbQueryCostMetrics.html" class="sidebar-item-text sidebar-link">
@@ -2422,26 +2504,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-88" role="navigation" aria-expanded="true"><i class="bi bi-cpu-fill" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-89" role="navigation" aria-expanded="true"><i class="bi bi-cpu-fill" role="img">
 </i> 
  <span class="menu-text">Hardware</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-88" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-88" class="collapse list-unstyled sidebar-section depth2 show">  
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-89" role="navigation" aria-expanded="true"><i class="bi bi-pencil-square" role="img">
-</i> 
- <span class="menu-text">Technical Writing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-89" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-89" class="collapse list-unstyled sidebar-section depth2 show">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-90" role="navigation" aria-expanded="true"><i class="bi bi-pencil-square" role="img">
+</i> 
+ <span class="menu-text">Technical Writing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-90" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-90" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../03.00 tech/40.00 Technical writing/00-foundations-of-technical-documentation.html" class="sidebar-item-text sidebar-link">
@@ -2492,14 +2574,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-90" role="navigation" aria-expanded="false"><i class="bi bi-microsoft" role="img">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-91" role="navigation" aria-expanded="false"><i class="bi bi-microsoft" role="img">
 </i> 
  <span class="menu-text">Microsoft Writing Style Guide</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-90" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-91" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-90" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-91" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../03.00 tech/40.00 Technical writing/Microsoft Writing Style Guide/00-microsoft-style-guide-overview.html" class="sidebar-item-text sidebar-link">
@@ -2538,14 +2620,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-91" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-92" role="navigation" aria-expanded="true"><i class="bi bi-tools" role="img">
 </i> 
  <span class="menu-text">How-To Guides</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-91" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-92" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-91" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-92" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../04.00 howto/20251108 HowTo - Configure Promot Files for Markdown Preview in Visual Studio.html" class="sidebar-item-text sidebar-link">
@@ -2554,13 +2636,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-92" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-93" role="navigation" aria-expanded="true">
  <span class="menu-text">20251013 HowTo Expose My Computer with No-IP DDNS</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-92" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-93" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-92" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-93" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../04.00 howto/20251013 HowTo Expose My Computer with No-IP DDNS/HowTo.Expose My Computer with No-IP DDNS.html" class="sidebar-item-text sidebar-link">
@@ -2573,23 +2655,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-93" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-94" role="navigation" aria-expanded="true"><i class="bi bi-wrench-adjustable" role="img">
 </i> 
  <span class="menu-text">Issues &amp; Solutions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-93" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-93" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-94" role="navigation" aria-expanded="true">
- <span class="menu-text">20250709 fatal error cloning a repo with Visual Studio</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-94" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-94" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-94" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-95" role="navigation" aria-expanded="true">
+ <span class="menu-text">20250709 fatal error cloning a repo with Visual Studio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-95" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-95" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../05.00 issues/20250709 fatal error cloning a repo with Visual Studio/README.html" class="sidebar-item-text sidebar-link">
@@ -2600,13 +2682,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-95" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-96" role="navigation" aria-expanded="true">
  <span class="menu-text">20251107 FeedId cannot contain forward slash</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-95" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-96" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-95" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-96" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../05.00 issues/20251107 FeedId cannot contain forward slash/ISSUE Template.html" class="sidebar-item-text sidebar-link">
@@ -2617,13 +2699,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-96" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-97" role="navigation" aria-expanded="true">
  <span class="menu-text">YYYYMMDD sample</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-96" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-97" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-96" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-97" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../05.00 issues/YYYYMMDD sample/README.html" class="sidebar-item-text sidebar-link">
@@ -2637,24 +2719,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-97" role="navigation" aria-expanded="true"><i class="bi bi-lightbulb" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-98" role="navigation" aria-expanded="true"><i class="bi bi-lightbulb" role="img">
 </i> 
  <span class="menu-text">Ideas &amp; Projects</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-97" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-97" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-98" role="navigation" aria-expanded="true"><i class="bi bi-stars" role="img">
-</i> 
- <span class="menu-text">IQPilot</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-98" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-98" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-98" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-99" role="navigation" aria-expanded="true"><i class="bi bi-stars" role="img">
+</i> 
+ <span class="menu-text">IQPilot</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-99" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-99" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../06.00 idea/IQPilot/01. IQPilot overview.html" class="sidebar-item-text sidebar-link">
@@ -2677,23 +2759,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-99" role="navigation" aria-expanded="true"><i class="bi bi-book-half" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-100" role="navigation" aria-expanded="true"><i class="bi bi-book-half" role="img">
 </i> 
  <span class="menu-text">LearnHub</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-99" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-100" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-99" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-100" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-100" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-101" role="navigation" aria-expanded="false">
  <span class="menu-text">01. Learning Hub Overview</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-100" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-101" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-100" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-101" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../06.00 idea/LearnHub/01. Learning Hub Overview/01. Learning-Hub-Introduction.html" class="sidebar-item-text sidebar-link">
@@ -2715,14 +2797,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-101" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-102" role="navigation" aria-expanded="true"><i class="bi bi-lightning-charge" role="img">
 </i> 
  <span class="menu-text">Other Technologies</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-101" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-102" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-101" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-102" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../20250815 DIY Battery Pack/README.html" class="sidebar-item-text sidebar-link">
@@ -2740,14 +2822,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-102" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-103" role="navigation" aria-expanded="true"><i class="bi bi-geo-alt" role="img">
 </i> 
  <span class="menu-text">Culture &amp; Travel</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-102" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-103" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-102" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-103" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../90.00 travel/Paris 2025/README.html" class="sidebar-item-text sidebar-link">
@@ -2772,87 +2854,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link active" data-scroll-target="#table-of-contents"><span class="header-section-number">1</span> 📋 Table of Contents</a></li>
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">2</span> 📖 Overview</a></li>
-  <li><a href="#navigation-architecture" id="toc-navigation-architecture" class="nav-link" data-scroll-target="#navigation-architecture"><span class="header-section-number">3</span> 🏗️ Navigation Architecture</a>
+  <li><a href="#how-quarto-works" id="toc-how-quarto-works" class="nav-link active" data-scroll-target="#how-quarto-works">How Quarto Works</a>
+  <ul>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">📋 <strong>Table of Contents</strong></a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">📖 <strong>Overview</strong></a></li>
+  <li><a href="#quarto-core-architecture" id="toc-quarto-core-architecture" class="nav-link" data-scroll-target="#quarto-core-architecture">🏗️ <strong>Quarto Core Architecture</strong></a>
   <ul class="collapse">
-  <li><a href="#components-overview" id="toc-components-overview" class="nav-link" data-scroll-target="#components-overview"><span class="header-section-number">3.1</span> Components Overview</a></li>
-  <li><a href="#navigation-data-flow" id="toc-navigation-data-flow" class="nav-link" data-scroll-target="#navigation-data-flow"><span class="header-section-number">3.2</span> Navigation Data Flow</a></li>
+  <li><a href="#the-quarto-engine" id="toc-the-quarto-engine" class="nav-link" data-scroll-target="#the-quarto-engine">The Quarto Engine</a></li>
+  <li><a href="#pandoc-integration" id="toc-pandoc-integration" class="nav-link" data-scroll-target="#pandoc-integration">Pandoc Integration</a></li>
   </ul></li>
-  <li><a href="#automated-navigation.json-generation" id="toc-automated-navigation.json-generation" class="nav-link" data-scroll-target="#automated-navigation.json-generation"><span class="header-section-number">4</span> ⚡ Automated Navigation.json Generation</a>
+  <li><a href="#site-initialization-process" id="toc-site-initialization-process" class="nav-link" data-scroll-target="#site-initialization-process">🚀 <strong>Site Initialization Process</strong></a>
   <ul class="collapse">
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works"><span class="header-section-number">4.1</span> How It Works</a></li>
-  <li><a href="#smart-generation-process" id="toc-smart-generation-process" class="nav-link" data-scroll-target="#smart-generation-process"><span class="header-section-number">4.2</span> Smart Generation Process</a></li>
-  <li><a href="#technical-implementation" id="toc-technical-implementation" class="nav-link" data-scroll-target="#technical-implementation"><span class="header-section-number">4.3</span> Technical Implementation</a></li>
+  <li><a href="#project-discovery" id="toc-project-discovery" class="nav-link" data-scroll-target="#project-discovery">Project Discovery</a></li>
+  <li><a href="#configuration-loading" id="toc-configuration-loading" class="nav-link" data-scroll-target="#configuration-loading">Configuration Loading</a></li>
+  <li><a href="#resource-resolution" id="toc-resource-resolution" class="nav-link" data-scroll-target="#resource-resolution">Resource Resolution</a></li>
   </ul></li>
-  <li><a href="#navbar-configuration" id="toc-navbar-configuration" class="nav-link" data-scroll-target="#navbar-configuration"><span class="header-section-number">5</span> 🧭 Navbar Configuration</a>
+  <li><a href="#how-pages-are-loaded" id="toc-how-pages-are-loaded" class="nav-link" data-scroll-target="#how-pages-are-loaded">📄 <strong>How Pages Are Loaded</strong></a>
   <ul class="collapse">
-  <li><a href="#top-level-navigation" id="toc-top-level-navigation" class="nav-link" data-scroll-target="#top-level-navigation"><span class="header-section-number">5.1</span> Top-Level Navigation</a></li>
+  <li><a href="#static-html-delivery" id="toc-static-html-delivery" class="nav-link" data-scroll-target="#static-html-delivery">Static HTML Delivery</a></li>
+  <li><a href="#client-side-enhancement" id="toc-client-side-enhancement" class="nav-link" data-scroll-target="#client-side-enhancement">Client-Side Enhancement</a></li>
+  <li><a href="#navigation-system" id="toc-navigation-system" class="nav-link" data-scroll-target="#navigation-system">Navigation System</a></li>
   </ul></li>
-  <li><a href="#sidebar-navigation" id="toc-sidebar-navigation" class="nav-link" data-scroll-target="#sidebar-navigation"><span class="header-section-number">6</span> 📂 Sidebar Navigation</a>
+  <li><a href="#rendering-mechanisms" id="toc-rendering-mechanisms" class="nav-link" data-scroll-target="#rendering-mechanisms">⚙️ <strong>Rendering Mechanisms</strong></a>
   <ul class="collapse">
-  <li><a href="#structure-and-behavior" id="toc-structure-and-behavior" class="nav-link" data-scroll-target="#structure-and-behavior"><span class="header-section-number">6.1</span> Structure and Behavior</a></li>
-  <li><a href="#dynamic-navigation-updates" id="toc-dynamic-navigation-updates" class="nav-link" data-scroll-target="#dynamic-navigation-updates"><span class="header-section-number">6.2</span> Dynamic Navigation Updates</a></li>
+  <li><a href="#site-wide-rendering" id="toc-site-wide-rendering" class="nav-link" data-scroll-target="#site-wide-rendering">Site-Wide Rendering</a></li>
+  <li><a href="#individual-page-rendering" id="toc-individual-page-rendering" class="nav-link" data-scroll-target="#individual-page-rendering">Individual Page Rendering</a></li>
+  <li><a href="#incremental-updates" id="toc-incremental-updates" class="nav-link" data-scroll-target="#incremental-updates">Incremental Updates</a></li>
   </ul></li>
-  <li><a href="#related-pages-implementation" id="toc-related-pages-implementation" class="nav-link" data-scroll-target="#related-pages-implementation"><span class="header-section-number">7</span> 🔗 Related Pages Implementation</a>
+  <li><a href="#build-process-deep-dive" id="toc-build-process-deep-dive" class="nav-link" data-scroll-target="#build-process-deep-dive">🔨 <strong>Build Process Deep Dive</strong></a>
   <ul class="collapse">
-  <li><a href="#architecture-overview" id="toc-architecture-overview" class="nav-link" data-scroll-target="#architecture-overview"><span class="header-section-number">7.1</span> Architecture Overview</a></li>
-  <li><a href="#client-side-intelligence" id="toc-client-side-intelligence" class="nav-link" data-scroll-target="#client-side-intelligence"><span class="header-section-number">7.2</span> Client-Side Intelligence</a></li>
-  <li><a href="#integration-points" id="toc-integration-points" class="nav-link" data-scroll-target="#integration-points"><span class="header-section-number">7.3</span> Integration Points</a></li>
+  <li><a href="#pre-render-phase" id="toc-pre-render-phase" class="nav-link" data-scroll-target="#pre-render-phase">Pre-render Phase</a></li>
+  <li><a href="#content-processing" id="toc-content-processing" class="nav-link" data-scroll-target="#content-processing">Content Processing</a></li>
+  <li><a href="#asset-pipeline" id="toc-asset-pipeline" class="nav-link" data-scroll-target="#asset-pipeline">Asset Pipeline</a></li>
   </ul></li>
-  <li><a href="#development-workflows" id="toc-development-workflows" class="nav-link" data-scroll-target="#development-workflows"><span class="header-section-number">8</span> 🛠️ Development Workflows</a>
+  <li><a href="#runtime-architecture" id="toc-runtime-architecture" class="nav-link" data-scroll-target="#runtime-architecture">🏃‍♂️ <strong>Runtime Architecture</strong></a>
   <ul class="collapse">
-  <li><a href="#local-development-options" id="toc-local-development-options" class="nav-link" data-scroll-target="#local-development-options"><span class="header-section-number">8.1</span> Local Development Options</a></li>
-  <li><a href="#github-pages-deployment" id="toc-github-pages-deployment" class="nav-link" data-scroll-target="#github-pages-deployment"><span class="header-section-number">8.2</span> GitHub Pages Deployment</a></li>
+  <li><a href="#browser-loading-sequence" id="toc-browser-loading-sequence" class="nav-link" data-scroll-target="#browser-loading-sequence">Browser Loading Sequence</a></li>
+  <li><a href="#javascript-enhancement-layer" id="toc-javascript-enhancement-layer" class="nav-link" data-scroll-target="#javascript-enhancement-layer">JavaScript Enhancement Layer</a></li>
+  <li><a href="#performance-characteristics" id="toc-performance-characteristics" class="nav-link" data-scroll-target="#performance-characteristics">Performance Characteristics</a></li>
   </ul></li>
-  <li><a href="#file-management-strategy" id="toc-file-management-strategy" class="nav-link" data-scroll-target="#file-management-strategy"><span class="header-section-number">9</span> 📁 File Management Strategy</a>
+  <li><a href="#learn-repository-implementation" id="toc-learn-repository-implementation" class="nav-link" data-scroll-target="#learn-repository-implementation">📚 <strong>Learn Repository Implementation</strong></a>
   <ul class="collapse">
-  <li><a href="#versioning-strategy" id="toc-versioning-strategy" class="nav-link" data-scroll-target="#versioning-strategy"><span class="header-section-number">9.1</span> Versioning Strategy</a></li>
-  <li><a href="#render-configuration" id="toc-render-configuration" class="nav-link" data-scroll-target="#render-configuration"><span class="header-section-number">9.2</span> Render Configuration</a></li>
+  <li><a href="#current-architecture-analysis" id="toc-current-architecture-analysis" class="nav-link" data-scroll-target="#current-architecture-analysis">Current Architecture Analysis</a></li>
+  <li><a href="#navigation-generation" id="toc-navigation-generation" class="nav-link" data-scroll-target="#navigation-generation">Navigation Generation</a></li>
+  <li><a href="#related-pages-implementation" id="toc-related-pages-implementation" class="nav-link" data-scroll-target="#related-pages-implementation">Related Pages Implementation</a></li>
   </ul></li>
-  <li><a href="#troubleshooting-guide" id="toc-troubleshooting-guide" class="nav-link" data-scroll-target="#troubleshooting-guide"><span class="header-section-number">10</span> 🔧 Troubleshooting Guide</a>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">💡 <strong>Key Takeaways</strong></a>
   <ul class="collapse">
-  <li><a href="#common-issues-and-solutions" id="toc-common-issues-and-solutions" class="nav-link" data-scroll-target="#common-issues-and-solutions"><span class="header-section-number">10.1</span> Common Issues and Solutions</a></li>
-  <li><a href="#debugging-client-side-issues" id="toc-debugging-client-side-issues" class="nav-link" data-scroll-target="#debugging-client-side-issues"><span class="header-section-number">10.2</span> Debugging Client-Side Issues</a></li>
+  <li><a href="#how-quarto-works-summary" id="toc-how-quarto-works-summary" class="nav-link" data-scroll-target="#how-quarto-works-summary"><strong>How Quarto Works (Summary)</strong></a></li>
+  <li><a href="#why-this-approach-works" id="toc-why-this-approach-works" class="nav-link" data-scroll-target="#why-this-approach-works"><strong>Why This Approach Works</strong></a></li>
+  <li><a href="#your-implementation-excellence" id="toc-your-implementation-excellence" class="nav-link" data-scroll-target="#your-implementation-excellence"><strong>Your Implementation Excellence</strong></a></li>
+  <li><a href="#when-to-use-quarto-architecture" id="toc-when-to-use-quarto-architecture" class="nav-link" data-scroll-target="#when-to-use-quarto-architecture"><strong>When to Use Quarto Architecture</strong></a></li>
   </ul></li>
-  <li><a href="#performance-optimization" id="toc-performance-optimization" class="nav-link" data-scroll-target="#performance-optimization"><span class="header-section-number">11</span> ⚡ Performance Optimization</a>
+  <li><a href="#references-and-further-reading" id="toc-references-and-further-reading" class="nav-link" data-scroll-target="#references-and-further-reading">📖 <strong>References and Further Reading</strong></a>
   <ul class="collapse">
-  <li><a href="#build-performance" id="toc-build-performance" class="nav-link" data-scroll-target="#build-performance"><span class="header-section-number">11.1</span> Build Performance</a></li>
-  <li><a href="#runtime-performance" id="toc-runtime-performance" class="nav-link" data-scroll-target="#runtime-performance"><span class="header-section-number">11.2</span> Runtime Performance</a></li>
-  <li><a href="#seo-and-accessibility" id="toc-seo-and-accessibility" class="nav-link" data-scroll-target="#seo-and-accessibility"><span class="header-section-number">11.3</span> SEO and Accessibility</a></li>
+  <li><a href="#official-documentation" id="toc-official-documentation" class="nav-link" data-scroll-target="#official-documentation">Official Documentation</a></li>
+  <li><a href="#verified-community-resources" id="toc-verified-community-resources" class="nav-link" data-scroll-target="#verified-community-resources">Verified Community Resources</a></li>
+  <li><a href="#community-resources" id="toc-community-resources" class="nav-link" data-scroll-target="#community-resources">Community Resources</a></li>
   </ul></li>
-  <li><a href="#advanced-configuration" id="toc-advanced-configuration" class="nav-link" data-scroll-target="#advanced-configuration"><span class="header-section-number">12</span> 🚀 Advanced Configuration</a>
-  <ul class="collapse">
-  <li><a href="#custom-navigation-patterns" id="toc-custom-navigation-patterns" class="nav-link" data-scroll-target="#custom-navigation-patterns"><span class="header-section-number">12.1</span> Custom Navigation Patterns</a></li>
-  <li><a href="#integration-with-external-systems" id="toc-integration-with-external-systems" class="nav-link" data-scroll-target="#integration-with-external-systems"><span class="header-section-number">12.2</span> Integration with External Systems</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">13</span> 📚 References</a>
-  <ul class="collapse">
-  <li><a href="#official-documentation" id="toc-official-documentation" class="nav-link" data-scroll-target="#official-documentation"><span class="header-section-number">13.1</span> Official Documentation</a></li>
-  <li><a href="#related-articles-in-this-series" id="toc-related-articles-in-this-series" class="nav-link" data-scroll-target="#related-articles-in-this-series"><span class="header-section-number">13.2</span> Related Articles in This Series</a></li>
-  <li><a href="#community-resources" id="toc-community-resources" class="nav-link" data-scroll-target="#community-resources"><span class="header-section-number">13.3</span> Community Resources</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/20.01 Markdown/01. QUARTO Doc/06.02-navigation-workflow.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/20.01 Markdown/01. QUARTO/01.02-how-quarto-works.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item">Markdown Compilers</li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/01.01-introduction-to-quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.02-navigation-workflow.html">Navbars Navigation Workflow</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item">Markdown Compilers</li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.01-introduction-to-quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.02-how-quarto-works.html">How Quarto Works</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Navbars Navigation Workflow</h1>
+<h1 class="title">How Quarto Works</h1>
   <div class="quarto-categories">
     <div class="quarto-category">quarto</div>
-    <div class="quarto-category">navigation</div>
-    <div class="quarto-category">workflow</div>
-    <div class="quarto-category">deployment</div>
-    <div class="quarto-category">automation</div>
+    <div class="quarto-category">architecture</div>
+    <div class="quarto-category">fundamentals</div>
+    <div class="quarto-category">rendering</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Comprehensive guide to Quarto navigation systems, automated navigation.json generation, and deployment workflows
+    Deep dive into Quarto’s core architecture, site initialization, page loading, and rendering mechanisms
   </div>
 </div>
 
@@ -2869,7 +2949,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 16, 2025</p>
+      <p class="date">January 29, 2025</p>
     </div>
   </div>
   
@@ -2882,436 +2962,601 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    <p>A complete guide to implementing and managing navigation workflows in Quarto sites. This document covers navigation architecture, automated navigation.json generation, navbar and sidebar configuration, related pages implementation, development workflows, file management strategies, and troubleshooting guides. Essential for building scalable and maintainable Quarto documentation sites.</p>
-  </div>
-</div>
 
-<div>
-  <div class="keywords">
-    <div class="block-title">Keywords</div>
-    <p>quarto, navigation, navbar, sidebar, automation, workflow, deployment, github-pages</p>
-  </div>
-</div>
 
 </header>
 
 
-<section id="table-of-contents" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="table-of-contents"><span class="header-section-number">1</span> 📋 Table of Contents</h2>
+<section id="how-quarto-works" class="level1">
+<h1>How Quarto Works</h1>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">📋 <strong>Table of Contents</strong></h2>
 <ul>
-<li><a href="#-overview">📖 Overview</a></li>
-<li><a href="#️-navigation-architecture">🏗️ Navigation Architecture</a></li>
-<li><a href="#-automated-navigationjson-generation">⚡ Automated Navigation.json Generation</a></li>
-<li><a href="#-navbar-configuration">🧭 Navbar Configuration</a></li>
-<li><a href="#-sidebar-navigation">📂 Sidebar Navigation</a></li>
-<li><a href="#-related-pages-implementation">🔗 Related Pages Implementation</a></li>
-<li><a href="#️-development-workflows">🛠️ Development Workflows</a></li>
-<li><a href="#-file-management-strategy">📁 File Management Strategy</a></li>
-<li><a href="#-troubleshooting-guide">🔧 Troubleshooting Guide</a></li>
-<li><a href="#-performance-optimization">⚡ Performance Optimization</a></li>
-<li><a href="#-advanced-configuration">🚀 Advanced Configuration</a></li>
+<li><a href="#overview">📖 Overview</a></li>
+<li><a href="#quarto-core-architecture">🏗️ Quarto Core Architecture</a></li>
+<li><a href="#site-initialization-process">🚀 Site Initialization Process</a></li>
+<li><a href="#how-pages-are-loaded">📄 How Pages Are Loaded</a></li>
+<li><a href="#rendering-mechanisms">⚙️ Rendering Mechanisms</a></li>
+<li><a href="#build-process-deep-dive">🔨 Build Process Deep Dive</a></li>
+<li><a href="#runtime-architecture">🏃‍♂️ Runtime Architecture</a></li>
+<li><a href="#learn-repository-implementation">📚 Learn Repository Implementation</a></li>
+<li><a href="#key-takeaways">💡 Key Takeaways</a></li>
+<li><a href="#references-and-further-reading">📖 References and Further Reading</a></li>
+</ul>
+<hr>
+</section>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">📖 <strong>Overview</strong></h2>
+<p>Quarto is a <strong>next-generation publishing system</strong> built on proven web technologies.<br>
+Unlike Single Page Applications (SPAs), Quarto generates <strong>static HTML files</strong> that load instantly and work without JavaScript, while providing <strong>progressive enhancement</strong> for advanced features.</p>
+<p>This document explains:</p>
+<ul>
+<li>How Quarto’s core architecture works</li>
+<li>The site initialization and build process</li>
+<li>How pages are loaded and rendered</li>
+<li>The relationship between static content and dynamic features</li>
 </ul>
 </section>
-<section id="overview" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="overview"><span class="header-section-number">2</span> 📖 Overview</h2>
-<p>This document covers the complete navigation workflow for Quarto sites, including automated navigation generation, Related Pages functionality, and integration with GitHub Pages deployment.</p>
-</section>
-<section id="navigation-architecture" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="navigation-architecture"><span class="header-section-number">3</span> 🏗️ Navigation Architecture</h2>
-<section id="components-overview" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="components-overview"><span class="header-section-number">3.1</span> Components Overview</h3>
-<pre><code>Quarto Navigation System
-├── _quarto.yml                    # Source configuration
-├── navigation.json                # Generated navigation data  
-├── GitHub Pages                   # Deployed site
-│   ├── Left Sidebar              # Main navigation
-│   ├── Top Navbar                # Site-wide navigation
-│   └── Right Margin              # Related Pages (custom)
-└── Build Process
-    ├── Pre-render hooks          # Data generation
-    ├── GitHub Actions            # Automated deployment
-    └── Client-side JavaScript    # Dynamic features</code></pre>
-</section>
-<section id="navigation-data-flow" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="navigation-data-flow"><span class="header-section-number">3.2</span> Navigation Data Flow</h3>
-<ol type="1">
-<li><strong>Configuration</strong> ? <code>_quarto.yml</code> defines site structure</li>
-<li><strong>Generation</strong> ? <code>scripts/generate-navigation.ps1</code> creates <code>navigation.json</code></li>
-<li><strong>Build</strong> ? Quarto renders HTML with navigation structure</li>
-<li><strong>Enhancement</strong> ? Client-side JavaScript adds Related Pages</li>
-<li><strong>Deployment</strong> ? GitHub Pages serves complete navigation</li>
-</ol>
-</section>
-</section>
-<section id="automated-navigation.json-generation" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="automated-navigation.json-generation"><span class="header-section-number">4</span> ⚡ Automated Navigation.json Generation</h2>
-<section id="how-it-works" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="how-it-works"><span class="header-section-number">4.1</span> How It Works</h3>
-<p>The <code>navigation.json</code> file powers the Related Pages functionality and is automatically generated from <code>_quarto.yml</code>:</p>
-<ul>
-<li><strong>When</strong>: Only when <code>navigation.json</code> is missing or older than <code>_quarto.yml</code></li>
-<li><strong>Where</strong>: Generated by <code>scripts/generate-navigation.ps1</code></li>
-<li><strong>Trigger</strong>: Pre-render hook in <code>_quarto.yml</code></li>
-</ul>
-</section>
-<section id="smart-generation-process" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="smart-generation-process"><span class="header-section-number">4.2</span> Smart Generation Process</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Timestamp-based intelligent regeneration</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="va">$quartoModified</span> <span class="op">-gt</span> <span class="va">$navModified</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Host</span> <span class="st">"navigation.json is older than _quarto.yml - will regenerate"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">$shouldGenerate</span> <span class="op">=</span> <span class="va">$true</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Host</span> <span class="st">"navigation.json is up to date - skipping generation"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">$shouldGenerate</span> <span class="op">=</span> <span class="va">$false</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="technical-implementation" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="technical-implementation"><span class="header-section-number">4.3</span> Technical Implementation</h3>
-<p><strong>yq Command Used:</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yq</span> eval <span class="st">'.website.sidebar.contents'</span> _quarto.yml <span class="at">--output-format</span><span class="op">=</span>json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>PowerShell Processing:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract content and wrap in navigation structure</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">$extractedContent</span> <span class="op">=</span> <span class="op">&amp;</span> <span class="va">$yqExecutable</span> eval <span class="st">'.website.sidebar.contents'</span> <span class="va">$quartoFile</span> <span class="op">--</span>output-format<span class="op">=</span>json</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">$navigationStructure</span> <span class="op">=</span> @<span class="op">{</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    contents <span class="op">=</span> <span class="va">$extractedContent</span> <span class="op">|</span> <span class="fu">ConvertFrom-Json</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">$navigationStructure</span> <span class="op">|</span> <span class="fu">ConvertTo-Json</span> <span class="op">-</span>Depth <span class="dv">20</span> <span class="op">|</span> <span class="fu">Out-File</span> <span class="op">-</span>FilePath <span class="va">$navFile</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="navbar-configuration" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="navbar-configuration"><span class="header-section-number">5</span> 🧭 Navbar Configuration</h2>
-<section id="top-level-navigation" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="top-level-navigation"><span class="header-section-number">5.1</span> Top-Level Navigation</h3>
-<p>The navbar provides site-wide navigation and branding:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background</span><span class="kw">:</span><span class="at"> primary</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Learning Hub"</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> house-fill</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Home"</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Events"</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"202506 Build 2025/Readme.md"</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Build 2025: Conference Overview"</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> github</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/darioairoldi/Learn"</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">aria-label</span><span class="kw">:</span><span class="at"> </span><span class="st">"GitHub Repository"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Key Features:</strong></p>
-<ul>
-<li><strong>Responsive design</strong>: Collapses to hamburger menu on mobile</li>
-<li><strong>Search integration</strong>: Built-in site search functionality</li>
-<li><strong>Menu dropdowns</strong>: Hierarchical navigation structure</li>
-<li><strong>Icon support</strong>: Font Awesome and custom icons</li>
-<li><strong>External links</strong>: Direct links to repositories and resources</li>
-</ul>
-</section>
-</section>
-<section id="sidebar-navigation" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="sidebar-navigation"><span class="header-section-number">6</span> 📂 Sidebar Navigation</h2>
-<section id="structure-and-behavior" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="structure-and-behavior"><span class="header-section-number">6.1</span> Structure and Behavior</h3>
-<p>The sidebar provides detailed site navigation with collapsible sections:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">style</span><span class="kw">:</span><span class="at"> </span><span class="st">"floating"</span><span class="co">      # or "docked"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">collapse-level</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">contents</span><span class="kw">:</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Home"</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> house-fill</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">section</span><span class="kw">:</span><span class="at"> </span><span class="st">"Events"</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> calendar-event</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">contents</span><span class="kw">:</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">          # Nested navigation structure</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Advanced Features:</strong></p>
-<ul>
-<li><strong>Floating vs Docked</strong>: Different visual styles</li>
-<li><strong>Collapse levels</strong>: Control automatic section expansion</li>
-<li><strong>Search integration</strong>: Filter navigation items</li>
-<li><strong>Icons</strong>: Visual indicators for sections</li>
-<li><strong>Active state tracking</strong>: Highlights current page</li>
-</ul>
-</section>
-<section id="dynamic-navigation-updates" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="dynamic-navigation-updates"><span class="header-section-number">6.2</span> Dynamic Navigation Updates</h3>
-<p>The sidebar responds to page changes and user interaction:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Listen for sidebar navigation clicks</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'click'</span><span class="op">,</span> <span class="kw">function</span>(<span class="bu">event</span>) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> sidebarItem <span class="op">=</span> <span class="bu">event</span><span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="fu">closest</span>(<span class="st">'.sidebar-item-text, .nav-link'</span>)<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (sidebarItem <span class="op">&amp;&amp;</span> sidebarItem<span class="op">.</span><span class="fu">closest</span>(<span class="st">'#quarto-sidebar'</span>)) {</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Update Related Pages based on new selection</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="pp">setTimeout</span>(renderRightNav<span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="related-pages-implementation" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="related-pages-implementation"><span class="header-section-number">7</span> 🔗 Related Pages Implementation</h2>
-<section id="architecture-overview" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="architecture-overview"><span class="header-section-number">7.1</span> Architecture Overview</h3>
-<p>The Related Pages feature extends Quarto’s native navigation with intelligent content discovery:</p>
-<p><strong>File Structure:</strong></p>
-<pre><code>??? _includes/right-nav.html              # Related Pages widget
-??? scripts/generate-navigation.ps1       # Data generator
-??? navigation.json                       # Navigation structure
-??? _quarto.yml                          # Integration configuration</code></pre>
-</section>
-<section id="client-side-intelligence" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="client-side-intelligence"><span class="header-section-number">7.2</span> Client-Side Intelligence</h3>
-<p><strong>Page Context Detection:</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">getCurrentPagePath</span>() {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> path <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">location</span><span class="op">.</span><span class="at">pathname</span><span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Normalize path for GitHub Pages</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (path<span class="op">.</span><span class="fu">startsWith</span>(<span class="st">'Learn/'</span>)) {</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        path <span class="op">=</span> path<span class="op">.</span><span class="fu">substring</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> path<span class="op">.</span><span class="fu">replace</span>(<span class="st">'.html'</span><span class="op">,</span> <span class="st">''</span>)<span class="op">.</span><span class="fu">replace</span>(<span class="ss">/</span><span class="sc">^\/</span><span class="ss">/</span><span class="op">,</span> <span class="st">''</span>)<span class="op">;</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Navigation Logic:</strong></p>
-<ul>
-<li><strong>Section pages</strong>: Show first-level children (subsections)</li>
-<li><strong>Leaf pages</strong>: Show all siblings including current page</li>
-<li><strong>Active highlighting</strong>: Mark current page in Related Pages</li>
-</ul>
-</section>
-<section id="integration-points" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="integration-points"><span class="header-section-number">7.3</span> Integration Points</h3>
-<p><strong>Quarto Configuration:</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-after-body</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> _includes/right-nav.html</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">grid</span><span class="kw">:</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">margin-width</span><span class="kw">:</span><span class="at"> 280px</span><span class="co">    # Space for Related Pages</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Responsive Behavior:</strong></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">max-width</span><span class="ch">:</span> <span class="dv">800</span><span class="dt">px</span><span class="fu">)</span> {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="pp">#custom-right-nav</span> {</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">display</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span> <span class="co">/* Hide on mobile */</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="development-workflows" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="development-workflows"><span class="header-section-number">8</span> 🛠️ Development Workflows</h2>
-<section id="local-development-options" class="level3" data-number="8.1">
-<h3 data-number="8.1" class="anchored" data-anchor-id="local-development-options"><span class="header-section-number">8.1</span> Local Development Options</h3>
-<p><strong>Option 1: Development Script</strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./dev-serve.bat</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Option 2: Manual Commands</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate navigation.json (if needed)</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>powershell <span class="op">-</span>ExecutionPolicy Bypass <span class="op">-</span>File scripts<span class="op">/</span>generate-navigation<span class="op">.</span><span class="fu">ps1</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Quarto preview</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Option 3: Standard Quarto (with pre-render hook)</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render    <span class="co"># Automatically runs pre-render hook</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview   <span class="co"># Live development server</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="github-pages-deployment" class="level3" data-number="8.2">
-<h3 data-number="8.2" class="anchored" data-anchor-id="github-pages-deployment"><span class="header-section-number">8.2</span> GitHub Pages Deployment</h3>
-<p><strong>Pre-render Integration:</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pre-render</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> powershell -ExecutionPolicy Bypass -File scripts/generate-navigation.ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Workflow Integration:</strong> The GitHub Actions workflow handles:</p>
-<ol type="1">
-<li><strong>Environment setup</strong>: Quarto installation</li>
-<li><strong>Pre-render execution</strong>: Navigation generation</li>
-<li><strong>Site building</strong>: HTML generation</li>
-<li><strong>Deployment</strong>: GitHub Pages publishing</li>
-</ol>
-</section>
-</section>
-<section id="file-management-strategy" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="file-management-strategy"><span class="header-section-number">9</span> 📁 File Management Strategy</h2>
-<section id="versioning-strategy" class="level3" data-number="9.1">
-<h3 data-number="9.1" class="anchored" data-anchor-id="versioning-strategy"><span class="header-section-number">9.1</span> Versioning Strategy</h3>
+<section id="quarto-core-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-core-architecture">🏗️ <strong>Quarto Core Architecture</strong></h2>
+<section id="the-quarto-engine" class="level3">
+<h3 class="anchored" data-anchor-id="the-quarto-engine">The Quarto Engine</h3>
+<p>Quarto is built as a <strong>multi-layered publishing system</strong>:</p>
+<pre class="mermaid"><code>graph TD
+    A[Quarto CLI] --&gt; B[Project Manager]
+    B --&gt; C[Configuration Parser]
+    C --&gt; D[Content Processor]
+    D --&gt; E[Pandoc Engine]
+    E --&gt; F[Template System]
+    F --&gt; G[Asset Pipeline]
+    G --&gt; H[Output Generator]
+    
+    I[Source Files] --&gt; D
+    J[_quarto.yml] --&gt; C
+    K[Templates] --&gt; F
+    L[Assets] --&gt; G</code></pre>
+<p><strong>Core Components:</strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 25%">
-<col style="width: 31%">
-<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 28%">
+<col style="width: 37%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>File</th>
+<th>Component</th>
 <th>Purpose</th>
-<th>Versioned</th>
-<th>Reason</th>
+<th>Technology</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>navigation.json</strong></td>
-<td>Navigation data</td>
-<td>? Yes</td>
-<td>Ensures consistency across environments</td>
+<td><strong><mark>Quarto CLI</mark></strong></td>
+<td>Command-line interface</td>
+<td>Deno/TypeScript</td>
 </tr>
 <tr class="even">
-<td><strong>scripts/generate-navigation.ps1</strong></td>
-<td>Generator script</td>
-<td>? Yes</td>
-<td>Source code for automation</td>
+<td><strong><mark>Configuration Parser</mark></strong></td>
+<td>Processes <code>_quarto.yml</code></td>
+<td>YAML parser</td>
 </tr>
 <tr class="odd">
-<td><strong>yq.exe</strong></td>
-<td>YAML processor</td>
-<td>? No</td>
-<td>Auto-downloaded dependency</td>
+<td><strong><mark>Content Processor</mark></strong></td>
+<td>Handles Markdown/Jupyter</td>
+<td>Custom processors</td>
+</tr>
+<tr class="even">
+<td><strong><mark>Pandoc Engine</mark></strong></td>
+<td>Document conversion</td>
+<td><mark>Pandoc</mark> (Haskell)</td>
+</tr>
+<tr class="odd">
+<td><strong><mark>Template System</mark></strong></td>
+<td>HTML generation</td>
+<td><mark>Pandoc</mark> templates</td>
+</tr>
+<tr class="even">
+<td><strong><mark>Asset Pipeline</mark></strong></td>
+<td>CSS/JS/Images</td>
+<td>File system operations</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="render-configuration" class="level3" data-number="9.2">
-<h3 data-number="9.2" class="anchored" data-anchor-id="render-configuration"><span class="header-section-number">9.2</span> Render Configuration</h3>
-<p><strong>Comprehensive File Inclusion:</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span><span class="kw">:</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.qmd"</span><span class="co">           # Quarto documents</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.md"</span><span class="co">            # Markdown files</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"*/README.md"</span><span class="co">     # Directory documentation</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"**/README.md"</span><span class="co">    # Recursive documentation</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"**/SUMMARY.md"</span><span class="co">   # Summary files</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"**/*.md"</span><span class="co">         # All markdown files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This ensures all referenced files in navigation are properly rendered and available.</p>
-</section>
-</section>
-<section id="troubleshooting-guide" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="troubleshooting-guide"><span class="header-section-number">10</span> 🔧 Troubleshooting Guide</h2>
-<section id="common-issues-and-solutions" class="level3" data-number="10.1">
-<h3 data-number="10.1" class="anchored" data-anchor-id="common-issues-and-solutions"><span class="header-section-number">10.1</span> Common Issues and Solutions</h3>
-<p><strong>404 Errors on Navigation Links:</strong></p>
+<section id="pandoc-integration" class="level3">
+<h3 class="anchored" data-anchor-id="pandoc-integration">Pandoc Integration</h3>
+<p>Quarto leverages <strong><mark>Pandoc</mark></strong> as its document conversion engine:</p>
+<pre><code>Markdown (.md/.qmd) → Pandoc → HTML + CSS + JavaScript</code></pre>
+<p><strong>Pandoc’s Role:</strong></p>
 <ul>
-<li>? <strong>Check render configuration</strong>: Ensure files are included in render list</li>
-<li>? <strong>Verify file existence</strong>: Confirm source files exist</li>
-<li>? <strong>Case sensitivity</strong>: GitHub Pages is case-sensitive</li>
-<li>? <strong>URL encoding</strong>: Special characters need proper encoding</li>
+<li><strong><mark>Document Parsing</mark></strong>: Converts Markdown to Abstract Syntax Tree (AST)</li>
+<li><strong><mark>Cross-References</mark></strong>: Resolves internal links and citations</li>
+<li><strong><mark>Code Highlighting</mark></strong>: Syntax highlighting for code blocks<br>
+</li>
+<li><strong><mark>Template Application</mark></strong>: Applies HTML templates to content</li>
+<li><strong><mark>Output Generation</mark></strong>: Creates final HTML files ### Static Site Generation Philosophy</li>
 </ul>
-<p><strong>Navigation Generation Failures:</strong></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Manual testing</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>powershell <span class="op">-</span>ExecutionPolicy Bypass <span class="op">-</span>File scripts<span class="op">/</span>generate-navigation<span class="op">.</span><span class="fu">ps1</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check yq availability</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\yq<span class="op">.</span><span class="fu">exe</span> <span class="op">--</span>version</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify _quarto.yml syntax</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>yq eval <span class="st">'.'</span> _quarto<span class="op">.</span><span class="fu">yml</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>GitHub Actions Issues:</strong></p>
+<p>Quarto follows the <strong>“Progressive Enhancement”</strong> philosophy:</p>
+<pre><code>Core Content (HTML) + Enhancement (CSS) + Interactivity (JavaScript)</code></pre>
+<p><strong>Design Principles:</strong></p>
 <ul>
-<li>? <strong>Pre-render hook syntax</strong>: Use full PowerShell command</li>
-<li>? <strong>File permissions</strong>: Ensure scripts are executable</li>
-<li>? <strong>Path handling</strong>: Use correct file paths for cross-platform compatibility</li>
-</ul>
-</section>
-<section id="debugging-client-side-issues" class="level3" data-number="10.2">
-<h3 data-number="10.2" class="anchored" data-anchor-id="debugging-client-side-issues"><span class="header-section-number">10.2</span> Debugging Client-Side Issues</h3>
-<p><strong>Console Debugging:</strong></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Enable verbose logging</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'?? Current page path:'</span><span class="op">,</span> <span class="fu">getCurrentPagePath</span>())<span class="op">;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'?? Navigation config loaded:'</span><span class="op">,</span> navigationConfig)<span class="op">;</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'?? Found siblings:'</span><span class="op">,</span> siblings)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Network Debugging:</strong></p>
-<ul>
-<li>Check navigation.json loads correctly in browser</li>
-<li>Verify file is deployed to GitHub Pages</li>
-<li>Confirm JSON structure is valid</li>
+<li><strong><mark>Content First</mark></strong>: HTML works without CSS or JavaScript</li>
+<li><strong><mark>Fast Loading</mark></strong>: Static files serve instantly</li>
+<li><strong><mark>SEO Friendly</mark></strong>: Search engines see complete content</li>
+<li><strong><mark>Accessibility</mark></strong>: Works with screen readers and assistive technology</li>
+<li><strong><mark>Progressive Enhancement</mark></strong>: JavaScript adds features, doesn’t enable them</li>
 </ul>
 </section>
 </section>
-<section id="performance-optimization" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="performance-optimization"><span class="header-section-number">11</span> ⚡ Performance Optimization</h2>
-<section id="build-performance" class="level3" data-number="11.1">
-<h3 data-number="11.1" class="anchored" data-anchor-id="build-performance"><span class="header-section-number">11.1</span> Build Performance</h3>
+<section id="site-initialization-process" class="level2">
+<h2 class="anchored" data-anchor-id="site-initialization-process">🚀 <strong>Site Initialization Process</strong></h2>
+<section id="project-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="project-discovery">Project Discovery</h3>
+<p>When you run <code>quarto render</code>, here’s what happens:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render  <span class="co"># Triggers the initialization sequence</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Step 1: Project Detection</strong></p>
+<pre><code>Current Directory
+├── _quarto.yml → Project root marker
+├── *.md files  → Content discovery
+└── assets/     → Resource discovery</code></pre>
+<p><strong>Step 2: Configuration Hierarchy</strong></p>
+<pre><code>Global Config → Project Config → Profile Config → File Config</code></pre>
+</section>
+<section id="configuration-loading" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-loading">Configuration Loading</h3>
+<p>Based on your Learn repository’s <code>_quarto.yml</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration loading sequence</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span><span class="co">           # 1. Project type determines behavior</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span><span class="co">        # 2. Output location</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pre-render</span><span class="kw">:</span><span class="co">             # 3. Pre-processing hooks</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> powershell -ExecutionPolicy Bypass -File scripts/generate-navigation.ps1</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span><span class="co">                  # 4. Website-specific configuration</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dario's Learning Journey"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at"> ... </span><span class="kw">}</span><span class="co">         # 5. Navigation structure</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at"> ... </span><span class="kw">}</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="co">                   # 6. Output format configuration</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Configuration Processing:</strong></p>
+<ol type="1">
+<li><strong>Schema Validation</strong>: Ensures all keys are valid</li>
+<li><strong>Profile Resolution</strong>: Applies development/production profiles</li>
+<li><strong>Template Selection</strong>: Chooses appropriate HTML templates</li>
+<li><strong>Resource Discovery</strong>: Locates CSS, JavaScript, and image files</li>
+</ol>
+</section>
+<section id="resource-resolution" class="level3">
+<h3 class="anchored" data-anchor-id="resource-resolution">Resource Resolution</h3>
+<p>Quarto builds a <strong>resource map</strong> of all site assets:</p>
+<pre><code>Resource Discovery Process:
+├── Content Files (.md/.qmd/.ipynb)
+├── Configuration (_quarto.yml)
+├── Templates (custom templates)
+├── Stylesheets (CSS/SCSS)
+├── Scripts (JavaScript)
+├── Images (PNG/JPG/SVG)
+└── Data Files (JSON/YAML/CSV)</code></pre>
+</section>
+</section>
+<section id="how-pages-are-loaded" class="level2">
+<h2 class="anchored" data-anchor-id="how-pages-are-loaded">📄 <strong>How Pages Are Loaded</strong></h2>
+<section id="static-html-delivery" class="level3">
+<h3 class="anchored" data-anchor-id="static-html-delivery">Static HTML Delivery</h3>
+<p>Quarto generates <strong>complete HTML pages</strong> that work immediately:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Example generated HTML structure --&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Page Title<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">"viewport"</span><span class="ot"> content</span><span class="op">=</span><span class="st">"width=device-width, initial-scale=1"</span><span class="dt">&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Complete CSS embedded or linked --&gt;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"stylesheet"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"site_libs/bootstrap/bootstrap.min.css"</span><span class="dt">&gt;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span><span class="co">/* Custom styles */</span><span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Complete navigation structure --&gt;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">nav</span><span class="ot"> class</span><span class="op">=</span><span class="st">"navbar"</span><span class="dt">&gt;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"navbar-nav"</span><span class="dt">&gt;</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      <span class="co">&lt;!-- All navigation links pre-rendered --&gt;</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Complete sidebar --&gt;</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"quarto-sidebar"</span><span class="dt">&gt;</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- All sidebar content pre-rendered --&gt;</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Main content --&gt;</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">main</span><span class="ot"> id</span><span class="op">=</span><span class="st">"quarto-content"</span><span class="dt">&gt;</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">article</span><span class="dt">&gt;</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>      <span class="co">&lt;!-- Complete page content --&gt;</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- JavaScript for enhancement only --&gt;</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"site_libs/quarto-nav/quarto-nav.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Characteristics:</strong></p>
 <ul>
-<li><strong>Smart regeneration</strong>: Only rebuild navigation.json when needed</li>
-<li><strong>Timestamp checking</strong>: Avoid unnecessary work</li>
-<li><strong>Cached dependencies</strong>: yq.exe downloaded once per environment</li>
+<li><strong>Self-Contained</strong>: Each page has everything it needs</li>
+<li><strong>No Loading States</strong>: Content appears immediately</li>
+<li><strong>JavaScript Optional</strong>: Core functionality works without JS</li>
+<li><strong>Fast First Paint</strong>: Minimal time to visible content</li>
 </ul>
 </section>
-<section id="runtime-performance" class="level3" data-number="11.2">
-<h3 data-number="11.2" class="anchored" data-anchor-id="runtime-performance"><span class="header-section-number">11.2</span> Runtime Performance</h3>
+<section id="client-side-enhancement" class="level3">
+<h3 class="anchored" data-anchor-id="client-side-enhancement">Client-Side Enhancement</h3>
+<p>JavaScript <strong>enhances</strong> the static content rather than creating it:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Quarto's enhancement approach (simplified)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'DOMContentLoaded'</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 1. Enhance existing navigation</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initializeNavigation</span>()<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 2. Add interactive features</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initializeSearch</span>()<span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initializeTOC</span>()<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 3. Add custom enhancements (like Related Pages)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initializeCustomFeatures</span>()<span class="op">;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Enhancement Examples:</strong></p>
 <ul>
-<li><strong>Lazy loading</strong>: Related Pages loads after main content</li>
-<li><strong>Event delegation</strong>: Efficient navigation event handling</li>
-<li><strong>Responsive design</strong>: Mobile optimization reduces complexity</li>
+<li><strong>Search</strong>: Adds search functionality to existing content</li>
+<li><strong>TOC Highlighting</strong>: Highlights current section in table of contents</li>
+<li><strong>Navigation State</strong>: Manages active menu items</li>
+<li><strong>Related Pages</strong>: Your custom feature that shows related content</li>
 </ul>
 </section>
-<section id="seo-and-accessibility" class="level3" data-number="11.3">
-<h3 data-number="11.3" class="anchored" data-anchor-id="seo-and-accessibility"><span class="header-section-number">11.3</span> SEO and Accessibility</h3>
-<p><strong>Navigation Structure:</strong></p>
+<section id="navigation-system" class="level3">
+<h3 class="anchored" data-anchor-id="navigation-system">Navigation System</h3>
+<p>Your Learn repository demonstrates this perfectly:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// From _includes/right-nav.html</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">loadNavigationConfig</span>() {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Enhancement: Load navigation data generated at build time</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">'/navigation.json'</span>)<span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> navigationConfig <span class="op">=</span> <span class="cf">await</span> response<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Enhancement: Add Related Pages to existing static page</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">renderRelatedPages</span>(navigationConfig)<span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Navigation Architecture:</strong></p>
 <ul>
-<li><strong>Semantic HTML</strong>: Proper navigation landmarks</li>
-<li><strong>ARIA labels</strong>: Accessibility-friendly navigation</li>
-<li><strong>SEO-friendly URLs</strong>: Clean, descriptive paths</li>
-<li><strong>Sitemap generation</strong>: Automatic via Quarto</li>
+<li><strong>Static Navigation</strong>: Left sidebar and navbar rendered in HTML</li>
+<li><strong>Dynamic Enhancement</strong>: Related Pages added via JavaScript</li>
+<li><strong>Data-Driven</strong>: Uses <code>navigation.json</code> generated during build</li>
 </ul>
 </section>
 </section>
-<section id="advanced-configuration" class="level2" data-number="12">
-<h2 data-number="12" class="anchored" data-anchor-id="advanced-configuration"><span class="header-section-number">12</span> 🚀 Advanced Configuration</h2>
-<section id="custom-navigation-patterns" class="level3" data-number="12.1">
-<h3 data-number="12.1" class="anchored" data-anchor-id="custom-navigation-patterns"><span class="header-section-number">12.1</span> Custom Navigation Patterns</h3>
-<p><strong>Conditional Navigation:</strong></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebar</span><span class="kw">:</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"---"</span><span class="co">        # Separator</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">section</span><span class="kw">:</span><span class="at"> </span><span class="st">"Advanced"</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">contents</span><span class="kw">:</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> advanced/topic1.md</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Topic 1"</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">collapse</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">       # Start collapsed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Dynamic Menu Generation:</strong> The Related Pages system can be extended for:</p>
+<section id="rendering-mechanisms" class="level2">
+<h2 class="anchored" data-anchor-id="rendering-mechanisms">⚙️ <strong>Rendering Mechanisms</strong></h2>
+<section id="site-wide-rendering" class="level3">
+<h3 class="anchored" data-anchor-id="site-wide-rendering">Site-Wide Rendering</h3>
+<p>When you run <code>quarto render</code>, it processes the <strong>entire site</strong>:</p>
+<pre><code>Site Rendering Process:
+1. Project Discovery      ? Find all content files
+2. Dependency Analysis    ? Build file dependency graph  
+3. Content Processing     ? Convert .md to HTML
+4. Cross-Reference        ? Resolve internal links
+5. Template Application   ? Apply site theme/layout
+6. Asset Processing       ? Copy/optimize images, CSS, JS
+7. Site Assembly          ? Create complete site structure
+8. Output Generation      ? Write files to output directory</code></pre>
+<p><strong>Example from your repository:</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.qmd"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.md"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"*/README.md"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"**/README.md"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"**/SUMMARY.md"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"**/*.md"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This tells Quarto to process <strong>all matching files</strong> in a single render pass.</p>
+</section>
+<section id="individual-page-rendering" class="level3">
+<h3 class="anchored" data-anchor-id="individual-page-rendering">Individual Page Rendering</h3>
+<p>Quarto can also render <strong>individual pages</strong>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Render single page</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="st">"202506 Build 2025/BRK101 Dotnet app modernization/README.md"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Render specific directory</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="st">"202506 Build 2025/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Individual Rendering Process:</strong></p>
+<ol type="1">
+<li><strong>Page Discovery</strong>: Find the specified file(s)</li>
+<li><strong>Context Loading</strong>: Load site configuration and navigation</li>
+<li><strong>Dependency Check</strong>: Ensure referenced resources exist</li>
+<li><strong>Content Processing</strong>: Convert Markdown to HTML</li>
+<li><strong>Template Application</strong>: Apply site layout</li>
+<li><strong>Output Generation</strong>: Create HTML file</li>
+</ol>
+</section>
+<section id="incremental-updates" class="level3">
+<h3 class="anchored" data-anchor-id="incremental-updates">Incremental Updates</h3>
+<p>Quarto supports <strong>incremental rendering</strong> for faster builds:</p>
+<pre><code>Incremental Rendering:
+??? Check file timestamps
+??? Identify changed files
+??? Render only changed content
+??? Update cross-references
+??? Preserve unchanged files</code></pre>
+<p>Your PowerShell script demonstrates this pattern:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From scripts/generate-navigation.ps1</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="va">$quartoModified</span> <span class="op">-gt</span> <span class="va">$navModified</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Host</span> <span class="st">"navigation.json is older than _quarto.yml - will regenerate"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">$shouldGenerate</span> <span class="op">=</span> <span class="va">$true</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Write-Host</span> <span class="st">"navigation.json is up to date - skipping generation"</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">$shouldGenerate</span> <span class="op">=</span> <span class="va">$false</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="build-process-deep-dive" class="level2">
+<h2 class="anchored" data-anchor-id="build-process-deep-dive">🔨 <strong>Build Process Deep Dive</strong></h2>
+<section id="pre-render-phase" class="level3">
+<h3 class="anchored" data-anchor-id="pre-render-phase">Pre-render Phase</h3>
+<p>Your setup uses <strong>pre-render hooks</strong> for custom processing:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># _quarto.yml</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pre-render</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> powershell -ExecutionPolicy Bypass -File scripts/generate-navigation.ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Pre-render Sequence:</strong></p>
+<ol type="1">
+<li><strong>Hook Execution</strong>: Run custom scripts before rendering</li>
+<li><strong>Data Generation</strong>: Create JSON files, process external data</li>
+<li><strong>Resource Preparation</strong>: Download dependencies, optimize assets</li>
+<li><strong>Configuration Enhancement</strong>: Modify configuration based on environment</li>
+</ol>
+</section>
+<section id="content-processing" class="level3">
+<h3 class="anchored" data-anchor-id="content-processing">Content Processing</h3>
+<p>Each content file goes through this pipeline:</p>
+<pre><code>Content Processing Pipeline:
+Source (.md) → Front Matter Extraction → Markdown Parsing → 
+Pandoc AST → Cross-reference Resolution → HTML Generation → 
+Template Application → Final HTML</code></pre>
+<p><strong>Your Content Examples:</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "BRK101: .NET App Modernization"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Session summary and key insights"</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-01-14"</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [build-2025, dotnet, modernization]</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># Content goes here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Processing Steps:</strong></p>
+<ol type="1">
+<li><strong>Front Matter</strong>: Extracts YAML metadata</li>
+<li><strong>Markdown Parsing</strong>: Converts to Pandoc AST</li>
+<li><strong>Code Highlighting</strong>: Processes code blocks</li>
+<li><strong>Cross-References</strong>: Resolves internal links</li>
+<li><strong>Template Application</strong>: Applies site layout</li>
+</ol>
+</section>
+<section id="asset-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="asset-pipeline">Asset Pipeline</h3>
+<p>Quarto handles various asset types:</p>
+<pre><code>Asset Processing:
+├── CSS Files     → Compilation, minification, bundling
+├── JavaScript    → Bundling, dependency resolution  
+├── Images        → Optimization, responsive variants
+├── Fonts         → Subset generation, format conversion
+└── Data Files    → JSON/YAML processing, validation</code></pre>
+</section>
+</section>
+<section id="runtime-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="runtime-architecture">🏃‍♂️ <strong>Runtime Architecture</strong></h2>
+<section id="browser-loading-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="browser-loading-sequence">Browser Loading Sequence</h3>
+<p>When a user visits your Quarto site:</p>
+<pre><code>Page Load Sequence:
+1. Browser requests HTML file
+2. Server delivers complete HTML (fast!)
+3. Browser parses HTML and renders content
+4. Browser loads CSS (enhancement)
+5. Browser loads JavaScript (enhancement)
+6. JavaScript initializes interactive features
+7. Custom scripts add additional functionality</code></pre>
+<p><strong>Performance Characteristics:</strong></p>
 <ul>
-<li><strong>Tag-based navigation</strong>: Show related content by tags</li>
-<li><strong>Category filtering</strong>: Filter by content categories</li>
-<li><strong>Search integration</strong>: Connect with site search</li>
-<li><strong>Breadcrumb generation</strong>: Show navigation path</li>
+<li><strong>First Contentful Paint</strong>: ~200ms (HTML is complete)</li>
+<li><strong>Time to Interactive</strong>: ~500ms (after JavaScript loads)</li>
+<li><strong>Core Web Vitals</strong>: Excellent scores due to static delivery</li>
 </ul>
 </section>
-<section id="integration-with-external-systems" class="level3" data-number="12.2">
-<h3 data-number="12.2" class="anchored" data-anchor-id="integration-with-external-systems"><span class="header-section-number">12.2</span> Integration with External Systems</h3>
-<p><strong>API Integration:</strong></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Example: Load dynamic navigation from CMS</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">loadDynamicNavigation</span>() {</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">'/api/navigation'</span>)<span class="op">;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> dynamicNav <span class="op">=</span> <span class="cf">await</span> response<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">renderDynamicNavigation</span>(dynamicNav)<span class="op">;</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This comprehensive navigation workflow ensures a seamless user experience while providing developers with powerful tools for customization and automation.</p>
+<section id="javascript-enhancement-layer" class="level3">
+<h3 class="anchored" data-anchor-id="javascript-enhancement-layer">JavaScript Enhancement Layer</h3>
+<p>Your implementation shows perfect progressive enhancement:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Base functionality works without JavaScript</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">// JavaScript adds Related Pages enhancement</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'DOMContentLoaded'</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Only enhance if navigation data is available</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">loadNavigationConfig</span>()<span class="op">.</span><span class="fu">then</span>(config <span class="kw">=&gt;</span> {</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (config) {</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">renderRelatedPages</span>(config)<span class="op">;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Graceful fallback - site still works</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Navigation enhancement not available'</span>)<span class="op">;</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="performance-characteristics" class="level3">
+<h3 class="anchored" data-anchor-id="performance-characteristics">Performance Characteristics</h3>
+<p><strong>Static Site Advantages:</strong></p>
+<ul>
+<li>? <strong>CDN Cacheable</strong>: All files can be cached globally</li>
+<li>? <strong>Fast TTFB</strong>: No server processing required</li>
+<li>? <strong>Low Server Load</strong>: Just file serving</li>
+<li>? <strong>High Availability</strong>: Works even if JavaScript fails</li>
+</ul>
+<p><strong>Enhancement Benefits:</strong></p>
+<ul>
+<li>? <strong>Progressive</strong>: Works better with JavaScript enabled</li>
+<li>? <strong>Graceful Degradation</strong>: Core functionality always works</li>
+<li>? <strong>Fast Interactions</strong>: Client-side enhancements are instant</li>
+</ul>
+</section>
+</section>
+<section id="learn-repository-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="learn-repository-implementation">📚 <strong>Learn Repository Implementation</strong></h2>
+<section id="current-architecture-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="current-architecture-analysis">Current Architecture Analysis</h3>
+<p>Your Learn repository demonstrates excellent Quarto architecture:</p>
+<pre><code>Learn Repository Architecture:
+├── Static Foundation
+│   ├── Complete HTML pages (fast loading)
+│   ├── Embedded navigation (always works)
+│   └── Full content accessibility (SEO friendly)
+└── JavaScript Enhancements
+    ├── Related Pages (custom feature)
+    ├── Navigation state management
+    └── Search functionality</code></pre>
+</section>
+<section id="navigation-generation" class="level3">
+<h3 class="anchored" data-anchor-id="navigation-generation">Navigation Generation</h3>
+<p>Your <code>generate-navigation.ps1</code> script shows intelligent build optimization:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Smart regeneration - only when needed</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="va">$quartoModified</span> <span class="op">-gt</span> <span class="va">$navModified</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract navigation from _quarto.yml using yq</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">$sidebarJson</span> <span class="op">=</span> <span class="op">&amp;</span> <span class="va">$yqExecutable</span> eval <span class="st">'.website.sidebar.contents'</span> <span class="va">$quartoFile</span> <span class="op">--</span>output-format<span class="op">=</span>json</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Wrap in structure expected by client-side code</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">$wrappedJson</span> <span class="op">=</span> <span class="st">'{"contents": '</span> <span class="op">+</span> <span class="va">$sidebarJson</span> <span class="op">+</span> <span class="st">'}'</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="va">$wrappedJson</span> <span class="op">|</span> <span class="fu">Out-File</span> <span class="op">-</span>FilePath <span class="va">$navFile</span> <span class="op">-</span>Encoding utf8</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Benefits of This Approach:</strong></p>
+<ul>
+<li>? <strong>Build-Time Generation</strong>: Navigation data created during build</li>
+<li>? <strong>Runtime Enhancement</strong>: Client-side JavaScript uses pre-generated data</li>
+<li>? <strong>Performance Optimization</strong>: Only regenerate when configuration changes</li>
+<li>? <strong>Reliability</strong>: Static navigation always works, enhanced navigation adds value</li>
+</ul>
+</section>
+<section id="related-pages-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="related-pages-implementation">Related Pages Implementation</h3>
+<p>Your <code>_includes/right-nav.html</code> demonstrates perfect progressive enhancement:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 1. Create structure that works without JavaScript</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> customNav <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>customNav<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div class="toc-title"&gt;Related Pages&lt;/div&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;nav class="toc" role="doc-toc"&gt;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;ul&gt;&lt;li&gt;&lt;em&gt;Loading...&lt;/em&gt;&lt;/li&gt;&lt;/ul&gt;</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/nav&gt;</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. Enhance with dynamic content</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">loadNavigationConfig</span>() {</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span> {</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">'/navigation.json'</span>)<span class="op">;</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> navigationConfig <span class="op">=</span> <span class="cf">await</span> response<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">renderRelatedPages</span>(navigationConfig)<span class="op">;</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">catch</span> (error) {</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 3. Graceful fallback</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Using DOM parsing fallback'</span>)<span class="op">;</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">renderRelatedPages</span>()<span class="op">;</span> <span class="co">// Fallback implementation</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Architecture Benefits:</strong></p>
+<ul>
+<li>? <strong>Always Functional</strong>: Basic structure always renders</li>
+<li>? <strong>Enhanced Experience</strong>: JavaScript adds intelligent navigation</li>
+<li>? <strong>Fault Tolerant</strong>: Fallback to DOM parsing if JSON fails</li>
+<li>? <strong>Performance Optimized</strong>: Caches navigation data</li>
+</ul>
+</section>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">💡 <strong>Key Takeaways</strong></h2>
+<section id="how-quarto-works-summary" class="level3">
+<h3 class="anchored" data-anchor-id="how-quarto-works-summary"><strong>How Quarto Works (Summary)</strong></h3>
+<ol type="1">
+<li><strong>Static-First Architecture</strong>: Generates complete HTML pages that work immediately</li>
+<li><strong>Progressive Enhancement</strong>: JavaScript improves but doesn’t enable functionality<br>
+</li>
+<li><strong>Build-Time Processing</strong>: All heavy computation happens during build, not runtime</li>
+<li><strong>Pandoc-Powered</strong>: Leverages mature document conversion technology</li>
+<li><strong>Performance Optimized</strong>: Fast loading, excellent Core Web Vitals scores</li>
+</ol>
+</section>
+<section id="why-this-approach-works" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-approach-works"><strong>Why This Approach Works</strong></h3>
+<pre><code>Traditional SPA:
+Browser → Empty HTML → JavaScript Download → API Calls → Content Render
+(Slow first paint, requires JavaScript)
+
+Quarto Static Site:
+Browser → Complete HTML → Immediate Content Display → Optional Enhancement
+(Fast first paint, works without JavaScript)</code></pre>
+</section>
+<section id="your-implementation-excellence" class="level3">
+<h3 class="anchored" data-anchor-id="your-implementation-excellence"><strong>Your Implementation Excellence</strong></h3>
+<p>Your Learn repository demonstrates <strong>best practices</strong>:</p>
+<ul>
+<li>? <strong>Smart Build Process</strong>: Only regenerate when needed</li>
+<li>? <strong>Progressive Enhancement</strong>: JavaScript adds value without breaking core functionality</li>
+<li>? <strong>Performance Optimization</strong>: Pre-generated navigation data</li>
+<li>? <strong>Fault Tolerance</strong>: Multiple fallback strategies</li>
+<li>? <strong>Developer Experience</strong>: Clear separation of concerns</li>
+</ul>
+</section>
+<section id="when-to-use-quarto-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-quarto-architecture"><strong>When to Use Quarto Architecture</strong></h3>
+<p><strong>Perfect For:</strong></p>
+<ul>
+<li>? <strong>Documentation Sites</strong>: Fast, searchable, accessible</li>
+<li>? <strong>Technical Blogs</strong>: Code highlighting, cross-references</li>
+<li>? <strong>Knowledge Bases</strong>: Structured content with navigation</li>
+<li>? <strong>Educational Content</strong>: Accessible, printable, shareable</li>
+</ul>
+<p><strong>Consider Alternatives For:</strong></p>
+<ul>
+<li>?? <strong>Web Applications</strong>: Dynamic user interfaces, real-time data</li>
+<li>?? <strong>E-commerce</strong>: Shopping carts, user accounts, payments</li>
+<li>?? <strong>Social Platforms</strong>: User-generated content, real-time interactions</li>
+</ul>
+</section>
+</section>
+<section id="references-and-further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="references-and-further-reading">📖 <strong>References and Further Reading</strong></h2>
+<section id="official-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="official-documentation">Official Documentation</h3>
+<p><strong><a href="https://quarto.org/docs/guide/">Quarto Architecture Guide</a></strong> <code>[📘 Official]</code><br>
+Official Quarto documentation covering core architecture concepts. The authoritative source for understanding how Quarto processes content, generates output, and integrates with various tools. Essential reading for understanding Quarto’s design philosophy.</p>
+<p><strong><a href="https://pandoc.org/MANUAL.html">Pandoc User’s Guide</a></strong> <code>[📘 Official]</code><br>
+Comprehensive documentation for Pandoc, the document conversion engine powering Quarto. Understanding Pandoc is crucial for advanced Quarto usage, custom formats, and troubleshooting conversion issues. Reference when working with complex document transformations.</p>
+<p><strong><a href="https://quarto.org/docs/projects/">Quarto Projects</a></strong> <code>[📘 Official]</code><br>
+Official guide to Quarto project configuration and management. Explains project types, rendering workflows, and build configuration. Reference when setting up new projects or customizing build processes.</p>
+<p><strong><a href="https://quarto.org/docs/publishing/github-pages.html">GitHub Actions with Quarto</a></strong> <code>[📘 Official]</code><br>
+Official documentation for deploying Quarto sites with GitHub Actions. Covers automated rendering and deployment workflows. Reference when setting up CI/CD for Quarto projects.</p>
+<p><strong><a href="https://deno.land/">Deno Runtime</a></strong> <code>[📘 Official]</code><br>
+Official documentation for Deno, the JavaScript/TypeScript runtime used by Quarto. Understanding Deno helps with advanced customization and troubleshooting. Reference when working with Quarto’s JavaScript components.</p>
+<p><strong><a href="https://getbootstrap.com/">Bootstrap Framework</a></strong> <code>[📘 Official]</code><br>
+Official Bootstrap documentation. Quarto uses Bootstrap as its default CSS framework. Understanding Bootstrap is essential for theming and layout customization. Reference when customizing site appearance.</p>
+</section>
+<section id="verified-community-resources" class="level3">
+<h3 class="anchored" data-anchor-id="verified-community-resources">Verified Community Resources</h3>
+<p><strong><a href="https://web.dev/vitals/">Core Web Vitals</a></strong> <code>[📗 Verified Community]</code><br>
+Google’s guide to essential web performance metrics. Understanding Core Web Vitals helps evaluate Quarto site performance. Reference when optimizing site speed and user experience.</p>
+<p><strong><a href="https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement">Progressive Enhancement</a></strong> <code>[📗 Verified Community]</code><br>
+MDN documentation on progressive enhancement principles. Explains the approach Quarto uses for JavaScript features. Reference for understanding Quarto’s enhancement philosophy.</p>
+<p><strong><a href="https://jamstack.org/generators/">JAMstack Architecture</a></strong> <code>[📗 Verified Community]</code><br>
+Community resource explaining JAMstack static site generation principles. Provides context for Quarto’s architecture and deployment model. Reference for understanding modern static site patterns.</p>
+<p><strong><a href="https://docs.microsoft.com/en-us/powershell/scripting/learn/deep-dives/overview">PowerShell Best Practices</a></strong> <code>[📗 Verified Community]</code><br>
+Microsoft’s guide to PowerShell development. Useful for customizing Quarto build scripts and automation. Reference when creating custom build workflows.</p>
+</section>
+<section id="community-resources" class="level3">
+<h3 class="anchored" data-anchor-id="community-resources">Community Resources</h3>
+<p><strong><a href="https://mermaid-js.github.io/mermaid/">Mermaid Diagrams</a></strong> <code>[📒 Community]</code><br>
+Documentation for Mermaid diagram generation library integrated with Quarto. Enables creating diagrams from text descriptions in markdown. Reference when adding diagrams to documentation.</p>
 <hr>
-</section>
-</section>
-<section id="references" class="level2" data-number="13">
-<h2 data-number="13" class="anchored" data-anchor-id="references"><span class="header-section-number">13</span> 📚 References</h2>
-<section id="official-documentation" class="level3" data-number="13.1">
-<h3 data-number="13.1" class="anchored" data-anchor-id="official-documentation"><span class="header-section-number">13.1</span> Official Documentation</h3>
-<p><strong><a href="https://quarto.org/docs/websites/website-navigation.html">Quarto Website Navigation</a></strong> <code>[📘 Official]</code><br>
-Official Quarto documentation for website navigation including sidebar, navbar, and breadcrumb configuration. The authoritative reference for all navigation features and configuration options. Essential reading when setting up site navigation.</p>
-<p><strong><a href="https://mikefarah.gitbook.io/yq/">yq Documentation</a></strong> <code>[📘 Official]</code><br>
-Official documentation for yq, the YAML processor used to generate navigation.json from _quarto.yml. Understanding yq is essential for customizing the navigation generation script. Reference when modifying the generation workflow.</p>
-<p><strong><a href="https://docs.github.com/en/pages">GitHub Pages Documentation</a></strong> <code>[📘 Official]</code><br>
-GitHub’s official documentation for Pages deployment. Reference when setting up automated deployment workflows or troubleshooting deployment issues.</p>
-</section>
-<section id="related-articles-in-this-series" class="level3" data-number="13.2">
-<h3 data-number="13.2" class="anchored" data-anchor-id="related-articles-in-this-series"><span class="header-section-number">13.2</span> Related Articles in This Series</h3>
-<p><strong><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.01-sidebar-layout.html">How Quarto Sidebar Works</a></strong> <code>[📘 Official]</code><br>
-Detailed guide to Quarto’s sidebar layout architecture. Understanding sidebar structure is essential background for implementing navigation features. Reference when customizing sidebar behavior.</p>
-<p><strong><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html">Sidebar Transition Optimization</a></strong> <code>[📘 Official]</code><br>
-Performance optimization guide for sidebar state restoration. Reference when implementing performance improvements or diagnosing navigation performance issues.</p>
-<p><strong><a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/03.01-quarto-yml-structure.html">Quarto.yml Structure</a></strong> <code>[📘 Official]</code><br>
-Complete reference for _quarto.yml configuration including navigation settings. Reference when configuring site structure and navigation.</p>
-</section>
-<section id="community-resources" class="level3" data-number="13.3">
-<h3 data-number="13.3" class="anchored" data-anchor-id="community-resources"><span class="header-section-number">13.3</span> Community Resources</h3>
-<p><strong><a href="https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/cmdlet-development-guidelines">PowerShell Scripting Best Practices</a></strong> <code>[📗 Verified Community]</code><br>
-Microsoft’s guide to PowerShell development best practices. Reference when customizing the navigation generation script or creating new automation scripts.</p>
+<p><strong>Document Status</strong>: ✅ <strong>Complete</strong> | <strong>Last Updated</strong>: 2025-01-29 | <strong>Version</strong>: 1.0</p>
+<p>This document explains Quarto’s core architecture and how it generates fast, accessible static sites with optional JavaScript enhancement. Your Learn repository implementation demonstrates these principles perfectly, combining static reliability with dynamic enhancements.</p>
 <hr>
 <!-- 
 
@@ -3320,32 +3565,31 @@ Microsoft’s guide to PowerShell development best practices. Reference when cus
 
 ---
 article_metadata:
-  filename: "06-navigation-workflow.md"
-  word_count: 3000
-  created_date: "2025-01-16"
+  filename: "01-how-quarto-works.md"
+  word_count: 5000
+  created_date: "2025-01-29"
   last_updated: "2025-12-26T00:00:00Z"
   
 cross_references:
   series:
     name: "Quarto Documentation Guide"
-    part: 9
+    part: 2
     total_parts: 14
-    previous: "06-sidebar-layout.md"
-    next: "06-transition-optimization.md"
+    previous: "01-introduction-to-quarto.md"
+    next: "02-monolithic-vs-modular-deployment.md"
   related_articles:
-    - "06-sidebar-layout.md"
     - "03-quarto-yml-structure.md"
-    - "02-split-navigation-build.md"
+    - "07-build-optimization.md"
+    - "02-monolithic-vs-modular-deployment.md"
   prerequisites:
     - "01-introduction-to-quarto.md"
-    - "03-quarto-yml-structure.md"
 
 validations:
   series_validation:
     last_run: "2025-12-26T00:00:00Z"
     model: "claude-sonnet-4.5"
     series_name: "Quarto Documentation Guide"
-    article_position: 9
+    article_position: 2
     total_articles: 14
     consistency_score: 9
     completeness_score: 10
@@ -3354,7 +3598,7 @@ validations:
     issues_critical: 0
     issues_medium: 0
     issues_low: 0
-    notes: "Complete navigation workflow guide with implementation details and automation scripts"
+    notes: "Complete architectural overview with clear explanations of core mechanisms"
 ---
 
 
@@ -3363,6 +3607,7 @@ validations:
 -->
 
 
+</section>
 </section>
 </section>
 
@@ -3791,13 +4036,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.01-sidebar-layout.html" class="pagination-link" aria-label="How does quarto site layout works">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How does quarto site layout works</span>
+      <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/01.01-introduction-to-quarto.html" class="pagination-link" aria-label="Using Quarto">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Using Quarto</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO Doc/06.03-transition-optimization.html" class="pagination-link" aria-label="Sidebar Page Transition Optimization">
-        <span class="nav-page-text">Sidebar Page Transition Optimization</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../03.00 tech/20.01 Markdown/01. QUARTO/02.01-monolithic-vs-modular-deployment.html" class="pagination-link" aria-label="Monolithic vs. Modular Deployment">
+        <span class="nav-page-text">Monolithic vs.&nbsp;Modular Deployment</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -3806,5 +4051,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/20.01 Markdown/01. QUARTO Doc/06.02-navigation-workflow.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/20.01 Markdown/01. QUARTO/01.02-how-quarto-works.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
