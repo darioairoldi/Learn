@@ -438,6 +438,123 @@ When conclusions must be drawn from partial data, qualify with confidence levels
 
 ---
 
+## Token Budget Guidelines
+
+### Consolidated Length Recommendations
+
+| File Type | Token Budget | Word Count | Line Count | Use Case |
+|-----------|-------------|------------|------------|----------|
+| **Prompt Files** | | | | |
+| ├─ Simple Task | < 500 tokens | ~375 words | ~75 lines | Fast execution, single action |
+| ├─ Multi-Step Workflow | < 1,500 tokens | ~1,100 words | ~220 lines | Phased execution, coordination |
+| ├─ Orchestrator | < 2,500 tokens | ~1,875 words | ~375 lines | Multi-agent, complex handoffs |
+| ├─ Scaffolding | < 2,000 tokens | ~1,500 words | ~300 lines | Template generation with examples |
+| └─ Review/Audit | < 2,000 tokens | ~1,500 words | ~300 lines | Checklists, validation criteria |
+| **Agent Files** | | | | |
+| ├─ Specialist Agent | < 1,000 tokens | ~750 words | ~150 lines | Focused role, narrow tool set |
+| ├─ Planner Agent | < 1,500 tokens | ~1,125 words | ~225 lines | Research, output formatting |
+| ├─ Review Agent | < 1,200 tokens | ~900 words | ~180 lines | Validation, quality checks |
+| └─ Orchestrator Agent | < 2,000 tokens | ~1,500 words | ~300 lines | Multi-phase workflows, handoffs |
+| **Instruction Files** | | | | |
+| ├─ Language/Framework | < 800 tokens | ~600 words | ~120 lines | TypeScript, Python, React rules |
+| ├─ Project-wide | < 500 tokens | ~375 words | ~75 lines | Company coding standards |
+| ├─ Specific Feature | < 300 tokens | ~225 words | ~45 lines | Error handling, auth pattern |
+| └─ Repository Root | < 600 tokens | ~450 words | ~90 lines | `.github/copilot-instructions.md` |
+| **Skill Files** | | | | |
+| ├─ Description (YAML) | 50-100 tokens | ~15-25 words | 2-3 lines | Discovery metadata |
+| ├─ SKILL.md Body | 500-1,500 tokens | 500-1,000 words | ~100-200 lines | Workflow instructions |
+| ├─ Templates | Variable | ~150-375 words | 20-50 lines | Boilerplate code |
+| └─ Examples | Variable | ~225-600 words | 30-80 lines | Pattern demonstrations |
+| **Context Files** | | | | |
+| ├─ Core Principles | 800-1,200 tokens | ~600-900 words | ~120-180 lines | Referenced frequently |
+| ├─ Pattern Libraries | 1,500-2,500 tokens | ~1,100-1,875 words | ~220-375 lines | Multiple patterns with examples |
+| ├─ Workflow Docs | 1,000-2,000 tokens | ~750-1,500 words | ~150-300 lines | Step-by-step procedures |
+| └─ Glossary | 500-1,000 tokens | ~375-750 words | ~75-150 lines | Terminology, definitions |
+
+### Conversion Reference
+
+**Quick token estimation without tools:**
+
+| From | To | Formula | Example |
+|------|-----|---------|----------|
+| Words | Tokens | Multiply by 1.33 | 600 words → ~800 tokens |
+| Lines | Tokens | Multiply by 5-8 | 120 lines → ~720 tokens (avg 6/line) |
+| Characters | Tokens | Divide by 4 | 3,000 chars → ~750 tokens |
+| Tokens | Words | Divide by 1.33 | 1,000 tokens → ~750 words |
+
+### Critical Thresholds
+
+**When to refactor:**
+
+| File Type | Warning | Critical | Action Required |
+|-----------|---------|----------|------------------|
+| Prompts | > 2,000 tokens | > 2,500 tokens | Split with handoffs or create orchestrator |
+| Agents | > 1,500 tokens | > 2,000 tokens | Extract to instructions or split by role |
+| Instructions | > 800 tokens | > 1,000 tokens | Split by layer or extract to context |
+| Skills (Body) | > 1,200 tokens | > 1,500 tokens | Use progressive disclosure or extract resources |
+| Context Files | > 2,500 tokens | > 3,000 tokens | Split by topic or create index file |
+
+### Performance Impact
+
+**Combined context consumption:**
+
+```
+Typical Prompt Execution:
+  Prompt file: 800 tokens
++ Referenced agent: 1,000 tokens
++ Active instructions (3 files): 900 tokens
++ User question: 50 tokens
++ Code context: 2,000 tokens
+= 4,750 tokens before AI responds ✅ Comfortable
+
+Warning Scenario:
+  Prompt file: 1,800 tokens
++ Referenced agent: 1,500 tokens  
++ Active instructions (6 files): 1,800 tokens
++ User question: 100 tokens
++ Code context: 5,000 tokens
+= 10,200 tokens before AI responds ⚠️ Refactor recommended
+```
+
+**Context Budget Guidelines:**
+- **Optimal**: < 10,000 tokens pre-response
+- **Warning**: 10,000-15,000 tokens
+- **Critical**: > 15,000 tokens (degraded performance)
+
+### Measurement Tools
+
+**Quick Estimation:**
+```bash
+# Word count (multiply by 1.33 for tokens)
+wc -w .github/prompts/*.prompt.md
+
+# Line count (multiply by 6 for rough tokens)
+wc -l .github/instructions/*.instructions.md
+```
+
+**Accurate Token Counting:**
+```python
+import tiktoken
+
+def count_tokens(file_path):
+    enc = tiktoken.get_encoding('cl100k_base')
+    with open(file_path, 'r', encoding='utf-8') as f:
+        return len(enc.encode(f.read()))
+
+# Check specific file
+tokens = count_tokens('.github/prompts/my-prompt.prompt.md')
+print(f"Token count: {tokens}")
+
+# Batch analyze
+import glob
+for file in glob.glob('.github/**/*.md', recursive=True):
+    tokens = count_tokens(file)
+    status = '✅' if tokens < 1500 else '⚠️' if tokens < 2500 else '🔴'
+    print(f"{status} {tokens:>5} tokens - {file}")
+```
+
+---
+
 ## Common Anti-Patterns
 
 ### ❌ Anti-Pattern 1: Vague Instructions

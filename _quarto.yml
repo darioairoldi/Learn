@@ -464,9 +464,12 @@ website:
       - section: "Ideas & Projects"
         icon: lightbulb
         contents:
-          - section: "IQPilot - AI Content Quality Tool"
+          - section: "IQPilot"
             icon: stars
-            contents: "06.00 idea/**/*.md"
+            contents: "06.00 idea/IQPilot/**/*.md"
+          - section: "LearnHub"
+            icon: book-half
+            contents: "06.00 idea/LearnHub/**/*.md"
 
       - text: "---"
 

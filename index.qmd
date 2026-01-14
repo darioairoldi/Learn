@@ -6,11 +6,11 @@ author: "Dario Airoldi"
 description: "A comprehensive learning hub documenting my journey through modern software development—combining hands-on technical learning, conference insights, Azure guides, and practical solutions to real-world development challenges."
 ---
 
-# 🚀 Welcome to My Learning Hub
+# 🚀 Welcome to Learning Hub
 
 > A **living knowledge hub** that evolves continuously with **reduced verification and update overhead** and **assisted reasoning**.
 
-This is my experiment about **learning from AI**, **learning how to work with AI** and understand **how the learning process can change** when assisted by it.  
+This is an experiment about **learning from AI**, **learning how to work with AI** and understand **how the learning process can change** when assisted by it.  
 
 From 40+ **Build**, **Ignite** and **YouTube** sessions analysis to Azure production patterns, from prompt engineering techniques to real-world troubleshooting—**250+ articles where learning happens in the open**.
 

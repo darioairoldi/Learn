@@ -3,7 +3,7 @@ description: Instructions for creating and updating effective prompt files
 applyTo: '.github/prompts/**/*.md'
 ---
 
-# Prompt File Creation & Update Instructions
+# Prompt File Creation Instructions
 
 ## Purpose
 Prompt files are **reusable, plan-level workflows** for common development tasks. They define WHAT should be done and HOW to approach it, operating at the strategic/planning layer rather than implementation details.
@@ -196,6 +196,46 @@ Recommendation: [escalation path or alternative]
 
 **Validation:** `@prompt-validator` checks token count in Phase 5 (Production Readiness).
 
+#### Conversion Reference
+
+Quick token estimation without tools:
+
+| Metric | Conversion Factor | Example |
+|--------|------------------|----------|
+| **Words → Tokens** | Multiply by 1.33 | 600 words = ~800 tokens |
+| **Lines → Tokens** | Multiply by 5-8 (avg 6) | 120 lines = ~720 tokens |
+| **Characters → Tokens** | Divide by 4 | 3,000 chars = ~750 tokens |
+| **Tokens → Words** | Divide by 1.33 | 1,000 tokens = ~750 words |
+
+#### Combined Context Budget
+
+When your prompt references agents and instructions, consider cumulative impact:
+
+**Typical Execution (Comfortable):**
+```
+Your prompt file: 800 tokens
++ Referenced agent: 1,000 tokens
++ Active instructions (3 files): 900 tokens
++ User's question: 50 tokens
++ Attached code files: 2,000 tokens
+= 4,750 tokens before AI responds ✅
+```
+
+**Warning Scenario (Refactor Recommended):**
+```
+Your prompt file: 1,800 tokens
++ Referenced agent: 1,500 tokens
++ Active instructions (6 files): 1,800 tokens
++ User's question: 100 tokens
++ Attached code files: 5,000 tokens
+= 10,200 tokens before AI responds ⚠️
+```
+
+**Budget Guidelines:**
+- **Optimal**: < 10,000 tokens total pre-response context
+- **Warning**: 10,000-15,000 tokens (consider simplification)
+- **Critical**: > 15,000 tokens (refactor required)
+
 ### 5. Explicit Uncertainty Management
 
 **Principle 7** from `context-engineering-principles.md`: All prompts must define professional "I don't know" responses.
@@ -214,3 +254,7 @@ Recommendation: [escalation path or alternative]
 - [Microsoft: Prompt Engineering Techniques](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering) - Comprehensive guide
 - [OpenAI: Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering) - Foundational strategies
 - `.github/copilot-instructions.md` - Repository-wide context and conventions
+
+**Related instruction files:**
+- [skills.instructions.md](./skills.instructions.md) - Agent Skill (SKILL.md) creation guidance
+- [agents.instructions.md](./agents.instructions.md) - Custom agent creation guidance

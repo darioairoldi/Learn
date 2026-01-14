@@ -44,6 +44,7 @@ name: agent-name
 description: "One-sentence description of agent''s role"
 tools: [''specific'', ''tools'', ''only'']  # Critical: narrow tool scope
 model: claude-sonnet-4.5  # Optional: specify preferred model
+target: vscode  # Optional: vscode (default) or github-copilot
 ---
 ```
 
@@ -54,6 +55,30 @@ model: claude-sonnet-4.5  # Optional: specify preferred model
   - Docs agent: `[''codebase'', ''editor'', ''filesystem'']`
   - Test agent: `[''codebase'', ''editor'', ''terminal'']`
   - API agent: `[''codebase'', ''editor'', ''terminal'', ''web_search'']`
+
+## Execution Contexts (v1.107+)
+
+VS Code 1.107 introduced **Agent HQ**, a unified interface for managing agent sessions across three execution contexts:
+
+| Context | Description | Isolation | Best For |
+|---------|-------------|-----------|----------|
+| **Local** | Interactive agent in current workspace | None—modifies workspace directly | Quick tasks, interactive refinement |
+| **Background** | Runs autonomously using Git work trees | Full—uses isolated work tree | Long-running tasks without blocking |
+| **Cloud** | Runs on GitHub infrastructure, creates PRs | Full—new branch and PR | Large changes, async collaboration |
+
+**Target field mapping:**
+- `target: vscode` → Local or Background context
+- `target: github-copilot` → Cloud context (coding agent)
+
+**Cloud-specific features:**
+- MCP server configurations via `mcp-servers` field
+- Creates pull requests for review
+- Runs asynchronously on GitHub infrastructure
+
+**When to use each context:**
+- **Local**: Interactive development, quick fixes, code exploration
+- **Background**: Long-running refactoring, batch operations
+- **Cloud**: Large-scale changes, cross-team collaboration, automated workflows
 
 ## Agent Templates
 
@@ -340,6 +365,40 @@ Agents with complex decision-making should include test scenarios:
 
 **See existing implementation:** `.copilot/context/prompt-engineering/validation-caching-pattern.md`
 
+#### Agent Context Accumulation
+
+Agents persist across multiple chat turns, so size impacts all interactions:
+
+**Single Turn Impact:**
+```
+Agent: 1,200 tokens (loaded when switched)
++ Instructions: 800 tokens (auto-applied)
++ User question: 100 tokens
++ Code context: 2,000 tokens
+= 4,100 tokens per turn
+```
+
+**5-Turn Conversation Impact:**
+```
+Agent: 1,200 tokens (persistent)
++ Instructions: 800 tokens (persistent)
++ Turn 1-5 questions: 500 tokens (100 each)
++ Turn 1-5 responses: 2,000 tokens (400 each)
++ Code references: 3,000 tokens (accumulated)
+= 7,500 tokens accumulated
+```
+
+**Why Agent Size Matters More Than Prompts:**
+- **Prompts**: Load once per invocation, then cleared
+- **Agents**: Load once per session, persist across many turns
+- **Impact**: Smaller agents = more context available for actual work
+
+**Optimization Strategy:**
+- Keep agent core instructions < 1,000 tokens
+- Extract language-specific rules to instruction files
+- Reference detailed examples in context files
+- Use handoffs to specialized agents instead of embedding all knowledge
+
 ### 4. Tool Alignment Validation
 
 **Critical check** - prevents runtime failures:
@@ -367,4 +426,9 @@ tools:
 - [Microsoft: Prompt Engineering Techniques](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering) - Context engineering principles
 - [OpenAI: Reasoning Best Practices](https://platform.openai.com/docs/guides/reasoning-best-practices) - Chain-of-thought and phase-based patterns
 - `.github/copilot-instructions.md` - Repository-wide context and conventions
-- `.github/instructions/prompts.instructions.md` - Related prompt guidance
+
+**Related instruction files:**
+- [prompts.instructions.md](./prompts.instructions.md) - Prompt file creation guidance
+- [skills.instructions.md](./skills.instructions.md) - Agent Skill (SKILL.md) creation guidance
+
+**📖 Complete guidance:** [03.00 tech/05.02 PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md](../../03.00%20tech/05.02%20PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)

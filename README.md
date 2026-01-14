@@ -6,7 +6,7 @@ author: "Dario Airoldi"
 description: "A comprehensive learning hub documenting my journey through modern software development—combining hands-on technical learning, conference insights, Azure guides, and practical solutions to real-world development challenges."
 ---
 
-# 🚀 Welcome to My Learning Hub
+# 🚀 Welcome to Learning Hub
 
 > A **living knowledge hub** that evolves continuously with **reduced verification and update overhead** and **assisted reasoning**.
 
