@@ -43,16 +43,16 @@ This article covers:
 
 ## <mark>Capitalization</mark>: <mark>Sentence Style Always</mark>
 
-Microsoft takes one of the **strongest stances** in any style guide on capitalization:
+Microsoft takes one of the **<mark>strongest stances** in any style guide on capitalization:
 
-> "Default to sentence-style capitalization—capitalize only the first word of a heading or phrase and any proper nouns or names. Never Use Title Capitalization (Like This). Never Ever."
+> "Default to <mark>sentence-style capitalization—capitalize</mark> only the first word of a heading or phrase and any proper nouns or names. <mark>Never Use Title Capitalization</mark> (Like This). Never Ever."
 
-### Sentence-Style Capitalization
+### <mark>Sentence-Style Capitalization</mark>
 
 **The rule:** Capitalize only:
-1. The first word
-2. Proper nouns (names of people, products, places)
-3. Acronyms
+1. The <mark>first word</mark>
+2. <mark>Proper nouns</mark> (names of people, products, places)
+3. <mark>Acronyms</mark>
 
 **Everything else stays lowercase.**
 
@@ -66,20 +66,20 @@ Microsoft takes one of the **strongest stances** in any style guide on capitaliz
 
 ### Where Sentence Style Applies
 
-**Use sentence style for:**
-- All headings (H1 through H6)
-- Button labels
-- Menu items
-- Dialog titles
-- Tab labels
-- Link text
-- Column headers in tables
-- List items
+**<mark>Use sentence style for:**
+- <mark>All headings</mark> (H1 through H6)
+- <mark>Button labels</mark>
+- <mark>Menu items</mark>
+- <mark>Dialog titles</mark>
+- <mark>Tab labels</mark>
+- <mark>Link text</mark>
+- <mark>Column headers in tables</mark>
+- <mark>List items</mark>
 
-**Exceptions (use as-is):**
-- Trademarked product names (follow trademark list)
-- Acronyms (maintain original case)
-- Code elements (preserve exact case)
+**<mark>Exceptions</mark> (use as-is):**
+- <mark>Trademarked product names</mark> (follow trademark list)
+- <mark>Acronyms</mark> (maintain original case)
+- <mark>Code elements</mark> (preserve exact case)
 
 ### Product Names and Trademarks
 
@@ -87,35 +87,35 @@ Product names follow Microsoft's trademark list, not sentence-style rules:
 
 | Product (As Trademarked) | In Sentence |
 |--------------------------|-------------|
-| Microsoft Azure | "Deploy your app to Microsoft Azure." |
-| Visual Studio Code | "Install Visual Studio Code first." |
-| Power BI | "Create reports with Power BI." |
-| Xbox Series X | "Games for Xbox Series X" |
+| <mark>Microsoft Azure</mark> | "Deploy your app to Microsoft Azure." |
+| <mark>Visual Studio Code</mark> | "Install Visual Studio Code first." |
+| <mark>Power BI</mark> | "Create reports with Power BI." |
+| <mark>Xbox Series X</mark> | "Games for Xbox Series X" |
 
 **Note:** "Azure" alone is acceptable after first use of "Microsoft Azure."
 
-### Spelled-Out Acronyms
+### <mark>Spelled-Out Acronyms</mark>
 
 When spelling out acronyms, **only capitalize if proper nouns**:
 
 | Acronym | Spelled Out | Reason |
 |---------|-------------|--------|
-| API | application programming interface | Common noun |
-| URL | uniform resource locator | Common noun |
-| SDK | software development kit | Common noun |
-| GUI | graphical user interface | Common noun |
-| HTML | Hypertext Markup Language | (Product name origin) |
-| HTTP | Hypertext Transfer Protocol | (Product name origin) |
+| <mark>API</mark> | application programming interface | Common noun |
+| <mark>URL</mark> | uniform resource locator | Common noun |
+| <mark>SDK</mark> | software development kit | Common noun |
+| <mark>GUI</mark> | graphical user interface | Common noun |
+| <mark>HTML</mark> | Hypertext Markup Language | (Product name origin) |
+| <mark>HTTP</mark> | Hypertext Transfer Protocol | (Product name origin) |
 
-### The "When in Doubt" Rule
+### The "<mark>When in Doubt</mark>" Rule
 
-> "When in doubt, don't capitalize."
+> "<mark>When in doubt, don't capitalize</mark>."
 
-If you're unsure whether something is a proper noun or common noun, **choose lowercase**. This prevents the creeping capitalization that plagues technical documentation.
+If you're unsure whether something is a proper noun or common noun, **<mark>choose lowercase</mark>**. This prevents the creeping capitalization that plagues technical documentation.
 
 ❌ **Overcapitalization:** "The System Administrator should configure the Network Settings in the Control Panel."
 
-✅ **Correct:** "The system administrator should configure the network settings in Control Panel."
+✅ **<mark>Correct:** "The system administrator should configure the network settings in Control Panel."
 
 (Only "Control Panel" is capitalized—it's a product feature name.)
 
@@ -123,7 +123,7 @@ If you're unsure whether something is a proper noun or common noun, **choose low
 
 ### The Oxford Comma (Required)
 
-Microsoft **requires** the serial (Oxford) comma:
+Microsoft **<mark>requires</mark>** the <mark>serial (Oxford) comma</mark>:
 
 > "In a list of three or more items<mark>, </mark>include a comma before the conjunction."
 
@@ -153,29 +153,29 @@ Without the Oxford comma, ambiguity can occur:
 - Table cells with short content
 
 **<mark>Use periods on:</mark>**
-- Complete sentences (always)
-- Longer list items (full sentences)
-- Paragraphs
+- <mark>Complete sentences</mark> (always)
+- <mark>Longer list items</mark> (full sentences)
+- <mark>Paragraphs</mark>
 
-**Spacing:** One space after periods, not two.
+**Spacing:** <mark>One space after periods</mark>, not two.
 
 ### <mark>Em Dashes (—)</mark>
 
 **Use em dashes for:**
-- Abrupt changes in thought
-- Emphasis or amplification
-- Setting off explanatory phrases
+- Abrupt <mark>changes in thought</mark>
+- <mark>Emphasis</mark> or <mark>amplification</mark>
+- Setting off <mark>explanatory phrases</mark>
 
 **Formatting:** No spaces around em dashes.
 
-✅ **Correct:** "The feature—available in all plans—syncs automatically."
+✅ **Correct:** "The feature<mark>—available in all plans—</mark>syncs automatically."
 ❌ **Wrong:** "The feature — available in all plans — syncs automatically."
 
 ### <mark>En Dashes (–)</mark>
 
 **Use en dashes for:**
-- Ranges: "pages 10–15", "2020–2024"
-- Compound modifiers: "New York–based company"
+- <mark>Ranges</mark>: "pages 10–15", "2020–2024"
+- <mark>Compound modifiers</mark>: "New York–based company"
 
 **Not for:**
 - Ranges that use "from...to" or "between...and" (use words, not dashes)
