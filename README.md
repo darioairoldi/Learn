@@ -3,14 +3,12 @@ title: "Dario's Learning Journey"
 subtitle: "A Living Knowledge Base for Modern Software Development"
 date: last-modified
 author: "Dario Airoldi"
-description: "A comprehensive learning hub documenting my journey through modern software development—combining hands-on technical learning, conference insights, Azure guides, and practical solutions to real-world development challenges."
+description: "A **living (autonomous) knowledge hub** that evolves continuously with **reduced verification and update overhead** and **assisted reasoning**."
 ---
 
 # 🚀 Welcome to Learning Hub
 
-> A **living knowledge hub** that evolves continuously with **reduced verification and update overhead** and **assisted reasoning**.
-
-This is my experiment about **learning from AI**, **learning how to work with AI** and understand **how the learning process can change** when assisted by it.  
+This is an experiment about **learning from AI**, **learning how to work with AI** and understand **how the learning process can change** when assisted by it.  
 
 From 40+ **Build**, **Ignite** and **YouTube** sessions analysis to Azure production patterns, from prompt engineering techniques to real-world troubleshooting—**250+ articles where learning happens in the open**.
 
@@ -327,7 +325,7 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 - [Git Command Line Workflows](03.00%20tech/05.01%20Github/01.Repositories/20250709%20Manage%20GitRepo%20from%20commandline/README.md)
 
 ### 🐛 Problem Solving
-- [GitHub Actions Artifact Quota](03.00%20tech/05.01%20Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/) ✅
+- [GitHub Actions Artifact Quota](03.00%20tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/) ✅
 - [All Development Issues](05.00%20issues/)
 
 ---

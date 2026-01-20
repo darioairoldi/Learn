@@ -3,7 +3,7 @@ title: "Dario's Learning Journey"
 subtitle: "A Living Knowledge Base for Modern Software Development"
 date: last-modified
 author: "Dario Airoldi"
-description: "A **living knowledge hub** that evolves continuously with **reduced verification and update overhead** and **assisted reasoning**."
+description: "A **living (autonomous) knowledge hub** that evolves continuously with **reduced verification and update overhead** and **assisted reasoning**."
 ---
 
 # 🚀 Welcome to Learning Hub
