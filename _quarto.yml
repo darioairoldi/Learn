@@ -85,8 +85,9 @@
     - "02.00 events/202506 Build 2025/STUDIO - Studio Sessions/STUDIO14 Agents AI and Azure AI Foundry/README.Sonnet4.md"
     - "02.00 events/202506 Build 2025/STUDIO - Studio Sessions/STUDIO14 Agents AI and Azure AI Foundry/SUMMARY.md"
     - "02.00 events/202511 Ignite 2025/03. Migrate and modernize/BRK431 - Cloud Native Innovations with Mark Russinovich/Summary.md"
-    - "03.00 tech/01.01Authentication/20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.md"
-    - "03.00 tech/01.01Authentication/20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.md"
+
+    - "03.00 tech/01.01 Authentication/20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.md"
+    - "03.00 tech/01.01 Authentication/20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.md"
     - "03.00 tech/02.01 Azure/00. Azure Naming conventions/README.md"
     - "03.00 tech/02.01 Azure/01. Azure Apps/01. Azure Apps QA.md"
     - "03.00 tech/02.01 Azure/01. Azure Apps/02. Azure WebApp Limitations.md"
@@ -129,6 +130,7 @@
     - "03.00 tech/05.02 PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md"
     - "03.00 tech/05.02 PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.md"
     - "03.00 tech/05.02 PromptEngineering/06. how_to_structure_content_for_copilot_skills.md"
+    - "03.00 tech/05.02 PromptEngineering/07. how_to_create_mcp_servers_for_copilot.md"
     - "03.00 tech/05.02 PromptEngineering/10. how_to_create_a_prompt_interacting_with_agents.md"
     - "03.00 tech/05.02 PromptEngineering/11.1 example_prompt_interacting_with_agents_plan.md"
     - "03.00 tech/05.02 PromptEngineering/12. Prompts and markdown structure for a documentation site.md"
@@ -246,9 +248,9 @@ website:
             href: "03.00 tech/02.01 Azure/00. Azure Naming conventions/README.md"
           - text: "---"
           - text: "Security & Identity"
-          - href: "03.00 tech/01.01Authentication/20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.md"
+          - href: "03.00 tech/01.01 Authentication/20251102 Authenticating External Users in Azure AD/01. External Users Authentication in Azure AD Explained.md"
             text: "Azure AD External Users Explained"
-          - href: "03.00 tech/01.01Authentication/20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.md"
+          - href: "03.00 tech/01.01 Authentication/20251102 Authenticating External Users in Azure AD/02. External Users types and invitation process.md"
             text: "External Users Types & Invitation"
           - text: "---"
           - text: "Data Services"
@@ -449,7 +451,7 @@ website:
         contents:
           - section: "Authentication"
             icon: shield-lock
-            contents: "03.00 tech/01.01Authentication/**/*.md"
+            contents: "03.00 tech/01.01 Authentication/**/*.md"
           - section: "Azure"
             icon: cloud
             contents: "03.00 tech/02.01 Azure/**/*.md"

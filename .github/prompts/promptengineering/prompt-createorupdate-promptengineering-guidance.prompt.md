@@ -212,68 +212,31 @@ Generate or update guidance files that ensure prompt/agent creation is:
 ---
 
 ### Phase 4: Generate/Update Guidance Files
-**Tools:** `create_file`, `replace_string_in_file`, `multi_replace_string_in_file`
+**Tools:** `read_file`, `create_file`, `replace_string_in_file`, `multi_replace_string_in_file`
+
+**Load structure templates before generation:**
+- Instruction file structure: `read_file(".github/templates/promptengineering-instruction-structure.template.md")`
+- Context file structure: `read_file(".github/templates/promptengineering-context-structure.template.md")`
 
 #### 4.1 Instruction Files Structure
-Instruction files MUST include:
 
-```markdown
----
-description: "One-sentence purpose"
-applyTo: 'glob/pattern/**/*.md'
----
+**📋 Template:** `.github/templates/promptengineering-instruction-structure.template.md`
 
-# [Title]
-
-## Purpose
-[One paragraph explaining file's role]
-
-## Context Engineering Principles
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/context-engineering-principles.md`
-[Summary of key principles - reference don't duplicate]
-
-## Tool Selection
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/tool-composition-guide.md`
-[Summary of tool/agent alignment]
-
-## Required YAML Frontmatter
-[Template with required fields]
-
-## Templates
-[Reference to .github/templates/]
-
-## Repository-Specific Patterns
-[Validation caching, dual YAML, etc.]
-
-## Best Practices
-[5-7 actionable items]
-
-## References
-[Links to sources]
-```
+Load this template and customize with domain-specific content:
+- Replace `[Title]` with appropriate instruction file name
+- Fill in all bracketed sections with extracted principles
+- Ensure all references point to existing files
+- Apply imperative language (MUST, WILL, NEVER) throughout
 
 #### 4.2 Context Files Structure
-Context files MUST include:
 
-```markdown
-# [Topic] for GitHub Copilot
+**📋 Template:** `.github/templates/promptengineering-context-structure.template.md`
 
-**Purpose**: [Single sentence]
-**Referenced by**: [List of files that use this]
-
----
-
-## [Section 1]
-[Content with tables, examples, code blocks]
-
-## [Section 2]
-[Content]
-
----
-
-## References
-[Source links]
-```
+Load this template and customize with topic-specific content:
+- Replace `[Topic]` with specific pattern/concept name
+- Fill in all bracketed sections with detailed guidance
+- Include concrete examples from this repository
+- Add comprehensive checklist items
 
 #### 4.3 Content Principles
 
