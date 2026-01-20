@@ -46,36 +46,10 @@ Before generating guidance, the user MUST provide:
 
 ### Input Collection Template
 
-If user input is incomplete, use this template:
+If user input is incomplete, use the template from:
+**📋 Template:** `.github/templates/guidance-input-collection.template.md`
 
-```
-📥 DOMAIN GUIDANCE SETUP
-
-To generate effective guidance, I need:
-
-1. **Domain name**: What area does this guidance cover?
-   Example: "article-writing", "code-review", "authentication"
-
-2. **Target files**: What type of guidance file(s) to create?
-   - [ ] Instruction file (.github/instructions/{domain}.instructions.md)
-   - [ ] Context file (.copilot/context/{domain}/*.md)
-   - [ ] Both
-
-3. **Target paths**: Where should files be created?
-   Default: `.github/instructions/{domain}.instructions.md`
-
-4. **Context sources**: What content should inform this guidance?
-   - Existing files in repository
-   - External URLs (documentation, style guides)
-   - Principles you want encoded
-
-5. **Key principles**: What rules MUST the guidance enforce?
-   - Required elements
-   - Quality criteria
-   - Anti-patterns to prevent
-
-Please provide these details so I can generate appropriate guidance.
-```
+Load and present this template to collect required information.
 
 ---
 
@@ -232,7 +206,7 @@ Generate or update domain-specific guidance files that ensure prompts/agents for
 ### Phase 1: Collect Domain Context
 **Tools:** `read_file`, `fetch_webpage`, `semantic_search`
 
-1. **Collect user input** using Input Collection Template if incomplete
+1. **Collect user input:** If incomplete, load `.github/templates/guidance-input-collection.template.md` and present to user
 2. **Read user-provided context sources:**
    - Local files: `read_file("{user-specified-path}")`
    - External URLs: `fetch_webpage("{user-specified-url}")`
@@ -268,91 +242,32 @@ Generate or update domain-specific guidance files that ensure prompts/agents for
 ---
 
 ### Phase 3: Generate Guidance Structure
-**Tools:** `create_file`, `replace_string_in_file`
+**Tools:** `read_file`, `create_file`, `replace_string_in_file`
+
+**Load templates before generation:**
+- Instruction file template: `read_file(".github/templates/guidance-instruction-file.template.md")`
+- Context file template: `read_file(".github/templates/guidance-context-file.template.md")`  
+- Examples for reference: `read_file(".github/templates/guidance-domain-examples.template.md")`
 
 #### 3.1 Instruction File Template
 
-```markdown
----
-description: "{Domain} instructions for GitHub Copilot prompts and agents"
-applyTo: '{glob-pattern}'
----
+**📋 Template:** `.github/templates/guidance-instruction-file.template.md`
 
-# {Domain} Instructions
-
-## Purpose
-[One paragraph explaining what prompts/agents using this guidance should accomplish]
-
-## Scope
-**IN SCOPE:** [What this guidance covers]
-**OUT OF SCOPE:** [What this guidance does NOT cover]
-
-## Core Principles
-[Domain-specific principles extracted from user context, written in MUST/WILL/NEVER language]
-
-### Required Elements
-[What MUST be included in outputs]
-
-### Quality Criteria
-[How to measure success]
-
-### Anti-Patterns
-[What to NEVER do]
-
-## Three-Tier Boundaries
-### ✅ Always Do (No Approval Needed)
-[Actions prompts/agents can take without asking]
-
-### ⚠️ Ask First (Require Confirmation)
-[Actions that require user approval]
-
-### 🚫 Never Do
-[Prohibited actions]
-
-## Context References
-**📖 Complete guidance:** `.copilot/context/{domain}/*.md`
-[Summary of what each context file provides]
-
-## Best Practices
-[5-7 actionable items specific to this domain]
-
-## References
-[Source links: user-provided URLs, official docs, repository patterns]
-```
+Load this template and customize with domain-specific content:
+- Replace `{Domain}` with actual domain name
+- Fill in all bracketed sections with extracted principles
+- Apply MUST/WILL/NEVER language throughout
+- Add specific examples from user context
 
 #### 3.2 Context File Template
 
-```markdown
-# {Topic} for GitHub Copilot
+**📋 Template:** `.github/templates/guidance-context-file.template.md`
 
-**Purpose**: [Single sentence describing what this context provides]
-**Referenced by**: [List of instruction files or prompts that use this]
-
----
-
-## Overview
-[Brief introduction to the topic]
-
-## Key Concepts
-[Core concepts with definitions]
-
-## Detailed Guidelines
-[Expanded guidance with examples]
-
-## Examples
-[Concrete examples from this repository or user context]
-
-## Anti-Patterns
-[What NOT to do, with explanations]
-
-## Checklist
-[Quick reference checklist for validation]
-
----
-
-## References
-[Source links]
-```
+Load this template and customize with domain-specific content:
+- Replace `{Topic}` with specific topic name
+- Fill in all bracketed sections with detailed guidance
+- Include concrete examples from repository
+- Add actionable checklist items
 
 #### 3.3 Content Principles (Apply to ALL Domains)
 
@@ -417,9 +332,10 @@ Before completing, verify generated guidance:
 **Input:** "Create guidance for validation"
 **Expected Behavior:**
 1. Recognize incomplete input (no context sources, no target paths)
-2. Use Input Collection Template to request details
-3. Wait for user response before proceeding
-4. NOT assume context sources or principles
+2. Load `.github/templates/guidance-input-collection.template.md`
+3. Present template to user to collect details
+4. Wait for user response before proceeding
+5. NOT assume context sources or principles
 
 ### Test 3: Missing Context Source
 **Input:** "Create documentation guidance based on company-style-guide.md"
@@ -457,47 +373,14 @@ Before completing, verify generated guidance:
 
 ## Example Domain Templates
 
-### Article-Writing Domain
-```markdown
-# Example: article-writing.instructions.md
+**📋 Examples:** `.github/templates/guidance-domain-examples.template.md`
 
-## Purpose
-Guide prompts/agents that create, review, or update article content.
+Refer to this file for complete examples of:
+- Article-Writing Domain
+- Validation Domain
+- Code-Review Domain
 
-## Core Principles
-- Articles MUST include title, date, author, and categories in YAML frontmatter
-- Articles MUST follow reference classification (📘 Official, 📗 Verified, 📒 Community, 📕 Unverified)
-- Articles WILL use clear heading hierarchy (H1 for title, H2 for sections)
-- Articles NEVER include unverified claims without citation
-```
-
-### Validation Domain
-```markdown
-# Example: validation.instructions.md
-
-## Purpose
-Guide prompts/agents that validate content quality, structure, or accuracy.
-
-## Core Principles
-- Validation MUST check all required elements before approval
-- Validation MUST provide specific feedback for each failed check
-- Validation WILL use structured output format (pass/fail/warning)
-- Validation NEVER approves content with critical errors
-```
-
-### Code-Review Domain
-```markdown
-# Example: code-review.instructions.md
-
-## Purpose
-Guide prompts/agents that review code for quality, security, and maintainability.
-
-## Core Principles
-- Reviews MUST check for security vulnerabilities before other concerns
-- Reviews MUST provide actionable feedback with code examples
-- Reviews WILL prioritize critical issues over style preferences
-- Reviews NEVER approve code with failing tests
-```
+Use these as reference patterns when generating new domain guidance.
 
 ---
 

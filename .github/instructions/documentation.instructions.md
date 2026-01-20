@@ -1,35 +1,36 @@
 ---
-description: Instructions for documentation and article content
+description: Base instructions for all Markdown files—essential structure, formatting, and validation rules. See article-writing.instructions.md for comprehensive writing guidance.
 applyTo: '*.md,_**/*.md,a**/*.md,A**/*.md,b**/*.md,B**/*.md,c**/*.md,C**/*.md,d**/*.md,D**/*.md,e**/*.md,E**/*.md,f**/*.md,F**/*.md,g**/*.md,G**/*.md,h**/*.md,H**/*.md,i**/*.md,I**/*.md,j**/*.md,J**/*.md,k**/*.md,K**/*.md,l**/*.md,L**/*.md,m**/*.md,M**/*.md,n**/*.md,N**/*.md,o**/*.md,O**/*.md,p**/*.md,P**/*.md,q**/*.md,Q**/*.md,r**/*.md,R**/*.md,s**/*.md,S**/*.md,t**/*.md,T**/*.md,u**/*.md,U**/*.md,v**/*.md,V**/*.md,w**/*.md,W**/*.md,x**/*.md,X**/*.md,y**/*.md,Y**/*.md,z**/*.md,Z**/*.md,0**/*.md,1**/*.md,2**/*.md,3**/*.md,4**/*.md,5**/*.md,6**/*.md,7**/*.md,8**/*.md,9**/*.md'
 ---
 
-# Documentation Content Instructions
+# Documentation Base Instructions
 
-## Apply To
-These instructions apply to all <mark>Markdown files</mark> in content areas (excludes folders starting with `.` like `.github/`, `.copilot/`), including:
-- Articles in subject folders (tech/, howto/, projects/, etc.)
-- README files
-- Learning guides and tutorials
+> **This is the base layer** for all Markdown files. It covers essential structure, formatting, metadata, and validation requirements.
+>
+> 📖 **For comprehensive writing guidance** (voice, tone, Diátaxis patterns, accessibility): See `article-writing.instructions.md`
+>
+> **Scope:** All Markdown files in content areas (excludes folders starting with `.` like `.github/`, `.copilot/`)
 
-## Writing Style
-- Use active voice whenever possible
-- Keep sentences concise (aim for 15-25 words)
-- Break complex ideas into digestible paragraphs (3-5 sentences)
-- Use bullet points for lists and steps
-- Include code examples with explanations
+---
 
-## Structure Requirements
-Every article must include:
-- **Title** (H1 heading)
-- **Table of Contents** (for articles > 500 words)
-- **Introduction** explaining the topic and what readers will learn
-- **Body** with clear section headings (H2, H3)
-- **Conclusion** summarizing key points
-- **References** section with all sources cited and properly classified (see Reference Classification below)
+## Essential Structure Requirements
 
-## Reference Classification
+Every article MUST include:
 
-All references must include emoji markers indicating source reliability:
+| Element | Requirement |
+|---------|-------------|
+| **Title** | H1 heading, sentence-style capitalization |
+| **Table of Contents** | Required for articles > 500 words |
+| **Introduction** | What readers will learn, prerequisites |
+| **Body** | Clear section headings (H2, H3), logical flow |
+| **Conclusion** | Key takeaways, next steps |
+| **References** | All sources cited and classified |
+
+---
+
+## Reference Classification (REQUIRED)
+
+All references MUST include emoji markers indicating source reliability:
 
 | Marker | Type | Examples |
 |--------|------|----------|
@@ -38,43 +39,94 @@ All references must include emoji markers indicating source reliability:
 | 📒 | Community | `medium.com`, `dev.to`, personal blogs, tutorials |
 | 📕 | Unverified | Broken links, unknown sources (fix before publishing) |
 
-**Format:** `**[Title](url)** `[📘 Official]`  
+**Format:**
+```markdown
+**[Title](url)** 📘 [Official]  
 Description (2-4 sentences): what it covers, why valuable, when to use it.
+```
 
-**Organization:** Group as Official Documentation, Session Materials, Community Resources, or Product-Specific. Order by authority and relevance.
+📖 **Complete classification rules:** `.copilot/context/reference-classification.md`
 
-📖 **Complete classification rules and examples:** `.copilot/context/reference-classification.md`
+---
 
-## Formatting Standards
-- Use semantic Markdown (proper heading hierarchy)
-- Include language identifiers for code blocks
-- Use `backticks` for inline code, filenames, and commands
-- Use **bold** for emphasis, *italic* for definitions
-- <mark>Mark text</mark> with mark tags for relevant terms and concepts  
-- Include alt text for all images
-- Use descriptive link text (not "click here")
+## Dual Metadata System (CRITICAL)
 
-## Metadata Requirements
+Articles use **two metadata blocks**—never confuse them:
 
-### Dual YAML Blocks
-Articles use **two metadata blocks** - never confuse them:
-- **Top YAML** (file start): Quarto rendering metadata (title, author, date, categories). Authors edit manually. **❌ Never modify from validation prompts.**
-- **Bottom HTML comment** (file end): Validation metadata (status, timestamps). Updated by automation only.
+### Top YAML (File Start)
+**Purpose:** Quarto rendering metadata  
+**Who edits:** Authors manually  
+**❌ NEVER modify from validation prompts**
+
+```yaml
+---
+title: "Article title in sentence case"
+author: "Author Name"
+date: "YYYY-MM-DD"
+categories: [category1, category2]
+description: "One-sentence summary (120-160 chars)"
+---
+```
+
+### Bottom HTML Comment (File End)
+**Purpose:** Validation tracking metadata  
+**Who edits:** Automation only
+
+```html
+<!--
+validations:
+  grammar: {status: "not_run", last_run: null}
+  readability: {status: "not_run", last_run: null}
+  
+article_metadata:
+  filename: "article-name.md"
+-->
+```
 
 **Validation Rules:**
-- Check bottom metadata `last_run` timestamp before validation
-- Skip if `< 7 days` AND content unchanged
-- Update only your validation section in bottom metadata
-- Never touch top YAML from validation prompts
+1. Check bottom metadata `last_run` timestamp before validation
+2. Skip if `< 7 days` AND content unchanged
+3. Update only your validation section in bottom metadata
+4. **Never touch top YAML from validation prompts**
 
-📖 **Complete guidelines:** `.copilot/context/dual-yaml-helpers.md`  
+📖 **Complete guidelines:** `.copilot/context/dual-yaml-helpers.md`
+
+---
+
+## Essential Formatting Standards
+
+| Element | Rule |
+|---------|------|
+| **Headings** | Sentence-style capitalization (never Title Case) |
+| **Code blocks** | Always specify language identifier |
+| **Inline code** | Use `backticks` for code, filenames, commands |
+| **Emphasis** | **Bold** for emphasis, *italic* for definitions, <mark>mark</mark> for key concepts |
+| **Links** | Descriptive text (never "click here") |
+| **Images** | Always include alt text |
+
+---
+
+## Content Validation Checklist
+
+Before considering an article complete:
+
+- [ ] Run grammar-review prompt
+- [ ] Run readability-review prompt  
+- [ ] Run structure-validation prompt
+- [ ] Run fact-checking prompt for technical claims
+- [ ] Verify all links are working
+- [ ] Check that code examples are tested
+
 🔧 **Validation prompts:** `.github/prompts/` (grammar, readability, structure, fact-checking, logic, publish-ready)
 
-## Content Validation
-Before considering an article complete:
-- Run grammar-review prompt
-- Run readability-review prompt
-- Run structure-validation prompt
-- Run fact-checking prompt for technical claims
-- Verify all links are working
-- Check that examples are tested and functional
+---
+
+## Related Instruction Files
+
+| File | Purpose | When to Use |
+|------|---------|-------------|
+| `article-writing.instructions.md` | Comprehensive writing guidance | Creating/editing articles |
+| `prompts.instructions.md` | Prompt file creation | Creating `.prompt.md` files |
+| `agents.instructions.md` | Agent file creation | Creating `.agent.md` files |
+| `context-files.instructions.md` | Context file creation | Creating context documentation |
+| `skills.instructions.md` | Skill file creation | Creating `SKILL.md` files |
