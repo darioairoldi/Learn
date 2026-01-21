@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../03.00 tech/05.02 PromptEngineering/11.1 example_prompt_interacting_with_agents_plan.html" rel="next">
-<link href="../../03.00 tech/05.02 PromptEngineering/07. how_to_create_mcp_servers_for_copilot.html" rel="prev">
+<link href="../../03.00 tech/05.02 PromptEngineering/08.03 appendix_google_prompting_guide.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -138,6 +138,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-news">    
         <li class="dropdown-header">Latest Updates</li>
+        <li>
+    <a class="dropdown-item" href="../../01.00 news/20260111 6 VITAL Rules for Production-Ready Copilot Agents/Summary.html">
+ <span class="dropdown-text">6 VITAL Rules for Copilot Agents</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../01.00 news/20251224 vscode v1.107 Release/01. Summary.html">
  <span class="dropdown-text">VS Code v1.107 Release Summary</span></a>
@@ -424,16 +428,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Prompt Engineering</li>
         <li>
-    <a class="dropdown-item" href="../../03.00 tech/05.02 PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html">
+    <a class="dropdown-item" href="../../03.00 tech/05.02 PromptEngineering/01.00 how_github_copilot_uses_markdown_and_prompt_folders.html">
  <span class="dropdown-text">GitHub Copilot &amp; Markdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../03.00 tech/05.02 PromptEngineering/02. how_to_name_and_organize_prompt_files.html">
+    <a class="dropdown-item" href="../../03.00 tech/05.02 PromptEngineering/02.00 how_to_name_and_organize_prompt_files.html">
  <span class="dropdown-text">Naming &amp; Organizing Prompts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../03.00 tech/05.02 PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.html">
+    <a class="dropdown-item" href="../../03.00 tech/05.02 PromptEngineering/03.00 how_to_structure_content_for_copilot_prompt_files.html">
  <span class="dropdown-text">Structuring Prompt Files</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../03.00 tech/05.02 PromptEngineering/07.00 how_to_create_mcp_servers_for_copilot.html">
+ <span class="dropdown-text">Creating MCP Servers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../03.00 tech/05.02 PromptEngineering/08.00 how_to_optimize_prompts_for_specific_models.html">
+ <span class="dropdown-text">Optimizing Prompts for Models</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Technical Writing</li>
+        <li>
+    <a class="dropdown-item" href="../../03.00 tech/40.00 Technical writing/00-foundations-of-technical-documentation.html">
+ <span class="dropdown-text">Foundations of Technical Docs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../03.00 tech/40.00 Technical writing/Microsoft Writing Style Guide/00-microsoft-style-guide-overview.html">
+ <span class="dropdown-text">Microsoft Style Guide</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">API Testing &amp; Tools</li>
@@ -553,7 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html">Prompt Engineering</a></li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/10. how_to_create_a_prompt_interacting_with_agents.html">How to Create a Prompt Orchestrating Multiple Agents</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/01.00 how_github_copilot_uses_markdown_and_prompt_folders.html">Prompt Engineering</a></li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/10. how_to_create_a_prompt_interacting_with_agents.html">How to Create a Prompt Orchestrating Multiple Agents</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -2146,44 +2168,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-78" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/05.02 PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html" class="sidebar-item-text sidebar-link">
+  <a href="../../03.00 tech/05.02 PromptEngineering/01.00 how_github_copilot_uses_markdown_and_prompt_folders.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How GitHub Copilot Uses Markdown and Prompt Folders within Your Repo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/05.02 PromptEngineering/02. how_to_name_and_organize_prompt_files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../03.00 tech/05.02 PromptEngineering/02.00 how_to_name_and_organize_prompt_files.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Name and Organize Prompt Files in Your GitHub Repository</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/05.02 PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../03.00 tech/05.02 PromptEngineering/03.00 how_to_structure_content_for_copilot_prompt_files.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Structure Content for GitHub Copilot Prompt Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/05.02 PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../03.00 tech/05.02 PromptEngineering/04.00 how_to_structure_content_for_copilot_agent_files.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Structure Content for GitHub Copilot Agent Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/05.02 PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../03.00 tech/05.02 PromptEngineering/05.00 how_to_structure_content_for_copilot_instruction_files.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Structure Content for GitHub Copilot Instruction Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/05.02 PromptEngineering/06. how_to_structure_content_for_copilot_skills.html" class="sidebar-item-text sidebar-link">
+  <a href="../../03.00 tech/05.02 PromptEngineering/06.00 how_to_structure_content_for_copilot_skills.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Structure Content for GitHub Copilot Skills</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/05.02 PromptEngineering/07. how_to_create_mcp_servers_for_copilot.html" class="sidebar-item-text sidebar-link">
+  <a href="../../03.00 tech/05.02 PromptEngineering/07.00 how_to_create_mcp_servers_for_copilot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Create MCP Servers for GitHub Copilot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../03.00 tech/05.02 PromptEngineering/08.00 how_to_optimize_prompts_for_specific_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Optimize Prompts for Specific Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../03.00 tech/05.02 PromptEngineering/08.01 appendix_openai_prompting_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix: OpenAI Models Prompting Guide Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../03.00 tech/05.02 PromptEngineering/08.02 appendix_anthropic_prompting_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix: Anthropic Claude Prompting Guide Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../03.00 tech/05.02 PromptEngineering/08.03 appendix_google_prompting_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix: Google Gemini Prompting Guide Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -3014,7 +3060,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/01. how_github_copilot_uses_markdown_and_prompt_folders.html">Prompt Engineering</a></li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/10. how_to_create_a_prompt_interacting_with_agents.html">How to Create a Prompt Orchestrating Multiple Agents</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/01.00 how_github_copilot_uses_markdown_and_prompt_folders.html">Prompt Engineering</a></li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/10. how_to_create_a_prompt_interacting_with_agents.html">How to Create a Prompt Orchestrating Multiple Agents</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">How to Create a Prompt Orchestrating Multiple Agents</h1>
   <div class="quarto-categories">
@@ -6109,9 +6155,9 @@ Central hub for GitHub Copilot features including chat, CLI, code review, coding
 <h3 class="anchored" data-anchor-id="internal-reference-materials">Internal Reference Materials</h3>
 <p><strong><a href="./06.1 example_prompt_interacting_with_agents_plan.md">06.1 Prompt Creation Multi-Agent Flow - Implementation Plan</a></strong> <code>[📒 Internal]</code><br>
 Complete case study documenting the real-world implementation of the multi-agent prompt creation system. Includes detailed YAML specifications for all orchestrators and agents, 2-week implementation roadmap, and battle-tested patterns that informed this article.</p>
-<p><strong><a href="../../03.00 tech/05.02 PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.html">04. How to Structure Content for Copilot Agent Files</a></strong> <code>[📒 Community]</code><br>
+<p><strong><a href="./04. how_to_structure_content_for_copilot_agent_files.md">04. How to Structure Content for Copilot Agent Files</a></strong> <code>[📒 Community]</code><br>
 Detailed guide to agent file structure, personas, handoffs, tool configuration, and composing agents with prompts. Companion article covering implementation details for the patterns described here.</p>
-<p><strong><a href="../../03.00 tech/05.02 PromptEngineering/03. how_to_structure_content_for_copilot_prompt_files.html">03. How to Structure Content for Copilot Prompt Files</a></strong> <code>[📒 Community]</code><br>
+<p><strong><a href="./03. how_to_structure_content_for_copilot_prompt_files.md">03. How to Structure Content for Copilot Prompt Files</a></strong> <code>[📒 Community]</code><br>
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.</p>
 <p><strong>Context Engineering Principles</strong> (<code>.copilot/context/prompt-engineering/context-engineering-principles.md</code>) <code>[📒 Internal]</code><br>
 Repository-specific guidelines for narrow scope, imperative language, three-tier boundaries, context minimization, and lazy loading patterns. Critical for building efficient multi-agent orchestrations.</p>
@@ -6586,8 +6632,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../03.00 tech/05.02 PromptEngineering/07. how_to_create_mcp_servers_for_copilot.html" class="pagination-link" aria-label="How to Create MCP Servers for GitHub Copilot">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How to Create MCP Servers for GitHub Copilot</span>
+      <a href="../../03.00 tech/05.02 PromptEngineering/08.03 appendix_google_prompting_guide.html" class="pagination-link" aria-label="Appendix: Google Gemini Prompting Guide Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Appendix: Google Gemini Prompting Guide Analysis</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2026-01-14">
-<meta name="description" content="Master code documentation through API reference standards, inline comment best practices, error message design, code example patterns, and changelog conventions">
+<meta name="dcterms.date" content="2025-12-11">
+<meta name="description" content="Learn how to create effective instruction files for GitHub Copilot with best practices for structure, scope, and limitations to ensure maximum reliability and avoid unwanted behaviors.">
 
-<title>Code Documentation Excellence – Dario’s Learning Journey</title>
+<title>How to Structure Content for GitHub Copilot Instruction Files – Dario’s Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,8 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../03.00 tech/40.00 Technical writing/05-validation-and-quality-assurance.html" rel="next">
-<link href="../../03.00 tech/40.00 Technical writing/03-accessibility-in-technical-writing.html" rel="prev">
+<link href="../../03.00 tech/05.02 PromptEngineering/06.00 how_to_structure_content_for_copilot_skills.html" rel="next">
+<link href="../../03.00 tech/05.02 PromptEngineering/04.00 how_to_structure_content_for_copilot_agent_files.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -575,7 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item"><a href="../../03.00 tech/40.00 Technical writing/00-foundations-of-technical-documentation.html">Technical Writing</a></li><li class="breadcrumb-item"><a href="../../03.00 tech/40.00 Technical writing/04-code-documentation-excellence.html">Code Documentation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/01.00 how_github_copilot_uses_markdown_and_prompt_folders.html">Prompt Engineering</a></li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/05.00 how_to_structure_content_for_copilot_instruction_files.html">How to Structure Content for GitHub Copilot Instruction Files</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -2192,7 +2192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/05.02 PromptEngineering/05.00 how_to_structure_content_for_copilot_instruction_files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../03.00 tech/05.02 PromptEngineering/05.00 how_to_structure_content_for_copilot_instruction_files.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">How to Structure Content for GitHub Copilot Instruction Files</span></a>
   </div>
 </li>
@@ -2626,7 +2626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../03.00 tech/40.00 Technical writing/04-code-documentation-excellence.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../03.00 tech/40.00 Technical writing/04-code-documentation-excellence.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code Documentation</span></a>
   </div>
 </li>
@@ -2930,84 +2930,116 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#code-documentation-excellence" id="toc-code-documentation-excellence" class="nav-link active" data-scroll-target="#code-documentation-excellence">Code Documentation Excellence</a>
+  <li><a href="#how-to-structure-content-for-github-copilot-instruction-files" id="toc-how-to-structure-content-for-github-copilot-instruction-files" class="nav-link active" data-scroll-target="#how-to-structure-content-for-github-copilot-instruction-files">How to Structure Content for GitHub Copilot Instruction Files</a>
   <ul class="collapse">
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#api-reference-documentation" id="toc-api-reference-documentation" class="nav-link" data-scroll-target="#api-reference-documentation">API Reference Documentation</a>
-  <ul class="collapse">
-  <li><a href="#anatomy-of-good-api-documentation" id="toc-anatomy-of-good-api-documentation" class="nav-link" data-scroll-target="#anatomy-of-good-api-documentation">Anatomy of Good API Documentation</a></li>
-  <li><a href="#rest-api-documentation-pattern" id="toc-rest-api-documentation-pattern" class="nav-link" data-scroll-target="#rest-api-documentation-pattern">REST API Documentation Pattern</a></li>
-  <li><a href="#response" id="toc-response" class="nav-link" data-scroll-target="#response">Response</a></li>
-  <li><a href="#api-documentation-from-major-projects" id="toc-api-documentation-from-major-projects" class="nav-link" data-scroll-target="#api-documentation-from-major-projects">API Documentation from Major Projects</a></li>
   </ul></li>
-  <li><a href="#inline-code-comments" id="toc-inline-code-comments" class="nav-link" data-scroll-target="#inline-code-comments">Inline Code Comments</a>
+  <li><a href="#understanding-instruction-files" id="toc-understanding-instruction-files" class="nav-link" data-scroll-target="#understanding-instruction-files">🎯 Understanding Instruction Files</a>
   <ul class="collapse">
-  <li><a href="#the-golden-rule" id="toc-the-golden-rule" class="nav-link" data-scroll-target="#the-golden-rule">The Golden Rule</a></li>
-  <li><a href="#when-to-comment" id="toc-when-to-comment" class="nav-link" data-scroll-target="#when-to-comment">When to Comment</a></li>
-  <li><a href="#comment-patterns" id="toc-comment-patterns" class="nav-link" data-scroll-target="#comment-patterns">Comment Patterns</a></li>
-  <li><a href="#documentation-string-standards" id="toc-documentation-string-standards" class="nav-link" data-scroll-target="#documentation-string-standards">Documentation String Standards</a></li>
-  </ul></li>
-  <li><a href="#code-examples-in-documentation" id="toc-code-examples-in-documentation" class="nav-link" data-scroll-target="#code-examples-in-documentation">Code Examples in Documentation</a>
+  <li><a href="#what-are-instruction-files" id="toc-what-are-instruction-files" class="nav-link" data-scroll-target="#what-are-instruction-files">What Are Instruction Files?</a>
   <ul class="collapse">
-  <li><a href="#example-characteristics" id="toc-example-characteristics" class="nav-link" data-scroll-target="#example-characteristics">Example Characteristics</a></li>
-  <li><a href="#example-patterns" id="toc-example-patterns" class="nav-link" data-scroll-target="#example-patterns">Example Patterns</a></li>
-  <li><a href="#with-error-handling" id="toc-with-error-handling" class="nav-link" data-scroll-target="#with-error-handling">With Error Handling</a></li>
-  <li><a href="#async-usage" id="toc-async-usage" class="nav-link" data-scroll-target="#async-usage">Async Usage</a></li>
-  <li><a href="#after-using-our-sdk" id="toc-after-using-our-sdk" class="nav-link" data-scroll-target="#after-using-our-sdk">After: Using our SDK</a></li>
-  <li><a href="#bulk-import-users-from-csv" id="toc-bulk-import-users-from-csv" class="nav-link" data-scroll-target="#bulk-import-users-from-csv">Bulk import users from CSV</a></li>
-  <li><a href="#multi-language-examples" id="toc-multi-language-examples" class="nav-link" data-scroll-target="#multi-language-examples">Multi-Language Examples</a></li>
-  <li><a href="#change-categories" id="toc-change-categories" class="nav-link" data-scroll-target="#change-categories">Change Categories</a></li>
-  <li><a href="#writing-good-changelog-entries" id="toc-writing-good-changelog-entries" class="nav-link" data-scroll-target="#writing-good-changelog-entries">Writing Good Changelog Entries</a></li>
-  <li><a href="#changelog-vs.-release-notes" id="toc-changelog-vs.-release-notes" class="nav-link" data-scroll-target="#changelog-vs.-release-notes">Changelog vs.&nbsp;Release Notes</a></li>
+  <li><a href="#key-characteristics" id="toc-key-characteristics" class="nav-link" data-scroll-target="#key-characteristics">Key Characteristics</a></li>
   </ul></li>
-  <li><a href="#readme-files" id="toc-readme-files" class="nav-link" data-scroll-target="#readme-files">README Files</a>
+  <li><a href="#when-to-use-instruction-files" id="toc-when-to-use-instruction-files" class="nav-link" data-scroll-target="#when-to-use-instruction-files">When to Use Instruction Files</a></li>
+  </ul></li>
+  <li><a href="#instruction-file-structure" id="toc-instruction-file-structure" class="nav-link" data-scroll-target="#instruction-file-structure">📋 Instruction File Structure</a>
   <ul class="collapse">
-  <li><a href="#readme-structure" id="toc-readme-structure" class="nav-link" data-scroll-target="#readme-structure">README Structure</a></li>
-  </ul></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  <li><a href="#applying-code-documentation-standards" id="toc-applying-code-documentation-standards" class="nav-link" data-scroll-target="#applying-code-documentation-standards">Applying Code Documentation Standards</a>
+  <li><a href="#file-format" id="toc-file-format" class="nav-link" data-scroll-target="#file-format">File Format</a></li>
+  <li><a href="#yaml-frontmatter-fields" id="toc-yaml-frontmatter-fields" class="nav-link" data-scroll-target="#yaml-frontmatter-fields">YAML Frontmatter Fields</a>
   <ul class="collapse">
-  <li><a href="#this-repositorys-code" id="toc-this-repositorys-code" class="nav-link" data-scroll-target="#this-repositorys-code">This Repository’s Code</a></li>
-  <li><a href="#documentation-standards-by-file-type" id="toc-documentation-standards-by-file-type" class="nav-link" data-scroll-target="#documentation-standards-by-file-type">Documentation Standards by File Type</a></li>
-  <li><a href="#code-example-standards" id="toc-code-example-standards" class="nav-link" data-scroll-target="#code-example-standards">Code Example Standards</a></li>
+  <li><a href="#required-fields" id="toc-required-fields" class="nav-link" data-scroll-target="#required-fields">Required Fields</a></li>
+  <li><a href="#optional-fields" id="toc-optional-fields" class="nav-link" data-scroll-target="#optional-fields">Optional Fields</a></li>
+  <li><a href="#applyto-pattern-examples" id="toc-applyto-pattern-examples" class="nav-link" data-scroll-target="#applyto-pattern-examples">ApplyTo Pattern Examples</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
+  <li><a href="#body-content" id="toc-body-content" class="nav-link" data-scroll-target="#body-content">Body Content</a></li>
+  <li><a href="#tool-references" id="toc-tool-references" class="nav-link" data-scroll-target="#tool-references">Tool References</a>
   <ul class="collapse">
-  <li><a href="#api-documentation-standards" id="toc-api-documentation-standards" class="nav-link" data-scroll-target="#api-documentation-standards">API Documentation Standards</a></li>
-  <li><a href="#code-comment-standards" id="toc-code-comment-standards" class="nav-link" data-scroll-target="#code-comment-standards">Code Comment Standards</a></li>
-  <li><a href="#error-message-design" id="toc-error-message-design" class="nav-link" data-scroll-target="#error-message-design">Error Message Design</a></li>
-  <li><a href="#changelog-standards" id="toc-changelog-standards" class="nav-link" data-scroll-target="#changelog-standards">Changelog Standards</a></li>
-  <li><a href="#readme-standards" id="toc-readme-standards" class="nav-link" data-scroll-target="#readme-standards">README Standards</a></li>
-  <li><a href="#documentation-generators" id="toc-documentation-generators" class="nav-link" data-scroll-target="#documentation-generators">Documentation Generators</a></li>
+  <li><a href="#focus-on-how-not-why" id="toc-focus-on-how-not-why" class="nav-link" data-scroll-target="#focus-on-how-not-why">2. Focus on “How”, Not “Why”</a></li>
+  <li><a href="#use-examples" id="toc-use-examples" class="nav-link" data-scroll-target="#use-examples">3. Use Examples</a></li>
+  <li><a href="#reference-tools-when-appropriate" id="toc-reference-tools-when-appropriate" class="nav-link" data-scroll-target="#reference-tools-when-appropriate">5. Reference Tools When Appropriate</a></li>
   </ul></li>
+  <li><a href="#content-length-guidelines" id="toc-content-length-guidelines" class="nav-link" data-scroll-target="#content-length-guidelines">Content Length Guidelines</a>
+  <ul class="collapse">
+  <li><a href="#why-length-matters-for-instructions" id="toc-why-length-matters-for-instructions" class="nav-link" data-scroll-target="#why-length-matters-for-instructions">Why Length Matters for Instructions</a></li>
+  <li><a href="#recommended-token-budgets" id="toc-recommended-token-budgets" class="nav-link" data-scroll-target="#recommended-token-budgets">Recommended Token Budgets</a></li>
+  <li><a href="#line-count-guidelines-quick-reference" id="toc-line-count-guidelines-quick-reference" class="nav-link" data-scroll-target="#line-count-guidelines-quick-reference">Line Count Guidelines (Quick Reference)</a></li>
+  <li><a href="#optimization-strategies" id="toc-optimization-strategies" class="nav-link" data-scroll-target="#optimization-strategies">Optimization Strategies</a></li>
+  <li><a href="#measuring-instruction-file-length" id="toc-measuring-instruction-file-length" class="nav-link" data-scroll-target="#measuring-instruction-file-length">Measuring Instruction File Length</a></li>
+  <li><a href="#validation-checklist" id="toc-validation-checklist" class="nav-link" data-scroll-target="#validation-checklist">Validation Checklist</a></li>
+  <li><a href="#performance-impact" id="toc-performance-impact" class="nav-link" data-scroll-target="#performance-impact">Performance Impact</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#critical-limitations-and-boundaries" id="toc-critical-limitations-and-boundaries" class="nav-link" data-scroll-target="#critical-limitations-and-boundaries">⚠️ Critical Limitations and Boundaries</a>
+  <ul class="collapse">
+  <li><a href="#technical-limitations" id="toc-technical-limitations" class="nav-link" data-scroll-target="#technical-limitations">Technical Limitations</a>
+  <ul class="collapse">
+  <li><a href="#no-guaranteed-order" id="toc-no-guaranteed-order" class="nav-link" data-scroll-target="#no-guaranteed-order">1. No Guaranteed Order</a></li>
+  <li><a href="#conflicts-are-non-deterministic" id="toc-conflicts-are-non-deterministic" class="nav-link" data-scroll-target="#conflicts-are-non-deterministic">2. Conflicts Are Non-Deterministic</a></li>
+  <li><a href="#instructions-are-always-applied-when-pattern-matches" id="toc-instructions-are-always-applied-when-pattern-matches" class="nav-link" data-scroll-target="#instructions-are-always-applied-when-pattern-matches">3. Instructions Are Always Applied (When Pattern Matches)</a></li>
+  <li><a href="#no-tool-control" id="toc-no-tool-control" class="nav-link" data-scroll-target="#no-tool-control">4. No Tool Control</a></li>
+  <li><a href="#silent-application" id="toc-silent-application" class="nav-link" data-scroll-target="#silent-application">5. Silent Application</a></li>
+  </ul></li>
+  <li><a href="#context-window-limitations" id="toc-context-window-limitations" class="nav-link" data-scroll-target="#context-window-limitations">Context Window Limitations</a></li>
+  </ul></li>
+  <li><a href="#common-pitfalls-and-how-to-avoid-them" id="toc-common-pitfalls-and-how-to-avoid-them" class="nav-link" data-scroll-target="#common-pitfalls-and-how-to-avoid-them">🚫 Common Pitfalls and How to Avoid Them</a>
+  <ul class="collapse">
+  <li><a href="#pitfall-1-instructions-too-broad" id="toc-pitfall-1-instructions-too-broad" class="nav-link" data-scroll-target="#pitfall-1-instructions-too-broad">Pitfall 1: Instructions Too Broad</a></li>
+  <li><a href="#pitfall-2-conflicting-instructions" id="toc-pitfall-2-conflicting-instructions" class="nav-link" data-scroll-target="#pitfall-2-conflicting-instructions">Pitfall 2: Conflicting Instructions</a></li>
+  <li><a href="#pitfall-3-instructions-too-detailed" id="toc-pitfall-3-instructions-too-detailed" class="nav-link" data-scroll-target="#pitfall-3-instructions-too-detailed">Pitfall 3: Instructions Too Detailed</a></li>
+  <li><a href="#pitfall-4-implicit-dependencies" id="toc-pitfall-4-implicit-dependencies" class="nav-link" data-scroll-target="#pitfall-4-implicit-dependencies">Pitfall 4: Implicit Dependencies</a></li>
+  <li><a href="#pitfall-5-instructions-as-documentation" id="toc-pitfall-5-instructions-as-documentation" class="nav-link" data-scroll-target="#pitfall-5-instructions-as-documentation">Pitfall 5: Instructions as Documentation</a></li>
+  <li><a href="#pitfall-6-overuse-of-global-instructions" id="toc-pitfall-6-overuse-of-global-instructions" class="nav-link" data-scroll-target="#pitfall-6-overuse-of-global-instructions">Pitfall 6: Overuse of Global Instructions</a></li>
+  </ul></li>
+  <li><a href="#advanced-patterns" id="toc-advanced-patterns" class="nav-link" data-scroll-target="#advanced-patterns">🎨 Advanced Patterns</a>
+  <ul class="collapse">
+  <li><a href="#pattern-1-layered-instructions" id="toc-pattern-1-layered-instructions" class="nav-link" data-scroll-target="#pattern-1-layered-instructions">Pattern 1: Layered Instructions</a></li>
+  <li><a href="#pattern-2-exclude-patterns-for-edge-cases" id="toc-pattern-2-exclude-patterns-for-edge-cases" class="nav-link" data-scroll-target="#pattern-2-exclude-patterns-for-edge-cases">Pattern 2: Exclude Patterns for Edge Cases</a></li>
+  <li><a href="#pattern-3-technology-specific-instructions" id="toc-pattern-3-technology-specific-instructions" class="nav-link" data-scroll-target="#pattern-3-technology-specific-instructions">Pattern 3: Technology-Specific Instructions</a></li>
+  <li><a href="#pattern-4-test-specific-instructions" id="toc-pattern-4-test-specific-instructions" class="nav-link" data-scroll-target="#pattern-4-test-specific-instructions">Pattern 4: Test-Specific Instructions</a></li>
+  <li><a href="#pattern-5-tool-driven-instructions" id="toc-pattern-5-tool-driven-instructions" class="nav-link" data-scroll-target="#pattern-5-tool-driven-instructions">Pattern 5: Tool-Driven Instructions</a></li>
+  </ul></li>
+  <li><a href="#testing-and-validation" id="toc-testing-and-validation" class="nav-link" data-scroll-target="#testing-and-validation">🧪 Testing and Validation</a>
+  <ul class="collapse">
+  <li><a href="#how-to-test-instruction-files" id="toc-how-to-test-instruction-files" class="nav-link" data-scroll-target="#how-to-test-instruction-files">How to Test Instruction Files</a>
+  <ul class="collapse">
+  <li><a href="#check-the-references-list" id="toc-check-the-references-list" class="nav-link" data-scroll-target="#check-the-references-list">1. Check the References List</a></li>
+  <li><a href="#test-with-specific-file-types" id="toc-test-with-specific-file-types" class="nav-link" data-scroll-target="#test-with-specific-file-types">2. Test with Specific File Types</a></li>
+  <li><a href="#test-with-conflicting-instructions" id="toc-test-with-conflicting-instructions" class="nav-link" data-scroll-target="#test-with-conflicting-instructions">3. Test with Conflicting Instructions</a></li>
+  <li><a href="#verify-excludeagent-works" id="toc-verify-excludeagent-works" class="nav-link" data-scroll-target="#verify-excludeagent-works">4. Verify excludeAgent Works</a></li>
+  </ul></li>
+  <li><a href="#validation-checklist-1" id="toc-validation-checklist-1" class="nav-link" data-scroll-target="#validation-checklist-1">Validation Checklist</a></li>
+  </ul></li>
+  <li><a href="#decision-framework" id="toc-decision-framework" class="nav-link" data-scroll-target="#decision-framework">💡 Decision Framework</a>
+  <ul class="collapse">
+  <li><a href="#quick-reference-table" id="toc-quick-reference-table" class="nav-link" data-scroll-target="#quick-reference-table">Quick Reference Table</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">🎯 Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">📚 References</a>
+  <ul class="collapse">
+  <li><a href="#official-documentation" id="toc-official-documentation" class="nav-link" data-scroll-target="#official-documentation">Official Documentation</a></li>
+  <li><a href="#vs-code-release-notes" id="toc-vs-code-release-notes" class="nav-link" data-scroll-target="#vs-code-release-notes">VS Code Release Notes</a></li>
+  <li><a href="#best-practices-and-community-resources" id="toc-best-practices-and-community-resources" class="nav-link" data-scroll-target="#best-practices-and-community-resources">Best Practices and Community Resources</a></li>
+  <li><a href="#related-articles-in-this-series" id="toc-related-articles-in-this-series" class="nav-link" data-scroll-target="#related-articles-in-this-series">Related Articles in This Series</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/40.00 Technical writing/04-code-documentation-excellence.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/05.02 PromptEngineering/05.00 how_to_structure_content_for_copilot_instruction_files.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item"><a href="../../03.00 tech/40.00 Technical writing/00-foundations-of-technical-documentation.html">Technical Writing</a></li><li class="breadcrumb-item"><a href="../../03.00 tech/40.00 Technical writing/04-code-documentation-excellence.html">Code Documentation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Technologies</li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/01.00 how_github_copilot_uses_markdown_and_prompt_folders.html">Prompt Engineering</a></li><li class="breadcrumb-item"><a href="../../03.00 tech/05.02 PromptEngineering/05.00 how_to_structure_content_for_copilot_instruction_files.html">How to Structure Content for GitHub Copilot Instruction Files</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Code Documentation Excellence</h1>
+<h1 class="title">How to Structure Content for GitHub Copilot Instruction Files</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">technical-writing</div>
-    <div class="quarto-category">code-documentation</div>
-    <div class="quarto-category">api-reference</div>
-    <div class="quarto-category">error-messages</div>
-    <div class="quarto-category">changelog</div>
+    <div class="quarto-category">tech</div>
+    <div class="quarto-category">prompt-engineering</div>
+    <div class="quarto-category">github-copilot</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Master code documentation through API reference standards, inline comment best practices, error message design, code example patterns, and changelog conventions
+    Learn how to create effective instruction files for GitHub Copilot with best practices for structure, scope, and limitations to ensure maximum reliability and avoid unwanted behaviors.
   </div>
 </div>
 
@@ -3024,7 +3056,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 14, 2026</p>
+      <p class="date">December 11, 2025</p>
     </div>
   </div>
   
@@ -3036,818 +3068,1205 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="code-documentation-excellence" class="level1">
-<h1>Code Documentation Excellence</h1>
-<blockquote class="blockquote">
-<p>Write code documentation that developers actually read and find useful—from API references to error messages to changelogs</p>
-</blockquote>
+<section id="how-to-structure-content-for-github-copilot-instruction-files" class="level1">
+<h1>How to Structure Content for GitHub Copilot Instruction Files</h1>
+<p>Instruction files (<mark><code>.instructions.md</code></mark>) are a powerful way to provide <mark>context-specific guidelines</mark> that automatically apply to files matching specific patterns.<br>
+Unlike prompt files (which are invoked on-demand) or agent files (which define persistent personas), <mark>instruction files work silently in the background</mark>, influencing Copilot’s behavior whenever you work with matching files.</p>
+<p>This article explores how to structure instruction files effectively, understanding their limitations, and avoiding common pitfalls that can lead to unwanted bias, confusion, or distraction.</p>
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#api-reference-documentation">API Reference Documentation</a></li>
-<li><a href="#inline-code-comments">Inline Code Comments</a></li>
-<li><a href="#code-examples-in-documentation">Code Examples in Documentation</a></li>
-<li><a href="#error-message-design">Error Message Design</a></li>
-<li><a href="#changelog-and-release-notes">Changelog and Release Notes</a></li>
-<li><a href="#readme-files">README Files</a></li>
-<li><a href="#documentation-generators">Documentation Generators</a></li>
-<li><a href="#applying-code-documentation-standards">Applying Code Documentation Standards</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-</section>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Code documentation occupies a unique position—it lives at the intersection of technical precision and human communication. Developers read it while debugging at 2 AM, implementing features under deadline pressure, or trying to understand code they wrote six months ago.</p>
-<p>This article covers:</p>
-<ul>
-<li><strong>API references</strong> - Structured documentation for functions, classes, and endpoints</li>
-<li><strong>Inline comments</strong> - When and how to comment within code</li>
-<li><strong>Code examples</strong> - Patterns for effective documentation examples</li>
-<li><strong>Error messages</strong> - Writing errors that help rather than frustrate</li>
-<li><strong>Changelogs</strong> - Communicating changes clearly to users</li>
-<li><strong>READMEs</strong> - First impressions that set projects up for success</li>
-</ul>
-<p><strong>Prerequisites:</strong> Understanding of <a href="../../03.00 tech/40.00 Technical writing/01-writing-style-and-voice-principles.html">writing style principles</a> and <a href="../../03.00 tech/40.00 Technical writing/02-structure-and-information-architecture.html">documentation structure</a>.</p>
-</section>
-<section id="api-reference-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="api-reference-documentation">API Reference Documentation</h2>
-<p>API reference documentation must be simultaneously <strong>comprehensive</strong> (complete information) and <strong>scannable</strong> (quickly findable). This creates a unique writing challenge.</p>
-<section id="anatomy-of-good-api-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="anatomy-of-good-api-documentation">Anatomy of Good API Documentation</h3>
-<p>Each API element (function, method, endpoint) should include:</p>
-<p><strong>1. Signature/Syntax</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_user(name: <span class="bu">str</span>, email: <span class="bu">str</span>, role: <span class="bu">str</span> <span class="op">=</span> <span class="st">"user"</span>) <span class="op">-&gt;</span> User:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>2. Brief description (one line)</strong> &gt; Creates a new user account with the specified attributes.</p>
-<p><strong>3. Detailed description (if needed)</strong> &gt; Creates a new user account and sends a welcome email. The user is assigned the default permission set for their role. If the email already exists, raises <code>DuplicateUserError</code>.</p>
-<p><strong>4. Parameters</strong> | Parameter | Type | Required | Description | |———–|——|———-|————-| | <code>name</code> | <code>str</code> | Yes | User’s display name (2-50 characters) | | <code>email</code> | <code>str</code> | Yes | Valid email address | | <code>role</code> | <code>str</code> | No | User role. Default: <code>"user"</code>. Options: <code>"user"</code>, <code>"admin"</code> |</p>
-<p><strong>5. Return value</strong> &gt; <strong>Returns:</strong> <code>User</code> - The newly created user object with <code>id</code>, <code>name</code>, <code>email</code>, <code>role</code>, and <code>created_at</code> fields populated.</p>
-<p><strong>6. Exceptions/Errors</strong> | Exception | Condition | |———–|———–| | <code>DuplicateUserError</code> | Email already registered | | <code>ValidationError</code> | Invalid name or email format | | <code>PermissionError</code> | Caller lacks user creation permission |</p>
-<p><strong>7. Example</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> create_user(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Alice Developer"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    email<span class="op">=</span><span class="st">"alice@example.com"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    role<span class="op">=</span><span class="st">"admin"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Created user </span><span class="sc">{</span>user<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>user<span class="sc">.</span>name<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>8. Related items</strong> &gt; See also: <code>delete_user()</code>, <code>update_user()</code>, <code>get_user()</code></p>
-</section>
-<section id="rest-api-documentation-pattern" class="level3">
-<h3 class="anchored" data-anchor-id="rest-api-documentation-pattern">REST API Documentation Pattern</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## POST /users</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Creates a new user account.</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Request</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>**Headers**</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>| Header | Value | Required |</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>|--------|-------|----------|</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>| <span class="in">`Authorization`</span> | <span class="in">`Bearer {token}`</span> | Yes |</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>| <span class="in">`Content-Type`</span> | <span class="in">`application/json`</span> | Yes |</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>**Body Parameters**</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>| Field | Type | Required | Description |</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>|-------|------|----------|-------------|</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>| <span class="in">`name`</span> | string | Yes | Display name (2-50 chars) |</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>| <span class="in">`email`</span> | string | Yes | Valid email address |</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>| <span class="in">`role`</span> | string | No | <span class="in">`"user"`</span> (default) or <span class="in">`"admin"`</span> |</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>**Example Request**</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST https://api.example.com/users <span class="dt">\</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">"Authorization: Bearer your-token"</span> <span class="dt">\</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">-d</span> <span class="st">'{"name": "Alice", "email": "alice@example.com"}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="response" class="level3">
-<h3 class="anchored" data-anchor-id="response">Response</h3>
-<p><strong>Success (201 Created)</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"usr_123abc"</span><span class="fu">,</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"email"</span><span class="fu">:</span> <span class="st">"alice@example.com"</span><span class="fu">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"role"</span><span class="fu">:</span> <span class="st">"user"</span><span class="fu">,</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2026-01-14T10:30:00Z"</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Errors</strong> | Status | Code | Description | |——–|——|————-| | 400 | <code>INVALID_EMAIL</code> | Email format invalid | | 409 | <code>EMAIL_EXISTS</code> | Email already registered | | 401 | <code>UNAUTHORIZED</code> | Invalid or missing token |</p>
-<pre><code>
-### API Documentation Anti-Patterns
-
-❌ **Missing parameter details:**
-```markdown
-## create_user(name, email, role)
-Creates a user.</code></pre>
-<p><em>What are the types? What values are valid? What happens if something’s wrong?</em></p>
-<p>❌ <strong>No examples:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="an">Parameters:</span><span class="co"> name (string), email (string), role (string)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">Returns:</span><span class="co"> User object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Show me what it looks like in practice.</em></p>
-<p>❌ <strong>Incomplete error documentation:</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="an">Throws:</span><span class="co"> Error</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>What kind of error? When? What should I do about it?</em></p>
-</section>
-<section id="api-documentation-from-major-projects" class="level3">
-<h3 class="anchored" data-anchor-id="api-documentation-from-major-projects">API Documentation from Major Projects</h3>
-<p><strong>Microsoft Azure SDK pattern:</strong></p>
-<ul>
-<li>Summary + detailed description</li>
-<li>Parameters with types, defaults, constraints</li>
-<li>Return value with type and description</li>
-<li>Exceptions with conditions</li>
-<li>Multiple examples (basic, advanced, error handling)</li>
-<li>Thread safety notes</li>
-<li>Version availability</li>
-</ul>
-<p><strong>Stripe API pattern:</strong></p>
-<ul>
-<li>Interactive examples you can run</li>
-<li>Multiple language examples side-by-side</li>
-<li>Response objects fully documented</li>
-<li>Error codes searchable</li>
-<li>Idempotency key documentation</li>
-<li>Pagination guidance</li>
+<li><a href="#-understanding-instruction-files">🎯 Understanding Instruction Files</a></li>
+<li><a href="#-instruction-file-structure">📋 Instruction File Structure</a></li>
+<li><a href="#️-writing-effective-instructions">✍️ Writing Effective Instructions</a></li>
+<li><a href="#️-critical-limitations-and-boundaries">⚠️ Critical Limitations and Boundaries</a></li>
+<li><a href="#-common-pitfalls-and-how-to-avoid-them">🚫 Common Pitfalls and How to Avoid Them</a></li>
+<li><a href="#-advanced-patterns">🎨 Advanced Patterns</a></li>
+<li><a href="#-testing-and-validation">🧪 Testing and Validation</a></li>
+<li><a href="#-decision-framework">💡 Decision Framework</a></li>
+<li><a href="#-conclusion">🎯 Conclusion</a></li>
+<li><a href="#-references">📚 References</a></li>
 </ul>
 </section>
 </section>
-<section id="inline-code-comments" class="level2">
-<h2 class="anchored" data-anchor-id="inline-code-comments">Inline Code Comments</h2>
-<p>Comments in code serve different purposes than external documentation. They explain <strong>why</strong>, not <strong>what</strong>.</p>
-<section id="the-golden-rule" class="level3">
-<h3 class="anchored" data-anchor-id="the-golden-rule">The Golden Rule</h3>
-<blockquote class="blockquote">
-<p>Code tells you <strong>how</strong>; comments tell you <strong>why</strong>.</p>
-</blockquote>
-<p>✅ <strong>Good comment (explains why):</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use insertion sort for small arrays (&lt;10 elements)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># because quicksort's overhead outweighs its benefits</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(array) <span class="op">&lt;</span> <span class="dv">10</span>:</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> insertion_sort(array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>❌ <strong>Bad comment (restates code):</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if length is less than 10</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(array) <span class="op">&lt;</span> <span class="dv">10</span>:</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return insertion sort result</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> insertion_sort(array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="when-to-comment" class="level3">
-<h3 class="anchored" data-anchor-id="when-to-comment">When to Comment</h3>
-<p><strong>Comment when:</strong></p>
-<ul>
-<li>Explaining non-obvious decisions</li>
-<li>Documenting workarounds for bugs (with issue links)</li>
-<li>Clarifying complex algorithms</li>
-<li>Warning about non-obvious side effects</li>
-<li>Noting performance implications</li>
-</ul>
-<p><strong>Don’t comment when:</strong></p>
-<ul>
-<li>Code is self-explanatory</li>
-<li>Comment would just repeat variable/function names</li>
-<li>Better solution is to rename or refactor</li>
-</ul>
-</section>
-<section id="comment-patterns" class="level3">
-<h3 class="anchored" data-anchor-id="comment-patterns">Comment Patterns</h3>
-<p><strong>TODO comments:</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">(username): Implement caching for performance</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Replace with proper authentication (#123)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>FIXME comments:</strong></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">FIXME</span><span class="co">: This breaks with Unicode characters. See issue #456</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Warning comments:</strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">WARNING</span><span class="co">: This function modifies global state</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">WARNING</span><span class="co">: Not thread-safe; use with lock in concurrent contexts</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Documentation comments (docstrings):</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_shipping(weight: <span class="bu">float</span>, destination: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate shipping cost based on weight and destination.</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses flat rate for domestic orders under 2kg,</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">    otherwise calculates based on weight bands.</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">        weight: Package weight in kilograms</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">        destination: Two-letter country code</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">        Shipping cost in USD</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">    Raises:</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">        ValueError: If weight is negative or destination unknown</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="documentation-string-standards" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-string-standards">Documentation String Standards</h3>
-<p><strong>Python (PEP 257 / Google style):</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function(arg1, arg2):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Summary line (one line).</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Extended description if needed. Can span</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">    multiple paragraphs.</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">        arg1: Description of arg1.</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">        arg2: Description of arg2.</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">        Description of return value.</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Raises:</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">        ErrorType: When this error occurs.</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>C# (XML documentation):</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">/// </span><span class="kw">&lt;summary&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">/// Creates a new user account with the specified attributes.</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">/// </span><span class="kw">&lt;/summary&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">/// </span><span class="kw">&lt;param</span><span class="ot"> name=</span><span class="dt">"name"</span><span class="kw">&gt;</span><span class="co">User's display name (2-50 characters)</span><span class="kw">&lt;/param&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">/// </span><span class="kw">&lt;param</span><span class="ot"> name=</span><span class="dt">"email"</span><span class="kw">&gt;</span><span class="co">Valid email address</span><span class="kw">&lt;/param&gt;</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">/// </span><span class="kw">&lt;returns&gt;</span><span class="co">The newly created user object</span><span class="kw">&lt;/returns&gt;</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">/// </span><span class="kw">&lt;exception</span><span class="ot"> cref=</span><span class="dt">"DuplicateUserException"</span><span class="kw">&gt;</span><span class="co">Email already registered</span><span class="kw">&lt;/exception&gt;</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> User <span class="fu">CreateUser</span><span class="op">(</span><span class="dt">string</span> name<span class="op">,</span> <span class="dt">string</span> email<span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>JavaScript (JSDoc):</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * Creates a new user account.</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> name - User's display name</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> email - Valid email address</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@returns</span><span class="co"> {User} The newly created user</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@throws</span><span class="co"> </span><span class="cv">{DuplicateUserError}</span><span class="co"> If email exists</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">createUser</span>(name<span class="op">,</span> email) {</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="code-examples-in-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="code-examples-in-documentation">Code Examples in Documentation</h2>
-<p>Code examples are often the most-read part of documentation. Users scan to examples, copy them, modify them. Good examples make or break developer experience.</p>
-<section id="example-characteristics" class="level3">
-<h3 class="anchored" data-anchor-id="example-characteristics">Example Characteristics</h3>
-<p><strong>Complete:</strong> Can be copied and run with minimal modification <strong>Realistic:</strong> Resembles actual use cases, not abstract demos <strong>Progressive:</strong> Start simple, build complexity <strong>Commented:</strong> Explain non-obvious parts <strong>Tested:</strong> Verified to work (ideally via automated testing)</p>
-</section>
-<section id="example-patterns" class="level3">
-<h3 class="anchored" data-anchor-id="example-patterns">Example Patterns</h3>
-<p><strong>Pattern 1: Basic → Advanced progression</strong></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Basic Usage</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Get a single user by ID:</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> client.get_user(<span class="st">"usr_123"</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(user.name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="with-error-handling" class="level3">
-<h3 class="anchored" data-anchor-id="with-error-handling">With Error Handling</h3>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> client.get_user(<span class="st">"usr_123"</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(user.name)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> NotFoundError:</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"User not found"</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> AuthenticationError:</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Check your API key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="async-usage" class="level3">
-<h3 class="anchored" data-anchor-id="async-usage">Async Usage</h3>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> fetch_user(user_id):</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> AsyncClient(api_key<span class="op">=</span>KEY) <span class="im">as</span> client:</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="cf">await</span> client.get_user(user_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>
-**Pattern 2: Before/After transformation**
-
-```markdown
-### Before: Manual HTTP requests
-
-```python
-import requests
-
-response = requests.get(
-    "https://api.example.com/users/123",
-    headers={"Authorization": f"Bearer {token}"}
-)
-user = response.json()</code></pre>
-</section>
-<section id="after-using-our-sdk" class="level3">
-<h3 class="anchored" data-anchor-id="after-using-our-sdk">After: Using our SDK</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> client.get_user(<span class="st">"usr_123"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>
-**Pattern 3: Common scenarios**
-
-```markdown
-## Common Tasks
-
-### Create a user and send welcome email
-
-```python
-user = client.create_user(name="Alice", email="alice@example.com")
-client.send_welcome_email(user.id)</code></pre>
-</section>
-<section id="bulk-import-users-from-csv" class="level3">
-<h3 class="anchored" data-anchor-id="bulk-import-users-from-csv">Bulk import users from CSV</h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"users.csv"</span>) <span class="im">as</span> f:</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> csv.DictReader(f):</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        client.create_user(name<span class="op">=</span>row[<span class="st">"name"</span>], email<span class="op">=</span>row[<span class="st">"email"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>
-### Example Anti-Patterns
-
-❌ **Incomplete example:**
-```python
-# Create a user
-user = create_user(...)</code></pre>
-<p><em>What arguments? What imports are needed?</em></p>
-<p>❌ <strong>Unrealistic example:</strong></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> create_user(<span class="st">"foo"</span>, <span class="st">"bar"</span>, <span class="st">"baz"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>What are foo, bar, baz? Use realistic values.</em></p>
-<p>❌ <strong>Too much in one example:</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 50-line example doing five different things</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Break into focused examples.</em></p>
-<p>❌ <strong>Examples that don’t work:</strong></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example written but never tested</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Contains syntax error on line 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Test all examples before publishing.</em></p>
-</section>
-<section id="multi-language-examples" class="level3">
-<h3 class="anchored" data-anchor-id="multi-language-examples">Multi-Language Examples</h3>
-<p>For APIs used from multiple languages, provide examples in common languages:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>&lt;details&gt;</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>&lt;summary&gt;Python&lt;/summary&gt;</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> client.get_user(<span class="st">"usr_123"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-<details>
-<summary>
-JavaScript
-</summary>
-<div class="sourceCode" id="cb29"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> user <span class="op">=</span> <span class="cf">await</span> client<span class="op">.</span><span class="fu">getUser</span>(<span class="st">"usr_123"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<details>
-<summary>
-cURL
-</summary>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://api.example.com/users/usr_123 <span class="dt">\</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-H</span> <span class="st">"Authorization: Bearer </span><span class="va">$TOKEN</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<pre><code>
-## Error Message Design
-
-Error messages are documentation that appears when something goes wrong—precisely when users need the most help.
-
-### Good Error Messages
-
-**Components of a helpful error:**
-1. **What happened** - Clear description of the problem
-2. **Why it happened** - Context about the cause
-3. **What to do** - Actionable next steps
-
-### Error Message Patterns
-
-**Pattern: Full context**</code></pre>
-<p>Error: Cannot connect to database Cause: Connection refused at localhost:5432 Action: Ensure PostgreSQL is running: <code>systemctl start postgresql</code></p>
-<pre><code>
-**Pattern: With error codes**</code></pre>
-<p>Error [AUTH_001]: Invalid authentication token The token has expired or is malformed. Get a new token: https://docs.example.com/auth</p>
-<pre><code>
-**Pattern: Multiple possible causes**</code></pre>
-<p>Error: Build failed</p>
-<p>Possible causes:</p>
-<ol type="1">
-<li>Missing dependencies - Run <code>npm install</code></li>
-<li>Invalid configuration - Check tsconfig.json syntax</li>
-<li>Network issue - Verify proxy settings</li>
-</ol>
-<p>For detailed logs: build-output.log</p>
-<pre><code>
-### Error Message Anti-Patterns
-
-❌ **Cryptic:**</code></pre>
-<p>Error: ECONNREFUSED</p>
-<pre><code>*What refused? How do I fix it?*
-
-❌ **Blaming the user:**</code></pre>
-<p>Error: You entered an invalid email</p>
-<pre><code>*Use neutral language: "Invalid email format"*
-
-❌ **Too technical:**</code></pre>
-<p>NullPointerException at com.example.service.UserService.createUser(UserService.java:142)</p>
-<pre><code>*For end users, wrap in friendly message*
-
-❌ **No path forward:**</code></pre>
-<p>Error: Operation failed</p>
-<pre><code>*What operation? What should I try?*
-
-### Error Documentation
-
-Document errors in your API reference:
-
-```markdown
-## Errors
-
-### AuthenticationError
-
-Raised when authentication fails.
-
-**Causes:**
-- Invalid API key
-- Expired token
-- Revoked credentials
-
-**Resolution:**
-1. Verify API key in dashboard
-2. Generate new token if expired
-3. Contact support if credentials revoked
-
-**Example:**
-```python
-try:
-    client.create_user(...)
-except AuthenticationError as e:
-    print(f"Auth failed: {e.message}")
-    print(f"Error code: {e.code}")
-    # e.code will be one of: INVALID_KEY, EXPIRED_TOKEN, REVOKED</code></pre>
-<pre><code>
-## Changelog and Release Notes
-
-Changelogs communicate what changed between versions. They serve multiple audiences: developers upgrading, managers evaluating, and security teams auditing.
-
-### Keep a Changelog Format
-
-The [Keep a Changelog](https://keepachangelog.com/) standard provides a proven format:
-
-```markdown
-# Changelog
-
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [Unreleased]
-
-### Added
-- French translation
-
-## [1.1.0] - 2026-01-14
-
-### Added
-- OAuth 2.0 authentication support
-- Rate limiting configuration options
-
-### Changed
-- Improved error messages with error codes
-- Updated minimum Python version to 3.9
-
-### Deprecated
-- API key authentication (use OAuth instead)
-
-### Fixed
-- Memory leak in connection pooling (#234)
-- Incorrect date parsing for ISO 8601 (#256)
-
-### Security
-- Updated dependencies to address CVE-2026-1234
-
-## [1.0.0] - 2025-12-01
-
-### Added
-- Initial release</code></pre>
-</section>
-<section id="change-categories" class="level3">
-<h3 class="anchored" data-anchor-id="change-categories">Change Categories</h3>
-<ul>
-<li><strong>Added</strong> - New features</li>
-<li><strong>Changed</strong> - Changes to existing functionality</li>
-<li><strong>Deprecated</strong> - Features to be removed in future</li>
-<li><strong>Removed</strong> - Features removed in this release</li>
-<li><strong>Fixed</strong> - Bug fixes</li>
-<li><strong>Security</strong> - Security-related changes</li>
-</ul>
-</section>
-<section id="writing-good-changelog-entries" class="level3">
-<h3 class="anchored" data-anchor-id="writing-good-changelog-entries">Writing Good Changelog Entries</h3>
-<p>✅ <strong>Good entries:</strong></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Added</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>OAuth 2.0 support with authorization code and client credentials flows</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fixed</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Connection timeout now properly respects configured value (#234)</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Security</span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Updated <span class="in">`requests`</span> to 2.28.0 to address SSRF vulnerability (CVE-2026-1234)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>❌ <strong>Bad entries:</strong></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Changed</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Various improvements</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bug fixes</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Updated dependencies</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="changelog-vs.-release-notes" class="level3">
-<h3 class="anchored" data-anchor-id="changelog-vs.-release-notes">Changelog vs.&nbsp;Release Notes</h3>
-<p><strong>Changelog:</strong> Complete record of all changes, primarily for developers <strong>Release notes:</strong> Curated highlights for broader audience</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Release Notes - v1.1.0</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Highlights</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>**OAuth 2.0 Support** 🎉</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>We've added full OAuth 2.0 authentication! Migrate from API keys for better security.</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Migration guide →</span><span class="co">](./oauth-migration.md)</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>**Better Error Messages**</span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>All errors now include error codes and actionable suggestions.</span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breaking Changes</span></span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>None in this release.</span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Upgrade Notes</span></span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Minimum Python version is now 3.9</span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>API key authentication is deprecated (removed in v2.0)</span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Full changelog →</span><span class="co">](./CHANGELOG.md#110---2026-01-14)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="readme-files" class="level2">
-<h2 class="anchored" data-anchor-id="readme-files">README Files</h2>
-<p>The README is often the first documentation users see. It must quickly convey what a project does and how to get started.</p>
-<section id="readme-structure" class="level3">
-<h3 class="anchored" data-anchor-id="readme-structure">README Structure</h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Project Name</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>One-paragraph description: what it does, who it's for.</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Features</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Feature 1</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Feature 2</span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quick Start</span></span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install project-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> project <span class="im">import</span> Client</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> Client(api_key<span class="op">=</span><span class="st">"..."</span>)</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> client.do_thing()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="documentation" class="level2">
-<h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
-<ul>
-<li><a href="https://docs.example.com">Full documentation</a></li>
-<li><a href="https://docs.example.com/api">API reference</a></li>
-</ul>
-</section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>Detailed installation instructions…</p>
-</section>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">Usage</h2>
-<p>More detailed usage examples…</p>
-</section>
-<section id="contributing" class="level2">
-<h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
-<p><a href="./CONTRIBUTING.md">See CONTRIBUTING.md</a></p>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>MIT License - see <a href="./LICENSE">LICENSE</a></p>
-<pre><code>
-### README Best Practices
-
-**1. Lead with value**
-- What problem does this solve?
-- Why would someone use this?
-
-**2. Show, don't tell**
-- Include working code example in first 30 seconds of reading
-- Use badges for build status, version, etc.
-
-**3. Make it scannable**
-- Clear headings
-- Bullet lists
-- Code blocks
-
-**4. Keep it current**
-- README lies are worse than no README
-- Automate what you can (version badges, etc.)
-
-### README for This Repository
-
-From [README.md](../../README.md):
-- **Purpose statement:** What this repository contains
-- **Structure overview:** How content is organized
-- **Getting started:** Links to setup documentation
-- **Navigation aids:** Links to key sections
-
-## Documentation Generators
-
-Many languages have documentation generators that produce reference documentation from code comments.
-
-### Popular Documentation Generators
-
-| Language | Tool | Comment Style |
-|----------|------|---------------|
-| Python | Sphinx, pdoc | Docstrings (various formats) |
-| JavaScript | JSDoc, TypeDoc | JSDoc comments |
-| C# | DocFX, Sandcastle | XML comments |
-| Java | Javadoc | Javadoc comments |
-| Go | godoc | Standard comments |
-| Rust | rustdoc | Documentation comments |
-
-### Documentation Generator Best Practices
-
-**1. Write for both human and machine readers**
-```python
-def create_user(name: str, email: str) -&gt; User:
-    """
-    Create a new user account.
-
-    This function validates the email format and checks for duplicates
-    before creating the user record. A welcome email is sent automatically.
-
-    Args:
-        name: User's display name. Must be 2-50 characters.
-        email: Valid email address. Must not already be registered.
-
-    Returns:
-        User: The newly created user with populated id and timestamps.
-
-    Raises:
-        ValidationError: If name or email format is invalid.
-        DuplicateUserError: If email is already registered.
-
-    Example:
-        &gt;&gt;&gt; user = create_user("Alice", "alice@example.com")
-        &gt;&gt;&gt; print(user.id)
-        'usr_abc123'
-    """</code></pre>
-<p><strong>2. Use type hints/annotations</strong></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Types in signature help generators produce better documentation</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_users(</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    limit: <span class="bu">int</span> <span class="op">=</span> <span class="dv">10</span>,</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    offset: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>,</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    role: Optional[<span class="bu">str</span>] <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> List[User]:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>3. Document at the right level</strong></p>
-<ul>
-<li>Public API: Full documentation</li>
-<li>Internal API: Brief documentation</li>
-<li>Private helpers: Minimal or none</li>
-</ul>
-<p><strong>4. Keep generated docs with source</strong></p>
-<ul>
-<li>Version control generated documentation</li>
-<li>Or regenerate as part of CI/CD</li>
-</ul>
-</section>
-<section id="applying-code-documentation-standards" class="level2">
-<h2 class="anchored" data-anchor-id="applying-code-documentation-standards">Applying Code Documentation Standards</h2>
-<section id="this-repositorys-code" class="level3">
-<h3 class="anchored" data-anchor-id="this-repositorys-code">This Repository’s Code</h3>
-<p><strong>IQPilot MCP Server</strong> (from <a href="../../src/IQPilot/">src/IQPilot/</a>):</p>
-<ul>
-<li>C# XML documentation comments</li>
-<li>README with setup instructions</li>
-<li>Inline comments for complex logic</li>
-</ul>
-<p><strong>PowerShell Scripts</strong> (from <a href="../../scripts/">scripts/</a>):</p>
-<ul>
-<li>Comment-based help</li>
-<li>README.md for the scripts folder</li>
-</ul>
-</section>
-<section id="documentation-standards-by-file-type" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-standards-by-file-type">Documentation Standards by File Type</h3>
+<section id="understanding-instruction-files" class="level1">
+<h1>🎯 Understanding Instruction Files</h1>
+<section id="what-are-instruction-files" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-instruction-files">What Are Instruction Files?</h2>
+<p><mark><strong>Instruction files</strong></mark> define coding standards, best practices, and contextual rules that <mark><strong>automatically apply when working with specific files or file types</strong></mark>. They’re stored in <code>.github/instructions/</code> (workspace-level) or your VS Code user profile (user-level) and use glob patterns to determine when they activate.</p>
+<section id="key-characteristics" class="level3">
+<h3 class="anchored" data-anchor-id="key-characteristics">Key Characteristics</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>File Type</th>
-<th>Documentation Standard</th>
+<th>Aspect</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>.cs</code></td>
-<td>XML documentation comments</td>
+<td><strong>Extension</strong></td>
+<td><code>.instructions.md</code></td>
 </tr>
 <tr class="even">
-<td><code>.py</code></td>
-<td>Google-style docstrings</td>
+<td><strong>Activation</strong></td>
+<td><mark>Automatic based on <code>applyTo</code> pattern</mark></td>
 </tr>
 <tr class="odd">
-<td><code>.ps1</code></td>
-<td>Comment-based help</td>
+<td><strong>Scope</strong></td>
+<td>File/directory-specific or project-wide</td>
 </tr>
 <tr class="even">
-<td><code>.md</code></td>
-<td>N/A (is documentation)</td>
+<td><strong>Visibility</strong></td>
+<td><mark>Silent - not shown in chat but applied to context</mark></td>
 </tr>
 <tr class="odd">
-<td><code>.json</code>/<code>.yml</code></td>
-<td>Inline comments where supported</td>
+<td><strong>Priority</strong></td>
+<td>Combined with other instructions (no specific order guaranteed)</td>
+</tr>
+<tr class="even">
+<td><strong>Tool Control</strong></td>
+<td>None (relies on agent/prompt tool configuration)</td>
+</tr>
+<tr class="odd">
+<td><strong>Execution Contexts</strong></td>
+<td>Works across all agent contexts: local, background, and cloud (v1.107+)</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="code-example-standards" class="level3">
-<h3 class="anchored" data-anchor-id="code-example-standards">Code Example Standards</h3>
-<p>For documentation in this repository:</p>
-<p><strong>Include language identifier:</strong></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Not just ``` but ```python</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Show realistic values:</strong></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Not foo/bar but realistic data</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> create_user(name<span class="op">=</span><span class="st">"Alice Developer"</span>, email<span class="op">=</span><span class="st">"alice@example.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Indicate placeholder values:</strong></p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> APIClient(api_key<span class="op">=</span><span class="st">"YOUR_API_KEY"</span>)  <span class="co"># ← Replace with your key</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Test examples before publishing:</strong></p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All examples should be runnable</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Consider automated testing of documentation examples</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Code documentation requires balancing completeness with usability. Key principles:</p>
-<p><strong>API reference needs completeness</strong> - Parameters, returns, errors, examples for every public element</p>
-<p><strong>Comments explain why, not what</strong> - Code shows how; comments provide context</p>
-<p><strong>Examples are often most valuable</strong> - Realistic, complete, progressive examples that users can copy and modify</p>
-<p><strong>Error messages are documentation</strong> - Write errors that help users solve problems</p>
-<p><strong>Changelogs track history</strong> - Keep a Changelog format with meaningful entries</p>
-<p><strong>READMEs create first impressions</strong> - Lead with value, show working code quickly</p>
-<p><strong>Next in series:</strong></p>
+<section id="when-to-use-instruction-files" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-instruction-files">When to Use Instruction Files</h2>
+<p><strong>✅ Use instruction files for:</strong></p>
 <ul>
-<li><a href="../../03.00 tech/40.00 Technical writing/05-validation-and-quality-assurance.html">05-validation-and-quality-assurance.md</a> - Validating code documentation quality</li>
-<li><a href="../../03.00 tech/40.00 Technical writing/00-foundations-of-technical-documentation.html">00-foundations-of-technical-documentation.md</a> - How reference documentation fits Diátaxis</li>
-<li><a href="../../03.00 tech/40.00 Technical writing/03-accessibility-in-technical-writing.html">03-accessibility-in-technical-writing.md</a> - Accessible code examples</li>
+<li><strong>Coding standards</strong> - Language-specific conventions (e.g., Python PEP 8, C# naming conventions)</li>
+<li><strong>Framework guidelines</strong> - React component patterns, API design rules</li>
+<li><strong>Security requirements</strong> - Authentication checks, input validation rules</li>
+<li><strong>Documentation standards</strong> - Comment styles, README requirements</li>
+<li><strong>Build/test patterns</strong> - Test file structure, CI/CD requirements</li>
+</ul>
+<p><strong>❌ Don’t use instruction files for:</strong></p>
+<ul>
+<li><strong>Task-specific workflows</strong> - Use prompt files instead (e.g., “generate component with tests”)</li>
+<li><strong>One-time operations</strong> - Use chat commands or inline chat</li>
+<li><strong>Persona definition</strong> - Use agent files instead (e.g., “security reviewer” role)</li>
+<li><strong>Complex multi-step processes</strong> - Use prompts or agents with workflow capabilities</li>
 </ul>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<section id="api-documentation-standards" class="level3">
-<h3 class="anchored" data-anchor-id="api-documentation-standards">API Documentation Standards</h3>
-<p><strong><a href="https://cloud.google.com/apis/design">Google API Design Guide</a></strong> 📘 [Official]<br>
-Google’s comprehensive guide to designing REST APIs, including documentation requirements.</p>
-<p><strong><a href="https://github.com/microsoft/api-guidelines">Microsoft REST API Guidelines</a></strong> 📘 [Official]<br>
-Microsoft’s REST API design and documentation standards.</p>
-<p><strong><a href="https://stripe.com/docs/api">Stripe API Documentation</a></strong> 📗 [Verified Community]<br>
-Widely considered best-in-class API documentation, worth studying as a model.</p>
-<p><strong><a href="https://spec.openapis.org/oas/latest.html">OpenAPI Specification</a></strong> 📘 [Official]<br>
-Standard for describing REST APIs, enabling documentation generation.</p>
 </section>
-<section id="code-comment-standards" class="level3">
-<h3 class="anchored" data-anchor-id="code-comment-standards">Code Comment Standards</h3>
-<p><strong><a href="https://peps.python.org/pep-0257/">PEP 257 - Docstring Conventions</a></strong> 📘 [Official]<br>
-Python’s official docstring standard.</p>
-<p><strong><a href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">Google Python Style Guide - Docstrings</a></strong> 📘 [Official]<br>
-Google’s Python docstring conventions, widely adopted.</p>
-<p><strong><a href="https://jsdoc.app/">JSDoc Documentation</a></strong> 📘 [Official]<br>
-Standard for JavaScript documentation comments.</p>
-<p><strong><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/xmldoc/">XML Documentation Comments (C#)</a></strong> 📘 [Official]<br>
-Microsoft’s C# documentation comment standard.</p>
+<section id="instruction-file-structure" class="level1">
+<h1>📋 Instruction File Structure</h1>
+<section id="file-format" class="level2">
+<h2 class="anchored" data-anchor-id="file-format">File Format</h2>
+<p>Instruction files are Markdown documents with an optional YAML frontmatter header:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Brief description of these instructions"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> "Display name (defaults to filename)"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">applyTo:</span><span class="co"> "**/*.ts,**/*.tsx"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">excludeAgent:</span><span class="co"> "code-review"  # Optional: exclude from specific agents</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># Instruction Body</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Your coding standards and guidelines in Markdown format.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="error-message-design" class="level3">
-<h3 class="anchored" data-anchor-id="error-message-design">Error Message Design</h3>
-<p><strong><a href="https://learn.microsoft.com/windows/win32/uxguide/mess-error">Microsoft Error Message Guidelines</a></strong> 📘 [Official]<br>
-Microsoft’s comprehensive guide to writing error messages.</p>
-<p><strong><a href="https://www.nngroup.com/articles/error-message-guidelines/">Nielsen Norman Group - Error Message Guidelines</a></strong> 📗 [Verified Community]<br>
-UX research-backed guidance on error messages.</p>
+<section id="yaml-frontmatter-fields" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-frontmatter-fields">YAML Frontmatter Fields</h2>
+<section id="required-fields" class="level3">
+<h3 class="anchored" data-anchor-id="required-fields">Required Fields</h3>
+<p>None - all frontmatter is optional, but <code>applyTo</code> is highly recommended.</p>
 </section>
-<section id="changelog-standards" class="level3">
-<h3 class="anchored" data-anchor-id="changelog-standards">Changelog Standards</h3>
-<p><strong><a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a></strong> 📗 [Verified Community]<br>
-De facto standard for changelog formatting.</p>
-<p><strong><a href="https://semver.org/">Semantic Versioning</a></strong> 📗 [Verified Community]<br>
-Versioning standard that pairs with changelogs.</p>
+<section id="optional-fields" class="level3">
+<h3 class="anchored" data-anchor-id="optional-fields">Optional Fields</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 17%">
+<col style="width: 37%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>description</code></td>
+<td>String</td>
+<td>Brief description shown in UI</td>
+<td><code>"TypeScript coding standards"</code></td>
+</tr>
+<tr class="even">
+<td><code>name</code></td>
+<td>String</td>
+<td>Display name (defaults to filename without extension)</td>
+<td><code>"React Guidelines"</code></td>
+</tr>
+<tr class="odd">
+<td><code>applyTo</code></td>
+<td>String</td>
+<td><mark><strong>Glob pattern(s) for file matching</strong></mark></td>
+<td><code>"**/*.py"</code> or <code>"**/*.ts,**/*.tsx"</code></td>
+</tr>
+<tr class="even">
+<td><code>excludeAgent</code></td>
+<td>String</td>
+<td>Exclude from specific agents: <code>"code-review"</code> or <code>"coding-agent"</code></td>
+<td><code>"code-review"</code></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="readme-standards" class="level3">
-<h3 class="anchored" data-anchor-id="readme-standards">README Standards</h3>
-<p><strong><a href="https://www.makeareadme.com/">Make a README</a></strong> 📗 [Verified Community]<br>
-Guide to creating effective README files.</p>
-<p><strong><a href="https://github.com/RichardLitt/standard-readme">Standard Readme</a></strong> 📗 [Verified Community]<br>
-Specification for README structure and content.</p>
+<section id="applyto-pattern-examples" class="level3">
+<h3 class="anchored" data-anchor-id="applyto-pattern-examples">ApplyTo Pattern Examples</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>Matches</th>
+<th>Example Files</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>**/*.py</code></td>
+<td>All Python files recursively</td>
+<td><code>src/main.py</code>, <code>tests/test_api.py</code></td>
+</tr>
+<tr class="even">
+<td><code>**/*.ts,**/*.tsx</code></td>
+<td>All TypeScript files</td>
+<td><code>components/Button.tsx</code>, <code>utils/helpers.ts</code></td>
+</tr>
+<tr class="odd">
+<td><code>src/**/*.js</code></td>
+<td>JavaScript files under src/</td>
+<td><code>src/app.js</code>, <code>src/utils/format.js</code></td>
+</tr>
+<tr class="even">
+<td><code>**/test_*.py</code></td>
+<td>Python test files anywhere</td>
+<td><code>tests/test_user.py</code>, <code>src/tests/test_api.py</code></td>
+</tr>
+<tr class="odd">
+<td><code>docs/**/*.md</code></td>
+<td>Markdown files under docs/</td>
+<td><code>docs/README.md</code>, <code>docs/api/endpoints.md</code></td>
+</tr>
+<tr class="even">
+<td><code>**</code></td>
+<td>All files (use sparingly)</td>
+<td>Everything in workspace</td>
+</tr>
+</tbody>
+</table>
+<p><strong>⚠️ Important</strong>: <mark>If <code>applyTo</code> is omitted, instructions are <strong>not applied automatically</strong></mark> - you must attach them manually to chat requests.</p>
 </section>
-<section id="documentation-generators" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-generators">Documentation Generators</h3>
-<p><strong><a href="https://www.sphinx-doc.org/">Sphinx Documentation</a></strong> 📘 [Official]<br>
-Python documentation generator, used for major Python projects.</p>
-<p><strong><a href="https://dotnet.github.io/docfx/">DocFX</a></strong> 📘 [Official]<br>
-Microsoft’s documentation generator for .NET projects.</p>
-<p><strong><a href="https://typedoc.org/">TypeDoc</a></strong> 📗 [Verified Community]<br>
-Documentation generator for TypeScript projects.</p>
+</section>
+<section id="body-content" class="level2">
+<h2 class="anchored" data-anchor-id="body-content">Body Content</h2>
+<p>The instruction body contains your guidelines in Markdown format. This is where you define:</p>
+<ul>
+<li><strong>Coding standards</strong>: Naming conventions, formatting rules, code organization</li>
+<li><strong>Best practices</strong>: Security patterns, performance considerations, error handling</li>
+<li><strong>Framework-specific rules</strong>: Component structure, API design, testing patterns</li>
+<li><strong>Tool usage</strong>: Reference specific tools using <code>#tool:&lt;tool-name&gt;</code> syntax</li>
+</ul>
+<p><strong>Example structure:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">applyTo:</span><span class="co"> "**/*.tsx"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># React Component Guidelines</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Naming Conventions</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use PascalCase for component names</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use camelCase for props and handlers</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Prefix boolean props with <span class="in">`is`</span>, <span class="in">`has`</span>, or <span class="in">`should`</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Component Structure</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Functional components with TypeScript</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Props interface defined before component</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Hooks at the top of component body</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="in">```tsx</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">interface</span> ButtonProps {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> string<span class="op">;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">onClick</span><span class="op">:</span> () <span class="kw">=&gt;</span> <span class="kw">void</span><span class="op">;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  isDisabled<span class="op">?:</span> boolean<span class="op">;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> Button<span class="op">:</span> React<span class="op">.</span><span class="at">FC</span><span class="op">&lt;</span>ButtonProps<span class="op">&gt;</span> <span class="op">=</span> ({ label<span class="op">,</span> onClick<span class="op">,</span> isDisabled <span class="op">=</span> <span class="kw">false</span> }) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return </span><span class="kw">&lt;button</span> <span class="ot">onClick</span><span class="op">=</span><span class="va">{</span>onClick<span class="va">}</span> <span class="ot">disabled</span><span class="op">=</span><span class="va">{</span>isDisabled<span class="va">}</span><span class="kw">&gt;</span><span class="va">{</span>label<span class="va">}</span><span class="kw">&lt;/button&gt;</span><span class="op">;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tool-references" class="level2">
+<h2 class="anchored" data-anchor-id="tool-references">Tool References</h2>
+<p>Use #tool:codebase to find similar components before creating new ones.</p>
+<pre><code>
+# ✍️ Writing Effective Instructions
+
+## Core Principles
+
+### 1. Be Specific and Concise
+
+&lt;mark&gt;**Each instruction should be a single, clear statement**&lt;/mark&gt;. Avoid vague guidelines that can be interpreted multiple ways.
+
+**❌ Vague:**
+```markdown
+Write good code that follows best practices.</code></pre>
+<p><strong>✅ Specific:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use descriptive variable names (minimum 3 characters, except loop counters)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always include error handling for async operations</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add JSDoc comments for all exported functions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="focus-on-how-not-why" class="level3">
+<h3 class="anchored" data-anchor-id="focus-on-how-not-why">2. Focus on “How”, Not “Why”</h3>
+<p>Instructions should <mark>guide behavior, not explain rationale</mark> (unless the explanation is necessary for correct implementation).</p>
+<p><strong>❌ Too much explanation:</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>We use dependency injection because it makes code more testable and follows</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>SOLID principles. Dependency injection allows for better separation of concerns</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>and makes mocking easier during unit testing...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>✅ Actionable guidance:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inject dependencies through constructor parameters</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use interfaces for all injectable dependencies</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Register services in the DI container, not in constructors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="use-examples" class="level3">
+<h3 class="anchored" data-anchor-id="use-examples">3. Use Examples</h3>
+<p><mark>Examples demonstrate correct usage</mark> and help Copilot understand the pattern you want.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Error Handling Pattern</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>All API functions must include try-catch with proper error logging:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">```typescript</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">fetchUser</span>(id<span class="op">:</span> <span class="dt">string</span>)<span class="op">:</span> <span class="bu">Promise</span><span class="op">&lt;</span>User<span class="op">&gt;</span> {</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span> {</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> api<span class="op">.</span><span class="fu">get</span>(<span class="vs">`/users/</span><span class="sc">${</span>id<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response<span class="op">.</span><span class="at">data</span><span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">catch</span> (error) {</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    logger<span class="op">.</span><span class="fu">error</span>(<span class="st">'Failed to fetch user'</span><span class="op">,</span> { userId<span class="op">:</span> id<span class="op">,</span> error })<span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">AppError</span>(<span class="st">'User fetch failed'</span><span class="op">,</span> { cause<span class="op">:</span> error })<span class="op">;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>
+### 4. Organize by Topic
+
+&lt;mark&gt;Group related guidelines under clear headings&lt;/mark&gt;. This improves readability and helps Copilot apply relevant rules.
+
+```markdown
+## Naming Conventions
+- Classes: PascalCase
+- Variables/Functions: camelCase
+- Constants: UPPER_SNAKE_CASE
+
+## File Organization
+- One component per file
+- Co-locate tests with source: `Button.tsx` + `Button.test.tsx`
+- Keep utility functions in `utils/` directory
+
+## Security
+- Never commit secrets or API keys
+- Sanitize all user input before database operations
+- Use parameterized queries for SQL</code></pre>
+</section>
+<section id="reference-tools-when-appropriate" class="level3">
+<h3 class="anchored" data-anchor-id="reference-tools-when-appropriate">5. Reference Tools When Appropriate</h3>
+<p>Use the <code>#tool:&lt;tool-name&gt;</code> syntax to guide Copilot to use specific capabilities:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Before Creating New Components</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Use #tool:codebase to search for similar existing components.</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Use #tool:search to find component usage patterns.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="content-length-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="content-length-guidelines">Content Length Guidelines</h2>
+<p><mark><strong>Keep instruction files focused and concise</strong></mark>. While there’s no hard token limit for individual instruction files, length directly impacts how effectively Copilot applies your guidelines.</p>
+<section id="why-length-matters-for-instructions" class="level3">
+<h3 class="anchored" data-anchor-id="why-length-matters-for-instructions">Why Length Matters for Instructions</h3>
+<p>Unlike prompts and agents (which are invoked explicitly), instruction files are:</p>
+<ul>
+<li><strong>Automatically applied</strong> to every matching file interaction</li>
+<li><strong>Combined with other instructions</strong> when multiple patterns match</li>
+<li><strong>Added to every chat turn</strong> for matching files</li>
+<li><strong>Silent</strong> - users can’t see how much context they consume</li>
+</ul>
+<p><strong>The Compounding Effect:</strong></p>
+<pre><code>File: src/components/Button.tsx
+
+Active Instructions:
+├── copilot-instructions.md (300 tokens)
+├── react-guidelines.instructions.md (250 tokens)  
+├── typescript-standards.instructions.md (200 tokens)
+├── testing-requirements.instructions.md (150 tokens)
+└── accessibility-rules.instructions.md (100 tokens)
+= 1,000 tokens consumed before user even types a question</code></pre>
+</section>
+<section id="recommended-token-budgets" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-token-budgets">Recommended Token Budgets</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 36%">
+<col style="width: 29%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Scope</th>
+<th>Recommended Max</th>
+<th>Typical Size</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><mark>Single language/framework</mark></strong></td>
+<td>800 tokens (~600 words)</td>
+<td>400-600 tokens</td>
+<td>Python PEP 8 essentials</td>
+</tr>
+<tr class="even">
+<td><strong><mark>Project-wide general rules</mark></strong></td>
+<td>500 tokens (~375 words)</td>
+<td>200-400 tokens</td>
+<td>Company coding standards</td>
+</tr>
+<tr class="odd">
+<td><strong><mark>Specific feature/pattern</mark></strong></td>
+<td>300 tokens (~225 words)</td>
+<td>150-250 tokens</td>
+<td>API error handling pattern</td>
+</tr>
+<tr class="even">
+<td><strong><mark>Repository root (global)</mark></strong></td>
+<td>600 tokens (~450 words)</td>
+<td>300-500 tokens</td>
+<td><code>.github/copilot-instructions.md</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical Threshold:</strong> Instructions exceeding <strong>1,000 tokens</strong> (~750 words or 150 lines) should be split.</p>
+<p><strong>⚠️ If instructions exceed 1,000 tokens</strong>, you’ll see:</p>
+<ul>
+<li>Diluted effectiveness (key points lost in detail)</li>
+<li>Context window pressure (less room for code analysis)</li>
+<li>Slower response times</li>
+<li>Risk of instruction truncation in complex interactions</li>
+</ul>
+</section>
+<section id="line-count-guidelines-quick-reference" class="level3">
+<h3 class="anchored" data-anchor-id="line-count-guidelines-quick-reference">Line Count Guidelines (Quick Reference)</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Lines</th>
+<th>Approximate Tokens</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt; 50</td>
+<td>~300 tokens</td>
+<td>✅ Excellent - Focused and concise</td>
+</tr>
+<tr class="even">
+<td>50-100</td>
+<td>~300-600 tokens</td>
+<td>✅ Good - Standard size</td>
+</tr>
+<tr class="odd">
+<td>100-150</td>
+<td>~600-900 tokens</td>
+<td>⚠️ Getting long - Review for redundancy</td>
+</tr>
+<tr class="even">
+<td>150-200</td>
+<td>~900-1,200 tokens</td>
+<td>🔴 Too long - Split recommended</td>
+</tr>
+<tr class="odd">
+<td>&gt; 200</td>
+<td>&gt; 1,200 tokens</td>
+<td>🚫 Excessive - Must refactor</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="optimization-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="optimization-strategies">Optimization Strategies</h3>
+<section id="strategy-1-split-by-technology-layer" class="level4">
+<h4 class="anchored" data-anchor-id="strategy-1-split-by-technology-layer">Strategy 1: Split by Technology Layer</h4>
+<p><strong>Before: Monolithic web-standards.instructions.md (1,400 tokens)</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">applyTo</span><span class="kw">:</span><span class="at"> </span><span class="st">"src/**/*.ts,src/**/*.tsx"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Web Development Standards</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">## TypeScript Rules</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">... 400 tokens ...</span><span class="kw">]</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">## React Rules</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">... 400 tokens ...</span><span class="kw">]</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">## CSS/Styling Rules</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">... 300 tokens ...</span><span class="kw">]</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">## API Integration Rules</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">... 300 tokens ...</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>After: Four focused files (350 tokens each)</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># typescript-standards.instructions.md</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">applyTo</span><span class="kw">:</span><span class="at"> </span><span class="st">"**/*.ts,**/*.tsx"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># React-specific.instructions.md</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">applyTo</span><span class="kw">:</span><span class="at"> </span><span class="st">"**/*.tsx"</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># styling.instructions.md</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">applyTo</span><span class="kw">:</span><span class="at"> </span><span class="st">"**/*.css,**/*.scss,**/*.tsx"</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># api-integration.instructions.md</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="fu">applyTo</span><span class="kw">:</span><span class="at"> </span><span class="st">"**/api/**/*.ts,**/services/**/*.ts"</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>✅ Only relevant instructions apply to each file</li>
+<li>✅ Easier to maintain individual files</li>
+<li>✅ Reduced context consumption per file</li>
+</ul>
+</section>
+<section id="strategy-2-extract-details-to-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="strategy-2-extract-details-to-documentation">Strategy 2: Extract Details to Documentation</h4>
+<p><strong>Before: Comprehensive but bloated (900 tokens)</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Error Handling</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Always implement comprehensive error handling. This means:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Try-Catch Blocks**: Wrap all asynchronous operations in try-catch blocks to handle potential errors gracefully. For example, when making API calls, you should catch network errors, timeout errors, and parse errors. Consider implementing retry logic for transient failures...</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">... 300 tokens of detailed explanations ...</span><span class="co">]</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Error Messages**: Provide clear, actionable error messages that help users understand what went wrong and how to fix it. Error messages should include context about the operation that failed, the specific error that occurred...</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">... 300 tokens of examples and edge cases ...</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>After: Concise with reference (300 tokens)</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Error Handling</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>**Required patterns:**</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Wrap async operations in try-catch blocks</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Provide clear, actionable error messages</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Log errors with context (operation, timestamp, user ID)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Never expose internal error details to users</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use custom error classes for different error types</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>**Example:**</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="in">```typescript</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> {</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> data <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetchUserData</span>(userId)<span class="op">;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">processData</span>(data)<span class="op">;</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>} <span class="cf">catch</span> (error) {</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  logger<span class="op">.</span><span class="fu">error</span>(<span class="st">'Failed to process user data'</span><span class="op">,</span> { userId<span class="op">,</span> error })<span class="op">;</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">UserDataError</span>(<span class="st">'Unable to load profile. Please try again.'</span>)<span class="op">;</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>For comprehensive guidelines</strong>, see <code>.copilot/context/error-handling-guide.md</code></p>
+<pre><code>
+#### Strategy 3: Use Layered Specificity
+
+Apply general rules broadly, specific rules narrowly:
+
+```yaml
+# .github/copilot-instructions.md (400 tokens)
+# Applies to ALL files
+General project standards that apply everywhere
+
+# .github/instructions/backend-api.instructions.md (300 tokens)
+---
+applyTo: "src/api/**/*.ts"
+---
+API-specific rules (only when working in src/api/)
+
+# .github/instructions/auth-security.instructions.md (250 tokens)
+---
+applyTo: "src/api/auth/**/*.ts"
+---
+Authentication-specific security rules (only for auth module)</code></pre>
+<p><strong>Result:</strong> Most files get 400 tokens, API files get 700 tokens, auth files get 950 tokens (all reasonable).</p>
+</section>
+</section>
+<section id="measuring-instruction-file-length" class="level3">
+<h3 class="anchored" data-anchor-id="measuring-instruction-file-length">Measuring Instruction File Length</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick check (line count)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> .github/instructions/<span class="pp">*</span>.instructions.md</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Word count (multiply by 1.33 for token estimate)</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-w</span> .github/instructions/react-guidelines.instructions.md</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Accurate token count</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">import tiktoken</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="st">enc = tiktoken.get_encoding('cl100k_base')</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="st">with open('.github/instructions/react-guidelines.instructions.md') as f:</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="st">    print(f'{len(enc.encode(f.read()))} tokens')</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="validation-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="validation-checklist">Validation Checklist</h3>
+<p>Before committing instruction files:</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><strong>Token count</strong> &lt; 800 for single-concern files, &lt; 500 for global files</label></li>
+<li><label><input type="checkbox"><strong>No detailed examples</strong> - Use concise patterns instead</label></li>
+<li><label><input type="checkbox"><strong>No extensive explanations</strong> - State rules, not rationale</label></li>
+<li><label><input type="checkbox"><strong>No technology overlap</strong> - If multiple patterns match, ensure they’re complementary</label></li>
+<li><label><input type="checkbox"><strong>Test combination</strong> - Check total token count for files with multiple matching instructions</label></li>
+<li><label><input type="checkbox"><strong>Monitor References list</strong> - Copilot shows active instructions; verify count is reasonable</label></li>
+</ul>
+</section>
+<section id="performance-impact" class="level3">
+<h3 class="anchored" data-anchor-id="performance-impact">Performance Impact</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 27%">
+<col style="width: 11%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Total Instructions Applied</th>
+<th>Typical Token Cost</th>
+<th>Impact</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1-2 files</td>
+<td>&lt; 600 tokens</td>
+<td>✅ Minimal</td>
+<td>Ideal</td>
+</tr>
+<tr class="even">
+<td>3-4 files</td>
+<td>600-1,200 tokens</td>
+<td>✅ Low</td>
+<td>Acceptable</td>
+</tr>
+<tr class="odd">
+<td>5-7 files</td>
+<td>1,200-2,000 tokens</td>
+<td>⚠️ Moderate</td>
+<td>Review for overlap</td>
+</tr>
+<tr class="even">
+<td>8+ files</td>
+<td>&gt; 2,000 tokens</td>
+<td>🔴 High</td>
+<td>Consolidate or narrow patterns</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of Thumb:</strong> If more than 5 instruction files apply to a single file type, review your <code>applyTo</code> patterns for excessive overlap.</p>
+<p>By keeping instruction files concise and strategically scoped, you ensure Copilot can apply your guidelines effectively without overwhelming the context window or diluting the impact of critical rules.</p>
+</section>
+</section>
+</section>
+<section id="critical-limitations-and-boundaries" class="level1">
+<h1>⚠️ Critical Limitations and Boundaries</h1>
+<p>Understanding what instruction files <mark><strong>cannot</strong></mark> do is just as important as knowing what they can do.</p>
+<section id="technical-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="technical-limitations">Technical Limitations</h2>
+<section id="no-guaranteed-order" class="level3">
+<h3 class="anchored" data-anchor-id="no-guaranteed-order">1. No Guaranteed Order</h3>
+<p>When multiple instruction files match the current context, <mark>VS Code combines them but <strong>no specific order is guaranteed</strong></mark>. This means:</p>
+<p><strong>❌ Don’t write instructions that depend on order:</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: base-rules.instructions.md --&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Use the error handling pattern defined earlier.</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: api-rules.instructions.md --&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>Here's the error handling pattern: <span class="co">[</span><span class="ot">pattern details</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>✅ Make each file self-contained:</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: base-rules.instructions.md --&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>General coding rules...</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: api-rules.instructions.md --&gt;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>API Error Handling Pattern:</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">complete pattern with examples</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conflicts-are-non-deterministic" class="level3">
+<h3 class="anchored" data-anchor-id="conflicts-are-non-deterministic">2. Conflicts Are Non-Deterministic</h3>
+<p><mark>If multiple instruction files provide <strong>conflicting guidance</strong>, Copilot’s choice is non-deterministic</mark>. Avoid potential conflicts between instructions.</p>
+<p><strong>❌ Conflicting instructions:</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: python-naming.instructions.md --&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Use snake_case for all function names.</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: api-naming.instructions.md --&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>Use camelCase for API endpoint handlers.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>✅ Resolve conflicts explicitly:</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: python-naming.instructions.md --&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>applyTo: "**/*.py"</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>Use snake_case for function names, EXCEPT API handlers (use camelCase for those).</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: api-naming.instructions.md --&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>applyTo: "**/api/**/*.py"</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>API endpoint handlers use camelCase to match JavaScript frontend conventions.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="instructions-are-always-applied-when-pattern-matches" class="level3">
+<h3 class="anchored" data-anchor-id="instructions-are-always-applied-when-pattern-matches">3. Instructions Are Always Applied (When Pattern Matches)</h3>
+<p><mark>Instructions <strong>cannot be toggled on/off for specific chat requests</strong></mark>. If the <code>applyTo</code> pattern matches the current file, the instructions are included.</p>
+<p>This means:</p>
+<ul>
+<li>❌ Can’t temporarily disable instructions for experimentation</li>
+<li>❌ Can’t choose between different instruction “profiles”</li>
+<li>✅ Use more specific <code>applyTo</code> patterns to control when instructions apply</li>
+<li>✅ Use <code>excludeAgent</code> to exclude instructions from specific agents</li>
+</ul>
+</section>
+<section id="no-tool-control" class="level3">
+<h3 class="anchored" data-anchor-id="no-tool-control">4. No Tool Control</h3>
+<p><mark>Instruction files <strong>cannot specify which tools are available</strong></mark> (unlike prompts and agents). They rely on:</p>
+<ul>
+<li>Default tools available to the current agent</li>
+<li>Tool configuration in prompt files (if used)</li>
+<li>Tool configuration in agent files (if active)</li>
+</ul>
+</section>
+<section id="silent-application" class="level3">
+<h3 class="anchored" data-anchor-id="silent-application">5. Silent Application</h3>
+<p><mark>Instructions are <strong>not visible in chat</strong></mark> - they’re silently added to the context. This can lead to:</p>
+<ul>
+<li>❌ Users unaware why Copilot generates code a certain way</li>
+<li>❌ Debugging confusion when unexpected patterns appear</li>
+<li>✅ Check References list in chat to see which instruction files were applied</li>
+</ul>
+</section>
+</section>
+<section id="context-window-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="context-window-limitations">Context Window Limitations</h2>
+<p>Every instruction file consumes part of the LLM’s context window. <mark><strong>Be mindful of cumulative impact</strong></mark>:</p>
+<p><strong>Context consumption example:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Lines</th>
+<th>Tokens (approx)</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>general-rules.instructions.md</code></td>
+<td>150</td>
+<td>~600</td>
+<td><code>**</code> (all files)</td>
+</tr>
+<tr class="even">
+<td><code>python-pep8.instructions.md</code></td>
+<td>200</td>
+<td>~800</td>
+<td><code>**/*.py</code></td>
+</tr>
+<tr class="odd">
+<td><code>react-patterns.instructions.md</code></td>
+<td>180</td>
+<td>~720</td>
+<td><code>**/*.tsx</code></td>
+</tr>
+<tr class="even">
+<td><code>api-security.instructions.md</code></td>
+<td>120</td>
+<td>~480</td>
+<td><code>**/api/**/*</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Total (for a React + Python project)</strong></td>
+<td><strong>650</strong></td>
+<td><strong>~2600</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><mark>If you’re working on a <code>.tsx</code> file in the <code>api/</code> directory, <strong>all four files could apply simultaneously</strong></mark>, consuming ~2600 tokens before your actual prompt.</p>
+<p><strong>Best practices to manage context:</strong></p>
+<ol type="1">
+<li><strong>Use specific patterns</strong> - Don’t use <code>**</code> unless absolutely necessary</li>
+<li><strong>Split by scope</strong> - Multiple focused files &gt; one massive file</li>
+<li><strong>Avoid duplication</strong> - Don’t repeat guidelines across files</li>
+<li><strong>Review regularly</strong> - Remove outdated or unused instructions</li>
+</ol>
+</section>
+</section>
+<section id="common-pitfalls-and-how-to-avoid-them" class="level1">
+<h1>🚫 Common Pitfalls and How to Avoid Them</h1>
+<section id="pitfall-1-instructions-too-broad" class="level2">
+<h2 class="anchored" data-anchor-id="pitfall-1-instructions-too-broad">Pitfall 1: Instructions Too Broad</h2>
+<p><strong>Problem</strong>: Using <code>applyTo: "**"</code> causes instructions to apply to every file, even when inappropriate.</p>
+<p><strong>❌ Bad example:</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="an">applyTo:</span><span class="co"> "**"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>Always use async/await for asynchronous operations.</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>Always include unit tests.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This applies to configuration files, READMEs, scripts, etc., causing confusion.</p>
+<p><strong>✅ Solution: Be specific:</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="an">applyTo:</span><span class="co"> "src/**/*.ts,src/**/*.tsx"</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>For TypeScript source files:</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use async/await for asynchronous operations</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Include unit tests in co-located <span class="in">`.test.ts`</span> files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pitfall-2-conflicting-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="pitfall-2-conflicting-instructions">Pitfall 2: Conflicting Instructions</h2>
+<p><strong>Problem</strong>: Multiple instruction files give contradictory guidance for the same situation.</p>
+<p><strong>❌ Bad example:</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- python-general.instructions.md --&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>Use single quotes for strings.</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- python-api.instructions.md --&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>Use double quotes for strings to match JSON conventions.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>✅ Solution: Resolve explicitly or use hierarchy:</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- python-general.instructions.md --&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>applyTo: "**/*.py"</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>Use single quotes for strings, EXCEPT in API modules (use double quotes).</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- python-api.instructions.md --&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>applyTo: "**/api/**/*.py"</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>API modules use double quotes for strings (matches JSON conventions).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pitfall-3-instructions-too-detailed" class="level2">
+<h2 class="anchored" data-anchor-id="pitfall-3-instructions-too-detailed">Pitfall 3: Instructions Too Detailed</h2>
+<p><strong>Problem</strong>: Overly verbose instructions consume context and dilute important rules.</p>
+<p><strong>❌ Bad example:</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>When writing functions in Python, you should always think about readability</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>because code is read more often than written. PEP 8 recommends...</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">500 lines of explanations and history</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>✅ Solution: Concise, actionable rules:</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Function Guidelines (PEP 8)</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lowercase with underscores: <span class="in">`calculate_total()`</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Max line length: 79 characters</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Docstrings for all public functions</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Type hints for parameters and return values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pitfall-4-implicit-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="pitfall-4-implicit-dependencies">Pitfall 4: Implicit Dependencies</h2>
+<p><strong>Problem</strong>: Instructions reference concepts defined in other instruction files without repeating necessary context.</p>
+<p><strong>❌ Bad example:</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: advanced-patterns.instructions.md --&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>Use the Repository Pattern defined in our base architecture.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the base architecture file doesn’t apply to the current file, this instruction is confusing.</p>
+<p><strong>✅ Solution: Self-contained instructions:</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- file: advanced-patterns.instructions.md --&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>Repository Pattern:</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>All database access through repository interfaces</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Repository implementations in <span class="in">`repositories/`</span> directory</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Example: <span class="in">`UserRepository`</span> interface + <span class="in">`PostgresUserRepository`</span> implementation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pitfall-5-instructions-as-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="pitfall-5-instructions-as-documentation">Pitfall 5: Instructions as Documentation</h2>
+<p><strong>Problem</strong>: Using instruction files to document how things work rather than guide how to code.</p>
+<p><strong>❌ Bad example:</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Our application uses a three-tier architecture. The presentation layer handles</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>HTTP requests, the business logic layer processes data, and the data access</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>layer interacts with databases. This pattern was chosen because...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>✅ Solution: Focus on actionable guidance:</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Three-Tier Architecture Rules</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Controllers (presentation): Handle HTTP, no business logic</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Services (business logic): Pure functions, no database access</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Repositories (data access): Database operations only</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>Place files: <span class="in">`controllers/`</span>, <span class="in">`services/`</span>, <span class="in">`repositories/`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pitfall-6-overuse-of-global-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="pitfall-6-overuse-of-global-instructions">Pitfall 6: Overuse of Global Instructions</h2>
+<p><strong>Problem</strong>: Repository-wide instructions (<code>.github/copilot-instructions.md</code>) become too large and apply to inappropriate contexts.</p>
+<p><strong>❌ Bad example:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- .github/copilot-instructions.md - 2000 lines --&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>Python rules...</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>JavaScript rules...</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>React patterns...</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>API security...</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>Database patterns...</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">everything for every technology</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>✅ Solution: Split into specific instruction files:</strong></p>
+<pre><code>.github/
+  copilot-instructions.md  # General project info (100 lines)
+  instructions/
+    python-standards.instructions.md       # applyTo: "**/*.py"
+    react-patterns.instructions.md         # applyTo: "**/*.tsx"
+    api-security.instructions.md           # applyTo: "**/api/**/*"
+    database-patterns.instructions.md      # applyTo: "**/repositories/**/*"</code></pre>
+</section>
+</section>
+<section id="advanced-patterns" class="level1">
+<h1>🎨 Advanced Patterns</h1>
+<section id="pattern-1-layered-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="pattern-1-layered-instructions">Pattern 1: Layered Instructions</h2>
+<p>Use multiple instruction files with increasingly specific patterns to create a hierarchy:</p>
+<pre><code>.github/instructions/
+  general-code-quality.instructions.md        # applyTo: "**"
+  backend-python.instructions.md              # applyTo: "backend/**/*.py"
+  backend-api-endpoints.instructions.md       # applyTo: "backend/api/**/*.py"
+  backend-api-auth.instructions.md            # applyTo: "backend/api/auth/**/*.py"</code></pre>
+<p><mark><strong>Each layer adds more specific guidance</strong></mark> without duplicating rules from broader layers.</p>
+</section>
+<section id="pattern-2-exclude-patterns-for-edge-cases" class="level2">
+<h2 class="anchored" data-anchor-id="pattern-2-exclude-patterns-for-edge-cases">Pattern 2: Exclude Patterns for Edge Cases</h2>
+<p>Use multiple files with complementary patterns and <code>excludeAgent</code> to handle special cases:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- standard-review.instructions.md --&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>applyTo: "src/**/*.py"</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>excludeAgent: "code-review"  # Don't apply to manual reviews</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>Automated code standards (for coding agent only)...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- manual-review-guidelines.instructions.md --&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>applyTo: "src/**/*.py"</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>excludeAgent: "coding-agent"  # Don't apply to coding agent</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>Human reviewer guidelines (for code review only)...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pattern-3-technology-specific-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="pattern-3-technology-specific-instructions">Pattern 3: Technology-Specific Instructions</h2>
+<p>Organize by technology stack with precise glob patterns:</p>
+<pre><code>.github/instructions/
+  frontend/
+    react-components.instructions.md        # applyTo: "src/components/**/*.tsx"
+    react-hooks.instructions.md             # applyTo: "src/hooks/**/*.ts"
+    react-context.instructions.md           # applyTo: "src/contexts/**/*.tsx"
+  backend/
+    api-routes.instructions.md              # applyTo: "api/routes/**/*.py"
+    database-models.instructions.md         # applyTo: "api/models/**/*.py"
+    background-jobs.instructions.md         # applyTo: "api/jobs/**/*.py"</code></pre>
+</section>
+<section id="pattern-4-test-specific-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="pattern-4-test-specific-instructions">Pattern 4: Test-Specific Instructions</h2>
+<p>Separate instructions for source vs.&nbsp;test files:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- source-code.instructions.md --&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>applyTo: "src/**/*.ts"</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>Production code guidelines...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- test-code.instructions.md --&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>applyTo: "**/*.test.ts,**/*.spec.ts"</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>Test code guidelines:</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use descriptive test names: <span class="in">`test('should calculate total when given valid items', ...)`</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Follow AAA pattern: Arrange, Act, Assert</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mock external dependencies</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pattern-5-tool-driven-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="pattern-5-tool-driven-instructions">Pattern 5: Tool-Driven Instructions</h2>
+<p>Guide Copilot to use specific tools for certain operations:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="an">applyTo:</span><span class="co"> "src/**/*.tsx"</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># React Component Guidelines</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Before Creating New Components</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>Use #tool:codebase to search for similar components:</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Check if component already exists</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Find reusable patterns in existing components</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Ensure naming consistency with existing components</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Before Modifying Components</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>Use #tool:usages to check component usage:</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Verify changes won't break existing uses</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consider creating new component for breaking changes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="testing-and-validation" class="level1">
+<h1>🧪 Testing and Validation</h1>
+<section id="how-to-test-instruction-files" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-test-instruction-files">How to Test Instruction Files</h2>
+<p><mark><strong>Instructions are invisible</strong></mark>, making testing indirect. Here’s how to validate them:</p>
+<section id="check-the-references-list" class="level3">
+<h3 class="anchored" data-anchor-id="check-the-references-list">1. Check the References List</h3>
+<p>When using Copilot Chat in VS Code, expand the References list at the top of responses. <mark>Instruction files that matched your current file will be listed</mark>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://code.visualstudio.com/assets/docs/copilot/customization/configure-chat-instructions.png" class="img-fluid figure-img"></p>
+<figcaption>Screenshot showing References list with instruction files</figcaption>
+</figure>
+</div>
+</section>
+<section id="test-with-specific-file-types" class="level3">
+<h3 class="anchored" data-anchor-id="test-with-specific-file-types">2. Test with Specific File Types</h3>
+<ol type="1">
+<li>Open a file that should match your <code>applyTo</code> pattern</li>
+<li>Ask Copilot to generate code relevant to your instructions</li>
+<li>Check if generated code follows your guidelines</li>
+</ol>
+<p><strong>Example test:</strong></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- File: .github/instructions/python-naming.instructions.md --&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>applyTo: "**/*.py"</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>Always use snake_case for function names and variables.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Test:</strong> Open a <code>.py</code> file, ask Copilot: “Create a function that calculates total price with tax”</p>
+<p><strong>Expected:</strong> Function named <code>calculate_total_price_with_tax</code>, not <code>calculateTotalPriceWithTax</code></p>
+</section>
+<section id="test-with-conflicting-instructions" class="level3">
+<h3 class="anchored" data-anchor-id="test-with-conflicting-instructions">3. Test with Conflicting Instructions</h3>
+<p>Deliberately create overlapping patterns to verify Copilot handles them gracefully:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- test-conflict-1.instructions.md --&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>applyTo: "test/**/*.py"</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>Prefix test functions with <span class="in">`test_`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- test-conflict-2.instructions.md --&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>applyTo: "**/*.py"</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>Use descriptive function names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Open <code>test/test_user.py</code>, ask for a test. Verify both instructions are honored: <code>test_user_authentication_succeeds_with_valid_credentials()</code></p>
+</section>
+<section id="verify-excludeagent-works" class="level3">
+<h3 class="anchored" data-anchor-id="verify-excludeagent-works">4. Verify excludeAgent Works</h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- coding-agent-only.instructions.md --&gt;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>applyTo: "**/*.py"</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>excludeAgent: "code-review"</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specific guidelines</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Test by:</p>
+<ol type="1">
+<li>Using Copilot coding agent (should apply instructions)</li>
+<li>Using Copilot code review (should NOT apply instructions)</li>
+</ol>
+</section>
+</section>
+<section id="validation-checklist-1" class="level2">
+<h2 class="anchored" data-anchor-id="validation-checklist-1">Validation Checklist</h2>
+<p>Before committing instruction files, verify:</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>applyTo</code> pattern is specific enough (not too broad)</label></li>
+<li><label><input type="checkbox">Instructions don’t conflict with other instruction files</label></li>
+<li><label><input type="checkbox">Each instruction is self-contained (no implicit dependencies)</label></li>
+<li><label><input type="checkbox">Examples are included for complex patterns</label></li>
+<li><label><input type="checkbox">File length is reasonable (&lt;500 lines)</label></li>
+<li><label><input type="checkbox">Instructions focus on “how” not “why”</label></li>
+<li><label><input type="checkbox">Tested with actual file types matching pattern</label></li>
+<li><label><input type="checkbox">References list shows file is being applied</label></li>
+<li><label><input type="checkbox">Generated code follows guidelines</label></li>
+</ul>
+</section>
+</section>
+<section id="decision-framework" class="level1">
+<h1>💡 Decision Framework</h1>
+<p>Use this flowchart to decide whether to use instruction files or alternatives:</p>
+<pre><code>START: Need to provide guidance to Copilot?
+│
+├─ Is this guidance specific to certain file types/locations?
+│  │
+│  YES─ Will this guidance be used repeatedly?
+│  │    │
+│  │    YES─ Is the guidance &lt; 500 lines?
+│  │    │    │
+│  │    │    YES─ ✅ USE INSTRUCTION FILE
+│  │    │    │
+│  │    │    NO─ ⚠️  SPLIT INTO MULTIPLE INSTRUCTION FILES
+│  │    │
+│  │    NO─ Is this a one-time task?
+│  │        │
+│  │        YES─ ✅ USE PROMPT FILE or INLINE CHAT
+│  │        │
+│  │        NO─ ✅ USE PROMPT FILE (reusable task)
+│  │
+│  NO─ Is this defining a persona or role?
+│      │
+│      YES─ ✅ USE AGENT FILE
+│      │
+│      NO─ Is this general project info?
+│          │
+│          YES─ ✅ USE .github/copilot-instructions.md
+│          │
+│          NO─ ❓ RECONSIDER: Maybe not needed?</code></pre>
+<section id="quick-reference-table" class="level2">
+<h2 class="anchored" data-anchor-id="quick-reference-table">Quick Reference Table</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 37%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Need</th>
+<th>Solution</th>
+<th>File Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TypeScript coding standards</td>
+<td>Instruction file</td>
+<td><code>typescript-standards.instructions.md</code></td>
+</tr>
+<tr class="even">
+<td>Generate React form component</td>
+<td>Prompt file</td>
+<td><code>create-react-form.prompt.md</code></td>
+</tr>
+<tr class="odd">
+<td>Security reviewer persona</td>
+<td>Agent file</td>
+<td><code>security-reviewer.agent.md</code></td>
+</tr>
+<tr class="even">
+<td>Article review with templates</td>
+<td><strong>Skill file</strong></td>
+<td><code>.github/skills/article-review/SKILL.md</code></td>
+</tr>
+<tr class="odd">
+<td>General project architecture</td>
+<td>Repository instructions</td>
+<td><code>.github/copilot-instructions.md</code></td>
+</tr>
+<tr class="even">
+<td>One-time code refactoring</td>
+<td>Chat command</td>
+<td>Inline chat or <code>/explain</code>, <code>/fix</code> commands</td>
+</tr>
+<tr class="odd">
+<td>Multi-step workflow</td>
+<td>Agent file or Prompt file</td>
+<td>Depends on reusability</td>
+</tr>
+<tr class="even">
+<td>Portable workflow with resources</td>
+<td><strong>Skill file</strong></td>
+<td><code>.github/skills/*/SKILL.md</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>📘 Note</strong>: For detailed guidance on Agent Skills (Preview), see <a href="06. how_to_structure_content_for_copilot_skills.md">How to Structure Content for GitHub Copilot Skills</a>.</p>
+</blockquote>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>🎯 Conclusion</h1>
+<p>Instruction files are a powerful but subtle tool for shaping Copilot’s behavior. <mark>When used correctly</mark>, they ensure consistent coding standards across your project without manual intervention. <mark>When used poorly</mark>, they consume context, create confusion, and introduce unpredictable behavior.</p>
+<p><strong>Key takeaways:</strong></p>
+<ol type="1">
+<li><strong>Be specific with <code>applyTo</code> patterns</strong> - Avoid broad patterns like <code>**</code></li>
+<li><strong>Keep instructions concise and actionable</strong> - Focus on “how”, not “why”</li>
+<li><strong>Avoid conflicts between instruction files</strong> - Make each file self-contained</li>
+<li><strong>Test with actual file types</strong> - Verify instructions apply correctly</li>
+<li><strong>Monitor context consumption</strong> - Multiple files add up quickly</li>
+<li><strong>Use the right tool for the job</strong> - Instructions aren’t always the answer</li>
+</ol>
+<p>By following these guidelines, you’ll create instruction files that enhance Copilot’s effectiveness without introducing unwanted side effects.</p>
 <hr>
-<!-- Validation Metadata
-validation_status: pending_first_validation
+</section>
+<section id="references" class="level1">
+<h1>📚 References</h1>
+<section id="official-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="official-documentation">Official Documentation</h2>
+<p><strong><a href="https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot">GitHub: Adding Repository Custom Instructions</a></strong> <code>[📘 Official]</code><br>
+Official GitHub documentation for creating repository-level custom instructions including <code>.github/copilot-instructions.md</code> and path-specific <code>.instructions.md</code> files. Covers frontmatter syntax, glob patterns, and the <code>excludeAgent</code> property. Essential reference for understanding how GitHub interprets instruction files across different platforms (VS Code, Visual Studio, GitHub.com).</p>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/custom-instructions">VS Code: Use Custom Instructions</a></strong> <code>[📘 Official]</code><br>
+Microsoft’s official documentation for custom instructions in VS Code. Explains the three types of instruction files (<code>.github/copilot-instructions.md</code>, <code>.instructions.md</code>, and <code>AGENTS.md</code>), how they’re combined, and provides examples of effective instruction structures. Includes details on user-scope vs.&nbsp;workspace-scope instructions and Settings Sync.</p>
+<p><strong><a href="https://code.visualstudio.com/docs/copilot/copilot-customization">VS Code: Copilot Customization Overview</a></strong> <code>[📘 Official]</code><br>
+Comprehensive overview of all Copilot customization options in VS Code, including instructions, prompts, and agents. Explains how different customization types work together and when to use each. Critical for understanding the broader context of instruction files within the customization ecosystem.</p>
+</section>
+<section id="vs-code-release-notes" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-release-notes">VS Code Release Notes</h2>
+<p><strong><a href="https://code.visualstudio.com/updates/v1_107">VS Code v1.107 Release Notes</a></strong> <code>[📘 Official]</code><br>
+December 2024 release introducing Agent HQ unified interface, background agents with work tree isolation, and Claude skills support. Instruction files continue to work across all agent execution contexts (local, background, and cloud), with the <code>excludeAgent</code> field providing control over which agent types receive specific instructions.</p>
+</section>
+<section id="best-practices-and-community-resources" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices-and-community-resources">Best Practices and Community Resources</h2>
+<p><strong><a href="https://github.blog/developer-skills/github/how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/">GitHub Blog: How to Use GitHub Copilot - Tips, Tricks, and Best Practices</a></strong> <code>[📗 Verified Community]</code><br>
+GitHub’s official blog post on maximizing Copilot effectiveness through context management. While focused on general Copilot usage, provides crucial insights on how context (including instructions) impacts suggestion quality. Explains the “context, context, context” principle that applies to instruction file design.</p>
+<p><strong><a href="https://github.com/github/awesome-copilot">Awesome GitHub Copilot Repository</a></strong> <code>[📗 Verified Community]</code><br>
+Community-curated collection of Copilot customizations including example instruction files. Browse the <code>/instructions</code> directory for real-world examples across different languages and frameworks. Demonstrates practical patterns for instruction file organization and content structure.</p>
+<p><strong><a href="https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/">GitHub Blog: Prompting with GitHub Copilot</a></strong> <code>[📗 Verified Community]</code><br>
+Official guide to prompt engineering with Copilot. While focused on prompts, the principles of clarity, specificity, and context apply equally to instruction files. Essential reading for understanding how to write effective guidance for LLMs.</p>
+</section>
+<section id="related-articles-in-this-series" class="level2">
+<h2 class="anchored" data-anchor-id="related-articles-in-this-series">Related Articles in This Series</h2>
+<p><strong><a href="./01. how_github_copilot_uses_markdown_and_prompt_folders.md">How GitHub Copilot Uses Markdown and Prompt Folders</a></strong> <code>[📙 Internal]</code><br>
+Foundation article explaining Copilot’s file-based customization system. Read this first to understand how instruction files fit into the broader architecture.</p>
+<p><strong><a href="./02. how_to_name_and_organize_prompt_files.md">How to Name and Organize Prompt Files</a></strong> <code>[📙 Internal]</code><br>
+Organizational best practices that apply to instruction files. Learn about folder structures, naming conventions, and how to keep your <code>.github/instructions/</code> directory maintainable.</p>
+<p><strong><a href="./03. how_to_structure_content_for_copilot_prompt_files.md">How to Structure Content for Copilot Prompt Files</a></strong> <code>[📙 Internal]</code><br>
+Detailed guide on writing effective Markdown content for prompts. Many of the content structuring principles (clarity, examples, conciseness) apply directly to instruction files.</p>
+<p><strong><a href="./04. how_to_structure_content_for_copilot_agent_files.md">How to Structure Content for Copilot Agent Files</a></strong> <code>[📙 Internal]</code><br>
+Agent file guide that explains the differences between agents, prompts, and instructions. Critical for understanding when to use each file type and how they interact.</p>
+<!-- 
+
+
+
+
+---
+validations:
+  grammar: {last_run: null, model: null, outcome: null, issues_found: 0}
+  readability: {last_run: null, model: null, outcome: null, flesch_score: null, grade_level: null}
+  understandability: {last_run: null, model: null, outcome: null, target_audience: null}
+  structure: {last_run: null, model: null, outcome: null, has_toc: true, has_introduction: true, has_conclusion: true, has_references: true}
+  facts: {last_run: null, model: null, outcome: null, claims_checked: 0, sources_verified: 0}
+  logic: {last_run: null, model: null, outcome: null, flow_score: null}
+
 article_metadata:
-  filename: "04-code-documentation-excellence.md"
-  series: "Technical Documentation Excellence"
-  series_position: 5
-  total_articles: 8
-  prerequisites:
-    - "01-writing-style-and-voice-principles.md"
-    - "02-structure-and-information-architecture.md"
+  filename: "05. how_to_structure_content_for_copilot_instruction_files.md"
+  created: "2025-12-11"
+  last_updated: "2025-12-24"
+  version: "1.1"
+  status: "draft"
+  version_history:
+    - date: "2025-12-24"
+      changes: "Added v1.107 release notes reference, execution contexts characteristic, cross-context compatibility note"
+  word_count: 6200
+  reading_time_minutes: 25
+  primary_topic: "GitHub Copilot Instructions"
+
+cross_references:
   related_articles:
-    - "00-foundations-of-technical-documentation.md"
-    - "03-accessibility-in-technical-writing.md"
-    - "05-validation-and-quality-assurance.md"
-  version: "1.0"
-  last_updated: "2026-01-14"
+    - "01. how_github_copilot_uses_markdown_and_prompt_folders.md"
+    - "02. how_to_name_and_organize_prompt_files.md"
+    - "03. how_to_structure_content_for_copilot_prompt_files.md"
+    - "04. how_to_structure_content_for_copilot_agent_files.md"
+  series: "GitHub Copilot Customization Guide"
+  prerequisites:
+    - "01. how_github_copilot_uses_markdown_and_prompt_folders.md"
+---
+
+
+
+
 -->
 
 
-</section>
 </section>
 </section>
 
@@ -4276,13 +4695,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../03.00 tech/40.00 Technical writing/03-accessibility-in-technical-writing.html" class="pagination-link" aria-label="Accessibility">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Accessibility</span>
+      <a href="../../03.00 tech/05.02 PromptEngineering/04.00 how_to_structure_content_for_copilot_agent_files.html" class="pagination-link" aria-label="How to Structure Content for GitHub Copilot Agent Files">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How to Structure Content for GitHub Copilot Agent Files</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../03.00 tech/40.00 Technical writing/05-validation-and-quality-assurance.html" class="pagination-link" aria-label="Validation &amp; QA">
-        <span class="nav-page-text">Validation &amp; QA</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../03.00 tech/05.02 PromptEngineering/06.00 how_to_structure_content_for_copilot_skills.html" class="pagination-link" aria-label="How to Structure Content for GitHub Copilot Skills">
+        <span class="nav-page-text">How to Structure Content for GitHub Copilot Skills</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -4291,4 +4710,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/40.00 Technical writing/04-code-documentation-excellence.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/03.00 tech/05.02 PromptEngineering/05.00 how_to_structure_content_for_copilot_instruction_files.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
