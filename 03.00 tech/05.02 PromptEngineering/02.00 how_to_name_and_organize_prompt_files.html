@@ -2941,6 +2941,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#organizing-local-context-in-.copilot-optional" id="toc-organizing-local-context-in-.copilot-optional" class="nav-link" data-scroll-target="#organizing-local-context-in-.copilot-optional">💼 Organizing Local Context in <code>.copilot</code> (Optional)</a></li>
   <li><a href="#user-prompts-in-vs-code-personal-prompt-library" id="toc-user-prompts-in-vs-code-personal-prompt-library" class="nav-link" data-scroll-target="#user-prompts-in-vs-code-personal-prompt-library">👤 User Prompts in VS Code (Personal Prompt Library)</a></li>
   <li><a href="#additional-tips" id="toc-additional-tips" class="nav-link" data-scroll-target="#additional-tips">💡 Additional Tips</a></li>
+  <li><a href="#agent-skills-vs-code-1.107-preview" id="toc-agent-skills-vs-code-1.107-preview" class="nav-link" data-scroll-target="#agent-skills-vs-code-1.107-preview">🎯 Agent Skills (VS Code 1.107+ Preview)</a>
+  <ul class="collapse">
+  <li><a href="#skills-vs.-other-resource-types" id="toc-skills-vs.-other-resource-types" class="nav-link" data-scroll-target="#skills-vs.-other-resource-types">Skills vs.&nbsp;Other Resource Types</a></li>
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory Structure</a></li>
+  <li><a href="#skill.md-frontmatter" id="toc-skill.md-frontmatter" class="nav-link" data-scroll-target="#skill.md-frontmatter">SKILL.md Frontmatter</a>
+  <ul class="collapse">
+  <li><a href="#name-field-rules" id="toc-name-field-rules" class="nav-link" data-scroll-target="#name-field-rules">Name Field Rules</a></li>
+  <li><a href="#description-field-formula" id="toc-description-field-formula" class="nav-link" data-scroll-target="#description-field-formula">Description Field Formula</a></li>
+  </ul></li>
+  <li><a href="#progressive-loading-system" id="toc-progressive-loading-system" class="nav-link" data-scroll-target="#progressive-loading-system">Progressive Loading System</a></li>
+  <li><a href="#skill.md-body-content" id="toc-skill.md-body-content" class="nav-link" data-scroll-target="#skill.md-body-content">SKILL.md Body Content</a></li>
+  <li><a href="#cross-platform-compatibility" id="toc-cross-platform-compatibility" class="nav-link" data-scroll-target="#cross-platform-compatibility">Cross-Platform Compatibility</a></li>
+  <li><a href="#storage-locations" id="toc-storage-locations" class="nav-link" data-scroll-target="#storage-locations">Storage Locations</a>
+  <ul class="collapse">
+  <li><a href="#workspace-skills-shared-with-team" id="toc-workspace-skills-shared-with-team" class="nav-link" data-scroll-target="#workspace-skills-shared-with-team">Workspace Skills (Shared with Team)</a></li>
+  <li><a href="#personal-skills-user-level" id="toc-personal-skills-user-level" class="nav-link" data-scroll-target="#personal-skills-user-level">Personal Skills (User-Level)</a></li>
+  </ul></li>
+  <li><a href="#when-to-use-skills-vs.-prompts" id="toc-when-to-use-skills-vs.-prompts" class="nav-link" data-scroll-target="#when-to-use-skills-vs.-prompts">When to Use Skills vs.&nbsp;Prompts</a></li>
+  </ul></li>
   <li><a href="#supporting-assets-snippets-and-templates" id="toc-supporting-assets-snippets-and-templates" class="nav-link" data-scroll-target="#supporting-assets-snippets-and-templates">📦 Supporting Assets: Snippets and Templates</a>
   <ul class="collapse">
   <li><a href="#prompt-snippets" id="toc-prompt-snippets" class="nav-link" data-scroll-target="#prompt-snippets">Prompt Snippets</a>
@@ -2955,7 +2974,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#generated-templates-output-templates" id="toc-generated-templates-output-templates" class="nav-link" data-scroll-target="#generated-templates-output-templates">1. Generated Templates (<mark>Output Templates</mark>)</a></li>
   <li><a href="#reusable-templates-input-templates" id="toc-reusable-templates-input-templates" class="nav-link" data-scroll-target="#reusable-templates-input-templates">2. Reusable Templates (<mark>Input Templates</mark>)</a></li>
   </ul></li>
-  <li><a href="#decision-framework-snippet-vs.-template-vs.-full-prompt" id="toc-decision-framework-snippet-vs.-template-vs.-full-prompt" class="nav-link" data-scroll-target="#decision-framework-snippet-vs.-template-vs.-full-prompt">Decision Framework: Snippet vs.&nbsp;Template vs.&nbsp;Full Prompt</a></li>
+  <li><a href="#decision-framework-snippet-vs.-template-vs.-full-prompt-vs.-skill" id="toc-decision-framework-snippet-vs.-template-vs.-full-prompt-vs.-skill" class="nav-link" data-scroll-target="#decision-framework-snippet-vs.-template-vs.-full-prompt-vs.-skill">Decision Framework: Snippet vs.&nbsp;Template vs.&nbsp;Full Prompt vs.&nbsp;Skill</a></li>
   <li><a href="#organization-best-practices" id="toc-organization-best-practices" class="nav-link" data-scroll-target="#organization-best-practices">Organization Best Practices</a>
   <ul class="collapse">
   <li><a href="#clear-separation" id="toc-clear-separation" class="nav-link" data-scroll-target="#clear-separation">1. Clear Separation</a></li>
@@ -2986,6 +3005,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#official-github-copilot-documentation" id="toc-official-github-copilot-documentation" class="nav-link" data-scroll-target="#official-github-copilot-documentation">Official GitHub Copilot Documentation</a></li>
   <li><a href="#vs-code-copilot-features" id="toc-vs-code-copilot-features" class="nav-link" data-scroll-target="#vs-code-copilot-features">VS Code Copilot Features</a></li>
+  <li><a href="#agent-skills" id="toc-agent-skills" class="nav-link" data-scroll-target="#agent-skills">Agent Skills</a></li>
   <li><a href="#vs-code-release-notes" id="toc-vs-code-release-notes" class="nav-link" data-scroll-target="#vs-code-release-notes">VS Code Release Notes</a></li>
   <li><a href="#visual-studio-copilot-features" id="toc-visual-studio-copilot-features" class="nav-link" data-scroll-target="#visual-studio-copilot-features">Visual Studio Copilot Features</a></li>
   <li><a href="#community-best-practices" id="toc-community-best-practices" class="nav-link" data-scroll-target="#community-best-practices">Community Best Practices</a></li>
@@ -3053,6 +3073,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#-organizing-local-context-in-copilot-optional">💼 Organizing Local Context in <code>.copilot</code> (Optional)</a></li>
 <li><a href="#-user-prompts-in-vs-code-personal-prompt-library">👤 User Prompts in VS Code (Personal Prompt Library)</a></li>
 <li><a href="#-additional-tips">💡 Additional Tips</a></li>
+<li><a href="#-agent-skills-vs-code-1107-preview">🎯 Agent Skills (VS Code 1.107+ Preview)</a></li>
 <li><a href="#-supporting-assets-snippets-and-templates">📦 Supporting Assets: Snippets and Templates</a></li>
 <li><a href="#️-common-mistakes">⚠️ Common Mistakes</a></li>
 <li><a href="#-references">📚 References</a></li>
@@ -3088,10 +3109,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><mark><strong>Custom agents for VS Code / Copilot CLI</strong></mark>. In VS Code 1.106+ and Copilot CLI, <code>.agent.md</code> files here define specialized personas (e.g., “planning agent,” “test specialist”). Each file contains YAML frontmatter to declare allowed <code>tools</code>, a <code>description</code>, optional <code>handoffs</code> for workflow transitions, <code>model</code> selection, and a Markdown body describing the agent’s behavior. Legacy <code>.chatmode.md</code> files are still recognized but can be migrated using VS Code’s Quick Fix action. <mark><strong>Note:</strong> This is different from <code>AGENTS.md</code> files (see below)</mark>. <br><br><strong>v1.107+ Features:</strong> <mark><strong>Claude Skills support</strong></mark> for extended agent capabilities. Agents can execute in three contexts: <mark><strong>local</strong></mark> (interactive), <mark><strong>background</strong></mark> (work tree isolated), or <mark><strong>cloud</strong></mark> (GitHub PRs). See <a href="./01. how_github_copilot_uses_markdown_and_prompt_folders.md#-appendix-d-unified-agent-architecture-v1107">How GitHub Copilot Uses Markdown and Prompt Folders</a> for details.</td>
 </tr>
 <tr class="odd">
+<td><mark><strong><code>.github/skills/</code></strong></mark></td>
+<td><mark><strong>Agent Skills for VS Code 1.107+ (Preview).</strong></mark> Skills are <strong>portable, resource-rich workflows</strong> that bundle instructions with templates, scripts, and examples. Each skill lives in its own subdirectory containing a <code>SKILL.md</code> file with YAML frontmatter (<code>name</code>, <code>description</code>) plus optional <code>templates/</code>, <code>examples/</code>, <code>scripts/</code>, and <code>checklists/</code> folders. Skills follow the <a href="https://agentskills.io/">agentskills.io</a> open standard and work across VS Code Chat, Copilot CLI, and GitHub Coding Agent. Unlike prompts (on-demand tasks) or instructions (file-pattern rules), <mark>skills are discovered based on their <code>description</code> and can reference bundled resources</mark>. See <a href="#-agent-skills-vs-code-1107-preview">🎯 Agent Skills</a> section for details.</td>
+</tr>
+<tr class="even">
+<td><mark><strong><code>.github/prompt-snippets/</code></strong></mark></td>
+<td><mark><strong>Reusable context fragments.</strong></mark> Markdown files here are <strong>not</strong> indexed as slash commands. They serve as building blocks to include in prompts via <code>#file:.github/prompt-snippets/filename.md</code>. Use for repeated context blocks (architecture summaries, checklists, domain glossaries). See <a href="#-supporting-assets-snippets-and-templates">📦 Supporting Assets</a> section.</td>
+</tr>
+<tr class="odd">
+<td><mark><strong><code>.github/templates/</code></strong></mark></td>
+<td><mark><strong>Starting point files for new resources.</strong></mark> Input templates (<code>.md</code> files) that you copy and customize when creating new prompts, agents, instructions, or skills. Examples: <code>prompt-template.md</code>, <code>agent-template.md</code>, <code>skill-template.md</code>. Templates include version numbers and changelogs for tracking updates. See <a href="#-supporting-assets-snippets-and-templates">📦 Supporting Assets</a> section.</td>
+</tr>
+<tr class="even">
 <td><strong><code>AGENTS.md</code></strong> (anywhere in repo)</td>
 <td><mark><strong>Agent instructions for Copilot Coding Agent.</strong></mark> You can create one or more <code>AGENTS.md</code> files stored anywhere in the repository. The nearest file in the directory tree takes precedence. Alternatively, you can use <code>CLAUDE.md</code> or <code>GEMINI.md</code> in the repository root. These files provide instructions for AI agents working on your codebase, supported in VS Code, Visual Studio, and GitHub.com. <mark><strong>Note:</strong> <code>AGENTS.md</code> provides instructions to agents, while <code>.agent.md</code> files define custom agent personas</mark>.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong><code>.github/copilot/</code></strong></td>
 <td><strong>Community convention for shared context.</strong> Some teams create a <code>.github/copilot/</code> folder to gather prompts and domain knowledge (e.g.&nbsp;<code>knowledge/</code>, <code>examples/</code>) in one place. <mark>Only a subfolder named <code>prompts/</code> under <code>.github</code> is recognized by default</mark>; other subfolders under <code>.github/copilot</code> serve as shared documentation and must be referenced manually in prompts or instructions.</td>
 </tr>
@@ -3153,6 +3186,290 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 <p>By following these naming and organization practices—and understanding where each file type is supported—you can ensure that GitHub Copilot operates consistently across your team’s tools and versions.</p>
 <hr>
 </section>
+<section id="agent-skills-vs-code-1.107-preview" class="level1">
+<h1>🎯 Agent Skills (VS Code 1.107+ Preview)</h1>
+<p><mark><strong>Agent Skills</strong></mark> are a <strong>Preview feature</strong> introduced in VS Code 1.107 that enable <mark><strong>portable, resource-rich workflows</strong></mark> bundling instructions with templates, scripts, and examples. Unlike prompts (on-demand slash commands) or instructions (file-pattern rules), skills are <mark><strong>discovered based on their description</strong></mark> and can reference bundled resources following the open <a href="https://agentskills.io/">agentskills.io</a> standard.</p>
+<section id="skills-vs.-other-resource-types" class="level2">
+<h2 class="anchored" data-anchor-id="skills-vs.-other-resource-types">Skills vs.&nbsp;Other Resource Types</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 18%">
+<col style="width: 14%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource Type</th>
+<th>Trigger</th>
+<th>Scope</th>
+<th>Bundled Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prompts</strong> (<code>.prompt.md</code>)</td>
+<td>Explicit <code>/command</code> or <code>#command</code></td>
+<td>Single task</td>
+<td>❌ None</td>
+</tr>
+<tr class="even">
+<td><strong>Instructions</strong> (<code>.instructions.md</code>)</td>
+<td>File pattern match (<code>applyTo</code>)</td>
+<td>Always-on rules</td>
+<td>❌ None</td>
+</tr>
+<tr class="odd">
+<td><strong>Agents</strong> (<code>.agent.md</code>)</td>
+<td>Explicit <code>@agent</code> mention</td>
+<td>Persona with tools</td>
+<td>❌ None</td>
+</tr>
+<tr class="even">
+<td><mark><strong>Skills</strong></mark> (<code>SKILL.md</code>)</td>
+<td>Description-based discovery</td>
+<td>Complex workflow</td>
+<td>✅ Templates, scripts, examples</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="directory-structure" class="level2">
+<h2 class="anchored" data-anchor-id="directory-structure">Directory Structure</h2>
+<p>Each skill lives in its own subdirectory under <code>.github/skills/</code>:</p>
+<pre><code>.github/skills/
+├── article-review/
+│   ├── SKILL.md                    # Required: Instructions + metadata
+│   ├── templates/                  # Optional: Reusable output templates
+│   │   └── review-summary.md
+│   ├── checklists/                 # Optional: Structured checklists
+│   │   └── validation-checklist.md
+│   └── examples/                   # Optional: Real-world examples
+│       └── sample-review.md
+├── webapp-testing/
+│   ├── SKILL.md
+│   ├── templates/
+│   │   └── test-scaffold.ts
+│   └── scripts/                    # Optional: Automation scripts
+│       └── setup-test-env.sh</code></pre>
+</section>
+<section id="skill.md-frontmatter" class="level2">
+<h2 class="anchored" data-anchor-id="skill.md-frontmatter">SKILL.md Frontmatter</h2>
+<p>The <code>SKILL.md</code> file requires YAML frontmatter with two essential fields:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> article-review</span><span class="co">                  # Required: lowercase, hyphens, max 64 chars</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">: </span><span class="ch">&gt;</span><span class="co">                        # Required: max 1024 chars</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  Comprehensive article review workflow for technical documentation.</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  Use when reviewing markdown articles, validating structure, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  checking reference classifications, or preparing content for publication.</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="name-field-rules" class="level3">
+<h3 class="anchored" data-anchor-id="name-field-rules">Name Field Rules</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 37%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✅ Valid</th>
+<th>❌ Invalid</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>article-review</code></td>
+<td><code>Article Review</code></td>
+<td>No uppercase/spaces</td>
+</tr>
+<tr class="even">
+<td><code>webapp-testing</code></td>
+<td><code>test</code></td>
+<td>Too generic</td>
+</tr>
+<tr class="odd">
+<td><code>k8s-deploy</code></td>
+<td><code>a-skill-name-that-exceeds-the-64-character-limit-check</code></td>
+<td>Too long</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="description-field-formula" class="level3">
+<h3 class="anchored" data-anchor-id="description-field-formula">Description Field Formula</h3>
+<p><strong>Structure:</strong> <code>[What it does] + [Technologies] + "Use when" + [Scenarios]</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ Good - specific with use cases</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">: </span><span class="ch">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Generate test suites for React components using Jest and RTL.</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  Use when writing unit tests, debugging failures, or setting up test infrastructure.</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ Bad - vague, no technologies, no scenarios</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> Helps with testing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="progressive-loading-system" class="level2">
+<h2 class="anchored" data-anchor-id="progressive-loading-system">Progressive Loading System</h2>
+<p>Skills use a <mark><strong>three-level loading system</strong></mark> for efficient token usage:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>What Loads</th>
+<th>When</th>
+<th>Token Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1. Discovery</strong></td>
+<td><code>name</code> + <code>description</code> from YAML</td>
+<td>Always indexed</td>
+<td>~50-100 tokens/skill</td>
+</tr>
+<tr class="even">
+<td><strong>2. Instructions</strong></td>
+<td>SKILL.md body content</td>
+<td>Prompt matches description</td>
+<td>~500-1500 tokens</td>
+</tr>
+<tr class="odd">
+<td><strong>3. Resources</strong></td>
+<td>Templates, examples, scripts</td>
+<td>Copilot references them</td>
+<td>Loaded on-demand</td>
+</tr>
+</tbody>
+</table>
+<p>This means your <code>description</code> field is critical—it determines whether the skill gets activated and its full instructions loaded.</p>
+</section>
+<section id="skill.md-body-content" class="level2">
+<h2 class="anchored" data-anchor-id="skill.md-body-content">SKILL.md Body Content</h2>
+<p>After the YAML frontmatter, include structured instructions:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> article-review</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> &gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Comprehensive article review workflow for technical documentation.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">  Use when reviewing markdown articles or preparing content for publication.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># Article Review Skill</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Purpose</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>Perform comprehensive quality reviews of technical documentation articles.</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## When to Use</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>Activate this skill when:</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Reviewing articles**: "Review this article for publication readiness"</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Checking structure**: "Validate the structure of this markdown file"</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Quality assessment**: "Assess the quality of this technical documentation"</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>Do NOT use this skill for:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Grammar checking (use grammar-review prompt instead)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Code review (use code-review skill instead)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Workflow</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Structure Validation</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>Check that the article includes all required sections:</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Title (H1 heading at the start)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Table of Contents (for articles &gt; 500 words)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> References section with classified sources</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Content Quality Checks</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>Review for:</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Active voice usage</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Proper markdown formatting</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Code examples with language identifiers</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Templates</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Review Summary Template</span><span class="co">](./templates/review-summary.md)</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Validation Checklist</span><span class="co">](./checklists/validation-checklist.md)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="cross-platform-compatibility" class="level2">
+<h2 class="anchored" data-anchor-id="cross-platform-compatibility">Cross-Platform Compatibility</h2>
+<p>Skills work across multiple platforms:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Discovery</th>
+<th>Instructions</th>
+<th>Scripts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>VS Code Chat</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>⚠️ Requires approval</td>
+</tr>
+<tr class="even">
+<td><strong>Copilot CLI</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>⚠️ Requires approval</td>
+</tr>
+<tr class="odd">
+<td><strong>GitHub Coding Agent</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>⚠️ Requires approval</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Portability checklist:</strong></p>
+<ul>
+<li>Use <strong>relative paths</strong> only (no absolute paths)</li>
+<li>Include all resources in skill directory (no external URLs)</li>
+<li>Make scripts cross-platform when possible</li>
+<li>Test activation with various prompt phrasings</li>
+</ul>
+</section>
+<section id="storage-locations" class="level2">
+<h2 class="anchored" data-anchor-id="storage-locations">Storage Locations</h2>
+<section id="workspace-skills-shared-with-team" class="level3">
+<h3 class="anchored" data-anchor-id="workspace-skills-shared-with-team">Workspace Skills (Shared with Team)</h3>
+<pre><code>.github/skills/skill-name/SKILL.md    # Recommended
+.claude/skills/skill-name/SKILL.md    # Legacy (backward compatibility)</code></pre>
+</section>
+<section id="personal-skills-user-level" class="level3">
+<h3 class="anchored" data-anchor-id="personal-skills-user-level">Personal Skills (User-Level)</h3>
+<pre><code>~/.copilot/skills/skill-name/SKILL.md # Recommended
+~/.claude/skills/skill-name/SKILL.md  # Legacy</code></pre>
+</section>
+</section>
+<section id="when-to-use-skills-vs.-prompts" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-skills-vs.-prompts">When to Use Skills vs.&nbsp;Prompts</h2>
+<p><strong>Use Skills when:</strong></p>
+<ul>
+<li>✅ Workflow requires <strong>bundled resources</strong> (templates, scripts, examples)</li>
+<li>✅ Task is <strong>complex with multiple steps</strong> and validation phases</li>
+<li>✅ Same workflow needs to work across <strong>VS Code, CLI, and Coding Agent</strong></li>
+<li>✅ Team needs <strong>portable, self-contained packages</strong></li>
+</ul>
+<p><strong>Use Prompts when:</strong></p>
+<ul>
+<li>✅ Task is <strong>simple and self-contained</strong> (single action)</li>
+<li>✅ No additional resources needed beyond the prompt text</li>
+<li>✅ Explicit invocation via <code>/command</code> is preferred</li>
+</ul>
+<hr>
+</section>
+</section>
 <section id="supporting-assets-snippets-and-templates" class="level1">
 <h1>📦 Supporting Assets: Snippets and Templates</h1>
 <p>Beyond the core prompt, instruction, and agent files, GitHub Copilot ecosystems often include <mark><strong>prompt snippets and templates</strong></mark> to streamline development workflows. Understanding when to use each asset type—and where to store them—helps teams build reusable, discoverable resources.</p>
@@ -3213,20 +3530,20 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 <h3 class="anchored" data-anchor-id="how-to-reference-snippet-files">How to Reference Snippet Files</h3>
 <p>GitHub Copilot <strong>does not have automatic “include” syntax</strong>. To use snippet files, reference them explicitly:</p>
 <p><strong>Method 1: File Reference in Chat (VS Code)</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Please review this code for security issues.</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>#file:.github/prompt-snippets/security-checklist.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Please review this code for security issues.</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>#file:.github/prompt-snippets/security-checklist.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>✅ <strong>Best for:</strong> Interactive chat conversations, ad-hoc queries<br>
 ✅ <strong>Guarantees:</strong> Content is definitely included in context</p>
 <p><strong>Method 2: Markdown Link (Unreliable)</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Please review this code following our <span class="co">[</span><span class="ot">security checklist</span><span class="co">](.github/prompt-snippets/security-checklist.md)</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Please review this code following our <span class="co">[</span><span class="ot">security checklist</span><span class="co">](.github/prompt-snippets/security-checklist.md)</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>⚠️ <strong>Note:</strong> Copilot may or may not automatically read linked files<br>
 ❌ <strong>Not recommended</strong> for critical content that must be included</p>
 <p><strong>Method 3: Copy-Paste When Executing</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Please review this code for security issues.</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Security Checklist</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Manually paste security-checklist.md content here when running prompt</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Please review this code for security issues.</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Security Checklist</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Manually paste security-checklist.md content here when running prompt</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>✅ <strong>Best for:</strong> Ensuring snippet content is definitely included<br>
 ✅ <strong>Use when:</strong> <code>#file</code> reference isn’t working reliably</p>
 </section>
@@ -3247,25 +3564,25 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 <li>✅ No need for <strong>separate file management</strong></li>
 </ul>
 <p><strong>Example: Embedded content</strong> (NOT using snippets):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> security-review-api-only</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Security review focused specifically on REST API endpoints</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>Review this API code for security issues using this checklist:</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## API-Specific Security Checklist</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Input validation on all parameters</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> SQL injection prevention (parameterized queries)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Authentication on protected routes</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Rate limiting configured</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> CORS properly configured</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">... content embedded directly, not shared with other prompts ...</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> security-review-api-only</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Security review focused specifically on REST API endpoints</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>Review this API code for security issues using this checklist:</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## API-Specific Security Checklist</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Input validation on all parameters</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> SQL injection prevention (parameterized queries)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Authentication on protected routes</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Rate limiting configured</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> CORS properly configured</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">... content embedded directly, not shared with other prompts ...</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Example: Using snippet file</strong> (reusable):</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># In chat or prompt:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Review this code for security issues.</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>#file:.github/prompt-snippets/security-checklist.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># In chat or prompt:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Review this code for security issues.</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>#file:.github/prompt-snippets/security-checklist.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="templates" class="level2">
@@ -3282,31 +3599,31 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 </ul>
 <p><strong>Storage:</strong> Reference these in prompt instructions, but don’t store as separate files unless needed for consistency.</p>
 <p><strong>Example in prompt file:</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> create-react-component</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Generate a React component with TypeScript</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Create a functional React component following this structure:</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="in">```tsx</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">'react'</span><span class="op">;</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> styles <span class="im">from</span> <span class="st">'./${componentName}.module.css'</span><span class="op">;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">interface</span> ${componentName}Props {</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Props here</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> ${componentName}<span class="op">:</span> React<span class="op">.</span><span class="at">FC</span><span class="op">&lt;</span>${componentName}Props<span class="op">&gt;</span> <span class="op">=</span> (props) <span class="kw">=&gt;</span> {</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="ot">className</span><span class="op">=</span><span class="va">{</span>styles<span class="op">.</span><span class="at">container</span><span class="va">}</span><span class="kw">&gt;</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>      <span class="va">{</span><span class="co">/* Component implementation */</span><span class="va">}</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>Include PropTypes and a basic test file.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> create-react-component</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Generate a React component with TypeScript</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>Create a functional React component following this structure:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="in">```tsx</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">'react'</span><span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> styles <span class="im">from</span> <span class="st">'./${componentName}.module.css'</span><span class="op">;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="kw">interface</span> ${componentName}Props {</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Props here</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> ${componentName}<span class="op">:</span> React<span class="op">.</span><span class="at">FC</span><span class="op">&lt;</span>${componentName}Props<span class="op">&gt;</span> <span class="op">=</span> (props) <span class="kw">=&gt;</span> {</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="ot">className</span><span class="op">=</span><span class="va">{</span>styles<span class="op">.</span><span class="at">container</span><span class="va">}</span><span class="kw">&gt;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>      <span class="va">{</span><span class="co">/* Component implementation */</span><span class="va">}</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>Include PropTypes and a basic test file.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="reusable-templates-input-templates" class="level3">
 <h3 class="anchored" data-anchor-id="reusable-templates-input-templates">2. Reusable Templates (<mark>Input Templates</mark>)</h3>
@@ -3325,39 +3642,39 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 │   ├── instruction-template.md
 │   └── README.md  # Explains when to use each template</code></pre>
 <p><strong>Example: <code>.github/templates/prompt-template.md</code></strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">prompt-name</span><span class="kw">]</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Brief description of what this prompt does</span><span class="kw">]</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">ask|edit|agent</span><span class="kw">]</span><span class="co">  # Optional: specify agent mode</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Model name</span><span class="kw">]</span><span class="co">       # Optional: Claude Sonnet 4, GPT-4, etc.</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">tool1</span><span class="kw">,</span><span class="at"> tool2</span><span class="kw">]</span><span class="co">     # Optional: limit available tools</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">hint</span><span class="kw">]</span><span class="co">     # Optional: help text for arguments</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [Prompt Title]</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Clear description of the task this prompt performs</span><span class="kw">]</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">## Context</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Any background information Copilot needs</span><span class="kw">]</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">## Instructions</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="at">1. [Step-by-step instructions]</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="at">2. [Be specific and actionable]</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">## Output Format</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Describe the expected output structure</span><span class="kw">]</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co">## Example</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="fu">Optional</span><span class="kw">:</span><span class="at"> provide an example of the desired result</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">prompt-name</span><span class="kw">]</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Brief description of what this prompt does</span><span class="kw">]</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">agent</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">ask|edit|agent</span><span class="kw">]</span><span class="co">  # Optional: specify agent mode</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Model name</span><span class="kw">]</span><span class="co">       # Optional: Claude Sonnet 4, GPT-4, etc.</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">tool1</span><span class="kw">,</span><span class="at"> tool2</span><span class="kw">]</span><span class="co">     # Optional: limit available tools</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">argument-hint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">hint</span><span class="kw">]</span><span class="co">     # Optional: help text for arguments</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [Prompt Title]</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Clear description of the task this prompt performs</span><span class="kw">]</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">## Context</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Any background information Copilot needs</span><span class="kw">]</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">## Instructions</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="at">1. [Step-by-step instructions]</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="at">2. [Be specific and actionable]</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co">## Output Format</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">Describe the expected output structure</span><span class="kw">]</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="co">## Example</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="fu">Optional</span><span class="kw">:</span><span class="at"> provide an example of the desired result</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="decision-framework-snippet-vs.-template-vs.-full-prompt" class="level2">
-<h2 class="anchored" data-anchor-id="decision-framework-snippet-vs.-template-vs.-full-prompt">Decision Framework: Snippet vs.&nbsp;Template vs.&nbsp;Full Prompt</h2>
+<section id="decision-framework-snippet-vs.-template-vs.-full-prompt-vs.-skill" class="level2">
+<h2 class="anchored" data-anchor-id="decision-framework-snippet-vs.-template-vs.-full-prompt-vs.-skill">Decision Framework: Snippet vs.&nbsp;Template vs.&nbsp;Full Prompt vs.&nbsp;Skill</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -3404,6 +3721,13 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 <td>High (slash/hashtag command)</td>
 <td>50-500 lines</td>
 </tr>
+<tr class="odd">
+<td><strong><mark>Agent Skill</mark></strong></td>
+<td>Complex workflow with resources</td>
+<td>High (portable across platforms)</td>
+<td>High (description-based discovery)</td>
+<td>SKILL.md + bundled resources</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3411,12 +3735,13 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 <h2 class="anchored" data-anchor-id="organization-best-practices">Organization Best Practices</h2>
 <section id="clear-separation" class="level3">
 <h3 class="anchored" data-anchor-id="clear-separation">1. Clear Separation</h3>
-<p>Don’t mix snippets, templates, and prompts in the same folder:</p>
+<p>Don’t mix snippets, templates, skills, and prompts in the same folder:</p>
 <pre><code>❌ BAD: Everything mixed together
 .github/prompts/
 ├── create-component.prompt.md
 ├── security-checklist.md  # Is this a snippet or a prompt?
 ├── template.md            # What kind of template?
+├── SKILL.md               # Wrong location for skills!
 
 ✅ GOOD: Clear folder structure
 .github/
@@ -3424,8 +3749,12 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 │   └── create-component.prompt.md
 ├── prompt-snippets/       # Reusable fragments
 │   └── security-checklist.md
-└── templates/             # Starting point files
-    └── prompt-template.md</code></pre>
+├── templates/             # Starting point files
+│   └── prompt-template.md
+└── skills/                # Agent skills with resources
+    └── article-review/
+        ├── SKILL.md
+        └── templates/</code></pre>
 </section>
 <section id="document-usage" class="level3">
 <h3 class="anchored" data-anchor-id="document-usage">2. Document Usage</h3>
@@ -3445,22 +3774,22 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 <li><strong>Using prompts to standardize</strong> existing files when templates evolve</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Template Version: 2.1</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Last Updated: 2025-12-25</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Changelog: Added 'tools' and 'model' fields, removed deprecated 'mode' field</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Template Version: 2.1</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Last Updated: 2025-12-25</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Changelog: Added 'tools' and 'model' fields, removed deprecated 'mode' field</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="snippet-composition-patterns" class="level3">
 <h3 class="anchored" data-anchor-id="snippet-composition-patterns">4. Snippet Composition Patterns</h3>
 <p><strong>Pattern 1: Inline inclusion via <code>#file</code></strong> (VS Code only)</p>
 <pre><code>Please analyze this code. #file:.github/prompt-snippets/security-checklist.md</code></pre>
 <p><strong>Pattern 2: Manual copy-paste</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="an">Review the following for security issues:</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Content of security-checklist.md pasted here</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="an">Review the following for security issues:</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Content of security-checklist.md pasted here</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Pattern 3: Reference in prompt YAML</strong> <strong>Pattern 4: Markdown link</strong> (may work, less reliable)</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Follow the guidelines in <span class="co">[</span><span class="ot">security-checklist.md</span><span class="co">](.github/prompt-snippets/security-checklist.md)</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Follow the guidelines in <span class="co">[</span><span class="ot">security-checklist.md</span><span class="co">](.github/prompt-snippets/security-checklist.md)</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="common-patterns" class="level2">
@@ -3483,17 +3812,17 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 </section>
 <section id="generated-templates-in-prompts" class="level3">
 <h3 class="anchored" data-anchor-id="generated-templates-in-prompts">Generated Templates in Prompts</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> scaffold-api-endpoint</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>Create a new API endpoint with this structure:</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Controller template code</span><span class="co">]</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Service template code</span><span class="co">]</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Test template code</span><span class="co">]</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>Replace placeholders with actual implementation.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> scaffold-api-endpoint</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>Create a new API endpoint with this structure:</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Controller template code</span><span class="co">]</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Service template code</span><span class="co">]</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Test template code</span><span class="co">]</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>Replace placeholders with actual implementation.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Use case:</strong> Standardize generated code structures without requiring separate template files.</p>
 </section>
 </section>
@@ -3502,8 +3831,9 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 <ul>
 <li><strong>Snippets</strong> = Reusable context fragments included in other prompts</li>
 <li><strong>Generated Templates</strong> = Structures that prompts output (code scaffolds, docs)</li>
-<li><strong>Input Templates</strong> = Starting points for creating new prompt/agent/instruction files</li>
+<li><strong>Input Templates</strong> = Starting points for creating new prompt/agent/instruction/skill files</li>
 <li><strong>Full Prompts</strong> = Standalone executable commands with YAML frontmatter</li>
+<li><strong>Agent Skills</strong> = Portable workflows bundling SKILL.md with templates, scripts, and examples (VS Code 1.107+)</li>
 </ul>
 <p>Store snippets and templates in dedicated folders, document their usage, and version them when they change. This organization ensures your team can easily find, reuse, and maintain supporting assets alongside core prompt files.</p>
 <hr>
@@ -3593,27 +3923,27 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 └── p4.prompt.md</code></pre>
 <p>No explanation of purpose, no usage examples, no maintenance notes.</p>
 <p><strong>✅ Solution: Add README.md in each folder:</strong></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- .github/prompts/README.md --&gt;</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu"># Team Prompts</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Available Prompts</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>| Command | Purpose | When to Use |</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>|---------|---------|-------------|</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>| <span class="in">`/create-react-component`</span> | Generate functional React component | Creating new UI components |</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>| <span class="in">`/generate-unit-tests`</span> | Create Jest tests for selected code | After writing new functions |</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>| <span class="in">`/review-api-security`</span> | Security audit for API endpoints | Before deploying API changes |</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Usage</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open Copilot Chat</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Type <span class="in">`/`</span> to see available prompts</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Select prompt or type <span class="in">`/promptName`</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Provide required context (selection, arguments)</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adding New Prompts</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>See <span class="in">`.github/templates/prompt-template.md`</span> for the standard structure.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- .github/prompts/README.md --&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu"># Team Prompts</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Available Prompts</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>| Command | Purpose | When to Use |</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>|---------|---------|-------------|</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>| <span class="in">`/create-react-component`</span> | Generate functional React component | Creating new UI components |</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>| <span class="in">`/generate-unit-tests`</span> | Create Jest tests for selected code | After writing new functions |</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>| <span class="in">`/review-api-security`</span> | Security audit for API endpoints | Before deploying API changes |</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Usage</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open Copilot Chat</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Type <span class="in">`/`</span> to see available prompts</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Select prompt or type <span class="in">`/promptName`</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Provide required context (selection, arguments)</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adding New Prompts</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>See <span class="in">`.github/templates/prompt-template.md`</span> for the standard structure.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="mistake-5-orphaned-or-outdated-files" class="level2">
 <h2 class="anchored" data-anchor-id="mistake-5-orphaned-or-outdated-files">Mistake 5: Orphaned or Outdated Files</h2>
@@ -3625,18 +3955,18 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 ├── generate-flow-types.prompt.md          # Obsolete: Migrated to TypeScript
 └── review-webpack-config.prompt.md        # Obsolete: Using Vite now</code></pre>
 <p><strong>✅ Solution: Regular maintenance with deprecation markers:</strong></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create-class-component.prompt.md</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> create-class-component</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "⚠️ DEPRECATED: Use /create-react-component instead (functional components)"</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>**This prompt is deprecated.**</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>Our team migrated to functional components with hooks.</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`/create-react-component`</span> instead.</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>This file will be removed on 2025-03-01.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create-class-component.prompt.md</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> create-class-component</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "⚠️ DEPRECATED: Use /create-react-component instead (functional components)"</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>**This prompt is deprecated.**</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>Our team migrated to functional components with hooks.</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`/create-react-component`</span> instead.</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>This file will be removed on 2025-03-01.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Maintenance checklist:</strong></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Quarterly review of all prompt files</label></li>
@@ -3675,43 +4005,43 @@ For Copilot Chat, you must use the <code>.prompt.md</code> Markdown format.</p>
 <h2 class="anchored" data-anchor-id="mistake-7-no-versioning-strategy-for-templates">Mistake 7: No Versioning Strategy for Templates</h2>
 <p><strong>Problem</strong>: Teams update templates but don’t version them, breaking consistency for files created from older versions.</p>
 <p><strong>❌ Bad example:</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># .github/templates/prompt-template.md</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> [prompt-name]</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> [description]</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># [Prompt Title]</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Instructions...</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># .github/templates/prompt-template.md</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> [prompt-name]</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> [description]</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># [Prompt Title]</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Instructions...</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>No version number, no changelog, no way to know if existing prompts follow current template.</p>
 <p><strong>✅ Solution: Version templates and document changes:</strong></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Template Version: 2.1.0</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Last Updated: 2025-12-25</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Changelog:</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   v2.1.0 (2025-12-25): Added 'tools' field for tool restrictions</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   v2.0.0 (2025-11-01): Added 'model' field, removed deprecated 'mode'</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   v1.0.0 (2025-09-15): Initial template</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Instructions:</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Copy this file to .github/prompts/</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Rename to [your-prompt-name].prompt.md</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Fill in all [bracketed] fields</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Remove this header comment before committing</span></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>name: <span class="co">[</span><span class="ot">prompt-name</span><span class="co">]</span></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>description: <span class="co">[</span><span class="ot">Brief description of what this prompt does</span><span class="co">]</span></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>tools: <span class="co">[</span><span class="ot">fetch, search, ...</span><span class="co">]</span>  # v2.1.0: Optional tool restrictions</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>model: <span class="co">[</span><span class="ot">Model name</span><span class="co">]</span>           # v2.0.0: Optional model selection</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># [Prompt Title]</span></span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Clear description of the task</span><span class="co">]</span></span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Step-by-step instructions</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Template Version: 2.1.0</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Last Updated: 2025-12-25</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Changelog:</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   v2.1.0 (2025-12-25): Added 'tools' field for tool restrictions</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   v2.0.0 (2025-11-01): Added 'model' field, removed deprecated 'mode'</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   v1.0.0 (2025-09-15): Initial template</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Instructions:</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Copy this file to .github/prompts/</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Rename to [your-prompt-name].prompt.md</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Fill in all [bracketed] fields</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Remove this header comment before committing</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>name: <span class="co">[</span><span class="ot">prompt-name</span><span class="co">]</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>description: <span class="co">[</span><span class="ot">Brief description of what this prompt does</span><span class="co">]</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>tools: <span class="co">[</span><span class="ot">fetch, search, ...</span><span class="co">]</span>  # v2.1.0: Optional tool restrictions</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>model: <span class="co">[</span><span class="ot">Model name</span><span class="co">]</span>           # v2.0.0: Optional model selection</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># [Prompt Title]</span></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Clear description of the task</span><span class="co">]</span></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Step-by-step instructions</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="key-takeaways-1" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaways-1">Key Takeaways</h2>
@@ -3759,6 +4089,13 @@ Documentation on using <code>.github/instructions/</code> folder with <code>.ins
 Comprehensive guide to using Copilot Chat in VS Code, including chat participants, slash commands, and context variables like <code>#file</code> and <code>#fetch</code>. Essential for understanding how to reference files and external resources within your prompts and how to leverage VS Code’s chat interface effectively.</p></li>
 <li><p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents">Custom Agents in VS Code</a></strong> <code>[📘 Official]</code><br>
 Documentation for creating custom agents using <code>.agent.md</code> files in <code>.github/agents/</code>. Explains how to define specialized AI personas with specific tools, behaviors, handoff capabilities for workflow transitions, and model selection. Custom agents (formerly “chat modes”) became stable in VS Code 1.106. Important for teams building advanced workflow automation with multiple specialized agents.</p></li>
+</ul>
+</section>
+<section id="agent-skills" class="level2">
+<h2 class="anchored" data-anchor-id="agent-skills">Agent Skills</h2>
+<ul>
+<li><strong><a href="https://agentskills.io/">Agent Skills Open Standard (agentskills.io)</a></strong> <code>[📗 Verified Community]</code><br>
+The open standard for agent skills that enables portable, resource-rich workflows across platforms. Skills bundle instructions with templates, scripts, and examples in a discoverable format. Essential reference for understanding the skill structure and cross-platform compatibility requirements.</li>
 </ul>
 </section>
 <section id="vs-code-release-notes" class="level2">
@@ -3842,21 +4179,21 @@ VS Code documentation on how to structure your workspace to provide optimal cont
 <section id="new-frontmatter-fields" class="level3">
 <h3 class="anchored" data-anchor-id="new-frontmatter-fields">New Frontmatter Fields</h3>
 <p>Custom agents now support additional configuration options:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Generate an implementation plan</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> Planner</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="an">tools:</span><span class="co"> ['fetch', 'githubRepo', 'search']</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="an">model:</span><span class="co"> Claude Sonnet 4</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="an">target:</span><span class="co"> vscode  # or 'github-copilot' for remote agents</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="an">handoffs:</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">  - label: Start Implementation</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">    agent: agent</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">    prompt: Implement the plan outlined above.</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co">    send: false</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="an">mcp-servers:</span><span class="co">  # For github-copilot target only</span></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: my-server</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="co">    url: https://...</span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> Generate an implementation plan</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> Planner</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="an">tools:</span><span class="co"> ['fetch', 'githubRepo', 'search']</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="an">model:</span><span class="co"> Claude Sonnet 4</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="an">target:</span><span class="co"> vscode  # or 'github-copilot' for remote agents</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="an">handoffs:</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co">  - label: Start Implementation</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co">    agent: agent</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co">    prompt: Implement the plan outlined above.</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co">    send: false</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="an">mcp-servers:</span><span class="co">  # For github-copilot target only</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: my-server</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co">    url: https://...</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <p><strong>For detailed guidance on creating and structuring custom agent files, including persona design, tool configuration, and handoff workflows, see <a href="./04. how_to_structure_content_for_copilot_agent_files.md">How to Structure Content for Copilot Agent Files</a>.</strong></p>
 <hr>
