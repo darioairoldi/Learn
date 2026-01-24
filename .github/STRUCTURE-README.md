@@ -1,139 +1,71 @@
-# Documentation Site Automation Structure
+# Repository Structure Guide
 
-This document explains the folder structure and automation tools for this learning documentation repository.
+This document describes the folder structure and organization of this learning documentation repository.
 
-## 📁 Repository Structure
+**📖 Context folder mapping:** See [.copilot/context/STRUCTURE-README.md](../.copilot/context/STRUCTURE-README.md) for context file sources and generation.
 
-```
-.github/
-├── copilot-instructions.md          # Global editorial & validation standards
-├── instructions/                    # Path-specific instructions
-│   ├── documentation.instructions.md
-│   ├── tech-articles.instructions.md
-│   └── prompts.instructions.md
-├── prompts/                         # Automation prompt files
-│   ├── article-writing.prompt.md
-│   ├── grammar-review.prompt.md
-│   ├── readability-review.prompt.md
-│   ├── understandability-review.prompt.md
-│   ├── gap-analysis.prompt.md
-│   ├── logic-analysis.prompt.md
-│   ├── structure-validation.prompt.md
-│   ├── fact-checking.prompt.md
-│   ├── series-validation.prompt.md
-│   ├── correlated-topics.prompt.md
-│   ├── metadata-init.prompt.md
-│   ├── metadata-update.prompt.md
-│   └── publish-ready.prompt.md
-└── templates/                       # Content templates
-    ├── article-template.md
-    ├── howto-template.md
-    ├── tutorial-template.md
-    ├── issue-template.md
-    ├── recording-summary-template.md
-    ├── recording-analysis-template.md
-    └── metadata-template.yml
+---
 
-.copilot/
-├── bin/                             # (Deprecated - use mcp-servers/)
-├── mcp-servers/                     # MCP server executables
-│   └── iqpilot/                     # IQPilot MCP server
-├── context/                         # Rich context for AI (numbered for priority)
-│   ├── 00.00 prompt-engineering/    # Prompt & agent design patterns
-│   │   ├── 01-context-engineering-principles.md
-│   │   ├── 02-tool-composition-guide.md
-│   │   ├── 03-progressive-disclosure-pattern.md
-│   │   ├── 04-handoffs-pattern.md
-│   │   ├── 05-validation-caching-pattern.md
-│   │   └── 06-adaptive-validation-patterns.md
-│   ├── 01.00 article-writing/       # Generic article writing guidelines
-│   │   ├── 01-style-guide.md
-│   │   ├── 02-validation-criteria.md
-│   │   └── workflows/
-│   │       ├── 01-article-creation-workflow.md
-│   │       ├── 02-review-workflow.md
-│   │       └── 03-series-planning-workflow.md
-│   └── 90.00 learning-hub/          # Repository-specific conventions
-│       ├── 01-domain-concepts.md
-│       ├── 02-dual-yaml-metadata.md
-│       ├── 03-validation-criteria.md
-│       ├── 04-reference-classification.md
-│       └── 05-visual-formatting-guidelines.md
-└── scripts/                         # Automation scripts
-    ├── validate-metadata.ps1
-    ├── check-stale-validations.ps1
-    └── build-iqpilot.ps1            # Build IQPilot MCP server
+## 📁 Repository Folder Structure
 
-src/IQPilot/                         # C# MCP Server for content quality tools
-├── Program.cs                       # MCP server entry point
-├── Services/                        # Core services (validation, metadata, etc.)
-├── Tools/                           # MCP tool implementations (16 tools)
-├── IQPilot.csproj                   # Project file
-└── README.md, README.IQPilot.md     # Technical documentation
+### .github/ — GitHub Copilot Configuration
 
-.vscode/
-├── extensions/
-│   └── metadata-watcher/            # VS Code extension (TypeScript)
-│       ├── src/extension.ts
-│       ├── package.json
-│       └── tsconfig.json
-├── tasks.json                       # Build tasks
-├── launch.json                      # Debug configurations
-├── settings.json                    # Workspace settings
-└── extensions.json                  # Recommended extensions
-```
+Repository-level configuration for GitHub Copilot customization.
 
-## 🚀 Quick Start
+| Folder/File | Purpose |
+|-------------|---------|
+| `copilot-instructions.md` | Global instructions applied to all Copilot interactions |
+| `instructions/` | Path-specific instruction files (auto-loaded by `applyTo` patterns) |
+| `prompts/` | Reusable prompt files for common workflows |
+| `templates/` | Content templates for articles, how-tos, and metadata |
+| `agents/` | Custom agent definitions for specialized tasks |
+| `skills/` | Agent skill definitions (SKILL.md files) |
 
-### One-Time Setup: MetadataWatcher
+### .copilot/ — Copilot Context and Tools
 
-**MetadataWatcher** automatically synchronizes metadata files when you rename articles. Set it up once:
+AI context library and automation tools.
 
-```powershell
-.\.copilot\scripts\build-metadata-watcher.ps1
-```
+| Folder | Purpose |
+|--------|---------|
+| `context/` | Rich context files organized by domain (numbered for priority) |
+| `mcp-servers/` | MCP server executables (IQPilot) |
+| `scripts/` | PowerShell automation scripts |
+| `bin/` | (Deprecated — use mcp-servers/) |
 
-Then reload VS Code (`Ctrl+Shift+P` → "Developer: Reload Window"). Look for `✓ Metadata Watcher` in the status bar.
+**📖 Context folder details:** [.copilot/context/STRUCTURE-README.md](../.copilot/context/STRUCTURE-README.md)
 
-📖 **Full setup guide**: [METADATA-WATCHER-QUICKSTART.md](../METADATA-WATCHER-QUICKSTART.md)
+### src/ — Source Code
 
-### Creating a New Article
+| Folder | Purpose |
+|--------|---------|
+| `IQPilot/` | C# MCP Server for content quality tools (16 tools) |
+| `MetadataWatcher/` | C# file watcher for metadata synchronization |
 
-1. **Plan your article**
-   - Define topic, audience, and learning objectives
-   - Create outline
+### .vscode/ — VS Code Configuration
 
-2. **Initialize** (optional - metadata created automatically during validation)
-   ```
-   /metadata-init
-   ```
-   Provide title, tags, and author info
+| Folder/File | Purpose |
+|-------------|---------|
+| `extensions/metadata-watcher/` | TypeScript VS Code extension |
+| `tasks.json` | Build and automation tasks |
+| `launch.json` | Debug configurations |
+| `settings.json` | Workspace settings |
 
-3. **Write content**
-   - Use appropriate template from `.github/templates/`
-   - Or use `/article-writing` prompt for AI assistance
+### Content Folders (Numbered for Ordering)
 
-4. **Validate** (metadata auto-created/updated during these steps)
-   ```
-   /structure-validation
-   /grammar-review
-   /readability-review
-   /logic-analysis
-   /fact-checking
-   ```
+| Folder | Purpose |
+|--------|---------|
+| `01.00 news/` | VS Code releases, tool updates (date-prefixed: YYYYMMDD) |
+| `02.00 events/` | Conference notes (Build, Ignite) with session summaries |
+| `03.00 tech/` | Technical articles organized by topic |
+| `04.00 howto/` | Step-by-step guides and tutorials |
+| `05.00 issues/` | Problem solving and troubleshooting notes |
+| `06.00 idea/` | Project concepts (IQPilot, LearnHub) |
+| `07.00 projects/` | Active project documentation |
+| `90.00 travel/` | Personal travel and event planning |
 
-5. **Final check**
-   ```
-   /publish-ready
-   ```
+---
 
-6. **Publish**
-   - Update status to 'published' in metadata (if exists)
-   - Commit and push
-
-**Note**: The dual metadata architecture embeds all metadata in the article itself - no separate files to rename!
-
-## 🔧 Prompt Files (VS Code & Visual Studio)
+## 🔧 Prompt Files
 
 ### Content Creation
 - **`/article-writing`**: Generate article drafts from topic/outline
@@ -173,196 +105,64 @@ Then reload VS Code (`Ctrl+Shift+P` → "Developer: Reload Window"). Look for `�
 ### Metadata
 - **`metadata-template.yml`**: Schema for article metadata
 
-## 📊 Metadata System
-
-Each article has an adjacent `.metadata.yml` file tracking:
-
-- **Article info**: Title, author, dates, status, tags
-- **Validation history**: Timestamps, models, outcomes
-- **Cross-references**: Related articles, prerequisites, advanced topics
-- **Analytics**: Word count, reading time, engagement metrics
-
-### Validation Caching
-
-Metadata enables smart re-validation:
-- Skip validation if article unchanged since last run
-- Skip if same model and previous outcome was "passed"
-- Re-run if article modified or validation stale
-
-## 🛠️ Automation Scripts
-
-### PowerShell Scripts
+## �️ Automation Scripts
 
 Located in `.copilot/scripts/`:
 
-**`validate-metadata.ps1`**: Validate all metadata files
-```powershell
-.\.copilot\scripts\validate-metadata.ps1 -Verbose
-```
+| Script | Purpose |
+|--------|---------|
+| `validate-metadata.ps1` | Validate all metadata files |
+| `check-stale-validations.ps1` | Find articles with outdated checks |
+| `build-iqpilot.ps1` | Build IQPilot MCP server |
 
-**`check-stale-validations.ps1`**: Find articles with outdated checks
-```powershell
-.\.copilot\scripts\check-stale-validations.ps1 -ExportCsv
-```
-
-## 📖 Context Library
-
-Located in `.copilot/context/`, these files enrich AI responses. Folders and files use numbered prefixes for priority ordering:
-
-### 00.00 prompt-engineering/ (Prompt & Agent Design)
-
-| File | Purpose |
-|------|---------|
-| `01-context-engineering-principles.md` | Core principles for effective prompts and agents |
-| `02-tool-composition-guide.md` | Tool selection patterns by role |
-| `03-progressive-disclosure-pattern.md` | Token optimization via layered context |
-| `04-handoffs-pattern.md` | Multi-agent orchestration patterns |
-| `05-validation-caching-pattern.md` | 7-day caching for validation results |
-| `06-adaptive-validation-patterns.md` | Flexible validation strategies |
-
-### 01.00 article-writing/ (Article Creation Guidelines)
-
-| File | Purpose |
-|------|---------|
-| `01-style-guide.md` | Writing standards and formatting rules |
-| `02-validation-criteria.md` | General quality thresholds |
-| `workflows/*.md` | Article creation, review, and series workflows |
-
-### 90.00 learning-hub/ (Repository-Specific)
-
-| File | Purpose |
-|------|---------|
-| `01-domain-concepts.md` | Core terminology and concepts for this site |
-| `02-dual-yaml-metadata.md` | Top/bottom YAML metadata structure and parsing |
-| `03-validation-criteria.md` | Learning Hub-specific validation rules |
-| `04-reference-classification.md` | 📘📗📒📕 source classification system |
-| `05-visual-formatting-guidelines.md` | `<mark>`, emojis, TOC usage criteria |
-
-## 🎯 Validation Outcomes
-
-### Status Values
-- **passed**: Meets all criteria
-- **minor_issues**: Acceptable issues noted
-- **needs_revision**: Must be fixed before publishing
-- **failed**: Critical errors, major revision needed
-
-### Article Status
-- **draft**: Initial creation, not validated
-- **in-review**: Validations in progress
-- **published**: Approved and live
-- **archived**: Outdated but kept for reference
+---
 
 ## 📝 Instructions Files
 
 ### Global Instructions
-**`.github/copilot-instructions.md`**: Applied to all content
-- Fact-checking requirements
-- Citation standards
-- Metadata management
-- Preferred tools and workflows
+
+**`.github/copilot-instructions.md`**: Applied to all Copilot interactions
+- Repository architecture overview
+- Content organization
+- Key workflows and conventions
 
 ### Path-Specific Instructions
-**`.github/instructions/`**: Applied to specific folders
-- `documentation.instructions.md`: All Markdown files
-- `tech-articles.instructions.md`: Technical content
-- `prompts.instructions.md`: Prompt engineering articles
 
-## 🔄 Content Lifecycle
+**`.github/instructions/`**: Auto-loaded based on `applyTo` patterns
 
-```
-Idea → Draft → Validation → Review → Published → Maintenance
-```
+| File | Applies To | Purpose |
+|------|------------|---------|
+| `documentation.instructions.md` | `*.md` (content) | Base markdown rules |
+| `article-writing.instructions.md` | `*.md` (content) | Comprehensive writing guidance |
+| `prompts.instructions.md` | `.github/prompts/**/*.md` | Prompt file creation rules |
+| `agents.instructions.md` | `.github/agents/**/*.agent.md` | Agent file creation rules |
+| `context-files.instructions.md` | `.copilot/context/**/*.md` | Context file creation rules |
+| `skills.instructions.md` | `.github/skills/**/SKILL.md` | Skill file creation rules |
 
-1. **Idea**: Topic selection and planning
-2. **Draft**: Content creation (manual or AI-assisted)
-3. **Validation**: Quality checks via prompts
-4. **Review**: Self-review and refinement
-5. **Published**: Live content
-6. **Maintenance**: Periodic re-validation and updates
-
-## ⚙️ Best Practices
-
-### When Writing
-1. Start with appropriate template
-2. Metadata is automatically created during validations (no manual `/metadata-init` needed)
-3. Validate incrementally (don't wait until end)
-4. Metadata updates automatically after each validation
-5. Use fact-checking for technical claims
-6. **Renaming articles**: Use F2 or right-click → Rename. IQPilot (if enabled) updates embedded metadata automatically.
-
-### When Reviewing
-1. Check metadata for last validation dates (if file exists)
-2. Skip recent validations if article unchanged
-3. Focus on modified sections
-4. Run `/publish-ready` before publishing
-
-### When Maintaining
-1. Schedule quarterly reviews for technical content
-2. Re-run fact-checking when technologies update
-3. Monitor for broken links
-4. Update cross-references when adding related content
-
-### IQPilot Usage
-
-See [.iqpilot/README.md](../.iqpilot/README.md) for complete documentation.
-
-- **Operating modes**: MCP (full features), Prompts Only (standalone), or Off
-- **Mode switching**: Via settings or status bar commands
-- **Configuration**: See [GETTING-STARTED.md](../GETTING-STARTED.md)
-
-## 🚨 Common Issues
-
-### Validation Errors
-- **Solution**: Run the specific validation prompt, fix issues, update metadata
-
-### Stale Validations
-- **Check**: Run `check-stale-validations.ps1`
-- **Solution**: Re-run outdated validations, update metadata
-
-### Broken Links
-- **Prevention**: Verify during fact-checking
-- **Detection**: Regular link checking
-- **Solution**: Update or remove broken links
+---
 
 ## 📚 Reference Documentation
 
 ### GitHub Copilot Features
-- Prompt files: `.prompt.md` in `.github/prompts/`
-- Instructions: `.instructions.md` in `.github/instructions/`
-- Templates: Reference files in `.github/templates/`
+
+| Feature | Location | Purpose |
+|---------|----------|---------|
+| Prompt files | `.github/prompts/*.prompt.md` | Reusable workflows |
+| Instructions | `.github/instructions/*.instructions.md` | Path-specific guidance |
+| Agents | `.github/agents/*.agent.md` | Specialized assistants |
+| Skills | `.github/skills/*/SKILL.md` | Agent capabilities |
+| Templates | `.github/templates/*.md` | Content scaffolds |
+| Context | `.copilot/context/**/*.md` | Shared reference docs |
 
 ### Supported IDEs
-- **VS Code**: All features supported
-- **Visual Studio 2022 (17.10+)**: Prompt and instruction files supported
-- **GitHub Copilot CLI**: Agent mode prompts supported
 
-## 🔍 Finding Content
-
-### Semantic Search
-Copilot indexes `.copilot/context/` for semantic search. Place rich documentation here to improve AI responses.
-
-### Cross-References
-Use `/correlated-topics` to discover related content and maintain cross-reference links.
-
-### Series Navigation
-Articles in a series should have series metadata and prev/next navigation.
-
-## 💡 Tips
-
-1. **Use validation caching**: Avoid redundant AI calls
-2. **Batch validations**: Run multiple checks together
-3. **Incremental validation**: Check as you write sections
-4. **Template adherence**: Saves validation time
-5. **Reuse research**: Build on existing articles
-
-## 🆘 Getting Help
-
-- Review workflow documentation in `.copilot/context/workflows/`
-- Check templates in `.github/templates/`
-- Read context guides in `.copilot/context/`
-- Use `/publish-ready` for comprehensive status
+| IDE | Support Level |
+|-----|---------------|
+| VS Code | All features supported |
+| Visual Studio 2022 (17.10+) | Prompt and instruction files |
+| GitHub Copilot CLI | Agent mode prompts |
 
 ---
 
-*Last updated: 2025-11-18*  
-*Version: 1.0*
+*Last updated: 2026-01-24*  
+*Version: 2.0*
