@@ -124,55 +124,11 @@ Gather the following information from all available sources:
 - **Comprehensive:** No specific priorities mentioned
 - **Validation-only:** Focus on references and accuracy checks
 - **Update-only:** Focus on version currency and new features
-- **Comprehensive + Expansion:** Include adjacent topic discovery (default for comprehensive reviews)
+- **Comprehensive + Expansion:** Include adjacent topic discovery (default)
 
-**Output: Review Context Summary**
+**Output Format:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 1: Review Context Analysis Output"
 
-```markdown
-## Review Context Analysis
-
-### Article Identification
-- **Source:** [explicit/attached/active/workspace/user-selected]
-- **File path:** `[full path to article]`
-- **Article title:** [extracted from H1 or frontmatter]
-- **Last updated:** [from top YAML date field]
-- **Time since update:** [calculated: X months/days]
-
-### Review Scope
-**Type:** [Targeted / Comprehensive / Validation-only / Update-only]
-
-**High Priority (Must Address):**
-- [User-specified sections or concerns]
-- [Critical gaps mentioned explicitly]
-
-**Medium Priority (Should Address):**
-- [Selected sections in editor]
-- [Conversation context issues]
-- [Metadata TODOs]
-
-**Low Priority (Consider Addressing):**
-- [General improvements]
-- [Inferred gaps from quick scan]
-
-### Explicit Requirements
-- [User-stated requirements verbatim]
-- [Placeholders provided: {{requirement}}]
-
-### Initial Observations
-- **Obvious version gaps:** [VS Code 1.x → current is 1.106+]
-- **Deprecated features mentioned:** [.chatmode.md references]
-- **Broken reference indicators:** [404 errors noticed]
-
-### Article Content Cache
-**Read article ONCE and cache for subsequent phases:**
-- Full article text (avoid re-reading in later phases)
-- Top YAML: Quarto metadata (for reference only - do not modify)
-- Main content: Article body and sections
-- Existing references: Current References section
-- Bottom YAML: Validation metadata (will update in Phase 6)
-
-**Proceed with Phase 2-5 using this context? (yes/no/modify)**
-```
+Cache full article content in Phase 1 to avoid re-reading in later phases.
 
 **Workflow Examples:**
 
@@ -222,64 +178,22 @@ Result:
 **Process:**
 
 1. **Extract all URLs** from article's References section (use cached article content)
-2. **Fetch all URLs in parallel** (not sequentially - batch process for performance)
+2. **Fetch all URLs in parallel** (batch process for performance)
 3. **Record status only** (defer classification to Phase 4):
    - ✅ **Valid**: Successfully fetched (HTTP 200 OK)
    - ❌ **Broken**: 404 error, network failure, or timeout
    - ⚠️ **Redirected**: URL changed but content accessible
    - ⚠️ **Outdated**: Content dated more than 2 years old
 
-**Output:**
-```markdown
-## Reference Inventory
-| URL | Status | Title | Notes |
-|-----|--------|-------|-------|
-| https://example.com/doc | ✅ Valid | [Document Title] | Fetched successfully |
-| https://old.site/page | ❌ Broken | [Old Page] | 404 error, needs replacement |
-| https://moved.com/new | ⚠️ Redirected | [New Location] | Redirected from /old |
-```
+**Output Format:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 2: Reference Inventory Output"
 
-**Note:** Classification (📘 📗 📒 📕) happens in Phase 4 after all references are discovered.
+**Consistency Analysis Process:**
 
-**Process:**
+1. **Identify Inconsistencies:** Compare claims across sections, verify technical details align
+2. **Identify Redundancies:** Detect duplicate explanations, overlapping content
+3. **Identify Contradictions:** Compare recommendations against best practices
 
-1. **Identify Inconsistencies:**
-   - Compare claims across different sections
-   - Check for conflicting statements about same topic
-   - Verify technical details align throughout article
-   - Flag version numbers or feature availability mismatches
-
-2. **Identify Redundancies:**
-   - Detect duplicate explanations of same concept
-   - Find overlapping content between sections
-   - Note repeated examples or code snippets
-   - Suggest consolidation opportunities
-
-3. **Identify Contradictions:**
-   - Compare recommendations against best practices
-   - Check for conflicting guidance on same task
-   - Verify examples align with stated principles
-   - Flag deprecated approaches presented as current
-
-**Output:**
-```markdown
-## Consistency Analysis Report
-
-### Inconsistencies Found: [count]
-| Location | Issue | Recommended Fix |
-|----------|-------|----------------|
-| Section X, Line Y | [Description] | [Suggestion] |
-
-### Redundancies Found: [count]
-| Locations | Duplicated Content | Consolidation Strategy |
-|-----------|-------------------|------------------------|
-| Section A + B | [What's repeated] | [How to merge] |
-
-### Contradictions Found: [count]
-| Conflict | Section 1 | Section 2 | Resolution |
-|----------|-----------|-----------|------------|
-| [Topic] | [Statement A] | [Statement B] | [Which is correct] |
-```
+**Output Format:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 3.5: Consistency Analysis Output"
 
 ### Phase 3: Research & Gap Discovery
 
@@ -324,129 +238,31 @@ Result:
 - Extract integration patterns (MCP servers, custom tools, orchestration)
 
 **E. Cross-Reference & Deduplicate**
-- Merge all discovered topics
-- Remove duplicates (same concept, different names)
-- Group by relationship to core topics (direct, adjacent, tangential)
+- Merge all discovered topics, remove duplicates, group by relationship to core topics
 
 **F. Alternative Solutions & Approaches** (Goal 4.2: Discover Alternatives)
 - For each core technology/approach in article, identify alternatives
-- Search patterns: "[core topic] vs [alternative]", "[core topic] alternatives", "[core topic] comparison"
-- Focus on: Mature alternatives with significant adoption, different architectural approaches
-- Document: Trade-offs, use cases where each fits better, migration considerations
+- Search patterns: "[core topic] vs [alternative]", "[core topic] alternatives"
+- Document: Trade-offs, use cases, migration considerations
 - Classification: Direct alternatives vs complementary tools
 
-**Output Format:**
-```markdown
-## Topic Expansion Results
-
-### Core Topics (from article)
-- [List of topics currently covered]
-
-### Adjacent Topics (discovered, NOT in article)
-
-**From Workspace Context:**
-- [Topic] (found in [X] related articles)
-
-**From Official Docs:**
-- [Topic] (from [documentation source])
-
-**From Release Notes:**
-- [Version/Date]: [New feature/change]
-
-**From Community:**
-- [Pattern/practice] (from [source])
-
-### Alternatives Discovered (Goal 4.2)
-
-**For [Core Technology/Approach in Article]:**
-- **[Alternative Name]**
-  - **Use case fit**: [When to consider this alternative]
-  - **Trade-offs**: [Pros vs cons compared to main approach]
-  - **Source**: [Reference URL/documentation]
-  - **Suggested treatment**: [Brief mention in main text / Comparison appendix / Separate article]
-
-### Relevance Assessment
-- **High relevance** (should be in article): [topics]
-- **Medium relevance** (consider adding): [topics]
-- **Low relevance** (mention briefly or defer): [topics]
-```
+**Output Format:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 3: Topic Expansion & Gap Discovery Output"
 
 **Step 3: Build Comprehensive URL Discovery List**
 
-Now build URL list for **core + adjacent topics** (deduplicate before fetching):
-- Official documentation for **all topics** (core + adjacent)
-- Release notes covering **all topics**
-- Official blogs explaining **new/adjacent concepts**
-- Community resources for **emerging patterns**
-- Workspace instruction files for **internal best practices**
-- User-specified sources from Phase 1 priorities
+Build URL list for **core + adjacent topics** (deduplicate before fetching):
+- Official documentation, release notes, official blogs, community resources, workspace instruction files
 
 **Step 4: Fetch All URLs in Parallel** (batch process, ~15-30 URLs typical)
 
 **Step 5: Compare Article vs Fetched Sources**
 
 Analyze THREE gap categories:
+- **A. Accuracy Gaps** - Article claims vs source facts, deprecated features
+- **B. Completeness Gaps** - Missing details, new features, breaking changes
+- **C. New Topic Gaps** - Adjacent topics not mentioned, emerging patterns
 
-**A. Accuracy Gaps** (in existing coverage)
-- Article claims vs source facts
-- Deprecated features shown as current
-- Incorrect version numbers or feature availability
-- Incorrect API references or syntax
-
-**B. Completeness Gaps** (in existing coverage)
-- Missing details in covered topics
-- Incomplete examples or use cases
-- Missing prerequisites or dependencies
-- New features/capabilities for covered topics not mentioned
-- Missing best practices or warnings
-- Breaking changes or migrations
-
-**C. New Topic Gaps** (adjacent topics not covered)
-- **High-relevance topics** not mentioned at all
-- Emerging features/patterns directly related to article subject
-- Conceptual frameworks that contextualize existing content
-- Related capabilities that readers should know about
-
-**Document Findings** (defer classification to Phase 4):
-
-```markdown
-## Gap Discovery Report
-
-### Accuracy Issues (Critical Fixes)
-- **[Article claim]** vs **[Actual per source]**
-  - Source: [URL] - [Brief description]
-  - Impact: [Why this matters]
-
-### Coverage Gaps (Missing Content in Existing Sections)
-- **[Missing detail/example in covered topic]**
-  - Source: [URL] - [Brief description]
-  - Relevance: [Why readers need this]
-
-### New Topic Gaps (Adjacent Topics Not Covered)
-
-**High Relevance (Should Add):**
-- **[Topic Name]**
-  - Source: [URL/workspace file] - [Brief description]
-  - Rationale: [Why this topic belongs in article]
-  - Suggested placement: [Where to add: new section, subsection, etc.]
-  
-**Medium Relevance (Consider Adding):**
-- **[Topic Name]**
-  - Source: [URL/workspace file]
-  - Rationale: [Connection to article subject]
-  - Suggested placement: [Integration approach]
-
-**Low Relevance (Defer or Brief Mention):**
-- **[Topic Name]**
-  - Rationale: [Why deferring: too advanced, separate article, tangential]
-  - Suggested action: [Brief mention + link, or defer entirely]
-
-### New Reference Candidates
-**Discovered sources ordered by relevance (most relevant first):**
-
-1. **[Title]** - [URL]
-   - Description: [What it covers and why it's valuable]
-   - Coverage: [Core topics / Adjacent topics]
+**Output Format:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 3: Topic Expansion & Gap Discovery Output" (Gap Discovery Report section)
    
 2. **[Title]** - [URL]
    - Description: [What it covers and why it's valuable]
@@ -478,27 +294,9 @@ Analyze THREE gap categories:
    - Compare recommendations against current best practices (from Phase 3)
    - Check for conflicting guidance on same task
    - Verify examples align with stated principles
-   - Flag deprecated approaches presented as current (cross-reference Phase 3 research)
+   - Flag deprecated approaches presented as current
 
-**Output:**
-```markdown
-## Consistency Analysis Report (Goal 2.2)
-
-### Inconsistencies Found: [count]
-| Location | Issue | Current Research Shows | Recommended Fix |
-|----------|-------|------------------------|----------------|
-| Section X, Line Y | [Description] | [What Phase 3 revealed] | [Suggestion] |
-
-### Redundancies Found: [count]
-| Locations | Duplicated Content | Consolidation Strategy |
-|-----------|-------------------|------------------------|
-| Section A + B | [What's repeated] | [How to merge] |
-
-### Contradictions Found: [count]
-| Conflict | Article Claims | Phase 3 Research | Resolution |
-|----------|----------------|------------------|------------|
-| [Topic] | [Statement in article] | [Current best practice] | [Which is correct + source] |
-```
+**Output Format:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 3.5: Consistency Analysis Output"
 
 ### Phase 4: Reference Consolidation & Classification
 
@@ -535,19 +333,13 @@ Group references into categories (see `documentation.instructions.md` for patter
 - Product-specific categories as appropriate (e.g., "VS Code Features", "Visual Studio Support")
 
 **Step 4: Order by relevance within categories**
-- Most comprehensive/relevant first
-- General concepts → specific features
-- Core topics → advanced scenarios
+- Most comprehensive/relevant first, general concepts → specific features
 
 **Step 5: Format reference entries**
 
-Follow format from `documentation.instructions.md`:
-```markdown
-**[Title](url)** `[📘 Official]`  
-Description explaining content and why it's valuable (2-4 sentences). Include what topics it covers and when readers should reference it.
-```
+**📖 Format specification:** See `.github/instructions/documentation.instructions.md` → Reference Classification section
 
-**Output: Consolidated References Section** (ready for article, following documentation.instructions.md standards)
+**Output:** Consolidated References Section ready for article
 
 ### Phase 5: Gap Analysis & Prioritization
 
@@ -578,181 +370,42 @@ Compare article against Phase 3 discoveries and Phase 4 reference analysis:
 
 **Combine editorial priorities with user priorities:**
 
-```
-Final Priority = max(Editorial Priority, User Priority Boost)
-
-Editorial Priority:
-- Correctness gaps = Critical (always)
-- Completeness gaps = High (for core topics)
-- Currency gaps = Medium (version-dependent)
-- Enhancement gaps = Low (nice-to-have)
-
-User Priority Boost:
-- Gap in user-specified section = +2 levels
-- Gap in user-mentioned topic = +2 levels  
-- Gap in user-selected text = +1 level
-```
+- **Editorial Priority:** Correctness=Critical, Completeness=High, Currency=Medium, Enhancement=Low
+- **User Priority Boost:** Gap in user-specified section/topic = +2 levels, user-selected text = +1 level
+- **Final Priority:** max(Editorial Priority, User Priority Boost)
 
 **4. Assess Implementation Feasibility**
 
-For each gap, evaluate:
-- **Source availability**: Do we have Tier 1-2 sources?
-- **Scope fit**: Does it belong in this article or separate article?
-- **Effort required**: Quick fix vs. major rewrite?
-- **Dependencies**: Requires other gaps to be fixed first?
+For each gap, evaluate: Source availability, scope fit, effort required, dependencies.
 
-**Output Format:**
+**Output Format:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 5: Comprehensive Gap Analysis Output"
 
-```markdown
-## Comprehensive Gap Analysis
-
-### Critical Gaps (Must Fix)
-**Correctness issues that affect article accuracy regardless of user priorities**
-
-- **[Gap name]** `[Type: Correctness]`
-  - **Current state**: What article says now
-  - **Actual state**: What Phase 3 research revealed
-  - **Impact**: Why this is critical
-  - **Source**: [Tier 1-2 source]
-  - **User priority**: ✅ User mentioned / ⬜ Editorial judgment
-
-### High Priority Gaps (Should Fix)
-**Major coverage/currency gaps OR user-specified areas**
-
-- **[Gap name]** `[Type: Completeness/Currency]` `[User Priority: Yes/No]`
-  - **Missing/outdated**: What's not covered or wrong
-  - **Should include**: What research shows is current
-  - **Impact**: Why readers need this
-  - **Source**: [Tier 1-3 source]
-  - **Priority rationale**: Editorial high + User mentioned = Critical boost
-
-### Medium Priority Gaps (Consider Fixing)
-**Adjacent topics, currency issues, or enhancements that improve article**
-
-- **[Gap name]** `[Type: Adjacent Topic/Currency/Enhancement]` `[User Priority: Yes/No]`
-  - **Opportunity**: What could be added/improved
-  - **Benefit**: How this helps readers
-  - **Source**: [Tier 1-3 source]
-  - **Suggested placement**: [Where to integrate: new section, subsection, brief mention]
-  - **Priority rationale**: [Why this priority level]
-
-### Coverage Depth Gaps (Goal 2.3: Expansion Within Existing Sections)
-**Topics already covered but need more depth or detail**
-
-- **[Section Name]** - [Topic needing expansion]
-  - **Current coverage**: [What's there now - summary]
-  - **Expansion opportunity**: [What deeper coverage would add]
-  - **Source**: [Reference for expanded information]
-  - **Benefit**: [Why readers need this depth]
-  - **Priority**: [High/Medium/Low based on user priorities + editorial judgment]
-  - **Suggested approach**: [Add subsection / Expand examples / Add advanced scenarios / Create appendix]
-
-### Low Priority Gaps (Future Improvements)
-**Nice-to-have additions not prioritized by user or editorial**
-
-- **[Gap name]** `[Type: Enhancement/Adjacent Topic]`
-  - **Suggestion**: Possible improvement
-  - **Defer reason**: Out of scope / Better fit elsewhere / Low impact / Too advanced
-
-### Out of Scope
-**Gaps identified but not appropriate for this article**
-
-- **[Topic]**: Better suited for separate article on [topic]
-- **[Advanced scenario]**: Beyond article's target audience level
-```
-
-**Key Principle:** User priorities influence *where we invest extra effort*, but editorial judgment determines *what must be fixed for accuracy*. A user can't make a correctness gap low priority, but they can elevate a nice-to-have enhancement to high priority.
+**Key Principle:** User priorities influence *where we invest extra effort*, but editorial judgment determines *what must be fixed for accuracy*.
 
 ### Phase 6: Article Update
 
 **Goal:** Apply all changes to article using consolidated references from Phase 4 and gap analysis from Phase 5.
 
-1. **Update main content**:
-   - Correct inaccurate information (accuracy gaps from Phase 5)
-   - Add missing topics and sections (coverage gaps from Phase 5)
-   - Update version numbers and feature descriptions
-   - Replace References section with consolidated version from Phase 4
-   - Update in-text citations to match new References section
+1. **Update main content**: Correct inaccuracies, add missing topics, update version numbers, replace References section
+2. **Create/Update Appendix sections** for deprecated content
 
-2. **Create/Update Appendix sections** for deprecated content:
-   ```markdown
-   # 📎 Appendix X: [Deprecated Feature/Behavior Name]
-   
-   **Deprecated as of:** [version/date]
-   **Replaced by:** [new feature/approach]
-   
-   [Historical information about the deprecated feature]
-   
-   ### Migration Path
-   [How to transition from old to new]
-   ```
+**Appendix Template:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 6: Deprecated Content Appendix Template"
 
 ### Phase 7: Metadata Update
 
-Update the **bottom YAML metadata block** (NOT the top Quarto block):
+Update the **bottom YAML metadata block** (NOT the top Quarto block).
 
-```yaml
-<!-- 
----
-validations:
-  consistency_review:
-    status: "completed"
-    last_run: "{{ISO-8601 timestamp}}"
-    model: "claude-sonnet-4.5"
-    references_checked: {{count}}
-    references_valid: {{count}}
-    references_broken: {{count}}
-    references_added: {{count}}
-    gaps_identified: {{count}}
-    gaps_addressed: {{count}}
-article_metadata:
-  filename: "{{filename}}"
-  last_updated: "{{ISO-8601 timestamp}}"
-  change_summary: "{{brief description of changes made}}"
-  version_history:
-    - date: "{{date}}"
-      changes: "{{summary}}"
----
--->
-```
+**Metadata Template:** Use `.github/templates/output-article-review-phases.template.md` → "Phase 7: Bottom Metadata Update Template"
 
 ## Output Format
 
+**📖 Output Templates:** Use `.github/templates/output-article-review-phases.template.md`
+
 ### 1. Review Report
-
-Present findings before making changes:
-
-```markdown
-# Article Review Report: [Article Title]
-
-## Summary
-- References checked: X (Y valid, Z broken)
-- New references discovered: X (`📘 Official`: Y, `📗``📒 Community`: Z)
-- Gaps identified: X (Critical: Y, Important: Z)
-- **Adjacent topics discovered**: X (High relevance: Y, Medium relevance: Z)
-- Sections to update: [list]
-- New sections to add: [list for adjacent topics]
-- Appendices to add: [list for deprecated content]
-
-## Reference Audit
-[Table of all references with status and classification]
-
-## Knowledge Updates Required
-[List of information to add/update with sources]
-
-## Proposed Changes
-[Summary of changes to be made]
-
-Proceed with updates? (yes/no)
-```
+Present findings before making changes using "Final Review Report Output" template.
 
 ### 2. Updated Article
-
-After approval, provide the complete updated article with:
-- All content updates applied
-- References classified with markers
-- New appendices for deprecated content
-- Updated bottom metadata block
+After approval, provide complete updated article with all content updates, classified references, new appendices, and updated bottom metadata.
 
 ## Additional Guidelines
 
@@ -765,57 +418,12 @@ After approval, provide the complete updated article with:
 
 ## Examples
 
-### Reference Classification Example
+**📖 Examples:** See `.github/templates/output-article-review-phases.template.md` → "Examples" section
 
-```markdown
-## References
-
-### Official Documentation
-
-**[GitHub Copilot - Repository Instructions](https://docs.github.com/...)** `[Official]`  
-The authoritative source for Copilot customization. Updated regularly.
-
-**[VS Code Copilot Customization](https://code.visualstudio.com/docs/...)** `[Official]`  
-Microsoft's comprehensive guide to VS Code-specific features.
-
-### Community Resources
-
-**[How to write great AGENTS.md](https://github.blog/...)** `[Official]`  
-GitHub blog post analyzing patterns from 2,500+ repositories.
-
-**[Expert Tutorial on Custom Agents](https://example.com/...)** `[Community-Verified]`  
-Well-researched guide by recognized community expert. Cross-referenced with official docs.
-```
-
-### Appendix for Deprecated Content Example
-
-```markdown
-# 📎 Appendix A: Legacy .chatmode.md Migration
-
-**Deprecated as of:** VS Code 1.106  
-**Replaced by:** `.agent.md` files in `.github/agents/`
-
-Prior to VS Code 1.106, custom agents were called "chat modes" and used different conventions:
-
-| Legacy | Current |
-|--------|---------|
-| `.chatmode.md` extension | `.agent.md` extension |
-| `.github/chatmodes/` folder | `.github/agents/` folder |
-
-### Migration Steps
-1. VS Code automatically recognizes legacy files
-2. Use Quick Fix action to migrate
-3. Rename files from `*.chatmode.md` to `*.agent.md`
-```
+Includes:
+- Reference Classification Example
+- Deprecated Content Appendix Example
 
 ## Quality Checklist
 
-Before completing the review:
-
-- [ ] All URLs verified (fetched successfully or marked broken)
-- [ ] All references classified with appropriate markers
-- [ ] Critical gaps addressed with proper citations
-- [ ] Deprecated content moved to appendices
-- [ ] Bottom metadata updated with review results
-- [ ] Change summary documented in metadata
-- [ ] Top YAML block unchanged
+**📖 Quality Checklist:** Use `.github/templates/output-article-review-phases.template.md` → "Quality Checklist"

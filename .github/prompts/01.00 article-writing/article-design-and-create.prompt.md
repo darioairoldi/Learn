@@ -92,44 +92,9 @@ See: `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for parsing 
    - Validate: Template exists in `.github/templates/`
 
 5. **Special Requirements** (OPTIONAL)
-   - Extract from user message:
-     - Specific sections to include: "make sure to cover X"
-     - Must-have examples: "include code examples for Y"
-     - Related articles: "reference the Z article"
-     - Length constraints: "keep it under 2000 words"
-     - Focus areas: "emphasize best practices"
+   - Extract from user message: specific sections, must-have examples, related articles, length constraints, focus areas
 
-**Output: Requirements Summary**
-
-```markdown
-## Article Requirements
-
-### Core Requirements
-- **Topic**: [Full topic description]
-- **Scope**: [What article will cover specifically]
-- **Target Audience**: [beginner/intermediate/advanced]
-- **Template**: [template-name.md]
-
-### Structure Requirements
-**Outline** (if provided):
-- [Section 1]
-- [Section 2]
-- ...
-
-**Or**: Outline to be generated from research (Phase 3)
-
-### Special Requirements
-- [User-specified requirements, if any]
-- [Must-include examples or sections]
-- [Related workspace articles to reference]
-
-### Constraints
-- **Length target**: [word count, if specified]
-- **Focus areas**: [specific emphasis, if specified]
-- **Exclusions**: [topics to avoid, if specified]
-
-Proceed with Phase 2? (yes/no)
-```
+**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 1: Requirements Summary Output"
 
 ### Phase 2: Workspace Context Discovery
 
@@ -140,11 +105,7 @@ Proceed with Phase 2? (yes/no)
 1. **Semantic Search for Related Articles**
    - Search workspace with topic keywords
    - Query patterns: "[topic] overview", "[topic] tutorial", "[related technology]"
-   - Identify articles covering:
-     - Same topic (avoid duplication)
-     - Related topics (link to them)
-     - Prerequisites (reference as needed)
-     - Advanced topics (mention as next steps)
+   - Identify articles covering: same topic (avoid duplication), related topics (link to them), prerequisites (reference), advanced topics (next steps)
 
 2. **Check Templates and Instructions**
    - Read selected template from `.github/templates/`
@@ -157,28 +118,7 @@ Proceed with Phase 2? (yes/no)
    - Series or learning path context
    - Cross-references for `cross_references` metadata field
 
-**Output:**
-
-```markdown
-## Workspace Context Discovery
-
-### Related Articles Found
-- **[Article Title]** (`path/to/article.md`) - [How it relates: duplicate/prerequisite/related/advanced]
-- ...
-
-### Integration Strategy
-- **Link as prerequisites**: [articles]
-- **Link as related reading**: [articles]
-- **Avoid duplicating**: [topics already covered elsewhere]
-- **Reference in series**: [if part of learning path]
-
-### Template and Conventions
-- **Using template**: `.github/templates/[template-name.md`
-- **Metadata structure**: [confirmed from 02-dual-yaml-metadata.md]
-- **Repository conventions**: [any special formatting rules]
-
-Proceed with Phase 3? (yes/no)
-```
+**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 2: Workspace Context Discovery Output"
 
 ### Phase 3: Comprehensive Topic Research
 
@@ -235,83 +175,11 @@ For each core aspect of the topic, systematically discover related concepts:
 For each core technology/approach in topic:
 
 - **Search patterns**: "[topic] vs [alternative]", "[topic] alternatives", "[topic] comparison"
-- **Focus on**:
-  - Mature alternatives with significant adoption
-  - Different architectural approaches (e.g., client-side vs server-side)
-  - Trade-offs between options
-- **Document**:
-  - Use cases where each alternative fits better
-  - Key differences and trade-offs
-  - Migration considerations (if applicable)
-- **Classification**:
-  - Direct alternatives (same problem, different solution)
-  - Complementary tools (solve related problems)
+- **Focus on**: Mature alternatives with significant adoption, different architectural approaches, trade-offs between options
+- **Document**: Use cases where each alternative fits better, key differences, migration considerations
+- **Classification**: Direct alternatives (same problem, different solution), Complementary tools (solve related problems)
 
-**Output Format:**
-
-```markdown
-## Comprehensive Topic Research
-
-### Core Topic: [Topic Name]
-
-**Primary Official Sources:**
-- **[Title]** - [URL] - [What it covers]
-- ...
-
-**Key Concepts Identified:**
-- [Concept 1]: [Brief description]
-- [Concept 2]: [Brief description]
-- ...
-
-**Current State:**
-- Latest version: [version number]
-- Recent changes: [summary of last 6-12 months]
-- Deprecations: [any deprecated features to note]
-
-### Adjacent Topics Discovered
-
-**High Relevance (Should Include):**
-- **[Adjacent Topic]**
-  - Source: [URL/workspace file]
-  - Rationale: [Why this belongs in article]
-  - Suggested placement: [Where to integrate: section/subsection/brief mention]
-
-**Medium Relevance (Consider Mentioning):**
-- **[Adjacent Topic]**
-  - Source: [URL]
-  - Rationale: [Connection to main topic]
-  - Suggested treatment: [Brief mention + link / Separate section]
-
-**Low Relevance (Defer):**
-- **[Topic]**: [Why deferring: too advanced/tangential/separate article needed]
-
-### Alternatives Discovered
-
-**For [Core Technology/Approach]:**
-
-1. **[Alternative Name]**
-   - **Use case fit**: [When to consider this option]
-   - **Key differences**: [How it differs from main approach]
-   - **Trade-offs**: [Pros and cons]
-   - **Source**: [URL]
-   - **Suggested treatment**: [Brief mention in body / Comparison appendix]
-
-2. **[Alternative Name]**
-   - ...
-
-### Community Patterns & Best Practices
-- [Pattern 1]: [Description and source]
-- [Pattern 2]: [Description and source]
-- ...
-
-### Reference URL List
-**All URLs discovered (will be classified in Phase 4):**
-- [URL 1] - [Title] - [Description]
-- [URL 2] - [Title] - [Description]
-- ...
-
-Proceed with Phase 4? (yes/no)
-```
+**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 3: Comprehensive Topic Research Output"
 
 ### Phase 4: Reference Verification and Classification
 
@@ -337,42 +205,7 @@ Proceed with Phase 4? (yes/no)
    - Order by relevance within category (most comprehensive first)
    - Format for References section
 
-**Output:**
-
-```markdown
-## Reference Verification & Classification
-
-### Verification Results
-- **Total URLs checked**: [count]
-- **Valid**: [count]
-- **Broken/Inaccessible**: [count]
-- **Redirected**: [count]
-
-### Classified References (Ready for Article)
-
-#### Official Documentation
-**[Title](url)** `[📘 Official]`  
-[Description explaining what it covers and why it's valuable]
-
-**[Title](url)** `[📘 Official]`  
-[Description]
-
-#### Community Resources
-**[Title](url)** `[📗 Verified Community]`  
-[Description]
-
-**[Title](url)** `[📒 Community]`  
-[Description]
-
-#### Examples and Repositories
-**[Title](url)** `[📘 Official]` / `[📒 Community]`  
-[Description]
-
-### Broken References (Excluded)
-- [URL] - [Error: 404 / timeout / etc]
-
-Proceed with Phase 5? (yes/no)
-```
+**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 4: Reference Verification & Classification Output"
 
 ### Phase 5: Content Structure Design
 
@@ -402,62 +235,7 @@ Proceed with Phase 5? (yes/no)
    - **Intermediate**: Balance fundamentals with advanced concepts, real-world scenarios
    - **Advanced**: Technical depth, edge cases, performance considerations, architecture
 
-**Output:**
-
-```markdown
-## Article Structure Design
-
-### Target Audience Considerations
-- **Level**: [beginner/intermediate/advanced]
-- **Assumed knowledge**: [What readers should already know]
-- **Learning objectives**: [What readers will learn]
-
-### Article Outline
-
-**1. Introduction**
-- What this article covers
-- Why it matters
-- Prerequisites (with links to workspace articles if found in Phase 2)
-- What readers will learn
-
-**2. [Main Section 1: Core Concept]**
-- [Subsection 1.1]
-- [Subsection 1.2]
-- Code example: [description]
-- Practical example: [scenario]
-
-**3. [Main Section 2: Core Feature/Technique]**
-- [Subsection 2.1]
-- [Brief mention of Alternative X with link to Appendix A]
-- ...
-
-**4. [Main Section 3: Advanced/Integration Topic]**
-- [Content from high-relevance adjacent topics]
-- ...
-
-**5. Conclusion**
-- Key takeaways recap
-- Related articles links (from Phase 2)
-- Next steps suggestions
-
-**6. References**
-- [Classified references from Phase 4]
-
-**7. Appendices** (if applicable)
-- **Appendix A: [Alternative X] Comparison**
-  - Detailed comparison with main approach
-  - Use cases, trade-offs, migration paths
-- **Appendix B: [Advanced Topic]** (if too detailed for main flow)
-  - ...
-
-### Content Integration Plan
-- **Core concepts**: [Where each Phase 3 concept appears]
-- **Adjacent topics**: [Integration points]
-- **Alternatives**: [Brief mention in Section X, detailed in Appendix A]
-- **Code examples**: [Planned examples and their sections]
-
-Proceed with Phase 6? (yes/no)
-```
+**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 5: Article Structure Design Output"
 
 ### Phase 6: Article Creation
 
@@ -475,137 +253,23 @@ Proceed with Phase 6? (yes/no)
 
 **Content Requirements:**
 
-1. **Top YAML Block** (Quarto metadata)
-   ```yaml
-   ---
-   title: "[Article Title]"
-   author: "[Author Name]"
-   date: "[YYYY-MM-DD]"
-   categories: [category1, category2]
-   description: "[SEO-friendly description, 150-160 chars]"
-   ---
-   ```
+1. **Top YAML Block** - Quarto metadata (title, author, date, categories, description)
+2. **Article Body** - Following Phase 5 outline with TOC, introduction, main sections, code examples, conclusion
+3. **References Section** - Classified references from Phase 4
+4. **Appendices** (if applicable) - Alternative comparisons, advanced topics
+5. **Bottom YAML Block** - Validation metadata in HTML comment
 
-2. **Article Body**
-   - H1 title matching frontmatter
-   - Table of Contents with working anchor links
-   - Introduction (2-3 paragraphs: what, why, prerequisites, learning objectives)
-   - Main sections following Phase 5 outline
-   - Code examples with explanations
-   - Practical examples/use cases
-   - Conclusion (recap, related articles, next steps)
+**Metadata Structure:** Use `.github/templates/output-article-design-phases.template.md` → "Article Dual YAML Metadata Structure"
 
-3. **References Section**
-   - Classified references from Phase 4
-   - Organized by category
-   - Each with emoji classification, title, link, description
+**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 6: Article Creation Summary Output"
 
-4. **Appendices** (if applicable)
-   - Alternative comparisons
-   - Advanced topics
-   - Deprecated content (if covering legacy approaches)
-
-5. **Bottom YAML Block** (Validation metadata in HTML comment)
-   ```markdown
-   <!-- 
-   ---
-   validations:
-     grammar: {last_run: null, model: null, outcome: null, issues_found: 0}
-     readability: {last_run: null, model: null, outcome: null, flesch_score: null, grade_level: null}
-     understandability: {last_run: null, model: null, outcome: null, target_audience: null}
-     structure: {last_run: null, model: null, outcome: null, has_toc: true, has_introduction: true, has_conclusion: true, has_references: true}
-     facts: {last_run: null, model: null, outcome: null, claims_checked: 0, sources_verified: 0}
-     logic: {last_run: null, model: null, outcome: null, flow_score: null}
-   
-   article_metadata:
-     filename: "[suggested-filename.md]"
-     created: "[YYYY-MM-DD]"
-     last_updated: "[YYYY-MM-DD]"
-     version: "1.0"
-     status: "draft"
-     word_count: [count]
-     reading_time_minutes: [estimate]
-     primary_topic: "[topic]"
-   
-   cross_references:
-     related_articles: [list from Phase 2]
-     series: null
-     prerequisites: [list from Phase 2]
-   ---
-   -->
-   ```
-
-**Output:**
-
-```markdown
-## Article Creation Complete
-
-### Metadata
-- **Filename**: [suggested-filename.md]
-- **Word count**: [count]
-- **Reading time**: [minutes]
-- **Categories**: [list]
-
-### Structure Summary
-- Sections: [count]
-- Code examples: [count]
-- References: [count] (📘 Official: X, 📗📒 Community: Y)
-- Appendices: [count]
-- Internal links: [count]
-
-### Quality Checklist
-- ✅ Both YAML metadata blocks included
-- ✅ All references verified and classified
-- ✅ Table of Contents with working links
-- ✅ Code examples with explanations
-- ✅ Alternatives discovered and documented
-- ✅ Related workspace articles linked
-- ✅ Proper heading hierarchy
-- ✅ Conclusion with next steps
-
-### Next Steps for User
-1. **Review content** for accuracy and voice
-2. **Save article** to appropriate workspace location
-3. **Run validation prompts**:
-   - `grammar-review.prompt.md` (updates bottom YAML grammar section)
-   - `readability-review.prompt.md` (updates readability section)
-   - `structure-validation.prompt.md` (updates structure section)
-   - `fact-checking.prompt.md` (updates facts section)
-   - `logic-analysis.prompt.md` (updates logic section)
-4. **Review validation results** and refine as needed
-5. **Publish** when all validations pass
-
----
-
-[FULL ARTICLE CONTENT BELOW]
-
----
-title: "..."
-author: "..."
-...
----
-
-[Article content]
-
-<!-- 
----
-validations:
-  ...
----
--->
-```
+Then output the complete article content with all required sections.
 
 ## Output Format
 
-### Phase Outputs
+Each phase produces a summary/report for user approval before proceeding. Use the output formats defined in:
 
-Each phase produces a summary/report for user approval before proceeding:
-- **Phase 1**: Requirements summary
-- **Phase 2**: Workspace context and integration strategy
-- **Phase 3**: Research findings and topic expansion
-- **Phase 4**: Reference verification and classification
-- **Phase 5**: Article structure design
-- **Phase 6**: Complete article with metadata
+**📖 Phase Output Templates:** `.github/templates/output-article-design-phases.template.md`
 
 ### Final Deliverable
 
@@ -613,32 +277,12 @@ Each phase produces a summary/report for user approval before proceeding:
 - Ready to save to workspace
 - All references verified and classified
 - Proper structure following template
-- Quality checklist confirmation
 
 ## Quality Standards
 
-### Completeness Checklist
-- [ ] Topic researched comprehensively (official docs + community + workspace)
-- [ ] Adjacent topics discovered and integrated appropriately
-- [ ] Alternatives identified and documented (body + appendix)
-- [ ] All references verified and classified
-- [ ] Both YAML metadata blocks included and properly formatted
-- [ ] Table of Contents with working anchor links
-- [ ] Code examples with syntax highlighting and explanations
-- [ ] Practical examples/use cases included
-- [ ] Related workspace articles linked (from Phase 2)
-- [ ] Introduction includes prerequisites and learning objectives
-- [ ] Conclusion includes key takeaways and next steps
-- [ ] References organized by category with descriptions
+**📖 Quality Checklists:** Use `.github/templates/output-article-design-phases.template.md` → "Quality Standards Checklist"
 
-### Content Quality Checklist
-- [ ] Clear, concise writing (Grade 9-10 level)
-- [ ] Active voice, short paragraphs
-- [ ] Proper heading hierarchy (H1 > H2 > H3)
-- [ ] All claims cited with authoritative sources
-- [ ] Current information (version numbers, features checked)
-- [ ] No duplication of existing workspace content
-- [ ] Audience-appropriate depth and terminology
+Validate against both **Completeness Checklist** and **Content Quality Checklist** before final output.
 
 ## References
 
