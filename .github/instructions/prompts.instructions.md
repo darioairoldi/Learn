@@ -22,19 +22,24 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 7. **Explicit Uncertainty Management** - Professional "I don't know" patterns
 8. **Template Externalization** - Externalize verbose output formats, summaries, and layouts to reusable templates for token efficiency and flexibility
 
-## Template-First Authoring ⭐
+## Template-First Authoring ⭐ (CRITICAL)
 
-**PREFER template files** over verbose embedded descriptions in prompts. This reduces token usage, improves maintainability, and enables reuse across prompts.
+**ALWAYS PREFER template files** over verbose embedded descriptions in prompts. This is a **mandatory principle** that reduces token usage, improves maintainability, and enables reuse across prompts.
+
+**🚨 RULE:** Any inline content block **exceeding 10 lines** MUST be externalized to a template file.
 
 ### When to Use Templates
 
-| Content Type | ❌ Don't Embed | ✅ Use Template |
-|--------------|----------------|------------------|
-| **Output formats** | Multi-line output examples inline | `output-*.template.md` |
+| Content Type | ❌ NEVER Embed | ✅ ALWAYS Use Template |
+|--------------|----------------|------------------------|
+| **Output formats** | Multi-line output examples inline (>10 lines) | `output-*.template.md` |
 | **Input schemas** | Detailed input field descriptions | `input-*.template.md` |
 | **Document structures** | Section-by-section layout specs | `*-structure.template.md` |
-| **Validation checklists** | Long inline checklists | Separate instruction file or template |
-| **Multi-step workflows** | Detailed phase descriptions > 20 lines | Phase templates or context files |
+| **Validation checklists** | Long inline checklists (>5 items) | Separate instruction file or template |
+| **Multi-step workflows** | Detailed phase descriptions (>20 lines) | Phase templates or context files |
+| **Process step outputs** | Verbose "Output:" format blocks | `output-{prompt-name}-phases.template.md` |
+| **Markdown examples** | Full document structure examples | Dedicated structure templates |
+| **Quality criteria** | Detailed scoring rubrics | `criteria-*.template.md` or instruction file |
 
 ### Template Reference Pattern
 
@@ -55,6 +60,36 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 **Use template:** `.github/templates/output-summary.template.md`
 ```
 
+### Inline Content Anti-Patterns (NEVER DO)
+
+❌ **Verbose Phase Outputs** - Don't embed multi-line "Output:" blocks for each phase
+```markdown
+## Phase 1: Requirements
+... [process details] ...
+
+**Output:**
+```markdown
+## Requirements Summary
+
+### Core Requirements
+- **Topic**: [Full topic description]
+- **Scope**: [What article will cover specifically]
+... [20+ more lines of format] ...
+```  ← NEVER DO THIS
+```
+
+✅ **Correct Pattern:**
+```markdown
+## Phase 1: Requirements
+... [process details] ...
+
+**Output Format:** Use `.github/templates/output-article-phases.template.md` → "Phase 1 Output"
+```
+
+❌ **Embedded Article Structures** - Don't describe full document layouts inline
+❌ **Inline Quality Checklists** - Don't embed long validation checklists (>5 items)
+❌ **Repeated Format Blocks** - Don't repeat similar output formats across phases
+
 ### Template Location
 
 - **General templates:** `.github/templates/`
@@ -71,6 +106,22 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 | Guidance sections | `guidance-{topic}.template.md` | `guidance-input-collection.template.md` |
 
 **📖 Existing templates:** `.github/templates/` (see list for reusable options)
+
+### Why Template-First Matters (Token Budget)
+
+**Embedding verbose content directly wastes tokens and causes context rot:**
+
+| Approach | Token Cost | Maintainability | Reusability |
+|----------|------------|-----------------|-------------|
+| Embed 6 phase outputs (40 lines each) | ~1600 tokens | Poor - edits in each prompt | None |
+| Reference 1 template | ~50 tokens | Good - single source of truth | Full |
+| **Savings** | **~1550 tokens** | | |
+
+**Budget impact example:**
+- Prompt with embedded outputs: 2,200 tokens (exceeds 1,500 budget)
+- Same prompt with template references: 650 tokens (well under budget)
+
+**CRITICAL:** A prompt exceeding token budget may experience "lost in the middle" effects where instructions in the center are ignored.
 
 ---
 
