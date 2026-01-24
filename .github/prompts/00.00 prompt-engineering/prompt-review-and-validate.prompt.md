@@ -2,7 +2,7 @@
 name: prompt-review-and-validate
 description: "Orchestrates the prompt file review and validation workflow with tool alignment verification"
 agent: plan
-model: claude-sonnet-4.5
+model: claude-opus-4.5
 tools:
   - read_file
   - semantic_search

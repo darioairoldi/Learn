@@ -2,7 +2,7 @@
 name: agent-createorupdate-v2
 description: "Create new agent files or update existing ones with adaptive validation using challenge-based requirements discovery"
 agent: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.5
 tools:
   - semantic_search    # Find similar agents and patterns
   - read_file          # Read templates and instructions

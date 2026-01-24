@@ -2,7 +2,7 @@
 name: agent-design-and-create
 description: "Orchestrates the complete agent file creation workflow using 8-phase methodology with role challenge validation"
 agent: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.5
 tools:
   - semantic_search
   - read_file

@@ -2,7 +2,7 @@
 name: prompt-createorupdate-prompt-engineering-guidance
 description: "Generate or update instruction files and context files that guide prompt/agent creation workflows (specialized for prompt-engineering domain)"
 agent: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.5
 tools:
   - semantic_search
   - read_file
@@ -50,7 +50,7 @@ eg. `prompt-createorupdate-prompt-file-v2.prompt.md` and related workflows that 
 - Modify `.github/copilot-instructions.md` (repository-level, author-managed)
 - Modify article files (eg. `tech/**/*.md`, `events/**/*.md`) that are not guidance files for prompt engineering
 - Touch top YAML metadata blocks (eg. in Quarto-rendered files)
-- Embed large content inline—reference context files instead
+- Embed large content inlineï¿½reference context files instead
 - Create circular dependencies between instruction files
 
 ---
@@ -58,9 +58,9 @@ eg. `prompt-createorupdate-prompt-file-v2.prompt.md` and related workflows that 
 ## ?? Out of Scope
 
 This prompt WILL NOT:
-- Create or modify prompt files (`.prompt.md`) — use `prompt-createorupdate-prompt-file-v2.prompt.md`
-- Create or modify agent files (`.agent.md`) — use dedicated agent creation prompts
-- Create or modify skill files (`SKILL.md`) — use skill creation prompts
+- Create or modify prompt files (`.prompt.md`) ï¿½ use `prompt-createorupdate-prompt-file-v2.prompt.md`
+- Create or modify agent files (`.agent.md`) ï¿½ use dedicated agent creation prompts
+- Create or modify skill files (`SKILL.md`) ï¿½ use skill creation prompts
 - Edit repository-level configuration (`.github/copilot-instructions.md`)
 - Modify other content files
 - Provide general prompt engineering advice without repository context
@@ -243,7 +243,7 @@ Load this template and customize with topic-specific content:
 | Principle | Requirement |
 |-----------|-------------|
 | **Reference, don't embed** | Link to context files instead of duplicating content |
-| **Imperative language** | Use MUST, WILL, NEVER—not "should", "try", "consider" |
+| **Imperative language** | Use MUST, WILL, NEVERï¿½not "should", "try", "consider" |
 | **Specific examples** | Include this-repository patterns, not generic advice |
 | **Tool alignment** | Match agent mode with tool capabilities |
 | **Boundary clarity** | Always Do / Ask First / Never Do in prompts/agents |

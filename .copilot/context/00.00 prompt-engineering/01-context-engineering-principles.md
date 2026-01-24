@@ -274,9 +274,11 @@ handoffs:
 
 ---
 
-### 8. Template Externalization for Token Efficiency
+### 8. Template-First Authoring (Token Efficiency)
 
-**Principle**: Externalize verbose output formats, summaries, layouts, and structured data schemas to reusable template files rather than embedding them inline.
+**Principle**: **PREFER template files** over verbose embedded descriptions for output formats, input schemas, document structures, and workflows. Externalize to reusable template files rather than embedding inline.
+
+**Core Rule**: If content exceeds 10 lines and could be reused, externalize it to a template.
 
 **Why it matters**:
 - **Token efficiency**: Large inline formats consume context budget; templates load only when needed
@@ -285,7 +287,18 @@ handoffs:
 - **Maintainability**: Update format once, all references benefit
 - **Composability**: Templates can be combined or swapped without modifying prompt logic
 
-**What to externalize:**
+**When to Use Templates (Quick Reference)**:
+
+| Content Type | ❌ Don't Embed | ✅ Use Template |
+|--------------|----------------|------------------|
+| **Output formats** | Multi-line output examples inline | `output-*.template.md` |
+| **Input schemas** | Detailed input field descriptions | `input-*.template.md` |
+| **Document structures** | Section-by-section layout specs | `*-structure.template.md` |
+| **Validation checklists** | Long inline checklists (>12 items) | Instruction file or template |
+| **Multi-step workflows** | Phase descriptions > 20 lines | Phase templates or context files |
+| **Report layouts** | Summary formats > 8 lines | `*-summary.template.md` |
+
+**What to externalize (with thresholds):**
 
 | Content Type | Inline Size Threshold | Template Location |
 |--------------|----------------------|-------------------|
@@ -364,6 +377,33 @@ Load selected template with `read_file` and populate with results.
 - Format is < 10 lines (overhead of reference not worth it)
 - Format is unique to this prompt (never reused)
 - Format requires heavy dynamic interpolation with many variables
+
+**Template Location & Naming Conventions:**
+
+| Purpose | Location | Naming Pattern | Example |
+|---------|----------|----------------|---------|
+| **Output formats** | `.github/templates/` | `output-{purpose}.template.md` | `output-prompt-validation-phases.template.md` |
+| **Input schemas** | `.github/templates/` | `input-{purpose}.template.md` | `input-article-metadata.template.md` |
+| **Document structures** | `.github/templates/` | `{type}-structure.template.md` | `promptengineering-instruction-structure.template.md` |
+| **Guidance sections** | `.github/templates/` | `guidance-{topic}.template.md` | `guidance-input-collection.template.md` |
+| **Domain-specific** | `.github/templates/` | `{domain}-*.template.md` | `recording-summary-template.md` |
+
+**Template Reference Pattern:**
+
+```markdown
+❌ **Don't** embed verbose format inline:
+## Output Format
+### Section 1: Summary
+- Title (H1)
+- Overview paragraph
+[...50+ lines...]
+
+✅ **Do** reference template:
+## Output Format
+**Use template:** `.github/templates/output-summary.template.md`
+```
+
+**Existing templates:** See `.github/templates/` (26+ reusable templates available)
 
 **Integration with Principle 5 (Context Minimization):**
 Template externalization is a specific application of context minimization for structured outputs. While Principle 5 focuses on *reference knowledge*, Principle 8 addresses *output scaffolding*—both reduce inline token consumption

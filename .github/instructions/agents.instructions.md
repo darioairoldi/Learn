@@ -23,6 +23,58 @@ They operate at the implementation level with detailed technical instructions, t
 7. **Explicit Uncertainty Management** - Professional "I don't know" patterns
 8. **Template Externalization** - Externalize verbose output formats, summaries, and layouts to reusable templates for token efficiency and flexibility
 
+## Template-First Authoring ⭐
+
+**PREFER template files** over verbose embedded descriptions in agents. This reduces token usage, improves maintainability, and enables reuse across agents.
+
+### When to Use Templates
+
+| Content Type | ❌ Don't Embed | ✅ Use Template |
+|--------------|----------------|------------------|
+| **Output formats** | Multi-line output examples inline | `output-*.template.md` |
+| **Input schemas** | Detailed input field descriptions | `input-*.template.md` |
+| **Report structures** | Section-by-section layout specs | `*-structure.template.md` |
+| **Workflow phases** | Detailed phase descriptions > 20 lines | Phase templates or context files |
+| **Code examples** | Large code blocks for patterns | Context files with examples |
+
+### Template Reference Pattern
+
+**Instead of:**
+```markdown
+## Output Format
+### Phase 1 Report
+- Findings section
+- Analysis section
+- Recommendations
+[...50+ lines of format specification...]
+```
+
+**Use:**
+```markdown
+## Output Format
+
+**Use template:** `.github/templates/output-agent-validation-phases.template.md`
+```
+
+### Agent-Specific Templates
+
+| Agent Role | Recommended Templates |
+|------------|------------------------|
+| Researcher | `guidance-*.template.md`, `output-*-phases.template.md` |
+| Builder | `*-structure.template.md`, context files for patterns |
+| Validator | `output-*-validation-phases.template.md` |
+| Updater | Instruction files for edit rules |
+
+### Template Location
+
+- **General templates:** `.github/templates/`
+- **Agent output templates:** `.github/templates/output-*.template.md`
+- **Domain-specific:** `.github/templates/{domain}-*.template.md`
+
+**📖 Existing templates:** `.github/templates/` (26+ reusable templates available)
+
+---
+
 ## Tool Selection
 
 **📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
@@ -291,6 +343,7 @@ Before finalizing an agent file:
 
 - [ ] YAML frontmatter includes name, description, tools
 - [ ] Tools list is minimal (3-7 items)
+- [ ] **Verbose output formats externalized to templates** (not inline)
 - [ ] Commands section lists exact commands with flags
 - [ ] Three-tier boundaries (Always/Ask/Never) defined
 - [ ] Code style examples included (good vs bad)

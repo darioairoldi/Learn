@@ -22,6 +22,58 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 7. **Explicit Uncertainty Management** - Professional "I don't know" patterns
 8. **Template Externalization** - Externalize verbose output formats, summaries, and layouts to reusable templates for token efficiency and flexibility
 
+## Template-First Authoring ⭐
+
+**PREFER template files** over verbose embedded descriptions in prompts. This reduces token usage, improves maintainability, and enables reuse across prompts.
+
+### When to Use Templates
+
+| Content Type | ❌ Don't Embed | ✅ Use Template |
+|--------------|----------------|------------------|
+| **Output formats** | Multi-line output examples inline | `output-*.template.md` |
+| **Input schemas** | Detailed input field descriptions | `input-*.template.md` |
+| **Document structures** | Section-by-section layout specs | `*-structure.template.md` |
+| **Validation checklists** | Long inline checklists | Separate instruction file or template |
+| **Multi-step workflows** | Detailed phase descriptions > 20 lines | Phase templates or context files |
+
+### Template Reference Pattern
+
+**Instead of:**
+```markdown
+## Output Format
+### Section 1: Summary
+- Title (H1)
+- Overview paragraph
+- Key points as bullet list
+[...50+ lines of format specification...]
+```
+
+**Use:**
+```markdown
+## Output Format
+
+**Use template:** `.github/templates/output-summary.template.md`
+```
+
+### Template Location
+
+- **General templates:** `.github/templates/`
+- **Prompt output templates:** `.github/templates/output-*.template.md`
+- **Domain-specific:** `.github/templates/{domain}-*.template.md`
+
+### Template Naming Convention
+
+| Purpose | Naming Pattern | Example |
+|---------|----------------|---------|
+| Output format | `output-{purpose}.template.md` | `output-prompt-validation-phases.template.md` |
+| Input schema | `input-{purpose}.template.md` | `input-article-metadata.template.md` |
+| Document structure | `{type}-structure.template.md` | `promptengineering-instruction-structure.template.md` |
+| Guidance sections | `guidance-{topic}.template.md` | `guidance-input-collection.template.md` |
+
+**📖 Existing templates:** `.github/templates/` (see list for reusable options)
+
+---
+
 ## Tool Selection
 
 **📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
@@ -104,11 +156,12 @@ validations:
 
 ## Best Practices
 
-1. **Start with template** - Use appropriate template from `.github/templates/`
-2. **Reference context files** - Don't embed shared principles
-3. **Narrow tool scope** - Only essential tools for the task
-4. **Test execution** - Run on real repository content
-5. **Iterate boundaries** - Tighten based on observed errors
+1. **Use templates for verbose content** - Extract output formats, input schemas, and document structures to `.github/templates/`
+2. **Start with template** - Use appropriate template from `.github/templates/`
+3. **Reference context files** - Don't embed shared principles
+4. **Narrow tool scope** - Only essential tools for the task
+5. **Test execution** - Run on real repository content
+6. **Iterate boundaries** - Tighten based on observed errors
 
 ## Production-Ready Prompt Requirements
 
