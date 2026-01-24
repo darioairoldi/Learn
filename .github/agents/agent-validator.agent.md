@@ -378,7 +378,7 @@ Current responsibilities should be split into:
 
 ## References
 
-- `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 - `.github/instructions/agents.instructions.md`
 - Tool alignment rules in this document
 

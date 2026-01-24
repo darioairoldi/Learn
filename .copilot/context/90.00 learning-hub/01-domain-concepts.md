@@ -73,6 +73,32 @@ Draft → In-Review → Published → [Updates/Revisions] → Archived
 
 ## Content Organization
 
+### File Naming Convention
+
+**Always use kebab-case** (lowercase with hyphens) for article filenames:
+
+```
+✅ Good: configure-azure-key-vault.md
+✅ Good: how-to-setup-mcp-server.md
+✅ Good: 20251224-vscode-release-notes.md
+
+❌ Bad: Configure Azure Key Vault.md
+❌ Bad: HowTo_Setup_MCP_Server.md
+❌ Bad: configureAzureKeyVault.md
+```
+
+**Rationale**: When Quarto compiles Markdown to HTML, the filename becomes the URL path. Kebab-case produces readable, SEO-friendly URLs:
+
+- `docs/configure-azure-key-vault.html` → Clean and scannable
+- `docs/Configure%20Azure%20Key%20Vault.html` → URL-encoded spaces are ugly
+
+**Rules**:
+- Use lowercase letters only
+- Replace spaces with hyphens (`-`)
+- Avoid underscores, camelCase, or PascalCase
+- Date prefixes use format `YYYYMMDD-` (no spaces)
+- Keep names concise but descriptive
+
 ### Folder Structure
 
 - **Subject Folders** (`tech/`, `howto/`, `projects/`): Organized by topic domain  

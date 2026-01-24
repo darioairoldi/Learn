@@ -151,9 +151,31 @@ boundaries:
 ❌ **Bad**: Embed 100 lines of context engineering principles in every prompt
 
 ✅ **Good**: 
-For context engineering principles, see `.copilot/context/prompt-engineering/context-engineering-principles.md`
-For tool composition patterns, see `.copilot/context/prompt-engineering/tool-composition-guide.md`
+For context engineering principles, see `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+For tool composition patterns, see `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 ```
+
+**Group References Over Individual Files**:
+
+When referencing context files from `.github/` files (prompts, agents, instructions), prefer **group references** (folder-level) over individual file references. This improves maintainability and allows context files to evolve without breaking references.
+
+```markdown
+✅ **Good** - Group reference (folder-level):
+📖 **Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
+
+❌ **Avoid** - Individual file reference (unless specifically needed):
+📖 **Complete guidance:** [.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00%20prompt-engineering/01-context-engineering-principles.md)
+```
+
+**When to use individual file references:**
+- Linking to a specific section or concept (e.g., "See [validation-caching-pattern.md] for the 7-day rule")
+- Cross-referencing between context files within the same folder
+- Deep-linking to troubleshooting or examples
+
+**Benefits of group references:**
+- Files can be added, renamed, or reorganized without updating all references
+- Readers discover all related content in the folder
+- Reduces maintenance burden as context evolves
 
 **Selective File Reads**:
 ```markdown
@@ -250,6 +272,102 @@ handoffs:
 - Missing data scenarios are inevitable in production systems
 - Referenced from: **Mario Fontana's "6 VITAL Rules for Production-Ready Copilot Agents"** (Rule 1: Data Gaps, Rule 2: "I Don't Know")
 
+---
+
+### 8. Template Externalization for Token Efficiency
+
+**Principle**: Externalize verbose output formats, summaries, layouts, and structured data schemas to reusable template files rather than embedding them inline.
+
+**Why it matters**:
+- **Token efficiency**: Large inline formats consume context budget; templates load only when needed
+- **Flexibility**: Different templates for different conditions (simple vs. complex output, different audiences)
+- **Consistency**: Single source of truth for output formatting across multiple prompts/agents
+- **Maintainability**: Update format once, all references benefit
+- **Composability**: Templates can be combined or swapped without modifying prompt logic
+
+**What to externalize:**
+
+| Content Type | Inline Size Threshold | Template Location |
+|--------------|----------------------|-------------------|
+| **Output Formats** | > 10 lines | `.github/templates/output-*.template.md` |
+| **Validation Reports** | > 15 lines | `.github/templates/report-*.template.md` |
+| **Input Collection Guides** | > 10 lines | `.github/templates/guidance-input-*.template.md` |
+| **Summary Layouts** | > 8 lines | `.github/templates/*-summary-*.template.md` |
+| **Checklists** | > 12 items | `.github/templates/checklist-*.template.md` |
+| **Phase Output Formats** | > 15 lines per phase | `.copilot/context/*/phase-*.md` |
+
+**Application pattern:**
+
+❌ **Bad** (embedded verbose format):
+```markdown
+## Output Format
+
+**Complete validation report with:**
+
+```markdown
+### Validation Results
+
+**File:** [filename]
+**Checked:** [timestamp]
+
+#### Grammar Analysis
+- **Score:** [X/100]
+- **Issues Found:** [count]
+  - Line [N]: [issue description]
+  - Line [N]: [issue description]
+  ...
+
+#### Readability Analysis
+- **Flesch-Kincaid Grade:** [X.X]
+- **Reading Time:** [X min]
+...
+[50 more lines of format specification]
+```
+
+✅ **Good** (template reference with conditional):
+```markdown
+## Output Format
+
+**📄 Format Templates:** `.github/templates/`
+
+Select template based on validation depth:
+- **Quick validation**: Use `report-validation-quick.template.md`
+- **Standard validation**: Use `report-validation-standard.template.md`  
+- **Deep validation**: Use `report-validation-comprehensive.template.md`
+
+Load selected template with `read_file` and populate with results.
+```
+
+**Conditional template selection:**
+
+```markdown
+### Template Selection Logic
+
+| Condition | Template | Purpose |
+|-----------|----------|---------|
+| Simple task, < 3 outputs | `output-minimal.template.md` | Fast response |
+| Standard task | `output-standard.template.md` | Default format |
+| Complex/orchestration | `output-detailed.template.md` | Full trace |
+| Error scenario | `output-error.template.md` | Recovery focus |
+| User-facing report | `output-report.template.md` | Polished format |
+```
+
+**Token savings estimation:**
+
+| Inline Format Lines | Approx. Tokens | Template Reference | Savings |
+|---------------------|----------------|-------------------|---------|
+| 20 lines | ~120 tokens | 2 lines (~12 tokens) | ~90% |
+| 50 lines | ~300 tokens | 3 lines (~18 tokens) | ~94% |
+| 100 lines | ~600 tokens | 4 lines (~24 tokens) | ~96% |
+
+**When to keep inline:**
+- Format is < 10 lines (overhead of reference not worth it)
+- Format is unique to this prompt (never reused)
+- Format requires heavy dynamic interpolation with many variables
+
+**Integration with Principle 5 (Context Minimization):**
+Template externalization is a specific application of context minimization for structured outputs. While Principle 5 focuses on *reference knowledge*, Principle 8 addresses *output scaffolding*—both reduce inline token consumption
+
 **Three-Part "I Don't Know" Template**:
 
 ```markdown
@@ -269,7 +387,7 @@ Recommendation: [escalation path or alternative approach]
 ```markdown
 I couldn't find validation metadata in the bottom YAML comment block.
 I did find top-level Quarto metadata (title, author, date).
-Recommendation: Add validation metadata block using template from dual-yaml-helpers.md.
+Recommendation: Add validation metadata block using template from 02-dual-yaml-metadata.md.
 ```
 
 **Implementation Agent** (no pattern found):
@@ -605,8 +723,8 @@ generate documentation about validation results.
 ## Prerequisites
 
 Before starting, review:
-- Context engineering principles: `.copilot/context/prompt-engineering/context-engineering-principles.md`
-- Tool usage patterns: `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- Context engineering principles: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+- Tool usage patterns: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 ```
 
 ### ❌ Anti-Pattern 4: Weak Boundaries

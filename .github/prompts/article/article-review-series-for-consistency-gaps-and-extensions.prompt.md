@@ -1250,8 +1250,8 @@ validations:
 ## References
 
 **Context Files:**
-- [Dual YAML Metadata Guide](../../.copilot/context/dual-yaml-helpers.md) - Metadata structure and parsing rules
-- [Prompt Engineering Principles](../../.copilot/context/prompt-engineering/context-engineering-principles.md) - Context optimization
+- [Dual YAML Metadata Guide](../../.copilot/context/90.00%20learning-hub/02-dual-yaml-metadata.md) - Metadata structure and parsing rules
+- [Prompt Engineering Principles](../../.copilot/context/00.00%20prompt-engineering/01-context-engineering-principles.md) - Context optimization
 - [Article Template](../../.github/templates/article-template.md) - Standard article structure
 
 **Related Prompts:**

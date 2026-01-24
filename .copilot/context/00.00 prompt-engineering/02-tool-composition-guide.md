@@ -690,7 +690,7 @@ boundaries:
 
 ## References
 
-- **Context Engineering Principles**: `.copilot/context/prompt-engineering/context-engineering-principles.md`
-- **Validation Caching Pattern**: `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+- **Context Engineering Principles**: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+- **Validation Caching Pattern**: `.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md`
 - **Official Tool Documentation**: VS Code Copilot API Reference
 - **Repository Articles**: `.github/prompts/03. how_to_structure_content_for_copilot_prompt_files.md` (Tool Configuration section)

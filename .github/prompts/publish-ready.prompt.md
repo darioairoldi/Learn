@@ -21,7 +21,7 @@ Run a comprehensive final check before an article is published, verifying all va
    - ✅ Update `article_metadata.last_updated` and version if publishing
    - ✅ **PRESERVE ALL VALIDATION SECTIONS**
 
-See `.copilot/context/dual-yaml-helpers.md` for complete details.
+See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for complete details.
 
 ## Input Required
 - Article file (contains both YAML blocks)

@@ -21,7 +21,7 @@ Verify all factual claims, technical details, and references in the article agai
    - ✅ Update `article_metadata.last_updated` and `article_metadata.word_count`
    - ✅ **PRESERVE ALL OTHER SECTIONS** (grammar, readability, understandability, structure, logic)
 
-See `.copilot/context/dual-yaml-helpers.md` for complete details.
+See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for complete details.
 
 ## Input Required
 - Article content (attach with #file)

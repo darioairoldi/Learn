@@ -239,4 +239,4 @@ Validates + applies suggested corrections + updates metadata.
 
 - **Standalone Version**: `.github/prompts/grammar-review.prompt.md` (works without IQPilot)
 - **IQPilot Setup**: `.iqpilot/README.md` (enable/disable guide)
-- **Dual YAML Guide**: `.copilot/context/dual-yaml-helpers.md` (metadata structure)
+- **Dual YAML Guide**: `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` (metadata structure)

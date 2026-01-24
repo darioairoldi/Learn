@@ -23,7 +23,7 @@ Analyze the provided article for readability, consistency, and redundancy, then 
    - ✅ Update `article_metadata.last_updated` and `article_metadata.word_count`
    - ✅ **PRESERVE ALL OTHER SECTIONS** (grammar, understandability, structure, facts, logic)
 
-See `.copilot/context/dual-yaml-helpers.md` for complete details.
+See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for complete details.
 
 ## Input
 The user will provide:

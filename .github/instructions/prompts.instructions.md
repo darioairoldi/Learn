@@ -10,19 +10,21 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 ## Context Engineering Principles
 
-**📖 Complete guidance:** [.copilot/context/prompt-engineering/context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md)
+**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
 
-**Key principles** (see context file for full details):
+**Key principles** (see context folder for full details):
 1. **Narrow Scope** - One specific task per prompt
 2. **Early Commands** - Critical instructions up front
 3. **Imperative Language** - Direct, action-oriented instructions
 4. **Three-Tier Boundaries** - Always Do / Ask First / Never Do
 5. **Context Minimization** - Reference external files, don't embed
 6. **Tool Scoping** - Only essential tools to prevent tool clash
+7. **Explicit Uncertainty Management** - Professional "I don't know" patterns
+8. **Template Externalization** - Externalize verbose output formats, summaries, and layouts to reusable templates for token efficiency and flexibility
 
 ## Tool Selection
 
-**📖 Complete guidance:** [.copilot/context/prompt-engineering/tool-composition-guide.md](.copilot/context/prompt-engineering/tool-composition-guide.md)
+**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
 
 **Tool/Agent Alignment:**
 - `agent: plan` + read-only tools (read_file, grep_search, semantic_search)
@@ -60,7 +62,7 @@ argument-hint: 'Expected input format'  # Optional
 
 ### Validation Caching (7-Day Rule)
 
-**📖 Complete guidance:** [.copilot/context/prompt-engineering/validation-caching-pattern.md](.copilot/context/prompt-engineering/validation-caching-pattern.md)
+**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md](.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md)
 
 **Critical rules:**
 - ❌ **NEVER modify top YAML** (Quarto metadata) from validation prompts
@@ -245,7 +247,7 @@ Your prompt file: 1,800 tokens
 2. **Partial Value** - What was found: "I did find Z"
 3. **Actionable** - Next steps: "Recommendation: [escalation]"
 
-**See full guidance:** [.copilot/context/prompt-engineering/context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md#7-explicit-uncertainty-management)
+**See full guidance:** [.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md#7-explicit-uncertainty-management)
 
 ## References
 

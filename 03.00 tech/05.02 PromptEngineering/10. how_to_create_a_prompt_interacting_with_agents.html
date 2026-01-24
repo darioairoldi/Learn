@@ -4364,7 +4364,7 @@ Use natural language references to prior outputs:</p>
 <h4 class="anchored" data-anchor-id="pattern-1-reference-first-not-embed-first">Pattern 1: Reference-First (Not Embed-First)</h4>
 <p><strong>Token Savings</strong>: ~80-90% for referenced content</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>✅ **Efficient** (~50 tokens): </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>"For validation rules, see .copilot/context/prompt-engineering/validation-patterns.md"</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>"For validation rules, see .copilot/context/00.00 prompt-engineering/06-adaptive-validation-patterns.md"</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>❌ **Wasteful** (~2,000 tokens):</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Embeds 200 lines of validation rules in handoff prompt</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5533,7 +5533,7 @@ Phase 5: Validate All → prompt-validator
 <li>Use <strong>tool sets</strong> to group related MCP + built-in tools</li>
 <li>Configure threshold via <code>github.copilot.chat.virtualTools.threshold</code> setting</li>
 </ul>
-<p>Learn more: <code>.copilot/context/prompt-engineering/context-engineering-principles.md</code></p>
+<p>Learn more: <code>.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md</code></p>
 </section>
 </section>
 <section id="implementation-example" class="level2">
@@ -6159,9 +6159,9 @@ Complete case study documenting the real-world implementation of the multi-agent
 Detailed guide to agent file structure, personas, handoffs, tool configuration, and composing agents with prompts. Companion article covering implementation details for the patterns described here.</p>
 <p><strong><a href="./03. how_to_structure_content_for_copilot_prompt_files.md">03. How to Structure Content for Copilot Prompt Files</a></strong> <code>[📒 Community]</code><br>
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.</p>
-<p><strong>Context Engineering Principles</strong> (<code>.copilot/context/prompt-engineering/context-engineering-principles.md</code>) <code>[📒 Internal]</code><br>
+<p><strong>Context Engineering Principles</strong> (<code>.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md</code>) <code>[📒 Internal]</code><br>
 Repository-specific guidelines for narrow scope, imperative language, three-tier boundaries, context minimization, and lazy loading patterns. Critical for building efficient multi-agent orchestrations.</p>
-<p><strong>Tool Composition Guide</strong> (<code>.copilot/context/prompt-engineering/tool-composition-guide.md</code>) <code>[📒 Internal]</code><br>
+<p><strong>Tool Composition Guide</strong> (<code>.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md</code>) <code>[📒 Internal]</code><br>
 Patterns and recipes for tool selection by role, performance optimization, and avoiding tool clash. Explains orchestrator tool patterns and agent tool specialization.</p>
 <hr>
 <!-- 

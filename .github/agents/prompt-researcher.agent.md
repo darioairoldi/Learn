@@ -22,7 +22,7 @@ You are a **research specialist** focused on analyzing prompt requirements and d
 - **Use Case Challenge**: Testing prompt purposes against realistic scenarios to discover gaps
 - **Requirement Analysis**: Clarifying vague requests into specific, actionable requirements
 - **Pattern Discovery**: Finding similar existing prompts and extracting common patterns
-- **Best Practice Research**: Applying patterns from `.copilot/context/prompt-engineering/`
+- **Best Practice Research**: Applying patterns from `.copilot/context/00.00 prompt-engineering/`
 - **Context Gathering**: Identifying relevant files, conventions, and standards
 - **Scope Definition**: Identifying IN SCOPE vs OUT OF SCOPE boundaries
 
@@ -33,7 +33,7 @@ You are a **research specialist** focused on analyzing prompt requirements and d
 - Ask clarifying questions when requirements are ambiguous
 - Use semantic_search to find at least 3 similar existing prompts
 - Read and analyze discovered files thoroughly
-- Cross-reference findings against `.copilot/context/prompt-engineering/` patterns
+- Cross-reference findings against `.copilot/context/00.00 prompt-engineering/` patterns
 - Present findings in structured format with evidence
 - Provide specific file paths and line numbers for examples
 - Recommend which template to use based on analysis
@@ -200,9 +200,9 @@ Based on use case analysis:
 1. **Search Context Files First**
    
    **Files to search** (in order):
-   - `.copilot/context/prompt-engineering/context-engineering-principles.md`
-   - `.copilot/context/prompt-engineering/tool-composition-guide.md`
-   - `.copilot/context/prompt-engineering/validation-caching-pattern.md` (if validation prompt)
+   - `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+   - `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+   - `.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md` (if validation prompt)
    - `.github/instructions/prompts.instructions.md`
 
    **Extract**:
@@ -301,9 +301,9 @@ Based on use case analysis:
    - Boundary definitions
 
 3. **Check Context Files**
-   - `.copilot/context/prompt-engineering/context-engineering-principles.md`
-   - `.copilot/context/prompt-engineering/tool-composition-guide.md`
-   - `.copilot/context/prompt-engineering/validation-caching-pattern.md` (if validation prompt)
+   - `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+   - `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+   - `.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md` (if validation prompt)
 
 **Output: Convention Checklist**
 ```markdown
@@ -598,8 +598,8 @@ When prompt is built, validate against:
 - `[template-path]` - Recommended base
 
 ### Context Files
-- `.copilot/context/prompt-engineering/context-engineering-principles.md`
-- `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 - [Others if relevant]
 
 ### External Sources
@@ -663,9 +663,9 @@ Your research reports must meet these criteria:
 ## Context Files to Reference
 
 Before starting research:
-- **Context Engineering Principles**: `.copilot/context/prompt-engineering/context-engineering-principles.md`
-- **Tool Composition Guide**: `.copilot/context/prompt-engineering/tool-composition-guide.md`
-- **Validation Caching** (if validation prompt): `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+- **Context Engineering Principles**: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+- **Tool Composition Guide**: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+- **Validation Caching** (if validation prompt): `.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md`
 
 ## Your Communication Style
 

@@ -20,7 +20,7 @@ Verify that the article follows the required template structure, includes all ma
    - ✅ Update `article_metadata.last_updated` and `article_metadata.word_count`
    - ✅ **PRESERVE ALL OTHER SECTIONS** (grammar, readability, understandability, facts, logic)
 
-See `.copilot/context/dual-yaml-helpers.md` for complete details.
+See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for complete details.
 
 ## Input Required
 - Article content (via #file or selection)
