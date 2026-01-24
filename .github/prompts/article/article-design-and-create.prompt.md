@@ -61,7 +61,7 @@ Create complete, publication-ready articles by:
 - **Top YAML (Lines 1-10):** Quarto metadata (title, author, date, categories, description)
 - **Bottom YAML (HTML comment at end):** Validation metadata (all validation types, article metadata, cross-references)
 
-See: `.copilot/context/dual-yaml-helpers.md` for parsing guidelines.
+See: `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for parsing guidelines.
 
 ## Process Overview
 
@@ -149,7 +149,7 @@ Proceed with Phase 2? (yes/no)
 2. **Check Templates and Instructions**
    - Read selected template from `.github/templates/`
    - Review `.github/copilot-instructions.md` for repository conventions
-   - Check `.copilot/context/dual-yaml-helpers.md` for metadata patterns
+   - Check `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for metadata patterns
 
 3. **Identify Integration Points**
    - Related articles to link in Introduction or Conclusion
@@ -174,7 +174,7 @@ Proceed with Phase 2? (yes/no)
 
 ### Template and Conventions
 - **Using template**: `.github/templates/[template-name.md`
-- **Metadata structure**: [confirmed from dual-yaml-helpers.md]
+- **Metadata structure**: [confirmed from 02-dual-yaml-metadata.md]
 - **Repository conventions**: [any special formatting rules]
 
 Proceed with Phase 3? (yes/no)
@@ -654,5 +654,5 @@ Comprehensive prompt engineering guide from Microsoft.
 **Internal Context Files:**
 - `.github/copilot-instructions.md` - Repository conventions and global instructions
 - `.github/templates/article-template.md` - Standard article structure template
-- `.copilot/context/dual-yaml-helpers.md` - Metadata parsing guidelines
-- `.copilot/context/prompt-engineering/context-engineering-principles.md` - Context design principles
+- `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` - Metadata parsing guidelines
+- `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md` - Context design principles

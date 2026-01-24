@@ -771,8 +771,8 @@ validation:
 
 ## References
 
-- **Context Engineering Principles**: `.copilot/context/prompt-engineering/context-engineering-principles.md`
-- **Tool Composition Guide**: `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- **Context Engineering Principles**: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+- **Tool Composition Guide**: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 - **Repository Instructions**: `.github/instructions/prompts.instructions.md` or `.agents.instructions.md`
 - **Similar files analyzed**: [List with paths]
 ```
@@ -814,9 +814,9 @@ validation:
 ## Context Files to Reference
 
 Before validation:
-- **Context Engineering Principles**: `.copilot/context/prompt-engineering/context-engineering-principles.md` (Validation checklist)
-- **Tool Composition Guide**: `.copilot/context/prompt-engineering/tool-composition-guide.md` (Tool/agent type patterns)
-- **Validation Caching Pattern**: `.copilot/context/prompt-engineering/validation-caching-pattern.md` (For validation prompts)
+- **Context Engineering Principles**: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md` (Validation checklist)
+- **Tool Composition Guide**: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` (Tool/agent type patterns)
+- **Validation Caching Pattern**: `.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md` (For validation prompts)
 - **Instruction Files**: `.github/instructions/prompts.instructions.md` or `.agents.instructions.md`
 
 ## Your Communication Style

@@ -459,7 +459,7 @@ Pattern: Phase 1 includes comprehensive discovery before analysis
 ### Phase → Tool Mapping Process
 
 1. **For each phase:** What capabilities are needed?
-2. **Cross-reference:** `.copilot/context/prompt-engineering/tool-composition-guide.md`
+2. **Cross-reference:** `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 3. **Validate count:** 3-7 tools is optimal (>7 causes tool clash)
 4. **Verify alignment:** agent mode matches tools (plan → read-only, agent → write)
 
@@ -669,7 +669,7 @@ Assess complexity indicators:
 ```markdown
 ## Requirements Validation
 
-**📖 Validation Methodology:** `.copilot/context/prompt-engineering/adaptive-validation-patterns.md`
+**📖 Validation Methodology:** `.copilot/context/00.00 prompt-engineering/adaptive-validation-patterns.md`
 
 Follow the adaptive validation process:
 1. Assess complexity (simple/moderate/complex)

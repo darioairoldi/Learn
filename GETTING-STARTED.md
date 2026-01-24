@@ -324,9 +324,9 @@ Accept the recommendations or install manually.
 
 .copilot/
 ├── context/                     # Rich context for AI
-│   ├── domain-concepts.md
-│   ├── style-guide.md
-│   ├── validation-criteria.md
+│   ├── 00.00 prompt-engineering/ # Prompt engineering principles
+│   ├── 01.00 article-writing/    # Style, validation, references
+│   ├── 90.00 learning-hub/       # Domain concepts
 │   └── workflows/
 ├── scripts/                     # PowerShell automation
 └── mcp-servers/                 # MCP server executables
@@ -428,8 +428,8 @@ dotnet build --configuration Release
 - `.copilot/context/workflows/series-planning-workflow.md`
 
 ### Style & Standards
-- `.copilot/context/style-guide.md`
-- `.copilot/context/validation-criteria.md`
+- `.copilot/context/01.00 article-writing/01-style-guide.md`
+- `.copilot/context/01.00 article-writing/02-validation-criteria.md`
 - `.github/copilot-instructions.md`
 
 ## 🎉 You're Ready!

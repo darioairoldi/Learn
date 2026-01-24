@@ -67,9 +67,9 @@ Complete guide to all documentation automation files and resources in this repos
 | File | Purpose | Audience |
 |------|---------|----------|
 | [.github/copilot-instructions.md](.github/copilot-instructions.md) | Global editorial & validation standards | All Users |
-| [.copilot/context/style-guide.md](.copilot/context/style-guide.md) | Writing style & formatting rules | Writers |
-| [.copilot/context/validation-criteria.md](.copilot/context/validation-criteria.md) | Quality thresholds for publishing | Writers |
-| [.copilot/context/domain-concepts.md](.copilot/context/domain-concepts.md) | Core concepts & terminology | All Users |
+| [.copilot/context/01.00 article-writing/01-style-guide.md](.copilot/context/01.00%20article-writing/01-style-guide.md) | Writing style & formatting rules | Writers |
+| [.copilot/context/01.00 article-writing/02-validation-criteria.md](.copilot/context/01.00%20article-writing/02-validation-criteria.md) | Quality thresholds for publishing | Writers |
+| [.copilot/context/90.00 learning-hub/01-domain-concepts.md](.copilot/context/90.00%20learning-hub/01-domain-concepts.md) | Core concepts & terminology | All Users |
 
 ### 🔄 Workflows & Processes
 
@@ -147,7 +147,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                    CONTEXT LAYER                                │
-│  .copilot/context/prompt-engineering/*.md                       │
+│  .copilot/context/00.00 prompt-engineering/*.md                 │
 │  (Shared principles, patterns, and guidelines)                  │
 └─────────────────────────────────────────────────────────────────┘
                               │
@@ -161,14 +161,14 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ### Context Files (Shared Principles)
 
-**Location**: `.copilot/context/prompt-engineering/`
+**Location**: `.copilot/context/00.00 prompt-engineering/`
 
 | File | Purpose | Key Content |
 |------|---------|-------------|
-| [context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md) | Core principles | 6 principles: Narrow Scope, Early Commands, Imperative Language, Three-Tier Boundaries, Context Minimization, Tool Scoping |
-| [tool-composition-guide.md](.copilot/context/prompt-engineering/tool-composition-guide.md) | Tool selection | Priority rules, role-based tool sets, composition patterns |
-| [validation-caching-pattern.md](.copilot/context/prompt-engineering/validation-caching-pattern.md) | 7-day caching | Dual YAML architecture, cache check workflow |
-| [handoffs-pattern.md](.copilot/context/prompt-engineering/handoffs-pattern.md) | Multi-agent coordination | Handoff patterns: Linear Chain, Parallel Research, Validation Loop, Supervised |
+| [01-context-engineering-principles.md](.copilot/context/00.00%20prompt-engineering/01-context-engineering-principles.md) | Core principles | 6 principles: Narrow Scope, Early Commands, Imperative Language, Three-Tier Boundaries, Context Minimization, Tool Scoping |
+| [02-tool-composition-guide.md](.copilot/context/00.00%20prompt-engineering/02-tool-composition-guide.md) | Tool selection | Priority rules, role-based tool sets, composition patterns |
+| [05-validation-caching-pattern.md](.copilot/context/00.00%20prompt-engineering/05-validation-caching-pattern.md) | 7-day caching | Dual YAML architecture, cache check workflow |
+| [04-handoffs-pattern.md](.copilot/context/00.00%20prompt-engineering/04-handoffs-pattern.md) | Multi-agent coordination | Handoff patterns: Linear Chain, Parallel Research, Validation Loop, Supervised |
 
 ### Prompt Files
 
@@ -344,7 +344,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **Content Writer:**
 1. [GETTING-STARTED.md](GETTING-STARTED.md) - Setup
-2. [.copilot/context/style-guide.md](.copilot/context/style-guide.md) - Writing standards
+2. [.copilot/context/01.00 article-writing/01-style-guide.md](.copilot/context/01.00%20article-writing/01-style-guide.md) - Writing standards
 3. [.github/templates/](.github/templates/) - Templates
 4. [.github/prompts/](.github/prompts/) - Validation tools
 
@@ -356,7 +356,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **Editor/Reviewer:**
 1. [.github/copilot-instructions.md](.github/copilot-instructions.md) - Standards
-2. [.copilot/context/validation-criteria.md](.copilot/context/validation-criteria.md) - Quality thresholds
+2. [.copilot/context/01.00 article-writing/02-validation-criteria.md](.copilot/context/01.00%20article-writing/02-validation-criteria.md) - Quality thresholds
 3. [.copilot/context/workflows/review-workflow.md](.copilot/context/workflows/review-workflow.md) - Review process
 
 ### By File Type

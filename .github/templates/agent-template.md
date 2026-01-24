@@ -135,4 +135,4 @@ Before finalizing:
 ## References
 
 - [agents.instructions.md](../../instructions/agents.instructions.md) - Creation guidelines
-- [context-engineering-principles.md](../../.copilot/context/prompt-engineering/context-engineering-principles.md) - Core principles
+- [context-engineering-principles.md](../../.copilot/context/00.00%20prompt-engineering/01-context-engineering-principles.md) - Core principles

@@ -1,6 +1,6 @@
-# Validation Criteria for Learning Documentation Site
+# Validation Criteria for Technical Documentation
 
-This document defines what makes content "ready to publish" and establishes quality thresholds for validation.
+This document defines general validation dimensions and quality thresholds for technical documentation. These criteria apply to any article regardless of the specific documentation site or repository.
 
 ## Overall Quality Threshold
 
@@ -206,91 +206,17 @@ All required elements present, proper hierarchy, valid Markdown
 - Examples don't clarify concepts
 - Sudden jumps in complexity without bridge
 
-## Series-Specific Validation
+## Validation Outcomes
 
-**Series Consistency:**
-- Terminology consistent across articles
-- Style and format uniform
-- Cross-references working
-- Non-redundant (or justified redundancy)
-- Logical progression
+### Status Values
+- **passed**: Meets all criteria
+- **minor_issues**: Acceptable issues noted
+- **needs_revision**: Must be fixed before publishing
+- **failed**: Critical errors, major revision needed
 
-**Series Completeness:**
-- All promised topics covered
-- Prerequisites clear
-- Navigation functional
-- Gaps between articles bridged
+### Quality Scoring
 
-## Metadata Requirements
-
-**Complete Metadata:**
-```yaml
-✅ Title, author, dates filled
-✅ Tags relevant and complete
-✅ Status appropriate for content state
-✅ Series info (if applicable)
-✅ All validation sections updated
-✅ Cross-references current
-✅ Analytics computed
-```
-
-**Validation History:**
-- Timestamps recent (< 7 days for critical validations)
-- Models used noted
-- Outcomes recorded
-- Issues documented
-
-## Pre-Publication Checklist
-
-### Critical (Must Pass)
-- [ ] Grammar validated: passed
-- [ ] Structure validated: passed
-- [ ] Facts checked: passed (<30 days)
-- [ ] Links verified: all working
-- [ ] Code tested: functional
-- [ ] No placeholder content (TODO, TBD, etc.)
-
-### Important (Should Pass)
-- [ ] Readability validated: passed or justified
-- [ ] Logic validated: passed
-- [ ] Gap analysis: comprehensive or minor_gaps
-- [ ] Understandability: passed for target audience
-- [ ] Metadata complete and current
-
-### Recommended
-- [ ] Series validated (if applicable)
-- [ ] Correlated topics identified
-- [ ] Cross-references added
-- [ ] Examples tested in multiple environments
-
-## Continuous Quality
-
-### Review Triggers
-
-Re-validation required when:
-- Content modified
-- Technology version updates
-- Links break or sources move
-- Reader feedback identifies issues
-- More than 90 days since last review
-
-### Maintenance Standards
-
-**Quarterly Review:**
-- Check fact currency
-- Update version information
-- Verify links
-- Assess if content needs refresh
-
-**Annual Review:**
-- Comprehensive validation run
-- Gap analysis
-- Audience relevance check
-- Consider if content should be archived
-
-## Quality Scoring
-
-### Validation Outcome Definitions
+**Validation Outcome Definitions:**
 
 **Passed:**
 - Meets all criteria for dimension
@@ -362,3 +288,35 @@ Re-validation required when:
 - Structure allows for quick lookup
 - Examples exhaustive
 - Updates tracked meticulously
+
+## Pre-Publication Checklist
+
+### Critical (Must Pass)
+- [ ] Grammar validated: passed
+- [ ] Structure validated: passed
+- [ ] Facts checked: passed (<30 days)
+- [ ] Links verified: all working
+- [ ] Code tested: functional
+- [ ] No placeholder content (TODO, TBD, etc.)
+
+### Important (Should Pass)
+- [ ] Readability validated: passed or justified
+- [ ] Logic validated: passed
+- [ ] Gap analysis: comprehensive or minor_gaps
+- [ ] Understandability: passed for target audience
+- [ ] Metadata complete and current
+
+### Recommended
+- [ ] Series validated (if applicable)
+- [ ] Correlated topics identified
+- [ ] Cross-references added
+- [ ] Examples tested in multiple environments
+
+## Review Triggers
+
+Re-validation required when:
+- Content modified
+- Technology version updates
+- Links break or sources move
+- Reader feedback identifies issues
+- More than 90 days since last review

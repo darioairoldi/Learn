@@ -238,8 +238,8 @@ Result:
 1. **Read repository instructions:**
    - `.github/instructions/agents.instructions.md` - Core agent engineering guidelines
    - `.github/copilot-instructions.md` - Repository-wide conventions
-   - `.copilot/context/prompt-engineering/context-engineering-principles.md` - Context engineering
-   - `.copilot/context/prompt-engineering/tool-composition-guide.md` - Tool selection patterns
+   - `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md` - Context engineering
+   - `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` - Tool selection patterns
 
 2. **Analyze similar agents in workspace:**
    - Search `.github/agents/` for agents with similar roles
@@ -447,8 +447,8 @@ You MUST read these files before generating agents:
 
 - `.github/instructions/agents.instructions.md` - Core agent engineering guidelines
 - `.github/copilot-instructions.md` - Repository-wide conventions
-- `.copilot/context/prompt-engineering/context-engineering-principles.md` - Context engineering
-- `.copilot/context/prompt-engineering/tool-composition-guide.md` - Tool selection patterns
+- `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md` - Context engineering
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` - Tool selection patterns
 
 You SHOULD reference these for patterns:
 
@@ -583,8 +583,8 @@ Before completing agent generation:
 ## References
 
 - `.github/instructions/agents.instructions.md` - Agent engineering guidelines
-- `.copilot/context/prompt-engineering/context-engineering-principles.md` - Context engineering
-- `.copilot/context/prompt-engineering/tool-composition-guide.md` - Tool composition
+- `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md` - Context engineering
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` - Tool composition
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) - Best practices from 2,500+ repos
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization) - Official documentation
 

@@ -1170,8 +1170,8 @@ I've analyzed your request and identified some gaps. Please clarify:
 1. **Read repository instructions:**
    - `.github/instructions/agents.instructions.md`
    - `.github/copilot-instructions.md`
-   - `.copilot/context/prompt-engineering/context-engineering-principles.md`
-   - `.copilot/context/prompt-engineering/tool-composition-guide.md`
+   - `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+   - `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 
 2. **Search for similar agents:**
    ```
@@ -1341,8 +1341,8 @@ validations:
 **You MUST read these files before generating agents:**
 
 - `.github/instructions/agents.instructions.md` - Core guidelines
-- `.copilot/context/prompt-engineering/context-engineering-principles.md` - Engineering principles
-- `.copilot/context/prompt-engineering/tool-composition-guide.md` - Tool selection guide
+- `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md` - Engineering principles
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` - Tool selection guide
 
 **You SHOULD search for similar agents:**
 
@@ -1371,8 +1371,8 @@ Before completing:
 ## References
 
 - `.github/instructions/agents.instructions.md`
-- `.copilot/context/prompt-engineering/context-engineering-principles.md`
-- `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 

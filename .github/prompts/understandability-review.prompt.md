@@ -23,7 +23,7 @@ Assess whether the target audience will understand the article's content, concep
    - ✅ Update `article_metadata.last_updated` and `article_metadata.word_count`
    - ✅ **PRESERVE ALL OTHER SECTIONS**
 
-See `.copilot/context/dual-yaml-helpers.md` for complete details.
+See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for complete details.
 
 ## Input Required
 - `#file:path/to/article.md` - The article to review

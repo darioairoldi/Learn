@@ -398,8 +398,8 @@ validations:
 
 Before orchestration:
 - Review agent capabilities: `.github/agents/[agent-name].agent.md`
-- Understand handoff patterns: `.copilot/context/prompt-engineering/context-engineering-principles.md` (Handoff section)
-- Follow tool composition: `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- Understand handoff patterns: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md` (Handoff section)
+- Follow tool composition: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 
 ## Handoff Configuration Reference
 
@@ -527,8 +527,8 @@ Before completing orchestration:
 ## References
 
 - **Specialized Agent Documentation**: `.github/agents/[agent-name].agent.md`
-- **Handoff Patterns**: `.copilot/context/prompt-engineering/context-engineering-principles.md`
-- **Tool Composition**: `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- **Handoff Patterns**: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+- **Tool Composition**: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 - **Related Orchestrators**: `.github/prompts/[related-prompt].prompt.md`
 
 <!-- 

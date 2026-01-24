@@ -656,9 +656,10 @@ This article explores:
 
 ### Repository Context Files (If Available)
 
-📖 **Validation Criteria:** `.copilot/context/validation-criteria.md`  
-📖 **Dual YAML Helpers:** `.copilot/context/dual-yaml-helpers.md`  
-📖 **Reference Classification:** `.copilot/context/reference-classification.md`
+📖 **Style Guide:** `.copilot/context/01.00 article-writing/01-style-guide.md`  
+📖 **Dual YAML Metadata:** `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md`  
+📖 **Reference Classification:** `.copilot/context/90.00 learning-hub/04-reference-classification.md`  
+📖 **Validation Criteria:** `.copilot/context/01.00 article-writing/02-validation-criteria.md`
 
 ---
 

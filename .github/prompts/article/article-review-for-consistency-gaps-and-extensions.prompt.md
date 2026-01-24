@@ -46,7 +46,7 @@ You are a **technical editor and fact-checker** responsible for ensuring article
 - **Top YAML (Lines 1-10 of article):** Quarto metadata for site generation - **HANDS OFF**
 - **Bottom YAML (HTML comment at end):** Validation metadata - **UPDATE HERE**
 
-See: `.copilot/context/dual-yaml-helpers.md` for parsing guidelines.
+See: `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for parsing guidelines.
 
 ## Goal
 

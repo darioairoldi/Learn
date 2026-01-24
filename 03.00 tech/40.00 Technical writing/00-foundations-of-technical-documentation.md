@@ -163,7 +163,7 @@ The Diátaxis framework prevents common documentation failures:
 **Repository application:** This technical writing series follows Diátaxis structure:
 - **Tutorial:** [Getting Started with IQPilot](../../GETTING-STARTED.md)
 - **How-to:** [How to Structure Content for Copilot Instruction Files](../05.02 PromptEngineering/05. how_to_structure_content_for_copilot_instruction_files.md)
-- **Reference:** [Validation Criteria](../../.copilot/context/validation-criteria.md)
+- **Reference:** [Validation Criteria](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md)
 - **Explanation:** This article
 
 ## Major Style Guides Comparison
@@ -460,8 +460,8 @@ Our content organization follows Diátaxis categories:
 - Prompt files in [.github/prompts/](../../.github/prompts/)
 
 **<mark>Reference (Work + Theoretical)</mark>:**
-- [validation-criteria.md](../../.copilot/context/validation-criteria.md)
-- [dual-yaml-helpers.md](../../.copilot/context/dual-yaml-helpers.md)
+- [validation-criteria.md](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md)
+- [02-dual-yaml-metadata.md](../../.copilot/context/90.00%20learning-hub/02-dual-yaml-metadata.md)
 
 **<mark>Explanation (Study + Theoretical)</mark>:**
 - This article series (technical writing foundations)
@@ -520,7 +520,7 @@ validation_scores:
 
 This separation follows the single-responsibility principle: Quarto metadata controls rendering; validation metadata tracks quality.
 
-See [dual-yaml-helpers.md](../../.copilot/context/dual-yaml-helpers.md) for complete guidelines.
+See [02-dual-yaml-metadata.md](../../.copilot/context/90.00%20learning-hub/02-dual-yaml-metadata.md) for complete guidelines.
 
 ## Conclusion
 
@@ -585,10 +585,10 @@ Open-source documentation standards. Strong example of community-maintained styl
 **[Documentation Instructions](../../.github/instructions/documentation.instructions.md)** [Internal Reference]  
 This repository's comprehensive style guide with voice, tone, formatting, and citation requirements.
 
-**[Validation Criteria](../../.copilot/context/validation-criteria.md)** [Internal Reference]  
+**[Validation Criteria](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md)** [Internal Reference]  
 Seven validation dimensions (grammar, readability, structure, logic, facts, understandability, gaps) with scoring thresholds.
 
-**[Dual YAML Helpers](../../.copilot/context/dual-yaml-helpers.md)** [Internal Reference]  
+**[Dual YAML Metadata](../../.copilot/context/90.00%20learning-hub/02-dual-yaml-metadata.md)** [Internal Reference]  
 Guidelines for separating Quarto rendering metadata from validation tracking metadata.
 
 ---

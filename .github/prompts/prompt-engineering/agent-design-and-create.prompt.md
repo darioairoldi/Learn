@@ -382,8 +382,8 @@ You do NOT perform the specialized work yourself—you delegate to:
 
 ## References
 
-- `.copilot/context/prompt-engineering/context-engineering-principles.md`
-- `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 - `.github/instructions/agents.instructions.md`
 - Existing agents in `.github/agents/`
 

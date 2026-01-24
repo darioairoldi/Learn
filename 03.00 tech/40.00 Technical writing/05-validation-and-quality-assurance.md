@@ -110,7 +110,7 @@ Microsoft documentation emphasizes:
 
 ## The Seven Validation Dimensions
 
-This repository uses seven validation dimensions, documented in [validation-criteria.md](../../.copilot/context/validation-criteria.md).
+This repository uses seven validation dimensions, documented in [validation-criteria.md](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md).
 
 ### Dimension 1: Grammar
 
@@ -356,7 +356,7 @@ Flesch-Kincaid Grade = 0.39(words/sentences) + 11.8(syllables/words) - 15.59
 
 ### Metric Targets for This Repository
 
-From [validation-criteria.md](../../.copilot/context/validation-criteria.md):
+From [validation-criteria.md](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md):
 
 | Metric | Target | Measurement |
 |--------|--------|-------------|
@@ -661,7 +661,7 @@ Community guidance on documentation review as part of docs-as-code.
 
 ### Repository-Specific Documentation
 
-**[Validation Criteria](../../.copilot/context/validation-criteria.md)** [Internal Reference]  
+**[Validation Criteria](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md)** [Internal Reference]  
 This repository's seven validation dimensions and quality targets.
 
 **[Grammar Review Prompt](../../.github/prompts/grammar-review.prompt.md)** [Internal Reference]  

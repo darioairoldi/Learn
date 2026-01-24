@@ -627,7 +627,7 @@ This repository's reference formatting standards.
 **[Link Check Script](../../scripts/check-links.ps1)** [Internal Reference]  
 PowerShell script for validating links across the repository.
 
-**[Validation Criteria - References](../../.copilot/context/validation-criteria.md)** [Internal Reference]  
+**[Validation Criteria - References](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md)** [Internal Reference]  
 Reference validation dimension details.
 
 ---

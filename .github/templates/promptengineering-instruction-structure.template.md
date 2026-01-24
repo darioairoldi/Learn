@@ -14,11 +14,11 @@ applyTo: 'glob/pattern/**/*.md'
 [One paragraph explaining file's role]
 
 ## Context Engineering Principles
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/context-engineering-principles.md`
+**📖 Complete guidance:** `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
 [Summary of key principles - reference don't duplicate]
 
 ## Tool Selection
-**📖 Complete guidance:** `.copilot/context/prompt-engineering/tool-composition-guide.md`
+**📖 Complete guidance:** `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 [Summary of tool/agent alignment]
 
 ## Required YAML Frontmatter

@@ -35,9 +35,9 @@ Context files are **shared reference documents** that provide consolidated guida
 ```markdown
 ## Context Engineering Principles
 
-**📖 Complete guidance:** [.copilot/context/prompt-engineering/context-engineering-principles.md]
+**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
 
-**Key principles** (see context file for full details):
+**Key principles** (see context folder for full details):
 1. Narrow Scope
 2. Early Commands
 3. Imperative Language
@@ -59,7 +59,7 @@ Context files are **shared reference documents** that provide consolidated guida
 │   ├── article-creation-workflow.md
 │   ├── review-workflow.md
 │   └── series-planning-workflow.md
-├── dual-yaml-helpers.md                    # Metadata parsing
+├── 02-dual-yaml-metadata.md                    # Metadata parsing
 ├── style-guide.md                          # Writing standards
 ├── validation-criteria.md                  # Quality thresholds
 └── domain-concepts.md                      # Core terminology
@@ -173,10 +173,16 @@ When referencing other context files:
 **📖 Related guidance:** [tool-composition-guide.md](tool-composition-guide.md)
 ```
 
-When referenced FROM prompts/agents:
+When referenced FROM prompts/agents (prefer group references):
 
 ```markdown
-**📖 Complete guidance:** [.copilot/context/prompt-engineering/context-engineering-principles.md](.copilot/context/prompt-engineering/context-engineering-principles.md)
+**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
+```
+
+Use individual file references only when linking to a specific section:
+
+```markdown
+**See the 7-day rule:** [validation-caching-pattern.md](.copilot/context/00.00%20prompt-engineering/05-validation-caching-pattern.md)
 ```
 
 ---

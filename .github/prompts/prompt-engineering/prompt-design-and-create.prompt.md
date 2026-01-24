@@ -234,8 +234,8 @@ Orchestrate a multi-agent workflow to create new prompt file(s) that:
 
 **Delegate to prompt-researcher** for:
 1. Search context files first:
-   - `.copilot/context/prompt-engineering/context-engineering-principles.md`
-   - `.copilot/context/prompt-engineering/tool-composition-guide.md`
+   - `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+   - `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
    - `.github/instructions/prompts.instructions.md`
 2. Find 3-5 similar existing prompts
 3. Extract applicable patterns

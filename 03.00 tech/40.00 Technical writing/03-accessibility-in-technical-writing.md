@@ -703,7 +703,7 @@ Best practices for creating dyslexia-friendly content.
 **[Documentation Instructions - Accessibility](../../.github/instructions/documentation.instructions.md)** [Internal Reference]  
 This repository's accessibility standards and practices.
 
-**[Validation Criteria - Readability](../../.copilot/context/validation-criteria.md)** [Internal Reference]  
+**[Validation Criteria - Readability](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md)** [Internal Reference]  
 Readability targets that support accessibility goals.
 
 ---

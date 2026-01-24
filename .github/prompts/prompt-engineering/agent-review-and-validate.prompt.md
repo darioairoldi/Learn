@@ -364,7 +364,7 @@ For validating multiple agents:
 
 ## References
 
-- `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 - `.github/instructions/agents.instructions.md`
 - Existing validation patterns in `.github/prompts/`
 

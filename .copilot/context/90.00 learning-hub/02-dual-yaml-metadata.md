@@ -4,11 +4,11 @@
 
 All articles use **two metadata blocks** with clear separation:
 
-1. **Top YAML Block** - Quarto frontmatter (visible, for rendering)
-2. **Bottom HTML Comment with YAML** - Article additional metadata (hidden from rendering)
+1. **Top YAML Block** - Document frontmatter (visible, for rendering and site generation)
+2. **Bottom HTML Comment with YAML** - Article management metadata (hidden from rendering)
 
 **Key Benefits:**
-- ✅ Quarto renders articles normally using top YAML
+- ✅ Static site generators (Quarto, Hugo, Jekyll, etc.) render articles using top YAML
 - ✅ Bottom metadata completely hidden from readers
 - ✅ All metadata travels with article (no orphaned files)
 - ✅ YAML structure preserved for easy parsing
@@ -20,10 +20,11 @@ All articles use **two metadata blocks** with clear separation:
 
 ```markdown
 ---
-# TOP YAML BLOCK: Quarto Metadata
+# TOP YAML BLOCK: Document Metadata
 # Purpose: Document rendering and site generation
 # Modified by: Authors manually (NOT by validation prompts)
-# Used by: Quarto build process, site navigation
+# Used by: Static site generator (Quarto, Hugo, Jekyll, etc.), site navigation
+# Compatibility: Standard YAML frontmatter recognized by most Markdown processors
 title: "Your Article Title"
 author: "Author Name"
 date: "2025-11-21"
@@ -147,7 +148,7 @@ cross_references:
 
 ## Top YAML Block Rules
 
-### Fields (Quarto Metadata)
+### Fields (Document Metadata)
 
 **Required:**
 - `title`: Article title (string)
@@ -160,7 +161,7 @@ cross_references:
 - `draft`: Boolean (true hides from site)
 - `toc`: Boolean (table of contents)
 - `number-sections`: Boolean
-- Any other Quarto-specific fields
+- Additional fields specific to your static site generator (Quarto, Hugo, Jekyll, etc.)
 
 ### When Authors Should Update Top YAML:
 

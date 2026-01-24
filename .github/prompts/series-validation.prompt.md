@@ -19,7 +19,7 @@ Articles use two separate metadata blocks:
    - ✅ Update `validations.series_validation` section
    - ✅ PRESERVE ALL OTHER SECTIONS
 
-See `.copilot/context/dual-yaml-helpers.md` for parsing guide.
+See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for parsing guide.
 
 ## Your Task
 Review multiple articles in a series to ensure they:

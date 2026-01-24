@@ -309,9 +309,9 @@ article_metadata:
 ## Context Requirements
 
 Before validation:
-- Review validation caching pattern: `.copilot/context/prompt-engineering/validation-caching-pattern.md`
+- Review validation caching pattern: `.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md`
 - Understand dual YAML metadata: `.github/copilot-instructions.md` (Dual YAML section)
-- Follow context engineering principles: `.copilot/context/prompt-engineering/context-engineering-principles.md`
+- Follow context engineering principles: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
 
 ## Examples
 
@@ -399,8 +399,8 @@ Before completing:
 
 ## References
 
-- **Validation Caching Pattern**: `.copilot/context/prompt-engineering/validation-caching-pattern.md`
-- **Context Engineering Principles**: `.copilot/context/prompt-engineering/context-engineering-principles.md`
+- **Validation Caching Pattern**: `.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md`
+- **Context Engineering Principles**: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
 - **Global Instructions**: `.github/copilot-instructions.md` (Dual YAML Metadata section)
 
 <!-- 

@@ -274,7 +274,7 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 
 ## References
 
-- `.copilot/context/prompt-engineering/tool-composition-guide.md`
+- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
 - `.github/instructions/prompts.instructions.md`
 - Existing validation patterns in `.github/prompts/`
 

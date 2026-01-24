@@ -38,14 +38,27 @@ This document explains the folder structure and automation tools for this learni
 ├── bin/                             # (Deprecated - use mcp-servers/)
 ├── mcp-servers/                     # MCP server executables
 │   └── iqpilot/                     # IQPilot MCP server
-├── context/                         # Rich context for AI
-│   ├── domain-concepts.md           # Core concepts
-│   ├── style-guide.md               # Writing standards
-│   ├── validation-criteria.md       # Quality thresholds
-│   └── workflows/
-│       ├── article-creation-workflow.md
-│       ├── review-workflow.md
-│       └── series-planning-workflow.md
+├── context/                         # Rich context for AI (numbered for priority)
+│   ├── 00.00 prompt-engineering/    # Prompt & agent design patterns
+│   │   ├── 01-context-engineering-principles.md
+│   │   ├── 02-tool-composition-guide.md
+│   │   ├── 03-progressive-disclosure-pattern.md
+│   │   ├── 04-handoffs-pattern.md
+│   │   ├── 05-validation-caching-pattern.md
+│   │   └── 06-adaptive-validation-patterns.md
+│   ├── 01.00 article-writing/       # Generic article writing guidelines
+│   │   ├── 01-style-guide.md
+│   │   ├── 02-validation-criteria.md
+│   │   └── workflows/
+│   │       ├── 01-article-creation-workflow.md
+│   │       ├── 02-review-workflow.md
+│   │       └── 03-series-planning-workflow.md
+│   └── 90.00 learning-hub/          # Repository-specific conventions
+│       ├── 01-domain-concepts.md
+│       ├── 02-dual-yaml-metadata.md
+│       ├── 03-validation-criteria.md
+│       ├── 04-reference-classification.md
+│       └── 05-visual-formatting-guidelines.md
 └── scripts/                         # Automation scripts
     ├── validate-metadata.ps1
     ├── check-stale-validations.ps1
@@ -194,15 +207,36 @@ Located in `.copilot/scripts/`:
 
 ## 📖 Context Library
 
-Located in `.copilot/context/`, these files enrich AI responses:
+Located in `.copilot/context/`, these files enrich AI responses. Folders and files use numbered prefixes for priority ordering:
 
-- **`domain-concepts.md`**: Core concepts and terminology
-- **`style-guide.md`**: Writing standards and formatting
-- **`validation-criteria.md`**: Quality thresholds
-- **`workflows/`**: Process documentation
-- **`guidelines/`**: Best practices
-- **`patterns/`**: Reusable content patterns
-- **`examples/`**: Exemplar articles
+### 00.00 prompt-engineering/ (Prompt & Agent Design)
+
+| File | Purpose |
+|------|---------|
+| `01-context-engineering-principles.md` | Core principles for effective prompts and agents |
+| `02-tool-composition-guide.md` | Tool selection patterns by role |
+| `03-progressive-disclosure-pattern.md` | Token optimization via layered context |
+| `04-handoffs-pattern.md` | Multi-agent orchestration patterns |
+| `05-validation-caching-pattern.md` | 7-day caching for validation results |
+| `06-adaptive-validation-patterns.md` | Flexible validation strategies |
+
+### 01.00 article-writing/ (Article Creation Guidelines)
+
+| File | Purpose |
+|------|---------|
+| `01-style-guide.md` | Writing standards and formatting rules |
+| `02-validation-criteria.md` | General quality thresholds |
+| `workflows/*.md` | Article creation, review, and series workflows |
+
+### 90.00 learning-hub/ (Repository-Specific)
+
+| File | Purpose |
+|------|---------|
+| `01-domain-concepts.md` | Core terminology and concepts for this site |
+| `02-dual-yaml-metadata.md` | Top/bottom YAML metadata structure and parsing |
+| `03-validation-criteria.md` | Learning Hub-specific validation rules |
+| `04-reference-classification.md` | 📘📗📒📕 source classification system |
+| `05-visual-formatting-guidelines.md` | `<mark>`, emojis, TOC usage criteria |
 
 ## 🎯 Validation Outcomes
 
