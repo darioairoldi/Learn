@@ -221,6 +221,7 @@ description: "One-sentence summary for search and preview (120-160 chars)"
 - **Progressive disclosure** — Start simple, add complexity gradually
 - **Visual hierarchy** — H2 for main topics, H3 for subtopics, never skip levels
 - **Scannable structure** — Bullets, tables, code blocks
+- **Emoji prefixes for H2 headings** — Use relevant emojis at start of H2 section titles for visual scanning (e.g., `## 🎯 Core Concepts`, `## 📋 Prerequisites`)
 
 ### Conclusion Section
 **Every article MUST have a conclusion with:**
@@ -299,11 +300,28 @@ article_metadata:
 | in order to | to |
 | prior to | before |
 
-### Avoid Jargon
-- Define technical terms on first use
-- Use <mark>mark tags</mark> for important concepts
-- Link to explanations for complex terms
-- Write for your target audience's knowledge level
+### Jargon and New Terms (REQUIRED)
+
+When introducing jargon, domain-specific terms, or new vocabulary:
+
+1. **Mark new terms visually** — Use `<mark>` tags to highlight jargon when first introduced
+2. **Explain in context** — The sentence introducing jargon MUST explain its meaning (don't just drop terms)
+3. **Teach the shorthand** — Once explained, the jargon can be used freely throughout the article
+
+**Examples:**
+
+❌ **Wrong:** "Use short persistence for handoff transfers."
+✅ **Correct:** "Context with <mark>short persistence</mark> (only lasts within a single chat session) requires explicit handoff transfers when switching agents."
+
+❌ **Wrong:** "The System → Model direction applies here."
+✅ **Correct:** "<mark>System → Model</mark> direction means the content is auto-injected by the system based on file patterns—you don't manually include it."
+
+The goal is to **teach readers the vocabulary** so they can use the shorthand confidently in future reading.
+
+**Audience-specific guidance:**
+- **Beginner content:** Every technical term marked and explained on first use
+- **Intermediate content:** Common terms referenced without redefinition; new terms marked and explained
+- **Advanced content:** Domain expertise assumed; new jargon still marked on first use
 
 ### Readability Targets
 
@@ -354,10 +372,39 @@ Use backticks for:
 3. Keep items parallel in structure
 
 ### Tables
+
+**General formatting:**
 - Use for structured comparisons
 - Keep cells concise
 - Use sentence case in headers
 - Align columns for readability
+
+**Table Introduction (REQUIRED):**
+
+Tables MUST be properly introduced, especially when:
+- They appear at the beginning of a section
+- Column meanings aren't self-explanatory
+- The table contains domain-specific terminology
+
+**Rules for table introduction:**
+1. **Provide context before the table** — A sentence explaining what the table shows and why it matters
+2. **Explain non-obvious columns** — When column headers like "Direction" or "Persistence" aren't self-explanatory, provide brief definitions
+3. **Connect to narrative** — Show how the table relates to the preceding or following content
+
+**Example of proper table introduction:**
+
+> The table below describes GitHub Copilot customization files and how context information flows into the model. For each component:
+> - **Direction** indicates whether you explicitly include the content (User → Model) or it's auto-injected by the system (System → Model)
+> - **Persistence** shows whether context lasts only within a session (short) or accumulates over time (long)
+>
+> | Component | What It Provides | Direction | Persistence |
+> |-----------|------------------|-----------|-------------|
+> | ... | ... | ... | ... |
+
+**Avoid:**
+- Dropping tables without introduction
+- Assuming column headers are self-explanatory when they're not
+- Using domain jargon in column values without prior explanation
 
 ### Links
 **Descriptive link text (NEVER "click here"):**
@@ -517,6 +564,7 @@ Before considering an article complete, verify:
 - [ ] Has all required sections (intro, conclusion, references)
 - [ ] Table of contents for articles > 500 words
 - [ ] Progressive disclosure (simple → complex)
+- [ ] Emoji prefixes on H2 section headings
 
 ### Writing Style
 - [ ] Sentence-style capitalization throughout
@@ -525,6 +573,14 @@ Before considering an article complete, verify:
 - [ ] Active voice as default
 - [ ] Plain language (no unnecessary jargon)
 - [ ] Readability score in target range
+
+### Understandability
+- [ ] Jargon terms marked with `<mark>` on first use
+- [ ] Jargon introduced with explanatory sentences (not just dropped)
+- [ ] Tables introduced with context sentences
+- [ ] Non-obvious table columns explained before the table
+- [ ] No unexplained domain-specific terminology
+- [ ] Progressive complexity (simple concepts before complex)
 
 ### Mechanics
 - [ ] Oxford commas in all lists

@@ -29,7 +29,7 @@ Technical documentation exists at the <mark>intersection</mark> of <mark>technol
 
 This article establishes the foundational principles of technical documentation by:
 
-- <mark>Analyzing authoritative frameworks</mark> (<mark>Diátaxis</mark>) that define documentation types
+- <mark>Analyzing **authoritative frameworks**</mark> (<mark>**Diátaxis**</mark>) that define documentation types
 - Comparing major style guides (<mark>Microsoft</mark>, <mark>Google</mark>, <mark>Apple</mark>, <mark>Wikipedia</mark>)
 - Identifying <mark>decision-making strategies</mark> when guidelines conflict
 - <mark>Bridging theory with the practical implementation</mark> used in this repository
