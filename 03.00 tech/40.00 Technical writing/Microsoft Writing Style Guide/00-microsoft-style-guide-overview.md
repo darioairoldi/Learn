@@ -253,25 +253,25 @@ Microsoft's voice rests on three pillars:
 
 **Use Microsoft style when:**
 - Writing for Microsoft products or platforms
-- Creating user-facing technology content
-- Building documentation for global audiences
+- Creating <mark>user-facing technology content</mark>
+- Building <mark>documentation for global audiences</mark>
 - Writing conversational UI (chatbots, assistants)
-- Prioritizing accessibility and inclusivity
+- Prioritizing <mark>accessibility and inclusivity</mark>
 
 ### Considerations for Other Contexts
 
 **Microsoft style may need adaptation when:**
-- Writing academic or research content (formal tone expected)
-- Creating encyclopedic reference material (neutral voice preferred)
+- Writing <mark>academic</mark> or <mark>research content</mark> (formal tone expected)
+- Creating <mark>encyclopedic reference material</mark> (neutral voice preferred)
 - Following existing organizational style guides
 - Writing for audiences expecting different conventions
 
 ### Complementary Frameworks
 
 Microsoft style works alongside:
-- **Diátaxis** — Content architecture (what to write)
-- **WCAG** — Accessibility standards (how to make it accessible)
-- **Your organization's terminology** — Product-specific words
+- **<mark>Diátaxis</mark>** — Content architecture (what to write)
+- **<mark>WCAG</mark>** — Accessibility standards (how to make it accessible)
+- **<mark>Your organization's terminology</mark>** — Product-specific words
 
 ## Series Navigation
 
