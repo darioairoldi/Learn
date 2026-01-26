@@ -2,7 +2,7 @@
 
 This document defines general validation dimensions and quality thresholds for technical documentation. These criteria apply to any article regardless of the specific documentation site or repository.
 
-## Overall Quality Threshold
+## 🎯 Overall Quality Threshold
 
 Content is considered **publish-ready** when:
 - All critical validations passed
@@ -12,7 +12,7 @@ Content is considered **publish-ready** when:
 - Template structure followed
 - Target audience appropriately served
 
-## Validation Dimensions
+## 📋 Validation Dimensions
 
 ### 1. Grammar and Mechanics
 
@@ -73,6 +73,7 @@ Content is considered **publish-ready** when:
 - ✅ Proper hierarchy (no skipped levels)
 - ✅ Descriptive headings
 - ✅ Consistent formatting
+- ✅ H2 headings have emoji prefixes for visual scanning
 
 **Markdown Quality:**
 - ✅ Code blocks have language specified
@@ -179,34 +180,81 @@ All required elements present, proper hierarchy, valid Markdown
 - Examples clarify concepts
 - Progressive complexity manageable
 
+**Jargon and New Terms (REQUIRED):**
+
+New terms and jargon MUST be introduced following these rules:
+
+1. **Mark new terms visually** — Use `<mark>` tags to highlight jargon when first introduced
+2. **Explain in context** — The sentence introducing jargon MUST explain its meaning (don't just drop terms)
+3. **Teach the shorthand** — Once explained, the jargon can be used freely throughout the article
+
+**Examples:**
+
+❌ **Wrong:** "Use short persistence for handoff transfers."
+✅ **Correct:** "Context with <mark>short persistence</mark> (only lasts within a single chat session) requires explicit handoff transfers when switching agents."
+
+❌ **Wrong:** "The System → Model direction applies here."
+✅ **Correct:** "<mark>System → Model</mark> direction means the content is auto-injected by the system based on file patterns—you don't manually include it."
+
+**Table Introduction (REQUIRED):**
+
+Tables MUST be properly introduced, especially when:
+- They appear at the beginning of a section
+- Column meanings aren't self-explanatory
+- The table contains domain-specific terminology
+
+Rules for table introduction:
+1. **Provide context before the table** — A sentence explaining what the table shows and why it matters
+2. **Explain non-obvious columns** — When column headers like "Direction" or "Persistence" aren't self-explanatory, provide a brief explanation of what each column represents
+3. **Connect to narrative** — Show how the table relates to the preceding or following content
+
+**Example of proper table introduction:**
+
+> The table below describes GitHub Copilot customization files and how context information flows into the model. For each component:
+> - **Direction** indicates whether you explicitly include the content (User → Model) or it's auto-injected by the system (System → Model)
+> - **Persistence** shows whether context lasts only within a session (short) or accumulates over time (long)
+>
+> | Component | What It Provides | Direction | Persistence |
+> |-----------|------------------|-----------|-------------|
+> | ... | ... | ... | ... |
+
 **Audience-Specific Thresholds:**
 
 **Beginner Content:**
-- Every technical term defined
+- Every technical term defined with `<mark>` on first use
 - Multiple examples provided
 - Step-by-step explanations
 - Links to prerequisite learning
 - No assumed knowledge
+- All tables introduced with context
 
 **Intermediate Content:**
 - Common terms referenced, not redefined
+- New terms marked and explained
 - Examples show realistic usage
 - Some prior knowledge assumed but stated
 - Links to foundational concepts
+- Non-obvious tables introduced
 
 **Advanced Content:**
 - Domain expertise assumed
+- New jargon still marked on first use
 - Focus on optimization, edge cases
 - Complex examples appropriate
 - References to theory or research
+- Tables may have minimal introduction if context is clear
 
 **Automatic Fail:**
 - Audience mismatch not addressed
 - Unexplained jargon blocks understanding
+- Jargon introduced without `<mark>` highlighting
+- Jargon introduced without explanatory sentence
+- Tables dropped without introduction
+- Non-obvious table columns unexplained
 - Examples don't clarify concepts
 - Sudden jumps in complexity without bridge
 
-## Validation Outcomes
+## 📊 Validation Outcomes
 
 ### Status Values
 - **passed**: Meets all criteria
@@ -259,7 +307,7 @@ All required elements present, proper hierarchy, valid Markdown
 - Multiple important validations: Failed
 - Significant work required
 
-## Special Considerations
+## 💡 Special Considerations
 
 ### Code-Heavy Content
 
@@ -289,7 +337,7 @@ All required elements present, proper hierarchy, valid Markdown
 - Examples exhaustive
 - Updates tracked meticulously
 
-## Pre-Publication Checklist
+## ✅ Pre-Publication Checklist
 
 ### Critical (Must Pass)
 - [ ] Grammar validated: passed
@@ -312,7 +360,7 @@ All required elements present, proper hierarchy, valid Markdown
 - [ ] Cross-references added
 - [ ] Examples tested in multiple environments
 
-## Review Triggers
+## 🔄 Review Triggers
 
 Re-validation required when:
 - Content modified

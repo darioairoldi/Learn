@@ -2,7 +2,7 @@
 
 This style guide ensures consistency across all content in this repository.
 
-## Voice and Tone
+## 🎙️ Voice and Tone
 
 ### General Principles
 
@@ -18,7 +18,7 @@ This style guide ensures consistency across all content in this repository.
 - **First Person Sparingly**: "I recommend..." (only when sharing personal experience)
 - **Avoid "We"**: Don't use "we" unless representing an organization
 
-## Language and Word Choice
+## 📝 Language and Word Choice
 
 ### Simplicity
 
@@ -41,12 +41,12 @@ This style guide ensures consistency across all content in this repository.
 - Use "allowlist/denylist" not "whitelist/blacklist"
 - Avoid idioms that don't translate well
 
-## Formatting Standards
+## 🎨 Formatting Standards
 
 ### Headings
 
 - **H1 (#)**: Article title only, one per document
-- **H2 (##)**: Major sections
+- **H2 (##)**: Major sections — prefix with relevant emoji for visual scanning
 - **H3 (###)**: Subsections
 - **H4 (####)**: Rarely needed, use sparingly
 
@@ -55,6 +55,7 @@ Heading Rules:
 - Not title case: "How To Configure The System"
 - Be descriptive and scannable
 - Don't skip levels (H2 → H4)
+- **Emoji prefixes for H2 headings** — Use relevant emojis at start of major section titles (e.g., `## 🎯 Core Concepts`, `## 📋 Prerequisites`, `## 🔄 Workflow`)
 
 ### Lists
 
@@ -73,7 +74,23 @@ Heading Rules:
 - **Bold** for UI elements and emphasis: Click **Submit**
 - *Italic* for introducing new terms: A *webhook* is...
 - `Code font` for code, commands, filenames: Run `npm install`
+- <mark>Mark tags</mark> for **jargon and key concepts** that readers should learn (see Jargon Introduction below)
 - Don't overuse: Emphasis loses impact
+
+### Jargon Introduction
+
+When introducing jargon or domain-specific terms, follow this pattern:
+
+1. **Mark the term** — Use `<mark>term</mark>` to highlight the new vocabulary
+2. **Explain in context** — The sentence MUST explain what the term means
+3. **Teach the shorthand** — Once explained, use the term freely
+
+**Example pattern:**
+
+❌ **Wrong:** "Use short persistence for handoff transfers."
+✅ **Correct:** "Context with <mark>short persistence</mark> (only lasts within a single chat session) requires explicit handoff transfers when switching agents."
+
+The goal is to teach readers the vocabulary so they can use the shorthand confidently in future reading.
 
 ### Code Blocks
 
@@ -108,7 +125,30 @@ Rules for code:
 **Internal links**: Relative paths to other articles
 **Link format**: `[Link Text](URL)` for inline, `[URL]` for references
 
-## Structure Standards
+### Tables
+
+**Always introduce tables** with context before displaying them:
+
+1. **State what the table shows** — One sentence explaining the table's purpose
+2. **Explain non-obvious columns** — If column meanings aren't self-explanatory, provide brief definitions
+3. **Connect to narrative** — Show how the table relates to surrounding content
+
+**Example of proper table introduction:**
+
+> The table below describes customization files and how context flows to the model. For each component:
+> - **Direction** indicates whether content is explicitly included or auto-injected
+> - **Persistence** shows whether context lasts within a session or accumulates over time
+>
+> | Component | Direction | Persistence |
+> |-----------|-----------|-------------|
+> | ... | ... | ... |
+
+**Avoid:**
+- Dropping tables without introduction
+- Assuming column headers are self-explanatory when they're not
+- Using domain jargon in column values without prior explanation
+
+## 🏗️ Structure Standards
 
 ### Every Article Must Have
 
@@ -127,7 +167,7 @@ Rules for code:
 - **Troubleshooting**: Common issues and solutions
 - **Next steps**: What to explore next
 
-## Content Guidelines
+## 📚 Content Guidelines
 
 ### Introductions
 
@@ -159,7 +199,7 @@ Good introductions:
 - Provide both simple and complex examples
 - Explain what the example demonstrates
 
-## Technical Writing Specifics
+## ⚙️ Technical Writing Specifics
 
 ### Instructions
 
@@ -187,7 +227,7 @@ Good introductions:
 - Link to official changelogs
 - Update when versions change
 
-## References and Citations
+## 📖 References and Citations
 
 ### When to Cite
 
@@ -226,7 +266,7 @@ Avoid:
 - Unverified forums
 - Paid/sponsored content (without disclosure)
 
-## Special Elements
+## ✨ Special Elements
 
 ### Warnings and Notes
 
@@ -260,10 +300,11 @@ Use consistently:
 Cite source after quote:
 > "The best code is no code at all." - Jeff Atwood
 
-## Consistency Checklist
+## ✅ Consistency Checklist
 
 - [ ] Terminology consistent throughout
 - [ ] Heading hierarchy logical
+- [ ] H2 headings have emoji prefixes
 - [ ] Code formatting consistent
 - [ ] List formatting parallel
 - [ ] Voice/person consistent
@@ -272,7 +313,7 @@ Cite source after quote:
 - [ ] Images have alt text
 - [ ] References complete
 
-## Common Mistakes to Avoid
+## ⚠️ Common Mistakes to Avoid
 
 ❌ "You can do X or Y" (ambiguous)  
 ✅ "You can do either X or Y, depending on..."
@@ -292,7 +333,7 @@ Cite source after quote:
 ❌ "Just do X" (dismissive of complexity)  
 ✅ "To do X, you'll need to..." (acknowledges steps)
 
-## Review Checklist
+## 📝 Review Checklist
 
 Before publishing, verify:
 - [ ] Spell check passed
