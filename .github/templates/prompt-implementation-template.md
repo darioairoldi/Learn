@@ -430,8 +430,8 @@ validations:
 ## Context Requirements
 
 Before implementation:
-- Review context engineering principles: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
-- Understand tool composition: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` (Builder pattern)
+- Review context engineering principles: `.copilot/context/prompt-engineering/context-engineering-principles.md`
+- Understand tool composition: `.copilot/context/prompt-engineering/tool-composition-guide.md` (Builder pattern)
 - Read applicable instruction files for conventions
 - Load relevant templates from `.github/templates/`
 
@@ -520,8 +520,8 @@ Before completing implementation:
 
 ## References
 
-- **Context Engineering Principles**: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
-- **Tool Composition Guide**: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` (Recipe 2: Template-Based Generation)
+- **Context Engineering Principles**: `.copilot/context/prompt-engineering/context-engineering-principles.md`
+- **Tool Composition Guide**: `.copilot/context/prompt-engineering/tool-composition-guide.md` (Recipe 2: Template-Based Generation)
 - **Instruction Files**: `.github/instructions/*.instructions.md`
 - **Templates**: `.github/templates/*.md`
 

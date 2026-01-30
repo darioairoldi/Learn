@@ -197,8 +197,9 @@
     - "06.00 idea/IQPilot/01. IQPilot overview.md"
     - "06.00 idea/IQPilot/02. IQPilot Getting started.md"
     - "06.00 idea/IQPilot/03. IQPilot Implementation details.md"
-    - "06.00 idea/LearnHub/01. Learning Hub Overview/01. Learning-Hub-Introduction.md"
-    - "06.00 idea/LearnHub/01. Learning Hub Overview/02. Using-Learning-Hub-for-learning-technologies.md"
+    - "06.00 idea/learning-hub/01. Learning Hub Overview/01. Learning-Hub-Introduction.md"
+    - "06.00 idea/learning-hub/01. Learning Hub Overview/02. Using-Learning-Hub-for-learning-technologies.md"
+    - "06.00 idea/learning-hub/02. Documentation Taxonomy/01-learning-hub-documentation-taxonomy.md"
     - "20250815 DIY Battery Pack/README.md"
     - "20250815 DIY Battery Pack/SUMMARY.md"
     - "20250815 DIY ebike/SUMMARY.md"
@@ -424,8 +425,8 @@ website:
         menu:
           - href: "06.00 idea/IQPilot/01. IQPilot overview.md"
             text: "IQPilot - AI Quality Tool"
-          - href: "06.00 idea/LearnHub/01. Learning Hub Overview/01. Learning-Hub-Introduction.md"
-            text: "LearnHub Overview"
+          - href: "06.00 idea/learning-hub/01. Learning Hub Overview/01. Learning-Hub-Introduction.md"
+            text: "Learning Hub Overview"
           - text: "---"
           - href: "20250815 DIY Battery Pack/README.md"
             text: "DIY Battery Packs"
@@ -458,7 +459,7 @@ website:
       - href: index.qmd
         text: "Home"
         icon: house-fill
-        contents: "06.00 idea/LearnHub/01. Learning Hub Overview/*.md"
+        contents: "06.00 idea/learning-hub/01. Learning Hub Overview/*.md"
 
       - section: "News & Updates"
         icon: newspaper
@@ -571,9 +572,9 @@ website:
           - section: "IQPilot"
             icon: stars
             contents: "06.00 idea/IQPilot/**/*.md"
-          - section: "LearnHub"
+          - section: "Learning Hub"
             icon: book-half
-            contents: "06.00 idea/LearnHub/**/*.md"
+            contents: "06.00 idea/learning-hub/**/*.md"
 
       - text: "---"
 

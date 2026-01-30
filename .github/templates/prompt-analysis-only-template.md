@@ -461,8 +461,8 @@ validations:
 ## Context Requirements
 
 Before analysis:
-- Review context engineering principles: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
-- Understand tool composition: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` (Research pattern)
+- Review context engineering principles: `.copilot/context/prompt-engineering/context-engineering-principles.md`
+- Understand tool composition: `.copilot/context/prompt-engineering/tool-composition-guide.md` (Research pattern)
 - Check relevant domain documentation if available
 
 ## Examples
@@ -545,8 +545,8 @@ Before completing analysis:
 
 ## References
 
-- **Context Engineering Principles**: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
-- **Tool Composition Patterns**: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md` (Recipe 1: Pattern Discovery)
+- **Context Engineering Principles**: `.copilot/context/prompt-engineering/context-engineering-principles.md`
+- **Tool Composition Patterns**: `.copilot/context/prompt-engineering/tool-composition-guide.md` (Recipe 1: Pattern Discovery)
 - **Relevant Documentation**: [Domain-specific references]
 
 <!-- 
