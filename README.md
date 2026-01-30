@@ -298,8 +298,8 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 ### 🎯 Start Here
 - **[Getting Started](GETTING-STARTED.md)** - How to navigate this learning hub
 - **[Documentation Index](DOCUMENTATION-INDEX.md)** - Complete content listing
-- **[Learning Hub Introduction](06.00%20idea/LearnHub/01.%20Learning%20Hub%20Overview/01.%20Learning-Hub-Introduction.md)** - Philosophy and approach
-- **[Using This Hub for Learning](06.00%20idea/LearnHub/01.%20Learning%20Hub%20Overview/02.%20Using-Learning-Hub-for-learning-technologies.md)** - How to maximize value
+- **[Learning Hub Introduction](06.00%20idea/learning-hub/01.%20Learning%20Hub%20Overview/01.%20Learning-Hub-Introduction.md)** - Philosophy and approach
+- **[Using This Hub for Learning](06.00%20idea/learning-hub/01.%20Learning%20Hub%20Overview/02.%20Using-Learning-Hub-for-learning-technologies.md)** - How to maximize value
 
 ### 📰 News & Updates
 - [VS Code v1.107 Release Analysis](01.00%20news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md) 🆕
