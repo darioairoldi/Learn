@@ -46,17 +46,46 @@ When transforming folder names to menu items, **remove numeric prefixes together
 
 ### Date Prefix Handling
 
-Date-prefixed folders/files retain their date in menu items (dates provide context):
+Date-prefixed folders/files retain their date in menu items (dates provide context).
+
+**⚠️ CRITICAL RULE: Standard Separator Format**
+
+The separator between the date prefix and the topic name MUST be displayed as ` - ` (space-dash-space) regardless of the original separator character in the folder/file name.
+
+**Transformation Rule:**
+1. Detect date prefix (YYYYMMDD or YYYYMM)
+2. Replace ANY separator character(s) after the date with ` - ` (space-dash-space)
+3. Transform the remaining name (hyphens/underscores → spaces, Title Case)
+
+| Original Separator | Example Input | Menu Output |
+|--------------------|---------------|-------------|
+| Hyphen (`-`) | `20260130-6-advanced-rules/` | "20260130 - 6 Advanced Rules" |
+| Space (` `) | `20260130 6-advanced-rules/` | "20260130 - 6 Advanced Rules" |
+| Underscore (`_`) | `20260130_6-advanced-rules/` | "20260130 - 6 Advanced Rules" |
+| Multiple (`- `) | `20260130- 6-advanced-rules/` | "20260130 - 6 Advanced Rules" |
+
+**More examples:**
 
 | Pattern | Example Input | Menu Output |
 |---------|---------------|-------------|
-| `YYYYMMDD-name` | `20251224-vscode-release/` | "20251224 VS Code Release" |
-| `YYYYMMDD name` | `20251224 vscode release/` | "20251224 VS Code Release" |
-| `YYYYMM-name` | `202506-build-2025/` | "202506 Build 2025" |
+| `YYYYMMDD-name` | `20251224-vscode-release/` | "20251224 - VS Code Release" |
+| `YYYYMMDD name` | `20251224 vscode release/` | "20251224 - VS Code Release" |
+| `YYYYMM-name` | `202506-build-2025/` | "202506 - Build 2025" |
 
-**Date detection regex:** `/^(20\d{2})(0[1-9]|1[0-2])(\d{2})?[-\s]/`
+**Date detection regex:** `/^(20\d{2})(0[1-9]|1[0-2])(\d{2})?[-_\s]+/`
 
-**Rule:** If folder starts with a valid date pattern, **keep the date**, remove only the separator, transform the rest.
+**Transformation algorithm:**
+```
+1. Match date prefix: /^(20\d{2})(0[1-9]|1[0-2])(\d{2})?/
+2. Remove all separator characters immediately after date: /[-_\s]+/
+3. Insert standard separator: " - "
+4. Transform remaining name:
+   - Replace hyphens with spaces
+   - Replace underscores with spaces  
+   - Capitalize first letter of each word (Title Case)
+```
+
+**Rule:** If folder starts with a valid date pattern, **keep the date**, replace separator(s) with ` - `, transform the rest.
 
 ---
 
@@ -224,7 +253,8 @@ Choose Bootstrap Icons semantically:
 
 ### Menu Item Generation
 - [ ] Numeric prefixes removed (with separator)
-- [ ] Date prefixes preserved (separator removed)
+- [ ] Date prefixes preserved with standard ` - ` separator
+- [ ] All separator chars after date → ` - ` (space-dash-space)
 - [ ] Hyphens/underscores → spaces
 - [ ] Title Case applied
 - [ ] YAML title takes precedence when available
@@ -254,4 +284,5 @@ Choose Bootstrap Icons semantically:
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 1.1.0 | 2026-01-31 | Added standard separator format rule for date prefixes (` - `) | System |
 | 1.0.0 | 2026-01-31 | Initial version — separated from 06-folder-organization-and-navigation.md | System |
