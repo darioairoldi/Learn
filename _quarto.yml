@@ -466,11 +466,11 @@ website:
         contents:
           # Explicit list for newest-first ordering (per context rules)
           # When adding new articles: INSERT AT TOP of this list
-          - text: "20260130-6-advanced-rules-for-production-copilot-agents"
+          - text: "20260130 - 6 Advanced Rules For Production Copilot Agents"
             href: "01.00-news/20260130-6-advanced-rules-for-production-copilot-agents/summary.md"
-          - text: "20260124 GitHub Copilot SDK - Building Agents"
+          - text: "20260124 - GitHub Copilot SDK Building Agents"
             href: "01.00-news/20260124-copilotstudio-sdk/github-copilot-sdk-building-agents-for-any-application.md"
-          - text: "20260111-6-vital-rules-for-production-ready-copilot-agents"
+          - text: "20260111 - 6 Vital Rules For Production Ready Copilot Agents"
             href: "01.00-news/20260111-6-vital-rules-for-production-ready-copilot-agents/summary.md"
           - section: "20251224 VS Code v1.107 Release"
             contents:
