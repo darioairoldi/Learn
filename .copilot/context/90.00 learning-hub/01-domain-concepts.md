@@ -12,14 +12,67 @@ This is a **personal learning and development documentation site** focused on:
 
 ## Core Concepts
 
-### Content Types
+### Content Categories
 
-**Articles**: Deep-dive explanatory content covering concepts, technologies, or methodologies  
-**HowTo Guides**: Step-by-step procedural instructions to accomplish specific tasks  
-**Tutorials**: Hands-on learning experiences with progressive complexity  
-**Summaries**: Condensed information from recordings, presentations, or research  
-**Analyses**: Critical evaluation and deep examination of topics
-**Session Analyses**: Critical evaluation and deep examination of a session's content or outcomes
+The Learning Hub uses a **7-category taxonomy** extending the Diátaxis framework. Each category addresses a specific user question:
+
+| Category | Purpose | User Question |
+|----------|---------|---------------|
+| **Overview** | First-touch orientation | "What is this? Why should I care?" |
+| **Getting Started** | First success path | "How do I begin?" |
+| **Concepts** | Mental model building | "How does this work?" |
+| **How-to** | Task accomplishment and practice development | "How do I accomplish X effectively?" |
+| **Analysis** | Strategic evaluation and strategy development | "What approach should we use?" |
+| **Reference** | Authoritative lookup | "What are the exact specifications?" |
+| **Resources** | Supporting materials | "Where can I learn more?" |
+
+**Authoritative source:** See `06.00 idea/learning-hub/02. Documentation Taxonomy/01-learning-hub-documentation-taxonomy.md`
+
+#### How-to Subcategories
+
+The How-to category is divided into four subcategories:
+
+| Subcategory | Focus | Title Pattern |
+|-------------|-------|---------------|
+| **Task Guides** | Accomplish specific goals | "How to [do X]" |
+| **Patterns & Practices** | Reusable solutions to recurring problems | "How to [structure/organize X]" |
+| **Techniques** | Specific approaches for optimal results | "How to [optimize/improve X]" |
+| **Methodology** | Frameworks for complex tasks | "How to [orchestrate/approach X]" |
+
+#### Analysis Subcategories
+
+Analysis content addresses strategic questions:
+
+| Subcategory | Focus | Example |
+|-------------|-------|--------|
+| **Technology Radar** | Adoption decisions | ADOPT/TRIAL/ASSESS/HOLD classification |
+| **Comparative Analysis** | Alternatives evaluation | Framework comparison tables |
+| **Strategy Development** | Approach formulation | Model selection strategy |
+| **Trend Analysis** | Future direction assessment | Ecosystem maturity assessment |
+
+### Technology Radar Framework
+
+The Technology Radar classifies technologies into four adoption rings:
+
+| Rating | Definition | Implication |
+|--------|------------|-------------|
+| **ADOPT** | Proven in production, recommended for new projects | Default choice for relevant use cases |
+| **TRIAL** | Worth pursuing, ready for evaluation in real projects | Allocate resources for pilot |
+| **ASSESS** | Worth exploring, understand impact | Research and prototyping only |
+| **HOLD** | Proceed with caution, consider alternatives | Avoid for new work, plan migration |
+
+### Progressive Depth Model
+
+Content supports different depths of engagement:
+
+```
+Overview (5-min) → Getting Started (30-60 min) → Concepts (layered) → Analysis (deep)
+```
+
+**Concepts Layer Structure:**
+- **Layer 1: Core** — Fundamental terms and definitions
+- **Layer 2: Architecture** — System components and their roles
+- **Layer 3: Advanced** — Edge cases and limitations
 
 ### Quality Dimensions
 
@@ -101,17 +154,21 @@ Draft → In-Review → Published → [Updates/Revisions] → Archived
 
 ### Folder Structure
 
-- **Subject Folders** (`tech/`, `howto/`, `projects/`): Organized by topic domain  
-- **Series**: Related articles grouped under common theme  
-- **Cross-Cutting**: Topics that span multiple domains  
+**📖 Complete guidance:** See `06-folder-organization-and-navigation.md`
+
+**Quick reference:**
+- **Subject Folders** (`XX.YY name/`): Numeric prefixes for ordering
+- **Date-Prefixed Folders** (`YYYYMMDD topic/`): Time-sensitive content
+- **Series**: Related articles grouped under common theme
 
 ### Navigation Patterns
 
+**📖 Sidebar menu rules:** See `06-folder-organization-and-navigation.md`
+
+**Quick reference:**
 - Table of contents in long articles
 - Series navigation (prev/next)
-- Prerequisite links
-- Related topic suggestions
-- External reference links
+- Prerequisite and related topic links
 
 ## Audience Considerations
 

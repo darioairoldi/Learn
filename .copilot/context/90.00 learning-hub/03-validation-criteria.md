@@ -50,49 +50,132 @@ Draft → In-Review → Published → [Updates/Revisions] → Archived
 - Navigation functional
 - Gaps between articles bridged
 
-## Learning Hub Content Types
+## Learning Hub Content Categories
 
-### Session Analyses (Event Summaries)
+Content follows the **7-category taxonomy** from the Learning Hub Documentation Taxonomy. See `01-domain-concepts.md` for full definitions.
+
+| Category | Primary Validation Focus | Secondary Focus |
+|----------|-------------------------|----------------|
+| **Overview** | Clarity, completeness | Readability (Flesch 60-70) |
+| **Getting Started** | Accuracy (steps must work) | Logical flow, gap analysis |
+| **Concepts** | Logical coherence, completeness | Understandability |
+| **How-to: Task Guides** | Fact accuracy, step completeness | Troubleshooting coverage |
+| **How-to: Patterns** | Example quality, applicability | When to use / not use |
+| **Analysis** | Source quality (📘📗 preferred) | Balanced perspective |
+| **Reference** | Exhaustive accuracy, consistency | Format compliance |
+| **Resources** | Currency, link validity | Audience indication |
+
+### Quality Thresholds
+
+| Dimension | Minimum Score | Target Score |
+|-----------|---------------|-------------|
+| Grammar | 90% | 95%+ |
+| Readability (Flesch) | 50 | 60-70 |
+| Structure | 85% | 95%+ |
+| Fact accuracy | 95% | 100% |
+| Link validity | 100% | 100% |
+
+### Overview
 
 **Required Sections:**
-- Session metadata (speaker, date, event)
-- Key takeaways (bulleted list)
-- Detailed notes
-- Related resources
-- Classification of all references (📘📗📒📕)
+- What it is (one-paragraph definition)
+- Key benefits (3-5 bullet points)
+- Who should use it / When to use it
+- When NOT to use it (limitations)
+- Prerequisites for learning more
 
 **Validation Focus:**
-- Accuracy of session attribution
-- Correct speaker information
-- Timely publication (within 2 weeks of event)
+- No technical deep-dives (belongs in Concepts)
+- Honest about limitations
+- Reading time 3-5 minutes
 
-### Technical Articles
-
-**Required Sections:**
-- Introduction with learning objectives
-- Prerequisites stated
-- Table of contents
-- Conclusion with next steps
-- References with classification
-
-**Validation Focus:**
-- Code examples tested and working
-- Version information current
-- Official documentation links verified
-
-### HowTo Guides
+### Getting Started (Tutorials)
 
 **Required Sections:**
-- Clear objective statement
-- Prerequisites checklist
-- Numbered steps
-- Expected outcomes
-- Troubleshooting section
+- Prerequisites (explicit, verifiable)
+- What you'll build/learn
+- Step-by-step instructions (numbered)
+- Verification ("You should see...")
+- Troubleshooting (common issues)
+- Next steps
 
 **Validation Focus:**
 - Steps complete and reproducible
 - No assumed knowledge gaps
 - Environment requirements specified
+- Quickstart (5-min) + Full Tutorial (30-60 min) tiers
+
+### Concepts (Explanatory Content)
+
+**Required Sections:**
+- Key terms (defined clearly)
+- Core principles (3-5 main ideas)
+- How it works (conceptual explanation)
+- Common misconceptions
+- Related concepts (cross-references)
+
+**Validation Focus:**
+- No procedural content (belongs in How-to)
+- Layered depth (Core → Architecture → Advanced)
+- Connects to prior knowledge
+
+### How-to Guides
+
+**Required Sections:**
+- Goal statement (one sentence)
+- Prerequisites
+- Core content (steps, patterns, or framework)
+- Verification or success criteria
+- When to use / When NOT to use
+
+**Validation Focus by Subcategory:**
+- **Task Guides:** Step completeness, troubleshooting coverage
+- **Patterns & Practices:** Multiple examples, context variations
+- **Techniques:** Before/after comparisons, measurable improvements
+- **Methodology:** Decision points, coordination guidance
+
+### Analysis
+
+**Required Sections:**
+- Context and scope (what decision is being addressed)
+- Evidence base (sources supporting analysis)
+- Key findings or classification
+- Recommendations with rationale
+- Review date and validity period
+
+**Validation Focus by Subcategory:**
+- **Technology Radar:** ADOPT/TRIAL/ASSESS/HOLD justified
+- **Comparative:** Criteria explicit, recommendation clear
+- **Strategy:** Options evaluated, decision factors documented
+- **Trend:** Sources current, predictions qualified
+
+### Reference
+
+**Required Elements per Item:**
+- Name/identifier
+- Type/syntax
+- Description (one sentence)
+- Default value (if applicable)
+- Constraints/valid values
+- Example (minimal, illustrative)
+
+**Validation Focus:**
+- Exhaustive coverage
+- Consistent format across items
+- No explanatory content (link to Concepts)
+
+### Resources
+
+**Required Elements:**
+- Clear categorization
+- Brief description (1-2 sentences per resource)
+- Audience indication (beginner/intermediate/advanced)
+- Currency note (when last verified)
+
+**Validation Focus:**
+- No dumping links without context
+- Resources verified as current
+- Session Analyses include speaker, date, event metadata
 
 ### Project Documentation
 

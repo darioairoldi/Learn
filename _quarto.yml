@@ -7,6 +7,7 @@
     - "GETTING-STARTED.md"
     - "DOCUMENTATION-INDEX.md"
     - "scripts/README.md"
+    - "scripts/fix-broken-links/README.md"
     - "src/IQPilot/README.md"
     - "01.00 news/20251224 vscode v1.107 Release/01. Summary.md"
     - "01.00 news/20251224 vscode v1.107 Release/02. README.Sonnet4.md"
@@ -51,7 +52,6 @@
     - "02.00 events/202506 Build 2025/BRK - Breakout Sessions/BRK195 Inside Azure innovations with Mark Russinovich/SUMMARY.md"
     - "02.00 events/202506 Build 2025/BRK - Breakout Sessions/BRK199 Accelerate Modernization/README.Sonnet4.md"
     - "02.00 events/202506 Build 2025/BRK - Breakout Sessions/BRK199 Accelerate Modernization/SUMMARY.md"
-    - "02.00 events/202506 Build 2025/BRK - Breakout Sessions/BRK204 Wharts new in Microsoft Databases/README.Sonnet4.md"
     - "02.00 events/202506 Build 2025/BRK - Breakout Sessions/BRK204 Whats new in Microsoft Databases/README.Sonnet4.md"
     - "02.00 events/202506 Build 2025/BRK - Breakout Sessions/BRK204 Whats new in Microsoft Databases/SUMMARY.md"
     - "02.00 events/202506 Build 2025/BRK - Breakout Sessions/BRK223 An overview of Windows AI Foundry/README.Sonnet4.md"
@@ -463,7 +463,21 @@ website:
 
       - section: "News & Updates"
         icon: newspaper
-        contents: "01.00 news/**/*.md"
+        contents:
+          # Explicit list for newest-first ordering (per context rules)
+          # When adding new articles: INSERT AT TOP of this list
+          - text: "20260130 6 Advanced Rules for Production Copilot Agents"
+            href: "01.00 news/20260130 6 Advanced Rules for Production Copilot Agents/Summary.md"
+          - text: "20260124 GitHub Copilot SDK - Building Agents"
+            href: "01.00 news/20260124 copilotstudio sdk/GitHub Copilot SDK - Building Agents for Any Application.md"
+          - text: "20260111 6 VITAL Rules for Production-Ready Copilot Agents"
+            href: "01.00 news/20260111 6 VITAL Rules for Production-Ready Copilot Agents/Summary.md"
+          - section: "20251224 VS Code v1.107 Release"
+            contents:
+              - text: "Summary"
+                href: "01.00 news/20251224 vscode v1.107 Release/01. Summary.md"
+              - text: "Analysis"
+                href: "01.00 news/20251224 vscode v1.107 Release/02. README.Sonnet4.md"
 
       - section: "Events"
         icon: calendar-event

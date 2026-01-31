@@ -1,1 +1,0 @@
-![Microsoft Database Portfolio](images/microsoft-databases-ai.png.svg)
