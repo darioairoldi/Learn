@@ -54,14 +54,14 @@ AI context library and automation tools.
 
 | Folder | Purpose |
 |--------|---------|
-| `01.00 news/` | VS Code releases, tool updates (date-prefixed: YYYYMMDD) |
-| `02.00 events/` | Conference notes (Build, Ignite) with session summaries |
-| `03.00 tech/` | Technical articles organized by topic |
-| `04.00 howto/` | Step-by-step guides and tutorials |
-| `05.00 issues/` | Problem solving and troubleshooting notes |
-| `06.00 idea/` | Project concepts (IQPilot, LearnHub) |
+| `01.00-news/` | VS Code releases, tool updates (date-prefixed: YYYYMMDD) |
+| `02.00-events/` | Conference notes (Build, Ignite) with session summaries |
+| `03.00-tech/` | Technical articles organized by topic |
+| `04.00-howto/` | Step-by-step guides and tutorials |
+| `05.00-issues/` | Problem solving and troubleshooting notes |
+| `06.00-idea/` | Project concepts (IQPilot, LearnHub) |
 | `07.00 projects/` | Active project documentation |
-| `90.00 travel/` | Personal travel and event planning |
+| `90.00-travel/` | Personal travel and event planning |
 
 ---
 
