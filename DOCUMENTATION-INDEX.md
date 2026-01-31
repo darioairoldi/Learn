@@ -15,11 +15,11 @@ Complete guide to all documentation automation files and resources in this repos
 ### For New Users
 - 📖 [GETTING-STARTED.md](GETTING-STARTED.md) - **Start here!** Quick setup and mode selection
 - 📘 [.iqpilot/README.md](.iqpilot/README.md) - **IQPilot modes guide** - Enable/disable, mode comparison
-- 🎯 [idea/IQPilot/01. IQPilot overview.md](idea/IQPilot/01.%20IQPilot%20overview.md) - What IQPilot is and why it matters
-- 🚀 [idea/IQPilot/02. IQPilot Getting started.md](idea/IQPilot/02.%20IQPilot%20Getting%20started.md) - Installation and usage guide
+- 🎯 [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) - What IQPilot is and why it matters
+- 🚀 [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md) - Installation and usage guide
 
 ### For Developers
-- 🔧 [idea/IQPilot/03. IQPilot Implementation details.md](idea/IQPilot/03.%20IQPilot%20Implementation%20details.md) - Technical architecture & implementation
+- 🔧 [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md) - Technical architecture & implementation
 - 📊 [src/IQPilot/README.md](src/IQPilot/README.md) - IQPilot MCP server source code
 
 ### For Content Writers
@@ -35,15 +35,15 @@ Complete guide to all documentation automation files and resources in this repos
 | File | Purpose | Audience |
 |------|---------|----------|
 | [GETTING-STARTED.md](GETTING-STARTED.md) | Complete IQPilot setup guide | All Users |
-| [idea/IQPilot/02. IQPilot Getting started.md](idea/IQPilot/02.%20IQPilot%20Getting%20started.md) | Detailed installation & configuration | All Users |
+| [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md) | Detailed installation & configuration | All Users |
 | [.copilot/scripts/build-iqpilot.ps1](.copilot/scripts/build-iqpilot.ps1) | Build automation script | Developers |
 
 ### 🏗️ Architecture & Implementation
 
 | File | Purpose | Audience |
 |------|---------|----------|
-| [idea/IQPilot/03. IQPilot Implementation details.md](idea/IQPilot/03.%20IQPilot%20Implementation%20details.md) | Architecture, folder structure, MCP integration | Developers |
-| [idea/IQPilot/01. IQPilot overview.md](idea/IQPilot/01.%20IQPilot%20overview.md) | Concepts, philosophy, use cases | All Users |
+| [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md) | Architecture, folder structure, MCP integration | Developers |
+| [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) | Concepts, philosophy, use cases | All Users |
 | [src/IQPilot/README.md](src/IQPilot/README.md) | C# MCP Server source code documentation | Developers |
 | [.github/STRUCTURE-README.md](.github/STRUCTURE-README.md) | Repository structure & automation overview | All Users |
 
@@ -67,17 +67,9 @@ Complete guide to all documentation automation files and resources in this repos
 | File | Purpose | Audience |
 |------|---------|----------|
 | [.github/copilot-instructions.md](.github/copilot-instructions.md) | Global editorial & validation standards | All Users |
-| [.copilot/context/01.00 article-writing/01-style-guide.md](.copilot/context/01.00%20article-writing/01-style-guide.md) | Writing style & formatting rules | Writers |
-| [.copilot/context/01.00 article-writing/02-validation-criteria.md](.copilot/context/01.00%20article-writing/02-validation-criteria.md) | Quality thresholds for publishing | Writers |
-| [.copilot/context/90.00 learning-hub/01-domain-concepts.md](.copilot/context/90.00%20learning-hub/01-domain-concepts.md) | Core concepts & terminology | All Users |
-
-### 🔄 Workflows & Processes
-
-| File | Purpose | Audience |
-|------|---------|----------|
-| [.copilot/context/workflows/article-creation-workflow.md](.copilot/context/workflows/article-creation-workflow.md) | Step-by-step article creation process | Writers |
-| [.copilot/context/workflows/review-workflow.md](.copilot/context/workflows/review-workflow.md) | Maintenance & update workflow | Writers |
-| [.copilot/context/workflows/series-planning-workflow.md](.copilot/context/workflows/series-planning-workflow.md) | Multi-article series planning | Writers |
+| [.copilot/context/01.00-article-writing/01-style-guide.md](.copilot/context/01.00-article-writing/01-style-guide.md) | Writing style & formatting rules | Writers |
+| [.copilot/context/01.00-article-writing/02-validation-criteria.md](.copilot/context/01.00-article-writing/02-validation-criteria.md) | Quality thresholds for publishing | Writers |
+| [.copilot/context/90.00-learning-hub/01-domain-concepts.md](.copilot/context/90.00-learning-hub/01-domain-concepts.md) | Core concepts & terminology | All Users |
 
 ### 🤖 AI Prompt Files
 
@@ -86,12 +78,12 @@ Complete guide to all documentation automation files and resources in this repos
 #### Standalone Prompts (Work Without IQPilot)
 Located in `.github/prompts/` and subdirectories - accessible via natural language with GitHub Copilot:
 
-**Article Prompts** (`.github/prompts/article/`):
-- [article-design-and-create.prompt.md](.github/prompts/article/article-design-and-create.prompt.md) - Design articles from scratch
-- [article-generate-techsession-summary.prompt.md](.github/prompts/article/article-generate-techsession-summary.prompt.md) - Generate tech session summaries
-- [article-generate-techsession-analysis.prompt.md](.github/prompts/article/article-generate-techsession-analysis.prompt.md) - Generate tech session analysis
-- [article-review-for-consistency-gaps-and-extensions.prompt.md](.github/prompts/article/article-review-for-consistency-gaps-and-extensions.prompt.md) - Review article for consistency and gaps
-- [article-review-series-for-consistency-gaps-and-extensions.prompt.md](.github/prompts/article/article-review-series-for-consistency-gaps-and-extensions.prompt.md) - Review article series
+**Article Prompts** (`.github/prompts/01.00-article-writing/`):
+- [article-design-and-create.prompt.md](.github/prompts/01.00-article-writing/article-design-and-create.prompt.md) - Design articles from scratch
+- [article-generate-techsession-summary.prompt.md](.github/prompts/01.00-article-writing/article-generate-techsession-summary.prompt.md) - Generate tech session summaries
+- [article-generate-techsession-analysis.prompt.md](.github/prompts/01.00-article-writing/article-generate-techsession-analysis.prompt.md) - Generate tech session analysis
+- [article-review-for-consistency-gaps-and-extensions.prompt.md](.github/prompts/01.00-article-writing/article-review-for-consistency-gaps-and-extensions.prompt.md) - Review article for consistency and gaps
+- [article-review-series-for-consistency-gaps-and-extensions.prompt.md](.github/prompts/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions.prompt.md) - Review article series
 
 **Validation:**
 - [structure-validation.prompt.md](.github/prompts/structure-validation.prompt.md) - Document structure check
@@ -147,7 +139,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                    CONTEXT LAYER                                │
-│  .copilot/context/00.00 prompt-engineering/*.md                 │
+│  .copilot/context/00.00-prompt-engineering/*.md                 │
 │  (Shared principles, patterns, and guidelines)                  │
 └─────────────────────────────────────────────────────────────────┘
                               │
@@ -161,34 +153,36 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ### Context Files (Shared Principles)
 
-**Location**: `.copilot/context/00.00 prompt-engineering/`
+**Location**: `.copilot/context/00.00-prompt-engineering/`
 
 | File | Purpose | Key Content |
 |------|---------|-------------|
-| [01-context-engineering-principles.md](.copilot/context/00.00%20prompt-engineering/01-context-engineering-principles.md) | Core principles | 6 principles: Narrow Scope, Early Commands, Imperative Language, Three-Tier Boundaries, Context Minimization, Tool Scoping |
-| [02-tool-composition-guide.md](.copilot/context/00.00%20prompt-engineering/02-tool-composition-guide.md) | Tool selection | Priority rules, role-based tool sets, composition patterns |
-| [05-validation-caching-pattern.md](.copilot/context/00.00%20prompt-engineering/05-validation-caching-pattern.md) | 7-day caching | Dual YAML architecture, cache check workflow |
-| [04-handoffs-pattern.md](.copilot/context/00.00%20prompt-engineering/04-handoffs-pattern.md) | Multi-agent coordination | Handoff patterns: Linear Chain, Parallel Research, Validation Loop, Supervised |
+| [01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md) | Core principles | 6 principles: Narrow Scope, Early Commands, Imperative Language, Three-Tier Boundaries, Context Minimization, Tool Scoping |
+| [02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md) | Tool selection | Priority rules, role-based tool sets, composition patterns |
+| [05-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md) | 7-day caching | Dual YAML architecture, cache check workflow |
+| [04-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/04-handoffs-pattern.md) | Multi-agent coordination | Handoff patterns: Linear Chain, Parallel Research, Validation Loop, Supervised |
 
 ### Prompt Files
 
 **Location**: `.github/prompts/`
 
-**Prompt Creation/Update** (`.github/prompts/`):
-- [prompt-createorupdate-prompt-file-v2.prompt.md](.github/prompts/prompt-createorupdate-prompt-file-v2.prompt.md) - ✅ **Recommended** - Multi-agent orchestration
+**Prompt Creation/Update** (`.github/prompts/00.00-prompt-engineering/`):
+- [prompt-createorupdate-prompt-file.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-createorupdate-prompt-file.prompt.md) - Create or update prompt files
+- [prompt-design-and-create.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-design-and-create.prompt.md) - Design prompts from scratch
+- [prompt-review-and-validate.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-review-and-validate.prompt.md) - Validate existing prompts
 
-**Guidance Maintenance** (`.github/prompts/promptengineering/`):
-- [prompt-createorupdate-prompt-guidance.prompt.md](.github/prompts/promptengineering/prompt-createorupdate-prompt-guidance.prompt.md) - Update instruction and context files
+**Guidance Maintenance** (`.github/prompts/00.00-prompt-engineering/`):
+- [prompt-createorupdate-prompt-instructions.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-createorupdate-prompt-instructions.prompt.md) - Update instruction files
+- [prompt-createorupdate-context-information.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-createorupdate-context-information.prompt.md) - Update context files
 
 ### Agent Files
 
 **Location**: `.github/agents/`
 
-**Agent Creation/Update** (`.github/prompts/promptengineering/`):
-- [agent-createorupdate-agent-file-v2.prompt.md](.github/prompts/promptengineering/agent-createorupdate-agent-file-v2.prompt.md) - ✅ **Recommended** - Multi-agent orchestration
-- [agent-createorupdate-agent-file.prompt.md](.github/prompts/promptengineering/agent-createorupdate-agent-file.prompt.md) - ⚠️ Deprecated (use v2)
-- [agent-design-and-create.prompt.md](.github/prompts/promptengineering/agent-design-and-create.prompt.md) - Design from scratch
-- [agent-review-and-validate.prompt.md](.github/prompts/promptengineering/agent-review-and-validate.prompt.md) - Validate existing agents
+**Agent Creation/Update** (`.github/prompts/00.00-prompt-engineering/`):
+- [agent-createorupdate-agent-file.prompt.md](.github/prompts/00.00-prompt-engineering/agent-createorupdate-agent-file.prompt.md) - Create or update agent files
+- [agent-design-and-create.prompt.md](.github/prompts/00.00-prompt-engineering/agent-design-and-create.prompt.md) - Design agents from scratch
+- [agent-review-and-validate.prompt.md](.github/prompts/00.00-prompt-engineering/agent-review-and-validate.prompt.md) - Validate existing agents
 
 **Specialized Agents by Role**:
 
@@ -205,18 +199,18 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ### Tech Articles (Learning)
 
-**Location**: `tech/PromptEngineering/`
+**Location**: `03.00-tech/05.02-prompt-engineering/`
 
 | Article | Topic |
 |---------|-------|
-| [01. Copilot File Consumption](tech/PromptEngineering/01.%20how_to_write_prompts_copilot_file_consumption.md) | How Copilot reads files |
-| [02. Naming Conventions](tech/PromptEngineering/02.%20how_to_write_prompts_naming_conventions.md) | File and folder organization |
-| [03. Prompt Structure](tech/PromptEngineering/03.%20how_to_write_prompts_prompt_structure.md) | YAML frontmatter and sections |
-| [04. Agent Structure](tech/PromptEngineering/04.%20how_to_write_prompts_agent_structure.md) | Personas, handoffs, boundaries |
-| [05. Instruction Structure](tech/PromptEngineering/05.%20how_to_write_prompts_instruction_structure.md) | Path-specific instructions |
-| [06. Multi-Agent Prompts](tech/PromptEngineering/06.%20how_to_write_prompts_multi_agent_prompts.md) | Orchestration patterns |
-| [07. Implementation Example](tech/PromptEngineering/07.%20how_to_write_prompts_example_with_agents.md) | Real-world multi-agent workflow |
-| [08. Documentation Site](tech/PromptEngineering/08.%20how_to_write_prompts_documentation_site_patterns.md) | Repository-specific patterns |
+| [02.00 Naming Conventions](03.00-tech/05.02-prompt-engineering/02.00-how_to_name_and_organize_prompt_files.md) | File and folder organization |
+| [03.00 Prompt Structure](03.00-tech/05.02-prompt-engineering/03.00-how_to_structure_content_for_copilot_prompt_files.md) | YAML frontmatter and sections |
+| [04.00 Agent Structure](03.00-tech/05.02-prompt-engineering/04.00-how_to_structure_content_for_copilot_agent_files.md) | Personas, handoffs, boundaries |
+| [05.00 Instruction Structure](03.00-tech/05.02-prompt-engineering/05.00-how_to_structure_content_for_copilot_instruction_files.md) | Path-specific instructions |
+| [06.00 Skills Structure](03.00-tech/05.02-prompt-engineering/06.00-how_to_structure_content_for_copilot_skills.md) | Agent skills (SKILL.md files) |
+| [07.00 MCP Servers](03.00-tech/05.02-prompt-engineering/07.00-how_to_create_mcp_servers_for_copilot.md) | Model Context Protocol servers |
+| [20-21 Multi-Agent Example](03.00-tech/05.02-prompt-engineering/20-how_to_create_a_prompt_interacting_with_agents.md) | Real-world multi-agent workflow |
+| [22 Documentation Site](03.00-tech/05.02-prompt-engineering/22-prompts-and-markdown-structure-for-a-documentation-site.md) | Repository-specific patterns |
 
 ### Templates
 
@@ -319,20 +313,20 @@ Complete guide to prompt, agent, and context engineering in this repository.
 ### By Task
 
 **I want to understand IQPilot:**
-→ [idea/IQPilot/01. IQPilot overview.md](idea/IQPilot/01.%20IQPilot%20overview.md)
+→ [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md)
 
 **I want to set up the repository:**
 → [GETTING-STARTED.md](GETTING-STARTED.md)
 
 **I want to write a new article:**
-→ [article-creation-workflow.md](.copilot/context/workflows/article-creation-workflow.md)
 → Choose template from `.github/templates/`
+→ Use prompts in `.github/prompts/01.00-article-writing/`
 
 **I want to validate my content:**
 → Use prompts in `.github/prompts/` (via `/command` in Copilot)
 
 **I want to understand the architecture:**
-→ [idea/IQPilot/03. IQPilot Implementation details.md](idea/IQPilot/03.%20IQPilot%20Implementation%20details.md)
+→ [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md)
 
 **I want to develop IQPilot:**
 → [src/IQPilot/README.md](src/IQPilot/README.md)
@@ -344,20 +338,20 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **Content Writer:**
 1. [GETTING-STARTED.md](GETTING-STARTED.md) - Setup
-2. [.copilot/context/01.00 article-writing/01-style-guide.md](.copilot/context/01.00%20article-writing/01-style-guide.md) - Writing standards
+2. [.copilot/context/01.00-article-writing/01-style-guide.md](.copilot/context/01.00-article-writing/01-style-guide.md) - Writing standards
 3. [.github/templates/](.github/templates/) - Templates
 4. [.github/prompts/](.github/prompts/) - Validation tools
 
 **Developer:**
-1. [idea/IQPilot/03. IQPilot Implementation details.md](idea/IQPilot/03.%20IQPilot%20Implementation%20details.md) - Architecture
+1. [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md) - Architecture
 2. [src/IQPilot/README.md](src/IQPilot/README.md) - Technical details
 3. [.vscode/tasks.json](.vscode/tasks.json) - Build tasks
 4. [.vscode/launch.json](.vscode/launch.json) - Debug configs
 
 **Editor/Reviewer:**
 1. [.github/copilot-instructions.md](.github/copilot-instructions.md) - Standards
-2. [.copilot/context/01.00 article-writing/02-validation-criteria.md](.copilot/context/01.00%20article-writing/02-validation-criteria.md) - Quality thresholds
-3. [.copilot/context/workflows/review-workflow.md](.copilot/context/workflows/review-workflow.md) - Review process
+2. [.copilot/context/01.00-article-writing/02-validation-criteria.md](.copilot/context/01.00-article-writing/02-validation-criteria.md) - Quality thresholds
+3. Use validation prompts in `.github/prompts/` for review process
 
 ### By File Type
 
@@ -402,7 +396,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ## 🎯 Next Steps
 
-1. ✅ Read [idea/IQPilot/01. IQPilot overview.md](idea/IQPilot/01.%20IQPilot%20overview.md) to understand the concepts
+1. ✅ Read [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) to understand the concepts
 2. ✅ Read [GETTING-STARTED.md](GETTING-STARTED.md) for setup instructions
 3. ✅ Build IQPilot: `.\.copilot\scripts\build-iqpilot.ps1`
 4. ✅ Reload VS Code

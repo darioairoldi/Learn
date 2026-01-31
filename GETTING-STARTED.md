@@ -284,7 +284,7 @@ IQPilot behavior is controlled by `.iqpilot/config.json`:
 }
 ```
 
-See [idea/IQPilot/02. IQPilot Getting started.md](idea/IQPilot/02.%20IQPilot%20Getting%20started.md) for complete configuration reference.
+See [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md) for complete configuration reference.
 
 ### VS Code Settings
 
@@ -324,10 +324,9 @@ Accept the recommendations or install manually.
 
 .copilot/
 ├── context/                     # Rich context for AI
-│   ├── 00.00 prompt-engineering/ # Prompt engineering principles
-│   ├── 01.00 article-writing/    # Style, validation, references
-│   ├── 90.00 learning-hub/       # Domain concepts
-│   └── workflows/
+│   ├── 00.00-prompt-engineering/ # Prompt engineering principles
+│   ├── 01.00-article-writing/    # Style, validation, references
+│   └── 90.00-learning-hub/       # Domain concepts
 ├── scripts/                     # PowerShell automation
 └── mcp-servers/                 # MCP server executables
     └── iqpilot/                 # IQPilot MCP server (gitignored)
@@ -414,22 +413,22 @@ dotnet build --configuration Release
 
 ## 📚 Additional Documentation
 
-- **IQPilot Overview**: [idea/IQPilot/01. IQPilot overview.md](idea/IQPilot/01.%20IQPilot%20overview.md)
-- **IQPilot Getting Started**: [idea/IQPilot/02. IQPilot Getting started.md](idea/IQPilot/02.%20IQPilot%20Getting%20started.md)
-- **Implementation Details**: [idea/IQPilot/03. IQPilot Implementation details.md](idea/IQPilot/03.%20IQPilot%20Implementation%20details.md)
+- **IQPilot Overview**: [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md)
+- **IQPilot Getting Started**: [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md)
+- **Implementation Details**: [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md)
 - **Structure Overview**: [.github/STRUCTURE-README.md](.github/STRUCTURE-README.md)
 - **Technical Docs**: [src/IQPilot/README.md](src/IQPilot/README.md)
 
 ## 🎓 Learning Resources
 
 ### Workflow Guides
-- `.copilot/context/workflows/article-creation-workflow.md`
-- `.copilot/context/workflows/review-workflow.md`
-- `.copilot/context/workflows/series-planning-workflow.md`
+- Use prompts in `.github/prompts/01.00-article-writing/` for article creation
+- Use prompts in `.github/prompts/` for content review
+- See `.github/instructions/` for series planning guidance
 
 ### Style & Standards
-- `.copilot/context/01.00 article-writing/01-style-guide.md`
-- `.copilot/context/01.00 article-writing/02-validation-criteria.md`
+- `.copilot/context/01.00-article-writing/01-style-guide.md`
+- `.copilot/context/01.00-article-writing/02-validation-criteria.md`
 - `.github/copilot-instructions.md`
 
 ## 🎉 You're Ready!

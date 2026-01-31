@@ -712,10 +712,10 @@ This article explores:
 
 ### Repository Context Files (If Available)
 
-📖 **Style Guide:** `.copilot/context/01.00 article-writing/01-style-guide.md`  
-📖 **Dual YAML Metadata:** `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md`  
-📖 **Reference Classification:** `.copilot/context/90.00 learning-hub/04-reference-classification.md`  
-📖 **Validation Criteria:** `.copilot/context/01.00 article-writing/02-validation-criteria.md`
+📖 **Style Guide:** `.copilot/context/01.00-article-writing/01-style-guide.md`  
+📖 **Dual YAML Metadata:** `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`  
+📖 **Reference Classification:** `.copilot/context/90.00-learning-hub/04-reference-classification.md`  
+📖 **Validation Criteria:** `.copilot/context/01.00-article-writing/02-validation-criteria.md`
 
 ---
 

@@ -23,7 +23,7 @@ Review the provided article for grammar, spelling, and punctuation issues, then 
    - ✅ Update `article_metadata.last_updated` and `article_metadata.word_count`
    - ✅ **PRESERVE ALL OTHER SECTIONS** (readability, understandability, structure, facts, logic)
 
-See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for complete details.
+See `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` for complete details.
 
 ## Input
 The user will provide content via:

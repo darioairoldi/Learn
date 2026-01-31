@@ -989,7 +989,7 @@ The `send` field in handoff configuration is **binary**:
 
 ```markdown
 ✅ **Efficient** (~50 tokens): 
-"For validation rules, see .copilot/context/00.00 prompt-engineering/06-adaptive-validation-patterns.md"
+"For validation rules, see .copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md"
 
 ❌ **Wasteful** (~2,000 tokens):
 [Embeds 200 lines of validation rules in handoff prompt]
@@ -2040,7 +2040,7 @@ When orchestrations involve many MCP servers:
 - Use **tool sets** to group related MCP + built-in tools
 - Configure threshold via `github.copilot.chat.virtualTools.threshold` setting
 
-Learn more: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
+Learn more: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
 
 ## 📝 Implementation Example
 
@@ -2242,7 +2242,7 @@ The patterns in this article were battle-tested by designing and implementing a 
 
 For complete specifications, implementation roadmap, and detailed agent designs, see:
 
-**[📝 Prompt Creation Multi-Agent Flow - Implementation Plan](./06.1%20example_prompt_interacting_with_agents_plan.md)** `[📒 Internal]`
+**[📝 Prompt Creation Multi-Agent Flow - Implementation Plan](./21.1-example_prompt_interacting_with_agents_plan.md)** `[📒 Internal]`
 
 This companion document includes:
 - Complete YAML specifications for all 4 orchestrators
@@ -2723,19 +2723,19 @@ Central hub for GitHub Copilot features including chat, CLI, code review, coding
 
 ### Internal Reference Materials
 
-**[06.1 Prompt Creation Multi-Agent Flow - Implementation Plan](./06.1%20example_prompt_interacting_with_agents_plan.md)** `[📒 Internal]`  
+**[21.1 Prompt Creation Multi-Agent Flow - Implementation Plan](./21.1-example_prompt_interacting_with_agents_plan.md)** `[📒 Internal]`  
 Complete case study documenting the real-world implementation of the multi-agent prompt creation system. Includes detailed YAML specifications for all orchestrators and agents, 2-week implementation roadmap, and battle-tested patterns that informed this article.
 
-**[04. How to Structure Content for Copilot Agent Files](./04.%20how_to_structure_content_for_copilot_agent_files.md)** `[📒 Community]`  
+**[04. How to Structure Content for Copilot Agent Files](./04.00-how_to_structure_content_for_copilot_agent_files.md)** `[📒 Community]`  
 Detailed guide to agent file structure, personas, handoffs, tool configuration, and composing agents with prompts. Companion article covering implementation details for the patterns described here.
 
-**[03. How to Structure Content for Copilot Prompt Files](./03.%20how_to_structure_content_for_copilot_prompt_files.md)** `[📒 Community]`  
+**[03. How to Structure Content for Copilot Prompt Files](./03.00-how_to_structure_content_for_copilot_prompt_files.md)** `[📒 Community]`  
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.
 
-**Context Engineering Principles** (`.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`) `[📒 Internal]`  
+**Context Engineering Principles** (`.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`) `[📒 Internal]`  
 Repository-specific guidelines for narrow scope, imperative language, three-tier boundaries, context minimization, and lazy loading patterns. Critical for building efficient multi-agent orchestrations.
 
-**Tool Composition Guide** (`.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`) `[📒 Internal]`  
+**Tool Composition Guide** (`.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`) `[📒 Internal]`  
 Patterns and recipes for tool selection by role, performance optimization, and avoiding tool clash. Explains orchestrator tool patterns and agent tool specialization.
 
 ---

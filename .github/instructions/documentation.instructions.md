@@ -45,7 +45,7 @@ All references MUST include emoji markers indicating source reliability:
 Description (2-4 sentences): what it covers, why valuable, when to use it.
 ```
 
-📖 **Complete classification rules:** `.copilot/context/90.00 learning-hub/04-reference-classification.md`
+📖 **Complete classification rules:** `.copilot/context/90.00-learning-hub/04-reference-classification.md`
 
 ---
 
@@ -89,7 +89,7 @@ article_metadata:
 3. Update only your validation section in bottom metadata
 4. **Never touch top YAML from validation prompts**
 
-📖 **Complete guidelines:** `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md`
+📖 **Complete guidelines:** `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`
 
 ---
 

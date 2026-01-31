@@ -898,7 +898,7 @@ Repository's prompt files for AI-assisted validation.
 **[Agent Files](../../.github/agents/)** [Internal Reference]  
 Repository's agent definitions for documentation workflows.
 
-**[Validation Criteria](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md)** [Internal Reference]  
+**[Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)** [Internal Reference]  
 Seven validation dimensions used for AI and human review.
 
 ---

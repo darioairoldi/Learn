@@ -1169,10 +1169,10 @@ Community-driven documentation templates. Practical application of Diátaxis pri
 **[Foundations of Technical Documentation](../../03.00%20tech/40.00%20Technical%20writing/00-foundations-of-technical-documentation.md)** [Internal Reference]  
 Comprehensive analysis of documentation frameworks including Diátaxis, Wikipedia, and major style guides.
 
-**[Reference Classification System](../../.copilot/context/90.00%20learning-hub/04-reference-classification.md)** [Internal Reference]  
+**[Reference Classification System](../../.copilot/context/90.00-learning-hub/04-reference-classification.md)** [Internal Reference]  
 The 📘📗📒📕 source credibility classification used throughout this taxonomy.
 
-**[Validation Criteria](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md)** [Internal Reference]  
+**[Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)** [Internal Reference]  
 Quality dimensions and thresholds for documentation validation.
 
 ---

@@ -355,7 +355,7 @@ agent_metadata:
 ## References
 
 - `.github/instructions/agents.instructions.md`
-- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
 - Validation reports from agent-validator
 
 <!-- 

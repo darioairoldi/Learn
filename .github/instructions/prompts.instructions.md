@@ -10,7 +10,7 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 ## Context Engineering Principles
 
-**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/](.copilot/context/00.00-prompt-engineering/)
 
 **Key principles** (see context folder for full details):
 1. **Narrow Scope** - One specific task per prompt
@@ -127,7 +127,7 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 ## Tool Selection
 
-**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/](.copilot/context/00.00-prompt-engineering/)
 
 **Tool/Agent Alignment:**
 - `agent: plan` + read-only tools (read_file, grep_search, semantic_search)
@@ -165,7 +165,7 @@ argument-hint: 'Expected input format'  # Optional
 
 ### Validation Caching (7-Day Rule)
 
-**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md](.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md)
 
 **Critical rules:**
 - ❌ **NEVER modify top YAML** (Quarto metadata) from validation prompts
@@ -351,7 +351,7 @@ Your prompt file: 1,800 tokens
 2. **Partial Value** - What was found: "I did find Z"
 3. **Actionable** - Next steps: "Recommendation: [escalation]"
 
-**See full guidance:** [.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md#7-explicit-uncertainty-management)
+**See full guidance:** [.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md#7-explicit-uncertainty-management)
 
 ## References
 

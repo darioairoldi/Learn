@@ -126,5 +126,5 @@ See [checklists/publication-ready.md](./checklists/publication-ready.md) for the
 ## Resources
 
 - [Documentation Instructions](.github/instructions/documentation.instructions.md)
-- [Reference Classification Guide](.copilot/context/90.00 learning-hub/04-reference-classification.md)
-- [Dual YAML Metadata](.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md)
+- [Reference Classification Guide](.copilot/context/90.00-learning-hub/04-reference-classification.md)
+- [Dual YAML Metadata](.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md)

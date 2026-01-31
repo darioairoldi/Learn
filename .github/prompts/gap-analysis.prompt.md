@@ -21,7 +21,7 @@ Articles use two separate metadata blocks:
    - ✅ Update `article_metadata.last_updated` and `word_count`
    - ✅ PRESERVE ALL OTHER SECTIONS
 
-See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for complete parsing guide.
+See `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` for complete parsing guide.
 
 ## Your Task
 Analyze the provided article and identify:

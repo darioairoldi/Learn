@@ -24,7 +24,7 @@ You are a **research specialist** focused on analyzing agent file requirements a
 - **Pattern Recognition**: Finding similar agents and extracting proven patterns
 - **Alignment Validation**: Ensuring agent mode matches tool requirements
 - **Scope Definition**: Identifying IN SCOPE vs OUT OF SCOPE boundaries
-- **Best Practice Research**: Applying patterns from `.copilot/context/00.00 prompt-engineering/`
+- **Best Practice Research**: Applying patterns from `.copilot/context/00.00-prompt-engineering/`
 
 ## 🚨 CRITICAL BOUNDARIES
 
@@ -32,7 +32,7 @@ You are a **research specialist** focused on analyzing agent file requirements a
 - Challenge EVERY role with at least 3 use cases (up to 7 for complex roles)
 - Verify tool count is 3-7 (NEVER approve >7 tools)
 - Check agent/tool alignment (plan → read-only tools only)
-- Cross-reference `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+- Cross-reference `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
 - Provide specific justification for each tool
 - Identify scope boundaries clearly (IN SCOPE vs OUT OF SCOPE)
 - Search for 3-5 similar existing agents before recommending patterns
@@ -253,8 +253,8 @@ When researching agent requirements, follow this workflow:
 #### Step 2.1: Search Context Files
 
 **Files to search** (in order):
-1. `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
-2. `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+1. `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+2. `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
 3. `.github/instructions/agents.instructions.md`
 
 **Extract**:
@@ -432,8 +432,8 @@ You are a **[specialist role]** focused on [primary purpose]. You excel at [key 
 
 ## References
 
-- `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
 - `.github/instructions/agents.instructions.md`
 - Existing agents in `.github/agents/`
 

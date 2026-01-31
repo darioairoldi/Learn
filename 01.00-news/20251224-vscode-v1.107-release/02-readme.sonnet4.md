@@ -12,7 +12,7 @@ description: "Deep technical analysis of VS Code v1.107 release livestream cover
 **Analysis Date:** 2025-12-24  
 **Analyzed By:** Dario Airoldi  
 **Recording Link:** [VS Code YouTube Channel](https://www.youtube.com/watch?v=placeholder)  
-**Associated Summary:** [summary.md](summary.md)
+**Associated Summary:** [01-summary.md](01-summary.md)
 
 ![alt text](<images/001.01a session title.png>)
 

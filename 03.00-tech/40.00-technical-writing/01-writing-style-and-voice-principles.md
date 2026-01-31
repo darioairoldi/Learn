@@ -183,7 +183,7 @@ Readability formulas quantify text complexity, helping ensure documentation matc
 
 **Why we validate Flesch scores:**
 
-From [validation-criteria.md](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md):
+From [validation-criteria.md](../../.copilot/context/01.00-article-writing/02-validation-criteria.md):
 ```yaml
 readability:
   flesch_reading_ease:
@@ -761,7 +761,7 @@ Authoritative grammar reference including detailed voice and mood guidance.
 **[Documentation Instructions - Voice and Tone](../../.github/instructions/documentation.instructions.md#voice-and-tone)** [Internal Reference]  
 This repository's comprehensive voice guidelines with specific targets and rationale.
 
-**[Validation Criteria - Readability](../../.copilot/context/01.00%20article-writing/02-validation-criteria.md#readability)** [Internal Reference]  
+**[Validation Criteria - Readability](../../.copilot/context/01.00-article-writing/02-validation-criteria.md#readability)** [Internal Reference]  
 Flesch score targets (50-70), grade level (9-10), and sentence length standards (15-25 words).
 
 **[Grammar Review Prompt](../../.github/prompts/grammar-review.prompt.md)** [Internal Reference]  

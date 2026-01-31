@@ -638,9 +638,9 @@ Special thanks to:
 ## 📞 Support
 
 - **Documentation**: See [../../GETTING-STARTED.md](../../GETTING-STARTED.md) for setup
-- **Conceptual Overview**: [../../idea/IQPilot/01. IQPilot overview.md](../../idea/IQPilot/01.%20IQPilot%20overview.md)
-- **Detailed Guide**: [../../idea/IQPilot/02. IQPilot Getting started.md](../../idea/IQPilot/02.%20IQPilot%20Getting%20started.md)
-- **Technical Details**: [../../idea/IQPilot/03. IQPilot Implementation details.md](../../idea/IQPilot/03.%20IQPilot%20Implementation%20details.md)
+- **Conceptual Overview**: [../../06.00-idea/iqpilot/01-iqpilot-overview.md](../../06.00-idea/iqpilot/01-iqpilot-overview.md)
+- **Detailed Guide**: [../../06.00-idea/iqpilot/02-iqpilot-getting-started.md](../../06.00-idea/iqpilot/02-iqpilot-getting-started.md)
+- **Technical Details**: [../../06.00-idea/iqpilot/03-iqpilot-implementation-details.md](../../06.00-idea/iqpilot/03-iqpilot-implementation-details.md)
 - **Issues**: [GitHub Issues](https://github.com/darioairoldi/Learn/issues)
 
 ---

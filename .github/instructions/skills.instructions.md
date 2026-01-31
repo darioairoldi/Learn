@@ -13,7 +13,7 @@ Agent Skills are **portable, resource-rich workflows** that work across VS Code,
 
 ## Context Engineering Principles
 
-**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](../../.copilot/context/00.00%20prompt-engineering/)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/](../../.copilot/context/00.00-prompt-engineering/)
 
 **Key principles for skills** (see context folder for full details):
 1. **Narrow Scope** - One specialized workflow per skill
@@ -23,7 +23,7 @@ Agent Skills are **portable, resource-rich workflows** that work across VS Code,
 
 ## Progressive Disclosure System
 
-**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](../../.copilot/context/00.00%20prompt-engineering/)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/](../../.copilot/context/00.00-prompt-engineering/)
 
 Skills use a **three-level loading system** for efficient token usage:
 

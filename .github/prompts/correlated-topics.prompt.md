@@ -18,7 +18,7 @@ Articles use two separate metadata blocks:
    - ✅ Update `cross_references` section (related_articles, prerequisites)
    - ✅ PRESERVE ALL OTHER SECTIONS
 
-See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for parsing guide.
+See `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` for parsing guide.
 
 ## Your Task
 Analyze the article topic and discover:
