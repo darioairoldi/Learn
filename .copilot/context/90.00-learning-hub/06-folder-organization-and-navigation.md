@@ -10,9 +10,9 @@ This document defines folder naming conventions, organization patterns, and side
 
 | ❌ Invalid | ✅ Valid | Rule |
 |------------|----------|------|
-| `01.00-news/` | `01.00-news/` | Space after prefix → hyphen |
+| `01.00 news/` | `01.00-news/` | Space after prefix → hyphen |
 | `20251224 vscode Release/` | `20251224-vscode-release/` | All spaces → hyphens |
-| `202506-build-2025/` | `202506-build-2025/` | Space + words → hyphens |
+| `202506 build 2025/` | `202506-build-2025/` | Space + words → hyphens |
 | `Topic Name/` | `topic-name/` | Spaces → hyphens |
 | `PascalCase/` | `pascal-case/` | Split on capitals |
 | `File Name.md` | `file-name.md` | Same rules for files |
@@ -23,8 +23,8 @@ Folders use numeric prefixes for ordering. The format is `XX.YY-` (hyphen, not s
 
 | Pattern | Example | Purpose |
 |---------|---------|---------|
-| `XX.00-category/` | `01.00-news/` | Top-level category |
-| `XX.YY-subcategory/` | `05.02-prompt-engineering/` | Nested subcategory |
+| `XX.00 category/` | `01.00-news/` | Top-level category |
+| `XX.YY subcategory/` | `05.02-prompt-engineering/` | Nested subcategory |
 
 **Rules:**
 - Integer part (`XX`) determines primary sort order
@@ -137,94 +137,19 @@ When a folder contains only one meaningful article, the folder provides context 
 
 ## Sidebar Menu Rules
 
-### Folder-to-Menu-Item Mapping
+**📖 Complete guidance:** [07-sidebar-menu-rules.md](./07-sidebar-menu-rules.md)
 
-**Rule 1: Remove numeric prefixes from menu item names**
+Menu generation rules are defined separately to allow flexibility when actual folder/file names don't strictly follow kebab-case conventions. The menu rules handle both kebab-case (`01.00-news/`) and space-separated (`01.00 news/`) naming.
 
-| Folder | Menu Item |
-|--------|-----------|
-| `01.00-news/` | "News & Updates" |
-| `05.02-promptEngineering/` | "Prompt Engineering" |
-| `03.00-tech/` | "Technologies" |
+**Key principles:**
+- Numeric prefixes removed together with separator (hyphen OR space)
+- Date prefixes preserved in menu items
+- YAML `title:` field takes precedence over filename transformation
+- Globs sort alphabetically (newest-first requires explicit lists)
 
-**Rule 2: Keep date prefixes in menu item names**
+---
 
-| Folder | Menu Item |
-|--------|-----------|
-| `20251224-vscode-v1.107-release/` | "20251224-vscode-v1.107-release" |
-| `202506-build-2025/` | "Build 2025" (month can be omitted if obvious) |
-
-**Rule 3: Display date-prefixed items newest-first (requires explicit list)**
-
-Date-prefixed folders and articles SHOULD display in reverse chronological order. **This requires using explicit lists**—globs produce oldest-first.
-
-### Menu Item Naming Rules
-
-**Shortest possible name** — avoid redundancy with folder context:
-
-| Folder | Article File | Menu Item | Rationale |
-|--------|--------------|-----------|-----------|
-| `20251224-vscode-v1.107-release/` | `session-summary.md` | "Session Summary" | Folder provides topic context |
-| `20251224-vscode-v1.107-release/` | `session-analysis.md` | "Session Analysis" | Folder provides topic context |
-| `03.00-tech/02.01-azure/` | `functions-overview.md` | "Functions Overview" | Parent provides "Azure" context |
-
-**Title Resolution Order:**
-1. YAML frontmatter `title:` field (preferred)
-2. First H1 heading in article content
-3. Filename (converted from kebab-case)
-4. Parent folder name (if file is index.md or similar)
-
-### Glob Pattern Implementation
-
-**Glob patterns auto-discover content but sort alphabetically:**
-
-```yaml
-# ✅ Use glob when alphabetical order is acceptable
-contents: "03.00-tech/**/*.md"
-```
-
-**Explicit lists achieve newest-first but require maintenance:**
-
-```yaml
-# ✅ Use explicit list when newest-first is required
-contents:
-  - "01.00-news/20260130 topic/article.md"  # newest
-  - "01.00-news/20260124 topic/article.md"
-  - "01.00-news/20260111 topic/article.md"
-  - "01.00-news/20251224 topic/article.md"  # oldest
-```
-
-**When adding new content to explicit-list sections:**
-1. Add new entry at TOP of list
-2. Run `quarto preview` to verify
-3. Commit with navigation changes
-
-### Single-Article Folder Handling
-
-When a date-prefixed folder contains only one article, **collapse to single menu entry**:
-
-```yaml
-# Folder: 20251224-vscode-v1.107-release/summary.md
-# Instead of nested structure, show as single item:
-- href: "01.00-news/20251224-vscode-v1.107-release/summary.md"
-  text: "20251224 VS Code v1.107 Release"
-```
-
-### Icon Selection
-
-Choose Bootstrap Icons semantically:
-
-| Category | Recommended Icons |
-|----------|-------------------|
-| News/Updates | `newspaper`, `megaphone` |
-| Events | `calendar-event`, `calendar3` |
-| Technologies | `cpu`, `code-slash`, `terminal` |
-| How-to/Guides | `tools`, `wrench-adjustable` |
-| Ideas/Projects | `lightbulb`, `briefcase` |
-| Analysis | `graph-up`, `bar-chart` |
-| Reference | `book`, `journal-code` |
-
-## Summary: Key Rules
+## Summary: Folder Naming Rules
 
 ### Content Naming
 1. **Full kebab-case** — ALL folders/files, NO spaces anywhere
@@ -232,12 +157,3 @@ Choose Bootstrap Icons semantically:
 3. **Date prefixes** (`YYYYMMDD-`) — Hyphen separates from name
 4. **Shortest name** — Avoid redundancy with folder context
 5. **Title from metadata** — Prefer YAML title over filename
-
-### Navigation Strategy (CRITICAL)
-6. **Globs sort ALPHABETICALLY** — This produces oldest-first for YYYYMMDD prefixes
-7. **Newest-first REQUIRES explicit lists** — Globs cannot achieve this
-8. **Use explicit lists for News** — Newest-first display is required
-9. **Use globs for Tech/How-To/Events** — Alphabetical order is acceptable
-
-### Structure
-10. **Single-article folders** — Collapse to single menu entry

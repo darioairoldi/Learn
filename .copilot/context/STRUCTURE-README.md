@@ -66,15 +66,18 @@ This mapping defines **how to find source material** for creating or updating co
 | `90.00-learning-hub/*.md` | Repository conventions (observed patterns) | Internal conventions |
 | `02-dual-yaml-metadata.md` | Quarto documentation + repository architecture | Mixed |
 | `04-reference-classification.md` | `.github/instructions/documentation.instructions.md` | Repository instructions |
-| `06-folder-organization-and-navigation.md` | `_quarto.yml` sidebar structure | Repository config |
+| `06-folder-organization-and-navigation.md` | Repository folder conventions | Internal conventions |
 | `06-folder-organization-and-navigation.md` | Quarto glob behavior documentation | Official docs |
-| `06-folder-organization-and-navigation.md` | `.github/prompts/**/learninghub-*.prompt.md` | Navigation prompts |
+| `07-sidebar-menu-rules.md` | `_quarto.yml` sidebar structure | Repository config |
+| `07-sidebar-menu-rules.md` | Quarto navigation documentation | Official docs |
+| `07-sidebar-menu-rules.md` | `.github/prompts/**/learninghub-*.prompt.md` | Navigation prompts |
 
 **Update Strategy:**
 - Update when repository conventions change
 - Sync when templates are modified
 - Review when new content patterns emerge
-- **Update `06-folder-organization-and-navigation.md`** when sidebar structure changes or Quarto behavior changes
+- **Update `06-folder-organization-and-navigation.md`** when folder naming conventions change
+- **Update `07-sidebar-menu-rules.md`** when sidebar structure or menu generation logic changes
 
 ---
 

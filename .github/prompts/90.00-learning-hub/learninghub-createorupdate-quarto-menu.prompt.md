@@ -17,7 +17,9 @@ argument-hint: 'Describe sidebar change (e.g., "add tech/Containers" or "full au
 
 Validate `_quarto.yml` **by comparing paths against actual files** and fix all issues.
 
-**📖 Navigation Rules:** `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md`
+**📖 Navigation Rules:** 
+- `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md` — Folder naming conventions
+- `.copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md` — Menu generation rules
 
 ## Your Role
 
@@ -50,6 +52,7 @@ You are a **Quarto navigation validator** responsible for detecting and fixing n
 
 ```
 read_file: .copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md
+read_file: .copilot/context/90.00-learning-hub/07-sidebar-menu-rules.md
 read_file: _quarto.yml
 ```
 
