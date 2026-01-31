@@ -4,7 +4,7 @@ Comprehensive PowerShell scripts to detect, analyze, and fix broken internal mar
 
 ## Overview
 
-These scripts follow the workflow defined in the [learnhub-update-pages-broken-internal-links.prompt.md](../../.github/prompts/learnhub/learnhub-update-pages-broken-internal-links.prompt.md):
+These scripts follow the workflow defined in the [learninghub-update-pages-broken-internal-links.prompt.md](../../.github/prompts/90.00-learning-hub/learninghub-update-pages-broken-internal-links.prompt.md):
 
 1. **Extract links** - Find all internal markdown links in the repository
 2. **Build inventory** - Catalog all markdown files with metadata
@@ -137,7 +137,7 @@ git commit -m "fix: correct broken internal markdown links"
 ## Integration with Prompt
 
 These scripts implement the methodology defined in:
-- [learnhub-update-pages-broken-internal-links.prompt.md](../../.github/prompts/learnhub/learnhub-update-pages-broken-internal-links.prompt.md)
+- [learninghub-update-pages-broken-internal-links.prompt.md](../../.github/prompts/90.00-learning-hub/learninghub-update-pages-broken-internal-links.prompt.md)
 
 They can be used standalone or invoked by AI agents following that prompt.
 

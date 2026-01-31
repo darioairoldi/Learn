@@ -235,9 +235,10 @@ Before starting this series, you should have:
 - [RStudio Community - Quarto](https://community.rstudio.com/c/quarto/57)
 
 ### Related Series in This Repository
-- [Markdown Fundamentals](../README.md)
-- [Prompt Engineering](../../PromptEngineering/README.md)
-- [Azure Documentation](../../Azure/README.md)
+- [MkDocs Documentation Guide](../02-mkdocs/000.000-using-mkdocs.md) - Alternative static site generator
+- [Hugo Documentation Guide](../03-hugo/readme.md) - Fast Go-based static site generator
+- [Prompt Engineering](../../05.02-prompt-engineering/02.00-how_to_name_and_organize_prompt_files.md) - Guide to prompt engineering
+- [Azure Documentation](../../02.01-azure/00-azure-naming-conventions/readme.md) - Azure technical documentation
 
 ---
 

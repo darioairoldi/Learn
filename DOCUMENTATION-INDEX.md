@@ -116,7 +116,7 @@ Automatically applied to files in specific folders:
 | File | Applies To | Purpose |
 |------|-----------|---------|
 | [.github/instructions/documentation.instructions.md](.github/instructions/documentation.instructions.md) | `**/*.md` | All Markdown files |
-| [.github/instructions/tech-articles.instructions.md](.github/instructions/tech-articles.instructions.md) | `tech/**/*.md` | Technical content |
+| [.github/instructions/article-writing.instructions.md](.github/instructions/article-writing.instructions.md) | `tech/**/*.md` | Technical content (merged into article-writing) |
 | [.github/instructions/prompts.instructions.md](.github/instructions/prompts.instructions.md) | `.github/prompts/**/*.md` | Prompt file creation |
 | [.github/instructions/agents.instructions.md](.github/instructions/agents.instructions.md) | `.github/agents/**/*.agent.md` | Agent file creation |
 | [.github/instructions/context-files.instructions.md](.github/instructions/context-files.instructions.md) | `.copilot/context/**/*.md` | Context file creation |

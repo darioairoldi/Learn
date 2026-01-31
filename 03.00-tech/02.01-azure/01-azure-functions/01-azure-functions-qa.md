@@ -7,7 +7,7 @@ the following article analyzes interesting points about azure functions
 - [📊 Q. How does autoscale work in different execution plans?](#q-how-does-autoscale-works-in-different-execution-plans-)
 - [📄 Q. Role and structure of 'function.json', 'hosts.json' and 'local.settings.json' files?](#q-role-and-structure-of-functionjson-hostsjson-and-localsettingsjson-files)
 - [🔄 Q. What are Durable Functions?](#q-what-are-durable-functions)
-- [⚠️ Q. What are Limitations of Azure Functions?](#q-what-are-limitations-of-azure-functions-) - See **[detailed article](02.%20Azure%20Functions%20Limitations.md)**
+- [⚠️ Q. What are Limitations of Azure Functions?](#q-what-are-limitations-of-azure-functions-) - See **[detailed article](02-azure-functions-limitations.md)**
 - [📝 Additional Information](#additional-information)
 - [📚 References](#-references)
 
@@ -607,7 +607,7 @@ Azure Functions has various limitations that vary by hosting plan. Key constrain
 - **Throughput**: Varies by plan (200-1,000+ instances) and trigger type
 - **Scalability**: Event-driven (Consumption/Flex/Premium) vs. metric-based (Dedicated)
 
-> 📖 **For comprehensive details** on all limitations, mitigation strategies, and plan comparisons, see **[Azure Functions Limitations](02.%20Azure%20Functions%20Limitations.md)**
+> 📖 **For comprehensive details** on all limitations, mitigation strategies, and plan comparisons, see **[Azure Functions Limitations](02-azure-functions-limitations.md)**
 
 ---
 

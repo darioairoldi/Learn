@@ -571,7 +571,8 @@ dotnet test
 
 ### Contributing
 
-See [../../CONTRIBUTING.md](../../CONTRIBUTING.md) for development guidelines and contribution process.
+<!-- TODO: Create CONTRIBUTING.md -->
+For development guidelines, see the project's documentation in this README and the repository's `.github/` folder.
 
 ## 🤝 Integration with Documentation Frameworks
 

@@ -477,4 +477,4 @@ Conditional Access policies interact differently with various guest identity typ
 **Document Information:**
 - **Created**: November 2, 2025
 - **Topic**: Azure AD / Microsoft Entra ID External User Management
-- **Related Issue**: [Guest Account Login Fail Issue - 20251014](readme.md)
+- **Related Article**: [External Users Authentication in Azure AD Explained](01-external-users-authentication-in-azure-ad-explained.md)

@@ -320,7 +320,7 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 ### 🛠️ Popular Guides
 - [HTTP API Testing Tools Comparison](03.00-tech/10.01-httpclient/20250713-use-http-files-for-easy-and-repeatable-test/00-http-rest-api-testing-tools-comprehensive-comparison.md) ⭐
 - [Quarto Documentation Guide](03.00-tech/20.01-markdown/01-quarto/01.01-introduction-to-quarto.md)
-- [Git Command Line Workflows](03.00-tech/05.01-github/01.Repositories/20250709-manage-gitrepo-from-commandline/readme.md)
+- [Git Command Line Workflows](03.00-tech/05.01-github/01.01-cli/20250709-manage-gitrepo-from-commandline/readme.md)
 
 ### 🐛 Problem Solving
 - [GitHub Actions Artifact Quota](03.00-tech/Github/02.Actions/20251018%20ISSUE%20Github%20action%20fails%20with%20Artifact%20storage%20quota%20has%20been%20hit/) ✅

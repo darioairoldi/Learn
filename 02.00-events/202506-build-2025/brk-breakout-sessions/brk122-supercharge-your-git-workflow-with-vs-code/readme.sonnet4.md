@@ -305,7 +305,7 @@ The emphasis on security through passkey authentication, enhanced observability 
 
 ### Security and Authentication
 
-6. **[01. Passkey Authentication Information](01.%20Passkey%20Authentication%20Information.md)**
+6. **[01. Passkey Authentication Information](01-passkey-authentication-information.md)**
    - Comprehensive guide to passkey authentication technology
    - Detailed explanation of how passkeys work and their security benefits
    - Implementation guidance for ASP.NET Core applications

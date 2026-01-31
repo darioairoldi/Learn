@@ -92,7 +92,7 @@ You must explicitly create a **Key Vault reference** in App Configuration for ea
 2. Create a reference in App Configuration that points to that specific Key Vault secret
 3. The application reads from App Configuration, which resolves the Key Vault reference at runtime
 
-> 💡 **See [03. Azure App Configuration Exercise.md](./03.%20Azure%20App%20Configuration%20Exercise.md#step-3-integrate-with-key-vault-) for detailed implementation steps**
+> 💡 **See [03. Azure App Configuration Exercise](./03-azure-app-configuration-exercise.md#step-3-integrate-with-key-vault-) for detailed implementation steps**
 
 ### Why Use Key Vault References Instead of Direct Key Vault Access? 🤔
 
