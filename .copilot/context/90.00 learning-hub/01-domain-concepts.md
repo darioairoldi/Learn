@@ -26,7 +26,7 @@ The Learning Hub uses a **7-category taxonomy** extending the Diátaxis framewor
 | **Reference** | Authoritative lookup | "What are the exact specifications?" |
 | **Resources** | Supporting materials | "Where can I learn more?" |
 
-**Authoritative source:** See `06.00 idea/learning-hub/02. Documentation Taxonomy/01-learning-hub-documentation-taxonomy.md`
+**Authoritative source:** See `06.00-idea/learning-hub/02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md`
 
 #### How-to Subcategories
 

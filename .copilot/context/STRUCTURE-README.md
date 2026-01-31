@@ -22,7 +22,7 @@ This mapping defines **how to find source material** for creating or updating co
 
 | Context Pattern | Source Pattern | Source Type |
 |-----------------|----------------|-------------|
-| `00.00 prompt-engineering/*.md` | `03.00 tech/05.02 PromptEngineering/**/*.md` | Learning Hub articles |
+| `00.00 prompt-engineering/*.md` | `03.00-tech/05.02-promptEngineering/**/*.md` | Learning Hub articles |
 | `00.00 prompt-engineering/*.md` | Semantic search: "GitHub Copilot prompt files agents" | GitHub docs |
 | `00.00 prompt-engineering/*.md` | Semantic search: "VS Code Copilot customization" | VS Code docs |
 | `00.00 prompt-engineering/*.md` | `https://code.visualstudio.com/docs/copilot/*` | Official VS Code |
@@ -31,7 +31,7 @@ This mapping defines **how to find source material** for creating or updating co
 
 **Update Strategy:**
 - Re-run semantic searches when VS Code or GitHub Copilot releases new versions
-- Check `03.00 tech/05.02 PromptEngineering/` for new articles
+- Check `03.00-tech/05.02-promptEngineering/` for new articles
 - Review GitHub blog for new best practices
 
 ---
@@ -156,7 +156,7 @@ When creating a new context folder:
 
 - **📖 Context file guidelines:** `.github/instructions/context-files.instructions.md`
 - **📖 Context creation prompt:** `.github/prompts/00.00 prompt-engineering/prompt-createorupdate-context-information.prompt.md`
-- **📖 Source articles:** `03.00 tech/05.02 PromptEngineering/`
+- **📖 Source articles:** `03.00-tech/05.02-promptEngineering/`
 
 ---
 

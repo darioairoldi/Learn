@@ -157,7 +157,7 @@ This opens browser automatically for visual verification.
 **Pass:** Phase 2 detects dangling ref, Phase 3 removes it
 
 ### Test 2: Missing Article Detection
-**Input:** New file added to `01.00 news/` folder
+**Input:** New file added to `01.00-news/` folder
 **Pass:** Phase 2 detects missing, Phase 3 adds to project.render AND News sidebar list
 
 ### Test 3: Full Audit
@@ -169,7 +169,7 @@ This opens browser automatically for visual verification.
 **Pass:** All refs to deleted folder detected as dangling and removed
 
 ### Test 5: News Section Ordering
-**Input:** Audit `01.00 news/`
+**Input:** Audit `01.00-news/`
 **Pass:** Sidebar uses explicit list, newest date-prefix first
 
 ---

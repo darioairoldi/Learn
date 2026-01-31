@@ -57,7 +57,7 @@ This folder contains PowerShell automation scripts designed to maintain the inte
 
 # Output example:
 # === Checking _quarto.yml ===
-# BROKEN: events/202506 Build 2025/DEM515 Write better C# code/README.md
+# BROKEN: events/202506-build-2025/DEM515 Write better C# code/README.md
 # 
 # === Summary ===
 # Valid links: 145
@@ -149,7 +149,7 @@ function Decode-UrlPath {
 **Output Format** (CSV):
 ```csv
 Broken,Correct
-"events/202506 Build 2025/README.md","_ISSUES/202506 Build 2025/README.md"
+"events/202506-build-2025/README.md","_ISSUES/202506-build-2025/README.md"
 "20250713 Use http files/01. File.md","_ISSUES/20250713 Use http files/01. File.md"
 ```
 

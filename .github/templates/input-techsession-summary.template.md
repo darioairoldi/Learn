@@ -25,7 +25,7 @@ e.g., "images/01.001 title.png" or "Not available"}}
 **Output Filename:**
 {{Desired output filename.
 Default logic:
-- If session title is in folder path: use "Summary.md"
+- If session title is in folder path: use "summary.md"
 - Otherwise: use "YYYYMMDD-session-title.md"}}
 
 **Focus Level:**
@@ -63,7 +63,7 @@ Options: "Brief summary with outcomes" (default), "Minimal mention", "Detailed s
 **Title Image:** images/01.001 title.png
 
 ### Output Preferences
-**Output Filename:** Summary.md (folder "BRK226 Boost Development" contains session context)
+**Output Filename:** summary.md (folder "BRK226 Boost Development" contains session context)
 **Focus Level:** Balanced
 **Demo Handling:** Brief summary with outcomes
 

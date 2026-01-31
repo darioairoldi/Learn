@@ -7,14 +7,14 @@ Personal knowledge management system for Microsoft technical content built with 
 ### Content Organization
 
 **Primary Folders (numbered for ordering):**
-- `01.00 news/` - Latest VS Code releases, tool updates (date-prefixed: YYYYMMDD)
-- `02.00 events/` - Conference notes (Build, Ignite) with session summaries
-- `03.00 tech/` - Technical articles organized by topic (Azure, .NET, AI, etc.)
-- `04.00 howto/` - Step-by-step guides and tutorials
-- `05.00 issues/` - Problem solving and troubleshooting notes
-- `06.00 idea/` - Project concepts (IQPilot, LearnHub)
+- `01.00-news/` - Latest VS Code releases, tool updates (date-prefixed: YYYYMMDD)
+- `02.00-events/` - Conference notes (Build, Ignite) with session summaries
+- `03.00-tech/` - Technical articles organized by topic (Azure, .NET, AI, etc.)
+- `04.00-howto/` - Step-by-step guides and tutorials
+- `05.00-issues/` - Problem solving and troubleshooting notes
+- `06.00-idea/` - Project concepts (IQPilot, LearnHub)
 - `07.00 projects/` - Active project documentation
-- `90.00 travel/` - Personal travel and event planning
+- `90.00-travel/` - Personal travel and event planning
 
 **Infrastructure Folders:**
 - `.github/` - Instructions, prompts, templates, workflows for AI agents
@@ -112,7 +112,7 @@ Copy-Item bin/Release/net8.0/* ../../.copilot/mcp-servers/iqpilot/ -Recurse -For
 
 ### File Naming
 - Date-prefixed folders: `YYYYMMDD Topic Name/` for events, news, issues
-- README.md variations: `README.Sonnet4.md`, `SUMMARY.md` for AI-generated analyses
+- README.md variations: `readme.sonnet4.md`, `SUMMARY.md` for AI-generated analyses
 - Prompt files: `*.prompt.md` in `.github/prompts/`
 - Metadata files: `*.metadata.yml` (deprecated - now in HTML comments)
 

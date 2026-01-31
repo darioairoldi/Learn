@@ -433,7 +433,7 @@ Recommendation: Add validation metadata block using template from 02-dual-yaml-m
 **Implementation Agent** (no pattern found):
 ```markdown
 I couldn't find existing patterns for Azure Functions HTTP trigger authentication in .github/templates/.
-I did find related patterns: Azure Functions timer trigger (tech/02.01 Azure/01. Azure Functions/timer-example.md).
+I did find related patterns: Azure Functions timer trigger (tech/02.01-azure/01. Azure Functions/timer-example.md).
 Recommendation: Proceed with Microsoft official documentation pattern or request reference file.
 ```
 
@@ -488,7 +488,7 @@ Based on common patterns, I'll implement authentication using JWT tokens with Az
 ✅ **Good** (explicit uncertainty):
 ```markdown
 I couldn't find authentication patterns in this repository.
-I did find Azure AD documentation reference in tech/01.01 Authentication/.
+I did find Azure AD documentation reference in tech/01.01-authentication/.
 Recommendation: Review existing auth implementations or provide reference file before proceeding.
 ```
 

@@ -46,7 +46,7 @@ Your responsibilities:
 10. Output complete analysis with smart filename:
    - **If input included existing analysis file**: Overwrite that file
    - **If no existing analysis detected**: Apply naming rules:
-     - If folder name contains session title: use `README.Sonnet4.md`
+     - If folder name contains session title: use `readme.sonnet4.md`
      - Otherwise: use `YYYYMMDD-session-title-analysis.md`
 
 **Quality Standards:**
@@ -61,7 +61,7 @@ Your responsibilities:
 
 **Output Format:**
 - **Document structure:** Follow `.github/templates/techsession-analysis-template.md`
-- **Filename rules:** `README.Sonnet4.md` if folder contains session title, else `YYYYMMDD-session-title-analysis.md`
+- **Filename rules:** `readme.sonnet4.md` if folder contains session title, else `YYYYMMDD-session-title-analysis.md`
 - **TOC format:** Maximum 2 levels, L1 with emojis, proper nesting, functional anchors
 - **References:** Classify per `.github/instructions/documentation.instructions.md` (📘 Official, 📗 Verified Community, 📒 Community)
 
@@ -111,7 +111,7 @@ Generate a comprehensive technical session analysis document that explores conce
 **Quick example - Microsoft Build Session:**
 - **Transcript:** transcript.txt
 - **Summary:** SUMMARY.md  
-- **Output:** README.Sonnet4.md (folder contains session context)
+- **Output:** readme.sonnet4.md (folder contains session context)
 - **Analysis:** Deep technical with architecture patterns
 - **Demos:** Separate appendix per demo with cross-references
 - **References:** Official docs + GitHub samples, classified per documentation.instructions.md

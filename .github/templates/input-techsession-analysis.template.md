@@ -73,7 +73,7 @@ e.g., "Move to 'Additional Discussions' appendix", "Only move clearly unrelated 
 **Output Filename:**
 {{Desired output filename format.
 Default logic:
-- If session title is in folder path: use "README.Sonnet4.md"
+- If session title is in folder path: use "readme.sonnet4.md"
 - Otherwise: use "YYYYMMDD-session-title-analysis.md"}}
 
 **TOC Style:**
@@ -141,7 +141,7 @@ e.g., "Separate appendix per demo, one for off-topic content", "Group all supple
 
 ### Structural Requirements
 
-**Output Filename:** README.Sonnet4.md (folder contains session context)
+**Output Filename:** readme.sonnet4.md (folder contains session context)
 **TOC Style:** 2-level maximum with technical emojis
 **Timestamp Format:** HH:MM:SS for start, duration as "Xm Ys"
 **Reference Types:** Official docs, architecture whitepapers, GitHub samples

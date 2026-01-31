@@ -57,7 +57,7 @@ Validates each link and attempts to reconcile broken links using intelligent mat
 
 - **Exact match** - Direct path match
 - **Filename match** - Same filename, different path
-- **Numbered prefix** - Missing folder number prefixes (e.g., `tech/` → `03.00 tech/`)
+- **Numbered prefix** - Missing folder number prefixes (e.g., `tech/` → `03.00-tech/`)
 - **Fuzzy folder match** - Similar folder structure with context
 
 **Output:** `_output/broken-links-analysis.json`

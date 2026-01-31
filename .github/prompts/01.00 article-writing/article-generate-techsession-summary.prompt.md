@@ -54,7 +54,7 @@ You are a technical documentation specialist with expertise in analyzing recorde
 **Filename Logic:**
 - **If input included an existing summary file**: Overwrite that file (e.g., if `SUMMARY.md` was detected, output to `SUMMARY.md`)
 - **If no existing summary detected**: Apply naming rules:
-  - If session title in folder path (e.g., "BRK226 Boost Development"): use `Summary.md`
+  - If session title in folder path (e.g., "BRK226 Boost Development"): use `summary.md`
   - Otherwise: use `YYYYMMDD-session-title.md`
 
 **Structure:** Strictly follow `.github/templates/techsession-summary-template.md`
@@ -80,7 +80,7 @@ Group by category with 2-4 sentence descriptions per reference.
 
 **Quick example - Session in descriptive folder:**
 - **Summary:** SUMMARY.md | **Transcript:** transcript.txt
-- **Output:** Summary.md (folder contains session context)
+- **Output:** summary.md (folder contains session context)
 - **Focus:** Balanced | **Demos:** Brief summary with outcomes
 
 **Quick example - Generic folder:**

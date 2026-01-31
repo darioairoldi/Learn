@@ -486,4 +486,4 @@ tools:
 - [prompts.instructions.md](./prompts.instructions.md) - Prompt file creation guidance
 - [skills.instructions.md](./skills.instructions.md) - Agent Skill (SKILL.md) creation guidance
 
-**📖 Complete guidance:** [03.00 tech/05.02 PromptEngineering/04. how_to_structure_content_for_copilot_agent_files.md](../../03.00%20tech/05.02%20PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)
+**📖 Complete guidance:** [03.00-tech/05.02-promptEngineering/04.00-how_to_structure_content_for_copilot_agent_files.md](../../03.00%20tech/05.02%20PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)

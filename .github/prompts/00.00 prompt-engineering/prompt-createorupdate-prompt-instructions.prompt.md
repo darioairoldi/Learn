@@ -234,7 +234,7 @@ For domains with context folders, read `.copilot/context/STRUCTURE-README.md` an
 **Example for `00.00 prompt-engineering/`:**
 ```
 Source patterns from STRUCTURE-README.md:
-- `03.00 tech/05.02 PromptEngineering/**/*.md` (Learning Hub articles)
+- `03.00-tech/05.02-promptEngineering/**/*.md` (Learning Hub articles)
 - Semantic search: "GitHub Copilot prompt files agents" (GitHub docs)
 - Semantic search: "VS Code Copilot customization" (VS Code docs)
 - `https://code.visualstudio.com/docs/copilot/*` (Official VS Code)

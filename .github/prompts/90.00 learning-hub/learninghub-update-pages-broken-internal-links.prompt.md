@@ -26,7 +26,7 @@ You are a **content integrity reviewer** and **link reconciliation specialist** 
 - **Scan ALL markdown files** in the repository for internal links (links to `.md` or `.qmd` files within the repo)
 - **Build complete inventory** of all available markdown documents with their actual paths
 - **Match broken links** to actual files by comparing link targets with inventory using fuzzy matching
-- **Handle path prefixes correctly** - account for numbered folder prefixes (e.g., `01.00 news/`, `03.00 tech/`)
+- **Handle path prefixes correctly** - account for numbered folder prefixes (e.g., `01.00-news/`, `03.00-tech/`)
 - **Preserve link text** - only fix the URL portion of markdown links `[text](url)`
 - **Fix relative paths** - calculate correct relative paths from source to target
 - **URL encode spaces** - convert spaces to `%20` in link URLs (e.g., `news/file.md` → `01.00%20news/file.md`)
@@ -93,7 +93,7 @@ You are a **content integrity reviewer** and **link reconciliation specialist** 
 **For each file found, record:**
 - Full absolute path
 - Workspace-relative path
-- Folder structure (account for numbered prefixes like `01.00 news/`)
+- Folder structure (account for numbered prefixes like `01.00-news/`)
 - File name (with and without extension)
 - Parent folder name
 
@@ -104,15 +104,15 @@ You are a **content integrity reviewer** and **link reconciliation specialist** 
 Total files found: [count]
 
 ### Files by folder:
-- `01.00 news/`: [count] files
-  - `01.00 news/20251224 vscode v1.107 Release/01. Summary.md`
-  - `01.00 news/20251224 vscode v1.107 Release/02. README.Sonnet4.md`
+- `01.00-news/`: [count] files
+  - `01.00-news/20251224-vscode-v1.107-release/01-summary.md`
+  - `01.00-news/20251224-vscode-v1.107-release/02-readme.sonnet4.md`
   - ...
-- `02.00 events/`: [count] files
-  - `02.00 events/202506 Build 2025/Readme.md`
+- `02.00-events/`: [count] files
+  - `02.00-events/202506-build-2025/readme.md`
   - ...
-- `03.00 tech/`: [count] files
-  - `03.00 tech/02.01 Azure/00. Azure Naming conventions/README.md`
+- `03.00-tech/`: [count] files
+  - `03.00-tech/02.01-azure/00. Azure Naming conventions/README.md`
   - ...
 - Root files:
   - `index.qmd`
@@ -145,18 +145,18 @@ Total internal links: [count]
 ### Breakdown by source file:
 
 #### `/index.qmd` ([count] links)
-1. Line [N]: `[VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md)`
-   - **Target:** `news/20251224 vscode v1.107 Release/README.Sonnet4.md`
+1. Line [N]: `[VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/readme.sonnet4.md)`
+   - **Target:** `news/20251224-vscode-v1.107-release/readme.sonnet4.md`
    
-2. Line [N]: `[Build 2025 Overview](events/202506%20Build%202025/Readme.md)`
-   - **Target:** `events/202506 Build 2025/Readme.md`
+2. Line [N]: `[Build 2025 Overview](events/202506%20Build%202025/readme.md)`
+   - **Target:** `events/202506-build-2025/readme.md`
 
 3. Line [N]: `[Azure Service Limitations](tech/Azure/)`
    - **Target:** `tech/Azure/`
 
-#### `/02.00 events/202506 Build 2025/Readme.md` ([count] links)
-1. Line [N]: `[GitHub Copilot Prompt Files Guide](03.00 tech/PromptEngineering/)`
-   - **Target:** `03.00 tech/PromptEngineering/`
+#### `/02.00-events/202506-build-2025/readme.md` ([count] links)
+1. Line [N]: `[GitHub Copilot Prompt Files Guide](03.00-tech/PromptEngineering/)`
+   - **Target:** `03.00-tech/PromptEngineering/`
    
 ...
 ```
@@ -189,22 +189,22 @@ Total internal links: [count]
 ### Broken Links: [count]
 
 #### From `/index.qmd`:
-1. ❌ `[VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md)`
-   - **Attempted target:** `news/20251224 vscode v1.107 Release/README.Sonnet4.md`
-   - **Issue:** Missing folder prefix `01.00 news/`
+1. ❌ `[VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/readme.sonnet4.md)`
+   - **Attempted target:** `news/20251224-vscode-v1.107-release/readme.sonnet4.md`
+   - **Issue:** Missing folder prefix `01.00-news/`
    
-2. ❌ `[Build 2025 Overview](events/202506%20Build%202025/Readme.md)`
-   - **Attempted target:** `events/202506 Build 2025/Readme.md`
-   - **Issue:** Missing folder prefix `02.00 events/`
+2. ❌ `[Build 2025 Overview](events/202506%20Build%202025/readme.md)`
+   - **Attempted target:** `events/202506-build-2025/readme.md`
+   - **Issue:** Missing folder prefix `02.00-events/`
 
 3. ❌ `[Azure Service Limitations](tech/Azure/)`
    - **Attempted target:** `tech/Azure/` (folder link)
-   - **Issue:** Missing folder prefix `03.00 tech/` and incorrect subfolder path
+   - **Issue:** Missing folder prefix `03.00-tech/` and incorrect subfolder path
 
-#### From `/02.00 events/202506 Build 2025/Readme.md`:
-1. ❌ `[GitHub Copilot Prompt Files Guide](03.00 tech/PromptEngineering/)`
-   - **Attempted target:** `03.00 tech/PromptEngineering/`
-   - **Issue:** Path relative issue - should be `../../03.00 tech/05.02 PromptEngineering/`
+#### From `/02.00-events/202506-build-2025/readme.md`:
+1. ❌ `[GitHub Copilot Prompt Files Guide](03.00-tech/PromptEngineering/)`
+   - **Attempted target:** `03.00-tech/PromptEngineering/`
+   - **Issue:** Path relative issue - should be `../../03.00-tech/05.02-promptEngineering/`
 ```
 
 #### Step 2.2: Reconcile Broken Links
@@ -215,7 +215,7 @@ Total internal links: [count]
 
 1. **Exact filename match:**
    - Search inventory for files with same name
-   - Example: `README.Sonnet4.md` → Find all files named `README.Sonnet4.md`
+   - Example: `readme.sonnet4.md` → Find all files named `readme.sonnet4.md`
 
 2. **Folder name + filename match:**
    - Extract folder hints from broken path
@@ -223,11 +223,11 @@ Total internal links: [count]
 
 3. **Numbered prefix pattern:**
    - Check if broken path matches folder without numbered prefix
-   - Example: `news/` → `01.00 news/`, `events/` → `02.00 events/`, `tech/` → `03.00 tech/`
+   - Example: `news/` → `01.00-news/`, `events/` → `02.00-events/`, `tech/` → `03.00-tech/`
 
 4. **Fuzzy folder match:**
    - Look for similar folder names accounting for structure changes
-   - Example: `tech/Azure/` → `03.00 tech/02.01 Azure/`
+   - Example: `tech/Azure/` → `03.00-tech/02.01-azure/`
 
 5. **Folder link handling:**
    - If link ends with `/`, determine if it should point to:
@@ -242,31 +242,31 @@ Total internal links: [count]
 ### Automatically Fixable: [count]
 
 #### From `/index.qmd`:
-1. ✅ `[VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/README.Sonnet4.md)`
-   - **Matched to:** `01.00 news/20251224 vscode v1.107 Release/02. README.Sonnet4.md`
-   - **Fix:** Update path to `01.00%20news/20251224%20vscode%20v1.107%20Release/02.%20README.Sonnet4.md`
+1. ✅ `[VS Code v1.107 Release Analysis](news/20251224%20vscode%20v1.107%20Release/readme.sonnet4.md)`
+   - **Matched to:** `01.00-news/20251224-vscode-v1.107-release/02-readme.sonnet4.md`
+   - **Fix:** Update path to `01.00%20news/20251224%20vscode%20v1.107%20Release/02.%20readme.sonnet4.md`
    - **Confidence:** HIGH (exact filename + folder match)
 
-2. ✅ `[Build 2025 Overview](events/202506%20Build%202025/Readme.md)`
-   - **Matched to:** `02.00 events/202506 Build 2025/Readme.md`
-   - **Fix:** Update path to `02.00%20events/202506%20Build%202025/Readme.md`
+2. ✅ `[Build 2025 Overview](events/202506%20Build%202025/readme.md)`
+   - **Matched to:** `02.00-events/202506-build-2025/readme.md`
+   - **Fix:** Update path to `02.00%20events/202506%20Build%202025/readme.md`
    - **Confidence:** HIGH (exact match with prefix)
 
 3. ⚠️ `[Azure Service Limitations](tech/Azure/)`
    - **Possible targets:**
-     - `03.00 tech/02.01 Azure/` (folder - has multiple .md files)
+     - `03.00-tech/02.01-azure/` (folder - has multiple .md files)
      - Candidates: `README.md`, `overview.md`, etc.
    - **Fix:** NEEDS USER INPUT - which file should folder link point to?
    - **Confidence:** MEDIUM (folder matched, but multiple files)
 
-#### From `/02.00 events/202506 Build 2025/Readme.md`:
-1. ✅ `[GitHub Copilot Prompt Files Guide](03.00 tech/PromptEngineering/)`
-   - **Matched to:** `03.00 tech/05.02 PromptEngineering/` (folder)
+#### From `/02.00-events/202506-build-2025/readme.md`:
+1. ✅ `[GitHub Copilot Prompt Files Guide](03.00-tech/PromptEngineering/)`
+   - **Matched to:** `03.00-tech/05.02-promptEngineering/` (folder)
    - **Fix:** Update path to `../../03.00%20tech/05.02%20PromptEngineering/` (relative from source)
    - **Confidence:** HIGH (folder structure match)
 
 2. ✅ `[Azure Naming Conventions](tech/Azure/20250702%20Azure%20Naming%20conventions/README.md)`
-   - **Matched to:** `03.00 tech/02.01 Azure/00. Azure Naming conventions/README.md`
+   - **Matched to:** `03.00-tech/02.01-azure/00. Azure Naming conventions/README.md`
    - **Fix:** Update to `../../03.00%20tech/02.01%20Azure/00.%20Azure%20Naming%20conventions/README.md`
    - **Confidence:** HIGH (exact filename + fuzzy folder match)
 
@@ -300,8 +300,8 @@ Total internal links: [count]
 - Line [N]: `events/202506%20Build...` → `02.00%20events/202506%20Build...`
 - ...
 
-### File: `/02.00 events/202506 Build 2025/Readme.md` (2 fixes)
-- Line [N]: `03.00 tech/PromptEngineering/` → `../../03.00%20tech/05.02%20PromptEngineering/`
+### File: `/02.00-events/202506-build-2025/readme.md` (2 fixes)
+- Line [N]: `03.00-tech/PromptEngineering/` → `../../03.00%20tech/05.02%20PromptEngineering/`
 - Line [N]: `tech/Azure/20250702%20Azure...` → `../../03.00%20tech/02.01%20Azure/00.%20Azure...`
 
 [Executing batch fixes...]
@@ -331,8 +331,8 @@ Broken links that were automatically corrected:
 
 | Source File | Original Link | Fixed Link | Confidence |
 |-------------|---------------|------------|------------|
-| `/index.qmd` | `news/20251224.../README.md` | `01.00%20news/20251224.../02.%20README.Sonnet4.md` | HIGH |
-| `/index.qmd` | `events/202506.../Readme.md` | `02.00%20events/202506.../Readme.md` | HIGH |
+| `/index.qmd` | `news/20251224.../README.md` | `01.00%20news/20251224.../02.%20readme.sonnet4.md` | HIGH |
+| `/index.qmd` | `events/202506.../readme.md` | `02.00%20events/202506.../readme.md` | HIGH |
 | ... | ... | ... | ... |
 
 ---
@@ -344,9 +344,9 @@ These links matched to valid files but require clarification:
 #### 1. Folder Link Disambiguation
 **Source:** `/index.qmd` Line [N]
 **Link:** `[Azure Service Limitations](tech/Azure/)`
-**Issue:** Folder link points to `03.00 tech/02.01 Azure/` which contains multiple markdown files
+**Issue:** Folder link points to `03.00-tech/02.01-azure/` which contains multiple markdown files
 **Options:**
-- A) Point to `03.00 tech/02.01 Azure/README.md` (if exists)
+- A) Point to `03.00-tech/02.01-azure/README.md` (if exists)
 - B) Point to specific file: `[specify which file]`
 - C) Leave as folder link (may not render properly)
 
@@ -355,11 +355,11 @@ These links matched to valid files but require clarification:
 ---
 
 #### 2. Multiple Possible Targets
-**Source:** `/02.00 events/202506 Build 2025/Readme.md` Line [N]
+**Source:** `/02.00-events/202506-build-2025/readme.md` Line [N]
 **Link:** `[Azure Guide](azure-guide.md)`
 **Issue:** Multiple files named `azure-guide.md` found:
-- `03.00 tech/02.01 Azure/azure-guide.md`
-- `05.00 issues/azure-guide.md`
+- `03.00-tech/02.01-azure/azure-guide.md`
+- `05.00-issues/azure-guide.md`
 - `07.00 projects/azure-migration/azure-guide.md`
 
 **Your choice:** [Specify which path is correct]
@@ -373,7 +373,7 @@ These links could not be matched to any existing file:
 | Source File | Link | Likely Reason | Suggested Action |
 |-------------|------|---------------|------------------|
 | `/index.qmd` | `[Old Article](articles/removed-post.md)` | File deleted | Remove link or update to replacement |
-| `/03.00 tech/.../guide.md` | `[Config](../config/setup.md)` | File moved/renamed | Provide new location or delete |
+| `/03.00-tech/.../guide.md` | `[Config](../config/setup.md)` | File moved/renamed | Provide new location or delete |
 
 **Instructions:** For each unresolvable link:
 - **Option 1:** Provide correct path if you know where file moved
