@@ -129,6 +129,9 @@ article_metadata:
   last_updated: "2025-11-21"
   version: "1.2"
   status: "reviewed"
+  content_type: "concepts"        # overview | getting-started | concepts | how-to | analysis | reference | resources
+  subcategory: null                # For how-to: task-guide | patterns | techniques | methodology
+                                   # For analysis: technology-radar | comparative | strategy | trend
   word_count: 2847
   reading_time_minutes: 11
   primary_topic: "Technology Topic"
@@ -228,7 +231,7 @@ validations:
 
 #### `article_metadata` Section
 
-Article tracking and analytics:
+Article tracking, classification, and analytics:
 
 ```yaml
 article_metadata:
@@ -237,10 +240,25 @@ article_metadata:
   last_updated: "YYYY-MM-DD"       # Last modification (updated by prompts)
   version: "1.0"                   # Semantic version
   status: "draft"                  # draft | in-review | reviewed | published
+  content_type: "concepts"         # Category from 7-category taxonomy:
+                                   #   overview | getting-started | concepts | 
+                                   #   how-to | analysis | reference | resources
+  subcategory: null                # For how-to: task-guide | patterns | techniques | methodology
+                                   # For analysis: technology-radar | comparative | strategy | trend
+                                   # null for other content types
   word_count: 2500                 # Integer (updated by prompts)
   reading_time_minutes: 10         # Calculated: word_count / 250
   primary_topic: "Topic Name"      # Main subject
 ```
+
+**Content Type Values:**
+- `overview` — First-touch orientation ("What is this?")
+- `getting-started` — Tutorials and quickstarts ("How do I begin?")
+- `concepts` — Explanatory content ("How does this work?")
+- `how-to` — Task accomplishment ("How do I accomplish X?")
+- `analysis` — Strategic evaluation ("What approach should we use?")
+- `reference` — Authoritative lookup ("What are the exact specifications?")
+- `resources` — Supporting materials ("Where can I learn more?")
 
 #### `cross_references` Section
 

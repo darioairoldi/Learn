@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dario Airoldi">
-<meta name="dcterms.date" content="2025-12-24">
-<meta name="description" content="Summary of VS Code v1.107 release livestream covering agentic experiences, model management, MCP updates, and SQL Python driver">
 
-<title>Recording Summary: VS Code v1.107 Release Live Stream – Dario’s Learning Journey</title>
+<title>readme – Dario's Learning Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +64,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../01.00 news/20251224 vscode v1.107 Release/02. README.Sonnet4.html" rel="next">
-<link href="../../01.00 news/20260111 6 VITAL Rules for Production-Ready Copilot Agents/Summary.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -561,7 +590,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../01.00 news/20260130 6 Advanced Rules for Production Copilot Agents/Summary.html">News &amp; Updates</a></li><li class="breadcrumb-item"><a href="../../01.00 news/20251224 vscode v1.107 Release/01. Summary.html">20251224 VS Code v1.107 Release</a></li><li class="breadcrumb-item"><a href="../../01.00 news/20251224 vscode v1.107 Release/01. Summary.html">Summary</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -636,7 +665,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../01.00 news/20251224 vscode v1.107 Release/01. Summary.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../01.00 news/20251224 vscode v1.107 Release/01. Summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summary</span></a>
   </div>
 </li>
@@ -2946,604 +2975,276 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#session-summary-vs-code-v1.107-release-live-stream" id="toc-session-summary-vs-code-v1.107-release-live-stream" class="nav-link active" data-scroll-target="#session-summary-vs-code-v1.107-release-live-stream">Session Summary: VS Code v1.107 Release Live Stream</a>
+  <li><a href="#broken-link-detection-and-fix-scripts" id="toc-broken-link-detection-and-fix-scripts" class="nav-link active" data-scroll-target="#broken-link-detection-and-fix-scripts">Broken Link Detection and Fix Scripts</a>
   <ul class="collapse">
-  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a></li>
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick Start</a>
   <ul class="collapse">
-  <li><a href="#topic-1-year-in-review-and-v1.107-highlights" id="toc-topic-1-year-in-review-and-v1.107-highlights" class="nav-link" data-scroll-target="#topic-1-year-in-review-and-v1.107-highlights">[01:44] Topic 1: Year in Review and v1.107 Highlights</a></li>
-  <li><a href="#topic-2-unified-agentic-experience" id="toc-topic-2-unified-agentic-experience" class="nav-link" data-scroll-target="#topic-2-unified-agentic-experience">[16:55] Topic 2: Unified Agentic Experience</a></li>
-  <li><a href="#topic-3-model-management-and-bring-your-own-key" id="toc-topic-3-model-management-and-bring-your-own-key" class="nav-link" data-scroll-target="#topic-3-model-management-and-bring-your-own-key">[29:30] Topic 3: Model Management and Bring Your Own Key</a></li>
-  <li><a href="#topic-4-huggingface-integration" id="toc-topic-4-huggingface-integration" class="nav-link" data-scroll-target="#topic-4-huggingface-integration">[39:28] Topic 4: HuggingFace Integration</a></li>
-  <li><a href="#topic-5-mcp-updates-and-new-features" id="toc-topic-5-mcp-updates-and-new-features" class="nav-link" data-scroll-target="#topic-5-mcp-updates-and-new-features">[50:19] Topic 5: MCP Updates and New Features</a></li>
-  <li><a href="#multiple-topic-7-chat-experience-improvements" id="toc-multiple-topic-7-chat-experience-improvements" class="nav-link" data-scroll-target="#multiple-topic-7-chat-experience-improvements">[Multiple] Topic 7: Chat Experience Improvements</a></li>
-  <li><a href="#topic-6-sql-python-driver-ga-release" id="toc-topic-6-sql-python-driver-ga-release" class="nav-link" data-scroll-target="#topic-6-sql-python-driver-ga-release">[01:04:59] Topic 6: SQL Python Driver GA Release</a></li>
+  <li><a href="#run-complete-pipeline-dry-run" id="toc-run-complete-pipeline-dry-run" class="nav-link" data-scroll-target="#run-complete-pipeline-dry-run">Run Complete Pipeline (Dry Run)</a></li>
+  <li><a href="#run-complete-pipeline-auto-fix-high-confidence" id="toc-run-complete-pipeline-auto-fix-high-confidence" class="nav-link" data-scroll-target="#run-complete-pipeline-auto-fix-high-confidence">Run Complete Pipeline (Auto-Fix HIGH confidence)</a></li>
+  <li><a href="#run-complete-pipeline-auto-fix-medium-confidence" id="toc-run-complete-pipeline-auto-fix-medium-confidence" class="nav-link" data-scroll-target="#run-complete-pipeline-auto-fix-medium-confidence">Run Complete Pipeline (Auto-Fix MEDIUM+ confidence)</a></li>
   </ul></li>
-  <li><a href="#main-takeaways" id="toc-main-takeaways" class="nav-link" data-scroll-target="#main-takeaways">Main Takeaways</a></li>
-  <li><a href="#questions-raised" id="toc-questions-raised" class="nav-link" data-scroll-target="#questions-raised">Questions Raised</a></li>
-  <li><a href="#action-items" id="toc-action-items" class="nav-link" data-scroll-target="#action-items">Action Items</a></li>
-  <li><a href="#decisions-made" id="toc-decisions-made" class="nav-link" data-scroll-target="#decisions-made">Decisions Made</a></li>
-  <li><a href="#resources-and-references" id="toc-resources-and-references" class="nav-link" data-scroll-target="#resources-and-references">📚 Resources and References</a>
+  <li><a href="#individual-scripts" id="toc-individual-scripts" class="nav-link" data-scroll-target="#individual-scripts">Individual Scripts</a>
   <ul class="collapse">
-  <li><a href="#official-documentation" id="toc-official-documentation" class="nav-link" data-scroll-target="#official-documentation">Official Documentation</a></li>
-  <li><a href="#community-resources" id="toc-community-resources" class="nav-link" data-scroll-target="#community-resources">Community Resources</a></li>
-  <li><a href="#session-materials" id="toc-session-materials" class="nav-link" data-scroll-target="#session-materials">Session Materials</a></li>
+  <li><a href="#extract-all-links" id="toc-extract-all-links" class="nav-link" data-scroll-target="#extract-all-links">1. Extract All Links</a></li>
+  <li><a href="#build-file-inventory" id="toc-build-file-inventory" class="nav-link" data-scroll-target="#build-file-inventory">2. Build File Inventory</a></li>
+  <li><a href="#identify-broken-links" id="toc-identify-broken-links" class="nav-link" data-scroll-target="#identify-broken-links">3. Identify Broken Links</a></li>
+  <li><a href="#fix-broken-links" id="toc-fix-broken-links" class="nav-link" data-scroll-target="#fix-broken-links">4. Fix Broken Links</a></li>
   </ul></li>
-  <li><a href="#follow-up-topics" id="toc-follow-up-topics" class="nav-link" data-scroll-target="#follow-up-topics">Follow-Up Topics</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
-  <li><a href="#related-content" id="toc-related-content" class="nav-link" data-scroll-target="#related-content">Related Content</a></li>
-  <li><a href="#transcript-segments" id="toc-transcript-segments" class="nav-link" data-scroll-target="#transcript-segments">Transcript Segments</a>
+  <li><a href="#common-issues-fixed" id="toc-common-issues-fixed" class="nav-link" data-scroll-target="#common-issues-fixed">Common Issues Fixed</a>
   <ul class="collapse">
-  <li><a href="#kai-on-2024-transformation" id="toc-kai-on-2024-transformation" class="nav-link" data-scroll-target="#kai-on-2024-transformation">[01:44] Kai on 2024 Transformation</a></li>
-  <li><a href="#connor-on-mcp-evolution" id="toc-connor-on-mcp-evolution" class="nav-link" data-scroll-target="#connor-on-mcp-evolution">[50:25] Connor on MCP Evolution</a></li>
-  <li><a href="#david-on-python-driver-philosophy" id="toc-david-on-python-driver-philosophy" class="nav-link" data-scroll-target="#david-on-python-driver-philosophy">[1:07:15] David on Python Driver Philosophy</a></li>
+  <li><a href="#missing-numbered-folder-prefixes" id="toc-missing-numbered-folder-prefixes" class="nav-link" data-scroll-target="#missing-numbered-folder-prefixes">Missing Numbered Folder Prefixes</a></li>
+  <li><a href="#incorrect-file-paths" id="toc-incorrect-file-paths" class="nav-link" data-scroll-target="#incorrect-file-paths">Incorrect File Paths</a></li>
+  <li><a href="#url-encoding" id="toc-url-encoding" class="nav-link" data-scroll-target="#url-encoding">URL Encoding</a></li>
   </ul></li>
+  <li><a href="#output-files" id="toc-output-files" class="nav-link" data-scroll-target="#output-files">Output Files</a></li>
+  <li><a href="#confidence-levels" id="toc-confidence-levels" class="nav-link" data-scroll-target="#confidence-levels">Confidence Levels</a></li>
+  <li><a href="#example-workflow" id="toc-example-workflow" class="nav-link" data-scroll-target="#example-workflow">Example Workflow</a></li>
+  <li><a href="#integration-with-prompt" id="toc-integration-with-prompt" class="nav-link" data-scroll-target="#integration-with-prompt">Integration with Prompt</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
+  <ul class="collapse">
+  <li><a href="#no-broken-links-found" id="toc-no-broken-links-found" class="nav-link" data-scroll-target="#no-broken-links-found">No broken links found</a></li>
+  <li><a href="#fix-not-applied" id="toc-fix-not-applied" class="nav-link" data-scroll-target="#fix-not-applied">Fix not applied</a></li>
+  <li><a href="#performance" id="toc-performance" class="nav-link" data-scroll-target="#performance">Performance</a></li>
+  </ul></li>
+  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/01.00 news/20251224 vscode v1.107 Release/01. Summary.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/scripts/fix-broken-links/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../01.00 news/20260130 6 Advanced Rules for Production Copilot Agents/Summary.html">News &amp; Updates</a></li><li class="breadcrumb-item"><a href="../../01.00 news/20251224 vscode v1.107 Release/01. Summary.html">20251224 VS Code v1.107 Release</a></li><li class="breadcrumb-item"><a href="../../01.00 news/20251224 vscode v1.107 Release/01. Summary.html">Summary</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Recording Summary: VS Code v1.107 Release Live Stream</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">recording</div>
-    <div class="quarto-category">vscode</div>
-    <div class="quarto-category">release</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Summary of VS Code v1.107 release livestream covering agentic experiences, model management, MCP updates, and SQL Python driver
-  </div>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dario Airoldi </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 24, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<section id="session-summary-vs-code-v1.107-release-live-stream" class="level1">
-<h1>Session Summary: VS Code v1.107 Release Live Stream</h1>
-<p><strong>Recording Date:</strong> 2025-12-23<br>
-<strong>Summary Date:</strong> 2025-12-24<br>
-<strong>Summarized By:</strong> Dario Airoldi<br>
-<strong>Recording Link:</strong> <a href="https://www.youtube.com/watch?v=placeholder">VS Code YouTube Channel</a><br>
-<strong>Duration:</strong> 90 minutes<br>
-<strong>Speakers:</strong> Olivia Guzzardo McVicker (VS Code Advocate), Kai Maetzel (Engineering Manager), Brigit Murtaugh (Product Manager), Logan Ramos (Engineer), Celina Hanouti (Hugging Face), Connor Peet (Engineer), David Levy (SQL Server Product Manager)</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/001.01a session title.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
-</figure>
-</div>
-<hr>
-<section id="executive-summary" class="level2">
-<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
-<p>The VS Code v1.107 release livestream showcased the final release of 2024, highlighting major advances in AI-powered development workflows.<br>
-The team demonstrated:</p>
-<ul>
-<li><mark>unified agent experiences</mark> across local, background, and cloud sessions,</li>
-<li><mark>improved model management</mark> with <mark>bring-your-own-key</mark> support,<br>
-</li>
-<li><mark>enhanced MCP (Model Context Protocol) capabilities</mark>,<br>
-</li>
-<li>and the general availability of <mark>Microsoft’s SQL Python driver</mark>.</li>
-</ul>
-<p><strong>Note:</strong> Update 1.107.1 (released shortly after) significantly improved the agent sessions experience with side-by-side view defaults, input-required markers, and workspace change copying support.</p>
-</section>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
-<ul>
-<li>🎯 <a href="#topic-1-year-in-review-and-v1107-highlights">Topic 1: Year in Review and v1.107 Highlights</a></li>
-<li>🤖 <a href="#topic-2-unified-agentic-experience">Topic 2: Unified Agentic Experience</a></li>
-<li>🧠 <a href="#topic-3-model-management-and-bring-your-own-key">Topic 3: Model Management and Bring Your Own Key</a></li>
-<li>🔌 <a href="#topic-4-huggingface-integration">Topic 4: HuggingFace Integration</a></li>
-<li>🛠️ <a href="#topic-5-mcp-updates-and-new-features">Topic 5: MCP Updates and New Features</a></li>
-<li>🐍 <a href="#topic-6-sql-python-driver-ga-release">Topic 6: SQL Python Driver GA Release</a></li>
-</ul>
-<hr>
-<section id="topic-1-year-in-review-and-v1.107-highlights" class="level3">
-<h3 class="anchored" data-anchor-id="topic-1-year-in-review-and-v1.107-highlights">[01:44] Topic 1: Year in Review and v1.107 Highlights</h3>
-<p><strong>Speaker:</strong> Kai Maetzel (Engineering Manager)</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>2024 was transformative - started without any <mark>agentic experience</mark>, now have full agent mode with <mark>local</mark>, <mark>background</mark>, and <mark>cloud execution</mark></li>
-<li><mark>Open-sourced all AI capabilities</mark> to align with VS Code’s open-source principles</li>
-<li>Major progress on customization: <mark>bring-your-own-key</mark>, <mark>Copilot instructions</mark>, <mark>agent.md files</mark>, <mark>Claude skills support</mark></li>
-<li><mark>Next Edit Suggest (NES)</mark> introduced and continuously refined with language server integration</li>
-<li><mark>MCP has the most complete client implementation</mark> of any tool</li>
-<li>Team self-hosts on VS Code Insiders daily to catch issues early</li>
-</ul>
-<p><strong>Quotes:</strong> &gt; “It’s like mindblowing as a year, right? We didn’t even have any agentic experience at the beginning of the year, right? We didn’t have NES, you know, next edit suggest and tap tap tap.”</p>
-<p><strong>Resources mentioned:</strong></p>
-<ul>
-<li>Monthly iteration plans published by Kai on VS Code</li>
-<li>VS Code Insiders for daily builds</li>
-</ul>
-</section>
-<section id="topic-2-unified-agentic-experience" class="level3">
-<h3 class="anchored" data-anchor-id="topic-2-unified-agentic-experience">[16:55] Topic 2: Unified Agentic Experience</h3>
-<p><strong>Speaker:</strong> Brigit Murtaugh (Product Manager)</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>New <mark><strong>Agent HQ</strong></mark> interface shows all sessions (local, background, cloud) in one unified view</li>
-<li><mark>Recent sessions</mark> list with filtering, archiving, and search capabilities</li>
-<li><mark>Sessions can continue in background</mark> without keeping VS Code focused</li>
-<li><mark>Work trees provide isolation</mark> for background agents to avoid conflicts with local changes</li>
-<li><mark>Read/unread status markers</mark> help track work-in-progress sessions</li>
-<li><mark>Seamless delegation between agent types</mark>: local → background → cloud</li>
-<li><mark><strong>Planning mode</strong></mark> generates plans that can be delegated to agents for implementation</li>
-<li><mark><strong>Continue in</strong></mark> option available from multiple entry points:
-<ul>
-<li>Chat view “Continue in” button</li>
-<li>Plan agent “Start Implementation” button<br>
-</li>
-<li>Untitled prompt file “Continue in” button</li>
-</ul></li>
-<li><mark><strong>Worktree workflow</strong></mark> for background agents:
-<ul>
-<li>Automatic Git worktree creation for isolation</li>
-<li>Review and merge changes after completion</li>
-<li>Direct apply action to integrate changes into main workspace</li>
-</ul></li>
-</ul>
-<p><strong>Demo Summary:</strong> Demonstrated creating multiple concurrent agent sessions working on a dev containers website. Showed local agent planning improvements, background agent using isolated work trees, and delegating work to cloud agents that automatically create PRs.</p>
-<p><strong>v1.107.1 Improvements:</strong></p>
-<ul>
-<li>Agent sessions view now defaults to side-by-side layout</li>
-<li>Sessions requiring user input are clearly marked</li>
-<li>Support for copying workspace changes when creating background sessions</li>
-<li>Chat prompt is not cleared when creating a new session</li>
-<li>Tool calls in cloud sessions are collapsed by default</li>
-</ul>
-<p><strong>Resources mentioned:</strong></p>
-<ul>
-<li>GitHub Pull Request extension for enhanced PR integration</li>
-<li>Agent HQ interface at Universe announcement</li>
-<li>AI Dev Days session by Josh Valdo on unified agent experience</li>
-</ul>
-</section>
-<section id="topic-3-model-management-and-bring-your-own-key" class="level3">
-<h3 class="anchored" data-anchor-id="topic-3-model-management-and-bring-your-own-key">[29:30] Topic 3: Model Management and Bring Your Own Key</h3>
-<p><strong>Speaker:</strong> Logan Ramos (Engineer)</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>Model picker now supports hiding unused models for cleaner interface</li>
-<li>Bring-your-own-key (BYOK) supports multiple providers: Cerebras, OpenRouter, Ollama, and more</li>
-<li>Models display context window size, tool calling, and vision support</li>
-<li>Filtering by capability (vision, tools) helps select appropriate models</li>
-<li>BYOK models don’t consume GitHub Copilot quota but still require active subscription</li>
-<li>Background processes use GPT-4o Mini for query refinement without counting against usage</li>
-<li>Full prompt logging available in output channel for debugging and optimization</li>
-</ul>
-<p><strong>Demo Summary:</strong> Showed adding Cerebras API key, selecting models with different capabilities, and building a complete VS Code product website using DeepSeek v3.2 via Cerebras - all in real-time with impressive speed.</p>
-<section id="language-models-editor" class="level4">
-<h4 class="anchored" data-anchor-id="language-models-editor">Language Models Editor</h4>
-<p>New centralized interface for managing all available language models:</p>
-<ul>
-<li><strong>Model visibility toggling</strong> - Hide unused models from picker for cleaner interface</li>
-<li><strong>Add models from installed providers</strong> - Activate additional providers without leaving editor</li>
-<li><strong>Search and filter capabilities</strong>:
-<ul>
-<li>Text search with highlighting</li>
-<li>Provider filter: <code>@provider:"OpenAI"</code></li>
-<li>Capability filters: <code>@capability:tools</code>, <code>@capability:vision</code>, <code>@capability:agent</code></li>
-<li>Visibility filter: <code>@visible:true/false</code></li>
-</ul></li>
-<li><strong>Grouping options</strong> - Organize by provider or visibility status</li>
-<li><strong>Model information</strong> - Context size, capabilities, billing details at a glance</li>
-</ul>
-<p>Access via model picker in chat or Command Palette: “Chat: Manage Language Models”</p>
-<p><strong>Quotes:</strong> &gt; “Each time you add a model to copilot, you take the pool of GPUs that are available and have to divide them… that makes it really really hard for us to provide everything.”</p>
-<p><strong>Resources mentioned:</strong></p>
-<ul>
-<li>GitHub Copilot Free tier for getting started</li>
-<li>Cerebras for ultra-fast inference</li>
-<li>Model provider marketplace</li>
-</ul>
-</section>
-</section>
-<section id="topic-4-huggingface-integration" class="level3">
-<h3 class="anchored" data-anchor-id="topic-4-huggingface-integration">[39:28] Topic 4: HuggingFace Integration</h3>
-<p><strong>Speaker:</strong> Celina Hanouti (Hugging Face Engineer)</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li><mark>HuggingFace Inference Provider</mark> extension brings state-of-the-art open-weights models to VS Code</li>
-<li>One API provides access to multiple inference providers (Cerebras, Groq, Fireworks, etc.)</li>
-<li>No vendor lock-in - automatic provider selection for cost and speed optimization</li>
-<li>“Fastest” mode selects highest-performance provider; “cheapest” mode optimizes for cost</li>
-<li>Can filter models by provider to see all models served by specific backends</li>
-<li>Typical feature implementation costs ~20-30 cents with models like GLM-4.6</li>
-<li>Extension releases independently of VS Code for faster iteration</li>
-</ul>
-<p><strong>Demo Summary:</strong> Installed HuggingFace provider extension, authenticated with access token, and used GLM-4.6 to implement a real GitHub issue for the HuggingFace Hub Python SDK using local agent mode.</p>
-<p><strong>Quotes:</strong> &gt; “The extension being outside of VS Code allows us to iterate faster add new features integrations bug fixes and all of that without relying on on VS Code releases.”</p>
-<p><strong>Resources mentioned:</strong></p>
-<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=huggingface.huggingface-vscode">HuggingFace Inference Provider Extension</a></li>
-<li>HuggingFace Hub repository (open source)</li>
-<li>Free HuggingFace account with credits for testing</li>
-</ul>
-</section>
-<section id="topic-5-mcp-updates-and-new-features" class="level3">
-<h3 class="anchored" data-anchor-id="topic-5-mcp-updates-and-new-features">[50:19] Topic 5: MCP Updates and New Features</h3>
-<p><strong>Speaker:</strong> Connor Peet (Engineer)</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>New MCP registry accessible via <mark><code>@mcp</code> search</mark> in extensions view</li>
-<li>One-click installation of curated MCP servers (<mark>Playwright</mark>, <mark>GitHub</mark>, <mark>Wikipedia</mark>, etc.)</li>
-<li>Automatic server startup on first chat message</li>
-<li><mark><strong>Latest MCP spec</strong></mark> (1.0 anniversary release) <mark>fully supported in VS Code</mark></li>
-<li><strong><mark>Custom icons</mark></strong> for servers and tools improve visual identification</li>
-<li><strong><mark>URL mode elicitation</mark></strong> allows servers to request input via web interfaces</li>
-<li><strong><mark>Sampling</mark></strong> enables MCP servers to make their own LLM requests on behalf of users</li>
-<li><strong><mark>Tasks</mark></strong> provide durable, resumable operations that survive network issues and crashes</li>
-<li>Resources can be returned from tools and downloaded directly</li>
-</ul>
-<p><strong>Demo Summary:</strong> Built a custom MCP server for website design that accepted sketch input via web interface, configured settings through elicitation, and used sampling to generate content autonomously - all with new spec features.</p>
-<section id="github-mcp-server-preview" class="level4">
-<h4 class="anchored" data-anchor-id="github-mcp-server-preview">GitHub MCP Server (Preview)</h4>
-<p>Built-in GitHub remote MCP server now provided by GitHub Copilot Chat extension:</p>
-<ul>
-<li><strong>Seamless integration</strong> - Reuses existing GitHub authentication, no additional prompts</li>
-<li><strong>Alignment with other harnesses</strong> - Consistent with Copilot CLI and Cloud Agent</li>
-<li><strong>Enterprise support</strong> - Transparent GHE.com endpoint support</li>
-<li><strong>Customization settings</strong>:
-<ul>
-<li><code>github.copilot.chat.githubMcpServer.toolsets</code> - Configure available tools (default, workflows, etc.)</li>
-<li><code>github.copilot.chat.githubMcpServer.readonly</code> - Force read-only operations</li>
-<li><code>github.copilot.chat.githubMcpServer.lockdown</code> - Additional security controls</li>
-</ul></li>
-</ul>
-<p>Enable with: <code>github.copilot.chat.githubMcpServer.enabled: true</code> (Preview feature)</p>
-<p><strong>Resources mentioned:</strong></p>
-<ul>
-<li><mark>MCP Registry</mark> (GitHub curated version)</li>
-<li>Open source public MCP registry</li>
-<li>AI Dev Days session with Tyler for deep dive</li>
-<li>GitHub issue tracking tool-calling in sampling (coming soon)</li>
-<li>GitHub MCP Server documentation for remote toolsets</li>
-</ul>
-</section>
-</section>
-<section id="multiple-topic-7-chat-experience-improvements" class="level3">
-<h3 class="anchored" data-anchor-id="multiple-topic-7-chat-experience-improvements">[Multiple] Topic 7: Chat Experience Improvements</h3>
-<p><strong>Speakers:</strong> Various (Product Team)</p>
-<p><strong>Key Points:</strong></p>
-<p>Major enhancements to chat interaction quality and security:</p>
-<section id="security-and-content-fetching" class="level4">
-<h4 class="anchored" data-anchor-id="security-and-content-fetching">Security and Content Fetching</h4>
-<ul>
-<li><strong>URL and domain auto-approval</strong> - Two-step process:
+<section id="broken-link-detection-and-fix-scripts" class="level1">
+<h1>Broken Link Detection and Fix Scripts</h1>
+<p>Comprehensive PowerShell scripts to detect, analyze, and fix broken internal markdown links across the repository.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>These scripts follow the workflow defined in the <a href="../../.github/prompts/learnhub/learnhub-update-pages-broken-internal-links.prompt.md">learnhub-update-pages-broken-internal-links.prompt.md</a>:</p>
 <ol type="1">
-<li>Approve domain contact (respects Trusted Domains feature)</li>
-<li>Review fetched content before use (prevents prompt injection)</li>
-</ol></li>
-<li><strong>Robust fetch tool</strong> - Handles dynamic JavaScript content:
-<ul>
-<li>Works with Single-Page Applications (SPAs)</li>
-<li>Waits for JavaScript execution before retrieving content</li>
-<li>Returns actual browser-rendered content, not just HTML skeleton</li>
-</ul></li>
-<li><strong>Text Search in ignored files</strong> - Search <code>node_modules</code>, build outputs with hints to agent</li>
-</ul>
-</section>
-<section id="terminal-integration" class="level4">
-<h4 class="anchored" data-anchor-id="terminal-integration">Terminal Integration</h4>
-<ul>
-<li><strong>Rich terminal output</strong> - Full xterm.js rendering in chat:
-<ul>
-<li>ANSI color support with terminal theme</li>
-<li>Preserved output even after terminal exit</li>
-<li>Screen reader support via Accessible View (Alt+F2)</li>
-</ul></li>
-<li><strong>Command metadata</strong> - Hover shows start time, duration, exit code</li>
-<li><strong>Session-wide approval</strong> - “Allow All Commands in this Session” option for trusted workflows</li>
-<li><strong>Keyboard shortcuts</strong>:
-<ul>
-<li>Focus recent terminal: Ctrl+Shift+Alt+T</li>
-<li>Toggle expansion: Ctrl+Shift+Alt+O</li>
-</ul></li>
-</ul>
-</section>
-<section id="user-experience" class="level4">
-<h4 class="anchored" data-anchor-id="user-experience">User Experience</h4>
-<ul>
-<li><strong>Chat view appearance</strong>:
-<ul>
-<li>Title control showing current chat</li>
-<li>Optional welcome banner (configure via settings)</li>
-<li>Restore previous session on restart (configurable)</li>
-</ul></li>
-<li><strong>Sensitive file diffs</strong> - Visual diff preview for <code>settings.json</code>, <code>package.json</code> edits before approval</li>
-<li><strong>Collapsible sections</strong> (Experimental):
-<ul>
-<li>Tool calls collapsed by default</li>
-<li>AI-generated titles for reasoning/tools sections</li>
-<li>Reduces visual noise for complex agent interactions</li>
-</ul></li>
-</ul>
-<p><strong>Resources mentioned:</strong></p>
-<ul>
-<li>Chat tools documentation (URL approval, fetch, text search)</li>
-<li>Terminal commands in chat guide</li>
-<li>Sensitive files editing workflow</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="topic-6-sql-python-driver-ga-release" class="level3">
-<h3 class="anchored" data-anchor-id="topic-6-sql-python-driver-ga-release">[01:04:59] Topic 6: SQL Python Driver GA Release</h3>
-<p><strong>Speaker:</strong> David Levy (SQL Server Product Manager)</p>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>First <mark>first-party Python driver from Microsoft for SQL Server</mark></li>
-<li>Single-line <code>pip install</code> with no dependencies makes sharing easy</li>
-<li><strong>Active Directory Default authentication</strong> works on Mac via VS Code token sharing</li>
-<li>No need for repeated authentication prompts - integrates with Azure Resources extension</li>
-<li>Context managers (<code>with</code> statements) handle connection cleanup automatically</li>
-<li>Works with UV tool for virtual environment management</li>
-<li>UV automatically creates venv and installs dependencies on first <code>uv run</code> command</li>
-<li>Jupyter notebook support ideal for runbooks and troubleshooting documentation</li>
-</ul>
-<p><strong>Roadmap Features:</strong></p>
-<ul>
-<li><strong>BCP streaming</strong> for bulk data loading (coming in future release)</li>
-<li><strong>SQL Alchemy compatibility</strong> - Near-complete, final fixes shipping soon</li>
-<li><strong>Streamlit integration</strong> - Quick start available for rapid prototyping</li>
-</ul>
-<p><strong>Demo Summary:</strong> Ran Python script using UV that automatically created virtual environment, connected to Azure SQL via Active Directory default auth, and displayed results in rich tables. Then showed Jupyter notebook creating Pandas dataframes and visualizations from SQL queries.</p>
-<p><strong>Quotes:</strong> &gt; “We spent a lot of time doing making this work. The trick is you need to be logged in as your entry authentication account… you use an extension like Azure resources, you add that extension, you connect it to your Azure account and then you have VS Code authentication.”</p>
-<p><strong>Resources mentioned:</strong></p>
-<ul>
-<li><a href="https://aka.ms/mssql-python">aka.ms/mssql-python</a> - Main landing page</li>
-<li>GitHub repository with quick starts, documentation wiki</li>
-<li>UV tool for Python package management</li>
-<li>Streamlit quick start for rapid prototyping</li>
-</ul>
-</section>
-</section>
-<section id="main-takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="main-takeaways">Main Takeaways</h2>
-<ol type="1">
-<li><strong>Unified Agent Architecture</strong>
-<ul>
-<li>VS Code now provides seamless transitions between local, background (work tree isolated), and cloud (PR-based) agent execution</li>
-<li>Enables new workflows where planning, implementation, and PR creation happen across different execution contexts</li>
-<li>This represents a fundamental shift in how developers interact with AI assistants</li>
-</ul></li>
-<li><strong>Model Democratization</strong>
-<ul>
-<li>Bring-your-own-key and provider extensions (HuggingFace) give developers access to cutting-edge models immediately</li>
-<li>Cost and speed optimization features help navigate the growing model landscape</li>
-<li>VS Code maintains open-source principles while providing commercial GitHub Copilot integration</li>
-</ul></li>
-<li><strong>MCP as Standard Protocol</strong>
-<ul>
-<li>MCP 1.0 maturity brings production-ready features (tasks, sampling, elicitation)</li>
-<li>VS Code’s complete implementation positions it as the reference MCP client</li>
-<li>Custom MCP servers enable domain-specific AI capabilities without core product changes</li>
-</ul></li>
-<li><strong>Developer Experience Focus</strong>
-<ul>
-<li>Authentication integration (Azure resources token sharing for SQL)</li>
-<li>Virtual environment automation (UV integration)</li>
-<li>Visual polish (custom icons, thinking token display, progress notifications)</li>
-</ul></li>
+<li><strong>Extract links</strong> - Find all internal markdown links in the repository</li>
+<li><strong>Build inventory</strong> - Catalog all markdown files with metadata</li>
+<li><strong>Identify broken links</strong> - Reconcile links with actual files using intelligent matching</li>
+<li><strong>Fix broken links</strong> - Apply corrections automatically or with review</li>
 </ol>
 </section>
-<section id="questions-raised" class="level2">
-<h2 class="anchored" data-anchor-id="questions-raised">Questions Raised</h2>
-<ol type="1">
-<li><strong>Q:</strong> Does the team use VS Code to build VS Code?
-<ul>
-<li><strong>A:</strong> Yes, entire team runs VS Code Insiders non-stop with pre-release extensions for continuous self-hosting</li>
-<li><strong>Status:</strong> Answered</li>
-</ul></li>
-<li><strong>Q:</strong> Do BYOK models count against GitHub Copilot quota?
-<ul>
-<li><strong>A:</strong> No, but active Copilot subscription still required for background operations (commit messages, rename suggestions) that use GPT-4o Mini</li>
-<li><strong>Status:</strong> Answered</li>
-</ul></li>
-<li><strong>Q:</strong> Can custom MCP servers use tools from other MCP servers?
-<ul>
-<li><strong>A:</strong> Not yet - sampling with tool calls is in the spec but not yet implemented in VS Code (coming in next release)</li>
-<li><strong>Status:</strong> Feature request tracked on GitHub</li>
-</ul></li>
-<li><strong>Q:</strong> Can BYOK models be used with cloud/background agents?
-<ul>
-<li><strong>A:</strong> Yes, confirmed working with cloud agents; most users prefer local agents for interactive workflows</li>
-<li><strong>Status:</strong> Answered</li>
-</ul></li>
-</ol>
+<section id="quick-start" class="level2">
+<h2 class="anchored" data-anchor-id="quick-start">Quick Start</h2>
+<section id="run-complete-pipeline-dry-run" class="level3">
+<h3 class="anchored" data-anchor-id="run-complete-pipeline-dry-run">Run Complete Pipeline (Dry Run)</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\run-all<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>DryRun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="action-items" class="level2">
-<h2 class="anchored" data-anchor-id="action-items">Action Items</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Watch AI Dev Days sessions for deeper dives - <strong>Owner:</strong> Community - <strong>Due:</strong> December 2024</label></li>
-<li><label><input type="checkbox">Explore MCP registry via <code>@mcp</code> search - <strong>Owner:</strong> Developers - <strong>Due:</strong> Immediate</label></li>
-<li><label><input type="checkbox">Try BYOK with Cerebras or HuggingFace - <strong>Owner:</strong> AI developers - <strong>Due:</strong> Ongoing</label></li>
-<li><label><input type="checkbox">Review SQL Python quick starts - <strong>Owner:</strong> Data developers - <strong>Due:</strong> Immediate</label></li>
+<section id="run-complete-pipeline-auto-fix-high-confidence" class="level3">
+<h3 class="anchored" data-anchor-id="run-complete-pipeline-auto-fix-high-confidence">Run Complete Pipeline (Auto-Fix HIGH confidence)</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\run-all<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>AutoFix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="run-complete-pipeline-auto-fix-medium-confidence" class="level3">
+<h3 class="anchored" data-anchor-id="run-complete-pipeline-auto-fix-medium-confidence">Run Complete Pipeline (Auto-Fix MEDIUM+ confidence)</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\run-all<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>AutoFix <span class="op">-</span>Confidence MEDIUM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="individual-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="individual-scripts">Individual Scripts</h2>
+<section id="extract-all-links" class="level3">
+<h3 class="anchored" data-anchor-id="extract-all-links">1. Extract All Links</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="dv">01</span><span class="op">-</span>extract-all-links<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Scans all markdown files and extracts internal links (links to <code>.md</code> or <code>.qmd</code> files).</p>
+<p><strong>Output:</strong> <code>_output/all-links.json</code></p>
+</section>
+<section id="build-file-inventory" class="level3">
+<h3 class="anchored" data-anchor-id="build-file-inventory">2. Build File Inventory</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="dv">02</span><span class="op">-</span>build-file-inventory<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Creates comprehensive inventory of all markdown files with paths, folder structure, and metadata.</p>
+<p><strong>Output:</strong> <code>_output/file-inventory.json</code></p>
+</section>
+<section id="identify-broken-links" class="level3">
+<h3 class="anchored" data-anchor-id="identify-broken-links">3. Identify Broken Links</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="dv">03</span><span class="op">-</span>identify-broken-links<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Validates each link and attempts to reconcile broken links using intelligent matching strategies:</p>
+<ul>
+<li><strong>Exact match</strong> - Direct path match</li>
+<li><strong>Filename match</strong> - Same filename, different path</li>
+<li><strong>Numbered prefix</strong> - Missing folder number prefixes (e.g., <code>tech/</code> → <code>03.00 tech/</code>)</li>
+<li><strong>Fuzzy folder match</strong> - Similar folder structure with context</li>
+</ul>
+<p><strong>Output:</strong> <code>_output/broken-links-analysis.json</code></p>
+</section>
+<section id="fix-broken-links" class="level3">
+<h3 class="anchored" data-anchor-id="fix-broken-links">4. Fix Broken Links</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview fixes</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="dv">04</span><span class="op">-</span>fix-broken-links<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>DryRun</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply HIGH confidence fixes</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="dv">04</span><span class="op">-</span>fix-broken-links<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>AutoFix <span class="op">-</span>Confidence HIGH</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply MEDIUM+ confidence fixes</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="dv">04</span><span class="op">-</span>fix-broken-links<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>AutoFix <span class="op">-</span>Confidence MEDIUM</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply ALL fixes (use with caution)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\<span class="dv">04</span><span class="op">-</span>fix-broken-links<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>AutoFix <span class="op">-</span>Confidence ALL</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Applies fixes to broken links based on confidence level.</p>
+</section>
+</section>
+<section id="common-issues-fixed" class="level2">
+<h2 class="anchored" data-anchor-id="common-issues-fixed">Common Issues Fixed</h2>
+<section id="missing-numbered-folder-prefixes" class="level3">
+<h3 class="anchored" data-anchor-id="missing-numbered-folder-prefixes">Missing Numbered Folder Prefixes</h3>
+<ul>
+<li><code>news/</code> → <code>01.00%20news/</code></li>
+<li><code>events/</code> → <code>02.00%20events/</code></li>
+<li><code>tech/</code> → <code>03.00%20tech/</code></li>
+<li><code>issues/</code> → <code>05.00%20issues/</code></li>
+<li><code>idea/</code> → <code>06.00%20idea/</code></li>
 </ul>
 </section>
-<section id="decisions-made" class="level2">
-<h2 class="anchored" data-anchor-id="decisions-made">Decisions Made</h2>
-<ol type="1">
-<li><strong>MCP Registry Strategy</strong>
+<section id="incorrect-file-paths" class="level3">
+<h3 class="anchored" data-anchor-id="incorrect-file-paths">Incorrect File Paths</h3>
 <ul>
-<li><strong>Rationale:</strong> Balance between quality control and community openness during MCP maturity phase</li>
-<li><strong>Impact:</strong> Extension marketplace users get tested, reliable MCP servers</li>
-</ul></li>
-<li><strong>Authentication Model for SQL Python Driver</strong>
+<li>Root-level date folders moved to subfolders</li>
+<li>Missing subfolder structure (e.g., <code>tech/Azure/</code> → <code>03.00%20tech/02.01%20Azure/</code>)</li>
+<li>Incorrect file names or extensions</li>
+</ul>
+</section>
+<section id="url-encoding" class="level3">
+<h3 class="anchored" data-anchor-id="url-encoding">URL Encoding</h3>
 <ul>
-<li><strong>Rationale:</strong> Eliminate friction of repeated authentication prompts for developers on Mac/Linux</li>
-<li><strong>Impact:</strong> Cross-platform parity for Azure SQL development</li>
-</ul></li>
-</ol>
-</section>
-<section id="resources-and-references" class="level2">
-<h2 class="anchored" data-anchor-id="resources-and-references">📚 Resources and References</h2>
-<section id="official-documentation" class="level3">
-<h3 class="anchored" data-anchor-id="official-documentation">Official Documentation</h3>
-<p><strong><a href="https://code.visualstudio.com/updates/v1_107">VS Code v1.107 Release Notes</a></strong> <code>[📘 Official]</code><br>
-Complete official release notes for VS Code v1.107 (November 2025 release). Includes all features demonstrated in livestream plus additional updates not covered in the recording, including v1.107.1 improvements. Essential reference for comprehensive feature list.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/agents/agents-tutorial">VS Code Agents Tutorial</a></strong> <code>[📘 Official]</code><br>
-Official tutorial for agent workflows covering local, background, and cloud agents. Demonstrates unified agent experience and delegation patterns shown in v1.107 release. Mentioned in release notes update 1.107.1.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/agents/background-agents">VS Code Background Agents Documentation</a></strong> <code>[📘 Official]</code><br>
-Official guide for using background agents with Git worktrees for isolation. Explains workflow for background agent creation, worktree management, and change application demonstrated in Topic 2.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents">VS Code Custom Agents Documentation</a></strong> <code>[📘 Official]</code><br>
-Comprehensive guide for defining custom agents using <code>.agent.md</code> files. Covers tool configuration, handoffs, and organizational sharing features mentioned in experimental features.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/language-models">VS Code Language Models Documentation</a></strong> <code>[📘 Official]</code><br>
-Official guide for using language models in VS Code including BYOK providers, model management, and Language Models editor. Covers features demonstrated in Topic 3.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers">VS Code MCP Servers Documentation</a></strong> <code>[📘 Official]</code><br>
-Official documentation for configuring and using Model Context Protocol (MCP) servers in VS Code. Explains setup, toolsets, and integration patterns for MCP 1.0 features demonstrated in Topic 5.</p>
-<p><strong><a href="https://modelcontextprotocol.io">Model Context Protocol Specification</a></strong> <code>[📘 Official]</code><br>
-Official MCP protocol specification including 2025-11-25 draft features (tasks, sampling, URL elicitation, custom icons). VS Code provides reference implementation as mentioned in Topic 5.</p>
-<p><strong><a href="https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md">GitHub MCP Server Documentation</a></strong> <code>[📘 Official]</code><br>
-Documentation for GitHub’s remote MCP server including toolset configuration and permission requirements. Covers built-in GitHub MCP server preview feature from Topic 5.</p>
-<p><strong><a href="https://aka.ms/mssql-python">Microsoft SQL Python Driver Documentation</a></strong> <code>[📘 Official]</code><br>
-Official landing page for first-party SQL Python driver including installation, authentication setup, UV integration, and code samples. All demos from Topic 6 available as starter projects.</p>
-<p><strong><a href="https://code.visualstudio.com/docs/copilot/chat/chat-tools">VS Code Chat Tools Documentation</a></strong> <code>[📘 Official]</code><br>
-Guide for chat tools including URL approval workflow, fetch tool capabilities, and text search improvements. Covers security features from Topic 7.</p>
-<p><strong><a href="https://code.visualstudio.com/insiders/">VS Code Insiders</a></strong> <code>[📘 Official]</code><br>
-Daily builds of VS Code with latest features. Used by entire VS Code team for self-hosting as mentioned in Topic 1. Required for testing unreleased features like MCP sampling with tool calls.</p>
-</section>
-<section id="community-resources" class="level3">
-<h3 class="anchored" data-anchor-id="community-resources">Community Resources</h3>
-<p><strong><a href="https://marketplace.visualstudio.com/items?itemName=huggingface.huggingface-vscode">HuggingFace Inference Provider Extension</a></strong> <code>[📗 Verified Community]</code><br>
-Official extension from HuggingFace for using open-weights models (Cerebras, Groq, Fireworks providers) in VS Code Copilot Chat. Provides automatic cost/speed optimization demonstrated in Topic 4.</p>
-<p><strong><a href="https://github.com/microsoft/vscode">GitHub VS Code Repository</a></strong> <code>[📘 Official]</code><br>
-Open-source VS Code repository including AI capabilities. All iteration plans published here (mentioned in Topic 1). Contains source code for features demonstrated in livestream.</p>
-<p><strong><a href="https://github.blog/ai-and-ml/github-copilot/evolving-github-copilots-next-edit-suggestions-through-custom-model-training/">GitHub Blog: Next Edit Suggestions Model Evolution</a></strong> <code>[📗 Verified Community]</code><br>
-Official GitHub blog post detailing the new next edit suggestions model mentioned in release notes. Explains continuous improvements and custom model training approach.</p>
-</section>
-<section id="session-materials" class="level3">
-<h3 class="anchored" data-anchor-id="session-materials">Session Materials</h3>
-<ul>
-<li><strong>Recording:</strong> YouTube VS Code Channel</li>
-<li><strong>AI Dev Days:</strong> Additional sessions on unified agent experience (Josh Valdo) and MCP deep dive (Connor Peet, Tyler)</li>
+<li>Automatically URL-encodes spaces (<code>%20</code>)</li>
+<li>Normalizes path separators</li>
 </ul>
 </section>
 </section>
-<section id="follow-up-topics" class="level2">
-<h2 class="anchored" data-anchor-id="follow-up-topics">Follow-Up Topics</h2>
-<p>Topics identified for deeper exploration:</p>
-<ol type="1">
-<li><strong>Custom Agents</strong> - Development patterns, testing strategies, and deployment to cloud agents (teased for January 2025)</li>
-<li><strong>Collaborative Planning</strong> - Multi-user planning sessions with agents (teased for 2025)</li>
-<li><strong>MCP Sampling with Tools</strong> - Implementation timeline and SDK updates for custom servers</li>
-<li><strong>SQL Alchemy Integration</strong> - Final compatibility status and best practices when available</li>
-<li><strong>BCP Streaming in Python</strong> - Bulk data loading capabilities when released</li>
-</ol>
+<section id="output-files" class="level2">
+<h2 class="anchored" data-anchor-id="output-files">Output Files</h2>
+<p>All output files are saved to <code>_output/</code> directory:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>all-links.json</code></td>
+<td>All internal links with source files and line numbers</td>
+</tr>
+<tr class="even">
+<td><code>file-inventory.json</code></td>
+<td>Complete inventory of markdown files</td>
+</tr>
+<tr class="odd">
+<td><code>broken-links-analysis.json</code></td>
+<td>Analysis results with fix recommendations</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<section id="confidence-levels" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-levels">Confidence Levels</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 39%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Description</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>HIGH</strong></td>
+<td>Exact match or clear numbered prefix fix</td>
+<td>✅ Recommended for automatic fixes</td>
+</tr>
+<tr class="even">
+<td><strong>MEDIUM</strong></td>
+<td>Fuzzy folder match with context</td>
+<td>⚠️ Review recommended</td>
+</tr>
+<tr class="odd">
+<td><strong>ALL</strong></td>
+<td>Includes uncertain matches</td>
+<td>❌ Manual review required</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-workflow">Example Workflow</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Analyze and preview (no changes)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\run-all<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>DryRun</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Review output/_output/broken-links-analysis.json</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Apply high-confidence fixes</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\run-all<span class="op">.</span><span class="fu">ps1</span> <span class="op">-</span>AutoFix</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Review changes in git</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>git <span class="fu">diff</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Commit if satisfied</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">"fix: correct broken internal markdown links"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="integration-with-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="integration-with-prompt">Integration with Prompt</h2>
+<p>These scripts implement the methodology defined in:</p>
 <ul>
-<li>Watch AI Dev Days sessions for deeper dives on unified agent experience and MCP</li>
-<li>Try BYOK with Cerebras or HuggingFace for access to latest models</li>
-<li>Explore MCP registry via <code>@mcp</code> search in extensions</li>
-<li>Review SQL Python quick starts at aka.ms/mssql-python</li>
-<li>Update to Insiders for early access to MCP sampling with tools</li>
-<li>Follow monthly iteration plans for custom agent development updates</li>
+<li><a href="../../.github/prompts/learnhub/learnhub-update-pages-broken-internal-links.prompt.md">learnhub-update-pages-broken-internal-links.prompt.md</a></li>
+</ul>
+<p>They can be used standalone or invoked by AI agents following that prompt.</p>
+</section>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<ul>
+<li>PowerShell 7+ (Core)</li>
+<li>Windows, macOS, or Linux</li>
+<li>Git repository access</li>
 </ul>
 </section>
-<section id="related-content" class="level2">
-<h2 class="anchored" data-anchor-id="related-content">Related Content</h2>
-<p><strong>Series:</strong> VS Code Release Live Streams (Final of 2024)</p>
-<hr>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<section id="no-broken-links-found" class="level3">
+<h3 class="anchored" data-anchor-id="no-broken-links-found">No broken links found</h3>
+<p>Check if files have already been fixed or if exclusion patterns are too broad.</p>
 </section>
-<section id="transcript-segments" class="level2">
-<h2 class="anchored" data-anchor-id="transcript-segments">Transcript Segments</h2>
-<details>
-<summary>
-Expand for key transcript excerpts
-</summary>
-<section id="kai-on-2024-transformation" class="level3">
-<h3 class="anchored" data-anchor-id="kai-on-2024-transformation">[01:44] Kai on 2024 Transformation</h3>
-<pre><code>It's like mindblowing as a year, right? When you think about it, we didn't even have 
-any agentic experience at the beginning of the year, right? We we didn't have NES, 
-you know, next edit suggest and tap tap tap, right? So, yeah, a lot of things have 
-changed, right? And when you think about this, right, we started without now we 
-actually at the, you know, we we have a really good agent experience now, right?</code></pre>
+<section id="fix-not-applied" class="level3">
+<h3 class="anchored" data-anchor-id="fix-not-applied">Fix not applied</h3>
+<ul>
+<li>Ensure exact link text match in source file</li>
+<li>Check for special characters or encoding issues</li>
+<li>Review line numbers in analysis output</li>
+</ul>
 </section>
-<section id="connor-on-mcp-evolution" class="level3">
-<h3 class="anchored" data-anchor-id="connor-on-mcp-evolution">[50:25] Connor on MCP Evolution</h3>
-<pre><code>One thing that you see is um uh like recently we we improved how we deal with uh 
-uh with resources. And so um um MCP tools uh can return resources which which you 
-can like see attached now to the tool call and you can also download those. This 
-just returned basically a like a a JSON blob here. But um I'll do more with that 
-in a minute.</code></pre>
+<section id="performance" class="level3">
+<h3 class="anchored" data-anchor-id="performance">Performance</h3>
+<p>For large repositories (1000+ files):</p>
+<ul>
+<li>Scripts process in batches</li>
+<li>JSON files cached between runs</li>
+<li>Re-run individual steps as needed</li>
+</ul>
 </section>
-<section id="david-on-python-driver-philosophy" class="level3">
-<h3 class="anchored" data-anchor-id="david-on-python-driver-philosophy">[1:07:15] David on Python Driver Philosophy</h3>
-<pre><code>We really emphasized on sharability. You know, being able to collaborate with your 
-co-workers or share a script with business users. So, we made sure that our driver 
-installs with a single line pip install makes it very very easy to share with other 
-users. It also makes it very easy to deploy it.</code></pre>
-</section></details>
-<hr>
-<p><em>Recording Type: Release Stream / Technical Presentation</em><br>
-<em>Tags: vscode, ai, agents, mcp, python, sql, models, release-notes</em><br>
-<em>Status: Final</em></p>
-<!-- 
-
-
-
-
----
-validations:
-  structure:
-    last_run: null
-    outcome: null
-  consistency_review:
-    status: "completed"
-    last_run: "2024-12-24T15:30:00Z"
-    model: "claude-sonnet-4.5"
-    references_checked: 6
-    references_valid: 6
-    references_added: 8
-    gaps_identified: 12
-    gaps_addressed: 9
-    change_summary: "Added v1.107.1 updates, Language Models Editor, GitHub MCP Server, Chat improvements section, expanded agent workflow details, updated references with classifications"
-article_metadata:
-  filename: 'Summary.md'
-  created: '2024-12-24'
-  session_date: '2024-12-23'
-  duration_minutes: 90
-  last_updated: "2024-12-24T15:30:00Z"
-  version_history:
-    - date: "2024-12-24"
-      changes: "Comprehensive review and updates: v1.107.1 features, Language Models Editor, GitHub MCP Server, Chat improvements, expanded worktree workflow, classified references"
--->
+</section>
+<section id="contributing" class="level2">
+<h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
+<p>To improve matching strategies, edit <code>03-identify-broken-links.ps1</code> and add new logic to <code>Find-MatchingFile</code> function.</p>
 
 
 </section>
 </section>
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -3968,21 +3669,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../01.00 news/20260111 6 VITAL Rules for Production-Ready Copilot Agents/Summary.html" class="pagination-link" aria-label="20260111 6 VITAL Rules for Production-Ready Copilot Agents">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">20260111 6 VITAL Rules for Production-Ready Copilot Agents</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../01.00 news/20251224 vscode v1.107 Release/02. README.Sonnet4.html" class="pagination-link" aria-label="Analysis">
-        <span class="nav-page-text">Analysis</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/01.00 news/20251224 vscode v1.107 Release/01. Summary.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/darioairoldi/Learn/edit/main/scripts/fix-broken-links/README.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/darioairoldi/Learn/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
