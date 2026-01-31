@@ -52,7 +52,7 @@ Personal knowledge management system for Microsoft technical content built with 
    - **Bottom HTML Comment** (file end): Validation tracking metadata (status, timestamps, scores)
      - Updated only by automation/validation tools
      - Invisible when rendered
-   - See `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md` for complete guidelines
+   - See `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` for complete guidelines
 
 ## Critical Developer Workflows
 
@@ -183,7 +183,7 @@ See `.github/instructions/documentation.instructions.md` for complete rules.
 
 **Templates & Standards:**
 - [.github/templates/article-template.md](.github/templates/article-template.md) - New article scaffold
-- [.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md](.copilot/context/90.00%20learning-hub/02-dual-yaml-metadata.md) - Metadata parsing rules
+- [.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md](.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md) - Metadata parsing rules
 - [.github/instructions/documentation.instructions.md](.github/instructions/documentation.instructions.md) - Writing style guide
 
 **Configuration:**

@@ -334,7 +334,7 @@ This agent must be decomposed into multiple agents before building.
 ## References
 
 - `.github/instructions/agents.instructions.md`
-- `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
 - Existing agents in `.github/agents/` for patterns
 
 <!-- 

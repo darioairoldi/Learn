@@ -151,8 +151,8 @@ boundaries:
 ❌ **Bad**: Embed 100 lines of context engineering principles in every prompt
 
 ✅ **Good**: 
-For context engineering principles, see `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
-For tool composition patterns, see `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+For context engineering principles, see `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+For tool composition patterns, see `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
 ```
 
 **Group References Over Individual Files**:
@@ -161,10 +161,10 @@ When referencing context files from `.github/` files (prompts, agents, instructi
 
 ```markdown
 ✅ **Good** - Group reference (folder-level):
-📖 **Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
+📖 **Complete guidance:** [.copilot/context/00.00-prompt-engineering/](.copilot/context/00.00-prompt-engineering/)
 
 ❌ **Avoid** - Individual file reference (unless specifically needed):
-📖 **Complete guidance:** [.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00%20prompt-engineering/01-context-engineering-principles.md)
+📖 **Complete guidance:** [.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md)
 ```
 
 **When to use individual file references:**
@@ -763,8 +763,8 @@ generate documentation about validation results.
 ## Prerequisites
 
 Before starting, review:
-- Context engineering principles: `.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md`
-- Tool usage patterns: `.copilot/context/00.00 prompt-engineering/02-tool-composition-guide.md`
+- Context engineering principles: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+- Tool usage patterns: `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
 ```
 
 ### ❌ Anti-Pattern 4: Weak Boundaries

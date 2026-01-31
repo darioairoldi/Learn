@@ -11,7 +11,7 @@ They operate at the implementation level with detailed technical instructions, t
 
 ## Context Engineering Principles
 
-**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/](.copilot/context/00.00-prompt-engineering/)
 
 **Key principles for agents** (see context folder for full details):
 1. **Narrow Scope** - One agent = One specialized role
@@ -77,7 +77,7 @@ They operate at the implementation level with detailed technical instructions, t
 
 ## Tool Selection
 
-**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/](.copilot/context/00.00%20prompt-engineering/)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/](.copilot/context/00.00-prompt-engineering/)
 
 **Agent/Tool Alignment:**
 - `agent: plan` (read-only) + [read_file, grep_search, semantic_search]
@@ -149,7 +149,7 @@ VS Code 1.107 introduced **Agent HQ**, a unified interface for managing agent se
 ## Repository-Specific Patterns
 
 ### Validation Caching
-**📖 Complete guidance:** [.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md](.copilot/context/00.00%20prompt-engineering/05-validation-caching-pattern.md)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md)
 
 Agents working with article files must:
 - ❌ **NEVER modify top YAML** (Quarto metadata)
@@ -168,7 +168,7 @@ Agents working with article files must understand:
    - Must check `last_run` timestamps
    - Skip validation if recent (<7 days) and content unchanged
 
-Reference: `.copilot/context/90.00 learning-hub/02-dual-yaml-metadata.md`
+Reference: `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`
 
 ### Multi-Phase Workflows
 For complex operations, implement checkpoint pattern:
@@ -361,7 +361,7 @@ Before finalizing an agent file:
 
 All agents MUST include context-appropriate "I don't know" templates per **Principle 7: Explicit Uncertainty Management**.
 
-**See full guidance:** [.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00 prompt-engineering/01-context-engineering-principles.md#7-explicit-uncertainty-management)
+**See full guidance:** [.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md#7-explicit-uncertainty-management)
 
 **Required for all agents:**
 - Missing information scenario with three-part template
@@ -418,7 +418,7 @@ Agents with complex decision-making should include test scenarios:
 - 7-day validation caching to reduce redundant processing
 - Timestamp-based validation skip logic
 
-**See existing implementation:** `.copilot/context/00.00 prompt-engineering/05-validation-caching-pattern.md`
+**See existing implementation:** `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md`
 
 #### Agent Context Accumulation
 
