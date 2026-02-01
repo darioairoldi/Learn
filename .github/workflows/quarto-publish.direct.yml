@@ -177,7 +177,8 @@ jobs:
           }
           Write-Host "✓ Applied gh-pages .gitignore"
 
-          Remove-Item $tempDir -Recurse -Force
+          # Cleanup temp (ignore errors - OS will clean eventually)
+          Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue
 
           # Stage all files
           git add -A
