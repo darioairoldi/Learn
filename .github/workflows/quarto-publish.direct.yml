@@ -150,26 +150,38 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Create or switch to gh-pages branch
-          git checkout --orphan gh-pages || git checkout gh-pages
+          # Save docs to temp location (outside repo)
+          $tempDir = "$env:TEMP\gh-pages-deploy-$(Get-Random)"
+          Copy-Item -Path "docs" -Destination $tempDir -Recurse -Force
+          Write-Host "✓ Saved build output to: $tempDir"
 
-          # Remove all files except docs
-          Get-ChildItem -Force | Where-Object { $_.Name -ne 'docs' -and $_.Name -ne '.git' } | Remove-Item -Recurse -Force
+          # Create fresh orphan branch (no history = no case conflicts)
+          git checkout --orphan gh-pages-deploy
 
-          # Move docs contents to root
-          if (Test-Path "docs") {
-            Get-ChildItem "docs" -Force | Move-Item -Destination . -Force
-            Remove-Item "docs" -Force -Recurse
+          # Clear everything
+          git rm -rf . 2>$null
+          Get-ChildItem -Force | Where-Object { $_.Name -ne '.git' } | Remove-Item -Recurse -Force
+
+          # Copy build output to repo root
+          Get-ChildItem "$tempDir\docs" | Copy-Item -Destination . -Recurse -Force
+          Write-Host "✓ Copied build files to repo root"
+
+          # Use gh-pages specific .gitignore (from main branch)
+          Copy-Item -Path "$tempDir\docs\..\..\.gitignore.gh-pages" -Destination ".gitignore" -Force -ErrorAction SilentlyContinue
+          if (-not (Test-Path ".gitignore")) {
+            # Fallback: fetch from main if not in temp
+            git show main:.gitignore.gh-pages > .gitignore 2>$null
           }
+          Write-Host "✓ Applied gh-pages .gitignore"
 
-          # Add all files
+          Remove-Item $tempDir -Recurse -Force
+
+          # Stage all files
           git add -A
+          git commit -m "🚀 Deploy site - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -m "From commit: $env:GITHUB_SHA"
 
-          # Commit
-          git commit -m "🚀 Deploy site - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -m "Auto-deployed from commit $env:GITHUB_SHA"
-
-          # Force push to gh-pages
-          git push origin gh-pages --force
+          # Force push (completely replaces gh-pages)
+          git push origin gh-pages-deploy:gh-pages --force
 
           Write-Host "✓ Site deployed to gh-pages branch!"
 
