@@ -150,9 +150,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Save docs to temp location (outside repo)
+          # Save docs and .gitignore.gh-pages to temp location (outside repo)
           $tempDir = "$env:TEMP\gh-pages-deploy-$(Get-Random)"
-          Copy-Item -Path "docs" -Destination $tempDir -Recurse -Force
+          New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
+          Copy-Item -Path "docs\*" -Destination $tempDir -Recurse -Force
+          Copy-Item -Path ".gitignore.gh-pages" -Destination $tempDir -Force -ErrorAction SilentlyContinue
           Write-Host "✓ Saved build output to: $tempDir"
 
           # Create fresh orphan branch (no history = no case conflicts)
@@ -163,12 +165,13 @@ jobs:
           Get-ChildItem -Force | Where-Object { $_.Name -ne '.git' } | Remove-Item -Recurse -Force
 
           # Copy build output to repo root
-          Get-ChildItem "$tempDir\docs" | Copy-Item -Destination . -Recurse -Force
+          Copy-Item -Path "$tempDir\*" -Destination . -Recurse -Force
           Write-Host "✓ Copied build files to repo root"
 
           # Use gh-pages specific .gitignore (from main branch)
-          Copy-Item -Path "$tempDir\docs\..\..\.gitignore.gh-pages" -Destination ".gitignore" -Force -ErrorAction SilentlyContinue
-          if (-not (Test-Path ".gitignore")) {
+          if (Test-Path ".gitignore.gh-pages") {
+            Move-Item -Path ".gitignore.gh-pages" -Destination ".gitignore" -Force
+          } elseif (-not (Test-Path ".gitignore")) {
             # Fallback: fetch from main if not in temp
             git show main:.gitignore.gh-pages > .gitignore 2>$null
           }
