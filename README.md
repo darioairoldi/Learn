@@ -6,7 +6,7 @@ author: "Dario Airoldi"
 description: "A **living (autonomous) knowledge hub** that evolves continuously with **reduced verification and update overhead** and **assisted reasoning**."
 ---
 
-# 🚀 Welcome to Learning Hub
+# 🚀 Welcome to Learning Hub 
 
 This is an experiment about **learning from AI**, **learning how to work with AI** and understand **how the learning process can change** when assisted by it.  
 
