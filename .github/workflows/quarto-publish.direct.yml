@@ -26,7 +26,7 @@ jobs:
           # Self-hosted runners keep state between runs
           # The deploy step switches branches, corrupting subsequent checkouts
           if (Test-Path ".git") {
-            Write-Host "Resetting runner git state..."
+            Write-Host "Switching runner state to main branch..."
             git fetch origin main --force
             git checkout -B main origin/main --force
             git clean -fdx
@@ -40,9 +40,41 @@ jobs:
           fetch-depth: 1 # Shallow clone is sufficient for gh-pages force-push
           clean: true # Ensure clean checkout
 
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        # Uses latest stable Quarto version automatically
+      - name: Setup Quarto (Windows Self-Hosted)
+        shell: pwsh
+        run: |
+          # Check if Quarto is already installed and cached
+          $quartoPath = "C:\Program Files\Quarto\bin"
+          if (Test-Path "$quartoPath\quarto.exe") {
+            $existing = & "$quartoPath\quarto.exe" --version 2>$null
+            if ($existing) {
+              Write-Host "Quarto already installed: $existing"
+              $env:PATH = "$quartoPath;$env:PATH"
+              echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+              exit 0
+            }
+          }
+
+          Write-Host "Quarto not found, installing..."
+          $quartoVersion = "1.6.42"  # Latest stable as of Feb 2026
+          $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"
+
+          Write-Host "Downloading Quarto $quartoVersion..."
+          Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
+
+          Write-Host "Installing Quarto..."
+          Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait
+
+          # Add to PATH
+          if (Test-Path $quartoPath) {
+            $env:PATH = "$quartoPath;$env:PATH"
+            echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+            $version = & "$quartoPath\quarto.exe" --version
+            Write-Host "Quarto installed: $version"
+          } else {
+            Write-Error "Quarto installation failed"
+            exit 1
+          }
 
       - name: Render Quarto Project
         shell: pwsh
