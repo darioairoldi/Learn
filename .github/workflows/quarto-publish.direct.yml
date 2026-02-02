@@ -20,109 +20,50 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Switch runner state to main branch
+        shell: pwsh
+        run: |
+          # Self-hosted runners keep state between runs
+          # The deploy step switches branches, corrupting subsequent checkouts
+          if (Test-Path ".git") {
+            Write-Host "Resetting runner git state..."
+            git fetch origin main --force
+            git checkout -B main origin/main --force
+            git clean -fdx
+            Write-Host "Runner state reset to origin/main"
+          }
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch all history for proper gh-pages handling
+          ref: main # Explicitly checkout main branch (fixes self-hosted runner state issues)
+          fetch-depth: 1 # Shallow clone is sufficient for gh-pages force-push
+          clean: true # Ensure clean checkout
 
-      - name: Setup Quarto (Native Windows)
-        shell: pwsh
-        run: |
-          Write-Host "Setting up Quarto using native Windows installation..."
-
-          # Check if Quarto is already installed
-          try {
-            $existing = quarto --version 2>$null
-            if ($existing) {
-              Write-Host "Quarto already installed: $existing"
-              exit 0
-            }
-          } catch {
-            Write-Host "Quarto not found, proceeding with installation..."
-          }
-
-          # Download and install Quarto for Windows
-          $quartoVersion = "1.4.550"
-          $quartoUrl = "https://github.com/quarto-dev/quarto-cli/releases/download/v$quartoVersion/quarto-$quartoVersion-win.msi"
-
-          Write-Host "Downloading Quarto from: $quartoUrl"
-          try {
-            Invoke-WebRequest -Uri $quartoUrl -OutFile "quarto-installer.msi" -UseBasicParsing
-            Write-Host "Download completed successfully"
-            Write-Host "File size: $((Get-Item 'quarto-installer.msi').Length) bytes"
-          } catch {
-            Write-Host "Download failed: $_"
-            exit 1
-          }
-
-          # Install Quarto silently
-          Write-Host "Installing Quarto..."
-          try {
-            $process = Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "quarto-installer.msi", "/quiet", "/norestart" -Wait -PassThru
-            Write-Host "Installation completed with exit code: $($process.ExitCode)"
-          } catch {
-            Write-Host "Installation failed: $_"
-            exit 1
-          }
-
-          # Add Quarto to PATH for current session
-          $quartoPath = "C:\Program Files\Quarto\bin"
-          if (Test-Path $quartoPath) {
-            $env:PATH = "$quartoPath;$env:PATH"
-            Write-Host "Added $quartoPath to PATH"
-            
-            # Persist PATH for subsequent steps
-            echo $quartoPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-            
-            # Verify installation
-            $version = & "$quartoPath\quarto.exe" --version
-            Write-Host "Quarto installed successfully: $version"
-          } else {
-            Write-Host "Quarto installation directory not found at $quartoPath"
-            # Check alternative locations
-            $altPath = "C:\Program Files (x86)\Quarto\bin"
-            if (Test-Path $altPath) {
-              Write-Host "Found Quarto at alternative location: $altPath"
-              $env:PATH = "$altPath;$env:PATH"
-              echo $altPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-            } else {
-              Write-Host "Quarto not found in expected locations"
-              exit 1
-            }
-          }
-
-      - name: Check for Python requirements
-        id: check-python
-        shell: pwsh
-        run: |
-          if ((Test-Path "requirements.txt") -or (Test-Path "pyproject.toml")) {
-            echo "python-needed=true" >> $env:GITHUB_OUTPUT
-          } else {
-            echo "python-needed=false" >> $env:GITHUB_OUTPUT
-          }
-
-      - name: Setup Python (if needed for computations)
-        if: steps.check-python.outputs.python-needed == 'true'
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-          cache: "pip"
-
-      - name: Install Python dependencies (if needed)
-        if: steps.check-python.outputs.python-needed == 'true'
-        shell: pwsh
-        run: |
-          if (Test-Path "requirements.txt") {
-            pip install -r requirements.txt
-          } elseif (Test-Path "pyproject.toml") {
-            pip install -e .
-          }
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        # Uses latest stable Quarto version automatically
 
       - name: Render Quarto Project
         shell: pwsh
         run: |
+          Write-Host "Cleaning previous build artifacts..."
+          Remove-Item -Recurse -Force .quarto -ErrorAction SilentlyContinue
+          Remove-Item -Recurse -Force docs -ErrorAction SilentlyContinue
+          Remove-Item -Recurse -Force _freeze -ErrorAction SilentlyContinue
+
+          # Debug: Show what _quarto.yml contains
+          Write-Host "=== _quarto.yml website.title ==="
+          Get-Content "_quarto.yml" | Select-String -Pattern "title:" | Select-Object -First 2
+          Write-Host "=== End of title check ==="
+
           Write-Host "Rendering Quarto project..."
           quarto render --to html
+
+          # Debug: Show generated title in README.html
+          Write-Host "=== Generated README.html title ==="
+          Get-Content "docs/README.html" | Select-String -Pattern "<title>" | Select-Object -First 1
+          Write-Host "=== End of generated title check ==="
 
           Write-Host "Verifying output directory..."
           if (Test-Path "docs") {
@@ -157,6 +98,9 @@ jobs:
           Copy-Item -Path ".gitignore.gh-pages" -Destination $tempDir -Force -ErrorAction SilentlyContinue
           Write-Host "✓ Saved build output to: $tempDir"
 
+          # Delete local gh-pages-deploy branch if it exists from previous run
+          git branch -D gh-pages-deploy 2>$null
+
           # Create fresh orphan branch (no history = no case conflicts)
           git checkout --orphan gh-pages-deploy
 
@@ -184,17 +128,21 @@ jobs:
           git add -A
           git commit -m "🚀 Deploy site - $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -m "From commit: $env:GITHUB_SHA"
 
-          # Force push (completely replaces gh-pages)
-          git push origin gh-pages-deploy:gh-pages --force
+          # Debug: Show commit info
+          Write-Host "=== New commit info ==="
+          git log -1 --oneline
+          Write-Host "==="
+
+          # Force push directly (don't delete first - just force update)
+          Write-Host "Force pushing to gh-pages..."
+          git push origin gh-pages-deploy:gh-pages --force --verbose 2>&1
+
+          # Verify push worked
+          Write-Host "Verifying push..."
+          git fetch origin gh-pages
+          $remoteCommit = git rev-parse origin/gh-pages
+          $localCommit = git rev-parse HEAD
+          Write-Host "Local commit: $localCommit"
+          Write-Host "Remote gh-pages commit: $remoteCommit"
 
           Write-Host "✓ Site deployed to gh-pages branch!"
-
-    # - name: Trigger Pages Rebuild
-    #   continue-on-error: true  # Don't fail the workflow if this step fails
-    #   shell: pwsh
-    #   run: |
-    #     Write-Host "Triggering GitHub Pages rebuild..."
-    #     gh api -X POST repos/$env:GITHUB_REPOSITORY/pages/builds
-    #     Write-Host "✓ Pages rebuild triggered!"
-    #   env:
-    #     GH_TOKEN: ${{ github.token }}
