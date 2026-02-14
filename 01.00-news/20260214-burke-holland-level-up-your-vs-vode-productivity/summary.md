@@ -55,10 +55,10 @@ Burke walks through the complete anatomy of what happens when you send a message
 
 > "Behind the scenes, Copilot composes a prompt and it starts with a system prompt. The system prompt starts off with some core identity and global rules—this is just very generic stuff. It's like 'you are an intelligent AI coding assistant.'" — Burke Holland
 
-![alt text](<images/02.001 system prompt.png>)
-![alt text](<images/02.002 user prompt.png>)
-![alt text](<images/002.03 user prompt.png>)
-![alt text](<images/002.04 assistant message.png>)
+<img src="images/02.001 system prompt.png" alt="System prompt architecture" width="400" />
+<img src="images/02.002 user prompt.png" alt="User prompt" width="400" />
+<img src="images/002.03 user prompt.png" alt="User prompt" width="400" />
+<img src="images/002.04 assistant message.png" alt="Assistant message" width="400" />
 
 
 ---
@@ -78,8 +78,8 @@ Burke walks through the complete anatomy of what happens when you send a message
 - You can create multiple instruction files; the `copilot-instructions.md` file always comes **last** in the system prompt
 - Additional instruction files (e.g., framework-specific best practices) are inserted before `copilot-instructions.md`
 
-![alt text](<images/02.005 system prompt with custom instructions.png>)
-![alt text](<images/02.004 user prompt w prompt file.png>)
+<img src="images/02.005 system prompt with custom instructions.png" alt="System prompt with custom instructions" width="400" />
+<img src="images/02.004 user prompt w prompt file.png" alt="User prompt with prompt file" width="400" />
 
 **Demo summary:**
 Burke installs a Next.js best practices instruction file from the <mark>[Awesome Copilot](https://github.com/github/awesome-copilot) repository</mark>. After installation, both the Next.js instructions and the project's copilot instructions are automatically passed with every request.
@@ -144,7 +144,7 @@ Custom agents (formerly called <mark>custom modes</mark>) give the model a compl
 - Custom agents are injected **after** custom instructions in the system prompt—they're the very last thing in the agent system prompt
 - The key distinction: custom instructions give the model *information*; custom agents give the model an *identity*
 
-![alt text](<images/03.001 system prompt with agent.png>)
+<img src="images/03.001 system prompt with agent.png" alt="System prompt with agent" width="400" />
 
 **Demo summary:**
 Burke examines the built-in Plan mode agent, which follows a three-step workflow: gather context and research, present a concise plan for iteration, and handle user feedback. The Plan agent uses handoffs to delegate implementation to other agents.
