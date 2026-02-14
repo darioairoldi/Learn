@@ -2,7 +2,7 @@
 name: prompt-name
 description: "One-sentence description of what this prompt does"
 agent: agent  # Options: agent (full autonomy), plan (read-only), edit (focused editing), ask (Q&A)
-model: claude-sonnet-4.5  # Options: claude-sonnet-4.5, claude-opus-4.5, gpt-4o, gemini-2.0-flash
+model: claude-opus-4.6  # Options: claude-opus-4.6, gpt-4o, gemini-2.0-flash
 tools:
   - codebase           # Semantic search across repository
   - read_file          # Read file contents

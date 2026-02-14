@@ -143,7 +143,7 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 name: prompt-file-name
 description: "One-sentence description"
 agent: plan  # or: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - read_file
   - grep_search

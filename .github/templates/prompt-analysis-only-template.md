@@ -2,7 +2,7 @@
 name: prompt-name
 description: "One-sentence description of analysis task"
 agent: plan  # Read-only analysis agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - read_file          # Read target files
   - semantic_search    # Find related code/docs

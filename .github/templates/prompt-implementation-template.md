@@ -2,7 +2,7 @@
 name: prompt-name
 description: "One-sentence description of implementation task"
 agent: agent  # Full autonomy implementation agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - read_file                    # Read existing files
   - semantic_search              # Find related patterns

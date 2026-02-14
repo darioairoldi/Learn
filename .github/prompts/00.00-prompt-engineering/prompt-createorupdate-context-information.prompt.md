@@ -2,7 +2,7 @@
 name: prompt-createorupdate-context-information
 description: "Create or update context files that provide shared reference documents for prompts, agents, and instructions"
 agent: agent
-model: claude-opus-4.5
+model: claude-opus-4.6
 tools:
   - semantic_search
   - read_file

@@ -2,7 +2,7 @@
 name: prompt-design-and-create
 description: "Orchestrates the complete prompt file creation workflow using 8-phase methodology with use case challenge validation"
 agent: agent
-model: claude-opus-4.5
+model: claude-opus-4.6
 tools:
   - read_file
   - semantic_search

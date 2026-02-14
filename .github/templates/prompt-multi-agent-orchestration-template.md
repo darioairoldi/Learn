@@ -2,7 +2,7 @@
 name: prompt-name
 description: "One-sentence description of orchestration task"
 agent: agent  # Orchestrator with handoff capabilities
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - read_file          # For Phase 1 requirements analysis only
   - semantic_search    # For determining which agents to invoke

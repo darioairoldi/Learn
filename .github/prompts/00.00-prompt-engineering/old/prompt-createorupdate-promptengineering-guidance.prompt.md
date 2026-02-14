@@ -2,7 +2,7 @@
 name: prompt-createorupdate-prompt-engineering-guidance
 description: "Generate or update instruction files and context files that guide prompt/agent creation workflows (specialized for prompt-engineering domain)"
 agent: agent
-model: claude-opus-4.5
+model: claude-opus-4.6
 tools:
   - semantic_search
   - read_file

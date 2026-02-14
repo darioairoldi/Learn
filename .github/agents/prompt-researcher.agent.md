@@ -488,7 +488,7 @@ See "Output Format" section below.
 name: [value]
 description: [format requirement]
 agent: [plan/agent - with rationale]
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - [tool-1]  # [Why needed]
   - [tool-2]  # [Why needed]

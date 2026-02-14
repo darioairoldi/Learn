@@ -17,7 +17,7 @@ tools:
   - semantic_search
   - grep_search
   # Add write tools only if needed: create_file, replace_string_in_file
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 target: vscode  # or github-copilot for cloud execution
 ---
 

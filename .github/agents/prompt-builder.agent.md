@@ -159,7 +159,7 @@ Missing information:
    name: [prompt-name from research]
    description: "[one-sentence description]"
    agent: [plan/agent based on research]
-   model: claude-sonnet-4.5
+   model: claude-opus-4.6
    tools:
      - [tool-1]  # From research tool recommendations
      - [tool-2]
@@ -365,7 +365,7 @@ Complete, ready-to-use prompt file in `.github/prompts/` directory.
 name: example-validation
 description: "Example validation prompt with caching"
 agent: plan
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - read_file
   - grep_search

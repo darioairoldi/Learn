@@ -2,6 +2,9 @@
 
 Use these output formats when running the `article-review-for-consistency-gaps-and-extensions.prompt.md` workflow.
 
+**Location:** `.github/templates/article-review-for-consistency-gaps-and-extensions/`
+**Prompt:** `.github/prompts/01.00-article-writing/article-review-for-consistency-gaps-and-extensions.prompt.md`
+
 ---
 
 ## Phase 1: Review Context Analysis Output

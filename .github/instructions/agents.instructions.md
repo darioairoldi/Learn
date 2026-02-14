@@ -97,7 +97,7 @@ They operate at the implementation level with detailed technical instructions, t
 name: agent-name
 description: "One-sentence description of agent''s role"
 tools: [''specific'', ''tools'', ''only'']  # Critical: narrow tool scope
-model: claude-sonnet-4.5  # Optional: specify preferred model
+model: claude-opus-4.6  # Optional: specify preferred model
 target: vscode  # Optional: vscode (default) or github-copilot
 ---
 ```

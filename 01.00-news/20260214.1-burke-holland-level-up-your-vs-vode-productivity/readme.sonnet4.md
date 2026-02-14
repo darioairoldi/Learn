@@ -22,11 +22,17 @@ description: "Deep analysis of Burke Holland's session deconstructing the VS Cod
 
 ## Executive summary
 
-Burke Holland's session addresses one of the most common questions in the VS Code Copilot ecosystem: what's the difference between custom instructions, prompt files, and custom agents—and where exactly do they go in the prompt? Rather than offering surface-level guidance, Burke reverse-engineers the agent system prompt itself, diagramming the precise layered architecture that Copilot assembles before anything reaches the model.
+**Burke Holland**'s session addresses one of the most common questions in the VS Code Copilot ecosystem: what's the difference between <mark>custom instructions</mark>, <mark>prompt files</mark>, and <mark>custom agents</mark>—and where exactly do they go in the prompt? Rather than offering surface-level guidance, Burke reverse-engineers the agent system prompt itself, diagramming the precise layered architecture that Copilot assembles before anything reaches the model.
 
-The session's major themes are: (1) the deterministic, layered structure of the VS Code system prompt, (2) the distinct injection points and purposes of each customization mechanism, (3) the real-world impact of context rot on model accuracy, and (4) a practical three-phase workflow (plan → generate → implement) that leverages premium models for reasoning and free models for execution. Burke demonstrates each concept live, installing community resources, routing models via prompt file front matter, and composing a full agentic workflow across multiple chat sessions.
+The session's major themes are:  
+(1) the deterministic, layered structure of the <mark>VS Code system prompt</mark>,  
+(2) the distinct injection points and purposes of each customization mechanism,  
+(3) the real-world impact of <mark>context rot</mark> on model accuracy, and  
+(4) a practical three-phase workflow (plan → generate → implement) that leverages premium models for reasoning and free models for execution. Burke demonstrates each concept live, installing community resources, routing models via prompt file front matter, and composing a full agentic workflow across multiple chat sessions.
 
-The session delivers high practical value for any developer using VS Code Copilot at an intermediate or advanced level. The three-phase workflow pattern is particularly compelling—it's a concrete, repeatable strategy for reducing premium request costs by 60-80% while maintaining output quality. The architectural explanation of prompt injection points, while not officially documented at this granularity, provides essential mental models for anyone building custom workflows.
+The session delivers high practical value for any developer using <mark>VS Code Copilot</mark> at an intermediate or advanced level.  
+The three-phase workflow pattern is particularly compelling—it's a concrete, repeatable strategy for reducing premium request costs by 60-80% while maintaining output quality.  
+The architectural explanation of <mark>prompt injection points</mark>, while not officially documented at this granularity, provides essential mental models for anyone building custom workflows.
 
 ---
 
@@ -66,12 +72,12 @@ The session delivers high practical value for any developer using VS Code Copilo
 
 ## Session content (chronological)
 
-## 1. Introduction and framing
+## 1. Introduction and <mark>framing</mark>
 
 **Timeframe:** 0:00 – 0:19 (0m 19s)  
 **Speakers:** Burke Holland (Senior Cloud Advocate, Microsoft)
 
-Burke opens with the central question driving the session: what's the difference between prompt files, custom instructions, and custom agents in VS Code? He frames this as the most common question he hears from the community and promises a structural explanation of how they work together.
+Burke opens with the central question driving the session: what's the difference between <mark>prompt files</mark>, <mark>custom instructions</mark>, and <mark>custom agents</mark> in VS Code? He frames this as the most common question he hears from the community and promises a structural explanation of how they work together.
 
 **Key points:**
 
@@ -95,16 +101,16 @@ This is the foundational segment of the session. Burke diagrams the complete lif
 **Timeframe:** 0:52 – 1:55 (1m 3s)  
 **Speakers:** Burke Holland
 
-Burke identifies four distinct layers within the system prompt, assembled in order:
+Burke identifies <mark>four distinct layers</mark> within the system prompt, assembled in order:
 
 **Key points:**
 
 | Layer | Purpose | Notes |
 |-------|---------|-------|
-| Core identity and global rules | Generic AI identity ("you are an intelligent AI coding assistant") | Only 2-3 lines |
-| General instructions | Model-specific behavioral tweaks | Varies by model—e.g., suppressing code blocks for models that over-print |
-| Tool use instructions | How to use built-in tools (edit, terminal, todo list) | Tool-specific guidance |
-| Output format instructions | Formatting for tokenization and UI rendering | Ensures file pills and UI elements render correctly |
+| <mark>Core identity and global rules</mark> | Generic AI identity ("you are an intelligent AI coding assistant") | Only 2-3 lines |
+| <mark>General instructions</mark> | Model-specific behavioral tweaks | Varies by model—e.g., suppressing code blocks for models that over-print |
+| <mark>Tool use instructions</mark> | How to use built-in tools (edit, terminal, todo list) | Tool-specific guidance |
+| <mark>Output format instructions</mark> | Formatting for tokenization and UI rendering | Ensures file pills and UI elements render correctly |
 
 > "The system prompt starts off with some core identity and global rules. This is just very generic stuff—I think there's only two or three lines." — Burke Holland
 

@@ -1,0 +1,886 @@
+0:00
+Agent orchestration, otherwise known as
+0:03
+what? Yes, the latest hot trend for vibe
+0:08
+coders or agentic engineers is here. In
+0:11
+this video, we're going to take a look
+0:12
+at what it is, how it works, and whether
+0:15
+or not you should use it today. And as
+0:17
+always, please remember all we have
+0:18
+right now are new features and ideas,
+0:21
+and we're kind of figuring out how
+0:22
+things work in real time. So, don't feel
+0:24
+compelled to understand and use all of
+0:27
+this stuff. In the end, use what's right
+0:29
+for you. Whatever works, whatever makes
+0:31
+you productive, that's the right thing.
+0:34
+You ready? Let's go. Now, the best way
+What is orchestration?
+0:37
+to understand agent orchestration is
+0:39
+just to look at it from what you're
+0:41
+doing today. So, in your editor of
+0:44
+choice, maybe you send a chat command.
+0:47
+What does this project do? And then you
+0:51
+can send another chat command. And maybe
+0:54
+this one is research design for iOS
+0:57
+apps. And on this one, you're going to
+0:59
+send it to a background agent. And so
+1:01
+now you have two agents going at the
+1:03
+same time, a local agent and a
+1:05
+background agent. And maybe you even
+1:06
+have a cloud agent. Now, in this
+1:09
+scenario, you are the orchestrator. You
+1:12
+are running all of these different
+1:13
+agents. And maybe you're using Opus for
+1:15
+some and Cloud for others and GPT5 for
+1:18
+others. But in an agent orchestration
+1:21
+scenario, you actually have one agent
+1:23
+that calls others. And this is possible
+1:26
+because of the recent tooling that has
+1:28
+arrived for both the Copilot CLI and
+1:31
+Visual Studio Code. So if we were to go
+1:34
+to the Copilot CLI here, so let's just
+1:37
+fire that up. So the most naive way that
+1:41
+we could orchestrate agents here is to
+1:43
+just have them call each other. And we
+1:45
+can do that just by saying it like this.
+1:50
+Review the code in this project for
+1:53
+accuracy and improvements and security
+1:56
+flaws. When you're done with your
+1:58
+findings, run them by both GPT52 codecs
+2:01
+and Gemini 3 Pro. Iterate with these two
+2:04
+models to see what their ideas are, what
+2:07
+their findings are, and then come back
+2:08
+with a complete plan on what we can do
+2:11
+to improve this project.
+2:16
+Now, I'm going to send this prompt. And
+2:17
+in this case, believe it or not, this is
+2:20
+all we have to do in the Copilot CLI. It
+2:22
+will actually pick up the different
+2:24
+models we want to use. And it doesn't
+2:26
+even matter that it got it wrong here.
+2:28
+And it said GPT52 codeex with a K,
+2:31
+whatever that is. Uh, it should actually
+2:33
+figure this out on its own and then
+2:35
+delegate to these different agents.
+2:37
+Let's see if it does that. So, you see
+2:40
+here it says, now I have the full
+2:41
+codebase. Let me launch three parallel
+2:42
+reviews. It's running GPT52 codecs in
+2:45
+Gemini 3 Pro. And it's doing this all at
+2:48
+the same time. So most people don't know
+2:51
+this is possible, but yes, you can in
+2:53
+Copilot have one model call other
+2:55
+models. You don't have to use just one
+2:57
+in a chat session. You can use all of
+3:00
+them. And that's exactly what's
+3:01
+happening here. All right. So I sped
+3:03
+that up, but you can see what happened
+3:04
+here. It called the generalpurpose GPT52
+3:07
+codeex agent here and the generalpurpose
+3:10
+Gemini 3 Pro preview agent here. Now
+3:13
+what these are is something called sub
+3:16
+aents and these are available in both
+3:17
+the CLI and in Visual Studio Code and
+3:19
+they are super powerful because sub
+3:22
+agents can be called by the main agent
+3:25
+but sub agents can have whatever model
+3:27
+you want them to have and then uh as you
+3:29
+can see it went through it created a
+3:31
+plan here for us and it's quite a long
+3:33
+plan. We're not going to look at it
+3:35
+because this is a real project that I'm
+3:36
+working on that I want to show you. Now
+Orchestration with custom agents
+3:38
+you can probably see that this opens up
+3:40
+a lot of possibilities. Um, first and
+3:43
+foremost, if you have an agent that can
+3:45
+call other agents,
+3:48
+then essentially you could just build
+3:49
+your own dev team, right? Like you could
+3:52
+have a team lead and architects and
+3:54
+coders and designers and planners and
+3:56
+PMs. I mean, why not? You can have as
+3:58
+many sub aents as you want. And so that
+4:01
+is the general idea behind agent
+4:03
+orchestration is that you have agents
+4:05
+orchestrating other agents. So let's
+4:08
+actually see how this works in practice
+4:10
+in a real project. So here's a real
+4:13
+project that I'm working on. It is a
+4:14
+replacement for the Gemini app on iOS
+4:17
+because there are features that the
+4:18
+Gemini app doesn't have. I'm tired of
+4:20
+waiting for them and it's 2026. So you
+4:22
+can just build your own. And so we can
+4:25
+make a picture of cats playing
+4:27
+volleyball just like this. send it and
+4:31
+this will interact with Gemini API. It's
+4:33
+just a chat app, but it's done the way
+4:35
+that I like specifically in this app. I
+4:38
+can edit history, edit my prompts and
+4:41
+resend them. For whatever reason, you
+4:42
+can't do that today in the Gemini app.
+4:45
+So, I just made it so that you could.
+4:47
+So, we can edit this dogs playing
+4:50
+volleyball. Now, what we want to do here
+4:52
+is create the web experience for this
+4:56
+this app because sometimes you use AI on
+4:58
+your phone and then you go back to the
+5:00
+web and you use it there. And so we want
+5:02
+to create the web experience. We're
+5:04
+going to use agent orchestration to do
+5:06
+that. Now, we talked about how Visual
+5:08
+Studio Code has custom agents and those
+5:10
+custom agents are here. And you can
+5:12
+define these custom agents just by
+5:14
+clicking configure custom agent. So what
+5:16
+we're going to do is we're going to
+5:17
+create an orchestration framework that
+5:20
+has an orchestrator with a planner, a
+5:23
+designer, and a coder. And we're going
+5:25
+to use all three of the big models to do
+5:27
+this. Sonnet, GPT52, GPT52 Codeex, and
+5:32
+Gemini 3 Pro. So let's jump in and take
+5:35
+a look at this first orchestrator custom
+5:37
+agent. The orchestrator's entire job is
+Orchestrator Agent
+5:40
+just to orchestrate work between
+5:43
+different agents. It doesn't actually do
+5:45
+any work itself other than that. It's
+5:48
+like a PM or a logistics coordinator. So
+5:51
+you can see here the first thing that we
+5:52
+do in our custom agent is configure the
+5:54
+tools and it only has two. It has the
+5:57
+ability to call sub aents with the agent
+5:59
+tool and it has a memory and memory is
+6:02
+new in copilot. You can use that today.
+6:05
+And you can see here if we just scroll
+6:07
+down the prompt is fairly simple. You're
+6:08
+a project orchestrator. You break down
+6:10
+complex requests into tasks and delegate
+6:13
+them to specialist sub aents. You
+6:16
+coordinate work, but you never implement
+6:19
+anything yourself. And then this is
+6:21
+important for Visual Studio Code. We
+6:23
+need to tell the orchestrator exactly
+6:26
+what the name of the different sub aents
+6:28
+it can use are. They are planner, coder,
+6:32
+and designer. And we'll take a look at
+6:34
+these. And then we have a workflow. It's
+6:37
+fairly simple. understand, plan, break
+6:39
+it down into steps, delegate it to the
+6:41
+sub aents, coordinate between the agents
+6:45
+depending on the work that was done, and
+6:46
+then report the results back. Now, we
+6:49
+have some rules down here lower that
+6:52
+tell this orchestrator agent,
+6:55
+don't tell sub agents how to do work
+6:56
+because these agents really, really,
+6:58
+really want to do the work. And so, what
+7:00
+I noticed is that the main orchestrator
+7:03
+agent really wants to tell the sub
+7:04
+agents exactly what to do. wants to give
+7:06
+them the line to change exactly what to
+7:08
+change. These models think they know
+7:10
+everything and so you have to really go
+7:11
+out of your way to make sure that they
+7:13
+don't do that. So that's essentially
+7:14
+what the rest of this prompt does. But
+7:16
+you can see it's not terribly long.
+7:19
+That's the orchestrator. So let's look
+7:21
+at the planner. The planner custom
+Planning Agent
+7:23
+agent, as you can see right here, let's
+7:25
+jump into that. Has all of the tools. It
+7:27
+can do pretty much anything. You create
+7:29
+plans. You do not write code. And you
+7:32
+can see and this is key here this model
+7:34
+line 52. So this is how the agent knows
+7:39
+which model to use. So when the
+7:41
+orchestrator calls this sub aent, the
+7:42
+sub aent is just going to use GPT52. So
+7:45
+we're using 52 for planning. You can see
+7:48
+these prompts are not very long. Prompts
+7:50
+don't need to be long and complicated to
+7:52
+get the job done. They just need to do
+7:53
+the job. So now let's take a look at our
+7:56
+coder. The coder agent uses GPT52
+Coder Agent
+8:00
+codecs. That's what that model's good at
+8:03
+is writing code. It's really good at
+8:04
+writing code. That's all this agent
+8:06
+does. And you can see here it's got a
+8:08
+lot of tools and it has an MCP server
+8:10
+called context 7. And context 7 is very
+8:12
+simple. It has one tool just allows the
+8:15
+agent to go and read the docs. And so
+8:17
+here in the prompt, this is pretty
+8:20
+simple except for this block right here.
+8:22
+And this block is meant to counter the
+8:25
+fact that the orchestrator is probably
+8:27
+going to try to tell this agent what to
+8:28
+do. And we're basically telling it,
+8:30
+don't do that. Question everything
+8:31
+you're told. Make your own decisions.
+8:33
+And then here are just some mandatory
+8:35
+coding principles that I use for the
+8:38
+coding agent. You don't have to have
+8:39
+these, but I like to include these. And
+8:42
+these are very generic terms like prefer
+8:44
+flat explicit code over abstractions or
+8:47
+deep hierarchies. Right? We're just
+8:49
+trying to keep the code clean and
+8:50
+simple. And so you're more than welcome
+8:52
+to use these, but you don't have to.
+8:55
+Now, let's take a look at the designer.
+Designer
+8:58
+The designer handles all of the UI, UX,
+9:01
+and styling because, [clears throat] as
+9:02
+it turns out, not all of these models
+9:04
+are the same when it comes to design.
+9:06
+And in fact, Theo has a great video on
+9:08
+this that you should check out where he
+9:09
+looks at which model is best for design.
+9:12
+Spoiler alert, he doesn't think that
+9:14
+it's Gemini 3 Pro. I tend to disagree. I
+9:17
+tend to get better results with Gemini
+9:18
+3, so that's what we're going to use.
+9:20
+The designer prompt, probably the most
+9:22
+simple of all. The model we're
+9:24
+specifying, Gemini 3 Pro. I get way
+9:26
+better results with design. With Gemini
+9:28
+3 Pro, I don't use Gemini for hardly
+9:30
+anything else. But for design, it's
+9:32
+unbeatable. And then here, look, I'm
+9:34
+doing it again. You are the designer.
+9:37
+Don't let the orchestrator tell you how
+9:38
+to do your job because the orchestrator
+9:40
+is going to try to do that. Instead,
+9:42
+your goal is to create the best possible
+9:44
+user experience and interface designs,
+9:47
+focusing on usability, accessibility,
+9:50
+and aesthetics. Conceptually speaking,
+9:53
+the design agent needs to have full
+9:55
+creative autonomy here. So, we don't
+9:57
+want to give it a lot of guardrails. We
+9:58
+really want to let it do what it does,
+10:00
+which is design. So, that is essentially
+10:03
+the whole orchestration framework. It's
+10:05
+ultra light. It's very small, but I want
+10:07
+to show it to you in action. And what
+10:09
+we're going to do is we're going to use
+Orchestration in action
+10:10
+this orchestration framework to build a
+10:12
+web experience for the mobile app that
+10:15
+we have. Now before we actually use this
+10:18
+orchestrator agent, it's important to
+10:20
+point out that what model should you use
+10:22
+for the orchestrator? I use Claude
+10:24
+Sonnet 45. And the reason that I do this
+10:26
+is that Claude Sonnet 45 is very
+10:29
+agentic, right? It's almost like a
+10:31
+Labrador, right? It's like like it's
+10:34
+just super eager, always trying to do
+10:36
+things. And so we want to harness that.
+10:38
+We want that energy. We want the agency
+10:41
+that Sonnet 45 has, but we don't want it
+10:43
+writing any code. It's not good at
+10:45
+writing code. I would not recommend that
+10:47
+you have Sonnet 45 write code. GPT52
+10:50
+Codeex is just way better at that. So we
+10:53
+want the agency of Sonnet and we want
+10:56
+the coding chops of Codeex. And that's
+10:59
+what we're going to do here. To get
+11:00
+that, we're going to have Sonnet be the
+11:03
+orchestrator. Now, what we're going to
+11:04
+do here is we're going to create the web
+11:06
+experience for the mobile app and we're
+11:09
+going to send it in and try to oneshot
+11:11
+it. Probably won't be able to do that
+11:13
+because it's quite complex, but let's
+11:15
+see what our little orchestration
+11:16
+framework can do. We want to create a
+11:19
+web experience for this mobile app. We
+11:22
+want it to look exactly like the mobile
+11:24
+app or rather borrow the same design
+11:27
+aesthetics from the mobile app. Uh, it
+11:30
+should use Firebase. the mobile app is
+11:32
+already using Firebase, feel free to use
+11:34
+the Firebase CLI to get the resources
+11:37
+that you need or to stand up any
+11:39
+resources that you need.
+11:45
+Now, I'm going to send this prompt and
+11:46
+let this thing go. This is going to take
+11:48
+some time and then we'll come back when
+11:50
+it's done, examine the chat history, and
+11:53
+then take a look at what it's actually
+11:55
+produced and see if orchestration works.
+12:02
+All right, it finished and that did take
+12:04
+some time, but let's scroll back up
+12:05
+through the chat here and I just want to
+12:06
+show you a few things because this is
+12:08
+pretty fascinating. So, from our prompt
+12:10
+here, you can see the first thing that
+12:12
+it's doing is it's calling the planner
+12:14
+agent just like it's supposed to. And
+12:16
+that's going to use GPT52. And if we
+12:19
+look at the planner agent, you can see
+12:21
+the prompt that actually gets sent. The
+12:23
+user wants to create a web experience
+12:25
+for their iOS Gemini chat app. here are
+12:29
+the requirements. It's basically taking
+12:31
+what I asked and boosting that prompt
+12:34
+and then it asks for a plan and it gets
+12:37
+the plan back. Now, after the planning
+12:39
+agent is finished, it reviews the plan,
+12:41
+reads it, and then delegates it to the
+12:46
+designer to create a web design system.
+12:48
+And again, we can dig in here and see
+12:49
+the prompt. It's telling the designer a
+12:52
+little bit of information about the
+12:54
+application and then telling it to
+12:55
+create, if we scroll down here, create a
+12:59
+design system for this web application.
+13:02
+And it puts it here in a markdown
+13:04
+document right there. There it is.
+13:06
+There's a design system complete with
+13:08
+CSS styles and everything. That's Gemini
+13:10
+3 Pro doing its job. Now after the
+13:14
+designer it starts to coordinate with
+13:16
+the coder and then it calls the coder
+13:18
+and then in the coder it says build a
+13:21
+complete web application for the better
+13:23
+Gemini chat app and it passes in the
+13:26
+plan here and then down here you can see
+13:30
+it uses the web design system that was
+13:33
+created by the designer. Now, if we
+13:36
+scroll back up, we go through here, you
+13:39
+can see that now that we're inside the
+13:42
+coder agent, it's using the context 7
+13:45
+MCP tool to query documentation and it
+13:49
+just keeps going and going and then uh
+13:51
+eventually finishes. So, let's go ahead
+13:53
+and collapse this, compiles a list, and
+13:56
+then tells you what it has actually
+13:58
+created here. Now, here's the most
+14:00
+fascinating thing about all of this. Do
+14:03
+you see the context window indicator
+14:05
+down here? Look at this. Do you see how
+14:09
+much context window we have not used? It
+14:12
+created 2,77
+14:14
+lines of code and we've only used 10.8K
+14:17
+of the context window. How is that
+14:19
+possible? That's the magic of sub aents.
+14:22
+They have an isolated context window.
+14:24
+They only use what's theirs and then
+14:27
+once the sub agent is done because it
+14:29
+has its own context window, that's gone.
+14:31
+It doesn't pollute the main context
+14:33
+window. It just gets the result of what
+14:35
+the sub agent does. Now, let's see if
+14:38
+this actually worked and see if we have
+14:41
+a working web app.
+14:43
+All right, here's the app. Let's go
+14:45
+ahead. Can we sign in with Google? We
+14:47
+can. Brilliant. Let's go ahead and click
+14:50
+that.
+14:51
+Okay, let's start a new conversation.
+14:54
+All right, so already we have some
+14:56
+issues. Again, we can probably open up
+14:58
+our dev tools here and copy those errors
+15:01
+out here and then take them back in and
+15:04
+work with our orchestration framework to
+15:06
+actually make this functional. But let's
+Improving the orchestration
+15:09
+talk about this for a second and some
+15:10
+improvements that we could probably make
+15:12
+here. So, one of the things that I
+15:14
+noticed is that when it created the
+15:16
+plan, it didn't really pass much of the
+15:18
+plan to the uh coder. It sort of just
+15:22
+passed a highle overview of the plan.
+15:24
+So, we might want to update the planner
+15:26
+to say save your plan in a document and
+15:28
+always pass that document to the coder.
+15:30
+Another thing that I noticed is that it
+15:32
+ran one coder agent to do all of the
+15:34
+work. Would have been better if it had
+15:36
+sliced up the work into discrete chunks
+15:38
+and then given that to five coder agents
+15:41
+running at the same time because sub
+15:43
+agents can run in parallel. You can do
+15:46
+that. So, we have some tweaks to make to
+15:47
+our orchestrator prompt here. If you
+15:49
+would like to try this ultralight
+15:50
+orchestration framework today, you can
+15:52
+do that. It's here in the link below the
+15:55
+video. And then you just need to install
+15:58
+each one of these. Just click on the
+16:00
+button that will open Visual Studio Code
+16:02
+and install the agent for you. And these
+16:05
+agents are exactly the same ones that we
+16:07
+saw in this video. But remember, what
+16:10
+I've created here isn't the end all be
+16:12
+all. It's just an example of how you can
+16:15
+use a single agent to orchestrate
+16:17
+multiple sub agents. But how you put it
+16:21
+together is however it works best for
+16:23
+you. Choose the models that work for you
+16:26
+that make you the most productive.
+16:28
+There's also other agent orchestration
+16:30
+frameworks out there. Some really,
+16:32
+really complex ones. You may have heard
+16:34
+of them. Gas Town, GSD, and some others.
+16:37
+You probably want to take a look at
+16:38
+those as well. And that is basically
+16:42
+agent orchestration. You can use this
+16:44
+today at a very simple level. You don't
+16:46
+have to have a hundred agents all out
+16:48
+there doing various things all at the
+16:50
+same time, checking each other's code,
+16:51
+reviewing each other's pull requests.
+16:53
+That'd be nice. But where we are today
+16:56
+is that if you could get one agent to
+16:58
+delegate work out to a bunch of sub
+16:59
+aents who are very good at different
+17:01
+things, that's a great start when it
+17:03
+comes to agent orchestration. Good luck
+17:05
+and as always, happy coding.

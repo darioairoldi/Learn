@@ -2,7 +2,7 @@
 name: learninghub-ensure-kebab-notation
 description: "Enforce full kebab-case naming repo-wide with quarto render validation loop"
 agent: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - read_file
   - list_dir

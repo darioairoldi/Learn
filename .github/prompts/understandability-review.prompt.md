@@ -2,7 +2,7 @@
 name: understandability-review
 description: Evaluate how well the target audience will understand the content
 agent: ask
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 argument-hint: 'Attach file with #file, specify target audience'
 ---
 

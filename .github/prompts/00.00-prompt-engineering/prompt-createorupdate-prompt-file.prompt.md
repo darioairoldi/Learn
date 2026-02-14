@@ -2,7 +2,7 @@
 name: prompt-createorupdate-v2
 description: "Create production-ready prompt files with adaptive validation, error recovery, and embedded test scenarios"
 agent: agent
-model: claude-opus-4.5
+model: claude-opus-4.6
 tools:
   - semantic_search    # Find similar prompts and patterns
   - read_file          # Read templates and instructions

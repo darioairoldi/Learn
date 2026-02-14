@@ -2,7 +2,7 @@
 name: techsession-analysis
 description: "Generate deep, chronological technical session analysis with demos and tangential content in appendices"
 agent: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools: ['codebase', 'editor', 'filesystem', 'fetch']
 argument-hint: 'Assumes transcript.txt and SUMMARY.md exist in active folder'
 ---

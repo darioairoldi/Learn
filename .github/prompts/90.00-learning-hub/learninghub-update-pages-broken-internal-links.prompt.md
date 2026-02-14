@@ -2,7 +2,7 @@
 name: learnhub-update-pages-broken-internal-links
 description: "Identifies and fixes broken internal markdown links across the repository by reconciling references with actual file locations"
 agent: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - file_search         # Locate all markdown files in repository
   - read_file           # Read files to extract links

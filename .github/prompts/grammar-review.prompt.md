@@ -2,7 +2,7 @@
 name: grammar-review
 description: Check grammar, spelling, and punctuation in article
 agent: edit
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 argument-hint: 'Attach file with #file or provide text selection'
 ---
 

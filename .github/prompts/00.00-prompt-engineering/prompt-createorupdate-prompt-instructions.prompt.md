@@ -2,7 +2,7 @@
 name: prompt-createorupdate-prompt-instructions
 description: "Create or update instruction files that provide path-specific AI guidance for GitHub Copilot"
 agent: agent
-model: claude-opus-4.5
+model: claude-opus-4.6
 tools:
   - semantic_search
   - read_file

@@ -2,7 +2,7 @@
 name: prompt-name
 description: "One-sentence description of validation task"
 agent: plan  # Read-only validation agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - read_file          # Read target file
   - grep_search        # Find patterns across files

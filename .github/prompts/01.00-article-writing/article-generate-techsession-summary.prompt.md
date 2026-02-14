@@ -2,7 +2,7 @@
 name: techsession-summary
 description: "Generate concise, concept-driven technical session summaries from session notes and transcripts"
 agent: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools: ['codebase', 'editor', 'filesystem']
 argument-hint: 'Works with files in active folder or specify paths'
 ---

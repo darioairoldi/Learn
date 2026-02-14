@@ -2,7 +2,7 @@
 name: agent-review-and-validate
 description: "Orchestrates the agent file review and validation workflow with tool alignment verification"
 agent: plan
-model: claude-opus-4.5
+model: claude-opus-4.6
 tools:
   - semantic_search
   - read_file

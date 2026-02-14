@@ -2,7 +2,7 @@
 name: readability-review
 description: Analyze readability, consistency, and identify redundancy
 agent: ask
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 argument-hint: 'Attach file with #file'
 ---
 

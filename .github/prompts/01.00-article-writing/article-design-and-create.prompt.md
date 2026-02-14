@@ -2,7 +2,7 @@
 name: article-design-and-create
 description: "Design and create new articles with comprehensive research, validation, and proper structure"
 agent: agent
-model: claude-opus-4.5
+model: claude-opus-4.6
 tools:
   - fetch_webpage      # Research and reference verification
   - read_file          # Template and context file reading

@@ -2,7 +2,7 @@
 name: learnhub-sidebar-menu-v3
 description: "Validate and fix Quarto navigation: detect dangling refs, sync project.render, enforce sorting rules"
 agent: agent
-model: claude-opus-4.5
+model: claude-opus-4.6
 tools:
   - read_file
   - list_dir

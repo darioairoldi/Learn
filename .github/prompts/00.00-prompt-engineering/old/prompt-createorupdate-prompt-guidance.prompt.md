@@ -2,7 +2,7 @@
 name: prompt-createorupdate-prompt-guidance
 description: "Generate or update domain-specific instruction files and context files using template-based workflows"
 agent: agent
-model: claude-sonnet-4.5
+model: claude-opus-4.6
 tools:
   - semantic_search
   - read_file
