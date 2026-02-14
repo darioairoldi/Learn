@@ -14,6 +14,8 @@ project:
     - "01.00-news/20260111-6-vital-rules-for-production-ready-copilot-agents/summary.md"
     - "01.00-news/20260124-copilotstudio-sdk/github-copilot-sdk-building-agents-for-any-application.md"
     - "01.00-news/20260130-6-advanced-rules-for-production-copilot-agents/summary.md"
+    - "01.00-news/20260214-burke-holland-level-up-your-vs-vode-productivity/summary.md"
+    - "01.00-news/20260214-burke-holland-level-up-your-vs-vode-productivity/readme.sonnet4.md"
     - "02.00-events/202506-build-2025/readme.md"
     - "02.00-events/202506-build-2025/brk-breakout-sessions/brk101-dotnet-app-modernization/readme.sonnet4.md"
     - "02.00-events/202506-build-2025/brk-breakout-sessions/brk101-dotnet-app-modernization/summary.md"
@@ -228,6 +230,10 @@ website:
       - text: "News"
         menu:
           - text: "Latest Updates"
+          - href: "01.00-news/20260214-burke-holland-level-up-your-vs-vode-productivity/summary.md"
+            text: "Level Up VS Code Productivity - Summary"
+          - href: "01.00-news/20260214-burke-holland-level-up-your-vs-vode-productivity/readme.sonnet4.md"
+            text: "Level Up VS Code Productivity - Analysis"
           - href: "01.00-news/20260130-6-advanced-rules-for-production-copilot-agents/summary.md"
             text: "6 Advanced Rules for Copilot Agents"
           - href: "01.00-news/20260124-copilotstudio-sdk/github-copilot-sdk-building-agents-for-any-application.md"
@@ -466,6 +472,12 @@ website:
         contents:
           # Explicit list for newest-first ordering (per context rules)
           # When adding new articles: INSERT AT TOP of this list
+          - section: "20260214 - Burke Holland Level Up Your VS Code Productivity"
+            contents:
+              - text: "Summary"
+                href: "01.00-news/20260214-burke-holland-level-up-your-vs-vode-productivity/summary.md"
+              - text: "Analysis"
+                href: "01.00-news/20260214-burke-holland-level-up-your-vs-vode-productivity/readme.sonnet4.md"
           - text: "20260130 - 6 Advanced Rules For Production Copilot Agents"
             href: "01.00-news/20260130-6-advanced-rules-for-production-copilot-agents/summary.md"
           - text: "20260124 - GitHub Copilot SDK Building Agents"
