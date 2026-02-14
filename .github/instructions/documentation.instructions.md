@@ -28,7 +28,7 @@ Every article MUST include:
 
 ---
 
-## Reference Classification (REQUIRED)
+## Reference Classification
 
 All references MUST include emoji markers indicating source reliability:
 
