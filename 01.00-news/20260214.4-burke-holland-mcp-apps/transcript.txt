@@ -1,0 +1,939 @@
+0:10
+apps is. Is is basically a UI that MCP
+0:13
+apps can return in the chat. So, it's
+0:16
+cool if you're a user and it's cool if
+0:18
+you're building MCP servers. In this
+0:20
+video, we're going to look at how it
+0:22
+works and how you can add it to your MCP
+0:25
+server today. and then we'll look at
+0:26
+what the practical use cases of MCP apps
+0:29
+even are. You ready? Let's do it. Hey
+Enabling MCP Apps
+0:32
+folks, just just one other thing I
+0:34
+forgot to put in the video, but at the
+0:36
+time of this recording, you need to go
+0:37
+to settings and look for MCP apps and
+0:40
+settings and turn on this experimental
+0:42
+feature. All right, so the easiest way
+0:44
+to understand MCP apps is just to see
+Demo: MCP Apps in action
+0:46
+them in action. So let's start with that
+0:48
+and do that before we jump into how do
+0:50
+you actually create one. And what we're
+0:53
+going to do is we're going to use an MCP
+0:56
+server to change the color of this light
+0:58
+bulb over here. And I'm going to turn
+0:59
+you so you can watch the light bulb as
+1:01
+it changes. So you don't need to see me.
+1:03
+Okay, bear with me. There we go. So
+1:07
+there's an MCP server that I built that
+1:10
+just controls the light. So we could say
+1:13
+uh change the color
+1:15
+of the lamp
+1:18
+to blue. And this uses uh and you'll see
+1:21
+I misspel a lot but it's fine. AIS don't
+1:24
+care. So this uses the LIFX which is
+1:27
+just a type of light bulb uh API and I
+1:30
+have a key that passes and it's going to
+1:32
+pass off and change the link color to
+1:34
+blue and it just did right. So that's
+1:36
+just that's a simple MCP server that I
+1:39
+built and it's it's this right here.
+1:41
+Now, um, MCP apps because prior MCPS
+1:46
+could only return text in the chat. And
+1:48
+so, if the MCP server needed to get
+1:51
+clarification from you or wanted to show
+1:52
+you rich content, it couldn't do that.
+1:55
+So, now we have the ability to show a
+1:57
+UI. So, what I can do here is just say,
+1:59
+show me the lamp control panel. And this
+2:03
+is a UI that will be returned by that
+2:07
+same LIFXMCP server but right in the
+2:11
+chat. And here it is.
+2:14
+So here here it is. I I built this and
+2:16
+by myself I mean of course Opus 45. But
+2:19
+I can see all the lights I have. This is
+2:21
+the one I want. I can change the color
+2:23
+and if you watch the lamp uh it will
+2:26
+change as I as I move around here. I'm
+2:28
+sorry. I'm just moving my head to make
+2:29
+sure the video is updating. Yeah, it is.
+2:31
+Good. Right. And then we can do uh
+2:33
+effects and other things like that. And
+2:35
+and all of this is is done in the chat
+2:38
+here. Now, um why would we do this?
+2:42
+Well, because it's possible that I might
+2:44
+come in and say something like change
+2:47
+the color of the light. Now, I have
+2:49
+multiple LIFX bulbs, so I haven't told
+2:52
+it what color to change it to or which
+2:55
+bulbs I want to change. And so Sonnet
+2:57
+should be smart enough to look at this
+2:58
+and be like, "Well, they didn't say." It
+3:01
+may guess or it may just uh show me.
+3:05
+Yeah, it does. So it it basically says,
+3:07
+if you see here, it says you didn't
+3:09
+specify which light or what color. So,
+3:11
+let me show you an interactive
+3:12
+controller. And this is MCP apps in
+3:14
+action here. And uh we're running out of
+3:16
+space a little bit because of the zoom.
+3:18
+Let me zoom out a little bit. I
+3:20
+apologize. So these are this is MCP
+3:22
+apps. This is what we're going to build.
+3:24
+Uh, this UI can look like anything. You
+3:26
+can build anything you want. Uh, and so
+3:28
+let's get into how we do that. All
+3:31
+right. Now, we're going to start from
+A basic Hello World MCP Server
+3:33
+what I like to call absolute zero, which
+3:35
+means we have no files whatsoever. We're
+3:37
+starting with nothing. Now, we need a
+3:40
+simple hello world MCP server. And
+3:42
+there's a couple different ways we could
+3:44
+do this. One of them is we could use
+3:45
+skills. If you watched my video on
+3:47
+skills, video on skills,
+3:51
+since that video, there's a new site
+3:54
+that's popped up that I wanted to show
+3:55
+you called skills.sh. And there's all
+3:58
+kinds of great skills in here. This
+4:00
+site's so cool. This is from Verscell.
+4:02
+Love the folks at Verscell. They do so
+4:04
+many nice things for developers. Look at
+4:06
+this. If we search for MCP, there's an
+4:09
+MCP builder skill right from Anthropic.
+4:12
+And later on, there's MCP apps. If we're
+4:15
+going to do MCP apps, which we are,
+4:17
+there's an MCP uh apps skill here as
+4:20
+well. So, if you wanted to install one
+4:22
+of these, you could just grab it, copy
+4:25
+it, come to your terminal in Visual
+4:27
+Studio Code, and run that, and it will
+4:29
+copy everything into your project, your
+4:31
+skill. So, nice. But we're not going to
+4:33
+do that. And the reason for that is
+4:35
+because when you're making a video, AI
+4:37
+is really stoastic, which means I never
+4:39
+know what it's going to do. and I feel
+4:40
+like it's just going to confuse you if
+4:42
+we vibe things and it doesn't come out
+4:44
+the way I want. So, what I'm going to do
+4:46
+is create this very simple hello world
+4:48
+program and I'll come right back to you
+4:50
+and we'll pick it up from there. All
+4:52
+right, let's remove the pie from the
+4:53
+oven. You can see here I've got a
+4:56
+package JSON here and we've got a couple
+4:59
+different um dependencies. model context
+5:02
+protocol SDK for TypeScript, Figlet,
+5:05
+which creates the ASKI art that we're
+5:06
+going to use to say hello world in our
+5:09
+simple hello world MCP server and zod
+5:12
+which is just a uh a schema library for
+5:14
+type for uh for TypeScript. Now, I'm
+5:17
+going to go back here. We need to take a
+5:19
+look at the actual server file itself.
+5:21
+It's really not that complex, but let's
+5:23
+just take a look at what's going on. So,
+5:25
+here's our standard imports. And then
+5:28
+here at the top, this is where we're
+5:29
+going to use Figlet to make the ASI art.
+5:32
+And then here's our tool. Just a hello
+5:35
+tool generate generates a personalized
+5:37
+ASI art greeting. And you can see
+5:39
+there's a name argument with optional
+5:42
+defaults to world if not provided,
+5:44
+right? And so here's some examples here
+5:47
+for the model. And then um we're just
+5:50
+returning that make greeting which gives
+5:52
+us the ASI art back. Okay, a lot of work
+5:55
+to just make some ASI art. And then uh
+5:59
+that's really all there is to it. So we
+6:00
+can now add this MCP server to Visual
+6:03
+Studio Code. So there's a build step. I
+6:05
+already ran it and it just outputs our
+6:08
+built file there. So let's go to MC add
+6:11
+MCP server here. MCP add server. And
+6:14
+then the type is standard IO. It's just
+6:16
+running locally as a node uh program
+6:19
+here. So let's just say node as the
+6:21
+command we want to run. and we'll call
+6:22
+it hello world. And then we're going to
+6:25
+put it in our workspace just so we can
+6:27
+see all of the configuration here. Uh
+6:30
+now you can see it's not actually
+6:31
+running here. Um although it was before,
+6:33
+which is why it's picking that up. But
+6:35
+let's go ahead and for our arguments
+6:37
+here, we just need to tell it where that
+6:40
+uh JavaScript file is. And it's right
+6:42
+there. And if you'll notice, those are
+6:43
+the new uh completions kicking in. Those
+6:46
+have really improved in Copilot in the
+6:48
+last few months. So you check that out.
+6:50
+All right. Right. So, let's go ahead and
+6:52
+start this. So, you can see it started
+6:54
+and there's now just one tool, which is
+6:56
+what we had. And now we can go to chat
+6:58
+and we can actually test this. So, let's
+6:59
+go over to our chat and let's pick a
+7:02
+small cheat model here. How about VS
+7:04
+Code Prime? It's free. And then we can
+7:06
+just call our hello tool here. And uh
+7:10
+I'll just say my name is Burke.
+7:14
+And if we've done everything correctly,
+7:16
+it should call our MCP server because
+7:18
+I've mentioned it directly. and return
+7:20
+the ASKI art greeting. And there we go.
+7:24
+Very nice. Now, notice that I did call
+7:27
+hello specifically. You'll see me keep
+7:29
+doing that because hello is just way too
+7:31
+broad of a thing to send a large
+7:32
+language model. It knows how to answer
+7:34
+hello. We'll happily do that. So now
+7:37
+what we want to do is what happens if we
+7:39
+just say hello. I don't know if you
+7:40
+remember from the code, but do you
+7:42
+remember what happens if we just say
+7:43
+hello or or what should happen based on
+7:46
+the code? It just returns world. Uh
+7:49
+that's right. So what would be nice is
+7:51
+if the user does not provide a name then
+7:53
+instead of just showing a default we
+7:56
+actually show a form where they can put
+7:58
+their name in and click submit. So let's
+8:01
+modify our application to do that by
+8:04
+adding MCP apps to this project.
+Adding the MCP Apps UI
+8:08
+So first we need to update our package
+8:09
+JSON file which I did here. Um we need
+8:11
+ext apps and then down here we need
+8:15
+cross env which we're using up here in
+8:17
+the build command. We'll talk about that
+8:18
+in just a second. And then we're using
+8:19
+Vit and Vit plug-in single file. And
+8:22
+we're going to talk about why that is.
+8:25
+So in order to understand what we're
+8:27
+doing here, we need to understand that
+8:29
+for MCP apps, what we're going to have
+8:30
+is an HTML file and a TypeScript file
+8:32
+that contains all the logic for the HTML
+8:35
+file. And then we're going to use a VIT
+8:37
+to bundle those two things together into
+8:39
+a single file. So to do that, we're
+8:42
+going to need a VIT config.
+8:45
+And our Vit config is going to look like
+8:47
+this. Now you're thinking, "How am I
+8:49
+supposed to remember all this code?"
+8:50
+You're not, right? We talked about
+8:52
+there's skills for doing this. The AI
+8:53
+can do this. There's documentation for
+8:55
+doing this. We're just doing it by hand
+8:57
+so that we can learn without the AI
+8:58
+getting in the way. So here's our config
+9:01
+here. And then when we run a build, it
+9:04
+will call this vit and it will bundle
+9:06
+our two files together. They don't exist
+9:08
+yet, but let's create them now. So we're
+9:11
+going to put the HTML file at the root
+9:13
+of our project here and let's just call
+9:14
+it mcpapp.html.
+9:17
+So, here's our HTML file, and you can
+9:19
+see here that it's pretty simple. We've
+9:22
+got a a very simple CSS framework we're
+9:24
+using called Pico. And then it's a very
+9:26
+simple form that just says, "Enter your
+9:28
+name with a submit button." Very, very
+9:30
+simple here. And we could uh we could
+9:32
+even preview this, although it won't
+9:33
+look great. Uh but that's essentially
+9:35
+what it will look like in the chat.
+9:37
+Okay. Now, the logic for this is coming
+9:40
+from this srcmcp.ts,
+9:42
+which does not exist. So, let's create
+9:44
+that. So, I'm going to go to the source
+9:46
+folder here and create a new file called
+9:48
+mcpapp.ts.
+9:50
+And let me grab the code for that. All
+9:51
+right. So, this is all of the logic
+9:53
+that's going to end up in this HTML file
+9:55
+to control that HTML file. And this is
+9:58
+going to if you've written JavaScript
+9:59
+before, that's exactly what this is,
+10:00
+right? There's like document.getelement
+10:03
+by ID, things like that. So, as we go
+10:06
+down here, you can see that on the
+10:07
+submit, what we're going to do is we're
+10:10
+going to call the server tool. So,
+10:12
+what's the server tool? It's hello,
+10:14
+right? It's this hello tool right here.
+10:17
+So that's the cool thing about MCP apps
+10:19
+is that they're birectional. So the form
+10:21
+can call the server and the server can
+10:23
+call back. And we're going to get the
+10:24
+result here. And then we're going to
+10:26
+pass in the name, right, which we're
+10:28
+pulling from the form, pass that to the
+10:31
+tool, and then get back the asky art.
+10:33
+And then here, this is kind of the the
+10:35
+weird way you have to pull the text out
+10:37
+of the response here. And then we're
+10:39
+going to set the greeting element in
+10:41
+HTML to be that. uh and escape uh HTML
+10:45
+to make sure everything's safe. So in
+10:46
+our index file here, we're going to add
+10:48
+in a couple of packages here at the top.
+10:51
+We're going to pull in from the ext apps
+10:53
+packages as well as using uh some uh
+10:56
+file system and path modules for node.
+10:59
+And then we just need to tell our MCP
+11:02
+server about this UI resource. And we do
+11:06
+that with this UI scheme here. And this
+11:09
+UI scheme tells the host as the comment
+11:11
+says that this is an MCP app resource
+11:14
+here. And now we need to add another
+11:16
+tool that the MCP server can call to
+11:19
+show that UI. So let's come down to the
+11:22
+bottom of our file here. We're going to
+11:23
+add a new uh register app tool here
+11:28
+called show get name. So that's the name
+11:30
+of this tool and it shows a UI and here
+11:33
+this is super important. So that
+11:35
+resource UI we specified that's
+11:37
+specified here and this is how the MCP
+11:40
+server knows this meta tag uh that this
+11:42
+is an MCP app here and then we're just
+11:45
+returning nothing out of the content
+11:46
+here because we don't care about that.
+11:48
+We only care about the UI. Finally, we
+11:50
+need to actually register this UI
+11:52
+resource. So you can see here we're
+11:54
+reading in uh we're using that path to
+11:57
+uh get the HTML file from here. Read it
+12:00
+in and then return this as the UI. So,
+12:04
+several steps here, but this is how you
+12:07
+configure MCP apps if you were going to
+12:09
+do it manually. Now that we have this,
+12:12
+so let's go ahead and run a build.
+12:20
+Okay. And now let's go restart our MCP
+12:23
+server. Okay. And now we have two tools
+12:25
+instead of just one. So let's go back
+12:27
+here and let's call the I think it was
+12:29
+called show getname. So we'll just call
+12:32
+show get name directly here and see if
+12:35
+we can get it force it to show us this
+12:37
+input form.
+12:40
+And there we go. Uh let's see here. We
+12:43
+can collab. That works. Perfect. And now
+12:45
+if we say put our name in and say Burke,
+12:48
+what happens? Let's say hello. And it
+12:51
+calls the MCP server which returns the
+12:53
+ASI art and shows it right there.
+12:55
+Perfect. Exactly what we wanted. Now,
+12:57
+one thing to notice here is that the
+12:59
+chat actually finishes even after
+13:02
+opening the form because we didn't
+13:03
+return anything. Uh we we returned
+Forcing AI to wait with Promises
+13:06
+nothing from this actually. You can see
+13:08
+our input was that, but we didn't we
+13:10
+didn't get anything back. And so the
+13:12
+chat doesn't wait. It just shows the
+13:14
+form and then finishes. So what would
+13:16
+happen if we actually wanted to show a
+13:19
+form and then have the chat wait for our
+13:21
+for our input? because that could be one
+13:23
+use case for MCP apps is that we want to
+13:25
+solicit feedback from the user. We want
+13:27
+to use MCP apps to do it and we want the
+13:29
+chat to wait. So to do that, we're going
+13:32
+to need to use a promise and return that
+13:35
+promise unresolved and then have the
+13:37
+chat wait until that promise resolves.
+13:39
+And I'm going to show you how to do
+13:40
+that. All right, so let's go over to our
+13:43
+index file here, which is our MC server.
+13:47
+And the first thing that we're going to
+13:48
+want to do is declare at the very top
+13:50
+here our promise which we're going to
+13:52
+return. And that's pretty simple. It
+13:54
+looks like this, right? We're just at
+13:56
+this point, we're just declaring it.
+13:57
+We're not actually doing anything with
+13:59
+it. And now in our mcpapp.ts
+14:04
+file here, instead of calling this tool
+14:07
+hello, what we want to do is create a
+14:09
+new tool called submit name. Okay. So,
+14:13
+we need to add this new submit to the
+14:17
+MCP server. So, let's do that. So,
+14:19
+here's our first tool. Hello. So, we can
+14:21
+collapse this. And here's our second
+14:23
+one, which is show get name. And then
+14:25
+we're going to create a third one here
+14:27
+called submit name. And it's going to be
+14:29
+subtly different. Now, the way that it's
+14:32
+going to be most different is that its
+14:35
+visibility is only to the MCP app. So,
+14:38
+the chat can't actually see this tool.
+14:40
+It can't call it. only the app can call
+14:43
+this tool. So that's another benefit of
+14:45
+MCP apps is that some things you can
+14:47
+specify that are tools for the MCP
+14:49
+server that only your app can call. And
+14:52
+now we're going to go to our show get
+14:54
+name which shows the form. And instead
+14:56
+of returning nothing, we're actually
+14:58
+going to return that promise. So we're
+15:01
+saying await the value of this, right?
+15:04
+this and this is where where we're going
+15:06
+to actually return up to the chat
+15:09
+because what we want the chat to do is
+15:11
+display the asky art equivalent of what
+15:13
+we put in. So we need to have it wait
+15:14
+here until it gets this back and then it
+15:19
+can display it in the content. So if you
+15:21
+follow it's going to show the UI. It's
+15:23
+going to get this. It's going to wait on
+15:25
+this to resolve. It's not going to get
+15:26
+anything back. It's just going to sit
+15:28
+here and spin in the background and
+15:29
+wait. And then when this resolves, then
+15:31
+this line gets called and actually
+15:33
+returned to the chat. The last thing we
+15:35
+need to do is make sure that our MCP app
+15:38
+is up to date. So we're going to remove
+15:40
+all of this uh greeting text here. And
+15:43
+we're just going to call that tool. So
+15:46
+it was a server tool call server tool.
+15:48
+And I believe it was uh name and the
+15:51
+name was submit name.
+15:54
+There we go. And the arguments are name.
+15:57
+And we don't need to handle the call
+15:58
+back here because we're sending
+15:59
+everything back to the chat. Uh and so
+16:01
+we're just going to send it and forget
+16:03
+about it. We don't need to know anything
+16:05
+about it. All right, let's go ahead now
+16:07
+and run a build. And then we just need
+16:10
+to go over to our MCP JSON here and we
+16:13
+need to go ahead and restart that
+16:15
+server. So I've restarted it. You can
+16:17
+see there's now three tools. Now I
+16:20
+thought we said it wouldn't be visible
+16:22
+one of those tools. Well, it's not. If
+16:24
+we come here and we look for uh what did
+16:26
+we call it? It was called the submit.
+16:28
+You can see it's not there, right? Can't
+16:31
+actually be seen. Now, it can be seen
+16:32
+from the app. It just can't be seen from
+16:34
+the chat. But we can still call our uh
+16:37
+show get name. And we'll do that with
+16:39
+this free included model here. And this
+16:42
+should allow us to enter our name in the
+16:45
+form. And the chat should wait for us to
+16:47
+do that. So, you see a waiting here.
+16:49
+It's waiting. It's still running. It's
+16:51
+just waiting. and it will just sit here
+16:53
+and wait. Enter our name. Click say
+16:55
+hello
+16:59
+and then it actually gets resolved and
+17:02
+the chat continues on. And you can see
+17:04
+the value that we passed in the form
+17:06
+actually gets sent back to the chat and
+17:08
+displayed right here. And that
+17:13
+that is your crash course on MCP apps.
+17:16
+And if you made it through all of this,
+17:17
+then you understand a lot about MCP
+17:20
+apps. out. Uh again, you can check out
+17:23
+these skills
+17:26
+here, skills.sh. You can look for MCP
+17:28
+builder and you can also look for MCP
+17:31
+apps. If you just search for MCP apps,
+17:33
+you'll find an MCP apps creator skill
+17:36
+here as well. And if I wasn't making a
+17:38
+video, this is what I would use to build
+17:41
+my apps instead of writing everything by
+17:44
+hand. It just works better that way when
+17:46
+you want to actually understand what's
+17:48
+going on. That's it. And now you
+17:51
+understand MCP apps pretty well and you
+17:54
+can go ahead and either build your own,
+17:56
+add them to MCP servers or you can now
+18:00
+expect to start seeing them in places
+18:02
+where you use AI. These rich interfaces
+18:05
+for things like charts if you ask about
+18:07
+data or possibly in org chart if you ask
+18:10
+about an organization, right? Because AI
+18:13
+shows up in more places than just Visual
+18:15
+Studio Code. And so you'll start to see
+18:16
+these rich interfaces appearing in
+18:18
+places. And those are MCP apps. Thank
+18:21
+you for watching and as always, happy
+18:24
+cutting.

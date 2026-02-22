@@ -221,7 +221,51 @@ description: "One-sentence summary for search and preview (120-160 chars)"
 - **Progressive disclosure** — Start simple, add complexity gradually
 - **Visual hierarchy** — H2 for main topics, H3 for subtopics, never skip levels
 - **Scannable structure** — Bullets, tables, code blocks
-- **Emoji prefixes for H2 headings** — Use relevant emojis at start of H2 section titles for visual scanning (e.g., `## 🎯 Core Concepts`, `## 📋 Prerequisites`)
+
+### Emoji prefixes on H2 headings (MUST)
+
+**RULE:** Every `##` (H2) heading in generated articles MUST start with a relevant emoji for visual scanning and quick navigation.
+
+- This applies to all H2 section titles in the article body
+- Choose emojis that represent the section's purpose
+- Place the emoji immediately before the heading text with a space: `## 🎯 Section title`
+- H3 headings and below do NOT require emojis
+- TOC entries SHOULD mirror the emoji from their corresponding H2 heading
+
+**Common emoji mappings:**
+
+| Section type | Suggested emoji |
+|--------------|-----------------|
+| Introduction / goals | 🎯 |
+| Prerequisites / requirements | 📋 |
+| Architecture / structure | 🏗️ |
+| Implementation / code | ⚙️ |
+| Key insights / takeaways | 💡 |
+| Questions / Q&A | ❓ |
+| References / resources | 📚 |
+| Next steps / follow-up | 🚀 |
+| Decisions | ✅ |
+| Action items | 📌 |
+| Related content | 🔗 |
+| Warnings / limitations | ⚠️ |
+
+**Examples:**
+
+✅ Correct:
+```markdown
+## 🎯 Core concepts
+## 📋 Prerequisites
+## 🏗️ Architecture overview
+## 📚 Resources and references
+```
+
+❌ Wrong:
+```markdown
+## Core concepts
+## Prerequisites
+## Architecture overview
+## Resources and references
+```
 
 ### Conclusion Section
 **Every article MUST have a conclusion with:**
@@ -564,7 +608,7 @@ Before considering an article complete, verify:
 - [ ] Has all required sections (intro, conclusion, references)
 - [ ] Table of contents for articles > 500 words
 - [ ] Progressive disclosure (simple → complex)
-- [ ] Emoji prefixes on H2 section headings
+- [ ] Emoji prefixes on ALL H2 section headings (MUST — every `##` heading starts with an emoji)
 
 ### Writing Style
 - [ ] Sentence-style capitalization throughout

@@ -3,7 +3,7 @@ title: "How to Create a Prompt Orchestrating Multiple Agents"
 author: "Dario Airoldi"
 date: "2025-12-26"
 categories: [tech, github-copilot, prompt-engineering, agents, orchestration]
-description: "Design orchestrator prompts that coordinate specialized agents through multi-phase workflows with intelligent architecture analysis and handoffs"
+description: "Case study: design an orchestrator prompt that coordinates specialized agents through a multi-phase prompt creation workflow with architecture analysis, handoffs, and common mistakes"
 ---
 
 # How to Create a Prompt Orchestrating Multiple Agents
@@ -12,6 +12,8 @@ When building complex AI workflows, a single prompt file often isn't enough.
 Tasks like "create a new prompt following best practices" involve multiple distinct phases—research, building, validation, and fixing—each requiring different expertise and tools.  
 
 This article explains how to design an <mark>orchestrator prompt</mark> that coordinates specialized agents, including intelligent architecture analysis to determine when new agents need to be created.
+
+> **Series context:** This article is a case study applying the orchestration fundamentals from [How to Design Orchestrator Prompts](./10.00-how_to_design_orchestrator_prompts.md), [How to Design Subagent Orchestrations](./11.00-how_to_design_subagent_orchestrations.md), [How to Manage Information Flow](./12.00-how_to_manage_information_flow_during_prompt_orchestrations.md), and [How to Optimize Token Consumption](./13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md). Read those articles first for the conceptual foundations.
 
 ## Table of Contents
 
@@ -23,11 +25,7 @@ This article explains how to design an <mark>orchestrator prompt</mark> that coo
 - [📋 The Specialized Agent Pattern](#-the-specialized-agent-pattern)
 - [🎯 Use Case Challenge Methodology](#-use-case-challenge-methodology)
 - [🔀 Orchestrator Design: Phase-Based Coordination](#-orchestrator-design-phase-based-coordination)
-- [📡 Information Exchange Protocols](#-information-exchange-protocols)
-  - [Explicit Data Contracts](#explicit-data-contracts)
-  - [Communication Format: Text Reports > JSON](#communication-format-text-reports--json)
-  - [Context Carryover Strategies](#context-carryover-strategies)
-  - [Token-Efficient Communication Patterns](#token-efficient-communication-patterns)
+- [📡 Information exchange](#-information-exchange)
 - [🧠 Structure Definition & Architecture Analysis (Phase 3)](#-structure-definition--architecture-analysis-phase-3)
   - [Tool Composition Validation](#tool-composition-validation)
   - [Agent Dependencies Planning (Phases 5-6)](#agent-dependencies-planning-phases-5-6)
@@ -313,30 +311,50 @@ User reviews completed work in Agent HQ
 Applies changes to main workspace
 ```
 
-#### Subagents (Experimental)
+#### Subagents
 
-VS Code supports <mark>**subagents**</mark>—the ability to <mark>spawn child agents from within a parent agent's execution</mark>.  
+VS Code supports <mark>**subagents**</mark>—the ability to <mark>spawn child agents from within a parent agent's execution</mark> via the `runSubagent` tool.  
 This enables dynamic orchestration patterns where agents can delegate subtasks programmatically.
+
+Subagents run in isolated context windows and return only their final result to the parent agent. This keeps the orchestrator's context focused on decisions rather than details. You can control visibility with `user-invokable` (controls dropdown appearance) and `disable-model-invocation` (prevents auto-invocation), and restrict which subagents an orchestrator can invoke using the `agents` frontmatter property.
+
+##### Official orchestration patterns
+
+The [VS Code subagents documentation](https://code.visualstudio.com/docs/copilot/agents/subagents) defines two canonical patterns that apply directly to this case study:
+
+**Coordinator and Worker** — A coordinator agent manages the overall task and delegates subtasks to specialized subagents, each with tailored tool access. Planning and review agents use read-only tools; implementers get edit capabilities. This maps directly to the prompt creation system's four-specialist architecture described in this article.
 
 ```yaml
 ---
-name: code-review-orchestrator
-description: "Orchestrates code review workflow"
-tools:
-  - runSubagent  # Enables spawning child agents
-  - read_file
-infer: true  # Allow this agent to be used as a subagent (default)
+name: Feature Builder
+tools: ['agent', 'edit', 'search', 'read']
+agents: ['Planner', 'Implementer', 'Reviewer']
 ---
+For each feature request:
+1. Use the Planner agent to break down the feature into tasks.
+2. Use the Implementer agent to write the code for each task.
+3. Use the Reviewer agent to check the implementation.
+4. If the reviewer identifies issues, use the Implementer again to apply fixes.
 ```
 
-**Subagent patterns:**
-- Parent orchestrator spawns specialized reviewers on-demand
-- Dynamic agent selection based on file types discovered
-- Recursive workflows where validators can trigger fixers
+**Multi-perspective Code Review** — Run multiple review perspectives as **parallel subagents** so findings are independent and unbiased. Each subagent approaches the code fresh, without being anchored by what other perspectives found.
 
-> **Note:** Subagent support is experimental. Set `infer: false` in agent YAML to prevent an agent from being invoked as a subagent.
+```yaml
+---
+name: Thorough Reviewer
+tools: ['agent', 'read', 'search']
+---
+Run these subagents in parallel:
+- Correctness reviewer: logic errors, edge cases, type issues.
+- Security reviewer: input validation, injection risks, data exposure.
+- Architecture reviewer: codebase patterns, design consistency.
 
-Learn more: [VS Code Subagents with Custom Agents](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_use-a-custom-agent-with-subagents-experimental)
+Synthesize findings into a prioritized summary.
+```
+
+> **Handoffs vs. subagents:** This case study uses <mark>**handoffs**</mark> (user-visible buttons that switch agents with optional auto-submit) for its orchestration flow. The official patterns above use <mark>**subagents**</mark> (programmatic delegation via `runSubagent`, running in isolated context). Both approaches are valid—handoffs give users explicit control at each transition, while subagents enable autonomous multi-step execution. You can combine them: use handoffs for high-risk checkpoints and subagents for automated subtasks.
+
+For a complete treatment of subagent execution, custom agent delegation, orchestration patterns, and the `agents` property, see [How to Design Subagent Orchestrations](./11.00-how_to_design_subagent_orchestrations.md).
 
 ### Sharing Agents Across Teams
 
@@ -717,6 +735,19 @@ handoffs:
 ---
 ```
 
+> **Subagent-based alternative:** The handoff-based orchestrator above gives users explicit control buttons at each phase transition. With the formal subagent API, you can achieve the same coordination programmatically:
+>
+> ```yaml
+> ---
+> name: prompt-create-orchestrator
+> description: "Orchestrates specialized agents to research, build, and validate"
+> tools: ['agent', 'read_file', 'semantic_search']
+> agents: ['prompt-researcher', 'prompt-builder', 'prompt-validator', 'prompt-updater']
+> ---
+> ```
+>
+> This approach delegates via `runSubagent` instead of handoff buttons, enabling autonomous multi-step execution. See the [Subagents section](#subagents) and [How to Design Subagent Orchestrations](./11.00-how_to_design_subagent_orchestrations.md) for details.
+
 ### Phase Flow
 
 ```
@@ -795,6 +826,8 @@ Phase 8: Fix (→ prompt-updater)
     ❌ Escalate to user
 ```
 
+> **Real-world example:** Burke Holland's orchestration demo showcases a 4-agent architecture (orchestrator → planner → coder → designer) with model-per-agent selection and isolated context windows. This pattern maps directly to the orchestration principles described here. See [Burke Holland — Orchestrations](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md).
+
 ### Handoff Configuration: `send: true` vs `send: false`
 
 | Configuration | Behavior | Use When |
@@ -808,494 +841,19 @@ Phase 8: Fix (→ prompt-updater)
 - Validate → Automatic, builder self-checked (`send: true`)
 - Fix → Automatic re-validation (`send: true`)
 
-## 📡 Information Exchange Protocols
+## 📡 Information exchange
 
-Effective multi-agent orchestration requires **explicit protocols** for how information flows between components. Without clear contracts, context is lost, tokens are wasted, and reliability suffers.
+Effective multi-agent orchestration requires explicit protocols for how information flows between agents—data contracts, context carryover strategies, and token-efficient communication patterns.
 
-### Explicit Data Contracts
+This case study's prompt creation workflow uses several techniques covered in detail in the dedicated articles:
 
-Every handoff MUST define **what flows** between agents using explicit contracts:
+- **Data contracts and structured reports** — Each agent in this workflow produces structured text reports (not JSON) for downstream consumption. See [How to Manage Information Flow](./12.00-how_to_manage_information_flow_during_prompt_orchestrations.md) for the theory of data contracts, communication formats, context carryover strategies, and the five communication pathways.
 
-```yaml
-handoffs:
-  - label: "Research Requirements"
-    agent: prompt-researcher
-    send: true           # Current conversation context flows to agent
-    receive: "report"    # Expects structured text report back
-    data_contract:
-      input: "User requirements + initial goal"
-      output: "Research report (patterns, templates, recommendations)"
-      format: "Structured markdown"
-```
+- **Token-efficient handoffs** — Multi-phase workflows like this one create compounding token costs at each handoff. Techniques like progressive summarization, file-based isolation, and prompt-directed attention keep costs manageable. See [How to Optimize Token Consumption](./13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md) for nine strategies with token budget estimates.
 
-### Communication Format: Text Reports > JSON
+- **Handoff prompt design** — When `send: true` triggers a handoff, the entire conversation history flows to the receiving agent. Use explicit `FOCUS ON` / `IGNORE` directives in the `prompt:` field to direct the agent's attention. For critical data, consider file-based context passing (writing specs to `.copilot/temp/` files and instructing the receiving agent to read them).
 
-<mark>**Critical Decision**</mark>: Use **structured natural language** instead of JSON between agents.
-
-| Format | Reliability | Human Review | Token Efficiency |
-|--------|-------------|--------------|------------------|
-| **<mark>Structured Text</mark>** | ✅ High (LLM native) | ✅ Easy | ✅ Good (context reuse) |
-| **JSON** | ⚠️ Lower (parsing issues) | ❌ Harder | ⚠️ Poor (verbose) |
-
-**Why Text Over JSON?**
-- LLMs process natural language more reliably than structured data
-- Semantic structure provides implicit prioritization
-- Creates human-readable checkpoints for review
-- Easier to debug and verify correctness
-
-### Standardized Report Formats
-
-Agents should produce **consistent, structured reports** for downstream consumption:
-
-**Research Report Template**:
-```markdown
-# Research Report: {Topic}
-
-## Context Summary
-[1-2 paragraph overview - what orchestrator provided]
-
-## Key Patterns Discovered
-### Pattern 1: {Name}
-- **Location**: {file paths}
-- **Relevance**: {why it matters for this task}
-
-## Recommendations
-1. **MUST apply**: {critical patterns with justifications}
-2. **SHOULD consider**: {best practices}
-3. **AVOID**: {anti-patterns}
-
-## Handoff Notes
-**For Builder Agent**: 
-- Focus on: {specific aspects from research}
-- Apply patterns: {list with file references}
-- Template recommendation: {specific template path}
-```
-
-**Validation Report Template**:
-```markdown
-# Validation Report: {File}
-
-## Summary
-- **Status**: {PASS / FAIL / NEEDS_REVIEW}
-- **Issues Found**: {count by severity}
-
-## Checks Performed
-### ✅ PASSED
-- [x] YAML syntax valid
-- [x] Required fields present
-
-### ❌ FAILED
-- [ ] Three-tier boundaries incomplete
-  - **Issue**: Missing "Never Do" section
-  - **Location**: Line {N}
-  - **Fix**: Add boundary section
-
-## Recommended Actions
-### For Updater Agent
-1. Add missing section at line {N}
-2. Fix broken reference at line {M}
-```
-
-### Context Carryover Strategies
-
-<mark>**Problem**</mark>: Information loss during agent transitions is the #1 cause of multi-agent workflow failures.
-
-**Solution: Natural Language References to Conversation Context**
-
-When a handoff occurs (via `send: true` or user click), the **entire conversation history** flows to the target agent.  
-Use natural language references to prior outputs:
-
-```yaml
-handoffs:
-  - label: "Generate Tests"
-    agent: test-specialist
-    prompt: |
-      Create comprehensive tests for the implementation discussed above.
-      
-      Validate all requirements identified in the research phase.
-      Cover the edge cases documented during planning.
-      Reference the implementation details from the builder's output.
-      
-      Generate tests covering all requirements and edge cases.
-```
-
-**Key Principle**: Handoff prompts reference previous phase outputs using **natural language** ("the requirements above", "from the research phase") because conversation history is automatically available to the target agent.
-
-> **⚠️ Feature Gap: Explicit Variable Binding**
-> 
-> VS Code handoff prompts do **not** currently support custom variable interpolation like `${requirements}` or `${edgeCases}`. This would improve reliability by:
-> - Explicitly binding named values from prior phases
-> - Preventing context loss when conversation history is long
-> - Enabling validation that required context exists before handoff
-> 
-> **Current workaround**: Use explicit natural language references and rely on conversation history. For critical data, consider file-based context passing (see Pattern 1 below).
-
-#### Supported VS Code Variables (Prompt Files Only)
-
-VS Code supports these **built-in variables** in `.prompt.md` file bodies (not in handoff `prompt:` fields):
-
-| Category | Variables |
-|----------|----------|
-| **Workspace** | `${workspaceFolder}`, `${workspaceFolderBasename}` |
-| **File context** | `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}` |
-| **Selection** | `${selection}`, `${selectedText}` |
-| **User input** | `${input:variableName}`, `${input:variableName:placeholder}` |
-
-<mark>These are **not available** in agent handoff prompts</mark> but only in the main prompt body.
-
-### Token-Efficient Communication Patterns
-
-<mark>**The Token Cost Problem**</mark>: When `send: true` triggers a handoff, VS Code transfers the **entire conversation history** to the receiving agent. For multi-phase workflows, this creates compounding token costs:
-
-| Workflow Stage | Cumulative Context | Token Estimate |
-|----------------|-------------------|----------------|
-| Phase 1: Requirements | User request only | ~200 tokens |
-| Phase 2: Research | + Research report | ~3,500 tokens |
-| Phase 3: Architecture | + Analysis output | ~5,000 tokens |
-| Phase 4: Build | + All previous phases | ~6,500 tokens |
-| Phase 5: Validate | + Built file content | ~8,000 tokens |
-
-**Why This Matters:**
-- **<mark>Cost</mark>**: Each handoff multiplies API token usage
-- **<mark>Context Window Limits</mark>**: Long histories may exceed model limits (128K-200K tokens)
-- **<mark>"Lost in the Middle" Effect</mark>**: LLMs attend less to middle portions of long contexts
-- **<mark>Irrelevant Context</mark>**: Validator doesn't need research discovery process—just the spec
-
-#### VS Code Handoff Mechanism: Current Limitations
-
-The `send` field in handoff configuration is **binary**:
-
-| Setting | Behavior | Token Impact |
-|---------|----------|--------------|
-| `send: true` | **Full conversation history** transfers to agent | High—all prior phases included |
-| `send: false` | User sees output, manually triggers next step | Variable—user controls what's shared |
-
-<mark>**Key Limitation**</mark>: VS Code does **not** currently support selective context filtering in handoffs. You cannot specify "send only Phase 3 output" directly.
-
-**Available Workarounds:**
-
-| Technique | Token Reduction | Effort | Best For |
-|-----------|-----------------|--------|----------|
-| **Prompt-Directed Attention** | ⚠️ None (attention only) | Low | Focusing agent behavior |
-| **Progressive Summarization** | ✅ Moderate | Medium | Multi-phase workflows |
-| **User-Mediated Handoff** | ✅ High | High | Maximum control |
-| **File-Based Isolation** | ✅ Maximum | Medium | Specialized agents |
-
----
-
-#### Pattern 1: Reference-First (Not Embed-First)
-
-**Token Savings**: ~80-90% for referenced content
-
-```markdown
-✅ **Efficient** (~50 tokens): 
-"For validation rules, see .copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md"
-
-❌ **Wasteful** (~2,000 tokens):
-[Embeds 200 lines of validation rules in handoff prompt]
-```
-
-**When to Use**: For stable reference material (patterns, templates, guidelines) that the receiving agent can read via `read_file` tool.
-
----
-
-#### Pattern 2: Selective Context Passing (Conceptual)
-
-Define **what each agent actually needs** to prevent unnecessary context accumulation:
-
-**Validator Agent Needs:**
-- ✅ File path to validate (~20 tokens)
-- ✅ Specification from Phase 3 (~300 tokens)
-- ✅ Critical boundaries to check (~100 tokens)
-- **Total needed: ~420 tokens**
-
-**Validator Does NOT Need:**
-- ❌ Entire research report (~2,500 tokens) — pattern history irrelevant to validation
-- ❌ User's original request (~200 tokens) — already incorporated in spec
-- ❌ Template discovery process (~800 tokens) — not relevant to validation
-- **Wasted context: ~3,500 tokens**
-
-**Implementation**: Use Progressive Summarization (Pattern 3) or File-Based Isolation (Pattern 7) to achieve selective passing.
-
----
-
-#### Pattern 3: Progressive Summarization
-
-**Token Savings**: 70-85% reduction across multi-phase workflows
-
-Each phase produces **preprocessed summaries** for downstream consumption, discarding intermediate work:
-
-```markdown
-Phase 2: Research
-├── Full output: **3,000 tokens** (patterns, examples, analysis)
-└── Summary for next phase: **400 tokens** (recommendations only)
-        ↓
-Phase 3: Structure Definition  
-├── Full output: **1,500 tokens** (analysis, decisions)
-└── Specification for builder: **500 tokens** (what to build)
-        ↓
-Phase 4: Builder receives **500 tokens**, not 4,500
-```
-
-**Implementation in Agent Instructions:**
-
-```markdown
-## Output Format
-
-### Full Report (for user review)
-[Complete analysis with evidence and reasoning]
-
-### Handoff Summary (for next agent)
-<!-- HANDOFF_START -->
-**File**: {path}
-**Template**: {template name}
-**Key Requirements**:
-1. {requirement 1}
-2. {requirement 2}
-**Boundaries**: {critical constraints}
-<!-- HANDOFF_END -->
-```
-
-The orchestrator extracts only the `<!-- HANDOFF_START -->` block for the next phase.
-
----
-
-#### Pattern 4: Narrow-Before-Wide Search
-
-**Token Savings**: 60-80% on search operations
-
-```markdown
-✅ **Efficient Search Order** (~2,500 tokens total):
-1. grep_search for specific pattern → 500 tokens (targeted results)
-2. read_file only matched files → 2,000 tokens (relevant content)
-3. semantic_search only if grep finds nothing → (avoided)
-
-❌ **Expensive Search Order** (~12,500 tokens total):
-1. semantic_search for broad query → 2,000 tokens (many results)
-2. read_file on all results → 10,000 tokens (mostly irrelevant)
-3. grep_search to find specific pattern → 500 tokens (should have started here)
-```
-
----
-
-#### Pattern 5: Prompt-Directed Attention
-
-**Token Savings**: ⚠️ None—but improves reliability
-
-When full context must be sent, use the `prompt:` field to **direct the agent's attention** to specific elements:
-
-```yaml
-handoffs:
-  - label: "Apply Updates"
-    agent: prompt-updater
-    send: true  # Full history still sent
-    prompt: |
-      Apply the updates from the validation report above.
-      
-      **FOCUS ON** (ignore other conversation context):
-      - File: `.github/prompts/grammar-review.prompt.md`
-      - Issues to fix: See "❌ FAILED" section in validation report
-      - Preserve: All passing sections unchanged
-      
-      **IGNORE**: Research phase, architecture analysis, template selection.
-```
-
-**Why This Helps**: Even though full context is sent, the explicit `prompt:` instructions tell the agent what subset matters, reducing "lost in the middle" attention problems.
-
----
-
-#### Pattern 6: User-Mediated Selective Handoff
-
-**Token Savings**: ✅ Maximum control (user filters context)
-
-Use `send: false` to create a **manual checkpoint** where the user controls what context continues:
-
-```yaml
-handoffs:
-  - label: "Validate Prompt"
-    agent: prompt-validator
-    send: false  # User decides what to share
-```
-
-**Workflow:**
-
-1. Orchestrator completes Phase 3, produces specification
-2. User sees: "Ready to validate. Click 'Validate Prompt' to continue."
-3. User clicks handoff button
-4. **New chat session opens** with validator agent
-5. User pastes **only the specification** (not full history)
-6. Validator works with minimal context
-
-**Trade-off**: Higher user effort, but maximum token efficiency and context control.
-
----
-
-#### Pattern 7: File-Based Context Isolation
-
-**Token Savings**: ✅ Maximum (conversation history bypassed entirely)
-
-For agents that need **truly isolated context**, write structured input to a temporary file:
-
-**Orchestrator writes spec file:**
-```markdown
-## Phase 3 Output → Write to file
-
-Create specification file for downstream agents:
-
-**File**: `.copilot/temp/{timestamp}-phase3-spec.md`
-
-```markdown
-# Build Specification
-
-**Target**: `.github/prompts/grammar-review.prompt.md`
-**Template**: `prompt-validation-template.md`
-**Requirements**:
-1. Check grammar in markdown articles
-2. Exclude code blocks from analysis
-3. Report issues by severity
-
-**Boundaries**:
-- IN SCOPE: Grammar, spelling, punctuation
-- OUT OF SCOPE: Style, tone, technical accuracy
-```
-```
-
-**Handoff instructs agent to read file:**
-```yaml
-handoffs:
-  - label: "Build from Specification"
-    agent: prompt-builder
-    send: false  # Don't send conversation
-    prompt: |
-      Read the build specification from `.copilot/temp/latest-spec.md`
-      and create the prompt file according to that specification.
-      
-      Ignore any other context—the spec file contains everything you need.
-```
-
-**File Location Convention:**
-- **Path**: `.copilot/temp/` (add to `.gitignore`)
-- **Naming**: `{ISO-timestamp}-{phase}-{topic}.md`
-- **Cleanup**: Delete after workflow completes or after 24 hours
-
-**Example `.gitignore` entry:**
-```gitignore
-# Temporary handoff context files
-.copilot/temp/
-```
-
----
-
-### Agent Input Expectations
-
-Each agent should document its **minimal required inputs** to help orchestrators compress context appropriately:
-
-#### Declaring Input Expectations (in Agent Files)
-
-Add an `## Expected Inputs` section to each agent:
-
-```markdown
-## Expected Inputs
-
-This agent requires minimal context to operate effectively:
-
-| Input | Required | Token Budget | Source |
-|-------|----------|--------------|--------|
-| **File path** | ✅ Yes | ~20 tokens | Orchestrator |
-| **Update specification** | ✅ Yes | ~300 tokens | Phase 3 output |
-| **Issues to fix** | ✅ Yes | ~200 tokens | Validation report |
-| **Research context** | ❌ No | 0 tokens | Not needed |
-| **User's original request** | ❌ No | 0 tokens | Already in spec |
-
-**Total input budget**: ~520 tokens (vs. ~5,000 for full conversation)
-
-### Preferred Handoff Method
-
-1. **Best**: File-based isolation (Pattern 7)
-2. **Good**: User-mediated with spec paste (Pattern 6)  
-3. **Acceptable**: Full context with prompt-directed attention (Pattern 5)
-```
-
-#### Quick Reference: Agent Input Requirements
-
-| Agent | Required Inputs | Unnecessary Context | Preferred Method |
-|-------|-----------------|---------------------|------------------|
-| `prompt-validator` | File path, checklist | Research, architecture decisions | File-based or directed |
-| `prompt-updater` | File path, issues list, fix instructions | Full validation report, research | File-based |
-| `prompt-builder` | Specification, template path | Research discovery process | Summarized handoff |
-| `grammar-review` | Article path, grammar rules reference | All workflow context | File-based (article only) |
-| `readability-review` | Article path, readability metrics | All workflow context | File-based (article only) |
-
----
-
-### Token Budget Estimates by Handoff Strategy
-
-| Strategy | Typical Tokens | Best For | Trade-off |
-|----------|---------------|----------|-----------|
-| **Full context** (`send: true`) | 5,000-15,000 | Simple 2-3 phase workflows | High cost, simple setup |
-| **Prompt-directed** | 5,000-15,000 | When full context needed but focus required | No reduction, better attention |
-| **Progressive summarization** | 1,500-3,000 | Multi-phase workflows | Moderate effort, good reduction |
-| **User-mediated** | 200-800 | Maximum control needed | High user effort |
-| **File-based isolation** | 300-600 | Specialized single-purpose agents | Setup overhead, maximum reduction |
-
-**Rule of Thumb**: 
-- **<3 phases**: Full context acceptable
-- **3-5 phases**: Use progressive summarization  
-- **>5 phases or specialized agents**: Consider file-based isolation
-
----
-
-### Handoff Prompt Template (Token-Optimized)
-
-Use this structure for all phase transitions:
-
-```yaml
-handoffs:
-  - label: "{Action Description}"
-    agent: {target-agent}
-    send: true
-    prompt: |
-      {Primary Task Statement - 1 sentence}
-      
-      **FOCUS ON** (from conversation above):
-      - {Specific output from previous phase}
-      - {Key decision or specification}
-      
-      **IGNORE** (not relevant to your task):
-      - {Earlier phases not needed}
-      - {Discovery/research process}
-      
-      **Your Required Inputs**:
-      - {Input 1}: {value or reference to above}
-      - {Input 2}: {value or reference to above}
-      
-      **Expected Output Format**:
-      {Structured template for this agent's response}
-      
-      **Success Criteria**:
-      - {Criterion 1}
-      - {Criterion 2}
-```
-
----
-
-### Reliability Checksum Pattern
-
-Before each handoff, the orchestrator validates that **critical data survives the transition**:
-
-```markdown
-## Phase Transition Checklist
-
-Before handing off Phase {N} → Phase {N+1}, verify:
-
-- [ ] **Goal Preservation**: Refined goal from Phase 1 still intact?
-- [ ] **Scope Boundaries**: IN/OUT scope still clear?
-- [ ] **Tool Requirements**: Tool list carried forward?
-- [ ] **Critical Constraints**: Boundaries included in handoff?
-- [ ] **Success Criteria**: Validation criteria defined?
-
-**If any checkbox fails**: Re-inject missing context before handoff.
-```
+**Key principle for this case study:** Handoff prompts reference previous phase outputs using natural language ("the requirements above", "from the research phase") because conversation history is automatically available to the target agent.
 
 ## 🧠 Structure Definition & Architecture Analysis (Phase 3)
 
@@ -2701,6 +2259,9 @@ December 2024 release introducing Agent HQ unified interface, background agents 
 **[VS Code - Chat Sessions (Agent HQ)](https://code.visualstudio.com/docs/copilot/chat/chat-sessions)** `[📘 Official]`  
 Official documentation for Agent HQ interface covering session management across local, background, and cloud execution contexts. Explains "Continue in" workflow, work tree isolation, session filtering, and archive capabilities for multi-agent orchestrations.
 
+**[VS Code - Subagents](https://code.visualstudio.com/docs/copilot/agents/subagents)** `[📘 Official]`  
+Official guide to subagent execution in VS Code. Covers how subagents work, parallel execution, custom agent delegation, the `agents` property for restricting subagents, and canonical orchestration patterns (Coordinator and Worker, Multi-perspective Code Review).
+
 **[VS Code - Prompt Files](https://code.visualstudio.com/docs/copilot/customization/prompt-files)** `[📘 Official]`  
 Official guide to creating reusable prompt files with YAML frontmatter, tool configuration, variables, and integration with custom agents. Essential for understanding the building blocks orchestrators coordinate.
 
@@ -2728,6 +2289,9 @@ Complete case study documenting the real-world implementation of the multi-agent
 
 **[04. How to Structure Content for Copilot Agent Files](./04.00-how_to_structure_content_for_copilot_agent_files.md)** `[📒 Community]`  
 Detailed guide to agent file structure, personas, handoffs, tool configuration, and composing agents with prompts. Companion article covering implementation details for the patterns described here.
+
+**[Burke Holland — Orchestrations Demo](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md)** `[📒 Community]`  
+Practical demonstration of an ultralight orchestration framework with four specialized agents, model-per-agent routing, and isolated context windows.
 
 **[03. How to Structure Content for Copilot Prompt Files](./03.00-how_to_structure_content_for_copilot_prompt_files.md)** `[📒 Community]`  
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.

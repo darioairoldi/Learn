@@ -97,7 +97,7 @@ article_metadata:
 
 | Element | Rule |
 |---------|------|
-| **Headings** | Sentence-style capitalization (never Title Case) |
+| **Headings** | Sentence-style capitalization (never Title Case); H2 headings MUST start with a relevant emoji (e.g., `## 🎯 Core concepts`) |
 | **Code blocks** | Always specify language identifier |
 | **Inline code** | Use `backticks` for code, filenames, commands |
 | **Emphasis** | **Bold** for emphasis, *italic* for definitions, <mark>mark</mark> for key concepts |
