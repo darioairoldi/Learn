@@ -398,6 +398,8 @@ website:
             text: "GitHub CLI Commands"
           - text: "---"
           - text: "Prompt Engineering"
+          - href: "03.00-tech/05.02-prompt-engineering/02-getting-started/01.00-how_github_copilot_uses_markdown_and_prompt_folders.md"
+            text: "How Copilot Uses Markdown & Prompt Folders"
           - href: "03.00-tech/05.02-prompt-engineering/03.00-how_to_structure_content_for_copilot_prompt_files.md"
             text: "Structuring Prompt Files"
           - href: "03.00-tech/05.02-prompt-engineering/01.01-appendix_copilot_spaces.md"
