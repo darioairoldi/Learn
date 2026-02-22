@@ -68,7 +68,7 @@ A single prompt trying to do everything suffers from:
 | Problem | Impact |
 |---------|--------|
 | **<mark>Tool Clash</mark>** | 20+ tools cause confusion and wrong tool selection |
-| **<mark>Context Rot</mark>** | Instructions for later phases get "lost in the middle" |
+| **<mark>[Context Rot](12.00-how_to_manage_information_flow_during_prompt_orchestrations.md#context-rot-why-context-management-is-urgent)</mark>** | Instructions for later phases get "lost in the middle" (accuracy drops from 88% to 30% at 32K tokens) |
 | **<mark>Mixed Responsibilities</mark>** | Hard to maintain, debug, or improve individual phases |
 | **<mark>No Reusability</mark>** | Can't reuse the "research" capability for other tasks |
 
@@ -2290,8 +2290,8 @@ Complete case study documenting the real-world implementation of the multi-agent
 **[04. How to Structure Content for Copilot Agent Files](./04.00-how_to_structure_content_for_copilot_agent_files.md)** `[📒 Community]`  
 Detailed guide to agent file structure, personas, handoffs, tool configuration, and composing agents with prompts. Companion article covering implementation details for the patterns described here.
 
-**[Burke Holland — Orchestrations Demo](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md)** `[📒 Community]`  
-Practical demonstration of an ultralight orchestration framework with four specialized agents, model-per-agent routing, and isolated context windows.
+**[Burke Holland — Orchestrations Demo](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md)** `[� Verified Community]`  
+Practical demonstration of an ultralight orchestration framework with four specialized agents, model-per-agent routing, and isolated context windows. Burke Holland is a Senior Cloud Advocate at Microsoft.
 
 **[03. How to Structure Content for Copilot Prompt Files](./03.00-how_to_structure_content_for_copilot_prompt_files.md)** `[📒 Community]`  
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.
