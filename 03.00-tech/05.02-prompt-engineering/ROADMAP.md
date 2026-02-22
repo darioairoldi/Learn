@@ -26,6 +26,7 @@ This document tracks the planned and published articles in the **Prompt Engineer
 | 08.02 | [Appendix: Anthropic prompting guide](./08.02-appendix_anthropic_prompting_guide.md) | ✅ Published |
 | 08.03 | [Appendix: Google prompting guide](./08.03-appendix_google_prompting_guide.md) | ✅ Published |
 | 09.00 | [How to use agent hooks for lifecycle automation](./09.00-how_to_use_agent_hooks_for_lifecycle_automation.md) | ✅ Published |
+| 09.50 | [How to leverage tools in prompt orchestrations](./09.50-how_to_leverage_tools_in_prompt_orchestrations.md) | ✅ Published |
 | 10.00 | [How to design orchestrator prompts](./10.00-how_to_design_orchestrator_prompts.md) | ✅ Published |
 | 11.00 | [How to design subagent orchestrations](./11.00-how_to_design_subagent_orchestrations.md) | ✅ Published |
 | 12.00 | [How to manage information flow during prompt orchestrations](./12.00-how_to_manage_information_flow_during_prompt_orchestrations.md) | ✅ Published |
