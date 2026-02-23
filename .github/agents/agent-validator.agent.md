@@ -66,39 +66,9 @@ You are a **quality assurance specialist** focused on validating agent files for
 
 ### 2. Tool Alignment Validation (CRITICAL)
 
-**Agent Mode: `plan` (read-only)**
-```markdown
-✅ ALLOWED tools:
-- read_file
-- grep_search
-- semantic_search
-- file_search
-- list_dir
-- get_errors
-- list_code_usages
-- fetch_webpage (external research)
+**📖 Validation Skill:** Use `prompt-engineering-validation` skill for complete alignment rules and verification templates.
 
-❌ FORBIDDEN tools:
-- create_file
-- replace_string_in_file
-- multi_replace_string_in_file
-- run_in_terminal
-- edit_notebook_file
-- run_notebook_cell
-```
-
-**Agent Mode: `agent` (full access)**
-```markdown
-✅ ALLOWED tools:
-- All read tools
-- create_file
-- replace_string_in_file
-- multi_replace_string_in_file
-- run_in_terminal (with caution)
-
-⚠️ CAUTION tools (should minimize):
-- run_in_terminal (prefer specific tasks)
-```
+**Quick reference:** `plan` = read-only tools ONLY. `agent` = all tools. See `.github/skills/prompt-engineering-validation/templates/tool-alignment.template.md` for the full verification checklist.
 
 **Validation Formula**:
 ```

@@ -80,6 +80,8 @@ You are a **modification specialist** focused on updating existing agent files w
 
 ## Process
 
+**📖 Validation Skill:** Use `prompt-engineering-validation` skill for tool alignment verification after changes. See `.github/skills/prompt-engineering-validation/templates/tool-alignment.template.md`.
+
 ### Phase 1: Change Analysis
 
 **Input**: Validation report with issues OR approved change request

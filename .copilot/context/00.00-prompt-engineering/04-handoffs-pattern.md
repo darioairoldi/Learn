@@ -40,6 +40,39 @@ handoffs:
     receive: "file_path"
 ```
 
+### Understanding `send: true` vs `send: false`
+
+VS Code provides a **binary** handoff mechanism — no selective filtering:
+
+| Setting | Data Transferred | Token Impact |
+|---|---|---|
+| `send: true` | **Entire conversation history** (all prior phases) | High — accumulates across phases |
+| `send: false` | **Nothing automatically** — user must paste context | Minimal (~100 tokens for handoff prompt) |
+
+**Example impact**: Agent A accumulates ~6,200 tokens (request + research + spec + build). With `send: true`, Agent B receives ALL 6,200 + handoff prompt (~6,300 total). With `send: false`, Agent B receives only the handoff prompt (~100 tokens).
+
+**Strategy selection by workflow size:**
+
+| Workflow Size | Strategy | Token Savings |
+|---|---|---|
+| 2–3 phases | Full context (`send: true`) | — (baseline) |
+| 3–5 phases | Progressive summarization | ~52% reduction |
+| 5+ phases | File-based isolation (`.copilot/temp/`) | ~83% reduction |
+
+**See**: [08-context-window-management.md](./08-context-window-management.md) for detailed flow pattern comparison.
+
+### Reliability Checksum
+
+Before each handoff, validate critical data survives:
+
+- [ ] **Goal Preservation** — refined goal from previous phase intact?
+- [ ] **Scope Boundaries** — IN/OUT scope still clear?
+- [ ] **Tool Requirements** — tool list carried forward?
+- [ ] **Critical Constraints** — boundaries included?
+- [ ] **Success Criteria** — validation criteria defined?
+
+If any fails, re-inject missing context before handoff.
+
 ### 3. Intermediary Reports
 
 **Principle**: Use structured text reports (not JSON) between agent phases.
@@ -312,16 +345,55 @@ When designing a multi-agent workflow:
 - [ ] Validation loops have maximum iteration limits
 - [ ] Error handling path defined (what if agent fails?)
 - [ ] Context size managed (don't pass entire conversation history)
+- [ ] Subagent depth bounded (`agents: []` on leaf specialists)
+
+---
+
+## Subagent Integration
+
+Handoffs and subagents serve **different coordination needs**. Use both together in complex workflows.
+
+| Aspect | Handoffs | Subagents |
+|--------|----------|-----------|
+| Control | User-driven transitions | Agent-initiated delegation |
+| Context | Full conversation carries forward | Isolated — only summary returns |
+| Visibility | New session with history | Collapsed tool call |
+| Best for | Sequential with review gates | Research, analysis, parallel |
+
+### Subagent-Aware Handoff Pattern
+
+```markdown
+┌────────────┐   handoff   ┌────────────┐   handoff   ┌───────────┐
+│ Researcher │ ──────────→ │  Builder   │ ──────────→ │ Validator │
+└────────────┘             └─────┬──────┘             └───────────┘
+                                 │
+                           spawns subagent
+                                 │
+                           ┌─────┴──────┐
+                           │ Code Scout │ (isolated context)
+                           └────────────┘
+```
+
+Handoffs coordinate phases with user checkpoints. Within a phase, subagents handle isolated research without polluting the main context.
+
+### Key Subagent Controls
+
+| Property | Purpose |
+|----------|---------|
+| `agents: ['A', 'B']` | Restrict which agents can be spawned |
+| `disable-model-invocation: true` | Prevent auto-invocation as subagent |
+| `user-invokable: false` | Hide from user dropdown (subagent-only) |
+
+**See**: [12-orchestrator-design-patterns.md](./12-orchestrator-design-patterns.md) for full subagent mechanics.
 
 ---
 
 ## References
 
-- **Context Engineering Principles**: [context-engineering-principles.md](context-engineering-principles.md)
-- **Tool Composition Guide**: [tool-composition-guide.md](tool-composition-guide.md)
-- **Prompt Templates**: `.github/templates/prompt-multi-agent-orchestration-template.md`
-- **Agent Templates**: `.github/templates/prompt-implementation-template.md`
-- **Example Workflows**: `.github/prompts/prompt-createorupdate-prompt-file-v2.prompt.md`
+- **Internal**: [01-context-engineering-principles.md](./01-context-engineering-principles.md), [02-tool-composition-guide.md](./02-tool-composition-guide.md), [12-orchestrator-design-patterns.md](./12-orchestrator-design-patterns.md)
+- **Sources**: Articles 10.00, 11.00 in `03.00-tech/05.02-prompt-engineering/`
+- **Templates**: `.github/templates/prompt-multi-agent-orchestration-template.md`
+- **External**: [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
 ---
 
@@ -330,3 +402,5 @@ When designing a multi-agent workflow:
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0.0 | 2025-12-26 | Initial version | System |
+| 1.1.0 | 2026-02-22 | Added subagent integration section, cross-references | System |
+| 1.2.0 | 2026-02-23 | Added send:true/false data flow, strategy selection, reliability checksum | System |

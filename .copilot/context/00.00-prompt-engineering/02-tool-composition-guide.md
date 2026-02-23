@@ -53,6 +53,51 @@ tools: ['read_file', 'semantic_search', 'create_file']  # 3 tools when agent act
 
 ---
 
+## Tool Architecture Levels
+
+Tools operate in two distinct layers:
+
+### Level 1: Always-Available Tools
+
+These tools are **always accessible** regardless of prompt/agent configuration. Never list them in `tools:` frontmatter — they're implicit.
+
+| Tool | Purpose | Token Cost |
+|------|---------|------------|
+| `manage_todo_list` | Track task progress | ~200 |
+| `ask_questions` | Clarify user intent | ~300 |
+| `runSubagent` | Delegate to child agents | 5,000-50,000 |
+| `tool_search_tool_regex` | Discover deferred tools | ~100 |
+
+### Level 2: Configurable Tools
+
+These require explicit `tools:` declaration. Split into three categories:
+
+| Category | Tools | Typical Context Cost |
+|----------|-------|---------------------|
+| **Read** | `read_file`, `grep_search`, `semantic_search`, `file_search`, `list_dir`, `get_errors` | 100-2,000 per call |
+| **Write** | `create_file`, `replace_string_in_file`, `multi_replace_string_in_file` | 200-1,000 per call |
+| **Execute** | `run_in_terminal`, `fetch_webpage` | 500-10,000 per call |
+
+### Tool Sets (Shorthand)
+
+Use tool set aliases instead of listing individual tools:
+
+| Set | Expands To | Use For |
+|-----|-----------|---------|
+| `#edit` | All read + write tools | Builders, updaters |
+| `#search` | `semantic_search`, `grep_search`, `file_search` | Researchers |
+| `#reader` | `read_file`, `list_dir`, `get_errors` | Validators |
+
+```yaml
+# Instead of listing 6 individual tools:
+tools: ['#edit', 'run_in_terminal']
+
+# For read-only research:
+tools: ['#search', '#reader']
+```
+
+---
+
 ## Tool Categories and Use Cases
 
 ### Read-Only Tools (Safe for `agent: plan`)
@@ -641,6 +686,34 @@ boundaries:
 | `fetch_webpage` | 1000-10000 | Getting official docs | Have local equivalent |
 | `runSubagent` | 5000-50000 | Complex multi-step research | Simple single query |
 
+### Tool Result Impact on Context Window
+
+Tool **results** accumulate in the conversation and directly grow the context window. Use these estimates for budget planning:
+
+| Tool Call | Result Size | Notes |
+|---|---|---|
+| `read_file` (50 lines) | ~500 tokens | Scales linearly with line count |
+| `read_file` (500 lines) | ~5,000 tokens | Prefer narrow ranges |
+| `grep_search` (10 matches) | ~800 tokens | Includes file paths + excerpts |
+| `semantic_search` (10 results) | ~2,000 tokens | Ranked excerpts with context |
+| `fetch_webpage` | ~3,000–10,000 tokens | Highly variable by page |
+| `file_search` (20 results) | ~300 tokens | Paths only, very efficient |
+
+**Rule**: Tool results are the **primary target** for token optimization (20–60% of typical context). Use narrow `read_file` ranges, limit search results, and prefer `file_search` over `semantic_search` when you know the filename pattern.
+
+### MCP Tool Integration
+
+MCP-provided tools appear alongside built-in L2 tools. Key differences:
+
+| Aspect | Built-in Tools | MCP Tools |
+|---|---|---|
+| Config | Always available or via `tools:` | Requires `mcp.json` + `mcp:` prefix |
+| Discovery | Pre-loaded by VS Code | Via `tool_search_tool_regex` (deferred) |
+| Token cost | Predictable (see table above) | Varies by server implementation |
+| Cross-platform | VS Code only | Any MCP-compatible client |
+
+Use `tools: ['mcp: server-name']` in agent/prompt YAML to scope MCP tools. See [14-mcp-server-design-patterns.md](./14-mcp-server-design-patterns.md) for server design.
+
 ### Optimization Patterns
 
 **Pattern 1: Narrow Before Wide**
@@ -685,12 +758,13 @@ boundaries:
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0.0 | 2025-12-10 | Initial consolidated version from analysis | System |
+| 1.1.0 | 2026-02-22 | Added L1/L2 architecture, tool sets, cross-references | System |
+| 1.2.0 | 2026-02-23 | Added tool result impact table, MCP tool integration section | System |
 
 ---
 
 ## References
 
-- **Context Engineering Principles**: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- **Validation Caching Pattern**: `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md`
-- **Official Tool Documentation**: VS Code Copilot API Reference
-- **Repository Articles**: `.github/prompts/03.00-how_to_structure_content_for_copilot_prompt_files.md` (Tool Configuration section)
+- **Internal**: [01-context-engineering-principles.md](./01-context-engineering-principles.md), [09-token-optimization-strategies.md](./09-token-optimization-strategies.md), [14-mcp-server-design-patterns.md](./14-mcp-server-design-patterns.md)
+- **Source**: Articles 03.00, 09.50 in `03.00-tech/05.02-prompt-engineering/`
+- **External**: [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)

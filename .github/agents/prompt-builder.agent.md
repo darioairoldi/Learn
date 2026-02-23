@@ -227,6 +227,8 @@ Missing information:
 
 **CRITICAL: Run this checklist BEFORE creating any file**
 
+**📖 Validation Skill:** Use `prompt-engineering-validation` skill for tool alignment verification. See `.github/skills/prompt-engineering-validation/templates/tool-alignment.template.md` for the full checklist.
+
 Before saving, validate:
 
 1. **YAML Syntax Validation**
@@ -235,14 +237,8 @@ Before saving, validate:
    - Tools array properly formatted
    - Handoffs correctly structured (if applicable)
 
-2. **Tool Alignment Check**
-   ```markdown
-   | Agent Mode | Allowed Tools | Status |
-   |------------|---------------|--------|
-   | `plan` | read_file, grep_search, semantic_search, file_search, list_dir | ✅/❌ |
-   | `agent` | All read tools + create_file, replace_string_in_file | ✅/❌ |
-   ```
-   
+2. **Tool Alignment Check** — Use skill template for full verification.
+   **Quick rule:** `plan` = read-only tools ONLY. `agent` = all tools.
    **If misaligned**: ABORT and report issue
 
 3. **Section Completeness**

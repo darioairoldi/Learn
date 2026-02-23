@@ -855,14 +855,18 @@ Use this checklist when creating or reviewing prompts, agents, or instructions:
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0.0 | 2025-12-10 | Initial consolidated version from analysis | System |
+| 1.0.1 | 2026-02-23 | Added v1.107+ cross-references, Spaces/SDK references | System |
 
 ---
 
 ## References
 
 - **Official Documentation**: [VS Code Copilot Custom Agents](https://code.visualstudio.com/docs/copilot/copilot-customization)
-- **Repository Articles**: `tech/PromptEngineering/` series
+- **Repository Articles**: `03.00-tech/05.02-prompt-engineering/` series
+- **v1.107+ Architecture**: See [07-prompt-assembly-architecture.md](./07-prompt-assembly-architecture.md) for execution contexts (Local/Background/Cloud) that affect how principles apply per environment
 - **Related Context**: 
-  - [tool-composition-guide.md](tool-composition-guide.md) - Tool selection patterns
-  - [validation-caching-pattern.md](validation-caching-pattern.md) - 7-day caching rules
-  - [handoffs-pattern.md](handoffs-pattern.md) - Multi-agent orchestration
+  - [02-tool-composition-guide.md](./02-tool-composition-guide.md) - Tool selection patterns
+  - [05-validation-caching-pattern.md](./05-validation-caching-pattern.md) - 7-day caching rules
+  - [04-handoffs-pattern.md](./04-handoffs-pattern.md) - Multi-agent orchestration
+  - [15-copilot-spaces-patterns.md](./15-copilot-spaces-patterns.md) - Cross-project context
+  - [16-copilot-sdk-integration.md](./16-copilot-sdk-integration.md) - SDK consumption

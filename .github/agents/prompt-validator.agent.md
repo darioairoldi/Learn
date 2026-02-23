@@ -57,31 +57,9 @@ You are a **quality assurance specialist** focused on validating prompt and agen
 
 **This is the MOST IMPORTANT validation check**
 
-### Alignment Rules
+**📖 Validation Skill:** Use `prompt-engineering-validation` skill for complete alignment rules, write tool lists, and verification templates.
 
-```markdown
-| Agent Mode | Allowed Tools | Forbidden Tools |
-|------------|---------------|-----------------|
-| `plan` | read_file, grep_search, semantic_search, file_search, list_dir, get_errors, fetch_webpage | create_file, replace_string_in_file, multi_replace_string_in_file, run_in_terminal |
-| `agent` | All read tools + write tools | None (but minimize write tools) |
-```
-
-### Validation Formula
-
-```markdown
-if mode == "plan" AND has_write_tools:
-  CRITICAL: "Tool alignment violation - plan mode cannot have write tools"
-if mode == "agent" AND has_no_write_tools:
-  WARNING: "Agent mode with no write tools - should this be plan mode?"
-```
-
-### Write Tools List
-- `create_file`
-- `replace_string_in_file`
-- `multi_replace_string_in_file`
-- `run_in_terminal`
-- `edit_notebook_file`
-- `run_notebook_cell`
+**Quick reference:** `plan` mode = read-only tools ONLY. `agent` mode = all tools. See `.github/skills/prompt-engineering-validation/templates/tool-alignment.template.md` for the full verification checklist.
 
 ## Process
 

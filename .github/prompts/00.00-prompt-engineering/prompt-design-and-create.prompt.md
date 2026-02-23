@@ -101,69 +101,69 @@ Orchestrate a multi-agent workflow to create new prompt file(s) that:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    PROMPT DESIGN & CREATE                        │
+│                    PROMPT DESIGN & CREATE                       │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │  Phase 1: Requirements Gathering (prompt-researcher)            │
-│     └─► Use case challenge (3-7 scenarios)                     │
-│     └─► Tool discovery from scenarios                          │
-│     └─► Scope boundary definition                              │
+│     └─► Use case challenge (3-7 scenarios)                      │
+│     └─► Tool discovery from scenarios                           │
+│     └─► Scope boundary definition                               │
 │           │                                                     │
 │           ▼ [GATE: Requirements validated?]                     │
 │                                                                 │
 │  Phase 2: Pattern Research (prompt-researcher)                  │
-│     └─► Search context files (NOT internet)                    │
-│     └─► Find 3-5 similar prompts                               │
-│     └─► Extract proven patterns                                │
+│     └─► Search context files (NOT internet)                     │
+│     └─► Find 3-5 similar prompts                                │
+│     └─► Extract proven patterns                                 │
 │           │                                                     │
 │           ▼ [GATE: Patterns identified?]                        │
 │                                                                 │
 │  Phase 3: Structure Definition (Orchestrator)                   │
-│     └─► Architecture decision (single vs. orchestrator+agents) │
-│     └─► Existing agent inventory                               │
-│     └─► New agent identification                               │
+│     └─► Architecture decision (single vs. orchestrator+agents)  │
+│     └─► Existing agent inventory                                │
+│     └─► New agent identification                                │
 │           │                                                     │
 │           ▼ [GATE: Architecture decided?]                       │
 │                                                                 │
 │  Phase 4: File Creation                                         │
-│     ├─► [If Single] prompt-builder creates prompt              │
-│     └─► [If Orchestrator] Phase 4a + 4b (see below)            │
+│     ├─► [If Single] prompt-builder creates prompt               │
+│     └─► [If Orchestrator] Phase 4a + 4b (see below)             │
 │           │                                                     │
 │           ▼ [GATE: Files created?]                              │
 │                                                                 │
 │  Phase 4a: Agent Creation (if orchestrator architecture)        │
-│     ├─► agent-researcher: Role challenge & research            │
-│     ├─► agent-builder: Create agent file                       │
-│     └─► agent-validator: Validate agent                        │
+│     ├─► agent-researcher: Role challenge & research             │
+│     ├─► agent-builder: Create agent file                        │
+│     └─► agent-validator: Validate agent                         │
 │           │ (repeat for each new agent)                         │
 │           ▼                                                     │
 │  Phase 4b: Orchestrator Creation                                │
-│     └─► prompt-builder: Create orchestrator file               │
+│     └─► prompt-builder: Create orchestrator file                │
 │           │                                                     │
 │           ▼ [GATE: All files created?]                          │
 │                                                                 │
 │  Phase 5: Agent Updates (if existing agents need changes)       │
-│     └─► agent-updater: Modify existing agents                  │
-│     └─► agent-validator: Re-validate updated agents            │
+│     └─► agent-updater: Modify existing agents                   │
+│     └─► agent-validator: Re-validate updated agents             │
 │           │                                                     │
 │           ▼ [GATE: Dependencies resolved?]                      │
 │                                                                 │
 │  Phase 6: Prompt Validation (prompt-validator)                  │
-│     └─► Tool alignment check                                   │
-│     └─► Structure compliance                                   │
-│     └─► Quality scoring                                        │
+│     └─► Tool alignment check                                    │
+│     └─► Structure compliance                                    │
+│     └─► Quality scoring                                         │
 │           │                                                     │
 │           ▼ [GATE: Validation passed?]                          │
 │                                                                 │
 │  Phase 7: Issue Resolution (prompt-updater, if needed)          │
-│     └─► Fix identified prompt issues                           │
-│     └─► Re-validate                                            │
+│     └─► Fix identified prompt issues                            │
+│     └─► Re-validate                                             │
 │           │                                                     │
 │           ▼ [GATE: All issues resolved?]                        │
 │                                                                 │
 │  Phase 8: Final Review & Completion                             │
-│     └─► Summary of all created/updated files                   │
-│     └─► Usage instructions                                     │
+│     └─► Summary of all created/updated files                    │
+│     └─► Usage instructions                                      │
 │           │                                                     │
 │           ▼ [COMPLETE]                                          │
 │                                                                 │
@@ -315,71 +315,16 @@ Check if the new prompt requires agents that don't exist or need updates:
 
 **Step 5.2: New Agent Creation (if needed)**
 
-For each missing agent, use the agent specialist workflow:
-
-```yaml
-handoff:
-  label: "Research new agent: [agent-name]"
-  agent: agent-researcher
-  send: false
-  context: |
-    This agent is needed as a handoff target for the prompt being created.
-    
-    Agent name: [agent-name]
-    Required by: [prompt-name]
-    Purpose: [inferred from prompt handoff]
-    
-    Perform role challenge and requirements research.
-```
-
-Then after research approval:
-
-```yaml
-handoff:
-  label: "Build agent: [agent-name]"
-  agent: agent-builder
-  send: false
-  context: |
-    Build agent file from research report.
-    Create file at: .github/agents/[agent-name].agent.md
-```
-
-Then validation:
-
-```yaml
-handoff:
-  label: "Validate agent: [agent-name]"
-  agent: agent-validator
-  send: true
-  context: |
-    Validate newly created agent file.
-```
+For each missing agent, follow the agent creation pipeline:
+1. **Research** → `agent-researcher` (send: false) — role challenge + requirements
+2. **Build** → `agent-builder` (send: false) — create agent file from research
+3. **Validate** → `agent-validator` (send: true) — verify tool alignment + quality
 
 **Step 5.3: Existing Agent Updates (if needed)**
 
-For agents that exist but need modifications:
-
-```yaml
-handoff:
-  label: "Update agent: [agent-name]"
-  agent: agent-updater
-  send: false
-  context: |
-    Update existing agent to support new prompt requirements.
-    
-    File: .github/agents/[agent-name].agent.md
-    Required changes: [specific modifications needed]
-```
-
-Then validation:
-
-```yaml
-handoff:
-  label: "Validate updated agent: [agent-name]"
-  agent: agent-validator
-  send: true
-  context: |
-    Validate updated agent file.
+For agents needing modifications:
+1. **Update** → `agent-updater` (send: false) — apply required changes
+2. **Validate** → `agent-validator` (send: true) — verify changes
 ```
 
 **Gate: Dependencies Resolved?**
@@ -624,461 +569,87 @@ Based on architecture decision, Phase 4 splits into two paths:
 
 **Only executed if Phase 3 recommended "Orchestrator + Agents" and new agents identified.**
 
-**Goal:** Create new specialist agent files before creating orchestrator using agent-specialist workflow.
+**Goal:** Create new specialist agent files before creating orchestrator.
 
-**Sub-workflow:** For each new agent, use the full agent creation flow:
+**For each new agent, follow the agent creation pipeline:**
+1. **Research** → `agent-researcher` (send: false) — role challenge, tool discovery, scope boundaries
+2. **Build** → `agent-builder` (send: false) — create agent file from research report
+3. **Validate** → `agent-validator` (send: true) — tool alignment, structure, quality scoring
 
-#### Step 4a.1: Agent Requirements Research (agent-researcher)
-
-**Handoff Configuration:**
-```yaml
-handoff:
-  label: "Research agent requirements: [agent-name]"
-  agent: agent-researcher
-  send: false  # User reviews research
-  context: |
-    Research requirements for new agent from Phase 3 recommendations.
-    
-    Agent target:
-    - Name: [agent-name]
-    - Purpose: [from Phase 3]
-    - Persona: [specialist role]
-    - Agent type: [plan/agent]
-    
-    Perform:
-    - Role challenge (3-7 scenarios)
-    - Tool discovery from scenarios
-    - Similar agent pattern research
-    - Scope boundary definition
-```
-
-#### Step 4a.2: Agent File Creation (agent-builder)
-
-**Handoff Configuration:**
-```yaml
-handoff:
-  label: "Build agent file: [agent-name]"
-  agent: agent-builder
-  send: false  # User reviews each agent
-  context: |
-    Build new agent file from agent-researcher report.
-    
-    Agent specifications:
-    - Name: [agent-name]
-    - Purpose: [from Phase 3]
-    - Persona: [specialist role]
-    - Tools: [tool list from research]
-    - Agent type: [plan/agent]
-    
-    Use template: .github/templates/[agent-template]
-    Create file at: .github/agents/[agent-name].agent.md
-    
-    This agent will be coordinated by the orchestrator built in Phase 4b.
-```
-
-#### Step 4a.3: Agent Validation (agent-validator)
-
-**Handoff Configuration:**
-```yaml
-handoff:
-  label: "Validate agent: [agent-name]"
-  agent: agent-validator
-  send: true  # Automatic after build
-  context: |
-    Validate the newly created agent file.
-    
-    File path: .github/agents/[agent-name].agent.md
-    
-    Perform:
-    - Tool/agent alignment check
-    - Role challenge verification
-    - Structure compliance
-    - Quality scoring
-```
-
-**Output:**
-```markdown
-## Phase 4a Progress: Agent Creation
-
-**Agents to create:** [total count]
-**Agents completed:** [count]
-
-### Agent [N]: [agent-name]
-**Research status:** ✅ Complete (agent-researcher)
-**Build status:** ✅ Created (agent-builder)
-**Validation status:** ✅ Passed (agent-validator)
-**Path:** `.github/agents/[agent-name].agent.md`
-**Length:** [line count] lines
-**Tools:** [tools configured]
-
-[Repeat for each agent]
-
-**All agents created and validated. Proceed to orchestrator creation? (yes/no/review agents)**
-```
+Repeat for each agent identified in Phase 3. All agents must pass validation before proceeding to Phase 4b.
 
 ### Phase 4b: Orchestrator File Creation (If Orchestrator Architecture)
 
-**Only executed if Phase 3 recommended "Orchestrator + Agents".**
-
 **Goal:** Create orchestrator file that coordinates existing and newly-created agents.
 
-**Handoff Configuration:**
-```yaml
-handoff:
-  label: "Build orchestrator prompt file"
-  agent: prompt-builder
-  send: false  # User reviews before validation
-  context: |
-    Build orchestrator file from Phase 3 architecture.
-    
-    Orchestrator specifications:
-    - Name: [orchestrator-name]
-    - Purpose: [from requirements]
-    - Coordinates agents:
-      * Existing: [list from Phase 3]
-      * New: [list from Phase 4a]
-    - Handoff sequence: [phase flow from Phase 3]
-    
-    Use template: .github/templates/prompt-orchestrator-template.md
-    Create file at: .github/prompts/[orchestrator-name].prompt.md
-    
-    Configure handoffs in YAML frontmatter for all agents.
-    Define phase workflow in content.
-```
-
-**Output:**
-```markdown
-## Phase 4b Complete: Orchestrator Built
-
-**File created:** `.github/prompts/[orchestrator-name].prompt.md`
-**Length:** [line count] lines
-
-**Agents coordinated:** [count]
-- `[agent-name]` (Phase [X])
-- `[agent-name]` (Phase [Y])
-
-**Handoff configuration:**
-- [agent-name]: `send: [true/false]` - [reason]
-- [agent-name]: `send: [true/false]` - [reason]
-
-**Proceed to validation? (yes/no/review orchestrator)**
-```
+**Delegate to** `prompt-builder` (send: false) with:
+- Orchestrator specifications from Phase 3
+- Agent list from Phase 4a
+- Handoff sequence and phase workflow
+- Template: `.github/templates/prompt-orchestrator-template.md`
 
 ### Phase 4: Prompt File Creation (If Single-Prompt Architecture)
 
 **Only executed if Phase 3 recommended "Single Prompt".**
 
-**Goal:** Hand off to `prompt-builder` to generate single prompt file from research.
+**Delegate to** `prompt-builder` (send: false) with:
+- Complete specification from Phase 3
+- Recommended template path
+- All customizations from research
 
-**Handoff Configuration:**
-```yaml
-handoff:
-  label: "Build prompt file from research"
-  agent: prompt-builder
-  send: false  # User reviews before validation
-  context: |
-    Build single prompt file using the research report from Phase 2.
-    
-    Phase 3 determined this should be a single-prompt implementation
-    (not orchestrator), so create one comprehensive file.
-    
-    Key requirements:
-    - Use recommended template: [template-path]
-    - Apply all customizations from research
-    - Follow identified patterns
-    - Implement convention requirements
-    - Create file at: .github/prompts/[or agents]/[filename]
-```
-
-**Expected Agent Output:**
-- New prompt/agent file created
-- Structure matches template
-- Customizations applied
-- Conventions followed
-- Builder's validation report (self-check)
-
-**Validation Criteria:**
-- [ ] File created at correct location
+**Gate: Files Created?**
+```markdown
+### Gate 4 Check
+- [ ] Pre-save validation passed (builder self-check)
+- [ ] File(s) created at correct location
 - [ ] YAML frontmatter complete and valid
 - [ ] All required sections present
-- [ ] Examples included (if applicable)
-- [ ] Builder confirms structure validation passed
 
-**Output: Builder Report Presentation**
-
-When `prompt-builder` returns, present results to user:
-
-```markdown
-## Phase 4 Complete: Prompt File Built
-
-### File Created
-**Path:** `[full-file-path]`
-**Length:** [line count] lines
-
-### Structure Applied
-- **Template used:** `[template-name]`
-- **YAML configuration:** [agent type, tools]
-- **Sections included:** [list]
-
-### Customizations Applied
-1. [Customization 1]
-2. [Customization 2]
-3. [Customization 3]
+**Status**: [✅ Pass / ❌ Fail]
+```
 
 ### Builder's Self-Check
-[Summary of builder's Phase 4 validation results]
-
-**File ready for final quality validation.**
-
-**Proceed to validation phase? (yes/no/review file first)**
-```
+Summary of builder's Phase 4 validation results. File ready for quality validation.
 
 ### Phase 5: Quality Validation (Handoff to Validator)
 
-**Goal:** Hand off to `prompt-validator` for comprehensive quality assurance.
+**Goal:** Comprehensive quality assurance of created file(s).
 
-**Handoff Configuration:**
-```yaml
-handoff:
-  label: "Validate prompt quality"
-  agent: prompt-validator
-  send: true  # Automatic - builder already self-checked
-  context: |
-    Validate the newly created prompt file:
-    
-    File path: [path-from-builder]
-    
-    Perform comprehensive validation:
-    - Structure validation
-    - Convention compliance
-    - Pattern consistency
-    - Quality assessment
-    
-    This is the final quality gate before completion.
-```
+**Delegate to** `prompt-validator` (send: true, automatic) for:
+1. Tool alignment check (CRITICAL)
+2. Structure validation
+3. Convention compliance
+4. Quality scoring
 
-**Expected Agent Output:**
-- Comprehensive validation report
-- Overall status: PASSED / PASSED WITH WARNINGS / FAILED
-- Scores for structure, conventions, patterns, quality
-- Categorized issues (critical, moderate, minor)
-- Specific recommendations with line numbers
-
-**Output: Final Validation Report**
-
-When `prompt-validator` returns, present validation summary:
-
+**Gate: Validation Passed?**
 ```markdown
-## Phase 5 Complete: Quality Validation
+### Gate 5 Check
+- [ ] Tool alignment: ✅ Valid
+- [ ] Structure: [score]/10
+- [ ] Quality: [score]/10
+- [ ] Critical issues: [None / List]
 
-### Validation Status
-**Overall:** [PASSED ✅ / PASSED WITH WARNINGS ⚠️ / FAILED ❌]
-
-### Scores
-- **Structure:** [score]/100
-- **Conventions:** [score]/100
-- **Patterns:** [score]/100
-- **Quality:** [score]/100
-
-### Issues Found
-- **Critical:** [count]
-- **Moderate:** [count]
-- **Minor:** [count]
-
-[If issues exist, show summary of key issues]
-
-**Full validation report available in previous message.**
-
----
-
-## Workflow Status
-
-[If PASSED]
-✅ **Prompt creation complete!**
-
-**File created:** `[file-path]`
-**Status:** Ready for use
-**Next steps:** You can now use this prompt via `@workspace` or direct invocation.
-
-[If PASSED WITH WARNINGS]
-⚠️ **Prompt created with minor issues**
-
-**File created:** `[file-path]`
-**Status:** Functional but has [count] non-critical issues
-**Recommendation:** Address warnings before production use
-**Option:** Hand off to `prompt-updater` to fix warnings?
-
-[If FAILED]
-❌ **Prompt requires fixes before use**
-
-**File created:** `[file-path]`
-**Status:** Has [count] critical issues preventing use
-**Required:** Fix critical issues
-**Option:** Hand off to `prompt-updater` to fix issues?
+**Status**: [✅ Pass / ⚠️ Warnings / ❌ Fail]
 ```
+
+**If PASSED:** Prompt creation complete — report summary and file location.
+**If WARNINGS:** Offer to fix via `prompt-updater` or accept as-is.
+**If FAILED:** Route to Phase 6.
 
 ### Phase 6: Issue Resolution (Optional)
 
 **Only if validation found issues and user wants automatic fixes.**
 
-If validation failed or passed with warnings, offer to fix:
+**Delegate to** `prompt-updater` (send: true) with validation report issues.
+After fixes, re-validate via `prompt-validator`. Maximum 3 iterations.
 
-```markdown
-## Optional: Automatic Issue Resolution
+## References
 
-The validation found [count] issues. Would you like me to:
-
-**Option A: Hand off to updater agent**
-- Automatic fixes for all addressable issues
-- Preserves file structure
-- Re-validates after fixes
-- Command: "Fix these issues"
-
-**Option B: Manual fixes**
-- Review validation report
-- Make changes yourself
-- Re-run validation manually
-- Command: "I'll fix them manually"
-
-**Option C: Accept as-is**
-- Use prompt with known issues (if non-critical)
-- Address later if needed
-- Command: "Accept as-is"
-
-**Which option? (A/B/C)**
-```
-
-If user chooses Option A:
-
-**Handoff Configuration:**
-```yaml
-handoff:
-  label: "Fix validation issues"
-  agent: prompt-updater
-  send: true
-  context: |
-    Fix the issues found in validation report.
-    
-    File: [path]
-    Validation report: [reference previous validator output]
-    
-    Apply fixes for all addressable issues, then re-validate.
-```
-
-**Note:** Updater will automatically hand off back to validator after fixes.
-
-## Output Format
-
-Throughout the workflow, maintain this structure:
-
-```markdown
-# Prompt Creation: [Prompt Name]
-
-**Orchestration started:** [timestamp]
-**Current phase:** [1/2/3/4/5/6]
-
----
-
-## Phase [N]: [Phase Name]
-
-[Phase-specific content as defined above]
-
----
-
-## Workflow Metadata
-
-```yaml
-orchestration:
-  prompt_name: "[name]"
-  prompt_type: "[type]"
-  status: "[in-progress/complete/failed]"
-  current_phase: [number]
-  phases_complete: [list]
-  
-phases:
-  research:
-    status: "[pending/in-progress/complete]"
-    agent: "prompt-researcher"
-    timestamp: "[ISO 8601 or null]"
-  
-  architecture_analysis:
-    status: "[pending/in-progress/complete]"
-    agent: "orchestrator"
-    timestamp: "[ISO 8601 or null]"
-    recommendation: "[single-prompt/orchestrator-agents/null]"
-    complexity: "[low/medium/high/null]"
-    agents_needed: "[count or null]"
-  
-  build:
-    status: "[pending/in-progress/complete]"
-    agent: "prompt-builder"
-    timestamp: "[ISO 8601 or null]"
-    path: "[single/multi/null]"  # single-prompt or multi-file (agents + orchestrator)
-  
-  validate:
-    status: "[pending/in-progress/complete]"
-    agent: "prompt-validator"
-    timestamp: "[ISO 8601 or null]"
-  
-  fix:
-    status: "[pending/in-progress/complete/skipped]"
-    agent: "prompt-updater"
-    timestamp: "[ISO 8601 or null]"
-
-outcome:
-  file_created: "[path or null]"
-  validation_status: "[passed/warnings/failed/pending]"
-  ready_for_use: [true/false]
-```
-```
-
-## Context Files to Reference
-
-Your coordination relies on two specialized teams:
-
-### Prompt Specialists
-
-- **prompt-researcher** (`.github/agents/prompt-researcher.agent.md`)
-  - Research specialist for prompt requirements and pattern discovery
-  - Analyzes similar prompts, recommends templates
-  - Provides actionable implementation guidance
-
-- **prompt-builder** (`.github/agents/prompt-builder.agent.md`)
-  - Prompt file creation specialist following validated patterns
-  - Loads templates, applies customizations
-  - Self-validates before handoff to validator
-
-- **prompt-validator** (`.github/agents/prompt-validator.agent.md`)
-  - Quality assurance specialist for prompt validation
-  - Checks structure, conventions, patterns, quality
-  - Produces detailed report with categorized issues
-
-- **prompt-updater** (`.github/agents/prompt-updater.agent.md`)
-  - Update specialist for fixing prompt validation issues
-  - Applies targeted modifications
-  - Re-validates after changes
-
-### Agent Specialists (for dependent agent creation/updates)
-
-- **agent-researcher** (`.github/agents/agent-researcher.agent.md`)
-  - Research specialist for agent requirements and role challenge
-  - Analyzes similar agents, validates tool alignment
-  - Provides actionable agent design guidance
-
-- **agent-builder** (`.github/agents/agent-builder.agent.md`)
-  - Agent file creation specialist following validated patterns
-  - Loads templates, applies customizations
-  - Self-validates before handoff to agent-validator
-
-- **agent-validator** (`.github/agents/agent-validator.agent.md`)
-  - Quality assurance specialist for agent validation
-  - Checks tool/agent alignment, role challenge, structure
-  - Produces detailed report with categorized issues
-
-- **agent-updater** (`.github/agents/agent-updater.agent.md`)
-  - Update specialist for fixing agent validation issues
-  - Applies targeted modifications
-  - Re-validates after changes
+- All specialist agents configured in YAML handoffs section above
+- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- `.github/instructions/prompts.instructions.md`
+- `.github/instructions/agents.instructions.md`
 
 ## Common Workflows
 

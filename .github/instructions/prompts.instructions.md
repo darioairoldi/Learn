@@ -127,14 +127,32 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 ## Tool Selection
 
-**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/](.copilot/context/00.00-prompt-engineering/)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md)
 
 **Tool/Agent Alignment:**
 - `agent: plan` + read-only tools (read_file, grep_search, semantic_search)
 - `agent: agent` + write tools (create_file, replace_string_in_file)
 - **Never** mix `agent: plan` with write tools (validation fails)
 
+**Tool priority order**: Prompt tools > Agent tools > Default tools
+
+**Always-available tools** (cannot be restricted via `tools:`):
+`manage_todo_list`, `ask_questions`, `runSubagent`, `tool_search_tool_regex` — NEVER list these in YAML frontmatter.
+
+**Tool sets shorthand** — use groups instead of listing individual tools:
+- `#edit` — all read + write tools
+- `#search` — semantic_search, grep_search, file_search
+- `#reader` — read_file, list_dir, get_errors
+
+**📖 Tool architecture (L1/L2 levels, per-tool costs):** [02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md)
+
 **Tool scoping prevents**: Tool clash, distraction, context bloat
+
+## Prompt Assembly Architecture
+
+**📖 Complete guide:** [.copilot/context/00.00-prompt-engineering/07-prompt-assembly-architecture.md](.copilot/context/00.00-prompt-engineering/07-prompt-assembly-architecture.md)
+
+**Critical rule**: Prompt files inject into the **USER prompt**, NOT the system prompt. The system prompt is assembled from instructions, copilot-instructions.md, and agent files.
 
 ## Required YAML Frontmatter
 
@@ -150,6 +168,8 @@ tools:
 argument-hint: 'Expected input format'  # Optional
 ---
 ```
+
+**📖 Model-specific optimization:** When choosing `model:`, consider structural implications per model family — see [10-model-specific-optimization.md](.copilot/context/00.00-prompt-engineering/10-model-specific-optimization.md)
 
 ## Prompt Templates
 
@@ -170,28 +190,7 @@ argument-hint: 'Expected input format'  # Optional
 **Critical rules:**
 - ❌ **NEVER modify top YAML** (Quarto metadata) from validation prompts
 - ✅ **Update bottom metadata block only** (HTML comment at end of file)
-- Check `last_run` timestamp before running validation
-- Skip validation if `last_run < 7 days` AND content unchanged
-
-**Dual YAML architecture:**
-```yaml
-# Top YAML (Quarto) - NEVER touch from prompts
----
-title: "Article Title"
-author: "Author"
-date: "2025-12-06"
----
-
-# Bottom YAML (Validation) - Update your section only
-<!-- 
----
-validations:
-  grammar:
-    status: "passed"
-    last_run: "2025-12-06T10:30:00Z"
----
--->
-```
+- Check `last_run` timestamp — skip if `< 7 days` AND content unchanged
 
 ## Naming Conventions
 
@@ -299,6 +298,9 @@ Recommendation: [escalation path or alternative]
 - Use imperative language (no filler)
 - Place critical instructions in first 30% of prompt
 - Factor large prompts into multiple smaller, focused prompts
+- Structure with **static content first, dynamic last** to enable provider prompt caching (up to 90% cost reduction)
+
+**📖 Token optimization strategies:** [09-token-optimization-strategies.md](.copilot/context/00.00-prompt-engineering/09-token-optimization-strategies.md)
 
 **Validation:** `@prompt-validator` checks token count in Phase 5 (Production Readiness).
 
@@ -364,3 +366,10 @@ Your prompt file: 1,800 tokens
 **Related instruction files:**
 - [skills.instructions.md](./skills.instructions.md) - Agent Skill (SKILL.md) creation guidance
 - [agents.instructions.md](./agents.instructions.md) - Custom agent creation guidance
+
+**Context files (detailed guidance):**
+- [07-prompt-assembly-architecture.md](.copilot/context/00.00-prompt-engineering/07-prompt-assembly-architecture.md) - Where each file type injects
+- [08-context-window-management.md](.copilot/context/00.00-prompt-engineering/08-context-window-management.md) - Context rot prevention
+- [09-token-optimization-strategies.md](.copilot/context/00.00-prompt-engineering/09-token-optimization-strategies.md) - Token optimization
+- [10-model-specific-optimization.md](.copilot/context/00.00-prompt-engineering/10-model-specific-optimization.md) - Per-model guidance
+- [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md) - When to use prompts vs agents vs instructions

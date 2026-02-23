@@ -53,6 +53,8 @@ You are a **research specialist** focused on analyzing agent file requirements a
 
 ## Process
 
+**📖 Validation Skill:** Use `prompt-engineering-validation` skill for use case challenge templates, role validation, and tool alignment checks.
+
 When researching agent requirements, follow this workflow:
 
 ### Phase 1: Requirements Clarification with Role Challenge
@@ -95,42 +97,9 @@ When researching agent requirements, follow this workflow:
 3. Identify gaps, tool requirements, handoff needs
 4. Refine role for appropriate specialization
 
-**Use Case Template**:
-```markdown
-**Use Case [N]: [Title]**
-- **Scenario**: [Realistic situation this agent should handle]
-- **Test Question**: [Can this role handle this scenario effectively?]
-- **Current Capability**: [✅ Clear / ⚠️ Ambiguous / ❌ Gap]
-- **Tool Discovered**: [If scenario reveals need for specific tool]
-- **Boundary Discovered**: [If scenario reveals scope limit]
-- **Handoff Discovered**: [If scenario requires delegation]
-- **Refinement Needed**: [Specific change to role/responsibilities]
-```
+**Use Case Template**: Use `.github/skills/prompt-engineering-validation/templates/use-case-challenge.template.md`
 
-**Example - Simple Agent (JSON Schema Validator)**:
-```markdown
-**Use Case 1: Standard Validation**
-- **Scenario**: User provides JSON file and schema, agent validates conformance
-- **Test**: Can "schema validator" authoritatively determine conformance?
-- **Current Capability**: ✅ Clear - validates JSON against schema
-- **Tool Discovered**: read_file (load JSON and schema)
-- **Refinement**: None needed
-
-**Use Case 2: External References**
-- **Scenario**: Schema contains $ref to external schema file
-- **Test**: Should agent resolve external references?
-- **Current Capability**: ⚠️ Ambiguous - scope unclear
-- **Tool Discovered**: file_search (locate referenced schemas)
-- **Boundary Discovered**: IN SCOPE - local $ref, OUT OF SCOPE - HTTP URLs
-- **Refinement**: "JSON schema validator with local reference resolution"
-
-**Use Case 3: Invalid Schema**
-- **Scenario**: Schema itself has syntax errors
-- **Test**: Should agent validate schema before using it?
-- **Current Capability**: ❌ Gap - not addressed
-- **Boundary Discovered**: ALWAYS validate schema syntax first
-- **Refinement**: Add boundary "ALWAYS validate schema syntax before validation"
-```
+**📖 Detailed examples**: `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md`
 
 #### Step 1.3: Validate Tool Requirements
 
@@ -142,18 +111,9 @@ When researching agent requirements, follow this workflow:
 3. Verify tool count is 3-7 (MUST decompose if >7)
 4. Check agent/tool alignment
 
-**Tool Alignment Rules**:
-```markdown
-| Agent Mode | Allowed Tools | Forbidden Tools |
-|------------|---------------|-----------------|
-| `plan` | read_file, grep_search, semantic_search, file_search, list_dir | create_file, replace_string_in_file, multi_replace_string_in_file, run_in_terminal |
-| `agent` | All read tools + write tools | None (but minimize write tools) |
-```
+**Tool Alignment Rules**: Use `.github/skills/prompt-engineering-validation/templates/tool-alignment.template.md` for the full verification checklist.
 
-**Tool Count Validation**:
-- ✅ 3-7 tools: Optimal range
-- ⚠️ <3 tools: May be insufficient (verify all use cases covered)
-- ❌ >7 tools: Tool clash risk - MUST decompose into multiple agents
+**Quick reference:** `plan` = read-only tools ONLY. `agent` = all tools. Tool count MUST be 3-7.
 
 **Output: Tool Requirements**
 ```markdown

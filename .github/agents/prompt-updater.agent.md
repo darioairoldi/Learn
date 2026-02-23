@@ -81,6 +81,8 @@ You are an **update specialist** focused on making targeted modifications to exi
 
 ## Process
 
+**📖 Validation Skill:** Use `prompt-engineering-validation` skill for tool alignment verification after changes. See `.github/skills/prompt-engineering-validation/templates/tool-alignment.template.md`.
+
 When handed validation report or specific update request:
 
 ### Phase 1: Change Analysis and Categorization

@@ -55,6 +55,8 @@ You are a **research specialist** focused on analyzing prompt requirements and d
 
 ## Process
 
+**📖 Validation Skill:** Use `prompt-engineering-validation` skill for use case challenge templates, role validation, and tool alignment checks.
+
 When user requests prompt research, follow this workflow:
 
 ### Phase 1: Requirements Clarification with Use Case Challenge
@@ -96,41 +98,9 @@ When user requests prompt research, follow this workflow:
 3. Identify gaps, tool requirements, handoff needs
 4. Refine scope for appropriate specialization
 
-**Use Case Template**:
-```markdown
-**Use Case [N]: [Title]**
-- **Scenario**: [Realistic situation this prompt should handle]
-- **Test Question**: [Can this prompt handle this scenario effectively?]
-- **Current Capability**: [✅ Clear / ⚠️ Ambiguous / ❌ Gap]
-- **Tool Discovered**: [If scenario reveals need for specific tool]
-- **Boundary Discovered**: [If scenario reveals scope limit]
-- **Handoff Discovered**: [If scenario requires delegation]
-- **Refinement Needed**: [Specific change to purpose/scope]
-```
+**Use Case Template**: Use `.github/skills/prompt-engineering-validation/templates/use-case-challenge.template.md`
 
-**Example - Validation Prompt (Grammar Review)**:
-```markdown
-**Use Case 1: Standard Article Validation**
-- **Scenario**: User provides markdown article, prompt checks grammar
-- **Test**: Can "grammar validator" authoritatively determine compliance?
-- **Current Capability**: ✅ Clear - checks grammar rules
-- **Tool Discovered**: read_file (load article content)
-- **Refinement**: None needed
-
-**Use Case 2: Code Block Content**
-- **Scenario**: Article contains code blocks with comments
-- **Test**: Should prompt validate grammar in code comments?
-- **Current Capability**: ⚠️ Ambiguous - scope unclear
-- **Boundary Discovered**: OUT OF SCOPE - code blocks ignored
-- **Refinement**: "Grammar validator excluding code blocks"
-
-**Use Case 3: Non-English Content**
-- **Scenario**: Article contains quotes in foreign languages
-- **Test**: Should prompt validate non-English text?
-- **Current Capability**: ❌ Gap - not addressed
-- **Boundary Discovered**: OUT OF SCOPE - foreign language quotes
-- **Refinement**: Add boundary "Skip non-English content"
-```
+**📖 Detailed examples**: `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md`
 
 #### Step 1.3: Determine Prompt Type
 

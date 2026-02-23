@@ -77,12 +77,20 @@ They operate at the implementation level with detailed technical instructions, t
 
 ## Tool Selection
 
-**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/](.copilot/context/00.00-prompt-engineering/)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md)
 
 **Agent/Tool Alignment:**
 - `agent: plan` (read-only) + [read_file, grep_search, semantic_search]
 - `agent: agent` (full access) + read + write tools
 - **Never** mix `agent: plan` with write tools
+
+**Always-available tools** (never list in `tools:`):
+`manage_todo_list`, `ask_questions`, `runSubagent`, `tool_search_tool_regex`
+
+**Tool sets shorthand** — use groups instead of listing individual tools:
+- `#edit` — all read + write tools
+- `#search` — semantic_search, grep_search, file_search
+- `#reader` — read_file, list_dir, get_errors
 
 **Tool selection by role:**
 - **Researcher**: semantic_search, grep_search, read_file, file_search, list_dir
@@ -95,12 +103,54 @@ They operate at the implementation level with detailed technical instructions, t
 ```yaml
 ---
 name: agent-name
-description: "One-sentence description of agent''s role"
-tools: [''specific'', ''tools'', ''only'']  # Critical: narrow tool scope
-model: claude-opus-4.6  # Optional: specify preferred model
-target: vscode  # Optional: vscode (default) or github-copilot
+description: "One-sentence description of agent's role"
+tools: ['specific', 'tools', 'only']
+model: claude-opus-4.6
+target: vscode             # vscode (default) or github-copilot
+user-invokable: true       # Show in agent picker dropdown
+disable-model-invocation: false  # Allow auto-invocation as subagent
+agents: ['*']              # Restrict available subagents (* = all, [] = none)
+handoffs:                  # Workflow transitions
+  - label: "Review Phase"
+    agent: reviewer-agent
+    prompt: "Review the implementation"
+    send: true             # Send current context to target
 ---
 ```
+
+### Advanced YAML Fields
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `user-invokable` | boolean | `true` | Show in agent picker dropdown |
+| `disable-model-invocation` | boolean | `false` | Prevent auto-invocation as subagent |
+| `agents` | array | `['*']` | Restrict subagent access (`*` = all, `[]` = none) |
+| `handoffs` | array | none | Workflow transitions (`label`, `agent`, `prompt`, `send`) |
+| `excludeAgent` | string | none | Exclude specific agent capabilities |
+| `mcp-servers` | object | none | MCP server configurations (cloud context) |
+| `target` | string | `vscode` | `vscode` (local/background) or `github-copilot` (cloud) |
+
+### Visibility Matrix
+
+| `user-invokable` | `disable-model-invocation` | Result |
+|:---:|:---:|---|
+| true | false | **Full access** — user and agents can invoke |
+| true | true | **User-only** — visible in dropdown, protected from auto-invocation |
+| false | false | **Subagent-only** — hidden from user, available for orchestration |
+| false | true | **Locked** — only invocable via explicit `agents` array |
+
+**Critical**: Listing an agent in the `agents:` array **overrides** `disable-model-invocation: true` for that specific agent.
+
+### AGENTS.md vs .agent.md
+
+| Aspect | `.agent.md` | `AGENTS.md` |
+|--------|------------|-------------|
+| **Purpose** | VS Code chat personas | Coding agent instructions |
+| **Location** | `.github/agents/` only | Anywhere in repo |
+| **Platform** | VS Code only (1.106+) | GitHub.com, VS Code, Visual Studio |
+| **Tool/handoff control** | ✅ Full | ❌ None |
+
+**📖 File type decision guide:** [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md)
 
 **Tool Scoping is Critical**:
 - Agents with 20+ tools suffer tool clash
@@ -154,21 +204,7 @@ VS Code 1.107 introduced **Agent HQ**, a unified interface for managing agent se
 Agents working with article files must:
 - ❌ **NEVER modify top YAML** (Quarto metadata)
 - ✅ **Update bottom metadata block only** (HTML comment at end)
-- Check `last_run` timestamps before validation
-- Skip validation if `last_run < 7 days` AND content unchanged
-
-### Dual YAML Metadata (THIS Repository)
-Agents working with article files must understand:
-
-1. **Top YAML Block**: Quarto metadata (title, author, date)
-   - ❌ Agents NEVER modify this block
-   
-2. **Bottom YAML Block**: Validation metadata  
-   - ✅ Agents update relevant validation sections only
-   - Must check `last_run` timestamps
-   - Skip validation if recent (<7 days) and content unchanged
-
-Reference: `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`
+- Check `last_run` timestamps — skip if `< 7 days` AND content unchanged
 
 ### Multi-Phase Workflows
 For complex operations, implement checkpoint pattern:
@@ -258,8 +294,14 @@ Agents are particularly vulnerable to context rot due to long-running conversati
 
 ## Multi-Agent Orchestration
 
+**📖 Design principles and subagent mechanics:** [12-orchestrator-design-patterns.md](.copilot/context/00.00-prompt-engineering/12-orchestrator-design-patterns.md)
+
+**📖 Handoff patterns:** [04-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/04-handoffs-pattern.md)
+
+**📖 Information flow patterns:** [08-context-window-management.md](.copilot/context/00.00-prompt-engineering/08-context-window-management.md)
+
 ### Using runSubagent Tool
-Agents can invoke specialized sub-agents:
+Agents can invoke specialized sub-agents via `tools: ['agent']` (alias for `runSubagent`).
 
 ```markdown
 ## Available Sub-Agents
@@ -456,7 +498,7 @@ Agent: 1,200 tokens (persistent)
 
 ### 4. Tool Alignment Validation
 
-**Critical check** - prevents runtime failures:
+**Critical check** — prevents runtime failures:
 
 ```markdown
 ## Tool Configuration
@@ -474,6 +516,12 @@ tools:
 - `agent: agent` + only read tools → ⚠️ WARNING (consider `plan` mode)
 - Excessive tools (>10) → ⚠️ WARNING (tool clash risk)
 
+### 5. Agent Lifecycle Hooks
+
+**📖 Complete reference:** [11-agent-hooks-reference.md](.copilot/context/00.00-prompt-engineering/11-agent-hooks-reference.md)
+
+Agent hooks enable programmatic control over agent behavior at 8 lifecycle events (`onCreateSession`, `beforeToolCall`, `afterToolCall`, etc.). Configure in `.vscode/agent-hooks.json`. Use hooks for output validation, tool gating, logging, and approval workflows.
+
 ## References
 
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) - Analysis of 2,500+ agent files
@@ -485,5 +533,13 @@ tools:
 **Related instruction files:**
 - [prompts.instructions.md](./prompts.instructions.md) - Prompt file creation guidance
 - [skills.instructions.md](./skills.instructions.md) - Agent Skill (SKILL.md) creation guidance
+
+**📖 Context files:**
+- [02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md) - L1/L2 tool architecture and tool sets
+- [04-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/04-handoffs-pattern.md) - Handoff patterns, send: behavior, subagent integration
+- [08-context-window-management.md](.copilot/context/00.00-prompt-engineering/08-context-window-management.md) - Context rot prevention and information flow
+- [11-agent-hooks-reference.md](.copilot/context/00.00-prompt-engineering/11-agent-hooks-reference.md) - 8 lifecycle events and JSON config
+- [12-orchestrator-design-patterns.md](.copilot/context/00.00-prompt-engineering/12-orchestrator-design-patterns.md) - 9 design principles and tier architecture
+- [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md) - Decision flowchart for file types
 
 **📖 Complete guidance:** [03.00-tech/05.02-promptEngineering/04.00-how_to_structure_content_for_copilot_agent_files.md](../../03.00%20tech/05.02%20PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)

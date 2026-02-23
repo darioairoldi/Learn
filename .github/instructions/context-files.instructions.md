@@ -9,6 +9,18 @@ applyTo: '.copilot/context/**/*.md'
 
 Context files are **shared reference documents** that provide consolidated guidance for prompts, agents, and instruction files. They serve as the single source of truth for principles, patterns, and conventions used across multiple files.
 
+**Automatic discovery**: Context files in `.copilot/context/` are **automatically indexed by semantic search**, allowing Copilot to discover relevant context without explicit `#file:` references. This makes them the preferred location for reusable knowledge.
+
+### Context Files vs Instructions vs Snippets
+
+| Aspect | Context files | Instruction files | Prompt snippets |
+|--------|--------------|-------------------|----------------|
+| **Location** | `.copilot/context/` | `.github/instructions/` | Inline `#file:` |
+| **Discovery** | Semantic search (automatic) | `applyTo` glob (automatic) | Manual reference |
+| **Scope** | Cross-cutting knowledge | File-type-specific rules | Single prompt |
+| **Size limit** | ~2,500 tokens | ~1,500 tokens | No formal limit |
+| **When to use** | Shared patterns, principles | Editing rules per filetype | One-off context |
+
 **📖 Related guidance:**
 - [prompts.instructions.md](../.github/instructions/prompts.instructions.md) - Prompt file creation
 - [agents.instructions.md](../.github/instructions/agents.instructions.md) - Agent file creation
@@ -295,6 +307,10 @@ tools: ['some_tool', 'another_tool']
 - **Prompt Instructions**: [.github/instructions/prompts.instructions.md](../../.github/instructions/prompts.instructions.md)
 - **Agent Instructions**: [.github/instructions/agents.instructions.md](../../.github/instructions/agents.instructions.md)
 - **VS Code Copilot Docs**: [Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization)
+
+**📖 Context files:**
+- [08-context-window-management.md](.copilot/context/00.00-prompt-engineering/08-context-window-management.md) - Context rot prevention and information flow patterns
+- [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md) - When to use context files vs instructions vs prompts
 
 ---
 

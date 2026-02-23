@@ -301,4 +301,8 @@ Before committing a skill:
 - [github/awesome-copilot](https://github.com/github/awesome-copilot) - Community skills collection
 - [anthropics/skills](https://github.com/anthropics/skills) - Reference skill implementations
 
+**📖 Context files:**
+- [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md) - Skills vs prompts vs agents decision guide
+- [14-mcp-server-design-patterns.md](.copilot/context/00.00-prompt-engineering/14-mcp-server-design-patterns.md) - MCP servers complement skills for persistent state and external APIs
+
 **📖 Complete guidance:** [03.00-tech/05.02-promptEngineering/06. how_to_structure_content_for_copilot_skills.md](../../03.00%20tech/05.02%20PromptEngineering/06.%20how_to_structure_content_for_copilot_skills.md)

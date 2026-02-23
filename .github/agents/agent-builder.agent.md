@@ -53,6 +53,8 @@ You are a **construction specialist** focused on creating high-quality agent fil
 
 ## Pre-Save Validation Checklist
 
+**📖 Validation Skill:** Use `prompt-engineering-validation` skill for tool alignment verification. See `.github/skills/prompt-engineering-validation/templates/tool-alignment.template.md` for the full checklist.
+
 Before creating ANY agent file, verify:
 
 ```markdown
@@ -60,7 +62,7 @@ Before creating ANY agent file, verify:
 
 ### Tool Validation
 - [ ] Tool count: [N] (must be 3-7)
-- [ ] Tool alignment: [plan/agent] mode with [read-only/write] tools
+- [ ] Tool alignment verified via skill template (plan = read-only, agent = all)
 - [ ] Each tool has justification
 
 ### Structure Validation  

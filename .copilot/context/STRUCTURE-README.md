@@ -20,19 +20,44 @@ This mapping defines **how to find source material** for creating or updating co
 
 **Purpose:** Prompt and agent design patterns, core principles for GitHub Copilot customization.
 
+**Source Mapping:**
+
 | Context Pattern | Source Pattern | Source Type |
 |-----------------|----------------|-------------|
-| `00.00-prompt-engineering/*.md` | `03.00-tech/05.02-promptEngineering/**/*.md` | Learning Hub articles |
+| `00.00-prompt-engineering/*.md` | `03.00-tech/05.02-prompt-engineering/**/*.md` | Learning Hub articles (23 files) |
 | `00.00-prompt-engineering/*.md` | Semantic search: "GitHub Copilot prompt files agents" | GitHub docs |
 | `00.00-prompt-engineering/*.md` | Semantic search: "VS Code Copilot customization" | VS Code docs |
 | `00.00-prompt-engineering/*.md` | `https://code.visualstudio.com/docs/copilot/*` | Official VS Code |
 | `00.00-prompt-engineering/*.md` | `https://github.blog/ai-and-ml/github-copilot/*` | GitHub Blog |
-| `01-context-engineering-principles.md` | Semantic search: "GitHub Copilot context engineering principles" | Microsoft/GitHub docs |
+
+**File Inventory (16 files):**
+
+| # | File | Purpose | Primary Source Articles |
+|---|------|---------|------------------------|
+| 01 | `01-context-engineering-principles.md` | Core principles: 7 Rules, context types, assembly pipeline | 01-overview, 03.00, 12.00 |
+| 02 | `02-tool-composition-guide.md` | Tool calling patterns, cost hierarchy, result sizes, MCP integration | 09.50, 07.00, 13.00 |
+| 03 | `03-progressive-disclosure-pattern.md` | Layered complexity: skill loading, progressive context | 06.00, 11.00 |
+| 04 | `04-handoffs-pattern.md` | Orchestration handoffs: send/receive flow, strategy selection, reliability | 10.00, 11.00, 12.00 |
+| 05 | `05-validation-caching-pattern.md` | Validation cache to skip redundant checks ⚠️ *LearnHub-specific* | IQPilot architecture |
+| 06 | `06-adaptive-validation-patterns.md` | Use case challenge, adaptive depth routing ⚠️ *LearnHub-specific* | 10.00, IQPilot |
+| 07 | `07-prompt-assembly-architecture.md` | VS Code assembly pipeline: 7 context types, v1.107+ features | 01-overview, 03.00 |
+| 08 | `08-context-window-management.md` | Token budgets, MCP flow, prompt-snippets vs instructions, 5 patterns | 12.00, 13.00, 07.00 |
+| 09 | `09-token-optimization-strategies.md` | Cache stacking, batch operations, cost impact, context rot | 13.00, 12.00 |
+| 10 | `10-model-specific-optimization.md` | GPT/Claude/Gemini provider-specific techniques and constraints | 08.00, 08.01, 08.02, 08.03 |
+| 11 | `11-agent-hooks-reference.md` | Agent lifecycle hooks: events, security patterns, configuration | 09.00 |
+| 12 | `12-orchestrator-design-patterns.md` | Orchestrator topologies, 4-specialist pattern, use case challenge | 10.00, 11.00 |
+| 13 | `13-file-type-decision-guide.md` | Decision flowchart: prompts vs agents vs instructions vs skills vs Spaces vs SDK | 02.00-06.00, 01.01, 14.00 |
+| 14 | `14-mcp-server-design-patterns.md` | MCP server lifecycle, 3 primitives, tool anatomy, transport, errors | 07.00 |
+| 15 | `15-copilot-spaces-patterns.md` | Copilot Spaces decision framework, content types, combination patterns | 01.01 |
+| 16 | `16-copilot-sdk-integration.md` | SDK integration: VS Code vs SDK comparison, YAML differences, MCP, billing | 14.00 |
+
+> **Note on files 05 and 06:** These files contain patterns specific to the IQPilot/LearnHub validation system. They remain in `00.00-prompt-engineering/` because the underlying patterns (caching, adaptive routing) are general prompt engineering concepts, even though their primary implementation is LearnHub-specific.
 
 **Update Strategy:**
 - Re-run semantic searches when VS Code or GitHub Copilot releases new versions
-- Check `03.00-tech/05.02-promptEngineering/` for new articles
+- Check `03.00-tech/05.02-prompt-engineering/` for new articles
 - Review GitHub blog for new best practices
+- Compare article count against file inventory when articles are added
 
 ---
 
@@ -78,6 +103,32 @@ This mapping defines **how to find source material** for creating or updating co
 - Review when new content patterns emerge
 - **Update `06-folder-organization-and-navigation.md`** when folder naming conventions change
 - **Update `07-sidebar-menu-rules.md`** when sidebar structure or menu generation logic changes
+
+---
+
+## Article-to-Context Reverse Mapping
+
+This table shows which source articles feed which context files in `00.00-prompt-engineering/`. Use it to identify which context files need updating when an article changes.
+
+| Source Article | Context Files |
+|---------------|---------------|
+| `01-overview/` (series introduction) | 01, 07, 13 |
+| `01.01-appendix_copilot_spaces.md` | 15, 13 |
+| `02.00-how_to_name_and_organize_prompt_files.md` | 13 |
+| `03.00-how_to_structure_content_for_copilot_prompt_files.md` | 01, 07, 13 |
+| `04.00-how_to_structure_content_for_copilot_agent_files.md` | 13 |
+| `05.00-how_to_structure_content_for_copilot_instruction_files.md` | 13 |
+| `06.00-how_to_structure_content_for_copilot_skills.md` | 03, 13 |
+| `07.00-how_to_create_mcp_servers_for_copilot.md` | 02, 08, 14 |
+| `08.00-how_to_optimize_prompts_for_specific_models.md` | 10 |
+| `08.01–08.03 (provider appendices)` | 10 |
+| `09.00-how_to_use_agent_hooks_for_lifecycle_automation.md` | 11 |
+| `09.50-how_to_leverage_tools_in_prompt_orchestrations.md` | 02 |
+| `10.00-how_to_design_orchestrator_prompts.md` | 04, 06, 12 |
+| `11.00-how_to_design_subagent_orchestrations.md` | 03, 04, 12 |
+| `12.00-how_to_manage_information_flow_during_prompt_orchestrations.md` | 01, 04, 08, 09 |
+| `13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md` | 02, 08, 09 |
+| `14.00-how_to_use_prompts_with_the_github_copilot_sdk.md` | 13, 16 |
 
 ---
 
@@ -163,5 +214,5 @@ When creating a new context folder:
 
 ---
 
-*Last updated: 2026-01-24*  
-*Version: 1.0*
+*Last updated: 2026-02-23*  
+*Version: 2.0*
