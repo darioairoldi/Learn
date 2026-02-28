@@ -16,6 +16,7 @@ description: "Comprehensive guide to technical documentation foundations, explor
 - [Introduction](#introduction)
 - [What Makes Documentation "Good"?](#what-makes-documentation-good)
 - [The Diátaxis Framework: Four Documentation Types](#the-diataxis-framework-four-documentation-types)
+- [Diátaxis quality theory: functional vs. deep quality](#diataxis-quality-theory-functional-vs-deep-quality)
 - [Major Style Guides Comparison](#major-style-guides-comparison)
 - [Wikipedia's Documentation Model](#wikipedias-documentation-model)
 - [Decision Frameworks: When Guidelines Conflict](#decision-frameworks-when-guidelines-conflict)
@@ -74,7 +75,29 @@ Before examining specific frameworks and guidelines, we must establish criteria 
 - <mark>Edge cases addressed</mark>
 - <mark>Related concepts linked</mark>
 
-> **Note:** This repository's validation system (see [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md)) operationalizes these principles through seven validation dimensions: grammar, readability, structure, facts, logic, understandability, and gaps.
+### Reconciling quality criteria with validation dimensions
+
+The six criteria above describe _what_ good documentation achieves for readers. But how do you _verify_ that your documentation meets them? This repository's validation system (see [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md)) operationalizes these principles through seven validation dimensions. The mapping isn't one-to-one—some criteria span multiple dimensions, and some dimensions serve several criteria.
+
+The table below reconciles the six quality criteria with the seven validation dimensions. Each row shows which validation dimensions contribute evidence for a given quality criterion:
+
+| Quality criterion | Primary validation dimensions | How the dimensions verify it |
+|-------------------|-------------------------------|------------------------------|
+| **Findability** | Structure | Heading hierarchy, TOC presence, logical navigation, cross-references |
+| **Understandability** | Readability, Grammar | Flesch scores, sentence length, active voice, correct syntax, jargon density |
+| **Actionability** | Logical Coherence, Coverage | Complete procedures without gaps, prerequisites identified, logical step flow |
+| **Accuracy** | Fact Accuracy, References | Technical claims verified, code examples tested, sources authoritative and current |
+| **Consistency** | Grammar, Structure | Uniform terminology, standardized formatting, predictable patterns, coherent voice |
+| **Completeness** | Coverage, References | All subtopics addressed, edge cases covered, claims supported by citations |
+
+**What the table reveals:**
+
+- **No dimension is wasted.** Every validation dimension contributes to at least one quality criterion, meaning the validation system has no dead weight.
+- **Some dimensions pull double duty.** Grammar supports both Understandability and Consistency. Structure supports both Findability and Consistency. References supports both Accuracy and Completeness. This overlap is intentional—it reflects how quality attributes interact in practice.
+- **Actionability is the hardest to validate.** It depends on Logical Coherence (are steps in the right order?) and Coverage (are all steps present?)—two dimensions that require human judgment rather than automated scoring.
+- **Readability serves one criterion directly.** Its narrow focus (language accessibility) makes it the most automatable dimension, but it doesn't capture deeper comprehension. See [09-measuring-readability-and-comprehension.md](09-measuring-readability-and-comprehension.md) for measurement approaches that go beyond readability scores.
+
+This reconciliation helps you understand _why_ each validation dimension exists. When you run the readability review prompt, you're verifying Understandability. When you run the structure validation, you're verifying Findability and Consistency. The validation system isn't an arbitrary checklist—it's a systematic operationalization of the quality criteria that define good documentation.
 
 ## The Diátaxis Framework: Four Documentation Types
 
@@ -165,6 +188,58 @@ The Diátaxis framework prevents common documentation failures:
 - **How-to:** [How to Structure Content for Copilot Instruction Files](../05.02-promptEngineering/05.00-how_to_structure_content_for_copilot_instruction_files.md)
 - **Reference:** [Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)
 - **Explanation:** This article
+
+## Diátaxis quality theory: functional vs. deep quality
+
+The Diátaxis framework doesn't just organize documentation into four types—it also proposes a [theory of quality](https://diataxis.fr/quality/) that distinguishes two fundamentally different kinds of documentation excellence. This distinction matters because most validation systems (including this repository's) focus on one kind while the other requires a different approach entirely.
+
+### Functional quality
+
+<mark>Functional quality</mark> encompasses the objectively measurable properties of documentation:
+
+- **Accuracy** — Does the documentation correctly describe what it claims to?
+- **Completeness** — Are all necessary topics covered?
+- **Consistency** — Are terminology, style, and structure uniform?
+- **Usefulness** — Does the documentation serve a practical purpose?
+- **Precision** — Is information specific enough to act on?
+
+These characteristics are **independent of each other**. Documentation can be accurate without being complete. It can be complete but inaccurate and inconsistent. It can be accurate, complete, consistent, and also useless.
+
+Attaining functional quality requires discipline, attention to detail, and high technical skill. Any failure to meet these standards is readily apparent to users.
+
+### Deep quality
+
+<mark>Deep quality</mark> encompasses characteristics that can't be reduced to checklists or metrics:
+
+- **Feeling good to use** — The documentation is pleasant to read and navigate
+- **Having flow** — Content moves naturally from one idea to the next
+- **Fitting to human needs** — Documentation anticipates what users need at each moment
+- **Being beautiful** — Structure, language, and presentation create an aesthetic experience
+- **Anticipating the user** — Content appears where and when users need it
+
+Unlike functional quality characteristics (which are independent), deep quality characteristics are **interdependent**. Having flow and anticipating the user are aspects of each other. It's hard to see how documentation could feel good to use without fitting to human needs.
+
+### How they relate
+
+Functional quality and deep quality relate in specific, asymmetric ways:
+
+| Dimension | Functional quality | Deep quality |
+|-----------|-------------------|--------------|
+| **Independence** | Characteristics are independent of each other | Characteristics are interdependent |
+| **Objectivity** | Objective—measured against the world | Subjective—assessed against the human |
+| **Measurement** | Can be measured with numbers (Flesch scores, completeness %) | Can only be enquired into, judged |
+| **Relationship** | Can exist without deep quality | Conditional upon functional quality |
+| **Experience** | Represents constraint (tests we might fail) | Represents liberation (work of creativity) |
+
+The asymmetry matters: documentation can meet every functional quality standard and still fail to exhibit deep quality. There's plenty of documentation that's accurate, consistent, and even useful—but also awkward and unpleasant to use. However, documentation will never have deep quality without first being accurate, complete, and consistent. The moment readers encounter a factual error or an inconsistency, the experience is tarnished.
+
+### Diátaxis and quality
+
+Diátaxis itself can't address functional quality directly—that's the work of disciplined craft. But it serves functional quality indirectly by **exposing lapses**. Applying Diátaxis structure to existing documentation often makes problems suddenly apparent: moving explanatory content out of a tutorial highlights sections where readers were left to work things out for themselves; structuring reference docs to mirror code architecture makes gaps in coverage clearly visible.
+
+For deep quality, Diátaxis can do more. It helps documentation fit user needs by describing documentation modes based on those needs. It preserves flow by preventing disruptions—like when an explanation digression interrupts a how-to guide. But Diátaxis offers principles, not a formula. It can't substitute for skills in user experience design, visual design, or the craft of writing itself. As the framework's creator notes: "Using Diátaxis does not guarantee deep quality... but what Diátaxis can do is lay down some conditions for the possibility of deep quality."
+
+**Connection to this repository's validation:** The seven validation dimensions in [Article 05](05-validation-and-quality-assurance.md) and the reconciliation table in the [quality criteria section](#reconciling-quality-criteria-with-validation-dimensions) above primarily measure functional quality. Deep quality—flow, beauty, anticipation—requires human judgment and can't be captured by automated scoring. This is why the Diátaxis framework complements rather than replaces the validation system. For a deeper exploration of how to measure both functional and deep quality, including comprehension testing and usability metrics, see [09-measuring-readability-and-comprehension.md](09-measuring-readability-and-comprehension.md).
 
 ## Major Style Guides Comparison
 
