@@ -740,25 +740,22 @@ From [documentation.instructions.md](../../.github/instructions/documentation.in
 
 ## Conclusion
 
-Information architecture determines documentation usability. Key principles:
+Information architecture determines documentation usability. The right structure helps readers find, understand, and act on information efficiently.
 
-**Progressive disclosure matters** - Layer complexity so users see what they need without being overwhelmed by what they don't
+### Key Takeaways
 
-**LATCH provides organizing options** - Location, Alphabet, Time, Category, Hierarchy cover all information organization needs
+- **Progressive disclosure matters** — Layer complexity so users see what they need without being overwhelmed by what they don't
+- **LATCH provides organizing options** — Location, Alphabet, Time, Category, Hierarchy cover all information organization needs
+- **TOCs serve dual purposes** — Navigation and orientation; design for both through careful structure
+- **Navigation supports multiple journeys** — Explorers, searchers, followers, and returners need different pathways
+- **Page structure follows patterns** — Articles, references, how-tos, and tutorials each have proven structural templates
+- **Cross-references connect content** — Meaningful links with clear purposes support discovery and comprehension
 
-**TOCs serve dual purposes** - Navigation and orientation; design for both through careful structure
+### Next Steps
 
-**Navigation supports multiple journeys** - Explorers, searchers, followers, and returners need different pathways
-
-**Page structure follows patterns** - Articles, references, how-tos, and tutorials each have proven structural templates
-
-**Cross-references connect content** - Meaningful links with clear purposes support discovery and comprehension
-
-**Next in series:**
-
-- [03-accessibility-in-technical-writing.md](03-accessibility-in-technical-writing.md) - Ensuring documentation works for all users
-- [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) - Diátaxis framework context
-- [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) - Voice principles that complement structure
+- **Next article:** [03-accessibility-in-technical-writing.md](03-accessibility-in-technical-writing.md) — Ensuring documentation works for all users
+- **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Diátaxis framework context
+- **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Voice principles that complement structure
 
 ## References
 

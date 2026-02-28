@@ -697,27 +697,22 @@ Documentation style evolves based on:
 
 ## Conclusion
 
-Voice and style fundamentally shape documentation effectiveness. Key takeaways:
+Voice and style fundamentally shape documentation effectiveness. They determine whether readers can understand, trust, and act on your content.
 
-**Active voice matters** - Use it 75-85% of the time for clarity, but embrace passive voice when appropriate (scientific tone, unknown actor, emphasis on object)
+### Key Takeaways
 
-**Readability is measurable** - Flesch scores 50-70 and sentence lengths 15-25 words optimize technical comprehension without oversimplification
+- **Active voice matters** — Use it 75-85% of the time for clarity, but embrace passive voice when appropriate (scientific tone, unknown actor, emphasis on object)
+- **Readability is measurable** — Flesch scores 50-70 and sentence lengths 15-25 words optimize technical comprehension without oversimplification
+- **Style guides differ intentionally** — Microsoft favors conversational warmth, Google emphasizes global clarity, Wikipedia requires neutral encyclopedic tone
+- **Person consistency matters** — Second person (you) for instructions, third person for reference, first person plural (we) sparingly for tutorials
+- **Tone should match purpose** — Professional for how-to guides, austere for reference, warmer for tutorials, neutral for explanation
+- **Common pitfalls are avoidable** — Watch for person mixing, nominalizations, excessive hedging, anthropomorphizing, and buried verbs
 
-**Style guides differ intentionally** - Microsoft favors conversational warmth, Google emphasizes global clarity, Wikipedia requires neutral encyclopedic tone - choose based on audience and content type
+### Next Steps
 
-**Person consistency matters** - Second person (you) for instructions, third person for reference, first person plural (we) sparingly for tutorials
-
-**Tone should match purpose** - Professional for how-to guides, austere for reference, warmer for tutorials, neutral for explanation
-
-**Common pitfalls are avoidable** - Watch for person mixing, nominalizations, excessive hedging, anthropomorphizing, and buried verbs
-
-**This repository synthesizes principles** - Validation system enforces voice standards while allowing appropriate flexibility
-
-**Next in series:**
-
-- [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) - Progressive disclosure, LATCH framework, TOC strategies
-- [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) - How validation operationalizes these principles
-- [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) - Framework context for voice decisions
+- **Next article:** [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) — Progressive disclosure, LATCH framework, TOC strategies
+- **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — How validation operationalizes these principles
+- **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Framework context for voice decisions
 
 ## References
 

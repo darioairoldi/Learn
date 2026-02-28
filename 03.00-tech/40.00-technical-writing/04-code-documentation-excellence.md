@@ -847,25 +847,22 @@ client = APIClient(api_key="YOUR_API_KEY")  # ← Replace with your key
 
 ## Conclusion
 
-Code documentation requires balancing completeness with usability. Key principles:
+Code documentation requires balancing completeness with usability. The best code documentation helps developers understand, use, and troubleshoot your code efficiently.
 
-**API reference needs completeness** - Parameters, returns, errors, examples for every public element
+### Key Takeaways
 
-**Comments explain why, not what** - Code shows how; comments provide context
+- **API reference needs completeness** — Parameters, returns, errors, examples for every public element
+- **Comments explain why, not what** — Code shows how; comments provide context
+- **Examples are often most valuable** — Realistic, complete, progressive examples that users can copy and modify
+- **Error messages are documentation** — Write errors that help users solve problems
+- **Changelogs track history** — Keep a Changelog format with meaningful entries
+- **READMEs create first impressions** — Lead with value, show working code quickly
 
-**Examples are often most valuable** - Realistic, complete, progressive examples that users can copy and modify
+### Next Steps
 
-**Error messages are documentation** - Write errors that help users solve problems
-
-**Changelogs track history** - Keep a Changelog format with meaningful entries
-
-**READMEs create first impressions** - Lead with value, show working code quickly
-
-**Next in series:**
-
-- [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) - Validating code documentation quality
-- [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) - How reference documentation fits Diátaxis
-- [03-accessibility-in-technical-writing.md](03-accessibility-in-technical-writing.md) - Accessible code examples
+- **Next article:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — Validating code documentation quality
+- **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — How reference documentation fits Diátaxis
+- **Related:** [03-accessibility-in-technical-writing.md](03-accessibility-in-technical-writing.md) — Accessible code examples
 
 ## References
 

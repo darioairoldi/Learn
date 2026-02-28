@@ -628,27 +628,23 @@ Accessibility validation integrates with existing validation dimensions:
 
 ## Conclusion
 
-Accessible documentation benefits everyone. Key takeaways:
+Accessible documentation benefits everyone. Designing for accessibility improves the experience for all readers, not just those with specific needs.
 
-**Plain language is fundamental** - Short sentences, common words, and clear structure help all readers
+### Key Takeaways
 
-**Screen readers require semantic HTML** - Proper headings, descriptive links, and meaningful alt text
+- **Plain language is fundamental** — Short sentences, common words, and clear structure help all readers
+- **Screen readers require semantic HTML** — Proper headings, descriptive links, and meaningful alt text
+- **Inclusive language welcomes all readers** — Avoid gendered defaults, ableist phrases, and outdated terms
+- **Visual accessibility extends beyond color** — Contrast, typography, and alternatives to color-coded meaning
+- **Cognitive accessibility reduces barriers** — Predictable structure, clear language, and reduced complexity
+- **Emoji can be accessible** — When paired with text labels and used sparingly
+- **Testing is essential** — Automated tools plus manual testing plus user feedback
 
-**Inclusive language welcomes all readers** - Avoid gendered defaults, ableist phrases, and outdated terms
+### Next Steps
 
-**Visual accessibility extends beyond color** - Contrast, typography, and alternatives to color-coded meaning
-
-**Cognitive accessibility reduces barriers** - Predictable structure, clear language, and reduced complexity
-
-**Emoji can be accessible** - When paired with text labels and used sparingly
-
-**Testing is essential** - Automated tools plus manual testing plus user feedback
-
-**Next in series:**
-
-- [04-code-documentation-excellence.md](04-code-documentation-excellence.md) - Accessible code examples and error messages
-- [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) - Plain language style foundations
-- [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) - Accessible navigation patterns
+- **Next article:** [04-code-documentation-excellence.md](04-code-documentation-excellence.md) — Accessible code examples and error messages
+- **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Plain language style foundations
+- **Related:** [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) — Accessible navigation patterns
 
 ## References
 
