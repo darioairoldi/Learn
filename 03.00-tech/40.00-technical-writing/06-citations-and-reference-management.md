@@ -512,14 +512,31 @@ Description.
 
 ### Validation Integration
 
-Reference validation is part of the seven validation dimensions:
+Every citation practice in this article connects directly to the validation system described in [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md). Specifically, <mark>Dimension 7: References</mark> measures citation quality and source reliability across five indicators: claims supported by references, source authority, currency, link functionality, and classification accuracy.
 
-**Reference checks:**
+The connection between citation practices and quality criteria runs deeper than a single validation dimension. As the reconciliation table in [Article 00](00-foundations-of-technical-documentation.md#reconciling-quality-criteria-with-validation-dimensions) shows, the References dimension contributes to two of the six quality criteria:
+
+- **Accuracy** — Authoritative references (evaluated via CRAAP or SIFT) verify that technical claims are correct. When you classify a source as 📘 Official, you're providing evidence for the Accuracy criterion.
+- **Completeness** — Citations signal that all necessary topics have supporting sources. Gaps in references often reveal gaps in content coverage.
+
+This means that when you run reference validation, you aren't just checking links—you're verifying two foundational quality attributes simultaneously.
+
+**Reference checks (from Dimension 7):**
 1. All external links have classification markers
 2. Classification matches source type
 3. Links resolve correctly
 4. Descriptions are meaningful
 5. No unverified sources in published content
+
+**How this article's practices support each check:**
+
+| Validation check | Supporting practice from this article |
+|------------------|--------------------------------------|
+| Classification markers present | [Reference Classification System](#the-reference-classification-system) — 📘📗📒📕 taxonomy |
+| Classification matches source | [Source Evaluation Frameworks](#source-evaluation-frameworks) — CRAAP and SIFT tests |
+| Links resolve | [Preventing Link Rot](#preventing-link-rot) — monitoring, archiving, DOIs |
+| Descriptions meaningful | [Citation Formatting](#citation-formatting) — standard format with 2–4 sentence descriptions |
+| No unverified sources | [Reference Maintenance Workflow](#reference-maintenance-workflow) — review cycle catches 📕 markers |
 
 ### Common Reference Patterns in This Repository
 
@@ -553,7 +570,11 @@ Reference validation is part of the seven validation dimensions:
 
 ## Conclusion
 
-Citations build documentation credibility. Proper source evaluation, consistent classification, and proactive maintenance ensure your references remain trustworthy over time.
+Citations aren't just an academic formality bolted onto technical writing—they're a structural component of documentation quality. Every reference you add serves multiple purposes simultaneously: it provides evidence for readers who want to verify your claims, signals that you've done due diligence on your sources, and creates a network of resources that extends your documentation's value beyond its own pages.
+
+The practices in this article connect directly to the broader quality system. Source evaluation (CRAAP, SIFT) ensures you're citing reliable material. The 📘📗📒📕 classification system makes source quality visible at a glance. Consistent formatting enables automation. And proactive link management prevents the slow erosion of trust that comes from broken references. Together, these practices feed into [Dimension 7: References](05-validation-and-quality-assurance.md) from the validation system—and through it, support both the Accuracy and Completeness quality criteria defined in [Article 00](00-foundations-of-technical-documentation.md#reconciling-quality-criteria-with-validation-dimensions).
+
+The key insight is that citation quality is observable. Unlike deep quality characteristics that require subjective judgment, reference quality can be measured: links either resolve or they don't, sources either have classification markers or they don't, and descriptions either explain relevance or they don't. This makes reference validation one of the most automatable dimensions—and one of the easiest to maintain consistently.
 
 ### Key Takeaways
 
@@ -563,12 +584,14 @@ Citations build documentation credibility. Proper source evaluation, consistent 
 - **Plan for maintenance** — Links break; have monitoring and recovery strategies
 - **Learn from Wikipedia** — The world's largest reference work offers tested practices
 - **Match citation density to purpose** — Heavy for claims, light for tutorials
+- **Connect to validation** — Reference practices map directly to Dimension 7 and support Accuracy and Completeness criteria
 
 ### Next Steps
 
 - **Next article:** [07-ai-enhanced-documentation-writing.md](07-ai-enhanced-documentation-writing.md) — AI assistance in reference discovery and validation
-- **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — Reference validation context
-- **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — How references support Diátaxis types
+- **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — How Dimension 7 (References) validates the practices described here
+- **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Quality criteria that references support (Accuracy, Completeness)
+- **Related:** [09-measuring-readability-and-comprehension.md](09-measuring-readability-and-comprehension.md) — Measuring documentation quality beyond citations
 
 ## References
 
