@@ -127,7 +127,7 @@
 7. Quantitative benchmarks by content type
 8. Tools comparison (textstat, Vale, Hemingway, readable.com)
 
-#### Gap 3: No "Documentation Lifecycle & Maintenance" Article
+#### Gap 3: No "Documentation Lifecycle & Maintenance" Article ✅ RESOLVED
 
 **Problem:** Reliability degrades over time. The series covers creating documentation but has almost no content on:
 - Documentation lifecycle phases (create → review → publish → maintain → retire)
@@ -140,11 +140,11 @@
 
 **Impact:** Medium-High — directly affects long-term reliability.
 
-**Recommended new article:** `10-documentation-lifecycle-and-maintenance.md`
+**Resolution:** Created `10-documentation-lifecycle-and-maintenance.md` as a comprehensive article covering all five lifecycle phases, freshness scoring models, versioned documentation strategies, documentation debt measurement and reduction, ownership models, SLA tiers with response times, and graceful deprecation/archival workflows. Expands the brief documentation debt mention in Art. 05 into a full framework. Added cross-references to Art. 00, Art. 05, Art. 08, and Art. 12.
 
 ### 4.2 NOTABLE GAPS (strengthen the series significantly)
 
-#### Gap 4: Visual Documentation Missing
+#### Gap 4: Visual Documentation Missing ✅ RESOLVED
 
 **Problem:** The entire series focuses on text-based documentation. There is no coverage of:
 - Diagrams-as-code (Mermaid, PlantUML, D2)
@@ -154,13 +154,13 @@
 - Visual information hierarchy
 - Video/animated documentation considerations
 
-**Recommended new article:** `11-visual-documentation-and-diagrams.md`
+**Resolution:** Created `11-visual-documentation-and-diagrams.md` covering when to use visuals vs. text, three diagrams-as-code tools compared (Mermaid, PlantUML, D2), C4 model and Arc42 architecture documentation frameworks, screenshot annotation/versioning/maintenance best practices, visual hierarchy principles with diagram-specific guidance, accessibility for visual content (alt text patterns, contrast, screen reader testing), and video/animated documentation production guidelines. Added cross-references to Art. 03, Art. 08, Art. 10, and Art. 12.
 
-#### Gap 5: Internationalization & Localization Coverage Is Scattered
+#### Gap 5: Internationalization & Localization Coverage Is Scattered ✅ RESOLVED
 
 **Problem:** i18n/l10n principles appear in: Art. 00 (1 line), Art. 01 ("Write for a global audience"), Art. 03 (non-native speakers accessibility), Art. 07 (AI translation mention), MS Sub-articles 00, 01, 02 (~scattered). There is no unified treatment.
 
-**Recommended section or article:** Either expand Art. 03 significantly OR create `12-writing-for-global-audiences.md`
+**Resolution:** Created `12-writing-for-global-audiences.md` as a standalone article consolidating all i18n/l10n content. Added cross-references from Art. 01, Art. 03, Art. 07, and MS Sub-02 to the new article. The scattered mentions remain as brief touchpoints with links to the comprehensive treatment.
 
 #### Gap 6: No "Documentation Tooling Ecosystem" Synthesis
 
@@ -183,18 +183,18 @@
 
 ### Article 01 — Writing Style
 
-- **Expand:** The "Readability Formulas Explained" section from 3 formulas to a comprehensive comparison table covering 6+ formulas with use-case guidance.
-- **Add:** Cross-reference to a hypothetical "Measuring Readability" deep dive.
+- ✅ **RESOLVED** — Expanded "Readability Formulas Explained" from 3 formulas to 7 (added Coleman-Liau, SMOG, Dale-Chall, ARI) with a comprehensive comparison table and use-case guidance.
+- ✅ **RESOLVED** — Added cross-references to [Article 09: Measuring Readability and Comprehension](../03.00-tech/40.00-technical-writing/09-measuring-readability-and-comprehension.md) in the section intro and limitations subsection.
 
 ### Article 02 — Structure & Information Architecture
 
-- **Add:** Content design principles (content-first design, structured content models, topic-based authoring)
-- **Fix:** This is the only article with internal "What You'll Learn" / "What You've Learned" pattern sections (used as examples of tutorial patterns). Clarify these are *examples*, not article structure.
+- ✅ **RESOLVED** — Added new "Content Design Principles" section with three subsections: Content-First Design (with comparison table), Structured Content Models (with repository implementation table), and Topic-Based Authoring (with DITA mapping to Diátaxis and granularity decision matrix). Added references for Content Design London, OASIS DITA, and Every Page is Page One.
+- ✅ **RESOLVED** — Added clarification note above the Tutorial Pattern code block explicitly stating that `What You'll Learn` / `What You've Learned` are part of the tutorial *template example*, not the standard article structure used in this series.
 
 ### Article 03 — Accessibility
 
-- **Add:** Reading comprehension research for different learning styles (visual, auditory, kinesthetic learners in written docs)
-- **Expand:** Cognitive accessibility section with concrete examples of progressive cognitive disclosure
+- ✅ **RESOLVED** — Added new "Reading Comprehension and Learning Styles" section covering VARK modalities (visual, auditory, reading/writing, kinesthetic) with concrete documentation strategies for each, a multimodal design table, and a practical rule for combining modalities. References added for Mayer's Multimedia Learning, VARK, and Dual Coding Theory.
+- ✅ **RESOLVED** — Expanded cognitive accessibility with new "Progressive Cognitive Disclosure in Practice" subsection including a layered authentication example (❌ all-at-once vs. ✅ three progressive layers), an implementation techniques table (layered sections, expandable details, summary + deep link, prerequisite chains, sidebar callouts), and a "false simplicity" anti-pattern warning.
 
 ### Article 05 — Validation & QA
 
@@ -209,8 +209,8 @@
 
 ### Article 07 — AI-Enhanced Writing
 
-- **Add:** AI hallucination detection advances (grounding, RAG, tool-augmented verification)
-- **Update:** Consider GPT-4o/Claude Sonnet capabilities matrix updates (the current matrix may become dated)
+- ✅ **RESOLVED** — Added "Advanced Hallucination Detection" subsection covering grounding, RAG pipelines, and tool-augmented verification with layered detection table
+- ✅ **RESOLVED** — Updated capability matrix with model-specific notes (GPT-4o, Claude Sonnet 4), added Hallucination Detection row, and added currency disclaimer (early 2026)
 
 ---
 
@@ -229,7 +229,7 @@
 
 | # | Action | Type | Impact |
 |---|---|---|---|
-| 5 | **Create** `10-documentation-lifecycle-and-maintenance.md` | New article | Addresses long-term reliability |
+| 5 | ✅ **Created** `10-documentation-lifecycle-and-maintenance.md` | New article | Addresses long-term reliability |
 | 6 | **Add** Diátaxis "deep quality" framework to Art. 00 | Edit | Significant missing concept from the series' foundational framework |
 | 7 | **Reconcile** terminology (7 validation dimensions consistently named) | Edit Art. 00, 05 | Removes internal inconsistency |
 | 8 | **Deduplicate** style guide comparisons (Art. 00 ↔ MS Sub-03) | Edit | Reduces confusion, clarifies relationships |
@@ -238,9 +238,9 @@
 
 | # | Action | Type | Impact |
 |---|---|---|---|
-| 9 | **Create** `11-visual-documentation-and-diagrams.md` | New article | Fills text-only blind spot |
-| 10 | **Create** `12-writing-for-global-audiences.md` | New article | Consolidates scattered i18n content |
-| 11 | **Expand** Art. 01 readability formulas section | Edit | Broader metric coverage |
+| 9 | ✅ **Created** `11-visual-documentation-and-diagrams.md` | New article | Fills text-only blind spot |
+| 10 | ✅ **Created** `12-writing-for-global-audiences.md` | New article | Consolidates scattered i18n content |
+| 11 | ✅ **Expanded** Art. 01 readability formulas from 3 → 7 with comparison table + Art. 09 cross-references | Edit | Broader metric coverage |
 | 12 | **Add** documentation tooling ecosystem content | New section or article | Docs-as-code practical workflows |
 
 ---
@@ -251,7 +251,7 @@ The series is **strong in breadth** (8 distinct topics well-covered) and **stron
 
 1. **Consistency** is discussed everywhere but codified nowhere — a new article (`08`) would transform scattered mentions into actionable standards.
 2. **Understandability measurement** stops at Flesch scores — a deeper treatment (`09`) covering comprehension testing, mental models, information scent, and the Diátaxis "deep quality" concept would significantly strengthen the series.
-3. **Long-term reliability** through documentation lifecycle management is absent — article `10` would ensure documentation stays reliable over time, not just at creation.
+3. ~~**Long-term reliability** through documentation lifecycle management is absent — article `10` would ensure documentation stays reliable over time, not just at creation.~~ ✅ **RESOLVED** — Created `10-documentation-lifecycle-and-maintenance.md` covering lifecycle phases, freshness scoring, versioned docs, documentation debt, ownership models, SLAs, and deprecation workflows.
 
 The internal consistency issues (competing quality frameworks, terminology drift, structural variation in article endings) are fixable through targeted edits and would meaningfully improve the series' own consistency — practicing what it preaches. 
 

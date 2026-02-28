@@ -156,7 +156,7 @@ Voice refers to the relationship between the subject and verb in a sentence. Thi
 
 ## Readability Formulas Explained
 
-Readability formulas quantify text complexity, helping ensure documentation matches audience capabilities.
+Readability formulas quantify text complexity, helping ensure documentation matches audience capabilities. This section introduces seven widely used formulas with practical guidance for technical writers. For a deeper treatment—including comprehension testing, information scent theory, mental model alignment, and documentation usability testing—see [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md).
 
 ### Flesch Reading Ease Score
 
@@ -216,6 +216,76 @@ readability:
 - 11-14: Standard technical documentation
 - 15+: Dense academic/specialist writing
 
+### Coleman-Liau Index
+
+**Formula:** `0.0588 × L - 0.296 × S - 15.8`
+- L = Average number of letters per 100 words
+- S = Average number of sentences per 100 words
+
+**Key difference:** Uses character counts instead of syllable counts, making it easier to compute programmatically. This makes it well suited for automated pipelines where syllable detection adds complexity.
+
+**Score interpretation:** US grade level required (like Flesch-Kincaid).
+
+**Typical technical documentation range:** 10-14
+
+### SMOG Index
+
+**Formula:** `3 + √(number of polysyllabic words in 30 sentences)`
+- Polysyllabic words = words with 3+ syllables
+
+**Key difference:** Designed specifically for healthcare and public-facing materials. It's considered more conservative than Gunning Fog because it uses a square root rather than a linear relationship with complex word count.
+
+**Score interpretation:** Years of education needed for 100% comprehension (not just partial understanding).
+
+**Typical technical documentation range:** 10-14
+
+### Dale-Chall Readability Formula
+
+**Formula:** `0.1579 × (PDW × 100 / words) + 0.0496 × ASL`
+- PDW = Number of "difficult" words (not on the Dale-Chall 3,000-word familiar list)
+- ASL = Average Sentence Length
+
+**Key difference:** Uses a vocabulary list rather than syllable counts. A word qualifies as "difficult" only if it doesn't appear on the Dale-Chall list of 3,000 words that most fourth-graders understand. This makes it particularly good at catching **jargon**—technical terms that are short but unfamiliar.
+
+**Score interpretation:**
+
+| Raw Score | Comprehension Level |
+|-----------|---------------------|
+| 4.9 or below | Easily understood by a 4th-grade student |
+| 5.0-5.9 | 5th-6th grade |
+| 6.0-6.9 | 7th-8th grade |
+| **7.0-7.9** | **9th-10th grade** |
+| **8.0-8.9** | **11th-12th grade** |
+| 9.0-9.9 | College level |
+
+**This repository's sweet spot: 7.0-8.9** (high school reading level, accounting for necessary technical vocabulary)
+
+### Automated Readability Index (ARI)
+
+**Formula:** `4.71 × (characters / words) + 0.5 × (words / sentences) - 21.43`
+
+**Key difference:** Uses character counts and word counts only—no syllable counting, no vocabulary lists. This makes it the fastest formula to compute and the easiest to implement from scratch.
+
+**Score interpretation:** US grade level required (same scale as Flesch-Kincaid and Coleman-Liau).
+
+**Typical technical documentation range:** 10-14
+
+### Formula comparison table
+
+The following table compares all seven formulas. Use it to choose which formulas best fit your validation workflow:
+
+| Formula | Inputs | Measures | Best for | Strength | Limitation |
+|---------|--------|----------|----------|----------|------------|
+| **Flesch Reading Ease** | Syllables, sentence length | General readability (0-100 scale) | Quick readability check | Widely recognized; intuitive scale | Penalizes necessary multi-syllable technical terms |
+| **Flesch-Kincaid Grade** | Syllables, sentence length | US grade level | Mapping to audience education level | Direct grade-level output | Same syllable bias as Flesch RE |
+| **Gunning Fog** | Complex words (3+ syllables), sentence length | Years of education | Identifying overly complex prose | Catches dense writing quickly | Flags proper nouns and compounds unfairly |
+| **Coleman-Liau** | Characters, sentence count | US grade level | Automated pipelines | No syllable counting needed | Less intuitive than syllable-based measures |
+| **SMOG** | Polysyllabic words in 30 sentences | Education for 100% comprehension | Healthcare, public-facing docs | Conservative; aims for full comprehension | Needs exactly 30 sentences for accuracy |
+| **Dale-Chall** | Unfamiliar words (vs. 3,000-word list), sentence length | Comprehension level | Catching jargon and unfamiliar vocabulary | Detects short but unfamiliar words | Word list is US-English-centric and dated |
+| **ARI** | Characters, words, sentences | US grade level | Fast automated scoring | Simplest to compute; no NLP needed | Least granular; misses vocabulary difficulty |
+
+**Recommendation for this repository:** Use **Flesch Reading Ease** as the primary score (target 50-70) with **Dale-Chall** as a secondary check for jargon density. Run both in your validation pipeline for complementary coverage. For a full walkthrough of tool integration, see [Article 09](09-measuring-readability-and-comprehension.md).
+
 ### Why Readability Matters: Cognitive Load
 
 **Cognitive load theory** explains that working memory has limited capacity (typically 7±2 "chunks" of information).
@@ -252,6 +322,8 @@ readability:
 > "This section must have a Flesch score of exactly 60. Replace all multi-syllable words."
 
 **Repository principle:** Readability scores inform validation, but technical accuracy always takes precedence. See [validation workflow](../../.github/prompts/readability-review.prompt.md).
+
+> **Going deeper:** [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md) covers comprehension testing (cloze tests, recall tests, think-aloud protocols), information scent theory, mental model alignment, documentation usability testing, and quantitative benchmarks by Diátaxis content type.
 
 ## Sentence Structure and Length
 
@@ -364,6 +436,8 @@ Different organizations prioritize different aspects of voice. Understanding the
 - Ultra-short sentences (mobile-first)
 - Product names as subjects (not "it")
 - Explicit over implicit
+
+> **Deep dive:** For comprehensive coverage of writing for international audiences—including translation-friendly patterns, cultural adaptation, and formatting conventions—see [12-writing-for-global-audiences.md](12-writing-for-global-audiences.md).
 
 **Google vs. Microsoft comparison:**
 

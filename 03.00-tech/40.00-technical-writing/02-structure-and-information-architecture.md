@@ -19,6 +19,7 @@ description: "Master documentation structure through progressive disclosure, the
 - [Table of Contents Strategies](#table-of-contents-strategies)
 - [Navigation Hierarchies](#navigation-hierarchies)
 - [Page Structure Patterns](#page-structure-patterns)
+- [Content Design Principles](#content-design-principles)
 - [Cross-Referencing Strategies](#cross-referencing-strategies)
 - [Applying Architecture to This Repository](#applying-architecture-to-this-repository)
 - [Conclusion](#conclusion)
@@ -35,6 +36,7 @@ This article explores:
 - **TOC strategies** - Designing tables of contents that serve navigation and comprehension
 - **Navigation hierarchies** - Creating pathways for different user journeys
 - **Page structure** - Patterns for organizing individual documents
+- **Content design principles** - Content-first design, structured content models, and topic-based authoring
 
 **Prerequisites:** Understanding of [documentation foundations](00-foundations-of-technical-documentation.md) and the Diátaxis framework is helpful.
 
@@ -562,6 +564,8 @@ Common issues and solutions
 
 ### The Tutorial Pattern
 
+> **Note:** The code block below is a *template example* showing the recommended structure for tutorial-type content. The `What You'll Learn` and `What You've Learned` sections are part of the **tutorial pattern**, not standard article structure used in this series. For the article structure this series follows, see [The Standard Article Pattern](#the-standard-article-pattern) above.
+
 ```markdown
 # Tutorial: [Learning Goal]
 
@@ -629,6 +633,97 @@ Wikipedia provides a well-tested pattern for encyclopedic content:
 - **Lead section stands alone:** First paragraph summarizes entire article
 - **"See also" for discovery:** Related topics for exploration
 - **Notes vs. References:** Explanatory notes separated from source citations
+
+## Content Design Principles
+
+Page structure patterns describe *how* to arrange individual documents. Content design principles address the higher-level question: *how do you decide what content to create and how to break it apart?* These principles guide decisions before you start writing a single page.
+
+### Content-First Design
+
+**<mark>Content-first design</mark>** means defining the content model—what information exists, who needs it, and in what context—before choosing layout, navigation, or tooling.
+
+**The principle:**
+
+1. **Identify the information** — List every concept, procedure, and reference the audience needs
+2. **Prioritize by user task** — Rank information by frequency of need and criticality
+3. **Define relationships** — Map which content pieces depend on, extend, or duplicate each other
+4. **Choose structure last** — Select page types, navigation, and templates only after the content model is clear
+
+**Why this matters for technical documentation:**
+
+| Design approach | Risk | Symptom |
+|----------------|------|---------|
+| Template-first | Content forced into ill-fitting containers | Sections with one sentence or "N/A" filler |
+| Tool-first | Content constrained by tooling limits | Docs restructured whenever tooling changes |
+| **Content-first** | **None (desired approach)** | **Structure emerges naturally from content needs** |
+
+**Practical example:** Before creating a new article in this series, the gap analysis document ([gap-analysis-context-vs-articles.md](../../99.00-temp/gap-analysis-context-vs-articles.md)) identifies what content is missing and where it belongs. Only after confirming the gap do we choose whether it becomes a new article, a section in an existing article, or a cross-reference.
+
+### Structured Content Models
+
+**<mark>Structured content</mark>** separates content from presentation by defining reusable, typed content components with explicit relationships.
+
+**Key concepts:**
+
+- **Content types** — Named categories of content with defined fields (e.g., "Tutorial" has prerequisites, steps, verification; "Reference" has syntax, parameters, return values)
+- **Metadata schemas** — Structured attributes attached to each content unit (this repository uses Quarto YAML front matter and bottom-block validation metadata)
+- **Content reuse** — Write once, reference many times; avoid duplicating explanations across articles
+- **Separation of concerns** — Content (Markdown), presentation (Quarto/SCSS), and structure (_quarto.yml) live in separate layers
+
+**How this repository applies structured content:**
+
+| Layer | Implementation | Example |
+|-------|---------------|---------|
+| Content types | Article template with required sections | [article-template.md](../../.github/templates/article-template.md) |
+| Metadata schema | Dual YAML blocks (Quarto + validation) | Top YAML for rendering, bottom HTML comment for tracking |
+| Reuse via reference | Cross-references instead of duplication | "See [Art. 01](01-writing-style-and-voice-principles.md) for voice principles" |
+| Presentation layer | Quarto + cerulean.scss | Consistent rendering independent of content changes |
+
+**Anti-pattern: unstructured content**
+
+- Copy-pasting the same explanation into multiple articles (creates maintenance debt)
+- Mixing rendering instructions into prose (breaks when tooling changes)
+- Omitting metadata (makes validation, search, and lifecycle management impossible)
+
+For the lifecycle implications of structured vs. unstructured content, see [Article 10: Documentation Lifecycle and Maintenance](10-documentation-lifecycle-and-maintenance.md).
+
+### Topic-Based Authoring
+
+**<mark>Topic-based authoring</mark>** structures documentation as self-contained, independently addressable units ("topics") rather than monolithic documents.
+
+**Three core topic types** (from DITA — Darwin Information Typing Architecture):
+
+| Topic type | Purpose | Maps to Diátaxis | This series example |
+|-----------|---------|-----------------|--------------------|
+| **Concept** | Explain what something is and why it matters | Explanation | Art. 00 (Foundations), Art. 03 (Accessibility) |
+| **Task** | Guide users through a procedure | How-to guide | 04.00-howto/ articles |
+| **Reference** | Provide lookup information | Reference | Art. 04 (Code Documentation), MS Sub-04 (Principles Reference) |
+
+**Benefits for technical documentation:**
+
+- **Independent comprehension** — Each topic makes sense without reading the entire series
+- **Flexible assembly** — Topics can be combined into different navigation paths for different audiences
+- **Targeted maintenance** — Update one topic without reviewing an entire document
+- **Searchability** — Self-contained topics rank better in search engines and AI retrieval systems
+
+**Topic-based authoring in this repository:**
+
+Each article in the Technical Documentation Excellence series is designed as a self-contained topic. The series also demonstrates how topics combine:
+
+- **Sequential path:** Articles 00 → 12 form a learning progression
+- **Reference path:** Any article can be read independently via its introduction and prerequisites section
+- **Cross-reference mesh:** Articles link to each other for contextual depth without requiring linear reading
+
+**Granularity decision:** When should content be a separate topic (article) vs. a section within a topic?
+
+| Create a separate topic when… | Keep as a section when… |
+|-------------------------------|------------------------|
+| Content exceeds ~1,500 words | Content is under ~500 words |
+| Multiple articles need to reference it | Only one article uses it |
+| Content has a distinct audience or purpose | Content shares the same audience and purpose as its parent |
+| Content changes on a different schedule | Content changes with its parent |
+
+> **See also:** [Article 10](10-documentation-lifecycle-and-maintenance.md) for how topic-based authoring affects documentation freshness and maintenance scheduling.
 
 ## Cross-Referencing Strategies
 
@@ -749,6 +844,7 @@ Information architecture determines documentation usability. The right structure
 - **TOCs serve dual purposes** — Navigation and orientation; design for both through careful structure
 - **Navigation supports multiple journeys** — Explorers, searchers, followers, and returners need different pathways
 - **Page structure follows patterns** — Articles, references, how-tos, and tutorials each have proven structural templates
+- **Content design precedes page design** — Define what information exists and who needs it before choosing structure; use structured content models and topic-based authoring for maintainability and reuse
 - **Cross-references connect content** — Meaningful links with clear purposes support discovery and comprehension
 
 ### Next Steps
@@ -792,6 +888,17 @@ Microsoft's approach to content structure and organization.
 **[Wikipedia Manual of Style - Layout](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Layout)** 📘 [Official]  
 Wikipedia's article structure standards and section ordering.
 
+### Content Design & Structured Authoring
+
+**[Content Design (Sarah Winters / Content Design London)](https://contentdesign.london/content-design/what-is-content-design)** 📗 [Verified Community]  
+Foundational resource on content-first design principles—designing content around user needs before choosing format or structure.
+
+**[DITA - Darwin Information Typing Architecture (OASIS)](https://www.oasis-open.org/committees/dita/)** 📘 [Official]  
+The XML standard that formalized topic-based authoring with concept, task, and reference topic types.
+
+**[Every Page is Page One - Mark Baker](https://everypageispageone.com/)** 📗 [Verified Community]  
+Topic-based authoring principles for web-era documentation, arguing every topic must stand alone.
+
 ### Repository-Specific Documentation
 
 **[_quarto.yml](../../_quarto.yml)** [Internal Reference]  
@@ -818,6 +925,7 @@ article_metadata:
     - "00-foundations-of-technical-documentation.md"
     - "01-writing-style-and-voice-principles.md"
     - "03-accessibility-in-technical-writing.md"
-  version: "1.0"
-  last_updated: "2026-01-14"
+    - "10-documentation-lifecycle-and-maintenance.md"
+  version: "1.1"
+  last_updated: "2026-02-28"
 -->

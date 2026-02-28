@@ -20,6 +20,7 @@ description: "Create accessible technical documentation through plain language p
 - [Inclusive Language](#inclusive-language)
 - [Visual Accessibility](#visual-accessibility)
 - [Cognitive Accessibility](#cognitive-accessibility)
+- [Reading Comprehension and Learning Styles](#reading-comprehension-and-learning-styles)
 - [Emoji and Symbol Accessibility](#emoji-and-symbol-accessibility)
 - [Testing Documentation Accessibility](#testing-documentation-accessibility)
 - [Applying Accessibility to This Repository](#applying-accessibility-to-this-repository)
@@ -36,7 +37,8 @@ This article covers:
 - **Screen readers** - Ensuring compatibility with assistive technology
 - **Inclusive language** - Avoiding bias and exclusionary terminology
 - **Visual accessibility** - Color, contrast, and image alternatives
-- **Cognitive accessibility** - Supporting neurodivergent readers
+- **Cognitive accessibility** - Supporting neurodivergent readers, with concrete progressive disclosure examples
+- **Reading comprehension and learning styles** - Adapting documentation for visual, auditory, reading/writing, and kinesthetic learners
 - **Emoji accessibility** - How this repository's 📘📗📒📕 system works with assistive tech
 
 **Legal context:** In many jurisdictions, accessible documentation is required by law (ADA, Section 508, EU Accessibility Act).
@@ -401,6 +403,41 @@ Cognitive accessibility supports users with dyslexia, ADHD, autism spectrum cond
 - Plenty of whitespace
 - Clear visual hierarchy
 
+### Progressive Cognitive Disclosure in Practice
+
+<mark>Progressive cognitive disclosure</mark> applies the progressive disclosure principle (see [Article 02](02-structure-and-information-architecture.md)) specifically to cognitive load management. Instead of revealing UI layers, you're revealing conceptual complexity in stages that readers can absorb without overload.
+
+**Example: Explaining authentication**
+
+❌ **No progressive disclosure (all at once):**
+
+> Authentication uses OAuth 2.0 with PKCE (Proof Key for Code Exchange) to prevent authorization code interception attacks. The client generates a code_verifier (a cryptographically random string of 43-128 characters) and derives a code_challenge using S256 (SHA-256 hash, base64url-encoded). During the authorization request, the client sends the code_challenge; during the token exchange, it sends the code_verifier, which the server hashes and compares.
+
+✅ **Progressive cognitive disclosure (layered):**
+
+> **Layer 1 — What it does (all readers):**
+> Authentication verifies that you're allowed to access the API. Your app sends credentials, and the server sends back a token.
+>
+> **Layer 2 — How it works (most readers):**
+> This repository uses OAuth 2.0, an industry standard. Your app redirects users to a login page, receives an authorization code, and exchanges it for an access token.
+>
+> **Layer 3 — Security details (advanced readers):**
+> The flow uses PKCE (Proof Key for Code Exchange) to prevent interception. See [OAuth 2.0 PKCE Reference](https://oauth.net/2/pkce/) for the code_verifier/code_challenge mechanism.
+
+**Techniques for implementing progressive cognitive disclosure:**
+
+| Technique | Implementation | Best for |
+|-----------|---------------|----------|
+| **Layered sections** | H2 → H3 → H4 with increasing detail | Articles and conceptual docs |
+| **Expandable details** | HTML `<details>` tags for optional depth | Reference docs with advanced options |
+| **Summary + deep link** | Short explanation with a "For more, see..." link | How-to guides that need to stay focused |
+| **Prerequisite chains** | "Before reading this, complete [X]" | Tutorial series |
+| **Sidebar callouts** | Boxed "Advanced" or "Deep dive" notes | Mixed-audience articles |
+
+**Anti-pattern: false simplicity**
+
+Progressive disclosure doesn't mean dumbing down Layer 1. The first layer should be **accurate and complete enough to act on**, even if it omits underlying mechanisms. If a reader stops at Layer 1, they should still be able to use the feature correctly.
+
 ### Writing for Dyslexic Readers
 
 **Helpful practices:**
@@ -443,6 +480,97 @@ Cognitive accessibility supports users with dyslexia, ADHD, autism spectrum cond
 - Ambiguous language
 - Implicit expectations
 - Sarcasm or humor that might be misread
+
+## Reading Comprehension and Learning Styles
+
+Different readers process information through different <mark>learning modalities</mark>. While the VARK model (Visual, Auditory, Reading/Writing, Kinesthetic) is debated as a theory of fixed learning styles, research consistently shows that **multimodal presentation**—offering the same information through multiple channels—improves comprehension and retention for all readers.
+
+> **Research context:** Mayer's Cognitive Theory of Multimedia Learning and Paivio's Dual Coding Theory provide stronger empirical foundations than VARK alone. The practical takeaway is the same: don't rely on a single modality.
+
+### Visual learners
+
+**How they process information:** Through spatial relationships, diagrams, charts, and visual patterns.
+
+**Documentation strategies:**
+
+- **Architecture diagrams** before code — Show the system structure, then the implementation details
+- **Flowcharts for processes** — Decision trees and workflows communicate branching logic more efficiently than prose
+- **Tables for comparisons** — Side-by-side layouts let visual thinkers spot patterns instantly
+- **Annotated screenshots** — Numbered callouts on UI elements connect explanation to interface
+- **Color-coded categories** — Use color *plus* labels (for accessibility) to distinguish concept groups
+
+**Example — Visual-first explanation of Git branching:**
+
+```
+main ─────────●───────────●──────── (production)
+              │           ▲
+              └── feature ─┘  (merged)
+```
+
+A visual diagram like this communicates the branching model faster than "Create a feature branch from main, make your changes, then merge the feature branch back into main."
+
+For comprehensive guidance on diagrams and visual documentation, see [Article 11: Visual Documentation and Diagrams](11-visual-documentation-and-diagrams.md).
+
+### Auditory learners
+
+**How they process information:** Through listening, verbal explanation, and discussion.
+
+**Documentation strategies:**
+
+- **Conversational tone** — Write as if explaining to a colleague (aligns with Microsoft's "warm and relaxed" voice; see [Article 01](01-writing-style-and-voice-principles.md))
+- **"Explain it like you're talking" test** — Read your draft aloud. If it sounds robotic, rewrite it
+- **Narrative structure** — Frame procedures as stories: "First, you'll set up... then you'll configure... finally, you'll verify..."
+- **Embedded audio/video links** — Where available, link to conference talks, walkthroughs, or podcast episodes that cover the same topic
+- **Verbal mnemonics** — Acronyms and memorable phrases ("LATCH" for Location-Alphabet-Time-Category-Hierarchy) stick with auditory processors
+
+**Example — Narrative-style procedure:**
+
+> Start by opening the terminal. You'll run the build command first—think of it as assembling the ingredients. Then deploy to staging, which is like a dress rehearsal. Once you've verified everything works, push to production.
+
+### Reading/writing learners
+
+**How they process information:** Through text—reading prose, writing notes, and reworking written explanations.
+
+**Documentation strategies:**
+
+- **Detailed written explanations** — Don't over-abbreviate; these readers prefer complete sentences over terse bullet lists
+- **Glossaries and definitions** — Provide definitions for every key term (the `<mark>` tag convention in this series supports this)
+- **Annotated code comments** — Inline comments explaining *why*, not just *what*
+- **Written summaries** — "Key takeaways" sections at every article's end serve this group especially well
+- **Cross-references and further reading** — Reading/writing learners follow reference chains willingly
+
+Most technical documentation already favors this modality—the risk is *only* serving reading/writing learners and neglecting the others.
+
+### Kinesthetic learners
+
+**How they process information:** Through hands-on experience, experimentation, and physical interaction.
+
+**Documentation strategies:**
+
+- **Interactive tutorials** — Step-by-step guides where readers build something real (the Diátaxis tutorial pattern)
+- **"Try it yourself" checkpoints** — After explaining a concept, include a small exercise: "Open your terminal and run `dotnet --version` to confirm your setup"
+- **Sandbox environments** — Link to playgrounds, codespaces, or live demo environments
+- **Copy-paste ready code** — Complete, runnable examples that readers can paste and modify immediately
+- **Incremental builds** — Tutorials that add one feature at a time, letting readers see each change in action
+
+**Example — Kinesthetic checkpoint:**
+
+> **Try it now:** Create a file called `test.md` with a heading and a paragraph. Run `quarto preview test.md` and verify you see the rendered output. If you see a heading and a paragraph in your browser, you're ready for the next section.
+
+### Designing for multiple modalities
+
+The most accessible documentation serves all four modalities simultaneously. Here's how to layer them:
+
+| Content element | Visual | Auditory | Reading/writing | Kinesthetic |
+|----------------|--------|----------|-----------------|-------------|
+| Architecture diagram | ✅ Primary | — | — | — |
+| Diagram caption explaining the flow | — | ✅ (conversational) | ✅ Primary | — |
+| Code example implementing the design | — | — | ✅ (comments) | ✅ Primary |
+| "Try it yourself" exercise | — | — | — | ✅ Primary |
+
+**Practical rule:** For every major concept, aim to include at least **two modalities**. A diagram plus prose, or a code example plus an exercise, covers most readers.
+
+> **See also:** [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md) covers how to measure whether readers actually understand your documentation, regardless of their preferred modality.
 
 ## Emoji and Symbol Accessibility
 
@@ -636,13 +764,15 @@ Accessible documentation benefits everyone. Designing for accessibility improves
 - **Screen readers require semantic HTML** — Proper headings, descriptive links, and meaningful alt text
 - **Inclusive language welcomes all readers** — Avoid gendered defaults, ableist phrases, and outdated terms
 - **Visual accessibility extends beyond color** — Contrast, typography, and alternatives to color-coded meaning
-- **Cognitive accessibility reduces barriers** — Predictable structure, clear language, and reduced complexity
+- **Cognitive accessibility reduces barriers** — Predictable structure, clear language, progressive cognitive disclosure, and reduced complexity
+- **Multimodal content reaches more readers** — Combine visual, narrative, textual, and hands-on elements so documentation works across learning preferences
 - **Emoji can be accessible** — When paired with text labels and used sparingly
 - **Testing is essential** — Automated tools plus manual testing plus user feedback
 
 ### Next Steps
 
 - **Next article:** [04-code-documentation-excellence.md](04-code-documentation-excellence.md) — Accessible code examples and error messages
+- **Related:** [12-writing-for-global-audiences.md](12-writing-for-global-audiences.md) — Internationalization, localization, and writing for non-native speakers
 - **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Plain language style foundations
 - **Related:** [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) — Accessible navigation patterns
 
@@ -694,6 +824,17 @@ W3C guidance on making content usable for people with cognitive and learning dis
 **[British Dyslexia Association - Dyslexia Style Guide](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide)** 📗 [Verified Community]  
 Best practices for creating dyslexia-friendly content.
 
+### Learning Styles and Multimedia Learning
+
+**[Mayer's Cognitive Theory of Multimedia Learning](https://www.cambridge.org/core/books/cambridge-handbook-of-multimedia-learning/cognitive-theory-of-multimedia-learning/)** 📗 [Verified Community]  
+Richard Mayer's research demonstrating that people learn better from words and pictures together than from words alone—the empirical basis for multimodal documentation.
+
+**[VARK Model - Fleming and Mills](https://vark-learn.com/)** 📗 [Verified Community]  
+The Visual-Auditory-Reading/Writing-Kinesthetic framework for understanding learning preferences. Useful as a practical heuristic despite ongoing academic debate about fixed learning styles.
+
+**[Dual Coding Theory - Allan Paivio](https://en.wikipedia.org/wiki/Dual-coding_theory)** 📘 [Official]  
+Theory that verbal and non-verbal information are processed through separate channels, supporting the case for combining text with visual representations.
+
 ### Repository-Specific Documentation
 
 **[Documentation Instructions - Accessibility](../../.github/instructions/documentation.instructions.md)** [Internal Reference]  
@@ -719,6 +860,8 @@ article_metadata:
     - "02-structure-and-information-architecture.md"
     - "04-code-documentation-excellence.md"
     - "06-citations-and-reference-management.md"
-  version: "1.0"
-  last_updated: "2026-01-14"
+    - "09-measuring-readability-and-comprehension.md"
+    - "11-visual-documentation-and-diagrams.md"
+  version: "1.1"
+  last_updated: "2026-02-28"
 -->

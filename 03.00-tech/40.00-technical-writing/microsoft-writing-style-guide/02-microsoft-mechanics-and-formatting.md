@@ -467,6 +467,8 @@ If the UI is intuitive, don't document what's obvious. Focus procedures on:
 
 Microsoft content reaches global audiences. These rules support localization and non-native English speakers.
 
+> **Deep dive:** For a comprehensive treatment of internationalization, localization, translation workflows, and cultural adaptation, see [12-writing-for-global-audiences.md](../12-writing-for-global-audiences.md).
+
 ### Include Articles
 
 Don't drop articles (a, an, the) for brevity:

@@ -19,6 +19,7 @@ description: "Leverage AI tools effectively for documentation creation, review, 
 - [Prompt Engineering for Documentation](#prompt-engineering-for-documentation)
 - [AI-Powered Validation](#ai-powered-validation)
 - [Preventing Hallucinations](#preventing-hallucinations)
+  - [Advanced Hallucination Detection](#advanced-hallucination-detection)
 - [Human-in-the-Loop Patterns](#human-in-the-loop-patterns)
 - [Building Documentation Agents](#building-documentation-agents)
 - [Ethical Considerations](#ethical-considerations)
@@ -37,7 +38,7 @@ This article covers:
 - **<mark>Workflows</mark>** - Integrating AI into documentation processes
 - **<mark>Prompts</mark>** - Designing effective prompts for documentation tasks
 - **<mark>Validation</mark>** - Using AI to check documentation quality
-- **<mark>Hallucination prevention</mark>** - Strategies to avoid AI-generated errors
+- **<mark>Hallucination prevention</mark>** - Strategies to avoid AI-generated errors, including advanced detection techniques
 - **<mark>Human oversight</mark>** - Patterns that keep humans in control
 
 **Prerequisites:** Familiarity with [validation principles](05-validation-and-quality-assurance.md) provides context for AI validation approaches.
@@ -79,6 +80,8 @@ AI provides reasonable translations:
 - Draft translations (requiring review)
 - Terminology consistency
 - Cultural adaptation suggestions
+
+> For comprehensive guidance on writing translation-friendly documentation, see [12-writing-for-global-audiences.md](12-writing-for-global-audiences.md).
 
 **6. <mark>Summarization</mark>**
 AI compresses information effectively:
@@ -123,16 +126,21 @@ AI may miss:
 
 ### The Capability Matrix
 
-| Task | AI Capability | Human Oversight Needed |
-|------|---------------|----------------------|
-| <mark>Draft generation</mark> | High | Medium - verify accuracy |
-| <mark>Grammar checking</mark> | High | Low - review changes |
-| <mark>Readability improvement</mark> | High | Low - verify meaning preserved |
-| <mark>Fact checking</mark> | Low | High - verify all claims |
-| <mark>Code examples</mark> | Medium | High - test all code |
-| <mark>Current information</mark> | Low | High - verify currency |
-| <mark>Style consistency</mark> | Medium | Medium - check against guide |
-| <mark>Audience appropriateness</mark> | Medium | Medium - verify fit |
+The following matrix maps documentation tasks to AI capability levels. The **Model notes** column highlights differences between leading models—use it to choose the right tool for each task.
+
+| Task | AI Capability | Human Oversight Needed | Model notes |
+|------|---------------|----------------------|-------------|
+| <mark>Draft generation</mark> | High | Medium — verify accuracy | GPT-4o and Claude Sonnet 4 produce fluent, well-structured drafts; Claude tends toward longer outputs |
+| <mark>Grammar checking</mark> | High | Low — review changes | All current models perform well; marginal differences |
+| <mark>Readability improvement</mark> | High | Low — verify meaning preserved | Claude Sonnet 4 excels at nuanced rewrites; GPT-4o is faster for bulk passes |
+| <mark>Fact checking</mark> | Low → Medium | High — verify all claims | RAG-augmented setups (Copilot with workspace context, Bing-grounded GPT-4o) raise this to Medium; standalone models remain Low |
+| <mark>Code examples</mark> | Medium–High | High — test all code | GPT-4o and Claude Sonnet 4 both produce working code more reliably than earlier models; always verify |
+| <mark>Current information</mark> | Low → Medium | High — verify currency | Tool-augmented models (web search, MCP tools) raise this to Medium; base models remain Low |
+| <mark>Style consistency</mark> | Medium–High | Medium — check against guide | Instruction-following improved in GPT-4o and Claude Sonnet 4; provide your style guide in context |
+| <mark>Audience appropriateness</mark> | Medium | Medium — verify fit | Both models handle audience targeting; Claude Sonnet 4 slightly better at empathetic/inclusive tone |
+| <mark>Hallucination detection</mark> | Medium | High — verify flagged items | New capability: models can self-check when prompted with grounding material; see [Advanced Hallucination Detection](#advanced-hallucination-detection) |
+
+> **Currency note:** This matrix reflects capabilities as of early 2026 (GPT-4o, Claude Sonnet 4, Gemini 2.5 Pro). Model capabilities evolve rapidly—revisit this table when new model versions ship.
 
 ## AI-Assisted Writing Workflows
 
@@ -526,6 +534,68 @@ If you're unsure about any technical detail:
 Do not present uncertain information as fact.
 ```
 
+### Advanced Hallucination Detection
+
+The prevention strategies above focus on **prompting techniques** that reduce hallucinations at generation time. Advances in AI tooling now provide additional **detection and verification** layers that catch hallucinations after generation.
+
+#### Grounding
+
+<mark>Grounding</mark> anchors model outputs to verified source material so the model can't invent facts freely. Effective grounding techniques for documentation include:
+
+- **Workspace context grounding** — Tools like GitHub Copilot inject repository files (instructions, context files, source code) directly into the model's context window. The model generates text *from* your actual codebase rather than from general training data.
+- **Search-augmented grounding** — Services like Bing-grounded GPT-4o or Google's grounded Gemini attach web search results to prompts, letting the model cite current, verifiable sources.
+- **Schema-driven grounding** — Provide OpenAPI specs, database schemas, or type definitions as source-of-truth inputs. Constrain the model to document *only* what the schema defines.
+
+> **In this repository:** Instruction files (`.github/instructions/`) and context files (`.copilot/context/`) serve as grounding material. When Copilot processes an article, these files constrain its output to match repository conventions.
+
+#### Retrieval-Augmented Generation (RAG)
+
+<mark>RAG</mark> (Retrieval-Augmented Generation) retrieves relevant documents at query time and feeds them to the model alongside the prompt. For documentation workflows, RAG provides:
+
+- **Factual anchoring** — The model answers based on retrieved documents, not just parametric memory. This dramatically reduces hallucinated API endpoints, parameters, and version numbers.
+- **Source traceability** — Each claim can be traced back to a specific retrieved chunk, making verification straightforward.
+- **Currency** — RAG indexes can be updated independently of the model's training cutoff, solving the "stale information" problem.
+
+**RAG pipeline for documentation:**
+
+1. **Index** your source-of-truth documents (API specs, changelogs, style guides)
+2. **Retrieve** the most relevant chunks when the AI generates or reviews content
+3. **Generate** documentation with retrieved context in the prompt
+4. **Cite** — require the model to reference which retrieved chunk supports each claim
+
+> Azure AI Search with vector + keyword hybrid retrieval is a practical choice for documentation RAG pipelines. See the [Azure AI Search documentation](https://learn.microsoft.com/azure/search/) for setup guidance.
+
+#### Tool-augmented verification
+
+<mark>Tool-augmented verification</mark> gives the model access to external tools that independently check claims. Instead of trusting the model's internal knowledge, you let it *call tools* to verify facts:
+
+- **Code execution** — The model writes a code example, then runs it in a sandboxed environment to confirm it compiles and produces expected output.
+- **API testing** — The model calls the actual API endpoint to verify it exists, accepts the documented parameters, and returns the documented response shape.
+- **Link checking** — The model verifies that all referenced URLs return valid responses.
+- **MCP tool integration** — Model Context Protocol servers (like this repository's IQPilot) expose specialized verification tools. The model calls these tools to validate metadata, check cross-references, and confirm structural compliance.
+
+**Example tool-augmented workflow:**
+```
+For each code example in the generated documentation:
+1. Extract the code block
+2. Run it against the actual runtime/compiler
+3. Compare output to documented "Expected output"
+4. Flag any mismatches with [TOOL-VERIFIED: FAIL]
+```
+
+#### Combining detection layers
+
+The most reliable documentation workflows stack multiple detection layers:
+
+| Layer | Technique | What it catches |
+|-------|-----------|----------------|
+| **Generation** | Grounding + constrained prompts | Prevents most hallucinations at creation time |
+| **Post-generation** | RAG-based fact-checking pass | Catches claims that contradict source documents |
+| **Verification** | Tool-augmented testing | Catches code errors, broken links, invalid API references |
+| **Human review** | Expert review of flagged items | Catches nuanced errors that automated layers miss |
+
+> Each layer catches different failure modes. No single layer is sufficient—defense in depth is essential.
+
 ### Verification Checklist
 
 Before publishing AI-generated content:
@@ -538,6 +608,9 @@ Before publishing AI-generated content:
 - [ ] All links tested
 - [ ] All command outputs verified
 - [ ] All claims traceable to sources
+- [ ] Grounding material provided for all AI-generated sections
+- [ ] RAG-retrieved sources reviewed for relevance and currency
+- [ ] Tool-verified outputs checked for pass/fail results
 
 ## Human-in-the-Loop Patterns
 
@@ -825,6 +898,7 @@ AI enhances documentation writing when used thoughtfully. The key is maintaining
 - **Engineer prompts carefully** — Good prompts produce better results; include context, constraints, and format requirements
 - **Validate AI output** — AI is useful for validation but cannot be the only validator; humans verify, especially for accuracy
 - **Prevent hallucinations actively** — Provide source material, require citations, use verification checkpoints
+- **Layer detection techniques** — Combine grounding, RAG, and tool-augmented verification for defense in depth against hallucinations
 - **Keep humans in the loop** — AI assists; humans decide; maintain meaningful human oversight throughout
 - **Consider ethics** — Transparency, attribution, bias, and accuracy responsibility matter
 
@@ -863,8 +937,17 @@ Microsoft's guidance on prompt engineering for Azure OpenAI.
 **[On the Dangers of Stochastic Parrots](https://dl.acm.org/doi/10.1145/3442188.3445922)** 📗 [Verified Community]  
 Influential paper on language model limitations and risks.
 
-**[Hallucination in LLMs - A Survey](https://arxiv.org/abs/2311.05232)** 📗 [Verified Community]  
+**[Hallucination in LLMs — A Survey](https://arxiv.org/abs/2311.05232)** 📗 [Verified Community]  
 Academic survey of hallucination issues in language models.
+
+**[Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)** 📗 [Verified Community]  
+The foundational RAG paper by Lewis et al. Describes how retrieval-augmented generation reduces hallucinations by grounding model outputs in retrieved documents.
+
+**[Azure AI Search Documentation](https://learn.microsoft.com/azure/search/)** 📘 [Official]  
+Microsoft's search service supporting vector, keyword, and hybrid retrieval—a practical foundation for documentation RAG pipelines.
+
+**[Grounding with Bing Search in Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/concepts/use-your-data)** 📘 [Official]  
+How to ground Azure OpenAI responses with external data sources, including Bing web search and your own documents.
 
 ### Human-AI Collaboration
 
@@ -896,7 +979,7 @@ article_metadata:
   filename: "07-ai-enhanced-documentation-writing.md"
   series: "Technical Documentation Excellence"
   series_position: 8
-  total_articles: 8
+  total_articles: 13
   prerequisites:
     - "05-validation-and-quality-assurance.md"
   related_articles:
@@ -904,6 +987,8 @@ article_metadata:
     - "01-writing-style-and-voice-principles.md"
     - "05-validation-and-quality-assurance.md"
     - "06-citations-and-reference-management.md"
-  version: "1.0"
-  last_updated: "2026-01-14"
+  version: "1.1"
+  last_updated: "2026-02-11"
+  changes:
+    - "v1.1: Added Advanced Hallucination Detection section (grounding, RAG, tool-augmented verification). Updated capability matrix with model-specific notes and currency disclaimer."
 -->
