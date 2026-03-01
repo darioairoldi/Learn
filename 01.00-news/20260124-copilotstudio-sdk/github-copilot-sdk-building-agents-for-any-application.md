@@ -250,7 +250,7 @@ The GitHub Copilot SDK represents a significant shift in how developers can buil
 
 ### Related articles in this workspace
 
-- [How GitHub Copilot uses Markdown and prompt folders](../../03.00-tech/05.02-prompt-engineering/02-getting-started/01.00-how_github_copilot_uses_markdown_and_prompt_folders.md)
+- [How GitHub Copilot uses Markdown and prompt folders](../../03.00-tech/05.02-prompt-engineering/01-overview/01.00-the_github_copilot_customization_stack.md)
 - [Understanding MCP on Windows](../../02.00-events/202506-build-2025/brk-breakout-sessions/brk229-unlock-agents-for-your-apps-using-mcp-on-windows/readme.sonnet4.md)
 - [VS Code v1.107 Release Notes Analysis](../20251224-vscode-v1.107-release/02-readme.sonnet4.md)
 

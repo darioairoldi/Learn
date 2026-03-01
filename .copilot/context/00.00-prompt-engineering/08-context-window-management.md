@@ -138,7 +138,7 @@ VS Code tasks (defined in `.vscode/tasks.json`) are **not directly accessible** 
 ## References
 
 - **Internal**: [04-handoffs-pattern.md](./04-handoffs-pattern.md), [09-token-optimization-strategies.md](./09-token-optimization-strategies.md)
-- **Source**: `03.00-tech/05.02-prompt-engineering/12.00-how_to_manage_information_flow_during_prompt_orchestrations.md`
+- **Source**: `03.00-tech/05.02-prompt-engineering/04-howto/12.00-how_to_manage_information_flow_during_prompt_orchestrations.md`
 - **External**: Liu et al. (2023), "Lost in the Middle: How Language Models Use Long Contexts"
 
 ---

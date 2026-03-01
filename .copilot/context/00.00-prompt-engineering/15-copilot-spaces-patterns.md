@@ -114,7 +114,7 @@ Spaces inject context **alongside** the prompt assembly pipeline documented in [
 ## References
 
 - **Internal**: [07-prompt-assembly-architecture.md](./07-prompt-assembly-architecture.md), [13-file-type-decision-guide.md](./13-file-type-decision-guide.md)
-- **Source**: `03.00-tech/05.02-prompt-engineering/01.01-appendix_copilot_spaces.md`
+- **Source**: `03.00-tech/05.02-prompt-engineering/01-overview/01.01-appendix_copilot_spaces.md`
 - **External**: [GitHub Copilot Spaces](https://docs.github.com/en/copilot/concepts/context/spaces), [Creating Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces)
 
 ---

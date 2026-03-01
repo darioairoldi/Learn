@@ -237,7 +237,7 @@ Before starting this series, you should have:
 ### Related Series in This Repository
 - [MkDocs Documentation Guide](../02-mkdocs/000.000-using-mkdocs.md) - Alternative static site generator
 - [Hugo Documentation Guide](../03-hugo/readme.md) - Fast Go-based static site generator
-- [Prompt Engineering](../../05.02-prompt-engineering/02.00-how_to_name_and_organize_prompt_files.md) - Guide to prompt engineering
+- [Prompt Engineering](../../05.02-prompt-engineering/02-getting-started/02.00-how_to_name_and_organize_prompt_files.md) - Guide to prompt engineering
 - [Azure Documentation](../../02.01-azure/00-azure-naming-conventions/readme.md) - Azure technical documentation
 
 ---

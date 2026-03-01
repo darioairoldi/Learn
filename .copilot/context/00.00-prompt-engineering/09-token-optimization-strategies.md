@@ -162,7 +162,7 @@ Phase 5: Validation  — DETERMINISTIC TOOL + BATCH PROCESSING             → 7
 ## References
 
 - **Internal**: [08-context-window-management.md](./08-context-window-management.md), [02-tool-composition-guide.md](./02-tool-composition-guide.md)
-- **Source**: `03.00-tech/05.02-prompt-engineering/13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md`
+- **Source**: `03.00-tech/05.02-prompt-engineering/04-howto/13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md`
 - **External**: [OpenAI Prompt Caching](https://platform.openai.com/docs/guides/prompt-caching), [Anthropic Prompt Caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
 
 ---

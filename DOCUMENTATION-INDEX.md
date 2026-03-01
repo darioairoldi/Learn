@@ -203,14 +203,14 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 | Article | Topic |
 |---------|-------|
-| [02.00 Naming Conventions](03.00-tech/05.02-prompt-engineering/02.00-how_to_name_and_organize_prompt_files.md) | File and folder organization |
-| [03.00 Prompt Structure](03.00-tech/05.02-prompt-engineering/03.00-how_to_structure_content_for_copilot_prompt_files.md) | YAML frontmatter and sections |
-| [04.00 Agent Structure](03.00-tech/05.02-prompt-engineering/04.00-how_to_structure_content_for_copilot_agent_files.md) | Personas, handoffs, boundaries |
-| [05.00 Instruction Structure](03.00-tech/05.02-prompt-engineering/05.00-how_to_structure_content_for_copilot_instruction_files.md) | Path-specific instructions |
-| [06.00 Skills Structure](03.00-tech/05.02-prompt-engineering/06.00-how_to_structure_content_for_copilot_skills.md) | Agent skills (SKILL.md files) |
-| [07.00 MCP Servers](03.00-tech/05.02-prompt-engineering/07.00-how_to_create_mcp_servers_for_copilot.md) | Model Context Protocol servers |
-| [20-21 Multi-Agent Example](03.00-tech/05.02-prompt-engineering/20-how_to_create_a_prompt_interacting_with_agents.md) | Real-world multi-agent workflow |
-| [22 Documentation Site](03.00-tech/05.02-prompt-engineering/22-prompts-and-markdown-structure-for-a-documentation-site.md) | Repository-specific patterns |
+| [02.00 Naming Conventions](03.00-tech/05.02-prompt-engineering/02-getting-started/02.00-how_to_name_and_organize_prompt_files.md) | File and folder organization |
+| [03.00 Prompt Structure](03.00-tech/05.02-prompt-engineering/04-howto/03.00-how_to_structure_content_for_copilot_prompt_files.md) | YAML frontmatter and sections |
+| [04.00 Agent Structure](03.00-tech/05.02-prompt-engineering/04-howto/04.00-how_to_structure_content_for_copilot_agent_files.md) | Personas, handoffs, boundaries |
+| [05.00 Instruction Structure](03.00-tech/05.02-prompt-engineering/04-howto/05.00-how_to_structure_content_for_copilot_instruction_files.md) | Path-specific instructions |
+| [06.00 Skills Structure](03.00-tech/05.02-prompt-engineering/04-howto/06.00-how_to_structure_content_for_copilot_skills.md) | Agent skills (SKILL.md files) |
+| [07.00 MCP Servers](03.00-tech/05.02-prompt-engineering/04-howto/07.00-how_to_create_mcp_servers_for_copilot.md) | Model Context Protocol servers |
+| [20-21 Multi-Agent Example](03.00-tech/05.02-prompt-engineering/05-analysis/20-how_to_create_a_prompt_interacting_with_agents.md) | Real-world multi-agent workflow |
+| [22 Documentation Site](03.00-tech/05.02-prompt-engineering/05-analysis/22-prompts-and-markdown-structure-for-a-documentation-site.md) | Repository-specific patterns |
 
 ### Templates
 

@@ -116,7 +116,7 @@ MUST define by task characteristics, NOT by specific model names (those are vola
 ## References
 
 - **Internal**: [09-token-optimization-strategies.md](./09-token-optimization-strategies.md)
-- **Source**: `03.00-tech/05.02-prompt-engineering/08.00-how_to_optimize_prompts_for_specific_models.md`
+- **Source**: `03.00-tech/05.02-prompt-engineering/04-howto/08.00-how_to_optimize_prompts_for_specific_models.md`
 - **External**: [OpenAI Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering), [Anthropic Prompt Engineering](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview), [Google AI Prompting](https://ai.google.dev/docs/prompt_best_practices)
 
 ---

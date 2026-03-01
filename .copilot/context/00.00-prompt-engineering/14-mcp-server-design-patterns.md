@@ -149,7 +149,7 @@ All SDKs support identical capabilities. The client doesn't know or care what la
 ## References
 
 - **Internal**: [02-tool-composition-guide.md](./02-tool-composition-guide.md), [13-file-type-decision-guide.md](./13-file-type-decision-guide.md)
-- **Source**: `03.00-tech/05.02-prompt-engineering/07.00-how_to_build_mcp_servers_for_extending_agent_capabilities.md`
+- **Source**: `03.00-tech/05.02-prompt-engineering/04-howto/07.00-how_to_create_mcp_servers_for_copilot.md`
 - **External**: [MCP Specification](https://modelcontextprotocol.io/), [VS Code MCP](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
 ---

@@ -150,7 +150,7 @@ Available variables in `.prompt.md` files:
 ## References
 
 - **Internal**: [01-context-engineering-principles.md](./01-context-engineering-principles.md)
-- **Sources**: `03.00-tech/05.02-prompt-engineering/02-getting-started/01.00-how_github_copilot_uses_markdown_and_prompt_folders.md`, articles 10.00 and 12.00
+- **Sources**: `03.00-tech/05.02-prompt-engineering/01-overview/01.00-the_github_copilot_customization_stack.md`, articles 10.00 and 12.00
 - **External**: [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
 ---

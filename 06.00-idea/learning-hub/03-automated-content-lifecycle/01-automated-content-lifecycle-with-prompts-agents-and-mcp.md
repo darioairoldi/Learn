@@ -42,7 +42,7 @@ This document proposes a layered automation architecture that uses GitHub Copilo
 ### Prerequisites
 
 - Familiarity with the [Learning Hub documentation taxonomy](../02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md)
-- Understanding of [GitHub Copilot customization](../../03.00-tech/05.02-prompt-engineering/02-getting-started/01.00-how_github_copilot_uses_markdown_and_prompt_folders.md) (prompts, agents, MCP)
+- Understanding of [GitHub Copilot customization](../../03.00-tech/05.02-prompt-engineering/01-overview/01.00-the_github_copilot_customization_stack.md) (prompts, agents, MCP)
 - Access to the repository's [IQPilot MCP server](../../src/IQPilot/README.md)
 
 ---

@@ -137,7 +137,7 @@ MUST check `stop_hook_active` field to prevent infinite loops when the Stop hook
 ## References
 
 - **Internal**: [12-orchestrator-design-patterns.md](./12-orchestrator-design-patterns.md)
-- **Source**: `03.00-tech/05.02-prompt-engineering/09.00-how_to_use_agent_hooks_for_lifecycle_automation.md`
+- **Source**: `03.00-tech/05.02-prompt-engineering/04-howto/09.00-how_to_use_agent_hooks_for_lifecycle_automation.md`
 - **External**: [VS Code Agent Hooks](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
 ---
