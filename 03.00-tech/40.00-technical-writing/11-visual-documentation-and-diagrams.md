@@ -79,6 +79,33 @@ The most effective documentation uses visuals and text together. Follow this pat
 
 > **Anti-pattern:** Don't embed a complex diagram and say "as shown in Figure 3." Explain what the visual shows and why it matters. The visual should reinforce text, not replace it.
 
+### Visual requirements by article type
+
+The "when to use visuals vs. text" decision above addresses individual content choices. This subsection maps those decisions to article types, giving writers a <mark>visual budget</mark>—a guideline for how many and what kind of visuals an article type typically needs.
+
+The following table maps each Diátaxis article type to its recommended visual patterns. For content density and depth guidelines by article type, see [Article 02](02-structure-and-information-architecture.md#content-density-and-depth-by-article-type).
+
+| Article type | Primary visual needs | Recommended visuals | Typical count | Anti-pattern |
+|-------------|---------------------|--------------------|--------------|--------------|
+| **Explanation** (concepts) | Illustrate mental models, show relationships between ideas | Architecture diagrams, concept maps, comparison tables, flowcharts | 2–5 per article | Dense diagrams without narration; readers can't extract the "why" from a picture alone |
+| **How-to** (task guidance) | Show UI state, confirm progress, clarify ambiguous steps | Annotated screenshots, short GIFs (<10 s), numbered step diagrams | 1–3 per major task | Screenshots of every screen (over-documenting); prefer text for straightforward steps |
+| **Reference** (lookup) | Visualize structure, relationships, and data models | Entity-relationship diagrams, schema diagrams, syntax railroad diagrams | 0–2 per article | Decorative diagrams that don't add information beyond what the tables already convey |
+| **Tutorial** (learning) | Build learner confidence, show expected outcomes | Before/after screenshots, progressive diagrams that grow with each step, output previews | 3–6 per article | Complex diagrams early in the tutorial before the learner has enough context to interpret them |
+
+**Three rules for applying visual budgets:**
+
+1. **Treat the count as guidance, not a quota.** An explanation article with one perfect architecture diagram beats one with five mediocre illustrations. The budget prevents over- and under-investing, not creativity.
+2. **Match visual complexity to article depth.** A deep explanation article (Art. 09's readability formulas) can use detailed annotated diagrams. A surface-level overview (Art. 00's foundations survey) should use simpler concept maps.
+3. **Pair every visual with the complementary principle.** Regardless of article type, every visual needs the four-step pattern: state → show → explain → detail. See [the complementary principle](#the-complementary-principle) above.
+
+**This series' visual distribution:**
+
+| Tier | Articles | Current visual use | Recommended additions |
+|------|----------|-------------------|-----------------------|
+| Visually rich | Art. 11 (this article) | Extensive code examples for diagram tools | Add rendered diagram examples alongside code |
+| Moderate | Art. 02, Art. 07, Art. 09 | Tables and structured comparisons | Add concept map (Art. 02), workflow diagram (Art. 07), formula visualization (Art. 09) |
+| Text-only | Art. 00, 01, 03, 04, 05, 06, 08, 10, 12 | No diagrams or screenshots | Add 1–2 targeted visuals per article based on the type-specific guidance above |
+
 ## 🏗️ Diagrams-as-code
 
 <mark>Diagrams-as-code</mark> means writing diagrams in a text-based syntax that renders into visual output. Like documentation-as-code, this approach enables version control, diff tracking, and automated rendering—solving the maintenance problems that plague image-based diagrams.
@@ -564,7 +591,7 @@ This section maps visual documentation concepts to the Learning Documentation Si
 
 Visual documentation isn't decoration—it's a tool for conveying relationships, structures, and flows that text alone struggles to express. But visuals require the same discipline as text: deliberate decisions about when to use them, consistent patterns when creating them, accessibility for all readers, and maintenance strategies that prevent them from becoming stale.
 
-### Key takeaways
+### Key Takeaways
 
 - **Choose visuals deliberately** — Use diagrams for relationships and flows, text for reasoning and precise values; don't use both when one suffices
 - **Prefer diagrams-as-code** — Mermaid, PlantUML, and D2 enable version control, diffing, and automated rendering; Mermaid is the best default for GitHub and Quarto workflows
@@ -573,7 +600,7 @@ Visual documentation isn't decoration—it's a tool for conveying relationships,
 - **Design for accessibility first** — Structured alt text, text descriptions, sufficient contrast, and avoiding color-only meaning ensure visual content serves all readers
 - **Integrate visuals into your docs-as-code pipeline** — Author, render, validate, and maintain visuals with the same rigor you apply to text
 
-### Next steps
+### Next Steps
 
 - **Previous article:** [10-documentation-lifecycle-and-maintenance.md](10-documentation-lifecycle-and-maintenance.md) — Lifecycle management including screenshot freshness
 - **Related:** [03-accessibility-in-technical-writing.md](03-accessibility-in-technical-writing.md) — Foundational alt text and image accessibility guidance
@@ -631,7 +658,7 @@ article_metadata:
   filename: "11-visual-documentation-and-diagrams.md"
   series: "Technical Documentation Excellence"
   series_position: 12
-  total_articles: 12
+  total_articles: 13
   prerequisites:
     - "03-accessibility-in-technical-writing.md"
     - "10-documentation-lifecycle-and-maintenance.md"

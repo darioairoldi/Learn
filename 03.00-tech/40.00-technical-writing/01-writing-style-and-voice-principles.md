@@ -13,19 +13,19 @@ description: "Comprehensive guide to writing style, voice, and tone in technical
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Active vs. Passive Voice](#active-vs-passive-voice)
-- [Readability Formulas Explained](#readability-formulas-explained)
-- [Sentence Structure and Length](#sentence-structure-and-length)
-- [Voice Guidelines: Microsoft vs. Google vs. Wikipedia](#voice-guidelines-microsoft-vs-google-vs-wikipedia)
-- [Person Usage (First, Second, Third)](#person-usage-first-second-third)
-- [Tone and Register](#tone-and-register)
-- [Common Voice Pitfalls](#common-voice-pitfalls)
-- [Applying Style Principles to This Repository](#applying-style-principles-to-this-repository)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [🎯 Introduction](#-introduction)
+- [✍️ Active vs. passive voice](#-active-vs-passive-voice)
+- [📊 Readability formulas explained](#-readability-formulas-explained)
+- [📐 Sentence structure and length](#-sentence-structure-and-length)
+- [🔍 Voice guidelines: Microsoft vs. Google vs. Wikipedia](#-voice-guidelines-microsoft-vs-google-vs-wikipedia)
+- [👤 Person usage (first, second, third)](#-person-usage-first-second-third)
+- [🎭 Tone and register](#-tone-and-register)
+- [⚠️ Common voice pitfalls](#-common-voice-pitfalls)
+- [📌 Applying style principles to this repository](#-applying-style-principles-to-this-repository)
+- [✅ Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 🎯 Introduction
 
 Voice and style form the personality of your documentation. While content accuracy ensures correctness, voice determines whether readers can **understand**, **trust**, and **act on** that information.
 
@@ -39,11 +39,11 @@ This article explores:
 
 **Prerequisites:** Understanding of [foundational documentation principles](00-foundations-of-technical-documentation.md) is helpful but not required.
 
-## Active vs. Passive Voice
+## ✍️ Active vs. passive voice
 
 Voice refers to the relationship between the subject and verb in a sentence. This seemingly simple grammatical choice profoundly affects clarity, tone, and reader engagement.
 
-### Definitions and Examples
+### Definitions and examples
 
 **Active voice:** Subject performs the action
 - Structure: `[Subject] [Verb] [Object]`
@@ -55,7 +55,7 @@ Voice refers to the relationship between the subject and verb in a sentence. Thi
 - Example: "The code **is written** by the developer."
 - Emphasis: What is being done
 
-### When to Use Active Voice
+### When to use active voice
 
 **Clarity and directness** - Active voice makes actors explicit
 
@@ -83,7 +83,7 @@ Voice refers to the relationship between the subject and verb in a sentence. Thi
 > "The administrator must update the configuration file."
 > Or: "Update the configuration file."
 
-### When Passive Voice Is Acceptable
+### When passive voice is acceptable
 
 **Actor is unknown or irrelevant**
 
@@ -109,7 +109,7 @@ Voice refers to the relationship between the subject and verb in a sentence. Thi
 > "The file was deleted accidentally."
 > (Less accusatory than "You deleted the file accidentally")
 
-### Style Guide Comparison: Voice Usage
+### Style guide comparison: voice usage
 
 | Guide | Active Voice Preference | Passive Voice Guidance | Rationale |
 |-------|------------------------|------------------------|-----------|
@@ -118,7 +118,7 @@ Voice refers to the relationship between the subject and verb in a sentence. Thi
 | **<mark>Apple</mark>** | Strong preference | Acceptable in specific contexts | "Active voice creates more engaging content" |
 | **<mark>Wikipedia</mark>** | No strong preference | Both widely used | "Passive appropriate for encyclopedic tone, avoiding first/second person" |
 
-### Before/After Examples
+### Before/after examples
 
 **Example 1: Procedural instruction**
 
@@ -146,7 +146,7 @@ Voice refers to the relationship between the subject and verb in a sentence. Thi
 ✅ **Active (appropriate for learning):**
 > "Call the function when the event fires. Pass three arguments: event type, timestamp, and payload."
 
-### Detecting Passive Voice
+### Detecting passive voice
 
 **Linguistic test:** Can you insert "by zombies" after the verb?
 - "The code was written [by zombies]" → Passive
@@ -154,11 +154,13 @@ Voice refers to the relationship between the subject and verb in a sentence. Thi
 
 **Automated detection:** This repository's validation system flags excessive passive voice through grammar analysis.
 
-## Readability Formulas Explained
+## 📊 Readability formulas explained
 
-Readability formulas quantify text complexity, helping ensure documentation matches audience capabilities. This section introduces seven widely used formulas with practical guidance for technical writers. For a deeper treatment—including comprehension testing, information scent theory, mental model alignment, and documentation usability testing—see [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md).
+Readability formulas quantify text complexity, helping ensure documentation matches audience capabilities. This section surveys seven widely used formulas with practical targets and score interpretation for technical writers.
 
-### Flesch Reading Ease Score
+> **On deliberate overlap with Article 09:** This article provides a *practical survey*—what each formula measures, how to interpret scores, and what targets to use. [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md) provides *analytical depth*—full mathematical treatment, statistical validation context, and how formulas connect to comprehension testing, information scent theory, mental model alignment, and usability measurement. Both perspectives are intentional; see [Article 08](08-consistency-standards-and-enforcement.md#acceptable-redundancy-across-articles) for the series redundancy policy.
+
+### Flesch Reading Ease score
 
 **Formula:** `206.835 - (1.015 × ASL) - (84.6 × ASW)`
 - ASL = Average Sentence Length (words per sentence)
@@ -192,7 +194,7 @@ readability:
     rationale: "Technical content requires precision, but must remain accessible"
 ```
 
-### Flesch-Kincaid Grade Level
+### Flesch-Kincaid grade level
 
 **Formula:** `(0.39 × ASL) + (11.8 × ASW) - 15.59`
 
@@ -204,7 +206,7 @@ readability:
 - Equivalent to Flesch Reading Ease 50-70
 - Indicates high school to early college reading level
 
-### Gunning Fog Index
+### Gunning Fog index
 
 **Formula:** `0.4 × [(ASL) + 100 × (Complex Words / Total Words)]`
 - Complex Words = words with 3+ syllables
@@ -216,7 +218,7 @@ readability:
 - 11-14: Standard technical documentation
 - 15+: Dense academic/specialist writing
 
-### Coleman-Liau Index
+### Coleman-Liau index
 
 **Formula:** `0.0588 × L - 0.296 × S - 15.8`
 - L = Average number of letters per 100 words
@@ -228,7 +230,7 @@ readability:
 
 **Typical technical documentation range:** 10-14
 
-### SMOG Index
+### SMOG index
 
 **Formula:** `3 + √(number of polysyllabic words in 30 sentences)`
 - Polysyllabic words = words with 3+ syllables
@@ -239,7 +241,7 @@ readability:
 
 **Typical technical documentation range:** 10-14
 
-### Dale-Chall Readability Formula
+### Dale-Chall readability formula
 
 **Formula:** `0.1579 × (PDW × 100 / words) + 0.0496 × ASL`
 - PDW = Number of "difficult" words (not on the Dale-Chall 3,000-word familiar list)
@@ -260,7 +262,7 @@ readability:
 
 **This repository's sweet spot: 7.0-8.9** (high school reading level, accounting for necessary technical vocabulary)
 
-### Automated Readability Index (ARI)
+### Automated readability index (ARI)
 
 **Formula:** `4.71 × (characters / words) + 0.5 × (words / sentences) - 21.43`
 
@@ -286,7 +288,7 @@ The following table compares all seven formulas. Use it to choose which formulas
 
 **Recommendation for this repository:** Use **Flesch Reading Ease** as the primary score (target 50-70) with **Dale-Chall** as a secondary check for jargon density. Run both in your validation pipeline for complementary coverage. For a full walkthrough of tool integration, see [Article 09](09-measuring-readability-and-comprehension.md).
 
-### Why Readability Matters: Cognitive Load
+### Why readability matters: cognitive load
 
 **Cognitive load theory** explains that working memory has limited capacity (typically 7±2 "chunks" of information).
 
@@ -304,7 +306,7 @@ The following table compares all seven formulas. Use it to choose which formulas
 - Active voice (fewer words, clearer actors)
 - Concrete examples illustrating abstractions
 
-### Readability Formula Limitations
+### Readability formula limitations
 
 **Formulas cannot measure:**
 - Technical accuracy
@@ -325,11 +327,11 @@ The following table compares all seven formulas. Use it to choose which formulas
 
 > **Going deeper:** [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md) covers comprehension testing (cloze tests, recall tests, think-aloud protocols), information scent theory, mental model alignment, documentation usability testing, and quantitative benchmarks by Diátaxis content type.
 
-## Sentence Structure and Length
+## 📐 Sentence structure and length
 
 Sentence length directly affects comprehension. Research shows optimal sentence length for technical documentation is **15-25 words**.
 
-### Why 15-25 Words?
+### Why 15-25 words?
 
 **Psychological research:** Reading comprehension drops significantly beyond 25 words per sentence
 - Reader must hold more information in working memory
@@ -341,7 +343,7 @@ Sentence length directly affects comprehension. Research shows optimal sentence 
 - Comprehension accuracy
 - User satisfaction with documentation
 
-### Sentence Type Distribution
+### Sentence type distribution
 
 Effective technical writing mixes sentence types:
 
@@ -365,7 +367,7 @@ Effective technical writing mixes sentence types:
 - Example: "When you initialize the API, it loads the configuration, and then it establishes a connection."
 - Use: 0-10% of sentences
 
-### Before/After: Sentence Length Optimization
+### Before/after: sentence length optimization
 
 **Example 1: Breaking up a 45-word monster**
 
@@ -391,11 +393,11 @@ Effective technical writing mixes sentence types:
 ✅ **Optimized (3 sentences, ~17 words each, Flesch ~55):**
 > "This section explains how to configure the load balancer for HTTP requests. The configuration includes session affinity via cookies and automatic health checks. Health checks remove unresponsive servers from rotation."
 
-## Voice Guidelines: Microsoft vs. Google vs. Wikipedia
+## 🔍 Voice guidelines: Microsoft vs. Google vs. Wikipedia
 
 Different organizations prioritize different aspects of voice. Understanding these priorities helps you make informed decisions.
 
-### Microsoft Writing Style Guide Approach
+### Microsoft Writing Style Guide approach
 
 **Core philosophy:** "Write like you speak"
 
@@ -416,7 +418,7 @@ Different organizations prioritize different aspects of voice. Understanding the
 - Increases engagement with content
 - Mirrors how developers actually speak
 
-### Google Developer Documentation Approach
+### Google Developer Documentation approach
 
 **Core philosophy:** "Write for a global audience"
 
@@ -448,7 +450,7 @@ Different organizations prioritize different aspects of voice. Understanding the
 | Sentence avg. | 18-22 words | 12-18 words |
 | Paragraph length | 4-6 sentences | 2-4 sentences |
 
-### Wikipedia Manual of Style Approach
+### Wikipedia Manual of Style approach
 
 **Core philosophy:** "Encyclopedic neutrality"
 
@@ -476,7 +478,7 @@ Different organizations prioritize different aspects of voice. Understanding the
 > "The user should open the terminal and type the command. The system will display output."
 > *(Awkward for instructions)*
 
-### Comparison Table: Voice Across Style Guides
+### Comparison table: voice across style guides
 
 | Element | Microsoft 📘 | Google 📘 | Wikipedia 📘 | This Repository |
 |---------|--------------|-----------|--------------|-----------------|
@@ -487,11 +489,11 @@ Different organizations prioritize different aspects of voice. Understanding the
 | **Tone** | Conversational | Friendly-precise | Neutral-academic | Professional-accessible |
 | **Technical terms** | Define on first use | Link to glossary | Link to related articles | Define + link |
 
-## Person Usage (First, Second, Third)
+## 👤 Person usage (first, second, third)
 
 Person choice fundamentally affects tone and reader relationship with content.
 
-### First Person (I, We, Us)
+### First person (I, we, us)
 
 **Appropriate contexts:**
 
@@ -512,7 +514,7 @@ Person choice fundamentally affects tone and reader relationship with content.
 ❌ **How-to guides:**
 > "We need to configure the settings..." *(reader configures, not collective "we")*
 
-### Second Person (You, Your)
+### Second person (you, your)
 
 **Appropriate contexts:**
 
@@ -533,7 +535,7 @@ Person choice fundamentally affects tone and reader relationship with content.
 ❌ **Reference definitions:**
 > "The function accepts three parameters you pass..." *(reference describes, doesn't instruct)*
 
-### Third Person (User, Developer, System)
+### Third person (user, developer, system)
 
 **Appropriate contexts:**
 
@@ -551,7 +553,7 @@ Person choice fundamentally affects tone and reader relationship with content.
 ❌ **Step-by-step instructions:**
 > "The user should click the button and enter their password." *(second person clearer)*
 
-### Repository Guidelines
+### Repository guidelines
 
 Based on [documentation.instructions.md](../../.github/instructions/documentation.instructions.md):
 
@@ -563,11 +565,11 @@ Based on [documentation.instructions.md](../../.github/instructions/documentatio
 | **Explanation** | Third person + educational first plural (we) | Neutral analysis + shared exploration |
 | **Validation prompts** | Second (addressing the model) | Clear agent instructions |
 
-## Tone and Register
+## 🎭 Tone and register
 
 Tone conveys attitude; register indicates formality level. Both should match audience expectations and content purpose.
 
-### Tone Spectrum for Technical Documentation
+### Tone spectrum for technical documentation
 
 **Formal ← → Conversational**
 
@@ -580,7 +582,7 @@ Tone conveys attitude; register indicates formality level. Both should match aud
 
 **Repository standard:** Professional with occasional conversational warmth in tutorials
 
-### Adjusting Tone by Content Type
+### Adjusting tone by content type
 
 **Reference material:** Austere, factual
 > "**Parameters**  
@@ -597,7 +599,7 @@ Tone conveys attitude; register indicates formality level. Both should match aud
 **Explanation:** Neutral, analytical
 > "OAuth 2.0 separates authentication from authorization, allowing third-party applications to access user resources without exposing credentials."
 
-### Avoiding Problematic Tones
+### Avoiding problematic tones
 
 **Condescending:**
 ❌ "Obviously, you should always validate input."
@@ -619,7 +621,7 @@ Tone conveys attitude; register indicates formality level. Both should match aud
 ❌ "Just throw your code in here and you're good to go."
 ❌ "LOL, debugging is the worst, right?"
 
-### Wikipedia's Words to Watch
+### Wikipedia's words to watch
 
 Wikipedia identifies problematic [words that undermine neutrality](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch):
 
@@ -637,9 +639,9 @@ Wikipedia identifies problematic [words that undermine neutrality](https://en.wi
 
 **Repository application:** Our validation system flags these patterns through logic and fact-checking dimensions.
 
-## Common Voice Pitfalls
+## ⚠️ Common voice pitfalls
 
-### Pitfall 1: Mixing Person
+### Pitfall 1: mixing person
 
 ❌ **Inconsistent:**
 > "You should configure the API key. Users can then authenticate. One must ensure the secret remains private."
@@ -647,7 +649,7 @@ Wikipedia identifies problematic [words that undermine neutrality](https://en.wi
 ✅ **Consistent:**
 > "Configure your API key. You can then authenticate. Ensure your secret remains private."
 
-### Pitfall 2: Nominalizations (Zombie Nouns)
+### Pitfall 2: nominalizations (zombie nouns)
 
 **Nominalization:** Converting verbs to nouns, creating wordiness
 
@@ -666,7 +668,7 @@ Wikipedia identifies problematic [words that undermine neutrality](https://en.wi
 | "Conduct an investigation" | "Investigate" |
 | "Achieve implementation" | "Implement" |
 
-### Pitfall 3: Hedging Language
+### Pitfall 3: hedging language
 
 Excessive hedging undermines authority:
 
@@ -679,7 +681,7 @@ Excessive hedging undermines authority:
 **Appropriate hedging** (when uncertainty is real):
 ✅ "Performance may vary depending on network conditions."
 
-### Pitfall 4: Anthropomorphizing Technology
+### Pitfall 4: anthropomorphizing technology
 
 ❌ **Anthropomorphized:**
 > "The API wants you to provide credentials."
@@ -691,7 +693,7 @@ Excessive hedging undermines authority:
 > "The function accepts three parameters."
 > "The system rejects invalid input."
 
-### Pitfall 5: Buried Verbs
+### Pitfall 5: buried verbs
 
 **Buried verb:** Hidden in a noun phrase
 
@@ -710,9 +712,9 @@ More examples:
 | "Reached a conclusion" | "Concluded" |
 | "Give consideration to" | "Consider" |
 
-## Applying Style Principles to This Repository
+## 📌 Applying style principles to this repository
 
-### Voice Standards from Documentation Instructions
+### Voice standards from documentation instructions
 
 From [documentation.instructions.md](../../.github/instructions/documentation.instructions.md):
 
@@ -737,7 +739,7 @@ Flesch-Kincaid Grade: 9-10 (high school level)
 Rationale: Technical precision + accessibility
 ```
 
-### Validation Workflow
+### Validation workflow
 
 Our validation system enforces style principles through automated and human review:
 
@@ -759,7 +761,7 @@ Our validation system enforces style principles through automated and human revi
 
 See [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) for complete validation system documentation.
 
-### Style Evolution
+### Style evolution
 
 Documentation style evolves based on:
 - User feedback on comprehension
@@ -769,11 +771,11 @@ Documentation style evolves based on:
 
 **Living document principle:** Style guidelines adapt as best practices emerge, while maintaining consistency within existing content.
 
-## Conclusion
+## ✅ Conclusion
 
 Voice and style fundamentally shape documentation effectiveness. They determine whether readers can understand, trust, and act on your content.
 
-### Key Takeaways
+### Key takeaways
 
 - **Active voice matters** — Use it 75-85% of the time for clarity, but embrace passive voice when appropriate (scientific tone, unknown actor, emphasis on object)
 - **Readability is measurable** — Flesch scores 50-70 and sentence lengths 15-25 words optimize technical comprehension without oversimplification
@@ -782,15 +784,15 @@ Voice and style fundamentally shape documentation effectiveness. They determine 
 - **Tone should match purpose** — Professional for how-to guides, austere for reference, warmer for tutorials, neutral for explanation
 - **Common pitfalls are avoidable** — Watch for person mixing, nominalizations, excessive hedging, anthropomorphizing, and buried verbs
 
-### Next Steps
+### Next steps
 
 - **Next article:** [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) — Progressive disclosure, LATCH framework, TOC strategies
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — How validation operationalizes these principles
 - **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Framework context for voice decisions
 
-## References
+## 📚 References
 
-### Official Style Guides
+### Official style guides
 
 **[Microsoft Writing Style Guide - Top 10 Tips](https://learn.microsoft.com/style-guide/top-10-tips-style-voice)** 📘 [Official]  
 Core voice and style principles including "write like you speak" and active voice preference.
@@ -806,7 +808,7 @@ Encyclopedic voice standards including third person preference and passive voice
 **[Wikipedia Manual of Style - Words to Watch](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch)** 📘 [Official]  
 Comprehensive guide to problematic words including peacock terms, weasel words, and editorial language.
 
-### Readability and Cognitive Load
+### Readability and cognitive load
 
 **[Flesch Reading Ease - Wikipedia](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests)** 📘 [Official]  
 Technical explanation of Flesch-Kincaid readability formulas and scoring interpretation.
@@ -817,7 +819,7 @@ US government standards for clear, accessible writing including readability targ
 **[Cognitive Load Theory - Wikipedia](https://en.wikipedia.org/wiki/Cognitive_load)** 📗 [Verified Community]  
 Psychological foundation for understanding why sentence length and structure affect comprehension.
 
-### Writing Technique Resources
+### Writing technique resources
 
 **[The Elements of Style - Strunk & White](https://www.gutenberg.org/files/37134/37134-h/37134-h.htm)** 📗 [Verified Community]  
 Classic writing guide emphasizing active voice, brevity, and clarity.
@@ -825,7 +827,7 @@ Classic writing guide emphasizing active voice, brevity, and clarity.
 **[Chicago Manual of Style - Grammar](https://www.chicagomanualofstyle.org/book/ed17/part2/ch05/toc.html)** 📘 [Official]  
 Authoritative grammar reference including detailed voice and mood guidance.
 
-### Repository-Specific Documentation
+### Repository-specific documentation
 
 **[Documentation Instructions - Voice and Tone](../../.github/instructions/documentation.instructions.md#voice-and-tone)** [Internal Reference]  
 This repository's comprehensive voice guidelines with specific targets and rationale.
@@ -847,7 +849,7 @@ article_metadata:
   filename: "01-writing-style-and-voice-principles.md"
   series: "Technical Documentation Excellence"
   series_position: 2
-  total_articles: 8
+  total_articles: 13
   prerequisites:
     - "00-foundations-of-technical-documentation.md"
   related_articles:

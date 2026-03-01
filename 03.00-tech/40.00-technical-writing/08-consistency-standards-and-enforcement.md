@@ -13,19 +13,19 @@ description: "Establish and enforce documentation consistency across terminology
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Dimensions of consistency](#dimensions-of-consistency)
-- [Building a project terminology glossary](#building-a-project-terminology-glossary)
-- [Style decision log](#style-decision-log)
-- [Consistency audit checklist](#consistency-audit-checklist)
-- [Automated consistency enforcement](#automated-consistency-enforcement)
-- [Cross-document consistency patterns](#cross-document-consistency-patterns)
-- [Handling consistency during migration and evolution](#handling-consistency-during-migration-and-evolution)
-- [Applying consistency standards to this repository](#applying-consistency-standards-to-this-repository)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [🎯 Introduction](#-introduction)
+- [📊 Dimensions of consistency](#-dimensions-of-consistency)
+- [📖 Building a project terminology glossary](#-building-a-project-terminology-glossary)
+- [📝 Style decision log](#-style-decision-log)
+- [📋 Consistency audit checklist](#-consistency-audit-checklist)
+- [🤖 Automated consistency enforcement](#-automated-consistency-enforcement)
+- [🔗 Cross-document consistency patterns](#-cross-document-consistency-patterns)
+- [🔄 Handling consistency during migration and evolution](#-handling-consistency-during-migration-and-evolution)
+- [📌 Applying consistency standards to this repository](#-applying-consistency-standards-to-this-repository)
+- [✅ Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 🎯 Introduction
 
 "Consistency" appears throughout documentation best practices—but what does it actually mean? It's more than using the same word twice. It's a multi-dimensional quality that spans terminology, structure, tone, formatting, and cross-references. Without a systematic approach, consistency degrades naturally as documentation grows, authors change, and conventions evolve.
 
@@ -43,7 +43,7 @@ This article covers:
 
 **Prerequisites:** Familiarity with [writing style principles](01-writing-style-and-voice-principles.md), [structure and information architecture](02-structure-and-information-architecture.md), and [validation and quality assurance](05-validation-and-quality-assurance.md) provides useful context.
 
-## Dimensions of consistency
+## 📊 Dimensions of consistency
 
 Consistency isn't a single thing—it's five distinct dimensions, each requiring different strategies to manage.
 
@@ -114,7 +114,7 @@ Consistency isn't a single thing—it's five distinct dimensions, each requiring
 - **Terminology alignment** — When article A introduces a term, article B uses the same term (not a synonym)
 - **Series awareness** — Articles reference their position in the series and maintain forward/backward links
 
-## Building a project terminology glossary
+## 📖 Building a project terminology glossary
 
 A <mark>terminology glossary</mark> is your single source of truth for how concepts are named and described. Without one, consistency depends on memory—a fragile foundation.
 
@@ -171,7 +171,7 @@ swap:
   API path: endpoint
 ```
 
-## Style decision log
+## 📝 Style decision log
 
 A <mark>style decision log</mark> records the choices you've made about your documentation style—and, critically, *why* you made them. It's the institutional memory that prevents revisiting the same debates.
 
@@ -227,7 +227,7 @@ Add a style decision entry when:
 - You discover an inconsistency and resolve it
 - A new tool or framework introduces new terminology
 
-## Consistency audit checklist
+## 📋 Consistency audit checklist
 
 An audit checklist transforms consistency review from a subjective activity into a structured, repeatable process.
 
@@ -276,7 +276,7 @@ Run this quarterly or after major content changes:
 - [ ] Prerequisites form a logical learning path
 - [ ] Metadata is up to date in all articles
 
-## Automated consistency enforcement
+## 🤖 Automated consistency enforcement
 
 Manual review catches inconsistencies—but not reliably. Automation scales consistency enforcement and catches issues before they reach readers.
 
@@ -422,7 +422,7 @@ if ($violations.Count -gt 0) {
 }
 ```
 
-## Cross-document consistency patterns
+## 🔗 Cross-document consistency patterns
 
 Consistency within a single article is necessary but not sufficient. Documentation series—like this one—require consistency *across* articles.
 
@@ -476,7 +476,64 @@ Cross-references between articles should be bidirectional and consistent:
 - If article 03 defines a concept used in article 07, both articles should agree on the term
 - Series navigation should be complete—no orphaned articles
 
-## Handling consistency during migration and evolution
+### Acceptable redundancy across articles
+
+Not all cross-article overlap is a problem. Some concepts benefit from coverage in multiple articles—provided the overlap is **intentional, documented, and differentiated**.
+
+**When redundancy is acceptable:**
+
+| Pattern | Example | Why it's OK |
+|---------|---------|------------|
+| **Survey → deep dive** | Art. 01 surveys readability formulas with practical targets; Art. 09 provides mathematical foundations and comprehension context | Different purpose (what vs. why); readers access different articles for different needs |
+| **Definition → application** | Art. 00 defines quality criteria; Art. 05 operationalizes them into validation dimensions | Progressive depth; readers need both perspectives at different stages |
+| **Brief recap → full explanation** | Art. 09 briefly recalls functional vs. deep quality from Art. 00 before extending the concept | Less than 100 words of recap that avoids forcing readers back to the original |
+
+**When redundancy is a problem:**
+
+- **Identical content** in two articles with no differentiation—consolidate to one location and cross-reference
+- **Contradictory treatments** that give different advice for the same scenario—resolve and align
+- **Drifting coverage** where both articles evolve independently, creating inconsistencies over time
+
+**Required documentation for intentional overlap:**
+
+When two articles deliberately cover the same concept, both articles MUST include a callout explaining the overlap:
+
+```markdown
+> **On deliberate overlap with Article [N]:** This article covers [topic]
+> as a [purpose A]. Article [N] covers the same topic as a [purpose B].
+> Both perspectives are intentional; see [Article 08](08-consistency-standards-and-enforcement.md
+> #acceptable-redundancy-across-articles) for the series redundancy policy.
+```
+
+This prevents future editors from "fixing" intentional overlap and ensures readers understand why the same topic appears in multiple places.
+
+### Building a concept coverage matrix
+
+A <mark>concept coverage matrix</mark> maps which articles cover which concepts, making gaps and redundancies visible at a glance. Without one, coverage gaps only surface when a reader asks "where do I find guidance on X?" and nobody can answer.
+
+**Matrix structure:**
+
+| Concept | Primary article | Secondary coverage | Gap? |
+|---------|----------------|-------------------|------|
+| Diátaxis framework | Art. 00 | Art. 02 (progressive disclosure), Art. 05 (validation by type) | No |
+| Readability formulas | Art. 01 (survey) | Art. 09 (analytical depth) | No — documented overlap |
+| Functional vs. deep quality | Art. 00 (definition) | Art. 09 (measurement implications) | No — documented overlap |
+| Documentation testing | Art. 05 | — | No |
+| Series planning | Art. 02 | — | No |
+
+**How to build one:**
+
+1. **Extract concepts** — Read each article's TOC and introduction; list every distinct concept taught
+2. **Assign primary ownership** — Each concept gets exactly one "home" article that provides the authoritative treatment
+3. **Map secondary coverage** — Note articles that reference or recap the concept
+4. **Classify overlap** — Use the [acceptable redundancy criteria](#acceptable-redundancy-across-articles) to determine if overlap is intentional or problematic
+5. **Identify gaps** — Concepts that appear in no article's primary coverage represent content gaps
+
+**Maintenance cadence:** Review the coverage matrix whenever you add, remove, or significantly restructure an article. Include it as an item in the [series-level audit checklist](#series-level-audit-checklist).
+
+**Where to store it:** The matrix can live in a dedicated document outside the series (this repository uses `99.00-temp/` for working documents) or as a section in the series' anchor article. The important thing is that it exists and is regularly updated—not where it lives.
+
+## 🔄 Handling consistency during migration and evolution
 
 Documentation isn't static. Terminology changes, structures evolve, and tools get replaced. Managing consistency during change is harder than establishing it initially.
 
@@ -521,7 +578,7 @@ As documentation grows organically, consistency naturally degrades. Combat this 
 - **Pre-publication review** — Every article gets a consistency review before publishing
 - **Automation** — Vale and markdownlint catch common issues without human effort
 
-## Applying consistency standards to this repository
+## 📌 Applying consistency standards to this repository
 
 This series uses consistency standards throughout. Here's how the principles in this article apply to the Technical Documentation Excellence series:
 
@@ -539,7 +596,55 @@ Key terms standardized across this series:
 
 ### Structural consistency in this series
 
-All nine main articles follow the [structural echo pattern](#the-structural-echo-pattern) described above. The five Microsoft Writing Style Guide sub-articles follow a different but internally consistent pattern appropriate to their scope.
+All thirteen main articles follow the [structural echo pattern](#the-structural-echo-pattern) described above. The five Microsoft Writing Style Guide sub-articles follow a different but internally consistent pattern, formally documented below.
+
+### Sub-series structural variation: Microsoft Writing Style Guide articles
+
+The five MS sub-articles (`microsoft-writing-style-guide/00-*.md` through `04-*.md`) are a <mark>thematic sub-series</mark>—a focused deep dive on a single external source that supplements the main series without replacing any of its articles. Their structural pattern intentionally diverges from the main series template:
+
+```
+YAML frontmatter
+---
+# H1 Title
+> Blockquote subtitle
+## Table of Contents
+## Introduction
+  - Scope bullets
+  - Prerequisites with links to parent series
+## Body Sections (H2 + H3)
+  - Title Case headings
+  - <mark> tags on key concepts in headings
+  - No emoji prefixes
+## Series Navigation
+  - 5-article navigation table
+  - Current article bolded
+  - Related articles from parent series
+## References
+  - Grouped by category
+  - 📘📗📒📕 classification markers
+```
+
+**Key differences from the main series template:**
+
+| Element | Main series (Art. 00–12) | MS sub-series (MS-00–04) | Reason |
+|---------|-------------------------|--------------------------|--------|
+| **H2 emoji prefixes** | Required on every H2 | Not used | Sub-series predates the convention; internal consistency takes priority over retrofitting |
+| **Heading capitalization** | Sentence case | Title Case | Matches the formal, reference-oriented tone of the sub-series |
+| **"Applying [topic]" section** | Required | Absent | Sub-articles analyze an external guide, not repository-specific practices |
+| **Conclusion section** | Required (Key Takeaways + Next Steps) | Absent | `## Series Navigation` serves as the closing section with both navigation and context |
+| **`<mark>` in headings** | Not used in headings | Used for key concepts | Highlights the specific Microsoft terminology being analyzed |
+| **Navigation style** | "Next Steps" within Conclusion | Dedicated `## Series Navigation` table | Sub-series is self-contained with its own 5-article navigation |
+
+**When this variation is acceptable:**
+
+A sub-series MAY deviate from the main structural echo pattern when ALL of these conditions are met:
+
+1. **Internal consistency** — All articles within the sub-series follow the *same* alternate pattern
+2. **Clear scope boundary** — The sub-series covers a distinct, self-contained topic (e.g., analysis of one external guide)
+3. **Parent connection** — Each sub-article links back to relevant main-series articles via cross-references
+4. **Documented deviation** — The structural variation is formally documented (as it is here)
+
+If a future sub-series is added, apply these same criteria before deciding whether to use the main template or define a new variation.
 
 ### Automation in this repository
 
@@ -557,11 +662,11 @@ This repository uses:
 - Automated glossary violation detection across the series
 - Cross-reference bidirectionality checking
 
-## Conclusion
+## ✅ Conclusion
 
 Consistency isn't a property that documentation either has or lacks—it's a multi-dimensional quality that requires deliberate systems to achieve and maintain. Terminology glossaries, style decision logs, audit checklists, and automated tooling work together to enforce consistency at scale.
 
-### Key Takeaways
+### Key takeaways
 
 - **Recognize five dimensions** — Terminology, structural, tonal, formatting, and cross-reference consistency each require different strategies
 - **Build a terminology glossary** — A shared vocabulary prevents synonym drift and casing inconsistencies across your documentation
@@ -570,15 +675,15 @@ Consistency isn't a property that documentation either has or lacks—it's a mul
 - **Automate where possible** — Vale, markdownlint, CI pipelines, and custom scripts catch inconsistencies before readers do
 - **Plan for change** — Migration strategies, versioned consistency, and regular audits prevent degradation as documentation evolves
 
-### Next Steps
+### Next steps
 
 - **Next article:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Return to foundations for a refresher on documentation principles
 - **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — The voice and style decisions that consistency enforcement protects
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — Validation frameworks that measure consistency as a quality dimension
 
-## References
+## 📚 References
 
-### Consistency and Style Guides
+### Consistency and style guides
 
 **[Microsoft Writing Style Guide](https://learn.microsoft.com/style-guide/welcome/)** 📘 [Official]  
 The authoritative source for Microsoft documentation standards. Establishes voice, tone, mechanics, and accessibility rules that consistency enforcement protects.
@@ -589,7 +694,7 @@ Complementary guidance on developer-facing documentation. Strong emphasis on con
 **[Red Hat Documentation Style Guide](https://redhat-documentation.github.io/supplementary-style-guide/)** 📗 [Verified Community]  
 Open-source documentation standards. Excellent example of a community-maintained style guide with terminology standardization.
 
-### Linting and Automation
+### Linting and automation
 
 **[Vale - Prose Linter](https://vale.sh/)** 📗 [Verified Community]  
 Open-source prose linter supporting custom rules. The most practical tool for automated terminology and style enforcement in documentation.
@@ -603,7 +708,7 @@ Markdown linting library with configurable rules. Enforces structural consistenc
 **[markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)** 📗 [Verified Community]  
 Command-line interface for markdownlint. Integrates into CI/CD pipelines for automated structural checks.
 
-### Terminology Management
+### Terminology management
 
 **[ISO 704:2022 - Terminology Work](https://www.iso.org/standard/79077.html)** 📘 [Official]  
 International standard for terminology principles and methods. Defines systematic approaches to term management.
@@ -611,7 +716,7 @@ International standard for terminology principles and methods. Defines systemati
 **[Write the Docs - Style Guides](https://www.writethedocs.org/guide/writing/style-guides/)** 📗 [Verified Community]  
 Curated collection of style guide resources. Includes guidance on building custom style guides and terminology standards.
 
-### Repository-Specific Documentation
+### Repository-specific documentation
 
 **[Documentation Instructions](../../.github/instructions/documentation.instructions.md)** [Internal Reference]  
 This repository's formatting, structure, and reference standards.
@@ -633,7 +738,7 @@ article_metadata:
   filename: "08-consistency-standards-and-enforcement.md"
   series: "Technical Documentation Excellence"
   series_position: 9
-  total_articles: 9
+  total_articles: 13
   prerequisites:
     - "01-writing-style-and-voice-principles.md"
     - "02-structure-and-information-architecture.md"

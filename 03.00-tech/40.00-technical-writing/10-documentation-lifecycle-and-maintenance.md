@@ -466,7 +466,7 @@ This article's lifecycle concepts complement the validation system described in 
 
 Documentation reliability isn't achieved at publication—it's maintained through deliberate lifecycle management. The most beautifully written article becomes a liability if it describes a workflow that no longer exists or references an API that's been retired.
 
-### Key takeaways
+### Key Takeaways
 
 - **Plan for all five phases at creation time** — Draft, review, publish, maintain, and retire aren't separate concerns; decisions at creation determine maintenance cost
 - **Automate freshness detection** — Use metadata timestamps, link health checks, and version monitoring to catch staleness before readers do
@@ -475,7 +475,7 @@ Documentation reliability isn't achieved at publication—it's maintained throug
 - **Set realistic SLAs** — Tier response times by impact; track compliance and adjust when SLAs are consistently breached or exceeded
 - **Deprecate gracefully** — Announce deprecation, maintain access, redirect links, and archive content rather than deleting abruptly
 
-### Next steps
+### Next Steps
 
 - **Previous article:** [08-consistency-standards-and-enforcement.md](08-consistency-standards-and-enforcement.md) — Consistency enforcement during documentation evolution
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — Validation frameworks and documentation debt concepts expanded here
@@ -527,7 +527,7 @@ article_metadata:
   filename: "10-documentation-lifecycle-and-maintenance.md"
   series: "Technical Documentation Excellence"
   series_position: 11
-  total_articles: 11
+  total_articles: 13
   prerequisites:
     - "05-validation-and-quality-assurance.md"
     - "08-consistency-standards-and-enforcement.md"

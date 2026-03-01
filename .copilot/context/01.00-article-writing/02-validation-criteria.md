@@ -1,370 +1,314 @@
 # Validation Criteria for Technical Documentation
 
-This document defines general validation dimensions and quality thresholds for technical documentation. These criteria apply to any article regardless of the specific documentation site or repository.
+**Purpose**: Quality thresholds, validation dimensions, automated checking criteria, and content lifecycle metrics for technical documentation review.
 
-## 🎯 Overall Quality Threshold
+**Referenced by**:
+- `.github/prompts/01.00-article-writing/article-review-*.prompt.md` (review prompts)
+- `.github/prompts/01.00-article-writing/article-design-and-create.prompt.md` (creation quality gate)
 
-Content is considered **publish-ready** when:
-- All critical validations passed
-- No broken links or errors
-- Facts verified within last 30 days
-- Metadata complete and current
-- Template structure followed
-- Target audience appropriately served
+---
 
-## 📋 Validation Dimensions
+## ⚠️ Instruction Layering
+
+This context file provides **validation-specific criteria and thresholds**. For writing rules and formatting standards, see auto-loaded instructions:
+
+- `article-writing.instructions.md` — Writing style, structure, Diátaxis, accessibility, quality checklist
+- `documentation.instructions.md` — Base structure, reference classification, dual metadata
+
+For quantitative metrics and reference tables, see: `01-style-guide.md` (companion context file)
+
+---
+
+## 🎯 Documentation Quality Triangle
+
+Every article MUST satisfy three quality dimensions simultaneously:
+
+| Dimension | Definition | Key Indicators |
+|-----------|-----------|----------------|
+| **Accuracy** | Content is factually correct and current | Sources cited, code tested, versions specified |
+| **Clarity** | Content is readable and understandable | Readability scores in range, jargon explained, logical flow |
+| **Completeness** | Content covers the topic adequately | Core aspects addressed, common questions answered, examples provided |
+
+**Publish-ready** = all three dimensions satisfied with no critical failures.
+
+---
+
+## 📊 Quantitative Validation Targets
+
+| Metric | Target | Automatic Fail |
+|--------|--------|----------------|
+| Flesch Reading Ease | 50–70 | Below 30 or above 80 without justification |
+| FK Grade Level | 8–10 (general); 11–12 (advanced) | Above 14 |
+| Active Voice % | 75–85% | Below 60% |
+| Avg Sentence Length | 15–25 words | Above 35 words average |
+| Paragraph Length | 3–5 sentences | Consistently >7 sentences |
+| Spelling Errors | 0 | >5 errors |
+| Broken Links | 0% | Any broken link |
+| Reference Classification | 100% classified | Any 📕 Unverified in published content |
+| Code Examples | All tested | Untested or broken code |
+
+**Note**: Exclude code blocks from readability calculations. Higher complexity is acceptable for code-heavy content if justified.
+
+---
+
+## 📋 Seven Validation Dimensions
 
 ### 1. Grammar and Mechanics
 
-**Pass Criteria:**
-- Zero spelling errors
-- No grammar mistakes
-- Proper punctuation
-- Consistent capitalization
-- No sentence fragments (unless intentional)
-- Proper use of technical terms
-
-**Acceptable Minor Issues:**
-- Stylistic preferences (Oxford comma, etc.)
-- Technical jargon proper to domain
-- Intentional fragments for emphasis
-
-**Automatic Fail:**
-- Multiple spelling errors (> 5)
-- Grammar errors that impede understanding
-- Inconsistent terminology usage
+**Pass**: Zero spelling errors, consistent capitalization (sentence-style), proper punctuation, contractions used consistently.
+**Fail**: >5 spelling errors, grammar errors impeding understanding, inconsistent terminology.
 
 ### 2. Readability
 
-**Target Metrics:**
-- Flesch Reading Ease: 50-70 (fairly easy to standard)
-- Grade Level: 9-10 for general content, 11-12 for advanced technical
-- Average Sentence Length: 15-25 words
-- Paragraph Length: 3-5 sentences
-
-**Pass Criteria:**
-- Readability score within range for target audience
-- Clear paragraph structure
-- Logical flow between sentences
-- Appropriate use of transitions
-- No redundancy or repetition
-
-**Acceptable Variance:**
-- Higher complexity justified by technical depth
-- Lower readability for code-heavy content (code examples excluded from calculation)
-- Audience-specific adjustments (beginner vs. advanced)
-
-**Automatic Fail:**
-- Readability significantly off-target without justification
-- Excessive redundancy (same information repeated multiple times)
-- Confusing or contradictory statements
+**Pass**: Metrics within target range for audience level (see targets table), clear paragraph structure, logical transitions, no redundancy.
+**Fail**: Metrics significantly off-target without justification, excessive redundancy, contradictory statements.
 
 ### 3. Structure
 
-**Required Elements (All Articles):**
-- ✅ Single H1 title
-- ✅ Table of Contents (if > 500 words)
-- ✅ Introduction section
-- ✅ Body with logical section breaks
-- ✅ Conclusion section
-- ✅ References section (if sources cited)
-
-**Heading Requirements:**
-- ✅ Proper hierarchy (no skipped levels)
-- ✅ Descriptive headings
-- ✅ Consistent formatting
-- ✅ H2 headings have emoji prefixes for visual scanning
-
-**Markdown Quality:**
-- ✅ Code blocks have language specified
-- ✅ Links formatted properly
-- ✅ Images have alt text
-- ✅ Lists properly formatted
-- ✅ No broken Markdown syntax
-
-**Pass Criteria:**
-All required elements present, proper hierarchy, valid Markdown
-
-**Automatic Fail:**
-- Missing required sections
-- Broken Markdown that affects rendering
-- Skipped heading levels
-- Code blocks without language specification
+**Pass**: All required elements present (H1, TOC if >500 words, intro, body, conclusion, references), proper heading hierarchy (no skipped levels), emoji prefixes on H2, valid Markdown, code blocks have language specified.
+**Fail**: Missing required sections, broken Markdown, skipped heading levels, code blocks without language.
 
 ### 4. Logical Flow
 
-**Pass Criteria:**
-- Concepts introduced before used
-- Ideas build upon each other
-- No circular dependencies
-- Smooth transitions between sections
-- Conclusion follows from content
-- Prerequisites clearly stated
-
-**Evaluation Points:**
-- Does introduction set up the content?
-- Do sections follow a logical sequence?
-- Are jumps in complexity justified?
-- Are connections between concepts explicit?
-- Does conclusion summarize effectively?
-
-**Automatic Fail:**
-- Critical prerequisite not explained
-- Concepts used before introduction
-- Contradictory statements
-- Disconnected sections without context
+**Pass**: Concepts introduced before used, progressive complexity, smooth transitions, conclusion follows from content, prerequisites stated.
+**Fail**: Prerequisites not explained, concepts used before introduction, contradictory statements, disconnected sections.
 
 ### 5. Factual Accuracy
 
-**Pass Criteria:**
-- All factual claims verified against authoritative sources
-- Version information current
-- Links to official documentation
-- Statistics/benchmarks cited
-- Code examples tested and functional
-- No outdated information
-
-**Source Requirements:**
-- Official documentation preferred
-- GitHub repositories for open source
-- Academic papers for algorithms/theory
-- Industry-standard resources
-- Sources dated within reasonable timeframe
-
-**Verification Frequency:**
-- Technical details: Verify quarterly or with major version changes
-- Statistics: Re-verify annually
-- General concepts: Verify at publication, review annually
-
-**Automatic Fail:**
-- Factually incorrect information
-- Broken or outdated links
-- Uncited statistics or benchmarks
-- Code examples that don't work
-- Security vulnerabilities in examples
+**Pass**: All claims verified against authoritative sources, versions current, code tested, links valid.
+**Fail**: Factually incorrect information, broken links, uncited statistics, non-functional code, security vulnerabilities.
+**Frequency**: Technical details quarterly; statistics annually; general concepts at publication.
 
 ### 6. Completeness (Gap Analysis)
 
-**Pass Criteria (Comprehensive):**
-- All major aspects of topic covered
-- Common use cases explained
-- Prerequisites adequately addressed
-- Common questions answered
-- Examples included where needed
-
-**Acceptable (Minor Gaps):**
-- Some nice-to-have topics not covered
-- Advanced edge cases not fully explored
-- Optional enhancements not detailed
-- Links to external resources for deep dives
-
-**Needs Work (Major Gaps):**
-- Critical concepts not explained
-- Common use cases missing
-- No examples for complex topics
-- Prerequisites assumed but not stated
-
-**Evaluation Questions:**
-- Are readers' likely questions answered?
-- Are common use cases covered?
-- Is prerequisite knowledge addressed?
-- Are examples sufficient?
-- Are limitations or caveats noted?
+**Comprehensive**: All major aspects covered, common use cases explained, examples sufficient.
+**Minor gaps**: Nice-to-have topics missing, advanced edge cases unexplored (acceptable).
+**Fail**: Critical concepts unexplained, common use cases missing, no examples for complex topics.
 
 ### 7. Understandability
 
-**Pass Criteria:**
-- Target audience can comprehend content
-- Technical depth appropriate for audience level
-- Jargon defined or linked
-- Examples clarify concepts
-- Progressive complexity manageable
+**Pass**: Target audience can comprehend, jargon marked with `<mark>` and explained in context, tables introduced with context sentences, progressive complexity manageable.
+**Fail**: Audience mismatch, unexplained jargon, tables without introduction, sudden complexity jumps.
 
-**Jargon and New Terms (REQUIRED):**
+---
+## 🏗️ Series-Level Validation Dimensions
 
-New terms and jargon MUST be introduced following these rules:
+The seven dimensions above validate **individual articles**. When articles form a series, four additional dimensions validate the **series as a whole**. These dimensions are checked by [Phase 2.5: Content Architecture Validation](../../.github/prompts/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions.prompt.md) in the series review prompt.
 
-1. **Mark new terms visually** — Use `<mark>` tags to highlight jargon when first introduced
-2. **Explain in context** — The sentence introducing jargon MUST explain its meaning (don't just drop terms)
-3. **Teach the shorthand** — Once explained, the jargon can be used freely throughout the article
+| Dimension | Definition | Pass criteria | Fail criteria |
+|-----------|-----------|--------------|---------------|
+| **Architecture compliance** | Articles follow Diátaxis, folder structure is correct, scopes are right-sized | Each article has one clear Diátaxis type; all in correct folders; 400–800 lines (sweet spot); 800–1,000 acceptable with review | Mixed types, misplaced articles, >1,000 lines without justification |
+| **Category coverage** | Series represents appropriate Diátaxis types for its goals | All needed types present; no type >60% of total articles | Missing fundamental type; all articles same type |
+| **Progression coherence** | Series forms viable learning paths for different audiences | Prerequisite chain acyclic; reading paths navigable; no orphans | Circular dependencies; dead-end articles; no clear entry point |
+| **Structural echo** | Articles of the same Diátaxis type follow the same internal pattern | Tutorials share tutorial structure; references share reference structure | Same-type articles have different section patterns |
 
-**Examples:**
+### Series size thresholds
 
-❌ **Wrong:** "Use short persistence for handoff transfers."
-✅ **Correct:** "Context with <mark>short persistence</mark> (only lasts within a single chat session) requires explicit handoff transfers when switching agents."
+| Series size | Minimum Diátaxis types | Rationale |
+|-------------|------------------------|----------|
+| 1–4 articles | 1 type acceptable | Small series may focus on one purpose |
+| 5–9 articles | At least 2 types | Series should serve both learning and doing |
+| 10+ articles | At least 3 types | Comprehensive series needs explanation, how-to, AND reference or tutorial |
 
-❌ **Wrong:** "The System → Model direction applies here."
-✅ **Correct:** "<mark>System → Model</mark> direction means the content is auto-injected by the system based on file patterns—you don't manually include it."
+### Scoring
 
-**Table Introduction (REQUIRED):**
+Series-level dimensions use the same outcome scale as per-article dimensions: **passed**, **minor_issues**, **needs_revision**, **failed**. A series is publish-ready when all four series-level dimensions are passed or minor_issues, AND individual articles pass per-article validation.
 
-Tables MUST be properly introduced, especially when:
-- They appear at the beginning of a section
-- Column meanings aren't self-explanatory
-- The table contains domain-specific terminology
+**Source rules:**
+- Architecture compliance, category coverage, progression coherence: [Art. 02 — Series architecture and planning](../../03.00-tech/40.00-technical-writing/02-structure-and-information-architecture.md)
+- Structural echo: [Art. 08 — Series-level audit](../../03.00-tech/40.00-technical-writing/08-consistency-standards-and-enforcement.md)
 
-Rules for table introduction:
-1. **Provide context before the table** — A sentence explaining what the table shows and why it matters
-2. **Explain non-obvious columns** — When column headers like "Direction" or "Persistence" aren't self-explanatory, provide a brief explanation of what each column represents
-3. **Connect to narrative** — Show how the table relates to the preceding or following content
+📖 **Detailed check procedures:** `.github/templates/article-review-series-for-consistency-gaps-and-extensions/guidance-architecture-validation.template.md`
 
-**Example of proper table introduction:**
+---
+## � Comprehension testing (optional validation methods)
 
-> The table below describes GitHub Copilot customization files and how context information flows into the model. For each component:
-> - **Direction** indicates whether you explicitly include the content (User → Model) or it's auto-injected by the system (System → Model)
-> - **Persistence** shows whether context lasts only within a session (short) or accumulates over time (long)
->
-> | Component | What It Provides | Direction | Persistence |
-> |-----------|------------------|-----------|-------------|
-> | ... | ... | ... | ... |
+Readability formulas predict whether text *should* be understandable. Comprehension tests measure whether text *is actually* understood. Use these methods for high-stakes content (onboarding guides, API quickstarts) or when readability scores pass but user feedback indicates confusion.
 
-**Audience-Specific Thresholds:**
+📖 **Full methodology with protocols and examples:** [Article 09: Measuring Readability and Comprehension](../../03.00-tech/40.00-technical-writing/09-measuring-readability-and-comprehension.md)
 
-**Beginner Content:**
-- Every technical term defined with `<mark>` on first use
-- Multiple examples provided
-- Step-by-step explanations
-- Links to prerequisite learning
-- No assumed knowledge
-- All tables introduced with context
+### Cloze test
 
-**Intermediate Content:**
-- Common terms referenced, not redefined
-- New terms marked and explained
-- Examples show realistic usage
-- Some prior knowledge assumed but stated
-- Links to foundational concepts
-- Non-obvious tables introduced
+Delete every 5th word from a representative passage (250–350 words). Ask test subjects to fill in the blanks.
 
-**Advanced Content:**
-- Domain expertise assumed
-- New jargon still marked on first use
-- Focus on optimization, edge cases
-- Complex examples appropriate
-- References to theory or research
-- Tables may have minimal introduction if context is clear
+| Cloze score | Comprehension level | Implication |
+|-------------|---------------------|-------------|
+| 60%+ | Independent | Reader understands without assistance |
+| 40–59% | Instructional | Reader understands with some support |
+| Below 40% | Frustration | Reader can't understand effectively |
 
-**Automatic Fail:**
-- Audience mismatch not addressed
-- Unexplained jargon blocks understanding
-- Jargon introduced without `<mark>` highlighting
-- Jargon introduced without explanatory sentence
-- Tables dropped without introduction
-- Non-obvious table columns unexplained
-- Examples don't clarify concepts
-- Sudden jumps in complexity without bridge
+**When to use:** Validate audience reading level before publishing; compare comprehension across draft versions.
+
+### Recall test
+
+Ask readers to read a section, remove the documentation, then ask them to write down or answer questions about key concepts.
+
+- **Free recall** — "Write down everything you remember" (measures deep encoding)
+- **Cued recall** — Specific questions like "What command starts the server?" (measures targeted retention)
+
+**When to use:** Verify that procedures are memorable enough for users to execute without constant reference.
+
+### Task-based testing
+
+The most authentic test — ask readers to complete a task using the documentation.
+
+| Metric | What it measures | Target |
+|--------|------------------|--------|
+| Task completion rate | Can users succeed? | 80%+ first attempt |
+| Time-on-task | How efficiently? | Within 1.5× estimated time |
+| Error rate | How accurately? | <2 wrong actions per task |
+| Help requests | Is documentation self-sufficient? | <1 per task |
+
+**When to use:** Before publishing tutorials and how-to guides; when validating a complete documentation workflow.
+
+**Integration with validation workflow:** Add comprehension testing as an optional Phase 8 after the standard 7-dimension validation. It's recommended for P0/P1 content but not required for every article.
+
+---
+
+## 📐 Quality Triangle → criteria → dimensions mapping
+
+The Quality Triangle (Accuracy, Clarity, Completeness) breaks down into six quality criteria, which are measured through the seven validation dimensions. This mapping ensures every validation dimension traces back to a quality goal.
+
+| Quality Triangle dimension | Quality criteria | Validation dimensions (Phase) |
+|---------------------------|-----------------|-------------------------------|
+| **Accuracy** | Factual correctness | 5. Factual Accuracy |
+| **Accuracy** | Technical currency | 5. Factual Accuracy (version checks) |
+| **Clarity** | Readability | 2. Readability |
+| **Clarity** | Logical flow | 4. Logical Flow |
+| **Clarity** | Understandability | 7. Understandability |
+| **Completeness** | Structural completeness | 3. Structure |
+| **Completeness** | Content coverage | 6. Completeness (Gap Analysis) |
+| *(Cross-cutting)* | Mechanical correctness | 1. Grammar and Mechanics |
+| *(Series-level)* | Architectural integrity | Architecture compliance, Category coverage, Progression coherence, Structural echo |
+
+**How to use this mapping:**
+- During validation, if a dimension fails, trace it to the Quality Triangle dimension to understand the *type* of quality problem
+- During creation, ensure your article addresses all three Triangle dimensions — not just accuracy, but also clarity and completeness
+- A "publish-ready" article has no critical failures across all three Triangle dimensions
+
+---
+
+## �🤖 AI-Assisted Content Provenance
+
+When AI generates or assists with content, factual claims MUST be tagged:
+
+| Tag | Meaning | Verification Required |
+|-----|---------|----------------------|
+| `[SPEC]` | Directly from specification or official docs | Low — source confirmed |
+| `[INFERRED]` | Logically derived from available information | Medium — human review |
+| `[ASSUMED]` | Based on patterns; not directly confirmed | High — must verify before publish |
+
+**Rules:**
+- MUST tag all AI-generated factual claims
+- MUST verify all `[ASSUMED]` tags before publication
+- SHOULD verify `[INFERRED]` tags with source lookup
+- `[SPEC]` tags SHOULD include source reference inline
+
+---
+
+## 📅 Content Freshness Scoring
+
+Five signals determine content freshness (weighted):
+
+| Signal | Weight | Fresh (80–100) | Aging (50–79) | Stale (25–49) | Critical (0–24) |
+|--------|--------|----------------|---------------|----------------|-----------------|
+| Days Since Validation | 30% | <30 days | 30–90 days | 91–180 days | >180 days |
+| Version Currency | 25% | Current | One behind | Two behind | Deprecated |
+| Link Health | 15% | 100% valid | >90% valid | >75% valid | <75% valid |
+| Open Issues | 15% | 0 | 1–2 | 3–5 | >5 |
+| Code Validity | 15% | All pass | Minor issues | Some broken | Major failures |
+
+### Documentation Debt Score (Lower Is Better)
+
+```
+Debt = (Open Issues × 3) + (Failed Validations × 2) + (Broken Links × 1) + (Days Since Update / 30)
+```
+
+### SLA Tiers
+
+| Priority | Category | Response Time |
+|----------|----------|---------------|
+| **P0** | Security/accuracy errors | 4 hours |
+| **P1** | Broken code/links | 24 hours |
+| **P2** | Outdated versions | 1 week |
+| **P3** | Style/readability issues | 30 days |
+| **P4** | Enhancements | Next scheduled review |
+
+---
+
+## 🔧 Automated Validation Stack
+
+| Tool | Validates | Use For |
+|------|----------|---------|
+| **Vale** | Style rules, terminology, tone | Custom rules for MS style guide enforcement |
+| **LanguageTool** | Grammar, spelling | Programmatic grammar checking |
+| **textstat** (Python) | Readability formulas | Flesch, FK, Gunning Fog, SMOG, Coleman-Liau, ARI |
+| **markdown-link-check** | Link validity | Automated broken link detection |
+| **markdownlint** | Markdown formatting | Heading hierarchy, code blocks, list consistency |
+| **IQPilot MCP** | All 7 dimensions | 16 integrated validation tools with caching |
+
+---
 
 ## 📊 Validation Outcomes
 
-### Status Values
-- **passed**: Meets all criteria
-- **minor_issues**: Acceptable issues noted
-- **needs_revision**: Must be fixed before publishing
-- **failed**: Critical errors, major revision needed
-
-### Quality Scoring
-
-**Validation Outcome Definitions:**
-
-**Passed:**
-- Meets all criteria for dimension
-- No critical issues
-- Minor issues acceptable and noted
-
-**Minor Issues:**
-- Meets most criteria
-- Issues don't block understanding
-- Improvements suggested but not required
-- Can publish with notes
-
-**Needs Revision:**
-- Fails some criteria
-- Issues impede understanding or usability
-- Must be addressed before publication
-- Re-validation required after fixes
-
-**Failed:**
-- Fails critical criteria
-- Significant errors or omissions
-- Cannot publish in current state
-- Major revision required
+| Status | Definition | Action |
+|--------|-----------|--------|
+| **passed** | Meets all criteria | Publish-ready |
+| **minor_issues** | Meets most criteria; issues don't block understanding | Can publish with notes |
+| **needs_revision** | Issues impede understanding | Fix before publication; re-validate |
+| **failed** | Critical errors or omissions | Major revision required |
 
 ### Overall Readiness
 
-**Ready to Publish:**
-- All critical validations: Passed
-- Important validations: Passed or Minor Issues
-- No broken links/errors
-- Metadata complete
+- **Ready to Publish**: All critical passed, important passed/minor_issues, no broken links, metadata complete
+- **Needs Minor Work**: Critical passed, some important needs_revision
+- **Not Ready**: Any critical failed/needs_revision
 
-**Needs Minor Work:**
-- Critical validations: Passed
-- Some important validations: Needs Revision
-- Can publish after addressing specific issues
-
-**Not Ready:**
-- Any critical validation: Failed or Needs Revision
-- Multiple important validations: Failed
-- Significant work required
-
-## 💡 Special Considerations
-
-### Code-Heavy Content
-
-- Readability metrics adjusted (code excluded)
-- Structure may deviate for reference docs
-- Examples must be tested and working
-- Comments and explanations required
-
-### Series Articles
-
-- Consistency with series more important than standalone perfection
-- Cross-reference validation critical
-- Terminology must match across series
-- Can trade some comprehensiveness for focused scope
-
-### Time-Sensitive Content
-
-- Fact-checking more frequent
-- Version info prominently displayed
-- Regular review schedule
-- Deprecation plan if outdated
-
-### Reference Material
-
-- Completeness more critical than narrative flow
-- Structure allows for quick lookup
-- Examples exhaustive
-- Updates tracked meticulously
+---
 
 ## ✅ Pre-Publication Checklist
 
-### Critical (Must Pass)
-- [ ] Grammar validated: passed
-- [ ] Structure validated: passed
-- [ ] Facts checked: passed (<30 days)
-- [ ] Links verified: all working
-- [ ] Code tested: functional
-- [ ] No placeholder content (TODO, TBD, etc.)
+### Critical (MUST Pass)
 
-### Important (Should Pass)
-- [ ] Readability validated: passed or justified
-- [ ] Logic validated: passed
-- [ ] Gap analysis: comprehensive or minor_gaps
+- [ ] Grammar: passed
+- [ ] Structure: passed
+- [ ] Facts: passed (<30 days)
+- [ ] Links: 100% valid
+- [ ] Code: functional
+- [ ] No placeholders (TODO, TBD)
+
+### Important (SHOULD Pass)
+
+- [ ] Readability: within target or justified
+- [ ] Logic: passed
+- [ ] Completeness: comprehensive or minor_gaps
 - [ ] Understandability: passed for target audience
-- [ ] Metadata complete and current
+- [ ] All AI content tagged with provenance markers
 
 ### Recommended
-- [ ] Series validated (if applicable)
-- [ ] Correlated topics identified
+
+- [ ] Series validated (if applicable): architecture compliance, category coverage, progression coherence, structural echo
 - [ ] Cross-references added
-- [ ] Examples tested in multiple environments
+- [ ] Freshness score >80
+- [ ] CRAAP test passed on all references (Currency, Relevance, Authority, Accuracy, Purpose)
 
-## 🔄 Review Triggers
+---
 
-Re-validation required when:
-- Content modified
-- Technology version updates
-- Links break or sources move
-- Reader feedback identifies issues
-- More than 90 days since last review
+## References
+
+- **External:** [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/)
+- **External:** [Diátaxis Framework](https://diataxis.fr/)
+- **Internal:** `.copilot/context/01.00-article-writing/01-style-guide.md` (quantitative targets and replacement tables)
+- **Internal:** `.github/instructions/article-writing.instructions.md` (auto-loaded writing rules)
+- **Internal:** `03.00-tech/40.00-technical-writing/` (source articles 05, 06, 07, 09, 10)
+
+---
+
+## Version History
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 2.2.0 | 2026-03-01 | Added Series-Level Validation Dimensions section with 4 dimensions (architecture compliance, category coverage, progression coherence, structural echo), series size thresholds, scoring rules, and source traceability. Updated Quality Triangle mapping with series-level row. Enhanced Pre-Publication Checklist series line. Source: analysis-article-writing-system-architectural-gaps.md Change 3. | System |
+| 2.1.0 | 2026-03-01 | Added comprehension testing section with cloze test, recall test, and task-based testing as optional validation methods (G6). Added Quality Triangle → 6 criteria → 7 dimensions mapping table (G8). Source: Recommendation B from coverage analysis + Art. 09. | System |
+| 2.0.0 | 2026-02-28 | Major rewrite: added Quality Triangle, AI provenance tags ([SPEC]/[INFERRED]/[ASSUMED]), content freshness scoring with weighted formula, documentation debt score, SLA tiers, automated tool stack (Vale, textstat, markdownlint), CRAAP test reference; removed duplication with auto-loaded instructions (jargon/table intro rules, formatting standards); streamlined 7 dimensions. Source: 40.00-technical-writing articles 05, 06, 07, 09, 10 | System |
+| 1.0.0 | 2025-12-26 | Initial version | System |

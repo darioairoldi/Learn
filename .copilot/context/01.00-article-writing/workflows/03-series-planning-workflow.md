@@ -1,558 +1,319 @@
 # Series Planning Workflow
 
-This workflow guides you through creating a cohesive, well-structured article series that takes readers on a learning journey.
+**Purpose**: Process for planning, creating, and maintaining multi-article series with cross-article consistency.
 
-## What is an Article Series?
+**Referenced by**:
+- `.github/prompts/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions.prompt.md`
 
-An **article series** is a collection of related articles that:
-- Cover a single broad topic in depth
-- Follow a logical learning progression
-- Build on each other's concepts
-- Maintain consistency in style and terminology
-- Have clear prerequisites and dependencies
+---
 
-**Examples:**
-- "Getting Started with GitHub Copilot" (4 articles: Basics → Configuration → Advanced → Best Practices)
-- "Docker for Developers" (5 articles: Introduction → Containers → Images → Compose → Production)
-- "Prompt Engineering Fundamentals" (6 articles: Basics → Structure → Tools → Validation → Automation → Advanced)
+## When to Create a Series
 
-## Why Create a Series?
+A topic warrants a series when:
+- **Breadth**: Topic has 3+ distinct subtopics requiring separate articles
+- **Depth**: Single article would exceed 3,000 words or 20+ minutes read time
+- **Progression**: Natural learning path from foundational to advanced
+- **Audience**: Different subtopics serve different skill levels
 
-### Benefits:
-✅ **Structured learning path**: Guides readers from beginner to proficient
-✅ **Manageable scope**: Break large topics into digestible chunks
-✅ **Better organization**: Easier to maintain and update
-✅ **Cross-promotion**: Articles naturally link to each other
-✅ **Progressive complexity**: Build on foundation systematically
+---
 
-### When to Create a Series:
-- Topic too large for single article (> 4000 words)
-- Natural progression from simple to complex
-- Multiple related subtopics
-- Clear learning objectives at each stage
-- Audience needs structured path
-
-## Series Planning Process
+## Series Lifecycle
 
 ```
-Idea → Scope → Outline → Structure → Create → Validate → Publish
+Define → Structure → Plan Metadata → Create Articles → Validate Series → Publish → Maintain
 ```
 
-## Phase 1: Series Definition
+### Phase 1: Define
 
-### Step 1.1: Define the Topic
+Establish the series boundaries:
 
-**Questions to answer:**
-- What is the overarching topic?
-- Who is the target audience?
-- What will readers achieve by completing the series?
-- What's the scope (breadth and depth)?
+| Decision | Question to Answer |
+|----------|-------------------|
+| **Scope** | What does this series cover? What does it NOT cover? |
+| **Audience** | Who is reading this? What do they already know? |
+| **Outcome** | What can the reader do after completing the series? |
+| **Size** | How many articles? (Recommended: 5–12) |
+| **Type** | Foundational / Tutorial / Deep Dive (see patterns below) |
 
-**Example:**
+### Phase 2: Structure
+
+Map articles with explicit dependencies:
+
+```yaml
+# Series structure template
+series:
+  title: "[Series Name]"
+  type: foundational | tutorial | deep-dive
+  articles:
+    - number: "00"
+      title: "Introduction and Overview"
+      prerequisites: none
+      concepts_introduced: [list key concepts]
+    - number: "01"
+      title: "[First Topic]"
+      prerequisites: ["00"]
+      concepts_introduced: [list]
+    # ... continue for each article
 ```
-Topic: "Building REST APIs with Node.js"
-Audience: Intermediate JavaScript developers
-Goal: Readers can build production-ready REST APIs
-Scope: Express.js, authentication, database, deployment
+
+**Dependency rules:**
+- Every concept MUST be introduced before it's used
+- Article 00 MUST provide a series overview and reading guide
+- Maximum 2 prerequisites per article (keep paths short)
+- Allow parallel reading tracks where possible
+
+**Content-first design step:**
+Before structuring, answer these three questions:
+1. What content already exists in the workspace on this topic? (Use `semantic_search` to check.)
+2. Who needs it? Define the primary audience and skill level for each article.
+3. What's the minimum viable series that covers all audience needs without duplication?
+
+**Terminology handoff rule:**
+For each concept, identify the article that introduces it. All subsequent articles MUST use the same term without redefining it. Maintain a terminology map:
+
+```yaml
+# Terminology map — add to series planning notes
+terminology:
+  - term: "progressive disclosure"
+    introduced_in: "02"
+    definition: "Layering content from surface to detail to expert depth"
+  - term: "Diátaxis"
+    introduced_in: "00"
+    definition: "Four-type documentation framework: tutorial, how-to, reference, explanation"
 ```
 
-### Step 1.2: Identify Learning Objectives
+**Diátaxis category planning:**
+For each planned article, assign a Diátaxis type. Build a category coverage matrix alongside the structure template:
 
-**Define what readers will learn by the end:**
-- [ ] Core concept understanding
-- [ ] Practical skills acquired
-- [ ] Tools they can use
-- [ ] Problems they can solve
+```yaml
+# Category coverage matrix — add to series planning notes
+categories:
+  concept:  # Explanation articles
+    - "00-overview.md"
+    - "01-foundations.md"
+  howto:    # How-to guides
+    - "02-basic-setup.md"
+  tutorial: # Step-by-step tutorials
+    - "03-first-project.md"
+  reference: # Lookup content
+    - "04-api-reference.md"
+```
 
-**Example:**
+**Category validation criteria:**
+- A series with 5+ articles SHOULD have at least 2 Diátaxis types
+- A series with 10+ articles SHOULD have at least 3 Diátaxis types
+- If a series has only how-to articles, ask: "Are there concepts worth explaining? Are there patterns worth documenting as references?"
+- No single type should exceed 60% of the series without justification
+
+📖 **Pass/fail thresholds:** `.copilot/context/01.00-article-writing/02-validation-criteria.md` → "Series-Level Validation Dimensions"
+
+**Folder structure planning:**
+Map category names to folders BEFORE creating articles. Use the same naming convention as the series structure template. This prevents the drift that occurs when articles are created and placed ad-hoc.
+
+```yaml
+# Folder structure — add to series planning notes
+folders:
+  "{{series-root}}/01-concepts/":  # Explanation articles
+    - "00-overview.md"
+    - "01-foundations.md"
+  "{{series-root}}/02-howto/":      # How-to guides
+    - "02-basic-setup.md"
+  "{{series-root}}/03-tutorials/":   # Step-by-step tutorials
+    - "03-first-project.md"
+  "{{series-root}}/04-reference/":   # Lookup content
+    - "04-api-reference.md"
+```
+
+**Folder rules:**
+- Each folder should align with one Diátaxis type
+- Create folders BEFORE writing articles (don't add folders retroactively)
+- If an article doesn't fit any existing folder, reconsider its Diátaxis type assignment
+
+**Cross-reference strategy selection:**
+Choose your cross-referencing approach for each article and apply it consistently:
+
+| Strategy | When to use | Example |
+|----------|-------------|---------|
+| Inline references | Concept first mentioned outside its home article | "...as explained in [Article 02](link)..." |
+| See Also blocks | Related but not prerequisite content | `> **See also:** [Article on JWT](link)` |
+| Prerequisites sections | Required prior reading | `**Prerequisites:** Complete [Article 01](link)` |
+| Next Steps links | Natural continuation | `**Next:** [Article 03: Advanced patterns](link)` |
+| Hub-and-spoke navigation | Deep Dive series with independent articles | Overview links to all spokes; spokes link back to hub |
+
+### Phase 3: Plan Metadata Consistency
+
+Ensure uniform metadata across all articles in the series:
+
+| Metadata Field | Consistency Rule |
+|---------------|-----------------|
+| `categories` | Include shared series category + article-specific |
+| `date` | Sequential publication dates |
+| `author` | Same author (or explicitly noted) |
+| Reference format | Same emoji classification style |
+| Heading style | Same H2 emoji pattern throughout series |
+
+### Phase 4: Create Articles
+
+For each article:
+1. Draft using `article-design-and-create.prompt.md`
+2. Include series navigation (previous/next links)
+3. Cross-reference related articles in the series
+4. Validate individually before series-level validation
+
+**Series navigation template** (add to each article's introduction):
 ```markdown
-After completing this series, readers will:
-1. Understand REST API principles
-2. Set up Express.js server
-3. Implement CRUD operations
-4. Add authentication and authorization
-5. Connect to MongoDB
-6. Deploy to production
+> **Series**: [Series Name] — Article N of M
+> **Previous**: [Previous Title](link) | **Next**: [Next Title](link)
 ```
 
-### Step 1.3: Determine Prerequisites
+### Phase 5: Validate Series Consistency
 
-**What should readers know before starting?**
-- Required knowledge
-- Assumed skills
-- Tools they need
-- Previous articles (if any)
+Run `article-review-series-for-consistency-gaps-and-extensions.prompt.md` which performs:
+- Terminology consistency check across all articles
+- Prerequisite coverage verification
+- Gap analysis for missing topics
+- Cross-reference validation
+- Progressive complexity verification
 
-**Document:**
+**Key checks:**
+- [ ] No concept used before introduced in the series
+- [ ] Terminology consistent (same term for same concept throughout)
+- [ ] No contradictory guidance between articles
+- [ ] Cross-references valid and bidirectional
+- [ ] Reading level progression is smooth (not jarring jumps)
+- [ ] Each article stands alone for readers who arrive via search
+
+### Phase 6: Publish
+
+1. Publish articles in order (00 first)
+2. Add all articles to `_quarto.yml` navigation
+3. Validate all cross-links work
+4. Update series overview (article 00) with final article list
+
+### Phase 7: Maintain
+
+- Review the full series on the same schedule (don't review articles independently)
+- When updating one article, check cross-references in adjacent articles
+- When adding a new article, re-run series consistency validation
+- Track series-level freshness: if >50% of articles are stale, schedule full series review
+
+---
+
+## Worked Example: REST API Documentation Series
+
+This compact example shows the planning workflow applied to a concrete series.
+
+### Phase 1 output: Define
+
+| Decision | Answer |
+|----------|--------|
+| **Scope** | Building and documenting REST APIs with .NET—covers design through deployment. Excludes GraphQL and gRPC. |
+| **Audience** | .NET developers (intermediate); familiar with C# but new to API design best practices |
+| **Outcome** | Reader can design, build, document, test, and deploy a production-ready REST API |
+| **Size** | 7 articles |
+| **Type** | Tutorial series with reference support |
+
+### Phase 2 output: Structure + categories
+
 ```yaml
 series:
-  name: "Building REST APIs with Node.js"
-  prerequisites:
-    - "Basic JavaScript ES6+"
-    - "Understanding of HTTP basics"
-    - "Node.js installed (v18+)"
-    - "VS Code or similar editor"
-  skill_level: "intermediate"
+  title: "Building REST APIs with .NET"
+  type: tutorial
+  articles:
+    - { number: "00", title: "Series overview and API design principles", type: explanation, prerequisites: none }
+    - { number: "01", title: "Project setup and first endpoint",          type: tutorial,    prerequisites: ["00"] }
+    - { number: "02", title: "Data validation and error handling",        type: tutorial,    prerequisites: ["01"] }
+    - { number: "03", title: "Authentication with JWT",                   type: how-to,      prerequisites: ["01"] }
+    - { number: "04", title: "Testing strategies for APIs",               type: how-to,      prerequisites: ["02"] }
+    - { number: "05", title: "API versioning and deprecation",            type: explanation, prerequisites: ["00"] }
+    - { number: "06", title: "Endpoint reference",                        type: reference,   prerequisites: none }
+
+categories:
+  explanation: ["00", "05"]   # 2 articles (29%)
+  tutorial:    ["01", "02"]   # 2 articles (29%)
+  how-to:      ["03", "04"]   # 2 articles (29%)
+  reference:   ["06"]         # 1 article  (14%)
+  # ✅ 4 Diátaxis types, no type >29% — exceeds minimum for 7-article series
+
+folders:
+  "rest-api-dotnet/concepts/":   ["00", "05"]
+  "rest-api-dotnet/tutorials/":  ["01", "02"]
+  "rest-api-dotnet/howto/":      ["03", "04"]
+  "rest-api-dotnet/reference/":  ["06"]
+
+terminology:
+  - { term: "resource",           introduced_in: "00", definition: "Any object the API exposes (users, orders, products)" }
+  - { term: "content negotiation", introduced_in: "00", definition: "Client-server agreement on response format via Accept headers" }
+  - { term: "middleware pipeline", introduced_in: "01", definition: ".NET request processing chain (auth → validation → handler)" }
 ```
 
-## Phase 2: Series Structure
-
-### Step 2.1: Brainstorm Topics
-
-**List all potential topics related to the theme:**
-- Core concepts
-- Common use cases
-- Advanced techniques
-- Best practices
-- Troubleshooting
-
-**Example brainstorm:**
-```
-- What is REST?
-- Setting up Express
-- Routing basics
-- Request/response handling
-- Middleware
-- Error handling
-- Authentication (JWT)
-- Database integration
-- Testing APIs
-- API documentation
-- Deployment
-- Monitoring
-- Scaling
-```
-
-### Step 2.2: Group and Sequence
-
-**Organize topics into logical articles:**
-
-**Principles:**
-- Foundation before advanced concepts
-- Prerequisites before dependent topics
-- Practical examples early
-- Complexity increases gradually
-
-**Example structure:**
-```
-Article 1: REST API Fundamentals
-  - What is REST?
-  - HTTP methods
-  - Status codes
-  - API design principles
-
-Article 2: Setting Up Express Server
-  - Project setup
-  - Basic routing
-  - Middleware basics
-  - Request/response
-
-Article 3: Building CRUD Endpoints
-  - Create operations
-  - Read operations
-  - Update operations
-  - Delete operations
-
-Article 4: Authentication & Security
-  - JWT basics
-  - Auth middleware
-  - Password hashing
-  - Security best practices
-
-Article 5: Database Integration
-  - MongoDB setup
-  - Mongoose models
-  - CRUD with database
-  - Error handling
-
-Article 6: Testing & Deployment
-  - Unit testing
-  - Integration testing
-  - Deployment options
-  - Production checklist
-```
-
-### Step 2.3: Define Dependencies
-
-**Map prerequisites for each article:**
-
-```yaml
-Article 1: None (entry point)
-Article 2: Article 1
-Article 3: Article 2
-Article 4: Article 2, Article 3
-Article 5: Article 3
-Article 6: Article 4, Article 5
-```
-
-**Visualize:**
-```
-Article 1 (Foundation)
-    ↓
-Article 2 (Setup)
-    ↓
-    ├→ Article 3 (CRUD)
-    │      ↓
-    │  Article 5 (Database)
-    │      ↓
-    └→ Article 4 (Auth)
-           ↓
-       Article 6 (Testing/Deploy)
-```
-
-### Step 2.4: Scope Each Article
-
-**For each article, define:**
-- Title
-- Learning objectives (3-5)
-- Main sections
-- Estimated length (words)
-- Examples needed
-- Time to complete (for reader)
-
-**Template:**
-```markdown
-## Article 3: Building CRUD Endpoints
-
-**Learning Objectives:**
-- [ ] Create POST endpoint for resources
-- [ ] Implement GET endpoints (list and single)
-- [ ] Build PUT/PATCH for updates
-- [ ] Add DELETE functionality
-- [ ] Handle validation and errors
-
-**Sections:**
-1. Introduction to CRUD
-2. Create Endpoint (POST)
-3. Read Endpoints (GET)
-4. Update Endpoint (PUT)
-5. Delete Endpoint (DELETE)
-6. Error Handling
-7. Testing Endpoints
-8. Conclusion
-
-**Length:** ~2000 words
-**Time:** 30 minutes reading + 1 hour practice
-**Prerequisites:** Article 2 (Express Setup)
-**Next:** Article 4 (Authentication) or Article 5 (Database)
-```
-
-## Phase 3: Series Metadata
-
-### Step 3.1: Create Series Metadata Document
-
-**Create a series index file:**
-```markdown
-# Building REST APIs with Node.js - Series Overview
-
-## Series Information
-- **Total Articles:** 6
-- **Skill Level:** Intermediate
-- **Estimated Time:** 8-10 hours (reading + practice)
-- **Last Updated:** 2025-11-19
-
-## Prerequisites
-- JavaScript ES6+
-- Basic HTTP understanding
-- Node.js installed (v18+)
-
-## Articles
-
-### 1. REST API Fundamentals
-**Status:** Published
-**File:** `01-rest-api-fundamentals.md`
-**Topics:** REST principles, HTTP methods, API design
-**Reading Time:** 20 minutes
-
-### 2. Setting Up Express Server
-**Status:** Published
-**File:** `02-express-server-setup.md`
-**Topics:** Project setup, routing, middleware
-**Reading Time:** 25 minutes
-**Prerequisites:** Article 1
-
-... (continue for all articles)
-```
-
-### Step 3.2: Define Series Metadata Structure
-
-**In each article's metadata:**
-```yaml
-article:
-  title: "Building CRUD Endpoints"
-  series:
-    name: "Building REST APIs with Node.js"
-    position: 3
-    total: 6
-    prerequisites:
-      - "02-express-server-setup.md"
-    next_article: "04-authentication-security.md"
-    previous_article: "02-express-server-setup.md"
-```
-
-## Phase 4: Content Creation
-
-### Step 4.1: Create in Order
-
-**Start with Article 1 and proceed sequentially:**
-
-**Why sequential?**
-- Ensures prerequisites covered
-- Maintains terminology consistency
-- Allows refinement of later articles
-- Catches scope issues early
-
-**Process per article:**
-1. Use `/article-writing` prompt
-2. Include series context in prompt
-3. Reference previous articles
-4. Create metadata with series info
-5. Complete draft
-6. Run validations
-7. Move to next article
-
-### Step 4.2: Maintain Consistency
-
-**Across all articles in series:**
-
-**Terminology:**
-- Use same terms for same concepts
-- Define abbreviations consistently
-- Reference terms from earlier articles
-
-**Style:**
-- Similar tone and voice
-- Consistent formatting
-- Same code style
-- Uniform example patterns
-
-**Structure:**
-- Similar section organization
-- Consistent heading levels
-- Comparable length (within reason)
-
-**Examples:**
-- Build on previous examples
-- Progressive complexity
-- Same example project/scenario
-
-### Step 4.3: Cross-Reference
-
-**In each article:**
-
-**Introduction:**
-```markdown
-This is Article 3 in the [Building REST APIs with Node.js](./series-index.md) series.
-
-**Prerequisites:** Complete [Article 2: Express Server Setup](./02-express-server-setup.md) first.
-
-**In this article**, you'll learn how to build CRUD endpoints...
-```
-
-**Conclusion:**
-```markdown
-## Next Steps
-
-Continue to [Article 4: Authentication & Security](./04-authentication-security.md) 
-to learn how to secure your API endpoints.
-
-**Related in this series:**
-- [Article 1: REST API Fundamentals](./01-rest-api-fundamentals.md)
-- [Article 2: Express Server Setup](./02-express-server-setup.md)
-```
-
-**Body references:**
-```markdown
-As we learned in [Article 2](./02-express-server-setup.md), middleware 
-functions have access to the request and response objects...
-```
-
-## Phase 5: Series Validation
-
-### Step 5.1: Complete All Articles First
-
-**Before final validation:**
-- [ ] All articles drafted
-- [ ] All metadata created
-- [ ] Individual validations run
-- [ ] Cross-references added
-
-### Step 5.2: Run Series Validation
-
-**Use the series validation prompt:**
-```
-/series-validation
-```
-
-**Checks:**
-- Logical progression
-- Terminology consistency
-- Non-redundancy
-- Cross-reference accuracy
-- Coverage completeness
-- Style consistency
-
-**Address issues:**
-1. Review validation report
-2. Fix inconsistencies
-3. Fill gaps
-4. Remove redundancy
-5. Update cross-references
-6. Re-run validation
-
-### Step 5.3: Test Learning Path
-
-**Manual walkthrough:**
-1. Read articles in sequence (as if you're the reader)
-2. Note any jumps in difficulty
-3. Verify prerequisites are sufficient
-4. Check that examples build logically
-5. Ensure no missing steps
-
-**Ask yourself:**
-- Can a reader follow the path?
-- Are concepts introduced in the right order?
-- Do examples make sense in context?
-- Is anything assumed but not explained?
-
-## Phase 6: Navigation and Publishing
-
-### Step 6.1: Create Series Index
-
-**Create series landing page:**
-```markdown
-# Building REST APIs with Node.js
-
-[Introduction explaining the series]
-
-## What You'll Learn
-[Overall learning objectives]
-
-## Prerequisites
-[What readers need to know]
-
-## Articles
-
-1. **[REST API Fundamentals](./01-rest-api-fundamentals.md)** - 20 min
-   Learn REST principles, HTTP methods, and API design basics
-
-2. **[Setting Up Express Server](./02-express-server-setup.md)** - 25 min
-   Set up your Node.js project and create your first Express server
-
-... [Continue for all articles]
-
-## Estimated Time
-8-10 hours (reading + hands-on practice)
-
-## Source Code
-[Link to example repository with completed code]
-```
-
-### Step 6.2: Add Series Navigation
-
-**In each article, add navigation bar:**
-
-```markdown
----
-📚 **Series:** Building REST APIs with Node.js (Article 3 of 6)
-
-[← Previous: Express Server Setup](./02-express-server-setup.md) | 
-[Series Index](./series-index.md) | 
-[Next: Authentication & Security →](./04-authentication-security.md)
-
----
-```
-
-### Step 6.3: Update Cross-References
-
-**In existing articles, add series references:**
-- Related articles section
-- "See also" links
-- Prerequisites mentions
-
-### Step 6.4: Publish Series
-
-**Publish in order:**
-1. Publish Article 1 first
-2. Wait for any reader feedback
-3. Address issues before publishing more
-4. Publish remaining articles sequentially
-5. Update series index as you go
-
-## Series Maintenance
-
-### Ongoing Updates
-
-**When updating any article in series:**
-1. Check impact on dependent articles
-2. Update cross-references if needed
-3. Re-run series validation
-4. Update series index (last updated date)
-5. Consider version incrementing for series
-
-**Series metadata tracking:**
-```yaml
-series_validation:
-  last_run: "2025-11-19"
-  consistency_score: 9
-  progression_score: 10
-  notes: "All articles consistent and well-linked"
-```
-
-### Adding Articles to Series
-
-**To expand a series:**
-1. Update series metadata (total count)
-2. Determine insertion point
-3. Update navigation (previous/next links)
-4. Run series validation
-5. Update series index
-
-## Common Patterns
-
-### Pattern 1: Foundational Series
-```
-Article 1: Concepts and Theory
-Article 2: Getting Started (Practical)
-Article 3: Core Features
-Article 4: Advanced Techniques
-Article 5: Best Practices
-```
-
-### Pattern 2: Tutorial Series
-```
-Article 1: Introduction & Setup
-Article 2: Build Basic Feature
-Article 3: Add Functionality
-Article 4: Improve & Refine
-Article 5: Deploy & Maintain
-```
-
-### Pattern 3: Deep Dive Series
-```
-Article 1: Overview & Basics
-Article 2-N: Deep dive into each major aspect
-Article N+1: Integration & Advanced Topics
-```
-
-## Tips for Successful Series
-
-### Do:
-✅ Plan the entire series before writing
-✅ Maintain consistent terminology
-✅ Build examples progressively
-✅ Add clear prerequisites
-✅ Link articles together
-✅ Create series index
-✅ Run series validation
-
-### Don't:
-❌ Skip articles out of order
-❌ Repeat content (link instead)
-❌ Make articles too dependent (some standalone value)
-❌ Ignore reader feedback mid-series
-❌ Forget to update cross-references
+### Key planning decisions illustrated
+
+- **Articles 03 and 04 are how-to** (not tutorial) because they solve specific tasks readers may arrive at via search, independent of the series order
+- **Article 05 parallels Article 00** — both explanation type but 05 requires no prerequisites, enabling a practitioner who already built their API to jump straight to versioning guidance
+- **Article 06 (reference)** has no prerequisites — it's a lookup resource usable independently
+- **Cross-reference strategy:** inline references for prerequisite concepts; "Next Steps" links for series progression; Article 06 uses hub-and-spoke (all articles link to it for endpoint details)
 
 ---
 
-*Use this workflow to create cohesive, valuable article series that guide readers through complex topics.*
+## Common Series Patterns
+
+### Foundational Series
+**Purpose**: Build knowledge from ground up.
+**Structure**: Linear progression, each article builds on previous.
+**Example**: Technical writing (00-Introduction → 01-Readability → 02-Structure → ...)
+
+### Tutorial Series
+**Purpose**: Hands-on skill building through progressive projects.
+**Structure**: Each article is a standalone task that builds on accumulated skills.
+**Example**: Build an API (01-Setup → 02-Endpoints → 03-Auth → 04-Testing → 05-Deploy)
+
+### Deep Dive Series
+**Purpose**: Explore one topic from multiple angles.
+**Structure**: Hub-and-spoke — overview article links to independent deep dives.
+**Example**: Authentication (00-Overview → 01-OAuth → 02-SAML → 03-JWT → 04-MSAL)
+
+---
+
+## Series Consistency Checklist
+
+Run before publishing any series or after major updates:
+
+### Structural
+- [ ] Article 00 exists with series overview
+- [ ] All articles numbered sequentially (00, 01, 02...)
+- [ ] Dependency graph has no cycles
+- [ ] Series navigation present in all articles
+
+### Content
+- [ ] Shared glossary terms defined consistently
+- [ ] No contradictory recommendations
+- [ ] Progressive complexity (no sudden jumps)
+- [ ] Each article is self-contained for search traffic
+
+### Technical
+- [ ] Code examples use consistent libraries/versions
+- [ ] Sample project evolves consistently (tutorial series)
+- [ ] All cross-links valid
+- [ ] Metadata consistent per Phase 3 table
+
+---
+
+## References
+
+- **Internal:** `.github/prompts/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions.prompt.md`
+- **Internal:** `.copilot/context/01.00-article-writing/02-validation-criteria.md` (quality thresholds)
+- **Internal:** `.copilot/context/01.00-article-writing/workflows/01-article-creation-workflow.md` (per-article creation)
+- **Internal:** `.github/instructions/article-writing.instructions.md`
+
+---
+
+## Version History
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 2.3.0 | 2026-03-01 | Added "Worked Example: REST API Documentation Series" section showing Phases 1-2 applied to a concrete 7-article series with category matrix, folder mapping, terminology map, and key planning decisions. Source: Gap 3 from context file audit. | System |
+| 2.2.0 | 2026-03-01 | Added to Phase 2: Diátaxis category planning (category coverage matrix YAML template, validation criteria by series size, 60% concentration threshold), folder structure planning (folder-to-type mapping YAML template, folder rules). Source: analysis-article-writing-system-architectural-gaps.md Change 4. | System |
+| 2.1.0 | 2026-03-01 | Added to Phase 2: content-first design step, terminology handoff rule with YAML map template, and cross-reference strategy selection table (5 strategies). Source: Recommendation F from coverage analysis. | System |
+| 2.0.0 | 2026-02-28 | Complete rewrite: replaced phantom prompt names with actual prompt files; consolidated 559 lines to ~180 lines; removed verbose REST API examples and detailed templates; added series patterns, dependency rules, metadata consistency table, maintainability guidance. Source: 40.00-technical-writing articles 08, 10 | System |
+| 1.0.0 | 2025-12-26 | Initial version | System |

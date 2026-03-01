@@ -13,19 +13,19 @@ description: "Master code documentation through API reference standards, inline 
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [API Reference Documentation](#api-reference-documentation)
-- [Inline Code Comments](#inline-code-comments)
-- [Code Examples in Documentation](#code-examples-in-documentation)
-- [Error Message Design](#error-message-design)
-- [Changelog and Release Notes](#changelog-and-release-notes)
-- [README Files](#readme-files)
-- [Documentation Generators](#documentation-generators)
-- [Applying Code Documentation Standards](#applying-code-documentation-standards)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [🎯 Introduction](#-introduction)
+- [📡 API reference documentation](#-api-reference-documentation)
+- [💬 Inline code comments](#-inline-code-comments)
+- [📝 Code examples in documentation](#-code-examples-in-documentation)
+- [⚠️ Error message design](#-error-message-design)
+- [📋 Changelog and release notes](#-changelog-and-release-notes)
+- [📄 README files](#-readme-files)
+- [⚙️ Documentation generators](#-documentation-generators)
+- [📌 Applying code documentation standards to this repository](#-applying-code-documentation-standards-to-this-repository)
+- [✅ Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 🎯 Introduction
 
 Code documentation occupies a unique position—it lives at the intersection of technical precision and human communication. Developers read it while debugging at 2 AM, implementing features under deadline pressure, or trying to understand code they wrote six months ago.
 
@@ -40,11 +40,11 @@ This article covers:
 
 **Prerequisites:** Understanding of [writing style principles](01-writing-style-and-voice-principles.md) and [documentation structure](02-structure-and-information-architecture.md).
 
-## API Reference Documentation
+## 📡 API reference documentation
 
 API reference documentation must be simultaneously **comprehensive** (complete information) and **scannable** (quickly findable). This creates a unique writing challenge.
 
-### Anatomy of Good API Documentation
+### Anatomy of good API documentation
 
 Each API element (function, method, endpoint) should include:
 
@@ -89,7 +89,7 @@ print(f"Created user {user.id}: {user.name}")
 **8. Related items**
 > See also: `delete_user()`, `update_user()`, `get_user()`
 
-### REST API Documentation Pattern
+### REST API documentation pattern
 
 ```markdown
 ## POST /users
@@ -140,7 +140,7 @@ curl -X POST https://api.example.com/users \
 | 401 | `UNAUTHORIZED` | Invalid or missing token |
 ```
 
-### API Documentation Anti-Patterns
+### API documentation anti-patterns
 
 ❌ **Missing parameter details:**
 ```markdown
@@ -162,7 +162,7 @@ Throws: Error
 ```
 *What kind of error? When? What should I do about it?*
 
-### API Documentation from Major Projects
+### API documentation from major projects
 
 **Microsoft Azure SDK pattern:**
 - Summary + detailed description
@@ -181,11 +181,11 @@ Throws: Error
 - Idempotency key documentation
 - Pagination guidance
 
-## Inline Code Comments
+## 💬 Inline code comments
 
 Comments in code serve different purposes than external documentation. They explain **why**, not **what**.
 
-### The Golden Rule
+### The golden rule
 
 > Code tells you **how**; comments tell you **why**.
 
@@ -205,7 +205,7 @@ if len(array) < 10:
     return insertion_sort(array)
 ```
 
-### When to Comment
+### When to comment
 
 **Comment when:**
 - Explaining non-obvious decisions
@@ -219,7 +219,7 @@ if len(array) < 10:
 - Comment would just repeat variable/function names
 - Better solution is to rename or refactor
 
-### Comment Patterns
+### Comment patterns
 
 **TODO comments:**
 ```python
@@ -259,7 +259,7 @@ def calculate_shipping(weight: float, destination: str) -> float:
     """
 ```
 
-### Documentation String Standards
+### Documentation string standards
 
 **Python (PEP 257 / Google style):**
 ```python
@@ -305,11 +305,11 @@ public User CreateUser(string name, string email)
 function createUser(name, email) {
 ```
 
-## Code Examples in Documentation
+## 📝 Code examples in documentation
 
 Code examples are often the most-read part of documentation. Users scan to examples, copy them, modify them. Good examples make or break developer experience.
 
-### Example Characteristics
+### Example characteristics
 
 **Complete:** Can be copied and run with minimal modification
 **Realistic:** Resembles actual use cases, not abstract demos
@@ -317,7 +317,7 @@ Code examples are often the most-read part of documentation. Users scan to examp
 **Commented:** Explain non-obvious parts
 **Tested:** Verified to work (ideally via automated testing)
 
-### Example Patterns
+### Example patterns
 
 **Pattern 1: Basic → Advanced progression**
 
@@ -395,7 +395,7 @@ with open("users.csv") as f:
 ```
 ```
 
-### Example Anti-Patterns
+### Example anti-patterns
 
 ❌ **Incomplete example:**
 ```python
@@ -423,7 +423,7 @@ user = create_user("foo", "bar", "baz")
 ```
 *Test all examples before publishing.*
 
-### Multi-Language Examples
+### Multi-language examples
 
 For APIs used from multiple languages, provide examples in common languages:
 
@@ -457,18 +457,18 @@ curl https://api.example.com/users/usr_123 \
 </details>
 ```
 
-## Error Message Design
+## ⚠️ Error message design
 
 Error messages are documentation that appears when something goes wrong—precisely when users need the most help.
 
-### Good Error Messages
+### Good error messages
 
 **Components of a helpful error:**
 1. **What happened** - Clear description of the problem
 2. **Why it happened** - Context about the cause
 3. **What to do** - Actionable next steps
 
-### Error Message Patterns
+### Error message patterns
 
 **Pattern: Full context**
 ```
@@ -496,7 +496,7 @@ Possible causes:
 For detailed logs: build-output.log
 ```
 
-### Error Message Anti-Patterns
+### Error message anti-patterns
 
 ❌ **Cryptic:**
 ```
@@ -522,7 +522,7 @@ Error: Operation failed
 ```
 *What operation? What should I try?*
 
-### Error Documentation
+### Error documentation
 
 Document errors in your API reference:
 
@@ -554,11 +554,11 @@ except AuthenticationError as e:
 ```
 ```
 
-## Changelog and Release Notes
+## 📋 Changelog and release notes
 
 Changelogs communicate what changed between versions. They serve multiple audiences: developers upgrading, managers evaluating, and security teams auditing.
 
-### Keep a Changelog Format
+### Keep a Changelog format
 
 The [Keep a Changelog](https://keepachangelog.com/) standard provides a proven format:
 
@@ -601,7 +601,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release
 ```
 
-### Change Categories
+### Change categories
 
 - **Added** - New features
 - **Changed** - Changes to existing functionality
@@ -610,7 +610,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Fixed** - Bug fixes
 - **Security** - Security-related changes
 
-### Writing Good Changelog Entries
+### Writing good changelog entries
 
 ✅ **Good entries:**
 ```markdown
@@ -632,7 +632,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated dependencies
 ```
 
-### Changelog vs. Release Notes
+### Changelog vs. release notes
 
 **Changelog:** Complete record of all changes, primarily for developers
 **Release notes:** Curated highlights for broader audience
@@ -659,11 +659,11 @@ None in this release.
 [Full changelog →](./CHANGELOG.md#110---2026-01-14)
 ```
 
-## README Files
+## 📄 README files
 
 The README is often the first documentation users see. It must quickly convey what a project does and how to get started.
 
-### README Structure
+### README structure
 
 ```markdown
 # Project Name
@@ -705,7 +705,7 @@ More detailed usage examples...
 MIT License - see [LICENSE](./LICENSE)
 ```
 
-### README Best Practices
+### README best practices
 
 **1. Lead with value**
 - What problem does this solve?
@@ -724,7 +724,7 @@ MIT License - see [LICENSE](./LICENSE)
 - README lies are worse than no README
 - Automate what you can (version badges, etc.)
 
-### README for This Repository
+### README for this repository
 
 From [README.md](../../README.md):
 - **Purpose statement:** What this repository contains
@@ -732,11 +732,11 @@ From [README.md](../../README.md):
 - **Getting started:** Links to setup documentation
 - **Navigation aids:** Links to key sections
 
-## Documentation Generators
+## ⚙️ Documentation generators
 
 Many languages have documentation generators that produce reference documentation from code comments.
 
-### Popular Documentation Generators
+### Popular documentation generators
 
 | Language | Tool | Comment Style |
 |----------|------|---------------|
@@ -747,7 +747,7 @@ Many languages have documentation generators that produce reference documentatio
 | Go | godoc | Standard comments |
 | Rust | rustdoc | Documentation comments |
 
-### Documentation Generator Best Practices
+### Documentation generator best practices
 
 **1. Write for both human and machine readers**
 ```python
@@ -795,9 +795,9 @@ def get_users(
 - Version control generated documentation
 - Or regenerate as part of CI/CD
 
-## Applying Code Documentation Standards
+## 📌 Applying code documentation standards to this repository
 
-### This Repository's Code
+### This repository's code
 
 **IQPilot MCP Server** (from [src/IQPilot/](../../src/IQPilot/)):
 - C# XML documentation comments
@@ -808,7 +808,7 @@ def get_users(
 - Comment-based help
 - README.md for the scripts folder
 
-### Documentation Standards by File Type
+### Documentation standards by file type
 
 | File Type | Documentation Standard |
 |-----------|----------------------|
@@ -818,7 +818,7 @@ def get_users(
 | `.md` | N/A (is documentation) |
 | `.json`/`.yml` | Inline comments where supported |
 
-### Code Example Standards
+### Code example standards
 
 For documentation in this repository:
 
@@ -845,11 +845,11 @@ client = APIClient(api_key="YOUR_API_KEY")  # ← Replace with your key
 # Consider automated testing of documentation examples
 ```
 
-## Conclusion
+## ✅ Conclusion
 
 Code documentation requires balancing completeness with usability. The best code documentation helps developers understand, use, and troubleshoot your code efficiently.
 
-### Key Takeaways
+### Key takeaways
 
 - **API reference needs completeness** — Parameters, returns, errors, examples for every public element
 - **Comments explain why, not what** — Code shows how; comments provide context
@@ -858,15 +858,15 @@ Code documentation requires balancing completeness with usability. The best code
 - **Changelogs track history** — Keep a Changelog format with meaningful entries
 - **READMEs create first impressions** — Lead with value, show working code quickly
 
-### Next Steps
+### Next steps
 
 - **Next article:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — Validating code documentation quality
 - **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — How reference documentation fits Diátaxis
 - **Related:** [03-accessibility-in-technical-writing.md](03-accessibility-in-technical-writing.md) — Accessible code examples
 
-## References
+## 📚 References
 
-### API Documentation Standards
+### API documentation standards
 
 **[Google API Design Guide](https://cloud.google.com/apis/design)** 📘 [Official]  
 Google's comprehensive guide to designing REST APIs, including documentation requirements.
@@ -880,7 +880,7 @@ Widely considered best-in-class API documentation, worth studying as a model.
 **[OpenAPI Specification](https://spec.openapis.org/oas/latest.html)** 📘 [Official]  
 Standard for describing REST APIs, enabling documentation generation.
 
-### Code Comment Standards
+### Code comment standards
 
 **[PEP 257 - Docstring Conventions](https://peps.python.org/pep-0257/)** 📘 [Official]  
 Python's official docstring standard.
@@ -894,7 +894,7 @@ Standard for JavaScript documentation comments.
 **[XML Documentation Comments (C#)](https://learn.microsoft.com/dotnet/csharp/language-reference/xmldoc/)** 📘 [Official]  
 Microsoft's C# documentation comment standard.
 
-### Error Message Design
+### Error message design
 
 **[Microsoft Error Message Guidelines](https://learn.microsoft.com/windows/win32/uxguide/mess-error)** 📘 [Official]  
 Microsoft's comprehensive guide to writing error messages.
@@ -902,7 +902,7 @@ Microsoft's comprehensive guide to writing error messages.
 **[Nielsen Norman Group - Error Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/)** 📗 [Verified Community]  
 UX research-backed guidance on error messages.
 
-### Changelog Standards
+### Changelog standards
 
 **[Keep a Changelog](https://keepachangelog.com/en/1.0.0/)** 📗 [Verified Community]  
 De facto standard for changelog formatting.
@@ -910,7 +910,7 @@ De facto standard for changelog formatting.
 **[Semantic Versioning](https://semver.org/)** 📗 [Verified Community]  
 Versioning standard that pairs with changelogs.
 
-### README Standards
+### README standards
 
 **[Make a README](https://www.makeareadme.com/)** 📗 [Verified Community]  
 Guide to creating effective README files.
@@ -918,7 +918,7 @@ Guide to creating effective README files.
 **[Standard Readme](https://github.com/RichardLitt/standard-readme)** 📗 [Verified Community]  
 Specification for README structure and content.
 
-### Documentation Generators
+### Documentation generators
 
 **[Sphinx Documentation](https://www.sphinx-doc.org/)** 📘 [Official]  
 Python documentation generator, used for major Python projects.
@@ -937,7 +937,7 @@ article_metadata:
   filename: "04-code-documentation-excellence.md"
   series: "Technical Documentation Excellence"
   series_position: 5
-  total_articles: 8
+  total_articles: 13
   prerequisites:
     - "01-writing-style-and-voice-principles.md"
     - "02-structure-and-information-architecture.md"

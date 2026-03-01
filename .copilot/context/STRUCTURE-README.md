@@ -63,20 +63,37 @@ This mapping defines **how to find source material** for creating or updating co
 
 ### 01.00-article-writing/
 
-**Purpose:** Generic article writing guidelines applicable to any documentation project.
+**Purpose:** Generic article writing guidelines applicable to any documentation project. Complements (does not duplicate) the auto-loaded `article-writing.instructions.md`.
+
+**Source Mapping:**
 
 | Context Pattern | Source Pattern | Source Type |
 |-----------------|----------------|-------------|
+| `01.00-article-writing/*.md` | `03.00-tech/40.00-technical-writing/**/*.md` | Learning Hub articles (18 files) |
 | `01.00-article-writing/*.md` | `https://learn.microsoft.com/en-us/style-guide/*` | Microsoft Style Guide |
 | `01.00-article-writing/*.md` | `https://diataxis.fr/*` | Diátaxis Framework |
 | `01.00-article-writing/*.md` | `https://developers.google.com/style/*` | Google Style Guide |
-| `01.00-article-writing/*.md` | `.github/instructions/article-writing.instructions.md` | Repository instructions |
+| `01.00-article-writing/*.md` | `.github/instructions/article-writing.instructions.md` | Repository instructions (auto-loaded) |
 | `01.00-article-writing/workflows/*.md` | `.github/templates/*.md` | Repository templates |
 
+**File Inventory (5 files):**
+
+| # | File | Purpose | Primary Source Articles |
+|---|------|---------|------------------------|
+| 01 | `01-style-guide.md` | Quantitative metrics, replacement tables, visual docs, procedure rules | 40.00 articles 01, 08, 09, 11, 12; MWSG 00–04 |
+| 02 | `02-validation-criteria.md` | Quality thresholds, 7 validation dimensions, freshness scoring, automated tools | 40.00 articles 05, 06, 07, 09, 10 |
+| W1 | `workflows/01-article-creation-workflow.md` | Phase-based creation from concept to publication | 40.00 articles 00–12 |
+| W2 | `workflows/02-review-workflow.md` | Review triggers, process, content stability guide | 40.00 articles 05, 10 |
+| W3 | `workflows/03-series-planning-workflow.md` | Series lifecycle, patterns, consistency maintenance | 40.00 articles 08, 10 |
+
+> **Note on instruction layering:** These context files provide quantitative targets, reference tables, and workflow sequences that COMPLEMENT the auto-loaded `article-writing.instructions.md` (833 lines). Rules, formatting standards, Diátaxis structures, and voice principles are in the instructions — not duplicated here.
+
 **Update Strategy:**
-- Check style guides annually for updates
-- Sync with instruction file changes
-- Update workflows when template structure changes
+- Check `03.00-tech/40.00-technical-writing/` for new articles (primary source)
+- Check external style guides annually for updates
+- Sync with `article-writing.instructions.md` changes (avoid duplication)
+- Update workflows when prompt files or template structure changes
+- Compare article count against file inventory when articles are added
 
 ---
 

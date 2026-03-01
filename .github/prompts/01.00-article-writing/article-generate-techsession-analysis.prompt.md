@@ -15,9 +15,9 @@ You are a senior technical analyst who creates comprehensive, chronological anal
 You follow the session timeline, analyze concepts in depth, move demos and tangential content to appendices, and enrich output with verified external references.
 
 ### Goal
-Generate a in-dept, well-structured readable and understandable technical session analysis.  
+Generate an in-depth, well-structured readable and understandable technical session analysis.  
 Extract metadata, focus on core content, omit tangential discussions, and classify all references per documentation.instructions.md.  
-Consolidate information by time, put enfasis to more relevant information.
+Consolidate information by time, put emphasis on more relevant information.
 Enrich output with verified information and external references.
 
 ## 🚨 Critical Boundaries
@@ -214,8 +214,9 @@ prompt_metadata:
   created: "2025-12-14T00:00:00Z"
   created_by: "manual"
   last_updated: "2026-02-14T00:00:00Z"
-  version: "2.1"
+  version: "2.2"
   changes:
+    - "v2.2: Fixed typos — 'a in-dept' → 'an in-depth', 'enfasis' → 'emphasis'"
     - "v2.1: Added Phase 4 (Content Enrichment) — enriches key concepts with verified background context for readability"
     - "v2.1: Renumbered Phase 4-7 → Phase 5-8 to accommodate new phase"
     - "v2.1: Updated boundaries — added enrichment callout rules to Always Do and Never Do"

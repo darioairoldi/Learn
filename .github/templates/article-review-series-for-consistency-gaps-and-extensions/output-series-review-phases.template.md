@@ -93,6 +93,120 @@ Use these output formats when running `article-review-series-for-consistency-gap
 
 ---
 
+## Phase 2.5: Content Architecture Output
+
+```markdown
+### Content Architecture Assessment
+
+#### a) Diátaxis Compliance Per Article
+
+| Article | File | Stated type | Detected type(s) | Compliant? | Issue |
+|---------|------|-------------|-------------------|------------|-------|
+| {{title}} | {{path}} | {{type}} | {{detected}} | ✅/❌ | {{description or "—"}} |
+
+**Splitting Candidates:**
+- **[{{article.md}}](path)** (L1–L{{end}}, {{N}} lines) — Mixes {{type1}} + {{type2}}
+  - Lines L{{start}}–L{{end}}: {{type1}} content ({{description}})
+  - Lines L{{start}}–L{{end}}: {{type2}} content ({{description}})
+  - **Recommendation:** Split into {{N}} articles per Art. 02 splitting criteria: "{{criteria matched}}"
+
+**Type Mismatches:**
+- **[{{article.md}}](path)** — In {{folder}}/  ({{folder_type}}) but content is {{actual_type}}
+  - **Recommendation:** Move to {{correct_folder}}/
+
+#### b) Folder Structure Analysis
+
+**Current folder structure:**
+```
+{{series-root}}/
+├── {{folder1}}/  ({{N}} articles, {{diátaxis_type}})
+│   ├── {{article1.md}}
+│   └── {{article2.md}}
+├── {{folder2}}/  ({{N}} articles, {{diátaxis_type}})
+...
+└── {{root-level articles}}  ({{N}} articles, no category)
+```
+
+**Issues:**
+- {{Empty folder / Overcrowded folder / Misplaced article / No category folder}} — {{details}}
+
+**Folder-Diátaxis Alignment:**
+| Folder | Expected type | Actual content types | Aligned? |
+|--------|--------------|---------------------|----------|
+| {{folder}} | {{type}} | {{types found}} | ✅/❌ |
+
+#### c) Article Scope/Size Analysis
+
+| Article | File | Lines | Assessment | Action |
+|---------|------|-------|-----------|--------|
+| {{title}} | {{path}} | {{N}} | ✅ Sweet spot / ⚠️ Too thin / 🔴 Too long | {{None / Expand / Split}} |
+
+**Splitting Recommendations:**
+- **[{{article.md}}](path)** ({{N}} lines) — Splitting criteria met:
+  - {{Criterion}}: {{evidence}}
+  - **Proposed split:** {{article-a.md}} ({{type1}}) + {{article-b.md}} ({{type2}})
+
+**Merging Candidates:**
+- **[{{article-a.md}}](path)** ({{N}} lines) + **[{{article-b.md}}](path)** ({{N}} lines)
+  - Combined: {{N}} lines; same audience and purpose
+  - **Proposed merge:** {{merged-article.md}}
+
+#### d) Category Coverage Matrix
+
+| Diátaxis type | Count | % of series | Articles | Assessment |
+|--------------|-------|-------------|----------|-----------|
+| Explanation (concept) | {{N}} | {{%}} | {{list}} | {{OK / Missing / Over-represented}} |
+| How-to | {{N}} | {{%}} | {{list}} | {{OK / Missing / Over-represented}} |
+| Tutorial | {{N}} | {{%}} | {{list}} | {{OK / Missing / Over-represented}} |
+| Reference | {{N}} | {{%}} | {{list}} | {{OK / Missing / Over-represented}} |
+| **Total** | **{{N}}** | **100%** | | |
+
+**Coverage Issues:**
+- {{Missing type}}: Series goals require {{type}} content for {{reason}}. Currently 0 articles.
+- {{Over-concentration}}: {{type}} represents {{%}}% of series (threshold: 60%)
+
+**Recommendation:** {{Add N explanation articles covering: [topics]; Create reference article for: [topics]}}
+
+#### e) Learning Path Analysis
+
+**Prerequisite Chain:**
+```
+{{Art. 00}} ──→ {{Art. 01}} ──→ {{Art. 02}}
+                    │
+                    ▼
+              {{Art. 03}} ──→ {{Art. 04}}
+```
+
+**Cycle Detection:** {{None found ✅ / Cycle detected: Art. X → Art. Y → Art. X 🔴}}
+
+**Reader Journey Viability:**
+
+| Journey | Viable? | Issues |
+|---------|---------|--------|
+| Explorer (browse TOCs) | ✅/❌ | {{issue or "Clear TOCs with descriptive headings"}} |
+| Beginner (sequential) | ✅/❌ | {{issue or "Linear path available from Art. 00"}} |
+| Practitioner (jump to topic) | ✅/❌ | {{issue or "Prerequisites stated; self-contained intros"}} |
+| Reviewer (quality-focused) | ✅/❌ | {{issue or "Validation/consistency articles accessible"}} |
+
+**Orphaned Articles:**
+- **[{{article.md}}](path)** — No inbound cross-references from other articles; no outbound links to series
+  - **Recommendation:** Add cross-references from {{related articles}}
+
+#### Architecture Health Summary
+
+| Check | Status | Findings |
+|-------|--------|----------|
+| Diátaxis compliance | ✅/⚠️/🔴 | {{N}} compliant, {{N}} mixed-type, {{N}} mismatched |
+| Folder structure | ✅/⚠️/🔴 | {{N}} aligned, {{N}} misplaced, {{N}} missing folders |
+| Scope/size | ✅/⚠️/🔴 | {{N}} sweet spot, {{N}} too thin, {{N}} too long |
+| Category coverage | ✅/⚠️/🔴 | {{N}} types present of 4; {{issues}} |
+| Learning paths | ✅/⚠️/🔴 | {{N}} journeys viable; {{N}} orphans |
+
+**Overall Architecture Score:** {{N}}/10
+```
+
+---
+
 ## Phase 3: Terminology Inconsistencies Output
 
 ```markdown
@@ -403,6 +517,7 @@ validations:
 ## Quality Checklist
 
 - [ ] All articles in series read completely before analysis
+- [ ] Content architecture validated (Diátaxis compliance, folder alignment, scope/size, category coverage, learning paths)
 - [ ] Terminology cross-reference matrix built
 - [ ] All cross-references between articles validated
 - [ ] Inconsistencies identified with specific line numbers

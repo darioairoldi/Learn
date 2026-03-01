@@ -13,18 +13,18 @@ description: "Comprehensive guide to technical documentation foundations, explor
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [What Makes Documentation "Good"?](#what-makes-documentation-good)
-- [The Diátaxis Framework: Four Documentation Types](#the-diataxis-framework-four-documentation-types)
-- [Diátaxis quality theory: functional vs. deep quality](#diataxis-quality-theory-functional-vs-deep-quality)
-- [Major Style Guides Comparison](#major-style-guides-comparison)
-- [Wikipedia's Documentation Model](#wikipedias-documentation-model)
-- [Decision Frameworks: When Guidelines Conflict](#decision-frameworks-when-guidelines-conflict)
-- [Applying Foundations to This Repository](#applying-foundations-to-this-repository)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [🎯 Introduction](#-introduction)
+- [💡 What makes documentation "good"?](#-what-makes-documentation-good)
+- [🏗️ The Diátaxis framework: four documentation types](#-the-diátaxis-framework-four-documentation-types)
+- [⚖️ Diátaxis quality theory: functional vs. deep quality](#-diátaxis-quality-theory-functional-vs-deep-quality)
+- [📋 Major style guides comparison](#-major-style-guides-comparison)
+- [📖 Wikipedia's documentation model](#-wikipedias-documentation-model)
+- [🔀 Decision frameworks: when guidelines conflict](#-decision-frameworks-when-guidelines-conflict)
+- [📌 Applying foundations to this repository](#-applying-foundations-to-this-repository)
+- [✅ Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 🎯 Introduction
 
 Technical documentation exists at the <mark>intersection</mark> of <mark>technology</mark>, <mark>communication</mark>, and <mark>user experience</mark>. Whether you're documenting APIs for developers, writing user guides for enterprise software, or creating knowledge bases for community projects, the fundamental question remains: **what makes documentation effective?**
 
@@ -37,11 +37,11 @@ This article establishes the foundational principles of technical documentation 
 
 **Prerequisites:** Familiarity with documentation concepts is helpful but not required. This article serves as the foundation for the entire technical writing series.
 
-## What Makes Documentation "Good"?
+## 💡 What makes documentation "good"?
 
 Before examining specific frameworks and guidelines, we must establish criteria for quality documentation. Drawing from multiple authoritative sources, effective technical documentation exhibits these characteristics:
 
-### <mark>User-Centered Attributes</mark>
+### <mark>User-centered attributes</mark>
 
 **Findability** - Users can locate the <mark>information they need quickly</mark>
 - Clear <mark>information architecture</mark>
@@ -58,7 +58,7 @@ Before examining specific frameworks and guidelines, we must establish criteria 
 - <mark>Complete procedures</mark> <mark>without gaps</mark>
 - <mark>Working code examples</mark>
 
-### Content Quality Attributes
+### Content quality attributes
 
 **Accuracy** - Information is factually correct and current
 - <mark>Verified against reliable sources</mark>
@@ -99,7 +99,9 @@ The table below reconciles the six quality criteria with the seven validation di
 
 This reconciliation helps you understand _why_ each validation dimension exists. When you run the readability review prompt, you're verifying Understandability. When you run the structure validation, you're verifying Findability and Consistency. The validation system isn't an arbitrary checklist—it's a systematic operationalization of the quality criteria that define good documentation.
 
-## The Diátaxis Framework: Four Documentation Types
+> **On deliberate overlap with Article 05:** This article *defines* the six quality criteria and maps them to validation dimensions (definition level). [Article 05: Validation and Quality Assurance](05-validation-and-quality-assurance.md#the-documentation-quality-triangle) introduces the Quality Triangle and *operationalizes* the criteria into automated and manual checks (application level). Both perspectives are intentional—the three-level hierarchy (Triangle → criteria → dimensions) requires both articles. See [Article 08](08-consistency-standards-and-enforcement.md#acceptable-redundancy-across-articles) for the series redundancy policy.
+
+## 🏗️ The Diátaxis framework: four documentation types
 
 The **<mark>Diátaxis framework** (from Ancient Greek διάταξις: "arrangement") provides a systematic approach to understanding documentation needs.  
 Created by <mark>Daniele Procida</mark>, it identifies four distinct documentation types based on two axes:
@@ -119,7 +121,7 @@ This creates four quadrants:
 | **<mark>Study</mark>** | **Tutorials** <br> Learning-oriented <br> Lesson format | **Explanation** <br> Understanding-oriented <br> Discussion format |
 | **<mark>Work</mark>** | **How-to Guides** <br> Task-oriented <br> Step-by-step format | **Reference** <br> Information-oriented <br> Description format |
 
-### <mark>Tutorials</mark> (<mark>Learning by Doing</mark>)
+### <mark>Tutorials</mark> (<mark>learning by doing</mark>)
 
 **Purpose:** Guide newcomers through their first successful experience
 
@@ -132,7 +134,7 @@ This creates four quadrants:
 
 **Key principle from Diátaxis:** "A tutorial is an experience under the control of the teacher."
 
-### <mark>How-to Guides</mark> (<mark>Solving Specific Problems</mark>)
+### <mark>How-to guides</mark> (<mark>solving specific problems</mark>)
 
 **Purpose:** Direct users to <mark>accomplish specific real-world tasks</mark>
 
@@ -145,7 +147,7 @@ This creates four quadrants:
 
 **Key principle:** How-to guides <mark>serve work, not study</mark>. They get users from A to B efficiently.
 
-### <mark>Reference</mark> (<mark>Information Lookup</mark>)
+### <mark>Reference</mark> (<mark>information lookup</mark>)
 
 **Purpose:** Provide accurate, complete technical descriptions
 
@@ -158,7 +160,7 @@ This creates four quadrants:
 
 **Key principle:** Reference material <mark>describes the machinery</mark>. It must be accurate, consistent, and complete.
 
-### <mark>Explanation</mark> (<mark>Understanding Concepts</mark>)
+### <mark>Explanation</mark> (<mark>understanding concepts</mark>)
 
 **Purpose:** Clarify and illuminate the topic
 
@@ -171,7 +173,7 @@ This creates four quadrants:
 
 **Key principle:** Explanation deepens and broadens understanding. It discusses the bigger picture.
 
-### Why This Matters
+### Why this matters
 
 The Diátaxis framework prevents common documentation failures:
 
@@ -189,7 +191,7 @@ The Diátaxis framework prevents common documentation failures:
 - **Reference:** [Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)
 - **Explanation:** This article
 
-## Diátaxis quality theory: functional vs. deep quality
+## ⚖️ Diátaxis quality theory: functional vs. deep quality
 
 The Diátaxis framework doesn't just organize documentation into four types—it also proposes a [theory of quality](https://diataxis.fr/quality/) that distinguishes two fundamentally different kinds of documentation excellence. This distinction matters because most validation systems (including this repository's) focus on one kind while the other requires a different approach entirely.
 
@@ -239,13 +241,15 @@ Diátaxis itself can't address functional quality directly—that's the work of 
 
 For deep quality, Diátaxis can do more. It helps documentation fit user needs by describing documentation modes based on those needs. It preserves flow by preventing disruptions—like when an explanation digression interrupts a how-to guide. But Diátaxis offers principles, not a formula. It can't substitute for skills in user experience design, visual design, or the craft of writing itself. As the framework's creator notes: "Using Diátaxis does not guarantee deep quality... but what Diátaxis can do is lay down some conditions for the possibility of deep quality."
 
-**Connection to this repository's validation:** The seven validation dimensions in [Article 05](05-validation-and-quality-assurance.md) and the reconciliation table in the [quality criteria section](#reconciling-quality-criteria-with-validation-dimensions) above primarily measure functional quality. Deep quality—flow, beauty, anticipation—requires human judgment and can't be captured by automated scoring. This is why the Diátaxis framework complements rather than replaces the validation system. For a deeper exploration of how to measure both functional and deep quality, including comprehension testing and usability metrics, see [09-measuring-readability-and-comprehension.md](09-measuring-readability-and-comprehension.md).
+**Connection to this repository's validation:** The seven validation dimensions in [Article 05](05-validation-and-quality-assurance.md) and the reconciliation table in the [quality criteria section](#reconciling-quality-criteria-with-validation-dimensions) above primarily measure functional quality. Deep quality—flow, beauty, anticipation—requires human judgment and can't be captured by automated scoring. This is why the Diátaxis framework complements rather than replaces the validation system.
 
-## Major Style Guides Comparison
+> **On deliberate overlap with Article 09:** This article provides the *full definition and theory* of functional vs. deep quality—definitions, characteristics, comparison table, and relationship to Diátaxis. [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md#-functional-quality-vs-deep-quality) applies the distinction to *measurement strategy*—what readability formulas can and can't capture, and what a complete measurement approach requires. See [Article 08](08-consistency-standards-and-enforcement.md#acceptable-redundancy-across-articles) for the series redundancy policy.
+
+## 📋 Major style guides comparison
 
 Different organizations approach technical writing with varying priorities. Understanding these differences helps you make informed decisions when guidelines conflict.
 
-### Comparison Table: <mark>Core Principles</mark>
+### Comparison table: <mark>core principles</mark>
 
 | Aspect | Microsoft Writing Style Guide 📘 | Google Developer Docs 📘 | Apple Style Guide 📘 | Wikipedia Manual of Style 📘 |
 |--------|-----------------------------------|--------------------------|---------------------|------------------------------|
@@ -258,115 +262,23 @@ Different organizations approach technical writing with varying priorities. Unde
 | **<mark>Citation Requirements</mark>** | Optional for common knowledge | Not emphasized | Minimal | Mandatory for all claims |
 | **<mark>Revision Culture</mark>** | Regular updates<br>Living document | Continuous iteration | Controlled releases | Community-driven consensus |
 
-### Microsoft Writing Style Guide
+> **Deep dive available:** For a detailed comparative analysis of these guides — including voice and tone differences, mechanical rules, content philosophy, accessibility approaches, and decision matrices for choosing between them — see [03-microsoft-compared-to-other-guides.md](microsoft-writing-style-guide/03-microsoft-compared-to-other-guides.md).
 
-**Philosophy:** "<mark>Write like you speak</mark>" - <mark>conversational</mark>, <mark>inclusive</mark>, <mark>accessible</mark>
+### Guide summaries and when to prefer each
 
-**Top 10 Principles (per learn.microsoft.com/style-guide):**
+**<mark>Microsoft Writing Style Guide</mark>** — "<mark>Write like you speak</mark>." Conversational, inclusive, accessible. Strong on bias-free communication, global English, and practical product examples. **When to prefer:** <mark>Developer-facing content</mark> for enterprise software, balancing technical precision with approachability.
 
-1. Use <mark>bigger ideas</mark>, <mark>fewer words</mark>
-2. <mark>Write like you speak</mark>
-3. Project <mark>friendliness</mark>
-4. Get to the point <mark>fast</mark>
-5. Be <mark>brief</mark>
-6. When in doubt, <mark>don't capitalize</mark>
-7. <mark>Skip periods in UI labels</mark>
-8. <mark>Don't use common words in new ways</mark>
-9. Use <mark>technical terms carefully</mark>
-10. Be <mark>inclusive and use bias-free language</mark>
+**<mark>Google Developer Documentation Style Guide</mark>** — "Documentation is user assistance." Exceptionally detailed word list, mobile-first scannability, strong internationalization focus. **When to prefer:** <mark>API documentation, international developer audiences</mark>, open-source projects.
 
-**Strengths:**
-- Strong emphasis on <mark>bias-free communication</mark>
-- Detailed guidance on <mark>global English</mark>
-- Comprehensive <mark>accessibility guidelines</mark>
-- Practical examples <mark>from real Microsoft products</mark>
+**<mark>Apple Style Guide</mark>** — "<mark>Simplicity is sophistication</mark>." Elegant prose over bullet points, human interface guidelines influence, premium brand voice. **When to prefer:** Consumer-facing documentation, user guides where brand voice and design integration matter.
 
-**When to prefer Microsoft style:** <mark>Developer-facing content</mark> for enterprise software, when balancing technical precision with approachability.
+**<mark>Wikipedia Manual of Style</mark>** — "<mark>Neutral point of view</mark>." Encyclopedic third-person tone, rigorous citation requirements (every claim needs a reliable source), NPOV policy, consensus-driven decisions. **When to prefer:** Technical articles requiring source verification, multi-viewpoint analysis, knowledge base articles. **Limitation for software docs:** Second-person prohibition is awkward for how-to guides, and over-citation can interrupt flow.
 
-### Google Developer Documentation Style Guide
-
-**Philosophy:** "Documentation is user assistance" - <mark>clarity</mark>, <mark>scannability</mark>, <mark>global readability</mark>
-
-**Key Characteristics:**
-- <mark>Exceptionally detailed word list</mark> (preferred terms)
-- Strong focus on <mark>internationalization</mark>
-- <mark>Mobile-first mindset</mark> (short, scannable sections)
-- <mark>API documentation standards</mark> (OpenAPI integration)
-
-**Strengths:**
-- Comprehensive <mark>guidance for API reference</mark>
-- Explicit <mark>accessibility requirements</mark>
-- Clear <mark>code example standards</mark>
-- <mark>Global audience considerations</mark>
-
-**When to prefer Google style:** <mark>API documentation, content for international developer audiences</mark>, open-source project documentation.
-
-### Apple Style Guide
-
-**Philosophy:** "<mark>Simplicity is sophistication</mark>" - <mark>clean</mark>, <mark>human-centered</mark>, <mark>refined</mark>
-
-**Key Characteristics:**
-- <mark>Elegant prose over bullet points</mark>
-- <mark>Human interface guidelines influence</mark>
-- <mark>Minimal jargon and acronyms</mark>
-- <mark>Premium brand voice</mark>
-
-**Strengths:**
-- Emphasis on user experience writing
-- Integration with interface design
-- Consistent premium brand voice
-- Strong visual-text integration
-
-**When to prefer Apple style:** Consumer-facing documentation, user guides for designed experiences, content where brand voice matters.
-
-### Wikipedia Manual of Style
-
-**Philosophy:** "<mark>Neutral point of view</mark>" - <mark>encyclopedic</mark>, <mark>verifiable</mark>, <mark>community-maintained</mark>
-
-**Key Characteristics:**
-- <mark>Encyclopedic tone</mark> (<mark>third person</mark>, <mark>neutral</mark>)
-- <mark>Rigorous citation requirements</mark>
-- <mark>Neutral point of view (NPOV) policy</mark>
-- <mark>Consensus-driven style decisions</mark>
-
-**Core Policies:**
-1. **<mark>Neutral Point of View (NPOV)</mark>** - Represent all significant viewpoints fairly, proportionately, without editorial bias
-2. **<mark>Verifiability</mark>** - Cite reliable sources for all non-obvious claims
-3. **No Original Research** - Report what sources say, don't synthesize new conclusions
-4. **Manual of Style** - Consistency in formatting, structure, and presentation
-
-**Unique Principles Not Emphasized Elsewhere:**
-
-**Citation Rigor:**
-- Every claim requires a reliable source
-- Source credibility classification
-- "Citation needed" culture
-- Verifiable over "true" (what can be verified in sources matters more than absolute truth)
-
-**NPOV Techniques:**
-- "According to X" attribution for contested claims
-- Avoid "some people think" weasel words
-- Weight viewpoints proportionally to their prominence in sources
-- Present opinions as opinions, facts as facts
-
-**Strengths:**
-- Unparalleled source verification standards
-- Clear guidance on handling controversial topics
-- Systematic approach to neutrality
-- Community-maintained quality control
-
-**When to prefer Wikipedia style:** Technical articles requiring source verification, multi-viewpoint analysis, community documentation, knowledge base articles.
-
-**Limitations for software documentation:**
-- Second-person prohibition awkward for how-to guides ("A user opens the settings" vs "Open the settings")
-- Encyclopedic tone too formal for tutorials
-- Over-citation can interrupt flow
-
-## Wikipedia's Documentation Model
+## 📖 Wikipedia's documentation model
 
 Wikipedia's approach to documentation offers valuable lessons, particularly around source credibility, neutrality, and community maintenance.
 
-### Source Credibility Framework
+### Source credibility framework
 
 Wikipedia categorizes sources with a sophistication worth emulating:
 
@@ -412,7 +324,7 @@ Wikipedia categorizes sources with a sophistication worth emulating:
 
 See [06-citations-and-reference-management.md](06-citations-and-reference-management.md) for complete citation guidelines.
 
-### Neutral Point of View (NPOV) Application
+### Neutral point of view (NPOV) application
 
 While pure NPOV isn't suitable for all technical documentation, its principles inform quality writing:
 
@@ -430,7 +342,7 @@ While pure NPOV isn't suitable for all technical documentation, its principles i
 
 **Repository application:** Our validation system includes a "fact-checking" dimension specifically to verify claims against reliable sources.
 
-### Wikipedia's Structural Patterns
+### Wikipedia's structural patterns
 
 **Information Architecture:**
 - Lead section summarizes article without requiring further reading
@@ -446,11 +358,11 @@ While pure NPOV isn't suitable for all technical documentation, its principles i
 - References section with emoji-classified sources
 - Related articles linked in context
 
-## Decision Frameworks: When Guidelines Conflict
+## 🔀 Decision frameworks: when guidelines conflict
 
 Style guides sometimes contradict each other. Use these frameworks to decide:
 
-### Framework 1: <mark>Audience-First Decisions</mark>
+### Framework 1: <mark>audience-first decisions</mark>
 
 **Ask:** Who is the primary reader?
 
@@ -467,7 +379,7 @@ Style guides sometimes contradict each other. Use these frameworks to decide:
 - **Resolution:** Developer documentation → Use "you" (Google/Microsoft)
 - **Rationale:** Developers expect direct instruction; formality creates distance
 
-### Framework 2: <mark>Content Type Decisions</mark>
+### Framework 2: <mark>content type decisions</mark>
 
 **Apply Diátaxis principles:**
 
@@ -483,7 +395,7 @@ Style guides sometimes contradict each other. Use these frameworks to decide:
 - **Resolution:** Reference type → Use third person (Wikipedia/formal style)
 - **Rationale:** Reference describes the system, not user actions
 
-### Framework 3: <mark>Context-Specific Decisions</mark>
+### Framework 3: <mark>context-specific decisions</mark>
 
 **Consider these factors:**
 
@@ -503,7 +415,7 @@ Style guides sometimes contradict each other. Use these frameworks to decide:
 - Single-author → More flexibility for voice and style
 - Automated generation → Strict structure requirements
 
-### Framework 4: <mark>The "Least Harm" Principle</mark>
+### Framework 4: <mark>the "least harm" principle</mark>
 
 When truly stuck, choose the option that:
 1. **<mark>Reduces ambiguity</mark>** - Clear beats clever
@@ -518,11 +430,11 @@ When truly stuck, choose the option that:
 - **Resolution:** Use "internet" (lowercase)
 - **Rationale:** Current consensus, simpler rule (consistency > tradition)
 
-## Applying Foundations to This Repository
+## 📌 Applying foundations to this repository
 
 This repository's documentation system emerged from these foundational principles:
 
-### Diátaxis Structure Mapping
+### Diátaxis structure mapping
 
 Our content organization follows Diátaxis categories:
 
@@ -542,7 +454,7 @@ Our content organization follows Diátaxis categories:
 - This article series (technical writing foundations)
 - Concept articles in [03.00-tech/](../../03.00-tech/)
 
-### Style Guide Synthesis
+### Style guide synthesis
 
 This repository synthesizes guidelines from multiple sources:
 
@@ -566,7 +478,7 @@ This repository synthesizes guidelines from multiple sources:
 - Cross-references between related types
 - Navigation optimized for different user needs
 
-### Dual Metadata Architecture
+### Dual metadata architecture
 
 Our unique contribution: separate Quarto rendering metadata from validation tracking.
 
@@ -597,11 +509,11 @@ This separation follows the single-responsibility principle: Quarto metadata con
 
 See [02-dual-yaml-metadata.md](../../.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md) for complete guidelines.
 
-## Conclusion
+## ✅ Conclusion
 
 Effective technical documentation rests on three pillars: **framework understanding (Diátaxis)**, **style guide awareness** (Microsoft, Google, Apple, Wikipedia), and **decision-making capability** for when guidelines conflict.
 
-### Key Takeaways
+### Key takeaways
 
 - **Documentation serves different needs** — Tutorials, how-to guides, reference, and explanation each require distinct approaches based on Diátaxis principles
 - **No single style guide is "best"** — Choose based on audience, content type, and context
@@ -609,15 +521,15 @@ Effective technical documentation rests on three pillars: **framework understand
 - **Consistency within a project matters most** — Internal consistency outweighs strict adherence to any external standard
 - **Decision frameworks resolve conflicts** — Apply audience-first, content-type, and context-specific reasoning rather than arbitrary choices
 
-### Next Steps
+### Next steps
 
 - **Next article:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Deep dive into active/passive voice, readability formulas, and sentence structure
 - **Related:** [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) — Progressive disclosure, LATCH framework, TOC strategies
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — How this repository operationalizes these principles through validation
 
-## References
+## 📚 References
 
-### Official Style Guides
+### Official style guides
 
 **[Microsoft Writing Style Guide](https://learn.microsoft.com/style-guide/)** 📘 [Official]  
 Comprehensive style guide for Microsoft products. Emphasis on conversational tone, bias-free communication, and accessibility.
@@ -630,7 +542,7 @@ Detailed guidance for developer-facing documentation. Strong focus on global rea
 **[Apple Style Guide](https://help.apple.com/applestyleguide/)** 📘 [Official]  
 Refinement-focused style guide emphasizing simplicity, human-centered language, and brand voice consistency.
 
-### Frameworks and Standards
+### Frameworks and standards
 
 **[Diátaxis - A systematic approach to technical documentation](https://diataxis.fr/)** 📗 [Verified Community]  
 Daniele Procida's framework for understanding documentation through four types: tutorials, how-to guides, reference, and explanation.
@@ -641,7 +553,7 @@ Comprehensive style guide for encyclopedic content. Core resource for neutral po
 **[Wikipedia Neutral Point of View Policy](https://en.wikipedia.org/wiki/Wikipedia:Neutral_point_of_view)** 📘 [Official]  
 Fundamental policy for representing viewpoints fairly without editorial bias. Key guidance on due weight, balance, and source selection.
 
-### Community Resources
+### Community resources
 
 **[Write the Docs - Style Guides](https://www.writethedocs.org/guide/writing/style-guides/)** 📗 [Verified Community]  
 Curated collection of style guide resources, including links to major tech company guides and guidance for creating your own.
@@ -649,13 +561,13 @@ Curated collection of style guide resources, including links to major tech compa
 **[Red Hat Documentation Style Guide](https://redhat-documentation.github.io/supplementary-style-guide/)** 📗 [Verified Community]  
 Open-source documentation standards. Strong example of community-maintained style guidelines.
 
-### Repository-Specific Documentation
+### Repository-specific documentation
 
 **[Documentation Instructions](../../.github/instructions/documentation.instructions.md)** [Internal Reference]  
 This repository's comprehensive style guide with voice, tone, formatting, and citation requirements.
 
 **[Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)** [Internal Reference]  
-Seven validation dimensions (grammar, readability, structure, logic, facts, understandability, gaps) with scoring thresholds.
+Seven validation dimensions (Grammar, Readability, Structure, Fact Accuracy, Logical Coherence, Coverage, References) with scoring thresholds.
 
 **[Dual YAML Metadata](../../.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md)** [Internal Reference]  
 Guidelines for separating Quarto rendering metadata from validation tracking metadata.
@@ -668,13 +580,15 @@ article_metadata:
   filename: "00-foundations-of-technical-documentation.md"
   series: "Technical Documentation Excellence"
   series_position: 1
-  total_articles: 8
+  total_articles: 13
   prerequisites: []
   related_articles:
     - "01-writing-style-and-voice-principles.md"
     - "02-structure-and-information-architecture.md"
     - "05-validation-and-quality-assurance.md"
     - "06-citations-and-reference-management.md"
-  version: "1.0"
-  last_updated: "2026-01-14"
+  version: "1.1"
+  last_updated: "2026-02-28"
+  changes:
+    - "v1.1: Fixed validation dimension names to match Art. 05 canonical terms. Slimmed style guide comparison section with cross-reference to MS Sub-03. Updated total_articles to 13."
 -->

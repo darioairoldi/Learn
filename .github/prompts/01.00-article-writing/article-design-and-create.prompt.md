@@ -237,19 +237,33 @@ For each core technology/approach in topic:
 
 **Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 5: Article Structure Design Output"
 
+### Phase 5.5: Pre-writing validation gate
+
+Before drafting (Phase 6), verify all content design decisions are in place. This gate operationalizes the content design principles from `03-article-creation-rules.md` → Content Design and Organization Principles.
+
+- [ ] **Diátaxis type** selected and structure pattern identified (Tutorial / How-to / Reference / Explanation)
+- [ ] **Series context** (if part of a series): Diátaxis type is consistent with the category folder this article will live in (see `03-series-planning-workflow.md` → folder-to-type mapping)
+- [ ] **Scope check:** Article doesn't combine content that should be split per topic-based authoring criteria — no mixed purposes (e.g., tutorial + reference), no mixed audiences (e.g., beginner + advanced) within a single article
+- [ ] **Progressive disclosure plan:** what's surface-level vs. detail vs. expert content?
+- [ ] **Content-first check:** audience defined, existing content mapped (Phase 2), no duplication with workspace articles
+- [ ] **LATCH principle** chosen for primary organization (Location / Alphabet / Time / Category / Hierarchy)
+- [ ] **Template selected** and all required elements identified (intro, body, conclusion, references, metadata)
+
+**If any item fails:** Resolve before proceeding — return to the relevant phase (Phase 1 for audience, Phase 2 for duplication, Phase 5 for structure gaps). For series context or scope failures, consider splitting the article or moving it to a different category folder.
+
+📖 **Content design principles:** `.copilot/context/01.00-article-writing/03-article-creation-rules.md` → Content Design and Organization Principles
+
 ### Phase 6: Article Creation
 
 **Goal:** Generate complete, publication-ready article with all content, proper formatting, and dual YAML metadata blocks.
 
-**Writing Standards:**
+**Writing Standards:** Apply all rules from auto-loaded `article-writing.instructions.md`. Key reminders for article creation:
 
-- **Clarity**: Grade 9-10 reading level, clear technical explanations
-- **Conciseness**: Short paragraphs (3-5 sentences), active voice
-- **Structure**: Logical flow, clear headings, proper hierarchy (H1 > H2 > H3)
-- **Examples**: Code examples with syntax highlighting and explanations
-- **Links**: Descriptive link text, working internal/external links
-- **Citations**: All claims cited in References section
-- **Formatting**: Proper Markdown, callouts for tips/warnings, tables where appropriate
+- Emoji prefixes on all H2 headings (MUST)
+- Global-ready phrasing (include articles/pronouns, avoid idioms)
+- Mark jargon with `<mark>` on first use
+- Input-neutral UI verbs (Select, Enter, Go to — not Click, Type, Navigate)
+- Procedure steps: max 7 per sequence, one action per step
 
 **Content Requirements:**
 
@@ -300,3 +314,17 @@ Comprehensive prompt engineering guide from Microsoft.
 - `.github/templates/article-template.md` - Standard article structure template
 - `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` - Metadata parsing guidelines
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md` - Context design principles
+- `.copilot/context/01.00-article-writing/01-style-guide.md` - Quantitative readability targets and reference tables
+- `.copilot/context/01.00-article-writing/02-validation-criteria.md` - Quality thresholds and validation dimensions
+- `.copilot/context/01.00-article-writing/03-article-creation-rules.md` - Diátaxis patterns, required elements, writing style deep rules, technical content, quality checklists
+- `.copilot/context/01.00-article-writing/workflows/03-series-planning-workflow.md` - Series planning with category and folder structure guidance
+
+<!--
+prompt_metadata:
+  filename: "article-design-and-create.prompt.md"
+  created: "2026-01-20"
+  last_updated: "2026-07-19"
+  version: "1.1.0"
+  changes:
+    - "v1.1.0: Added series-awareness checks to Phase 5.5 — series context (Diátaxis type vs. folder) and scope check (no mixed purposes/audiences). Enhanced failure guidance for series/scope issues. Source: analysis-article-writing-system-architectural-gaps.md Change 5."
+-->

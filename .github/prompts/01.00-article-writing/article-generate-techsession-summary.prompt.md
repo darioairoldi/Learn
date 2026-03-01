@@ -3,7 +3,7 @@ name: techsession-summary
 description: "Generate concise, concept-driven technical session summaries from session notes and transcripts"
 agent: agent
 model: claude-opus-4.6
-tools: ['codebase', 'editor', 'filesystem']
+tools: ['codebase', 'editor', 'filesystem', 'fetch']
 argument-hint: 'Works with files in active folder or specify paths'
 ---
 
@@ -16,7 +16,7 @@ You are a technical documentation specialist with expertise in analyzing recorde
 ### Goal
 Generate a concise, well-structured readable and understandable technical session summary.  
 Extract metadata, focus on core content, omit tangential discussions, and classify all references per documentation.instructions.md.  
-Consolidate information by concept (not timestamp), put enfasis to more relevant information.
+Consolidate information by concept (not timestamp), put emphasis on more relevant information.
 Enrich output with verified external references.
 
 ## 🚨 Critical Boundaries
@@ -164,8 +164,10 @@ prompt_metadata:
   created: "2025-12-14T00:00:00Z"
   created_by: "manual"
   last_updated: "2026-02-14T00:00:00Z"
-  version: "2.0"
+  version: "2.1"
   changes:
+    - "v2.1: Added `fetch` tool for Phase 3 reference enrichment (was missing)"
+    - "v2.1: Fixed typo — 'enfasis' → 'emphasis'"
     - "v2.0: Major rewrite — removed redundancies, added full 5-phase workflow"
     - "v2.0: Moved templates to dedicated folder .github/templates/article-generate-techsession-summary/"
     - "v2.0: Added Phase 3 (Reference Enrichment) for external reference discovery"

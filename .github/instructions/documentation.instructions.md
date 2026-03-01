@@ -110,14 +110,13 @@ article_metadata:
 
 Before considering an article complete:
 
-- [ ] Run grammar-review prompt
-- [ ] Run readability-review prompt  
-- [ ] Run structure-validation prompt
-- [ ] Run fact-checking prompt for technical claims
+- [ ] Run `article-review-for-consistency-gaps-and-extensions.prompt.md` for single articles (covers grammar, readability, structure, facts, gaps, references in 7 phases)
+- [ ] Run `article-review-series-for-consistency-gaps-and-extensions.prompt.md` for article series (consistency, terminology, cross-references)
 - [ ] Verify all links are working
 - [ ] Check that code examples are tested
 
-🔧 **Validation prompts:** `.github/prompts/` (grammar, readability, structure, fact-checking, logic, publish-ready)
+🔧 **Validation prompts:** `.github/prompts/01.00-article-writing/`
+📖 **Quality thresholds:** `.copilot/context/01.00-article-writing/02-validation-criteria.md`
 
 ---
 

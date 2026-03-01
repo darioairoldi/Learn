@@ -13,26 +13,26 @@ description: "Go beyond Flesch scores with comprehensive readability formulas, c
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Readability formulas compared](#readability-formulas-compared)
-- [Functional quality vs. deep quality](#functional-quality-vs-deep-quality)
-- [Comprehension testing methodologies](#comprehension-testing-methodologies)
-- [Information scent and foraging theory](#information-scent-and-foraging-theory)
-- [Mental model alignment](#mental-model-alignment)
-- [Documentation usability testing](#documentation-usability-testing)
-- [Quantitative benchmarks by content type](#quantitative-benchmarks-by-content-type)
-- [Tools comparison](#tools-comparison)
-- [Applying readability measurement to this repository](#applying-readability-measurement-to-this-repository)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [🎯 Introduction](#-introduction)
+- [📊 Readability formulas compared](#-readability-formulas-compared)
+- [⚖️ Functional quality vs. deep quality](#-functional-quality-vs-deep-quality)
+- [🧪 Comprehension testing methodologies](#-comprehension-testing-methodologies)
+- [🔍 Information scent and foraging theory](#-information-scent-and-foraging-theory)
+- [🧠 Mental model alignment](#-mental-model-alignment)
+- [📋 Documentation usability testing](#-documentation-usability-testing)
+- [📏 Quantitative benchmarks by content type](#-quantitative-benchmarks-by-content-type)
+- [🛠️ Tools comparison](#-tools-comparison)
+- [📌 Applying readability measurement to this repository](#-applying-readability-measurement-to-this-repository)
+- [✅ Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 🎯 Introduction
 
 Readability scores tell you whether your text is linguistically accessible. But readability isn't comprehension. A sentence can score 65 on Flesch Reading Ease and still leave readers confused about what to do next. Measuring documentation quality requires a broader toolkit—one that spans surface-level readability, deep comprehension, information findability, and usability.
 
-[Article 01](01-writing-style-and-voice-principles.md) introduced Flesch Reading Ease, Flesch-Kincaid Grade Level, and the Gunning Fog Index. This article extends that foundation significantly:
+[Article 01](01-writing-style-and-voice-principles.md) surveys all seven readability formulas with practical targets and scoring guidance. This article goes deeper—providing mathematical foundations, comprehension testing methodologies, and quality measurement frameworks that readability scores alone can't capture:
 
-- **<mark>Readability formulas beyond Flesch</mark>** — Coleman-Liau, SMOG, Dale-Chall, and the Automated Readability Index, with strengths and weaknesses of each
+- **<mark>Readability formulas in depth</mark>** — Coleman-Liau, SMOG, Dale-Chall, and ARI with full mathematical treatment, strengths, weaknesses, and when each outperforms the others
 - **<mark>Functional quality vs. deep quality</mark>** — The Diátaxis framework's distinction between measurable standards and the subjective experience of excellent documentation
 - **<mark>Comprehension testing</mark>** — Cloze tests, recall tests, think-aloud protocols, and task-based testing
 - **<mark>Information scent and foraging theory</mark>** — Why users abandon documentation and how to keep them on the right path
@@ -45,9 +45,11 @@ Readability scores tell you whether your text is linguistically accessible. But 
 
 **Prerequisites:** Familiarity with [writing style principles](01-writing-style-and-voice-principles.md) (especially the readability formulas section) and [validation and quality assurance](05-validation-and-quality-assurance.md) is recommended.
 
-## Readability formulas compared
+## 📊 Readability formulas compared
 
-Article 01 covers <mark>Flesch Reading Ease</mark>, <mark>Flesch-Kincaid Grade Level</mark>, and <mark>Gunning Fog Index</mark>. This section introduces four additional formulas that address specific limitations of Flesch-based metrics.
+[Article 01](01-writing-style-and-voice-principles.md) surveys all seven readability formulas with practical targets and score interpretation tables. This section provides deeper mathematical treatment of the four formulas beyond Flesch—<mark>Coleman-Liau</mark>, <mark>SMOG</mark>, <mark>Dale-Chall</mark>, and <mark>ARI</mark>—with full formulas, statistical validation context, and guidance on when each outperforms the others.
+
+> **On deliberate overlap with Article 01:** Both articles cover readability formulas, but with different purposes. Article 01 presents all seven formulas as a *practical survey*—what they are, what scores mean, and what targets to use. This article provides *analytical depth*—mathematical foundations, comparative strengths, and how formulas connect to comprehension testing and usability measurement. This intentional layering follows the series' redundancy policy (see [Article 08, acceptable redundancy](08-consistency-standards-and-enforcement.md#acceptable-redundancy-across-articles)).
 
 ### Why multiple formulas matter
 
@@ -111,7 +113,7 @@ Where:
 
 **Typical range for technical documentation:** 10–14
 
-### <mark>Dale-Chall</mark> Readability Formula
+### <mark>Dale-Chall</mark> readability formula
 
 The <mark>**Dale-Chall formula**</mark> takes a fundamentally different approach: instead of measuring word length, it checks words against a list of 3,000 words that 80% of fourth-grade students could reliably understand. Any word not on this list counts as "difficult."
 
@@ -180,63 +182,27 @@ The following table compares all seven readability formulas covered across this 
 
 **Practical recommendation:** Use Flesch Reading Ease as your primary screening metric (it's the most widely supported). Supplement with SMOG for accuracy validation and Dale-Chall when vocabulary difficulty is a concern. Run Coleman-Liau or ARI in automated CI pipelines where syllable counting adds unnecessary complexity.
 
-## Functional quality vs. deep quality
+## ⚖️ Functional quality vs. deep quality
 
-The <mark>Diátaxis framework</mark>—the foundational framework for this series (see [Article 00](00-foundations-of-technical-documentation.md))—draws a critical distinction between two kinds of documentation quality that readability formulas alone can't capture.
+The <mark>Diátaxis framework</mark> draws a critical distinction between two kinds of documentation quality that readability formulas alone can't capture. [Article 00](00-foundations-of-technical-documentation.md#-diátaxis-quality-theory-functional-vs-deep-quality) covers this distinction in full—definitions, characteristics, comparison table, and how Diátaxis serves each quality type. Here's a brief recap as context for measurement.
 
-### Functional quality
+> **On deliberate overlap with Article 00:** Article 00 provides the *full definition and theory* of functional vs. deep quality—what each means, how they're characterized, and how they relate. This article applies the distinction specifically to *measurement strategy*—what readability formulas can and can't capture, and what a complete measurement approach requires. See [Article 08](08-consistency-standards-and-enforcement.md#acceptable-redundancy-across-articles) for the series redundancy policy.
 
-<mark>Functional quality</mark> encompasses the objectively measurable properties of documentation:
+<mark>Functional quality</mark> encompasses objectively measurable properties—accuracy, completeness, consistency, usefulness, and precision. These characteristics are independent of each other and can be assessed with metrics and checklists. <mark>Deep quality</mark> encompasses subjective, interdependent characteristics—flow, beauty, anticipation, and fitness for human needs. Deep quality can't be reduced to scores; it requires human judgment.
 
-- **Accuracy** — Does the documentation correctly describe what it claims to?
-- **Completeness** — Are all necessary topics covered?
-- **Consistency** — Are terminology, style, and structure uniform?
-- **Usefulness** — Does the documentation serve a practical purpose?
-- **Precision** — Is information specific enough to act on?
-
-These characteristics are **independent of each other**. Documentation can be accurate without being complete. It can be complete, but inaccurate and inconsistent. It can be accurate, complete, consistent, and also useless.
-
-Attaining functional quality requires discipline, attention to detail, and high technical skill. Any failure to meet these standards is readily apparent to users.
-
-**Connection to this repository's validation:** The seven validation dimensions in [Article 05](05-validation-and-quality-assurance.md)—grammar, readability, structure, fact accuracy, logical coherence, coverage, and references—primarily measure functional quality. Readability formulas are one tool for one dimension of functional quality.
-
-### Deep quality
-
-<mark>Deep quality</mark> encompasses characteristics that can't be reduced to checklists or metrics:
-
-- **Feeling good to use** — The documentation is pleasant to read and navigate
-- **Having flow** — Content moves naturally from one idea to the next
-- **Fitting to human needs** — Documentation anticipates what users need at each moment
-- **Being beautiful** — Structure, language, and presentation create an aesthetic experience
-- **Anticipating the user** — Content appears where and when users need it
-
-Unlike functional quality characteristics (which are independent), deep quality characteristics are **interdependent**. Flow and anticipating the user are aspects of each other. It's hard to see how documentation could feel good to use without fitting to human needs.
-
-### The relationship between them
-
-Functional quality and deep quality relate in specific, asymmetric ways:
-
-| Dimension | Functional quality | Deep quality |
-|-----------|-------------------|--------------|
-| **Independence** | Characteristics are independent of each other | Characteristics are interdependent |
-| **Objectivity** | Objective—measured against the world | Subjective—assessed against the human |
-| **Measurement** | Can be measured with numbers (Flesch scores, completeness %) | Can only be enquired into, judged |
-| **Relationship** | Can exist without deep quality | Conditional upon functional quality |
-| **Experience** | Feels like constraint | Feels like liberation |
-
-The critical insight: **deep quality is conditional upon functional quality**. No user will experience documentation as beautiful if it's inaccurate. The moment you run into factual errors, the experience is tarnished. But documentation can be accurate, complete, and consistent without being truly excellent.
+The critical asymmetry: **deep quality is conditional upon functional quality**. Documentation won't feel excellent if it's inaccurate. But meeting every functional standard doesn't guarantee it'll feel good to use.
 
 ### What this means for measurement
 
 Readability formulas measure one aspect of functional quality. They're necessary but insufficient. A complete measurement strategy must also:
 
-1. **Measure all dimensions of functional quality** — not just readability, but accuracy, completeness, consistency, and usefulness
-2. **Create conditions for deep quality** — through user testing, information architecture analysis, and flow assessment
+1. **Measure all dimensions of functional quality** — not just readability, but accuracy, completeness, consistency, and usefulness (the seven validation dimensions in [Article 05](05-validation-and-quality-assurance.md) operationalize this)
+2. **Create conditions for deep quality** — through user testing, information architecture analysis, and flow assessment (see [comprehension testing](#-comprehension-testing-methodologies) and [documentation usability testing](#-documentation-usability-testing) below)
 3. **Recognize the limits of metrics** — deep quality can't be reduced to a dashboard, but it can be enquired into through qualitative methods
 
 The Diátaxis framework helps by preventing disruptions to flow (for example, keeping explanation out of how-to guides) and by aligning documentation types with user needs. But applying Diátaxis doesn't guarantee deep quality—it lays down conditions for its possibility.
 
-## Comprehension testing methodologies
+## 🧪 Comprehension testing methodologies
 
 Readability formulas predict whether text _should_ be understandable based on linguistic features. Comprehension tests measure whether text _is actually_ understood by real readers. They answer a fundamentally different question.
 
@@ -360,7 +326,7 @@ In a <mark>think-aloud protocol</mark>, readers verbalize their thoughts while r
 - Requires a working environment for task completion
 - Hard to isolate documentation quality from tool/product usability
 
-## Information scent and foraging theory
+## 🔍 Information scent and foraging theory
 
 <mark>Information foraging theory</mark> (Pirolli & Card, 1999) applies ecological foraging models to explain how people search for information. Just as animals follow scent trails to find food, users follow <mark>information scent</mark>—cues that signal whether a path will lead to useful content.
 
@@ -419,7 +385,7 @@ A first-click success rate below 50% indicates weak information scent. Research 
 | Long pages without landmarks | Add summary boxes, anchor links, visual breaks | TL;DR boxes at section start |
 | Search result snippets | Write informative descriptions for each page | Meta descriptions in YAML frontmatter |
 
-## Mental model alignment
+## 🧠 Mental model alignment
 
 A <mark>mental model</mark> is the internal representation a person holds about how something works. Documentation succeeds when its conceptual structure aligns with the reader's mental model. It fails when it forces readers to build a new mental model just to navigate the docs.
 
@@ -465,7 +431,7 @@ If documentation is effective, concept maps drawn _after_ reading should more cl
 | **Feature-centric** | Docs organized by features, not by user goals | Add task-based navigation alongside feature reference |
 | **Jargon mismatch** | Docs use internal terms users don't recognize | Conduct vocabulary alignment testing with users |
 
-## Documentation usability testing
+## 📋 Documentation usability testing
 
 Usability testing for documentation applies the same principles as software usability testing: observe real users attempting real tasks, measure outcomes, fix what's broken.
 
@@ -536,7 +502,7 @@ Apply Jakob Nielsen's 10 usability heuristics to documentation:
 - User control and freedom → "Can readers easily navigate back?"
 - Consistency and standards → "Do similar sections follow the same structure?"
 
-## Quantitative benchmarks by content type
+## 📏 Quantitative benchmarks by content type
 
 Different Diátaxis documentation types serve different purposes, and their readability targets should differ accordingly. The following benchmarks combine readability research with the content type characteristics described in [Article 00](00-foundations-of-technical-documentation.md).
 
@@ -573,7 +539,7 @@ Different Diátaxis documentation types serve different purposes, and their read
 
 **Do:** track trends over time. A series of articles that progressively drift toward lower readability scores may indicate creeping complexity.
 
-## Tools comparison
+## 🛠️ Tools comparison
 
 Multiple tools can measure readability, enforce style rules, and support comprehension assessment. Here's how they compare for technical documentation workflows.
 
@@ -613,7 +579,7 @@ Multiple tools can measure readability, enforce style rules, and support compreh
 - **Quick checks during writing:** Hemingway Editor for real-time sentence simplification
 - **CI integration:** Vale + textstat in GitHub Actions for pre-merge validation
 
-## Applying readability measurement to this repository
+## 📌 Applying readability measurement to this repository
 
 ### Current coverage
 
@@ -670,11 +636,11 @@ def analyze_readability(text: str) -> dict:
 # print(f"Dale-Chall: {scores['dale_chall']:.1f}")
 ```
 
-## Conclusion
+## ✅ Conclusion
 
 Measuring documentation quality is a multi-dimensional challenge. Readability formulas provide a necessary but insufficient foundation—they measure linguistic surface features but can't tell you whether readers understand, can act on, or enjoy your documentation.
 
-### Key Takeaways
+### Key takeaways
 
 - **No single formula suffices** — Use multiple readability formulas (Flesch, SMOG, Dale-Chall, Coleman-Liau) to get a reliable picture; each measures different linguistic features
 - **Functional quality is necessary but not sufficient** — The Diátaxis framework distinguishes between measurable functional quality (accuracy, completeness, consistency) and subjective deep quality (flow, anticipation, beauty)
@@ -684,16 +650,16 @@ Measuring documentation quality is a multi-dimensional challenge. Readability fo
 - **Usability metrics ground quality in evidence** — Task completion rates, time-on-task, error rates, and SUS scores provide objective evidence for documentation effectiveness
 - **Benchmarks should vary by content type** — Tutorials need higher readability than reference; how-to guides need higher task success rates than explanations
 
-### Next Steps
+### Next steps
 
 - **Previous article:** [08-consistency-standards-and-enforcement.md](08-consistency-standards-and-enforcement.md) — Consistency enforcement that builds on measurable quality standards
 - **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Foundational readability formulas (Flesch, FK Grade, Gunning Fog) that this article extends
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — The validation framework that these measurement approaches support
 - **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Diátaxis framework and quality characteristics referenced throughout
 
-## References
+## 📚 References
 
-### Readability Formulas and Research
+### Readability formulas and research
 
 **[Flesch-Kincaid Readability Tests - Wikipedia](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests)** 📘 [Official]  
 Technical explanation of Flesch Reading Ease and Flesch-Kincaid Grade Level formulas, with scoring interpretation and history.
@@ -710,7 +676,7 @@ Description of the vocabulary-based readability formula using a 3,000-word famil
 **[Automated Readability Index - Wikipedia](https://en.wikipedia.org/wiki/Automated_readability_index)** 📘 [Official]  
 The character-and-word-count formula designed for real-time readability monitoring without syllable analysis.
 
-### Diátaxis Framework and Quality
+### Diátaxis framework and quality
 
 **[Towards a Theory of Quality in Documentation - Diátaxis](https://diataxis.fr/quality/)** 📗 [Verified Community]  
 Daniele Procida's exploration of functional quality vs. deep quality in documentation. Distinguishes objectively measurable standards from subjective excellence. Essential reading for understanding why metrics alone don't guarantee quality.
@@ -718,7 +684,7 @@ Daniele Procida's exploration of functional quality vs. deep quality in document
 **[Diátaxis - A Systematic Approach to Technical Documentation](https://diataxis.fr/)** 📗 [Verified Community]  
 The overarching framework for documentation types (tutorials, how-to guides, reference, explanation) that this series uses as its organizational foundation.
 
-### Comprehension Testing and Usability
+### Comprehension testing and usability
 
 **[Cloze Procedure - Wikipedia](https://en.wikipedia.org/wiki/Cloze_test)** 📘 [Official]  
 Background on the cloze test methodology originally developed by Wilson Taylor (1953), including administration protocols and scoring interpretation.
@@ -732,7 +698,7 @@ US government standards for clear, accessible writing. Includes guidance on read
 **[System Usability Scale - Wikipedia](https://en.wikipedia.org/wiki/System_usability_scale)** 📘 [Official]  
 Overview of Brooke's (1996) SUS questionnaire methodology, scoring, and interpretation benchmarks. SUS produces a single composite score from ten Likert-scale items.
 
-### Tools and Implementation
+### Tools and implementation
 
 **[textstat - Python Library](https://github.com/textstat/textstat)** 📗 [Verified Community]  
 Open-source Python library implementing all major readability formulas (Flesch, FK, Gunning Fog, Coleman-Liau, SMOG, Dale-Chall, ARI, and more). Ideal for CI/CD pipeline integration and batch analysis.
@@ -746,7 +712,7 @@ Visual writing tool that highlights complex sentences, passive voice, and adverb
 **[readable.com](https://readable.com)** 📒 [Community]  
 Web-based readability analysis service supporting all major formulas plus proprietary engagement metrics. Useful for one-off analysis and non-technical teams.
 
-### Repository-Specific Documentation
+### Repository-specific documentation
 
 **[Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)** [Internal Reference]  
 This repository's seven validation dimensions with scoring thresholds, including Flesch targets (50–70) and grade-level standards (9–10).
@@ -765,7 +731,7 @@ article_metadata:
   filename: "09-measuring-readability-and-comprehension.md"
   series: "Technical Documentation Excellence"
   series_position: 10
-  total_articles: 10
+  total_articles: 13
   prerequisites:
     - "01-writing-style-and-voice-principles.md"
     - "05-validation-and-quality-assurance.md"

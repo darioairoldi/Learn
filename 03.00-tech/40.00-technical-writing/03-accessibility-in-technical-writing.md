@@ -13,21 +13,21 @@ description: "Create accessible technical documentation through plain language p
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Why Accessibility Matters in Documentation](#why-accessibility-matters-in-documentation)
-- [Plain Language Principles](#plain-language-principles)
-- [Screen Reader Compatibility](#screen-reader-compatibility)
-- [Inclusive Language](#inclusive-language)
-- [Visual Accessibility](#visual-accessibility)
-- [Cognitive Accessibility](#cognitive-accessibility)
-- [Reading Comprehension and Learning Styles](#reading-comprehension-and-learning-styles)
-- [Emoji and Symbol Accessibility](#emoji-and-symbol-accessibility)
-- [Testing Documentation Accessibility](#testing-documentation-accessibility)
-- [Applying Accessibility to This Repository](#applying-accessibility-to-this-repository)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [🎯 Introduction](#-introduction)
+- [❓ Why accessibility matters in documentation](#-why-accessibility-matters-in-documentation)
+- [📝 Plain language principles](#-plain-language-principles)
+- [🔊 Screen reader compatibility](#-screen-reader-compatibility)
+- [🤝 Inclusive language](#-inclusive-language)
+- [👁️ Visual accessibility](#-visual-accessibility)
+- [🧠 Cognitive accessibility](#-cognitive-accessibility)
+- [📖 Reading comprehension and learning styles](#-reading-comprehension-and-learning-styles)
+- [😀 Emoji and symbol accessibility](#-emoji-and-symbol-accessibility)
+- [🧪 Testing documentation accessibility](#-testing-documentation-accessibility)
+- [📌 Applying accessibility to this repository](#-applying-accessibility-to-this-repository)
+- [✅ Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 🎯 Introduction
 
 Accessible documentation isn't optional—it's essential. When we write technical content that some users can't access, understand, or navigate, we've failed in our primary purpose: communicating information.
 
@@ -45,16 +45,16 @@ This article covers:
 
 **Prerequisites:** Understanding of [writing style principles](01-writing-style-and-voice-principles.md) and [documentation structure](02-structure-and-information-architecture.md).
 
-## Why Accessibility Matters in Documentation
+## ❓ Why accessibility matters in documentation
 
-### The Numbers
+### The numbers
 
 - **15% of the global population** has some form of disability (World Health Organization)
 - **1 in 12 men** (8%) has color vision deficiency
 - **Over 1 billion people** speak English as a second language
 - **10-20% of the population** is neurodivergent (dyslexia, ADHD, autism spectrum)
 
-### The Benefits
+### The benefits
 
 **Accessibility improvements benefit everyone:**
 
@@ -67,7 +67,7 @@ This article covers:
 | High contrast | Low vision users | Users in bright sunlight |
 | Consistent structure | Cognitive disabilities | All users (predictability) |
 
-### The Standards
+### The standards
 
 **WCAG (Web Content Accessibility Guidelines)** provides the foundation:
 
@@ -78,7 +78,7 @@ This article covers:
 
 Documentation should meet **WCAG 2.1 AA** at minimum.
 
-## Plain Language Principles
+## 📝 Plain language principles
 
 Plain language makes content accessible to diverse readers including:
 - People with reading difficulties
@@ -86,7 +86,7 @@ Plain language makes content accessible to diverse readers including:
 - Experts in other fields
 - Users under time pressure
 
-### The Plain Language Guidelines
+### The plain language guidelines
 
 From the [Federal Plain Language Guidelines](https://www.plainlanguage.gov/guidelines/):
 
@@ -110,7 +110,7 @@ From the [Federal Plain Language Guidelines](https://www.plainlanguage.gov/guide
 - Define technical terms when first used
 - Avoid acronyms without expansion
 
-### Before/After: Plain Language Transformation
+### Before/after: plain language transformation
 
 **Example 1: Developer documentation**
 
@@ -136,7 +136,7 @@ From the [Federal Plain Language Guidelines](https://www.plainlanguage.gov/guide
 ✅ **Plain language:**
 > "Include your access token in the request header: `Authorization: Bearer YOUR_TOKEN`"
 
-### Plain Language Checklist
+### Plain language checklist
 
 ✅ **Words**
 - [ ] Used simple words when possible
@@ -156,11 +156,11 @@ From the [Federal Plain Language Guidelines](https://www.plainlanguage.gov/guide
 - [ ] Broke long sections into subsections
 - [ ] Used bullet lists for multiple items
 
-## Screen Reader Compatibility
+## 🔊 Screen reader compatibility
 
 Screen readers convert visual content to audio or braille. Writing for screen readers means thinking beyond visual layout.
 
-### How Screen Readers Process Content
+### How screen readers process content
 
 **Content processed:**
 - Text (read aloud or converted to braille)
@@ -176,7 +176,7 @@ Screen readers convert visual content to audio or braille. Writing for screen re
 - Complex tables without headers
 - Semantic meaning conveyed only through visual formatting
 
-### Heading Structure
+### Heading structure
 
 Screen reader users navigate by headings. Proper heading hierarchy is essential.
 
@@ -197,7 +197,7 @@ Screen reader users navigate by headings. Proper heading hierarchy is essential.
 #### Detail (skipped h3!)
 ```
 
-### Link Text
+### Link text
 
 Screen readers can list all links on a page. Link text must make sense out of context.
 
@@ -209,7 +209,7 @@ Screen readers can list all links on a page. Link text must make sense out of co
 > "For setup instructions, see the [Authentication Guide](./auth.md)."
 > "See [detailed examples](./examples.md) and [API reference](./reference.md)."
 
-### Image Alt Text
+### Image alt text
 
 Alt text should convey the **information or function** of an image, not just describe it.
 
@@ -236,7 +236,7 @@ with the application. The application redirects to the authorization
 server...*
 ```
 
-### Code Blocks
+### Code blocks
 
 Screen readers handle code blocks but benefit from context:
 
@@ -274,11 +274,11 @@ Screen reader announces: "Table, 2 rows, 3 columns. Row 1, Method: GET, Endpoint
 | POST | /users | Create a new user account |
 ```
 
-## Inclusive Language
+## 🤝 Inclusive language
 
 Inclusive language ensures all readers feel welcome and respected. It also improves clarity by avoiding assumptions.
 
-### Gender-Inclusive Language
+### Gender-inclusive language
 
 ❌ **Exclusive:**
 > "The developer should update his configuration."
@@ -290,7 +290,7 @@ Inclusive language ensures all readers feel welcome and respected. It also impro
 > "Each user must enter their password." (singular they)
 > "Staff the servers."
 
-### Ability-Inclusive Language
+### Ability-inclusive language
 
 ❌ **Ableist language:**
 > "Simply complete the form." (assumes simplicity for all)
@@ -302,7 +302,7 @@ Inclusive language ensures all readers feel welcome and respected. It also impro
 > "The following diagram shows..." (acknowledges it exists)
 > "Extremely fast performance." (neutral intensifier)
 
-### Terms to Avoid
+### Terms to avoid
 
 | Avoid | Use Instead | Reason |
 |-------|-------------|--------|
@@ -314,7 +314,7 @@ Inclusive language ensures all readers feel welcome and respected. It also impro
 | Crippled | Limited, Reduced, Restricted | Disability sensitivity |
 | Blind to | Unaware of, Ignoring | Disability sensitivity |
 
-### Microsoft's Bias-Free Communication Guidelines
+### Microsoft's bias-free communication guidelines
 
 From the [Microsoft Writing Style Guide](https://learn.microsoft.com/style-guide/bias-free-communication):
 
@@ -330,11 +330,11 @@ From the [Microsoft Writing Style Guide](https://learn.microsoft.com/style-guide
 - ❌ "John, an engineer, and his assistant Mary..."
 - ✅ "John, an engineer, and Mary, an analyst..."
 
-## Visual Accessibility
+## 👁️ Visual accessibility
 
 Visual accessibility ensures documentation works for users with vision differences.
 
-### Color and Contrast
+### Color and contrast
 
 **WCAG contrast requirements:**
 - **Normal text:** 4.5:1 contrast ratio minimum
@@ -351,7 +351,7 @@ Visual accessibility ensures documentation works for users with vision differenc
 > "Required fields are marked with an asterisk (*) and shown in red."
 > "Success is shown with ✅ (green); failure with ❌ (red)."
 
-### Font and Typography
+### Font and typography
 
 **Accessible font characteristics:**
 - Sufficient size (16px minimum for body text)
@@ -364,7 +364,7 @@ Visual accessibility ensures documentation works for users with vision differenc
 - Avoid italics for long passages (harder to read)
 - Don't use underlining (reserved for links)
 
-### Image Accessibility
+### Image accessibility
 
 **Requirements:**
 - Alt text for all informative images
@@ -377,11 +377,11 @@ Visual accessibility ensures documentation works for users with vision differenc
 - Use patterns or labels in addition to color
 - Test diagrams with color blindness simulators
 
-## Cognitive Accessibility
+## 🧠 Cognitive accessibility
 
 Cognitive accessibility supports users with dyslexia, ADHD, autism spectrum conditions, and other cognitive differences.
 
-### Principles for Cognitive Accessibility
+### Principles for cognitive accessibility
 
 **1. Predictable structure**
 - Consistent navigation patterns
@@ -403,7 +403,7 @@ Cognitive accessibility supports users with dyslexia, ADHD, autism spectrum cond
 - Plenty of whitespace
 - Clear visual hierarchy
 
-### Progressive Cognitive Disclosure in Practice
+### Progressive cognitive disclosure in practice
 
 <mark>Progressive cognitive disclosure</mark> applies the progressive disclosure principle (see [Article 02](02-structure-and-information-architecture.md)) specifically to cognitive load management. Instead of revealing UI layers, you're revealing conceptual complexity in stages that readers can absorb without overload.
 
@@ -438,7 +438,7 @@ Cognitive accessibility supports users with dyslexia, ADHD, autism spectrum cond
 
 Progressive disclosure doesn't mean dumbing down Layer 1. The first layer should be **accurate and complete enough to act on**, even if it omits underlying mechanisms. If a reader stops at Layer 1, they should still be able to use the feature correctly.
 
-### Writing for Dyslexic Readers
+### Writing for dyslexic readers
 
 **Helpful practices:**
 - Short paragraphs (3-5 sentences)
@@ -452,7 +452,7 @@ Progressive disclosure doesn't mean dumbing down Layer 1. The first layer should
 - Long sentences with multiple clauses
 - Similar-looking words in sequence
 
-### Writing for ADHD Readers
+### Writing for ADHD readers
 
 **Helpful practices:**
 - Clear, action-oriented headings
@@ -466,7 +466,7 @@ Progressive disclosure doesn't mean dumbing down Layer 1. The first layer should
 - Long unbroken sections
 - Unnecessary tangents
 
-### Writing for Autistic Readers
+### Writing for autistic readers
 
 **Helpful practices:**
 - Literal, precise language
@@ -481,7 +481,7 @@ Progressive disclosure doesn't mean dumbing down Layer 1. The first layer should
 - Implicit expectations
 - Sarcasm or humor that might be misread
 
-## Reading Comprehension and Learning Styles
+## 📖 Reading comprehension and learning styles
 
 Different readers process information through different <mark>learning modalities</mark>. While the VARK model (Visual, Auditory, Reading/Writing, Kinesthetic) is debated as a theory of fixed learning styles, research consistently shows that **multimodal presentation**—offering the same information through multiple channels—improves comprehension and retention for all readers.
 
@@ -572,11 +572,11 @@ The most accessible documentation serves all four modalities simultaneously. Her
 
 > **See also:** [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md) covers how to measure whether readers actually understand your documentation, regardless of their preferred modality.
 
-## Emoji and Symbol Accessibility
+## 😀 Emoji and symbol accessibility
 
 This repository uses emoji markers (📘📗📒📕) for reference classification. Here's how to use symbols accessibly.
 
-### How Screen Readers Handle Emoji
+### How screen readers handle emoji
 
 Screen readers announce emoji by their Unicode name:
 
@@ -596,7 +596,7 @@ Screen reader announces: "Link, Microsoft Style Guide, blue book, Official"
 
 **This works** because we include text labels (`[Official]`, `[Verified Community]`, etc.) alongside emoji. The emoji provides quick visual scanning; the text provides semantic meaning.
 
-### Emoji Accessibility Guidelines
+### Emoji accessibility guidelines
 
 **1. Don't rely on emoji alone for meaning**
 
@@ -630,7 +630,7 @@ Screen reader announces: "Link, Microsoft Style Guide, blue book, Official"
 
 Some emoji meanings vary by culture. Prefer universally understood symbols or include text clarification.
 
-### Alternative to Emoji: Text-Based Labels
+### Alternative to emoji: text-based labels
 
 If emoji cause issues, text alternatives work:
 
@@ -640,9 +640,9 @@ If emoji cause issues, text alternatives work:
 **[Medium Article](url)** [COMMUNITY]
 ```
 
-## Testing Documentation Accessibility
+## 🧪 Testing documentation accessibility
 
-### Manual Testing
+### Manual testing
 
 **Keyboard navigation:**
 1. Can you Tab through all interactive elements?
@@ -660,7 +660,7 @@ If emoji cause issues, text alternatives work:
 2. Is horizontal scrolling avoided?
 3. Do images scale appropriately?
 
-### Automated Testing
+### Automated testing
 
 **Tools:**
 - **WAVE** - Browser extension for accessibility evaluation
@@ -671,7 +671,7 @@ If emoji cause issues, text alternatives work:
 **Limitations:**
 Automated tools catch ~30% of accessibility issues. Manual testing and user feedback remain essential.
 
-### Accessibility Checklist
+### Accessibility checklist
 
 ✅ **Structure**
 - [ ] Single H1 per page
@@ -703,9 +703,9 @@ Automated tools catch ~30% of accessibility issues. Manual testing and user feed
 - [ ] Predictable structure
 - [ ] Clear error messages
 
-## Applying Accessibility to This Repository
+## 📌 Applying accessibility to this repository
 
-### Current Accessibility Practices
+### Current accessibility practices
 
 **Plain language standards** (from [documentation.instructions.md](../../.github/instructions/documentation.instructions.md)):
 - Flesch Reading Ease: 50-70
@@ -725,7 +725,7 @@ Automated tools catch ~30% of accessibility issues. Manual testing and user feed
 - Hierarchical H2-H4 structure
 - Descriptive heading text
 
-### Validation Integration
+### Validation integration
 
 Accessibility validation integrates with existing validation dimensions:
 
@@ -744,7 +744,7 @@ Accessibility validation integrates with existing validation dimensions:
 - Color-independent meaning
 - Contrast ratios (for HTML output)
 
-### Accessibility Improvement Roadmap
+### Accessibility improvement roadmap
 
 **Current state:** Good foundation in plain language and structure
 
@@ -754,11 +754,11 @@ Accessibility validation integrates with existing validation dimensions:
 3. Color usage review in diagrams
 4. Screen reader testing of rendered site
 
-## Conclusion
+## ✅ Conclusion
 
 Accessible documentation benefits everyone. Designing for accessibility improves the experience for all readers, not just those with specific needs.
 
-### Key Takeaways
+### Key takeaways
 
 - **Plain language is fundamental** — Short sentences, common words, and clear structure help all readers
 - **Screen readers require semantic HTML** — Proper headings, descriptive links, and meaningful alt text
@@ -769,16 +769,16 @@ Accessible documentation benefits everyone. Designing for accessibility improves
 - **Emoji can be accessible** — When paired with text labels and used sparingly
 - **Testing is essential** — Automated tools plus manual testing plus user feedback
 
-### Next Steps
+### Next steps
 
 - **Next article:** [04-code-documentation-excellence.md](04-code-documentation-excellence.md) — Accessible code examples and error messages
 - **Related:** [12-writing-for-global-audiences.md](12-writing-for-global-audiences.md) — Internationalization, localization, and writing for non-native speakers
 - **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Plain language style foundations
 - **Related:** [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) — Accessible navigation patterns
 
-## References
+## 📚 References
 
-### Accessibility Standards
+### Accessibility standards
 
 **[Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/)** 📘 [Official]  
 W3C standard for web accessibility, including content guidelines applicable to documentation.
@@ -789,7 +789,7 @@ Detailed explanations of WCAG success criteria with techniques and examples.
 **[Section 508 Standards](https://www.section508.gov/)** 📘 [Official]  
 US federal accessibility requirements for electronic information technology.
 
-### Plain Language
+### Plain language
 
 **[Federal Plain Language Guidelines](https://www.plainlanguage.gov/guidelines/)** 📘 [Official]  
 Comprehensive plain language guidance from the US government.
@@ -797,7 +797,7 @@ Comprehensive plain language guidance from the US government.
 **[Plain Language Action and Information Network (PLAIN)](https://www.plainlanguage.gov/)** 📘 [Official]  
 Resources for implementing plain language in government and business.
 
-### Inclusive Language
+### Inclusive language
 
 **[Microsoft Bias-Free Communication](https://learn.microsoft.com/style-guide/bias-free-communication)** 📘 [Official]  
 Microsoft's comprehensive guide to inclusive, bias-free writing.
@@ -808,7 +808,7 @@ Google's guidance on writing inclusive developer documentation.
 **[Wikipedia Manual of Style - Gender-Neutral Language](https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style#Gender-neutral_language)** 📘 [Official]  
 Wikipedia's standards for gender-inclusive writing.
 
-### Assistive Technology
+### Assistive technology
 
 **[WebAIM - Screen Reader User Survey](https://webaim.org/projects/screenreadersurvey9/)** 📗 [Verified Community]  
 Survey data on how screen reader users navigate the web.
@@ -816,7 +816,7 @@ Survey data on how screen reader users navigate the web.
 **[Deque University - Accessibility Courses](https://dequeuniversity.com/)** 📗 [Verified Community]  
 Training resources for web and document accessibility.
 
-### Cognitive Accessibility
+### Cognitive accessibility
 
 **[W3C Cognitive Accessibility Guidance](https://www.w3.org/TR/coga-usable/)** 📘 [Official]  
 W3C guidance on making content usable for people with cognitive and learning disabilities.
@@ -824,7 +824,7 @@ W3C guidance on making content usable for people with cognitive and learning dis
 **[British Dyslexia Association - Dyslexia Style Guide](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide)** 📗 [Verified Community]  
 Best practices for creating dyslexia-friendly content.
 
-### Learning Styles and Multimedia Learning
+### Learning styles and multimedia learning
 
 **[Mayer's Cognitive Theory of Multimedia Learning](https://www.cambridge.org/core/books/cambridge-handbook-of-multimedia-learning/cognitive-theory-of-multimedia-learning/)** 📗 [Verified Community]  
 Richard Mayer's research demonstrating that people learn better from words and pictures together than from words alone—the empirical basis for multimodal documentation.
@@ -835,7 +835,7 @@ The Visual-Auditory-Reading/Writing-Kinesthetic framework for understanding lear
 **[Dual Coding Theory - Allan Paivio](https://en.wikipedia.org/wiki/Dual-coding_theory)** 📘 [Official]  
 Theory that verbal and non-verbal information are processed through separate channels, supporting the case for combining text with visual representations.
 
-### Repository-Specific Documentation
+### Repository-specific documentation
 
 **[Documentation Instructions - Accessibility](../../.github/instructions/documentation.instructions.md)** [Internal Reference]  
 This repository's accessibility standards and practices.
@@ -851,7 +851,7 @@ article_metadata:
   filename: "03-accessibility-in-technical-writing.md"
   series: "Technical Documentation Excellence"
   series_position: 4
-  total_articles: 8
+  total_articles: 13
   prerequisites:
     - "01-writing-style-and-voice-principles.md"
     - "02-structure-and-information-architecture.md"

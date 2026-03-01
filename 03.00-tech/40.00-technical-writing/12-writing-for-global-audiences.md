@@ -486,7 +486,7 @@ Several articles in this series cover related topics from different angles:
 
 Global-ready writing isn't a separate skill—it's a refinement of good writing practices. Clear sentences, explicit grammar, consistent terminology, and cultural awareness make documentation better for *all* readers, not just international ones.
 
-### Key takeaways
+### Key Takeaways
 
 - **Write for translation, even if you don't plan to translate** — The practices that help translators also help non-native English readers
 - **Include articles and relative pronouns** — Don't sacrifice grammatical signals for perceived brevity
@@ -495,7 +495,7 @@ Global-ready writing isn't a separate skill—it's a refinement of good writing 
 - **Maintain consistent terminology** — Inconsistency multiplies translation costs and reader confusion
 - **Use tools to automate checks** — Vale rules and checklists catch issues before readers encounter them
 
-### Next steps
+### Next Steps
 
 - **Previous article:** [08-consistency-standards-and-enforcement.md](08-consistency-standards-and-enforcement.md) — Terminology glossaries that support global writing
 - **Related:** [03-accessibility-in-technical-writing.md](03-accessibility-in-technical-writing.md) — Plain language and cognitive accessibility
@@ -545,8 +545,8 @@ Terminology glossary and consistency enforcement patterns that support translati
 article_metadata:
   filename: "12-writing-for-global-audiences.md"
   series: "Technical Documentation Excellence"
-  series_position: 10
-  total_articles: 10
+  series_position: 13
+  total_articles: 13
   prerequisites:
     - "01-writing-style-and-voice-principles.md"
     - "03-accessibility-in-technical-writing.md"

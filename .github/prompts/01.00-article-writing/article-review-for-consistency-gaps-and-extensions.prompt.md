@@ -51,6 +51,24 @@ You are a **technical editor and fact-checker**. You WILL ensure article content
 
 📖 See: `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`
 
+📖 Quality thresholds: `.copilot/context/01.00-article-writing/02-validation-criteria.md`
+📖 Article creation rules: `.copilot/context/01.00-article-writing/03-article-creation-rules.md`
+
+## Rule-Dimension Mapping
+
+Use this table to locate the authoritative rules for each validation dimension:
+
+| Validation dimension | Key rules to check | Source |
+|---|---|---|
+| Grammar & Mechanics | Sentence case, Oxford comma, contractions, en dashes | `article-writing.instructions.md` → Mechanical Rules |
+| Readability | Flesch 50–70, FK 8–10, 15–25 word sentences | `01-style-guide.md` → Primary Metrics |
+| Structure | Required sections, heading hierarchy, emoji H2, TOC (5–9 items, parallel) | `article-writing.instructions.md` → Required Elements |
+| Logical flow | Progressive disclosure, prerequisite ordering | `03-article-creation-rules.md` → Progressive Disclosure |
+| Factual accuracy | Sources cited, code tested, versions current | `02-validation-criteria.md` → Dimension 5 |
+| Completeness | Diátaxis type fully covered, common use cases | `02-validation-criteria.md` → Dimension 6 |
+| Understandability | Jargon marked, tables introduced, audience-appropriate | `article-writing.instructions.md` → Jargon rules |
+| Visual content | Visual budget by type, alt text, Mermaid preferred, diagram pairing | `01-style-guide.md` → Visual Documentation Guidance |
+
 ## Goal
 
 1. Verify all article references are still valid and accessible
@@ -229,9 +247,11 @@ After approval, provide complete updated article with all content updates, class
 prompt_metadata:
   created: "2025-12-14T00:00:00Z"
   created_by: "manual"
-  last_updated: "2026-02-14T00:00:00Z"
-  version: "2.0"
+  last_updated: "2026-03-01T00:00:00Z"
+  version: "2.2"
   changes:
+    - "v2.2: Added Visual Content dimension to Rule-Dimension Mapping (Rule 20); enhanced Structure dimension with TOC design details (Rule 9). Source: remaining ⚠️ items from coverage analysis."
+    - "v2.1: Added Rule-Dimension Mapping table connecting 7 validation dimensions to authoritative source locations. Source: Recommendation D from coverage analysis."
     - "v2.0: Major rewrite applying prompt-createorupdate-prompt-file methodology"
     - "Externalized Phase 1 verbose input analysis to guidance-input-analysis.template.md"
     - "Externalized Phase 3 verbose research process to guidance-research-process.template.md"

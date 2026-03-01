@@ -13,19 +13,19 @@ description: "Master technical citation practices through source evaluation fram
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Why Citations Matter in Technical Writing](#why-citations-matter-in-technical-writing)
-- [Source Evaluation Frameworks](#source-evaluation-frameworks)
-- [The Reference Classification System](#the-reference-classification-system)
-- [Citation Formatting](#citation-formatting)
-- [Managing References Over Time](#managing-references-over-time)
-- [Preventing Link Rot](#preventing-link-rot)
-- [Wikipedia's Approach to Sources](#wikipedias-approach-to-sources)
-- [Applying Citations to This Repository](#applying-citations-to-this-repository)
-- [Conclusion](#conclusion)
-- [References](#references)
+- [🎯 Introduction](#-introduction)
+- [❓ Why citations matter in technical writing](#-why-citations-matter-in-technical-writing)
+- [🔍 Source evaluation frameworks](#-source-evaluation-frameworks)
+- [📊 The reference classification system](#-the-reference-classification-system)
+- [📝 Citation formatting](#-citation-formatting)
+- [⏳ Managing references over time](#-managing-references-over-time)
+- [🔗 Preventing link rot](#-preventing-link-rot)
+- [📖 Wikipedia's approach to sources](#-wikipedias-approach-to-sources)
+- [📌 Applying citations to this repository](#-applying-citations-to-this-repository)
+- [✅ Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-## Introduction
+## 🎯 Introduction
 
 Citations in technical documentation serve different purposes than academic citations. They establish credibility, enable verification, and help readers find additional resources—but they must be practical for the technical writing context.
 
@@ -39,9 +39,9 @@ This article covers:
 
 **Prerequisites:** Understanding of [validation principles](05-validation-and-quality-assurance.md) helps contextualize reference validation.
 
-## Why Citations Matter in Technical Writing
+## ❓ Why citations matter in technical writing
 
-### The Purposes of Technical Citations
+### The purposes of technical citations
 
 **1. Establishing authority**
 > "This approach is recommended by the [Microsoft REST API Guidelines](https://github.com/microsoft/api-guidelines) 📘 [Official]"
@@ -68,7 +68,7 @@ Proper attribution is ethical and helps readers understand influences.
 
 Dated references help readers assess whether information is current.
 
-### When to Cite
+### When to cite
 
 **Always cite:**
 - Direct quotes
@@ -87,11 +87,11 @@ Dated references help readers assess whether information is current.
 - Your own original analysis
 - Basic syntax from official documentation (implicit)
 
-## Source Evaluation Frameworks
+## 🔍 Source evaluation frameworks
 
 Not all sources are equally reliable. Evaluation frameworks help you assess source quality.
 
-### The <mark>CRAAP Test</mark>
+### The <mark>CRAAP test</mark>
 
 The CRAAP test (California State University, Chico) evaluates sources on five criteria:
 
@@ -130,7 +130,7 @@ The CRAAP test (California State University, Chico) evaluates sources on five cr
 
 *Technical relevance:* Vendor documentation may be accurate but biased toward their product. Community content may be more objective but less authoritative.
 
-### Applying CRAAP to Technical Sources
+### Applying CRAAP to technical sources
 
 | Source Type | Currency | Authority | Accuracy | Typical Rating |
 |-------------|----------|-----------|----------|----------------|
@@ -141,7 +141,7 @@ The CRAAP test (California State University, Chico) evaluates sources on five cr
 | Personal blogs | Variable | Individual | Variable | 📒 Community |
 | Medium articles | Variable | Unknown | Unverified | 📒-📕 Varies |
 
-### The SIFT Method
+### The SIFT method
 
 For quick evaluation, SIFT provides a faster framework:
 
@@ -157,11 +157,11 @@ Are there more authoritative sources for this claim?
 **<mark>T - Trace claims to original</mark>**
 Where did this information originally come from?
 
-## The Reference Classification System
+## 📊 The reference classification system
 
 This repository uses a four-tier classification system to indicate source reliability at a glance.
 
-### The Four Tiers
+### The four tiers
 
 **📘 Official**
 Primary sources with institutional authority.
@@ -213,7 +213,7 @@ Sources that need attention.
 
 *Reader interpretation:* "This reference needs fixing before publication."
 
-### Classification Decision Tree
+### Classification decision tree
 
 ```
 Is the source from the product/service vendor?
@@ -227,7 +227,7 @@ Is the source from the product/service vendor?
         └─ No → 📕 Unverified (investigate further)
 ```
 
-### Edge Cases
+### Edge cases
 
 **GitHub repositories:**
 - Official org repos (microsoft/*, google/*) → 📘 Official
@@ -244,11 +244,11 @@ Is the source from the product/service vendor?
 - Recognized educators (Fireship, Traversy Media) → 📗 Verified
 - Unknown creators → 📒 Community
 
-## Citation Formatting
+## 📝 Citation formatting
 
 Consistent citation formatting aids readability and enables automation.
 
-### This Repository's Format
+### This repository's format
 
 **Inline citation (brief):**
 ```markdown
@@ -261,7 +261,7 @@ Consistent citation formatting aids readability and enables automation.
 Brief description explaining the resource's relevance and value.
 ```
 
-### Format Components
+### Format components
 
 **1. Title as link**
 - Use the actual title of the resource
@@ -303,7 +303,7 @@ Popular visual guide to CSS Flexbox. Note: Check for updates as CSS evolves.
 This is a really great resource that you should definitely read because it's very helpful and informative and I learned a lot from it. - too long, not informative
 ```
 
-### Citation Density
+### Citation density
 
 **How many citations is enough?**
 
@@ -314,11 +314,11 @@ This is a really great resource that you should definitely read because it's ver
 
 **Guideline:** Cite enough to establish credibility without disrupting readability. If every sentence has a citation, consider whether you're adding value or just aggregating sources.
 
-## Managing References Over Time
+## ⏳ Managing references over time
 
 References require maintenance. Links break, content changes, better sources emerge.
 
-### Reference Lifecycle
+### Reference lifecycle
 
 ```
 Discovery → Evaluation → Citation → Monitoring → Update/Replace
@@ -330,7 +330,7 @@ Discovery → Evaluation → Citation → Monitoring → Update/Replace
 **Monitoring:** Checking link validity and content currency
 **Update/Replace:** Fixing broken links, finding better sources
 
-### Reference Inventory
+### Reference inventory
 
 Maintain awareness of references in your documentation:
 
@@ -344,7 +344,7 @@ Maintain awareness of references in your documentation:
 - Broken link count
 - References pending review (📕)
 
-### Update Triggers
+### Update triggers
 
 **Review references when:**
 - Product version changes (your product or referenced product)
@@ -352,18 +352,18 @@ Maintain awareness of references in your documentation:
 - Scheduled review (quarterly recommended)
 - Major industry changes
 
-## Preventing Link Rot
+## 🔗 Preventing link rot
 
 Link rot—URLs that no longer work—undermines documentation credibility.
 
-### Link Rot Statistics
+### Link rot statistics
 
 Studies suggest:
 - ~38% of links break within 6 years
 - Shorter URLs are slightly more stable
 - .gov and .edu domains are more stable than .com
 
-### Prevention Strategies
+### Prevention strategies
 
 **1. Prefer stable URLs**
 - Official documentation URLs over blog posts
@@ -394,7 +394,7 @@ Studies suggest:
 - Alerts for broken links
 - Repository uses: [check-links.ps1](../../scripts/check-links.ps1)
 
-### When Links Break
+### When links break
 
 **Immediate actions:**
 1. Mark as 📕 [Unverified]
@@ -408,11 +408,11 @@ Studies suggest:
 [Archived version](archive-url) available. Seeking current source.
 ```
 
-## Wikipedia's Approach to Sources
+## 📖 Wikipedia's approach to sources
 
 Wikipedia has developed sophisticated source practices worth studying.
 
-### Wikipedia's Source Categories
+### Wikipedia's source categories
 
 **Primary sources:** Direct evidence (original research, datasets)
 - Acceptable for basic facts
@@ -426,7 +426,7 @@ Wikipedia has developed sophisticated source practices worth studying.
 - Useful for basic information
 - Don't cite Wikipedia from Wikipedia
 
-### Wikipedia's Reliability Guidelines
+### Wikipedia's reliability guidelines
 
 From [Wikipedia:Reliable sources](https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources):
 
@@ -447,7 +447,7 @@ From [Wikipedia:Reliable sources](https://en.wikipedia.org/wiki/Wikipedia:Reliab
 - Conference papers (depends on venue)
 - Preprints (may not be peer-reviewed)
 
-### Wikipedia's Citation Templates
+### Wikipedia's citation templates
 
 Wikipedia uses structured citation templates:
 
@@ -485,9 +485,9 @@ Description of relevance.
 4. **Dead links happen** - Have a strategy for broken links
 5. **Anyone can edit** - Build verification into your process
 
-## Applying Citations to This Repository
+## 📌 Applying citations to this repository
 
-### Reference Standards
+### Reference standards
 
 From [documentation.instructions.md](../../.github/instructions/documentation.instructions.md):
 
@@ -510,7 +510,7 @@ Description.
 Description.
 ```
 
-### Validation Integration
+### Validation integration
 
 Every citation practice in this article connects directly to the validation system described in [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md). Specifically, <mark>Dimension 7: References</mark> measures citation quality and source reliability across five indicators: claims supported by references, source authority, currency, link functionality, and classification accuracy.
 
@@ -538,7 +538,7 @@ This means that when you run reference validation, you aren't just checking link
 | Descriptions meaningful | [Citation Formatting](#citation-formatting) — standard format with 2–4 sentence descriptions |
 | No unverified sources | [Reference Maintenance Workflow](#reference-maintenance-workflow) — review cycle catches 📕 markers |
 
-### Common Reference Patterns in This Repository
+### Common reference patterns in this repository
 
 **Microsoft documentation:**
 ```markdown
@@ -560,7 +560,7 @@ This means that when you run reference validation, you aren't just checking link
 **[Diátaxis](https://diataxis.fr/)** 📗 [Verified Community]
 ```
 
-### Reference Maintenance Workflow
+### Reference maintenance workflow
 
 1. **During writing:** Add references with classification
 2. **Before review:** Verify all links work
@@ -568,7 +568,7 @@ This means that when you run reference validation, you aren't just checking link
 4. **Monthly:** Run link checker site-wide
 5. **On broken link:** Update or archive immediately
 
-## Conclusion
+## ✅ Conclusion
 
 Citations aren't just an academic formality bolted onto technical writing—they're a structural component of documentation quality. Every reference you add serves multiple purposes simultaneously: it provides evidence for readers who want to verify your claims, signals that you've done due diligence on your sources, and creates a network of resources that extends your documentation's value beyond its own pages.
 
@@ -576,7 +576,7 @@ The practices in this article connect directly to the broader quality system. So
 
 The key insight is that citation quality is observable. Unlike deep quality characteristics that require subjective judgment, reference quality can be measured: links either resolve or they don't, sources either have classification markers or they don't, and descriptions either explain relevance or they don't. This makes reference validation one of the most automatable dimensions—and one of the easiest to maintain consistently.
 
-### Key Takeaways
+### Key takeaways
 
 - **Evaluate sources systematically** — Use CRAAP or SIFT to assess reliability before citing
 - **Classify for reader trust** — The 📘📗📒📕 system communicates source quality at a glance
@@ -586,16 +586,16 @@ The key insight is that citation quality is observable. Unlike deep quality char
 - **Match citation density to purpose** — Heavy for claims, light for tutorials
 - **Connect to validation** — Reference practices map directly to Dimension 7 and support Accuracy and Completeness criteria
 
-### Next Steps
+### Next steps
 
 - **Next article:** [07-ai-enhanced-documentation-writing.md](07-ai-enhanced-documentation-writing.md) — AI assistance in reference discovery and validation
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — How Dimension 7 (References) validates the practices described here
 - **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Quality criteria that references support (Accuracy, Completeness)
 - **Related:** [09-measuring-readability-and-comprehension.md](09-measuring-readability-and-comprehension.md) — Measuring documentation quality beyond citations
 
-## References
+## 📚 References
 
-### Source Evaluation
+### Source evaluation
 
 **[CRAAP Test](https://libguides.csuchico.edu/c.php?g=414315&p=2822716)** 📘 [Official]  
 California State University, Chico's source evaluation framework. Original source of the CRAAP criteria.
@@ -609,7 +609,7 @@ Wikipedia's comprehensive guidance on evaluating source reliability.
 **[Wikipedia: Identifying Reliable Sources](https://en.wikipedia.org/wiki/Wikipedia:Identifying_reliable_sources)** 📘 [Official]  
 Decision guidance for classifying source reliability.
 
-### Citation Practices
+### Citation practices
 
 **[Wikipedia: Citing Sources](https://en.wikipedia.org/wiki/Wikipedia:Citing_sources)** 📘 [Official]  
 Wikipedia's citation standards and practices.
@@ -620,7 +620,7 @@ American Psychological Association reference formatting (academic standard).
 **[Google Developer Documentation - Link Text](https://developers.google.com/style/link-text)** 📘 [Official]  
 Google's guidance on writing effective link text.
 
-### Link Management
+### Link management
 
 **[Web Archive (Internet Archive)](https://archive.org/web/)** 📘 [Official]  
 Primary resource for archived web content. Use for broken link recovery.
@@ -631,7 +631,7 @@ Harvard Library's link preservation service. Creates permanent archives of web p
 **[DOI Foundation](https://www.doi.org/)** 📘 [Official]  
 Digital Object Identifier system for permanent content identification.
 
-### Reference Management Tools
+### Reference management tools
 
 **[Zotero](https://www.zotero.org/)** 📗 [Verified Community]  
 Open-source reference management software. Useful for tracking sources during research.
@@ -639,7 +639,7 @@ Open-source reference management software. Useful for tracking sources during re
 **[markdown-link-check](https://github.com/tcort/markdown-link-check)** 📗 [Verified Community]  
 Tool for validating markdown links. Useful for reference maintenance.
 
-### Repository-Specific Documentation
+### Repository-specific documentation
 
 **[Documentation Instructions - References](../../.github/instructions/documentation.instructions.md)** [Internal Reference]  
 This repository's reference formatting standards.
@@ -658,7 +658,7 @@ article_metadata:
   filename: "06-citations-and-reference-management.md"
   series: "Technical Documentation Excellence"
   series_position: 7
-  total_articles: 8
+  total_articles: 13
   prerequisites:
     - "05-validation-and-quality-assurance.md"
   related_articles:
