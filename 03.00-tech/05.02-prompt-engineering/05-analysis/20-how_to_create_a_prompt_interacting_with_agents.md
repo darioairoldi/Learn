@@ -1,4 +1,4 @@
-﻿---
+---
 title: "How to create a prompt orchestrating multiple agents"
 author: "Dario Airoldi"
 date: "2025-12-26"
@@ -13,7 +13,7 @@ Tasks like "create a new prompt following best practices" involve multiple disti
 
 This article explains how to design an <mark>orchestrator prompt</mark> that coordinates specialized agents, including intelligent architecture analysis to determine when new agents need to be created.
 
-> **Series context:** This article is a case study applying the orchestration fundamentals from [How to Design Orchestrator Prompts](./10.00-how_to_design_orchestrator_prompts.md), [How to Design Subagent Orchestrations](./11.00-how_to_design_subagent_orchestrations.md), [How to Manage Information Flow](./12.00-how_to_manage_information_flow_during_prompt_orchestrations.md), and [How to Optimize Token Consumption](./13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md). Read those articles first for the conceptual foundations.
+> **Series context:** This article is a case study applying the orchestration fundamentals from [How to Design Orchestrator Prompts](../04-howto/10.00-how_to_design_orchestrator_prompts.md), [How to Design Subagent Orchestrations](../04-howto/11.00-how_to_design_subagent_orchestrations.md), [How to Manage Information Flow](../04-howto/12.00-how_to_manage_information_flow_during_prompt_orchestrations.md), and [How to Optimize Token Consumption](../04-howto/13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md). Read those articles first for the conceptual foundations.
 
 ## Table of contents
 
@@ -68,7 +68,7 @@ A single prompt trying to do everything suffers from:
 | Problem | Impact |
 |---------|--------|
 | **<mark>Tool Clash</mark>** | 20+ tools cause confusion and wrong tool selection |
-| **<mark>[Context Rot](12.00-how_to_manage_information_flow_during_prompt_orchestrations.md#context-rot-why-context-management-is-urgent)</mark>** | Instructions for later phases get "lost in the middle" (accuracy drops from 88% to 30% at 32K tokens) |
+| **<mark>[Context Rot](../04-howto/12.00-how_to_manage_information_flow_during_prompt_orchestrations.md#context-rot-why-context-management-is-urgent)</mark>** | Instructions for later phases get "lost in the middle" (accuracy drops from 88% to 30% at 32K tokens) |
 | **<mark>Mixed Responsibilities</mark>** | Hard to maintain, debug, or improve individual phases |
 | **<mark>No Reusability</mark>** | Can't reuse the "research" capability for other tasks |
 
@@ -354,7 +354,7 @@ Synthesize findings into a prioritized summary.
 
 > **Handoffs vs. subagents:** This case study uses <mark>**handoffs**</mark> (user-visible buttons that switch agents with optional auto-submit) for its orchestration flow. The official patterns above use <mark>**subagents**</mark> (programmatic delegation via `runSubagent`, running in isolated context). Both approaches are validâ€”handoffs give users explicit control at each transition, while subagents enable autonomous multi-step execution. You can combine them: use handoffs for high-risk checkpoints and subagents for automated subtasks.
 
-For a complete treatment of subagent execution, custom agent delegation, orchestration patterns, and the `agents` property, see [How to Design Subagent Orchestrations](./11.00-how_to_design_subagent_orchestrations.md).
+For a complete treatment of subagent execution, custom agent delegation, orchestration patterns, and the `agents` property, see [How to Design Subagent Orchestrations](../04-howto/11.00-how_to_design_subagent_orchestrations.md).
 
 ### Sharing Agents Across Teams
 
@@ -746,7 +746,7 @@ handoffs:
 > ---
 > ```
 >
-> This approach delegates via `runSubagent` instead of handoff buttons, enabling autonomous multi-step execution. See the [Subagents section](#subagents) and [How to Design Subagent Orchestrations](./11.00-how_to_design_subagent_orchestrations.md) for details.
+> This approach delegates via `runSubagent` instead of handoff buttons, enabling autonomous multi-step execution. See the [Subagents section](#subagents) and [How to Design Subagent Orchestrations](../04-howto/11.00-how_to_design_subagent_orchestrations.md) for details.
 
 ### Phase Flow
 
@@ -847,9 +847,9 @@ Effective multi-agent orchestration requires explicit protocols for how informat
 
 This case study's prompt creation workflow uses several techniques covered in detail in the dedicated articles:
 
-- **Data contracts and structured reports** â€” Each agent in this workflow produces structured text reports (not JSON) for downstream consumption. See [How to Manage Information Flow](./12.00-how_to_manage_information_flow_during_prompt_orchestrations.md) for the theory of data contracts, communication formats, context carryover strategies, and the five communication pathways.
+- **Data contracts and structured reports** â€” Each agent in this workflow produces structured text reports (not JSON) for downstream consumption. See [How to Manage Information Flow](../04-howto/12.00-how_to_manage_information_flow_during_prompt_orchestrations.md) for the theory of data contracts, communication formats, context carryover strategies, and the five communication pathways.
 
-- **Token-efficient handoffs** â€” Multi-phase workflows like this one create compounding token costs at each handoff. Techniques like progressive summarization, file-based isolation, and prompt-directed attention keep costs manageable. See [How to Optimize Token Consumption](./13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md) for nine strategies with token budget estimates.
+- **Token-efficient handoffs** â€” Multi-phase workflows like this one create compounding token costs at each handoff. Techniques like progressive summarization, file-based isolation, and prompt-directed attention keep costs manageable. See [How to Optimize Token Consumption](../04-howto/13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md) for nine strategies with token budget estimates.
 
 - **Handoff prompt design** â€” When `send: true` triggers a handoff, the entire conversation history flows to the receiving agent. Use explicit `FOCUS ON` / `IGNORE` directives in the `prompt:` field to direct the agent's attention. For critical data, consider file-based context passing (writing specs to `.copilot/temp/` files and instructing the receiving agent to read them).
 
@@ -2287,13 +2287,13 @@ Central hub for GitHub Copilot features including chat, CLI, code review, coding
 **[21.1 Prompt Creation Multi-Agent Flow - Implementation Plan](./21.1-example_prompt_interacting_with_agents_plan.md)** `[ðŸ“’ Internal]`  
 Complete case study documenting the real-world implementation of the multi-agent prompt creation system. Includes detailed YAML specifications for all orchestrators and agents, 2-week implementation roadmap, and battle-tested patterns that informed this article.
 
-**[04. How to Structure Content for Copilot Agent Files](./04.00-how_to_structure_content_for_copilot_agent_files.md)** `[ðŸ“’ Community]`  
+**[04. How to Structure Content for Copilot Agent Files](../04-howto/04.00-how_to_structure_content_for_copilot_agent_files.md)** `[ðŸ“’ Community]`  
 Detailed guide to agent file structure, personas, handoffs, tool configuration, and composing agents with prompts. Companion article covering implementation details for the patterns described here.
 
 **[Burke Holland â€” Orchestrations Demo](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md)** `[ï¿½ Verified Community]`  
 Practical demonstration of an ultralight orchestration framework with four specialized agents, model-per-agent routing, and isolated context windows. Burke Holland is a Senior Cloud Advocate at Microsoft.
 
-**[03. How to Structure Content for Copilot Prompt Files](./03.00-how_to_structure_content_for_copilot_prompt_files.md)** `[ðŸ“’ Community]`  
+**[03. How to Structure Content for Copilot Prompt Files](../04-howto/03.00-how_to_structure_content_for_copilot_prompt_files.md)** `[ðŸ“’ Community]`  
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.
 
 **Context Engineering Principles** (`.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`) `[ðŸ“’ Internal]`  
