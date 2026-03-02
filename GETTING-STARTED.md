@@ -15,7 +15,7 @@ This repository uses **IQPilot** - an optional AI-assisted content development t
 **✨ IQPilot is completely optional** - all core features work with GitHub Copilot alone!
 
 ### What IQPilot Provides
-
+ 
 **Without IQPilot (GitHub Copilot only):**
 - ✅ Automated content validation (grammar, readability, structure)
 - ✅ Template-based content creation
