@@ -33,7 +33,7 @@ This repository uses **IQPilot** - an optional AI-assisted content development t
 **Choose your mode:**
 - **MCP Mode** - Full IQPilot experience
 - **Prompts Only** - Standalone prompts, no MCP server
-- **Off** - Standard GitHub Copilot
+- **Off** - Standard GitHub Copilot 
 
 See [`.iqpilot/README.md`](.iqpilot/README.md) for mode comparison and switching guide.
 
