@@ -1,0 +1,16 @@
+# .gitignore for gh-pages branch
+# This file is copied to .gitignore during deployment
+# Allows HTML files (needed for GitHub Pages), ignores IDE folders
+
+# IDE and editor folders
+.vs/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
