@@ -107,13 +107,13 @@ Personal Spaces can be shared publicly (view-only), with specific users, or kept
 
 ## Relationship to Prompt Assembly
 
-Spaces inject context **alongside** the prompt assembly pipeline documented in [07-prompt-assembly-architecture.md](./07-prompt-assembly-architecture.md). Space instructions act like an additional system prompt layer; Space sources provide grounding context. They don't change the 6-layer system prompt structure — they extend it.
+Spaces inject context **alongside** the prompt assembly pipeline documented in [02-prompt-assembly-architecture.md](./02-prompt-assembly-architecture.md). Space instructions act like an additional system prompt layer; Space sources provide grounding context. They don't change the 6-layer system prompt structure — they extend it.
 
 ---
 
 ## References
 
-- **Internal**: [07-prompt-assembly-architecture.md](./07-prompt-assembly-architecture.md), [13-file-type-decision-guide.md](./13-file-type-decision-guide.md)
+- **Internal**: [02-prompt-assembly-architecture.md](./02-prompt-assembly-architecture.md), [03-file-type-decision-guide.md](./03-file-type-decision-guide.md)
 - **Source**: `03.00-tech/05.02-prompt-engineering/01-overview/01.01-appendix_copilot_spaces.md`
 - **External**: [GitHub Copilot Spaces](https://docs.github.com/en/copilot/concepts/context/spaces), [Creating Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces)
 

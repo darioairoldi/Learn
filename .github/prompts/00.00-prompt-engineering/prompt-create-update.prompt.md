@@ -1,5 +1,5 @@
 ---
-name: prompt-createorupdate-v2
+name: prompt-create-update
 description: "Create production-ready prompt files with adaptive validation, error recovery, and embedded test scenarios"
 agent: agent
 model: claude-opus-4.6
@@ -28,13 +28,13 @@ You are a **prompt engineer** and **requirements analyst** responsible for creat
 You MUST apply context engineering principles, use imperative language patterns, and structure prompts for optimal LLM execution.  
 You WILL actively challenge requirements through use case testing to discover gaps, ambiguities, and missing information before implementation.
 
-**📖 Validation Methodology:** `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md`
+**📖 Validation Methodology:** `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md`
 
 ## 🚨 CRITICAL BOUNDARIES (Read First)
 
 ### ✅ Always Do
 - You MUST read `.github/instructions/prompts.instructions.md` before creating/updating prompts
-- You MUST read `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md` for validation patterns
+- You MUST read `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md` for validation patterns
 - You WILL challenge goals with 3-5 realistic use cases to discover ambiguities
 - You WILL validate role appropriateness (authority + expertise + specificity tests)
 - You WILL test workflow reliability by identifying failure modes
@@ -153,7 +153,7 @@ You WILL actively challenge requirements through use case testing to discover ga
 
 #### Step 3: Determine Validation Depth (Adaptive)
 
-**📖 Complete Criteria:** `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md`
+**📖 Complete Criteria:** `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md`
 
 **Complexity Assessment:**
 
@@ -176,7 +176,7 @@ You WILL actively challenge requirements through use case testing to discover ga
 
 **CRITICAL:** This is where passive extraction becomes active validation.
 
-**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md`
+**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md`
 
 ---
 
@@ -202,7 +202,7 @@ You WILL actively challenge requirements through use case testing to discover ga
 
 **Goal:** Ensure role has authority and expertise to achieve the goal.
 
-**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md` (See "Role Validation Methodology" section)
+**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md` (See "Role Validation Methodology" section)
 
 **Process:**
 
@@ -222,7 +222,7 @@ You WILL actively challenge requirements through use case testing to discover ga
 
 **Goal:** Test if proposed workflow phases can handle realistic scenarios and failure modes.
 
-**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md` (See "Workflow Reliability Testing" section)
+**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md` (See "Workflow Reliability Testing" section)
 
 **Process:**
 
@@ -239,12 +239,12 @@ You WILL actively challenge requirements through use case testing to discover ga
 
 **Goal:** Map workflow phases to required tool capabilities and validate tool selection.
 
-**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md` (See "Tool Requirement Mapping" section)
+**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md` (See "Tool Requirement Mapping" section)
 
 **Process:**
 
 1. **For each phase:** What capabilities are needed?
-2. **Cross-reference:** `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+2. **Cross-reference:** `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 3. **Validate count:** 3-7 tools is optimal (>7 causes tool clash)
 4. **Verify alignment:** agent mode matches tools (plan → read-only, agent → write)
 
@@ -256,7 +256,7 @@ You WILL actively challenge requirements through use case testing to discover ga
 
 **Goal:** Ensure each boundary is unambiguously testable by AI.
 
-**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md` (See "Boundary Actionability Validation" section)
+**📖 Complete Methodology:** `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md` (See "Boundary Actionability Validation" section)
 
 **Process:**
 
@@ -406,8 +406,8 @@ You WILL actively challenge requirements through use case testing to discover ga
 
 - `.github/instructions/prompts.instructions.md` - Core guidelines and Production-Ready requirements
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md` - 8 core principles
-- `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md` - Validation methodology
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md` - Tool selection patterns
+- `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md` - Validation methodology
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md` - Tool selection patterns
 
 **You MUST use output format templates:**
 
@@ -455,7 +455,7 @@ prompt_metadata:
   last_updated: "2026-01-24T00:00:00Z"
   version: "2.2"
   changes:
-    - "Moved detailed validation examples to .copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md"
+    - "Moved detailed validation examples to .copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md"
     - "Added Response Management section (Production-Ready requirement)"
     - "Added Error Recovery workflows (Production-Ready requirement)"
     - "Added Embedded Test Scenarios requirement (minimum 5)"
@@ -477,6 +477,6 @@ validations:
     status: "validated"
     last_run: "2026-01-24T00:00:00Z"
     checklist_passed: true
-    validated_by: "prompt-createorupdate-v2 (self-review)"
+    validated_by: "prompt-create-update (self-review)"
 ---
 -->

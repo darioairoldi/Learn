@@ -138,7 +138,7 @@ All prompt engineering patterns from articles 01–13 apply without modification
 
 ## References
 
-- **Internal**: [07-prompt-assembly-architecture.md](./07-prompt-assembly-architecture.md), [02-tool-composition-guide.md](./02-tool-composition-guide.md), [14-mcp-server-design-patterns.md](./14-mcp-server-design-patterns.md)
+- **Internal**: [02-prompt-assembly-architecture.md](./02-prompt-assembly-architecture.md), [04-tool-composition-guide.md](./04-tool-composition-guide.md), [11-mcp-server-design-patterns.md](./11-mcp-server-design-patterns.md)
 - **Source**: `03.00-tech/05.02-prompt-engineering/04-howto/14.00-how_to_use_prompts_with_the_github_copilot_sdk.md`
 - **External**: [GitHub Copilot SDK](https://github.com/github/copilot-sdk), [Copilot Billing](https://docs.github.com/en/copilot/concepts/billing/copilot-requests)
 

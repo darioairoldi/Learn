@@ -654,6 +654,6 @@ Validation logic updated:
 ## References
 
 - **Context Engineering Principles**: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- **Tool Composition Guide**: `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- **Tool Composition Guide**: `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - **Global Instructions**: `.github/copilot-instructions.md` (Dual YAML Metadata section)
 - **Validation Prompts**: `.github/prompts/grammar-review.prompt.md`, etc.

@@ -712,7 +712,7 @@ MCP-provided tools appear alongside built-in L2 tools. Key differences:
 | Token cost | Predictable (see table above) | Varies by server implementation |
 | Cross-platform | VS Code only | Any MCP-compatible client |
 
-Use `tools: ['mcp: server-name']` in agent/prompt YAML to scope MCP tools. See [14-mcp-server-design-patterns.md](./14-mcp-server-design-patterns.md) for server design.
+Use `tools: ['mcp: server-name']` in agent/prompt YAML to scope MCP tools. See [11-mcp-server-design-patterns.md](./11-mcp-server-design-patterns.md) for server design.
 
 ### Optimization Patterns
 
@@ -765,6 +765,6 @@ Use `tools: ['mcp: server-name']` in agent/prompt YAML to scope MCP tools. See [
 
 ## References
 
-- **Internal**: [01-context-engineering-principles.md](./01-context-engineering-principles.md), [09-token-optimization-strategies.md](./09-token-optimization-strategies.md), [14-mcp-server-design-patterns.md](./14-mcp-server-design-patterns.md)
+- **Internal**: [01-context-engineering-principles.md](./01-context-engineering-principles.md), [06-context-window-and-token-optimization.md](./06-context-window-and-token-optimization.md), [11-mcp-server-design-patterns.md](./11-mcp-server-design-patterns.md)
 - **Source**: Articles 03.00, 09.50 in `03.00-tech/05.02-prompt-engineering/`
 - **External**: [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)

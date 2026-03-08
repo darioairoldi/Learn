@@ -59,7 +59,7 @@ VS Code provides a **binary** handoff mechanism — no selective filtering:
 | 3–5 phases | Progressive summarization | ~52% reduction |
 | 5+ phases | File-based isolation (`.copilot/temp/`) | ~83% reduction |
 
-**See**: [08-context-window-management.md](./08-context-window-management.md) for detailed flow pattern comparison.
+**See**: [06-context-window-and-token-optimization.md](./06-context-window-and-token-optimization.md) for detailed flow pattern comparison.
 
 ### Reliability Checksum
 
@@ -384,13 +384,13 @@ Handoffs coordinate phases with user checkpoints. Within a phase, subagents hand
 | `disable-model-invocation: true` | Prevent auto-invocation as subagent |
 | `user-invokable: false` | Hide from user dropdown (subagent-only) |
 
-**See**: [12-orchestrator-design-patterns.md](./12-orchestrator-design-patterns.md) for full subagent mechanics.
+**See**: [07-orchestrator-design-patterns.md](./07-orchestrator-design-patterns.md) for full subagent mechanics.
 
 ---
 
 ## References
 
-- **Internal**: [01-context-engineering-principles.md](./01-context-engineering-principles.md), [02-tool-composition-guide.md](./02-tool-composition-guide.md), [12-orchestrator-design-patterns.md](./12-orchestrator-design-patterns.md)
+- **Internal**: [01-context-engineering-principles.md](./01-context-engineering-principles.md), [04-tool-composition-guide.md](./04-tool-composition-guide.md), [07-orchestrator-design-patterns.md](./07-orchestrator-design-patterns.md)
 - **Sources**: Articles 10.00, 11.00 in `03.00-tech/05.02-prompt-engineering/`
 - **Templates**: `.github/templates/prompt-multi-agent-orchestration-template.md`
 - **External**: [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)

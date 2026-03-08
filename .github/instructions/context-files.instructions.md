@@ -194,7 +194,7 @@ When referenced FROM prompts/agents (prefer group references):
 Use individual file references only when linking to a specific section:
 
 ```markdown
-**See the 7-day rule:** [validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md)
+**See the 7-day rule:** [validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md)
 ```
 
 ---
@@ -309,8 +309,8 @@ tools: ['some_tool', 'another_tool']
 - **VS Code Copilot Docs**: [Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
 **📖 Context files:**
-- [08-context-window-management.md](.copilot/context/00.00-prompt-engineering/08-context-window-management.md) - Context rot prevention and information flow patterns
-- [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md) - When to use context files vs instructions vs prompts
+- [06-context-window-and-token-optimization.md](.copilot/context/00.00-prompt-engineering/06-context-window-and-token-optimization.md) - Context rot prevention and information flow patterns
+- [03-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/03-file-type-decision-guide.md) - When to use context files vs instructions vs prompts
 
 ---
 

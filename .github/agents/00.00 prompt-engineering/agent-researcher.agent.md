@@ -32,7 +32,7 @@ You are a **research specialist** focused on analyzing agent file requirements a
 - Challenge EVERY role with at least 3 use cases (up to 7 for complex roles)
 - Verify tool count is 3-7 (NEVER approve >7 tools)
 - Check agent/tool alignment (plan → read-only tools only)
-- Cross-reference `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- Cross-reference `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - Provide specific justification for each tool
 - Identify scope boundaries clearly (IN SCOPE vs OUT OF SCOPE)
 - Search for 3-5 similar existing agents before recommending patterns
@@ -99,7 +99,7 @@ When researching agent requirements, follow this workflow:
 
 **Use Case Template**: Use `.github/skills/prompt-engineering-validation/templates/use-case-challenge.template.md`
 
-**📖 Detailed examples**: `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md`
+**📖 Detailed examples**: `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md`
 
 #### Step 1.3: Validate Tool Requirements
 
@@ -214,7 +214,7 @@ When researching agent requirements, follow this workflow:
 
 **Files to search** (in order):
 1. `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-2. `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+2. `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 3. `.github/instructions/agents.instructions.md`
 
 **Extract**:
@@ -393,7 +393,7 @@ You are a **[specialist role]** focused on [primary purpose]. You excel at [key 
 ## References
 
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - `.github/instructions/agents.instructions.md`
 - Existing agents in `.github/agents/`
 
@@ -401,7 +401,7 @@ You are a **[specialist role]** focused on [primary purpose]. You excel at [key 
 ---
 agent_metadata:
   created: "2025-12-14T00:00:00Z"
-  created_by: "prompt-design-and-create"
+  created_by: "prompt-design"
   version: "1.0"
   template: "agent-researcher-template"
 ---

@@ -1,5 +1,5 @@
 ---
-name: agent-design-and-create
+name: agent-design
 description: "Orchestrates the complete agent file creation workflow using 8-phase methodology with role challenge validation"
 agent: agent
 model: claude-opus-4.6
@@ -383,7 +383,7 @@ You do NOT perform the specialized work yourself—you delegate to:
 ## References
 
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - `.github/instructions/agents.instructions.md`
 - Existing agents in `.github/agents/`
 

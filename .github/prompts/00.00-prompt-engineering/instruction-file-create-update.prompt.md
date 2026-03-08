@@ -1,5 +1,5 @@
 ---
-name: prompt-createorupdate-prompt-instructions
+name: instruction-file-create-update
 description: "Create or update instruction files that provide path-specific AI guidance for GitHub Copilot"
 agent: agent
 model: claude-opus-4.6
@@ -85,8 +85,8 @@ If user input is incomplete, ask clarifying questions before proceeding.
 ## 🚫 Out of Scope
 
 This prompt WILL NOT:
-- Create context files (`.copilot/context/`) — use `prompt-createorupdate-context-information.prompt.md`
-- Create prompt files (`.prompt.md`) — use `prompt-createorupdate-prompt-file.prompt.md`
+- Create context files (`.copilot/context/`) — use `context-file-create-update.prompt.md`
+- Create prompt files (`.prompt.md`) — use `prompt-create-update.prompt.md`
 - Create agent files (`.agent.md`) — use agent creation prompts
 - Create skill files (`SKILL.md`) — use skill creation prompts
 - Edit repository-level configuration (`.github/copilot-instructions.md`)
@@ -221,7 +221,7 @@ If domain has corresponding context folder, read those files first:
 ```
 Context files to read:
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - etc.
 ```
 
@@ -515,7 +515,7 @@ validations:
       tool_count: 9
       boundaries: "complete"
 prompt_metadata:
-  filename: "prompt-createorupdate-prompt-instructions.prompt.md"
+  filename: "instruction-file-create-update.prompt.md"
   created: "2026-01-24T00:00:00Z"
   created_from: "prompt-createorupdate-prompt-guidance.prompt.md"
   version: "1.1"

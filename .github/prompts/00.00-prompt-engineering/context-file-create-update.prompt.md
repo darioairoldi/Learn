@@ -1,5 +1,5 @@
 ---
-name: prompt-createorupdate-context-information
+name: context-file-create-update
 description: "Create or update context files that provide shared reference documents for prompts, agents, and instructions"
 agent: agent
 model: claude-opus-4.6
@@ -85,8 +85,8 @@ If user input is incomplete, ask clarifying questions before proceeding.
 ## 🚫 Out of Scope
 
 This prompt WILL NOT:
-- Create prompt files (`.prompt.md`) — use `prompt-createorupdate-prompt-file.prompt.md`
-- Create instruction files (`.instructions.md`) — use `prompt-createorupdate-prompt-instructions.prompt.md`
+- Create prompt files (`.prompt.md`) — use `prompt-create-update.prompt.md`
+- Create instruction files (`.instructions.md`) — use `instruction-file-create-update.prompt.md`
 - Create agent files (`.agent.md`) — use agent creation prompts
 - Create skill files (`SKILL.md`) — use skill creation prompts
 - Edit repository-level configuration (`.github/copilot-instructions.md`)
@@ -536,7 +536,7 @@ validations:
       tool_count: 9
       boundaries: "complete"
 prompt_metadata:
-  filename: "prompt-createorupdate-context-information.prompt.md"
+  filename: "context-file-create-update.prompt.md"
   created: "2026-01-24T00:00:00Z"
   created_from: "prompt-createorupdate-prompt-guidance.prompt.md"
   version: "1.2"

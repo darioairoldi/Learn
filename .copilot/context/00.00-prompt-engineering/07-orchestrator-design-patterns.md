@@ -159,7 +159,7 @@ Premium models handle reasoning; free models execute. Context clearing between p
 
 ## References
 
-- **Internal**: [11-agent-hooks-reference.md](./11-agent-hooks-reference.md), [08-context-window-management.md](./08-context-window-management.md)
+- **Internal**: [10-agent-hooks-reference.md](./10-agent-hooks-reference.md), [06-context-window-and-token-optimization.md](./06-context-window-and-token-optimization.md)
 - **Sources**: Articles 10.00 and 11.00 in `03.00-tech/05.02-prompt-engineering/`
 - **External**: [VS Code Multi-Agent](https://code.visualstudio.com/docs/copilot/copilot-customization)
 

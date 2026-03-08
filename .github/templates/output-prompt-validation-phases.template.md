@@ -2,7 +2,7 @@
 
 **Purpose:** Reusable output format templates for prompt creation/update workflows.
 
-**Referenced by:** `prompt-createorupdate-prompt-file-v2.prompt.md` and related prompts
+**Referenced by:** `prompt-create-update.prompt.md` and related prompts
 
 ---
 
@@ -434,7 +434,7 @@ I've analyzed your request and identified some gaps. Please clarify:
 ---
 prompt_metadata:
   created: "[ISO timestamp]"
-  created_by: "prompt-createorupdate-v2"
+  created_by: "prompt-create-update"
   last_updated: "[ISO timestamp]"
   version: "1.0"
   validation:

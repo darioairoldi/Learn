@@ -683,8 +683,8 @@ New format:
 
 Before updates:
 - **Context Engineering Principles**: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md` (Imperative language, boundaries)
-- **Tool Composition Guide**: `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md` (Tool/agent type alignment)
-- **Validation Caching Pattern**: `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md` (Metadata structure)
+- **Tool Composition Guide**: `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md` (Tool/agent type alignment)
+- **Validation Caching Pattern**: `.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md` (Metadata structure)
 
 ## Your Communication Style
 

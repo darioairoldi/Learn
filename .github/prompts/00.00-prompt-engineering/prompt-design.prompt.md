@@ -1,5 +1,5 @@
 ---
-name: prompt-design-and-create
+name: prompt-design
 description: "Orchestrates the complete prompt file creation workflow using 8-phase methodology with use case challenge validation"
 agent: agent
 model: claude-opus-4.6
@@ -235,7 +235,7 @@ Orchestrate a multi-agent workflow to create new prompt file(s) that:
 **Delegate to prompt-researcher** for:
 1. Search context files first:
    - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-   - `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+   - `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
    - `.github/instructions/prompts.instructions.md`
 2. Find 3-5 similar existing prompts
 3. Extract applicable patterns
@@ -647,7 +647,7 @@ After fixes, re-validate via `prompt-validator`. Maximum 3 iterations.
 
 - All specialist agents configured in YAML handoffs section above
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - `.github/instructions/prompts.instructions.md`
 - `.github/instructions/agents.instructions.md`
 

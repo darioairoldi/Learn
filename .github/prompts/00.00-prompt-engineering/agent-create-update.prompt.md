@@ -1,5 +1,5 @@
 ---
-name: agent-createorupdate-v2
+name: agent-create-update
 description: "Create new agent files or update existing ones with adaptive validation using challenge-based requirements discovery"
 agent: agent
 model: claude-opus-4.6
@@ -223,7 +223,7 @@ Analyze initial requirements to determine validation depth needed:
 4. **Verify agent/tool alignment** (plan → read-only, agent → full access)
 5. **Check for tool conflicts** (avoid overlapping capabilities)
 
-**Tool Composition Methodology:** See `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md` for:
+**Tool Composition Methodology:** See `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md` for:
 - Responsibility → Tool mapping patterns
 - Tool count optimization strategies
 - Agent mode alignment rules
@@ -309,7 +309,7 @@ Analyze initial requirements to determine validation depth needed:
    - `.github/instructions/agents.instructions.md`
    - `.github/copilot-instructions.md`
    - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-   - `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+   - `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 
 2. **Search for similar agents:**
    ```
@@ -397,7 +397,7 @@ Analyze initial requirements to determine validation depth needed:
 
 - `.github/instructions/agents.instructions.md` - Core guidelines
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md` - 8 core principles
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md` - Tool selection guide
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md` - Tool selection guide
 
 **You MUST use output format templates:**
 
@@ -432,7 +432,7 @@ Before completing:
 
 - `.github/instructions/agents.instructions.md`
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
@@ -455,6 +455,6 @@ validations:
     status: "validated"
     last_run: "2026-01-24T00:00:00Z"
     checklist_passed: true
-    validated_by: "prompt-createorupdate-v2 (self-review)"
+    validated_by: "agent-create-update (self-review)"
 ---
 -->

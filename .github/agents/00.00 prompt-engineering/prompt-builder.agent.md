@@ -515,8 +515,8 @@ Your generated prompts must meet these criteria:
 
 Before building:
 - **Context Engineering Principles**: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- **Tool Composition Guide**: `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
-- **Validation Caching** (for validation prompts): `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md`
+- **Tool Composition Guide**: `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
+- **Validation Caching** (for validation prompts): `.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md`
 
 ## Your Communication Style
 

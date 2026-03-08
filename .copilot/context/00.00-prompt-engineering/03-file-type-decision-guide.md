@@ -47,7 +47,7 @@ What do you need?
 | **Cross-platform** | VS Code only | VS Code only | VS Code, VS | VS Code, CLI, Agent | Any MCP client |
 | **Complexity** | Low | Low | Low | Medium | High |
 
-**Additional context mechanisms**: See [15-copilot-spaces-patterns.md](./15-copilot-spaces-patterns.md) for persistent cross-project context and [16-copilot-sdk-integration.md](./16-copilot-sdk-integration.md) for programmatic consumption.
+**Additional context mechanisms**: See [12-copilot-spaces-patterns.md](./12-copilot-spaces-patterns.md) for persistent cross-project context and [13-copilot-sdk-integration.md](./13-copilot-sdk-integration.md) for programmatic consumption.
 
 ## Naming Conventions
 
@@ -115,7 +115,7 @@ Tool priority: **Prompt tools > Agent tools > Default agent tools**
 
 ## References
 
-- **Internal**: [07-prompt-assembly-architecture.md](./07-prompt-assembly-architecture.md), [02-tool-composition-guide.md](./02-tool-composition-guide.md)
+- **Internal**: [02-prompt-assembly-architecture.md](./02-prompt-assembly-architecture.md), [04-tool-composition-guide.md](./04-tool-composition-guide.md)
 - **Sources**: Articles 02.00, 03.00, 04.00, 05.00 in `03.00-tech/05.02-prompt-engineering/`
 - **External**: [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
