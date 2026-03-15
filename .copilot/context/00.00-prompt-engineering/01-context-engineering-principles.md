@@ -152,7 +152,7 @@ boundaries:
 
 ✅ **Good**: 
 For context engineering principles, see `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-For tool composition patterns, see `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+For tool composition patterns, see `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 ```
 
 **Group References Over Individual Files**:
@@ -204,60 +204,14 @@ When referencing context files from `.github/` files (prompts, agents, instructi
 - Makes agent behavior more predictable
 - Aligns with principle of least privilege
 
-**Tool Categories**:
+**📖 Complete tool reference:** [04-tool-composition-guide.md](04-tool-composition-guide.md) — tool categories, costs, composition patterns, role-based selection
 
-| Category | Tools | Risk Level | Use For |
-|----------|-------|------------|---------|
-| **Read-Only** | `read_file`, `grep_search`, `semantic_search`, `list_dir`, `file_search` | ✅ Low | Research, analysis, validation |
-| **Inspection** | `get_errors`, `copilot_getNotebookSummary` | ✅ Low | Quality checks, diagnostics |
-| **Write** | `create_file`, `replace_string_in_file`, `multi_replace_string_in_file` | ⚠️ Medium | Content creation, targeted updates |
-| **Destructive** | File deletion, workspace restructuring | 🚫 High | Avoid; use terminal with approval |
-| **External** | `fetch_webpage`, `github_repo`, `run_in_terminal` | ⚠️ Medium | Research, environment setup |
-
-**Agent Type Guidelines**:
-
-```yaml
-# Read-only agent (researcher, validator)
----
-agent: plan
-tools: ['read_file', 'semantic_search', 'grep_search', 'file_search']
----
-
-# Builder agent (needs write access)
----
-agent: agent  # Default, allows file creation
-tools: ['read_file', 'semantic_search', 'create_file', 'replace_string_in_file']
----
-
-# Orchestrator prompt (delegates, minimal tools)
----
-tools: ['read_file', 'semantic_search']  # Only for Phase 1 analysis
-handoffs:
-  - label: "Research Requirements"
-    agent: prompt-researcher
-    send: true
----
-```
-
-**Security Boundaries**:
-```markdown
-## Tool Boundaries
-
-✅ **ALWAYS ALLOWED**:
-- Read any file in `.github/` directories
-- Search workspace with semantic_search or grep_search
-- Validate syntax without modifying files
-
-⚠️ **ASK FIRST**:
-- Create new files in `.github/agents/` or `.github/prompts/`
-- Modify existing prompts or agents
-- Install packages or extensions
-
-🚫 **NEVER ALLOWED**:
-- Modify files outside `.github/` and `.copilot/` directories
-- Delete prompt or agent files without explicit user request
-- Execute terminal commands that modify system configuration
-```
+**Key rules:**
+- `agent: plan` + read-only tools ONLY (read_file, grep_search, semantic_search, file_search, list_dir, get_errors)
+- `agent: agent` + read + write tools (create_file, replace_string_in_file, multi_replace_string_in_file)
+- **NEVER** mix `agent: plan` with write tools — this is a CRITICAL validation failure
+- Limit agents to 3–7 tools; >7 causes tool clash
+- Always-available tools (manage_todo_list, ask_questions, runSubagent, tool_search_tool_regex) MUST NOT be listed in `tools:` frontmatter
 
 ---
 
@@ -309,52 +263,20 @@ handoffs:
 | **Checklists** | > 12 items | `.github/templates/checklist-*.template.md` |
 | **Phase Output Formats** | > 15 lines per phase | `.copilot/context/*/phase-*.md` |
 
-**Application pattern:**
+**Template reference pattern:**
 
-❌ **Bad** (embedded verbose format):
 ```markdown
+❌ **Don't** embed verbose format inline:
 ## Output Format
+### Section 1: Summary
+[...50+ lines of format specification...]
 
-**Complete validation report with:**
-
-```markdown
-### Validation Results
-
-**File:** [filename]
-**Checked:** [timestamp]
-
-#### Grammar Analysis
-- **Score:** [X/100]
-- **Issues Found:** [count]
-  - Line [N]: [issue description]
-  - Line [N]: [issue description]
-  ...
-
-#### Readability Analysis
-- **Flesch-Kincaid Grade:** [X.X]
-- **Reading Time:** [X min]
-...
-[50 more lines of format specification]
+✅ **Do** reference template:
+## Output Format
+**Use template:** `.github/templates/output-summary.template.md`
 ```
 
-✅ **Good** (template reference with conditional):
-```markdown
-## Output Format
-
-**📄 Format Templates:** `.github/templates/`
-
-Select template based on validation depth:
-- **Quick validation**: Use `report-validation-quick.template.md`
-- **Standard validation**: Use `report-validation-standard.template.md`  
-- **Deep validation**: Use `report-validation-comprehensive.template.md`
-
-Load selected template with `read_file` and populate with results.
-```
-
-**Conditional template selection:**
-
-```markdown
-### Template Selection Logic
+**Conditional template selection** — select based on task complexity:
 
 | Condition | Template | Purpose |
 |-----------|----------|---------|
@@ -362,51 +284,24 @@ Load selected template with `read_file` and populate with results.
 | Standard task | `output-standard.template.md` | Default format |
 | Complex/orchestration | `output-detailed.template.md` | Full trace |
 | Error scenario | `output-error.template.md` | Recovery focus |
-| User-facing report | `output-report.template.md` | Polished format |
-```
 
-**Token savings estimation:**
+**Token savings:** Inline 50 lines ≈ 300 tokens → template reference 3 lines ≈ 18 tokens (94% savings). Multiply by 6 phases in an orchestrator → ~1,700 tokens saved.
 
-| Inline Format Lines | Approx. Tokens | Template Reference | Savings |
-|---------------------|----------------|-------------------|---------|
-| 20 lines | ~120 tokens | 2 lines (~12 tokens) | ~90% |
-| 50 lines | ~300 tokens | 3 lines (~18 tokens) | ~94% |
-| 100 lines | ~600 tokens | 4 lines (~24 tokens) | ~96% |
+**When to keep inline:** Format is < 10 lines, unique to this prompt (never reused), or requires heavy dynamic interpolation.
 
-**When to keep inline:**
-- Format is < 10 lines (overhead of reference not worth it)
-- Format is unique to this prompt (never reused)
-- Format requires heavy dynamic interpolation with many variables
+**Template naming conventions:**
 
-**Template Location & Naming Conventions:**
-
-| Purpose | Location | Naming Pattern | Example |
-|---------|----------|----------------|---------|
-| **Output formats** | `.github/templates/` | `output-{purpose}.template.md` | `output-prompt-validation-phases.template.md` |
-| **Input schemas** | `.github/templates/` | `input-{purpose}.template.md` | `input-article-metadata.template.md` |
-| **Document structures** | `.github/templates/` | `{type}-structure.template.md` | `promptengineering-instruction-structure.template.md` |
-| **Guidance sections** | `.github/templates/` | `guidance-{topic}.template.md` | `guidance-input-collection.template.md` |
-| **Domain-specific** | `.github/templates/` | `{domain}-*.template.md` | `recording-summary-template.md` |
-
-**Template Reference Pattern:**
-
-```markdown
-❌ **Don't** embed verbose format inline:
-## Output Format
-### Section 1: Summary
-- Title (H1)
-- Overview paragraph
-[...50+ lines...]
-
-✅ **Do** reference template:
-## Output Format
-**Use template:** `.github/templates/output-summary.template.md`
-```
+| Purpose | Naming Pattern | Example |
+|---------|----------------|---------|
+| **Output formats** | `output-{purpose}.template.md` | `output-prompt-validation-phases.template.md` |
+| **Input schemas** | `input-{purpose}.template.md` | `input-article-metadata.template.md` |
+| **Document structures** | `{type}-structure.template.md` | `promptengineering-instruction-structure.template.md` |
+| **Guidance sections** | `guidance-{topic}.template.md` | `guidance-input-collection.template.md` |
 
 **Existing templates:** See `.github/templates/` (26+ reusable templates available)
 
 **Integration with Principle 5 (Context Minimization):**
-Template externalization is a specific application of context minimization for structured outputs. While Principle 5 focuses on *reference knowledge*, Principle 8 addresses *output scaffolding*—both reduce inline token consumption
+Template externalization is a specific application of context minimization for structured outputs. While Principle 5 focuses on *reference knowledge*, Principle 8 addresses *output scaffolding*—both reduce inline token consumption.
 
 **Three-Part "I Don't Know" Template**:
 
@@ -416,35 +311,9 @@ I did find [partial/related context] in [location].
 Recommendation: [escalation path or alternative approach]
 ```
 
-**Why this structure works**:
-1. **Transparency**: Explicit about what's missing
-2. **Partial Value**: Shares what *was* found
-3. **Actionable**: Suggests next steps
+**Why this structure works**: Transparency about what's missing, shares partial value, provides actionable next steps.
 
-**Application Examples**:
-
-**Validation Agent** (missing metadata):
-```markdown
-I couldn't find validation metadata in the bottom YAML comment block.
-I did find top-level Quarto metadata (title, author, date).
-Recommendation: Add validation metadata block using template from 02-dual-yaml-metadata.md.
-```
-
-**Implementation Agent** (no pattern found):
-```markdown
-I couldn't find existing patterns for Azure Functions HTTP trigger authentication in .github/templates/.
-I did find related patterns: Azure Functions timer trigger (tech/02.01-azure/01. Azure Functions/timer-example.md).
-Recommendation: Proceed with Microsoft official documentation pattern or request reference file.
-```
-
-**Orchestrator Agent** (agent doesn't exist):
-```markdown
-Agent @azure-deployment-specialist doesn't exist in .github/agents/.
-Available Azure-related agents: @prompt-validator, @agent-builder.
-Recommendation: Use @agent-builder to create azure-deployment-specialist or use generic implementation agent.
-```
-
-**Data Gap Scenarios to Define**:
+**Data Gap Scenarios**:
 
 | Scenario | Response Pattern |
 |----------|------------------|
@@ -456,205 +325,58 @@ Recommendation: Use @agent-builder to create azure-deployment-specialist or use 
 
 **Error Recovery Workflows**:
 
-```markdown
-### When `semantic_search` Returns Nothing
-1. Try `grep_search` with specific keywords
-2. Try `file_search` with glob patterns
-3. Report: "Couldn't find matches. Searched: [tools tried]. Recommend: verify search terms or provide file path."
+| Tool Failure | Fallback Strategy |
+|---|---|
+| `semantic_search` returns nothing | Try `grep_search` with keywords → `file_search` with globs → report with search terms tried |
+| `read_file` fails | Verify path with `file_search` → check with `list_dir` → report path issue |
+| Reference file missing | Search similar patterns → check instruction files → report with alternatives |
 
-### When `read_file` Fails
-1. Verify file path with `file_search`
-2. Check if file exists with `list_dir`
-3. Report: "Cannot read [file]. Reason: [error]. Tried: [verification steps]. Recommend: verify path or permissions."
+**Confidence Indicators** — qualify conclusions drawn from partial data:
 
-### When Reference Files Don't Exist
-1. Search for similar patterns in related directories
-2. Check instruction files for guidance
-3. Report: "Reference file [path] doesn't exist. Similar files: [list]. Recommend: use similar pattern or ask for correct path."
-```
-
-**Integration with Templates**:
-All prompt templates now include:
-- **Response Management section** with scenario-specific "I don't know" patterns
-- **Embedded Test Scenarios** including "plausible trap" tests (user provides incorrect info, agent should catch it)
-
-**Anti-Patterns to Avoid**:
-
-❌ **Bad** (hallucination):
-```markdown
-Based on common patterns, I'll implement authentication using JWT tokens with Azure AD B2C...
-```
-
-✅ **Good** (explicit uncertainty):
-```markdown
-I couldn't find authentication patterns in this repository.
-I did find Azure AD documentation reference in tech/01.01-authentication/.
-Recommendation: Review existing auth implementations or provide reference file before proceeding.
-```
-
-**Confidence Indicators**:
-When conclusions must be drawn from partial data, qualify with confidence levels:
-
-```markdown
-**High Confidence**: Found 5+ consistent examples in codebase
-**Medium Confidence**: Found 2-4 examples, some variation in approach
+| Level | Criteria |
+|---|---|
+| **High** | 5+ consistent examples in codebase |
+| **Medium** | 2–4 examples, some variation |
+| **Low** | 1 example or conflicting patterns |
+| **None** | No examples found, using industry best practices |
 **Low Confidence**: Found 1 example or conflicting patterns
 **No Confidence**: No examples found, proceeding with industry best practices
-```
-
 ---
 
 ## Application by File Type
 
-### For Prompt Files (.prompt.md)
+Each file type applies these principles with different priorities:
 
-**Focus**: Task-specific workflows with clear start and end conditions
+| File Type | Key Priorities | Token Budget | Details |
+|---|---|---|---|
+| **Prompts** (.prompt.md) | Narrow scope, early commands, tool scoping | ≤1,500 (multi-step) | 📖 [prompts.instructions.md](../../.github/instructions/prompts.instructions.md) |
+| **Agents** (.agent.md) | Single role, tool alignment, boundaries | ≤1,000 (specialist) | 📖 [agents.instructions.md](../../.github/instructions/agents.instructions.md) |
+| **Instructions** (.instructions.md) | Concise rules, reference context files | ≤800 | 📖 [context-files.instructions.md](../../.github/instructions/context-files.instructions.md) |
+| **Skills** (SKILL.md) | Discovery-optimized description, progressive disclosure | ≤1,500 (body) | 📖 [skills.instructions.md](../../.github/instructions/skills.instructions.md) |
+| **Context files** (.copilot/context/) | Single source of truth, no duplication | ≤2,500 | 📖 [context-files.instructions.md](../../.github/instructions/context-files.instructions.md) |
 
-**Context Engineering Priorities**:
-1. **Narrow Scope**: Single task (e.g., "grammar review" not "full validation")
-2. **Early Commands**: Process steps first, examples last
-3. **Imperative Language**: "You MUST validate..." not "It's good to validate..."
-4. **Three-Tier Boundaries**: Define always_do, ask_first, never_do
-5. **Context Minimization**: Reference context files, don't embed principles
-6. **Tool Scoping**: Only tools needed for this specific task
-
-**Template Section Order**:
-```markdown
----
-# YAML frontmatter with tools, agent type
----
-
-# [Prompt Name]
-
-**YOUR ROLE**: [One sentence, imperative]
-
-## Process
-[Numbered steps, imperative verbs]
-
-## Boundaries
-### ✅ Always Do
-### ⚠️ Ask First
-### 🚫 Never Do
-
-## Output Format
-[Specific structure requirements]
-
-## Quality Checklist
-[Verification steps]
-
-## Examples
-[Edge cases and patterns]
-```
-
-### For Agent Files (.agent.md)
-
-**Focus**: Persistent persona with role-specific expertise
-
-**Context Engineering Priorities**:
-1. **Narrow Scope**: Single role (e.g., "researcher" not "researcher and builder")
-2. **Early Commands**: Persona definition first, then capabilities
-3. **Imperative Language**: "You MUST handoff to..." not "Consider handing off..."
-4. **Three-Tier Boundaries**: Especially critical for file access
-5. **Context Minimization**: Reference style guides, don't embed full guides
-6. **Tool Scoping**: Minimal set for role (researcher = read-only)
-
-**Agent Persona Elements**:
-1. **Core Identity**: "You are a research specialist..."
-2. **Expertise**: "You excel at pattern discovery and requirement analysis..."
-3. **Boundaries**: "You NEVER create or modify files; you prepare research reports..."
-4. **Collaboration**: "You handoff to prompt-builder when research is complete..."
-5. **Communication Style**: "You present findings in structured reports with evidence..."
-
-### For Instruction Files (.instructions.md)
-
-**Focus**: Context-specific rules auto-applied based on glob patterns
-
-**Context Engineering Priorities**:
-1. **Narrow Scope**: Rules for one file type or directory (via `applyTo`)
-2. **Early Commands**: Critical constraints first, conventions last
-3. **Imperative Language**: Universal rules that apply to all matching contexts
-4. **Three-Tier Boundaries**: Universal never_do rules (e.g., "NEVER remove validation metadata")
-5. **Context Minimization**: HIGH PRIORITY - Instructions should be concise, reference context files
-6. **Tool Scoping**: Not applicable (instructions don't define tools directly)
-
-**Optimal Length**: 80-120 lines (down from 200-400 with context consolidation)
-
-**Content Guidelines**:
-```markdown
-✅ **INCLUDE IN INSTRUCTIONS**:
-- Repository-specific conventions (e.g., "All prompts use dual YAML metadata")
-- File type patterns (e.g., "Prompt files must end with .prompt.md")
-- Universal boundaries (e.g., "NEVER modify top YAML block from validation prompts")
-- Quality standards (e.g., "All agent files MUST have a description field")
-
-❌ **MOVE TO CONTEXT FILES**:
-- Context engineering principles (→ context-engineering-principles.md)
-- Tool composition patterns (→ tool-composition-guide.md)
-- Detailed examples and templates (→ templates/)
-- Process workflows (→ prompts or agents)
-```
+**Content allocation rule:** Repository-specific conventions → instruction files. Reusable patterns → context files. Verbose output formats → templates. Process workflows → prompts or agents.
 
 ---
 
 ## Token Budget Guidelines
 
-### Consolidated Length Recommendations
+### File Size Budgets by Type
 
-| File Type | Token Budget | Word Count | Line Count | Use Case |
-|-----------|-------------|------------|------------|----------|
-| **Prompt Files** | | | | |
-| ├─ Simple Task | < 500 tokens | ~375 words | ~75 lines | Fast execution, single action |
-| ├─ Multi-Step Workflow | < 1,500 tokens | ~1,100 words | ~220 lines | Phased execution, coordination |
-| ├─ Orchestrator | < 2,500 tokens | ~1,875 words | ~375 lines | Multi-agent, complex handoffs |
-| ├─ Scaffolding | < 2,000 tokens | ~1,500 words | ~300 lines | Template generation with examples |
-| └─ Review/Audit | < 2,000 tokens | ~1,500 words | ~300 lines | Checklists, validation criteria |
-| **Agent Files** | | | | |
-| ├─ Specialist Agent | < 1,000 tokens | ~750 words | ~150 lines | Focused role, narrow tool set |
-| ├─ Planner Agent | < 1,500 tokens | ~1,125 words | ~225 lines | Research, output formatting |
-| ├─ Review Agent | < 1,200 tokens | ~900 words | ~180 lines | Validation, quality checks |
-| └─ Orchestrator Agent | < 2,000 tokens | ~1,500 words | ~300 lines | Multi-phase workflows, handoffs |
-| **Instruction Files** | | | | |
-| ├─ Language/Framework | < 800 tokens | ~600 words | ~120 lines | TypeScript, Python, React rules |
-| ├─ Project-wide | < 500 tokens | ~375 words | ~75 lines | Company coding standards |
-| ├─ Specific Feature | < 300 tokens | ~225 words | ~45 lines | Error handling, auth pattern |
-| └─ Repository Root | < 600 tokens | ~450 words | ~90 lines | `.github/copilot-instructions.md` |
-| **Skill Files** | | | | |
-| ├─ Description (YAML) | 50-100 tokens | ~15-25 words | 2-3 lines | Discovery metadata |
-| ├─ SKILL.md Body | 500-1,500 tokens | 500-1,000 words | ~100-200 lines | Workflow instructions |
-| ├─ Templates | Variable | ~150-375 words | 20-50 lines | Boilerplate code |
-| └─ Examples | Variable | ~225-600 words | 30-80 lines | Pattern demonstrations |
-| **Context Files** | | | | |
-| ├─ Core Principles | 800-1,200 tokens | ~600-900 words | ~120-180 lines | Referenced frequently |
-| ├─ Pattern Libraries | 1,500-2,500 tokens | ~1,100-1,875 words | ~220-375 lines | Multiple patterns with examples |
-| ├─ Workflow Docs | 1,000-2,000 tokens | ~750-1,500 words | ~150-300 lines | Step-by-step procedures |
-| └─ Glossary | 500-1,000 tokens | ~375-750 words | ~75-150 lines | Terminology, definitions |
+| File Type | Budget | Typical | Action if Exceeded |
+|-----------|--------|---------|-------------------|
+| **Prompt** (simple) | < 500 tokens | ~75 lines | Split with handoffs |
+| **Prompt** (multi-step) | < 1,500 tokens | ~220 lines | Create orchestrator |
+| **Prompt** (orchestrator) | < 2,500 tokens | ~375 lines | Decompose agent teams |
+| **Agent** (specialist) | < 1,000 tokens | ~150 lines | Extract to instructions |
+| **Agent** (orchestrator) | < 2,000 tokens | ~300 lines | Split by role |
+| **Instruction** | < 800 tokens | ~120 lines | Split by layer or extract to context |
+| **Skill** (body) | < 1,500 tokens | ~200 lines | Use progressive disclosure |
+| **Context file** | < 2,500 tokens | ~375 lines | Split by topic |
 
-### Conversion Reference
+**Quick estimation**: words × 1.33 ≈ tokens; lines × 6 ≈ tokens
 
-**Quick token estimation without tools:**
-
-| From | To | Formula | Example |
-|------|-----|---------|----------|
-| Words | Tokens | Multiply by 1.33 | 600 words → ~800 tokens |
-| Lines | Tokens | Multiply by 5-8 | 120 lines → ~720 tokens (avg 6/line) |
-| Characters | Tokens | Divide by 4 | 3,000 chars → ~750 tokens |
-| Tokens | Words | Divide by 1.33 | 1,000 tokens → ~750 words |
-
-### Critical Thresholds
-
-**When to refactor:**
-
-| File Type | Warning | Critical | Action Required |
-|-----------|---------|----------|------------------|
-| Prompts | > 2,000 tokens | > 2,500 tokens | Split with handoffs or create orchestrator |
-| Agents | > 1,500 tokens | > 2,000 tokens | Extract to instructions or split by role |
-| Instructions | > 800 tokens | > 1,000 tokens | Split by layer or extract to context |
-| Skills (Body) | > 1,200 tokens | > 1,500 tokens | Use progressive disclosure or extract resources |
-| Context Files | > 2,500 tokens | > 3,000 tokens | Split by topic or create index file |
-
-### Performance Impact
-
-**Combined context consumption:**
+### Combined Context Consumption
 
 ```
 Typical Prompt Execution:
@@ -664,52 +386,11 @@ Typical Prompt Execution:
 + User question: 50 tokens
 + Code context: 2,000 tokens
 = 4,750 tokens before AI responds ✅ Comfortable
-
-Warning Scenario:
-  Prompt file: 1,800 tokens
-+ Referenced agent: 1,500 tokens  
-+ Active instructions (6 files): 1,800 tokens
-+ User question: 100 tokens
-+ Code context: 5,000 tokens
-= 10,200 tokens before AI responds ⚠️ Refactor recommended
 ```
 
-**Context Budget Guidelines:**
-- **Optimal**: < 10,000 tokens pre-response
-- **Warning**: 10,000-15,000 tokens
-- **Critical**: > 15,000 tokens (degraded performance)
+**Thresholds**: < 10,000 tokens optimal; 10,000–15,000 warning; > 15,000 degraded performance
 
-### Measurement Tools
-
-**Quick Estimation:**
-```bash
-# Word count (multiply by 1.33 for tokens)
-wc -w .github/prompts/*.prompt.md
-
-# Line count (multiply by 6 for rough tokens)
-wc -l .github/instructions/*.instructions.md
-```
-
-**Accurate Token Counting:**
-```python
-import tiktoken
-
-def count_tokens(file_path):
-    enc = tiktoken.get_encoding('cl100k_base')
-    with open(file_path, 'r', encoding='utf-8') as f:
-        return len(enc.encode(f.read()))
-
-# Check specific file
-tokens = count_tokens('.github/prompts/my-prompt.prompt.md')
-print(f"Token count: {tokens}")
-
-# Batch analyze
-import glob
-for file in glob.glob('.github/**/*.md', recursive=True):
-    tokens = count_tokens(file)
-    status = '✅' if tokens < 1500 else '⚠️' if tokens < 2500 else '🔴'
-    print(f"{status} {tokens:>5} tokens - {file}")
-```
+**📖 Detailed optimization strategies:** [06-context-window-and-token-optimization.md](06-context-window-and-token-optimization.md)
 
 ---
 
@@ -764,7 +445,7 @@ generate documentation about validation results.
 
 Before starting, review:
 - Context engineering principles: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- Tool usage patterns: `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- Tool usage patterns: `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 ```
 
 ### ❌ Anti-Pattern 4: Weak Boundaries
@@ -856,6 +537,7 @@ Use this checklist when creating or reviewing prompts, agents, or instructions:
 |---------|------|---------|--------|
 | 1.0.0 | 2025-12-10 | Initial consolidated version from analysis | System |
 | 1.0.1 | 2026-02-23 | Added v1.107+ cross-references, Spaces/SDK references | System |
+| 1.1.0 | 2026-03-08 | Deduplication: trimmed principle 6 (→ ref 02), condensed principles 7-8, compact token budgets, compact file-type application table | System |
 
 ---
 
@@ -863,10 +545,10 @@ Use this checklist when creating or reviewing prompts, agents, or instructions:
 
 - **Official Documentation**: [VS Code Copilot Custom Agents](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - **Repository Articles**: `03.00-tech/05.02-prompt-engineering/` series
-- **v1.107+ Architecture**: See [07-prompt-assembly-architecture.md](./07-prompt-assembly-architecture.md) for execution contexts (Local/Background/Cloud) that affect how principles apply per environment
+- **v1.107+ Architecture**: See [02-prompt-assembly-architecture.md](./02-prompt-assembly-architecture.md) for execution contexts (Local/Background/Cloud) that affect how principles apply per environment
 - **Related Context**: 
-  - [02-tool-composition-guide.md](./02-tool-composition-guide.md) - Tool selection patterns
-  - [05-validation-caching-pattern.md](./05-validation-caching-pattern.md) - 7-day caching rules
-  - [04-handoffs-pattern.md](./04-handoffs-pattern.md) - Multi-agent orchestration
-  - [15-copilot-spaces-patterns.md](./15-copilot-spaces-patterns.md) - Cross-project context
-  - [16-copilot-sdk-integration.md](./16-copilot-sdk-integration.md) - SDK consumption
+  - [04-tool-composition-guide.md](./04-tool-composition-guide.md) - Tool selection patterns
+  - [14-validation-caching-pattern.md](./14-validation-caching-pattern.md) - 7-day caching rules
+  - [05-handoffs-pattern.md](./05-handoffs-pattern.md) - Multi-agent orchestration
+  - [12-copilot-spaces-patterns.md](./12-copilot-spaces-patterns.md) - Cross-project context
+  - [13-copilot-sdk-integration.md](./13-copilot-sdk-integration.md) - SDK consumption

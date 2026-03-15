@@ -235,6 +235,6 @@ agent_metadata:
   created_by: "architectural-refactoring-p5"
   version: "1.0"
   template: "builder-agent-pattern"
-  notes: "Extracted from monolithic prompt-createorupdate-prompt-instructions.prompt.md"
+  notes: "Extracted from monolithic instruction-file-create-update.prompt.md"
 ---
 -->

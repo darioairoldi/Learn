@@ -2,6 +2,13 @@
 description: Template for creating instruction files (.instructions.md)
 ---
 
+> ⚠️ **ORPHANED TEMPLATE** (2026-03-08)
+> This template is not referenced by any prompt, agent, or instruction file.
+> **Alternatives:**
+> - Use `promptengineering-instruction-structure.template.md` (referenced by `instruction-builder` agent)
+> - Use `/instruction-file-create-update` prompt for guided instruction creation
+> **Action:** Will be removed after 2026-04-08 unless a consumer is identified.
+
 # Instructions Template
 
 Use this template to create instruction files in `.github/instructions/`.

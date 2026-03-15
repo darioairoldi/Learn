@@ -30,28 +30,39 @@ This mapping defines **how to find source material** for creating or updating co
 | `00.00-prompt-engineering/*.md` | `https://code.visualstudio.com/docs/copilot/*` | Official VS Code |
 | `00.00-prompt-engineering/*.md` | `https://github.blog/ai-and-ml/github-copilot/*` | GitHub Blog |
 
-**File Inventory (16 files):**
+**File Inventory (18 files):**
 
-| # | File | Purpose | Primary Source Articles |
-|---|------|---------|------------------------|
-| 01 | `01-context-engineering-principles.md` | Core principles: 7 Rules, context types, assembly pipeline | 01-overview, 03.00, 12.00 |
-| 02 | `02-tool-composition-guide.md` | Tool calling patterns, cost hierarchy, result sizes, MCP integration | 09.50, 07.00, 13.00 |
-| 03 | `03-progressive-disclosure-pattern.md` | Layered complexity: skill loading, progressive context | 06.00, 11.00 |
-| 04 | `04-handoffs-pattern.md` | Orchestration handoffs: send/receive flow, strategy selection, reliability | 10.00, 11.00, 12.00 |
-| 05 | `05-validation-caching-pattern.md` | Validation cache to skip redundant checks ⚠️ *LearnHub-specific* | IQPilot architecture |
-| 06 | `06-adaptive-validation-patterns.md` | Use case challenge, adaptive depth routing ⚠️ *LearnHub-specific* | 10.00, IQPilot |
-| 07 | `07-prompt-assembly-architecture.md` | VS Code assembly pipeline: 7 context types, v1.107+ features | 01-overview, 03.00 |
-| 08 | `08-context-window-management.md` | Token budgets, MCP flow, prompt-snippets vs instructions, 5 patterns | 12.00, 13.00, 07.00 |
-| 09 | `09-token-optimization-strategies.md` | Cache stacking, batch operations, cost impact, context rot | 13.00, 12.00 |
-| 10 | `10-model-specific-optimization.md` | GPT/Claude/Gemini provider-specific techniques and constraints | 08.00, 08.01, 08.02, 08.03 |
-| 11 | `11-agent-hooks-reference.md` | Agent lifecycle hooks: events, security patterns, configuration | 09.00 |
-| 12 | `12-orchestrator-design-patterns.md` | Orchestrator topologies, 4-specialist pattern, use case challenge | 10.00, 11.00 |
-| 13 | `13-file-type-decision-guide.md` | Decision flowchart: prompts vs agents vs instructions vs skills vs Spaces vs SDK | 02.00-06.00, 01.01, 14.00 |
-| 14 | `14-mcp-server-design-patterns.md` | MCP server lifecycle, 3 primitives, tool anatomy, transport, errors | 07.00 |
-| 15 | `15-copilot-spaces-patterns.md` | Copilot Spaces decision framework, content types, combination patterns | 01.01 |
-| 16 | `16-copilot-sdk-integration.md` | SDK integration: VS Code vs SDK comparison, YAML differences, MCP, billing | 14.00 |
+| # | File | Tier | Purpose | Primary Source Articles |
+|---|------|------|---------|------------------------|
+| 01 | `01-context-engineering-principles.md` | Foundations | Core principles: 8 rules, context types, token budgets | 01-overview, 03.00, 12.00 |
+| 02 | `02-prompt-assembly-architecture.md` | Foundations | VS Code assembly pipeline: 6 layers, injection points, v1.107+ | 01-overview, 03.00 |
+| 03 | `03-file-type-decision-guide.md` | Foundations | Decision flowchart: prompts vs agents vs instructions vs skills vs Spaces vs SDK | 02.00–06.00, 01.01, 14.00 |
+| 04 | `04-tool-composition-guide.md` | Foundations | Tool calling patterns, cost hierarchy, role-based selection, MCP | 09.50, 07.00, 13.00 |
+| 05 | `05-handoffs-pattern.md` | Multi-Agent | Orchestration handoffs: send/receive flow, strategy selection, reliability | 10.00, 11.00, 12.00 |
+| 06 | `06-context-window-and-token-optimization.md` | Multi-Agent | Context rot, failure modes, 5 flow patterns, 9 optimization strategies, provider caching | 12.00, 13.00, 07.00 |
+| 07 | `07-orchestrator-design-patterns.md` | Multi-Agent | Orchestrator topologies, 4-specialist pattern, use case challenge | 10.00, 11.00 |
+| 08 | `08-progressive-disclosure-pattern.md` | Specialized | Layered complexity: 3-level skill loading, progressive context | 06.00, 11.00 |
+| 09 | `09-model-specific-optimization.md` | Specialized | GPT/Claude/Gemini provider-specific techniques and constraints | 08.00, 08.01, 08.02, 08.03 |
+| 10 | `10-agent-hooks-reference.md` | Specialized | Agent lifecycle hooks: 8 events, JSON schema, I/O protocol | 09.00 |
+| 11 | `11-mcp-server-design-patterns.md` | Specialized | MCP server lifecycle, 3 primitives, tool anatomy, transport, errors | 07.00 |
+| 12 | `12-copilot-spaces-patterns.md` | Specialized | Copilot Spaces decision framework, content types, combination patterns | 01.01 |
+| 13 | `13-copilot-sdk-integration.md` | Specialized | SDK integration: VS Code vs SDK comparison, YAML differences, billing | 14.00 |
+| 14 | `14-validation-caching-pattern.md` | Repo-Specific | Validation cache to skip redundant checks ⚠️ *LearnHub-specific* | IQPilot architecture |
+| 15 | `15-adaptive-validation-patterns.md` | Repo-Specific | Use case challenge, adaptive depth routing ⚠️ *LearnHub-specific* | 10.00, IQPilot |
+| 16 | `16-artifact-dependency-map.md` | Meta | Complete dependency map of all PE artifacts — impact classification | Cross-reference audit |
+| 17 | `17-artifact-lifecycle-management.md` | Meta | Creation → review → update → deprecation workflow with quality gates | PE improvement plan |
+| 18 | `18-pe-workflow-entry-points.md` | Meta | Decision guide: standalone vs orchestrator vs meta-prompt | All PE prompts/agents |
 
-> **Note on files 05 and 06:** These files contain patterns specific to the IQPilot/LearnHub validation system. They remain in `00.00-prompt-engineering/` because the underlying patterns (caching, adaptive routing) are general prompt engineering concepts, even though their primary implementation is LearnHub-specific.
+**Tier guide:**
+- **Foundations (01–04)**: Every PE artifact creator needs these — principles, architecture, file types, tools
+- **Multi-Agent (05–07)**: Orchestration workflows — handoffs, context management, design patterns
+- **Specialized (08–13)**: Specific mechanisms — skills, models, hooks, MCP, Spaces, SDK
+- **Repo-Specific (14–15)**: LearnHub-specific patterns — validation caching, adaptive validation
+- **Meta (16–18)**: System self-improvement — dependency map, lifecycle governance, entry points
+
+> **Note on files 14 and 15:** These files contain patterns specific to the IQPilot/LearnHub validation system. They remain in `00.00-prompt-engineering/` because the underlying patterns (caching, adaptive routing) are general prompt engineering concepts, even though their primary implementation is LearnHub-specific.
+
+> **Note on files 16–18:** These files support PE artifact self-improvement and maintenance. File 16 enables change impact analysis, file 17 defines lifecycle governance, and file 18 helps users choose the right entry point.
 
 **Update Strategy:**
 - Re-run semantic searches when VS Code or GitHub Copilot releases new versions
@@ -127,25 +138,25 @@ This mapping defines **how to find source material** for creating or updating co
 
 This table shows which source articles feed which context files in `00.00-prompt-engineering/`. Use it to identify which context files need updating when an article changes.
 
-| Source Article | Context Files |
+| Source Article | Context Files (new #) |
 |---------------|---------------|
-| `01-overview/` (series introduction) | 01, 07, 13 |
-| `01.01-appendix_copilot_spaces.md` | 15, 13 |
-| `02.00-how_to_name_and_organize_prompt_files.md` | 13 |
-| `03.00-how_to_structure_content_for_copilot_prompt_files.md` | 01, 07, 13 |
-| `04.00-how_to_structure_content_for_copilot_agent_files.md` | 13 |
-| `05.00-how_to_structure_content_for_copilot_instruction_files.md` | 13 |
-| `06.00-how_to_structure_content_for_copilot_skills.md` | 03, 13 |
-| `07.00-how_to_create_mcp_servers_for_copilot.md` | 02, 08, 14 |
-| `08.00-how_to_optimize_prompts_for_specific_models.md` | 10 |
-| `08.01–08.03 (provider appendices)` | 10 |
-| `09.00-how_to_use_agent_hooks_for_lifecycle_automation.md` | 11 |
-| `09.50-how_to_leverage_tools_in_prompt_orchestrations.md` | 02 |
-| `10.00-how_to_design_orchestrator_prompts.md` | 04, 06, 12 |
-| `11.00-how_to_design_subagent_orchestrations.md` | 03, 04, 12 |
-| `12.00-how_to_manage_information_flow_during_prompt_orchestrations.md` | 01, 04, 08, 09 |
-| `13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md` | 02, 08, 09 |
-| `14.00-how_to_use_prompts_with_the_github_copilot_sdk.md` | 13, 16 |
+| `01-overview/` (series introduction) | 01, 02, 03 |
+| `01.01-appendix_copilot_spaces.md` | 12, 03 |
+| `02.00-how_to_name_and_organize_prompt_files.md` | 03 |
+| `03.00-how_to_structure_content_for_copilot_prompt_files.md` | 01, 02, 03 |
+| `04.00-how_to_structure_content_for_copilot_agent_files.md` | 03 |
+| `05.00-how_to_structure_content_for_copilot_instruction_files.md` | 03 |
+| `06.00-how_to_structure_content_for_copilot_skills.md` | 08, 03 |
+| `07.00-how_to_create_mcp_servers_for_copilot.md` | 04, 06, 11 |
+| `08.00-how_to_optimize_prompts_for_specific_models.md` | 09 |
+| `08.01–08.03 (provider appendices)` | 09 |
+| `09.00-how_to_use_agent_hooks_for_lifecycle_automation.md` | 10 |
+| `09.50-how_to_leverage_tools_in_prompt_orchestrations.md` | 04 |
+| `10.00-how_to_design_orchestrator_prompts.md` | 05, 15, 07 |
+| `11.00-how_to_design_subagent_orchestrations.md` | 08, 05, 07 |
+| `12.00-how_to_manage_information_flow_during_prompt_orchestrations.md` | 01, 05, 06 |
+| `13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md` | 04, 06 |
+| `14.00-how_to_use_prompts_with_the_github_copilot_sdk.md` | 03, 13 |
 
 ---
 
@@ -166,7 +177,7 @@ Create a new context file when:
 4. **Create with proper structure** — Purpose, Referenced by, Core content, References
 5. **Add folder mapping** — Update this file with source references
 
-**📖 Use prompt:** `prompt-createorupdate-context-information.prompt.md`
+**📖 Use prompt:** `context-file-create-update.prompt.md`
 
 ---
 
@@ -192,7 +203,7 @@ Create a new context file when:
 ### From Context to Context
 
 ```markdown
-**📖 Related guidance:** [tool-composition-guide.md](./02-tool-composition-guide.md)
+**📖 Related guidance:** [tool-composition-guide.md](./04-tool-composition-guide.md)
 ```
 
 ### From Instructions to Context
@@ -226,7 +237,7 @@ When creating a new context folder:
 ## References
 
 - **📖 Context file guidelines:** `.github/instructions/context-files.instructions.md`
-- **📖 Context creation prompt:** `.github/prompts/00.00-prompt-engineering/prompt-createorupdate-context-information.prompt.md`
+- **📖 Context creation prompt:** `.github/prompts/00.00-prompt-engineering/context-file-create-update.prompt.md`
 - **📖 Source articles:** `03.00-tech/05.02-promptEngineering/`
 
 ---

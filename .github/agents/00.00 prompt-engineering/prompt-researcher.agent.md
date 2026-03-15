@@ -100,7 +100,7 @@ When user requests prompt research, follow this workflow:
 
 **Use Case Template**: Use `.github/skills/prompt-engineering-validation/templates/use-case-challenge.template.md`
 
-**📖 Detailed examples**: `.copilot/context/00.00-prompt-engineering/06-adaptive-validation-patterns.md`
+**📖 Detailed examples**: `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md`
 
 #### Step 1.3: Determine Prompt Type
 
@@ -171,8 +171,8 @@ Based on use case analysis:
    
    **Files to search** (in order):
    - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-   - `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
-   - `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md` (if validation prompt)
+   - `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
+   - `.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md` (if validation prompt)
    - `.github/instructions/prompts.instructions.md`
 
    **Extract**:
@@ -272,8 +272,8 @@ Based on use case analysis:
 
 3. **Check Context Files**
    - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-   - `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
-   - `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md` (if validation prompt)
+   - `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
+   - `.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md` (if validation prompt)
 
 **Output: Convention Checklist**
 ```markdown
@@ -569,7 +569,7 @@ When prompt is built, validate against:
 
 ### Context Files
 - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - [Others if relevant]
 
 ### External Sources
@@ -634,8 +634,8 @@ Your research reports must meet these criteria:
 
 Before starting research:
 - **Context Engineering Principles**: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- **Tool Composition Guide**: `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
-- **Validation Caching** (if validation prompt): `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md`
+- **Tool Composition Guide**: `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
+- **Validation Caching** (if validation prompt): `.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md`
 
 ## Your Communication Style
 

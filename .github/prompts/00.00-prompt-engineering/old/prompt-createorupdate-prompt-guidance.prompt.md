@@ -1,6 +1,6 @@
 ---
 name: prompt-createorupdate-prompt-guidance
-description: "Generate or update domain-specific instruction files and context files using template-based workflows"
+description: "⚠️ DEPRECATED — Use prompt-createorupdate-context-information or prompt-createorupdate-prompt-instructions instead"
 agent: agent
 model: claude-opus-4.6
 tools:
@@ -15,6 +15,13 @@ tools:
   - fetch_webpage
 argument-hint: 'Specify domain (e.g., "article-writing"), target paths, and context sources for guidance generation'
 ---
+
+> ⚠️ **DEPRECATED** (2026-03-08)
+> This prompt is deprecated and will be removed after 2026-04-08.
+> **Replacements:**
+> - For context files: `prompt-createorupdate-context-information.prompt.md`
+> - For instruction files: `prompt-createorupdate-prompt-instructions.prompt.md`
+> **Migration**: Use the specific replacement prompt matching your target file type. Both replacements offer the same capabilities with clearer scope and better token efficiency.
 
 # Generate or Update Domain-Specific Guidance Files
 

@@ -24,110 +24,29 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 ## Template-First Authoring ⭐ (CRITICAL)
 
-**ALWAYS PREFER template files** over verbose embedded descriptions in prompts. This is a **mandatory principle** that reduces token usage, improves maintainability, and enables reuse across prompts.
-
 **🚨 RULE:** Any inline content block **exceeding 10 lines** MUST be externalized to a template file.
 
-### When to Use Templates
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md) → Principle 8
+
+**Quick reference:**
 
 | Content Type | ❌ NEVER Embed | ✅ ALWAYS Use Template |
 |--------------|----------------|------------------------|
-| **Output formats** | Multi-line output examples inline (>10 lines) | `output-*.template.md` |
-| **Input schemas** | Detailed input field descriptions | `input-*.template.md` |
-| **Document structures** | Section-by-section layout specs | `*-structure.template.md` |
-| **Validation checklists** | Long inline checklists (>5 items) | Separate instruction file or template |
-| **Multi-step workflows** | Detailed phase descriptions (>20 lines) | Phase templates or context files |
-| **Process step outputs** | Verbose "Output:" format blocks | `output-{prompt-name}-phases.template.md` |
-| **Markdown examples** | Full document structure examples | Dedicated structure templates |
-| **Quality criteria** | Detailed scoring rubrics | `criteria-*.template.md` or instruction file |
+| Output formats (>10 lines) | Inline examples | `output-*.template.md` |
+| Input schemas | Field descriptions | `input-*.template.md` |
+| Document structures | Layout specs | `*-structure.template.md` |
+| Validation checklists (>5 items) | Inline lists | Separate template |
+| Phase descriptions (>20 lines) | Detailed phases | Phase templates |
 
-### Template Reference Pattern
+**Token impact:** Embedding 6 phase outputs (~1,600 tokens) → referencing 1 template (~50 tokens) = **~1,550 tokens saved**.
 
-**Instead of:**
-```markdown
-## Output Format
-### Section 1: Summary
-- Title (H1)
-- Overview paragraph
-- Key points as bullet list
-[...50+ lines of format specification...]
-```
-
-**Use:**
-```markdown
-## Output Format
-
-**Use template:** `.github/templates/output-summary.template.md`
-```
-
-### Inline Content Anti-Patterns (NEVER DO)
-
-❌ **Verbose Phase Outputs** - Don't embed multi-line "Output:" blocks for each phase
-```markdown
-## Phase 1: Requirements
-... [process details] ...
-
-**Output:**
-```markdown
-## Requirements Summary
-
-### Core Requirements
-- **Topic**: [Full topic description]
-- **Scope**: [What article will cover specifically]
-... [20+ more lines of format] ...
-```  ← NEVER DO THIS
-```
-
-✅ **Correct Pattern:**
-```markdown
-## Phase 1: Requirements
-... [process details] ...
-
-**Output Format:** Use `.github/templates/output-article-phases.template.md` → "Phase 1 Output"
-```
-
-❌ **Embedded Article Structures** - Don't describe full document layouts inline
-❌ **Inline Quality Checklists** - Don't embed long validation checklists (>5 items)
-❌ **Repeated Format Blocks** - Don't repeat similar output formats across phases
-
-### Template Location
-
-- **General templates:** `.github/templates/`
-- **Prompt output templates:** `.github/templates/output-*.template.md`
-- **Domain-specific:** `.github/templates/{domain}-*.template.md`
-
-### Template Naming Convention
-
-| Purpose | Naming Pattern | Example |
-|---------|----------------|---------|
-| Output format | `output-{purpose}.template.md` | `output-prompt-validation-phases.template.md` |
-| Input schema | `input-{purpose}.template.md` | `input-article-metadata.template.md` |
-| Document structure | `{type}-structure.template.md` | `promptengineering-instruction-structure.template.md` |
-| Guidance sections | `guidance-{topic}.template.md` | `guidance-input-collection.template.md` |
-
-**📖 Existing templates:** `.github/templates/` (see list for reusable options)
-
-### Why Template-First Matters (Token Budget)
-
-**Embedding verbose content directly wastes tokens and causes context rot:**
-
-| Approach | Token Cost | Maintainability | Reusability |
-|----------|------------|-----------------|-------------|
-| Embed 6 phase outputs (40 lines each) | ~1600 tokens | Poor - edits in each prompt | None |
-| Reference 1 template | ~50 tokens | Good - single source of truth | Full |
-| **Savings** | **~1550 tokens** | | |
-
-**Budget impact example:**
-- Prompt with embedded outputs: 2,200 tokens (exceeds 1,500 budget)
-- Same prompt with template references: 650 tokens (well under budget)
-
-**CRITICAL:** A prompt exceeding token budget may experience "lost in the middle" effects where instructions in the center are ignored.
+**📖 Existing templates:** `.github/templates/` (26+ reusable templates available)
 
 ---
 
 ## Tool Selection
 
-**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md)
 
 **Tool/Agent Alignment:**
 - `agent: plan` + read-only tools (read_file, grep_search, semantic_search)
@@ -144,13 +63,13 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 - `#search` — semantic_search, grep_search, file_search
 - `#reader` — read_file, list_dir, get_errors
 
-**📖 Tool architecture (L1/L2 levels, per-tool costs):** [02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md)
+**📖 Tool architecture (L1/L2 levels, per-tool costs):** [04-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md)
 
 **Tool scoping prevents**: Tool clash, distraction, context bloat
 
 ## Prompt Assembly Architecture
 
-**📖 Complete guide:** [.copilot/context/00.00-prompt-engineering/07-prompt-assembly-architecture.md](.copilot/context/00.00-prompt-engineering/07-prompt-assembly-architecture.md)
+**📖 Complete guide:** [.copilot/context/00.00-prompt-engineering/02-prompt-assembly-architecture.md](.copilot/context/00.00-prompt-engineering/02-prompt-assembly-architecture.md)
 
 **Critical rule**: Prompt files inject into the **USER prompt**, NOT the system prompt. The system prompt is assembled from instructions, copilot-instructions.md, and agent files.
 
@@ -169,7 +88,7 @@ argument-hint: 'Expected input format'  # Optional
 ---
 ```
 
-**📖 Model-specific optimization:** When choosing `model:`, consider structural implications per model family — see [10-model-specific-optimization.md](.copilot/context/00.00-prompt-engineering/10-model-specific-optimization.md)
+**📖 Model-specific optimization:** When choosing `model:`, consider structural implications per model family — see [09-model-specific-optimization.md](.copilot/context/00.00-prompt-engineering/09-model-specific-optimization.md)
 
 ## Prompt Templates
 
@@ -185,7 +104,7 @@ argument-hint: 'Expected input format'  # Optional
 
 ### Validation Caching (7-Day Rule)
 
-**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md)
 
 **Critical rules:**
 - ❌ **NEVER modify top YAML** (Quarto metadata) from validation prompts
@@ -300,7 +219,7 @@ Recommendation: [escalation path or alternative]
 - Factor large prompts into multiple smaller, focused prompts
 - Structure with **static content first, dynamic last** to enable provider prompt caching (up to 90% cost reduction)
 
-**📖 Token optimization strategies:** [09-token-optimization-strategies.md](.copilot/context/00.00-prompt-engineering/09-token-optimization-strategies.md)
+**📖 Token optimization strategies:** [06-context-window-and-token-optimization.md](.copilot/context/00.00-prompt-engineering/06-context-window-and-token-optimization.md)
 
 **Validation:** `@prompt-validator` checks token count in Phase 5 (Production Readiness).
 
@@ -368,8 +287,7 @@ Your prompt file: 1,800 tokens
 - [agents.instructions.md](./agents.instructions.md) - Custom agent creation guidance
 
 **Context files (detailed guidance):**
-- [07-prompt-assembly-architecture.md](.copilot/context/00.00-prompt-engineering/07-prompt-assembly-architecture.md) - Where each file type injects
-- [08-context-window-management.md](.copilot/context/00.00-prompt-engineering/08-context-window-management.md) - Context rot prevention
-- [09-token-optimization-strategies.md](.copilot/context/00.00-prompt-engineering/09-token-optimization-strategies.md) - Token optimization
-- [10-model-specific-optimization.md](.copilot/context/00.00-prompt-engineering/10-model-specific-optimization.md) - Per-model guidance
-- [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md) - When to use prompts vs agents vs instructions
+- [02-prompt-assembly-architecture.md](.copilot/context/00.00-prompt-engineering/02-prompt-assembly-architecture.md) - Where each file type injects
+- [06-context-window-and-token-optimization.md](.copilot/context/00.00-prompt-engineering/06-context-window-and-token-optimization.md) - Context window management and token optimization
+- [09-model-specific-optimization.md](.copilot/context/00.00-prompt-engineering/09-model-specific-optimization.md) - Per-model guidance
+- [03-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/03-file-type-decision-guide.md) - When to use prompts vs agents vs instructions

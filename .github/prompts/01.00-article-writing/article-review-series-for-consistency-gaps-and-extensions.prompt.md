@@ -312,7 +312,7 @@ prompt_metadata:
     - "v2.2: Added Rule-Dimension Mapping table connecting 7 validation dimensions to authoritative source locations. Source: Recommendation D from coverage analysis."
     - "v2.1: Changed agent mode from 'plan' to 'agent' — tools require execution, not planning"
     - "v2.1: Removed duplicate dual-YAML context file reference in boundaries"
-    - "v2.0: Major rewrite applying prompt-createorupdate-prompt-file methodology"
+    - "v2.0: Major rewrite applying prompt-create-update methodology"
     - "Externalized all inline output formats to output-series-review-phases.template.md"
     - "Externalized Phase 1-2 verbose discovery/inventory to guidance-discovery-and-inventory.template.md"
     - "Externalized Phase 4-5 verbose research/extension to guidance-research-and-extensions.template.md"
@@ -338,6 +338,6 @@ validations:
     status: "validated"
     last_run: "2026-02-14T00:00:00Z"
     checklist_passed: true
-    validated_by: "prompt-createorupdate-prompt-file (review)"
+    validated_by: "prompt-create-update (review)"
 ---
 -->

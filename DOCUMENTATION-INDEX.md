@@ -167,22 +167,22 @@ Complete guide to prompt, agent, and context engineering in this repository.
 **Location**: `.github/prompts/`
 
 **Prompt Creation/Update** (`.github/prompts/00.00-prompt-engineering/`):
-- [prompt-createorupdate-prompt-file.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-createorupdate-prompt-file.prompt.md) - Create or update prompt files
-- [prompt-design-and-create.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-design-and-create.prompt.md) - Design prompts from scratch
-- [prompt-review-and-validate.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-review-and-validate.prompt.md) - Validate existing prompts
+- [prompt-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-create-update.prompt.md) - Create or update prompt files
+- [prompt-design.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-design.prompt.md) - Design prompts from scratch
+- [prompt-review.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-review.prompt.md) - Validate existing prompts
 
 **Guidance Maintenance** (`.github/prompts/00.00-prompt-engineering/`):
-- [prompt-createorupdate-prompt-instructions.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-createorupdate-prompt-instructions.prompt.md) - Update instruction files
-- [prompt-createorupdate-context-information.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-createorupdate-context-information.prompt.md) - Update context files
+- [instruction-file-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md) - Update instruction files
+- [context-file-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/context-file-create-update.prompt.md) - Update context files
 
 ### Agent Files
 
 **Location**: `.github/agents/`
 
 **Agent Creation/Update** (`.github/prompts/00.00-prompt-engineering/`):
-- [agent-createorupdate-agent-file.prompt.md](.github/prompts/00.00-prompt-engineering/agent-createorupdate-agent-file.prompt.md) - Create or update agent files
-- [agent-design-and-create.prompt.md](.github/prompts/00.00-prompt-engineering/agent-design-and-create.prompt.md) - Design agents from scratch
-- [agent-review-and-validate.prompt.md](.github/prompts/00.00-prompt-engineering/agent-review-and-validate.prompt.md) - Validate existing agents
+- [agent-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/agent-create-update.prompt.md) - Create or update agent files
+- [agent-design.prompt.md](.github/prompts/00.00-prompt-engineering/agent-design.prompt.md) - Design agents from scratch
+- [agent-review.prompt.md](.github/prompts/00.00-prompt-engineering/agent-review.prompt.md) - Validate existing agents
 
 **Specialized Agents by Role**:
 
@@ -227,17 +227,17 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **To create a new prompt**:
 ```
-@workspace /prompt-createorupdate-prompt-file-v2 [describe purpose]
+@workspace /prompt-create-update [describe purpose]
 ```
 
 **To create a new agent**:
 ```
-@workspace /agent-createorupdate-agent-file-v2 [describe role]
+@workspace /agent-create-update [describe role]
 ```
 
 **To update guidance files**:
 ```
-@workspace /prompt-createorupdate-prompt-guidance [describe updates needed]
+@workspace /context-file-create-update [describe updates needed]
 ```
 
 ### 🔧 Automation Scripts

@@ -2,7 +2,7 @@
 
 **Purpose:** Reusable output format templates for agent creation/update workflows.
 
-**Referenced by:** `agent-createorupdate-agent-file-v2.prompt.md` and related prompts
+**Referenced by:** `agent-create-update.prompt.md` and related prompts
 
 ---
 
@@ -427,7 +427,7 @@ I've analyzed your request and identified some gaps. Please clarify:
 ---
 agent_metadata:
   created: "[ISO timestamp]"
-  created_by: "agent-createorupdate-v2"
+  created_by: "agent-create-update"
   last_updated: "[ISO timestamp]"
   version: "1.0"
   validation:

@@ -252,7 +252,7 @@ prompt_metadata:
   changes:
     - "v2.2: Added Visual Content dimension to Rule-Dimension Mapping (Rule 20); enhanced Structure dimension with TOC design details (Rule 9). Source: remaining ⚠️ items from coverage analysis."
     - "v2.1: Added Rule-Dimension Mapping table connecting 7 validation dimensions to authoritative source locations. Source: Recommendation D from coverage analysis."
-    - "v2.0: Major rewrite applying prompt-createorupdate-prompt-file methodology"
+    - "v2.0: Major rewrite applying prompt-create-update methodology"
     - "Externalized Phase 1 verbose input analysis to guidance-input-analysis.template.md"
     - "Externalized Phase 3 verbose research process to guidance-research-process.template.md"
     - "Moved templates to dedicated folder: .github/templates/article-review-for-consistency-gaps-and-extensions/"
@@ -277,7 +277,7 @@ validations:
     status: "validated"
     last_run: "2026-02-14T00:00:00Z"
     checklist_passed: true
-    validated_by: "prompt-createorupdate-prompt-file (review)"
+    validated_by: "prompt-create-update (review)"
 ---
 -->
 

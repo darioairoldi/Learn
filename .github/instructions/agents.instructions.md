@@ -25,38 +25,11 @@ They operate at the implementation level with detailed technical instructions, t
 
 ## Template-First Authoring ⭐
 
-**PREFER template files** over verbose embedded descriptions in agents. This reduces token usage, improves maintainability, and enables reuse across agents.
+**🚨 RULE:** Any inline content block **exceeding 10 lines** MUST be externalized to a template file.
 
-### When to Use Templates
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md) → Principle 8
 
-| Content Type | ❌ Don't Embed | ✅ Use Template |
-|--------------|----------------|------------------|
-| **Output formats** | Multi-line output examples inline | `output-*.template.md` |
-| **Input schemas** | Detailed input field descriptions | `input-*.template.md` |
-| **Report structures** | Section-by-section layout specs | `*-structure.template.md` |
-| **Workflow phases** | Detailed phase descriptions > 20 lines | Phase templates or context files |
-| **Code examples** | Large code blocks for patterns | Context files with examples |
-
-### Template Reference Pattern
-
-**Instead of:**
-```markdown
-## Output Format
-### Phase 1 Report
-- Findings section
-- Analysis section
-- Recommendations
-[...50+ lines of format specification...]
-```
-
-**Use:**
-```markdown
-## Output Format
-
-**Use template:** `.github/templates/output-agent-validation-phases.template.md`
-```
-
-### Agent-Specific Templates
+**Quick reference:**
 
 | Agent Role | Recommended Templates |
 |------------|------------------------|
@@ -65,22 +38,16 @@ They operate at the implementation level with detailed technical instructions, t
 | Validator | `output-*-validation-phases.template.md` |
 | Updater | Instruction files for edit rules |
 
-### Template Location
-
-- **General templates:** `.github/templates/`
-- **Agent output templates:** `.github/templates/output-*.template.md`
-- **Domain-specific:** `.github/templates/{domain}-*.template.md`
-
 **📖 Existing templates:** `.github/templates/` (26+ reusable templates available)
 
 ---
 
 ## Tool Selection
 
-**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md)
 
 **Agent/Tool Alignment:**
-- `agent: plan` (read-only) + [read_file, grep_search, semantic_search]
+- `agent: plan` (read-only) + read-only tools ONLY
 - `agent: agent` (full access) + read + write tools
 - **Never** mix `agent: plan` with write tools
 
@@ -92,11 +59,7 @@ They operate at the implementation level with detailed technical instructions, t
 - `#search` — semantic_search, grep_search, file_search
 - `#reader` — read_file, list_dir, get_errors
 
-**Tool selection by role:**
-- **Researcher**: semantic_search, grep_search, read_file, file_search, list_dir
-- **Builder**: read_file, semantic_search, create_file, file_search
-- **Validator**: read_file, grep_search, file_search (read-only)
-- **Updater**: read_file, grep_search, replace_string_in_file, multi_replace_string_in_file
+**Tool count limit**: 3–7 tools per agent. >7 causes tool clash — MUST decompose.
 
 ## Required YAML Frontmatter
 
@@ -150,7 +113,7 @@ handoffs:                  # Workflow transitions
 | **Platform** | VS Code only (1.106+) | GitHub.com, VS Code, Visual Studio |
 | **Tool/handoff control** | ✅ Full | ❌ None |
 
-**📖 File type decision guide:** [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md)
+**📖 File type decision guide:** [03-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/03-file-type-decision-guide.md)
 
 **Tool Scoping is Critical**:
 - Agents with 20+ tools suffer tool clash
@@ -199,7 +162,7 @@ VS Code 1.107 introduced **Agent HQ**, a unified interface for managing agent se
 ## Repository-Specific Patterns
 
 ### Validation Caching
-**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md)
+**📖 Complete guidance:** [.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md)
 
 Agents working with article files must:
 - ❌ **NEVER modify top YAML** (Quarto metadata)
@@ -294,11 +257,11 @@ Agents are particularly vulnerable to context rot due to long-running conversati
 
 ## Multi-Agent Orchestration
 
-**📖 Design principles and subagent mechanics:** [12-orchestrator-design-patterns.md](.copilot/context/00.00-prompt-engineering/12-orchestrator-design-patterns.md)
+**📖 Design principles and subagent mechanics:** [07-orchestrator-design-patterns.md](.copilot/context/00.00-prompt-engineering/07-orchestrator-design-patterns.md)
 
-**📖 Handoff patterns:** [04-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/04-handoffs-pattern.md)
+**📖 Handoff patterns:** [05-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/05-handoffs-pattern.md)
 
-**📖 Information flow patterns:** [08-context-window-management.md](.copilot/context/00.00-prompt-engineering/08-context-window-management.md)
+**📖 Information flow patterns:** [06-context-window-and-token-optimization.md](.copilot/context/00.00-prompt-engineering/06-context-window-and-token-optimization.md)
 
 ### Using runSubagent Tool
 Agents can invoke specialized sub-agents via `tools: ['agent']` (alias for `runSubagent`).
@@ -460,7 +423,7 @@ Agents with complex decision-making should include test scenarios:
 - 7-day validation caching to reduce redundant processing
 - Timestamp-based validation skip logic
 
-**See existing implementation:** `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md`
+**See existing implementation:** `.copilot/context/00.00-prompt-engineering/14-validation-caching-pattern.md`
 
 #### Agent Context Accumulation
 
@@ -518,7 +481,7 @@ tools:
 
 ### 5. Agent Lifecycle Hooks
 
-**📖 Complete reference:** [11-agent-hooks-reference.md](.copilot/context/00.00-prompt-engineering/11-agent-hooks-reference.md)
+**📖 Complete reference:** [10-agent-hooks-reference.md](.copilot/context/00.00-prompt-engineering/10-agent-hooks-reference.md)
 
 Agent hooks enable programmatic control over agent behavior at 8 lifecycle events (`onCreateSession`, `beforeToolCall`, `afterToolCall`, etc.). Configure in `.vscode/agent-hooks.json`. Use hooks for output validation, tool gating, logging, and approval workflows.
 
@@ -535,11 +498,11 @@ Agent hooks enable programmatic control over agent behavior at 8 lifecycle event
 - [skills.instructions.md](./skills.instructions.md) - Agent Skill (SKILL.md) creation guidance
 
 **📖 Context files:**
-- [02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md) - L1/L2 tool architecture and tool sets
-- [04-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/04-handoffs-pattern.md) - Handoff patterns, send: behavior, subagent integration
-- [08-context-window-management.md](.copilot/context/00.00-prompt-engineering/08-context-window-management.md) - Context rot prevention and information flow
-- [11-agent-hooks-reference.md](.copilot/context/00.00-prompt-engineering/11-agent-hooks-reference.md) - 8 lifecycle events and JSON config
-- [12-orchestrator-design-patterns.md](.copilot/context/00.00-prompt-engineering/12-orchestrator-design-patterns.md) - 9 design principles and tier architecture
-- [13-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/13-file-type-decision-guide.md) - Decision flowchart for file types
+- [04-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md) - L1/L2 tool architecture and tool sets
+- [05-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/05-handoffs-pattern.md) - Handoff patterns, send: behavior, subagent integration
+- [06-context-window-and-token-optimization.md](.copilot/context/00.00-prompt-engineering/06-context-window-and-token-optimization.md) - Context rot prevention and information flow
+- [10-agent-hooks-reference.md](.copilot/context/00.00-prompt-engineering/10-agent-hooks-reference.md) - 8 lifecycle events and JSON config
+- [07-orchestrator-design-patterns.md](.copilot/context/00.00-prompt-engineering/07-orchestrator-design-patterns.md) - 9 design principles and tier architecture
+- [03-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/03-file-type-decision-guide.md) - Decision flowchart for file types
 
 **📖 Complete guidance:** [03.00-tech/05.02-promptEngineering/04.00-how_to_structure_content_for_copilot_agent_files.md](../../03.00%20tech/05.02%20PromptEngineering/04.%20how_to_structure_content_for_copilot_agent_files.md)

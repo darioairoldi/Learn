@@ -1,6 +1,6 @@
 ---
 name: prompt-createorupdate-prompt-engineering-guidance
-description: "Generate or update instruction files and context files that guide prompt/agent creation workflows (specialized for prompt-engineering domain)"
+description: "⚠️ DEPRECATED — Use prompt-createorupdate-context-information or prompt-createorupdate-prompt-instructions instead"
 agent: agent
 model: claude-opus-4.6
 tools:
@@ -15,6 +15,13 @@ tools:
   - fetch_webpage
 argument-hint: 'Describe guidance to add/update, or specify instruction/context file paths'
 ---
+
+> ⚠️ **DEPRECATED** (2026-03-08)
+> This prompt is deprecated and will be removed after 2026-04-08.
+> **Replacements:**
+> - For context files: `prompt-createorupdate-context-information.prompt.md`
+> - For instruction files: `prompt-createorupdate-prompt-instructions.prompt.md`
+> **Migration**: This prompt was a PE-domain-specific version of `prompt-createorupdate-prompt-guidance`. The general-purpose replacements now handle all domains including prompt engineering.
 
 # Generate or Update Prompt Engineering Guidance Files
 

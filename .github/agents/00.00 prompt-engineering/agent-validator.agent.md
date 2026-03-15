@@ -348,7 +348,7 @@ Current responsibilities should be split into:
 
 ## References
 
-- `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
 - `.github/instructions/agents.instructions.md`
 - Tool alignment rules in this document
 
@@ -356,7 +356,7 @@ Current responsibilities should be split into:
 ---
 agent_metadata:
   created: "2025-12-14T00:00:00Z"
-  created_by: "prompt-design-and-create"
+  created_by: "prompt-design"
   version: "1.0"
   template: "agent-validator-template"
 ---

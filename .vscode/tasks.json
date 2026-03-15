@@ -107,6 +107,45 @@
         "reveal": "always",
         "panel": "shared"
       }
+    },
+    {
+      "label": "PE: Full System Review",
+      "type": "shell",
+      "command": "echo",
+      "args": [
+        "Run in Copilot Chat: /meta-prompt-engineering-review"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "PE: Optimize Artifacts",
+      "type": "shell",
+      "command": "echo",
+      "args": [
+        "Run in Copilot Chat: /meta-prompt-engineering-optimize"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "PE: Update from Release Notes",
+      "type": "shell",
+      "command": "echo",
+      "args": [
+        "Run in Copilot Chat: /meta-prompt-engineering-update <paste release notes URL>"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
     }
   ]
 }

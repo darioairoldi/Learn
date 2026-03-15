@@ -268,7 +268,7 @@ This block is managed by validation prompts and tools, never by manual editing o
 
 **Regular Metadata Review**: Periodically check articles for outdated validations (e.g., facts checked more than 30 days ago, grammar not checked in 7+ days) and re-run appropriate prompts.
 
-## � References
+## 📚 References
 
 **GitHub Copilot Documentation - Prompt Files**  
 [https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot](https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)  

@@ -190,6 +190,6 @@ validations:
     status: "validated"
     last_run: "2026-02-14T00:00:00Z"
     checklist_passed: true
-    validated_by: "prompt-createorupdate-v2"
+    validated_by: "prompt-create-update"
 ---
 -->
