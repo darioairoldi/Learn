@@ -6,9 +6,9 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
 
 | Review | Prompt | Frequency | Trigger | Typical Duration |
 |---|---|---|---|---|
-| **Full system review** | `/meta-prompt-engineering-review` | Biweekly | Scheduled | ~10 min |
-| **Post-change review** | `/meta-prompt-engineering-review [scope] references+coherence` | After major changes | Event-driven | ~5 min |
-| **Optimization pass** | `/meta-prompt-engineering-optimize` | As needed | After review finds issues | ~15 min |
+| **Full system review** | `/meta-prompt-engineering-update healthcheck` | Biweekly | Scheduled | ~10 min |
+| **Post-change review** | `/meta-prompt-engineering-update healthcheck [scope] references+coherence` | After major changes | Event-driven | ~5 min |
+| **Optimization pass** | `/meta-prompt-engineering-update performancecheck` | As needed | After review finds issues | ~15 min |
 | **Best practices update** | `/meta-prompt-engineering-update` | On VS Code releases | Event-driven | ~20 min |
 
 ## Biweekly Full Review
@@ -17,16 +17,16 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
 
 ### Steps
 
-- [ ] **1. Run full review**: `/meta-prompt-engineering-review`
+- [ ] **1. Run full review**: `/meta-prompt-engineering-update healthcheck`
   - No parameters = all scopes, all dimensions
   - Review the health score in the report
 
 - [ ] **2. Check the review score**
   - ✅ Score ≥ 90: System healthy — no action needed
-  - ⚠️ Score 70–89: Run `/meta-prompt-engineering-optimize` for the flagged issues
+  - ⚠️ Score 70–89: Run `/meta-prompt-engineering-update performancecheck` for the flagged issues
   - ❌ Score < 70: Investigate CRITICAL findings manually
 
-- [ ] **3. If fixes needed**: `/meta-prompt-engineering-optimize`
+- [ ] **3. If fixes needed**: `/meta-prompt-engineering-update performancecheck`
   - Review the optimization plan before approving
   - Verify no capabilities lost after fixes
 
@@ -39,14 +39,14 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
 ### Steps
 
 - [ ] **1. Identify scope**: Which artifact type was changed?
-- [ ] **2. Run targeted review**: `/meta-prompt-engineering-review [scope] references+coherence`
+- [ ] **2. Run targeted review**: `/meta-prompt-engineering-update healthcheck [scope] references+coherence`
   - Examples:
-    - Changed a context file: `/meta-prompt-engineering-review context references+coherence`
-    - Changed an agent: `/meta-prompt-engineering-review agents rules+structure`
-    - Changed a prompt: `/meta-prompt-engineering-review prompts references`
+    - Changed a context file: `/meta-prompt-engineering-update healthcheck context references+coherence`
+    - Changed an agent: `/meta-prompt-engineering-update healthcheck agents rules+structure`
+    - Changed a prompt: `/meta-prompt-engineering-update healthcheck prompts references`
 
 - [ ] **3. Verify dependency map** is current:
-  - New artifact? → Must be in `16-artifact-dependency-map.md`
+  - New artifact? → Must be in `05.01-artifact-dependency-map.md`
   - Deleted artifact? → Must be removed from map
   - Changed references? → Map must reflect new refs
 
@@ -64,7 +64,7 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
     - Propose updates with impact analysis
 
 - [ ] **3. Review proposed changes** before approving
-- [ ] **4. After updates applied**: `/meta-prompt-engineering-review all coherence+references`
+- [ ] **4. After updates applied**: `/meta-prompt-engineering-update healthcheck all coherence+references`
 - [ ] **5. Update ROADMAP.md** with next review date
 
 ## Quick Reference: Review Dimensions
@@ -85,7 +85,7 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
 | `all` | Everything below | ~50 |
 | `context` | `.copilot/context/00.00-prompt-engineering/` | 18 |
 | `instructions` | `.github/instructions/` | 4–6 |
-| `agents` | `.github/agents/00.00 prompt-engineering/` | 12 |
+| `agents` | `.github/agents/00.00-prompt-engineering/` | 12 |
 | `prompts` | `.github/prompts/00.00-prompt-engineering/` | 11 |
 | `skills` | `.github/skills/` | 2–3 |
 

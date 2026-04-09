@@ -1,117 +1,71 @@
 ---
 name: article-review
 description: >
-  Comprehensive article review workflow for technical documentation following 
-  quality standards. Use when reviewing markdown articles, validating structure, 
-  checking reference classifications, or preparing content for publication.
+  Validation checklists and output templates for technical documentation
+  quality review. Used by documentation-validator agent for systematic
+  article review. Also usable directly for quick manual self-checks.
+  Use when reviewing markdown articles, checking reference classifications,
+  or preparing content for publication.
 ---
 
 # Article Review Skill
 
 ## Purpose
 
-Perform comprehensive quality reviews of technical documentation articles to ensure they meet publication standards, including proper structure, reference classification, and content quality.
+Provide reusable validation checklists, output templates, and troubleshooting guidance for technical documentation quality review. Eliminates duplication of validation criteria across documentation agents and manual review workflows.
+
+## Relationship to Documentation Validator
+
+This skill provides the **validation resources** (checklists, templates, format guides). The `documentation-validator` agent is the **execution engine** that uses these resources to perform deep 7-dimension validation with active tools (`fetch_webpage`, readability scoring, series-level analysis).
+
+| Concern | This skill | documentation-validator agent |
+|---------|-----------|-------------------------------|
+| **Role** | "What to check" — portable checklists and templates | "Who checks and how deep" — execution with tools and triad handoffs |
+| **Depth** | Checklist-level (pass/fail per item) | Quantitative (Flesch scores, severity-scored findings with line references) |
+| **Tools** | None — pure instructions and patterns | `read_file`, `grep_search`, `fetch_webpage`, etc. |
+| **Triad** | Standalone resource | Part of researcher→builder→validator triad |
+
+**When to use which:**
+- **Quick manual self-check** → Use this skill's checklists directly
+- **Full quality validation** → Use `@documentation-validator` (which loads this skill's resources)
+- **Orchestrated review** → Use `/documentation-review` prompt (delegates to validator agent)
 
 ## When to Use
 
 Activate this skill when:
-- **Reviewing articles**: "Review this article for publication readiness"
-- **Checking structure**: "Validate the structure of this markdown file"
-- **Classifying references**: "Check reference classifications in this article"
-- **Quality assessment**: "Assess the quality of this technical documentation"
+- **Quick structure check**: "Does this article have all required sections?"
+- **Reference formatting**: "How should I format this reference entry?"
+- **Pre-submission checklist**: "Is this article ready for publication?"
+- **Review output format**: "What format should a review summary use?"
 
 Do NOT use this skill for:
-- Grammar checking (use grammar-review prompt instead)
-- Code review (use code-review skill/agent instead)
-- Creating new articles (use article-template instead)
+- Full 7-dimension quality validation (use `@documentation-validator`)
+- Grammar or readability scoring (use `@documentation-validator`)
+- Active link verification (use `@documentation-validator` with `fetch_webpage`)
+- Creating new articles (use `@documentation-builder`)
+- Code review or security auditing
 
-## Workflow
+## Validation Resources
 
-### Step 1: Structure Validation
+### Checklists
 
-Check that the article includes all required sections:
+| Resource | Purpose | Use when |
+|----------|---------|----------|
+| [Publication-Ready Checklist](./checklists/publication-ready.md) | Complete pre-publication validation — structure, metadata, references | Before publishing or during Phase 1 structural review |
 
-- [ ] **Title** (H1 heading at the start)
-- [ ] **Table of Contents** (for articles > 500 words)
-- [ ] **Introduction** explaining topic and learning objectives
-- [ ] **Body** with clear section headings (H2, H3)
-- [ ] **Conclusion** summarizing key points
-- [ ] **References** section with classified sources
+### Templates
 
-### Step 2: Metadata Verification
-
-Verify dual YAML blocks are properly formatted:
-
-**Top YAML** (Quarto rendering - at file start):
-```yaml
----
-title: "Article Title"
-author: "Author Name"
-date: "YYYY-MM-DD"
-categories: [category1, category2]
-description: "Brief description"
----
-```
-
-**Bottom HTML Comment** (Validation tracking - at file end):
-```html
-<!-- 
----
-validations:
-  grammar: {last_run: null, ...}
-article_metadata:
-  filename: "article-name.md"
-  created: "YYYY-MM-DD"
----
--->
-```
-
-### Step 3: Reference Classification
-
-Verify all references include proper emoji markers:
-
-| Marker | Type | Examples |
-|--------|------|----------|
-| 📘 | Official | `*.microsoft.com`, `docs.github.com` |
-| 📗 | Verified Community | `github.blog`, `devblogs.microsoft.com` |
-| 📒 | Community | `medium.com`, `dev.to`, personal blogs |
-| 📕 | Unverified | Broken links, unknown sources |
-
-**Expected format:**
-```markdown
-**[Title](url)** `[📘 Official]`  
-Description (2-4 sentences): what it covers, why valuable.
-```
-
-### Step 4: Content Quality Checks
-
-Review for:
-- [ ] Active voice usage
-- [ ] Concise sentences (15-25 words target)
-- [ ] Proper markdown formatting
-- [ ] Code examples with language identifiers
-- [ ] `<mark>` tags for key terms
-- [ ] Descriptive link text (not "click here")
-
-### Step 5: Generate Review Summary
-
-Provide a summary using the [review template](./templates/review-summary.md).
-
-## Templates
-
-- **[Review Summary](./templates/review-summary.md)** - Standard format for review results
-- **[Reference Entry](./templates/reference-entry.md)** - Proper reference formatting
-
-## Checklists
-
-See [checklists/publication-ready.md](./checklists/publication-ready.md) for the complete pre-publication checklist.
+| Resource | Purpose | Use when |
+|----------|---------|----------|
+| [Review Summary](./templates/review-summary.md) | Standard output format for review results — per-dimension scores, reference status, quality ratings | Generating review reports (Phase 5 output) |
+| [Reference Entry](./templates/reference-entry.md) | Correct reference formatting with emoji classification and domain guide | Adding or fixing references |
 
 ## Common Issues
 
 ### Issue: Missing Reference Classification
 
 **Symptom**: References listed without emoji markers  
-**Solution**: Add appropriate marker based on source domain. See reference classification rules in checklist.
+**Solution**: Add appropriate marker based on source domain. See [Reference Entry template](./templates/reference-entry.md) for domain classification guide.
 
 ### Issue: Top YAML Modified by Validation
 
@@ -125,6 +79,7 @@ See [checklists/publication-ready.md](./checklists/publication-ready.md) for the
 
 ## Resources
 
-- [Documentation Instructions](.github/instructions/documentation.instructions.md)
-- [Reference Classification Guide](.copilot/context/90.00-learning-hub/04-reference-classification.md)
-- [Dual YAML Metadata](.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md)
+- 📖 `.copilot/context/01.00-article-writing/02-validation-criteria.md` — 7 validation dimensions and thresholds
+- 📖 `.copilot/context/90.00-learning-hub/04-reference-classification.md` — Reference classification rules
+- 📖 `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` — Dual YAML metadata pattern
+- 📖 `.github/instructions/documentation.instructions.md` — Documentation base rules

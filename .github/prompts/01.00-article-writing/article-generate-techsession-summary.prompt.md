@@ -23,7 +23,7 @@ Enrich output with verified external references.
 
 ### ✅ Always Do
 
-- You MUST follow the output template: `.github/templates/article-generate-techsession-summary/techsession-summary.template.md`
+- You MUST follow the output template: `.github/templates/01.00-article-writing/article-generate-techsession-summary/techsession-summary.template.md`
 - You MUST use concept-driven headings (NEVER put timestamps in headings)
 - You MUST consolidate repeated concepts into ONE section with all relevant timestamps and speakers
 - You MUST classify all references per `.github/instructions/documentation.instructions.md` → Reference Classification
@@ -45,7 +45,7 @@ Enrich output with verified external references.
 
 ## Input Sources
 
-**📖 Input Template:** `.github/templates/article-generate-techsession-summary/input-techsession-summary.template.md`
+**📖 Input Template:** `.github/templates/01.00-article-writing/article-generate-techsession-summary/input-techsession-summary.template.md`
 
 **Gather from ALL available sources (priority order):**
 1. **Explicit user input** — overrides everything
@@ -110,7 +110,7 @@ Enrich output with verified external references.
 - If session title is in folder path (e.g., "BRK226 Boost Development") → `summary.md`
 - Otherwise → `YYYYMMDD-session-title.md`
 
-**Structure:** `.github/templates/article-generate-techsession-summary/techsession-summary.template.md`
+**Structure:** `.github/templates/01.00-article-writing/article-generate-techsession-summary/techsession-summary.template.md`
 
 ## Response Management
 
@@ -169,7 +169,7 @@ prompt_metadata:
     - "v2.1: Added `fetch` tool for Phase 3 reference enrichment (was missing)"
     - "v2.1: Fixed typo — 'enfasis' → 'emphasis'"
     - "v2.0: Major rewrite — removed redundancies, added full 5-phase workflow"
-    - "v2.0: Moved templates to dedicated folder .github/templates/article-generate-techsession-summary/"
+    - "v2.0: Moved templates to dedicated folder .github/templates/01.00-article-writing/article-generate-techsession-summary/"
     - "v2.0: Added Phase 3 (Reference Enrichment) for external reference discovery"
     - "v2.0: Changed topic structure from timestamp-driven to concept-driven headings"
     - "v2.0: Added concept consolidation rules for topics discussed at multiple points"

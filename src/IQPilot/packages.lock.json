@@ -5,12 +5,12 @@
       "Diginsight.Components": {
         "type": "Direct",
         "requested": "[1.*, )",
-        "resolved": "1.0.0.99",
-        "contentHash": "Uf2ip+/FyPoABaIPgQQjJAjesTfB3WOdUlh9X6QqQloBsBkihu9bwVa44rTK8ZyqhWIe4P2YV6BImznCk0i6Uw==",
+        "resolved": "1.0.0.101",
+        "contentHash": "MNF3dB3dYDwW3g7DCk/stWXl/BLSxh6nLeEQgrmVFxWqaNyJbhYh5hQaBCGxsGm8OigdFV8iD/rYjHGWh17Taw==",
         "dependencies": {
-          "Diginsight.Components.Abstractions": "1.0.0.99",
-          "Diginsight.Core": "3.7.1.11",
-          "Diginsight.Diagnostics": "3.7.1.11",
+          "Diginsight.Components.Abstractions": "1.0.0.101",
+          "Diginsight.Core": "3.7.1.12",
+          "Diginsight.Diagnostics": "3.7.1.12",
           "Microsoft.AspNetCore.Http.Abstractions": "2.3.0",
           "Microsoft.Extensions.Configuration": "10.0.3",
           "Microsoft.Extensions.Configuration.Abstractions": "10.0.3",
@@ -26,16 +26,16 @@
       "Diginsight.Components.Azure": {
         "type": "Direct",
         "requested": "[1.*, )",
-        "resolved": "1.0.0.99",
-        "contentHash": "Pdz+tXsxgt50XVoPcEwUDdlFNKB3M93WNraBB+xtF2I0clJ/e0Y5BZDKHyxjodf6XgiRIPbvXZwfnC9r5O3zwg==",
+        "resolved": "1.0.0.101",
+        "contentHash": "iV5QkCxWF1Y6smBEFqdF3JtIIPH4MYwlm60O1ICxsVnoLWASd47AarmOw27fF97Lf0Hqu/OyrS9wouYa2W282Q==",
         "dependencies": {
           "Azure.Data.Tables": "12.11.0",
-          "Diginsight.Components": "1.0.0.99",
-          "Diginsight.Components.Azure.Abstractions": "1.0.0.99",
-          "Diginsight.Components.Configuration.Abstractions": "1.0.0.99",
-          "Diginsight.Core": "3.7.1.11",
-          "Diginsight.Diagnostics": "3.7.1.11",
-          "Microsoft.Azure.Cosmos": "3.57.0",
+          "Diginsight.Components": "1.0.0.101",
+          "Diginsight.Components.Azure.Abstractions": "1.0.0.101",
+          "Diginsight.Components.Configuration.Abstractions": "1.0.0.101",
+          "Diginsight.Core": "3.7.1.12",
+          "Diginsight.Diagnostics": "3.7.1.12",
+          "Microsoft.Azure.Cosmos": "3.57.1",
           "Microsoft.Extensions.Logging.Abstractions": "10.0.3",
           "System.Linq.Async": "6.0.3",
           "System.Linq.Async.Queryable": "6.0.3"
@@ -103,11 +103,11 @@
       "Microsoft.AspNetCore.SignalR.Client": {
         "type": "Direct",
         "requested": "[8.*, )",
-        "resolved": "8.0.24",
-        "contentHash": "DBG2PqRz+pYDI40zyk6J4r/yQmc4gUF32YnZ5CEElvlYPa2RhgNLlwMFyKzMaFTjlTdEOMW2K1275afHRO33ig==",
+        "resolved": "8.0.25",
+        "contentHash": "YKBAd0k+4jhqImQg44pOqHFaCntAN+nTbGTTmRrsevX2cLN/D6jhlZO9Zc/YV5V6rhlVjAiI8s8Azik2yRgqTA==",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Connections.Client": "8.0.24",
-          "Microsoft.AspNetCore.SignalR.Client.Core": "8.0.24"
+          "Microsoft.AspNetCore.Http.Connections.Client": "8.0.25",
+          "Microsoft.AspNetCore.SignalR.Client.Core": "8.0.25"
         }
       },
       "Microsoft.Extensions.Hosting": {
@@ -142,9 +142,9 @@
       },
       "Microsoft.NET.ILLink.Tasks": {
         "type": "Direct",
-        "requested": "[8.0.24, )",
-        "resolved": "8.0.24",
-        "contentHash": "1gnadp//+DoGJvV4AFdzPqYPxkypaWYjYMCr7KAacV0iadsHz1nU+rrkoxBCna4FCmeKH49CisEwa7g94/MbEg=="
+        "requested": "[8.0.25, )",
+        "resolved": "8.0.25",
+        "contentHash": "sqX4nmBft05ivqKvUT4nxaN8rT3apCLt9SWFkfRrQPwra1zPwFknQAw1lleuMCKOCLvVmOWwrC2iPSm9RiXZUg=="
       },
       "Microsoft.SourceLink.GitHub": {
         "type": "Direct",
@@ -217,27 +217,27 @@
       },
       "Diginsight.Components.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.0.0.99",
-        "contentHash": "6OHMrWVAcqKtMqD3D1nxsO6kTgL3jpfgGHvK16SQKGZs+AiIpFrIM2isWZc+8evX8Bb5s3t/bbhVzbR7XZ/VGg==",
+        "resolved": "1.0.0.101",
+        "contentHash": "3QrYk3/NFTsv1dOprLH8pmJLvNoGjZP9xo6xoxBpSg3SldmswiwdnJS2WJy8Pg8B1OsikEvcYwNBCrcpy9/yBg==",
         "dependencies": {
           "Microsoft.Identity.Client": "4.82.1"
         }
       },
       "Diginsight.Components.Azure.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.0.0.99",
-        "contentHash": "8WKRuDOKSbdNDF4EZDMJY/pNULH83JYzlmzN7G6a2lZIeEg05P58kpXEeK+Lujm4G1wRiB58Oe1bvuGpQ1jM8A==",
+        "resolved": "1.0.0.101",
+        "contentHash": "/scAz0fdDN/vOMSgfqXXHcjjGm5g2IisJdl6RPvA++GAeWRDf8wJ8VvsdBXtFNz5JUFc0WGFJYHO6Z9A/YsQTw==",
         "dependencies": {
           "Azure.Data.Tables": "12.11.0"
         }
       },
       "Diginsight.Components.Configuration.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.0.0.99",
-        "contentHash": "PAt8Uc11ppeGcFWoTxQx/z5PJAtvkwV6oiqv6leXEM9nkqzqjZnQaceVK6syOlpoZ7pg2W+ufTCtNNuNjHaGsA==",
+        "resolved": "1.0.0.101",
+        "contentHash": "iRKYT9/D32U0cxBVb/q4qExALJRmWvGxEmL5ZdQtoci4IYm+fF2oOXbVBw9qzc1w7VdND2EqLICYJhNDPJcxiw==",
         "dependencies": {
-          "Diginsight.Core": "3.7.1.11",
-          "Diginsight.Diagnostics": "3.7.1.11"
+          "Diginsight.Core": "3.7.1.12",
+          "Diginsight.Diagnostics": "3.7.1.12"
         }
       },
       "Diginsight.Diagnostics.AspNetCore": {
@@ -289,10 +289,10 @@
       },
       "Microsoft.AspNetCore.Connections.Abstractions": {
         "type": "Transitive",
-        "resolved": "8.0.24",
-        "contentHash": "EsgqvYzSKICQqH4F93PvDss80S/AtJFyIVADnitps7E+vxQdwU2lJ8Yz1IZ5Ldzde+6M6Df5Y2DpOEhtS+fyLw==",
+        "resolved": "8.0.25",
+        "contentHash": "sw3u3kuPJwDlfjTmKbvwoRiE0+5EiAxN4ipZ0J0TOWMqNgH/M4kaP8iSLiDaG8H4VmmqZLNWDIWuSRawqEjmog==",
         "dependencies": {
-          "Microsoft.Extensions.Features": "8.0.24",
+          "Microsoft.Extensions.Features": "8.0.25",
           "System.IO.Pipelines": "8.0.0"
         }
       },
@@ -307,20 +307,20 @@
       },
       "Microsoft.AspNetCore.Http.Connections.Client": {
         "type": "Transitive",
-        "resolved": "8.0.24",
-        "contentHash": "+5DZdwOXvsxcZYY6fgWj2INQouOLLo/u+AbK8d0UXKnX7UkRGenu+XjvHAi5YsghYacIE+qVScACFUdESchiNg==",
+        "resolved": "8.0.25",
+        "contentHash": "LarMkVoWAXYbuoIZkz3b3soWh7r2g3fPwtH6uMeKnCkEw6cvP4df5buKlGb+7xG8ML07SUEf/GQNQS+yUHBaMg==",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Connections.Common": "8.0.24",
+          "Microsoft.AspNetCore.Http.Connections.Common": "8.0.25",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
           "Microsoft.Extensions.Options": "8.0.2"
         }
       },
       "Microsoft.AspNetCore.Http.Connections.Common": {
         "type": "Transitive",
-        "resolved": "8.0.24",
-        "contentHash": "ipVr0E5z+0CAgYkhgoR2saBvldDMQur7gu5jI3NeJwVof07QBu0HBmb1b6YkwFs+4PInq12V/jjrUEk2D0un2w==",
+        "resolved": "8.0.25",
+        "contentHash": "WYbCY7JEdZUTdEuoYWJaMT5f7IXemYO8NmN4hRD6W6FE8q3XzEbB9VN0SwIQMAPlYe+UjojHVGT1AUR29jnxcg==",
         "dependencies": {
-          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.24"
+          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.25"
         }
       },
       "Microsoft.AspNetCore.Http.Features": {
@@ -333,11 +333,11 @@
       },
       "Microsoft.AspNetCore.SignalR.Client.Core": {
         "type": "Transitive",
-        "resolved": "8.0.24",
-        "contentHash": "g++NdcJiiYiE5IQ3f1vQcr9ddOJRTgvJTb+eINqMa/J5s2Ig0JvIH4XSKnvZfT9qrLcGXY4S3WI6yxJ8Ikd19A==",
+        "resolved": "8.0.25",
+        "contentHash": "tivDoEwFxoEFQnT1G7kBww+OO3Zd2MfVRdnbpArd/MgDCnit+YCsc8rV1Dy1jMx/FZDDbDXIoOAFauf2wmR+Cg==",
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Common": "8.0.24",
-          "Microsoft.AspNetCore.SignalR.Protocols.Json": "8.0.24",
+          "Microsoft.AspNetCore.SignalR.Common": "8.0.25",
+          "Microsoft.AspNetCore.SignalR.Protocols.Json": "8.0.25",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Microsoft.Extensions.Logging": "8.0.1",
           "System.Threading.Channels": "8.0.0"
@@ -345,25 +345,25 @@
       },
       "Microsoft.AspNetCore.SignalR.Common": {
         "type": "Transitive",
-        "resolved": "8.0.24",
-        "contentHash": "vK8W0xjTepE4s+sQ1rZrvvYz0IzzNx3sgBaYPOFRFXxUR425KLUpErD0Gkeyz/zSwALWez5eNd4UOxCwCwxkDQ==",
+        "resolved": "8.0.25",
+        "contentHash": "2NfngjxXP0b9xWJ1LTmDsI9HR7KMkzLAw7NJ+uSOy2eOZ2VcYFlqtZGE7bfJZqJOUBIjXDeE0oWPjdWz9gbppg==",
         "dependencies": {
-          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.24",
+          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.25",
           "Microsoft.Extensions.Options": "8.0.2"
         }
       },
       "Microsoft.AspNetCore.SignalR.Protocols.Json": {
         "type": "Transitive",
-        "resolved": "8.0.24",
-        "contentHash": "wiJRNYWpLVNkI4a4GitAtnRSFR05e/xOvi4LMo+KGO/w7qyBksVG1B2x24XS7CxsJ37sTl7ODp2Cj7sIz7YJ/Q==",
+        "resolved": "8.0.25",
+        "contentHash": "Mca70QIodfaPvxLooXCPlOUX2xwqwRu5M1fXmjPCL1ogiZbzokY+D2hu8IKhshq5iU8bo5558+aC6u91YA/hXA==",
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Common": "8.0.24"
+          "Microsoft.AspNetCore.SignalR.Common": "8.0.25"
         }
       },
       "Microsoft.Azure.Cosmos": {
         "type": "Transitive",
-        "resolved": "3.57.0",
-        "contentHash": "35uoYG8m7l0gEIRwV7z/1g1iewgMw7OiqBJV4uKkxjxQxc/rOgf9k5HgxQrAtOMgFtkBErU+/9e/2x8exzPNIg==",
+        "resolved": "3.57.1",
+        "contentHash": "UBUJCYPDILU9vjyHKqRlFnC5IhSvDHNB6Q0+FsD7/6Y25N+CIs65grxf6vI+PDaK8yiE6CcIS+YDWK1h4MYalg==",
         "dependencies": {
           "Azure.Core": "1.44.1",
           "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
@@ -532,8 +532,8 @@
       },
       "Microsoft.Extensions.Features": {
         "type": "Transitive",
-        "resolved": "8.0.24",
-        "contentHash": "YphHJoFh6bug+WWWT7aJpSTQje6TOl5bN1aAhrrQSpFnIX0yLynzgGlmF5eD7UnlTtl0vrCmy2T70ER+Bix4yg=="
+        "resolved": "8.0.25",
+        "contentHash": "rlfHsP2XPAQtTDAuDrOD6pdoQ/Bg1GuUakAuOYzUE9POkokmFpOYbhbVUTLx9gmu0Pywo7LlxuBnRDAfynwlkg=="
       },
       "Microsoft.Extensions.FileProviders.Abstractions": {
         "type": "Transitive",
@@ -996,8 +996,8 @@
     "net8.0/win-x64": {
       "Microsoft.Azure.Cosmos": {
         "type": "Transitive",
-        "resolved": "3.57.0",
-        "contentHash": "35uoYG8m7l0gEIRwV7z/1g1iewgMw7OiqBJV4uKkxjxQxc/rOgf9k5HgxQrAtOMgFtkBErU+/9e/2x8exzPNIg==",
+        "resolved": "3.57.1",
+        "contentHash": "UBUJCYPDILU9vjyHKqRlFnC5IhSvDHNB6Q0+FsD7/6Y25N+CIs65grxf6vI+PDaK8yiE6CcIS+YDWK1h4MYalg==",
         "dependencies": {
           "Azure.Core": "1.44.1",
           "Microsoft.Bcl.AsyncInterfaces": "6.0.0",

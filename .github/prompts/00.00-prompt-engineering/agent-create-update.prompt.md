@@ -70,234 +70,53 @@ You actively challenge requirements through use case testing to discover gaps, t
 
 ### Phase 1: Input Analysis and Requirements Gathering
 
-**Goal:** Identify operation type, extract requirements from all sources, and **actively validate** through challenge-based discovery.
+**Goal:** Identify operation type, extract requirements, and validate through challenge-based discovery.
 
----
+**📖 Output formats:** `.github/templates/00.00-prompt-engineering/output-agent-validation-phases.template.md`
+**📖 Validation methodology:** `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md`
 
 #### Step 1: Determine Operation Type
 
-**Check these sources in order:**
-
-1. **Attached files** - `#file:path/to/agent.agent.md` → Update mode
-2. **Explicit keywords** - "update", "modify", "change" → Update mode
-3. **Active editor** - Open `.agent.md` file → Update mode (if file exists)
-4. **Default** - Create mode
-
-**Output:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: Operation Type Output"
-
----
+Check sources in order: attached files → explicit keywords → active editor → default create mode.
 
 #### Step 2: Extract Initial Requirements
 
-**Collect from ALL available sources:**
+**Collect from all sources** (user input > attached files > active file > workspace patterns > template defaults):
 
-**Information to Gather:**
+| Field | Create Mode | Update Mode |
+|---|---|---|
+| Name | From user or derive from role | From existing file |
+| Description | From user or generate from role | Preserve + modify |
+| Role/Persona | Extract from user description | Preserve working elements |
+| Tools (3-7) | Infer from role pattern (researcher→read, builder→write, validator→read) | Adjust as needed |
+| Agent Mode | `plan` (read-only) / `agent` (write access) | Preserve unless changing |
+| Handoffs | Identify coordination needs | Preserve + modify |
+| Boundaries | Defaults + user constraints | Preserve + modify |
 
-1. **Agent Name** - Identifier for the agent (lowercase-with-hyphens)
-2. **Agent Description** - One-sentence purpose statement
-3. **Role/Persona** - Specialized role and expertise
-4. **Responsibilities** - Primary tasks this agent handles
-5. **Tools Required** - Which tools needed (3-7 maximum)
-6. **Boundaries** - Always Do / Ask First / Never Do rules
-7. **Agent Mode** - `agent` (full autonomy) or `plan` (read-only)
-8. **Model Preference** - claude-sonnet-4.5 (default), gpt-4o, etc.
-9. **Handoffs** - Other agents this agent can delegate to
-10. **Behavior Constraints** - Specific instructions for agent behavior
+#### Step 3: Determine Validation Depth
 
-**Available Sources (prioritized):**
+| Complexity | Indicators | Use Cases |
+|---|---|---|
+| Simple | Standard role pattern, clear tools, no handoffs | 3 |
+| Moderate | Domain-specific, some tool discovery, multiple handoffs | 5 |
+| Complex | Novel role, unclear tools, >7 proposed, hybrid responsibilities | 7 |
 
-1. **Explicit user input** - Chat message (highest priority)
-2. **Attached files** - Existing agent structure for updates
-3. **Active file/selection** - Currently open file
-4. **Placeholders** - `{{placeholder}}` syntax
-5. **Workspace patterns** - Similar agents in `.github/agents/`
-6. **Template defaults** - Agent engineering best practices
+#### Step 4: Validate Requirements (Challenge-Based)
 
-**Extraction Strategy:**
+Run these validation sub-steps. Each references `04.02-adaptive-validation-patterns.md` for methodology:
 
-**For Create Mode:**
-- **Name**: From user OR derive from role (lowercase-with-hyphens)
-- **Description**: From user OR generate from role
-- **Role**: Extract from user's description of agent purpose
-- **Responsibilities**: Infer from role type
-- **Tools (initial)**: Infer from role pattern:
-  - **Researcher**: semantic_search, grep_search, read_file, file_search
-  - **Builder**: read_file, semantic_search, create_file, file_search
-  - **Validator**: read_file, grep_search, file_search
-  - **Updater**: read_file, grep_search, replace_string_in_file, multi_replace_string_in_file
-  - **Test Agent**: read_file, semantic_search, run_in_terminal, runTests
-  - **Security Agent**: semantic_search, grep_search, read_file, codebase
-- **Agent Mode**: 
-  - `plan` for read-only analysis/validation roles
-  - `agent` for implementation/modification roles
-- **Boundaries**: Start with defaults + user-specified constraints
-
-**For Update Mode:**
-- Read existing agent structure completely
-- Identify sections to modify
-- Preserve working elements
-- Extract user-requested changes
-
-**Output:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: Initial Requirements Extraction Output"
-
----
-
-#### Step 3: Determine Validation Depth (Adaptive)
-
-**Complexity Assessment:**
-
-Analyze initial requirements to determine validation depth needed:
-
-| Complexity Level | Indicators | Validation Depth |
-|------------------|------------|------------------|
-| **Simple** | Standard role, clear tool set, common pattern | **Quick** (3 use cases, basic role check) |
-| **Moderate** | Domain-specific role, some tool discovery needed, partial pattern match | **Standard** (5 use cases, role + tool composition check) |
-| **Complex** | Novel role, unclear tools, multi-agent workflow, >7 tools proposed | **Deep** (7 use cases, full role/tool/handoff analysis) |
-
-**Complexity Indicators:**
-
-**Simple Agents:**
-- ✅ Role matches standard pattern (researcher, builder, validator, updater)
-- ✅ Tools are obvious from role type
-- ✅ No handoffs or simple single handoff
-- ✅ Agent mode is clear (plan for validators, agent for builders)
-- **Example:** "Create an agent for validating JSON schema"
-
-**Moderate Agents:**
-- ⚠️ Role is domain-specific but recognizable
-- ⚠️ Tools need discovery from use cases
-- ⚠️ Multiple handoffs or orchestration needed
-- ⚠️ Agent mode needs validation
-- **Example:** "Create an agent for reviewing API security best practices"
-
-**Complex Agents:**
-- 🔴 Role is novel or multi-faceted
-- 🔴 Tool requirements unclear or >7 tools proposed
-- 🔴 Complex handoff workflow needed
-- 🔴 Hybrid responsibilities (read + write + orchestrate)
-- 🔴 Agent/tool alignment unclear
-- **Example:** "Create an agent for modernizing legacy codebases with AI-powered refactoring"
-
-**Output:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: Validation Depth Assessment Output"
-
----
-
-#### Step 4: Validate Requirements (Active Challenge-Based Discovery)
-
-**CRITICAL:** This is where passive extraction becomes active validation.
-
----
-
-##### Step 4.1: Challenge Role with Use Cases
-
-**Goal:** Test if role is appropriately specialized through realistic scenarios. Discover tool requirements, responsibility boundaries, and handoff needs.
-
-**Process:**
-
-1. **Generate use cases** based on validation depth (3 for simple, 5 for moderate, 7 for complex)
-2. **Test each scenario** against role: Can this agent handle it effectively?
-3. **Identify gaps** revealed by scenarios
-4. **Refine role** for appropriate specialization
-
-**Use Case Template:** See `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: Use Case Challenge Template"
-
-**Detailed Examples:** See `.github/templates/output-agent-validation-phases.template.md` → "Example: Simple Agent - JSON Schema Validator (Complete)" for a full worked example demonstrating:
-- Use case challenge progression
-- Tool discovery through scenarios
-- Boundary refinement from vague to actionable
-- Role specialization validation
-
-**Output Format:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: Role Challenge Results Output"
-
----
-
-##### Step 4.2: Validate Tool Composition
-
-**Goal:** Ensure tool set is necessary, minimal (3-7 tools), and follows proven composition patterns.
-
-**Process:**
-
-1. **Map responsibilities to required capabilities**
-2. **Cross-reference tool-composition-guide.md** for patterns
-3. **Validate tool count** (3-7 optimal, >7 requires decomposition)
-4. **Verify agent/tool alignment** (plan → read-only, agent → full access)
-5. **Check for tool conflicts** (avoid overlapping capabilities)
-
-**Tool Composition Methodology:** See `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md` for:
-- Responsibility → Tool mapping patterns
-- Tool count optimization strategies
-- Agent mode alignment rules
-- Tool conflict detection
-
-**Output Format:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: Tool Composition Validation Output"
-
----
-
-##### Step 4.3: Validate Boundaries Are Actionable
-
-**Goal:** Ensure each boundary is unambiguously testable and prevents identified failure modes.
-
-**Process:**
-
-1. **For each boundary:** Can AI determine compliance?
-2. **Refine vague boundaries:** Make specific and testable
-3. **Ensure all three tiers populated:** Always Do / Ask First / Never Do
-4. **Check coverage:** Do boundaries prevent failure modes from Step 4.1?
-5. **Validate agent-specific constraints:** Especially for agent mode and tool usage
-
-**Boundary Refinement Examples:** See `.github/templates/output-agent-validation-phases.template.md` → "Example: Simple Agent - JSON Schema Validator (Complete)" for:
-- Read-only agent boundary patterns
-- Vague-to-actionable boundary refinement
-- Coverage check methodology
-
-**Output Format:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: Boundary Validation Results Output"
-
----
+1. **4.1 Challenge Role** — generate use cases per depth, test against role, identify gaps/tools/handoffs
+2. **4.2 Validate Tool Composition** — map responsibilities to capabilities, verify count (3-7), verify alignment per `01.04-tool-composition-guide.md`, check conflicts
+3. **4.3 Validate Boundaries** — actionability test, three tiers populated, coverage of failure modes
 
 #### Step 5: User Clarification Protocol
 
-**When to Use:** When validation (Step 4) reveals gaps, ambiguities, or critical missing information.
-
-**Categorization:**
-
-| Category | Priority | Impact | Action |
-|----------|----------|--------|--------|
-| **Critical** | BLOCK | Cannot proceed without answer | Must resolve |
-| **High** | ASK | Significant tool/mode/scope impact | Should resolve |
-| **Medium** | SUGGEST | Best practice improvement | Nice to have |
-| **Low** | DEFER | Optional enhancement | Can skip |
-
-**Clarification Request Format:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: User Clarification Request Format"
-
-**Response Handling:**
-
-1. **User responds with clarifications**
-2. **Update requirements** with clarified information
-3. **Re-run validation** (Step 4) with new information
-4. **If still gaps:** Repeat clarification (max 2 rounds)
-5. **If >2 rounds:** Escalate: "I need more specific requirements. Please provide [specific information]"
-
-**Anti-Patterns to Avoid:**
-
-❌ **NEVER guess** user intent without validation  
-❌ **NEVER proceed** with assumptions like "probably they meant..."  
-❌ **NEVER fill gaps** with defaults silently  
-❌ **NEVER add tools** without justification from use cases  
-
-✅ **ALWAYS present** multiple interpretations when ambiguous  
-✅ **ALWAYS show** implications of each choice (mode, tools, complexity)  
-✅ **ALWAYS get** explicit confirmation before proceeding  
-✅ **ALWAYS explain** why decomposition is needed if role is too broad  
-
----
+Categorize gaps: Critical (BLOCK), High (ASK), Medium (SUGGEST), Low (DEFER).
+Max 2 clarification rounds → escalate. NEVER guess intent, add tools without justification, or fill gaps silently.
 
 #### Step 6: Final Requirements Summary
 
-**After all validation passes or user clarifications received:**
-
-**Output Format:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 1: Final Requirements Summary Output"
-
----
+Present validated requirements for user confirmation before proceeding to Phase 2.
 
 ### Phase 2: Best Practices Research
 
@@ -308,8 +127,8 @@ Analyze initial requirements to determine validation depth needed:
 1. **Read repository instructions:**
    - `.github/instructions/agents.instructions.md`
    - `.github/copilot-instructions.md`
-   - `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-   - `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
+   - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
+   - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 
 2. **Search for similar agents:**
    ```
@@ -333,7 +152,7 @@ Analyze initial requirements to determine validation depth needed:
    - ❌ Agent/tool misalignment (plan + write tools)
    - ❌ Verbose inline output formats (use templates)
 
-**Output Format:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 2: Best Practices Validation Output"
+**Output Format:** Use format from `.github/templates/00.00-prompt-engineering/output-agent-validation-phases.template.md` → "Phase 2: Best Practices Validation Output"
 
 ---
 
@@ -343,7 +162,7 @@ Analyze initial requirements to determine validation depth needed:
 
 **Process:**
 
-1. **Load template:** `.github/templates/agent-template.md` (if exists) or use proven agent structure
+1. **Load template:** `.github/templates/00.00-prompt-engineering/agent.template.md` (if exists) or use proven agent structure
 2. **Apply requirements:** Fill YAML, role, expertise, responsibilities, boundaries
 3. **Use imperative language:** You WILL, MUST, NEVER, CRITICAL
 4. **Include examples:** Usage scenarios (when to use this agent)
@@ -367,7 +186,7 @@ Analyze initial requirements to determine validation depth needed:
 
 **Goal:** Validate generated agent against quality standards.
 
-**Checklist:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Phase 4: Pre-Output Validation Checklist"
+**Checklist:** Use format from `.github/templates/00.00-prompt-engineering/output-agent-validation-phases.template.md` → "Phase 4: Pre-Output Validation Checklist"
 
 ---
 
@@ -387,7 +206,7 @@ Analyze initial requirements to determine validation depth needed:
 
 **File path:** `.github/agents/[agent-name].agent.md`
 
-**Metadata block:** Use format from `.github/templates/output-agent-validation-phases.template.md` → "Agent Metadata Block Template"
+**Metadata block:** Use format from `.github/templates/00.00-prompt-engineering/output-agent-validation-phases.template.md` → "Agent Metadata Block Template"
 
 ---
 
@@ -396,12 +215,12 @@ Analyze initial requirements to determine validation depth needed:
 **You MUST read these files before generating agents:**
 
 - `.github/instructions/agents.instructions.md` - Core guidelines
-- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md` - 8 core principles
-- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md` - Tool selection guide
+- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` - 8 core principles
+- `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md` - Tool selection guide
 
 **You MUST use output format templates:**
 
-- `.github/templates/output-agent-validation-phases.template.md` - Phase output formats
+- `.github/templates/00.00-prompt-engineering/output-agent-validation-phases.template.md` - Phase output formats
 
 **You SHOULD search for similar agents:**
 
@@ -431,12 +250,42 @@ Before completing:
 ## References
 
 - `.github/instructions/agents.instructions.md`
-- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
+- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
+- `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
-<!-- 
+---
+
+## 🔄 Error Recovery Workflows
+
+**📖 Recovery pattern:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+
+Agent-create-update-specific recovery:
+- **Template not found** → Fall back to instruction file patterns, warn user
+- **Pre-save validation fails** → Fix and retry (max 3), then escalate
+- **Handoff target doesn't exist** → Flag as dependency, ask user whether to create or defer
+
+---
+
+## 📋 Response Management
+
+**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+
+Agent-create-update-specific scenarios:
+- **Agent file already exists (create mode)** → "Agent [name] already exists. Switch to update mode?"
+- **Missing role or tool specification** → Ask for clarification before generating
+- **Tool count outside 3-7 range** → Present options: decompose, justify, or reduce
+
+---
+
+## 🧪 Embedded Test Scenarios
+
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Create new agent (happy path) | Phases 1-4 → agent file created, pre-save validation passed |
+| 2 | Update existing agent | Reads current file → applies changes → preserves metadata → re-validates |
+| 3 | Missing required sections | Pre-save flags CRITICAL → fix → retry → pass |
 ---
 agent_metadata:
   created: "2025-12-14T00:00:00Z"
@@ -444,7 +293,7 @@ agent_metadata:
   last_updated: "2026-01-24T00:00:00Z"
   version: "2.1"
   changes:
-    - "Applied Principle 8 (Template Externalization) - externalized verbose output formats to .github/templates/output-agent-validation-phases.template.md"
+    - "Applied Principle 8 (Template Externalization) - externalized verbose output formats to .github/templates/00.00-prompt-engineering/output-agent-validation-phases.template.md"
     - "Reduced token count from ~2800 to ~800 (~70% improvement through template externalization)"
   production_ready:
     template_externalization: true

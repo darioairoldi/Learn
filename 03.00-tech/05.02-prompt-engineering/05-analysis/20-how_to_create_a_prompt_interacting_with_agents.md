@@ -1598,7 +1598,7 @@ When orchestrations involve many MCP servers:
 - Use **tool sets** to group related MCP + built-in tools
 - Configure threshold via `github.copilot.chat.virtualTools.threshold` setting
 
-Learn more: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+Learn more: `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 
 ### 📝 Implementation Example
 
@@ -2296,7 +2296,7 @@ Practical demonstration of an ultralight orchestration framework with four speci
 **[03. How to Structure Content for Copilot Prompt Files](../04-howto/03.00-how_to_structure_content_for_copilot_prompt_files.md)** `[📒 Community]`  
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.
 
-**Context Engineering Principles** (`.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`) `[📒 Internal]`  
+**Context Engineering Principles** (`.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`) `[📒 Internal]`  
 Repository-specific guidelines for narrow scope, imperative language, three-tier boundaries, context minimization, and lazy loading patterns. Critical for building efficient multi-agent orchestrations.
 
 **Tool Composition Guide** (`.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`) `[📒 Internal]`  

@@ -245,8 +245,8 @@ After validation:
 
 ## Template Reference
 Refer to templates in `.github/templates/`:
-- `article-template.md` - Standard articles
-- `howto-template.md` - Step-by-step guides
-- `tutorial-template.md` - Learning tutorials
+- `article.template.md` - Standard articles
+- `howto.template.md` - Step-by-step guides
+- `tutorial.template.md` - Learning tutorials
 
 All templates now include dual YAML structure.

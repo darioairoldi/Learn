@@ -84,7 +84,7 @@ Use this table to locate the authoritative rules for each validation dimension:
 
 ## Process
 
-**📖 Template folder:** `.github/templates/article-review-series-for-consistency-gaps-and-extensions/`
+**📖 Template folder:** `.github/templates/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions/`
 
 ### Phase 1: Series Discovery & Context Analysis
 
@@ -206,7 +206,7 @@ Research adjacent topics (naturally related) → emerging topics (industry trend
 
 ## Output Format
 
-**📖 All output templates:** `.github/templates/article-review-series-for-consistency-gaps-and-extensions/output-series-review-phases.template.md`
+**📖 All output templates:** `.github/templates/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions/output-series-review-phases.template.md`
 
 Comprehensive series review report containing:
 1. Series Discovery Results and Goals
@@ -283,9 +283,9 @@ Comprehensive series review report containing:
 
 **Context Files:**
 - `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` — Metadata structure and parsing rules
-- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md` — Context optimization
+- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Context optimization
 - `.copilot/context/01.00-article-writing/03-article-creation-rules.md` — Diátaxis patterns, required elements, writing style deep rules, quality checklists
-- `.github/templates/article-template.md` — Standard article structure
+- `.github/templates/01.00-article-writing/article.template.md` — Standard article structure
 
 **Related Prompts:**
 - `article-review-for-consistency-gaps-and-extensions.prompt.md` — Individual article analysis
@@ -316,7 +316,7 @@ prompt_metadata:
     - "Externalized all inline output formats to output-series-review-phases.template.md"
     - "Externalized Phase 1-2 verbose discovery/inventory to guidance-discovery-and-inventory.template.md"
     - "Externalized Phase 4-5 verbose research/extension to guidance-research-and-extensions.template.md"
-    - "Created dedicated template folder: .github/templates/article-review-series-for-consistency-gaps-and-extensions/"
+    - "Created dedicated template folder: .github/templates/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions/"
     - "Added Response Management section (Production-Ready requirement)"
     - "Added Error Recovery section with tool failure fallback table (Production-Ready requirement)"
     - "Added 5 Embedded Test Scenarios (Production-Ready requirement)"

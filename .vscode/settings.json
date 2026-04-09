@@ -75,7 +75,7 @@
         "chat.promptFilesRecommendations": {},
         "chat.agentFilesLocations": {
             ".github/agents": true,
-            ".github/agents/00.00 prompt-engineering": true,
-            ".github/agents/01.00 article-writing": true
+            ".github/agents/00.00-prompt-engineering": true,
+            ".github/agents/01.00-article-writing": true
         }
     }

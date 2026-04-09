@@ -157,7 +157,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 | File | Purpose | Key Content |
 |------|---------|-------------|
-| [01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md) | Core principles | 6 principles: Narrow Scope, Early Commands, Imperative Language, Three-Tier Boundaries, Context Minimization, Tool Scoping |
+| [01.01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md) | Core principles | 6 principles: Narrow Scope, Early Commands, Imperative Language, Three-Tier Boundaries, Context Minimization, Tool Scoping |
 | [02-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md) | Tool selection | Priority rules, role-based tool sets, composition patterns |
 | [05-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md) | 7-day caching | Dual YAML architecture, cache check workflow |
 | [04-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/04-handoffs-pattern.md) | Multi-agent coordination | Handoff patterns: Linear Chain, Parallel Research, Validation Loop, Supervised |
@@ -173,7 +173,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **Guidance Maintenance** (`.github/prompts/00.00-prompt-engineering/`):
 - [instruction-file-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md) - Update instruction files
-- [context-file-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/context-file-create-update.prompt.md) - Update context files
+- [context-information-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md) - Update context files
 
 ### Agent Files
 
@@ -191,11 +191,11 @@ Complete guide to prompt, agent, and context engineering in this repository.
 | Prompt Researcher | [@prompt-researcher](.github/agents/prompt-researcher.agent.md) | Prompt pattern discovery | Read-only |
 | Prompt Builder | [@prompt-builder](.github/agents/prompt-builder.agent.md) | Prompt file creation | Read + Write |
 | Prompt Validator | [@prompt-validator](.github/agents/prompt-validator.agent.md) | Prompt quality assurance | Read-only |
-| Prompt Updater | [@prompt-updater](.github/agents/prompt-updater.agent.md) | Fix prompt issues | Read + Write |
+| Prompt Builder | [@prompt-builder](.github/agents/00.00%20prompt-engineering/prompt-builder.agent.md) | Create and update prompt files | Read + Write |
 | Agent Researcher | [@agent-researcher](.github/agents/agent-researcher.agent.md) | Agent pattern discovery | Read-only |
 | Agent Builder | [@agent-builder](.github/agents/agent-builder.agent.md) | Agent file creation | Read + Write |
 | Agent Validator | [@agent-validator](.github/agents/agent-validator.agent.md) | Agent quality assurance | Read-only |
-| Agent Updater | [@agent-updater](.github/agents/agent-updater.agent.md) | Fix agent issues | Read + Write |
+| Agent Builder | [@agent-builder](.github/agents/00.00%20prompt-engineering/agent-builder.agent.md) | Create and update agent files | Read + Write |
 
 ### Tech Articles (Learning)
 
@@ -237,7 +237,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **To update guidance files**:
 ```
-@workspace /context-file-create-update [describe updates needed]
+@workspace /context-information-create-update [describe updates needed]
 ```
 
 ### 🔧 Automation Scripts

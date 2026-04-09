@@ -4,7 +4,7 @@
 
 **Date:** [YYYY-MM-DD]
 **Scope:** [Full system / Targeted: specific files]
-**Auditor:** meta-reviewer agent
+**Auditor:** meta-validator agent (Ecosystem Audit mode)
 
 ## Executive Summary
 

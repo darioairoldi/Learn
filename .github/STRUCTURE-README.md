@@ -93,14 +93,14 @@ AI context library and automation tools.
 ## 📋 Templates
 
 ### Article Types
-- **`article-template.md`**: General explanatory content
-- **`howto-template.md`**: Step-by-step procedures
-- **`tutorial-template.md`**: Hands-on learning with exercises
+- **`article.template.md`**: General explanatory content
+- **`howto.template.md`**: Step-by-step procedures
+- **`tutorial.template.md`**: Hands-on learning with exercises
 
 ### Documentation
-- **`recording-summary-template.md`**: Meeting/presentation summaries
-- **`recording-analysis-template.md`**: Deep analysis of recordings
-- **`issue-template.md`**: Bug/improvement reports
+- **`recording-summary.template.md`**: Meeting/presentation summaries
+- **`recording-analysis.template.md`**: Deep analysis of recordings
+- **`issue.template.md`**: Bug/improvement reports
 
 ### Metadata
 - **`metadata-template.yml`**: Schema for article metadata

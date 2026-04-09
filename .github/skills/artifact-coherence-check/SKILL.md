@@ -12,7 +12,7 @@ description: >
 
 ## Purpose
 
-Validate that prompt engineering artifacts cooperate correctly without contradictions, broken references, or redundant content. Provides systematic checks that can be invoked by `meta-reviewer`, validation prompts, or directly by users.
+Validate that prompt engineering artifacts cooperate correctly without contradictions, broken references, or redundant content. Provides systematic checks that can be invoked by `meta-validator` (Ecosystem Audit mode), validation prompts, or directly by users.
 
 ## When to Use
 
@@ -86,12 +86,12 @@ Verify rules don't contradict across artifact layers.
 
 | Rule | Canonical Source | Check Against |
 |---|---|---|
-| Tool alignment (plan=read-only) | `04-tool-composition-guide.md` | All agents, PE-validation skill |
-| Template-first (>10 lines) | `01-context-engineering-principles.md` (P8) | `prompts.instructions.md`, `agents.instructions.md` |
-| Three-tier boundaries (3/1/2 min) | `01-context-engineering-principles.md` (P4) | All agents |
-| Token budgets | `01-context-engineering-principles.md` | All instruction files |
-| Validation caching (7-day) | `14-validation-caching-pattern.md` | Validation prompts |
-| Handoff `send:` strategy | `05-handoffs-pattern.md` | All agents with handoffs |
+| Tool alignment (plan=read-only) | `01.04-tool-composition-guide.md` | All agents, PE-validation skill |
+| Template-first (>10 lines) | `01.01-context-engineering-principles.md` (P8) | `prompts.instructions.md`, `agents.instructions.md` |
+| Three-tier boundaries (min items) | `01.06-system-parameters.md` | All agents |
+| Token budgets | `01.06-system-parameters.md` | All instruction files |
+| Validation caching (7-day) | `04.01-validation-caching-pattern.md` | Validation prompts |
+| Handoff `send:` strategy | `02.01-handoffs-pattern.md` | All agents with handoffs |
 
 **Contradiction detection:**
 - Same concept with different thresholds (e.g., "5 lines" vs "10 lines")
@@ -111,11 +111,11 @@ Verify all agent handoff chains are complete and valid.
 
 **Expected chains:**
 ```
-prompt-researcher → prompt-builder → prompt-validator ↔ prompt-updater
-agent-researcher → agent-builder → agent-validator ↔ agent-updater
+prompt-researcher → prompt-builder → prompt-validator ↔ prompt-builder
+agent-researcher → agent-builder → agent-validator ↔ agent-builder
 context-builder → prompt-validator
 instruction-builder → prompt-validator
-meta-reviewer → meta-optimizer → prompt-validator
+meta-validator → meta-optimizer → prompt-validator
 ```
 
 ### Workflow 4: Redundancy Scan
@@ -132,10 +132,10 @@ Detect duplicated content that violates single-source-of-truth principle.
 
 | Content | Canonical Source | Search Agents/Instructions For |
 |---|---|---|
-| Tool alignment rules | `04-tool-composition-guide.md` | "plan.*read-only", "write tools", "tool clash" |
-| Boundary pattern | `01-context-engineering-principles.md` | "Always Do.*Ask First.*Never Do" |
-| Template-first rules | `01-context-engineering-principles.md` | "10 lines", "externalize", "template-first" |
-| Reliability checksum | `05-handoffs-pattern.md` | "Goal Preservation", "Scope Boundaries" |
+| Tool alignment rules | `01.04-tool-composition-guide.md` | "plan.*read-only", "write tools", "tool clash" |
+| Boundary pattern | `01.01-context-engineering-principles.md` | "Always Do.*Ask First.*Never Do" |
+| Template-first rules | `01.01-context-engineering-principles.md` | "10 lines", "externalize", "template-first" |
+| Reliability checksum | `02.01-handoffs-pattern.md` | "Goal Preservation", "Scope Boundaries" |
 
 ### Workflow 5: Token Budget Audit
 
@@ -143,26 +143,18 @@ Verify all PE artifacts are within their token budgets.
 
 **Process:**
 1. Count lines for each artifact (lines × 6 ≈ tokens estimate)
-2. Compare against budget from `01-context-engineering-principles.md`
+2. Compare against budgets from `01.06-system-parameters.md`
 3. Flag files exceeding WARNING threshold
 4. Recommend split or compression for files exceeding CRITICAL threshold
 
-**Budget reference:**
-
-| Artifact Type | Budget | Warning | Critical |
-|---|---|---|---|
-| Context file | ≤2,500 tokens (~375 lines) | >375 lines | >450 lines |
-| Instruction file | ≤800 tokens (~120 lines) | >120 lines | >150 lines |
-| Agent file | ≤1,000 tokens (~150 lines) | >150 lines | >200 lines |
-| Prompt file | ≤1,500 tokens (~220 lines) | >220 lines | >300 lines |
-| Skill body | ≤1,500 tokens (~200 lines) | >200 lines | >250 lines |
+**📖 Budget thresholds (per-type limits, warning/critical levels):** `01.06-system-parameters.md` → Token Budgets
 
 ### Workflow 6: Dependency Map Verification
 
 Verify the dependency map matches the actual artifact state.
 
 **Process:**
-1. Load `16-artifact-dependency-map.md`
+1. Load `05.01-artifact-dependency-map.md`
 2. Compare listed files against actual files on disk
 3. Verify reference counts by spot-checking 3–5 high-impact entries
 4. Flag any files present on disk but missing from the map
@@ -177,7 +169,7 @@ Verify the dependency map matches the actual artifact state.
 ### Issue: Contradictory Token Budgets
 
 **Symptom**: Different budget numbers for same artifact type across files
-**Solution**: Update all references to match canonical source (`01-context-engineering-principles.md`)
+**Solution**: Update all references to match canonical source (`01.01-context-engineering-principles.md`)
 
 ### Issue: Orphaned Agents
 
@@ -186,12 +178,12 @@ Verify the dependency map matches the actual artifact state.
 
 ### Issue: Stale Dependency Map
 
-**Symptom**: New artifacts exist but aren't listed in `16-artifact-dependency-map.md`
+**Symptom**: New artifacts exist but aren't listed in `05.01-artifact-dependency-map.md`
 **Solution**: Update the dependency map with new entries and reference counts
 
 ## Resources
 
-- **📖 Dependency map:** `.copilot/context/00.00-prompt-engineering/16-artifact-dependency-map.md`
-- **📖 Lifecycle management:** `.copilot/context/00.00-prompt-engineering/17-artifact-lifecycle-management.md`
-- **📖 Entry points:** `.copilot/context/00.00-prompt-engineering/18-pe-workflow-entry-points.md`
-- **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+- **📖 Dependency map:** `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`
+- **📖 Lifecycle management:** `.copilot/context/00.00-prompt-engineering/05.02-artifact-lifecycle-management.md`
+- **📖 Entry points:** `.copilot/context/00.00-prompt-engineering/05.03-pe-workflow-entry-points.md`
+- **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`

@@ -180,7 +180,7 @@ Generate or update guidance files that ensure prompt/agent creation is:
    - `read_file(".github/instructions/prompts.instructions.md")`
    - `read_file(".github/instructions/agents.instructions.md")`
 3. **Read context engineering files:**
-   - `read_file(".copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md")`
+   - `read_file(".copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md")`
    - `read_file(".copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md")`
    - `read_file(".copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md")`
 
@@ -211,8 +211,8 @@ Generate or update guidance files that ensure prompt/agent creation is:
    - `list_dir(".github/templates/")`
 2. **Read relevant templates:**
    - `read_file(".github/templates/prompt-full-template.md")`
-   - `read_file(".github/templates/prompt-simple-validation-template.md")`
-   - `read_file(".github/templates/prompt-implementation-template.md")`
+   - `read_file(".github/templates/00.00-prompt-engineering/prompt-simple-validation.template.md")`
+   - `read_file(".github/templates/00.00-prompt-engineering/prompt-implementation.template.md")`
 
 **Output:** Template patterns to reference in instruction files
 
@@ -222,12 +222,12 @@ Generate or update guidance files that ensure prompt/agent creation is:
 **Tools:** `read_file`, `create_file`, `replace_string_in_file`, `multi_replace_string_in_file`
 
 **Load structure templates before generation:**
-- Instruction file structure: `read_file(".github/templates/promptengineering-instruction-structure.template.md")`
-- Context file structure: `read_file(".github/templates/promptengineering-context-structure.template.md")`
+- Instruction file structure: `read_file(".github/templates/00.00-prompt-engineering/promptengineering-instruction-structure.template.md")`
+- Context file structure: `read_file(".github/templates/00.00-prompt-engineering/promptengineering-context-structure.template.md")`
 
 #### 4.1 Instruction Files Structure
 
-**?? Template:** `.github/templates/promptengineering-instruction-structure.template.md`
+**?? Template:** `.github/templates/00.00-prompt-engineering/promptengineering-instruction-structure.template.md`
 
 Load this template and customize with domain-specific content:
 - Replace `[Title]` with appropriate instruction file name
@@ -237,7 +237,7 @@ Load this template and customize with domain-specific content:
 
 #### 4.2 Context Files Structure
 
-**?? Template:** `.github/templates/promptengineering-context-structure.template.md`
+**?? Template:** `.github/templates/00.00-prompt-engineering/promptengineering-context-structure.template.md`
 
 Load this template and customize with topic-specific content:
 - Replace `[Topic]` with specific pattern/concept name
@@ -348,7 +348,7 @@ Before completing, verify generated/updated guidance:
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: How to write great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 - [Microsoft: Prompt Engineering Techniques](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering)
-- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 - `.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`
 - `.copilot/context/00.00-prompt-engineering/05-validation-caching-pattern.md`
 

@@ -1,11 +1,13 @@
 ---
 name: prompt-engineering-validation
 description: >
-  Reusable validation patterns for prompt and agent file engineering: 
+  Reusable validation patterns for prompt engineering artifacts: 
   use case challenge, role validation, tool alignment verification, 
-  workflow reliability testing, and boundary actionability checks.
+  workflow reliability testing, boundary actionability checks,
+  YAML frontmatter validation, required sections check, and convention compliance.
   Use when creating prompts, validating agents, reviewing tool alignment,
-  or testing workflow reliability for GitHub Copilot customization files.
+  testing workflow reliability, checking YAML frontmatter, verifying required sections,
+  or auditing naming conventions for GitHub Copilot customization files.
 ---
 
 # Prompt Engineering Validation Skill
@@ -26,6 +28,9 @@ Activate this skill when:
 - **Checking redundancy**: "Find duplicated rules across PE artifacts"
 - **Cross-artifact consistency**: "Verify rules agree across instructions and context files"
 - **Token budget audit**: "Check which PE files exceed their token budget"
+- **YAML validation**: "Check if this artifact's YAML frontmatter is valid"
+- **Section completeness**: "Verify this file has all required sections"
+- **Convention check**: "Verify naming, location, and extension conventions"
 
 Do NOT use this skill for:
 - Article content review (use `article-review` skill)
@@ -47,6 +52,9 @@ Do NOT use this skill for:
 7. Artifact Redundancy → single-source-of-truth compliance
 8. Cross-Artifact Consistency → rules agree across layers
 9. Token Budget Audit → files within size limits
+10. YAML Frontmatter Validation → required fields per artifact type
+11. Required Sections Check → type-specific section completeness
+12. Convention Compliance → naming, location, extension rules
 ```
 
 ### Complexity → Depth Mapping
@@ -59,15 +67,14 @@ Do NOT use this skill for:
 
 ### Tool Alignment Rules
 
-| Agent Mode | Allowed Tools | Forbidden Tools |
-|------------|---------------|-----------------|
-| `plan` | `read_file`, `grep_search`, `semantic_search`, `file_search`, `list_dir`, `get_errors`, `fetch_webpage` | `create_file`, `replace_string_in_file`, `multi_replace_string_in_file`, `run_in_terminal` |
-| `agent` | All read tools + write tools | None (but minimize write tools) |
+**📖 Canonical source:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md` — full allowed/forbidden tool lists per mode, tool categories, composition patterns.
 
-**Alignment formula:**
+**Alignment formula** (quick check):
 - `plan` + write tools = **CRITICAL violation** (BLOCK)
 - `agent` + no write tools = **WARNING** (should this be `plan`?)
-- Tool count outside 3-7 = **WARNING** (>7 = tool clash risk)
+- Tool count outside 3–7 = **WARNING** (>7 = tool clash risk)
+
+**📖 Full verification checklist:** [tool-alignment.template.md](./templates/tool-alignment.template.md)
 
 ### Tool Count Budget
 
@@ -76,6 +83,8 @@ Do NOT use this skill for:
 | 1-2 | ⚠️ Sparse | Verify task is truly simple |
 | 3-7 | ✅ Optimal | Proceed |
 | 8+ | ❌ Tool clash | MUST decompose into agents |
+
+**📖 Tool count range and decomposition rules:** `01.06-system-parameters.md` → Agent Boundaries
 
 ## Detailed Workflows
 
@@ -117,13 +126,7 @@ Use [role validation template](./templates/role-validation.template.md) to verif
 
 Use [tool alignment template](./templates/tool-alignment.template.md) for systematic checks.
 
-**Write Tools List** (forbidden for `plan` mode):
-- `create_file`
-- `replace_string_in_file`
-- `multi_replace_string_in_file`
-- `run_in_terminal`
-- `edit_notebook_file`
-- `run_notebook_cell`
+**📖 Write tools list and full alignment rules:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 
 ### Workflow 4: Workflow Reliability Testing
 
@@ -148,7 +151,7 @@ Use [tool alignment template](./templates/tool-alignment.template.md) for system
 | "Be careful" | "NEVER modify files without reading first" |
 | "Handle errors" | "When tool fails, log error and skip to next item" |
 
-**Minimum boundary counts:** Always Do ≥3, Ask First ≥1, Never Do ≥2
+**Minimum boundary counts:** See `01.06-system-parameters.md` for canonical thresholds (Always Do, Ask First, Never Do minimums).
 
 ### Workflow 6: Artifact Redundancy Check
 
@@ -164,11 +167,11 @@ Detect content duplicated across artifact layers that violates single-source-of-
 
 | Rule | Canonical Source | Search For |
 |---|---|---|
-| Tool alignment | `04-tool-composition-guide.md` | "plan.*read-only", "write tools" |
-| Template-first | `01-context-engineering-principles.md` | ">10 lines", "externalize" |
-| Three-tier boundaries | `01-context-engineering-principles.md` | "Always Do.*Ask First.*Never Do" |
-| Reliability checksum | `05-handoffs-pattern.md` | "Goal Preservation", "Scope Boundaries" |
-| Token budgets | `01-context-engineering-principles.md` | Budget tables, line count thresholds |
+| Tool alignment | `01.04-tool-composition-guide.md` | "plan.*read-only", "write tools" |
+| Template-first | `01.01-context-engineering-principles.md` | ">10 lines", "externalize" |
+| Three-tier boundaries | `01.06-system-parameters.md` | "Always Do.*Ask First.*Never Do" |
+| Reliability checksum | `02.01-handoffs-pattern.md` | "Goal Preservation", "Scope Boundaries" |
+| Token budgets | `01.06-system-parameters.md` | Budget tables, line count thresholds |
 
 **Output format:**
 ```markdown
@@ -192,10 +195,10 @@ Verify rules agree across artifact layers (context → instructions → agents �
 
 | Check | Context Rule | Verify In |
 |---|---|---|
-| Tool count range | "3–7" in `04-tool-composition-guide` | All agent boundaries, PE-validation skill |
-| Inline threshold | ">10 lines" in `01-context-engineering-principles` | `prompts.instructions.md`, `agents.instructions.md` |
-| Boundary minimums | "3/1/2" in `01-context-engineering-principles` | All agents (Always ≥3, Ask ≥1, Never ≥2) |
-| Validation caching | "7 days" in `14-validation-caching-pattern` | Validation prompts (grammar, readability, etc.) |
+| Tool count range | "3–7" in `01.04-tool-composition-guide` | All agent boundaries, PE-validation skill |
+| Inline threshold | ">10 lines" in `01.01-context-engineering-principles` | `prompts.instructions.md`, `agents.instructions.md` |
+| Boundary minimums | ≥3/≥1/≥2 in `01.06-system-parameters` | All agents (Always, Ask, Never minimums) |
+| Validation caching | "7 days" in `04.01-validation-caching-pattern` | Validation prompts (grammar, readability, etc.) |
 
 **Contradiction severity:**
 
@@ -213,18 +216,10 @@ Verify PE artifacts stay within their token budget guidelines.
 **Process:**
 1. Count lines in each target file
 2. Estimate tokens: lines × 6 (average)
-3. Compare against budgets from `01-context-engineering-principles.md`
+3. Compare against budgets from `01.06-system-parameters.md`
 4. Report files that exceed WARNING or CRITICAL thresholds
 
-**Budget reference:**
-
-| Type | Budget | Warning | Critical |
-|---|---|---|---|
-| Context file | ≤2,500 (~375 lines) | >375 lines | >450 lines |
-| Instruction | ≤800 (~120 lines) | >120 lines | >150 lines |
-| Agent | ≤1,000 (~150 lines) | >150 lines | >200 lines |
-| Prompt | ≤1,500 (~220 lines) | >220 lines | >300 lines |
-| Skill body | ≤1,500 (~200 lines) | >200 lines | >250 lines |
+**📖 Budget thresholds (per-type limits, warning/critical levels):** `01.06-system-parameters.md` → Token Budgets
 
 **Output format:**
 ```markdown
@@ -238,6 +233,93 @@ Verify PE artifacts stay within their token budget guidelines.
 - **[Use Case Challenge](./templates/use-case-challenge.template.md)** — Structured format for testing goals with scenarios
 - **[Role Validation](./templates/role-validation.template.md)** — Authority/expertise/specificity test checklist
 - **[Tool Alignment](./templates/tool-alignment.template.md)** — Tool/agent mode verification with write-tool detection
+
+---
+
+### Workflow 10: YAML Frontmatter Validation
+
+Validate that an artifact's YAML frontmatter contains all required fields for its type.
+
+**Process:**
+1. Read the target file's YAML frontmatter block
+2. Determine artifact type from file path and extension
+3. Check required fields against the type-specific table below
+4. Flag missing or malformed fields
+
+**Required YAML fields by artifact type:**
+
+| Field | `.prompt.md` | `.agent.md` | `.instructions.md` | `SKILL.md` | Context `.md` |
+|---|:---:|:---:|:---:|:---:|:---:|
+| `name` | ✅ | — | — | ✅ | — |
+| `description` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `agent` | ✅ | ✅ | — | — | — |
+| `tools` | ✅ | ✅ | — | — | — |
+| `model` | optional | optional | — | — | — |
+| `applyTo` | — | — | ✅ | — | — |
+| `title` | — | — | — | — | ✅ |
+| `version` | — | — | — | — | ✅ |
+| `last_updated` | — | — | — | — | ✅ |
+| `handoffs` | if multi-agent | if has workflow | — | — | — |
+
+**Severity:** Missing required field = HIGH. Malformed YAML = CRITICAL.
+
+### Workflow 11: Required Sections Check
+
+Verify an artifact has all required body sections for its type.
+
+**Process:**
+1. Read the target file
+2. Determine artifact type from file path
+3. Scan for required section headings per the type table below
+4. Flag missing sections
+
+**Required sections by artifact type:**
+
+| Section | Prompts | Agents | Instructions | Skills | Context files |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Role/Purpose | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Boundaries (Always/Ask/Never) | ✅ | ✅ | — | — | — |
+| Process/Workflow | ✅ | ✅ | — | ✅ | — |
+| Referenced by | — | — | — | — | ✅ |
+| References | — | — | ✅ | — | ✅ |
+| Version History | — | optional | — | — | ✅ |
+| When to Use | — | — | — | ✅ | — |
+
+**Boundary completeness:** When boundaries are required, verify minimums: ≥ 3 Always Do, ≥ 1 Ask First, ≥ 2 Never Do (see `01.06-system-parameters.md`).
+
+**Severity:** Missing required section = HIGH. Missing boundaries = HIGH.
+
+### Workflow 12: Convention Compliance
+
+Verify naming, location, and extension conventions.
+
+**Process:**
+1. Check filename against naming rules for its type
+2. Verify file is in the correct directory
+3. Verify correct file extension
+4. Check for kebab-case compliance
+
+**Convention rules by artifact type:**
+
+| Artifact | Extension | Location | Naming pattern |
+|---|---|---|---|
+| Prompt | `.prompt.md` | `.github/prompts/{area}/` | `{verb}-{noun}.prompt.md` |
+| Agent | `.agent.md` | `.github/agents/{area}/` | `{role-name}.agent.md` |
+| Instruction | `.instructions.md` | `.github/instructions/` (flat) | `{domain}.instructions.md` |
+| Skill | `SKILL.md` | `.github/skills/{name}/` | `SKILL.md` (fixed name) |
+| Context | `.md` | `.copilot/context/{domain}/` | `{NN.NN}-{topic}.md` |
+| Template | `.template.md` | `.github/templates/{area}/` | `{category}-{purpose}.template.md` |
+| Snippet | `.md` | `.github/prompt-snippets/` | `{topic}.md` |
+| Hook | `.json` | `.github/hooks/` | `{purpose}.json` |
+
+**Additional checks:**
+- All names MUST be kebab-case (lowercase, hyphens, no spaces)
+- Skill names MUST be ≤ 64 characters
+- No files in wrong directories (e.g., agent in prompts folder)
+
+**Severity:** Wrong extension = CRITICAL. Wrong location = HIGH. Naming violation = MEDIUM.
+
+---
 
 ## Common Issues
 
@@ -263,8 +345,8 @@ Verify PE artifacts stay within their token budget guidelines.
 
 ## Resources
 
-- **📖 Complete validation examples:** `.copilot/context/00.00-prompt-engineering/15-adaptive-validation-patterns.md`
-- **📖 Tool composition patterns:** `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
-- **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- **📖 Artifact dependency map:** `.copilot/context/00.00-prompt-engineering/16-artifact-dependency-map.md`
+- **📖 Complete validation examples:** `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md`
+- **📖 Tool composition patterns:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
+- **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
+- **📖 Artifact dependency map:** `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`
 - **📖 Full system coherence audit:** `.github/skills/artifact-coherence-check/SKILL.md`
