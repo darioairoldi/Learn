@@ -88,13 +88,13 @@ See: `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` for parsing 
 
 4. **Template Selection** (OPTIONAL, default: article-template)
    - Extract from: `template="..."` parameter
-   - Options: `article-template.md`, `howto-template.md`, `tutorial-template.md`
+   - Options: `article.template.md`, `howto.template.md`, `tutorial.template.md`
    - Validate: Template exists in `.github/templates/`
 
 5. **Special Requirements** (OPTIONAL)
    - Extract from user message: specific sections, must-have examples, related articles, length constraints, focus areas
 
-**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 1: Requirements Summary Output"
+**Output Format:** Use `.github/templates/01.00-article-writing/output-article-design-phases.template.md` → "Phase 1: Requirements Summary Output"
 
 ### Phase 2: Workspace Context Discovery
 
@@ -118,7 +118,7 @@ See: `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` for parsing 
    - Series or learning path context
    - Cross-references for `cross_references` metadata field
 
-**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 2: Workspace Context Discovery Output"
+**Output Format:** Use `.github/templates/01.00-article-writing/output-article-design-phases.template.md` → "Phase 2: Workspace Context Discovery Output"
 
 ### Phase 3: Comprehensive Topic Research
 
@@ -179,7 +179,7 @@ For each core technology/approach in topic:
 - **Document**: Use cases where each alternative fits better, key differences, migration considerations
 - **Classification**: Direct alternatives (same problem, different solution), Complementary tools (solve related problems)
 
-**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 3: Comprehensive Topic Research Output"
+**Output Format:** Use `.github/templates/01.00-article-writing/output-article-design-phases.template.md` → "Phase 3: Comprehensive Topic Research Output"
 
 ### Phase 4: Reference Verification and Classification
 
@@ -205,7 +205,7 @@ For each core technology/approach in topic:
    - Order by relevance within category (most comprehensive first)
    - Format for References section
 
-**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 4: Reference Verification & Classification Output"
+**Output Format:** Use `.github/templates/01.00-article-writing/output-article-design-phases.template.md` → "Phase 4: Reference Verification & Classification Output"
 
 ### Phase 5: Content Structure Design
 
@@ -235,7 +235,7 @@ For each core technology/approach in topic:
    - **Intermediate**: Balance fundamentals with advanced concepts, real-world scenarios
    - **Advanced**: Technical depth, edge cases, performance considerations, architecture
 
-**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 5: Article Structure Design Output"
+**Output Format:** Use `.github/templates/01.00-article-writing/output-article-design-phases.template.md` → "Phase 5: Article Structure Design Output"
 
 ### Phase 5.5: Pre-writing validation gate
 
@@ -273,9 +273,9 @@ Before drafting (Phase 6), verify all content design decisions are in place. Thi
 4. **Appendices** (if applicable) - Alternative comparisons, advanced topics
 5. **Bottom YAML Block** - Validation metadata in HTML comment
 
-**Metadata Structure:** Use `.github/templates/output-article-design-phases.template.md` → "Article Dual YAML Metadata Structure"
+**Metadata Structure:** Use `.github/templates/01.00-article-writing/output-article-design-phases.template.md` → "Article Dual YAML Metadata Structure"
 
-**Output Format:** Use `.github/templates/output-article-design-phases.template.md` → "Phase 6: Article Creation Summary Output"
+**Output Format:** Use `.github/templates/01.00-article-writing/output-article-design-phases.template.md` → "Phase 6: Article Creation Summary Output"
 
 Then output the complete article content with all required sections.
 
@@ -283,7 +283,7 @@ Then output the complete article content with all required sections.
 
 Each phase produces a summary/report for user approval before proceeding. Use the output formats defined in:
 
-**📖 Phase Output Templates:** `.github/templates/output-article-design-phases.template.md`
+**📖 Phase Output Templates:** `.github/templates/01.00-article-writing/output-article-design-phases.template.md`
 
 ### Final Deliverable
 
@@ -294,7 +294,7 @@ Each phase produces a summary/report for user approval before proceeding. Use th
 
 ## Quality Standards
 
-**📖 Quality Checklists:** Use `.github/templates/output-article-design-phases.template.md` → "Quality Standards Checklist"
+**📖 Quality Checklists:** Use `.github/templates/01.00-article-writing/output-article-design-phases.template.md` → "Quality Standards Checklist"
 
 Validate against both **Completeness Checklist** and **Content Quality Checklist** before final output.
 
@@ -311,9 +311,9 @@ Comprehensive prompt engineering guide from Microsoft.
 
 **Internal Context Files:**
 - `.github/copilot-instructions.md` - Repository conventions and global instructions
-- `.github/templates/article-template.md` - Standard article structure template
+- `.github/templates/01.00-article-writing/article.template.md` - Standard article structure template
 - `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` - Metadata parsing guidelines
-- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md` - Context design principles
+- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` - Context design principles
 - `.copilot/context/01.00-article-writing/01-style-guide.md` - Quantitative readability targets and reference tables
 - `.copilot/context/01.00-article-writing/02-validation-criteria.md` - Quality thresholds and validation dimensions
 - `.copilot/context/01.00-article-writing/03-article-creation-rules.md` - Diátaxis patterns, required elements, writing style deep rules, technical content, quality checklists

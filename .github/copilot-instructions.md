@@ -1,194 +1,94 @@
-# Global GitHub Copilot Instructions for Learning Documentation Site
+# Learning Hub — Global Project Instructions
 
-## Repository Architecture
+> This file injects **last** into every system prompt, giving it final authority on project conventions.
+> It contains only repo-specific rules that cannot live in general-purpose context or instruction files.
 
-Personal knowledge management system for Microsoft technical content built with **Quarto** for static site generation. The repository combines learning notes, conference analyses, technical articles, and project documentation with an advanced validation system powered by a custom C# MCP server.
+---
 
-### Content Organization
+## Repository Identity
 
-**Primary Folders (numbered for ordering):**
-- `01.00-news/` - Latest VS Code releases, tool updates (date-prefixed: YYYYMMDD)
-- `02.00-events/` - Conference notes (Build, Ignite) with session summaries
-- `03.00-tech/` - Technical articles organized by topic (Azure, .NET, AI, etc.)
-- `04.00-howto/` - Step-by-step guides and tutorials
-- `05.00-issues/` - Problem solving and troubleshooting notes
-- `06.00-idea/` - Project concepts (IQPilot, LearnHub)
-- `07.00 projects/` - Active project documentation
-- `90.00-travel/` - Personal travel and event planning
+This is the **Learning Hub** — a personal learning and documentation site built with [Quarto](https://quarto.org/).
+Content is organized as Markdown articles published to a static HTML site under `docs/`.
 
-**Infrastructure Folders:**
-- `.github/` - Instructions, prompts, templates, workflows for AI agents
-- `.copilot/` - Context files, scripts, MCP server binaries
-- `src/` - Source code for IQPilot MCP server and MetadataWatcher
-- `.vscode/` - Workspace settings, tasks, custom extensions
-- `scripts/` - PowerShell scripts for navigation, link checking
+- **Owner**: Dario Airoldi
+- **Content scope**: Technical learning, knowledge development, prompt engineering, events, how-to guides, ideas
+- **Static site generator**: Quarto (Markdown → HTML)
+- **Output directory**: `docs/`
 
-### Key Architecture Components
+---
 
-1. **Quarto Static Site Generator** (`_quarto.yml`, `*.qmd`)
-   - Renders markdown + Quarto files to HTML
-   - Output directory: `docs/` (GitHub Pages compatible)
-   - Custom styling: `cerulean.scss`, `styles.css`
-   - Navigation generated from `_quarto.yml` via `scripts/generate-navigation.ps1`
+## General Rules (via Context & Instructions)
 
-2. **IQPilot MCP Server** (`src/IQPilot/`)
-   - C# .NET 8.0 Model Context Protocol server
-   - Provides 16 specialized tools for content validation, metadata management, gap analysis
-   - Integrates with GitHub Copilot via MCP protocol
-   - Enables validation caching to avoid redundant AI calls
-   - Build command: `dotnet build -c Release` from `src/IQPilot/`
-   - Published to: `.copilot/mcp-servers/iqpilot/`
+The following rules are defined in context files and instruction files. They apply to ALL Markdown documentation repositories (not just this one). Do NOT duplicate them here — reference them.
 
-3. **MetadataWatcher VS Code Extension** (`.vscode/extensions/metadata-watcher/`)
-   - TypeScript extension that monitors file renames
-   - Automatically syncs `article_metadata.filename` in validation metadata
-   - Setup task: "Setup Metadata Watcher (Full)" in tasks.json
-   - Requires Node.js and npm for build
+| Rule | Canonical source | Applies to |
+|---|---|---|
+| **Kebab-case naming** | `.copilot/context/90.00-learning-hub/06-folder-organization-and-navigation.md` | All folders and files |
+| **Dual metadata system** | `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` | All article `.md` files |
+| **Article writing** | `.github/instructions/article-writing.instructions.md` | All `.md` files |
+| **Documentation structure** | `.github/instructions/documentation.instructions.md` | All `.md` files |
+| **PE artifacts** | `.copilot/context/00.00-prompt-engineering/STRUCTURE-README.md` | PE customization files |
+| **Reference classification** | `.copilot/context/90.00-learning-hub/04-reference-classification.md` | All references |
 
-4. **Dual Metadata System** (Critical Pattern)
-   - **Top YAML** (file start): Quarto rendering metadata (title, author, date, categories)
-     - Edited manually by authors
-     - **NEVER modify from validation prompts**
-   - **Bottom HTML Comment** (file end): Validation tracking metadata (status, timestamps, scores)
-     - Updated only by automation/validation tools
-     - Invisible when rendered
-   - See `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` for complete guidelines
+---
 
-## Critical Developer Workflows
+## PE Artifact Map (Quick Reference)
 
-### Building & Publishing the Site
+| What | Where | Trigger |
+|---|---|---|
+| **Context files** | `.copilot/context/{domain}/` | Semantic search (automatic) |
+| **Instruction files** | `.github/instructions/` | `applyTo` glob (automatic) |
+| **Agent files** | `.github/agents/{domain}/` | `@mention` by user |
+| **Prompt files** | `.github/prompts/{domain}/` | `/command` by user |
+| **Skill files** | `.github/skills/{name}/SKILL.md` | AI-discovered via description |
+| **Template files** | `.github/templates/{domain}/` | `📖` reference from consumers |
+| **Prompt snippets** | `.github/prompt-snippets/` | `#file:` reference |
+| **copilot-instructions** | `.github/copilot-instructions.md` (this file) | Always injected last |
 
-```powershell
-# Preview locally (auto-rebuilds on changes)
-quarto preview
+**📖 Full file-type decision guide**: `.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md`
 
-# Build static site to docs/ directory
-quarto render
+---
 
-# Check if navigation needs regeneration (only if _quarto.yml changed)
-.\scripts\generate-navigation.ps1
-```
+## Repo-Specific Rules
 
-### Setting Up IQPilot (MCP Mode)
+### Content Area Prefixes
 
-```powershell
-# One-time setup - builds everything in sequence
-# From repository root:
-cd src/IQPilot
-dotnet build -c Release
+| Prefix | Area | Content type |
+|---|---|---|
+| `01.00-news/` | News | Date-prefixed articles (newest-first in nav) |
+| `02.00-events/` | Events | Conference/event notes |
+| `03.00-tech/` | Technology | Technical learning articles |
+| `04.00-howto/` | How-to | Task-oriented guides |
+| `05.00-issues/` | Issues | Problem/solution documentation |
+| `06.00-idea/` | Ideas | Explorations and concepts |
+| `90.00-travel/` | Travel | Travel documentation |
+| `99.00-temp/` | Temporary | Scratch/working files |
 
-# Copy to MCP server location
-Copy-Item bin/Release/net8.0/* ../../.copilot/mcp-servers/iqpilot/ -Recurse -Force
+### Quarto Configuration
 
-# Enable in VS Code settings.json:
-# "iqpilot.enabled": true,
-# "iqpilot.mode": "mcp"
+- **Site config**: `_quarto.yml` (root) and `docs/_quarto.yml`
+- **Theme**: `cerulean.scss` (Bootstrap theme)
+- **Navigation**: `navigation.json` (generated by `scripts/generate-navigation.ps1`)
+- **Top YAML in articles is Quarto metadata** — NEVER modify from validation prompts
+- **Custom includes**: `_includes/` (navbar, sidebar fixes)
 
-# Reload VS Code window
-# Verify with: Look for status bar indicator "✓ IQPilot MCP (16 tools)"
-```
+### MetadataWatcher
 
-### Running Validations
+A .NET tool (`src/MetadataWatcher/`) that watches for file changes and updates bottom validation metadata. Build tasks are defined in `.vscode/tasks.json`.
 
-**Without IQPilot (Standalone Prompts):**
-- Reference prompts in `.github/prompts/` directory
-- Use via GitHub Copilot: "Run grammar-review.prompt on this article"
-- Manual metadata updates required
+### Scripts
 
-**With IQPilot (MCP Mode):**
-- Tools automatically available via natural language
-- Example: "Validate grammar for this article"
-- Automatic metadata caching prevents redundant validations within 7 days
-- Cross-reference and gap analysis capabilities
+Utility scripts in `scripts/`:
+- `generate-navigation.ps1` — Generates `navigation.json` from folder structure
+- `check-links-enhanced.ps1` — Link validation
+- `fix-encoding.ps1` — Encoding fixes for Markdown files
 
-### Creating New Articles
+---
 
-1. Use template from `.github/templates/article-template.md`
-2. Ensure both YAML blocks present (top for Quarto, bottom for validation)
-3. Add to `_quarto.yml` in appropriate section if you want it rendered
-4. Run validation prompts before publishing
+## Cross-Cutting Conventions
 
-## Project-Specific Conventions
+These conventions are **specific to this repository** and not covered by general instruction/context files:
 
-### File Naming
-- Date-prefixed folders: `YYYYMMDD Topic Name/` for events, news, issues
-- README.md variations: `readme.sonnet4.md`, `SUMMARY.md` for AI-generated analyses
-- Prompt files: `*.prompt.md` in `.github/prompts/`
-- Metadata files: `*.metadata.yml` (deprecated - now in HTML comments)
-
-### Reference Classification (Critical for Citations)
-
-All article references MUST be classified with emoji markers:
-
-- 📘 **Official** - `*.microsoft.com`, `learn.microsoft.com`, `docs.github.com`
-- 📗 **Verified Community** - `github.blog`, `devblogs.microsoft.com`, academic
-- 📒 **Community** - `medium.com`, `dev.to`, personal blogs
-- 📕 **Unverified** - Broken links, unknown sources (fix before publishing)
-
-Format: `**[Title](url)** `[📘 Official]`  
-Description explaining value and relevance.
-
-See `.github/instructions/documentation.instructions.md` for complete rules.
-
-### Validation Workflow
-
-1. Check validation metadata timestamp (`last_run` in bottom YAML)
-2. Skip validation if `< 7 days` AND content unchanged
-3. Run appropriate validation (grammar, readability, structure, fact-check, logic)
-4. Update only your validation section in bottom metadata
-5. **NEVER touch top YAML from validation prompts**
-
-### Code Style (C# Projects)
-
-- Target: .NET 8.0
-- Use top-level statements where appropriate
-- Async/await for I/O operations
-- Follow Microsoft coding conventions
-- XML documentation comments for public APIs
-- MCP tool implementations in `src/IQPilot/Tools/`
-
-## Integration Points & Dependencies
-
-### External Tools Required
-- **Quarto CLI** - Static site generation (primary rendering engine)
-- **.NET 8.0 SDK** - IQPilot MCP server compilation
-- **Node.js/npm** - MetadataWatcher extension build
-- **PowerShell** - Automation scripts (navigation, link checking)
-- **yq** (optional) - YAML processing in navigation generation
-
-### VS Code Tasks (`.vscode/tasks.json`)
-- `Build MetadataWatcher` - Compile C# watcher
-- `Publish MetadataWatcher` - Publish to `.copilot/bin/`
-- `Build Extension` - Compile TypeScript extension
-- `Setup Metadata Watcher (Full)` - **One-command setup** (runs all prerequisites)
-
-### GitHub Copilot Configuration
-```jsonc
-// .vscode/settings.json
-{
-  "iqpilot.enabled": true,      // Enable/disable IQPilot
-  "iqpilot.mode": "mcp",        // "mcp" | "prompts-only" | "off"
-  "iqpilot.autoStart": true,    // Auto-start MCP server
-  "github.copilot.chat.mcp.enabled": true
-}
-```
-
-## Key Files Reference
-
-**Architecture & Guidance:**
-- [.github/STRUCTURE-README.md](.github/STRUCTURE-README.md) - Complete structure documentation
-- [GETTING-STARTED.md](GETTING-STARTED.md) - IQPilot setup and usage
-- [.iqpilot/README.md](.iqpilot/README.md) - Mode switching guide
-- [src/IQPilot/README.md](src/IQPilot/README.md) - MCP server technical docs
-
-**Templates & Standards:**
-- [.github/templates/article-template.md](.github/templates/article-template.md) - New article scaffold
-- [.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md](.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md) - Metadata parsing rules
-- [.github/instructions/documentation.instructions.md](.github/instructions/documentation.instructions.md) - Writing style guide
-
-**Configuration:**
-- [_quarto.yml](_quarto.yml) - Site structure and rendering config
-- [.vscode/tasks.json](.vscode/tasks.json) - Build and automation tasks
-- [.vscode/settings.json](.vscode/settings.json) - Workspace preferences
-
-**Model Preference:** Claude Sonnet 4.5 for complex analysis and generation
+1. **Language**: Write in English (international audience)
+2. **Images**: Store in `images/` subfolder within the article's folder
+3. **Series articles**: Include prev/next navigation links in conclusions

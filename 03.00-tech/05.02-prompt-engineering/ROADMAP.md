@@ -112,7 +112,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 
 ### Infrastructure Overview
 
-The PE artifact system includes 18 context files, 4 instruction files, 12 agents, 11 prompts, and 2 skills — all documented in the [dependency map](./.copilot/../../../.copilot/context/00.00-prompt-engineering/16-artifact-dependency-map.md).
+The PE artifact system includes 18 context files, 4 instruction files, 12 agents, 11 prompts, and 2 skills — all documented in the [dependency map](./.copilot/../../../.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md).
 
 ### Maintenance Schedule
 

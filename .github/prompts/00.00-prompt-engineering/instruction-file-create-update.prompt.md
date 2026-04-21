@@ -13,6 +13,13 @@ tools:
   - replace_string_in_file
   - multi_replace_string_in_file
   - fetch_webpage
+handoffs:
+  - label: "Research Instruction Layer"
+    agent: instruction-researcher
+    send: true
+  - label: "Validate Instruction File"
+    agent: instruction-validator
+    send: true
 argument-hint: 'Specify domain (e.g., "validation", "code-review"), target file patterns (applyTo), and context sources'
 ---
 
@@ -85,7 +92,7 @@ If user input is incomplete, ask clarifying questions before proceeding.
 ## 🚫 Out of Scope
 
 This prompt WILL NOT:
-- Create context files (`.copilot/context/`) — use `context-file-create-update.prompt.md`
+- Create context files (`.copilot/context/`) — use `context-information-create-update.prompt.md`
 - Create prompt files (`.prompt.md`) — use `prompt-create-update.prompt.md`
 - Create agent files (`.agent.md`) — use agent creation prompts
 - Create skill files (`SKILL.md`) — use skill creation prompts
@@ -162,6 +169,22 @@ This request involves creating/modifying [file type].
 
 ---
 
+## 🧹 Summarization Protocol
+
+| After Phase | Summarize to | Max tokens | Discard |
+|---|---|---|---|
+| Phase 1 (Collect) | Domain, applyTo patterns, source list | ≤500 | Raw source text, discovery search results |
+| Phase 1.5 (Prioritize) | Classified source table (Primary/Secondary/Tertiary) | ≤300 | Prioritization analysis details |
+| Phase 2 (Analyze) | Conflict check results + rule inventory | ≤1,000 | Raw file reads, pattern analysis |
+| Phase 3 (Generate) | File path + section count + token count | ≤200 | Generation reasoning, draft iterations |
+| Phase 4 (Validate) | Pass/fail + issue list | ≤500 | Full validation analysis |
+
+**Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
+
+**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+
+---
+
 ## Goal
 
 Create or update instruction files that ensure Copilot applies:
@@ -190,148 +213,24 @@ Create or update instruction files that ensure Copilot applies:
 ### Phase 1: Collect Domain Context & Discover Sources
 **Tools:** `read_file`, `fetch_webpage`, `semantic_search`, `list_dir`
 
-#### Step 1.1: Determine Operation Type
-1. **Check if UPDATE** — Instruction file already exists in `.github/instructions/`
-2. **Check if CREATE** — New domain/instruction file
-
-#### Step 1.2: Source Discovery (Priority Order)
-
-**For UPDATE operations**, sources are discovered in this priority:
-
-| Priority | Source | Action |
-|----------|--------|--------|
-| 1 | **User Input** | Use explicitly provided URLs, files, descriptions |
-| 2 | **Execution Context** | Check attached files, active editor, chat history |
-| 3 | **Context Files** | Read `.copilot/context/{domain}/*.md` for related context |
-| 4 | **STRUCTURE-README.md** | Read `.copilot/context/STRUCTURE-README.md` for source patterns |
-| 5 | **Semantic Search** | Run searches defined in STRUCTURE-README.md |
-| 6 | **Additional Discovery** | Search for new sources not in mapping |
-
-**For CREATE operations**, sources come from:
-- User input (required)
-- Related context files if domain exists
-- Semantic search based on domain
-- Related existing instruction files
-
-#### Step 1.3: Read Context Files for Domain
-
-If domain has corresponding context folder, read those files first:
-
-**Example for `prompts` domain:**
-```
-Context files to read:
-- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/04-tool-composition-guide.md`
-- etc.
-```
-
-#### Step 1.4: Read STRUCTURE-README.md Sources
-
-For domains with context folders, read `.copilot/context/STRUCTURE-README.md` and extract:
-- **Source Patterns** — File globs, URLs, semantic search queries
-- **Update Strategy** — When/how to refresh sources
-
-**Example for `00.00-prompt-engineering/`:**
-```
-Source patterns from STRUCTURE-README.md:
-- `03.00-tech/05.02-promptEngineering/**/*.md` (Learning Hub articles)
-- Semantic search: "GitHub Copilot prompt files agents" (GitHub docs)
-- Semantic search: "VS Code Copilot customization" (VS Code docs)
-- `https://code.visualstudio.com/docs/copilot/*` (Official VS Code)
-```
-
-#### Step 1.5: Collect and Merge Sources
-1. **Collect user input:** Domain, target patterns, explicit sources
-2. **Read context files:** `.copilot/context/{domain}/*.md`
-3. **Read STRUCTURE-README.md:** Extract source patterns for domain
-4. **Merge sources:** Combine user input + context files + STRUCTURE-README.md patterns
-5. **Execute searches:** Run semantic searches, fetch URLs, read local files
-6. **List existing instruction files:** `list_dir` on `.github/instructions/`
-7. **Read existing files:** Check `applyTo` patterns and responsibilities
-
-**Output Format:**
-```
-📋 **Phase 1: Context Collection Complete**
-
-**Domain:** [domain name]
-**Proposed Filename:** `[domain].instructions.md`
-**Proposed applyTo:** `[pattern]`
-**Operation:** [CREATE/UPDATE]
-
-**Source Discovery:**
-- **User Provided:** [count] sources
-- **From Context Files:** [count] context files read
-- **From STRUCTURE-README.md:** [count] source patterns
-- **Additional Discovered:** [count] sources
-
-**Sources Collected:** [total count]
-
-**Existing Instruction Files Checked:**
-- [file1.instructions.md]: applyTo `[pattern]` - [conflict/no conflict]
-- [file2.instructions.md]: applyTo `[pattern]` - [conflict/no conflict]
-
-**Proceed to Phase 1.5 (Source Prioritization)?** [Yes/Ask for clarification]
-```
+1. **Determine Operation Type** — UPDATE (existing file) or CREATE (new domain)
+2. **Discover Sources** by priority: user input → execution context → context files for domain → STRUCTURE-README.md patterns → semantic search → additional discovery
+3. **Read Context Files** for domain (`.copilot/context/{domain}/*.md`) and STRUCTURE-README.md source patterns
+4. **Collect and Merge** — combine all sources, run searches, list existing instruction files, check `applyTo` for conflicts
+5. **Present summary** — domain, filename, applyTo, source counts, conflict check results
 
 ---
 
 ### Phase 1.5: Source Prioritization & Selection
 **Tools:** `read_file`, `semantic_search`
 
-**Goal:** Filter and rank sources for optimal instruction file quality (Robustness, Effectiveness, Efficiency).
+**Goal:** Filter and rank sources for optimal instruction file quality.
 
-#### Prioritization Criteria
-
-| Criterion | Weight | Description |
-|-----------|--------|-------------|
-| **Relevance** | High | How closely does source match the domain? |
-| **Authority** | High | Official docs > context files > community |
-| **Recency** | Medium | Newer sources preferred for evolving topics |
-| **Impact** | Medium | Does source add unique, actionable rules? |
-| **Token Efficiency** | Low | Prefer concise sources over verbose ones |
-
-#### Source Classification
-
-| Category | Priority | Examples |
-|----------|----------|----------|
-| **Primary** | MUST use | Official docs, existing context files, user-specified |
-| **Secondary** | SHOULD use | STRUCTURE-README.md sources, related instruction files |
-| **Tertiary** | MAY use | General articles, supplementary examples |
-| **Exclude** | SKIP | Outdated, redundant, low-authority sources |
-
-#### Selection Process
-
-1. **Score each source** against prioritization criteria
-2. **Classify** into Primary/Secondary/Tertiary/Exclude
+1. **Score each source** by relevance (High weight), authority (High weight), recency (Medium), impact (Medium), token efficiency (Low)
+2. **Classify** into: Primary (MUST use — official/context files/user-specified), Secondary (SHOULD use — STRUCTURE-README patterns), Tertiary (MAY use), Exclude (outdated/redundant)
 3. **Check token budget** — Primary sources must fit; trim Secondary/Tertiary if needed
-4. **Identify gaps** — Are there concepts with no Primary sources?
-5. **Final selection** — Prioritized list for Phase 2
-
-**Output Format:**
-```
-📋 **Phase 1.5: Source Prioritization Complete**
-
-**Sources Evaluated:** [total count]
-
-**Primary Sources (MUST use):**
-1. [source] — Relevance: High, Authority: Context file
-2. [source] — Relevance: High, Authority: User-specified
-
-**Secondary Sources (SHOULD use):**
-1. [source] — Relevance: Medium, Authority: STRUCTURE-README.md pattern
-
-**Tertiary Sources (MAY use if space permits):**
-1. [source] — Relevance: Low, Adds examples only
-
-**Excluded Sources:**
-- [source] — Reason: [outdated/redundant/low-authority]
-
-**Gap Analysis:**
-- ✅ All key rules covered OR
-- ⚠️ Missing coverage for: [rule] — [suggested action]
-
-**Proceed to Phase 2?** [Yes/Ask for clarification]
-```
+4. **Identify gaps** — concepts with no Primary sources
+5. **Present selection** — prioritized list with gap analysis
 
 ---
 
@@ -492,7 +391,7 @@ applyTo: '[glob pattern for target files]'
 - `.copilot/context/{domain}/*.md` — Domain-specific context files
 - `.github/instructions/prompts.instructions.md` — Example instruction file structure
 - `.github/instructions/agents.instructions.md` — Example with tool guidance
-- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md` — Core principles
+- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 
