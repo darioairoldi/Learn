@@ -27,6 +27,9 @@ capabilities:
   - "perform cross-artifact cascade analysis using the dependency map"
   - "produce self-contained research reports for meta-designer consumption"
 goal: "Deliver a comprehensive, self-contained research report that enables meta-designer to create change specifications without re-research"
+rationales:
+  - "Read-only mode prevents research from having side effects on the artifact being studied"
+  - "Self-contained reports eliminate re-research by downstream builders"
 ---
 
 # Meta-Researcher

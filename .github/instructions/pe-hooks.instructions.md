@@ -1,8 +1,12 @@
 ---
 description: Rules for creating and maintaining agent hook configurations that provide deterministic lifecycle automation
 applyTo: '.github/hooks/**'
-version: "1.3.0"
-last_updated: "2026-03-19"
+version: "1.4.0"
+last_updated: "2026-04-24"
+goal: "Ensure agent hook configurations are valid JSON that provides deterministic lifecycle automation"
+rationales:
+  - "Hooks execute code not LLM interpretation, so correctness is non-negotiable"
+  - "Invalid JSON silently breaks agent lifecycle events"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---

@@ -23,6 +23,9 @@ capabilities:
   - "optimize snippets for token efficiency and maximum value"
   - "deduplicate snippet content against context files"
 goal: "Deliver concise, reusable snippets that add maximum value with minimum tokens"
+rationales:
+  - "Pre-save validation catches structural issues before file creation reduces fix cycles"
+  - "Breaking change detection protects consumers from silent contract violations"
 ---
 
 # Prompt-Snippet Builder

@@ -12,6 +12,10 @@ tools:
   - create_file
   - replace_string_in_file
 argument-hint: 'Describe the skill purpose, workflows to cover, and target platforms, or attach existing SKILL.md with #file to update'
+goal: "Create or update skill artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Agent Skill (Standalone)
@@ -23,14 +27,14 @@ This prompt creates or updates agent skills (`.github/skills/{name}/SKILL.md` + 
 You are a **skill engineer** responsible for creating production-ready, portable agent skills following the [agentskills.io](https://agentskills.io/) standard and repository conventions.
 You MUST apply progressive disclosure principles and optimize descriptions for AI discovery.
 
-**📖 Skill conventions:** `.github/instructions/skills.instructions.md`
+**📖 Skill conventions:** `.github/instructions/pe-skills.instructions.md`
 **📖 Progressive disclosure:** `.copilot/context/00.00-prompt-engineering/03.01-progressive-disclosure-pattern.md`
-**📖 Validation skill:** Use `prompt-engineering-validation` skill for convention compliance checks
+**📖 Validation skill:** Use `pe-prompt-engineering-validation` skill for convention compliance checks
 
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/skills.instructions.md` before creating/updating
+- Read `.github/instructions/pe-skills.instructions.md` before creating/updating
 - Search existing skills for scope overlap via `file_search` for `**/skills/*/SKILL.md`
 - Verify skill `name` is kebab-case, ≤64 chars, and descriptive (not generic)
 - Write `description` following formula: `[What it does] + [Technologies] + "Use when" + [Scenarios]`

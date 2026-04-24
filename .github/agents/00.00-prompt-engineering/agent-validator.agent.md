@@ -22,6 +22,9 @@ capabilities:
   - "check handoff target existence and appropriateness"
   - "generate quantified compliance scores with breakdowns"
 goal: "Produce an actionable validation report with severity-ranked findings and specific fix recommendations"
+rationales:
+  - "Read-only mode ensures validation cannot introduce the issues it checks for"
+  - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
 ---
 
 # Agent Validator
@@ -83,7 +86,7 @@ You are a **quality assurance specialist** focused on validating agent files for
 
 ### 2. Tool Alignment Validation (CRITICAL)
 
-**📖 Validation Skill:** Use `prompt-engineering-validation` skill for complete alignment rules and verification templates.
+**📖 Validation Skill:** Use `pe-prompt-engineering-validation` skill for complete alignment rules and verification templates.
 
 **📖 Tool alignment rules:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 
@@ -212,7 +215,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 **Goal:** Verify the agent is consistent with its governing artifacts and triad siblings.
 
 **Steps**:
-1. **Load instruction file**: Read `agents.instructions.md` (or the instruction file governing this agent type)
+1. **Load instruction file**: Read `pe-agents.instructions.md` (or the instruction file governing this agent type)
 2. **Check rule coverage**: Verify agent boundaries include all CRITICAL/HIGH rules from the instruction file's severity index
 3. **Check context alignment**: For each `📖` reference in the agent, verify the referenced context file exists and is current (version matches `context_dependencies`)
 4. **Check handoff alignment**: Verify handoff targets exist as files and form valid triad chains (researcher → builder → validator)
@@ -229,7 +232,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 ## References
 
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
-- `.github/instructions/agents.instructions.md`
+- `.github/instructions/pe-agents.instructions.md`
 - Tool alignment rules in this document
 
 ---

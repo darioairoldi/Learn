@@ -29,6 +29,10 @@ handoffs:
     agent: skill-validator
     send: true
 argument-hint: 'Provide path to context file, domain folder path (e.g., ".copilot/context/01.00-article-writing/"), or "all" for full layer audit'
+goal: "Validate existing context information artifacts against PE standards and best practices"
+rationales:
+  - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
+  - "Severity-scored findings prioritize what to fix first"
 ---
 
 # Context Information Review and Validate Orchestrator

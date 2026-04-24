@@ -1,8 +1,12 @@
 ---
 description: Tier 1 (auto-loaded) essentials for article writing — voice, mechanics, formatting, accessibility, and boundaries. Extends documentation.instructions.md. For Diátaxis patterns, required elements, and deep writing style rules, see Tier 2 context file.
 applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md'
-version: "1.2.0"
-last_updated: "2026-03-22"
+version: "1.3.0"
+last_updated: "2026-04-24"
+goal: "Auto-load essential voice, mechanics, formatting, and accessibility rules for all article Markdown files"
+rationales:
+  - "Always-on essentials keep articles consistent without requiring explicit invocation"
+  - "Separating Tier 1 (auto-loaded) from Tier 2 (context) controls token budget"
 context_dependencies:
   - ".copilot/context/01.00-article-writing/"
 ---

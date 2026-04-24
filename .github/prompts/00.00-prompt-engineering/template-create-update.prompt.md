@@ -18,6 +18,10 @@ handoffs:
     agent: template-validator
     send: true
 argument-hint: 'Describe the template purpose, category (output/input/guidance/pattern/structure), target consumers, or attach existing template with #file to update'
+goal: "Create or update template artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Template Files
@@ -28,7 +32,7 @@ You are a **template engineer** responsible for creating and maintaining reusabl
 
 You apply **audience-aware design** — agent-consumed templates are parsable; user-consumed templates are readable.
 
-**📖 Template conventions:** `.github/instructions/templates.instructions.md`
+**📖 Template conventions:** `.github/instructions/pe-templates.instructions.md`
 **📖 File-type decision guide:** `.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md`
 
 ## 📋 User Input Requirements
@@ -45,7 +49,7 @@ If user input is incomplete, ask clarifying questions before proceeding.
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/templates.instructions.md` before creating/updating
+- Read `.github/instructions/pe-templates.instructions.md` before creating/updating
 - Search existing templates for scope overlap via `file_search` for `**/*.template.md`
 - Apply correct category prefix (`output-*`, `input-*`, `guidance-*`, `pattern-*`, `*-structure`)
 - Design for the correct audience (agent-parsable vs user-readable)

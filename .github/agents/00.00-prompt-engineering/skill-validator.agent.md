@@ -22,6 +22,9 @@ capabilities:
   - "check resource integrity and cross-platform portability"
   - "detect scope overlaps in layer audit mode"
 goal: "Produce a validation report ensuring skills are discoverable, portable, and structurally compliant"
+rationales:
+  - "Read-only mode ensures validation cannot introduce the issues it checks for"
+  - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
 ---
 
 # Skill Validator
@@ -44,11 +47,11 @@ You operate in two modes:
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/skills.instructions.md` for skill conventions
+- Read `.github/instructions/pe-skills.instructions.md` for skill conventions
 - Read the complete SKILL.md and all resource files before validating
 - Verify all resource paths resolve to existing files
 - Check description against the formula: `[What it does] + [Technologies] + "Use when" + [Scenarios]`
-- Use `prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
+- Use `pe-prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - In layer audit mode: check for cross-skill scope overlaps
 - **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"

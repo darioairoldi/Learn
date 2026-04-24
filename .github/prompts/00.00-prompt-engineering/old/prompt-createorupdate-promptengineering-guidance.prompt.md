@@ -163,8 +163,8 @@ Generate or update guidance files that ensure prompt/agent creation is:
 3. **Effective** - Produces prompts/agents that accomplish user goals
 
 **Target files:**
-- `.github/instructions/prompts.instructions.md` - Prompt file creation guidance
-- `.github/instructions/agents.instructions.md` - Agent file creation guidance
+- `.github/instructions/pe-prompts.instructions.md` - Prompt file creation guidance
+- `.github/instructions/pe-agents.instructions.md` - Agent file creation guidance
 - `.github/instructions/skill.instructions.md` - Skill file creation guidance
 - `.copilot/context/00.00-prompt-engineering/*.md` - Shared context files
 
@@ -177,8 +177,8 @@ Generate or update guidance files that ensure prompt/agent creation is:
 
 1. **Analyze conversation** to identify specific guidance needs
 2. **Read current instruction files:**
-   - `read_file(".github/instructions/prompts.instructions.md")`
-   - `read_file(".github/instructions/agents.instructions.md")`
+   - `read_file(".github/instructions/pe-prompts.instructions.md")`
+   - `read_file(".github/instructions/pe-agents.instructions.md")`
 3. **Read context engineering files:**
    - `read_file(".copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md")`
    - `read_file(".copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md")`
@@ -292,9 +292,9 @@ Before completing, verify generated/updated guidance:
 ## ?? Embedded Test Scenarios
 
 ### Test 1: Standard Guidance Update (Happy Path)
-**Input:** "Update prompts.instructions.md to include the new validation caching pattern"
+**Input:** "Update pe-prompts.instructions.md to include the new validation caching pattern"
 **Expected Behavior:**
-1. Read current `prompts.instructions.md`
+1. Read current `pe-prompts.instructions.md`
 2. Read `validation-caching-pattern.md` context file
 3. Identify insertion point for new content
 4. Generate update with reference (not duplication)
@@ -309,7 +309,7 @@ Before completing, verify generated/updated guidance:
 4. NOT assume and proceed without clarification
 
 ### Test 3: Missing Context File
-**Input:** "Update agents.instructions.md based on agent-patterns.md"
+**Input:** "Update pe-agents.instructions.md based on agent-patterns.md"
 **Expected Behavior:** (when agent-patterns.md doesn't exist)
 1. Detect missing file with `read_file` failure
 2. Search for alternatives: `file_search("*agent*pattern*")`
@@ -334,8 +334,8 @@ Before completing, verify generated/updated guidance:
 5. Note limitation in output
 
 ### Test 6: Circular Dependency Detection
-**Input:** "Add reference to agents.instructions.md in prompts.instructions.md"
-**Expected Behavior:** (when agents.instructions.md already references prompts.instructions.md)
+**Input:** "Add reference to pe-agents.instructions.md in pe-prompts.instructions.md"
+**Expected Behavior:** (when pe-agents.instructions.md already references pe-prompts.instructions.md)
 1. Read both instruction files
 2. Detect existing cross-reference
 3. Warn about potential circular dependency

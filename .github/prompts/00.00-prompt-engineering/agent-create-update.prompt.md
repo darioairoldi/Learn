@@ -9,6 +9,10 @@ tools:
   - grep_search        # Search for specific patterns
   - file_search        # Locate files by name
 argument-hint: 'Describe the agent role/purpose, or attach existing agent with #file to update'
+goal: "Create or update agent artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Agent File (Enhanced with Adaptive Validation)
@@ -24,7 +28,7 @@ You actively challenge requirements through use case testing to discover gaps, t
 ## 🚨 CRITICAL BOUNDARIES (Read First)
 
 ### ✅ Always Do
-- Read `.github/instructions/agents.instructions.md` before creating/updating agents
+- Read `.github/instructions/pe-agents.instructions.md` before creating/updating agents
 - **Challenge role with 3-5 realistic scenarios** to discover tool requirements
 - **Validate role specialization** (one agent = one specialized role)
 - **Test tool composition** against tool-composition-guide.md patterns
@@ -125,7 +129,7 @@ Present validated requirements for user confirmation before proceeding to Phase 
 **Process:**
 
 1. **Read repository instructions:**
-   - `.github/instructions/agents.instructions.md`
+   - `.github/instructions/pe-agents.instructions.md`
    - `.github/copilot-instructions.md`
    - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
    - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
@@ -214,7 +218,7 @@ Present validated requirements for user confirmation before proceeding to Phase 
 
 **You MUST read these files before generating agents:**
 
-- `.github/instructions/agents.instructions.md` - Core guidelines
+- `.github/instructions/pe-agents.instructions.md` - Core guidelines
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` - 8 core principles
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md` - Tool selection guide
 
@@ -249,7 +253,7 @@ Before completing:
 
 ## References
 
-- `.github/instructions/agents.instructions.md`
+- `.github/instructions/pe-agents.instructions.md`
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)

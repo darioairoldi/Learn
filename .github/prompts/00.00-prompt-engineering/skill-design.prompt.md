@@ -36,6 +36,10 @@ handoffs:
     agent: agent-validator
     send: true
 argument-hint: 'Describe the skill you want to create: domain, workflows to cover, target platforms (VS Code, CLI, coding agent)'
+goal: "Orchestrate multi-phase creation of skill artifacts with quality gates"
+rationales:
+  - "Orchestrator pattern provides use-case challenge validation before building"
+  - "Quality gates between phases catch issues before they propagate"
 ---
 
 # Skill Design and Create

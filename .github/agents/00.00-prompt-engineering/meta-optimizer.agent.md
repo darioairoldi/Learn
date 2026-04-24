@@ -23,6 +23,9 @@ capabilities:
   - "reorganize content for early-commands compliance"
   - "maintain the artifact dependency map after changes"
 goal: "Reduce token usage and improve structural consistency without losing any capabilities or rules"
+rationales:
+  - "Write access is scoped to applying validated optimizations only"
+  - "Token-focused optimization prevents degrading artifact quality for efficiency"
 ---
 
 # Meta-Optimizer
@@ -118,7 +121,7 @@ For each finding categorized as "redundancy":
 [...10+ lines restating what's in 01.04-tool-composition-guide.md...]
 
 ? After (canonical reference):
-**📖 Tool alignment:** Use `prompt-engineering-validation` skill for verification.
+**📖 Tool alignment:** Use `pe-prompt-engineering-validation` skill for verification.
 See `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md` for complete rules.
 ```
 

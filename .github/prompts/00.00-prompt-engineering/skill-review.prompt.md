@@ -28,6 +28,10 @@ handoffs:
     agent: agent-validator
     send: true
 argument-hint: 'Provide path to existing skill folder to review, or "all" for full layer audit'
+goal: "Validate existing skill artifacts against PE standards and best practices"
+rationales:
+  - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
+  - "Severity-scored findings prioritize what to fix first"
 ---
 
 # Skill Review and Validate Orchestrator

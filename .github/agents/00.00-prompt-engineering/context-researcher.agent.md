@@ -24,6 +24,9 @@ capabilities:
   - "perform topic scope analysis for new domain context requests"
   - "classify expertise requirements as homogeneous or heterogeneous"
 goal: "Deliver a research report that identifies all context layer issues with evidence-backed improvement recommendations"
+rationales:
+  - "Read-only mode prevents research from having side effects on the artifact being studied"
+  - "Self-contained reports eliminate re-research by downstream builders"
 ---
 
 # Context Researcher
@@ -48,7 +51,7 @@ You also perform **topic scope analysis** for new domain context requests — an
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Load `.github/instructions/context-files.instructions.md` for context file conventions
+- Load `.github/instructions/pe-context-files.instructions.md` for context file conventions
 - Load the dependency map (`05.01-artifact-dependency-map.md`) to understand consumer relationships
 - Scan all context files in `.copilot/context/00.00-prompt-engineering/` before making recommendations
 - Identify all consumers of each affected context file via `grep_search`

@@ -38,6 +38,10 @@ handoffs:
     agent: prompt-snippet-validator
     send: true
 argument-hint: "Agent role description or 'help' for guidance"
+goal: "Orchestrate multi-phase creation of agent artifacts with quality gates"
+rationales:
+  - "Orchestrator pattern provides use-case challenge validation before building"
+  - "Quality gates between phases catch issues before they propagate"
 ---
 
 # Agent Design and Create Orchestrator
@@ -220,7 +224,7 @@ For each dependency: new agents → run Phases 1-4; updates → agent-builder.
 
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
-- `.github/instructions/agents.instructions.md`
+- `.github/instructions/pe-agents.instructions.md`
 
 ---
 

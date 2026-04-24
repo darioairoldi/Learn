@@ -52,6 +52,10 @@ handoffs:
     agent: prompt-snippet-validator
     send: true
 argument-hint: 'Describe the prompt you want to create: purpose, type (validation/implementation/orchestration), target task, any specific requirements or constraints'
+goal: "Orchestrate multi-phase creation of prompt artifacts with quality gates"
+rationales:
+  - "Orchestrator pattern provides use-case challenge validation before building"
+  - "Quality gates between phases catch issues before they propagate"
 ---
 
 # Prompt Design and Create
@@ -279,8 +283,8 @@ Create the prompt using the summary above. File: [path]
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 - `.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md`
-- `.github/instructions/prompts.instructions.md`
-- `.github/instructions/agents.instructions.md`
+- `.github/instructions/pe-prompts.instructions.md`
+- `.github/instructions/pe-agents.instructions.md`
 
 ## Common Workflows
 

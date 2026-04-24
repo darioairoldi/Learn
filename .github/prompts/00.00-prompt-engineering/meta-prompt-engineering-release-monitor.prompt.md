@@ -25,6 +25,10 @@ handoffs:
     send: true
 agents: ['*']
 argument-hint: 'Optional: URL to specific release notes. Default: auto-fetch latest VS Code and Copilot release notes. Flags: --plan (preview only, don'"'"'t apply changes)'
+goal: "Track VS Code and Copilot releases and run targeted PE impact analysis"
+rationales:
+  - "Event-driven monitoring catches platform changes that time-based reviews miss"
+  - "Targeted fullcheck scope prevents re-auditing unaffected artifacts"
 ---
 
 # VS Code / Copilot Release Monitor

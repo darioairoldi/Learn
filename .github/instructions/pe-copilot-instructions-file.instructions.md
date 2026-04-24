@@ -1,8 +1,12 @@
 ---
 description: Rules for maintaining the repository-wide copilot-instructions.md file — the highest-authority PE artifact, always injected last into every system prompt
 applyTo: '.github/copilot-instructions.md'
-version: "1.0.0"
-last_updated: "2026-03-19"
+version: "1.1.0"
+last_updated: "2026-04-24"
+goal: "Enforce structure, content boundaries, and maintenance triggers for the highest-authority PE artifact"
+rationales:
+  - "As the final-authority file, it must contain only repo-specific rules not covered elsewhere"
+  - "Uncontrolled edits could introduce contradictions with other PE layers"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---
@@ -56,4 +60,4 @@ Update `copilot-instructions.md` when:
 
 - **📖** `.copilot/context/00.00-prompt-engineering/00.01-governance-and-capability-baseline.md` — System governance
 - **📖** `.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md` — File type decisions
-- **📖** `.github/instructions/instruction-files.instructions.md` — Instruction file rules (meta-governance)
+- **📖** `.github/instructions/pe-instruction-files.instructions.md` — Instruction file rules (meta-governance)

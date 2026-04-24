@@ -2,7 +2,7 @@
 description: "Example patterns and structures for agent file creation"
 ---
 
-<!-- Unique to this template: Concrete agent examples (6 role archetypes) and orchestration patterns. Rules live in agents.instructions.md; this provides copy-pasteable reference examples. -->
+<!-- Unique to this template: Concrete agent examples (6 role archetypes) and orchestration patterns. Rules live in pe-agents.instructions.md; this provides copy-pasteable reference examples. -->
 # Agent Examples and Patterns Reference
 
 ## Six Essential Agents (from 2,500+ Repo Analysis)
@@ -113,7 +113,7 @@ Create new custom agent for GitHub Copilot
 - Never modify: [protected areas]
 
 ## Best Practices
-[Attach: .github/instructions/agents.instructions.md]
+[Attach: .github/instructions/pe-agents.instructions.md]
 - Analyze key points
 - Apply to generated agent
 

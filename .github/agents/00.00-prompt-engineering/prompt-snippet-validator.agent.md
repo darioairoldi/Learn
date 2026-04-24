@@ -22,6 +22,9 @@ capabilities:
   - "detect content duplication with context files"
   - "verify self-containment and token budget compliance"
 goal: "Produce a validation report ensuring snippets are concise, non-redundant, and compatible with all consumers"
+rationales:
+  - "Read-only mode ensures validation cannot introduce the issues it checks for"
+  - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
 ---
 
 # Prompt-Snippet Validator
@@ -47,7 +50,7 @@ You operate in two modes:
 - Discover all consumers via `grep_search` for `prompt-snippets/[filename]`
 - Check for content duplication with context files (`grep_search` key phrases)
 - Verify snippet is self-contained — works when included without additional context
-- Use `prompt-engineering-validation` skill for convention compliance checks (Workflow 12: naming, location)
+- Use `pe-prompt-engineering-validation` skill for convention compliance checks (Workflow 12: naming, location)
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
 

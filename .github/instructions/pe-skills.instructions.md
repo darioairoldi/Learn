@@ -1,8 +1,12 @@
 ---
 description: Instructions for creating Agent Skills (SKILL.md files)
 applyTo: '.github/skills/**/SKILL.md,.github/templates/skill-*.md'
-version: "1.4.0"
-last_updated: "2026-03-19"
+version: "1.5.0"
+last_updated: "2026-04-24"
+goal: "Govern creation of AI-discoverable agent skills that package domain-specific capabilities"
+rationales:
+  - "Skills are discovered by description matching, so description quality is critical"
+  - "Preview feature requiring adherence to evolving API conventions"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---

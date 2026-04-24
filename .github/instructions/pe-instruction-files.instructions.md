@@ -1,8 +1,12 @@
 ---
 description: Rules for creating and maintaining instruction files that provide path-specific AI guidance via applyTo patterns
 applyTo: '.github/instructions/*.instructions.md'
-version: "1.4.0"
-last_updated: "2026-03-22"
+version: "1.5.0"
+last_updated: "2026-04-24"
+goal: "Enforce that instruction files provide path-specific enforcement rules with unique, non-overlapping applyTo scopes"
+rationales:
+  - "Overlapping applyTo patterns cause unpredictable rule precedence"
+  - "Instructions must contain enforcement rules, not knowledge (which belongs in context files)"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---

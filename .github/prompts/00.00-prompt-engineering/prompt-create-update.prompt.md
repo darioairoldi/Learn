@@ -9,6 +9,10 @@ tools:
   - grep_search        # Search for specific patterns
   - file_search        # Locate files by name
 argument-hint: 'Describe the prompt purpose, or attach existing prompt with #file to update'
+goal: "Create or update prompt artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Prompt File (Enhanced with Adaptive Validation)
@@ -33,7 +37,7 @@ You WILL actively challenge requirements through use case testing to discover ga
 ## 🚨 CRITICAL BOUNDARIES (Read First)
 
 ### ✅ Always Do
-- You MUST read `.github/instructions/prompts.instructions.md` before creating/updating prompts
+- You MUST read `.github/instructions/pe-prompts.instructions.md` before creating/updating prompts
 - You MUST read `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md` for validation patterns
 - You WILL challenge goals with 3-5 realistic use cases to discover ambiguities
 - You WILL validate role appropriateness (authority + expertise + specificity tests)
@@ -149,7 +153,7 @@ Present validated requirements for user confirmation before proceeding to Phase 
 **Process:**
 
 1. **Read repository instructions:**
-   - `.github/instructions/prompts.instructions.md`
+   - `.github/instructions/pe-prompts.instructions.md`
    - `.github/copilot-instructions.md`
    - `.copilot/context/00.00-prompt-engineering/*.md`
 
@@ -234,7 +238,7 @@ Present validated requirements for user confirmation before proceeding to Phase 
 
 **You MUST read these files before generating prompts:**
 
-- `.github/instructions/prompts.instructions.md` - Core guidelines and Production-Ready requirements
+- `.github/instructions/pe-prompts.instructions.md` - Core guidelines and Production-Ready requirements
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` - 8 core principles
 - `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md` - Validation methodology
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md` - Tool selection patterns
@@ -272,7 +276,7 @@ Before completing:
 
 ## References
 
-- `.github/instructions/prompts.instructions.md`
+- `.github/instructions/pe-prompts.instructions.md`
 - `.copilot/context/00.00-prompt-engineering/*.md`
 - [GitHub: How to write great agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)

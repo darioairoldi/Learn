@@ -1,8 +1,12 @@
 ---
 description: Rules for creating and maintaining reusable prompt-snippet fragments included via #file references
 applyTo: '.github/prompt-snippets/**/*.md'
-version: "1.3.0"
-last_updated: "2026-03-19"
+version: "1.4.0"
+last_updated: "2026-04-24"
+goal: "Ensure prompt snippets remain concise, self-contained, and non-duplicative reusable fragments"
+rationales:
+  - "Snippets are not auto-injected or indexed as commands, so they must be self-contained"
+  - "Duplication between snippets and other artifacts wastes token budget"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---

@@ -22,6 +22,9 @@ capabilities:
   - "verify layer boundary compliance and token budgets"
   - "assess consumer compatibility for matched file types"
 goal: "Produce a validation report ensuring instruction files inject correctly and enforce consistent, conflict-free rules"
+rationales:
+  - "Read-only mode ensures validation cannot introduce the issues it checks for"
+  - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
 ---
 
 # Instruction Validator
@@ -48,7 +51,7 @@ You operate in two modes:
 - Extract and analyze the `applyTo` pattern — count how many files it matches
 - Check `applyTo` against ALL other instruction files for overlap
 - Read YAML frontmatter for required fields (description, applyTo)
-- Use `prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
+- Use `pe-prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
 - Verify instructions reference context files rather than embedding content >10 lines
 - Check for contradictions against context files the instruction references
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)

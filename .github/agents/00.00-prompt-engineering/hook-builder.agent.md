@@ -23,6 +23,9 @@ capabilities:
   - "implement cross-platform command variants"
   - "update existing hooks with security policy preservation"
 goal: "Deliver deterministic hook configurations that enforce policies without blocking legitimate operations"
+rationales:
+  - "Pre-save validation catches structural issues before file creation reduces fix cycles"
+  - "Breaking change detection protects consumers from silent contract violations"
 ---
 
 # Hook Builder

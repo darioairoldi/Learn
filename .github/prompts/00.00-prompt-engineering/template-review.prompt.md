@@ -22,6 +22,10 @@ handoffs:
     agent: instruction-validator
     send: true
 argument-hint: 'Provide path to an existing template to review, or "all" for full template layer audit'
+goal: "Validate existing template artifacts against PE standards and best practices"
+rationales:
+  - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
+  - "Severity-scored findings prioritize what to fix first"
 ---
 
 # Template Review and Validate Orchestrator

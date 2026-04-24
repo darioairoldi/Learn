@@ -23,6 +23,9 @@ capabilities:
   - "detect content duplication between snippets and context files"
   - "assess whether content belongs as snippet, context, or instruction"
 goal: "Deliver a research report identifying reuse opportunities and deduplication needs in the snippet layer"
+rationales:
+  - "Read-only mode prevents research from having side effects on the artifact being studied"
+  - "Self-contained reports eliminate re-research by downstream builders"
 ---
 
 # Prompt-Snippet Researcher

@@ -1,8 +1,12 @@
 ---
 description: Instructions for creating and updating effective prompt files
 applyTo: '.github/prompts/**/*.md'
-version: "1.3.0"
-last_updated: "2026-03-19"
+version: "1.4.0"
+last_updated: "2026-04-24"
+goal: "Guide creation of reusable, plan-level workflow prompt files that define what should be done and how"
+rationales:
+  - "Prompts inject into USER prompt (not system), requiring a different authoring approach from agents"
+  - "Consistent structure ensures prompts are discoverable as slash commands"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---

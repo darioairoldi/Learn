@@ -21,6 +21,10 @@ handoffs:
     agent: context-validator
     send: true
 argument-hint: 'Specify topic/domain (e.g., "validation caching"), context sources (URLs, files), and target folder under .copilot/context/'
+goal: "Create or update context information artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Context Information
@@ -66,7 +70,7 @@ If user input is incomplete, ask clarifying questions before proceeding.
 - Fetch external documentation using `fetch_webpage` when URLs provided
 - Apply prompt-engineering principles to generated context
 - Use imperative language (MUST, WILL, NEVER) in generated guidance
-- Follow the required context file structure from `context-files.instructions.md`
+- Follow the required context file structure from `pe-context-files.instructions.md`
 - Include Purpose statement, Referenced by, Core content, References sections
 - Add Version History table at end of file
 - Validate no duplicate content exists in other context files
@@ -231,7 +235,7 @@ For multi-file domains, ensure cross-file vocabulary consistency and non-redunda
 1. **Determine Operation Type** — UPDATE (existing domain) or CREATE (new topic)
 2. **Discover Sources** by priority: user input → execution context → STRUCTURE-README.md patterns → semantic search → additional discovery
 3. **Read STRUCTURE-README.md** for existing domains: extract source patterns (file globs, URLs, search queries) and update strategy
-4. **Collect and Merge** — combine all sources, run searches, check existing context files for overlap, read `context-files.instructions.md`
+4. **Collect and Merge** — combine all sources, run searches, check existing context files for overlap, read `pe-context-files.instructions.md`
 5. **Present summary** — topic, target folder, operation, source counts, existing related context
 
 ---
@@ -444,7 +448,7 @@ Format source patterns according to STRUCTURE-README.md conventions:
 
 ## Context File Guidelines Reference
 
-**📖 Complete Guidelines:** `.github/instructions/context-files.instructions.md`
+**📖 Complete Guidelines:** `.github/instructions/pe-context-files.instructions.md`
 
 **Token Budgets:** Core Principles 800-1,200 | Pattern Libraries 1,500-2,500 | Workflows 1,000-2,000 | Glossary 500-1,000
 
@@ -453,7 +457,7 @@ Format source patterns according to STRUCTURE-README.md conventions:
 ## References
 
 - `.copilot/context/STRUCTURE-README.md` — Source patterns for each context folder
-- `.github/instructions/context-files.instructions.md` — Context file creation rules
+- `.github/instructions/pe-context-files.instructions.md` — Context file creation rules
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: How to write great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)

@@ -28,6 +28,10 @@ handoffs:
     agent: skill-validator
     send: true
 argument-hint: 'Provide path to existing instruction file to review, or "all" for full layer audit'
+goal: "Validate existing instruction file artifacts against PE standards and best practices"
+rationales:
+  - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
+  - "Severity-scored findings prioritize what to fix first"
 ---
 
 # Instruction File Review and Validate Orchestrator
@@ -344,10 +348,10 @@ These scenarios validate **review orchestration decisions** — mode selection, 
 
 | # | Scenario | Category | Input | Expected Orchestrator Behavior |
 |---|---|---|---|---|
-| 1 | Happy path — single file, no issues | End-to-end (scoped) | `instruction-file-review agents.instructions.md` | Mode: scoped. Phase 2 checks target against all others — no conflicts. Phase 3 validator returns zero issues. Phase 5 produces report with ✅ PASS verdict. Orchestrator never validates or fixes itself. |
+| 1 | Happy path — single file, no issues | End-to-end (scoped) | `instruction-file-review pe-agents.instructions.md` | Mode: scoped. Phase 2 checks target against all others — no conflicts. Phase 3 validator returns zero issues. Phase 5 produces report with ✅ PASS verdict. Orchestrator never validates or fixes itself. |
 | 2 | Layer audit — conflicting applyTo between two files | Conflict detection | `instruction-file-review all` | Mode: layer audit. Phase 2 builds N×N matrix, detects overlap between `documentation.instructions.md` and `article-writing.instructions.md` on `*.md`. Flags as CRITICAL. Presents 3 options to user. Does NOT proceed to Phase 3 until conflict resolved. |
 | 3 | File exceeds 1,500-token budget | Token compliance | Single file with 2,100 tokens of embedded content | Phase 3 validator flags token budget as CRITICAL. Orchestrator routes to `instruction-builder` with specific instruction: externalize content to context file. Re-validates after fix. Maximum 3 cycles. |
 | 4 | Fix-validate cycle 3×, still failing | Iteration limit | Builder's fixes keep introducing new issues | After 3 fix-validate cycles, orchestrator STOPS. Reports what passed, what failed, what's blocking. Escalates to user with current state. Does NOT attempt 4th cycle. |
 | 5 | Instruction embeds 25-line coding standard | Layer boundary | File has >10 lines of knowledge content inline | Validator flags as HIGH: knowledge >10 lines must be in context files. Orchestrator routes to builder: extract to `.copilot/context/` and replace with `📖` reference. Re-validates after fix. |
-| 6 | User asks to review one file, orchestrator stays scoped | Scope discipline | `instruction-file-review prompts.instructions.md` | Mode: scoped. Orchestrator validates ONLY `prompts.instructions.md`. Does NOT expand to layer audit. Does NOT validate other instruction files beyond the applyTo conflict check. |
+| 6 | User asks to review one file, orchestrator stays scoped | Scope discipline | `instruction-file-review pe-prompts.instructions.md` | Mode: scoped. Orchestrator validates ONLY `pe-prompts.instructions.md`. Does NOT expand to layer audit. Does NOT validate other instruction files beyond the applyTo conflict check. |
 | 7 | File path doesn't exist | Error recovery | `instruction-file-review nonexistent.instructions.md` | Orchestrator uses `file_search` to find similar files. Presents closest matches. Asks user to confirm correct path. Does NOT proceed with validation on wrong file. |

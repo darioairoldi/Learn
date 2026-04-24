@@ -1,8 +1,12 @@
 ---
 description: Instructions for creating and updating custom agent files
 applyTo: '.github/agents/**/*.agent.md'
-version: "1.8.0"
-last_updated: "2026-03-20"
+version: "1.9.0"
+last_updated: "2026-04-24"
+goal: "Ensure agent files have proper structure, tool access, and autonomous execution capabilities for their specialized roles"
+rationales:
+  - "Agents need detailed technical instructions and tool restrictions to avoid scope overlap"
+  - "Consistency across agent files prevents misconfiguration"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---

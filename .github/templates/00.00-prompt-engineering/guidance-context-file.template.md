@@ -1,8 +1,8 @@
-﻿---
+---
 description: "Guidance for context file structure and content organization"
 ---
 
-<!-- Unique to this template: Copy-pasteable Markdown skeleton for new context files. Rules live in context-files.instructions.md; this provides the concrete scaffolding structure. -->
+<!-- Unique to this template: Copy-pasteable Markdown skeleton for new context files. Rules live in pe-context-files.instructions.md; this provides the concrete scaffolding structure. -->
 
 # Context File Template for Domain Guidance
 

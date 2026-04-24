@@ -23,6 +23,9 @@ capabilities:
   - "verify cross-platform command compatibility"
   - "identify automation gaps in the hook layer"
 goal: "Deliver a research report mapping lifecycle event coverage and identifying security or automation gaps"
+rationales:
+  - "Read-only mode prevents research from having side effects on the artifact being studied"
+  - "Self-contained reports eliminate re-research by downstream builders"
 ---
 
 # Hook Researcher

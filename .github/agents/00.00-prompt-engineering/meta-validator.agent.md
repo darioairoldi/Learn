@@ -47,6 +47,9 @@ capabilities:
   - "delegate type-specific validation to specialist validators"
   - "assess whether changes achieve their stated quality goals"
 goal: "Ensure every PE ecosystem change is safe, complete, and achieves its intended quality improvement"
+rationales:
+  - "Read-only mode ensures validation cannot introduce the issues it checks for"
+  - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
 ---
 
 # Meta-Validator
@@ -216,7 +219,7 @@ Run these 6 check categories against each proposed change:
 ### Audit Steps
 
 1. **A1. Inventory** — scan all 9 PE locations, compare against `05.01-artifact-dependency-map.md`
-2. **A2. Coherence** — apply `artifact-coherence-check` skill (rule consistency, reference integrity, handoff chains, tool alignment, boundary consistency)
+2. **A2. Coherence** — apply `pe-artifact-coherence-check` skill (rule consistency, reference integrity, handoff chains, tool alignment, boundary consistency)
 3. **A3. Cross-Artifact Alignment** — for each agent, verify: boundaries cover governing instruction file—s CRITICAL/HIGH rules; `📖` context references resolve and are current; handoff targets form valid triad chains; orchestrator prompts list correct target agents
 4. **A4. Redundancy** — scan for duplicated content across layers, verify single-source-of-truth compliance
 5. **A5. Completeness & Budgets** — missing coverage, token budgets (**** `01.06-system-parameters.md`), stale content, deprecated items

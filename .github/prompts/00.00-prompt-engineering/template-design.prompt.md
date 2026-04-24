@@ -30,6 +30,10 @@ handoffs:
     agent: instruction-validator
     send: true
 argument-hint: 'Describe the template to create: purpose, category (output/input/guidance/pattern/structure), target audience (agent/user/both), and expected consumers'
+goal: "Orchestrate multi-phase creation of template artifacts with quality gates"
+rationales:
+  - "Orchestrator pattern provides use-case challenge validation before building"
+  - "Quality gates between phases catch issues before they propagate"
 ---
 
 # Template Design and Create

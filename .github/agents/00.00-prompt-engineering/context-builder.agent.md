@@ -24,6 +24,9 @@ capabilities:
   - "maintain cross-file vocabulary consistency in domain sets"
   - "manage token budgets with file splitting when needed"
 goal: "Deliver context files that pass validator checks and integrate cleanly with all dependent artifacts"
+rationales:
+  - "Pre-save validation catches structural issues before file creation reduces fix cycles"
+  - "Breaking change detection protects consumers from silent contract violations"
 ---
 
 # Context Builder
@@ -42,12 +45,12 @@ For multi-file domain creation, you ensure cross-file vocabulary consistency, no
 - **Cross-Reference Architecture**: Building proper reference chains without circular dependencies
 - **Consumer Impact Assessment**: Evaluating whether changes are compatible with all consumers
 - **Breaking Change Detection**: Recognizing when updates would break consumers and creating v2 versions
-- **Convention Compliance**: Following `.github/instructions/context-files.instructions.md` exactly
+- **Convention Compliance**: Following `.github/instructions/pe-context-files.instructions.md` exactly
 
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/context-files.instructions.md` before creating/updating files
+- Read `.github/instructions/pe-context-files.instructions.md` before creating/updating files
 - If target file exists: read it completely and discover all consumers via "Referenced by" section + `grep_search` for the filename
 - Verify no duplicate content exists in other context files
 - **[H9]** Include ALL required sections: Purpose, Referenced by, Core content, References, Version History

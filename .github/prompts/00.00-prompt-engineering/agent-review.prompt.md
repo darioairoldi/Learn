@@ -31,6 +31,10 @@ handoffs:
     agent: prompt-snippet-validator
     send: true
 argument-hint: "Agent file path or 'help' for guidance"
+goal: "Validate existing agent artifacts against PE standards and best practices"
+rationales:
+  - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
+  - "Severity-scored findings prioritize what to fix first"
 ---
 
 # Agent Review and Validate Orchestrator
@@ -54,7 +58,7 @@ You do NOT perform the specialized work yourself—you delegate to:
 
 You MUST read the following files before starting any validation workflow. Pass relevant rule summaries in delegation instructions to `agent-validator`.
 
-- `.github/instructions/agents.instructions.md` — Current agent structure rules, tool scoping, YAML fields
+- `.github/instructions/pe-agents.instructions.md` — Current agent structure rules, tool scoping, YAML fields
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md` — Tool alignment rules, allowed/forbidden tool matrices
 - `.copilot/context/00.00-prompt-engineering/02.03-orchestrator-design-patterns.md` — Orchestrator patterns (MUST read when validating an orchestrator agent with handoffs)
 - `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md` — Boundary actionability and validation depth patterns
@@ -263,7 +267,7 @@ For batch validation: summary table with per-agent alignment/score/status + comm
 ## References
 
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
-- `.github/instructions/agents.instructions.md`
+- `.github/instructions/pe-agents.instructions.md`
 - Existing validation patterns in `.github/prompts/`
 
 ---

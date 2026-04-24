@@ -23,6 +23,9 @@ capabilities:
   - "assess audience design compliance for agent and user templates"
   - "detect reuse patterns and consolidation opportunities"
 goal: "Deliver a research report identifying template coverage gaps, orphans, and consumer chain issues"
+rationales:
+  - "Read-only mode prevents research from having side effects on the artifact being studied"
+  - "Self-contained reports eliminate re-research by downstream builders"
 ---
 
 # Template Researcher
@@ -45,7 +48,7 @@ Templates are **reusable output formats, input schemas, and scaffolds** that age
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Load `.github/instructions/templates.instructions.md` for template rules
+- Load `.github/instructions/pe-templates.instructions.md` for template rules
 - Load `.copilot/context/00.00-prompt-engineering/03.07-template-authoring-patterns.md` for design patterns
 - Scan all templates in target scope before making recommendations
 - Discover all consumers of each template via `grep_search` for the template filename

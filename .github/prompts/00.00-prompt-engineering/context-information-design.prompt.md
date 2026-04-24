@@ -37,6 +37,10 @@ handoffs:
     agent: skill-validator
     send: true
 argument-hint: 'Describe the domain/topic to document (e.g., "migration validation", "deployment conventions"), or provide a Context Brief from another orchestrator'
+goal: "Orchestrate multi-phase creation of context information artifacts with quality gates"
+rationales:
+  - "Orchestrator pattern provides use-case challenge validation before building"
+  - "Quality gates between phases catch issues before they propagate"
 ---
 
 # Context Information Design and Create Orchestrator
@@ -104,7 +108,7 @@ Orchestrate a multi-agent workflow to create domain context information that:
 1. Fill a verified knowledge gap (single-source-of-truth confirmed)
 2. Use optimal information architecture (right file count, right granularity, right grouping)
 3. Stay within 2,500-token budget per file (split into multiple files as needed)
-4. Follow repository conventions from `context-files.instructions.md`
+4. Follow repository conventions from `pe-context-files.instructions.md`
 5. Have no cross-reference issues (all `📖` links resolve)
 6. Are consumer-compatible (don't break dependent artifacts)
 7. Pass quality validation via context-validator (per-file AND domain-set level)

@@ -23,6 +23,9 @@ capabilities:
   - "evaluate layer boundary compliance for auto-injected content"
   - "assess token efficiency within the 1,500-token budget"
 goal: "Deliver a research report that maps all instruction file interactions and identifies conflicts or coverage gaps"
+rationales:
+  - "Read-only mode prevents research from having side effects on the artifact being studied"
+  - "Self-contained reports eliminate re-research by downstream builders"
 ---
 
 # Instruction Researcher

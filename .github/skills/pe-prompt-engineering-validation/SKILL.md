@@ -1,5 +1,5 @@
 ---
-name: prompt-engineering-validation
+name: pe-prompt-engineering-validation
 description: >
   Reusable validation patterns for prompt engineering artifacts: 
   use case challenge, role validation, tool alignment verification, 
@@ -34,7 +34,7 @@ Activate this skill when:
 
 Do NOT use this skill for:
 - Article content review (use `article-review` skill)
-- Full system coherence audit (use `artifact-coherence-check` skill)
+- Full system coherence audit (use `pe-artifact-coherence-check` skill)
 - Code review or security auditing
 - Context file creation (use context-builder agent)
 
@@ -196,7 +196,7 @@ Verify rules agree across artifact layers (context → instructions → agents �
 | Check | Context Rule | Verify In |
 |---|---|---|
 | Tool count range | "3–7" in `01.04-tool-composition-guide` | All agent boundaries, PE-validation skill |
-| Inline threshold | ">10 lines" in `01.01-context-engineering-principles` | `prompts.instructions.md`, `agents.instructions.md` |
+| Inline threshold | ">10 lines" in `01.01-context-engineering-principles` | `pe-prompts.instructions.md`, `pe-agents.instructions.md` |
 | Boundary minimums | ≥3/≥1/≥2 in `01.06-system-parameters` | All agents (Always, Ask, Never minimums) |
 | Validation caching | "7 days" in `04.01-validation-caching-pattern` | Validation prompts (grammar, readability, etc.) |
 
@@ -349,4 +349,4 @@ Verify naming, location, and extension conventions.
 - **📖 Tool composition patterns:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 - **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 - **📖 Artifact dependency map:** `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`
-- **📖 Full system coherence audit:** `.github/skills/artifact-coherence-check/SKILL.md`
+- **📖 Full system coherence audit:** `.github/skills/pe-artifact-coherence-check/SKILL.md`

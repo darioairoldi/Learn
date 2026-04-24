@@ -23,6 +23,9 @@ capabilities:
   - "design unambiguous placeholder markers for template consumers"
   - "manage template size within 100-line budgets"
 goal: "Deliver templates that produce consistent output across all consuming agents and prompts"
+rationales:
+  - "Pre-save validation catches structural issues before file creation reduces fix cycles"
+  - "Breaking change detection protects consumers from silent contract violations"
 ---
 
 # Template Builder
@@ -41,12 +44,12 @@ Templates are the **reusable output layer** — agents depend on them for consis
 - **Compatible Updates**: Extending existing templates without breaking consumers that reference them
 - **Location Scoping**: Placing templates at the narrowest applicable scope (area vs. root vs. skill-bundled)
 - **Size Management**: Keeping templates under 100 lines, splitting when exceeded
-- **Convention Compliance**: Following `.github/instructions/templates.instructions.md` exactly
+- **Convention Compliance**: Following `.github/instructions/pe-templates.instructions.md` exactly
 
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/templates.instructions.md` for template rules
+- Read `.github/instructions/pe-templates.instructions.md` for template rules
 - Read `.copilot/context/00.00-prompt-engineering/03.07-template-authoring-patterns.md` for design patterns
 - If target file exists: read it completely and discover all consumers via `grep_search` for the filename
 - Determine audience type (agent/user/both) from category prefix before designing content

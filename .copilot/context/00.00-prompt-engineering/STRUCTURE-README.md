@@ -12,7 +12,7 @@
 
 **Scope**: All context engineering principles, patterns, and reference material for creating and maintaining GitHub Copilot customization files (prompts, agents, instructions, skills, hooks, MCP servers, templates).
 
-**File count**: 29 context files + this index
+**File count**: 30 context files + this index
 
 **Token budget**: Each file MUST stay under 2,500 tokens (see `01.06-system-parameters.md`)
 
@@ -43,6 +43,7 @@ The north star that defines WHAT the system must do and WHY. All other tiers val
 |---|---|---|---|
 | 00.01 | `00.01-governance-and-capability-baseline.md` | North star governance document — system purpose, capability requirements, quality criteria, stability rules, and verification contract. Use case coverage map documenting what the PE system can do, artifact chains per capability, and verification criteria for capability preservation | `meta-validator`, `meta-designer`, `meta-optimizer` |
 | 00.02 | `00.02-capability-map.md` | Functional capability map — 5 categories, 20+ use cases with entry points, artifact chains, and verification criteria. Extracted from governance baseline for token budget compliance | `meta-validator`, `meta-designer`, `meta-prompt-engineering-update` |
+| 00.03 | `00.03-metadata-contracts.md` | Canonical metadata schema for all PE artifact types — required YAML fields (goal, scope, boundaries, rationales, version), placement rules, metadata-guarded change protocol, validation rules | All builder agents, all validator agents, all create-update prompts, `meta-validator`, `meta-optimizer` |
 
 ### Tier 1: Foundations
 
@@ -50,10 +51,10 @@ These files are the highest-impact context files — they're referenced by nearl
 
 | # | File | Purpose | Key Consumers |
 |---|---|---|---|
-| 01.01 | `01.01-context-engineering-principles.md` | 8 core principles for crafting effective instructions, prompts, and agent personas (narrow scope, early commands, imperative language, boundaries, context minimization, tool scoping, uncertainty management, template externalization) | `prompts.instructions.md`, `agents.instructions.md`, `skills.instructions.md`, PE-validation skill, all agents (indirectly) |
-| 01.02 | `01.02-prompt-assembly-architecture.md` | How Copilot assembles system/user prompts from customization files — injection layers, ordering, execution contexts, variable substitution | `prompts.instructions.md`, `agents.instructions.md`, `01.03-file-type-decision-guide`, `03.05-copilot-spaces-patterns`, `03.06-copilot-sdk-integration` |
-| 01.03 | `01.03-file-type-decision-guide.md` | Decision flowchart for choosing the right file type (prompt, agent, instruction, skill, snippet, MCP, Spaces, SDK) — comparison table, naming, folder structure, token budgets | `agents.instructions.md`, all creation workflows, `03.04-mcp-server-design-patterns`, `03.05-copilot-spaces-patterns` |
-| 01.04 | `01.04-tool-composition-guide.md` | Tool selection, priority hierarchy, L1/L2 architecture, per-tool costs, mode alignment rules, tool sets shorthand, tool count limits | `prompts.instructions.md`, `agents.instructions.md`, PE-validation skill, `prompt-researcher`, `agent-researcher`, `02.02-context-window`, `03.04-mcp-server`, `03.06-copilot-sdk`, `04.02-adaptive-validation` |
+| 01.01 | `01.01-context-engineering-principles.md` | 8 core principles for crafting effective instructions, prompts, and agent personas (narrow scope, early commands, imperative language, boundaries, context minimization, tool scoping, uncertainty management, template externalization) | `pe-prompts.instructions.md`, `pe-agents.instructions.md`, `pe-skills.instructions.md`, PE-validation skill, all agents (indirectly) |
+| 01.02 | `01.02-prompt-assembly-architecture.md` | How Copilot assembles system/user prompts from customization files — injection layers, ordering, execution contexts, variable substitution | `pe-prompts.instructions.md`, `pe-agents.instructions.md`, `01.03-file-type-decision-guide`, `03.05-copilot-spaces-patterns`, `03.06-copilot-sdk-integration` |
+| 01.03 | `01.03-file-type-decision-guide.md` | Decision flowchart for choosing the right file type (prompt, agent, instruction, skill, snippet, MCP, Spaces, SDK) — comparison table, naming, folder structure, token budgets | `pe-agents.instructions.md`, all creation workflows, `03.04-mcp-server-design-patterns`, `03.05-copilot-spaces-patterns` |
+| 01.04 | `01.04-tool-composition-guide.md` | Tool selection, priority hierarchy, L1/L2 architecture, per-tool costs, mode alignment rules, tool sets shorthand, tool count limits | `pe-prompts.instructions.md`, `pe-agents.instructions.md`, PE-validation skill, `prompt-researcher`, `agent-researcher`, `02.02-context-window`, `03.04-mcp-server`, `03.06-copilot-sdk`, `04.02-adaptive-validation` |
 | 01.05 | `01.05-glossary.md` | Canonical definitions for all PE-specific terms — single source of truth for terminology across all artifacts | All context files, instruction files, agents, prompts, skills |
 | 01.06 | `01.06-system-parameters.md` | All quantitative thresholds, budgets, limits, and timing rules — single source of truth for numeric values | All context files, validators, instruction files |
 | 01.07 | `01.07-critical-rules-priority-matrix.md` | Prioritized enforcement rules for PE artifact validation — severity-ranked (CRITICAL/HIGH/MEDIUM/LOW) with canonical sources and affected artifact types. Quick-reference for all validators | All validator agents, `meta-validator`, PE-validation skill |
@@ -64,11 +65,11 @@ Patterns for coordinating work across multiple agents in orchestrated workflows.
 
 | # | File | Purpose | Key Consumers |
 |---|---|---|---|
-| 02.01 | `02.01-handoffs-pattern.md` | Agent handoff conventions — single responsibility, send/label modes, intermediary reports, reliability checksum, 5 information flow strategies | Orchestrator prompts, `agents.instructions.md`, `02.02-context-window` |
-| 02.02 | `02.02-context-window-and-token-optimization.md` | Context rot, 3 failure modes, 9 token optimization strategies, phase budgets, provider caching comparison, deterministic tools decision | `prompts.instructions.md`, orchestrator prompts, multi-agent agents, `03.02-model-specific-optimization` |
+| 02.01 | `02.01-handoffs-pattern.md` | Agent handoff conventions — single responsibility, send/label modes, intermediary reports, reliability checksum, 5 information flow strategies | Orchestrator prompts, `pe-agents.instructions.md`, `02.02-context-window` |
+| 02.02 | `02.02-context-window-and-token-optimization.md` | Context rot, 3 failure modes, 9 token optimization strategies, phase budgets, provider caching comparison, deterministic tools decision | `pe-prompts.instructions.md`, orchestrator prompts, multi-agent agents, `03.02-model-specific-optimization` |
 | 02.03 | `02.03-orchestrator-design-patterns.md` | When/how to build multi-agent orchestrations — architecture tier decision, 9 design principles, subagent mechanics | Orchestrator agents, multi-agent prompts, `03.03-agent-hooks-reference` |
-| 02.04 | `02.04-agent-shared-patterns.md` | Structural patterns shared across all PE agents — output minimization, Phase 0 handoff validation, Phase 0.2 input quality challenge, response management, test scenario structure, boundary section template | All PE agents, `agents.instructions.md` |
-| 02.05 | `02.05-agent-workflow-patterns.md` | Behavioral workflow patterns — domain expertise activation, internet research validation, standard escalation protocol, scope control, output schema compliance, complexity gate, tool call discipline | All PE agents, `agents.instructions.md` |
+| 02.04 | `02.04-agent-shared-patterns.md` | Structural patterns shared across all PE agents — output minimization, Phase 0 handoff validation, Phase 0.2 input quality challenge, response management, test scenario structure, boundary section template | All PE agents, `pe-agents.instructions.md` |
+| 02.05 | `02.05-agent-workflow-patterns.md` | Behavioral workflow patterns — domain expertise activation, internet research validation, standard escalation protocol, scope control, output schema compliance, complexity gate, tool call discipline | All PE agents, `pe-agents.instructions.md` |
 
 ### Tier 3: Specialized
 
@@ -76,13 +77,13 @@ Platform-specific features and integration patterns. Each covers a distinct capa
 
 | # | File | Purpose | Key Consumers |
 |---|---|---|---|
-| 03.01 | `03.01-progressive-disclosure-pattern.md` | Three-level skill loading system (discovery → instructions → resources) for token-efficient skill design | `skills.instructions.md`, skill creation workflows |
+| 03.01 | `03.01-progressive-disclosure-pattern.md` | Three-level skill loading system (discovery → instructions → resources) for token-efficient skill design | `pe-skills.instructions.md`, skill creation workflows |
 | 03.02 | `03.02-model-specific-optimization.md` | Per-model-family prompt optimization — structural implications, caching behavior, guide references for OpenAI/Anthropic/Google | Prompt files with `model:` field, orchestrator prompts |
 | 03.03 | `03.03-agent-hooks-reference.md` | 8 lifecycle events, JSON config schema, I/O protocol for deterministic automation via agent hooks | Agent files using hooks, `02.03-orchestrator-design-patterns`, hook-builder/validator agents |
 | 03.04 | `03.04-mcp-server-design-patterns.md` | MCP architecture, decision framework (hooks vs MCP vs tools), implementation patterns | MCP-related prompts, `01.04-tool-composition-guide`, `01.03-file-type-decision-guide` |
 | 03.05 | `03.05-copilot-spaces-patterns.md` | Persistent cross-project context via GitHub Copilot Spaces — content types, when to use, complementary role | Cross-project agents, `01.02-prompt-assembly-architecture`, `01.03-file-type-decision-guide` |
 | 03.06 | `03.06-copilot-sdk-integration.md` | Consuming PE artifacts from SDK-based applications (Node.js, Python, Go, .NET) outside VS Code | SDK application prompts, `01.02-prompt-assembly-architecture`, `01.04-tool-composition-guide`, `03.04-mcp-server` |
-| 03.07 | `03.07-template-authoring-patterns.md` | Template design patterns — audience-aware design, placeholder conventions, category selection, composition, anti-patterns | `templates.instructions.md`, all builder agents, template creation workflows |
+| 03.07 | `03.07-template-authoring-patterns.md` | Template design patterns — audience-aware design, placeholder conventions, category selection, composition, anti-patterns | `pe-templates.instructions.md`, all builder agents, template creation workflows |
 
 ### Tier 4: Conventions
 
@@ -90,9 +91,9 @@ Validation, caching, production readiness, and runtime validation patterns.
 
 | # | File | Purpose | Key Consumers |
 |---|---|---|---|
-| 04.01 | `04.01-validation-caching-pattern.md` | 7-day validation caching policy — metadata storage, dual YAML rules (never modify top YAML), staleness detection | `prompts.instructions.md`, all validation prompts |
+| 04.01 | `04.01-validation-caching-pattern.md` | 7-day validation caching policy — metadata storage, dual YAML rules (never modify top YAML), staleness detection | `pe-prompts.instructions.md`, all validation prompts |
 | 04.02 | `04.02-adaptive-validation-patterns.md` | Challenge-based validation methodology — complexity assessment, use case challenge templates, role validation, workflow reliability testing, boundary actionability | PE-validation skill, `prompt-create-update`, `agent-create-update` |
-| 04.03 | `04.03-production-readiness-patterns.md` | 6 production-readiness requirements — response management, error recovery, embedded tests, token budgets, context rot prevention, template externalization | `prompts.instructions.md`, `agents.instructions.md`, all builder and validator agents |
+| 04.03 | `04.03-production-readiness-patterns.md` | 6 production-readiness requirements — response management, error recovery, embedded tests, token budgets, context rot prevention, template externalization | `pe-prompts.instructions.md`, `pe-agents.instructions.md`, all builder and validator agents |
 | 04.04 | `04.04-orchestrator-runtime-validation.md` | Gate check patterns, goal alignment verification, cumulative progress tracking, and drift detection for multi-phase orchestrator prompts | All orchestrator prompts, `prompt-builder`, `agent-builder` |
 
 ### Tier 5: Meta-Ops

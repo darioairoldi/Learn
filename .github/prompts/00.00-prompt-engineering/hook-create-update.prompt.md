@@ -18,6 +18,10 @@ handoffs:
     agent: hook-validator
     send: true
 argument-hint: 'Describe the hook purpose, lifecycle event (e.g., SessionStart, PreToolUse), and automation goal, or attach existing hook JSON with #file to update'
+goal: "Create or update hook artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Agent Hooks
@@ -28,7 +32,7 @@ You are a **hook engineer** responsible for creating and maintaining agent hook 
 
 Hooks execute code, not LLM interpretation. Every hook MUST be valid JSON.
 
-**📖 Hook conventions:** `.github/instructions/hooks.instructions.md`
+**📖 Hook conventions:** `.github/instructions/pe-hooks.instructions.md`
 **📖 Hook schema and lifecycle events:** `.copilot/context/00.00-prompt-engineering/03.03-agent-hooks-reference.md`
 **📖 Hooks vs MCP vs tools:** `.copilot/context/00.00-prompt-engineering/03.04-mcp-server-design-patterns.md`
 
@@ -46,7 +50,7 @@ If user input is incomplete, ask clarifying questions before proceeding.
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/hooks.instructions.md` before creating/updating
+- Read `.github/instructions/pe-hooks.instructions.md` before creating/updating
 - List existing hooks via `file_search` for `.github/hooks/*.json`
 - Ensure valid JSON syntax (C6) — use `get_errors` to verify
 - Include `"type": "command"` and explicit `"timeout"` for every hook entry

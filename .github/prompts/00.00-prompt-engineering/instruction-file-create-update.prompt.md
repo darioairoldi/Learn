@@ -21,6 +21,10 @@ handoffs:
     agent: instruction-validator
     send: true
 argument-hint: 'Specify domain (e.g., "validation", "code-review"), target file patterns (applyTo), and context sources'
+goal: "Create or update instruction file artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Instruction Files
@@ -198,12 +202,12 @@ Create or update instruction files that ensure Copilot applies:
 **Existing Instruction Files (check for conflicts):**
 ```
 .github/instructions/
-├── agents.instructions.md          # applyTo: '.github/agents/**/*.agent.md'
+├── pe-agents.instructions.md          # applyTo: '.github/agents/**/*.agent.md'
 ├── article-writing.instructions.md # applyTo: '*.md,...' (content files)
-├── context-files.instructions.md   # applyTo: '.copilot/context/**/*.md'
+├── pe-context-files.instructions.md   # applyTo: '.copilot/context/**/*.md'
 ├── documentation.instructions.md   # applyTo: '*.md,...' (content files)
-├── prompts.instructions.md         # applyTo: '.github/prompts/**/*.md'
-└── skills.instructions.md          # applyTo: '.github/skills/**/SKILL.md'
+├── pe-prompts.instructions.md         # applyTo: '.github/prompts/**/*.md'
+└── pe-skills.instructions.md          # applyTo: '.github/skills/**/SKILL.md'
 ```
 
 ---
@@ -347,9 +351,9 @@ applyTo: '[glob pattern for target files]'
 | Test | Category | Input | Key Validation |
 |------|----------|-------|----------------|
 | 1 | Happy Path - Create | "Create instructions for PowerShell scripts" | Complete workflow, file created, no conflicts |
-| 2 | Happy Path - Update | "Update prompts.instructions.md" | Reads context files, STRUCTURE-README.md, merges sources |
+| 2 | Happy Path - Update | "Update pe-prompts.instructions.md" | Reads context files, STRUCTURE-README.md, merges sources |
 | 3 | Pattern Conflict | "applyTo: '*.md'" overlaps documentation.instructions.md | Conflict detected, options presented |
-| 4 | Responsibility Overlap | Rules duplicate prompts.instructions.md | Stops, shows existing file, asks resolution |
+| 4 | Responsibility Overlap | Rules duplicate pe-prompts.instructions.md | Stops, shows existing file, asks resolution |
 | 5 | Missing Source | "Based on https://broken-link.com" | Error recovery triggered |
 | 6 | Out of Scope | "Create a context file" | Redirect to correct prompt |
 | 7 | Incomplete Input | "Create some instructions" | Clarification questions asked |
@@ -375,10 +379,10 @@ applyTo: '[glob pattern for target files]'
 **Common Patterns:**
 | Domain | Pattern | Notes |
 |--------|---------|-------|
-| Prompts | `.github/prompts/**/*.md` | Already used by prompts.instructions.md |
-| Agents | `.github/agents/**/*.agent.md` | Already used by agents.instructions.md |
-| Context | `.copilot/context/**/*.md` | Already used by context-files.instructions.md |
-| Skills | `.github/skills/**/SKILL.md` | Already used by skills.instructions.md |
+| Prompts | `.github/prompts/**/*.md` | Already used by pe-prompts.instructions.md |
+| Agents | `.github/agents/**/*.agent.md` | Already used by pe-agents.instructions.md |
+| Context | `.copilot/context/**/*.md` | Already used by pe-context-files.instructions.md |
+| Skills | `.github/skills/**/SKILL.md` | Already used by pe-skills.instructions.md |
 | C# Code | `src/**/*.cs` | Available |
 | PowerShell | `**/*.ps1` | Available |
 | YAML | `**/*.yml,**/*.yaml` | Available |
@@ -389,8 +393,8 @@ applyTo: '[glob pattern for target files]'
 
 - `.copilot/context/STRUCTURE-README.md` — Source patterns for context folders
 - `.copilot/context/{domain}/*.md` — Domain-specific context files
-- `.github/instructions/prompts.instructions.md` — Example instruction file structure
-- `.github/instructions/agents.instructions.md` — Example with tool guidance
+- `.github/instructions/pe-prompts.instructions.md` — Example instruction file structure
+- `.github/instructions/pe-agents.instructions.md` — Example with tool guidance
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)

@@ -23,6 +23,9 @@ capabilities:
   - "evaluate progressive disclosure effectiveness across three levels"
   - "assess description quality for AI discovery accuracy"
 goal: "Deliver a research report identifying skill layer gaps, overlaps, and discovery quality issues"
+rationales:
+  - "Read-only mode prevents research from having side effects on the artifact being studied"
+  - "Self-contained reports eliminate re-research by downstream builders"
 ---
 
 # Skill Researcher
@@ -43,7 +46,7 @@ Skills are the **portable workflow layer** — they bundle templates, scripts, a
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/skills.instructions.md` for skill conventions
+- Read `.github/instructions/pe-skills.instructions.md` for skill conventions
 - Scan all existing skills in `.github/skills/` before making recommendations
 - Evaluate description fields for AI discovery accuracy
 - Check for scope overlaps between skills

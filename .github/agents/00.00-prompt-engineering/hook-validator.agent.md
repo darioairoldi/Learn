@@ -22,6 +22,9 @@ capabilities:
   - "review security implications of PreToolUse hooks"
   - "check companion script existence and cross-platform coverage"
 goal: "Produce a validation report ensuring hooks are syntactically valid, secure, and cross-platform compatible"
+rationales:
+  - "Read-only mode ensures validation cannot introduce the issues it checks for"
+  - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
 ---
 
 # Hook Validator
@@ -49,7 +52,7 @@ You operate in two modes:
 - Verify every hook entry has `type: "command"` and explicit `timeout`
 - Review security implications for all PreToolUse hooks
 - Check that companion scripts referenced by commands exist
-- Use `prompt-engineering-validation` skill for convention compliance checks (Workflow 12: naming, location)
+- Use `pe-prompt-engineering-validation` skill for convention compliance checks (Workflow 12: naming, location)
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
 

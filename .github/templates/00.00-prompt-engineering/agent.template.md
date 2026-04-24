@@ -133,7 +133,7 @@ Before finalizing:
 
 ## References
 
-- [agents.instructions.md](../../instructions/agents.instructions.md) - Creation guidelines
+- [pe-agents.instructions.md](../../instructions/pe-agents.instructions.md) - Creation guidelines
 - [context-engineering-principles.md](../../.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md) - Core principles
 
 <!--

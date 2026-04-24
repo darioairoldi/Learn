@@ -18,6 +18,10 @@ handoffs:
     send: true
 agents: ['*']
 argument-hint: 'Optional: "--scope context|agents|prompts|instructions|skills|hooks|snippets|templates" to limit review. Default: auto-detect stale areas.'
+goal: "Detect stale PE artifacts and run scoped healthchecks with minimal cognitive load"
+rationales:
+  - "Lightweight design optimized for weekly execution reduces review fatigue"
+  - "Auto-detecting stale areas avoids re-checking healthy artifacts"
 ---
 
 # Scheduled PE Review

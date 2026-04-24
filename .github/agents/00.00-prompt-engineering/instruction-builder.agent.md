@@ -23,6 +23,9 @@ capabilities:
   - "design glob patterns that precisely target intended file types"
   - "reference context files instead of embedding large content"
 goal: "Deliver instruction files that auto-inject correctly without conflicting with existing rules"
+rationales:
+  - "Pre-save validation catches structural issues before file creation reduces fix cycles"
+  - "Breaking change detection protects consumers from silent contract violations"
 ---
 
 # Instruction Builder
@@ -181,7 +184,7 @@ applyTo: '[glob pattern]'
 
 ### Phase 4: Pre-Save Validation
 
-**📖 Validation Skill:** Use `prompt-engineering-validation` skill for structure verification.
+**📖 Validation Skill:** Use `pe-prompt-engineering-validation` skill for structure verification.
 
 Before saving, validate:
 
@@ -260,8 +263,8 @@ Hand off to instruction-validator for structure verification.
 
 ## References
 
-- `.github/instructions/context-files.instructions.md`
-- `.github/instructions/prompts.instructions.md`
+- `.github/instructions/pe-context-files.instructions.md`
+- `.github/instructions/pe-prompts.instructions.md`
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 - Existing instruction files in `.github/instructions/` for patterns
 

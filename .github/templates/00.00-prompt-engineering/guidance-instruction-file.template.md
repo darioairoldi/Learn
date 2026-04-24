@@ -2,7 +2,7 @@
 description: "Guidance for instruction file structure and applyTo patterns"
 ---
 
-<!-- Unique to this template: Copy-pasteable Markdown skeleton with YAML frontmatter for new instruction files. Rules live in instruction-files.instructions.md; this provides the concrete scaffolding structure. -->
+<!-- Unique to this template: Copy-pasteable Markdown skeleton with YAML frontmatter for new instruction files. Rules live in pe-instruction-files.instructions.md; this provides the concrete scaffolding structure. -->
 
 # Instruction File Template for Domain Guidance
 

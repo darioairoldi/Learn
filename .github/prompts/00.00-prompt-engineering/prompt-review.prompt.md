@@ -31,6 +31,10 @@ handoffs:
     agent: prompt-snippet-validator
     send: true
 argument-hint: 'Provide path to existing prompt file to review and validate, or describe specific concerns'
+goal: "Validate existing prompt artifacts against PE standards and best practices"
+rationales:
+  - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
+  - "Severity-scored findings prioritize what to fix first"
 ---
 
 # Prompt Review and Validate Orchestrator
@@ -269,7 +273,7 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 ## Context Requirements
 
 **You MUST read before validating:**
-- `.github/instructions/prompts.instructions.md` — Core guidelines
+- `.github/instructions/pe-prompts.instructions.md` — Core guidelines
 - `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md` — Tool alignment rules
 - `.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md` — 6 production-readiness requirements
 - `.copilot/context/00.00-prompt-engineering/04.04-orchestrator-runtime-validation.md` — Gate patterns (for reviewing orchestrators)
@@ -280,7 +284,7 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 - `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md`
 - `.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md`
 - `.copilot/context/00.00-prompt-engineering/04.04-orchestrator-runtime-validation.md`
-- `.github/instructions/prompts.instructions.md`
+- `.github/instructions/pe-prompts.instructions.md`
 - Existing validation patterns in `.github/prompts/`
 
 ---

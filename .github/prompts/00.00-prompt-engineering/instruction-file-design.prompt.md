@@ -36,6 +36,10 @@ handoffs:
     agent: skill-validator
     send: true
 argument-hint: 'Describe the instruction file to create: domain, target file patterns (applyTo), key rules to enforce'
+goal: "Orchestrate multi-phase creation of instruction file artifacts with quality gates"
+rationales:
+  - "Orchestrator pattern provides use-case challenge validation before building"
+  - "Quality gates between phases catch issues before they propagate"
 ---
 
 # Instruction File Design and Create
@@ -321,5 +325,5 @@ These scenarios validate **orchestration decisions** — gate enforcement, hando
 | 3 | User rejects plan in Phase 3 | Gate enforcement | User says "No, I want different sections" after orchestrator presents plan | Orchestrator loops back — re-enters Phase 3 with revised structure. Does NOT hand off to builder. Does NOT skip to Phase 4. |
 | 4 | Builder produces file exceeding token budget | Quality gate | Builder creates a 2,200-token instruction file | Validator flags token budget as CRITICAL. Orchestrator routes back to builder with specific instruction to reduce content (reference context files, remove examples). Re-validates after fix. Maximum 3 fix-validate cycles. |
 | 5 | Ambiguous domain — vague request | Incomplete input | "Create some instructions for code" | Orchestrator asks clarifying questions BEFORE Phase 2: Which file types? What rules? Any existing context files? Does NOT delegate to researcher with vague requirements. |
-| 6 | Researcher finds domain already fully covered | Responsibility overlap | "Create instructions for prompt files" | Researcher reports `prompts.instructions.md` already covers this domain. Orchestrator presents finding + options: update existing file via `@instruction-builder`, or explain why a separate file is needed. Does NOT create a duplicate. |
+| 6 | Researcher finds domain already fully covered | Responsibility overlap | "Create instructions for prompt files" | Researcher reports `pe-prompts.instructions.md` already covers this domain. Orchestrator presents finding + options: update existing file via `@instruction-builder`, or explain why a separate file is needed. Does NOT create a duplicate. |
 | 7 | Validation finds embedded knowledge block | Layer boundary | Builder embeds 25-line coding standard inline | Validator flags as HIGH: knowledge >10 lines must be in context files. Orchestrator routes to builder with instruction to extract to `.copilot/context/` reference. Re-validates after fix. |

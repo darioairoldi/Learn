@@ -27,6 +27,10 @@ handoffs:
     send: true
 agents: ['*']
 argument-hint: 'Mode: "fullcheck [source]", "healthcheck [scope]", "performancecheck [scope]". Phase skips: --skip-source, --skip-structure, --skip-consistency, --skip-content. Flags: --plan, --no-external, --no-research. Scope: all/context/agents/prompts/instructions/skills/hooks/snippets/templates/filepath'
+goal: "Orchestrate PE artifact management across 8 phases with research-build-validate cycles"
+rationales:
+  - "Unified orchestrator reduces duplicate coordination logic across separate audit prompts"
+  - "Phase-skip flags enable targeted execution without running the full pipeline"
 ---
 
 # Prompt Engineering Artifact Management

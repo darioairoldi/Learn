@@ -1,8 +1,12 @@
 ---
 description: Rules for creating and maintaining template files used by prompts, agents, and skills
 applyTo: '.github/**/*template*'
-version: "1.4.0"
-last_updated: "2026-03-20"
+version: "1.5.0"
+last_updated: "2026-04-24"
+goal: "Ensure template files define reusable, token-efficient output formats loaded on-demand via references"
+rationales:
+  - "Templates are loaded on-demand, so they must be self-contained and concise"
+  - "Consistency across consumers (prompts, agents, skills) requires standardized structure"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---

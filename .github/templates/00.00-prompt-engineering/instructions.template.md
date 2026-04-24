@@ -141,9 +141,9 @@ Before finalizing:
 
 ## References
 
-- [prompts.instructions.md](../../instructions/prompts.instructions.md) - For prompt-specific instructions
-- [agents.instructions.md](../../instructions/agents.instructions.md) - For agent-specific instructions
-- [skills.instructions.md](../../instructions/skills.instructions.md) - For skill-specific instructions
+- [pe-prompts.instructions.md](../../instructions/pe-prompts.instructions.md) - For prompt-specific instructions
+- [pe-agents.instructions.md](../../instructions/pe-agents.instructions.md) - For agent-specific instructions
+- [pe-skills.instructions.md](../../instructions/pe-skills.instructions.md) - For skill-specific instructions
 
 <!--
 ---

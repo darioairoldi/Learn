@@ -22,6 +22,9 @@ capabilities:
   - "detect contradictions between context and instruction files"
   - "assess domain-set structural optimality for coherence and efficiency"
 goal: "Produce a validation report ensuring context files are accurate, non-redundant, and compatible with all consumers"
+rationales:
+  - "Read-only mode ensures validation cannot introduce the issues it checks for"
+  - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
 ---
 
 # Context Validator
@@ -48,11 +51,11 @@ You operate in three modes:
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/context-files.instructions.md` for context file conventions
+- Read `.github/instructions/pe-context-files.instructions.md` for context file conventions
 - Load the dependency map (`05.01-artifact-dependency-map.md`) for consumer relationships
 - Read the complete target file before validating
 - Discover all consumers via "Referenced by" section + `grep_search` for the filename
-- Use `prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
+- Use `pe-prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
 - Validate against all checks in the validation checklist below
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - Provide specific line numbers for issues
@@ -133,7 +136,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 ### Scoped Validation (single file)
 
 1. **Read the target file** completely
-2. **Load context-files.instructions.md** for conventions
+2. **Load pe-context-files.instructions.md** for conventions
 3. **Discover consumers** via "Referenced by" + `grep_search`
 4. **Run all checks** in the validation checklist
 5. **Produce validation report**
@@ -142,7 +145,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 1. **List all files** across all `.copilot/context/` domain folders
 2. **Read each file's purpose and key rules**
-3. **Cross-file checks**: Apply the `artifact-coherence-check` skill workflows for duplication scan, contradiction detection, reference integrity, and coverage gaps
+3. **Cross-file checks**: Apply the `pe-artifact-coherence-check` skill workflows for duplication scan, contradiction detection, reference integrity, and coverage gaps
 4. **Run per-file validation** for each file
 5. **Produce layer audit report**
 

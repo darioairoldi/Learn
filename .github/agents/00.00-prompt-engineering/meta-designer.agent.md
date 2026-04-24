@@ -26,6 +26,9 @@ capabilities:
   - "design change ordering by dependency layer"
   - "preserve existing capabilities while introducing improvements"
 goal: "Produce independently executable change specifications that type-specific builders can implement without ambiguity"
+rationales:
+  - "Read-only mode ensures design specifications dont prematurely modify artifacts"
+  - "Structured change specifications enable deterministic builder execution"
 ---
 
 # Meta-Designer

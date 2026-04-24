@@ -1,5 +1,5 @@
 ---
-name: artifact-coherence-check
+name: pe-artifact-coherence-check
 description: >
   Cross-artifact consistency validation for prompt engineering systems:
   rule consistency, reference integrity, handoff chain validation,
@@ -25,7 +25,7 @@ Activate this skill when:
 - **Handoff validation**: "Do all handoff targets exist?"
 
 Do NOT use this skill for:
-- Single-file prompt/agent validation (use `prompt-engineering-validation` skill)
+- Single-file prompt/agent validation (use `pe-prompt-engineering-validation` skill)
 - Article content review (use `article-review` skill)
 - Creating or modifying PE artifacts (use builder/updater agents)
 
@@ -69,7 +69,7 @@ Verify all cross-references between PE artifacts resolve to existing files.
 - `📖 Complete guidance:` links to context folders
 - `📖 See:` links to specific context files
 - Template references: `.github/templates/*.template.md`
-- Skill references: `prompt-engineering-validation` skill name
+- Skill references: `pe-prompt-engineering-validation` skill name
 - Handoff targets: `agent:` values in YAML `handoffs:` arrays
 
 ### Workflow 2: Rule Consistency Check
@@ -87,7 +87,7 @@ Verify rules don't contradict across artifact layers.
 | Rule | Canonical Source | Check Against |
 |---|---|---|
 | Tool alignment (plan=read-only) | `01.04-tool-composition-guide.md` | All agents, PE-validation skill |
-| Template-first (>10 lines) | `01.01-context-engineering-principles.md` (P8) | `prompts.instructions.md`, `agents.instructions.md` |
+| Template-first (>10 lines) | `01.01-context-engineering-principles.md` (P8) | `pe-prompts.instructions.md`, `pe-agents.instructions.md` |
 | Three-tier boundaries (min items) | `01.06-system-parameters.md` | All agents |
 | Token budgets | `01.06-system-parameters.md` | All instruction files |
 | Validation caching (7-day) | `04.01-validation-caching-pattern.md` | Validation prompts |

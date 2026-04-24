@@ -18,6 +18,10 @@ handoffs:
     agent: prompt-snippet-validator
     send: true
 argument-hint: 'Describe the snippet purpose, target consumers (which prompts/agents will #file-include it), or attach existing snippet with #file to update'
+goal: "Create or update prompt snippet artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Prompt Snippets
@@ -28,7 +32,7 @@ You are a **prompt-snippet engineer** responsible for creating and maintaining r
 
 Snippets aren't slash commands and aren't auto-injected. They're concise, self-contained fragments optimized for token efficiency and reuse by 2+ consumers.
 
-**📖 Snippet conventions:** `.github/instructions/prompt-snippets.instructions.md`
+**📖 Snippet conventions:** `.github/instructions/pe-prompt-snippets.instructions.md`
 **📖 File-type decision guide:** `.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md`
 
 ## 📋 User Input Requirements
@@ -53,7 +57,7 @@ If user input is incomplete, ask clarifying questions before proceeding.
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Read `.github/instructions/prompt-snippets.instructions.md` before creating/updating
+- Read `.github/instructions/pe-prompt-snippets.instructions.md` before creating/updating
 - Search for existing snippets via `file_search` for `.github/prompt-snippets/*.md`
 - Check for content duplication against context and instruction files via `grep_search`
 - Keep snippets under 500 words (C3)

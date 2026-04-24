@@ -220,7 +220,7 @@ Before completing, verify: domain fidelity, prompt-engineering compliance, token
 - [GitHub: How to write great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 - [Microsoft: Prompt Engineering Techniques](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering)
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
-- `.github/instructions/prompts.instructions.md` (prompt-engineering domain example)
+- `.github/instructions/pe-prompts.instructions.md` (prompt-engineering domain example)
 
 ---
 

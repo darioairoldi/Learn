@@ -1,15 +1,19 @@
 ---
 description: Shared PE artifact rules — context engineering, tool selection, validation caching, production readiness, uncertainty management
 applyTo: '.github/prompts/**/*.md,.github/agents/**/*.agent.md'
-version: "1.5.0"
-last_updated: "2026-03-19"
+version: "1.6.0"
+last_updated: "2026-04-24"
+goal: "Provide shared PE rules for all prompt and agent files, eliminating duplication of cross-cutting concerns"
+rationales:
+  - "Eliminates duplication of cross-cutting rules between prompts and agents"
+  - "Centralizes severity index and uncertainty management in one place"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---
 
 # PE Common Instructions
 
-Shared rules for all prompt and agent files. Type-specific rules remain in `prompts.instructions.md` and `agents.instructions.md`.
+Shared rules for all prompt and agent files. Type-specific rules remain in `pe-prompts.instructions.md` and `pe-agents.instructions.md`.
 
 ## Severity Index
 
@@ -38,7 +42,7 @@ Shared rules for all prompt and agent files. Type-specific rules remain in `prom
 
 ## Context Engineering Principles
 
-All PE artifacts MUST follow these context engineering principles: narrow scope, early commands, imperative language, template externalization (>10 lines → template), context minimization, uncertainty management, reference-based architecture. Agents additionally require three-tier boundaries (see `agents.instructions.md`).
+All PE artifacts MUST follow these context engineering principles: narrow scope, early commands, imperative language, template externalization (>10 lines → template), context minimization, uncertainty management, reference-based architecture. Agents additionally require three-tier boundaries (see `pe-agents.instructions.md`).
 
 **📖 Complete guidance:** [01.01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md)
 
