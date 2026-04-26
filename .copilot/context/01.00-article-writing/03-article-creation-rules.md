@@ -1,3 +1,36 @@
+---
+title: "Article creation and review rules"
+description: "Comprehensive article creation patterns, required elements, deep writing style rules, technical content requirements, and quality checklists — Tier 2 on-demand complement to auto-loaded article-writing.instructions.md"
+version: "1.3.0"
+last_updated: "2026-04-26"
+domain: "article-writing"
+goal: "Provide the deep creation and review rules that article-writing prompts need on-demand — Diátaxis patterns, required article elements, content design principles, technical content rules, and quality checklists"
+scope:
+  covers:
+    - "Diátaxis framework structure patterns (tutorial, how-to, reference, explanation)"
+    - "Required article elements (YAML frontmatter, TOC, introduction, conclusion, references, validation metadata)"
+    - "Content design and organization principles (content-first, topic-based, progressive disclosure, LATCH, Wikipedia pattern)"
+    - "Writing style deep rules (global-ready writing, jargon handling, readability by Diátaxis type)"
+    - "Technical content requirements (verification, code testing, version pinning, security)"
+    - "Quality checklist (8 categories, 40+ items)"
+    - "Common patterns (intro patterns, conclusion patterns, key takeaways formatting)"
+  excludes:
+    - "Voice, mechanics, formatting, accessibility essentials (see article-writing.instructions.md — auto-loaded)"
+    - "Quantitative readability metrics and replacement tables (see 01-style-guide.md)"
+    - "Validation pass/fail thresholds and freshness scoring (see 02-validation-criteria.md)"
+    - "Workflow sequences — creation, review, series planning (see workflows/ subfolder)"
+boundaries:
+  - "MUST NOT duplicate content from article-writing.instructions.md — this file extends, not repeats"
+  - "MUST NOT define quantitative targets — those belong in 01-style-guide.md"
+  - "MUST NOT define validation thresholds — those belong in 02-validation-criteria.md"
+  - "Common intro patterns MUST remain as pointers to .github/templates/pattern-*.md template files"
+rationales:
+  - "Tier 2 (on-demand) loading keeps token budget under control — this file is ~600 lines and would bloat the always-loaded instruction file beyond usability"
+  - "Diátaxis patterns are the structural backbone of every article — they define the required structure, voice, and validation criteria per article type"
+  - "Content design principles (content-first, progressive disclosure, LATCH) were added because structure rules alone don't prevent poorly organized content"
+  - "Quality checklist is the single pass/fail gate before publication — it aggregates rules from all layers into one actionable list"
+---
+
 # Article Creation and Review Rules
 
 **Purpose**: Comprehensive article creation patterns, required elements, deep writing style rules, technical content requirements, and quality checklists. Loaded on-demand by article creation and review prompts—complements the auto-loaded `article-writing.instructions.md`.
