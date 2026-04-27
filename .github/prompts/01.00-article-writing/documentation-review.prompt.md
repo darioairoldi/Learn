@@ -21,6 +21,27 @@ handoffs:
     agent: documentation-builder
     send: true
 argument-hint: 'Provide target folder path (e.g., 03.00-tech/40.00-technical-writing) and optionally: specific concerns, review depth (quick/standard/deep)'
+version: "1.0.0"
+goal: "Orchestrate the complete documentation review workflow (research → validate → fix) by coordinating the documentation agent triad to assess, score, and improve an existing documentation set"
+scope:
+  covers:
+    - "Documentation set review (coverage, quality, coherence at set level)"
+    - "Agent orchestration (documentation-researcher → documentation-validator → documentation-builder)"
+    - "7-dimension quality validation coordination"
+    - "Fix loop management with user approval gates"
+  excludes:
+    - "Documentation creation from scratch (see documentation-design)"
+    - "Single-article review without orchestration (see article-review-for-consistency-gaps-and-extensions)"
+    - "Individual agent behavior (defined in agent files)"
+boundaries:
+  - "MUST delegate research to documentation-researcher — does NOT research itself"
+  - "MUST delegate validation to documentation-validator — does NOT validate itself"
+  - "MUST delegate fixes to documentation-builder — does NOT fix itself"
+  - "MUST present findings and get user approval before applying fixes"
+rationales:
+  - "Orchestrator pattern enables focused agent execution without context overload"
+  - "User approval gate before fixes prevents automated changes the user didn't intend"
+  - "Review-then-fix sequence ensures all issues are known before any are addressed — prevents partial fixes that create new issues"
 ---
 
 # Documentation Review

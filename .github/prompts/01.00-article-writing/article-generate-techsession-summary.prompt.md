@@ -5,6 +5,24 @@ agent: agent
 model: claude-opus-4.6
 tools: ['codebase', 'editor', 'filesystem', 'fetch']
 argument-hint: 'Works with files in active folder or specify paths'
+version: "1.0.0"
+goal: "Generate a concise, concept-driven summary article from a technical session recording by consolidating content by concept, omitting tangential discussions, and enriching with verified external references"
+scope:
+  covers:
+    - "Concept-driven session summary (consolidates by concept, not chronological)"
+    - "Tangential content omission (brief demo outcomes only)"
+    - "External reference enrichment via web research"
+    - "Output template application for consistent formatting"
+  excludes:
+    - "Chronological session analysis (see article-generate-techsession-analysis)"
+    - "Article review or quality scoring (see article-review prompts)"
+boundaries:
+  - "MUST consolidate by concept — not follow chronological session order"
+  - "MUST omit tangential discussions — provide brief demo outcomes only"
+  - "MUST verify enrichment references against authoritative sources"
+rationales:
+  - "Concept-driven organization serves readers who want to learn the topics, not relive the session — chronological analysis serves a different purpose (see techsession-analysis)"
+  - "Omitting tangential content keeps summaries concise and focused on key takeaways"
 ---
 
 # Generate Technical Session Summary

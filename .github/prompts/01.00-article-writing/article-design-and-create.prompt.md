@@ -13,6 +13,28 @@ tools:
   - replace_string_in_file  # Content updates if needed
   - multi_replace_string_in_file  # Batch content updates
 argument-hint: 'topic="Your Article Topic" [outline="key points"] [audience="beginner|intermediate|advanced"] [template="article-template"]'
+version: "1.0.0"
+goal: "Create a complete, publication-ready article by combining research, fact-checking, Diátaxis structuring, and reference classification into a single workflow"
+scope:
+  covers:
+    - "End-to-end article creation (research → validation → structuring → reference classification)"
+    - "Diátaxis type selection and structure application"
+    - "MWSG voice application (warm, crisp, ready to lend a hand)"
+    - "Reference discovery and emoji classification"
+    - "Workspace deduplication (checking for existing articles on the same topic)"
+  excludes:
+    - "Article review and quality scoring (see article-review-for-consistency-gaps-and-extensions)"
+    - "Series-level review (see article-review-series-for-consistency-gaps-and-extensions)"
+    - "Multi-article orchestration (see documentation-design)"
+boundaries:
+  - "MUST include both YAML metadata blocks (top Quarto + bottom validation HTML comment)"
+  - "MUST classify all references using emoji system (📘 📗 📒 📕)"
+  - "MUST check workspace for existing articles on the topic before creating"
+  - "MUST NOT modify top YAML of existing articles"
+rationales:
+  - "Single-prompt workflow (no agent handoffs) is appropriate for individual article creation where the user provides the topic and guidance directly"
+  - "Workspace deduplication prevents creating duplicate articles that fragment knowledge"
+  - "Including fact-checking in the creation flow catches inaccuracies before they reach review"
 ---
 
 # Article Design and Creation Workflow

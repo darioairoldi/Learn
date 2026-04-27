@@ -10,6 +10,28 @@ tools:
   - list_dir           # Discover articles in folders
   - fetch_webpage      # Research emerging topics and alternatives
 argument-hint: 'Provide series name, folder path, or list of article files to review'
+version: "1.0.0"
+goal: "Review a multi-article series for cross-article consistency, terminology patterns, Diátaxis compliance, redundancies, coverage gaps, and extension opportunities"
+scope:
+  covers:
+    - "Series-level review (cross-article consistency, not single-article depth)"
+    - "Terminology pattern analysis across articles"
+    - "Diátaxis type distribution assessment per series size thresholds"
+    - "Redundancy detection (overlapping content across articles)"
+    - "Coverage gap identification via external source comparison"
+    - "Extension opportunity discovery (emerging topics, missing perspectives)"
+  excludes:
+    - "Single-article deep review (see article-review-for-consistency-gaps-and-extensions)"
+    - "Article creation (see article-design-and-create)"
+    - "Multi-article orchestration with agent handoffs (see documentation-review)"
+boundaries:
+  - "MUST analyze all articles in the series — no partial reviews"
+  - "MUST check Diátaxis type distribution against series size thresholds"
+  - "Read-only tools only — this prompt analyzes and reports, does not modify files"
+rationales:
+  - "Series-level review catches systemic issues (terminology drift, progression gaps) that single-article reviews miss"
+  - "Diátaxis distribution thresholds prevent series from becoming monolithic (all one type) or fragmented"
+  - "Web research for emerging topics ensures series stay current beyond the original scope"
 ---
 
 # Article Series Review for Consistency, Gaps, and Extensions

@@ -1,3 +1,32 @@
+---
+title: "Article review workflow"
+description: "Process for reviewing and updating existing articles to maintain accuracy, currency, and quality"
+version: "2.1.0"
+last_updated: "2026-04-26"
+domain: "article-writing"
+goal: "Define when and how to review existing articles so that content stays accurate, current, and aligned with quality standards — including scheduled cycles, triggered reviews, and common review scenarios"
+scope:
+  covers:
+    - "Scheduled review cycles (by content type: technical docs, tutorials, concept articles, reference)"
+    - "Triggered review conditions (version updates, reader reports, cross-reference changes, freshness drops)"
+    - "Review process (triage, review, update, re-validate)"
+    - "Content stability guide (stable vs. volatile content identification)"
+    - "Common review scenarios (technology update, reader-reported issue, scheduled review, series update)"
+  excludes:
+    - "Article creation workflow (see workflows/01-article-creation-workflow.md)"
+    - "Series-level review and consistency (see workflows/03-series-planning-workflow.md)"
+    - "Freshness scoring formula and SLA tier definitions (see 02-validation-criteria.md)"
+boundaries:
+  - "MUST reference actual prompt files — no phantom/placeholder names"
+  - "MUST NOT redefine freshness scoring — reference 02-validation-criteria.md as authoritative source"
+  - "Review scenarios MUST include step-by-step procedures, not just one-line summaries"
+rationales:
+  - "Scheduled review cycles prevent silent content degradation — the most common documentation failure mode"
+  - "Triggered reviews complement scheduled reviews by catching urgent changes between cycles"
+  - "Content stability guide helps reviewers prioritize volatile content (API references, version-specific docs) over stable content (concept articles)"
+  - "Common scenarios with step-by-step procedures were expanded because one-line summaries didn't provide actionable guidance"
+---
+
 # Article Review Workflow
 
 **Purpose**: Process for reviewing and updating existing articles to maintain accuracy, currency, and quality.

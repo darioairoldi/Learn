@@ -10,6 +10,27 @@ tools:
   - grep_search      # Workspace file exploration
   - github_repo      # Community pattern analysis
 argument-hint: 'Attach the article to review with #file or specify file path'
+version: "1.0.0"
+goal: "Review a single article for content consistency, factual accuracy, reference validity, knowledge gaps, and adjacent topic opportunities — producing a structured findings report"
+scope:
+  covers:
+    - "Single-article review (not series-level)"
+    - "URL verification and reference classification check"
+    - "Factual accuracy validation against authoritative sources"
+    - "Knowledge gap identification (missing topics, outdated content)"
+    - "Adjacent topic discovery for potential article extensions"
+  excludes:
+    - "Series-level consistency and cross-article review (see article-review-series-for-consistency-gaps-and-extensions)"
+    - "Article creation (see article-design-and-create)"
+    - "Multi-article orchestration (see documentation-review)"
+boundaries:
+  - "MUST verify all reference URLs via fetch_webpage"
+  - "MUST preserve article structure and voice when suggesting improvements"
+  - "Read-only tools only — this prompt analyzes and reports, does not modify files"
+rationales:
+  - "Single-article focus enables deep quality analysis without the overhead of cross-article consistency checks"
+  - "Read-only constraint ensures the review is objective — modifications are a separate, deliberate step"
+  - "Adjacent topic discovery adds value beyond simple error-checking by identifying growth opportunities"
 ---
 
 # Article Review for Consistency and Gaps

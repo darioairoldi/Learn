@@ -1,3 +1,33 @@
+---
+title: "Article creation workflow"
+description: "Phase-based workflow for creating articles from concept to publication, referencing actual prompt files and validation tools"
+version: "2.0.0"
+last_updated: "2026-04-26"
+domain: "article-writing"
+goal: "Define the end-to-end article creation workflow (planning → research → drafting → validation → review → publication → maintenance) so that every phase references the correct prompt files, templates, and validation criteria"
+scope:
+  covers:
+    - "7-phase creation workflow (planning, research, drafting, validation, review, publication, maintenance)"
+    - "Template selection guidance per Diátaxis type"
+    - "Validation dimension table referencing 02-validation-criteria.md"
+    - "AI provenance tag requirements"
+    - "Post-publication maintenance with freshness scoring"
+    - "Time estimates per phase"
+  excludes:
+    - "Article review workflow (see workflows/02-review-workflow.md)"
+    - "Series planning workflow (see workflows/03-series-planning-workflow.md)"
+    - "Writing rules and style guidance (see article-writing.instructions.md and 03-article-creation-rules.md)"
+    - "Validation thresholds (see 02-validation-criteria.md)"
+boundaries:
+  - "MUST reference actual prompt files and templates — no phantom/placeholder names"
+  - "MUST NOT duplicate validation criteria — reference 02-validation-criteria.md"
+  - "Phase sequence is fixed — phases MUST NOT be reordered without reviewing downstream dependencies"
+rationales:
+  - "A defined workflow prevents ad-hoc article creation that skips validation or review phases"
+  - "Referencing actual prompt files ensures the workflow stays synchronized with available tooling"
+  - "Post-publication maintenance phase was added because articles degrade over time without scheduled freshness checks"
+---
+
 # Article Creation Workflow
 
 **Purpose**: Phase-based workflow for creating articles from concept to publication, referencing actual prompt files and validation tools.
