@@ -108,5 +108,45 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 
 ---
 
-*Last updated: 2026-07-21*
-*Removed duplicate 01.01 from 02-getting-started (canonical copy in 01-overview). Fixed heading hierarchy across 20 articles. Restructured into Diátaxis folders.*
+## 🔧 PE Artifact Maintenance
+
+### Infrastructure Overview
+
+The PE artifact system includes 18 context files, 4 instruction files, 12 agents, 11 prompts, and 2 skills — all documented in the [dependency map](./.copilot/../../../.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md).
+
+### Maintenance Schedule
+
+| Review | Prompt | Cadence | Next Due |
+|---|---|---|---|
+| Full system review | `/meta-pe-review` | Biweekly (1st + 15th) | 2026-03-15 |
+| Optimization pass | `/meta-pe-optimize` | After review (if needed) | As needed |
+| VS Code update check | `/meta-pe-update` | Per VS Code release | Next release |
+
+### Maintenance Checklist
+
+See [pe-maintenance.md](../../.github/skills/prompt-engineering-validation/checklists/pe-maintenance.md) for the step-by-step guide.
+
+### Improvement Backlog
+
+| Priority | Item | Status | Notes |
+|---|---|---|---|
+| Medium | Slim bloated standalone prompts (460–555 lines) | Backlog | Embed PE-validation skill refs instead of inline |
+| Medium | Slim bloated specialist agents (prompt-validator 852 lines) | Backlog | Extract to skill references |
+| Low | Context files 01, 04 over 2,500-token budget | Accepted | Deep-reference docs, loaded on-demand |
+| Low | Evaluate subdirectories for `.github/templates/` | Backlog | Scale readability at 30+ templates |
+
+### Change Log
+
+| Date | Change | Scope |
+|---|---|---|
+| 2026-03-08 | Phase 1–6: Full PE artifact improvement plan implemented | All PE artifacts |
+| | — Phase 1: Foundation (dependency map, lifecycle, entry points) | 3 new context files |
+| | — Phase 2: Deduplication (~2,570 tokens saved) | 01, 08, instructions |
+| | — Phase 3: Meta agents + coherence skill | 2 agents, 1 skill |
+| | — Phase 4: Meta prompts for self-improvement | 3 meta prompts |
+| | — Phase 5: Renumbered 18 context files into 5-tier logical grouping | All context + refs |
+| | — Phase 6: Maintenance setup (checklist, tasks, roadmap) | Maintenance artifacts |
+
+---
+
+*Last updated: 2026-03-08*

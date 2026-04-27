@@ -424,7 +424,7 @@ validation:
   boundaries_validated: true
   
 created_date: 2026-01-04
-created_by: prompt-createorupdate-prompt-file-v2
+created_by: prompt-create-update
 last_updated: 2026-01-04
 version: 1.0
 ```

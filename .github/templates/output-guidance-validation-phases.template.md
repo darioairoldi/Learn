@@ -167,7 +167,7 @@ Please respond with your selections.
 **Your request requires:** {what they actually need}
 
 **Recommended alternative:**
-- For prompt files: `prompt-createorupdate-prompt-file-v2.prompt.md`
+- For prompt files: `prompt-create-update.prompt.md`
 - For agent files: Use agent creation prompts
 - For skill files: Use skill creation prompts
 ```

@@ -1,6 +1,6 @@
 ---
 name: prompt-createorupdate-prompt-guidance
-description: "Generate or update domain-specific instruction files and context files using template-based workflows"
+description: "⚠️ DEPRECATED — Use prompt-createorupdate-context-information or prompt-createorupdate-prompt-instructions instead"
 agent: agent
 model: claude-opus-4.6
 tools:
@@ -15,6 +15,13 @@ tools:
   - fetch_webpage
 argument-hint: 'Specify domain (e.g., "article-writing"), target paths, and context sources for guidance generation'
 ---
+
+> ⚠️ **DEPRECATED** (2026-03-08)
+> This prompt is deprecated and will be removed after 2026-04-08.
+> **Replacements:**
+> - For context files: `prompt-createorupdate-context-information.prompt.md`
+> - For instruction files: `prompt-createorupdate-prompt-instructions.prompt.md`
+> **Migration**: Use the specific replacement prompt matching your target file type. Both replacements offer the same capabilities with clearer scope and better token efficiency.
 
 # Generate or Update Domain-Specific Guidance Files
 
@@ -36,7 +43,7 @@ You CREATE guidance that other prompts/agents consume to do their work.
 
 Before generating guidance, the user MUST provide: domain name, target file type, target paths, context sources, and key principles.
 
-**📖 Input Collection:** `.github/templates/guidance-input-collection.template.md`
+**📖 Input Collection:** `.github/templates/00.00-prompt-engineering/guidance-input-collection.template.md`
 
 If user input is incomplete, load and present this template to collect required information.
 
@@ -85,7 +92,7 @@ This prompt WILL NOT:
 
 ## 📋 Response Management
 
-**📖 Response Templates:** `.github/templates/output-guidance-validation-phases.template.md` → "Response Management Templates"
+**📖 Response Templates:** `.github/templates/00.00-prompt-engineering/output-guidance-validation-phases.template.md` → "Response Management Templates"
 
 You MUST use appropriate response templates for:
 - **Missing Context:** When user-provided sources are unavailable
@@ -97,7 +104,7 @@ You MUST use appropriate response templates for:
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery Templates:** `.github/templates/output-guidance-validation-phases.template.md` → "Error Recovery Workflow Templates"
+**📖 Recovery Templates:** `.github/templates/00.00-prompt-engineering/output-guidance-validation-phases.template.md` → "Error Recovery Workflow Templates"
 
 You MUST follow recovery workflows for:
 - `fetch_webpage` failure → Ask for local copy, search alternatives
@@ -125,12 +132,12 @@ Generate or update domain-specific guidance files that ensure prompts/agents for
 ### Phase 1: Collect Domain Context
 **Tools:** `read_file`, `fetch_webpage`, `semantic_search`
 
-1. **Collect user input:** If incomplete, load `.github/templates/guidance-input-collection.template.md`
+1. **Collect user input:** If incomplete, load `.github/templates/00.00-prompt-engineering/guidance-input-collection.template.md`
 2. **Read context sources:** Local files and external URLs
 3. **Search for existing patterns:** In `.github/instructions/` and `.copilot/context/`
-4. **Read prompt-engineering principles:** `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+4. **Read prompt-engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 
-**📖 Output Format:** `.github/templates/output-guidance-validation-phases.template.md` → "Phase 1: Domain Context Collection Output"
+**📖 Output Format:** `.github/templates/00.00-prompt-engineering/output-guidance-validation-phases.template.md` → "Phase 1: Domain Context Collection Output"
 
 ---
 
@@ -141,7 +148,7 @@ Generate or update domain-specific guidance files that ensure prompts/agents for
 2. **Map to prompt-engineering framework:** MUST/WILL/NEVER language, three-tier boundaries, explicit scope
 3. **Check for existing related guidance:** Similar domains, reusable patterns
 
-**📖 Output Format:** `.github/templates/output-guidance-validation-phases.template.md` → "Phase 2: Domain Requirements Analysis Output"
+**📖 Output Format:** `.github/templates/00.00-prompt-engineering/output-guidance-validation-phases.template.md` → "Phase 2: Domain Requirements Analysis Output"
 
 ---
 
@@ -149,9 +156,9 @@ Generate or update domain-specific guidance files that ensure prompts/agents for
 **Tools:** `read_file`, `create_file`, `replace_string_in_file`
 
 **Load templates before generation:**
-- **📖 Instruction template:** `.github/templates/guidance-instruction-file.template.md`
-- **📖 Context template:** `.github/templates/guidance-context-file.template.md`
-- **📖 Examples:** `.github/templates/guidance-domain-examples.template.md`
+- **📖 Instruction template:** `.github/templates/00.00-prompt-engineering/guidance-instruction-file.template.md`
+- **📖 Context template:** `.github/templates/00.00-prompt-engineering/guidance-context-file.template.md`
+- **📖 Examples:** `.github/templates/00.00-prompt-engineering/guidance-domain-examples.template.md`
 
 **Content Principles (Apply to ALL Domains):**
 - Use imperative language (MUST, WILL, NEVER)
@@ -161,7 +168,7 @@ Generate or update domain-specific guidance files that ensure prompts/agents for
 - Use three-tier boundaries structure
 - Ensure all rules are AI-testable
 
-**📖 Output Format:** `.github/templates/output-guidance-validation-phases.template.md` → "Phase 3: Generation Confirmation Output"
+**📖 Output Format:** `.github/templates/00.00-prompt-engineering/output-guidance-validation-phases.template.md` → "Phase 3: Generation Confirmation Output"
 
 ---
 
@@ -174,7 +181,7 @@ Generate or update domain-specific guidance files that ensure prompts/agents for
 4. Validate imperative language
 5. Check domain alignment
 
-**📖 Validation Checklist:** `.github/templates/output-guidance-validation-phases.template.md` → "Phase 4: Validation Checklist Output"
+**📖 Validation Checklist:** `.github/templates/00.00-prompt-engineering/output-guidance-validation-phases.template.md` → "Phase 4: Validation Checklist Output"
 
 ---
 
@@ -182,13 +189,13 @@ Generate or update domain-specific guidance files that ensure prompts/agents for
 
 Before completing, verify: domain fidelity, prompt-engineering compliance, token efficiency, boundary clarity, traceability, and testability.
 
-**📖 Complete Checklist:** `.github/templates/output-guidance-validation-phases.template.md` → "Phase 4: Validation Checklist Output"
+**📖 Complete Checklist:** `.github/templates/00.00-prompt-engineering/output-guidance-validation-phases.template.md` → "Phase 4: Validation Checklist Output"
 
 ---
 
 ## 🧪 Embedded Test Scenarios
 
-**📖 Test Format:** `.github/templates/output-guidance-validation-phases.template.md` → "Embedded Test Scenario Templates"
+**📖 Test Format:** `.github/templates/00.00-prompt-engineering/output-guidance-validation-phases.template.md` → "Embedded Test Scenario Templates"
 
 | Test | Category | Input | Key Validation |
 |------|----------|-------|----------------|
@@ -203,7 +210,7 @@ Before completing, verify: domain fidelity, prompt-engineering compliance, token
 
 ## Example Domain Templates
 
-**📖 Examples:** `.github/templates/guidance-domain-examples.template.md` (Article-Writing, Validation, Code-Review domains)
+**📖 Examples:** `.github/templates/00.00-prompt-engineering/guidance-domain-examples.template.md` (Article-Writing, Validation, Code-Review domains)
 
 ---
 
@@ -212,7 +219,7 @@ Before completing, verify: domain fidelity, prompt-engineering compliance, token
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: How to write great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 - [Microsoft: Prompt Engineering Techniques](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering)
-- `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 - `.github/instructions/prompts.instructions.md` (prompt-engineering domain example)
 
 ---

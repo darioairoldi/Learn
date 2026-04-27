@@ -85,7 +85,7 @@ Use this table to locate the authoritative rules for each validation dimension:
 
 ## Process
 
-**📖 Template folder:** `.github/templates/article-review-for-consistency-gaps-and-extensions/`
+**📖 Template folder:** `.github/templates/01.00-article-writing/article-review-for-consistency-gaps-and-extensions/`
 
 ### Phase 1: Input Analysis and Requirements Gathering
 
@@ -93,7 +93,7 @@ Use this table to locate the authoritative rules for each validation dimension:
 
 You MUST collect: target article, priority focus areas, known gaps, and review scope.
 
-**📖 Detailed extraction process:** `.github/templates/article-review-for-consistency-gaps-and-extensions/guidance-input-analysis.template.md`
+**📖 Detailed extraction process:** `.github/templates/01.00-article-writing/article-review-for-consistency-gaps-and-extensions/guidance-input-analysis.template.md`
 
 **Output Format:** Use `output-article-review-phases.template.md` → "Phase 1: Review Context Analysis Output"
 
@@ -115,7 +115,7 @@ You MUST collect: target article, priority focus areas, known gaps, and review s
 
 **Goal:** Validate article accuracy, discover coverage gaps, AND identify adjacent/emerging topics.
 
-**📖 Detailed research methodology:** `.github/templates/article-review-for-consistency-gaps-and-extensions/guidance-research-process.template.md`
+**📖 Detailed research methodology:** `.github/templates/01.00-article-writing/article-review-for-consistency-gaps-and-extensions/guidance-research-process.template.md`
 
 You MUST: identify core topics → expand via workspace/docs/release notes/community → build URL list → fetch in parallel → compare against article content.
 
@@ -150,7 +150,7 @@ You MUST: identify core topics → expand via workspace/docs/release notes/commu
 
 Catalog gaps (accuracy, coverage, reference, structure, enhancement) → classify by type → apply dual-priority weighting → assess feasibility.
 
-**📖 Gap types and priority weighting:** `.github/templates/article-review-for-consistency-gaps-and-extensions/guidance-research-process.template.md` → "Gap Type Classification" and "Dual-Priority Weighting"
+**📖 Gap types and priority weighting:** `.github/templates/01.00-article-writing/article-review-for-consistency-gaps-and-extensions/guidance-research-process.template.md` → "Gap Type Classification" and "Dual-Priority Weighting"
 
 **Output Format:** Use `output-article-review-phases.template.md` → "Phase 5: Comprehensive Gap Analysis Output"
 
@@ -171,7 +171,7 @@ Update the **bottom YAML metadata block** (NOT the top Quarto block).
 
 ## Output Format
 
-**📖 All output templates:** `.github/templates/article-review-for-consistency-gaps-and-extensions/output-article-review-phases.template.md`
+**📖 All output templates:** `.github/templates/01.00-article-writing/article-review-for-consistency-gaps-and-extensions/output-article-review-phases.template.md`
 
 ### 1. Review Report
 Present findings before making changes using "Final Review Report Output" template.
@@ -252,10 +252,10 @@ prompt_metadata:
   changes:
     - "v2.2: Added Visual Content dimension to Rule-Dimension Mapping (Rule 20); enhanced Structure dimension with TOC design details (Rule 9). Source: remaining ⚠️ items from coverage analysis."
     - "v2.1: Added Rule-Dimension Mapping table connecting 7 validation dimensions to authoritative source locations. Source: Recommendation D from coverage analysis."
-    - "v2.0: Major rewrite applying prompt-createorupdate-prompt-file methodology"
+    - "v2.0: Major rewrite applying prompt-create-update methodology"
     - "Externalized Phase 1 verbose input analysis to guidance-input-analysis.template.md"
     - "Externalized Phase 3 verbose research process to guidance-research-process.template.md"
-    - "Moved templates to dedicated folder: .github/templates/article-review-for-consistency-gaps-and-extensions/"
+    - "Moved templates to dedicated folder: .github/templates/01.00-article-writing/article-review-for-consistency-gaps-and-extensions/"
     - "Added Response Management section (Production-Ready requirement)"
     - "Added Error Recovery section with tool failure fallback table (Production-Ready requirement)"
     - "Added 5 Embedded Test Scenarios (Production-Ready requirement)"
@@ -277,7 +277,7 @@ validations:
     status: "validated"
     last_run: "2026-02-14T00:00:00Z"
     checklist_passed: true
-    validated_by: "prompt-createorupdate-prompt-file (review)"
+    validated_by: "prompt-create-update (review)"
 ---
 -->
 

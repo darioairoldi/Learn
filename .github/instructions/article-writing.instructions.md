@@ -1,6 +1,10 @@
 ---
 description: Tier 1 (auto-loaded) essentials for article writing — voice, mechanics, formatting, accessibility, and boundaries. Extends documentation.instructions.md. For Diátaxis patterns, required elements, and deep writing style rules, see Tier 2 context file.
-applyTo: '*.md,_**/*.md,a**/*.md,A**/*.md,b**/*.md,B**/*.md,c**/*.md,C**/*.md,d**/*.md,D**/*.md,e**/*.md,E**/*.md,f**/*.md,F**/*.md,g**/*.md,G**/*.md,h**/*.md,H**/*.md,i**/*.md,I**/*.md,j**/*.md,J**/*.md,k**/*.md,K**/*.md,l**/*.md,L**/*.md,m**/*.md,M**/*.md,n**/*.md,N**/*.md,o**/*.md,O**/*.md,p**/*.md,P**/*.md,q**/*.md,Q**/*.md,r**/*.md,R**/*.md,s**/*.md,S**/*.md,t**/*.md,T**/*.md,u**/*.md,U**/*.md,v**/*.md,V**/*.md,w**/*.md,W**/*.md,x**/*.md,X**/*.md,y**/*.md,Y**/*.md,z**/*.md,Z**/*.md,0**/*.md,1**/*.md,2**/*.md,3**/*.md,4**/*.md,5**/*.md,6**/*.md,7**/*.md,8**/*.md,9**/*.md'
+applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md'
+version: "1.2.0"
+last_updated: "2026-03-22"
+context_dependencies:
+  - ".copilot/context/01.00-article-writing/"
 ---
 
 # Article Writing Instructions — Tier 1 (Auto-Loaded Essentials)

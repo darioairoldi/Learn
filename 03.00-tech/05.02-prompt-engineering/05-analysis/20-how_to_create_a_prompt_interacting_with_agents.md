@@ -9,7 +9,7 @@ description: "Case study: design an orchestrator prompt that coordinates special
 # How to create a prompt orchestrating multiple agents
 
 When building complex AI workflows, a single prompt file often isn't enough.  
-Tasks like "create a new prompt following best practices" involve multiple distinct phasesâ€”research, building, validation, and fixingâ€”each requiring different expertise and tools.  
+Tasks like "create a new prompt following best practices" involve multiple distinct phases—research, building, validation, and fixing—each requiring different expertise and tools.  
 
 This article explains how to design an <mark>orchestrator prompt</mark> that coordinates specialized agents, including intelligent architecture analysis to determine when new agents need to be created.
 
@@ -17,34 +17,34 @@ This article explains how to design an <mark>orchestrator prompt</mark> that coo
 
 ## Table of contents
 
-- [ðŸŽ¯ The Problem: Complex Multi-Phase Workflows](#-the-problem-complex-multi-phase-workflows)
-- [ðŸ—ï¸ Architecture Overview](#ï¸-architecture-overview)
+- [🎯 The Problem: Complex Multi-Phase Workflows](#-the-problem-complex-multi-phase-workflows)
+- [🏗️ Architecture Overview](#️-architecture-overview)
   - [Advanced Agent Deployment Options](#advanced-agent-deployment-options)
   - [Sharing Agents Across Teams](#sharing-agents-across-teams)
   - [Cross-Platform Compatibility: Claude Skills](#cross-platform-compatibility-claude-skills)
-- [ðŸ“‹ The Specialized Agent Pattern](#-the-specialized-agent-pattern)
-- [ðŸŽ¯ Use Case Challenge Methodology](#-use-case-challenge-methodology)
-- [ðŸ”€ Orchestrator Design: Phase-Based Coordination](#-orchestrator-design-phase-based-coordination)
-- [ðŸ“¡ Information exchange](#-information-exchange)
-- [ðŸ§  Structure Definition & Architecture Analysis (Phase 3)](#-structure-definition--architecture-analysis-phase-3)
+- [📋 The Specialized Agent Pattern](#-the-specialized-agent-pattern)
+- [🎯 Use Case Challenge Methodology](#-use-case-challenge-methodology)
+- [🔀 Orchestrator Design: Phase-Based Coordination](#-orchestrator-design-phase-based-coordination)
+- [📡 Information exchange](#-information-exchange)
+- [🧠 Structure Definition & Architecture Analysis (Phase 3)](#-structure-definition--architecture-analysis-phase-3)
   - [Tool Composition Validation](#tool-composition-validation)
   - [Agent Dependencies Planning (Phases 5-6)](#agent-dependencies-planning-phases-5-6)
-- [ðŸ”§ Handling Agent Creation Within the Workflow](#-handling-agent-creation-within-the-workflow)
-- [ðŸ”„ The Complete Workflow](#-the-complete-workflow)
-- [ðŸ”„ Execution Flow Control Patterns](#-execution-flow-control-patterns)
+- [🔧 Handling Agent Creation Within the Workflow](#-handling-agent-creation-within-the-workflow)
+- [🔄 The Complete Workflow](#-the-complete-workflow)
+- [🔄 Execution Flow Control Patterns](#-execution-flow-control-patterns)
   - [Iteration Control with Bounded Loops](#iteration-control-with-bounded-loops)
   - [Recursion Control for Agent Creation](#recursion-control-for-agent-creation)
   - [Error Handling Paths](#error-handling-paths)
   - [Parallel vs. Sequential Execution](#parallel-vs-sequential-execution)
-- [ðŸ’¡ Key Design Decisions](#-key-design-decisions)
+- [💡 Key Design Decisions](#-key-design-decisions)
   - [Validation Loop Limits](#validation-loop-limits)
   - [Pre-Save Validation](#pre-save-validation)
-- [ðŸ“ Implementation Example](#-implementation-example)
-- [ðŸ“Š Real Implementation Case Study](#-real-implementation-case-study)
-- [ðŸŽ¯ Conclusion](#-conclusion)
-- [ðŸ“š References](#-references)
+- [📝 Implementation Example](#-implementation-example)
+- [📊 Real Implementation Case Study](#-real-implementation-case-study)
+- [🎯 Conclusion](#-conclusion)
+- [📚 References](#-references)
 
-### ðŸŽ¯ The Problem: Complex Multi-Phase Workflows
+### 🎯 The Problem: Complex Multi-Phase Workflows
 
 Consider the task: **"Create a new prompt file following repository best practices."**
 
@@ -77,30 +77,30 @@ A single prompt trying to do everything suffers from:
 Split the monolithic prompt into:
 
 ```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚          ORCHESTRATOR PROMPT                                â”‚
-â”‚   prompt-design-and-create.prompt.md                        â”‚
-â”‚                                                             â”‚
-â”‚   â€¢ Gathers requirements (Phase 1)                          â”‚
-â”‚   â€¢ Coordinates agent handoffs                              â”‚
-â”‚   â€¢ Analyzes architecture needs (Phase 3)                   â”‚
-â”‚   â€¢ Presents results at each phase                          â”‚
-â”‚   â€¢ Does NOT implementâ€”delegates everything                 â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                      â”‚
-        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-        â”‚             â”‚             â”‚             â”‚
-        â–¼             â–¼             â–¼             â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ RESEARCHERâ”‚ â”‚  BUILDER  â”‚ â”‚ VALIDATOR â”‚ â”‚  UPDATER  â”‚
-â”‚           â”‚ â”‚           â”‚ â”‚           â”‚ â”‚           â”‚
-â”‚ Phase 2   â”‚ â”‚ Phase 4   â”‚ â”‚ Phase 5   â”‚ â”‚ Phase 6   â”‚
-â”‚ read-only â”‚ â”‚ write     â”‚ â”‚ read-only â”‚ â”‚ write     â”‚
-â”‚ research  â”‚ â”‚ create    â”‚ â”‚ analyze   â”‚ â”‚ fix       â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌─────────────────────────────────────────────────────────────┐
+│          ORCHESTRATOR PROMPT                                │
+│   prompt-design-and-create.prompt.md                        │
+│                                                             │
+│   • Gathers requirements (Phase 1)                          │
+│   • Coordinates agent handoffs                              │
+│   • Analyzes architecture needs (Phase 3)                   │
+│   • Presents results at each phase                          │
+│   • Does NOT implement—delegates everything                 │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+        ┌─────────────┼─────────────┬─────────────┐
+        │             │             │             │
+        ▼             ▼             ▼             ▼
+┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+│ RESEARCHER│ │  BUILDER  │ │ VALIDATOR │ │  UPDATER  │
+│           │ │           │ │           │ │           │
+│ Phase 2   │ │ Phase 4   │ │ Phase 5   │ │ Phase 6   │
+│ read-only │ │ write     │ │ read-only │ │ write     │
+│ research  │ │ create    │ │ analyze   │ │ fix       │
+└───────────┘ └───────────┘ └───────────┘ └───────────┘
 ```
 
-### ðŸ—ï¸ Architecture Overview
+### 🏗️ Architecture Overview
 
 ### The Prompt Creation System
 
@@ -108,20 +108,20 @@ We designed a complete system for creating prompts and agents:
 
 ```
 ORCHESTRATORS (Prompts)
-â”œâ”€â”€ prompt-design-and-create.prompt.md    # Creates NEW prompts/agents
-â””â”€â”€ prompt-review-and-validate.prompt.md  # Improves EXISTING prompts/agents
+├── prompt-design-and-create.prompt.md    # Creates NEW prompts/agents
+└── prompt-review-and-validate.prompt.md  # Improves EXISTING prompts/agents
 
 SPECIALIZED AGENTS (Prompt Domain)
-â”œâ”€â”€ prompt-researcher.agent.md   # Research patterns, recommend templates
-â”œâ”€â”€ prompt-builder.agent.md      # Create prompt files
-â”œâ”€â”€ prompt-validator.agent.md    # Validate prompt quality
-â””â”€â”€ prompt-updater.agent.md      # Fix validation issues
+├── prompt-researcher.agent.md   # Research patterns, recommend templates
+├── prompt-builder.agent.md      # Create prompt files
+├── prompt-validator.agent.md    # Validate prompt quality
+└── prompt-updater.agent.md      # Fix validation issues
 
 SPECIALIZED AGENTS (Agent Domain) - Created when needed
-â”œâ”€â”€ agent-researcher.agent.md    # Research agent patterns
-â”œâ”€â”€ agent-builder.agent.md       # Create agent files
-â”œâ”€â”€ agent-validator.agent.md     # Validate agent quality
-â””â”€â”€ agent-updater.agent.md       # Fix agent issues
+├── agent-researcher.agent.md    # Research agent patterns
+├── agent-builder.agent.md       # Create agent files
+├── agent-validator.agent.md     # Validate agent quality
+└── agent-updater.agent.md       # Fix agent issues
 ```
 
 ### Why Separate Prompt vs. Agent Specialists?
@@ -146,9 +146,9 @@ Custom agents aren't limited to interactive chat sessions. VS Code v1.107+ provi
 
 | Context | Isolation | Workspace Changes | Best For | Orchestration Use Cases |
 |---------|-----------|-------------------|----------|-------------------------|
-| **<mark>Local</mark>** | Noneâ€”modifies workspace directly | Immediate in active workspace | Quick tasks, interactive refinement | Interactive research, immediate validation |
-| **<mark>Background</mark>** | Fullâ€”uses Git work tree | Isolated, can be applied back | Long-running tasks without blocking | Code generation, multi-file refactoring |
-| **<mark>Cloud</mark>** | Fullâ€”new branch and PR | Creates pull request | Large changes, async collaboration | Automated PR workflows, scheduled audits |
+| **<mark>Local</mark>** | None—modifies workspace directly | Immediate in active workspace | Quick tasks, interactive refinement | Interactive research, immediate validation |
+| **<mark>Background</mark>** | Full—uses Git work tree | Isolated, can be applied back | Long-running tasks without blocking | Code generation, multi-file refactoring |
+| **<mark>Cloud</mark>** | Full—new branch and PR | Creates pull request | Large changes, async collaboration | Automated PR workflows, scheduled audits |
 
 **Work Tree Isolation (Background Context):**
 
@@ -168,7 +168,7 @@ All three contexts reuse the same `.agent.md` files, making orchestrator pattern
 
 #### Agent HQ: Unified Session Management
 
-<mark>**Agent HQ**</mark> (introduced in v1.107) provides a unified interface for managing all agent sessionsâ€”local, background, and cloudâ€”in one view.
+<mark>**Agent HQ**</mark> (introduced in v1.107) provides a unified interface for managing all agent sessions—local, background, and cloud—in one view.
 
 **Key Features for Orchestrations:**
 
@@ -182,22 +182,22 @@ All three contexts reuse the same `.agent.md` files, making orchestrator pattern
 
 ```
 User runs orchestrator prompt
-        â†“
+        ↓
 Orchestrator gathers requirements (Phase 1-2)
-        â†“
+        ↓
 Orchestrator shows analysis, prompts:
   "Ready to delegate to specialist agent?"
-        â†“
+        ↓
 User clicks "Continue in Background/Cloud"
-        â†“
+        ↓
 Agent HQ shows new session running
-        â†“
+        ↓
 User continues working in local session
-        â†“
+        ↓
 Background/cloud session completes
-        â†“
+        ↓
 Agent HQ marks session as "unread" (needs attention)
-        â†“
+        ↓
 User reviews results, applies changes
 ```
 
@@ -293,27 +293,27 @@ Present plan and offer "Continue in" delegation
 - **Risk mitigation**: Identify potential issues before implementation
 - **User control**: Review and approve plan before delegating
 
-**Planning â†’ Implementation Workflow:**
+**Planning → Implementation Workflow:**
 
 ```
 Orchestrator (planning mode)
-        â†“
+        ↓
 Generates detailed implementation plan
-        â†“
+        ↓
 Shows plan to user with delegation options
-        â†“
+        ↓
 User approves and clicks "Continue in Background"
-        â†“
+        ↓
 Builder agent executes plan in isolated work tree
-        â†“
+        ↓
 User reviews completed work in Agent HQ
-        â†“
+        ↓
 Applies changes to main workspace
 ```
 
 #### Subagents
 
-VS Code supports <mark>**subagents**</mark>â€”the ability to <mark>spawn child agents from within a parent agent's execution</mark> via the `runSubagent` tool.  
+VS Code supports <mark>**subagents**</mark>—the ability to <mark>spawn child agents from within a parent agent's execution</mark> via the `runSubagent` tool.  
 This enables dynamic orchestration patterns where agents can delegate subtasks programmatically.
 
 Subagents run in isolated context windows and return only their final result to the parent agent. This keeps the orchestrator's context focused on decisions rather than details. You can control visibility with `user-invokable` (controls dropdown appearance) and `disable-model-invocation` (prevents auto-invocation), and restrict which subagents an orchestrator can invoke using the `agents` frontmatter property.
@@ -322,7 +322,7 @@ Subagents run in isolated context windows and return only their final result to 
 
 The [VS Code subagents documentation](https://code.visualstudio.com/docs/copilot/agents/subagents) defines two canonical patterns that apply directly to this case study:
 
-**Coordinator and Worker** â€” A coordinator agent manages the overall task and delegates subtasks to specialized subagents, each with tailored tool access. Planning and review agents use read-only tools; implementers get edit capabilities. This maps directly to the prompt creation system's four-specialist architecture described in this article.
+**Coordinator and Worker** — A coordinator agent manages the overall task and delegates subtasks to specialized subagents, each with tailored tool access. Planning and review agents use read-only tools; implementers get edit capabilities. This maps directly to the prompt creation system's four-specialist architecture described in this article.
 
 ```yaml
 ---
@@ -337,7 +337,7 @@ For each feature request:
 4. If the reviewer identifies issues, use the Implementer again to apply fixes.
 ```
 
-**Multi-perspective Code Review** â€” Run multiple review perspectives as **parallel subagents** so findings are independent and unbiased. Each subagent approaches the code fresh, without being anchored by what other perspectives found.
+**Multi-perspective Code Review** — Run multiple review perspectives as **parallel subagents** so findings are independent and unbiased. Each subagent approaches the code fresh, without being anchored by what other perspectives found.
 
 ```yaml
 ---
@@ -352,7 +352,7 @@ Run these subagents in parallel:
 Synthesize findings into a prioritized summary.
 ```
 
-> **Handoffs vs. subagents:** This case study uses <mark>**handoffs**</mark> (user-visible buttons that switch agents with optional auto-submit) for its orchestration flow. The official patterns above use <mark>**subagents**</mark> (programmatic delegation via `runSubagent`, running in isolated context). Both approaches are validâ€”handoffs give users explicit control at each transition, while subagents enable autonomous multi-step execution. You can combine them: use handoffs for high-risk checkpoints and subagents for automated subtasks.
+> **Handoffs vs. subagents:** This case study uses <mark>**handoffs**</mark> (user-visible buttons that switch agents with optional auto-submit) for its orchestration flow. The official patterns above use <mark>**subagents**</mark> (programmatic delegation via `runSubagent`, running in isolated context). Both approaches are valid—handoffs give users explicit control at each transition, while subagents enable autonomous multi-step execution. You can combine them: use handoffs for high-risk checkpoints and subagents for automated subtasks.
 
 For a complete treatment of subagent execution, custom agent delegation, orchestration patterns, and the `agents` property, see [How to Design Subagent Orchestrations](../04-howto/11.00-how_to_design_subagent_orchestrations.md).
 
@@ -362,17 +362,17 @@ Orchestrated workflows become more valuable when shared across your organization
 
 #### Workspace-Level Sharing
 
-Store agents in `.github/agents/` folderâ€”they're automatically available to anyone who clones the repository:
+Store agents in `.github/agents/` folder—they're automatically available to anyone who clones the repository:
 
 ```
 repository/
-â”œâ”€â”€ .github/
-â”‚   â”œâ”€â”€ agents/
-â”‚   â”‚   â”œâ”€â”€ prompt-researcher.agent.md
-â”‚   â”‚   â”œâ”€â”€ prompt-builder.agent.md
-â”‚   â”‚   â””â”€â”€ code-review-orchestrator.agent.md
-â”‚   â””â”€â”€ prompts/
-â”‚       â””â”€â”€ prompt-design-and-create.prompt.md
+├── .github/
+│   ├── agents/
+│   │   ├── prompt-researcher.agent.md
+│   │   ├── prompt-builder.agent.md
+│   │   └── code-review-orchestrator.agent.md
+│   └── prompts/
+│       └── prompt-design-and-create.prompt.md
 ```
 
 #### Organization-Level Sharing (Experimental)
@@ -398,7 +398,7 @@ Learn more: [GitHub - Create Custom Agents for Organizations](https://docs.githu
 
 ### Cross-Platform Compatibility: Claude Skills
 
-If your team uses Claude across multiple platforms, VS Code can integrate <mark>**Claude skills**</mark>â€”reusable instruction sets that work across Claude interfaces.
+If your team uses Claude across multiple platforms, VS Code can integrate <mark>**Claude skills**</mark>—reusable instruction sets that work across Claude interfaces.
 
 **How it works:**
 - Define skills in `SKILL.md` files
@@ -439,7 +439,7 @@ You are an expert code reviewer focused on:
 
 > **Note:** The `allowed-tools` attribute in Claude skills is not currently supported in VS Code. For tool-specific workflows, use custom agents.
 
-### ðŸ“‹ The Specialized Agent Pattern
+### 📋 The Specialized Agent Pattern
 
 Each specialized agent follows a consistent structure:
 
@@ -466,15 +466,15 @@ handoffs:
 - [Capability 1]
 - [Capability 2]
 
-## ðŸš¨ CRITICAL BOUNDARIES
+## 🚨 CRITICAL BOUNDARIES
 
-### âœ… Always Do
+### ✅ Always Do
 - [Required behaviors]
 
-### âš ï¸ Ask First  
+### ⚠️ Ask First  
 - [Actions requiring confirmation]
 
-### ðŸš« Never Do
+### 🚫 Never Do
 - [Prohibited actions]
 
 ## Process
@@ -544,7 +544,7 @@ tools:
 - Assess quality and completeness
 - Produce detailed report with scores
 
-**Key Boundary**: Never modifies filesâ€”only reports issues
+**Key Boundary**: Never modifies files—only reports issues
 
 #### 4. prompt-updater.agent.md
 **Role**: Fix specialist
@@ -593,7 +593,7 @@ tools:
 
 Learn more: [VS Code MCP Servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
 
-### ðŸŽ¯ Use Case Challenge Methodology
+### 🎯 Use Case Challenge Methodology
 
 Before building any prompt or agent, <mark>**validate that the goal is clear and actionable**</mark> by generating realistic use cases.  
 This battle-tested methodology prevents scope creep and reveals tool/boundary requirements early.
@@ -632,7 +632,7 @@ First, determine task complexity:
 **Use Case 1: [Common Case]**
 - **Scenario**: User asks to [realistic situation]
 - **Test**: Does goal provide clear guidance for this case?
-- **Result**: [âœ… Clear / âš ï¸ Ambiguous / âŒ Gap]
+- **Result**: [✅ Clear / ⚠️ Ambiguous / ❌ Gap]
 - **Tool Discovered**: [if scenario reveals tool need]
 - **Boundary Discovered**: [if scenario reveals scope limit]
 - **Refinement**: [specific goal adjustment]
@@ -646,9 +646,9 @@ First, determine task complexity:
 ---
 
 **Validation Status**:
-- âœ… Goal appropriately scoped â†’ Proceed to Phase 2
-- âš ï¸ Goal needs refinement â†’ [proposed changes, ask user]
-- âŒ Goal fundamentally unclear â†’ BLOCK, ask user for direction
+- ✅ Goal appropriately scoped → Proceed to Phase 2
+- ⚠️ Goal needs refinement → [proposed changes, ask user]
+- ❌ Goal fundamentally unclear → BLOCK, ask user for direction
 
 **Refined Goal**: [updated goal definition]
 **Tools Discovered**: [list with justifications]
@@ -667,11 +667,11 @@ When designing the prompt creation system, the Use Case Challenge revealed:
 
 | # | Scenario | Result | Discovery |
 |---|----------|--------|----------|
-| 1 | Simple validation prompt | âœ… Clear | Needs template selection |
-| 2 | Multi-phase workflow prompt | âš ï¸ Ambiguous | When to recommend orchestrator vs. single prompt? |
-| 3 | Prompt requiring new agents | âŒ Gap | No guidance on agent creation sub-workflow |
-| 4 | Prompt with conflicting requirements | âš ï¸ Ambiguous | How to handle tool count >7? |
-| 5 | Updating existing prompt | âŒ Gap | Build vs. Update are different workflows |
+| 1 | Simple validation prompt | ✅ Clear | Needs template selection |
+| 2 | Multi-phase workflow prompt | ⚠️ Ambiguous | When to recommend orchestrator vs. single prompt? |
+| 3 | Prompt requiring new agents | ❌ Gap | No guidance on agent creation sub-workflow |
+| 4 | Prompt with conflicting requirements | ⚠️ Ambiguous | How to handle tool count >7? |
+| 5 | Updating existing prompt | ❌ Gap | Build vs. Update are different workflows |
 
 **Refinements Applied**:
 - Split into two orchestrators: `design-and-create` vs. `review-and-validate`
@@ -691,23 +691,23 @@ When creating agents (not prompts), apply additional **Role Challenge** tests:
 
 **Test 1: Authority Test**
 - Question: Does this agent have authority to [action]?
-- Result: [âœ…/âŒ]
+- Result: [✅/❌]
 - Implication: [adjust boundaries]
 
 **Test 2: Expertise Test**  
 - Question: Is this agent the best specialist for [task]?
-- Result: [âœ…/âŒ]
+- Result: [✅/❌]
 - Implication: [refine or split role]
 
 **Test 3: Specificity Test**
 - Question: Is this role too broad or too narrow?
-- Result: [âœ…/âŒ]
+- Result: [✅/❌]
 - Implication: [adjust scope]
 
 **Validated Role**: [final role definition]
 ```
 
-### ðŸ”€ Orchestrator Design: Phase-Based Coordination
+### 🔀 Orchestrator Design: Phase-Based Coordination
 
 The orchestrator prompt coordinates the workflow through distinct phases, optionally using <mark>planning mode</mark> for upfront design:
 
@@ -752,81 +752,81 @@ handoffs:
 
 ```
 Phase 0: Planning (Optional - if agent: plan)
-    â”‚
-    â”‚ Generate implementation plan
-    â”‚ Identify required specialists
-    â”‚ Present plan with "Continue in" delegation options
-    â”‚ â–¡ USER APPROVAL CHECKPOINT
-    â”‚
-    â–¼
+    │
+    │ Generate implementation plan
+    │ Identify required specialists
+    │ Present plan with "Continue in" delegation options
+    │ □ USER APPROVAL CHECKPOINT
+    │
+    ▼
 Phase 1: Requirements Gathering (Orchestrator)
-    â”‚
-    â”‚ User provides: "Create a prompt for X"
-    â”‚ Orchestrator extracts: type, scope, tools, constraints
-    â”‚ âœ“ Use Case Challenge validates goal clarity
-    â”‚ Present delegation options (Local/Background/Cloud)
-    â”‚
-    â–¼
-Phase 2: Research (â†’ prompt-researcher)
-    â”‚
-    â”‚ Researcher returns: patterns, template recommendation, guidance
-    â”‚ Orchestrator presents findings to user
-    â”‚ â–¡ USER APPROVAL CHECKPOINT
-    â”‚ Option: "Continue in Background" for next phase
-    â”‚
-    â–¼
+    │
+    │ User provides: "Create a prompt for X"
+    │ Orchestrator extracts: type, scope, tools, constraints
+    │ ✓ Use Case Challenge validates goal clarity
+    │ Present delegation options (Local/Background/Cloud)
+    │
+    ▼
+Phase 2: Research (→ prompt-researcher)
+    │
+    │ Researcher returns: patterns, template recommendation, guidance
+    │ Orchestrator presents findings to user
+    │ □ USER APPROVAL CHECKPOINT
+    │ Option: "Continue in Background" for next phase
+    │
+    ▼
 Phase 3: Structure Definition & Architecture Analysis (Orchestrator)
-    â”‚
-    â”‚ Orchestrator determines: single-prompt vs. orchestrator+agents
-    â”‚ âœ“ Tool Composition Validation
-    â”‚ If complex: identifies which agents to create
-    â”‚ â–¡ USER APPROVAL CHECKPOINT
-    â”‚ Present delegation to background/cloud for build phase
-    â”‚
-    â”£â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”«
-    â”‚                            â”‚
-    â–¼ (Simple)                   â–¼ (Complex)
+    │
+    │ Orchestrator determines: single-prompt vs. orchestrator+agents
+    │ ✓ Tool Composition Validation
+    │ If complex: identifies which agents to create
+    │ □ USER APPROVAL CHECKPOINT
+    │ Present delegation to background/cloud for build phase
+    │
+    ┣───────────────────────────┫
+    │                            │
+    ▼ (Simple)                   ▼ (Complex)
 Phase 4: Build                 Phase 5: Agent Updates Plan
-(â†’ prompt-builder)            â”‚ â–¡ USER APPROVAL CHECKPOINT
-    â”‚                          â”‚ Option: Background with work tree isolation
-    â”‚                          â”‚
-    â”‚                          â–¼
-    â”‚                      Phase 6: New Agent Creation Plan
-    â”‚                          â”‚ â–¡ USER APPROVAL CHECKPOINT
-    â”‚                          â”‚
-    â”‚                          â–¼
-    â”‚                      Phase 4a: Create Agents (Iterative)
-    â”‚                      (â†’ agent-builder, max 2 recursion)
-    â”‚                          â”‚ Track in Agent HQ
-    â”‚                          â”‚
-    â”‚                          â–¼
-    â”‚                      Phase 4b: Create Orchestrator
-    â”‚                      (â†’ prompt-builder)
-    â”‚                          â”‚
-    â”£â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”«
-    â”‚
-    â–¼
-Phase 7: Validation (â†’ prompt-validator)
-    â”‚
-    â”‚ Validator checks quality, reports issues
-    â”‚ Automatic handoff (send: true)
-    â”‚ Can run in background for large codebases
-    â”‚
-    â”œâ”€â”€â”€ PASSED â†’ âœ… Complete (Agent HQ marks session complete)
-    â”‚
-    â–¼ (FAILED)
-Phase 8: Fix (â†’ prompt-updater)
-    â”‚
-    â”‚ Updater applies fixes (max 3 iterations)
-    â”‚ Re-validates automatically
-    â”‚
-    â”œâ”€â”€â”€ Iteration < 3 â†’ Loop to Phase 7
-    â”‚
-    â–¼ (Iteration = 3, still failing)
-    âŒ Escalate to user
+(→ prompt-builder)            │ □ USER APPROVAL CHECKPOINT
+    │                          │ Option: Background with work tree isolation
+    │                          │
+    │                          ▼
+    │                      Phase 6: New Agent Creation Plan
+    │                          │ □ USER APPROVAL CHECKPOINT
+    │                          │
+    │                          ▼
+    │                      Phase 4a: Create Agents (Iterative)
+    │                      (→ agent-builder, max 2 recursion)
+    │                          │ Track in Agent HQ
+    │                          │
+    │                          ▼
+    │                      Phase 4b: Create Orchestrator
+    │                      (→ prompt-builder)
+    │                          │
+    ┣───────────────────────────┫
+    │
+    ▼
+Phase 7: Validation (→ prompt-validator)
+    │
+    │ Validator checks quality, reports issues
+    │ Automatic handoff (send: true)
+    │ Can run in background for large codebases
+    │
+    ├─── PASSED → ✅ Complete (Agent HQ marks session complete)
+    │
+    ▼ (FAILED)
+Phase 8: Fix (→ prompt-updater)
+    │
+    │ Updater applies fixes (max 3 iterations)
+    │ Re-validates automatically
+    │
+    ├─── Iteration < 3 → Loop to Phase 7
+    │
+    ▼ (Iteration = 3, still failing)
+    ❌ Escalate to user
 ```
 
-> **Real-world example:** Burke Holland's orchestration demo showcases a 4-agent architecture (orchestrator â†’ planner â†’ coder â†’ designer) with model-per-agent selection and isolated context windows. This pattern maps directly to the orchestration principles described here. See [Burke Holland â€” Orchestrations](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md).
+> **Real-world example:** Burke Holland's orchestration demo showcases a 4-agent architecture (orchestrator → planner → coder → designer) with model-per-agent selection and isolated context windows. This pattern maps directly to the orchestration principles described here. See [Burke Holland — Orchestrations](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md).
 
 ### Handoff Configuration: `send: true` vs `send: false`
 
@@ -836,26 +836,26 @@ Phase 8: Fix (â†’ prompt-updater)
 | `send: true` | Automatic handoff, no user intervention | High confidence, routine validation |
 
 **Our Pattern**:
-- Research â†’ User reviews findings (`send: false`)
-- Build â†’ User reviews file (`send: false`)
-- Validate â†’ Automatic, builder self-checked (`send: true`)
-- Fix â†’ Automatic re-validation (`send: true`)
+- Research → User reviews findings (`send: false`)
+- Build → User reviews file (`send: false`)
+- Validate → Automatic, builder self-checked (`send: true`)
+- Fix → Automatic re-validation (`send: true`)
 
-### ðŸ“¡ Information exchange
+### 📡 Information exchange
 
-Effective multi-agent orchestration requires explicit protocols for how information flows between agentsâ€”data contracts, context carryover strategies, and token-efficient communication patterns.
+Effective multi-agent orchestration requires explicit protocols for how information flows between agents—data contracts, context carryover strategies, and token-efficient communication patterns.
 
 This case study's prompt creation workflow uses several techniques covered in detail in the dedicated articles:
 
-- **Data contracts and structured reports** â€” Each agent in this workflow produces structured text reports (not JSON) for downstream consumption. See [How to Manage Information Flow](../04-howto/12.00-how_to_manage_information_flow_during_prompt_orchestrations.md) for the theory of data contracts, communication formats, context carryover strategies, and the five communication pathways.
+- **Data contracts and structured reports** — Each agent in this workflow produces structured text reports (not JSON) for downstream consumption. See [How to Manage Information Flow](../04-howto/12.00-how_to_manage_information_flow_during_prompt_orchestrations.md) for the theory of data contracts, communication formats, context carryover strategies, and the five communication pathways.
 
-- **Token-efficient handoffs** â€” Multi-phase workflows like this one create compounding token costs at each handoff. Techniques like progressive summarization, file-based isolation, and prompt-directed attention keep costs manageable. See [How to Optimize Token Consumption](../04-howto/13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md) for nine strategies with token budget estimates.
+- **Token-efficient handoffs** — Multi-phase workflows like this one create compounding token costs at each handoff. Techniques like progressive summarization, file-based isolation, and prompt-directed attention keep costs manageable. See [How to Optimize Token Consumption](../04-howto/13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md) for nine strategies with token budget estimates.
 
-- **Handoff prompt design** â€” When `send: true` triggers a handoff, the entire conversation history flows to the receiving agent. Use explicit `FOCUS ON` / `IGNORE` directives in the `prompt:` field to direct the agent's attention. For critical data, consider file-based context passing (writing specs to `.copilot/temp/` files and instructing the receiving agent to read them).
+- **Handoff prompt design** — When `send: true` triggers a handoff, the entire conversation history flows to the receiving agent. Use explicit `FOCUS ON` / `IGNORE` directives in the `prompt:` field to direct the agent's attention. For critical data, consider file-based context passing (writing specs to `.copilot/temp/` files and instructing the receiving agent to read them).
 
 **Key principle for this case study:** Handoff prompts reference previous phase outputs using natural language ("the requirements above", "from the research phase") because conversation history is automatically available to the target agent.
 
-### ðŸ§  Structure Definition & Architecture Analysis (Phase 3)
+### 🧠 Structure Definition & Architecture Analysis (Phase 3)
 
 The orchestrator's most important job is **determining optimal architecture** for the task. This happens in Phase 3, which now includes tool composition validation and agent dependency planning.
 
@@ -885,7 +885,7 @@ When a user requests "Create a prompt for code review," should we create:
 Analyze requirements from Phase 1 and research from Phase 2:
 
 **Multi-phase workflow?**
-- Does task divide into distinct phases? (analyze â†’ execute â†’ validate)
+- Does task divide into distinct phases? (analyze → execute → validate)
 - Are phases sequential with clear handoff points?
 
 **Cross-domain expertise?**
@@ -928,8 +928,8 @@ Search `.github/agents/` directory for applicable agents:
 ### Existing Agents Applicable to Task
 
 **Directly applicable:**
-- `prompt-researcher` â†’ Research phase (100% match)
-- `prompt-validator` â†’ Validation phase (100% match)
+- `prompt-researcher` → Research phase (100% match)
+- `prompt-validator` → Validation phase (100% match)
 
 **Coverage:** 50% existing, 25% new, 25% orchestrator-only
 ```
@@ -974,21 +974,21 @@ Before finalizing architecture, validate tool composition to prevent common fail
 
 #### 1. Tool Count Check
 **Count**: [N] tools
-- âœ… 3-7 tools: Optimal scope
-- âš ï¸ <3 tools: May be insufficient for task
-- âŒ >7 tools: Tool clash risk - MUST decompose
+- ✅ 3-7 tools: Optimal scope
+- ⚠️ <3 tools: May be insufficient for task
+- ❌ >7 tools: Tool clash risk - MUST decompose
 
 **If >7 tools detected:**
-â†’ Decompose into orchestrator + specialized agents
-â†’ Each agent gets subset of tools (3-7 each)
-â†’ Re-run architecture analysis
+→ Decompose into orchestrator + specialized agents
+→ Each agent gets subset of tools (3-7 each)
+→ Re-run architecture analysis
 
 #### 2. Agent/Tool Alignment Check
 
 | Agent Mode | Allowed Tools | Status |
 |------------|---------------|--------|
-| `plan` | Read-only tools only | [âœ…/âŒ] |
-| `agent` | Read + Write tools | [âœ…/âŒ] |
+| `plan` | Read-only tools only | [✅/❌] |
+| `agent` | Read + Write tools | [✅/❌] |
 
 **Write tools** (require `agent: agent`):
 - `create_file`
@@ -997,14 +997,14 @@ Before finalizing architecture, validate tool composition to prevent common fail
 - `run_in_terminal`
 
 **Alignment failures:**
-- `plan` + write tools â†’ âŒ FAIL (agent can't execute writes)
-- `agent` + only read tools â†’ âš ï¸ Warning (may be intentional, but verify)
+- `plan` + write tools → ❌ FAIL (agent can't execute writes)
+- `agent` + only read tools → ⚠️ Warning (may be intentional, but verify)
 
 #### 3. Tool Redundancy Check
 - Overlapping capabilities: [list any]
 - Recommendation: [consolidate or justify]
 
-**Validation Result**: [âœ… PASSED / âš ï¸ WARNINGS / âŒ FAILED]
+**Validation Result**: [✅ PASSED / ⚠️ WARNINGS / ❌ FAILED]
 ```
 
 ### Agent Dependencies Planning (Phases 5-6)
@@ -1074,7 +1074,7 @@ For **new agents** that need to be created:
   - Always: Follow template structure
   - Ask First: When tool count approaches 7
   - Never: Modify existing agents
-- **Handoffs**: â†’ agent-validator (send: true)
+- **Handoffs**: → agent-validator (send: true)
 - **Template**: agent-builder-template.md
 
 ### Recursion Control
@@ -1084,7 +1084,7 @@ For **new agents** that need to be created:
 - Level 1: Prompt creation requires new agent
 - Level 2: Agent creation can use existing agents only
 
-âŒ If Level 2 requires new agents â†’ STOP, escalate to user
+❌ If Level 2 requires new agents → STOP, escalate to user
 
 ### Processing Recommendation
 
@@ -1093,7 +1093,7 @@ Create agents using: `@agent-design-and-create`
 **Approve creation plan? (yes/no/modify)**
 ```
 
-### ðŸ”§ Handling Agent Creation Within the Workflow
+### 🔧 Handling Agent Creation Within the Workflow
 
 When Phase 3 determines that new agents are needed, the workflow branches:
 
@@ -1101,27 +1101,27 @@ When Phase 3 determines that new agents are needed, the workflow branches:
 
 ```
 Phase 3 Output: "Orchestrator + Agents" recommended
-    â”‚
-    â”‚ New agents needed: 2
-    â”‚ Existing agents reusable: 2
-    â”‚
-    â–¼
+    │
+    │ New agents needed: 2
+    │ Existing agents reusable: 2
+    │
+    ▼
 Phase 4a: Create New Agents (Iterative)
-    â”‚
-    â”‚ For each new agent:
-    â”‚   â†’ Research agent patterns (prompt-researcher)
-    â”‚   â†’ Build agent file (agent-builder)
-    â”‚   â†’ Validate agent (agent-validator)
-    â”‚   â†’ User reviews
-    â”‚
-    â–¼
+    │
+    │ For each new agent:
+    │   → Research agent patterns (prompt-researcher)
+    │   → Build agent file (agent-builder)
+    │   → Validate agent (agent-validator)
+    │   → User reviews
+    │
+    ▼
 Phase 4b: Create Orchestrator
-    â”‚
-    â”‚ Build orchestrator that coordinates:
-    â”‚   - Existing agents
-    â”‚   - Newly created agents
-    â”‚
-    â–¼
+    │
+    │ Build orchestrator that coordinates:
+    │   - Existing agents
+    │   - Newly created agents
+    │
+    ▼
 Phase 5: Validate All Files
 ```
 
@@ -1170,17 +1170,17 @@ When multiple agents are needed, create them iteratively:
 **Agents completed:** 1
 
 ### Agent 1: security-analyzer.agent.md
-**Status:** âœ… Created
+**Status:** ✅ Created
 **Path:** `.github/agents/security-analyzer.agent.md`
 **Tools:** [read_file, grep_search, semantic_search]
 
 ### Agent 2: performance-analyzer.agent.md
-**Status:** ðŸ”„ In Progress
+**Status:** 🔄 In Progress
 
 **Proceed with Agent 2? (yes/no/review Agent 1)**
 ```
 
-### ðŸ”„ The Complete Workflow
+### 🔄 The Complete Workflow
 
 ### Standard Flow (Single Prompt)
 
@@ -1188,27 +1188,27 @@ When multiple agents are needed, create them iteratively:
 User: "Create a prompt to validate API documentation"
 
 Phase 1: Requirements
-â”œâ”€â”€ Type: validation (read-only)
-â”œâ”€â”€ Scope: API docs files
-â””â”€â”€ Tools: read_file, grep_search
+├── Type: validation (read-only)
+├── Scope: API docs files
+└── Tools: read_file, grep_search
 
-Phase 2: Research â†’ prompt-researcher
-â”œâ”€â”€ Found 3 similar prompts
-â”œâ”€â”€ Template: prompt-simple-validation-template.md
-â””â”€â”€ Key patterns identified
+Phase 2: Research → prompt-researcher
+├── Found 3 similar prompts
+├── Template: prompt-simple-validation-template.md
+└── Key patterns identified
 
 Phase 3: Architecture Analysis
-â”œâ”€â”€ Complexity: Low
-â”œâ”€â”€ Phases: 1 (validation only)
-â””â”€â”€ Decision: Single Prompt âœ“
+├── Complexity: Low
+├── Phases: 1 (validation only)
+└── Decision: Single Prompt ✓
 
-Phase 4: Build â†’ prompt-builder
-â””â”€â”€ Created: api-docs-validation.prompt.md
+Phase 4: Build → prompt-builder
+└── Created: api-docs-validation.prompt.md
 
-Phase 5: Validate â†’ prompt-validator
-â””â”€â”€ Status: PASSED âœ…
+Phase 5: Validate → prompt-validator
+└── Status: PASSED ✅
 
-âœ… Complete: api-docs-validation.prompt.md ready for use
+✅ Complete: api-docs-validation.prompt.md ready for use
 ```
 
 ### Complex Flow (Orchestrator + New Agents)
@@ -1217,43 +1217,43 @@ Phase 5: Validate â†’ prompt-validator
 User: "Create a comprehensive code review system"
 
 Phase 1: Requirements
-â”œâ”€â”€ Type: orchestration
-â”œâ”€â”€ Scope: Full codebase review
-â””â”€â”€ Multi-domain: security, style, performance, tests
+├── Type: orchestration
+├── Scope: Full codebase review
+└── Multi-domain: security, style, performance, tests
 
-Phase 2: Research â†’ prompt-researcher
-â”œâ”€â”€ Found orchestration patterns
-â”œâ”€â”€ Template: prompt-multi-agent-orchestration-template.md
-â””â”€â”€ Identified 4 review domains
+Phase 2: Research → prompt-researcher
+├── Found orchestration patterns
+├── Template: prompt-multi-agent-orchestration-template.md
+└── Identified 4 review domains
 
 Phase 3: Architecture Analysis
-â”œâ”€â”€ Complexity: High
-â”œâ”€â”€ Phases: 4 distinct review phases
-â”œâ”€â”€ Existing agents: 0 applicable
-â”œâ”€â”€ New agents needed: 4
-â””â”€â”€ Decision: Orchestrator + Agents âœ“
+├── Complexity: High
+├── Phases: 4 distinct review phases
+├── Existing agents: 0 applicable
+├── New agents needed: 4
+└── Decision: Orchestrator + Agents ✓
 
 Phase 4a: Create Agents (Iterative)
-â”œâ”€â”€ Agent 1: security-reviewer.agent.md âœ…
-â”œâ”€â”€ Agent 2: style-reviewer.agent.md âœ…
-â”œâ”€â”€ Agent 3: performance-reviewer.agent.md âœ…
-â””â”€â”€ Agent 4: test-coverage-reviewer.agent.md âœ…
+├── Agent 1: security-reviewer.agent.md ✅
+├── Agent 2: style-reviewer.agent.md ✅
+├── Agent 3: performance-reviewer.agent.md ✅
+└── Agent 4: test-coverage-reviewer.agent.md ✅
 
-Phase 4b: Create Orchestrator â†’ prompt-builder
-â””â”€â”€ Created: code-review-orchestrator.prompt.md
-    â””â”€â”€ Coordinates all 4 new agents
+Phase 4b: Create Orchestrator → prompt-builder
+└── Created: code-review-orchestrator.prompt.md
+    └── Coordinates all 4 new agents
 
-Phase 5: Validate All â†’ prompt-validator
-â”œâ”€â”€ security-reviewer.agent.md: PASSED âœ…
-â”œâ”€â”€ style-reviewer.agent.md: PASSED âœ…
-â”œâ”€â”€ performance-reviewer.agent.md: PASSED âœ…
-â”œâ”€â”€ test-coverage-reviewer.agent.md: PASSED âœ…
-â””â”€â”€ code-review-orchestrator.prompt.md: PASSED âœ…
+Phase 5: Validate All → prompt-validator
+├── security-reviewer.agent.md: PASSED ✅
+├── style-reviewer.agent.md: PASSED ✅
+├── performance-reviewer.agent.md: PASSED ✅
+├── test-coverage-reviewer.agent.md: PASSED ✅
+└── code-review-orchestrator.prompt.md: PASSED ✅
 
-âœ… Complete: Full code review system ready
+✅ Complete: Full code review system ready
 ```
 
-### âš™ï¸ Execution Flow Control Patterns
+### ⚙️ Execution Flow Control Patterns
 
 Multi-agent orchestrations require explicit **flow control** to prevent infinite loops, handle errors gracefully, and coordinate parallel execution.
 
@@ -1269,9 +1269,9 @@ Multi-agent orchestrations require explicit **flow control** to prevent infinite
 - **Current iteration**: {N}/3
 
 ### Exit Conditions
-1. âœ… **Clean Exit**: All validation checks pass
-2. âš ï¸ **User Override**: User explicitly approves despite issues
-3. âŒ **Escalation**: Maximum iterations reached
+1. ✅ **Clean Exit**: All validation checks pass
+2. ⚠️ **User Override**: User explicitly approves despite issues
+3. ❌ **Escalation**: Maximum iterations reached
 ```
 
 #### Escalation Protocol
@@ -1279,7 +1279,7 @@ Multi-agent orchestrations require explicit **flow control** to prevent infinite
 When validation loops exhaust their iteration limit:
 
 ```markdown
-## âš ï¸ Validation Loop Exhausted
+## ⚠️ Validation Loop Exhausted
 
 After 3 fix attempts, validation still reports issues:
 
@@ -1307,16 +1307,16 @@ After 3 fix attempts, validation still reports issues:
 ### Maximum Recursion Depth: 2 Levels
 
 **Level 0**: Main orchestrator (prompt-design-and-create)
-  â†“ Creates prompt requiring new agent
+  ↓ Creates prompt requiring new agent
 **Level 1**: Prompt creation triggers agent-design-and-create
-  â†“ Agent creation can use existing agents only
-**Level 2**: If Level 2 requires NEW agents â†’ âŒ STOP, escalate
+  ↓ Agent creation can use existing agents only
+**Level 2**: If Level 2 requires NEW agents → ❌ STOP, escalate
 ```
 
 #### Recursion Depth Escalation
 
 ```markdown
-## ðŸ›‘ Recursion Depth Limit Reached
+## 🛑 Recursion Depth Limit Reached
 
 The current workflow has reached maximum agent creation depth:
 
@@ -1353,22 +1353,22 @@ handoffs:
 #### Build Phase Error Handling Example
 
 ```markdown
-## Phase 4: Build â†’ Validation
+## Phase 4: Build → Validation
 
 ### Primary Path (Success)
 **If builder succeeds**:
-â†’ Automatic handoff to validator
+→ Automatic handoff to validator
 
 ### Fallback Path (Recoverable Failure)
 **If builder fails** (tool count > 7, missing template, etc.):
-â†’ Handoff to prompt-researcher with:
+→ Handoff to prompt-researcher with:
   "Builder failed due to: {error}. Research alternative approach."
-â†’ User reviews alternative approach
-â†’ Re-attempt build with refined specification
+→ User reviews alternative approach
+→ Re-attempt build with refined specification
 
 ### Terminal Failure Path
 **If 2 build attempts fail**:
-â†’ Escalate to user with:
+→ Escalate to user with:
   "Build phase failed twice. Issues: {list}. 
    Options: (1) Manual intervention, (2) Restart with different requirements"
 ```
@@ -1379,10 +1379,10 @@ VS Code v1.107+ supports **background execution** with work tree isolation. Choo
 
 | Phases | Dependencies | Recommendation |
 |--------|--------------|----------------|
-| Research + External Validation | None (independent) | âœ… **Parallel** possible |
-| Research â†’ Build | Build needs research output | âŒ **Sequential** required |
-| Build â†’ Validate | Validation needs built file | âŒ **Sequential** required |
-| Fix â†’ Re-validate | Re-validation needs fixed file | âŒ **Sequential** required |
+| Research + External Validation | None (independent) | ✅ **Parallel** possible |
+| Research → Build | Build needs research output | ❌ **Sequential** required |
+| Build → Validate | Validation needs built file | ❌ **Sequential** required |
+| Fix → Re-validate | Re-validation needs fixed file | ❌ **Sequential** required |
 
 #### Background Delegation Pattern
 
@@ -1423,22 +1423,22 @@ Strategic checkpoints ensure user control at critical moments:
 ```markdown
 ## Checkpoint Placement Guidelines
 
-### âœ… ALWAYS checkpoint before:
+### ✅ ALWAYS checkpoint before:
 - File creation or modification (Phase 4)
 - Agent creation (Phase 4a, 6)
 - Deployment or external system changes
 
-### âœ… ALWAYS checkpoint after:
+### ✅ ALWAYS checkpoint after:
 - Research phase (user reviews patterns)
 - Structure definition (user approves spec)
 - Validation with warnings (user decides to accept or fix)
 
-### âš ï¸ Optional checkpoint:
+### ⚠️ Optional checkpoint:
 - Validation with clean pass (can auto-proceed)
 - Fix phase (auto-triggers re-validation)
 ```
 
-### ðŸ’¡ Key Design Decisions
+### 💡 Key Design Decisions
 
 ### 1. Orchestrator Never Implements
 
@@ -1511,7 +1511,7 @@ Validation/fix cycles can loop indefinitely without limits. Apply these constrai
 **After each iteration:**
 - Iteration 1: Apply fixes, re-validate automatically
 - Iteration 2: Apply fixes, re-validate automatically  
-- Iteration 3: If still failing â†’ STOP, escalate to user
+- Iteration 3: If still failing → STOP, escalate to user
 
 **Escalation message:**
 "Validation failed after 3 fix attempts. Issues remaining:
@@ -1537,16 +1537,16 @@ Builders must self-validate **before** saving files to catch issues early:
 
 - [ ] **Tool count**: [N] tools (MUST be 3-7)
       - If <3: Verify task is narrow enough
-      - If >7: STOP â†’ decompose into multiple agents
+      - If >7: STOP → decompose into multiple agents
 
 - [ ] **Agent mode / tool alignment**:
-      - `plan` + write tools = âŒ FAIL
-      - `agent` + only read tools = âš ï¸ Verify intentional
+      - `plan` + write tools = ❌ FAIL
+      - `agent` + only read tools = ⚠️ Verify intentional
 
 - [ ] **Three-tier boundaries complete**:
-      - âœ… Always Do section present
-      - âš ï¸ Ask First section present  
-      - ðŸš« Never Do section present
+      - ✅ Always Do section present
+      - ⚠️ Ask First section present  
+      - 🚫 Never Do section present
 
 - [ ] **Bottom metadata block present** (for articles)
 
@@ -1557,7 +1557,7 @@ Builders must self-validate **before** saving files to catch issues early:
 
 **Why?** Catching issues before file creation is cheaper than validation/fix cycles.
 
-### ðŸŽ›ï¸ Context Engineering for Orchestrators
+### 🎛️ Context Engineering for Orchestrators
 
 Multi-agent workflows can exceed token limits without optimization. Apply these patterns:
 
@@ -1565,12 +1565,12 @@ Multi-agent workflows can exceed token limits without optimization. Apply these 
 
 Orchestrators should **not** preload all context in Phase 1:
 
-âŒ **Inefficient:**
+❌ **Inefficient:**
 ```markdown
 Phase 1: Read all templates, all context files, all existing agents
 ```
 
-âœ… **Efficient:**
+✅ **Efficient:**
 ```markdown
 Phase 1: Gather requirements only
 Phase 2: Agent loads only relevant templates
@@ -1598,9 +1598,9 @@ When orchestrations involve many MCP servers:
 - Use **tool sets** to group related MCP + built-in tools
 - Configure threshold via `github.copilot.chat.virtualTools.threshold` setting
 
-Learn more: `.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`
+Learn more: `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 
-### ðŸ“ Implementation Example
+### 📝 Implementation Example
 
 ### The Orchestrator YAML
 
@@ -1639,21 +1639,21 @@ argument-hint: 'Describe the prompt purpose: what task it should accomplish, exp
 
 You coordinate specialized agents to design and create prompt files following repository best practices.
 
-## ðŸš¨ CRITICAL BOUNDARIES
+## 🚨 CRITICAL BOUNDARIES
 
-### âœ… Always Do
+### ✅ Always Do
 - Gather complete requirements before any handoffs
 - Challenge goals with use cases before accepting
 - Wait for user approval at each phase transition
 - Delegate all research/build/validate/update to specialists
 - Validate files before declaring completion
 
-### âš ï¸ Ask First
+### ⚠️ Ask First
 - When requirements are ambiguous after use case challenge
 - When Phase 3 identifies agent dependencies
 - When validation finds critical issues (>3 iterations)
 
-### ðŸš« Never Do
+### 🚫 Never Do
 - NEVER skip requirements gathering (Phase 1)
 - NEVER skip use case challenge validation
 - NEVER build without approved specification
@@ -1680,10 +1680,10 @@ You coordinate specialized agents to design and create prompt files following re
 ### Agent Inventory
 **Existing agents applicable:** 0
 **New agents recommended:** 4
-- `security-reviewer` â†’ Phase 1 (reusable for: security audits)
-- `style-reviewer` â†’ Phase 2 (reusable for: PR reviews)
-- `performance-reviewer` â†’ Phase 3 (reusable for: optimization)
-- `test-reviewer` â†’ Phase 4 (reusable for: coverage checks)
+- `security-reviewer` → Phase 1 (reusable for: security audits)
+- `style-reviewer` → Phase 2 (reusable for: PR reviews)
+- `performance-reviewer` → Phase 3 (reusable for: optimization)
+- `test-reviewer` → Phase 4 (reusable for: coverage checks)
 
 ### Architecture Recommendation
 
@@ -1707,33 +1707,33 @@ Validators produce structured reports that enable automated fix cycles:
 ```markdown
 ## Validation Report: prompt-design-and-create.prompt.md
 
-**Overall Status**: âš ï¸ WARNINGS (1 critical, 2 minor)
+**Overall Status**: ⚠️ WARNINGS (1 critical, 2 minor)
 **Validation Iteration**: 1/3
 
 ### Agent-Specific Checks
 
 | Check | Result | Details |
 |-------|--------|--------|
-| Tool Count | âœ… PASS | 2 tools (within 3-7 range for orchestrator) |
-| Agent/Tool Alignment | âœ… PASS | `agent` mode with read-only tools (intentional) |
-| Handoff Validity | âœ… PASS | 6 handoffs, all targets exist |
-| Three-Tier Boundaries | âœ… PASS | Always/Ask/Never sections present |
+| Tool Count | ✅ PASS | 2 tools (within 3-7 range for orchestrator) |
+| Agent/Tool Alignment | ✅ PASS | `agent` mode with read-only tools (intentional) |
+| Handoff Validity | ✅ PASS | 6 handoffs, all targets exist |
+| Three-Tier Boundaries | ✅ PASS | Always/Ask/Never sections present |
 
 ### Structure Checks
 
 | Check | Result | Details |
 |-------|--------|--------|
-| YAML Frontmatter | âœ… PASS | All required fields present |
-| Description Length | âš ï¸ WARN | 98 chars (recommend <80) |
-| Role Section | âœ… PASS | Clear specialist description |
-| Process Section | âœ… PASS | Phases documented |
+| YAML Frontmatter | ✅ PASS | All required fields present |
+| Description Length | ⚠️ WARN | 98 chars (recommend <80) |
+| Role Section | ✅ PASS | Clear specialist description |
+| Process Section | ✅ PASS | Phases documented |
 
 ### Content Checks
 
 | Check | Result | Details |
 |-------|--------|--------|
-| Examples Included | âŒ FAIL | 0 examples (minimum 2 required) |
-| Boundary Specificity | âš ï¸ WARN | "Never Do" could be more specific |
+| Examples Included | ❌ FAIL | 0 examples (minimum 2 required) |
+| Boundary Specificity | ⚠️ WARN | "Never Do" could be more specific |
 
 ### Issues Summary
 
@@ -1760,7 +1760,7 @@ fixes:
 **Handoff to updater? (auto if critical issues)**
 ```
 
-### ðŸ“Š Real Implementation Case Study
+### 📊 Real Implementation Case Study
 
 The patterns in this article were battle-tested by designing and implementing a complete prompt/agent creation system. The case study documents:
 
@@ -1800,7 +1800,7 @@ The patterns in this article were battle-tested by designing and implementing a 
 
 For complete specifications, implementation roadmap, and detailed agent designs, see:
 
-**[ðŸ“ Prompt Creation Multi-Agent Flow - Implementation Plan](./21.1-example_prompt_interacting_with_agents_plan.md)** `[ðŸ“’ Internal]`
+**[📝 Prompt Creation Multi-Agent Flow - Implementation Plan](./21.1-example_prompt_interacting_with_agents_plan.md)** `[📒 Internal]`
 
 This companion document includes:
 - Complete YAML specifications for all 4 orchestrators
@@ -1808,7 +1808,7 @@ This companion document includes:
 - 2-week staged implementation roadmap
 - Success criteria and validation checklists
 
-## ðŸŽ¯ Conclusion
+## 🎯 Conclusion
 
 Building complex AI workflows requires moving beyond monolithic prompts to orchestrated multi-agent systems. The key principles are:
 
@@ -1830,11 +1830,11 @@ Building complex AI workflows requires moving beyond monolithic prompts to orche
 
 ```
 Orchestrator (coordinates, never implements)
-    â”‚
-    â”œâ”€â”€ Researcher (read-only, discovers patterns)
-    â”œâ”€â”€ Builder (write, creates new files, pre-validates)
-    â”œâ”€â”€ Validator (read-only, checks quality, max 3 iterations)
-    â””â”€â”€ Updater (write, fixes issues)
+    │
+    ├── Researcher (read-only, discovers patterns)
+    ├── Builder (write, creates new files, pre-validates)
+    ├── Validator (read-only, checks quality, max 3 iterations)
+    └── Updater (write, fixes issues)
 ```
 
 ### When to Use This Pattern
@@ -1850,7 +1850,7 @@ By following this pattern, you create maintainable, reusable, and reliable AI wo
 
 ---
 
-# âš ï¸ Common Mistakes in Multi-Agent Orchestration
+# ⚠️ Common Mistakes in Multi-Agent Orchestration
 
 Orchestrating multiple agents introduces complexity beyond single-agent workflows. These mistakes can cause coordination failures, context loss, or frustrating user experiences.
 
@@ -1858,7 +1858,7 @@ Orchestrating multiple agents introduces complexity beyond single-agent workflow
 
 **Problem**: Confusion about whether the prompt or the agent controls workflow progression.
 
-**âŒ Bad example:**
+**❌ Bad example:**
 ```yaml
 ## orchestrator.prompt.md
 ---
@@ -1879,9 +1879,9 @@ handoffs:
 Create a plan. Then hand off to developer agent.
 ```
 
-**Problem:** Both prompt AND agent try to control handoff â†’ duplicate instructions, unclear flow.
+**Problem:** Both prompt AND agent try to control handoff → duplicate instructions, unclear flow.
 
-**âœ… Solution: Orchestrator prompt controls flow, agents execute:**
+**✅ Solution: Orchestrator prompt controls flow, agents execute:**
 ```yaml
 ## orchestrator.prompt.md
 ---
@@ -1928,7 +1928,7 @@ Create implementation plans. The orchestrator prompt controls when to proceed.
 
 **Problem**: Critical information from earlier phases gets lost when transitioning between agents.
 
-**âŒ Bad example:**
+**❌ Bad example:**
 ```yaml
 handoffs:
   - label: "Test"
@@ -1941,7 +1941,7 @@ handoffs:
 - What requirements it must satisfy
 - What edge cases to cover
 
-**âœ… Solution: Explicit context carryover in handoff prompts:**
+**✅ Solution: Explicit context carryover in handoff prompts:**
 ```yaml
 handoffs:
   - label: "Generate Tests"
@@ -1965,24 +1965,24 @@ handoffs:
 
 **Problem**: Creating workflows with 6+ sequential handoffs creates slow, fragile chains.
 
-**âŒ Bad example:**
+**❌ Bad example:**
 ```yaml
 Phase 1: Requirements Analyst
-  â†“
+  ↓
 Phase 2: Technical Architect
-  â†“
+  ↓
 Phase 3: Database Designer
-  â†“
+  ↓
 Phase 4: API Designer
-  â†“
+  ↓
 Phase 5: Frontend Developer
-  â†“
+  ↓
 Phase 6: Test Engineer
-  â†“
+  ↓
 Phase 7: Security Auditor
-  â†“
+  ↓
 Phase 8: Performance Optimizer
-  â†“
+  ↓
 Phase 9: Documentation Writer
 ```
 
@@ -1992,17 +1992,17 @@ Phase 9: Documentation Writer
 - Context dilution
 - Slow execution
 
-**âœ… Solution: Consolidate related phases, parallelize when possible:**
+**✅ Solution: Consolidate related phases, parallelize when possible:**
 ```yaml
 Phase 1: Planning Agent
   - Requirements analysis
   - Technical architecture
   - Database and API design (combined)
-  â†“
+  ↓
 Phase 2: Implementation Agent
   - Frontend and backend together
   - Security patterns included
-  â†“
+  ↓
 Phase 3: Quality Agent
   - Testing + performance review (combined)
   - Documentation generation
@@ -2014,7 +2014,7 @@ Phase 3: Quality Agent
 
 **Problem**: Workflow has no path forward when an agent can't complete its task.
 
-**âŒ Bad example:**
+**❌ Bad example:**
 ```yaml
 handoffs:
   - label: "Deploy"
@@ -2024,7 +2024,7 @@ handoffs:
 
 **What happens if deployment fails?** No fallback, no alternative path.
 
-**âœ… Solution: Include fallback handoffs or user intervention points:**
+**✅ Solution: Include fallback handoffs or user intervention points:**
 ```yaml
 ### Phase 4: Deployment (@deployment-agent)
 
@@ -2055,7 +2055,7 @@ handoffs:
 
 **Problem**: Creating orchestrators that call other orchestrators, creating confusing nested workflows.
 
-**âŒ Bad example:**
+**❌ Bad example:**
 ```yaml
 ## master-orchestrator.prompt.md
 agent: planning-orchestrator  # Calls another orchestrator
@@ -2071,34 +2071,34 @@ handoffs:
 
 **Result:** 3 levels of orchestration before actual work starts.
 
-**âœ… Solution: One orchestrator, specialized agents:**
+**✅ Solution: One orchestrator, specialized agents:**
 ```yaml
 ## feature-workflow.prompt.md (SINGLE orchestrator)
 agent: planner
 
 Phase 1: @planner - Create plan
-  â†“
+  ↓
 Phase 2: @developer - Implement
-  â†“
+  ↓
 Phase 3: @tester - Test
-  â†“
+  ↓
 Phase 4: @reviewer - Review
 ```
 
-**Rule:** One orchestrator (prompt file) â†’ Multiple execution agents (agent files)
+**Rule:** One orchestrator (prompt file) → Multiple execution agents (agent files)
 
 ## Mistake 6: Hardcoded Agent Names
 
 **Problem**: Orchestrator references specific agent names that might not exist in all projects.
 
-**âŒ Bad example:**
+**❌ Bad example:**
 ```yaml
 Hand off to @react-specialist for component implementation.
 ```
 
 **Problem:** Project might use Vue, or might not have `@react-specialist` agent defined.
 
-**âœ… Solution: Document required agents, provide defaults:**
+**✅ Solution: Document required agents, provide defaults:**
 ```yaml
 ---
 name: component-workflow
@@ -2125,13 +2125,13 @@ Create component specification...
 
 **Problem**: Orchestrator auto-progresses through destructive or irreversible steps.
 
-**âŒ Bad example:**
+**❌ Bad example:**
 ```yaml
 Phase 3: @deployment-agent
   send: true  # Automatically deploys without user review
 ```
 
-**âœ… Solution: Explicit checkpoints before high-risk operations:**
+**✅ Solution: Explicit checkpoints before high-risk operations:**
 ```yaml
 ### Phase 3: Deployment Preparation (@deployment-agent)
 
@@ -2139,7 +2139,7 @@ Prepare deployment artifacts and configuration.
 
 **USER CHECKPOINT:**
 
-âš ï¸ **Review the deployment plan above before proceeding.**
+⚠️ **Review the deployment plan above before proceeding.**
 
 Verify:
 - [ ] Target environment is correct
@@ -2159,14 +2159,14 @@ handoffs:
 
 **Problem**: Handoff prompts are too generic, providing insufficient context for next agent.
 
-**âŒ Bad examples:**
+**❌ Bad examples:**
 ```yaml
 prompt: "Continue"            # What should agent continue?
 prompt: "Do your thing"       # What thing?
 prompt: "Next phase"          # What is the next phase?
 ```
 
-**âœ… Solution: Specific, actionable handoff prompts:**
+**✅ Solution: Specific, actionable handoff prompts:**
 ```yaml
 handoffs:
   - label: "Generate Tests"
@@ -2187,7 +2187,7 @@ handoffs:
 
 **Problem**: Not considering where agents run (local vs. background vs. cloud).
 
-**âŒ Bad example (assumes all agents run locally):**
+**❌ Bad example (assumes all agents run locally):**
 ```yaml
 Phase 1: @planner (local)
 Phase 2: @developer (background)  # Has isolated work tree
@@ -2196,7 +2196,7 @@ Phase 3: @reviewer (local)         # Can't see background changes!
 
 **Problem:** Background agents work in isolated work trees; local agents can't see their changes until merged.
 
-**âœ… Solution: Match workflow to execution context:**
+**✅ Solution: Match workflow to execution context:**
 ```yaml
 ## Option 1: All local (synchronous, visible)
 Phase 1: @planner (local)
@@ -2206,7 +2206,7 @@ Phase 3: @reviewer (local)
 ## Option 2: Background with merge points
 Phase 1: @planner (local)
 Phase 2: @developer (background - creates PR)
-  â†’ USER reviews PR
+  → USER reviews PR
 Phase 3: @reviewer (local - after PR merged)
 
 ## Option 3: All cloud (GitHub PR workflow)
@@ -2217,7 +2217,7 @@ Phase 3: @approval-agent (cloud)
 
 ## Key Takeaways
 
-âœ… **DO:**
+✅ **DO:**
 - Let orchestrator prompt control workflow; agents execute tasks
 - Include explicit context in handoff prompts
 - Consolidate related phases (aim for 3-5, not 9+)
@@ -2228,7 +2228,7 @@ Phase 3: @approval-agent (cloud)
 - Write specific, actionable handoff prompts
 - Match workflow design to agent execution contexts
 
-âŒ **DON'T:**
+❌ **DON'T:**
 - Split control between prompt and agent
 - Lose context between handoffs
 - Create excessively long sequential chains
@@ -2243,63 +2243,63 @@ By avoiding these orchestration mistakes, you'll build robust multi-agent workfl
 
 ---
 
-# ðŸ“š References
+# 📚 References
 
 ### Official Documentation
 
-**[VS Code - Customize Chat to Your Workflow](https://code.visualstudio.com/docs/copilot/copilot-customization)** `[ðŸ“˜ Official]`  
+**[VS Code - Customize Chat to Your Workflow](https://code.visualstudio.com/docs/copilot/copilot-customization)** `[📘 Official]`  
 Comprehensive VS Code documentation covering custom agents, prompt files, custom instructions, language models, and MCP integration. Authoritative source for VS Code-specific Copilot customization features.
 
-**[VS Code - Custom Agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents)** `[ðŸ“˜ Official]`  
+**[VS Code - Custom Agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents)** `[📘 Official]`  
 Detailed guide to creating custom agents in VS Code, including agent file structure, YAML frontmatter fields, handoff configuration, and sharing agents across teams. Covers background agents, cloud agents, and subagent integration.
 
-**[VS Code v1.107 Release Notes](https://code.visualstudio.com/updates/v1_107)** `[ðŸ“˜ Official]`  
+**[VS Code v1.107 Release Notes](https://code.visualstudio.com/updates/v1_107)** `[📘 Official]`  
 December 2024 release introducing Agent HQ unified interface, background agents with work tree isolation, "Continue in" delegation workflow, planning mode, MCP 1.0 features, and Claude skills integration. Essential for understanding the v1.107+ orchestration capabilities discussed in this article.
 
-**[VS Code - Chat Sessions (Agent HQ)](https://code.visualstudio.com/docs/copilot/chat/chat-sessions)** `[ðŸ“˜ Official]`  
+**[VS Code - Chat Sessions (Agent HQ)](https://code.visualstudio.com/docs/copilot/chat/chat-sessions)** `[📘 Official]`  
 Official documentation for Agent HQ interface covering session management across local, background, and cloud execution contexts. Explains "Continue in" workflow, work tree isolation, session filtering, and archive capabilities for multi-agent orchestrations.
 
-**[VS Code - Subagents](https://code.visualstudio.com/docs/copilot/agents/subagents)** `[ðŸ“˜ Official]`  
+**[VS Code - Subagents](https://code.visualstudio.com/docs/copilot/agents/subagents)** `[📘 Official]`  
 Official guide to subagent execution in VS Code. Covers how subagents work, parallel execution, custom agent delegation, the `agents` property for restricting subagents, and canonical orchestration patterns (Coordinator and Worker, Multi-perspective Code Review).
 
-**[VS Code - Prompt Files](https://code.visualstudio.com/docs/copilot/customization/prompt-files)** `[ðŸ“˜ Official]`  
+**[VS Code - Prompt Files](https://code.visualstudio.com/docs/copilot/customization/prompt-files)** `[📘 Official]`  
 Official guide to creating reusable prompt files with YAML frontmatter, tool configuration, variables, and integration with custom agents. Essential for understanding the building blocks orchestrators coordinate.
 
-**[VS Code - Use MCP Servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)** `[ðŸ“˜ Official]`  
+**[VS Code - Use MCP Servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)** `[📘 Official]`  
 Official guide to integrating Model Context Protocol (MCP) servers with VS Code Copilot. Covers MCP tool configuration, resource access, tool sets, and how agents can leverage MCP capabilities for database access, external APIs, and custom integrations.
 
-**[Model Context Protocol Documentation](https://modelcontextprotocol.io/)** `[ðŸ“˜ Official]`  
+**[Model Context Protocol Documentation](https://modelcontextprotocol.io/)** `[📘 Official]`  
 Official MCP standard documentation explaining how to connect AI applications to external systems (databases, APIs, file systems). Critical for understanding agent extensibility beyond built-in VS Code tools.
 
-**[Microsoft - Prompt Engineering Techniques](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering)** `[ðŸ“˜ Official]`  
+**[Microsoft - Prompt Engineering Techniques](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering)** `[📘 Official]`  
 Microsoft's comprehensive guide to prompt engineering covering components, few-shot learning, chain of thought, context grounding, and best practices. Foundational knowledge for designing effective prompts and orchestrators.
 
 ### Community Best Practices
 
-**[GitHub Blog - How to Write Great Agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)** `[ðŸ“— Verified Community]`  
+**[GitHub Blog - How to Write Great Agents.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)** `[📗 Verified Community]`  
 GitHub's analysis of 2,500+ agent files revealing best practices for agent personas, boundaries, and tool selection. Essential reading for understanding what makes agents succeed or fail in production.
 
-**[GitHub Docs - GitHub Copilot Documentation](https://docs.github.com/copilot/)** `[ðŸ“— Verified Community]`  
+**[GitHub Docs - GitHub Copilot Documentation](https://docs.github.com/copilot/)** `[📗 Verified Community]`  
 Central hub for GitHub Copilot features including chat, CLI, code review, coding agent, and Spaces. Covers auto model selection, response customization, and concepts underlying Copilot's multi-agent architecture.
 
 ### Internal Reference Materials
 
-**[21.1 Prompt Creation Multi-Agent Flow - Implementation Plan](./21.1-example_prompt_interacting_with_agents_plan.md)** `[ðŸ“’ Internal]`  
+**[21.1 Prompt Creation Multi-Agent Flow - Implementation Plan](./21.1-example_prompt_interacting_with_agents_plan.md)** `[📒 Internal]`  
 Complete case study documenting the real-world implementation of the multi-agent prompt creation system. Includes detailed YAML specifications for all orchestrators and agents, 2-week implementation roadmap, and battle-tested patterns that informed this article.
 
-**[04. How to Structure Content for Copilot Agent Files](../04-howto/04.00-how_to_structure_content_for_copilot_agent_files.md)** `[ðŸ“’ Community]`  
+**[04. How to Structure Content for Copilot Agent Files](../04-howto/04.00-how_to_structure_content_for_copilot_agent_files.md)** `[📒 Community]`  
 Detailed guide to agent file structure, personas, handoffs, tool configuration, and composing agents with prompts. Companion article covering implementation details for the patterns described here.
 
-**[Burke Holland â€” Orchestrations Demo](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md)** `[ï¿½ Verified Community]`  
+**[Burke Holland — Orchestrations Demo](../../../01.00-news/20260214.3-burke-holland-orchestrations/summary.md)** `[📗 Verified Community]`  
 Practical demonstration of an ultralight orchestration framework with four specialized agents, model-per-agent routing, and isolated context windows. Burke Holland is a Senior Cloud Advocate at Microsoft.
 
-**[03. How to Structure Content for Copilot Prompt Files](../04-howto/03.00-how_to_structure_content_for_copilot_prompt_files.md)** `[ðŸ“’ Community]`  
+**[03. How to Structure Content for Copilot Prompt Files](../04-howto/03.00-how_to_structure_content_for_copilot_prompt_files.md)** `[📒 Community]`  
 Comprehensive coverage of prompt file structure, YAML frontmatter, tool selection, and workflow design. Essential for understanding the building blocks that orchestrators coordinate.
 
-**Context Engineering Principles** (`.copilot/context/00.00-prompt-engineering/01-context-engineering-principles.md`) `[ðŸ“’ Internal]`  
+**Context Engineering Principles** (`.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`) `[📒 Internal]`  
 Repository-specific guidelines for narrow scope, imperative language, three-tier boundaries, context minimization, and lazy loading patterns. Critical for building efficient multi-agent orchestrations.
 
-**Tool Composition Guide** (`.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`) `[ðŸ“’ Internal]`  
+**Tool Composition Guide** (`.copilot/context/00.00-prompt-engineering/02-tool-composition-guide.md`) `[📒 Internal]`  
 Patterns and recipes for tool selection by role, performance optimization, and avoiding tool clash. Explains orchestrator tool patterns and agent tool specialization.
 
 ---

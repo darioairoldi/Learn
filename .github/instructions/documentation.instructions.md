@@ -1,6 +1,12 @@
 ---
 description: Base instructions for all Markdown files—essential structure, formatting, and validation rules. See article-writing.instructions.md for comprehensive writing guidance.
-applyTo: '*.md,_**/*.md,a**/*.md,A**/*.md,b**/*.md,B**/*.md,c**/*.md,C**/*.md,d**/*.md,D**/*.md,e**/*.md,E**/*.md,f**/*.md,F**/*.md,g**/*.md,G**/*.md,h**/*.md,H**/*.md,i**/*.md,I**/*.md,j**/*.md,J**/*.md,k**/*.md,K**/*.md,l**/*.md,L**/*.md,m**/*.md,M**/*.md,n**/*.md,N**/*.md,o**/*.md,O**/*.md,p**/*.md,P**/*.md,q**/*.md,Q**/*.md,r**/*.md,R**/*.md,s**/*.md,S**/*.md,t**/*.md,T**/*.md,u**/*.md,U**/*.md,v**/*.md,V**/*.md,w**/*.md,W**/*.md,x**/*.md,X**/*.md,y**/*.md,Y**/*.md,z**/*.md,Z**/*.md,0**/*.md,1**/*.md,2**/*.md,3**/*.md,4**/*.md,5**/*.md,6**/*.md,7**/*.md,8**/*.md,9**/*.md'
+applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md'
+version: "1.2.0"
+last_updated: "2026-03-22"
+context_dependencies:
+  - ".copilot/context/00.00-prompt-engineering/"
+  - ".copilot/context/01.00-article-writing/"
+  - ".copilot/context/90.00-learning-hub/"
 ---
 
 # Documentation Base Instructions
@@ -84,12 +90,26 @@ article_metadata:
 ```
 
 **Validation Rules:**
+
+📖 **Complete caching pattern:** `.copilot/context/00.00-prompt-engineering/04.01-validation-caching-pattern.md`
+
 1. Check bottom metadata `last_run` timestamp before validation
 2. Skip if `< 7 days` AND content unchanged
 3. Update only your validation section in bottom metadata
 4. **Never touch top YAML from validation prompts**
 
-📖 **Complete guidelines:** `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`
+📖 **Complete metadata guidelines:** `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`
+
+---
+
+## File Encoding (CRITICAL)
+
+All Markdown files and PE artifacts **MUST** be saved as **UTF-8** (with or without BOM).
+
+- **NEVER** use CP1252 (Windows-1252) encoding or CP1252-based conversions — they silently destroy emoji characters (✅, 🚫, ⚠️, 📘, 📗, 📒, 📕, etc.)
+- **NEVER** use `[System.Text.Encoding]::GetEncoding(1252)` or equivalent CP1252 conversions when processing Markdown files — multi-byte UTF-8 sequences (especially 4-byte emoji) are irreversibly replaced with `?`
+- When reading/writing files programmatically, always specify UTF-8 encoding explicitly
+- When fixing encoding issues, use string-level replacement maps rather than encoding round-trips through CP1252
 
 ---
 

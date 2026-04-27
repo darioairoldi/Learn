@@ -24,7 +24,7 @@ Enrich output with verified information and external references.
 
 ### ✅ Always Do
 
-- You MUST follow the output template: `.github/templates/article-generate-techsession-analysis/techsession-analysis.template.md`
+- You MUST follow the output template: `.github/templates/01.00-article-writing/article-generate-techsession-analysis/techsession-analysis.template.md`
 - You MUST structure main content chronologically (following session timeline order)
 - You MUST keep timestamps as metadata below headings (NEVER in headings)
 - You MUST move demo step-by-step details to dedicated appendix sections (brief mention + outcome in main flow)
@@ -55,7 +55,7 @@ Enrich output with verified information and external references.
 
 ## Input Sources
 
-**📖 Input Template:** `.github/templates/article-generate-techsession-analysis/input-techsession-analysis.template.md`
+**📖 Input Template:** `.github/templates/01.00-article-writing/article-generate-techsession-analysis/input-techsession-analysis.template.md`
 
 **Gather from ALL available sources (priority order):**
 1. **Explicit user input** — overrides everything
@@ -159,7 +159,7 @@ After deep analysis, enrich key topics with verified external information to imp
 - If folder name contains session title → `readme.sonnet4.md`
 - Otherwise → `YYYYMMDD-session-title-analysis.md`
 
-**Structure:** `.github/templates/article-generate-techsession-analysis/techsession-analysis.template.md`
+**Structure:** `.github/templates/01.00-article-writing/article-generate-techsession-analysis/techsession-analysis.template.md`
 
 ## Response Management
 
@@ -224,7 +224,7 @@ prompt_metadata:
     - "v2.1: Updated Phase 8 (Quality Check) with enrichment validation steps"
     - "v2.1: Updated output template with CONTENT ENRICHMENT guidance and callout block example"
     - "v2.0: Major rewrite — removed all redundancies from v1"
-    - "v2.0: Moved templates to dedicated folder .github/templates/article-generate-techsession-analysis/"
+    - "v2.0: Moved templates to dedicated folder .github/templates/01.00-article-writing/article-generate-techsession-analysis/"
     - "v2.0: Changed from thematic to CHRONOLOGICAL time-based analysis structure"
     - "v2.0: Added explicit demo → appendix routing (brief mention in main + appendix for detail)"
     - "v2.0: Added tangential content → appendix routing"
@@ -246,6 +246,6 @@ validations:
     status: "validated"
     last_run: "2026-02-14T00:00:00Z"
     checklist_passed: true
-    validated_by: "prompt-createorupdate-v2"
+    validated_by: "prompt-create-update"
 ---
 -->
