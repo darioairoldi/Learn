@@ -25,8 +25,8 @@ Shared rules for all prompt and agent files. Type-specific rules remain in `pe-p
 
 **HIGH** — fix before use:
 - **[H2]** Tool count: 3–7 per artifact; >7 = decompose
-- **[H4]** Response management: data gap scenarios defined. Define "I don't know" responses: (1) What's missing, (2) What was found, (3) Next steps.
-- **[H5]** Error recovery: fallback behavior for tool failures
+- **[H4]** Response management: data gap scenarios MUST be defined. 📖 See `04.03-production-readiness-patterns.md` for implementation patterns.
+- **[H5]** Error recovery: fallback behavior for tool failures MUST be defined. 📖 See `04.03-production-readiness-patterns.md` for implementation patterns.
 - **[H6]** Embedded test scenarios (3–5 per prompt, 3 per agent)
 - **[H7]** Narrow scope: one primary goal per artifact
 - **[H8]** Imperative language: MUST/NEVER/ALWAYS

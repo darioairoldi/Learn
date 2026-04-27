@@ -244,7 +244,8 @@ When creating a new context folder:
 ## References
 
 - **📖 Context file guidelines:** `.github/instructions/pe-context-files.instructions.md`
-- **📖 Context creation prompt:** `.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md`
+- **📖 Context creation (consolidated):** `.github/prompts/00.01-pe-consolidated/pe-con-create-update.prompt.md` (use: `/pe-con-create-update context <desc>`)
+- **📖 Context creation (granular):** `.github/prompts/00.02-pe-granular/pe-gra-context-information-create-update.prompt.md`
 - **📖 Source articles:** `03.00-tech/05.02-promptEngineering/`
 
 ---

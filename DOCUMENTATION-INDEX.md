@@ -166,23 +166,27 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **Location**: `.github/prompts/`
 
-**Prompt Creation/Update** (`.github/prompts/00.00-prompt-engineering/`):
-- [prompt-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-create-update.prompt.md) - Create or update prompt files
-- [prompt-design.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-design.prompt.md) - Design prompts from scratch
-- [prompt-review.prompt.md](.github/prompts/00.00-prompt-engineering/prompt-review.prompt.md) - Validate existing prompts
+**Prompt Creation/Update** (`.github/prompts/00.02-pe-granular/`):
+- [pe-gra-prompt-design.prompt.md](.github/prompts/00.02-pe-granular/pe-gra-prompt-design.prompt.md) - Design prompts from scratch
+- [pe-gra-prompt-review.prompt.md](.github/prompts/00.02-pe-granular/pe-gra-prompt-review.prompt.md) - Validate existing prompts
 
-**Guidance Maintenance** (`.github/prompts/00.00-prompt-engineering/`):
-- [instruction-file-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md) - Update instruction files
-- [context-information-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md) - Update context files
+**Simple Create/Update** (`.github/prompts/00.00-pe-simple/`):
+- [pe-sim-prompt-create-update.prompt.md](.github/prompts/00.00-pe-simple/pe-sim-prompt-create-update.prompt.md) - Create or update prompt files
+- [pe-sim-agent-create-update.prompt.md](.github/prompts/00.00-pe-simple/pe-sim-agent-create-update.prompt.md) - Create or update agent files
+- [pe-sim-skill-create-update.prompt.md](.github/prompts/00.00-pe-simple/pe-sim-skill-create-update.prompt.md) - Create or update skill files
+
+**Guidance Maintenance** (`.github/prompts/00.02-pe-granular/`):
+- [pe-gra-instruction-file-create-update.prompt.md](.github/prompts/00.02-pe-granular/pe-gra-instruction-file-create-update.prompt.md) - Update instruction files
+- [pe-gra-context-information-create-update.prompt.md](.github/prompts/00.02-pe-granular/pe-gra-context-information-create-update.prompt.md) - Update context files
 
 ### Agent Files
 
 **Location**: `.github/agents/`
 
-**Agent Creation/Update** (`.github/prompts/00.00-prompt-engineering/`):
-- [agent-create-update.prompt.md](.github/prompts/00.00-prompt-engineering/agent-create-update.prompt.md) - Create or update agent files
-- [agent-design.prompt.md](.github/prompts/00.00-prompt-engineering/agent-design.prompt.md) - Design agents from scratch
-- [agent-review.prompt.md](.github/prompts/00.00-prompt-engineering/agent-review.prompt.md) - Validate existing agents
+**Agent Creation/Update** (`.github/prompts/00.09-pe-meta/`):
+- [agent-create-update.prompt.md](.github/prompts/00.09-pe-meta/agent-create-update.prompt.md) - Create or update agent files
+- [agent-design.prompt.md](.github/prompts/00.09-pe-meta/agent-design.prompt.md) - Design agents from scratch
+- [agent-review.prompt.md](.github/prompts/00.09-pe-meta/agent-review.prompt.md) - Validate existing agents
 
 **Specialized Agents by Role**:
 
