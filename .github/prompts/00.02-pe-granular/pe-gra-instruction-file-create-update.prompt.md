@@ -15,10 +15,24 @@ tools:
   - fetch_webpage
 handoffs:
   - label: "Research Instruction Layer"
+<<<<<<<< HEAD:.github/prompts/00.02-pe-granular/pe-gra-instruction-file-create-update.prompt.md
     agent: pe-gra-instruction-researcher
     send: true
   - label: "Validate Instruction File"
     agent: pe-gra-instruction-validator
+========
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md
+    agent: instruction-researcher
+    send: true
+  - label: "Validate Instruction File"
+    agent: instruction-validator
+========
+    agent: pe-instruction-researcher
+    send: true
+  - label: "Validate Instruction File"
+    agent: pe-instruction-validator
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-instruction-file-create-update.prompt.md
+>>>>>>>> 954b5cc98cf5fbca81fea98be61f0a5e713553dd:.github/prompts/00.02-pe-granular/instruction-file-create-update.prompt.md
     send: true
 argument-hint: 'Specify domain (e.g., "validation", "code-review"), target file patterns (applyTo), and context sources'
 goal: "Create or update instruction file artifacts with structural validation"
@@ -437,8 +451,13 @@ context_dependencies:
 
 - `.copilot/context/STRUCTURE-README.md` — Source patterns for context folders
 - `.copilot/context/{domain}/*.md` — Domain-specific context files
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md
+- `.github/instructions/prompts.instructions.md` — Example instruction file structure
+- `.github/instructions/agents.instructions.md` — Example with tool guidance
+========
 - `.github/instructions/pe-prompts.instructions.md` — Example instruction file structure
 - `.github/instructions/pe-agents.instructions.md` — Example with tool guidance
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-instruction-file-create-update.prompt.md
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)

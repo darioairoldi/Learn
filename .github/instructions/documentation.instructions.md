@@ -1,12 +1,8 @@
 ---
 description: Base instructions for all Markdown files—essential structure, formatting, and validation rules. See article-writing.instructions.md for comprehensive writing guidance.
 applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md'
-version: "1.3.0"
-last_updated: "2026-04-24"
-goal: "Provide base-layer structure, formatting, metadata, and validation rules for all Markdown files"
-rationales:
-  - "Acts as the foundation that article-writing.instructions.md extends"
-  - "Ensures consistent metadata (dual YAML) and formatting across all content areas"
+version: "1.2.0"
+last_updated: "2026-03-22"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
   - ".copilot/context/01.00-article-writing/"
@@ -149,7 +145,7 @@ Before considering an article complete:
 | File | Purpose | When to Use |
 |------|---------|-------------|
 | `article-writing.instructions.md` | Comprehensive writing guidance | Creating/editing articles |
-| `pe-prompts.instructions.md` | Prompt file creation | Creating `.prompt.md` files |
-| `pe-agents.instructions.md` | Agent file creation | Creating `.agent.md` files |
-| `pe-context-files.instructions.md` | Context file creation | Creating context documentation |
-| `pe-skills.instructions.md` | Skill file creation | Creating `SKILL.md` files |
+| `prompts.instructions.md` | Prompt file creation | Creating `.prompt.md` files |
+| `agents.instructions.md` | Agent file creation | Creating `.agent.md` files |
+| `context-files.instructions.md` | Context file creation | Creating context documentation |
+| `skills.instructions.md` | Skill file creation | Creating `SKILL.md` files |

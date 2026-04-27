@@ -20,27 +20,6 @@ handoffs:
     agent: documentation-validator
     send: true
 argument-hint: 'Provide target folder path (e.g., 03.00-tech/05.02-prompt-engineering) and optionally: topic focus, audience level, article count goal'
-version: "1.0.0"
-goal: "Orchestrate the complete documentation design and creation workflow (research → build → validate) by coordinating the documentation agent triad to produce a coherent documentation set for a subject area"
-scope:
-  covers:
-    - "Documentation set design (article organization, Diátaxis type distribution, learning paths)"
-    - "Agent orchestration (documentation-researcher → documentation-builder → documentation-validator)"
-    - "Multi-article creation coordination"
-    - "Quality gate enforcement between phases"
-  excludes:
-    - "Single-article creation without orchestration (see article-design-and-create)"
-    - "Documentation review of existing sets (see documentation-review)"
-    - "Individual agent behavior (defined in agent files)"
-boundaries:
-  - "MUST delegate research to documentation-researcher — does NOT research itself"
-  - "MUST delegate writing to documentation-builder — does NOT write articles itself"
-  - "MUST delegate validation to documentation-validator — does NOT validate itself"
-  - "MUST present research findings to user before proceeding to building"
-rationales:
-  - "Orchestrator pattern (thin prompt + specialized agents) prevents context overload and enables each agent to focus on its specialty"
-  - "User approval gate between research and building prevents wasted effort on unwanted articles"
-  - "Documentation-set-level planning before individual article creation ensures coherent coverage and avoids gaps"
 ---
 
 # Documentation Design and Create

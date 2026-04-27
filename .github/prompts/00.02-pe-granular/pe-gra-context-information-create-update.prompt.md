@@ -15,10 +15,24 @@ tools:
   - fetch_webpage
 handoffs:
   - label: "Research Context Layer"
+<<<<<<<< HEAD:.github/prompts/00.02-pe-granular/pe-gra-context-information-create-update.prompt.md
     agent: pe-gra-context-researcher
     send: true
   - label: "Validate Context File"
     agent: pe-gra-context-validator
+========
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
+    agent: context-researcher
+    send: true
+  - label: "Validate Context File"
+    agent: context-validator
+========
+    agent: pe-context-researcher
+    send: true
+  - label: "Validate Context File"
+    agent: pe-context-validator
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
+>>>>>>>> 954b5cc98cf5fbca81fea98be61f0a5e713553dd:.github/prompts/00.02-pe-granular/context-information-create-update.prompt.md
     send: true
 argument-hint: 'Specify topic/domain (e.g., "validation caching"), context sources (URLs, files), and target folder under .copilot/context/'
 goal: "Create or update context information artifacts with structural validation"
@@ -184,7 +198,11 @@ Create or update context information that ensures prompts/agents referencing it 
 
 **Multi-file support:** When the user provides a broad topic or targets a domain folder, assess whether it fits in one file or needs splitting. For updates to existing domain folders, add/restructure files if the topic scope has changed.
 
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
+**Authoritative source URLs:** When creating domain context files, include an `authoritative_sources:` section in YAML frontmatter listing URLs that should be consulted for future updates:
+========
 **Authoritative source URLs:** When creating domain context files, include an `authoritative_sources:` section in YAML frontmatter listing URLs that should be consulted for future updates. This is in addition to the required metadata contract fields (`goal:`, `scope:`, `boundaries:`, `rationales:`, `version:`):
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
 
 ```yaml
 ---
@@ -193,6 +211,8 @@ description: "One-sentence summary"
 version: "1.0.0"
 last_updated: "2026-03-16"
 domain: "migration-validation"
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
+========
 goal: "Single sentence: the one outcome this file exists to achieve"
 scope:
   covers:
@@ -203,6 +223,7 @@ boundaries:
   - "Constraint 1"
 rationales:
   - "Why key decision X was made"
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
 authoritative_sources:
   - url: "https://learn.microsoft.com/..."
     description: "Official API versioning guidance"
@@ -245,7 +266,11 @@ For multi-file domains, ensure cross-file vocabulary consistency and non-redunda
 1. **Determine Operation Type** — UPDATE (existing domain) or CREATE (new topic)
 2. **Discover Sources** by priority: user input → execution context → STRUCTURE-README.md patterns → semantic search → additional discovery
 3. **Read STRUCTURE-README.md** for existing domains: extract source patterns (file globs, URLs, search queries) and update strategy
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
+4. **Collect and Merge** — combine all sources, run searches, check existing context files for overlap, read `context-files.instructions.md`
+========
 4. **Collect and Merge** — combine all sources, run searches, check existing context files for overlap, read `pe-context-files.instructions.md`
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
 5. **Present summary** — topic, target folder, operation, source counts, existing related context
 
 ---
@@ -511,7 +536,11 @@ Format source patterns according to STRUCTURE-README.md conventions:
 ## References
 
 - `.copilot/context/STRUCTURE-README.md` — Source patterns for each context folder
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
+- `.github/instructions/context-files.instructions.md` — Context file creation rules
+========
 - `.github/instructions/pe-context-files.instructions.md` — Context file creation rules
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: How to write great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
