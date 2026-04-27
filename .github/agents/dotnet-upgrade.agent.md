@@ -1,6 +1,16 @@
 ---
 description: 'Perform janitorial tasks on C#/.NET code including cleanup, modernization, and tech debt remediation.'
-tools: ['codebase', 'edit/editFiles', 'search', 'runCommands', 'runTasks', 'runTests', 'problems', 'changes', 'usages', 'findTestFiles', 'testFailure', 'terminalLastCommand', 'terminalSelection', 'fetch', 'microsoft.docs.mcp']
+agent: agent
+tools:
+  - codebase
+  - edit/editFiles
+  - search
+  - runCommands
+  - runTests
+  - problems
+  - fetch
+version: "1.0.0"
+last_updated: "2026-03-20"
 ---
 
 # .NET Upgrade Collection
@@ -198,6 +208,19 @@ Ensure pipelines use the detected **target version** dynamically:
 ## Branching & Rollback Strategy
 - Use feature branches: `upgrade/<project>-to-<targetVersion>`
 - Commit frequently and keep changes atomic
+
+## 🚫 Never Do
+- **NEVER upgrade multiple projects simultaneously** — upgrade one at a time, validate, then proceed
+- **NEVER skip the test validation step** — all tests must pass before committing
+- **NEVER remove a target framework without verifying all consumers have been upgraded**
+
+<!--
+agent_metadata:
+  created: "2025-12-01"
+  last_updated: "2026-03-20"
+  version: "1.0.0"
+  purpose: ".NET upgrade and modernization specialist"
+-->
 - If CI fails after merge, revert PR and isolate failing modules
 
 **Chat Prompt:**

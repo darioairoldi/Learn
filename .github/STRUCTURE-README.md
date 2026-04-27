@@ -134,10 +134,10 @@ Located in `.copilot/scripts/`:
 |------|------------|---------|
 | `documentation.instructions.md` | `*.md` (content) | Base markdown rules |
 | `article-writing.instructions.md` | `*.md` (content) | Comprehensive writing guidance |
-| `prompts.instructions.md` | `.github/prompts/**/*.md` | Prompt file creation rules |
-| `agents.instructions.md` | `.github/agents/**/*.agent.md` | Agent file creation rules |
-| `context-files.instructions.md` | `.copilot/context/**/*.md` | Context file creation rules |
-| `skills.instructions.md` | `.github/skills/**/SKILL.md` | Skill file creation rules |
+| `pe-prompts.instructions.md` | `.github/prompts/**/*.md` | Prompt file creation rules |
+| `pe-agents.instructions.md` | `.github/agents/**/*.agent.md` | Agent file creation rules |
+| `pe-context-files.instructions.md` | `.copilot/context/**/*.md` | Context file creation rules |
+| `pe-skills.instructions.md` | `.github/skills/**/SKILL.md` | Skill file creation rules |
 
 ---
 

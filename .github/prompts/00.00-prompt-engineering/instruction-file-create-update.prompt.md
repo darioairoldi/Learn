@@ -15,12 +15,23 @@ tools:
   - fetch_webpage
 handoffs:
   - label: "Research Instruction Layer"
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md
     agent: instruction-researcher
     send: true
   - label: "Validate Instruction File"
     agent: instruction-validator
+========
+    agent: pe-instruction-researcher
+    send: true
+  - label: "Validate Instruction File"
+    agent: pe-instruction-validator
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-instruction-file-create-update.prompt.md
     send: true
 argument-hint: 'Specify domain (e.g., "validation", "code-review"), target file patterns (applyTo), and context sources'
+goal: "Create or update instruction file artifacts with structural validation"
+rationales:
+  - "Unified create-update workflow avoids maintaining separate create and update paths"
+  - "Metadata validation step enforces schema compliance on every operation"
 ---
 
 # Create or Update Instruction Files
@@ -198,12 +209,12 @@ Create or update instruction files that ensure Copilot applies:
 **Existing Instruction Files (check for conflicts):**
 ```
 .github/instructions/
-├── agents.instructions.md          # applyTo: '.github/agents/**/*.agent.md'
+├── pe-agents.instructions.md          # applyTo: '.github/agents/**/*.agent.md'
 ├── article-writing.instructions.md # applyTo: '*.md,...' (content files)
-├── context-files.instructions.md   # applyTo: '.copilot/context/**/*.md'
+├── pe-context-files.instructions.md   # applyTo: '.copilot/context/**/*.md'
 ├── documentation.instructions.md   # applyTo: '*.md,...' (content files)
-├── prompts.instructions.md         # applyTo: '.github/prompts/**/*.md'
-└── skills.instructions.md          # applyTo: '.github/skills/**/SKILL.md'
+├── pe-prompts.instructions.md         # applyTo: '.github/prompts/**/*.md'
+└── pe-skills.instructions.md          # applyTo: '.github/skills/**/SKILL.md'
 ```
 
 ---
@@ -271,12 +282,40 @@ Create or update instruction files that ensure Copilot applies:
 ### Phase 3: Generate Instruction File
 **Tools:** `create_file`, `replace_string_in_file`, `multi_replace_string_in_file`
 
+**Instruction minimization principle (CRITICAL):** Instruction files auto-inject via `applyTo` patterns with NO precedence mechanism. When multiple PE systems coexist (pe-, pe1-), instruction files with overlapping `applyTo` patterns inject contradictory rules silently. To minimize conflict risk:
+- **Instruction files SHOULD contain only testable, mechanical rules** (YAML structure, naming conventions, token budgets, required sections, reference validation)
+- **Behavioral/strategic rules belong in context files or agent bodies** where consumers explicitly choose what to load
+- **If a rule requires judgment to apply, it belongs in a context file, not an instruction file**
+
+**Required YAML Frontmatter** (metadata contract):
+
+```yaml
+---
+description: "One-sentence description"
+applyTo: '[glob pattern]'
+version: "1.0.0"
+last_updated: "YYYY-MM-DD"
+goal: "Single sentence: what this instruction file ensures"
+scope:
+  covers:
+    - "Rule category 1"
+  excludes:
+    - "Excluded concern"
+boundaries:
+  - "Token budget ≤1,500"
+  - "Flat structure in .github/instructions/"
+rationales:
+  - "Why this instruction file exists as separate from context"
+context_dependencies:
+  - "00.00-prompt-engineering/"
+---
+```
+
 **Required Structure:**
 
 ```markdown
 ---
-description: [One-sentence description of what this instruction file provides]
-applyTo: '[glob pattern for target files]'
+[YAML frontmatter with metadata contract]
 ---
 
 # [Domain] Instructions
@@ -288,9 +327,10 @@ applyTo: '[glob pattern for target files]'
 
 ---
 
-## [Core Section 1]
+## [Core Section 1 — testable/mechanical rules only]
 
 [Rules using imperative language: MUST, WILL, NEVER, SHOULD]
+[Only include rules that are testable/boolean — not judgment-dependent]
 
 ## [Core Section 2]
 
@@ -313,6 +353,8 @@ applyTo: '[glob pattern for target files]'
 
 **Content Principles:**
 - Use imperative language (MUST, WILL, NEVER, SHOULD)
+- **Only include testable, mechanical rules** — rules that can be checked with a boolean pass/fail
+- **Behavioral/strategic guidance belongs in context files** — instruction files reference them via `📖`
 - Include repository-specific examples when possible
 - Reference context files, don't duplicate content
 - Keep focused—one clear responsibility per file
@@ -327,15 +369,28 @@ applyTo: '[glob pattern for target files]'
 
 | Check | Criteria | Status |
 |-------|----------|--------|
+| **Metadata contract** | YAML has `goal:`, `scope:`, `boundaries:`, `rationales:`, `version:` | ☐ |
 | YAML frontmatter | Has `description` and `applyTo` | ☐ |
 | Description | Clear, one sentence | ☐ |
-| applyTo pattern | Valid glob, no conflicts | ☐ |
+| applyTo pattern | Valid glob, no conflicts with other instruction files | ☐ |
+| **Minimization check** | Rules are testable/mechanical — no judgment-dependent behavioral rules | ☐ |
 | Purpose section | Explains file's responsibility | ☐ |
 | Imperative language | Uses MUST/WILL/NEVER/SHOULD | ☐ |
 | No duplicates | No overlap with existing instruction files | ☐ |
-| Context references | Uses links, not embedded content | ☐ |
+| Context references | Uses `📖` links, not embedded content | ☐ |
 | Examples | From this repository (not generic) | ☐ |
 | References section | External + internal sources | ☐ |
+| Token budget | ≤1,500 tokens | ☐ |
+
+**Metadata contract rejection:** If `goal:`, `scope:`, or `version:` are missing, REJECT — return to Phase 3.
+
+**Minimization rejection:** If any rule requires LLM judgment to evaluate (e.g., "write in a warm tone", "use appropriate level of detail"), flag it and recommend moving to a context file instead.
+
+**Post-change reconciliation (MANDATORY for updates):**
+- Bump `version:` (patch for non-breaking, minor for additive, major for breaking)
+- Update `last_updated:` to today's date
+- Verify `scope.covers:` topics still match content section headings
+- If `goal:` no longer accurate after the change, update it
 
 **If validation fails:** Return to Phase 3 to fix issues.
 **If validation passes:** Save file and report completion.
@@ -347,9 +402,9 @@ applyTo: '[glob pattern for target files]'
 | Test | Category | Input | Key Validation |
 |------|----------|-------|----------------|
 | 1 | Happy Path - Create | "Create instructions for PowerShell scripts" | Complete workflow, file created, no conflicts |
-| 2 | Happy Path - Update | "Update prompts.instructions.md" | Reads context files, STRUCTURE-README.md, merges sources |
+| 2 | Happy Path - Update | "Update pe-prompts.instructions.md" | Reads context files, STRUCTURE-README.md, merges sources |
 | 3 | Pattern Conflict | "applyTo: '*.md'" overlaps documentation.instructions.md | Conflict detected, options presented |
-| 4 | Responsibility Overlap | Rules duplicate prompts.instructions.md | Stops, shows existing file, asks resolution |
+| 4 | Responsibility Overlap | Rules duplicate pe-prompts.instructions.md | Stops, shows existing file, asks resolution |
 | 5 | Missing Source | "Based on https://broken-link.com" | Error recovery triggered |
 | 6 | Out of Scope | "Create a context file" | Redirect to correct prompt |
 | 7 | Incomplete Input | "Create some instructions" | Clarification questions asked |
@@ -375,10 +430,10 @@ applyTo: '[glob pattern for target files]'
 **Common Patterns:**
 | Domain | Pattern | Notes |
 |--------|---------|-------|
-| Prompts | `.github/prompts/**/*.md` | Already used by prompts.instructions.md |
-| Agents | `.github/agents/**/*.agent.md` | Already used by agents.instructions.md |
-| Context | `.copilot/context/**/*.md` | Already used by context-files.instructions.md |
-| Skills | `.github/skills/**/SKILL.md` | Already used by skills.instructions.md |
+| Prompts | `.github/prompts/**/*.md` | Already used by pe-prompts.instructions.md |
+| Agents | `.github/agents/**/*.agent.md` | Already used by pe-agents.instructions.md |
+| Context | `.copilot/context/**/*.md` | Already used by pe-context-files.instructions.md |
+| Skills | `.github/skills/**/SKILL.md` | Already used by pe-skills.instructions.md |
 | C# Code | `src/**/*.cs` | Available |
 | PowerShell | `**/*.ps1` | Available |
 | YAML | `**/*.yml,**/*.yaml` | Available |
@@ -389,8 +444,13 @@ applyTo: '[glob pattern for target files]'
 
 - `.copilot/context/STRUCTURE-README.md` — Source patterns for context folders
 - `.copilot/context/{domain}/*.md` — Domain-specific context files
+<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md
 - `.github/instructions/prompts.instructions.md` — Example instruction file structure
 - `.github/instructions/agents.instructions.md` — Example with tool guidance
+========
+- `.github/instructions/pe-prompts.instructions.md` — Example instruction file structure
+- `.github/instructions/pe-agents.instructions.md` — Example with tool guidance
+>>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-instruction-file-create-update.prompt.md
 - `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)

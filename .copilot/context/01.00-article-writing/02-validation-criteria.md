@@ -1,3 +1,35 @@
+---
+title: "Validation criteria for technical documentation"
+description: "Quality thresholds, validation dimensions, automated checking criteria, and content lifecycle metrics for technical documentation review"
+version: "2.2.0"
+last_updated: "2026-04-26"
+domain: "article-writing"
+goal: "Define measurable pass/fail thresholds and validation dimensions so that article quality review produces consistent, reproducible results — not subjective opinions"
+scope:
+  covers:
+    - "Documentation Quality Triangle (accuracy, clarity, completeness)"
+    - "Quantitative validation targets (readability, sentence length, active voice, jargon density)"
+    - "Seven validation dimensions (grammar, readability, structure, factual accuracy, gaps, references, metadata)"
+    - "Series-level validation dimensions (architecture, category coverage, progression, structural echo)"
+    - "AI-assisted content provenance tags (SPEC/INFERRED/ASSUMED)"
+    - "Content freshness scoring (weighted formula, SLA tiers)"
+    - "Automated validation tool stack (Vale, textstat, markdownlint)"
+    - "Pre-publication checklist"
+  excludes:
+    - "Writing rules and style guidance (see article-writing.instructions.md)"
+    - "Quantitative readability formulas and replacement tables (see 01-style-guide.md)"
+    - "Article creation patterns and Diátaxis structures (see 03-article-creation-rules.md)"
+boundaries:
+  - "MUST NOT duplicate readability formula definitions from 01-style-guide.md — reference them"
+  - "MUST NOT include writing style rules — those belong in article-writing.instructions.md"
+  - "Freshness scoring formula and SLA tiers are authoritative here — other files MUST reference, not redefine"
+rationales:
+  - "Separating validation criteria from writing rules ensures reviewers focus on measurable quality dimensions, not stylistic preferences"
+  - "The Quality Triangle (accuracy × clarity × completeness) provides a framework that prevents validation from fixating on one dimension at the expense of others"
+  - "Content freshness scoring with weighted formula enables automated staleness detection — critical for the self-updating system's Detect cycle"
+  - "Series-level validation dimensions were added because single-article validation misses cross-article consistency problems (terminology drift, progression gaps, structural echo violations)"
+---
+
 # Validation Criteria for Technical Documentation
 
 **Purpose**: Quality thresholds, validation dimensions, automated checking criteria, and content lifecycle metrics for technical documentation review.

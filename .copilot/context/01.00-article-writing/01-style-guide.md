@@ -1,3 +1,32 @@
+---
+title: "Style guide — quantitative targets and reference tables"
+description: "Quantitative writing metrics, enforcement targets, and quick-reference lookup tables that complement the auto-loaded article-writing.instructions.md"
+version: "2.2.0"
+last_updated: "2026-04-26"
+domain: "article-writing"
+goal: "Provide measurable readability targets, audience calibration rules, and replacement tables so that article quality can be validated quantitatively — not just by subjective judgment"
+scope:
+  covers:
+    - "Readability metrics and targets (Flesch, Flesch-Kincaid, sentence length, active voice)"
+    - "Audience calibration (beginner/intermediate/advanced passage examples and rules)"
+    - "Quick-reference replacement tables (wordy→crisp, UI verbs, phrasal verbs, bias-free terms)"
+    - "Global-readiness checklist"
+    - "Visual documentation guidance (diagrams, screenshots, annotation limits)"
+    - "Procedure writing rules (summary — canonical rules in article-writing.instructions.md)"
+  excludes:
+    - "Writing voice and tone rules (see article-writing.instructions.md)"
+    - "Article structure and Diátaxis patterns (see 03-article-creation-rules.md)"
+    - "Validation pass/fail thresholds (see 02-validation-criteria.md)"
+boundaries:
+  - "MUST NOT duplicate rules already in article-writing.instructions.md — provide quantitative complements only"
+  - "MUST NOT define validation pass/fail thresholds — those belong in 02-validation-criteria.md"
+  - "Procedure writing section MUST remain a summary pointer to canonical rules in article-writing.instructions.md"
+rationales:
+  - "Separating quantitative targets from qualitative writing rules keeps article-writing.instructions.md focused on voice and structure while this file provides measurable enforcement criteria"
+  - "Replacement tables are lookup data — keeping them in a context file (loaded on-demand) avoids bloating the always-loaded instruction file"
+  - "Audience calibration was added because readability targets alone don't account for audience expertise level — Flesch 55 is fine for advanced content but too hard for beginners"
+---
+
 # Style Guide — Quantitative Targets and Reference Tables
 
 **Purpose**: Quantitative writing metrics, enforcement targets, and quick-reference lookup tables that complement the auto-loaded `article-writing.instructions.md`.

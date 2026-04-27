@@ -1,3 +1,35 @@
+---
+title: "Series planning workflow"
+description: "Process for planning, creating, and maintaining multi-article series with cross-article consistency"
+version: "2.3.0"
+last_updated: "2026-04-26"
+domain: "article-writing"
+goal: "Define the lifecycle for multi-article series (define → structure → plan metadata → create → validate → publish → maintain) so that cross-article consistency is maintained from planning through maintenance"
+scope:
+  covers:
+    - "When to create a series (breadth, depth, progression, audience criteria)"
+    - "Series lifecycle (7 phases from define to maintain)"
+    - "Diátaxis category planning (coverage matrix, concentration thresholds)"
+    - "Folder structure and terminology planning"
+    - "Cross-reference strategy selection (5 strategies)"
+    - "Worked example (REST API Documentation Series)"
+    - "Common series patterns"
+    - "Series consistency checklist"
+  excludes:
+    - "Single-article creation (see workflows/01-article-creation-workflow.md)"
+    - "Single-article review (see workflows/02-review-workflow.md)"
+    - "Series-level validation dimensions and thresholds (see 02-validation-criteria.md)"
+boundaries:
+  - "MUST reference actual prompt files — no phantom/placeholder names"
+  - "MUST NOT redefine series-level validation dimensions — reference 02-validation-criteria.md"
+  - "Category coverage matrix and terminology maps use YAML template format for machine readability"
+rationales:
+  - "Series planning prevents inconsistency that emerges when articles are written independently without shared terminology, structure, or progression planning"
+  - "Diátaxis category planning with concentration thresholds ensures series don't become monolithic (all tutorials) or fragmented (random mix)"
+  - "The worked example (REST API series) was added because abstract rules without concrete application leave planners uncertain about how to apply them"
+  - "Cross-reference strategy selection table was added because different series structures need different linking patterns (linear navigation vs. hub-spoke vs. matrix)"
+---
+
 # Series Planning Workflow
 
 **Purpose**: Process for planning, creating, and maintaining multi-article series with cross-article consistency.

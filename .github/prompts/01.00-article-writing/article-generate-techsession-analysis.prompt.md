@@ -5,6 +5,24 @@ agent: agent
 model: claude-opus-4.6
 tools: ['codebase', 'editor', 'filesystem', 'fetch']
 argument-hint: 'Assumes transcript.txt and SUMMARY.md exist in active folder'
+version: "1.0.0"
+goal: "Generate a deep, chronological analysis article from a technical session recording by following the session timeline, enriching with verified external references, and moving demos and tangential content to appendices"
+scope:
+  covers:
+    - "Chronological session analysis (follows session timeline, not concept-driven)"
+    - "Demo and tangential content extraction to appendices"
+    - "External reference enrichment via web research"
+    - "Output template application for consistent formatting"
+  excludes:
+    - "Concept-driven summaries (see article-generate-techsession-summary)"
+    - "Article review or quality scoring (see article-review prompts)"
+boundaries:
+  - "MUST follow chronological session order — not concept-driven reorganization"
+  - "MUST move demos and tangential content to appendices — not inline"
+  - "MUST verify enrichment references against authoritative sources"
+rationales:
+  - "Chronological ordering preserves the session's narrative flow and speaker intent — concept-driven summaries serve a different purpose (see techsession-summary)"
+  - "Appendix separation keeps the main article focused while preserving demo details for interested readers"
 ---
 
 # Generate Technical Session Analysis
