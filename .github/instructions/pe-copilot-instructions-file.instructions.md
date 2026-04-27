@@ -1,8 +1,8 @@
 ---
 description: Rules for maintaining the repository-wide copilot-instructions.md file — the highest-authority PE artifact, always injected last into every system prompt
 applyTo: '.github/copilot-instructions.md'
-version: "1.1.0"
-last_updated: "2026-04-24"
+version: "1.2.0"
+last_updated: "2026-04-27"
 goal: "Enforce structure, content boundaries, and maintenance triggers for the highest-authority PE artifact"
 rationales:
   - "As the final-authority file, it must contain only repo-specific rules not covered elsewhere"
@@ -39,6 +39,7 @@ context_dependencies:
 - **[M1]** Keep tables compact — one row per rule/artifact type, no inline explanations
 - Include `📖` reference to `01.03-file-type-decision-guide.md` for PE Artifact Map details
 - Repo-Specific Rules section SHOULD only contain rules that cannot live in context or instruction files
+- SHOULD note instruction priority hierarchy (Personal > Repository > Organization) when relevant — organization-level instructions are GA as of April 2026
 
 ## Maintenance Triggers
 

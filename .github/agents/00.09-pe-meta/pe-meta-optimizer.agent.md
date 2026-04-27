@@ -6,6 +6,7 @@ tools:
   - grep_search
   - file_search
   - list_dir
+  - create_file
   - replace_string_in_file
   - multi_replace_string_in_file
 handoffs:
@@ -118,6 +119,16 @@ If audit report path is missing: report `Incomplete handoff — no audit report 
 |---|---|---|---|---|---|
 | 1 | CRITICAL | `[file]` | [description] | [High/Med/Low] | [N] |
 ```
+
+### Phase 1.5: Rollback Snapshots (MANDATORY)
+
+Before modifying ANY file, create a backup snapshot:
+
+1. For each file in the optimization plan, `create_file` a backup at `.copilot/temp/rollback/<filename>.backup.md`
+2. If the optimization fails validation after 3 iterations, restore from this backup using `read_file` on the backup + `replace_string_in_file` on the original
+3. After ALL optimizations pass validation, report snapshot paths in the output so the user can clean up
+
+**This phase runs regardless of how the optimizer was invoked** — whether from the Update prompt, scheduled-review, or direct `@pe-meta-optimizer` invocation.
 
 ### Phase 2: Deduplication
 

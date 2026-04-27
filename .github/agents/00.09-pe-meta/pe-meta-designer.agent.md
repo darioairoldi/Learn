@@ -194,6 +194,7 @@ Generate the full specification using this structure:
 | **Builder** | [context-builder / agent-builder / prompt-builder / instruction-builder / skill-builder / hook-builder / prompt-snippet-builder] |
 | **Layer** | L1 / L2 / L3 / L4 |
 | **Impact** | [Low (0-2 consumers) / Medium (3-5) / High (6+)] |
+| **Classification** | [Breaking / Non-breaking] ([Deterministic / LLM-assisted] — brief justification) |
 | **Quality dimension** | [Effectiveness / Reliability / Efficiency] |
 
 **Rationale:** [Why this artifact is needed — what problem it solves, what gap it fills]
@@ -223,6 +224,7 @@ Before handing off to meta-validator, verify:
 - [ ] No change removes existing capabilities without a migration path
 - [ ] Token budgets are respected — **** verify against `01.06-system-parameters.md`
 - [ ] All new cross-references point to artifacts that exist or are created earlier in the spec
+- [ ] Each change has a breaking/non-breaking classification with confidence level (Deterministic or LLM-assisted)
 
 ## Response Management
 

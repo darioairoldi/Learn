@@ -2,8 +2,8 @@
 title: "PE meta-system improvement plan"
 author: "Dario Airoldi"
 date: "2026-04-27"
-version: "1.0.0"
-status: "draft"
+version: "1.1.0"
+status: "completed"
 domain: "prompt-engineering"
 implements: "06.000-vision.v6.md"
 goal: "Close the gaps between pe-meta's current implementation and the vision's 9-step self-update workflow — making pe-meta fully capable of researching, analyzing, reasoning, designing, planning, validating, implementing, verifying, and iterating across all PE tiers"
@@ -67,89 +67,69 @@ rationales:
 
 ## 📋 Improvement plan
 
-### Step 1: Add vision document loading to pe-meta-researcher (G1)
+### Step 1 (✅ DONE): Add vision document loading to pe-meta-researcher (G1)
 
-**What**: Add `06.000-vision.v6.md` to researcher's Step 1 context loading, with a Phase 3 "vision alignment check" that evaluates each finding against the vision's goal, principles, and success criteria.
+**Status**: Completed 2026-04-27
+
+**What**: Add `06.000-vision.v6.md` to researcher's Step 1 context loading, with a Step 3 "vision alignment check" that evaluates each finding against the vision's goal, principles, and success criteria.
 
 **Where**: `pe-meta-researcher.agent.md`
 
-**Changes**:
-- Step 1 item 1: Add `Load the vision document: read_file on 06.00-idea/self-updating-prompt-engineering/06.000-vision.v6.md`
-- Step 3 (Broaden the Analysis): Add a bullet: "**Vision alignment check** — for each improvement opportunity, evaluate whether it aligns with the vision's goal, respects its boundaries, and advances its success criteria. Reference specific vision rationales (R-L1 through R-G3) when applicable."
-- Knowledge Base section: Add vision document to the list of files to load
-
-**Risk**: LOW — additive. No existing behavior changed. Adds ~5 lines.
-
-**Verification**: Run `grep_search` for `vision` in researcher body — should find the new references.
+**Results**:
+- Step 1 item 1: Added vision document loading as first context step (before dependency map) ✅
+- Step 3 (Broaden the Analysis): Added "Vision alignment check" bullet with R-L1 through R-G3 reference guidance ✅
+- Verified: `grep_search` for `vision` finds references at lines 155 and 217 ✅
+- Line count: 263 (within meta-agent limits) ✅
 
 ---
 
-### Step 2: Add global iteration gate to pe-meta-prompt-engineering-update (G2)
+### Step 2 (✅ DONE): Add global iteration gate to pe-meta-prompt-engineering-update (G2)
 
-**What**: In Phase 7 (Regression Test), add a decision gate: if regression test reveals a fundamental design issue (not just an implementation error), cycle back to Phase 1 (Source Research) or Phase 2 (Structure Audit) instead of just re-applying fixes.
+**Status**: Completed 2026-04-27
+
+**What**: In Phase 7 (Regression Test), added a decision gate that classifies failure type and routes accordingly — local fix, cycle back to Phase 4 (design flaw), or cycle back to Phase 1 (fundamental misalignment).
 
 **Where**: `pe-meta-prompt-engineering-update.prompt.md`
 
-**Changes**: In Phase 7 (after 7b capability regression test), add:
-
-```
-### Phase 7c: Iteration Decision Gate
-
-If regression test reveals:
-- **Implementation error** (wrong content, missed file) → fix and re-run Phase 7a/7b (local iteration)
-- **Design flaw** (change spec was structurally wrong) → cycle back to Phase 4 (Content Audit with updated scope)
-- **Fundamental misalignment** (approach doesn't achieve stated goal) → cycle back to Phase 1 (Source Research) or STOP and escalate to human
-
-Maximum global iterations: 2 (Phase 7 → Phase 1/4 → Phase 7). If still failing after 2 global iterations → STOP and report.
-```
-
-**Risk**: LOW — additive. Adds a decision point that currently doesn't exist. Existing behavior (local fix→revalidate) is preserved as the default path.
-
-**Verification**: Run regression test scenario where Phase 7 finds a design flaw — should trigger global iteration.
+**Results**:
+- Phase 7c "Iteration Decision Gate" added after 7b regression test ✅
+- 3 failure types with routing: implementation error → local fix, design flaw → Phase 4, fundamental misalignment → Phase 1 or STOP ✅
+- Global iteration budget: max 2 cycle-backs before escalating to human ✅
+- Default path (no failure) preserved: proceed to Phase 8 ✅
+- Line count: 540 (within prompt limits) ✅
 
 ---
 
-### Step 3: Add snapshot creation to pe-meta-optimizer (G3)
+### Step 3 (✅ DONE): Add snapshot creation to pe-meta-optimizer (G3)
 
-**What**: Optimizer creates rollback snapshots before modifying any file, regardless of whether it was invoked from the Update prompt or from scheduled-review/direct audit.
+**Status**: Completed 2026-04-27
+
+**What**: Optimizer creates rollback snapshots before modifying any file, regardless of invocation path.
 
 **Where**: `pe-meta-optimizer.agent.md`
 
-**Changes**: In the Process section, add to Phase 2 (before any file modification):
-
-```
-**Rollback snapshot (MANDATORY)**: Before modifying any file, create a backup at `.copilot/temp/rollback/<filename>.backup.md`. If the optimization fails validation after 3 iterations, restore from this backup.
-```
-
-Also add `create_file` to the tools list (currently missing — optimizer has `replace_string_in_file` and `multi_replace_string_in_file` but not `create_file`, so it can't create snapshot files). This requires adding 1 tool.
-
-**Risk**: LOW — additive. Optimizer gains the ability to create its own snapshots. Existing behavior unchanged.
-
-**Verification**: Invoke `@pe-meta-optimizer` directly (not from Update prompt). Verify snapshot files are created before modifications.
+**Results**:
+- Added `create_file` to tools list (now 7 tools) ✅
+- Added Phase 1.5 "Rollback Snapshots (MANDATORY)" between Phase 1 and Phase 2 ✅
+- Snapshots created at `.copilot/temp/rollback/<filename>.backup.md` before any modification ✅
+- Restore path documented: read backup → replace original if 3 iterations fail ✅
+- Explicitly states this runs regardless of invocation path (Update prompt, scheduled-review, or direct) ✅
+- Line count: 247 (within meta-agent limits) ✅
 
 ---
 
-### Step 4: Add breaking/non-breaking classification to pe-meta-designer (G4)
+### Step 4 (✅ DONE): Add breaking/non-breaking classification to pe-meta-designer (G4)
 
-**What**: Designer includes breaking/non-breaking classification in each change specification entry, using the 3-tier classification protocol already defined in the Update prompt.
+**Status**: Completed 2026-04-27
+
+**What**: Designer includes breaking/non-breaking classification in each change spec entry with confidence level.
 
 **Where**: `pe-meta-designer.agent.md`
 
-**Changes**: In the Change Specification template (Step 4), add a field:
-
-```
-| **Classification** | Breaking / Non-breaking (Deterministic / LLM-assisted) |
-```
-
-And in Step 5 (Self-Validate), add a check:
-
-```
-- [ ] Each change has a breaking/non-breaking classification with confidence level
-```
-
-**Risk**: LOW — additive. Adds ~3 lines. Classification was already happening in the orchestrator; this moves it earlier in the pipeline.
-
-**Verification**: Review a designer output — each change spec should include the classification field.
+**Results**:
+- Added `Classification` field to Change Specification template (line 197) with format: `[Breaking / Non-breaking] ([Deterministic / LLM-assisted] — brief justification)` ✅
+- Added self-validate check: "Each change has a breaking/non-breaking classification with confidence level" (line 227) ✅
+- Line count: 265 (within meta-agent limits) ✅
 
 ---
 

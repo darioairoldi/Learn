@@ -152,8 +152,9 @@ If research goal is missing: report `Incomplete handoff — no research goal pro
 
 Build understanding of the current PE state from distilled context files (fast, token-efficient):
 
-1. **Load the dependency map** (`read_file` on `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`) for impact tracing
-2. **Load relevant distilled context files** based on update category:
+1. **Load the vision document** (`read_file` on `06.00-idea/self-updating-prompt-engineering/06.000-vision.v6.md`) — this is the authoritative reference for evaluating whether any proposed change aligns with the system's strategic direction, design principles, and success criteria
+2. **Load the dependency map** (`read_file` on `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`) for impact tracing
+3. **Load relevant distilled context files** based on update category:
    - General/principles ? `01.01-context-engineering-principles.md`
    - Assembly/architecture ? `01.02-prompt-assembly-architecture.md`
    - File types ? `01.03-file-type-decision-guide.md`
@@ -213,6 +214,7 @@ Go beyond the explicit changes. Use PE expertise to identify indirect improvemen
 - **External validation of rules** — verify CRITICAL/HIGH rules in `01.07-critical-rules-priority-matrix.md` against authoritative external sources
 - **PE structure optimization** — builder/validator symmetry, orchestration coverage, dependency map currency, structural gaps
 - **Context coverage assessment** — verify context files cover all referenced rules, detect orphans and inline-embedded rules
+- **Vision alignment check** — for each improvement opportunity, evaluate whether it aligns with the vision's goal (`06.000-vision.v6.md`), respects its boundaries, and advances its success criteria. Reference specific vision rationales (R-L1 through R-G3) when applicable. Flag any finding that would contradict a vision boundary as HIGH severity.
 - **Structural inventory** — enumerate all 9 artifact locations, check naming conventions, flag mismatches
 - **Challenge current structure** — critically evaluate whether different organization, granularity, or handoff patterns would improve reliability, effectiveness, or efficiency
 
