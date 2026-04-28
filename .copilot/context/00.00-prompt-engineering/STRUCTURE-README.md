@@ -70,7 +70,7 @@ last_updated: "2026-04-28"
 
 **Scope**: All context engineering principles, patterns, and reference material for creating and maintaining GitHub Copilot customization files (prompts, agents, instructions, skills, hooks, MCP servers, templates).
 
-**File count**: 29 context files + this index
+**File count**: 31 context files + this index
 
 **Token budget**: Each file MUST stay under 2,500 tokens (see `01.06-system-parameters.md`)
 
@@ -101,6 +101,7 @@ The north star that defines WHAT the system must do and WHY. All other tiers val
 |---|---|---|---|
 | 00.01 | `00.01-governance-and-capability-baseline.md` | North star governance document — system purpose, capability requirements, quality criteria, stability rules, and verification contract. Use case coverage map documenting what the PE system can do, artifact chains per capability, and verification criteria for capability preservation | `meta-validator`, `meta-designer`, `meta-optimizer` |
 | 00.02 | `00.02-capability-map.md` | Functional capability map — 5 categories, 20+ use cases with entry points, artifact chains, and verification criteria. Extracted from governance baseline for token budget compliance | `meta-validator`, `meta-designer`, `meta-prompt-engineering-update` |
+| 00.03 | `00.03-metadata-contracts.md` | Canonical metadata schema for all PE artifact types — required YAML fields, placement rules, validation rules, and metadata-guarded change protocol | All builder agents, all validator agents, `meta-designer`, `meta-optimizer` |
 
 ### Tier 1: Foundations
 
@@ -221,7 +222,7 @@ Artifacts reference categories instead of filenames for robust, refactoring-safe
 
 | Category | Purpose | Files |
 |---|---|---|
-| `governance` | North star governance, capability map | `00.01-governance-and-capability-baseline.md`, `00.02-capability-map.md` |
+| `governance` | North star governance, capability map, metadata contracts | `00.01-governance-and-capability-baseline.md`, `00.02-capability-map.md`, `00.03-metadata-contracts.md` |
 | `validation-rules` | Core principles and checks for PE artifact validation | `01.01-context-engineering-principles.md`, `01.07-critical-rules-priority-matrix.md`, `04.02-adaptive-validation-patterns.md` |
 | `assembly-architecture` | How Copilot assembles prompts from customization files | `01.02-prompt-assembly-architecture.md` |
 | `file-type-guide` | Decision guide for choosing the right artifact type | `01.03-file-type-decision-guide.md` |
@@ -293,4 +294,5 @@ Before modifying any HIGH-impact file, consult `05.01-artifact-dependency-map.md
 | 3.1.0 | 2026-03-19 | Batch 2: Added 00.02-capability-map (split from 00.01). Compressed 03.01, 05.02, 01.02, 02.02, 05.03, 03.07. File count 27→29. |
 | 3.2.0 | 2026-03-19 | Structural improvements: Added `domain: "prompt-engineering"` to all 29 files. Added `authoritative_sources:` to 15 files with external references. Improved descriptions for 01.02 and 01.03 with higher-signal search keywords. |
 | 3.3.0 | 2026-03-20 | Split 02.04-agent-shared-patterns into 02.04 (structural) + 02.05-agent-workflow-patterns (behavioral) for token budget compliance. File count 29→30. |
-| 4.0.0 | 2026-04-28 | Added Functional Categories section — 18 categories mapping all 30 context files by capability for robust cross-artifact references (R-S5). Added category-based referencing pattern to Cross-Reference Rules. |
+| 4.0.0 | 2026-04-28 | Added Functional Categories section — 17 categories mapping all 30 context files by capability for robust cross-artifact references (R-S5). Added category-based referencing pattern to Cross-Reference Rules. |
+| 4.1.0 | 2026-04-28 | Added 00.03-metadata-contracts to Tier 0 File Index and `governance` category. Updated file count 29→31. Added YAML frontmatter with required_categories metadata. |

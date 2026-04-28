@@ -35,8 +35,8 @@ handoffs:
   - label: "Optimize Artifacts"
     agent: pe-meta-optimizer
     send: true
-version: "1.0.0"
-last_updated: "2026-03-20"
+version: "1.1.0"
+last_updated: "2026-04-28"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "meta-operations"
