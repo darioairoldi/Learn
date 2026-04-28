@@ -1,3 +1,61 @@
+---
+goal: "Map every context file to its purpose, tier, dependencies, consumers, and functional category — enabling deterministic discovery, refactoring-safe references, and category coverage enforcement"
+scope:
+  covers:
+    - "Context file inventory by tier"
+    - "Functional categories for cross-artifact references (R-S5 Level 1.5)"
+    - "Cross-reference rules for consumers"
+    - "Adding/maintaining context files procedures"
+  excludes:
+    - "Context file content (each file owns its own content)"
+    - "Non-PE context folders"
+boundaries:
+  - "MUST maintain all required_categories with ≥1 mapped file at all times"
+  - "MUST be updated when context files are added, renamed, split, or removed"
+  - "Category IDs are a contract — renaming a category is a breaking change"
+rationales:
+  - "Functional categories provide stable semantic identifiers for cross-artifact references (R-S5)"
+  - "Single source of truth for category→file mapping reduces blast radius of file renames to one file"
+  - "required_categories in metadata makes category contracts enforceable by pre-change guards"
+required_categories:
+  governance:
+    description: "Files that define the system's purpose, capability requirements, quality criteria, and stability rules — the north star that all other tiers validate against"
+  validation-rules:
+    description: "Files containing enforceable principles, severity-ranked checks, and challenge-based validation methodology for PE artifact quality assurance"
+  assembly-architecture:
+    description: "Files explaining how Copilot assembles system/user prompts from customization files — injection layers, ordering, execution contexts, variable substitution"
+  file-type-guide:
+    description: "Files providing decision frameworks for choosing the right artifact type (prompt, agent, instruction, skill, snippet, MCP, Spaces, SDK) with comparison tables and naming conventions"
+  tool-alignment:
+    description: "Files governing tool selection, mode alignment rules (plan=read-only, agent=read+write), tool count limits, priority hierarchy, and per-tool cost guidance"
+  glossary:
+    description: "Files providing canonical definitions for PE-specific terms — single source of truth for terminology consistency across all artifacts"
+  token-optimization:
+    description: "Files covering quantitative thresholds, token budgets, context window management, optimization strategies, and phase budget allocation"
+  orchestration-patterns:
+    description: "Files describing multi-agent coordination — handoff conventions, orchestrator design patterns, architecture tier decisions, and subagent mechanics"
+  agent-patterns:
+    description: "Files containing shared structural and behavioral patterns for PE agents — output minimization, handoff validation, escalation protocols, scope control, and complexity gates"
+  specialized-patterns:
+    description: "Files covering platform-specific features — skill loading, model-specific optimization, agent hooks, MCP servers, Copilot Spaces, SDK integration, and template authoring"
+  validation-caching:
+    description: "Files defining the validation caching policy — cache duration, staleness detection, dual YAML metadata rules, and skip conditions"
+  production-readiness:
+    description: "Files specifying production-readiness requirements — response management, error recovery, embedded tests, token budgets, context rot prevention, and template externalization"
+  runtime-validation:
+    description: "Files providing gate check patterns, goal alignment verification, cumulative progress tracking, and drift detection for multi-phase orchestrator prompts"
+  dependency-tracking:
+    description: "Files maintaining the complete dependency graph of PE artifacts — outbound references, inbound consumers, impact classification, and blast radius analysis"
+  lifecycle-ops:
+    description: "Files documenting artifact lifecycle stages (create/review/update/deprecate), workflow entry points, and decision guides for choosing the right prompt or agent"
+  audit-trail:
+    description: "Files tracking meta-workflow execution history — when each mode was last run, what sources were analyzed, what changes were applied, and staleness detection data"
+  effectiveness-tracking:
+    description: "Files recording user-reported outcomes from PE workflow executions — practical results that ground rule refinement beyond self-referential validation"
+version: "4.0.0"
+last_updated: "2026-04-28"
+---
+
 # Prompt Engineering Context — Structure Index
 
 **Purpose**: Maps every context file in this folder to its purpose, tier, dependencies, and key consumers. Builder agents, meta-agents, and lifecycle workflows depend on this index to discover, organize, and validate context files.
@@ -134,6 +192,53 @@ Use individual file references only for section-specific links:
 **See the 7-day rule:** [validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/04.01-validation-caching-pattern.md)
 ```
 
+### Referencing TO this folder by category (PREFERRED for external consumers)
+
+Use category IDs from the Functional Categories table below:
+
+```markdown
+Load the `validation-rules` files from `.copilot/context/00.00-prompt-engineering/`
+  (see STRUCTURE-README.md → Functional Categories for file mapping).
+```
+
+This is preferred over direct file references because:
+- Category IDs are stable — they don't change when files are renamed or renumbered
+- Category mappings are maintained in one place (this file)
+- Artifacts describe what capability they need, not which file implements it
+
+---
+
+## Functional Categories
+
+Categories group context files by the capability they provide to consumers.
+Artifacts reference categories instead of filenames for robust, refactoring-safe references.
+
+**Rules:**
+- Category IDs are kebab-case stable identifiers
+- Every file referenced by external artifacts MUST appear in at least one category
+- When files are renamed or split, update the category's file list here — consumer artifacts don't change
+- Inter-context-file references (within this folder) stay file-specific
+
+| Category | Purpose | Files |
+|---|---|---|
+| `governance` | North star governance, capability map | `00.01-governance-and-capability-baseline.md`, `00.02-capability-map.md` |
+| `validation-rules` | Core principles and checks for PE artifact validation | `01.01-context-engineering-principles.md`, `01.07-critical-rules-priority-matrix.md`, `04.02-adaptive-validation-patterns.md` |
+| `assembly-architecture` | How Copilot assembles prompts from customization files | `01.02-prompt-assembly-architecture.md` |
+| `file-type-guide` | Decision guide for choosing the right artifact type | `01.03-file-type-decision-guide.md` |
+| `tool-alignment` | Tool composition, mode alignment, and count limits | `01.04-tool-composition-guide.md` |
+| `glossary` | Canonical definitions for all PE-specific terms | `01.05-glossary.md` |
+| `token-optimization` | Token budgets, limits, and optimization strategies | `01.06-system-parameters.md`, `02.02-context-window-and-token-optimization.md` |
+| `orchestration-patterns` | Multi-agent coordination and handoff patterns | `02.01-handoffs-pattern.md`, `02.03-orchestrator-design-patterns.md` |
+| `agent-patterns` | Shared structural and behavioral patterns for agents | `02.04-agent-shared-patterns.md`, `02.05-agent-workflow-patterns.md` |
+| `specialized-patterns` | Platform-specific: skills, models, hooks, MCP, Spaces, SDK, templates | `03.01-progressive-disclosure-pattern.md`, `03.02-model-specific-optimization.md`, `03.03-agent-hooks-reference.md`, `03.04-mcp-server-design-patterns.md`, `03.05-copilot-spaces-patterns.md`, `03.06-copilot-sdk-integration.md`, `03.07-template-authoring-patterns.md` |
+| `validation-caching` | 7-day validation caching policy and dual YAML rules | `04.01-validation-caching-pattern.md` |
+| `production-readiness` | Response management, error recovery, embedded tests | `04.03-production-readiness-patterns.md` |
+| `runtime-validation` | Gate checks, goal alignment, drift detection for orchestrators | `04.04-orchestrator-runtime-validation.md` |
+| `dependency-tracking` | Artifact dependency graph and impact analysis | `05.01-artifact-dependency-map.md` |
+| `lifecycle-ops` | Lifecycle stages, transitions, and workflow entry points | `05.02-artifact-lifecycle-management.md`, `05.03-pe-workflow-entry-points.md` |
+| `audit-trail` | Review history, staleness detection, and outcome tracking | `05.04-meta-review-log.md` |
+| `effectiveness-tracking` | User-reported workflow outcomes | `05.05-practical-effectiveness-log.md` |
+
 ---
 
 ## Adding New Context Files
@@ -188,3 +293,4 @@ Before modifying any HIGH-impact file, consult `05.01-artifact-dependency-map.md
 | 3.1.0 | 2026-03-19 | Batch 2: Added 00.02-capability-map (split from 00.01). Compressed 03.01, 05.02, 01.02, 02.02, 05.03, 03.07. File count 27→29. |
 | 3.2.0 | 2026-03-19 | Structural improvements: Added `domain: "prompt-engineering"` to all 29 files. Added `authoritative_sources:` to 15 files with external references. Improved descriptions for 01.02 and 01.03 with higher-signal search keywords. |
 | 3.3.0 | 2026-03-20 | Split 02.04-agent-shared-patterns into 02.04 (structural) + 02.05-agent-workflow-patterns (behavioral) for token budget compliance. File count 29→30. |
+| 4.0.0 | 2026-04-28 | Added Functional Categories section — 18 categories mapping all 30 context files by capability for robust cross-artifact references (R-S5). Added category-based referencing pattern to Cross-Reference Rules. |

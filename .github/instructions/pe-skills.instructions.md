@@ -34,7 +34,7 @@ Agent Skills are **portable, resource-rich workflows** across VS Code, CLI, and 
 - **[M6]** Naming: lowercase with hyphens, ≤64 characters
 - **[M7]** Description optimized: [what] + [tech] + "Use when" + [scenarios]
 
-**📖 Full priority matrix:** `01.07-critical-rules-priority-matrix.md`
+**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 
 ## Required YAML Frontmatter
 

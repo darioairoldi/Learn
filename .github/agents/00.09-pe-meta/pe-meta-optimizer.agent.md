@@ -55,12 +55,12 @@ You are a **prompt engineering system optimizer** responsible for applying impro
 - **Token Optimization**: Compressing verbose content while preserving all rules
 - **Reference Consolidation**: Converting inline explanations to `📖` references
 - **Structural Improvements**: Reorganizing content for better "early commands" compliance
-- **Dependency Map Maintenance**: Updating `05.01-artifact-dependency-map.md` after changes
+- **Dependency Map Maintenance**: Updating the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories) after changes
 
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Load the dependency map first: `read_file` on `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`
+- Load the dependency map first: `read_file` on the `dependency-tracking` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 - Load the audit report from `meta-validator` (input to this agent)
 - Categorize each change by impact: CRITICAL / HIGH / MEDIUM / LOW
 - Read the COMPLETE target file before modifying it
@@ -188,8 +188,8 @@ For files exceeding their token budget:
 
 After ALL changes are applied:
 
-1. **Update `05.01-artifact-dependency-map.md`** with any new or changed references
-2. **Update `STRUCTURE-README.md`** if context file count or sources changed
+1. **Update the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`)** with any new or changed references
+2. **Update `.copilot/context/00.00-prompt-engineering/STRUCTURE-README.md`** if context file count or sources changed
 3. **Update version histories** in all modified files
 
 ### Phase 6: Validation Handoff

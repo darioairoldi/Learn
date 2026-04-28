@@ -348,5 +348,5 @@ Verify naming, location, and extension conventions.
 - **📖 Complete validation examples:** `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md`
 - **📖 Tool composition patterns:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 - **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
-- **📖 Artifact dependency map:** `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`
+- **📖 Artifact dependency map:** see `dependency-tracking` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 - **📖 Full system coherence audit:** `.github/skills/artifact-coherence-check/SKILL.md`

@@ -32,7 +32,7 @@ Context files are **shared reference documents** that provide the single source 
 - **[M6]** Naming: `[concept-name].md` lowercase hyphenated
 - **[M8]** Version history: updated after every meaningful change
 
-**📖 Full priority matrix:** `01.07-critical-rules-priority-matrix.md`
+**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 
 ## Required YAML Frontmatter
 
@@ -86,5 +86,5 @@ last_updated: "YYYY-MM-DD"
 ## References
 
 - [VS Code Copilot Docs](https://code.visualstudio.com/docs/copilot/copilot-customization)
-- **📖** [01.03-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md)
-- **📖** [01.06-system-parameters.md](.copilot/context/00.00-prompt-engineering/01.06-system-parameters.md) — Token budgets
+- **📖** File type decisions: see `file-type-guide` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+- **📖** Token budgets: see `token-optimization` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)

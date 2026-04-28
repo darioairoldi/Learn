@@ -154,7 +154,7 @@ Verify all PE artifacts are within their token budgets.
 Verify the dependency map matches the actual artifact state.
 
 **Process:**
-1. Load `05.01-artifact-dependency-map.md`
+1. Load the `dependency-tracking` file from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 2. Compare listed files against actual files on disk
 3. Verify reference counts by spot-checking 3–5 high-impact entries
 4. Flag any files present on disk but missing from the map
@@ -178,12 +178,12 @@ Verify the dependency map matches the actual artifact state.
 
 ### Issue: Stale Dependency Map
 
-**Symptom**: New artifacts exist but aren't listed in `05.01-artifact-dependency-map.md`
+**Symptom**: New artifacts exist but aren't listed in the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories)
 **Solution**: Update the dependency map with new entries and reference counts
 
 ## Resources
 
-- **📖 Dependency map:** `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`
+- **📖 Dependency map:** see `dependency-tracking` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 - **📖 Lifecycle management:** `.copilot/context/00.00-prompt-engineering/05.02-artifact-lifecycle-management.md`
 - **📖 Entry points:** `.copilot/context/00.00-prompt-engineering/05.03-pe-workflow-entry-points.md`
 - **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`

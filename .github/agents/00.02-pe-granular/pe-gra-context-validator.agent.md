@@ -52,7 +52,7 @@ You operate in three modes:
 
 ### ✅ Always Do
 - Read `.github/instructions/pe-context-files.instructions.md` for context file conventions
-- Load the dependency map (`05.01-artifact-dependency-map.md`) for consumer relationships
+- Load the dependency map (the `dependency-tracking` files — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for consumer relationships
 - Read the complete target file before validating
 - Discover all consumers via "Referenced by" section + `grep_search` for the filename
 - Use `pe-prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)

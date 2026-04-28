@@ -34,7 +34,7 @@ Shared rules for all prompt and agent files. Type-specific rules remain in `prom
 - **[M2]** Early commands: critical instructions in first 30%
 - **[M4]** Group `📖` references preferred over individual file refs
 
-**📖 Full priority matrix:** `01.07-critical-rules-priority-matrix.md`
+**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 
 ## Context Engineering Principles
 
@@ -59,7 +59,7 @@ Every PE artifact MUST implement: response management, error recovery, embedded 
 
 ## References
 
-- **📖** [01.01-context-engineering-principles.md](.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md) — 8 principles
+- **📖** Context engineering principles: see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 - **📖** [01.04-tool-composition-guide.md](.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md) — Tool categories, costs
 - **📖** [04.01-validation-caching-pattern.md](.copilot/context/00.00-prompt-engineering/04.01-validation-caching-pattern.md) — Validation caching
 - **📖** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md) — Production readiness

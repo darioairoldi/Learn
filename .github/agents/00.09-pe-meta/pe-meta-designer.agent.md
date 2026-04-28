@@ -96,7 +96,7 @@ If the research report has ambiguities that block your design:
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Load the dependency map: `read_file` on `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`
+- Load the dependency map: `read_file` on the `dependency-tracking` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 - Load the STRUCTURE-README: `read_file` on `.copilot/context/00.00-prompt-engineering/STRUCTURE-README.md`
 - Read the current state of every artifact you plan to modify (verify assumptions against actual content)
 - For each proposed change, trace consumers via `grep_search` for the artifact's filename

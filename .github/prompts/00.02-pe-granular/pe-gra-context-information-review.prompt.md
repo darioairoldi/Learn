@@ -132,7 +132,7 @@ User Request → Determine Mode (scoped / domain review / layer audit)
 1. **Scoped mode**: Read the specific context file
 2. **Domain review mode**: List all files in the specified domain folder (e.g., `.copilot/context/01.00-article-writing/`)
 3. **Layer audit mode**: List all files across all `.copilot/context/` domain folders
-4. Load the dependency map (`05.01-artifact-dependency-map.md`) for consumer relationships
+4. Load the dependency map (the `dependency-tracking` files — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for consumer relationships
 
 **Gate 1 — Scope Determined:**
 - [ ] ≥1 context file identified for review

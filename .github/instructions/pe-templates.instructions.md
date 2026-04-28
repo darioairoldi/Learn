@@ -30,7 +30,7 @@ Template files define reusable output formats, input schemas, and document struc
 - **[M1]** Template externalization: split templates >100 lines
 - **[M6]** Naming: `{category}-{artifact}-{purpose}.template.md`
 
-**📖 Full priority matrix:** `01.07-critical-rules-priority-matrix.md`
+**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 
 ## Template Categories
 

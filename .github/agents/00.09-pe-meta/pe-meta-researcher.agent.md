@@ -84,7 +84,7 @@ You are a **prompt engineering research specialist** with deep expertise across 
 ## 🚨 CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Load the dependency map: `read_file` on `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`
+- Load the dependency map: `read_file` on the `dependency-tracking` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 - Load the distilled context files (`.copilot/context/00.00-prompt-engineering/`) relevant to the update category — these are the operative rules
 - Classify update sources by category (editor/model/protocol/practice/platform)
 - Assess PE relevance — not every technology update affects PE artifacts
@@ -152,8 +152,8 @@ If research goal is missing: report `Incomplete handoff — no research goal pro
 
 Build understanding of the current PE state from distilled context files (fast, token-efficient):
 
-1. **Load the vision document** (`read_file` on `06.00-idea/self-updating-prompt-engineering/06.000-vision.v6.md`) — this is the authoritative reference for evaluating whether any proposed change aligns with the system's strategic direction, design principles, and success criteria
-2. **Load the dependency map** (`read_file` on `.copilot/context/00.00-prompt-engineering/05.01-artifact-dependency-map.md`) for impact tracing
+1. **Load the vision document** (`read_file` on the current vision document in `06.00-idea/self-updating-prompt-engineering/` — find the file matching `*-vision.v*.md` with the highest version) — this is the authoritative reference for evaluating whether any proposed change aligns with the system's strategic direction, design principles, and success criteria
+2. **Load the dependency map** (`read_file` on the `dependency-tracking` files from `.copilot/context/00.00-prompt-engineering/` — see STRUCTURE-README.md → Functional Categories) for impact tracing
 3. **Load relevant distilled context files** based on update category:
    - General/principles ? `01.01-context-engineering-principles.md`
    - Assembly/architecture ? `01.02-prompt-assembly-architecture.md`
@@ -184,11 +184,11 @@ Build understanding of the current PE state from distilled context files (fast, 
 
 4. **Load 05.02 reference articles**: Read articles from `03.00-tech/05.02-prompt-engineering/` relevant to the update scope to verify whether guidance already exists and to identify patterns, nuances, or best practices not fully captured in distilled context files
 
-5. **Load effectiveness log**: Read `.copilot/context/00.00-prompt-engineering/05.05-practical-effectiveness-log.md` to check for user-reported outcomes. Factor any patterns (recurring failures, friction points, successful workflows) into improvement recommendations. Workflows with repeated "partial" or "failed" outcomes indicate rules or agent behavior that needs refinement regardless of what external sources say.
+5. **Load effectiveness log**: Read the `effectiveness-tracking` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) to check for user-reported outcomes. Factor any patterns (recurring failures, friction points, successful workflows) into improvement recommendations. Workflows with repeated "partial" or "failed" outcomes indicate rules or agent behavior that needs refinement regardless of what external sources say.
 
-6. **Load rejection history**: Check `05.04-meta-review-log.md` for entries where `outcome: rejected` or human rejected a proposed change. Read the rejection reason. Before proposing similar changes, verify the proposal doesn't repeat a previously-rejected pattern. If it does, either: (a) explain what's different this time, or (b) skip the proposal.
+6. **Load rejection history**: Read the `audit-trail` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) for entries where `outcome: rejected` or human rejected a proposed change. Read the rejection reason. Before proposing similar changes, verify the proposal doesn't repeat a previously-rejected pattern. If it does, either: (a) explain what's different this time, or (b) skip the proposal.
 
-7. **Load authoritative sources list**: Read the "Authoritative Sources (curated)" section from `.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md`. Prioritize these sources over general internet search in Step 2's internet research phase — consult curated sources first, then supplement with general search only when curated sources don't cover the topic. After consulting each source, update its "Last checked" date in the table.
+7. **Load authoritative sources list**: Read the "Authoritative Sources (curated)" section from the audit-trail file loaded in step 6. Prioritize these sources over general internet search in Step 2's internet research phase — consult curated sources first, then supplement with general search only when curated sources don't cover the topic. After consulting each source, update its "Last checked" date in the table.
 
 8. **Internet research** (unless `--no-external`): Use `fetch_webpage` to research authoritative sources — official documentation, release notes, specifications, research papers, established community best practices. Prioritize primary sources (vendor docs, official specs) over secondary sources (blog posts, tutorials).
 
@@ -214,7 +214,7 @@ Go beyond the explicit changes. Use PE expertise to identify indirect improvemen
 - **External validation of rules** — verify CRITICAL/HIGH rules in `01.07-critical-rules-priority-matrix.md` against authoritative external sources
 - **PE structure optimization** — builder/validator symmetry, orchestration coverage, dependency map currency, structural gaps
 - **Context coverage assessment** — verify context files cover all referenced rules, detect orphans and inline-embedded rules
-- **Vision alignment check** — for each improvement opportunity, evaluate whether it aligns with the vision's goal (`06.000-vision.v6.md`), respects its boundaries, and advances its success criteria. Reference specific vision rationales (R-L1 through R-G3) when applicable. Flag any finding that would contradict a vision boundary as HIGH severity.
+- **Vision alignment check** — for each improvement opportunity, evaluate whether it aligns with the vision's goal (current vision document in `06.00-idea/self-updating-prompt-engineering/`), respects its boundaries, and advances its success criteria. Reference specific vision rationales (R-L1 through R-G3) when applicable. Flag any finding that would contradict a vision boundary as HIGH severity.
 - **Structural inventory** — enumerate all 9 artifact locations, check naming conventions, flag mismatches
 - **Challenge current structure** — critically evaluate whether different organization, granularity, or handoff patterns would improve reliability, effectiveness, or efficiency
 

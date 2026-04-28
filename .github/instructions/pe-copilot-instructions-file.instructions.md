@@ -60,5 +60,5 @@ Update `copilot-instructions.md` when:
 ## References
 
 - **📖** `.copilot/context/00.00-prompt-engineering/00.01-governance-and-capability-baseline.md` — System governance
-- **📖** `.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md` — File type decisions
+- **📖** File type decisions: see `file-type-guide` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 - **📖** `.github/instructions/pe-instruction-files.instructions.md` — Instruction file rules (meta-governance)

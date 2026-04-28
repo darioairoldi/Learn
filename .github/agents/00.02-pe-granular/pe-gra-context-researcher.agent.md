@@ -54,7 +54,7 @@ You also perform **topic scope analysis** for new domain context requests — an
 
 ### ✅ Always Do
 - Load `.github/instructions/pe-context-files.instructions.md` for context file conventions
-- Load the dependency map (`05.01-artifact-dependency-map.md`) to understand consumer relationships
+- Load the dependency map (the `dependency-tracking` files — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) to understand consumer relationships
 - Scan all context files in `.copilot/context/00.00-prompt-engineering/` before making recommendations
 - Identify all consumers of each affected context file via `grep_search`
 - Challenge the current information architecture — is the grouping optimal for consumer needs?

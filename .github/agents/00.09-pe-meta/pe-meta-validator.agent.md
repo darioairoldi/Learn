@@ -91,16 +91,16 @@ You combine ecosystem awareness (understanding all artifact types and their rela
 
 ## Knowledge Base
 
-Load these distilled context files as the operative rules for validation:
+Load context files from `.copilot/context/00.00-prompt-engineering/` by category (see STRUCTURE-README.md → Functional Categories):
 
-| Context File | Use For |
+| Category | Use For |
 |---|---|
-| `01.01-context-engineering-principles.md` | Validate principles compliance (narrow scope, early commands, imperative language, boundaries) |
-| `01.02-prompt-assembly-architecture.md` | Validate assembly layer correctness (USER vs SYSTEM prompt injection) |
-| `01.04-tool-composition-guide.md` | Validate tool alignment (mode/tool rules, count limits) |
-| `02.02-context-window-and-token-optimization.md` | Validate token budget compliance |
-| `05.01-artifact-dependency-map.md` | Validate dependency integrity and impact analysis |
-| `05.02-artifact-lifecycle-management.md` | Validate lifecycle stage compliance |
+| `validation-rules` | Validate principles compliance (narrow scope, early commands, imperative language, boundaries) |
+| `assembly-architecture` | Validate assembly layer correctness (USER vs SYSTEM prompt injection) |
+| `tool-alignment` | Validate tool alignment (mode/tool rules, count limits) |
+| `token-optimization` | Validate token budget compliance |
+| `dependency-tracking` | Validate dependency integrity and impact analysis |
+| `lifecycle-ops` | Validate lifecycle stage compliance |
 
 ## 🚨 CRITICAL BOUNDARIES
 
@@ -119,7 +119,7 @@ Load these distilled context files as the operative rules for validation:
   - **HIGH** → Require human approval before any fix. Examples: goal drift, scope violation, boundary breach
   - **MEDIUM** → Route through standard autonomy gradient (notify + proceed if confidence is high). Examples: consistency issue, coverage gap
   - **LOW** → Eligible for autonomous fix (no human approval if pre-change guard passes). Examples: wording, example update, token savings
-- **Propagation analysis**: When classifying a finding, check `05.01-artifact-dependency-map.md` for dependent count. A HIGH finding in a Tier 1 file with 15+ dependents is more urgent than the same severity in a Tier 5 file with 2 dependents. Include dependent count in the report.
+- **Propagation analysis**: When classifying a finding, check the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for dependent count. A HIGH finding in a Tier 1 file with 15+ dependents is more urgent than the same severity in a Tier 5 file with 2 dependents. Include dependent count in the report.
 - In Audit mode: hand off to `meta-optimizer` when fixes are needed
 - **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
 
@@ -240,7 +240,7 @@ Run these 6 check categories against each proposed change:
 
 ### Audit Steps
 
-1. **A1. Inventory** — scan all 9 PE locations, compare against `05.01-artifact-dependency-map.md`
+1. **A1. Inventory** — scan all 9 PE locations, compare against the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`)
 2. **A2. Coherence** — apply `pe-artifact-coherence-check` skill (rule consistency, reference integrity, handoff chains, tool alignment, boundary consistency)
 3. **A3. Cross-Artifact Alignment** — for each agent, verify: boundaries cover governing instruction file—s CRITICAL/HIGH rules; `📖` context references resolve and are current; handoff targets form valid triad chains; orchestrator prompts list correct target agents
 4. **A4. Redundancy** — scan for duplicated content across layers, verify single-source-of-truth compliance

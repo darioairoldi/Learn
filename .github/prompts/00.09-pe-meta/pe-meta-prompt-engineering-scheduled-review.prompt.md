@@ -164,7 +164,7 @@ If zero CRITICAL or HIGH issues → report "No action needed" and skip to Phase 
 
 For each CRITICAL or HIGH finding from Phase 2:
 
-1. Identify the affected file and its dependents (via `05.01-artifact-dependency-map.md`)
+1. Identify the affected file and its dependents (via the `dependency-tracking` file — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`)
 2. Propose a specific fix (what to change, not just what's wrong)
 3. Classify the fix: `auto-fix` (safe to apply) or `manual-review` (needs user judgment)
 

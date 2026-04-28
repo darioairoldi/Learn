@@ -122,7 +122,7 @@ If no new releases → update the review log with "no changes found" entry and s
 For each new feature or change identified in Phase 2:
 
 1. **Classify the change type**: new capability, modified behavior, deprecated feature, or documentation-only
-2. **Map to affected PE artifact types** using the governance baseline (`00.01-governance-and-capability-baseline.md`) and dependency map (`05.01-artifact-dependency-map.md`)
+2. **Map to affected PE artifact types** using the governance baseline (`00.01-governance-and-capability-baseline.md`) and the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`)
 3. **Determine affected scope**: `context`, `instructions`, `agents`, `prompts`, `skills`, `hooks`, `templates`, or `snippets`
 
 **Output**: Impact matrix showing which artifact types need updating and why.

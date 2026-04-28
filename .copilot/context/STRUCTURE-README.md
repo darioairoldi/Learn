@@ -6,7 +6,7 @@ This document maps the context folder structure to its source materials and expl
 
 Context files in `.copilot/context/` provide **shared reference documents** that prompts, agents, and instruction files reference. They serve as the single source of truth for principles, patterns, and conventions.
 
-**📖 Context file creation guidelines:** [pe-context-files.instructions.md](../../.github/instructions/pe-context-files.instructions.md)
+**📖 Context file creation guidelines:** [context-files.instructions.md](../../.github/instructions/context-files.instructions.md)
 
 ---
 

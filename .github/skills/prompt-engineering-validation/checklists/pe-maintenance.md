@@ -46,7 +46,7 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
     - Changed a prompt: `/meta-prompt-engineering-update healthcheck prompts references`
 
 - [ ] **3. Verify dependency map** is current:
-  - New artifact? → Must be in `05.01-artifact-dependency-map.md`
+  - New artifact? → Must be in the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories)
   - Deleted artifact? → Must be removed from map
   - Changed references? → Map must reflect new refs
 
