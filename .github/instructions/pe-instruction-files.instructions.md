@@ -1,8 +1,8 @@
 ---
 description: Rules for creating and maintaining instruction files that provide path-specific AI guidance via applyTo patterns
 applyTo: '.github/instructions/*.instructions.md'
-version: "1.5.0"
-last_updated: "2026-04-24"
+version: "1.6.0"
+last_updated: "2026-04-27"
 goal: "Enforce that instruction files provide path-specific enforcement rules with unique, non-overlapping applyTo scopes"
 rationales:
   - "Overlapping applyTo patterns cause unpredictable rule precedence"
@@ -68,6 +68,7 @@ When ANY context file in a listed `context_dependencies` folder has a `last_upda
 - MUST NOT duplicate rules from other instruction/context files
 - `applyTo` MUST NOT overlap with other instruction files — verify before committing
 - **Rules** (MUST/MUST NOT) → instruction files. **Knowledge** (why/how) → context files.
+- MUST be aware that VS Code also discovers instructions from `.claude/rules` (uses `paths` instead of `applyTo`) and configurable locations via `chat.instructionsFilesLocations` setting — verify no conflicts with these alternate paths
 
 ## Quality Checklist
 

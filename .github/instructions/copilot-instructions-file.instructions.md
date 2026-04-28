@@ -35,6 +35,7 @@ context_dependencies:
 - **[M1]** Keep tables compact — one row per rule/artifact type, no inline explanations
 - Include `📖` reference to `01.03-file-type-decision-guide.md` for PE Artifact Map details
 - Repo-Specific Rules section SHOULD only contain rules that cannot live in context or instruction files
+- SHOULD note instruction priority hierarchy (Personal > Repository > Organization) when relevant — organization-level instructions are GA as of April 2026
 
 ## Maintenance Triggers
 

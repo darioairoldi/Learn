@@ -64,6 +64,7 @@ When ANY context file in a listed `context_dependencies` folder has a `last_upda
 - MUST NOT duplicate rules from other instruction/context files
 - `applyTo` MUST NOT overlap with other instruction files — verify before committing
 - **Rules** (MUST/MUST NOT) → instruction files. **Knowledge** (why/how) → context files.
+- MUST be aware that VS Code also discovers instructions from `.claude/rules` (uses `paths` instead of `applyTo`) and configurable locations via `chat.instructionsFilesLocations` setting — verify no conflicts with these alternate paths
 
 ## Quality Checklist
 

@@ -454,6 +454,20 @@ The orchestrator MUST run this directly (using `file_search`, `grep_search`, `re
 
 If ANY capability is broken, **BLOCK Phase 8** and present broken capabilities with rollback instructions.
 
+### 7c: Iteration Decision Gate
+
+After 7a/7b results are available, classify the failure type and route accordingly:
+
+| Failure type | Indicators | Action |
+|---|---|---|
+| **Implementation error** | Wrong content, missed file, typo in reference | Fix the specific file(s) and re-run 7a/7b (local iteration, max 3) |
+| **Design flaw** | Change spec was structurally wrong — correct content but wrong target, wrong layer, or missing dependency | Cycle back to **Phase 4** (Content Audit) with updated scope. Carry forward: what failed and why. |
+| **Fundamental misalignment** | Approach doesn't achieve stated goal — the entire change direction was wrong | Cycle back to **Phase 1** (Source Research) OR **STOP** and escalate to human with full context. |
+
+**Global iteration budget**: Maximum 2 global cycle-backs (Phase 7 → Phase 1 or 4 → ... → Phase 7). If still failing after 2 global iterations → **STOP** and report all accumulated findings to human.
+
+**Default path** (no failure): Proceed to Phase 8.
+
 ---
 
 ## Phase 8: Report + Log (NEVER skippable)
