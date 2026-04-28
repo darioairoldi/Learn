@@ -22,6 +22,18 @@ capabilities:
   - "verify layer boundary compliance and token budgets"
   - "assess consumer compatibility for matched file types"
 goal: "Produce a validation report ensuring instruction files inject correctly and enforce consistent, conflict-free rules"
+scope:
+  covers:
+    - "Instruction file applyTo pattern validation and rule conflict detection"
+    - "Layer boundary verification, token budget compliance, and consumer compatibility"
+  excludes:
+    - "Instruction requirements research (pe-gra-instruction-researcher handles this)"
+    - "Instruction file creation or modification (pe-gra-instruction-builder handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
+  - "MUST verify applyTo pattern conflicts as the first check"
+  - "MUST NOT approve files with conflicting applyTo overlaps"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -199,7 +211,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Instruction file not found** ? "File [path] not found. Verify path."
 - **applyTo conflict with existing file** → Flag as HIGH with both file paths and overlap analysis

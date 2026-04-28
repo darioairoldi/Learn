@@ -1,5 +1,5 @@
 ---
-name: meta-prompt-engineering-release-monitor
+name: meta-release-monitor
 description: "Track VS Code and GitHub Copilot releases — fetch latest release notes, diff against last processed version, run targeted fullcheck on affected PE artifact types, and update the review log."
 agent: agent
 model: claude-opus-4.6
@@ -33,8 +33,8 @@ scope:
     - "Targeted fullcheck scoped to affected PE artifact types"
     - "Review log version tracking updates"
   excludes:
-    - "Scheduled staleness detection (pe-meta-prompt-engineering-scheduled-review handles this)"
-    - "Full system audits (pe-meta-prompt-engineering-update handles this)"
+    - "Scheduled staleness detection (pe-meta-scheduled-review handles this)"
+    - "Full system audits (pe-meta-update handles this)"
 boundaries:
   - "MUST diff against last processed version from review log"
   - "MUST scope fullcheck to only affected artifact types"

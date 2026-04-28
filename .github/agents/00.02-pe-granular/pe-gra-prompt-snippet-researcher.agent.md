@@ -23,6 +23,18 @@ capabilities:
   - "detect content duplication between snippets and context files"
   - "assess whether content belongs as snippet, context, or instruction"
 goal: "Deliver a research report identifying reuse opportunities and deduplication needs in the snippet layer"
+scope:
+  covers:
+    - "Prompt-snippet fragment reuse pattern analysis and consumer dependency mapping"
+    - "Token efficiency assessment and deduplication with context files"
+  excludes:
+    - "Snippet creation or modification (pe-gra-prompt-snippet-builder handles this)"
+    - "Snippet validation (pe-gra-prompt-snippet-validator handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST check for content overlap with context files and instruction files"
+  - "MUST produce self-contained reports — builder should not need to re-research"
+  - "MUST load dispatch table before starting type-specific research"
 rationales:
   - "Read-only mode prevents research from having side effects on the artifact being studied"
   - "Self-contained reports eliminate re-research by downstream builders"
@@ -116,7 +128,7 @@ If research goal is missing: report `Incomplete handoff — no research goal pro
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Content already in context file** ? "This content exists in [file]. Recommend `#file:` reference instead of snippet."
 - **No reuse potential found** ? "Content is one-time use. Recommend inline inclusion instead of snippet."

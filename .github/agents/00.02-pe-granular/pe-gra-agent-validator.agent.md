@@ -22,6 +22,18 @@ capabilities:
   - "check handoff target existence and appropriateness"
   - "generate quantified compliance scores with breakdowns"
 goal: "Produce an actionable validation report with severity-ranked findings and specific fix recommendations"
+scope:
+  covers:
+    - "Agent file structural validation and tool alignment verification"
+    - "Three-tier boundary completeness checks and compliance scoring"
+  excludes:
+    - "Agent requirements research (pe-gra-agent-researcher handles this)"
+    - "Agent file creation or modification (pe-gra-agent-builder handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
+  - "MUST verify tool alignment as the first validation check"
+  - "MUST NOT approve files with CRITICAL issues"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -253,7 +265,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Agent file not found** ? "File [path] not found. Verify path and retry."
 - **Ambiguous tool alignment** ? Apply strictest interpretation, flag uncertainty in report

@@ -15,30 +15,30 @@ tools:
   - fetch_webpage
 handoffs:
   - label: "Research Context Layer"
-<<<<<<<< HEAD:.github/prompts/00.02-pe-granular/pe-gra-context-information-create-update.prompt.md
     agent: pe-gra-context-researcher
     send: true
   - label: "Validate Context File"
     agent: pe-gra-context-validator
-========
-<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
-    agent: context-researcher
-    send: true
-  - label: "Validate Context File"
-    agent: context-validator
-========
-    agent: pe-context-researcher
-    send: true
-  - label: "Validate Context File"
-    agent: pe-context-validator
->>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
->>>>>>>> 954b5cc98cf5fbca81fea98be61f0a5e713553dd:.github/prompts/00.02-pe-granular/context-information-create-update.prompt.md
     send: true
 argument-hint: 'Specify topic/domain (e.g., "validation caching"), context sources (URLs, files), and target folder under .copilot/context/'
 goal: "Create or update context information artifacts with structural validation"
 rationales:
   - "Unified create-update workflow avoids maintaining separate create and update paths"
   - "Metadata validation step enforces schema compliance on every operation"
+scope:
+  covers:
+    - "Context file creation and updates"
+    - "Multi-file domain topic support with structural assessment"
+    - "Single-source-of-truth enforcement"
+  excludes:
+    - "Prompt, agent, instruction, or skill file creation"
+    - "Context file validation-only (use context-review)"
+boundaries:
+  - "No duplication across context files — single source of truth"
+  - "Optimal token usage with focused scope and clear boundaries"
+  - "Multi-file domains must maintain vocabulary consistency and non-redundancy"
+version: "2.0"
+last_updated: "2026-04-28"
 ---
 
 # Create or Update Context Information
@@ -184,7 +184,7 @@ This request involves creating/modifying [file type].
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ---
 
@@ -198,11 +198,7 @@ Create or update context information that ensures prompts/agents referencing it 
 
 **Multi-file support:** When the user provides a broad topic or targets a domain folder, assess whether it fits in one file or needs splitting. For updates to existing domain folders, add/restructure files if the topic scope has changed.
 
-<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
-**Authoritative source URLs:** When creating domain context files, include an `authoritative_sources:` section in YAML frontmatter listing URLs that should be consulted for future updates:
-========
 **Authoritative source URLs:** When creating domain context files, include an `authoritative_sources:` section in YAML frontmatter listing URLs that should be consulted for future updates. This is in addition to the required metadata contract fields (`goal:`, `scope:`, `boundaries:`, `rationales:`, `version:`):
->>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
 
 ```yaml
 ---
@@ -211,8 +207,6 @@ description: "One-sentence summary"
 version: "1.0.0"
 last_updated: "2026-03-16"
 domain: "migration-validation"
-<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
-========
 goal: "Single sentence: the one outcome this file exists to achieve"
 scope:
   covers:
@@ -223,7 +217,6 @@ boundaries:
   - "Constraint 1"
 rationales:
   - "Why key decision X was made"
->>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
 authoritative_sources:
   - url: "https://learn.microsoft.com/..."
     description: "Official API versioning guidance"
@@ -266,11 +259,7 @@ For multi-file domains, ensure cross-file vocabulary consistency and non-redunda
 1. **Determine Operation Type** — UPDATE (existing domain) or CREATE (new topic)
 2. **Discover Sources** by priority: user input → execution context → STRUCTURE-README.md patterns → semantic search → additional discovery
 3. **Read STRUCTURE-README.md** for existing domains: extract source patterns (file globs, URLs, search queries) and update strategy
-<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
-4. **Collect and Merge** — combine all sources, run searches, check existing context files for overlap, read `context-files.instructions.md`
-========
 4. **Collect and Merge** — combine all sources, run searches, check existing context files for overlap, read `pe-context-files.instructions.md`
->>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
 5. **Present summary** — topic, target folder, operation, source counts, existing related context
 
 ---
@@ -511,17 +500,11 @@ Format source patterns according to STRUCTURE-README.md conventions:
 
 ## 🧪 Embedded Test Scenarios
 
-| Test | Category | Input | Key Validation |
-|------|----------|-------|----------------|
-| 1 | Happy Path - Create | "Create context for API versioning patterns" | Complete workflow, file created, STRUCTURE-README.md updated |
-| 2 | Happy Path - Update | "Update 00.00-prompt-engineering context" | Reads STRUCTURE-README.md sources, merges with search, updates mapping |
-| 3 | Incomplete Input | "Create some context" | Clarification questions asked |
-| 4 | Missing Source | "Based on https://broken-link.com" | Error recovery triggered, alternatives offered |
-| 5 | Duplicate Content | Topic overlaps existing context file | Stops, shows existing file, asks resolution |
-| 6 | Out of Scope | "Create a prompt for validation" | Redirect to correct prompt |
-| 7 | Large Content | Source >2,500 tokens | Splits into multiple files |
-| 8 | Source Prioritization | Multiple sources, some outdated | Correctly classifies Primary/Secondary/Tertiary |
-| 9 | New Domain | "Create context for new-domain" | Creates new section in STRUCTURE-README.md |
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Create new context file (happy path) | Discover sources → research → build file → validate → update STRUCTURE-README |
+| 2 | Update existing context file with new content | Loads existing → merges new content → validates no duplication → saves |
+| 3 | Content duplicates existing context file | Detects overlap → recommends referencing canonical source instead of duplicating |
 
 ---
 
@@ -536,12 +519,8 @@ Format source patterns according to STRUCTURE-README.md conventions:
 ## References
 
 - `.copilot/context/STRUCTURE-README.md` — Source patterns for each context folder
-<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/context-information-create-update.prompt.md
-- `.github/instructions/context-files.instructions.md` — Context file creation rules
-========
 - `.github/instructions/pe-context-files.instructions.md` — Context file creation rules
->>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-context-information-create-update.prompt.md
-- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Core principles
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: How to write great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 

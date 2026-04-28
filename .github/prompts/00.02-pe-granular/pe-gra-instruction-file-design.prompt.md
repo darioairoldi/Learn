@@ -40,6 +40,20 @@ goal: "Orchestrate multi-phase creation of instruction file artifacts with quali
 rationales:
   - "Orchestrator pattern provides use-case challenge validation before building"
   - "Quality gates between phases catch issues before they propagate"
+scope:
+  covers:
+    - "Instruction file design orchestration with multi-phase methodology"
+    - "applyTo conflict validation and layer boundary enforcement"
+    - "Dependency validation coordination"
+  excludes:
+    - "Instruction review-only (use instruction-review)"
+    - "Prompt, agent, or context file creation"
+boundaries:
+  - "Verify applyTo pattern has NO conflicts before delegating to builder"
+  - "Never skip research phase — always start with instruction-researcher"
+  - "Instructions must reference context files instead of embedding content"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Instruction File Design and Create
@@ -104,7 +118,7 @@ Instruction-file-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Instruction-file-specific scenarios:
 - **applyTo conflict detected:** Show conflicting patterns + impact, offer narrow/merge/refactor/confirm
@@ -311,19 +325,13 @@ Hand off to `@instruction-validator` for scoped validation:
 2. **Structured summary**  only the outputs from completed phases, not accumulated conversation
 3. **Phase-specific inputs**  what this specialist needs to do its job
 
-** Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+** Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ---
-## �🧪 Embedded Test Scenarios
+## 🧪 Embedded Test Scenarios
 
-These scenarios validate **orchestration decisions** — gate enforcement, handoff routing, and delegation discipline. They do NOT duplicate CREATE-UPDATE test cases (which test direct execution, source discovery, and source prioritization).
-
-| # | Scenario | Category | Input | Expected Orchestrator Behavior |
-|---|---|---|---|---|
-| 1 | Happy path — new instruction file | End-to-end | "Create instructions for PowerShell scripts targeting `**/*.ps1`" | All 6 phases complete in sequence: researcher scanned existing files, builder created file, validator passed with zero CRITICAL/HIGH. Orchestrator never researches, builds, or validates itself. |
-| 2 | applyTo conflict detected in Phase 2 | Conflict handling | "Create instructions for all Markdown files with `applyTo: '**/*.md'`" | Researcher reports overlap with `documentation.instructions.md` and `article-writing.instructions.md`. Orchestrator stops at Gate 2, presents conflict + 3 options (narrow, merge, refactor). Does NOT proceed to Phase 3. |
-| 3 | User rejects plan in Phase 3 | Gate enforcement | User says "No, I want different sections" after orchestrator presents plan | Orchestrator loops back — re-enters Phase 3 with revised structure. Does NOT hand off to builder. Does NOT skip to Phase 4. |
-| 4 | Builder produces file exceeding token budget | Quality gate | Builder creates a 2,200-token instruction file | Validator flags token budget as CRITICAL. Orchestrator routes back to builder with specific instruction to reduce content (reference context files, remove examples). Re-validates after fix. Maximum 3 fix-validate cycles. |
-| 5 | Ambiguous domain — vague request | Incomplete input | "Create some instructions for code" | Orchestrator asks clarifying questions BEFORE Phase 2: Which file types? What rules? Any existing context files? Does NOT delegate to researcher with vague requirements. |
-| 6 | Researcher finds domain already fully covered | Responsibility overlap | "Create instructions for prompt files" | Researcher reports `pe-prompts.instructions.md` already covers this domain. Orchestrator presents finding + options: update existing file via `@instruction-builder`, or explain why a separate file is needed. Does NOT create a duplicate. |
-| 7 | Validation finds embedded knowledge block | Layer boundary | Builder embeds 25-line coding standard inline | Validator flags as HIGH: knowledge >10 lines must be in context files. Orchestrator routes to builder with instruction to extract to `.copilot/context/` reference. Re-validates after fix. |
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Design instruction file (happy path) | Research → verify no applyTo conflicts → build file → validate → report success |
+| 2 | applyTo pattern conflicts with existing file | Detects conflict in research phase → proposes alternative pattern → waits for approval |
+| 3 | Domain already has instruction file | Detects existing file → offers: update existing or create complementary → waits for user |

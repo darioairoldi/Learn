@@ -80,7 +80,7 @@ You produce a **Change Specification** — a structured plan that:
 1. Lists every artifact to create or modify, with clear rationale
 2. Specifies what each artifact should contain (role, boundaries, key content)
 3. Identifies the builder agent responsible for each change
-4. Orders changes by dependency (Layer 1 first, then 2, 3, 4)
+4. Orders changes by dependency layer (L1→L2→L3→L4), then within each layer by tier (highest tier number first = lowest blast radius first, per R-S6)
 5. Includes rollback strategy per change
 6. Is independently executable — each spec can be handed to its builder without additional context
 
@@ -194,8 +194,14 @@ Generate the full specification using this structure:
 | **Builder** | [context-builder / agent-builder / prompt-builder / instruction-builder / skill-builder / hook-builder / prompt-snippet-builder] |
 | **Layer** | L1 / L2 / L3 / L4 |
 | **Impact** | [Low (0-2 consumers) / Medium (3-5) / High (6+)] |
-| **Classification** | [Breaking / Non-breaking] ([Deterministic / LLM-assisted] — brief justification) |
+| **Classification** | [Breaking / Non-breaking] ([Deterministic-structural / Deterministic-N1 / LLM-assisted] — brief justification) |
 | **Quality dimension** | [Effectiveness / Reliability / Efficiency] |
+| **Tier** | [0-5] (from artifact filename prefix — see R-S6-tier-blast-radius in vision) |
+
+**Classification tiers** (from vision three-tier protocol):
+- **Deterministic-structural** — resolved by metadata field presence/absence (Tier 1)
+- **Deterministic-N1** — resolved by N-1 block label analysis: diff in Rule block = breaking, diff in Rationale/Example = non-breaking (Tier 2)
+- **LLM-assisted** — metadata used as reference for LLM judgment on goal/scope/boundary alignment (Tier 3, lower confidence)
 
 **Rationale:** [Why this artifact is needed — what problem it solves, what gap it fills]
 

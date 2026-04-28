@@ -22,6 +22,18 @@ capabilities:
   - "check three-tier boundary completeness with minimum items"
   - "generate quality scores with severity-ranked findings"
 goal: "Produce an actionable validation report with specific fix recommendations for prompt and agent files"
+scope:
+  covers:
+    - "Prompt file structural validation and tool alignment checks"
+    - "Handoff target verification and compliance scoring"
+  excludes:
+    - "Prompt requirements research (pe-gra-prompt-researcher handles this)"
+    - "Prompt file creation or modification (pe-gra-prompt-builder handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
+  - "MUST verify tool alignment as the first validation check"
+  - "MUST NOT approve files with CRITICAL issues"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -198,7 +210,7 @@ Categorize all issues by severity (Critical/High/Medium/Low), include specific l
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Prompt file not found** ? "File [path] not found. Verify path and retry."
 - **Missing production-readiness sections** ? Flag each as CRITICAL with specific section to add

@@ -23,6 +23,18 @@ capabilities:
   - "clarify ambiguous requirements into actionable specifications"
   - "define scope boundaries and identify handoff needs"
 goal: "Produce a comprehensive research report that enables a builder to create the prompt without ambiguity"
+scope:
+  covers:
+    - "Prompt requirements discovery and use case challenge validation"
+    - "Pattern discovery from existing prompts and tool/mode recommendations"
+  excludes:
+    - "Prompt file creation or modification (pe-gra-prompt-builder handles this)"
+    - "Prompt validation (pe-gra-prompt-validator handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST challenge every role with 3-7 use case scenarios"
+  - "MUST produce self-contained reports — builder should not need to re-research"
+  - "MUST load dispatch table before starting type-specific research"
 rationales:
   - "Read-only mode prevents research from having side effects on the artifact being studied"
   - "Self-contained reports eliminate re-research by downstream builders"
@@ -175,7 +187,7 @@ After presenting the research report, offer handoff to `prompt-builder`. The bui
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Similar prompt already exists** ? Report overlap analysis with update/justify/cancel options
 - **Ambiguous requirements** ? Present interpretation options, ask orchestrator to clarify

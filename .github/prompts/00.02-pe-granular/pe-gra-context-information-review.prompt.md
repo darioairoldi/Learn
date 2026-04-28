@@ -33,6 +33,20 @@ goal: "Validate existing context information artifacts against PE standards and 
 rationales:
   - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
   - "Severity-scored findings prioritize what to fix first"
+scope:
+  covers:
+    - "Context file validation and domain-set structural optimality"
+    - "Coherence, non-redundancy, and consumer efficiency analysis"
+    - "Layer audit across all context domains"
+  excludes:
+    - "Context creation (use context-design or context-create-update)"
+    - "Prompt, agent, instruction, or skill review"
+boundaries:
+  - "Prioritize single-source-of-truth compliance and token budget"
+  - "Never approve context files that duplicate content from other context files"
+  - "Never skip consumer impact analysis"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Context Information Review and Validate Orchestrator
@@ -331,18 +345,14 @@ The `[agent-name]` specialist is not available.
 2. Clear accumulated context from that file's validation
 3. Report cumulative progress before starting next file
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ---
 
 ## 🧪 Embedded Test Scenarios
 
-These scenarios validate **orchestration decisions** — delegation discipline, gate enforcement, and iteration limits. They do NOT duplicate the validator agent's internal test cases.
-
-| # | Scenario | Category | Input | Expected Orchestrator Behavior |
-|---|---|---|---|---|
-| 1 | Happy path — single file, no issues | End-to-end | "Review `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`" | All phases complete: validator reports zero issues, orchestrator produces CERTIFIED report. Does NOT validate or fix itself. |
-| 2 | Layer audit — duplicate content detected | Single-source-of-truth | "Review all" — two context files document the same concept | Validator flags CRITICAL. Orchestrator presents duplication + options (merge, delete one, split). Does NOT auto-fix duplication. |
-| 3 | File exceeds 2,500-token budget | Token compliance | Single file with ~3,200 tokens | Validator flags as CRITICAL. Orchestrator routes to builder with splitting instruction. Re-validates after split. Maximum 3 fix-validate cycles. |
-| 4 | Fix-validate cycle hits 3x limit | Iteration limit | Builder fix introduces new issue each time | Escalated to user after 3 cycles with current state and unresolved issues. Does NOT continue indefinitely. |
-| 5 | Context file contradicts instruction file | Cross-layer contradiction | Context file says "MUST use X", instruction file says "NEVER use X" | Validator flags as CRITICAL contradiction. Orchestrator presents both sources to user. Asks which is canonical. Does NOT resolve contradictions itself. |
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Review single context file (happy path) | Loads file → validates structure and token budget → produces severity-scored report |
+| 2 | Domain set has duplicated content | Flags redundancy as HIGH → identifies canonical source → recommends dedup |
+| 3 | Context file exceeds 2,500 token budget | Flags as MEDIUM → recommends splitting or compression |

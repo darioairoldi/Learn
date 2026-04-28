@@ -22,6 +22,20 @@ goal: "Create or update prompt snippet artifacts with structural validation"
 rationales:
   - "Unified create-update workflow avoids maintaining separate create and update paths"
   - "Metadata validation step enforces schema compliance on every operation"
+scope:
+  covers:
+    - "Prompt snippet creation and updates"
+    - "Token optimization and consumer discovery"
+    - "Deduplication checks against context and instruction files"
+  excludes:
+    - "Context files (content >500 words)"
+    - "Instruction files, single-use embedded content"
+boundaries:
+  - "Keep snippets under 500 words — use context file if larger"
+  - "No YAML frontmatter in snippets — raw Markdown fragments only"
+  - "Never duplicate content from context or instruction files"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Create or Update Prompt Snippets
@@ -80,6 +94,71 @@ If user input is incomplete, ask clarifying questions before proceeding.
 - **NEVER rename without updating all consumer `#file:` references**
 - **NEVER modify prompts, agents, instruction files, or context files**
 
+## 📋 Response Management
+
+### Content Overlap Response
+When snippet content overlaps with existing context or instruction file:
+```
+⚠️ **Content Overlap Detected**
+This snippet content overlaps with:
+- `[existing-file.md]`: [overlapping content area]
+
+**Options:**
+1. Reference the existing file instead of duplicating
+2. Extract only the non-overlapping portion into a snippet
+3. Explain why a separate snippet is needed
+```
+
+### Scope Escalation Response
+When content exceeds snippet boundaries:
+```
+⚠️ **Scope Escalation**
+This content exceeds snippet limits ([word count] words, max 500).
+**Redirect to:** Context file creation via `pe-gra-context-information-create-update`
+```
+
+### Consumer Impact Response
+When updating a snippet with multiple consumers:
+```
+⚠️ **Consumer Impact**
+This snippet is included by [N] consumers:
+- [consumer list]
+
+**Options:**
+1. Proceed with backward-compatible update
+2. Create new snippet and migrate consumers individually
+3. Review each consumer's usage before deciding
+```
+
+### Out of Scope Response
+When request is outside boundaries:
+```
+🚫 **Out of Scope**
+This request involves creating/modifying [file type].
+**Redirect to:** [appropriate prompt name]
+```
+
+---
+
+## 🔄 Error Recovery Workflows
+
+### `file_search` Returns No Snippets
+1. Verify `.github/prompt-snippets/` directory exists
+2. If empty, confirm this will be the first snippet
+3. Proceed with creation (no deduplication needed)
+
+### `grep_search` Consumer Discovery Failure
+1. Search for snippet filename without path prefix
+2. Search for key content phrases from the snippet
+3. If still no results, warn user that consumer list may be incomplete
+
+### Content Duplication Detected
+1. Stop and show overlapping content
+2. Present options: reference existing, extract unique portion, or justify duplication
+3. Wait for user decision before proceeding
+
+---
+
 ## Process
 
 ### Phase 1: Gather and Assess
@@ -111,3 +190,11 @@ If user input is incomplete, ask clarifying questions before proceeding.
 5. All consumers verified (if updating)
 
 Hand off to `prompt-snippet-validator` for full validation.
+
+## 🧪 Embedded Test Scenarios
+
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Create new prompt snippet (happy path) | Discover consumers → build snippet → validate conciseness → save |
+| 2 | Snippet content duplicates context file | Detects overlap → recommends using context file reference instead |
+| 3 | Snippet exceeds 500 word limit | Flags as CRITICAL → recommends splitting or promoting to context file |

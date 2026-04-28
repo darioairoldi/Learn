@@ -40,6 +40,20 @@ goal: "Orchestrate multi-phase creation of skill artifacts with quality gates"
 rationales:
   - "Orchestrator pattern provides use-case challenge validation before building"
   - "Quality gates between phases catch issues before they propagate"
+scope:
+  covers:
+    - "Skill creation orchestration with multi-phase methodology"
+    - "Progressive disclosure validation and scope challenge"
+    - "Dependency validation coordination"
+  excludes:
+    - "Skill review-only (use skill-review)"
+    - "Prompt, agent, or context file creation"
+boundaries:
+  - "Challenge EVERY skill scope with discovery scenarios before delegating"
+  - "Never skip research phase — always start with skill-researcher"
+  - "Verify no scope overlap with existing skills"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Skill Design and Create
@@ -130,7 +144,7 @@ Orchestrate a multi-agent workflow to create new skill(s) that:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ## Process
 
@@ -280,7 +294,7 @@ Hand off to `@skill-validator` for scoped validation:
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Skill-design-specific recovery:
 - **Skill scope overlaps existing skill** → Present overlap analysis, offer merge/narrow/justify options
@@ -292,7 +306,7 @@ Skill-design-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Skill-design-specific scenarios:
 - **Similar skill exists** → "Found existing [name] with overlapping scope. Options: (a) Extend existing, (b) Justify separate, (c) Cancel"
@@ -305,6 +319,6 @@ Skill-design-specific scenarios:
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | New skill (happy path) | Requirements → Research → Plan → Build → Validate → Report |
-| 2 | Scope overlap detected | Researcher finds similar skill → presents merge/narrow options |
-| 3 | Vague request | Asks clarifying questions about domain, workflows, platforms before proceeding |
+| 1 | Design skill with resources (happy path) | Research → validate progressive disclosure → build SKILL.md + resources → validate |
+| 2 | Skill scope overlaps with existing skill | Detects overlap → presents options: extend existing or differentiate scope → waits for user |
+| 3 | Skill description exceeds 1,024 characters | Flags during validation → recommends compression → re-validates after fix |

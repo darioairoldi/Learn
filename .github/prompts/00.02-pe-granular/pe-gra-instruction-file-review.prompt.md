@@ -32,6 +32,20 @@ goal: "Validate existing instruction file artifacts against PE standards and bes
 rationales:
   - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
   - "Severity-scored findings prioritize what to fix first"
+scope:
+  covers:
+    - "Instruction file validation and review orchestration"
+    - "applyTo conflict detection and layer boundary verification"
+    - "Severity-scored validation with quality scores"
+  excludes:
+    - "Instruction creation (use instruction-design or instruction-create-update)"
+    - "Prompt, agent, context, or skill review"
+boundaries:
+  - "Prioritize applyTo conflict detection as CRITICAL check"
+  - "Never approve instruction files with conflicting applyTo overlaps"
+  - "Never skip applyTo conflict check"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Instruction File Review and Validate Orchestrator
@@ -87,7 +101,7 @@ Every handoff can fail. Apply Principle 7 from `02.03-orchestrator-design-patter
 ### Builder Fix Creates New Issues
 1. Re-validate — if new CRITICAL/HIGH issues appear that weren't in the original findings, present both sets to user
 2. Ask user: prioritize original issues or new issues?
-3. Maximum **3 fix-validate cycles** per gate (per `04.04-orchestrator-runtime-validation.md`)
+3. Maximum **3 fix-validate cycles** per gate (per `runtime-validation` in `.copilot/context/00.00-prompt-engineering/` — STRUCTURE-README.md → Functional Categories)
 
 ### File Not Found (Scoped Validation)
 1. Search for recently renamed files: `file_search` with partial name
@@ -101,7 +115,7 @@ When `context-validator`, `prompt-validator`, `agent-validator`, or `skill-valid
 
 ## 📋 Response Management
 
-Structured responses for review-specific data gaps (per `04.03-production-readiness-patterns.md`).
+Structured responses for review-specific data gaps (per `production-readiness` in `.copilot/context/00.00-prompt-engineering/` — STRUCTURE-README.md → Functional Categories).
 
 ### When reviewed file has no issues
 ```
@@ -338,20 +352,14 @@ For layer audits (6+ files), report after each file's validation:
 2. **Structured summary** — only outputs from completed phases
 3. **Phase-specific inputs** — what this specialist needs
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ---
 
 ## 🧪 Embedded Test Scenarios
 
-These scenarios validate **review orchestration decisions** — mode selection, conflict detection, fix routing, iteration limits, and scope discipline. They do NOT duplicate DESIGN test cases (which test creation orchestration) or CREATE-UPDATE test cases (which test direct execution).
-
-| # | Scenario | Category | Input | Expected Orchestrator Behavior |
-|---|---|---|---|---|
-| 1 | Happy path — single file, no issues | End-to-end (scoped) | `instruction-file-review pe-agents.instructions.md` | Mode: scoped. Phase 2 checks target against all others — no conflicts. Phase 3 validator returns zero issues. Phase 5 produces report with ✅ PASS verdict. Orchestrator never validates or fixes itself. |
-| 2 | Layer audit — conflicting applyTo between two files | Conflict detection | `instruction-file-review all` | Mode: layer audit. Phase 2 builds N×N matrix, detects overlap between `documentation.instructions.md` and `article-writing.instructions.md` on `*.md`. Flags as CRITICAL. Presents 3 options to user. Does NOT proceed to Phase 3 until conflict resolved. |
-| 3 | File exceeds 1,500-token budget | Token compliance | Single file with 2,100 tokens of embedded content | Phase 3 validator flags token budget as CRITICAL. Orchestrator routes to `instruction-builder` with specific instruction: externalize content to context file. Re-validates after fix. Maximum 3 cycles. |
-| 4 | Fix-validate cycle 3×, still failing | Iteration limit | Builder's fixes keep introducing new issues | After 3 fix-validate cycles, orchestrator STOPS. Reports what passed, what failed, what's blocking. Escalates to user with current state. Does NOT attempt 4th cycle. |
-| 5 | Instruction embeds 25-line coding standard | Layer boundary | File has >10 lines of knowledge content inline | Validator flags as HIGH: knowledge >10 lines must be in context files. Orchestrator routes to builder: extract to `.copilot/context/` and replace with `📖` reference. Re-validates after fix. |
-| 6 | User asks to review one file, orchestrator stays scoped | Scope discipline | `instruction-file-review pe-prompts.instructions.md` | Mode: scoped. Orchestrator validates ONLY `pe-prompts.instructions.md`. Does NOT expand to layer audit. Does NOT validate other instruction files beyond the applyTo conflict check. |
-| 7 | File path doesn't exist | Error recovery | `instruction-file-review nonexistent.instructions.md` | Orchestrator uses `file_search` to find similar files. Presents closest matches. Asks user to confirm correct path. Does NOT proceed with validation on wrong file. |
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Review instruction file (happy path) | Loads file → checks applyTo patterns → validates layer boundaries → produces report |
+| 2 | applyTo pattern overlaps with existing file | Flags overlap as CRITICAL → identifies conflicting file → recommends resolution |
+| 3 | Instruction file embeds behavioral rules | Flags as HIGH (R-S8 minimization) → recommends moving to context file |

@@ -23,6 +23,18 @@ capabilities:
   - "evaluate progressive disclosure effectiveness across three levels"
   - "assess description quality for AI discovery accuracy"
 goal: "Deliver a research report identifying skill layer gaps, overlaps, and discovery quality issues"
+scope:
+  covers:
+    - "Skill progressive disclosure design and cross-platform portability analysis"
+    - "Workflow coverage assessment and resource architecture planning"
+  excludes:
+    - "Skill creation or modification (pe-gra-skill-builder handles this)"
+    - "Skill validation (pe-gra-skill-validator handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST verify no scope overlap with existing skills"
+  - "MUST produce self-contained reports — builder should not need to re-research"
+  - "MUST load dispatch table before starting type-specific research"
 rationales:
   - "Read-only mode prevents research from having side effects on the artifact being studied"
   - "Self-contained reports eliminate re-research by downstream builders"
@@ -132,7 +144,7 @@ When researching updates to existing skills, classify each proposed change:
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Similar skill exists** ? Report overlap with recommendation: extend existing or justify separate
 - **Scope too broad** ? Recommend decomposition with specific skill boundaries

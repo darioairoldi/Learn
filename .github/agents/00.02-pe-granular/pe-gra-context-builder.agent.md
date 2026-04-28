@@ -24,6 +24,18 @@ capabilities:
   - "maintain cross-file vocabulary consistency in domain sets"
   - "manage token budgets with file splitting when needed"
 goal: "Deliver context files that pass validator checks and integrate cleanly with all dependent artifacts"
+scope:
+  covers:
+    - "Context file creation and updates with cross-file vocabulary consistency"
+    - "Single-file and multi-file domain creation with single-source-of-truth enforcement"
+  excludes:
+    - "Context requirements research (pe-gra-context-researcher handles this)"
+    - "Post-build validation (pe-gra-context-validator handles this)"
+boundaries:
+  - "MUST load dispatch table and type-specific instruction file before building"
+  - "MUST enforce single-source-of-truth — no duplicated content across context files"
+  - "MUST validate after every change — hand off to pe-gra-context-validator"
+  - "MUST stay within 2,500 token budget per context file"
 rationales:
   - "Pre-save validation catches structural issues before file creation reduces fix cycles"
   - "Breaking change detection protects consumers from silent contract violations"
@@ -216,7 +228,7 @@ Hand off to `context-validator` for structure verification.
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Missing specification** ? "Can't create context file without [missing field]. Provide: [list]."
 - **Token budget exceeded** ? Propose split strategy, ask orchestrator for approval

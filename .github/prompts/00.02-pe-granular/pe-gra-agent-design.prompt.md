@@ -42,6 +42,20 @@ goal: "Orchestrate multi-phase creation of agent artifacts with quality gates"
 rationales:
   - "Orchestrator pattern provides use-case challenge validation before building"
   - "Quality gates between phases catch issues before they propagate"
+scope:
+  covers:
+    - "Agent file creation orchestration with multi-phase workflow"
+    - "Use-case challenge validation and quality gates"
+    - "Dependent context/instruction/skill validation coordination"
+  excludes:
+    - "Agent validation-only workflows (use agent-review)"
+    - "Context, instruction, or skill file creation"
+boundaries:
+  - "Challenge user requests with use case scenarios BEFORE delegating"
+  - "Verify tool count is 3-7 at research phase (ABORT if >7)"
+  - "Enforce orchestration depth limit: max 1 level"
+version: "1.1"
+last_updated: "2026-04-28"
 ---
 
 # Agent Design and Create Orchestrator
@@ -129,7 +143,7 @@ This prompt WILL NOT:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ### Failure Handling & Iteration Limits
 
@@ -182,7 +196,7 @@ This prompt WILL NOT:
 
 **Expect from agent-researcher:** YAML spec, role definition, three-tier boundaries (each boundary must be testable), process structure, tool alignment.
 
-**📖 Boundary actionability:** `04.02-adaptive-validation-patterns.md`
+**📖 Boundary actionability:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 
 **Gate 3:** YAML complete, tools 3-7, alignment valid, boundaries populated + testable + cross-referenced against failure modes.
 
@@ -222,15 +236,15 @@ For each dependency: new agents → run Phases 1-4; updates → agent-builder.
 
 ## References
 
-- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 - `.github/instructions/pe-agents.instructions.md`
 
 ---
 
 ## 📋 Response Management
 
-**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Agent-design-specific scenarios:
 - **Similar agent already exists** → "Found existing [name]. Options: (a) Update existing, (b) Justify separate agent, (c) Cancel"

@@ -22,6 +22,18 @@ capabilities:
   - "check resource integrity and cross-platform portability"
   - "detect scope overlaps in layer audit mode"
 goal: "Produce a validation report ensuring skills are discoverable, portable, and structurally compliant"
+scope:
+  covers:
+    - "Skill description quality and progressive disclosure validation"
+    - "Resource integrity, cross-platform portability, and workflow completeness"
+  excludes:
+    - "Skill requirements research (pe-gra-skill-researcher handles this)"
+    - "Skill creation or modification (pe-gra-skill-builder handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
+  - "MUST verify description quality and resource path integrity"
+  - "MUST NOT approve skills with broken resource paths"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -130,7 +142,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Skill folder not found** ? "Skill [name] not found at expected path. Verify name."
 - **SKILL.md missing required sections** ? Flag each as CRITICAL with expected section

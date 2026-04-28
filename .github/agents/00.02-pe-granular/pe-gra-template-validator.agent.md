@@ -22,6 +22,18 @@ capabilities:
   - "discover all template consumers and verify chain integrity"
   - "enforce size limits and location scoping rules"
 goal: "Produce a validation report ensuring templates are correctly designed for their audience and consumer chain"
+scope:
+  covers:
+    - "Template audience-aware design and placeholder convention validation"
+    - "Consumer discovery, category compliance, and size limit enforcement"
+  excludes:
+    - "Template requirements research (pe-gra-template-researcher handles this)"
+    - "Template creation or modification (pe-gra-template-builder handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
+  - "MUST verify template is under 100 lines"
+  - "MUST NOT approve templates with incorrect category prefix"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -202,7 +214,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Template file not found** ? "File [path] not found. Verify path."
 - **No consumers reference template** → Flag as LOW (orphan), recommend deprecation or consumer update

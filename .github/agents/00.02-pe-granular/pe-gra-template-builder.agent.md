@@ -23,6 +23,18 @@ capabilities:
   - "design unambiguous placeholder markers for template consumers"
   - "manage template size within 100-line budgets"
 goal: "Deliver templates that produce consistent output across all consuming agents and prompts"
+scope:
+  covers:
+    - "Template file creation and updates with audience-aware design"
+    - "Category compliance and consumer chain verification"
+  excludes:
+    - "Template requirements research (pe-gra-template-researcher handles this)"
+    - "Post-build validation (pe-gra-template-validator handles this)"
+boundaries:
+  - "MUST load dispatch table and type-specific instruction file before building"
+  - "MUST keep templates under 100 lines"
+  - "MUST validate after every change — hand off to pe-gra-template-validator"
+  - "MUST NOT duplicate existing template scope"
 rationales:
   - "Pre-save validation catches structural issues before file creation reduces fix cycles"
   - "Breaking change detection protects consumers from silent contract violations"
@@ -195,7 +207,7 @@ Hand off to `template-validator` for structure verification.
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Missing specification** ? "Provide template purpose, category, and target consumers before creating."
 - **Template exceeds 100 lines** ? Propose split strategy, ask orchestrator for approval

@@ -52,7 +52,9 @@ required_categories:
     description: "Files tracking meta-workflow execution history — when each mode was last run, what sources were analyzed, what changes were applied, and staleness detection data"
   effectiveness-tracking:
     description: "Files recording user-reported outcomes from PE workflow executions — practical results that ground rule refinement beyond self-referential validation"
-version: "4.0.0"
+  pe-strategic-review:
+    description: "Files providing PE-for-PE strategic review criteria — vision alignment, quality bar, category enforcement, N-1 adoption, and self-update readiness checklists for artifacts that serve the PE system itself"
+version: "4.2.0"
 last_updated: "2026-04-28"
 ---
 
@@ -70,7 +72,7 @@ last_updated: "2026-04-28"
 
 **Scope**: All context engineering principles, patterns, and reference material for creating and maintaining GitHub Copilot customization files (prompts, agents, instructions, skills, hooks, MCP servers, templates).
 
-**File count**: 31 context files + this index
+**File count**: 32 context files + this index
 
 **Token budget**: Each file MUST stay under 2,500 tokens (see `01.06-system-parameters.md`)
 
@@ -165,6 +167,7 @@ System self-improvement infrastructure — dependency tracking, lifecycle manage
 | 05.03 | `05.03-pe-workflow-entry-points.md` | Decision guide for choosing the right prompt or agent — orchestrator vs standalone, validation, direct agent, meta-prompts | Meta agents, users starting PE workflows |
 | 05.04 | `05.04-meta-review-log.md` | Audit trail of meta-workflow executions — tracks when each mode was last run, what sources were analyzed, what changes were applied. Enables staleness detection | `pe-staleness-check` hook, `meta-prompt-engineering-scheduled-review`, `meta-prompt-engineering-update`, `meta-validator` |
 | 05.05 | `05.05-practical-effectiveness-log.md` | User-reported outcomes from PE workflow executions — breaks the self-referential validation cycle by grounding rule refinement in practical results | `meta-researcher`, `meta-prompt-engineering-scheduled-review`, `meta-validator` |
+| 05.06 | `05.06-pe-strategic-review-criteria.md` | PE-for-PE strategic review guidance — vision alignment checklists, quality bar, category reference enforcement, N-1 adoption per type, self-update readiness | `pe-meta-review`, `pe-meta-design`, `pe-meta-create-update`, `pe-meta-validator` |
 
 
 ---
@@ -239,6 +242,7 @@ Artifacts reference categories instead of filenames for robust, refactoring-safe
 | `lifecycle-ops` | Lifecycle stages, transitions, and workflow entry points | `05.02-artifact-lifecycle-management.md`, `05.03-pe-workflow-entry-points.md` |
 | `audit-trail` | Review history, staleness detection, and outcome tracking | `05.04-meta-review-log.md` |
 | `effectiveness-tracking` | User-reported workflow outcomes | `05.05-practical-effectiveness-log.md` |
+| `pe-strategic-review` | PE-for-PE strategic review criteria — vision alignment, quality bar, self-update readiness | `05.06-pe-strategic-review-criteria.md` |
 
 ---
 
@@ -296,3 +300,4 @@ Before modifying any HIGH-impact file, consult `05.01-artifact-dependency-map.md
 | 3.3.0 | 2026-03-20 | Split 02.04-agent-shared-patterns into 02.04 (structural) + 02.05-agent-workflow-patterns (behavioral) for token budget compliance. File count 29→30. |
 | 4.0.0 | 2026-04-28 | Added Functional Categories section — 17 categories mapping all 30 context files by capability for robust cross-artifact references (R-S5). Added category-based referencing pattern to Cross-Reference Rules. |
 | 4.1.0 | 2026-04-28 | Added 00.03-metadata-contracts to Tier 0 File Index and `governance` category. Updated file count 29→31. Added YAML frontmatter with required_categories metadata. |
+| 4.2.0 | 2026-04-28 | Added 05.06-pe-strategic-review-criteria to Tier 5 and new `pe-strategic-review` category. Updated file count 31→32. |

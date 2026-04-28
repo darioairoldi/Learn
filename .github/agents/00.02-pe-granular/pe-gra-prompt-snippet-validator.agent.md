@@ -22,6 +22,18 @@ capabilities:
   - "detect content duplication with context files"
   - "verify self-containment and token budget compliance"
 goal: "Produce a validation report ensuring snippets are concise, non-redundant, and compatible with all consumers"
+scope:
+  covers:
+    - "Prompt-snippet conciseness validation and consumer compatibility checks"
+    - "Deduplication with context files and proper fragment scoping"
+  excludes:
+    - "Snippet requirements research (pe-gra-prompt-snippet-researcher handles this)"
+    - "Snippet creation or modification (pe-gra-prompt-snippet-builder handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
+  - "MUST verify snippet is under 500 words"
+  - "MUST NOT approve snippets that duplicate context file content"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -124,7 +136,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Snippet file not found** ? "File [path] not found. Verify path."
 - **Content duplicates context file** → Flag as HIGH, identify canonical source

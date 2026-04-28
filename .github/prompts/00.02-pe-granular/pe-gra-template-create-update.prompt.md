@@ -22,6 +22,20 @@ goal: "Create or update template artifacts with structural validation"
 rationales:
   - "Unified create-update workflow avoids maintaining separate create and update paths"
   - "Metadata validation step enforces schema compliance on every operation"
+scope:
+  covers:
+    - "Template file creation and updates with audience-aware design"
+    - "Category compliance and consumer chain verification"
+    - "Placeholder convention enforcement"
+  excludes:
+    - "Prompt, agent, instruction, or context file creation"
+    - "Template design orchestration (use template-design)"
+boundaries:
+  - "Keep templates under 100 lines — split if larger"
+  - "Apply correct category prefix (output/input/guidance/pattern/structure)"
+  - "Never create templates duplicating existing template scope"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Create or Update Template Files
@@ -113,3 +127,11 @@ If user input is incomplete, ask clarifying questions before proceeding.
 - Update version in `template_metadata` bottom block
 
 Hand off to `template-validator` for full validation.
+
+## 🧪 Embedded Test Scenarios
+
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Create new template (happy path) | Research audience + consumers → build template → validate → save |
+| 2 | Template exceeds 100 lines | Validation flags as CRITICAL → recommends splitting or compression |
+| 3 | Template scope overlaps existing template | Detects overlap → recommends extending existing or differentiating scope |

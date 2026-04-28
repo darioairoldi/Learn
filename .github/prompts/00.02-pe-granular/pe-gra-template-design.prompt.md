@@ -34,6 +34,20 @@ goal: "Orchestrate multi-phase creation of template artifacts with quality gates
 rationales:
   - "Orchestrator pattern provides use-case challenge validation before building"
   - "Quality gates between phases catch issues before they propagate"
+scope:
+  covers:
+    - "Template creation orchestration with multi-phase methodology"
+    - "Audience-aware design validation"
+    - "Consumer chain verification and category compliance"
+  excludes:
+    - "Template review-only (use template-review)"
+    - "Prompt, agent, or context file creation"
+boundaries:
+  - "Confirm category, audience, and consumer list BEFORE delegating to builder"
+  - "Never skip research phase — always start with template-researcher"
+  - "Never create templates that duplicate existing scope"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Template Design and Create
@@ -121,7 +135,7 @@ Orchestrate a multi-agent workflow to create new template(s) that:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ## Process
 
@@ -252,7 +266,7 @@ Hand off to `@template-validator` for scoped validation:
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Template-design-specific recovery:
 - **template-researcher finds scope overlap** → Present overlap to user, recommend merge or differentiation
@@ -263,7 +277,7 @@ Template-design-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Template-design-specific scenarios:
 - **User doesn't specify category** → Present category table, ask for selection

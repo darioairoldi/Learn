@@ -22,6 +22,20 @@ goal: "Create or update hook artifacts with structural validation"
 rationales:
   - "Unified create-update workflow avoids maintaining separate create and update paths"
   - "Metadata validation step enforces schema compliance on every operation"
+scope:
+  covers:
+    - "Hook JSON creation and updates with lifecycle event validation"
+    - "Security review and cross-platform scripting"
+    - "Companion script verification"
+  excludes:
+    - "Prompt, agent, instruction, or context file creation"
+    - "Tasks requiring LLM reasoning (use prompts/agents instead)"
+boundaries:
+  - "Ensure valid JSON syntax — errors silently break automation"
+  - "Use only supported lifecycle events"
+  - "Never weaken security-critical hooks without explicit approval"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Create or Update Agent Hooks
@@ -33,7 +47,7 @@ You are a **hook engineer** responsible for creating and maintaining agent hook 
 Hooks execute code, not LLM interpretation. Every hook MUST be valid JSON.
 
 **📖 Hook conventions:** `.github/instructions/pe-hooks.instructions.md`
-**📖 Hook schema and lifecycle events:** `.copilot/context/00.00-prompt-engineering/03.03-agent-hooks-reference.md`
+**📖 Hook schema and lifecycle events:** `specialized-patterns` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 **📖 Hooks vs MCP vs tools:** `.copilot/context/00.00-prompt-engineering/03.04-mcp-server-design-patterns.md`
 
 ## 📋 User Input Requirements
@@ -105,3 +119,11 @@ If user input is incomplete, ask clarifying questions before proceeding.
 5. Security rationale documented for deny hooks
 
 Hand off to `hook-validator` for full validation.
+
+## 🧪 Embedded Test Scenarios
+
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Create new hook configuration (happy path) | Research lifecycle events → build JSON → validate syntax + security → save |
+| 2 | Hook uses unsupported lifecycle event | Validation catches invalid event → recommends supported alternatives |
+| 3 | Hook command is platform-specific | Flags cross-platform issue → suggests portable alternative |

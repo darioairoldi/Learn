@@ -66,7 +66,7 @@ You are a **prompt engineering system optimizer** responsible for applying impro
 - Read the COMPLETE target file before modifying it
 - Include 3—5 lines of context in all replace operations
 - **[C2]** Verify all rules are PRESERVED after deduplication (no capability loss)
-- Update version history in every modified file
+- Run metadata reconciliation (Phase 4.5) after ALL optimizations — version, last_updated, scope, goal, rationales
 - Update the dependency map after adding/removing references
 - Process changes ONE FILE AT A TIME — validate before moving to next
 - Maximum 3 optimization iterations per file — if validation still fails after 3 rounds (apply → validate → fix → re-validate), escalate to user with a detailed report explaining what was attempted and why it still fails
@@ -183,6 +183,18 @@ For files exceeding their token budget:
 
 2. **Add missing `📖` references** where agents/prompts should reference context files
 3. **Remove stale references** to files that no longer exist
+
+### Phase 4.5: Metadata Reconciliation (MANDATORY)
+
+After ALL optimizations are applied, for each modified file:
+
+1. **`version:`** → bump patch (optimization = non-breaking by definition)
+2. **`last_updated:`** → today's date
+3. **`scope.covers:`** → verify topics still match content after deduplication/compression
+4. **`goal:`** → verify still accurate after content changes
+5. **`rationales:`** → verify none invalidated by the optimization (deduplication should preserve rationales, not remove them)
+
+If any metadata field no longer matches content: update the field AND note the discrepancy in the validation handoff (Phase 6).
 
 ### Phase 5: Dependency Map Update
 

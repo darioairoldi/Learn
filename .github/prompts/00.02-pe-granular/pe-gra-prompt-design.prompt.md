@@ -56,6 +56,20 @@ goal: "Orchestrate multi-phase creation of prompt artifacts with quality gates"
 rationales:
   - "Orchestrator pattern provides use-case challenge validation before building"
   - "Quality gates between phases catch issues before they propagate"
+scope:
+  covers:
+    - "Prompt file creation orchestration with 8-phase methodology"
+    - "Use case challenge validation and quality gates"
+    - "Dependent agent creation and validation coordination"
+  excludes:
+    - "Prompt validation-only (use prompt-review)"
+    - "Context or instruction file creation"
+boundaries:
+  - "Challenge purposes with use case scenarios before building"
+  - "Gate each phase transition with quality checks"
+  - "Delegate specialized work to experts — never research, build, or validate yourself"
+version: "2.4"
+last_updated: "2026-04-28"
 ---
 
 # Prompt Design and Create
@@ -166,7 +180,7 @@ Orchestrate a multi-agent workflow to create new prompt file(s) that:
 Create the prompt using the summary above. File: [path]
 ```
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ## Process
 
@@ -259,7 +273,7 @@ Create the prompt using the summary above. File: [path]
 
 **Delegate to** `prompt-builder` with specification from Phase 3 and production-readiness requirements.
 
-**📖 Production requirements:** `04.03-production-readiness-patterns.md` — Response Management, Error Recovery, Embedded Tests (5 for prompts), token budget, template externalization
+**📖 Production requirements:** `production-readiness` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories) — Response Management, Error Recovery, Embedded Tests (5 for prompts), token budget, template externalization
 
 **For orchestrator architecture:** First build agents (agent-researcher → agent-builder → agent-validator pipeline per agent), then build orchestrator.
 
@@ -280,9 +294,9 @@ Create the prompt using the summary above. File: [path]
 ## References
 
 - All specialist agents configured in YAML handoffs section above
-- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
-- `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
-- `.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md`
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 - `.github/instructions/pe-prompts.instructions.md`
 - `.github/instructions/pe-agents.instructions.md`
 
@@ -314,7 +328,7 @@ Structured phase progression. Present agent outputs before proceeding. Delegate 
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Prompt-design-specific recovery:
 - **Researcher returns incomplete report** → Re-delegate with missing fields listed (max 2 retries)
@@ -326,7 +340,7 @@ Prompt-design-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Prompt-design-specific scenarios:
 - **Similar prompt already exists** → "Found existing [name]. Options: (a) Update existing, (b) Justify separate prompt, (c) Cancel"
@@ -340,11 +354,10 @@ Prompt-design-specific scenarios:
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | Simple validation prompt (happy path) | Requirements → Research → Build (plan mode) → Validate → Complete |
-| 2 | Complex orchestrator prompt | Requirements → Research → Architecture decision → Build (agent mode) → Validate → Complete |
-| 3 | Vague request ("make a prompt") | Asks clarifying questions before Phase 2 → does NOT guess |
-| 4 | Duplicate prompt exists | Detects overlap → offers update/justify/cancel options |
-| 5 | Validator finds CRITICAL issue | Fix loop (max 3) → escalate if unresolved |
+| 1 | Design prompt with agent dependencies (happy path) | Research → identify needed agents → build prompt + agents → validate chain → report |
+| 2 | Use case challenge reveals scope is too broad | Decomposes into 2+ focused prompts → confirms with user before proceeding |
+| 3 | Required agent already exists | Skips agent creation → links to existing → validates handoff compatibility |
+
 ---
 prompt_metadata:
   template_type: "multi-agent-orchestration"

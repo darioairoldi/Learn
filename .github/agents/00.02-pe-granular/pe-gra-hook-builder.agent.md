@@ -23,6 +23,18 @@ capabilities:
   - "implement cross-platform command variants"
   - "update existing hooks with security policy preservation"
 goal: "Deliver deterministic hook configurations that enforce policies without blocking legitimate operations"
+scope:
+  covers:
+    - "Hook JSON configuration creation and updates with lifecycle event validation"
+    - "Security review and cross-platform scripting for companion scripts"
+  excludes:
+    - "Hook requirements research (pe-gra-hook-researcher handles this)"
+    - "Post-build validation (pe-gra-hook-validator handles this)"
+boundaries:
+  - "MUST load dispatch table and type-specific instruction file before building"
+  - "MUST ensure valid JSON syntax and only supported lifecycle events"
+  - "MUST validate after every change — hand off to pe-gra-hook-validator"
+  - "MUST NOT weaken security hooks without explicit user approval"
 rationales:
   - "Pre-save validation catches structural issues before file creation reduces fix cycles"
   - "Breaking change detection protects consumers from silent contract violations"
@@ -201,7 +213,7 @@ After creating all files, hand off to `hook-validator` for structure verificatio
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Invalid event name** ? "Event [name] not in supported list. Supported: [8 events]."
 - **Security concern in hook** ? Flag to user, don't create without explicit approval

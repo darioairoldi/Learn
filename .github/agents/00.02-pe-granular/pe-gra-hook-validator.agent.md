@@ -22,6 +22,18 @@ capabilities:
   - "review security implications of PreToolUse hooks"
   - "check companion script existence and cross-platform coverage"
 goal: "Produce a validation report ensuring hooks are syntactically valid, secure, and cross-platform compatible"
+scope:
+  covers:
+    - "Hook JSON syntax validation and lifecycle event verification"
+    - "Security policy review and cross-platform command compatibility"
+  excludes:
+    - "Hook requirements research (pe-gra-hook-researcher handles this)"
+    - "Hook configuration creation or modification (pe-gra-hook-builder handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
+  - "MUST verify JSON syntax validity as the first check"
+  - "MUST NOT approve hooks with security policy weaknesses"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -129,7 +141,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Hook file not found** ? "File [path] not found. Verify path."
 - **Invalid JSON** → Flag as CRITICAL with parse error location and fix suggestion
