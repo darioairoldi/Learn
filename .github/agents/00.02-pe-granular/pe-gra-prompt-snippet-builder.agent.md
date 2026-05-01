@@ -23,6 +23,18 @@ capabilities:
   - "optimize snippets for token efficiency and maximum value"
   - "deduplicate snippet content against context files"
 goal: "Deliver concise, reusable snippets that add maximum value with minimum tokens"
+scope:
+  covers:
+    - "Prompt-snippet fragment creation and updates with token optimization"
+    - "Consumer discovery and deduplication with context files"
+  excludes:
+    - "Snippet requirements research (pe-gra-prompt-snippet-researcher handles this)"
+    - "Post-build validation (pe-gra-prompt-snippet-validator handles this)"
+boundaries:
+  - "MUST load dispatch table and type-specific instruction file before building"
+  - "MUST keep snippets under 500 words"
+  - "MUST validate after every change — hand off to pe-gra-prompt-snippet-validator"
+  - "MUST NOT duplicate content from context files or instruction files"
 rationales:
   - "Pre-save validation catches structural issues before file creation reduces fix cycles"
   - "Breaking change detection protects consumers from silent contract violations"
@@ -178,7 +190,7 @@ After creating the file, hand off to `prompt-snippet-validator` for structure ve
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Content duplicates context file** ? "This content exists in [context file]. Use `#file:` reference instead."
 - **Snippet exceeds 500 words** ? "Snippet is [N] words (limit: 500). Split or move to context file."

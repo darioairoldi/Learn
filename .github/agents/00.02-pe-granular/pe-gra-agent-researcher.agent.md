@@ -23,6 +23,18 @@ capabilities:
   - "find and analyze similar existing agents"
   - "define scope boundaries and handoff needs"
 goal: "Produce a validated requirements report that a builder can execute without ambiguity"
+scope:
+  covers:
+    - "Agent file requirements discovery and role challenge validation"
+    - "Tool requirement mapping and similar agent pattern analysis"
+  excludes:
+    - "Agent file creation or modification (pe-gra-agent-builder handles this)"
+    - "Agent validation (pe-gra-agent-validator handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST challenge every role with 3-7 use case scenarios"
+  - "MUST produce self-contained reports — builder should not need to re-research"
+  - "MUST load dispatch table before starting type-specific research"
 rationales:
   - "Read-only mode prevents research from having side effects on the artifact being studied"
   - "Self-contained reports eliminate re-research by downstream builders"
@@ -159,7 +171,7 @@ After presenting the report, offer handoff to `agent-builder`.
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **No similar agents found** ? Report "no existing patterns" — research from instruction files and context files
 - **Ambiguous requirements** ? Present interpretation options, ask orchestrator to clarify

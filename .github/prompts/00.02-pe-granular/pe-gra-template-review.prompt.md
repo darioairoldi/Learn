@@ -26,6 +26,20 @@ goal: "Validate existing template artifacts against PE standards and best practi
 rationales:
   - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
   - "Severity-scored findings prioritize what to fix first"
+scope:
+  covers:
+    - "Template file validation and review orchestration"
+    - "Audience design verification and category compliance"
+    - "Consumer chain integrity checking"
+  excludes:
+    - "Template creation (use template-design or template-create-update)"
+    - "Prompt, agent, context, instruction, or skill review"
+boundaries:
+  - "Prioritize size limit (≤100 lines) and audience design as CRITICAL checks"
+  - "Never approve templates exceeding 100 lines"
+  - "Never skip audience design check"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Template Review and Validate Orchestrator
@@ -100,7 +114,7 @@ Orchestrate a multi-agent workflow to review and validate existing templates:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ## Process
 
@@ -211,7 +225,7 @@ If `@template-validator` reports issues:
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Template-review-specific recovery:
 - **template-validator returns empty** → Retry once, then escalate with partial findings
@@ -223,7 +237,7 @@ Template-review-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Template-review-specific scenarios:
 - **Template not found** → "Template [name] not found at expected path. Verify name or provide path."

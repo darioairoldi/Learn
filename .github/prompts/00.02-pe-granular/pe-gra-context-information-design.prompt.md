@@ -41,6 +41,20 @@ goal: "Orchestrate multi-phase creation of context information artifacts with qu
 rationales:
   - "Orchestrator pattern provides use-case challenge validation before building"
   - "Quality gates between phases catch issues before they propagate"
+scope:
+  covers:
+    - "Domain context design orchestration and information architecture"
+    - "Multi-file domain context sets with structural authority"
+    - "Consumer impact analysis"
+  excludes:
+    - "Context validation-only (use context-review)"
+    - "Prompt, agent, or instruction file creation"
+boundaries:
+  - "Verify knowledge gap exists BEFORE delegating to builder"
+  - "Challenge with single-source-of-truth analysis before any creation"
+  - "Never skip research phase — always start with context-researcher"
+version: "1.5"
+last_updated: "2026-04-28"
 ---
 
 # Context Information Design and Create Orchestrator
@@ -268,7 +282,7 @@ Context-file-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Context-file-specific scenarios:
 - **Topic already covered:** Show existing file + gap analysis, offer update/justify separate/abort
@@ -294,7 +308,7 @@ Context-file-specific scenarios:
 2. **Structured summary** — only the outputs from completed phases, not accumulated conversation
 3. **Phase-specific inputs** — what this specialist needs to do its job
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ---
 
@@ -302,13 +316,9 @@ Context-file-specific scenarios:
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | New context file (happy path) | All 6 phases → researcher confirms gap → builder creates + updates STRUCTURE-README → validator passes |
-| 2 | Topic already covered | Researcher finds existing file → orchestrator stops at Gate 2, offers update/justify/abort |
-| 3 | User rejects plan | Loops back to Phase 3 with revisions, does NOT skip to builder |
-| 4 | Token budget exceeded | Researcher proposes split → orchestrator presents plan → builder creates both files |
-| 5 | Vague request | Orchestrator asks clarifying questions BEFORE delegating to researcher |
-| 6 | Validation finds duplication | Validator flags CRITICAL → builder references existing file → re-validates (max 3 cycles) |
-| 7 | New domain folder | Creates folder, delegates to builder, validator confirms structure |
+| 1 | Design multi-file domain context (happy path) | Research → determine file structure → build files → validate → update STRUCTURE-README |
+| 2 | Topic already covered by existing context | Detects overlap → presents options: extend existing or create new → waits for user |
+| 3 | Domain requires 5+ files | Splits into coherent sub-topics → validates cross-file vocabulary consistency |
 
 ---
 

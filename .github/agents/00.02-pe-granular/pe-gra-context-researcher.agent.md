@@ -24,6 +24,18 @@ capabilities:
   - "perform topic scope analysis for new domain context requests"
   - "classify expertise requirements as homogeneous or heterogeneous"
 goal: "Deliver a research report that identifies all context layer issues with evidence-backed improvement recommendations"
+scope:
+  covers:
+    - "Context knowledge gap analysis and coverage overlap detection"
+    - "Information architecture, topic scope, and single-source-of-truth compliance"
+  excludes:
+    - "Context file creation or modification (pe-gra-context-builder handles this)"
+    - "Context validation (pe-gra-context-validator handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST classify sources by trust level before recommending adoption"
+  - "MUST produce self-contained reports — builder should not need to re-research"
+  - "MUST load dispatch table before starting type-specific research"
 rationales:
   - "Read-only mode prevents research from having side effects on the artifact being studied"
   - "Self-contained reports eliminate re-research by downstream builders"

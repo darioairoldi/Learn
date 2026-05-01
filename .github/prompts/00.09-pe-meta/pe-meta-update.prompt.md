@@ -1,5 +1,5 @@
 ---
-name: meta-prompt-engineering-update
+name: meta-update
 description: "Unified Prompt Engineering Artifact Management — 8-phase pipeline with structure/consistency/content audits, each with research-build-validate. Modes: fullcheck, healthcheck, performancecheck. Every phase independently disableable."
 agent: agent
 model: claude-opus-4.6

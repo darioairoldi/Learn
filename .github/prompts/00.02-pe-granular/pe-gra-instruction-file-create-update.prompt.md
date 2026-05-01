@@ -15,33 +15,31 @@ tools:
   - fetch_webpage
 handoffs:
   - label: "Research Instruction Layer"
-<<<<<<<< HEAD:.github/prompts/00.02-pe-granular/pe-gra-instruction-file-create-update.prompt.md
     agent: pe-gra-instruction-researcher
     send: true
   - label: "Validate Instruction File"
     agent: pe-gra-instruction-validator
-========
-<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md
-    agent: instruction-researcher
-    send: true
-  - label: "Validate Instruction File"
-    agent: instruction-validator
-========
-    agent: pe-instruction-researcher
-    send: true
-  - label: "Validate Instruction File"
-    agent: pe-instruction-validator
->>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-instruction-file-create-update.prompt.md
->>>>>>>> 954b5cc98cf5fbca81fea98be61f0a5e713553dd:.github/prompts/00.02-pe-granular/instruction-file-create-update.prompt.md
     send: true
 argument-hint: 'Specify domain (e.g., "validation", "code-review"), target file patterns (applyTo), and context sources'
 goal: "Create or update instruction file artifacts with structural validation"
 rationales:
   - "Unified create-update workflow avoids maintaining separate create and update paths"
   - "Metadata validation step enforces schema compliance on every operation"
+scope:
+  covers:
+    - "Instruction file creation and updates"
+    - "Path-specific AI guidance with applyTo patterns"
+    - "Source discovery and context file referencing"
+  excludes:
+    - "Prompt, agent, context, or skill file creation"
+    - "Instruction validation-only (use instruction-review)"
+boundaries:
+  - "Verify no applyTo conflicts with existing instruction files"
+  - "Reference context files instead of embedding content >10 lines"
+  - "Ensure non-redundant responsibilities across instruction files"
+version: "1.1"
+last_updated: "2026-04-28"
 ---
-
-# Create or Update Instruction Files
 
 ## Your Role
 
@@ -199,7 +197,7 @@ This request involves creating/modifying [file type].
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ---
 
@@ -406,17 +404,11 @@ context_dependencies:
 
 ## 🧪 Embedded Test Scenarios
 
-| Test | Category | Input | Key Validation |
-|------|----------|-------|----------------|
-| 1 | Happy Path - Create | "Create instructions for PowerShell scripts" | Complete workflow, file created, no conflicts |
-| 2 | Happy Path - Update | "Update pe-prompts.instructions.md" | Reads context files, STRUCTURE-README.md, merges sources |
-| 3 | Pattern Conflict | "applyTo: '*.md'" overlaps documentation.instructions.md | Conflict detected, options presented |
-| 4 | Responsibility Overlap | Rules duplicate pe-prompts.instructions.md | Stops, shows existing file, asks resolution |
-| 5 | Missing Source | "Based on https://broken-link.com" | Error recovery triggered |
-| 6 | Out of Scope | "Create a context file" | Redirect to correct prompt |
-| 7 | Incomplete Input | "Create some instructions" | Clarification questions asked |
-| 8 | Source Prioritization | Multiple sources, some outdated | Correctly classifies Primary/Secondary/Tertiary |
-| 9 | Context Integration | Domain has context folder | Reads `.copilot/context/{domain}/` files |
+| # | Scenario | Expected Behavior |
+|---|---|---|
+| 1 | Create new instruction file (happy path) | Research → verify no applyTo conflicts → build → validate → save |
+| 2 | Update existing instruction file | Loads current → applies changes → validates no new conflicts → saves |
+| 3 | New rule duplicates content from context file | Detects duplication → recommends 📖 reference instead of inline content |
 
 ---
 
@@ -451,14 +443,9 @@ context_dependencies:
 
 - `.copilot/context/STRUCTURE-README.md` — Source patterns for context folders
 - `.copilot/context/{domain}/*.md` — Domain-specific context files
-<<<<<<<< HEAD:.github/prompts/00.00-prompt-engineering/instruction-file-create-update.prompt.md
-- `.github/instructions/prompts.instructions.md` — Example instruction file structure
-- `.github/instructions/agents.instructions.md` — Example with tool guidance
-========
 - `.github/instructions/pe-prompts.instructions.md` — Example instruction file structure
 - `.github/instructions/pe-agents.instructions.md` — Example with tool guidance
->>>>>>>> e0be55e827725c289a6491828ed5c96fa408c032:.github/prompts/00.00-prompt-engineering/pe-instruction-file-create-update.prompt.md
-- `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md` — Core principles
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 

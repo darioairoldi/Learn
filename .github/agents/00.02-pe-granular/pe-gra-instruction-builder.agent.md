@@ -23,6 +23,18 @@ capabilities:
   - "design glob patterns that precisely target intended file types"
   - "reference context files instead of embedding large content"
 goal: "Deliver instruction files that auto-inject correctly without conflicting with existing rules"
+scope:
+  covers:
+    - "Instruction file creation and updates with applyTo conflict detection"
+    - "Rule deduplication and context file reference enforcement"
+  excludes:
+    - "Instruction requirements research (pe-gra-instruction-researcher handles this)"
+    - "Post-build validation (pe-gra-instruction-validator handles this)"
+boundaries:
+  - "MUST load dispatch table and type-specific instruction file before building"
+  - "MUST verify no applyTo pattern conflicts with existing instruction files"
+  - "MUST validate after every change — hand off to pe-gra-instruction-validator"
+  - "MUST reference context files instead of embedding >10 lines inline"
 rationales:
   - "Pre-save validation catches structural issues before file creation reduces fix cycles"
   - "Breaking change detection protects consumers from silent contract violations"
@@ -305,7 +317,7 @@ Hand off to instruction-validator for structure verification.
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **applyTo pattern conflict** ? "Pattern [glob] conflicts with [existing file]. Resolve overlap before creating."
 - **Rule duplicates context file** → Replace inline rule with 📖 reference to canonical source

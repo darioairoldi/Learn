@@ -120,6 +120,8 @@ Load context files from `.copilot/context/00.00-prompt-engineering/` by category
   - **MEDIUM** → Route through standard autonomy gradient (notify + proceed if confidence is high). Examples: consistency issue, coverage gap
   - **LOW** → Eligible for autonomous fix (no human approval if pre-change guard passes). Examples: wording, example update, token savings
 - **Propagation analysis**: When classifying a finding, check the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for dependent count. A HIGH finding in a Tier 1 file with 15+ dependents is more urgent than the same severity in a Tier 5 file with 2 dependents. Include dependent count in the report.
+- In Audit mode: check instruction files for R-S8 instruction minimization compliance (testable vs behavioral rule classification)
+- In Audit mode: assess N-1 structural separation adoption per artifact type (blocks Phase 3 readiness if missing)
 - In Audit mode: hand off to `meta-optimizer` when fixes are needed
 - **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
 
@@ -245,6 +247,16 @@ Run these 6 check categories against each proposed change:
 3. **A3. Cross-Artifact Alignment** — for each agent, verify: boundaries cover governing instruction file—s CRITICAL/HIGH rules; `📖` context references resolve and are current; handoff targets form valid triad chains; orchestrator prompts list correct target agents
 4. **A4. Redundancy** — scan for duplicated content across layers, verify single-source-of-truth compliance
 5. **A5. Completeness & Budgets** — missing coverage, token budgets (**** `01.06-system-parameters.md`), stale content, deprecated items
+6. **A6. Instruction Minimization** — for each instruction file in scope:
+   a. Read the file and classify every rule as **testable/mechanical** (boolean pass/fail without LLM judgment) or **behavioral/strategic** (requires interpretation, tone, or style judgment)
+   b. Behavioral/strategic rules in instruction files = **HIGH severity** finding (R-S8-instruction-minimization violation)
+   c. Recommend moving behavioral rules to context files or agent bodies where consumers choose what to load
+   d. Examples: ✅ "YAML MUST have `goal:` field" (testable). ❌ "Write in a warm, conversational tone" (behavioral)
+7. **A7. N-1 Adoption Audit** — for each context file, instruction file, and agent body in scope:
+   a. Check whether rule-bearing sections use `**Rule**:` / `**Rationale**:` / `**Example**:` labels per the N-1 adoption table in `pe-strategic-review` files (see STRUCTURE-README.md → Functional Categories)
+   b. Missing N-1 in applicable artifact types = **MEDIUM severity** finding (blocks Phase 3 self-update readiness)
+   c. Report: artifact path, count of rule-bearing sections, count with N-1 labels, count without
+   d. N/A for prompts, templates, and hooks per the N-1 adoption table
 
 **📖 Report format:** `.github/templates/00.00-prompt-engineering/output-meta-validator-reports.template.md` ? Mode 3
 

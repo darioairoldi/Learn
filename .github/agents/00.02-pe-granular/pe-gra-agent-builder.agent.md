@@ -23,6 +23,18 @@ capabilities:
   - "verify tool count and alignment compliance"
   - "apply pre-save structure validation"
 goal: "Deliver a structurally compliant agent file that passes validator checks on first review"
+scope:
+  covers:
+    - "Agent file creation and updates with tool alignment verification"
+    - "Pre-save structure validation and breaking change detection"
+  excludes:
+    - "Agent requirements research (pe-gra-agent-researcher handles this)"
+    - "Post-build validation (pe-gra-agent-validator handles this)"
+boundaries:
+  - "MUST load dispatch table and type-specific instruction file before building"
+  - "MUST verify tool count 3-7 and mode/tool alignment before saving"
+  - "MUST validate after every change — hand off to pe-gra-agent-validator"
+  - "MUST NOT skip pre-save structure validation"
 rationales:
   - "Pre-save validation catches structural issues before file creation reduces fix cycles"
   - "Breaking change detection protects consumers from silent contract violations"
@@ -181,7 +193,7 @@ Hand off to `agent-validator` for structure and tool alignment verification.
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Missing specification** ? "Can't create agent without [missing field]. Provide: [list]."
 - **Template not found** ? Fall back to instruction file patterns, warn orchestrator

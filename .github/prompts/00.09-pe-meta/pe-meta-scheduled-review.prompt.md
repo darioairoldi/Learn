@@ -1,5 +1,5 @@
 ---
-name: meta-prompt-engineering-scheduled-review
+name: meta-scheduled-review
 description: "Lightweight periodic PE health check — detects stale artifacts, runs scoped healthcheck, proposes fixes, and updates the review log. Designed for weekly use with minimal cognitive load."
 agent: agent
 model: claude-opus-4.6
@@ -26,8 +26,8 @@ scope:
     - "Scoped healthcheck on auto-detected stale areas"
     - "Fix proposal and targeted application via meta-optimizer"
   excludes:
-    - "Full 8-phase pipeline (pe-meta-prompt-engineering-update handles this)"
-    - "Release-driven monitoring (pe-meta-prompt-engineering-release-monitor handles this)"
+    - "Full 8-phase pipeline (pe-meta-update handles this)"
+    - "Release-driven monitoring (pe-meta-release-monitor handles this)"
 boundaries:
   - "MUST auto-detect stale areas before auditing"
   - "MUST summarize context before handoffs (>8K token trigger)"

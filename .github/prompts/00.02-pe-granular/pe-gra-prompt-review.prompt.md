@@ -35,6 +35,20 @@ goal: "Validate existing prompt artifacts against PE standards and best practice
 rationales:
   - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
   - "Severity-scored findings prioritize what to fix first"
+scope:
+  covers:
+    - "Prompt file validation and review orchestration"
+    - "Tool alignment verification"
+    - "Severity-scored validation with quality scores"
+  excludes:
+    - "Prompt creation (use prompt-design or prompt-create-update)"
+    - "Agent, context, instruction, or skill review"
+boundaries:
+  - "Prioritize tool alignment validation as CRITICAL check"
+  - "Never approve prompts with tool alignment violations"
+  - "Gate issue resolution with re-validation"
+version: "2.1"
+last_updated: "2026-04-28"
 ---
 
 # Prompt Review and Validate Orchestrator
@@ -112,7 +126,7 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ## Process
 
@@ -146,7 +160,7 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 
 **Delegate to prompt-validator** for alignment check. The validator owns the complete alignment rules (mode/tool compatibility, count limits).
 
-**📖 Alignment rules:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
+**📖 Alignment rules:** `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 **Gate: Alignment Valid?**
 ```markdown
@@ -176,7 +190,7 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 
 **Goal:** Test whether the prompt's stated purpose holds up against realistic scenarios.
 
-**📖 Methodology:** `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md`
+**📖 Methodology:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 
 **Validation Depth** (determined by prompt complexity from Phase 1):
 
@@ -221,7 +235,7 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 1. Structure validation
 2. Boundary completeness (3/1/2 minimum)
 3. Convention compliance
-4. **Production-readiness compliance** (6 checks from `.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md`):
+4. **Production-readiness compliance** (6 checks from `production-readiness` in `.copilot/context/00.00-prompt-engineering/` — STRUCTURE-README.md → Functional Categories):
    - [ ] Response Management section present
    - [ ] Error Recovery workflows defined for critical tools
    - [ ] Embedded Tests present (minimum 3–5 for prompts, 3 for agents)
@@ -274,16 +288,16 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 
 **You MUST read before validating:**
 - `.github/instructions/pe-prompts.instructions.md` — Core guidelines
-- `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md` — Tool alignment rules
-- `.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md` — 6 production-readiness requirements
-- `.copilot/context/00.00-prompt-engineering/04.04-orchestrator-runtime-validation.md` — Gate patterns (for reviewing orchestrators)
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Tool alignment rules
+- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — 6 production-readiness requirements
+- `runtime-validation` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Gate patterns (for reviewing orchestrators)
 
 ## References
 
-- `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
-- `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md`
-- `.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md`
-- `.copilot/context/00.00-prompt-engineering/04.04-orchestrator-runtime-validation.md`
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `runtime-validation` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 - `.github/instructions/pe-prompts.instructions.md`
 - Existing validation patterns in `.github/prompts/`
 
@@ -293,11 +307,9 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | Well-formed prompt (happy path) | All phases pass → validation report with high scores |
-| 2 | Missing production-readiness sections | Validator flags CRITICAL → fix loop → builder adds sections → re-validate |
-| 3 | Tool/mode alignment violation | Plan mode + write tool detected → CRITICAL issue → fix or escalate |
-| 4 | Batch review (3+ prompts) | Each validated independently → summary table with per-prompt scores |
-| 5 | Prompt exceeds token budget | Flagged as HIGH → reduction recommendations provided |
+| 1 | Review prompt file (happy path) | Loads context → validates tool alignment → validates handoffs → produces severity-scored report |
+| 2 | Prompt uses agent mode with no write tools | Flags as WARNING → suggests switching to plan mode |
+| 3 | Handoff target agent doesn't exist | Flags as CRITICAL → recommends creating the agent or fixing the reference |
 
 <!-- 
 ---

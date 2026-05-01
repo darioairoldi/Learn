@@ -23,6 +23,18 @@ capabilities:
   - "design progressive disclosure across three levels"
   - "bundle templates, checklists, and examples for cross-platform use"
 goal: "Deliver a cross-platform-portable skill that passes validator checks and enables accurate AI discovery"
+scope:
+  covers:
+    - "Skill folder creation and updates (SKILL.md + resources) with progressive disclosure"
+    - "Pre-save validation and cross-platform portability checks"
+  excludes:
+    - "Skill requirements research (pe-gra-skill-researcher handles this)"
+    - "Post-build validation (pe-gra-skill-validator handles this)"
+boundaries:
+  - "MUST load dispatch table and type-specific instruction file before building"
+  - "MUST apply progressive disclosure (3 levels)"
+  - "MUST validate after every change — hand off to pe-gra-skill-validator"
+  - "MUST NOT create skills with overlapping scope to existing skills"
 rationales:
   - "Pre-save validation catches structural issues before file creation reduces fix cycles"
   - "Breaking change detection protects consumers from silent contract violations"
@@ -198,7 +210,7 @@ After creating all files, hand off to `skill-validator` for structure verificati
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **Missing specification** ? "Can't create skill without [missing field]. Provide: [list]."
 - **Description exceeds 1,024 chars** ? Propose trimmed version, ask for approval

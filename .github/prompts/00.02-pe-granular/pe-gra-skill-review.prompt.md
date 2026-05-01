@@ -32,6 +32,20 @@ goal: "Validate existing skill artifacts against PE standards and best practices
 rationales:
   - "Review prompts provide systematic quality assessment beyond ad-hoc checks"
   - "Severity-scored findings prioritize what to fix first"
+scope:
+  covers:
+    - "Skill file validation and review orchestration"
+    - "Progressive disclosure verification and resource integrity"
+    - "Description quality and discovery accuracy assessment"
+  excludes:
+    - "Skill creation (use skill-design)"
+    - "Prompt, agent, context, or instruction review"
+boundaries:
+  - "Prioritize description quality and resource integrity as CRITICAL checks"
+  - "Never approve skills with broken resource paths"
+  - "Never skip description quality check"
+version: "1.0.0"
+last_updated: "2026-04-28"
 ---
 
 # Skill Review and Validate Orchestrator
@@ -108,7 +122,7 @@ Orchestrate a multi-agent workflow to review and validate existing skills:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 ## Process
 
@@ -214,7 +228,7 @@ If `@skill-validator` reports issues:
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Skill-review-specific recovery:
 - **skill-validator returns empty** → Retry once, then escalate with partial findings
@@ -225,7 +239,7 @@ Skill-review-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 Skill-review-specific scenarios:
 - **Skill folder not found** → "Skill [name] not found at expected path. Verify name or provide path."

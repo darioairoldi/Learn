@@ -23,6 +23,18 @@ capabilities:
   - "verify cross-platform command compatibility"
   - "identify automation gaps in the hook layer"
 goal: "Deliver a research report mapping lifecycle event coverage and identifying security or automation gaps"
+scope:
+  covers:
+    - "Hook lifecycle event coverage and security policy analysis"
+    - "Cross-platform compatibility and agent automation stack integration"
+  excludes:
+    - "Hook configuration creation or modification (pe-gra-hook-builder handles this)"
+    - "Hook validation (pe-gra-hook-validator handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST analyze cross-platform compatibility for all hook commands"
+  - "MUST produce self-contained reports — builder should not need to re-research"
+  - "MUST load dispatch table before starting type-specific research"
 rationales:
   - "Read-only mode prevents research from having side effects on the artifact being studied"
   - "Self-contained reports eliminate re-research by downstream builders"
@@ -120,7 +132,7 @@ If research goal is missing: report `Incomplete handoff — no research goal pro
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **No existing hook patterns found** ? Research from hook instruction file and hook schema docs
 - **Security concern identified** ? Flag explicitly in report, recommend review before implementation

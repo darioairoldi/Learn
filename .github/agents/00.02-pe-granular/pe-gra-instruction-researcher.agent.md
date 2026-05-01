@@ -23,6 +23,18 @@ capabilities:
   - "evaluate layer boundary compliance for auto-injected content"
   - "assess token efficiency within the 1,500-token budget"
 goal: "Deliver a research report that maps all instruction file interactions and identifies conflicts or coverage gaps"
+scope:
+  covers:
+    - "Instruction file applyTo coverage and rule conflict analysis"
+    - "Injection scope assessment and context file interaction mapping"
+  excludes:
+    - "Instruction file creation or modification (pe-gra-instruction-builder handles this)"
+    - "Instruction validation (pe-gra-instruction-validator handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST check for applyTo pattern overlaps with existing instruction files"
+  - "MUST produce self-contained reports — builder should not need to re-research"
+  - "MUST load dispatch table before starting type-specific research"
 rationales:
   - "Read-only mode prevents research from having side effects on the artifact being studied"
   - "Self-contained reports eliminate re-research by downstream builders"
@@ -173,7 +185,7 @@ When researching updates, classify each proposed change using the three-tier pro
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **applyTo pattern conflict found** ? Report conflict with existing file, recommend resolution strategy
 - **Rules duplicate context file** ? Identify canonical source, recommend reference over duplication

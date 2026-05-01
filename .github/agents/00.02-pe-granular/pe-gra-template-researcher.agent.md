@@ -23,6 +23,18 @@ capabilities:
   - "assess audience design compliance for agent and user templates"
   - "detect reuse patterns and consolidation opportunities"
 goal: "Deliver a research report identifying template coverage gaps, orphans, and consumer chain issues"
+scope:
+  covers:
+    - "Template reuse pattern analysis and consumer dependency mapping"
+    - "Category compliance assessment, audience design, and gap detection"
+  excludes:
+    - "Template creation or modification (pe-gra-template-builder handles this)"
+    - "Template validation (pe-gra-template-validator handles this)"
+boundaries:
+  - "MUST NOT modify any files — strictly read-only"
+  - "MUST verify category compliance for all template proposals"
+  - "MUST produce self-contained reports — builder should not need to re-research"
+  - "MUST load dispatch table before starting type-specific research"
 rationales:
   - "Read-only mode prevents research from having side effects on the artifact being studied"
   - "Self-contained reports eliminate re-research by downstream builders"
@@ -169,7 +181,7 @@ For each template, evaluate whether the design matches its consumer type:
 
 ## Response Management
 
-**📖 Patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
 - **No gaps found** ? Report "template layer coverage is complete" with evidence
 - **Content scope ambiguous** ? Present options (template vs. context file vs. inline), ask orchestrator to decide
