@@ -10,7 +10,7 @@ description: "How pe-meta provides strategic oversight for the PE system — vis
 
 pe-meta is the **strategic oversight layer** of the self-maintaining prompt engineering system. While pe-gra operates on individual artifacts (one agent, one prompt at a time), pe-meta looks at the system as a whole — asking whether the PE infrastructure aligns with the vision, meets the quality bar, and maintains ecosystem coherence.
 
-> **Series context:** This article covers the pe-meta tier. See the [system overview](23-self-maintaining-prompt-engineering-system-overview.md) for architecture and the [pe-gra implementation](25-self-maintaining-prompt-engineering-pe-gra-implementation.md) for per-artifact operations.
+> **Series context:** This article covers the pe-meta tier. See the [system overview](30-self-maintaining-prompt-engineering-system-overview.md) for architecture and the [pe-gra implementation](32-self-maintaining-prompt-engineering-pe-gra-implementation.md) for per-artifact operations.
 
 ## Table of contents
 
@@ -150,5 +150,5 @@ The 6 criteria could be embedded in pe-meta-review's body. Instead, they're in a
 - **pe-meta agents:** `.github/agents/00.09-pe-meta/`
 - **pe-meta prompts:** `.github/prompts/00.09-pe-meta/`
 - **Strategic review criteria:** `.copilot/context/00.00-prompt-engineering/05.06-pe-strategic-review-criteria.md`
-- **System overview:** [Building a self-maintaining PE system](23-self-maintaining-prompt-engineering-system-overview.md)
-- **pe-gra implementation:** [Self-maintaining PE: pe-gra implementation](25-self-maintaining-prompt-engineering-pe-gra-implementation.md)
+- **System overview:** [Building a self-maintaining PE system](30-self-maintaining-prompt-engineering-system-overview.md)
+- **pe-gra implementation:** [Self-maintaining PE: pe-gra implementation](32-self-maintaining-prompt-engineering-pe-gra-implementation.md)

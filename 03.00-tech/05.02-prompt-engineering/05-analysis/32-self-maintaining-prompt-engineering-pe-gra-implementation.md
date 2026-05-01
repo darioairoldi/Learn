@@ -10,7 +10,7 @@ description: "How pe-gra provides per-artifact operations for the PE system — 
 
 pe-gra is the **per-artifact operations layer** of the self-maintaining prompt engineering system. It provides 24 specialized agents — organized as researcher/builder/validator triads — that handle the day-to-day work of creating, updating, and validating PE artifacts.
 
-> **Series context:** This article covers the pe-gra tier. See the [system overview](23-self-maintaining-prompt-engineering-system-overview.md) for architecture and the [pe-meta implementation](24-self-maintaining-prompt-engineering-pe-meta-implementation.md) for strategic oversight.
+> **Series context:** This article covers the pe-gra tier. See the [system overview](30-self-maintaining-prompt-engineering-system-overview.md) for architecture and the [pe-meta implementation](31-self-maintaining-prompt-engineering-pe-meta-implementation.md) for strategic oversight.
 
 ## Table of contents
 
@@ -242,5 +242,5 @@ The loop cap could live in the `agent-patterns` escalation protocol (centralized
 - **pe-gra prompts:** `.github/prompts/00.02-pe-granular/`
 - **Output templates:** `.github/templates/00.00-prompt-engineering/output-*.template.md`
 - **Agent shared patterns:** `agent-patterns` category in `.copilot/context/00.00-prompt-engineering/`
-- **System overview:** [Building a self-maintaining PE system](23-self-maintaining-prompt-engineering-system-overview.md)
-- **pe-meta implementation:** [Self-maintaining PE: pe-meta implementation](24-self-maintaining-prompt-engineering-pe-meta-implementation.md)
+- **System overview:** [Building a self-maintaining PE system](30-self-maintaining-prompt-engineering-system-overview.md)
+- **pe-meta implementation:** [Self-maintaining PE: pe-meta implementation](31-self-maintaining-prompt-engineering-pe-meta-implementation.md)

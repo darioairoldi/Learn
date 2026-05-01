@@ -14,7 +14,7 @@ All three forces share the same outcome: **the system silently degrades**. Manua
 
 This article describes a system that maintains itself — using the same agents and prompts it manages to detect, assess, and fix its own drift.
 
-> **Series context:** This is a case study applying patterns from [How to Design Orchestrator Prompts](../04-howto/10.00-how_to_design_orchestrator_prompts.md) and [How to Design Subagent Orchestrations](../04-howto/11.00-how_to_design_subagent_orchestrations.md). The implementation articles cover [pe-meta](24-self-maintaining-prompt-engineering-pe-meta-implementation.md) (strategic oversight) and [pe-gra](25-self-maintaining-prompt-engineering-pe-gra-implementation.md) (per-artifact operations).
+> **Series context:** This is a case study applying patterns from [How to Design Orchestrator Prompts](../04-howto/10.00-how_to_design_orchestrator_prompts.md) and [How to Design Subagent Orchestrations](../04-howto/11.00-how_to_design_subagent_orchestrations.md). The implementation articles cover [pe-meta](31-self-maintaining-prompt-engineering-pe-meta-implementation.md) (strategic oversight) and [pe-gra](32-self-maintaining-prompt-engineering-pe-gra-implementation.md) (per-artifact operations).
 
 ## Table of contents
 
@@ -187,7 +187,7 @@ The system is operational at **Phase 2** readiness (structured metadata in place
 ## References
 
 - **Vision document:** `06.00-idea/self-updating-prompt-engineering/20260428.01-vision.v7.md`
-- **pe-meta implementation:** [Self-maintaining PE: pe-meta implementation](24-self-maintaining-prompt-engineering-pe-meta-implementation.md)
-- **pe-gra implementation:** [Self-maintaining PE: pe-gra implementation](25-self-maintaining-prompt-engineering-pe-gra-implementation.md)
+- **pe-meta implementation:** [Self-maintaining PE: pe-meta implementation](31-self-maintaining-prompt-engineering-pe-meta-implementation.md)
+- **pe-gra implementation:** [Self-maintaining PE: pe-gra implementation](32-self-maintaining-prompt-engineering-pe-gra-implementation.md)
 - **Orchestrator patterns:** [How to Design Orchestrator Prompts](../04-howto/10.00-how_to_design_orchestrator_prompts.md)
 - **Subagent patterns:** [How to Design Subagent Orchestrations](../04-howto/11.00-how_to_design_subagent_orchestrations.md)
