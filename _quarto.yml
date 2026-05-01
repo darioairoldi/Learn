@@ -174,6 +174,9 @@ project:
     - "03.00-tech/05.02-prompt-engineering/05-analysis/21.1-example_prompt_interacting_with_agents_plan.md"
     - "03.00-tech/05.02-prompt-engineering/05-analysis/21.2-appendix_orchestration_plan_specifications.md"
     - "03.00-tech/05.02-prompt-engineering/05-analysis/22-prompts-and-markdown-structure-for-a-documentation-site.md"
+    - "03.00-tech/05.02-prompt-engineering/05-analysis/23-self-maintaining-prompt-engineering-system-overview.md"
+    - "03.00-tech/05.02-prompt-engineering/05-analysis/24-self-maintaining-prompt-engineering-pe-meta-implementation.md"
+    - "03.00-tech/05.02-prompt-engineering/05-analysis/25-self-maintaining-prompt-engineering-pe-gra-implementation.md"
     # 06-reference
     - "03.00-tech/05.02-prompt-engineering/06-reference/01.09-copilot_settings_ide_support_and_compatibility_reference.md"
     - "03.00-tech/05.02-prompt-engineering/06-reference/01.10-customization_decision_framework_reference.md"
@@ -682,6 +685,12 @@ website:
                     href: "03.00-tech/05.02-prompt-engineering/05-analysis/21.2-appendix_orchestration_plan_specifications.md"
                   - text: "Documentation Site Prompts"
                     href: "03.00-tech/05.02-prompt-engineering/05-analysis/22-prompts-and-markdown-structure-for-a-documentation-site.md"
+                  - text: "Self-Maintaining PE: System Overview"
+                    href: "03.00-tech/05.02-prompt-engineering/05-analysis/23-self-maintaining-prompt-engineering-system-overview.md"
+                  - text: "Self-Maintaining PE: pe-meta Implementation"
+                    href: "03.00-tech/05.02-prompt-engineering/05-analysis/24-self-maintaining-prompt-engineering-pe-meta-implementation.md"
+                  - text: "Self-Maintaining PE: pe-gra Implementation"
+                    href: "03.00-tech/05.02-prompt-engineering/05-analysis/25-self-maintaining-prompt-engineering-pe-gra-implementation.md"
               - section: "Reference"
                 contents:
                   - text: "Copilot Settings, IDE Support, and Compatibility"
