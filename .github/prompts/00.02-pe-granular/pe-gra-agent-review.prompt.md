@@ -103,11 +103,11 @@ You MUST read the following files before starting any validation workflow. Pass 
 ## 🚫 Out of Scope
 
 This prompt WILL NOT:
-- Create new agents — use `/agent-design` or `/agent-create-update`
-- Review prompt files — use `/prompt-review`
-- Review context files — use `/context-information-review`
-- Review instruction files — use `/instruction-file-review`
-- Review skill files — use `/skill-review`
+- Create new agents — use `/pe-gra-agent-design` or `/pe-gra-agent-create-update`
+- Review prompt files — use `/pe-gra-prompt-review`
+- Review context files — use `/pe-gra-context-information-review`
+- Review instruction files — use `/pe-gra-instruction-file-review`
+- Review skill files — use `/pe-gra-skill-review`
 
 ## The Validation Workflow
 
@@ -135,11 +135,55 @@ This prompt WILL NOT:
 
 **📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
 
+## Change Stability Protocol
+
+Before applying any change to the target artifact, classify it against the artifact's current YAML metadata contract:
+
+### Pre-Change Compatibility Gate
+
+| Outcome | Test | Metadata update? | Action |
+|---|---|---|---|
+| **COMPATIBLE** | Change achievable within declared `scope:`, `goal:`, `boundaries:` | No — body only | Proceed |
+| **EXTENDING** | Change requires adding new metadata entries (broader scope, new capability) | Yes — additive | Proceed + add rationale |
+| **CONTRADICTING** | Change requires removing/modifying existing metadata entries | Yes — breaking | **HALT** — present conflict to user |
+
+**Compatibility test** (apply before every proposed change):
+1. Does the change introduce something not covered by `scope:`? → EXTENDING
+2. Does the change violate a `boundaries:` item? → CONTRADICTING
+3. Does the change serve a different purpose than `goal:`? → CONTRADICTING (escalate immediately)
+4. All "no" → COMPATIBLE
+
+**Contradiction resolution:**
+- If a `rationales:` entry explains WHY the contradicted item exists → **HALT** and present the conflict (prior decision was intentional)
+- If no rationale exists → proceed with caution, but REQUIRE a rationale for the new state
+- Never silently remove a metadata entry that has a recorded rationale
+
+**Metadata hygiene (EXTENDING changes):**
+- Check if the new entry makes an existing entry redundant → synthesize into one broader entry
+- Check if the new entry contrasts with existing entries → signal design tension to user
+
+### In-Context Change Ledger
+
+At each phase transition or fix-loop iteration, log a structured record:
+
+```
+Iteration 0 (baseline): scope="[current]", boundaries=[count], tools=[count], version=[current]
+Iteration 1: [field] [change description] [gate outcome], version X→Y
+Iteration 2: [field] [change description] [gate outcome], version Y→Z
+```
+
+Before each new iteration, check the ledger for:
+- **Reversal**: Any field returning to a prior iteration's value → HALT
+- **Churn**: Change volume increasing without new external triggers → HALT
+
+### Startup Metadata Check (Phase 1)
+
+At orchestrator startup, read the target artifact's current metadata and check:
+- `version:` shows rapid recent bumps (e.g., multiple same-day increments) → warn user, proceed with caution
+- Body content contradicts declared `boundaries:` → drift detected, flag before making changes
+- `scope:` or `goal:` differ from what the change request implies → possible prior instability, confirm with user
+
 ## Process
-
-### Phase 1: Scope Determination
-
-**Goal**: Understand what needs to be validated.
 
 **Analyze input**:
 1. Single agent file path provided?

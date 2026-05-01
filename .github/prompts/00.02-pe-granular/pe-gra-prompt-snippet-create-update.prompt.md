@@ -157,6 +157,39 @@ This request involves creating/modifying [file type].
 2. Present options: reference existing, extract unique portion, or justify duplication
 3. Wait for user decision before proceeding
 
+## 🧹 Summarization Protocol
+
+| After Phase | Summarize to | Max tokens | Discard |
+|---|---|---|---|
+| Phase 1 (Gather) | Purpose, consumers, scoping decision, overlap findings | ≤400 | Raw snippet file contents, search results |
+| Phase 2 (Design) | Content outline + word count estimate | ≤300 | Design reasoning, alternative phrasings |
+| Phase 3 (Create) | File path + word count + consumer count | ≤200 | Generation reasoning, draft iterations |
+| Phase 4 (Verify) | Pass/fail + issue list | ≤300 | Full validation analysis |
+
+**Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
+
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+
+---
+
+## Handoff Data Contracts
+
+| Transition | Strategy | Include | Exclude | Max tokens |
+|---|---|---|---|---|
+| **Orchestrator → Builder** (this prompt) | send: true | Goal restatement, snippet purpose, consumers, content scope, create vs update | N/A (first phase) | ~1,000 |
+| **Builder → Researcher** | send: true (handoff) | Purpose, consumer list, deduplication questions | Builder's reasoning, user conversation | ≤800 |
+| **Researcher → Builder** (return) | Structured report | Overlap analysis, consumer discovery results, deduplication findings, scoping recommendation | Raw file contents, full search results | ≤1,000 |
+| **Builder → Validator** | File path only | Created/updated snippet path + "validate this snippet" | Builder's reasoning, design decisions | ≤200 |
+| **Validator → Builder** (fix loop) | Issues-only report | Snippet path, issue list (severity + specific fix instruction) | Scores, passing checks, full analysis | ≤500 |
+
+### Failure Handling & Iteration Limits
+
+**Per-gate recovery:** Retry (1x with diagnostic prompt) → Escalate (present partial results + options) → Abort (2 retries failed).
+
+**Iteration limits:** Research: max 2 | Build→Validate: max 3 | Total specialist invocations: max 5.
+
+**Context-specific:** Content exceeds 500-word budget → MUST redirect to context file creation.
+
 ---
 
 ## Process

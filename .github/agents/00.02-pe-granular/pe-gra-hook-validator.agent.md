@@ -66,10 +66,9 @@ You operate in two modes:
 - Check that companion scripts referenced by commands exist
 - Use `pe-prompt-engineering-validation` skill for convention compliance checks (Workflow 12: naming, location)
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
-- **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
-
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
+- **📖 Cross-handoff verification**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Fix report format**: `output-validator-fixes.template.md` — use for validator→builder fix handoff
 
 
@@ -83,6 +82,17 @@ You operate in two modes:
 - **NEVER approve hooks without explicit timeout values**
 - **NEVER approve PreToolUse deny hooks without security review**
 
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Receives from** | `pe-gra-hook-builder` | `output-builder-handoff.template.md` | 1500 |
+| **Sends to** | `pe-gra-hook-builder` | `output-validator-fixes.template.md` | 1000 |
+
+**Required receive fields**: Operation (action, file path, based on), Requirements Traceability, Decisions, Receiver Context.
+
+**Required send fields**: Issue Summary (severity, line, issue, rule ID, fix instruction), Fix Priority Order, Context for Fixes.
+
 ## Phase 0: Handoff Validation
 
 Before any work, verify required input is present:
@@ -93,6 +103,30 @@ Before any work, verify required input is present:
 | Validation dimensions (optional) | Default to full validation |
 
 If file path is missing: report `Incomplete handoff — no file path provided` and STOP. Do NOT guess which file to validate.
+
+### Phase 0.5: Change Impact Analysis (Post-Change Mode Only)
+
+**When to run**: Only when the handoff includes `change_description` data from a builder. If absent (direct validation or layer audit), skip to checklist and run full validation.
+
+**Steps**:
+
+1. **Classify the change** from the builder's `change_description`:
+   - **COSMETIC**: Formatting, typos, whitespace → skip consumer checks entirely. **Rationale**: cosmetic changes can't alter semantic meaning or break hook execution.
+   - **STRUCTURAL**: Event handlers added/removed, hook chaining altered → check other hooks for event overlap or broken chains. **Rationale**: hooks execute in lifecycle order — removing a handler can break dependent chains.
+   - **VOCABULARY**: Event names changed, variable names altered → grep old event/variable name across `.github/hooks/`. **Rationale**: event name changes silently disconnect hooks from their lifecycle triggers.
+   - **BEHAVIORAL**: Trigger conditions modified, execution logic changed → check all hooks that chain from or to this hook. **Rationale**: logic changes can alter deny/allow decisions that downstream hooks depend on.
+
+2. **Derive consumer list** (layered hybrid):
+   - Layer 1: `grep_search` for the hook filename in other hooks (discovers chaining dependencies)
+   - Layer 2: List all hooks in `.github/hooks/` to check event overlap when STRUCTURAL or BEHAVIORAL
+
+3. **Safety net**: None required (Risk Level 3 — deterministic lifecycle only)
+
+4. **Run targeted consumer compatibility checks** against the derived list only
+
+5. **Report**: Which consumers were checked, why, and which were skipped
+
+**If COSMETIC**: Report "COSMETIC change — consumer checks skipped" and proceed to structural checks only.
 
 ## Validation Checklist
 

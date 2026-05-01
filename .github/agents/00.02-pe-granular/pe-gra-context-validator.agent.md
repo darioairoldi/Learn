@@ -72,10 +72,9 @@ You operate in three modes:
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - Provide specific line numbers for issues
 - In layer audit mode: check for cross-file contradictions and duplication
-- **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
-
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
+- **📖 Cross-handoff verification**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Fix report format**: `output-validator-fixes.template.md` — use for validator→builder fix handoff
 
 
@@ -153,19 +152,45 @@ You operate in three modes:
 | 30 | **Template externalization** | Output formats >10 lines externalized to templates | MEDIUM |
 | 31 | **Reference density** | Context files reference, not embed, content from other files | HIGH |
 
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Receives from** | `pe-gra-context-builder` | `output-builder-handoff.template.md` | 1500 |
+| **Sends to** | `pe-gra-context-builder` | `output-validator-fixes.template.md` | 1000 |
+
+**Required receive fields**: Operation (action, file path, based on), Requirements Traceability, Decisions, Receiver Context.
+
+**Required send fields**: Issue Summary (severity, line, issue, rule ID, fix instruction), Fix Priority Order, Context for Fixes.
+
 ## Process
 
+### Phase 0.5: Change Impact Analysis (Post-Change Mode Only)
 
-### Phase 0: Handoff Validation
+**When to run**: Only when the handoff includes `change_description` data from a builder. If absent (direct validation or layer audit), skip to Phase 1 and run full consumer checks.
 
-Before any work, verify required input is present:
+**Steps**:
 
-| Required Field | Action if Missing |
-|---|---|
-| Artifact file path | ASK — cannot proceed without |
-| Validation dimensions (optional) | Default to full validation |
+1. **Classify the change** from the builder's `change_description`:
+   - **COSMETIC**: Formatting, typos, whitespace, non-functional rewording → skip consumer checks entirely. **Rationale**: cosmetic changes can't alter semantic meaning or break consumer contracts.
+   - **STRUCTURAL**: Sections added/removed/renamed, YAML fields modified → check consumers referencing the modified section. **Rationale**: consumers may reference specific sections by heading.
+   - **VOCABULARY**: Terms renamed, concepts redefined → grep old term across `.github/` + `.copilot/` — all hits are potential consumers. **Rationale**: term changes propagate silently to all files using the old term.
+   - **BEHAVIORAL**: Rules added/removed/modified, boundaries changed → check all consumers depending on the affected rule. **Rationale**: rule changes can invalidate downstream agent decisions.
 
-If file path is missing: report `Incomplete handoff — no file path provided` and STOP. Do NOT guess which file to validate.
+2. **Derive consumer list** (layered hybrid):
+   - Layer 1: "Referenced by" section → filter to entries referencing the modified section/term
+   - Layer 2: `grep_search` for the filename across `.github/` + `.copilot/` (verify Referenced-by freshness, discover undeclared consumers)
+
+3. **Apply safety net** (Risk Level 2 — context files with ≥10 consumers):
+   - **Rule**: If consumer count ≥10 AND change is non-COSMETIC: verify "Referenced by" is current via grep; expand checks to any discovered consumers not in the list.
+   - **Rationale**: High-consumer-count files have elevated blast radius — undeclared consumers are statistically likely.
+
+4. **Run targeted consumer compatibility checks** against the derived list only
+
+5. **Report**: Which consumers were checked, why (traceability), and which were skipped
+
+**If COSMETIC**: Report "COSMETIC change — consumer checks skipped" and proceed to structural checks only (metadata, token budget, format).
+
 ### Scoped Validation (single file)
 
 1. **Read the target file** completely

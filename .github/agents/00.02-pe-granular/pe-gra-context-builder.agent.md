@@ -7,6 +7,7 @@ tools:
   - file_search
   - create_file
   - replace_string_in_file
+  - multi_replace_string_in_file
   - list_dir
 handoffs:
   - label: "Validate Context File"
@@ -85,30 +86,39 @@ For multi-file domain creation, you ensure cross-file vocabulary consistency, no
   - Rule blocks are REQUIRED; Rationale and Example blocks are optional
   - Non-rule sections (Purpose, Referenced by, References, etc.) use standard prose
 
-- **Pre-change guard (MANDATORY before applying changes to existing files):**
+- **Pre-change compatibility gate (MANDATORY before applying changes to existing files):**
   - Read the target artifact's `goal:`, `scope:`, `boundaries:`, `rationales:` metadata
-  - Compare proposed change against each: does it contradict goal? violate scope? breach boundaries? invalidate a rationale?
-  - If contradiction detected → **BLOCK** and report to user. Do NOT proceed without explicit approval.
-  - If rationale violated → **ESCALATE** — require replacement rationale text before proceeding.
+  - Classify the proposed change:
+    - **COMPATIBLE**: Change achievable within declared `scope:`, `goal:`, `boundaries:` → body-only edit, proceed
+    - **EXTENDING**: Change requires adding new metadata entries (broader scope, new topic, new boundary) → proceed + add rationale
+    - **CONTRADICTING**: Change requires removing/modifying existing metadata entries → **BLOCK**, present conflict to user
+  - Breaking-change classification:
+    - Breaking (CONTRADICTING): `goal:` change, `scope.covers:` removal, boundary removal, referenced-by consumer removal
+    - Non-breaking (EXTENDING): `scope.excludes:` addition, boundary addition, rationale addition, new topic coverage, version bump
+    - Safe (COMPATIBLE): body rewording, example updates, formatting, cross-reference path fixes
+  - If a `rationales:` entry explains WHY the contradicted item exists → **HALT** (prior decision was intentional)
+  - If no rationale exists for the contradicted entry → proceed with caution, REQUIRE a rationale for the new state
 
 - **Reversibility (MANDATORY before applying changes):**
   - Note the file's current `version:` and content hash before making changes
   - If the change fails validation, revert by restoring the original content
 
 - **Post-change reconciliation (MANDATORY after every file change):**
-  - Bump `version:` (patch for non-breaking, minor for additive, major for breaking)
+  - Bump `version:` (patch for COMPATIBLE, minor for EXTENDING, major for CONTRADICTING)
   - Update `last_updated:` to today's date
   - Verify `scope.covers:` topics still match content section headings
   - If `goal:` no longer accurate after the change, update it
+  - Invoke validator agent to confirm no unintended blast radius (consumer breakage)
 
-- **📖 Output schema compliance**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Domain expertise activation**: `02.05-agent-workflow-patterns.md` → "Domain Expertise Activation"
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
+- **📖 Output schema compliance**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
+- **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Handoff output format**: `output-builder-handoff.template.md` — use for builder→validator handoff
-- **📖 Complexity gate**: `02.05-agent-workflow-patterns.md` → "Complexity Gate"
+- **📖 Complexity gate**: `agent-patterns` files → "Complexity Gate"
 
 ### ⚠️ Ask First
+- All **CONTRADICTING** changes — MUST present diff and get explicit user confirmation before applying
 - Before creating new context folders under `.copilot/context/`
 - Before consolidating multiple context files into one
 - Before removing existing context sections
@@ -126,12 +136,24 @@ For multi-file domain creation, you ensure cross-file vocabulary consistency, no
 - **NEVER use** generic examples — all examples MUST come from this repository
 - **NEVER apply changes without reading the current file first** (for updates)
 
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Receives from** | `pe-gra-context-researcher` | `output-researcher-report.template.md` | 2000 |
+| **Sends to** | `pe-gra-context-validator` | `output-builder-handoff.template.md` | 1500 |
+| **Receives back** | `pe-gra-context-validator` | `output-validator-fixes.template.md` | 1000 |
+
+**Required receive fields**: See Phase 0 field table (📖 `agent-patterns` files → "Phase 0: Handoff Validation Protocol" → Context Builder).
+
+**Required send fields**: All sections in `output-builder-handoff.template.md` (Operation, Requirements Traceability, Decisions, Receiver Context).
+
 ## Process
 
 
 ### Phase 0: Handoff Validation
 
-Before any work, validate required input using the **Context Builder** field table from 📖 `02.04-agent-shared-patterns.md` → "Phase 0: Handoff Validation Protocol".
+Before any work, validate required input using the **Context Builder** field table from 📖 `agent-patterns` files → "Phase 0: Handoff Validation Protocol".
 
 If >2 required fields are missing: report `Incomplete handoff — missing: [list]` and STOP.
 ### Phase 1: Load State and Analyze Input
@@ -216,6 +238,7 @@ Before writing, validate:
 
 - **For create**: `create_file` with complete content
 - **For compatible update**: `replace_string_in_file` with 3-5 lines of context
+- **For multi-section update** (≥3 edits in one file): `multi_replace_string_in_file` for atomic changes.
 - **For breaking update**: `create_file` for v2 + `replace_string_in_file` for deprecation notice on original
 - Update STRUCTURE-README.md
 - Update Version History
@@ -223,6 +246,8 @@ Before writing, validate:
 ### Phase 6: Handoff to Validation
 
 Hand off to `context-validator` for structure verification.
+
+**Loop cap**: Max 2 builder↔validator round-trips. If issues persist after 2 cycles, escalate to user with full issue list.
 
 ---
 

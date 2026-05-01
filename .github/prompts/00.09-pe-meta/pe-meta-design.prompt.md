@@ -1,5 +1,5 @@
 ---
-name: meta-pe-design
+name: pe-meta-design
 description: "Design a new PE-for-PE artifact with full research → build → validate pipeline plus vision alignment, category compliance, and ecosystem coherence checks"
 agent: agent
 model: claude-opus-4.6
@@ -35,8 +35,8 @@ scope:
     - "Ecosystem impact analysis before creation"
   excludes:
     - "Domain artifacts (article-writing, documentation — use /pe-con-design for those)"
-    - "Ecosystem-wide audits (use /meta-prompt-engineering-update for those)"
-    - "Updates to existing artifacts (use /meta-pe-create-update for those)"
+    - "Ecosystem-wide audits (use /pe-meta-update for those)"
+    - "Updates to existing artifacts (use /pe-meta-create-update for those)"
 boundaries:
   - "MUST load PE-strategic context before research"
   - "MUST pass PE-strategic constraints to pe-con-researcher and pe-con-builder"

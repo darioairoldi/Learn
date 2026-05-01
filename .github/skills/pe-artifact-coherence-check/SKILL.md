@@ -62,6 +62,10 @@ Verify all cross-references between PE artifacts resolve to existing files.
 2. Extract all referenced file paths
 3. Verify each path resolves using `file_search` or `list_dir`
 4. Report broken references with file, line number, and target path
+5. Scan for slash-command references (`/[a-z]+-[a-z-]+` patterns in body text)
+6. For each slash-command, verify a `.prompt.md` file exists with matching `name:` YAML field
+7. Exclude known built-in commands: `/create-prompt`, `/create-agent`, `/create-instruction`, `/create-skill`, `/create-hook`
+8. Report broken slash-command references with file, line number, and referenced name
 
 **Check template:** [reference-integrity.template.md](./templates/reference-integrity.template.md)
 
@@ -71,6 +75,7 @@ Verify all cross-references between PE artifacts resolve to existing files.
 - Template references: `.github/templates/*.template.md`
 - Skill references: `pe-prompt-engineering-validation` skill name
 - Handoff targets: `agent:` values in YAML `handoffs:` arrays
+- Slash-command references: `/pe-gra-*`, `/pe-con-*`, `/pe-meta-*` must match `name:` in a `.prompt.md` file
 
 ### Workflow 2: Rule Consistency Check
 

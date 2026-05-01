@@ -108,12 +108,12 @@ You do NOT research, build, or validate yourself — you delegate to experts.
 ## 🚫 Out of Scope
 
 This prompt WILL NOT:
-- Create prompt files (`.prompt.md`) — use `/prompt-design` or `/prompt-create-update`
-- Create instruction files (`.instructions.md`) — use `/instruction-file-design` or `/instruction-file-create-update`
-- Create agent files (`.agent.md`) — use `/agent-design` or `/agent-create-update`
-- Create skill files (`SKILL.md`) — use `/skill-design` or `/skill-create-update`
-- **Update** existing context files — use `/context-information-create-update` (standalone, faster for known requirements)
-- Review/validate context files — use `/context-information-review`
+- Create prompt files (`.prompt.md`) — use `/pe-gra-prompt-design` or `/pe-gra-prompt-create-update`
+- Create instruction files (`.instructions.md`) — use `/pe-gra-instruction-file-design` or `/pe-gra-instruction-file-create-update`
+- Create agent files (`.agent.md`) — use `/pe-gra-agent-design` or `/pe-gra-agent-create-update`
+- Create skill files (`SKILL.md`) — use `/pe-gra-skill-design` or `/pe-gra-skill-create-update`
+- **Update** existing context files — use `/pe-gra-context-information-create-update` (standalone, faster for known requirements)
+- Review/validate context files — use `/pe-gra-context-information-review`
 - Edit repository-level configuration (`.github/copilot-instructions.md`)
 
 ## Goal
@@ -130,7 +130,7 @@ Orchestrate a multi-agent workflow to create domain context information that:
 
 ## Context Brief Support
 
-This orchestrator accepts an optional **Context Brief** from calling orchestrators (e.g., `/prompt-design`, `/agent-design`) that describes what consumers need from the domain context:
+This orchestrator accepts an optional **Context Brief** from calling orchestrators (e.g., `/pe-gra-prompt-design`, `/pe-gra-agent-design`) that describes what consumers need from the domain context:
 
 ```markdown
 ## Context Brief (from calling orchestrator)
@@ -168,6 +168,54 @@ When a Context Brief is provided, the researcher focuses analysis on consumer-re
 **Iteration limits:** Research→Planning: max 2 | Build→Validate: max 3 | Total specialist invocations: max 5.
 
 **Context-specific:** Content exceeds 2,500-token budget → Researcher MUST propose file splitting strategy before builder proceeds.
+
+## Change Stability Protocol
+
+Before applying any change to the target artifact, classify it against the artifact's current YAML metadata contract:
+
+### Pre-Change Compatibility Gate
+
+| Outcome | Test | Metadata update? | Action |
+|---|---|---|---|
+| **COMPATIBLE** | Change achievable within declared `scope:`, `goal:`, `boundaries:` | No — body only | Proceed |
+| **EXTENDING** | Change requires adding new metadata entries (broader scope, new capability) | Yes — additive | Proceed + add rationale |
+| **CONTRADICTING** | Change requires removing/modifying existing metadata entries | Yes — breaking | **HALT** — present conflict to user |
+
+**Compatibility test** (apply before every proposed change):
+1. Does the change introduce something not covered by `scope:`? → EXTENDING
+2. Does the change violate a `boundaries:` item? → CONTRADICTING
+3. Does the change serve a different purpose than `goal:`? → CONTRADICTING (escalate immediately)
+4. All "no" → COMPATIBLE
+
+**Contradiction resolution:**
+- If a `rationales:` entry explains WHY the contradicted item exists → **HALT** and present the conflict (prior decision was intentional)
+- If no rationale exists → proceed with caution, but REQUIRE a rationale for the new state
+- Never silently remove a metadata entry that has a recorded rationale
+
+**Metadata hygiene (EXTENDING changes):**
+- Check if the new entry makes an existing entry redundant → synthesize into one broader entry
+- Check if the new entry contrasts with existing entries → signal design tension to user
+
+### In-Context Change Ledger
+
+At each phase transition or fix-loop iteration, log a structured record:
+
+```
+Iteration 0 (baseline): scope="[current]", boundaries=[count], tools=[count], version=[current]
+Iteration 1: [field] [change description] [gate outcome], version X→Y
+Iteration 2: [field] [change description] [gate outcome], version Y→Z
+```
+
+Before each new iteration, check the ledger for:
+- **Reversal**: Any field returning to a prior iteration's value → HALT
+- **Churn**: Change volume increasing without new external triggers → HALT
+
+### Startup Metadata Check (Phase 1)
+
+At orchestrator startup, read the target artifact's current metadata and check:
+- `version:` shows rapid recent bumps (e.g., multiple same-day increments) → warn user, proceed with caution
+- Body content contradicts declared `boundaries:` → drift detected, flag before making changes
+- `scope:` or `goal:` differ from what the change request implies → possible prior instability, confirm with user
 
 ## Process
 

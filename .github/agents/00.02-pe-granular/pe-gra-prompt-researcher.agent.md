@@ -66,11 +66,11 @@ You are a **research specialist** focused on analyzing prompt requirements and d
 - Recommend which template to use based on analysis
 - Identify IN SCOPE vs OUT OF SCOPE boundaries clearly
 
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Domain expertise activation**: `02.05-agent-workflow-patterns.md` → "Domain Expertise Activation"
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
-- **📖 Input quality challenge**: `02.04-agent-shared-patterns.md` → "Phase 0.2"
-- **📖 Complexity gate**: `02.05-agent-workflow-patterns.md` → "Complexity Gate"
+- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
+- **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
+- **📖 Complexity gate**: `agent-patterns` files → "Complexity Gate"
 
 
 ### ⚠️ Ask First
@@ -85,7 +85,7 @@ You are a **research specialist** focused on analyzing prompt requirements and d
 - **NEVER skip the pattern discovery phase** - research is mandatory
 - **NEVER make assumptions** - always verify with evidence
 - **NEVER proceed to building** - your role ends with research report
-- **📖 Internet research validation**: `02.05-agent-workflow-patterns.md` → "Internet Research Validation Protocol"
+- **📖 Internet research validation**: `agent-patterns` files → "Internet Research Validation Protocol"
 
 ## Process
 

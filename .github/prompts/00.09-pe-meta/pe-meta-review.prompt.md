@@ -1,5 +1,5 @@
 ---
-name: meta-pe-review
+name: pe-meta-review
 description: "Review any PE-for-PE artifact against the PE vision, category contracts, quality bar, and ecosystem coherence — strategic review layer on top of structural validation"
 agent: plan
 model: claude-opus-4.6
@@ -35,7 +35,7 @@ scope:
   excludes:
     - "Domain artifacts (article-writing, documentation — use /pe-con-review for those)"
     - "File modification (plan mode = read-only)"
-    - "Ecosystem-wide audits (use /meta-prompt-engineering-update healthcheck)"
+    - "Ecosystem-wide audits (use /pe-meta-update healthcheck)"
 boundaries:
   - "MUST stay read-only — plan mode"
   - "MUST load PE-strategic context before validation"
@@ -58,7 +58,7 @@ Strategic review for PE artifacts that serve the PE system itself. Adds vision a
 ## CRITICAL BOUNDARIES
 
 ### ✅ Always Do
-- Verify target is PE-for-PE before proceeding (redirect domain artifacts to `/pe-con-review`)
+- Verify target is PE-for-PE before proceeding (redirect domain artifacts to `/pe-con-review` or `/pe-gra-{type}-review`)
 - Load vision document, STRUCTURE-README, strategic review criteria, dependency map before any validation
 - Run BOTH structural validation (via pe-con-validator) AND strategic validation (6 criteria from 05.06)
 - Report blast radius for artifacts with 3+ dependents

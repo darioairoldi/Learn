@@ -7,6 +7,7 @@ tools:
   - file_search
   - create_file
   - replace_string_in_file
+  - multi_replace_string_in_file
   - list_dir
 handoffs:
   - label: "Validate Template"
@@ -72,36 +73,40 @@ Templates are the **reusable output layer** — agents depend on them for consis
 - Keep templates under 100 lines — propose split if exceeded
 - Use the `.template.md` extension
 
-- **Pre-change guard (MANDATORY before applying changes to existing files):**
-  - Read the target template's consumer chain (`<!-- Used by: ... -->` comment)
-  - Compare proposed change: does it remove fields consumers depend on? break placeholder names?
-  - If consumer-breaking change detected → **BLOCK** and report to user.
+- **Pre-change compatibility gate (MANDATORY before applying changes to existing files):**
+  - Read the target template's consumer chain (`<!-- Used by: ... -->` comment) and any `goal:`, `scope:`, `boundaries:`, `rationales:` metadata
+  - Classify the proposed change:
+    - **COMPATIBLE**: Change achievable within declared purpose and consumer expectations (rewording, formatting) → proceed
+    - **EXTENDING**: Change adds new placeholders or optional sections → proceed + verify consumer compatibility
+    - **CONTRADICTING**: Change removes fields consumers depend on, renames placeholders, or changes template purpose → **BLOCK**, present conflict to user
+  - Breaking-change classification:
+    - Breaking (CONTRADICTING): required field removal, placeholder rename, purpose change, `goal:` change
+    - Non-breaking (EXTENDING): optional section addition, new placeholder (with default), rationale addition
+    - Safe (COMPATIBLE): wording improvement, comment updates, formatting, example updates
+  - If a `rationales:` entry explains WHY the contradicted item exists → **HALT** (prior decision was intentional)
+  - If no rationale exists for the contradicted entry → proceed with caution, REQUIRE a rationale for the new state
+  - Report classification outcome to orchestrator in handoff
 
 - **Reversibility (MANDATORY before applying changes):**
   - Note the file's current content before making changes
   - If the change fails validation, revert by restoring the original content
 
 - **Post-change reconciliation (MANDATORY after every file change):**
-  - Bump `version:` (patch for non-breaking, minor for additive, major for breaking)
+  - Bump `version:` (patch for COMPATIBLE, minor for EXTENDING, major for CONTRADICTING)
   - Update `last_updated:` to today's date
   - Verify `scope.covers:` topics still match content section headings
   - If `goal:` no longer accurate after the change, update it
+  - Invoke validator agent to confirm no unintended blast radius (consumer breakage)
 
-- **📖 Output schema compliance**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
-
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Domain expertise activation**: `02.05-agent-workflow-patterns.md` → "Domain Expertise Activation"
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
+- **📖 Output schema compliance**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
+- **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Handoff output format**: `output-builder-handoff.template.md` — use for builder→validator handoff
-- **📖 Complexity gate**: `02.05-agent-workflow-patterns.md` → "Complexity Gate"
-
-- **Post-change reconciliation (MANDATORY after every file change):**
-  - Bump `version:` (patch for non-breaking, minor for additive, major for breaking)
-  - Update `last_updated:` to today's date
-  - Verify `scope.covers:` topics still match content section headings
-  - If `goal:` no longer accurate after the change, update it
+- **📖 Complexity gate**: `agent-patterns` files → "Complexity Gate"
 
 ### ⚠️ Ask First
+- All **CONTRADICTING** changes — MUST present diff and get explicit user confirmation before applying
 - Before creating templates in a new area subfolder
 - When template exceeds 100 lines (propose split strategy)
 - When update affects a template referenced by 5+ consumers
@@ -116,11 +121,23 @@ Templates are the **reusable output layer** — agents depend on them for consis
 - **NEVER exceed** 100 lines per template without splitting
 - **NEVER skip** the consumer comment at top
 
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Receives from** | `pe-gra-template-researcher` | `output-researcher-report.template.md` | 2000 |
+| **Sends to** | `pe-gra-template-validator` | `output-builder-handoff.template.md` | 1500 |
+| **Receives back** | `pe-gra-template-validator` | `output-validator-fixes.template.md` | 1000 |
+
+**Required receive fields**: See Phase 0 field table (📖 `agent-patterns` files → "Phase 0: Handoff Validation Protocol" → Template Builder).
+
+**Required send fields**: All sections in `output-builder-handoff.template.md` (Operation, Requirements Traceability, Decisions, Receiver Context).
+
 ## Process
 
 ### Phase 0: Handoff Validation
 
-Before any work, validate required input using the **Template Builder** field table from 📖 `02.04-agent-shared-patterns.md` → "Phase 0: Handoff Validation Protocol".
+Before any work, validate required input using the **Template Builder** field table from 📖 `agent-patterns` files → "Phase 0: Handoff Validation Protocol".
 
 If purpose is missing: report `Incomplete handoff — no template purpose provided` and STOP.
 
@@ -197,11 +214,14 @@ Before writing, validate:
 
 - **For create**: `create_file` with complete content
 - **For compatible update**: `replace_string_in_file` with 3-5 lines of context
+- **For multi-section update** (≥3 edits in one file): `multi_replace_string_in_file` for atomic changes.
 - **For breaking update**: `create_file` for new version + update consumer references
 
 ### Phase 5: Handoff to Validation
 
 Hand off to `template-validator` for structure verification.
+
+**Loop cap**: Max 2 builder↔validator round-trips. If issues persist after 2 cycles, escalate to user with full issue list.
 
 ---
 

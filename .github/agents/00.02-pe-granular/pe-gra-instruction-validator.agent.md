@@ -34,6 +34,7 @@ boundaries:
   - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
   - "MUST verify applyTo pattern conflicts as the first check"
   - "MUST NOT approve files with conflicting applyTo overlaps"
+  - "MUST classify every rule as testable/mechanical vs behavioral/strategic (R-S8)"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -68,10 +69,10 @@ You operate in two modes:
 - Check for contradictions against context files the instruction references
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - Provide specific line numbers for issues
-- **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
-
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
+- Classify every rule as testable/mechanical vs behavioral/strategic (R-S8 instruction minimization)
+- **📖 Cross-handoff verification**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Fix report format**: `output-validator-fixes.template.md` — use for validator→builder fix handoff
 
 
@@ -105,6 +106,25 @@ You operate in two modes:
 | 6 | **Testable rules only** | Every rule can be evaluated with a boolean pass/fail — no judgment-dependent rules | HIGH |
 | 7 | **No behavioral rules** | No voice/tone/style guidance that requires interpretation (belongs in context files) | HIGH |
 | 8 | **Context delegation** | Strategic/behavioral guidance delegated to context files via `📖` references | MEDIUM |
+
+#### Classification Procedure (R-S8)
+
+For every rule in the instruction file:
+
+1. **Classify** as **testable/mechanical** (boolean pass/fail without LLM judgment) or **behavioral/strategic** (requires interpretation)
+2. **Flag** behavioral/strategic rules as **HIGH severity** findings
+3. **Recommend** moving behavioral rules to context files (for knowledge/guidance) or agent bodies (for role-specific behavior)
+
+**Classification examples:**
+
+| Rule | Classification | Why |
+|---|---|---|
+| "YAML MUST have `goal:` field" | ✅ Testable | Boolean: field exists or doesn't |
+| "Use sentence-style capitalization" | ✅ Testable | Boolean: first word capitalized, rest lowercase |
+| "Write in a warm, conversational tone" | ❌ Behavioral | Requires subjective judgment → move to context file |
+| "Be concise and avoid unnecessary words" | ❌ Behavioral | "Unnecessary" requires interpretation → move to context file |
+| "All `📖` references must resolve" | ✅ Testable | Boolean: file exists at referenced path or doesn't |
+| "Optimize for scanning" | ❌ Behavioral | "Optimize" is subjective → move to context file |
 
 ### YAML Frontmatter Checks
 
@@ -143,19 +163,53 @@ You operate in two modes:
 | 24 | **No rule duplication** | Rules not duplicated from another instruction or context file | HIGH |
 | 25 | **context_dependencies completeness** | `context_dependencies` lists ALL context folders referenced via `📖` in the file | HIGH |
 
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Receives from** | `pe-gra-instruction-builder` | `output-builder-handoff.template.md` | 1500 |
+| **Sends to** | `pe-gra-instruction-builder` | `output-validator-fixes.template.md` | 1000 |
+
+**Required receive fields**: Operation (action, file path, based on), Requirements Traceability, Decisions, Receiver Context.
+
+**Required send fields**: Issue Summary (severity, line, issue, rule ID, fix instruction), Fix Priority Order, Context for Fixes.
+
 ## Process
-
-
-### Phase 0: Handoff Validation
-
-Before any work, verify required input is present:
-
-| Required Field | Action if Missing |
-|---|---|
-| Artifact file path | ASK — cannot proceed without |
 | Validation dimensions (optional) | Default to full validation |
 
 If file path is missing: report `Incomplete handoff — no file path provided` and STOP. Do NOT guess which file to validate.
+
+### Phase 0.5: Change Impact Analysis (Post-Change Mode Only)
+
+**When to run**: Only when the handoff includes `change_description` data from a builder. If absent (direct validation or layer audit), skip to Phase 1 and run full consumer checks.
+
+**Steps**:
+
+1. **Classify the change** from the builder's `change_description`:
+   - **COSMETIC**: Formatting, typos, whitespace → skip consumer checks entirely. **Rationale**: cosmetic changes can't alter semantic meaning or break consumer contracts.
+   - **STRUCTURAL**: Sections added/removed, YAML fields modified → check consumers referencing the modified section. **Rationale**: consumers may reference specific sections by heading.
+   - **VOCABULARY**: Terms renamed, concepts redefined → grep old term across `.github/` + `.copilot/`. **Rationale**: term changes propagate silently to all files using the old term.
+   - **BEHAVIORAL**: Rules added/removed/modified → check all matched files depending on the affected rule. **Rationale**: rule changes can invalidate downstream agent decisions.
+
+2. **Derive consumer list** (layered hybrid):
+   - Layer 1: Expand `applyTo` glob → list all matched files (definitive for instruction files)
+   - Layer 2: `grep_search` for the filename across `.github/` + `.copilot/` (finds explicit `📖` references beyond glob-matched files)
+
+3. **Apply safety net** (Risk Level 1 — auto-injected by glob):
+   - **Rule**: For VOCABULARY and BEHAVIORAL changes: spot-check 3–5 representative files matched by `applyTo` for compatibility with the changed term/rule.
+   - **Rule**: For STRUCTURAL changes: verify no consumer references the removed/renamed section by name.
+   - **Rationale**: Instruction files are auto-injected into every file matching their glob — changes silently affect all matched files without explicit opt-in.
+
+4. **Special case — `copilot-instructions.md`** (Risk Level 0):
+   - **Rule**: If target is `.github/copilot-instructions.md` AND change is non-COSMETIC: verify no contradiction with critical rules priority matrix (`01.07`); check that no instruction or context file now conflicts with the change.
+   - **Rationale**: copilot-instructions.md is injected into every prompt — contradictions here override all other artifacts.
+
+5. **Run targeted consumer compatibility checks** against the derived list only
+
+6. **Report**: Which consumers were checked, why, and which were skipped
+
+**If COSMETIC**: Report "COSMETIC change — consumer checks skipped" and proceed to structural checks only.
+
 ### Scoped Validation (single file)
 
 1. **Read the target file** completely

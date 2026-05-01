@@ -100,12 +100,12 @@ You do NOT research, build, or validate yourself — you delegate to experts.
 ## 🚫 Out of Scope
 
 This prompt WILL NOT:
-- Create prompt files — use `/prompt-design` or `/prompt-create-update`
-- Create agent files — use `/agent-design` or `/agent-create-update`
-- Create context files — use `/context-information-design` or `/context-information-create-update`
-- Create skill files — use `/skill-design` or `/skill-create-update`
-- **Update** existing instructions without design review — use `/instruction-file-create-update`
-- Review/validate instructions — use `/instruction-file-review`
+- Create prompt files — use `/pe-gra-prompt-design` or `/pe-gra-prompt-create-update`
+- Create agent files — use `/pe-gra-agent-design` or `/pe-gra-agent-create-update`
+- Create context files — use `/pe-gra-context-information-design` or `/pe-gra-context-information-create-update`
+- Create skill files — use `/pe-gra-skill-design` or `/pe-gra-skill-create-update`
+- **Update** existing instructions without design review — use `/pe-gra-instruction-file-create-update`
+- Review/validate instructions — use `/pe-gra-instruction-file-review`
 
 ## 🔄 Error Recovery Workflows
 
@@ -150,6 +150,54 @@ Orchestrate a multi-agent workflow to create new instruction file(s) that:
 | **Builder → Validator** | File path only | Created file path + "validate this instruction file" | Builder's reasoning, conflict detection details | ≤200 |
 | **Validator → Builder** (fix loop) | Issues-only report | File path, issue list (severity + specific fix instruction) | Scores, passing checks, full analysis | ≤500 |
 
+## Change Stability Protocol
+
+Before applying any change to the target artifact, classify it against the artifact's current YAML metadata contract:
+
+### Pre-Change Compatibility Gate
+
+| Outcome | Test | Metadata update? | Action |
+|---|---|---|---|
+| **COMPATIBLE** | Change achievable within declared `scope:`, `goal:`, `boundaries:` | No — body only | Proceed |
+| **EXTENDING** | Change requires adding new metadata entries (broader scope, new capability) | Yes — additive | Proceed + add rationale |
+| **CONTRADICTING** | Change requires removing/modifying existing metadata entries | Yes — breaking | **HALT** — present conflict to user |
+
+**Compatibility test** (apply before every proposed change):
+1. Does the change introduce something not covered by `scope:`? → EXTENDING
+2. Does the change violate a `boundaries:` item? → CONTRADICTING
+3. Does the change serve a different purpose than `goal:`? → CONTRADICTING (escalate immediately)
+4. All "no" → COMPATIBLE
+
+**Contradiction resolution:**
+- If a `rationales:` entry explains WHY the contradicted item exists → **HALT** and present the conflict (prior decision was intentional)
+- If no rationale exists → proceed with caution, but REQUIRE a rationale for the new state
+- Never silently remove a metadata entry that has a recorded rationale
+
+**Metadata hygiene (EXTENDING changes):**
+- Check if the new entry makes an existing entry redundant → synthesize into one broader entry
+- Check if the new entry contrasts with existing entries → signal design tension to user
+
+### In-Context Change Ledger
+
+At each phase transition or fix-loop iteration, log a structured record:
+
+```
+Iteration 0 (baseline): scope="[current]", boundaries=[count], tools=[count], version=[current]
+Iteration 1: [field] [change description] [gate outcome], version X→Y
+Iteration 2: [field] [change description] [gate outcome], version Y→Z
+```
+
+Before each new iteration, check the ledger for:
+- **Reversal**: Any field returning to a prior iteration's value → HALT
+- **Churn**: Change volume increasing without new external triggers → HALT
+
+### Startup Metadata Check (Phase 1)
+
+At orchestrator startup, read the target artifact's current metadata and check:
+- `version:` shows rapid recent bumps (e.g., multiple same-day increments) → warn user, proceed with caution
+- Body content contradicts declared `boundaries:` → drift detected, flag before making changes
+- `scope:` or `goal:` differ from what the change request implies → possible prior instability, confirm with user
+
 ## Process
 
 ### Phase 1: Requirements Gathering (Orchestrator)
@@ -187,7 +235,7 @@ Orchestrate a multi-agent workflow to create new instruction file(s) that:
 4. **If domain context NOT found:**
    Present options to user:
    - **Option A:** "Proceed without domain context" — researcher uses `fetch_webpage` + user input only (faster, less reliable)
-   - **Option B:** "Create domain context first" — redirect to `/context-information-design {topic}` (higher quality, separate invocation)
+   - **Option B:** "Create domain context first" — redirect to `/pe-gra-context-information-design {topic}` (higher quality, separate invocation)
 
 **Gate 1.5:** Domain context status determined (found/not found/user chose fallback).
 

@@ -68,11 +68,11 @@ Templates are **reusable output formats, input schemas, and scaffolds** that age
 - Assess audience type (agent/user/both) for each template from its category prefix
 - Provide structured research reports with evidence and references
 
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Domain expertise activation**: `02.05-agent-workflow-patterns.md` → "Domain Expertise Activation"
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
-- **📖 Input quality challenge**: `02.04-agent-shared-patterns.md` → "Phase 0.2"
-- **📖 Complexity gate**: `02.05-agent-workflow-patterns.md` → "Complexity Gate"
+- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
+- **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
+- **📖 Complexity gate**: `agent-patterns` files → "Complexity Gate"
 
 ### ⚠️ Ask First
 - When research suggests merging or splitting templates (affects consumer references)
@@ -83,7 +83,15 @@ Templates are **reusable output formats, input schemas, and scaffolds** that age
 - **NEVER create or modify any files** — you are strictly read-only
 - **NEVER skip consumer discovery** — template changes affect all referencing agents/prompts
 - **NEVER recommend duplicating template content** — single source of truth
-- **📖 Internet research validation**: `02.05-agent-workflow-patterns.md` → "Internet Research Validation Protocol"
+- **📖 Internet research validation**: `agent-patterns` files → "Internet Research Validation Protocol"
+
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Sends to** | `pe-gra-template-builder` | `output-researcher-report.template.md` | 2000 |
+
+**Required send fields**: Decision, Specification, Requirements (≥3), Boundaries (3/1/2 minimum), Scope, Consumer Impact, Receiver Context.
 
 ## Process
 

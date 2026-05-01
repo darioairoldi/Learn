@@ -1,5 +1,5 @@
 ---
-name: meta-update
+name: pe-meta-update
 description: "Unified Prompt Engineering Artifact Management — 8-phase pipeline with structure/consistency/content audits, each with research-build-validate. Modes: fullcheck, healthcheck, performancecheck. Every phase independently disableable."
 agent: agent
 model: claude-opus-4.6
@@ -188,7 +188,7 @@ When Tiers 1-2 don't resolve, use LLM judgment WITH metadata as reference:
 | Phase 6 (Apply) | Applied changes: file + status | ≤500 | Builder's reasoning |
 | Phase 7 (Regression) | Regression results: pass/fail per capability | ≤1,000 | Full test details |
 
-**Trigger**: Before EVERY handoff, estimate accumulated context. If >10,000 tokens: MUST summarize all prior phases to their "Summarize to" format. This is CRITICAL for meta-update which has 8 phases — without summarization, accuracy drops to ~30% at 32K tokens.
+**Trigger**: Before EVERY handoff, estimate accumulated context. If >10,000 tokens: MUST summarize all prior phases to their "Summarize to" format. This is CRITICAL for pe-meta-update which has 8 phases — without summarization, accuracy drops to ~30% at 32K tokens.
 
 **📖 Full strategies:** `.copilot/context/00.00-prompt-engineering/02.02-context-window-and-token-optimization.md`
 
@@ -489,7 +489,7 @@ Update `.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md`:
 
 ### Test-Then-Apply Pattern
 
-When invoked from `/meta-prompt-engineering-scheduled-review` or with `--plan`:
+When invoked from `/pe-meta-scheduled-review` or with `--plan`:
 
 ```
 healthcheck (runs 2R+3R+4R) — findings?

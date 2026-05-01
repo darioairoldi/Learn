@@ -61,19 +61,30 @@ Snippets are **reusable context fragments** included via `#file:` references —
 - Discover all consumers of each snippet via `grep_search` for `prompt-snippets/`
 - Check for content duplication with `.copilot/context/` files
 - Assess whether snippet scope is appropriate (not too large for a fragment, not content that should be a context file)
+- Load `.github/instructions/pe-prompt-snippets.instructions.md` for snippet conventions
 
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Domain expertise activation**: `02.05-agent-workflow-patterns.md` → "Domain Expertise Activation"
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
-- **📖 Input quality challenge**: `02.04-agent-shared-patterns.md` → "Phase 0.2"
-- **📖 Complexity gate**: `02.05-agent-workflow-patterns.md` → "Complexity Gate"
+- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
+- **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
+- **📖 Complexity gate**: `agent-patterns` files → "Complexity Gate"
 
 ### ⚠️ Ask First
 - When research suggests content should migrate from snippet to context file (or vice versa)
+- When zero consumers found for an existing snippet (potential orphan — confirm before recommending removal)
 
 ### 🚫 Never Do
 - **NEVER create or modify any files** — you are strictly read-only
-- **📖 Internet research validation**: `02.05-agent-workflow-patterns.md` → "Internet Research Validation Protocol"
+- **NEVER recommend snippets exceeding 500 words** — large fragments belong in context files
+- **📖 Internet research validation**: `agent-patterns` files → "Internet Research Validation Protocol"
+
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Sends to** | `pe-gra-prompt-snippet-builder` | `output-researcher-report.template.md` | 2000 |
+
+**Required send fields**: Decision, Specification, Requirements (≥3), Boundaries (3/1/2 minimum), Scope, Consumer Impact, Receiver Context.
 
 ## Process
 

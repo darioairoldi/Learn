@@ -201,6 +201,28 @@ This request involves creating/modifying [file type].
 
 ---
 
+## Handoff Data Contracts
+
+**📖 Researcher output format:** `.github/templates/00.00-prompt-engineering/output-researcher-report.template.md`
+
+| Transition | Strategy | Include | Exclude | Max tokens |
+|---|---|---|---|---|
+| **Orchestrator → Builder** (this prompt) | send: true | Goal restatement, domain, applyTo pattern, key rules, create vs update | N/A (first phase) | ~1,500 |
+| **Builder → Researcher** | send: true (handoff) | Domain, applyTo pattern, existing instruction paths, conflict questions | Builder's reasoning, user conversation | ≤1,000 |
+| **Researcher → Builder** (return) | Structured report | Research report: conflict matrix, context files found, gap analysis, applyTo recommendation | Raw file contents, full applyTo scans, search results | ≤1,500 |
+| **Builder → Validator** | File path only | Created/updated file path + "validate this instruction file" | Builder's reasoning, conflict detection details | ≤200 |
+| **Validator → Builder** (fix loop) | Issues-only report | File path, issue list (severity + specific fix instruction) | Scores, passing checks, full analysis | ≤500 |
+
+### Failure Handling & Iteration Limits
+
+**Per-gate recovery:** Retry (1x with diagnostic prompt) → Escalate (present partial results + options) → Abort (2 retries failed).
+
+**Iteration limits:** Research: max 2 | Build→Validate: max 3 | Total specialist invocations: max 5.
+
+**Context-specific:** Pattern conflict detected → MUST present conflict resolution options before proceeding.
+
+---
+
 ## Goal
 
 Create or update instruction files that ensure Copilot applies:

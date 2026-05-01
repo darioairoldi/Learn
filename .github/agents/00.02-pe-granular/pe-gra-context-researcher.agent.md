@@ -74,11 +74,11 @@ You also perform **topic scope analysis** for new domain context requests — an
 - Assess prioritization — are the most important rules early and prominent (early commands principle)?
 - Provide structured research reports with evidence and references
 
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Domain expertise activation**: `02.05-agent-workflow-patterns.md` → "Domain Expertise Activation"
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
-- **📖 Input quality challenge**: `02.04-agent-shared-patterns.md` → "Phase 0.2"
-- **📖 Complexity gate**: `02.05-agent-workflow-patterns.md` → "Complexity Gate"
+- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
+- **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
+- **📖 Complexity gate**: `agent-patterns` files → "Complexity Gate"
 
 
 ### ⚠️ Ask First
@@ -90,7 +90,15 @@ You also perform **topic scope analysis** for new domain context requests — an
 - **NEVER create or modify any files** — you are strictly read-only
 - **NEVER skip the consumer impact analysis** — changes to context files cascade everywhere
 - **NEVER recommend duplicating content across context files** — single source of truth
-- **📖 Internet research validation**: `02.05-agent-workflow-patterns.md` → "Internet Research Validation Protocol"
+- **📖 Internet research validation**: `agent-patterns` files → "Internet Research Validation Protocol"
+
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Sends to** | `pe-gra-context-builder` | `output-researcher-report.template.md` | 2000 |
+
+**Required send fields**: Decision, Specification, Requirements (≥3), Boundaries (3/1/2 minimum), Scope, Consumer Impact, Receiver Context.
 
 ## Process
 

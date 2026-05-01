@@ -113,7 +113,7 @@
       "type": "shell",
       "command": "echo",
       "args": [
-        "Run in Copilot Chat: /meta-prompt-engineering-review"
+        "Run in Copilot Chat: /pe-meta-review"
       ],
       "problemMatcher": [],
       "presentation": {
@@ -126,7 +126,7 @@
       "type": "shell",
       "command": "echo",
       "args": [
-        "Run in Copilot Chat: /meta-prompt-engineering-optimize"
+        "Run in Copilot Chat: /pe-meta-update"
       ],
       "problemMatcher": [],
       "presentation": {
@@ -139,7 +139,7 @@
       "type": "shell",
       "command": "echo",
       "args": [
-        "Run in Copilot Chat: /meta-prompt-engineering-update <paste release notes URL>"
+        "Run in Copilot Chat: /pe-meta-release-monitor <paste release notes URL>"
       ],
       "problemMatcher": [],
       "presentation": {

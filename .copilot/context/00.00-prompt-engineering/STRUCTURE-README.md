@@ -102,7 +102,7 @@ The north star that defines WHAT the system must do and WHY. All other tiers val
 | # | File | Purpose | Key Consumers |
 |---|---|---|---|
 | 00.01 | `00.01-governance-and-capability-baseline.md` | North star governance document — system purpose, capability requirements, quality criteria, stability rules, and verification contract. Use case coverage map documenting what the PE system can do, artifact chains per capability, and verification criteria for capability preservation | `meta-validator`, `meta-designer`, `meta-optimizer` |
-| 00.02 | `00.02-capability-map.md` | Functional capability map — 5 categories, 20+ use cases with entry points, artifact chains, and verification criteria. Extracted from governance baseline for token budget compliance | `meta-validator`, `meta-designer`, `meta-prompt-engineering-update` |
+| 00.02 | `00.02-capability-map.md` | Functional capability map — 5 categories, 20+ use cases with entry points, artifact chains, and verification criteria. Extracted from governance baseline for token budget compliance | `meta-validator`, `meta-designer`, `pe-meta-update` |
 | 00.03 | `00.03-metadata-contracts.md` | Canonical metadata schema for all PE artifact types — required YAML fields, placement rules, validation rules, and metadata-guarded change protocol | All builder agents, all validator agents, `meta-designer`, `meta-optimizer` |
 
 ### Tier 1: Foundations
@@ -165,8 +165,8 @@ System self-improvement infrastructure — dependency tracking, lifecycle manage
 | 05.01 | `05.01-artifact-dependency-map.md` | Complete dependency graph of all PE artifacts — outbound references, inbound consumers, impact classification | Meta agents, meta prompts, all builder agents |
 | 05.02 | `05.02-artifact-lifecycle-management.md` | Four-stage lifecycle (create → review → update → deprecate) with triggers, responsible agents, and quality gates per stage | Meta agents, meta prompts, `prompt-design`, `agent-design` |
 | 05.03 | `05.03-pe-workflow-entry-points.md` | Decision guide for choosing the right prompt or agent — orchestrator vs standalone, validation, direct agent, meta-prompts | Meta agents, users starting PE workflows |
-| 05.04 | `05.04-meta-review-log.md` | Audit trail of meta-workflow executions — tracks when each mode was last run, what sources were analyzed, what changes were applied. Enables staleness detection | `pe-staleness-check` hook, `meta-prompt-engineering-scheduled-review`, `meta-prompt-engineering-update`, `meta-validator` |
-| 05.05 | `05.05-practical-effectiveness-log.md` | User-reported outcomes from PE workflow executions — breaks the self-referential validation cycle by grounding rule refinement in practical results | `meta-researcher`, `meta-prompt-engineering-scheduled-review`, `meta-validator` |
+| 05.04 | `05.04-meta-review-log.md` | Audit trail of meta-workflow executions — tracks when each mode was last run, what sources were analyzed, what changes were applied. Enables staleness detection | `pe-staleness-check` hook, `pe-meta-scheduled-review`, `pe-meta-update`, `meta-validator` |
+| 05.05 | `05.05-practical-effectiveness-log.md` | User-reported outcomes from PE workflow executions — breaks the self-referential validation cycle by grounding rule refinement in practical results | `meta-researcher`, `pe-meta-scheduled-review`, `meta-validator` |
 | 05.06 | `05.06-pe-strategic-review-criteria.md` | PE-for-PE strategic review guidance — vision alignment checklists, quality bar, category reference enforcement, N-1 adoption per type, self-update readiness | `pe-meta-review`, `pe-meta-design`, `pe-meta-create-update`, `pe-meta-validator` |
 
 

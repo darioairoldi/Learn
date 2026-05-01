@@ -116,8 +116,8 @@ This prompt WILL NOT:
 - Create agent files (`.agent.md`) — use agent creation prompts
 - Create skill files (`SKILL.md`) — use skill creation prompts
 - Edit repository-level configuration (`.github/copilot-instructions.md`)
-- **Design** new domain context from scratch with uncertain scope — use `/context-information-design`
-- **Review/validate** existing context — use `/context-information-review`
+- **Design** new domain context from scratch with uncertain scope — use `/pe-gra-context-information-design`
+- **Review/validate** existing context — use `/pe-gra-context-information-review`
 
 ---
 
@@ -185,6 +185,28 @@ This request involves creating/modifying [file type].
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
 **📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+
+---
+
+## Handoff Data Contracts
+
+**📖 Researcher output format:** `.github/templates/00.00-prompt-engineering/output-researcher-report.template.md`
+
+| Transition | Strategy | Include | Exclude | Max tokens |
+|---|---|---|---|---|
+| **Orchestrator → Builder** (this prompt) | send: true | Goal restatement, topic, domain folder, sources, create vs update | N/A (first phase) | ~1,500 |
+| **Builder → Researcher** | send: true (handoff) | Topic, domain folder, existing file paths, gap questions | Builder's reasoning, user conversation | ≤1,000 |
+| **Researcher → Builder** (return) | Structured report | Research report: gap analysis, architecture assessment, source classification, token estimate, splitting strategy | Raw file contents, full context scans, search results | ≤1,500 |
+| **Builder → Validator** | File path only | Created/updated file path + "validate this context file" | Builder's reasoning, source analysis, pre-save details | ≤200 |
+| **Validator → Builder** (fix loop) | Issues-only report | File path, issue list (severity + specific fix instruction) | Scores, passing checks, full analysis | ≤500 |
+
+### Failure Handling & Iteration Limits
+
+**Per-gate recovery:** Retry (1x with diagnostic prompt) → Escalate (present partial results + options) → Abort (2 retries failed).
+
+**Iteration limits:** Research: max 2 | Build→Validate: max 3 | Total specialist invocations: max 5.
+
+**Context-specific:** Content exceeds 2,500-token budget → MUST propose file splitting strategy before proceeding.
 
 ---
 

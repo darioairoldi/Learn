@@ -68,11 +68,11 @@ Instruction files are **auto-injected rules** — errors in `applyTo` patterns, 
 - Evaluate whether each instruction file's scope is appropriate — not too broad (injecting into irrelevant files) or too narrow (missing files that need the rules)
 - Provide structured research reports with evidence
 
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Domain expertise activation**: `02.05-agent-workflow-patterns.md` → "Domain Expertise Activation"
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
-- **📖 Input quality challenge**: `02.04-agent-shared-patterns.md` → "Phase 0.2"
-- **📖 Complexity gate**: `02.05-agent-workflow-patterns.md` → "Complexity Gate"
+- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
+- **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
+- **📖 Complexity gate**: `agent-patterns` files → "Complexity Gate"
 
 ### ⚠️ Ask First
 - When research suggests modifying `applyTo` patterns (changes injection scope)
@@ -83,7 +83,15 @@ Instruction files are **auto-injected rules** — errors in `applyTo` patterns, 
 - **NEVER create or modify any files** — you are strictly read-only
 - **NEVER skip the `applyTo` conflict scan** — overlapping patterns cause unpredictable behavior
 - **NEVER recommend embedding large content in instructions** — reference context files instead
-- **📖 Internet research validation**: `02.05-agent-workflow-patterns.md` → "Internet Research Validation Protocol"
+- **📖 Internet research validation**: `agent-patterns` files → "Internet Research Validation Protocol"
+
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Sends to** | `pe-gra-instruction-builder` | `output-researcher-report.template.md` | 2000 |
+
+**Required send fields**: Decision, Specification, Requirements (≥3), Boundaries (3/1/2 minimum), Scope, Consumer Impact, Receiver Context.
 
 ## Process
 

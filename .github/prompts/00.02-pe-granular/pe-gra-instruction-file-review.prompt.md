@@ -81,11 +81,11 @@ You do NOT validate or fix yourself — you delegate to experts.
 ## � Out of Scope
 
 This prompt WILL NOT:
-- Create new instruction files — use `/instruction-file-design` or `/instruction-file-create-update`
-- Review prompt files — use `/prompt-review`
-- Review agent files — use `/agent-review`
-- Review context files — use `/context-information-review`
-- Review skill files — use `/skill-review`
+- Create new instruction files — use `/pe-gra-instruction-file-design` or `/pe-gra-instruction-file-create-update`
+- Review prompt files — use `/pe-gra-prompt-review`
+- Review agent files — use `/pe-gra-agent-review`
+- Review context files — use `/pe-gra-context-information-review`
+- Review skill files — use `/pe-gra-skill-review`
 
 ## �🔄 Error Recovery Workflows
 
@@ -189,6 +189,54 @@ Orchestrate a multi-agent workflow to review and validate existing instruction f
 | **Validator → Orchestrator** | Structured report | Categorized findings (severity + file + issue) | Full analysis prose, passing checks | ≤1,000 |
 | **Orchestrator → Builder** (fix loop) | Issues-only | File path, issue list (severity + specific fix instruction) | Validation scores, passing checks | ≤500 |
 | **Builder → Validator** (re-validation) | File path only | Updated file path + "re-validate" | Builder's reasoning, fix rationale | ≤200 |
+
+## Change Stability Protocol
+
+Before applying any change to the target artifact, classify it against the artifact's current YAML metadata contract:
+
+### Pre-Change Compatibility Gate
+
+| Outcome | Test | Metadata update? | Action |
+|---|---|---|---|
+| **COMPATIBLE** | Change achievable within declared `scope:`, `goal:`, `boundaries:` | No — body only | Proceed |
+| **EXTENDING** | Change requires adding new metadata entries (broader scope, new capability) | Yes — additive | Proceed + add rationale |
+| **CONTRADICTING** | Change requires removing/modifying existing metadata entries | Yes — breaking | **HALT** — present conflict to user |
+
+**Compatibility test** (apply before every proposed change):
+1. Does the change introduce something not covered by `scope:`? → EXTENDING
+2. Does the change violate a `boundaries:` item? → CONTRADICTING
+3. Does the change serve a different purpose than `goal:`? → CONTRADICTING (escalate immediately)
+4. All "no" → COMPATIBLE
+
+**Contradiction resolution:**
+- If a `rationales:` entry explains WHY the contradicted item exists → **HALT** and present the conflict (prior decision was intentional)
+- If no rationale exists → proceed with caution, but REQUIRE a rationale for the new state
+- Never silently remove a metadata entry that has a recorded rationale
+
+**Metadata hygiene (EXTENDING changes):**
+- Check if the new entry makes an existing entry redundant → synthesize into one broader entry
+- Check if the new entry contrasts with existing entries → signal design tension to user
+
+### In-Context Change Ledger
+
+At each phase transition or fix-loop iteration, log a structured record:
+
+```
+Iteration 0 (baseline): scope="[current]", boundaries=[count], tools=[count], version=[current]
+Iteration 1: [field] [change description] [gate outcome], version X→Y
+Iteration 2: [field] [change description] [gate outcome], version Y→Z
+```
+
+Before each new iteration, check the ledger for:
+- **Reversal**: Any field returning to a prior iteration's value → HALT
+- **Churn**: Change volume increasing without new external triggers → HALT
+
+### Startup Metadata Check (Phase 1)
+
+At orchestrator startup, read the target artifact's current metadata and check:
+- `version:` shows rapid recent bumps (e.g., multiple same-day increments) → warn user, proceed with caution
+- Body content contradicts declared `boundaries:` → drift detected, flag before making changes
+- `scope:` or `goal:` differ from what the change request implies → possible prior instability, confirm with user
 
 ## Process
 

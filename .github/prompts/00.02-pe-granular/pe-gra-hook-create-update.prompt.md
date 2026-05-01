@@ -87,6 +87,100 @@ If user input is incomplete, ask clarifying questions before proceeding.
 - **NEVER reference companion scripts that don't exist**
 - **NEVER modify prompts, agents, instruction files, or context files**
 
+## 🚫 Out of Scope
+
+- Creating or modifying prompts, agents, instruction files, or context files
+- Hook logic that requires LLM reasoning (use prompts/agents instead)
+- Cross-platform testing — verify companion scripts separately
+
+## 📋 Response Management
+
+### Lifecycle Event Conflict Response
+When a hook conflicts with an existing hook on the same lifecycle event:
+```
+⚠️ **Lifecycle Event Conflict**
+Event `[event]` already has a hook in: [existing file]
+**Options:**
+1. Merge into existing hook file
+2. Replace existing hook (confirm impact first)
+3. Use a different lifecycle event
+```
+
+### Unsupported Event Response
+When user requests an unsupported lifecycle event:
+```
+🔍 **Unsupported Lifecycle Event**
+The event "[event]" isn't in the 8 supported events.
+**Supported:** onChatStart, onChatEnd, onFileOpen, onFileSave, onBranchChange, onCommit, onPush, onPullRequest
+Which event matches your automation goal?
+```
+
+### Security Hook Response
+When modifying deny or security-critical hooks:
+```
+⚠️ **Security Hook Modification**
+This hook enforces: [security rule]
+**Weakening it could:** [impact description]
+Proceed with modification? (y/n)
+```
+
+### Out of Scope Response
+```
+🚫 **Out of Scope**
+This request involves creating/modifying [file type].
+**Redirect to:** [appropriate prompt name]
+```
+
+## 🔄 Error Recovery Workflows
+
+### `file_search` Returns No Hooks
+1. Verify `.github/hooks/` directory exists
+2. Check for alternative hook locations
+3. If first hook: proceed with new file creation
+
+### Invalid JSON After Generation
+1. Run `get_errors` to identify syntax issue
+2. Fix JSON structure (missing commas, brackets, quotes)
+3. Re-validate before saving
+
+### Companion Script Not Found
+1. Use `file_search` to find renamed scripts
+2. Ask user: create the missing script or update the reference?
+3. Wait for user decision before proceeding
+
+## 🧹 Summarization Protocol
+
+| After Phase | Summarize to | Max tokens | Discard |
+|---|---|---|---|
+| Phase 1 (Gather) | Purpose, lifecycle event, existing hooks list | ≤300 | Raw hook file contents, search results |
+| Phase 2 (Design) | Hook JSON structure + security notes | ≤500 | Design reasoning, alternative approaches |
+| Phase 3 (Create) | File path + entry count | ≤200 | Generation reasoning, draft iterations |
+| Phase 4 (Verify) | Pass/fail + issue list | ≤300 | Full validation analysis |
+
+**Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
+
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+
+---
+
+## Handoff Data Contracts
+
+| Transition | Strategy | Include | Exclude | Max tokens |
+|---|---|---|---|---|
+| **Orchestrator → Builder** (this prompt) | send: true | Goal restatement, hook purpose, lifecycle event, automation goal, create vs update | N/A (first phase) | ~1,000 |
+| **Builder → Researcher** | send: true (handoff) | Lifecycle event, existing hooks list, conflict questions | Builder's reasoning, user conversation | ≤800 |
+| **Researcher → Builder** (return) | Structured report | Hook schema rules, lifecycle event validation, conflict analysis, security considerations | Raw file contents, full search results | ≤1,000 |
+| **Builder → Validator** | File path only | Created/updated hook path + "validate this hook" | Builder's reasoning, design decisions | ≤200 |
+| **Validator → Builder** (fix loop) | Issues-only report | Hook path, issue list (severity + specific fix instruction) | Scores, passing checks, full analysis | ≤500 |
+
+### Failure Handling & Iteration Limits
+
+**Per-gate recovery:** Retry (1x with diagnostic prompt) → Escalate (present partial results + options) → Abort (2 retries failed).
+
+**Iteration limits:** Research: max 2 | Build→Validate: max 3 | Total specialist invocations: max 5.
+
+---
+
 ## Process
 
 ### Phase 1: Gather and Assess

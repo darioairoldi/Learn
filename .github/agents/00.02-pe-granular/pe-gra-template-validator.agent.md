@@ -65,10 +65,9 @@ You are a **quality assurance specialist** focused on validating template files 
 - Validate against all checks in the validation checklist below
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - Provide specific line numbers for issues
-- **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
-
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
+- **📖 Cross-handoff verification**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Fix report format**: `output-validator-fixes.template.md` — use for validator→builder fix handoff
 
 
@@ -137,19 +136,45 @@ You are a **quality assurance specialist** focused on validating template files 
 | 18 | **Category budget** | Within category-specific limits: `output-*` =100, `input-*` =50, `guidance-*` =80, `*-structure` =60, `pattern-*` =40 | MEDIUM |
 | 19 | **No embedded prose in agent templates** | `output-*` and `guidance-*` prefer tables and lists over paragraphs | MEDIUM |
 
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Receives from** | `pe-gra-template-builder` | `output-builder-handoff.template.md` | 1500 |
+| **Sends to** | `pe-gra-template-builder` | `output-validator-fixes.template.md` | 1000 |
+
+**Required receive fields**: Operation (action, file path, based on), Requirements Traceability, Decisions, Receiver Context.
+
+**Required send fields**: Issue Summary (severity, line, issue, rule ID, fix instruction), Fix Priority Order, Context for Fixes.
+
 ## Process
 
-
-### Phase 0: Handoff Validation
-
-Before any work, verify required input is present:
-
-| Required Field | Action if Missing |
-|---|---|
-| Artifact file path | ASK — cannot proceed without |
-| Validation dimensions (optional) | Default to full validation |
-
 If file path is missing: report `Incomplete handoff — no file path provided` and STOP. Do NOT guess which file to validate.
+
+### Phase 0.5: Change Impact Analysis (Post-Change Mode Only)
+
+**When to run**: Only when the handoff includes `change_description` data from a builder. If absent (direct validation or batch mode), skip to Phase 1 and run full consumer checks.
+
+**Steps**:
+
+1. **Classify the change** from the builder's `change_description`:
+   - **COSMETIC**: Formatting, typos, whitespace → skip consumer checks entirely. **Rationale**: cosmetic changes can't alter semantic meaning or break consumer contracts.
+   - **STRUCTURAL**: Placeholders added/removed, sections reorganized → check consumers expecting specific fields. **Rationale**: consumers parse templates by placeholder names and section structure.
+   - **VOCABULARY**: Placeholder labels renamed, field names changed → grep old placeholder/field name across `.github/` + `.copilot/`. **Rationale**: placeholder renames break all consumers that fill by name.
+   - **BEHAVIORAL**: Output schema changed, required fields modified → check ALL consumers (agents/prompts) that reference this template. **Rationale**: schema changes can cause downstream agents to produce malformed output.
+
+2. **Derive consumer list** (layered hybrid):
+   - Layer 1: `grep_search` for `📖 template-name` + `#file:` references across `.github/`
+   - Layer 2: `grep_search` for the filename across `.github/` + `.copilot/`
+
+3. **Safety net**: None required (Risk Level 3 — explicit invocation only)
+
+4. **Run targeted consumer compatibility checks** — verify consumers can still parse the modified template output
+
+5. **Report**: Which consumers were checked, why, and which were skipped
+
+**If COSMETIC**: Report "COSMETIC change — consumer checks skipped" and proceed to structural checks only.
+
 ### Single Template Validation
 
 1. **Read the target template** completely

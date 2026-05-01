@@ -1,5 +1,5 @@
 ---
-name: meta-release-monitor
+name: pe-meta-release-monitor
 description: "Track VS Code and GitHub Copilot releases — fetch latest release notes, diff against last processed version, run targeted fullcheck on affected PE artifact types, and update the review log."
 agent: agent
 model: claude-opus-4.6
@@ -48,14 +48,14 @@ rationales:
 
 Fetches the latest VS Code and GitHub Copilot release notes, diffs them against the last processed version recorded in the review log, and runs a targeted fullcheck only on PE artifact types affected by new features.
 
-**When to run**: After a new VS Code or GitHub Copilot release. Complement to `/meta-prompt-engineering-scheduled-review` (staleness-based) — this prompt is event-driven (release-based).
+**When to run**: After a new VS Code or GitHub Copilot release. Complement to `/pe-meta-scheduled-review` (staleness-based) — this prompt is event-driven (release-based).
 
 ## Handoff Data Contracts
 
 | Transition | Strategy | Include | Exclude | Max tokens |
 |---|---|---|---|---|
 | **Orchestrator → meta-researcher** (Phase 3) | send: true | Release diff summary, affected artifact types, scope | Full release notes text | ≤1,500 |
-| **Orchestrator → meta-prompt-engineering-update** (Phase 4) | Delegated fullcheck | Mode, source (extracted changes), scope (affected types), --plan flag | Raw release notes, version comparison | ≤1,000 |
+| **Orchestrator → pe-meta-update** (Phase 4) | Delegated fullcheck | Mode, source (extracted changes), scope (affected types), --plan flag | Raw release notes, version comparison | ≤1,000 |
 | **Orchestrator → builders** (Phase 6) | Approved changes | Per-file change specification | Rejected proposals, impact analysis | ≤500/file |
 
 ## Summarization Protocol
@@ -129,7 +129,7 @@ For each new feature or change identified in Phase 2:
 
 ## Phase 4: Targeted fullcheck
 
-For each affected artifact type identified in Phase 3, delegate to the `meta-prompt-engineering-update` workflow:
+For each affected artifact type identified in Phase 3, delegate to the `pe-meta-update` workflow:
 
 - **Mode**: `fullcheck`
 - **Source**: The extracted release notes content (not the URL — pass the relevant changes as a description)

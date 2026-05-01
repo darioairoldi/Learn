@@ -1,5 +1,5 @@
 ---
-name: meta-scheduled-review
+name: pe-meta-scheduled-review
 description: "Lightweight periodic PE health check — detects stale artifacts, runs scoped healthcheck, proposes fixes, and updates the review log. Designed for weekly use with minimal cognitive load."
 agent: agent
 model: claude-opus-4.6
@@ -41,7 +41,7 @@ rationales:
 
 Lightweight periodic review optimized for weekly execution. Detects what's stale → audits only stale areas → proposes fixes → updates the review log.
 
-**Design principle**: Minimal user input. Run `/meta-prompt-engineering-scheduled-review` with no arguments for a full auto-detected review, or add `--scope <type>` to focus on one artifact type.
+**Design principle**: Minimal user input. Run `/pe-meta-scheduled-review` with no arguments for a full auto-detected review, or add `--scope <type>` to focus on one artifact type.
 
 ## Handoff Data Contracts
 

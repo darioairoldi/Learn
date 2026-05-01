@@ -66,21 +66,32 @@ You operate in two modes:
 - Use `pe-prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - In layer audit mode: check for cross-skill scope overlaps
-- **📖 Cross-handoff verification**: `02.05-agent-workflow-patterns.md` → "Output Schema Compliance"
-
-- **📖 Output minimization**: `02.04-agent-shared-patterns.md`
-- **📖 Escalation protocol**: `02.05-agent-workflow-patterns.md` → "Standard Escalation Protocol"
+- **📖 Cross-handoff verification**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
+- **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Fix report format**: `output-validator-fixes.template.md` — use for validator→builder fix handoff
 
 
 ### ⚠️ Ask First
 - When skill name doesn't follow kebab-case convention (breaking change to rename)
 - When description needs rewriting (affects AI discovery)
+- When skill has high consumer count and validation may miss edge-case regressions
 
 ### 🚫 Never Do
 - **NEVER modify files** — you are strictly read-only
 - **NEVER approve skills with broken resource references**
 - **[C3]** **NEVER approve skills exceeding body word limit** (1,500 words)
+
+## Handoff Data Contract
+
+| Direction | Partner | Template | Max Tokens |
+|---|---|---|---|
+| **Receives from** | `pe-gra-skill-builder` | `output-builder-handoff.template.md` | 1500 |
+| **Sends to** | `pe-gra-skill-builder` | `output-validator-fixes.template.md` | 1000 |
+
+**Required receive fields**: Operation (action, file path, based on), Requirements Traceability, Decisions, Receiver Context.
+
+**Required send fields**: Issue Summary (severity, line, issue, rule ID, fix instruction), Fix Priority Order, Context for Fixes.
 
 ## Phase 0: Handoff Validation
 
@@ -92,6 +103,30 @@ Before any work, verify required input is present:
 | Validation dimensions (optional) | Default to full validation |
 
 If file path is missing: report `Incomplete handoff — no file path provided` and STOP. Do NOT guess which file to validate.
+
+### Phase 0.5: Change Impact Analysis (Post-Change Mode Only)
+
+**When to run**: Only when the handoff includes `change_description` data from a builder. If absent (direct validation or layer audit), skip to checklist and run full validation.
+
+**Steps**:
+
+1. **Classify the change** from the builder's `change_description`:
+   - **COSMETIC**: Formatting, typos, whitespace → skip consumer checks entirely. **Rationale**: cosmetic changes can't alter semantic meaning or break consumer contracts.
+   - **STRUCTURAL**: Sections added/removed, workflow steps reordered → check agents/prompts that invoke this skill. **Rationale**: consumers may depend on step ordering or section existence.
+   - **VOCABULARY**: Skill name or description keywords changed → grep old skill name across `.github/` + `.copilot/`. **Rationale**: name/keyword changes break AI discovery and explicit invocations.
+   - **BEHAVIORAL**: Workflow logic changed, resource paths modified → check all consumers that invoke this skill. **Rationale**: logic changes can produce different outputs that consumers don't expect.
+
+2. **Derive consumer list** (layered hybrid):
+   - Layer 1: `grep_search` for the skill name across agents and prompts (who declares this skill in their workflow?)
+   - Layer 2: `grep_search` for the filename across `.github/` + `.copilot/`
+
+3. **Safety net**: None required (Risk Level 3 — explicit invocation only)
+
+4. **Run targeted consumer compatibility checks** against the derived list only
+
+5. **Report**: Which consumers were checked, why, and which were skipped
+
+**If COSMETIC**: Report "COSMETIC change — consumer checks skipped" and proceed to structural checks only.
 
 ## Validation Checklist
 

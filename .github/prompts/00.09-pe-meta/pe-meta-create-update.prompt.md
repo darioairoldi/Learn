@@ -1,5 +1,5 @@
 ---
-name: meta-pe-create-update
+name: pe-meta-create-update
 description: "Create new or update existing PE-for-PE artifacts with pre-change guards, category compliance, and post-change reconciliation — skips research, goes directly to build → double validate"
 agent: agent
 model: claude-opus-4.6
@@ -31,9 +31,9 @@ scope:
     - "Updates to existing PE-for-PE artifacts with pre-change guard protocol"
     - "Post-change reconciliation (metadata, categories, dependency map)"
   excludes:
-    - "Requirements research and use case challenge (use /meta-pe-design for that)"
+    - "Requirements research and use case challenge (use /pe-meta-design for that)"
     - "Domain artifacts (use /pe-con-create-update for those)"
-    - "Ecosystem-wide audits (use /meta-prompt-engineering-update for those)"
+    - "Ecosystem-wide audits (use /pe-meta-update for those)"
 boundaries:
   - "MUST load PE-strategic context before building"
   - "MUST run pre-change guard for updates to existing files"
@@ -54,9 +54,9 @@ Create new or update existing PE artifacts that serve the PE system. Skips resea
 - This prompt → PE infrastructure (pe-* agents/prompts, PE context files, pe-* instructions/skills)
 - `/pe-con-create-update` → domain artifacts (article-writing, documentation, devops)
 
-**When to use this vs `/meta-pe-design`:**
+**When to use this vs `/pe-meta-design`:**
 - This prompt → requirements are already clear, you know what to build/change
-- `/meta-pe-design` → uncertain requirements, need research and use case challenge
+- `/pe-meta-design` → uncertain requirements, need research and use case challenge
 
 ## Process
 
