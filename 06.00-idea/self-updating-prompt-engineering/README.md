@@ -20,8 +20,8 @@ This folder is the **workshop**. The published articles in `03.00-tech/05.02-pro
 
 | File | Purpose | Status |
 |---|---|---|
-| `20260428.01-vision.v7.md` | Current vision — defines WHY the system exists, WHAT it aims for, design principles, rationales | Living (loaded by pe-meta agents) |
-| `20260428.01-vision.v7-further-improvements.md` | Deferred backlog with trigger conditions | Living (items graduate to active work) |
+| `20260501.01-vision.v8.md` | Current vision — defines WHY the system exists, WHAT it aims for, design principles, rationales | Living (loaded by pe-meta agents) |
+| `20260501.01-vision.v8-further-improvements.md` | Deferred backlog with trigger conditions | Living (items graduate to active work) |
 
 ## Completed improvement logs (in `old/`)
 

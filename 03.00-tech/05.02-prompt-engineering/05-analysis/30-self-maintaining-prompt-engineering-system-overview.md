@@ -119,7 +119,7 @@ Five trigger sources initiate scoped health checks:
 
 ### Assess
 
-Risk classification uses two inputs: **tier** (O(1) lookup — how many layers can depend on this?) and **dependent count** (how many artifacts actually reference this?). Together they determine blast radius.
+Risk classification uses a **progressive model** that matures with the rollout phases. At Phase 1, two coarse inputs provide the baseline: **tier** (which layers can depend on this artifact?) and **dependent count** (how many artifacts reference this?). At Phase 2+, the system upgrades to actual dependency topology with coupling-aware analysis — distinguishing behavioral dependencies (an agent enforcing rules from a context file) from informational mentions (a "see also" in a references section). This progressive refinement improves blast radius accuracy without requiring Phase 3 infrastructure at Phase 1.
 
 The breaking/non-breaking classification is the critical decision. **Metadata-driven classification** checks whether a change alters the artifact's declared goal, scope, or boundaries. **N-1 structural separation** enables deterministic classification at the content level — if a diff touches a `Rule` block, it's a breaking candidate; if it only touches `Rationale` or `Example` blocks, it's non-breaking.
 
@@ -165,6 +165,8 @@ The system validates all cross-artifact reference types: `📖` file references,
 
 **Safety takes precedence over efficiency.** The system defaults to conservative autonomy thresholds. Loop caps prevent infinite fix cycles. Pre-change compatibility gates block contradicting changes. Reversibility guarantees enable confident rollback.
 
+**Guidance quality bounds autonomy.** The system's ability to make autonomous decisions is only as good as the rules it follows. Before increasing autonomy levels, the guidance those rules come from must be clear (unambiguous), complete (no gaps), non-contradictory (rules agree across files), and properly prioritized (conflicts are resolved explicitly). This is why pe-meta doesn't just check whether artifacts are structurally correct — it checks whether the guidance they follow is good enough to trust for autonomous operation.
+
 ---
 
 ## Current status and limitations
@@ -178,15 +180,14 @@ The system is operational at **Phase 2** readiness (structured metadata in place
 - Metadata-driven breaking/non-breaking classification for YAML changes
 
 **Known limitations:**
-- No autonomous execution yet — all changes require human invocation
 - Capability staleness (Type B) detection relies on manual trigger (scheduled review)
-- Engine is embedded in the Learning Hub repository — not yet portable via MCP/SDK/extension
+- Engine is embedded in the Learning Hub repository but easily portable to other repositories — not yet portable via MCP/SDK/extension
 
 ---
 
 ## References
 
-- **Vision document:** `06.00-idea/self-updating-prompt-engineering/20260428.01-vision.v7.md`
+- **Vision document:** `06.00-idea/self-updating-prompt-engineering/20260501.01-vision.v8.md`
 - **pe-meta implementation:** [Self-maintaining PE: pe-meta implementation](31-self-maintaining-prompt-engineering-pe-meta-implementation.md)
 - **pe-gra implementation:** [Self-maintaining PE: pe-gra implementation](32-self-maintaining-prompt-engineering-pe-gra-implementation.md)
 - **Orchestrator patterns:** [How to Design Orchestrator Prompts](../04-howto/10.00-how_to_design_orchestrator_prompts.md)
