@@ -165,6 +165,8 @@ The system validates all cross-artifact reference types: `📖` file references,
 
 **Safety takes precedence over efficiency.** The system defaults to conservative autonomy thresholds. Loop caps prevent infinite fix cycles. Pre-change compatibility gates block contradicting changes. Reversibility guarantees enable confident rollback.
 
+**Guidance quality bounds autonomy.** The system's ability to make autonomous decisions is only as good as the rules it follows. Before increasing autonomy levels, the guidance those rules come from must be clear (unambiguous), complete (no gaps), non-contradictory (rules agree across files), and properly prioritized (conflicts are resolved explicitly). This is why pe-meta doesn't just check whether artifacts are structurally correct — it checks whether the guidance they follow is good enough to trust for autonomous operation.
+
 ---
 
 ## Current status and limitations
