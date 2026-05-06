@@ -45,23 +45,22 @@
     }
 
 
-    /* Home link special styling - make it white and prominent but allow collapse */
+    /* Home link styling - normalized to match sidebar hierarchy */
     .sidebar .nav-link[href="index.qmd"],
     .sidebar .sidebar-item-text[href="index.qmd"],
     .sidebar a[href="index.qmd"],
     .sidebar-navigation .sidebar-item-text[href="index.qmd"],
     #quarto-sidebar .sidebar-item-text[href="index.qmd"] {
         font-weight: 600 !important;
-        font-size: 1.1rem !important;
-        color: white !important;
-        background: linear-gradient(135deg, #2780e3 0%, #1967d2 100%) !important;
-        border: 2px solid #2780e3 !important;
-        margin-bottom: 1rem !important;
-        padding: 0.8rem 1rem !important;
-        border-radius: 12px !important;
-        box-shadow: 0 3px 8px rgba(39, 128, 227, 0.3) !important;
-        transition: all 0.3s ease !important;
-        /* Remove display: block to allow collapsible functionality */
+        font-size: 1rem !important;
+        color: #2d3748 !important;
+        background: none !important;
+        border: none !important;
+        margin-bottom: 0.5rem !important;
+        padding: 0.45rem 0.75rem !important;
+        border-radius: 4px !important;
+        box-shadow: none !important;
+        transition: all 0.2s ease !important;
     }
 
     .sidebar .nav-link[href="index.qmd"]:hover,
@@ -69,21 +68,20 @@
     .sidebar a[href="index.qmd"]:hover,
     .sidebar-navigation .sidebar-item-text[href="index.qmd"]:hover,
     #quarto-sidebar .sidebar-item-text[href="index.qmd"]:hover {
-        background: linear-gradient(135deg, #1967d2 0%, #1557b0 100%) !important;
-        transform: translateX(3px) translateY(-1px) !important;
-        box-shadow: 0 6px 16px rgba(39, 128, 227, 0.4) !important;
-        border-color: #1967d2 !important;
-        color: white !important;
+        background-color: rgba(237, 242, 247, 0.8) !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        color: #2780e3 !important;
     }
 
     /* Ensure Home section chevron is visible and styled properly */
     #quarto-sidebar .sidebar-item:has(.sidebar-item-text[href="index.qmd"]) .bi-chevron-right,
     #quarto-sidebar .sidebar-item:has(.sidebar-item-text[href="index.qmd"]) .bi-chevron-down {
-        color: white !important;
+        color: #4a5568 !important;
         opacity: 1 !important;
         display: inline-block !important;
         pointer-events: auto !important;
-        /* Ensure chevron is clickable */
         cursor: pointer !important;
     }
 
@@ -127,24 +125,21 @@
     /* Reset all sidebar items to consistent baseline with proper spacing */
     #quarto-sidebar .sidebar-item {
         margin-bottom: 0.4rem;
-        /* Increased from 0.1rem for better separation */
     }
 
     /* Add extra spacing for top-level menu items */
     #quarto-sidebar>.sidebar-navigation>.sidebar-item {
-        margin-bottom: 0.6rem;
-        /* More space between main sections */
+        margin-bottom: 0.85rem;
+        /* Generous gap between main sections for scannability */
     }
 
-    /* Reduce spacing for nested items to maintain hierarchy */
+    /* Spacing for nested items */
     #quarto-sidebar .sidebar-item .sidebar-item {
-        margin-bottom: 0.25rem;
-        /* Moderate spacing for first level nesting */
+        margin-bottom: 0.35rem;
     }
 
     #quarto-sidebar .sidebar-item .sidebar-item .sidebar-item {
-        margin-bottom: 0.15rem;
-        /* Minimal spacing for deep nesting */
+        margin-bottom: 0.25rem;
     }
 
     /* Base styling for all sidebar item texts */
@@ -153,7 +148,8 @@
         align-items: center;
         gap: 0 !important;
         /* Remove the 0.5rem gap */
-        line-height: 1.3;
+        line-height: 1.5;
+        min-height: 2rem;
         border-radius: 4px;
         transition: all 0.2s ease;
     }
@@ -161,8 +157,8 @@
     /* Level 0 (Root level): "Home", "Events", "Tools", etc. */
     #quarto-sidebar>.sidebar-navigation>.sidebar-item>.sidebar-item-text {
         font-weight: 600 !important;
-        font-size: 0.95rem !important;
-        padding: 0.4rem 0.75rem !important;
+        font-size: 0.925rem !important;
+        padding: 0.45rem 0.75rem !important;
         color: #2d3748 !important;
     }
 
@@ -170,7 +166,7 @@
     #quarto-sidebar .sidebar-item .sidebar-item>.sidebar-item-text {
         font-weight: 500 !important;
         font-size: 0.9rem !important;
-        padding: 0.3rem 0.75rem !important;
+        padding: 0.35rem 0.75rem !important;
         padding-left: 1.5rem !important;
         /* Indent from level 0 */
         color: #4a5568 !important;
@@ -179,21 +175,21 @@
     /* Level 2 (Second nested): "Git Command Line", "HTTP Files Testing", etc. */
     #quarto-sidebar .sidebar-item .sidebar-item .sidebar-item>.sidebar-item-text {
         font-weight: 400 !important;
-        font-size: 0.85rem !important;
-        padding: 0.25rem 0.75rem !important;
+        font-size: 0.875rem !important;
+        padding: 0.3rem 0.75rem !important;
         padding-left: 2.25rem !important;
         /* Further indent from level 1 */
-        color: #718096 !important;
+        color: #4a5568 !important;
     }
 
     /* Level 3 (Third nested): Deep nested items */
     #quarto-sidebar .sidebar-item .sidebar-item .sidebar-item .sidebar-item>.sidebar-item-text {
         font-weight: 400 !important;
-        font-size: 0.8rem !important;
-        padding: 0.2rem 0.75rem !important;
+        font-size: 0.875rem !important;
+        padding: 0.3rem 0.75rem !important;
         padding-left: 3rem !important;
         /* Further indent from level 2 */
-        color: #a0aec0 !important;
+        color: #718096 !important;
     }
 
     /* Hover effects for better UX */
@@ -201,13 +197,12 @@
         background-color: rgba(237, 242, 247, 0.8) !important;
     }
 
-    /* Active state styling - hierarchical specificity */
+    /* Active state styling - lightweight highlight */
     #quarto-sidebar .sidebar-item-text.active {
-        background-color: rgba(39, 128, 227, 0.1) !important;
+        background-color: rgba(39, 128, 227, 0.06) !important;
         color: #2780e3 !important;
-        border-left: 3px solid #2780e3 !important;
-        padding-left: 0.75rem !important;
-        /* Add space between border and text */
+        font-weight: 600 !important;
+        border-left: none !important;
     }
 
     /* Ensure icons align properly at all levels */
@@ -223,7 +218,19 @@
     .sidebar-link,
     #quarto-sidebar .nav-link,
     #quarto-sidebar .sidebar-item-text {
-        padding: 0.25rem 0 !important;
+        padding: 0.35rem 0.75rem !important;
+    }
+
+    /* Section separators between top-level groups */
+    #quarto-sidebar>.sidebar-navigation>.sidebar-item + .sidebar-item-separator,
+    #quarto-sidebar>.sidebar-navigation > hr,
+    #quarto-sidebar .sidebar-navigation .sidebar-item[data-bs-text="---"] {
+        border: none !important;
+        border-top: 1px solid #e9ecef !important;
+        margin: 0.5rem 0.75rem !important;
+        padding: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
     }
 
     /* Collapse search component to minimize space */
