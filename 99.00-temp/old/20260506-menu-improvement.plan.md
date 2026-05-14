@@ -150,7 +150,7 @@ It is the smallest change set that produces the largest readability gain, while 
 
 ## 5. Implementation Plan
 
-### Phase 1 — CSS Spacing & Typography (sidebar-fixes.html `<style>`)
+### Phase 1 (✅ done) — CSS Spacing & Typography (sidebar-fixes.html `<style>`)
 
 | Step | What | File | LOE |
 |---|---|---|---|
@@ -160,28 +160,28 @@ It is the smallest change set that produces the largest readability gain, while 
 | 1.4 | Cap minimum font-size at `0.875rem` (remove 0.8rem L3 rule) | same | S |
 | 1.5 | Unify Level 2 + Level 3 color to `#4a5568` (remove `#a0aec0`) | same | S |
 
-### Phase 2 — Section Separators
+### Phase 2 (✅ done) — Section Separators
 
 | Step | What | File | LOE |
 |---|---|---|---|
 | 2.1 | Add CSS rule: top-level `.sidebar-item` that follows a `---` separator gets `border-top: 1px solid #e9ecef; padding-top: 0.75rem; margin-top: 0.75rem` | `_includes/sidebar-fixes.html` | S |
 | 2.2 | Verify `navigation.json` separator entries (`"text": "---"`) render as `<hr>` or identifiable element; add CSS accordingly | same | M |
 
-### Phase 3 — Active-Item & Home Link
+### Phase 3 (✅ done) — Active-Item & Home Link
 
 | Step | What | File | LOE |
 |---|---|---|---|
 | 3.1 | Change active item: remove `border-left`, keep `color: #2780e3`, add `background: rgba(39,128,227,0.06)` | `_includes/sidebar-fixes.html` | S |
 | 3.2 | Replace Home pill styling with standard sidebar item (remove gradient, border, box-shadow, border-radius) — keep icon + bold text | same | M |
 
-### Phase 4 — Padding & Click Targets
+### Phase 4 (✅ done) — Padding & Click Targets
 
 | Step | What | File | LOE |
 |---|---|---|---|
 | 4.1 | Set minimum `padding: 0.35rem 0.75rem` on all `.sidebar-item-text` | `_includes/sidebar-fixes.html` | S |
 | 4.2 | Ensure `min-height: 2rem` on clickable sidebar links for touch/mouse accessibility | same | S |
 
-### Phase 5 — Visual QA
+### Phase 5 (⏳ pending) — Visual QA
 
 | Step | What | File | LOE |
 |---|---|---|---|
