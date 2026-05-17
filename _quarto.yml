@@ -173,7 +173,8 @@ project:
       n-azure-ad/01-external-users-authentication-in-azure-ad-explained.md"
     - "03.00-tech/01.01-authentication/20251102-authenticating-external-users-i\
       n-azure-ad/02-external-users-types-and-invitation-process.md"
-    - "03.00-tech/02.01-azure/00-azure-naming-conventions/readme.md"
+    - "03.00-tech/02.01-azure/00-azure-naming-conventions/00.00-azure-naming-conventions.md"
+    - "03.00-tech/02.01-azure/00-azure-naming-conventions/00.01-appendix-a-akv-naming-hyphens-vs-no-hyphens-analysis.md"
     - "03.00-tech/02.01-azure/01-azure-apps/01-azure-apps-qa.md"
     - "03.00-tech/02.01-azure/01-azure-apps/02-azure-webapp-limitations.md"
     - "03.00-tech/02.01-azure/01-azure-apps/03-cli-commands.md"
@@ -512,7 +513,7 @@ website:
       - text: "Azure"
         menu:
           - text: "Azure Best Practices"
-            href: "03.00-tech/02.01-azure/00-azure-naming-conventions/readme.md"
+            href: "03.00-tech/02.01-azure/00-azure-naming-conventions/00.00-azure-naming-conventions.md"
           - text: "---"
           - text: "Security & Identity"
           - href: "03.00-tech/01.01-authentication/20251102-authenticating-external-users-i\
