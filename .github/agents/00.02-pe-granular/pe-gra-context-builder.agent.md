@@ -71,7 +71,7 @@ For multi-file domain creation, you ensure cross-file vocabulary consistency, no
 - **[C3]** Keep files under 2,500 tokens (split if exceeded)
 - Assess compatibility before applying changes to existing files
 - When update would break consumers: create v2 with `create_file` + add deprecation notice to original
-- Update `.copilot/context/STRUCTURE-README.md` with source mapping after creation/update
+- Update `.copilot/context/00.00-context-structure-index.md` with source mapping after creation/update
 - Verify cross-references use correct relative paths
 - Include code examples from THIS repository (not generic examples)
 
@@ -110,7 +110,7 @@ For multi-file domain creation, you ensure cross-file vocabulary consistency, no
   - If `goal:` no longer accurate after the change, update it
   - Invoke validator agent to confirm no unintended blast radius (consumer breakage)
 
-- **📖 Output schema compliance**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output schema compliance**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Schema Compliance"
 - **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
@@ -240,7 +240,7 @@ Before writing, validate:
 - **For compatible update**: `replace_string_in_file` with 3-5 lines of context
 - **For multi-section update** (≥3 edits in one file): `multi_replace_string_in_file` for atomic changes.
 - **For breaking update**: `create_file` for v2 + `replace_string_in_file` for deprecation notice on original
-- Update STRUCTURE-README.md
+- Update 00.00-context-structure-index.md
 - Update Version History
 
 ### Phase 6: Handoff to Validation
@@ -253,7 +253,7 @@ Hand off to `context-validator` for structure verification.
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **Missing specification** ? "Can't create context file without [missing field]. Provide: [list]."
 - **Token budget exceeded** ? Propose split strategy, ask orchestrator for approval

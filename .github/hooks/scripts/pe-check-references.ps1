@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     PE reference integrity checker — validates all 📖 references resolve to existing files.
 
@@ -38,7 +38,7 @@ $scanDirs = @(
     ".github/templates"
     ".github/prompt-snippets"
     ".github/copilot-instructions.md"
-    ".github/STRUCTURE-README.md"
+    ".github/00.00-context-structure-index.md"
 )
 
 $violations = @()

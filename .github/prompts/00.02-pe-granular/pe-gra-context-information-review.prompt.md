@@ -190,7 +190,7 @@ At orchestrator startup, read the target artifact's current metadata and check:
 1. **Scoped mode**: Read the specific context file
 2. **Domain review mode**: List all files in the specified domain folder (e.g., `.copilot/context/01.00-article-writing/`)
 3. **Layer audit mode**: List all files across all `.copilot/context/` domain folders
-4. Load the dependency map (the `dependency-tracking` files — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for consumer relationships
+4. Load the dependency map (the `dependency-tracking` files — see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for consumer relationships
 
 **Gate 1 — Scope Determined:**
 - [ ] ≥1 context file identified for review
@@ -389,7 +389,7 @@ The `[agent-name]` specialist is not available.
 2. Clear accumulated context from that file's validation
 3. Report cumulative progress before starting next file
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ---
 

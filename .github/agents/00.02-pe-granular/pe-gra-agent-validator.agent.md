@@ -62,7 +62,7 @@ You are a **quality assurance specialist** focused on validating agent files for
 - **[C4]** Check handoff targets exist and are valid
 - Provide specific, actionable feedback for each issue
 - Generate compliance score with detailed breakdown
-- **📖 Cross-handoff verification**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Cross-handoff verification**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Schema Compliance"
 - **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Fix report format**: `output-validator-fixes.template.md` — use for validator→builder fix handoff
@@ -292,7 +292,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **Agent file not found** ? "File [path] not found. Verify path and retry."
 - **Ambiguous tool alignment** ? Apply strictest interpretation, flag uncertainty in report

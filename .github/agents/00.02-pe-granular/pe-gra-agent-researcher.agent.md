@@ -64,7 +64,7 @@ You are a **research specialist** focused on analyzing agent file requirements a
 - Identify scope boundaries clearly (IN SCOPE vs OUT OF SCOPE)
 - Search for 3-5 similar existing agents before recommending patterns
 
-- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Output minimization**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
@@ -171,7 +171,7 @@ After presenting the report, offer handoff to `agent-builder`.
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **No similar agents found** ? Report "no existing patterns" — research from instruction files and context files
 - **Ambiguous requirements** ? Present interpretation options, ask orchestrator to clarify

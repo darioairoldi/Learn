@@ -58,7 +58,7 @@ For each rule in each context file:
 - Compare file sizes: flag high variance (some files 2,400 tokens, others 150 tokens → rebalance)
 
 ### 3. Category mapping integrity
-Read STRUCTURE-README.md → Functional Categories:
+Read 00.00-context-structure-index.md → Functional Categories:
 - For each category: do ALL mapped files exist? (missing file → broken reference)
 - For each file: is it in at least one category? (unmapped file → orphan)
 - Are there categories with 0 mapped files? (empty category → stale index)

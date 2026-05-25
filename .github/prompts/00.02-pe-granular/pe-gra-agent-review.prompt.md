@@ -73,9 +73,9 @@ You do NOT perform the specialized work yourself—you delegate to:
 You MUST read the following files before starting any validation workflow. Pass relevant rule summaries in delegation instructions to `agent-validator`.
 
 - `.github/instructions/pe-agents.instructions.md` — Current agent structure rules, tool scoping, YAML fields
-- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Tool alignment rules, allowed/forbidden tool matrices
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories) — Tool alignment rules, allowed/forbidden tool matrices
 - `.copilot/context/00.00-prompt-engineering/02.03-orchestrator-design-patterns.md` — Orchestrator patterns (MUST read when validating an orchestrator agent with handoffs)
-- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Boundary actionability and validation depth patterns
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories) — Boundary actionability and validation depth patterns
 
 ## 🚨 CRITICAL BOUNDARIES
 
@@ -133,7 +133,7 @@ This prompt WILL NOT:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ## Change Stability Protocol
 
@@ -198,7 +198,7 @@ At orchestrator startup, read the target artifact's current metadata and check:
 | Quick | Minor changes, well-established agents | Phase 2 + targeted Phase 3 |
 | Re-validation | After fixes from Phase 4 | CRITICAL→Phase 2, HIGH/MEDIUM→Phase 3, LOW→accept |
 
-**📖 Full depth patterns:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+**📖 Full depth patterns:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 
 ### Phase 2: Tool Alignment Check (CRITICAL)
 
@@ -206,7 +206,7 @@ At orchestrator startup, read the target artifact's current metadata and check:
 
 **Delegate to agent-validator** for alignment check. The validator owns the complete alignment rules (mode/tool compatibility, count limits).
 
-**📖 Alignment rules:** `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Alignment rules:** `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 **Gate:** Alignment ✅ PASS → proceed to Phase 3. Alignment ❌ FAIL → stop, route to agent-builder (or recommend decomposition if >7 tools).
 
@@ -229,16 +229,16 @@ At orchestrator startup, read the target artifact's current metadata and check:
    - Verify boundaries use MUST/NEVER/ALWAYS (not "should", "try to", "please")
    - Verify process steps use imperative verbs (not "you might want to")
    - Flag any probabilistic language in critical sections (boundaries, process, handoff instructions)
-   - **📖 Principle reference:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories) → Principle 3
+   - **📖 Principle reference:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories) → Principle 3
 5. Template externalization compliance:
    - Scan for inline content blocks >10 lines (code blocks, output formats, tables)
    - Verify they reference `.github/templates/` instead of embedding content
    - Flag violations as MEDIUM severity
-   - **📖 Rule:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories) → Principle 8
+   - **📖 Rule:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories) → Principle 8
 6. Convention compliance
 7. Quality assessment
 
-**📖 Boundary actionability methodology:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories) → "Boundary Actionability Validation"
+**📖 Boundary actionability methodology:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories) → "Boundary Actionability Validation"
 
 **Gate: Validation Passed?**
 ```markdown
@@ -324,7 +324,7 @@ For batch validation: summary table with per-agent alignment/score/status + comm
 
 ## References
 
-- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 - `.github/instructions/pe-agents.instructions.md`
 - Existing validation patterns in `.github/prompts/`
 
@@ -332,7 +332,7 @@ For batch validation: summary table with per-agent alignment/score/status + comm
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Agent-review-specific recovery:
 - **agent-validator returns empty result** → Retry once with diagnostic prompt, then escalate
@@ -344,7 +344,7 @@ Agent-review-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Agent-review-specific scenarios:
 - **Agent file not found** → "File [path] not found. Verify the path or provide the correct location."

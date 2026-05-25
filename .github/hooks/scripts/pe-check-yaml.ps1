@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     PE YAML frontmatter validation — checks required fields per artifact type.
 
@@ -191,7 +191,7 @@ $modeValidator = {
 # --- Scan context files ---
 $contextDir = Join-Path $WorkspaceRoot ".copilot/context"
 if (Test-Path $contextDir) {
-    Get-ChildItem -Path $contextDir -Filter "*.md" -Recurse | Where-Object { $_.Name -ne "STRUCTURE-README.md" } | ForEach-Object {
+    Get-ChildItem -Path $contextDir -Filter "*.md" -Recurse | Where-Object { $_.Name -ne "00.00-context-structure-index.md" } | ForEach-Object {
         $rel = ".copilot/context/" + ($_.FullName.Substring((Join-Path $WorkspaceRoot ".copilot/context").Length + 1) -replace '\\', '/')
         Test-ArtifactYaml -FilePath $_.FullName -RelativePath $rel `
             -ArtifactType "context" `

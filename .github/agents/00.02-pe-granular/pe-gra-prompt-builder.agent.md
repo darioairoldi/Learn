@@ -92,7 +92,7 @@ You are a **prompt construction specialist** focused on creating and updating hi
   - If `goal:` no longer accurate after the change, update it
   - Invoke validator agent to confirm no unintended blast radius (consumer breakage)
 
-- **📖 Output schema compliance**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output schema compliance**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Schema Compliance"
 - **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
@@ -219,7 +219,7 @@ Hand off to `prompt-validator` for structure and tool alignment verification.
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **Missing specification** ? "Can't create prompt without [missing field]. Provide: [list]."
 - **Template not found** ? Fall back to instruction file patterns, warn orchestrator

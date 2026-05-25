@@ -101,7 +101,7 @@ Every handoff can fail. Apply Principle 7 from `02.03-orchestrator-design-patter
 ### Builder Fix Creates New Issues
 1. Re-validate — if new CRITICAL/HIGH issues appear that weren't in the original findings, present both sets to user
 2. Ask user: prioritize original issues or new issues?
-3. Maximum **3 fix-validate cycles** per gate (per `runtime-validation` in `.copilot/context/00.00-prompt-engineering/` — STRUCTURE-README.md → Functional Categories)
+3. Maximum **3 fix-validate cycles** per gate (per `runtime-validation` in `.copilot/context/00.00-prompt-engineering/` — 00.00-context-structure-index.md → Functional Categories)
 
 ### File Not Found (Scoped Validation)
 1. Search for recently renamed files: `file_search` with partial name
@@ -115,7 +115,7 @@ When `context-validator`, `prompt-validator`, `agent-validator`, or `skill-valid
 
 ## 📋 Response Management
 
-Structured responses for review-specific data gaps (per `production-readiness` in `.copilot/context/00.00-prompt-engineering/` — STRUCTURE-README.md → Functional Categories).
+Structured responses for review-specific data gaps (per `production-readiness` in `.copilot/context/00.00-prompt-engineering/` — 00.00-context-structure-index.md → Functional Categories).
 
 ### When reviewed file has no issues
 ```
@@ -400,7 +400,7 @@ For layer audits (6+ files), report after each file's validation:
 2. **Structured summary** — only outputs from completed phases
 3. **Phase-specific inputs** — what this specialist needs
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ---
 

@@ -29,7 +29,7 @@ Prompt snippets are **reusable Markdown fragments** included on-demand via `#fil
 **MEDIUM** — fix when convenient:
 - **[M6]** Naming: kebab-case `{purpose}.md`
 
-**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 
 ## Rules
 
@@ -57,5 +57,5 @@ Prompt snippets are **reusable Markdown fragments** included on-demand via `#fil
 
 ## References
 
-- **📖** Context engineering: see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
-- **📖** File type decisions: see `file-type-guide` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+- **📖** Context engineering: see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
+- **📖** File type decisions: see `file-type-guide` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)

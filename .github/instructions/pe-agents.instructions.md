@@ -33,7 +33,7 @@ Custom agents are **specialized assistants for specific roles or implementation 
 **MEDIUM** — fix when convenient:
 - **[M6]** Naming: kebab-case, action-verb-first, ≤5 words
 
-**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 
 ## Required YAML Frontmatter
 

@@ -81,7 +81,7 @@ Validation: PowerShell reference sweep confirms zero remaining broken refs in th
 |---|---|---|---|---|---|
 | 1 | D3 token-budget | 4 files exceed the 2,500-token hard ceiling | **HIGH** | Option B (extract heavy tables to templates) for `05.07` and `05.03`; defer `05.06`/`02.05` (marginal) | [01.01-token-budget-extract-tables-plan.md](01.01-token-budget-extract-tables-plan.md) |
 | 2 | D17 cross-coherence | `pe-meta-context-review.prompt.md` references undefined dim groups `context-quality-lifecycle` / `context-quality-health` (catalog only defines `context-full` / `context-health`) | **MEDIUM** | Option B — rename prompt to use canonical names | [01.02-dim-group-naming-alignment-plan.md](01.02-dim-group-naming-alignment-plan.md) |
-| 3 | D14 naming | 3 `STRUCTURE-*.md` files violate kebab-case + numeric-prefix convention | **LOW** | Defer — handle in a future cycle | (no plan) |
+| 3 | D14 naming | 3 `STRUCTURE-*.md` files violate kebab-case + numeric-prefix convention | **LOW** | ✅ Resolved by [20260525.02/01.01-structure-files-rename-kebab-case-plan.md](../20260525.02-context-fullcheck-analysis/01.01-structure-files-rename-kebab-case-plan.md) (2026-05-25) | (see 20260525.02) |
 | 4 | D22 system-level | Two empty subdirectories `dependency-map/` and `structure/` | **LOW** | Option B — add `.gitkeep` (placeholders for in-flight work) | [01.03-empty-subdir-gitkeep-plan.md](01.03-empty-subdir-gitkeep-plan.md) |
 
 ### Impact points

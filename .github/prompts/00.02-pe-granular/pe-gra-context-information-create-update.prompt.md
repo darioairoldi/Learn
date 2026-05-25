@@ -72,7 +72,7 @@ Before generating context files, collect these inputs:
 
 If user input is incomplete, ask clarifying questions before proceeding.
 
-**Note:** Context Sources can be provided by user OR discovered automatically from `.copilot/context/STRUCTURE-README.md` for existing domains.
+**Note:** Context Sources can be provided by user OR discovered automatically from `.copilot/context/00.00-context-structure-index.md` for existing domains.
 
 ---
 
@@ -88,7 +88,7 @@ If user input is incomplete, ask clarifying questions before proceeding.
 - Include Purpose statement, Referenced by, Core content, References sections
 - Add Version History table at end of file
 - Validate no duplicate content exists in other context files
-- **Update `.copilot/context/STRUCTURE-README.md`** with source mapping after context file creation/update
+- **Update `.copilot/context/00.00-context-structure-index.md`** with source mapping after context file creation/update
 
 ### ⚠️ Ask First (Require User Confirmation)
 - Creating new context file (confirm filename and folder)
@@ -184,7 +184,7 @@ This request involves creating/modifying [file type].
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ---
 
@@ -279,8 +279,8 @@ For multi-file domains, ensure cross-file vocabulary consistency and non-redunda
 **Tools:** `read_file`, `fetch_webpage`, `semantic_search`, `list_dir`
 
 1. **Determine Operation Type** — UPDATE (existing domain) or CREATE (new topic)
-2. **Discover Sources** by priority: user input → execution context → STRUCTURE-README.md patterns → semantic search → additional discovery
-3. **Read STRUCTURE-README.md** for existing domains: extract source patterns (file globs, URLs, search queries) and update strategy
+2. **Discover Sources** by priority: user input → execution context → 00.00-context-structure-index.md patterns → semantic search → additional discovery
+3. **Read 00.00-context-structure-index.md** for existing domains: extract source patterns (file globs, URLs, search queries) and update strategy
 4. **Collect and Merge** — combine all sources, run searches, check existing context files for overlap, read `pe-context-files.instructions.md`
 5. **Present summary** — topic, target folder, operation, source counts, existing related context
 
@@ -464,9 +464,9 @@ rationales:
 ### Phase 5: Update Source Mapping
 **Tools:** `read_file`, `replace_string_in_file`, `multi_replace_string_in_file`
 
-**Goal:** Update `.copilot/context/STRUCTURE-README.md` with source patterns used.
+**Goal:** Update `.copilot/context/00.00-context-structure-index.md` with source patterns used.
 
-1. Read current STRUCTURE-README.md, locate domain section
+1. Read current 00.00-context-structure-index.md, locate domain section
 2. For existing domains: update source table with new/changed patterns
 3. For new domains: add new section in correct numerical order
 4. Document update strategy (when/how to refresh)
@@ -477,7 +477,7 @@ rationales:
 
 #### Step 5.2: Prepare Source Mapping Update
 
-Format source patterns according to STRUCTURE-README.md conventions:
+Format source patterns according to 00.00-context-structure-index.md conventions:
 
 ```markdown
 ### [XX.XX domain-name]/
@@ -495,7 +495,7 @@ Format source patterns according to STRUCTURE-README.md conventions:
 - [How to find new sources]
 ```
 
-#### Step 5.3: Update STRUCTURE-README.md
+#### Step 5.3: Update 00.00-context-structure-index.md
 
 1. **For existing domains:** Update the source table with new/changed patterns
 2. **For new domains:** Add new section in correct numerical order
@@ -505,7 +505,7 @@ Format source patterns according to STRUCTURE-README.md conventions:
 ```
 📋 **Phase 5: Source Mapping Updated**
 
-**File:** `.copilot/context/STRUCTURE-README.md`
+**File:** `.copilot/context/00.00-context-structure-index.md`
 **Domain:** `[folder name]`
 **Action:** [Created new section / Updated existing section]
 
@@ -540,9 +540,9 @@ Format source patterns according to STRUCTURE-README.md conventions:
 
 ## References
 
-- `.copilot/context/STRUCTURE-README.md` — Source patterns for each context folder
+- `.copilot/context/00.00-context-structure-index.md` — Source patterns for each context folder
 - `.github/instructions/pe-context-files.instructions.md` — Context file creation rules
-- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Core principles
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories) — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: How to write great AGENTS.md](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
 
@@ -571,10 +571,10 @@ prompt_metadata:
   version: "2.0"
   changes:
     - "v2.0: Renamed from context-file-create-update. Extended with multi-file domain support, structural assessment, authoritative source URLs, context-information naming alignment"
-    - "v1.2: Added Phase 5 to update STRUCTURE-README.md with source mapping"
+    - "v1.2: Added Phase 5 to update 00.00-context-structure-index.md with source mapping"
     - "v1.2: Added source mapping update to Always Do boundaries"
     - "v1.2: Added test scenario for new domain creation"
-    - "v1.1: Added STRUCTURE-README.md integration for source discovery"
+    - "v1.1: Added 00.00-context-structure-index.md integration for source discovery"
     - "v1.1: Added Phase 1.5 Source Prioritization & Selection"
     - "v1.1: Enhanced Phase 1 with source discovery priority order"
     - "v1.1: Added source classification (Primary/Secondary/Tertiary/Exclude)"

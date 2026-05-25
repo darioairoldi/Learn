@@ -63,7 +63,7 @@ Hooks are the **deterministic automation layer** — they run your code, not the
 - Assess security implications of PreToolUse hooks
 - Verify cross-platform command coverage
 
-- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Output minimization**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
@@ -142,7 +142,7 @@ If research goal is missing: report `Incomplete handoff — no research goal pro
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **No existing hook patterns found** ? Research from hook instruction file and hook schema docs
 - **Security concern identified** ? Flag explicitly in report, recommend review before implementation

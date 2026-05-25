@@ -66,7 +66,7 @@ You also perform **topic scope analysis** for new domain context requests — an
 
 ### ✅ Always Do
 - Load `.github/instructions/pe-context-files.instructions.md` for context file conventions
-- Load the dependency map (the `dependency-tracking` files — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) to understand consumer relationships
+- Load the dependency map (the `dependency-tracking` files — see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) to understand consumer relationships
 - Scan all context files in `.copilot/context/00.00-prompt-engineering/` before making recommendations
 - Identify all consumers of each affected context file via `grep_search`
 - Challenge the current information architecture — is the grouping optimal for consumer needs?
@@ -74,7 +74,7 @@ You also perform **topic scope analysis** for new domain context requests — an
 - Assess prioritization — are the most important rules early and prominent (early commands principle)?
 - Provide structured research reports with evidence and references
 
-- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Output minimization**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"

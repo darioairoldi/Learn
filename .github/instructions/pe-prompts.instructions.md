@@ -35,7 +35,7 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 - **[M6]** Naming: `[task-name].prompt.md` kebab-case
 - **[M10]** Gate checks: phase transitions have completion + goal alignment check
 
-**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 
 ## Required YAML Frontmatter
 

@@ -370,5 +370,5 @@ Use `--dim <D#>` with `/pe-meta-review` to invoke specific dimension checks sele
 - **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 - **📖 Dimension applicability matrix:** `.copilot/context/00.00-prompt-engineering/05.07-dimension-applicability-matrix.md`
 - **📖 Type-specific checklists:** `.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md`
-- **📖 Artifact dependency map:** see `dependency-tracking` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+- **📖 Artifact dependency map:** see `dependency-tracking` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 - **📖 Full system coherence audit:** `.github/skills/pe-artifact-coherence-check/SKILL.md`

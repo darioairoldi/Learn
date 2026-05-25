@@ -27,7 +27,7 @@ The following rules are defined in context files and instruction files. They app
 | **Dual metadata system** | `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md` | All article `.md` files |
 | **Article writing** | `.github/instructions/article-writing.instructions.md` | All `.md` files |
 | **Documentation structure** | `.github/instructions/documentation.instructions.md` | All `.md` files |
-| **PE artifacts** | `.copilot/context/00.00-prompt-engineering/STRUCTURE-README.md` | PE customization files |
+| **PE artifacts** | `.copilot/context/00.00-prompt-engineering/00.00-context-structure-index.md` | PE customization files |
 | **Reference classification** | `.copilot/context/90.00-learning-hub/04-reference-classification.md` | All references |
 
 ---

@@ -118,7 +118,7 @@ Instruction-file-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Instruction-file-specific scenarios:
 - **applyTo conflict detected:** Show conflicting patterns + impact, offer narrow/merge/refactor/confirm
@@ -373,7 +373,7 @@ Hand off to `@instruction-validator` for scoped validation:
 2. **Structured summary**  only the outputs from completed phases, not accumulated conversation
 3. **Phase-specific inputs**  what this specialist needs to do its job
 
-** Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+** Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ---
 ## 🧪 Embedded Test Scenarios

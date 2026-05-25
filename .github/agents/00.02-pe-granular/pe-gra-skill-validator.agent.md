@@ -66,7 +66,7 @@ You operate in two modes:
 - Use `pe-prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - In layer audit mode: check for cross-skill scope overlaps
-- **📖 Cross-handoff verification**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Cross-handoff verification**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Schema Compliance"
 - **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Fix report format**: `output-validator-fixes.template.md` — use for validator→builder fix handoff
@@ -177,7 +177,7 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **Skill folder not found** ? "Skill [name] not found at expected path. Verify name."
 - **SKILL.md missing required sections** ? Flag each as CRITICAL with expected section

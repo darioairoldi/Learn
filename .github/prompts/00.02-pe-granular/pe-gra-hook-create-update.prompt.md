@@ -47,7 +47,7 @@ You are a **hook engineer** responsible for creating and maintaining agent hook 
 Hooks execute code, not LLM interpretation. Every hook MUST be valid JSON.
 
 **📖 Hook conventions:** `.github/instructions/pe-hooks.instructions.md`
-**📖 Hook schema and lifecycle events:** `specialized-patterns` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Hook schema and lifecycle events:** `specialized-patterns` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 **📖 Hooks vs MCP vs tools:** `.copilot/context/00.00-prompt-engineering/03.04-mcp-server-design-patterns.md`
 
 ## 📋 User Input Requirements
@@ -159,7 +159,7 @@ This request involves creating/modifying [file type].
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ---
 

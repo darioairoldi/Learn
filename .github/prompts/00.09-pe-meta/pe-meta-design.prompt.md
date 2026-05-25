@@ -61,8 +61,8 @@ Design and create PE artifacts that serve the PE system itself — with vision a
 ### Phase 0: Load PE-domain strategic context
 
 1. **Load vision document** — `read_file` on the current vision document in `06.00-idea/self-updating-prompt-engineering/` (find `*-vision.v*.md` with highest version)
-2. **Load STRUCTURE-README.md** — for Functional Categories and required categories
-3. **Load strategic review criteria** — `read_file` on the `pe-strategic-review` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+2. **Load 00.00-context-structure-index.md** — for Functional Categories and required categories
+3. **Load strategic review criteria** — `read_file` on the `pe-strategic-review` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 4. **Load dependency map** — `read_file` on the `dependency-tracking` files from `.copilot/context/00.00-prompt-engineering/`
 5. **Load dispatch table** — `read_file` on `.github/templates/00.00-prompt-engineering/artifact-type-dispatch.template.md`
 6. **Determine artifact type** from user input
@@ -99,7 +99,7 @@ If strategic issues found: refine requirements and re-run research, or escalate 
 
 Delegate to `@pe-con-builder` with additional constraints:
 
-- **References**: All context file references MUST use Level 1.5 (category) pattern: `"Load the \`category-name\` files from .copilot/context/00.00-prompt-engineering/ (see STRUCTURE-README.md → Functional Categories)"`
+- **References**: All context file references MUST use Level 1.5 (category) pattern: `"Load the \`category-name\` files from .copilot/context/00.00-prompt-engineering/ (see 00.00-context-structure-index.md → Functional Categories)"`
 - **Metadata**: MUST include `goal:`, `scope: {covers, excludes}`, `boundaries:`, `rationales:`, `version:`, `last_updated:`
 - **N-1 separation**: If the artifact type requires it (check N-1 adoption table in `05.06`), all rule-bearing sections MUST use `**Rule**:` / `**Rationale**:` / `**Example**:` blocks
 - **Quality bar**: Boundaries ≥5/2/3 (Always/Ask/Never), test scenarios covering happy+error+edge, response management with recovery actions
@@ -121,7 +121,7 @@ If validation fails: hand back to `@pe-con-builder` for fixes (max 3 iterations)
 ### Phase 5: Post-creation maintenance
 
 After the artifact is created:
-1. **Update STRUCTURE-README.md** if a context file was created (add to File Index + assign to category)
+1. **Update 00.00-context-structure-index.md** if a context file was created (add to File Index + assign to category)
 2. **Update `05.01-artifact-dependency-map.md`** with new artifact's dependencies
 3. **Update `05.03-pe-workflow-entry-points.md`** if a new prompt or agent entry point was created
 

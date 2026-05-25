@@ -70,7 +70,7 @@ When `--dim optimize` is active, the orchestrator delegates Phase 4 apply work t
 
 `all`, `context`, `instructions`, `agents`, `prompts`, `skills`, `hooks`, `snippets`, `templates`, or a **specific file path**. Only invoke agents relevant to parsed scope.
 
-**When scope is a specific file path**: Research narrows to that artifact and its direct dependencies (from the `dependency-tracking` file — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`). Regression test scopes to use cases that include the modified artifact.
+**When scope is a specific file path**: Research narrows to that artifact and its direct dependencies (from the `dependency-tracking` file — see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`). Regression test scopes to use cases that include the modified artifact.
 
 ### `--skip <stage>[,<stage>...]` (default: none)
 
@@ -133,7 +133,7 @@ Resolved options MUST be echoed back to the user as a single canonical invocatio
 
 ### Always Do
 - Parse mode, scope, flags FIRST
-- Load dependency map (the `dependency-tracking` files — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`)
+- Load dependency map (the `dependency-tracking` files — see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`)
 - **Use three-tier classification for every proposed change** (see Classification Protocol below)
 - In each audit phase Research substep: **challenge current state, propose 2+ alternative approaches per finding, compare on effectiveness/reliability/efficiency**
 - **Risk-ordered execution**: When multiple findings are produced, execute in this order:
@@ -141,7 +141,7 @@ Resolved options MUST be echoed back to the user as a single canonical invocatio
   2. Potentially-regressive changes next (require human approval: MEDIUM/HIGH severity)
   3. Optimization-only changes last (separate cycle if budget allows)
   4. No step is blocked by a higher-risk independent step — execute what you can, escalate what you must
-- **Propagation-aware priority**: Before presenting findings, check the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for each affected artifact's dependent count. Sort findings by: severity (primary) × dependent count (secondary). A HIGH finding in a Tier 1 file with 15 dependents takes priority over a HIGH finding in a Tier 5 file with 2.
+- **Propagation-aware priority**: Before presenting findings, check the `dependency-tracking` file (see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for each affected artifact's dependent count. Sort findings by: severity (primary) × dependent count (secondary). A HIGH finding in a Tier 1 file with 15 dependents takes priority over a HIGH finding in a Tier 5 file with 2.
 - Present consolidated plan to user BEFORE applying changes
 - Max 3 files between validation checkpoints
 - Produce final report regardless of mode

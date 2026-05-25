@@ -126,7 +126,7 @@ Orchestrate a multi-agent workflow to review and validate existing prompt files:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ## Change Stability Protocol
 
@@ -208,7 +208,7 @@ At orchestrator startup, read the target artifact's current metadata and check:
 
 **Delegate to prompt-validator** for alignment check. The validator owns the complete alignment rules (mode/tool compatibility, count limits).
 
-**📖 Alignment rules:** `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Alignment rules:** `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 **Gate: Alignment Valid?**
 ```markdown
@@ -238,7 +238,7 @@ At orchestrator startup, read the target artifact's current metadata and check:
 
 **Goal:** Test whether the prompt's stated purpose holds up against realistic scenarios.
 
-**📖 Methodology:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+**📖 Methodology:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 
 **Validation Depth** (determined by prompt complexity from Phase 1):
 
@@ -283,7 +283,7 @@ At orchestrator startup, read the target artifact's current metadata and check:
 1. Structure validation
 2. Boundary completeness (3/1/2 minimum)
 3. Convention compliance
-4. **Production-readiness compliance** (6 checks from `production-readiness` in `.copilot/context/00.00-prompt-engineering/` — STRUCTURE-README.md → Functional Categories):
+4. **Production-readiness compliance** (6 checks from `production-readiness` in `.copilot/context/00.00-prompt-engineering/` — 00.00-context-structure-index.md → Functional Categories):
    - [ ] Response Management section present
    - [ ] Error Recovery workflows defined for critical tools
    - [ ] Embedded Tests present (minimum 3–5 for prompts, 3 for agents)
@@ -336,16 +336,16 @@ At orchestrator startup, read the target artifact's current metadata and check:
 
 **You MUST read before validating:**
 - `.github/instructions/pe-prompts.instructions.md` — Core guidelines
-- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Tool alignment rules
-- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — 6 production-readiness requirements
-- `runtime-validation` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Gate patterns (for reviewing orchestrators)
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories) — Tool alignment rules
+- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories) — 6 production-readiness requirements
+- `runtime-validation` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories) — Gate patterns (for reviewing orchestrators)
 
 ## References
 
-- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
-- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
-- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
-- `runtime-validation` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
+- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
+- `runtime-validation` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 - `.github/instructions/pe-prompts.instructions.md`
 - Existing validation patterns in `.github/prompts/`
 

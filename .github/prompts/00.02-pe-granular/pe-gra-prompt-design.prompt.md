@@ -180,7 +180,7 @@ Orchestrate a multi-agent workflow to create new prompt file(s) that:
 Create the prompt using the summary above. File: [path]
 ```
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ## Change Stability Protocol
 
@@ -321,7 +321,7 @@ At orchestrator startup, read the target artifact's current metadata and check:
 
 **Delegate to** `prompt-builder` with specification from Phase 3 and production-readiness requirements.
 
-**📖 Production requirements:** `production-readiness` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories) — Response Management, Error Recovery, Embedded Tests (5 for prompts), token budget, template externalization
+**📖 Production requirements:** `production-readiness` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories) — Response Management, Error Recovery, Embedded Tests (5 for prompts), token budget, template externalization
 
 **For orchestrator architecture:** First build agents (agent-researcher → agent-builder → agent-validator pipeline per agent), then build orchestrator.
 
@@ -342,9 +342,9 @@ At orchestrator startup, read the target artifact's current metadata and check:
 ## References
 
 - All specialist agents configured in YAML handoffs section above
-- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
-- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
-- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
+- `production-readiness` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 - `.github/instructions/pe-prompts.instructions.md`
 - `.github/instructions/pe-agents.instructions.md`
 
@@ -376,7 +376,7 @@ Structured phase progression. Present agent outputs before proceeding. Delegate 
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Prompt-design-specific recovery:
 - **Researcher returns incomplete report** → Re-delegate with missing fields listed (max 2 retries)
@@ -388,7 +388,7 @@ Prompt-design-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Prompt-design-specific scenarios:
 - **Similar prompt already exists** → "Found existing [name]. Options: (a) Update existing, (b) Justify separate prompt, (c) Cancel"

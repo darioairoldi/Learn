@@ -63,7 +63,7 @@ Snippets are **reusable context fragments** included via `#file:` references —
 - Assess whether snippet scope is appropriate (not too large for a fragment, not content that should be a context file)
 - Load `.github/instructions/pe-prompt-snippets.instructions.md` for snippet conventions
 
-- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Output minimization**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
@@ -139,7 +139,7 @@ If research goal is missing: report `Incomplete handoff — no research goal pro
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **Content already in context file** ? "This content exists in [file]. Recommend `#file:` reference instead of snippet."
 - **No reuse potential found** ? "Content is one-time use. Recommend inline inclusion instead of snippet."

@@ -97,7 +97,7 @@ You are a **skill construction specialist** focused on creating and updating age
   - If `goal:` no longer accurate after the change, update it
   - Invoke validator agent to confirm no unintended blast radius (consumer breakage)
 
-- **📖 Output schema compliance**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output schema compliance**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Schema Compliance"
 - **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
@@ -230,7 +230,7 @@ After creating all files, hand off to `skill-validator` for structure verificati
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **Missing specification** ? "Can't create skill without [missing field]. Provide: [list]."
 - **Description exceeds 1,024 chars** ? Propose trimmed version, ask for approval

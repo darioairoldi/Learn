@@ -292,7 +292,7 @@ Hand off to `@context-researcher` with goal restatement + requirements summary (
 
 For each file in the approved architecture:
 1. Hand off to `@context-builder` with file spec + source material + token budget
-2. Builder creates file with pre-save validation AND updates STRUCTURE-README.md
+2. Builder creates file with pre-save validation AND updates 00.00-context-structure-index.md
 3. For multi-file domains: builder ensures cross-file vocabulary consistency
 
 **Gate 4 (per file):** File exists, purpose statement present, "Referenced by" populated, content ≤2,500 tokens, STRUCTURE-README updated, pre-save validation passed.
@@ -311,7 +311,7 @@ If issues found → `@context-builder` for fixes → re-validate. Max **3 fix-va
 
 Present creation summary: file path, domain, single-source-of-truth check results, consumer impact, section/token summary, STRUCTURE-README update status.
 
-### STRUCTURE-README.md
+### 00.00-context-structure-index.md
 - **Updated:** ✅ Source mapping added for `{domain}/`
 ```
 
@@ -330,7 +330,7 @@ Context-file-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Context-file-specific scenarios:
 - **Topic already covered:** Show existing file + gap analysis, offer update/justify separate/abort
@@ -356,7 +356,7 @@ Context-file-specific scenarios:
 2. **Structured summary** — only the outputs from completed phases, not accumulated conversation
 3. **Phase-specific inputs** — what this specialist needs to do its job
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ---
 

@@ -33,7 +33,7 @@ Instruction files provide **path-specific AI guidance** auto-injected via `apply
 - **[M1]** Template externalization: no knowledge blocks >10 lines
 - **[M6]** Naming: kebab-case `{domain}.instructions.md`
 
-**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+**📖 Full priority matrix:** see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 
 ## Required YAML Frontmatter
 
@@ -94,6 +94,6 @@ When ANY context file in a listed `context_dependencies` folder has a `last_upda
 
 ## References
 
-- **📖** Context engineering: see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
-- **📖** File type decisions: see `file-type-guide` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
-- **📖** Token budgets: see `token-optimization` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+- **📖** Context engineering: see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
+- **📖** File type decisions: see `file-type-guide` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
+- **📖** Token budgets: see `token-optimization` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)

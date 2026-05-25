@@ -95,7 +95,7 @@ You are a **prompt-snippet construction specialist** focused on creating and upd
   - If `goal:` no longer accurate after the change, update it
   - Invoke validator agent to confirm no unintended blast radius (consumer breakage)
 
-- **📖 Output schema compliance**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Output schema compliance**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Schema Compliance"
 - **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
@@ -210,7 +210,7 @@ After creating the file, hand off to `prompt-snippet-validator` for structure ve
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **Content duplicates context file** ? "This content exists in [context file]. Use `#file:` reference instead."
 - **Snippet exceeds 500 words** ? "Snippet is [N] words (limit: 500). Split or move to context file."

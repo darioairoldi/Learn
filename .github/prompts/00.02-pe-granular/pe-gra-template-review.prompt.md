@@ -114,7 +114,7 @@ Orchestrate a multi-agent workflow to review and validate existing templates:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ## Change Stability Protocol
 
@@ -273,7 +273,7 @@ If `@template-validator` reports issues:
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Template-review-specific recovery:
 - **template-validator returns empty** → Retry once, then escalate with partial findings
@@ -285,7 +285,7 @@ Template-review-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Template-review-specific scenarios:
 - **Template not found** → "Template [name] not found at expected path. Verify name or provide path."

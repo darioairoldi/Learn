@@ -68,7 +68,7 @@ Instruction files are **auto-injected rules** — errors in `applyTo` patterns, 
 - Evaluate whether each instruction file's scope is appropriate — not too broad (injecting into irrelevant files) or too narrow (missing files that need the rules)
 - Provide structured research reports with evidence
 
-- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Output minimization**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
@@ -193,7 +193,7 @@ When researching updates, classify each proposed change using the three-tier pro
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **applyTo pattern conflict found** ? Report conflict with existing file, recommend resolution strategy
 - **Rules duplicate context file** ? Identify canonical source, recommend reference over duplication

@@ -224,7 +224,7 @@ Builders routinely update YAML metadata, body content, and version history in a 
 
 ### Why Level 1.5 category references?
 
-When context files are renamed or split, all references break. Category-based references (`agent-patterns` files) survive renames because the category ID is a stable semantic identifier — only the `STRUCTURE-README.md` mapping needs updating. This was validated by upgrading all 24 agents from Level 2 (filename) to Level 1.5 (category) references in a single batch.
+When context files are renamed or split, all references break. Category-based references (`agent-patterns` files) survive renames because the category ID is a stable semantic identifier — only the `00.00-context-structure-index.md` mapping needs updating. This was validated by upgrading all 24 agents from Level 2 (filename) to Level 1.5 (category) references in a single batch.
 
 ### Why handoff contracts on all 22 agents (not just builders)?
 

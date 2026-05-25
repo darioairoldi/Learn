@@ -135,7 +135,7 @@ Orchestrate a multi-agent workflow to create new template(s) that:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ## Change Stability Protocol
 
@@ -314,7 +314,7 @@ Hand off to `@template-validator` for scoped validation:
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Template-design-specific recovery:
 - **template-researcher finds scope overlap** → Present overlap to user, recommend merge or differentiation
@@ -325,7 +325,7 @@ Template-design-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Template-design-specific scenarios:
 - **User doesn't specify category** → Present category table, ask for selection

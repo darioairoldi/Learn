@@ -2,7 +2,7 @@
 
 This document describes the folder structure and organization of this learning documentation repository.
 
-**📖 Context folder mapping:** See [.copilot/context/STRUCTURE-README.md](../.copilot/context/STRUCTURE-README.md) for context file sources and generation.
+**📖 Context folder mapping:** See [.copilot/context/00.00-prompt-engineering/00.00-context-structure-index.md](../.copilot/context/00.00-prompt-engineering/00.00-context-structure-index.md) for context file sources and generation.
 
 ---
 
@@ -32,7 +32,7 @@ AI context library and automation tools.
 | `scripts/` | PowerShell automation scripts |
 | `bin/` | (Deprecated — use mcp-servers/) |
 
-**📖 Context folder details:** [.copilot/context/STRUCTURE-README.md](../.copilot/context/STRUCTURE-README.md)
+**📖 Context folder details:** [.copilot/context/00.00-prompt-engineering/00.00-context-structure-index.md](../.copilot/context/00.00-prompt-engineering/00.00-context-structure-index.md)
 
 ### src/ — Source Code
 

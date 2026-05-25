@@ -143,7 +143,7 @@ Every agent, prompt, and context file carries YAML metadata declaring its `goal:
 
 ### Category-based references (Level 1.5)
 
-Cross-artifact references use functional category IDs (e.g., `agent-patterns`) rather than specific filenames (e.g., `02.04-agent-shared-patterns.md`). Categories are stable semantic identifiers maintained in `STRUCTURE-README.md`. When files are renamed or split, only the category mapping updates — consumer artifacts don't change.
+Cross-artifact references use functional category IDs (e.g., `agent-patterns`) rather than specific filenames (e.g., `02.04-agent-shared-patterns.md`). Categories are stable semantic identifiers maintained in `00.00-context-structure-index.md`. When files are renamed or split, only the category mapping updates — consumer artifacts don't change.
 
 ### Handoff data contracts
 

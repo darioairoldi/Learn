@@ -68,7 +68,7 @@ Templates are **reusable output formats, input schemas, and scaffolds** that age
 - Assess audience type (agent/user/both) for each template from its category prefix
 - Provide structured research reports with evidence and references
 
-- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Output minimization**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
@@ -189,7 +189,7 @@ For each template, evaluate whether the design matches its consumer type:
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **No gaps found** ? Report "template layer coverage is complete" with evidence
 - **Content scope ambiguous** ? Present options (template vs. context file vs. inline), ask orchestrator to decide

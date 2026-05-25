@@ -65,7 +65,7 @@ Skills are the **portable workflow layer** — they bundle templates, scripts, a
 - Assess progressive disclosure layering (description ? SKILL.md ? resources)
 - Verify cross-platform compatibility (relative paths, no external URLs)
 
-- **📖 Output minimization**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Minimization"
+- **📖 Output minimization**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Minimization"
 - **📖 Domain expertise activation**: `agent-patterns` files → "Domain Expertise Activation"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Input quality challenge**: `agent-patterns` files → "Phase 0.2"
@@ -152,7 +152,7 @@ When researching updates to existing skills, classify each proposed change:
 
 ## Response Management
 
-**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Patterns:** Load the `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 - **Similar skill exists** ? Report overlap with recommendation: extend existing or justify separate
 - **Scope too broad** ? Recommend decomposition with specific skill boundaries

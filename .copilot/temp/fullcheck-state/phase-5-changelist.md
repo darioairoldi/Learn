@@ -52,7 +52,7 @@
 
 ### Change 3: Add `00.03-metadata-contracts.md` to STRUCTURE-README (HIGH) — ✅ DONE
 
-**File:** `.copilot/context/00.00-prompt-engineering/STRUCTURE-README.md`
+**File:** `.copilot/context/00.00-prompt-engineering/00.00-context-structure-index.md`
 
 **Changes:**
 - Add `00.03` to Tier 0 File Index table

@@ -64,7 +64,7 @@ You operate in three modes:
 
 ### ✅ Always Do
 - Read `.github/instructions/pe-context-files.instructions.md` for context file conventions
-- Load the dependency map (the `dependency-tracking` files — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for consumer relationships
+- Load the dependency map (the `dependency-tracking` files — see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`) for consumer relationships
 - Read the complete target file before validating
 - Discover all consumers via "Referenced by" section + `grep_search` for the filename
 - Use `pe-prompt-engineering-validation` skill for shared checks (Workflows 10—12: YAML frontmatter, required sections, convention compliance)
@@ -72,7 +72,7 @@ You operate in three modes:
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - Provide specific line numbers for issues
 - In layer audit mode: check for cross-file contradictions and duplication
-- **📖 Cross-handoff verification**: `agent-patterns` files (see STRUCTURE-README.md → Functional Categories) → "Output Schema Compliance"
+- **📖 Cross-handoff verification**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Schema Compliance"
 - **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
 - **📖 Fix report format**: `output-validator-fixes.template.md` — use for validator→builder fix handoff

@@ -143,7 +143,7 @@ This prompt WILL NOT:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ### Failure Handling & Iteration Limits
 
@@ -244,7 +244,7 @@ At orchestrator startup, read the target artifact's current metadata and check:
 
 **Expect from agent-researcher:** YAML spec, role definition, three-tier boundaries (each boundary must be testable), process structure, tool alignment.
 
-**📖 Boundary actionability:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
+**📖 Boundary actionability:** `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 
 **Gate 3:** YAML complete, tools 3-7, alignment valid, boundaries populated + testable + cross-referenced against failure modes.
 
@@ -284,15 +284,15 @@ For each dependency: new agents → run Phases 1-4; updates → agent-builder.
 
 ## References
 
-- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
-- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
+- `tool-alignment` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 - `.github/instructions/pe-agents.instructions.md`
 
 ---
 
 ## 📋 Response Management
 
-**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Agent-design-specific scenarios:
 - **Similar agent already exists** → "Found existing [name]. Options: (a) Update existing, (b) Justify separate agent, (c) Cancel"

@@ -88,9 +88,9 @@ Strategic review for PE artifacts that serve the PE system itself. Adds vision a
 
 1. **Verify target is PE-for-PE** — check the file path starts with a PE location (`.github/agents/00.0x-pe-*`, `.github/prompts/00.0x-pe-*`, `.copilot/context/00.00-prompt-engineering/`, `.github/instructions/pe-*`, `.github/skills/pe-*`, `.github/templates/00.00-prompt-engineering/`). If NOT a PE artifact, recommend `/pe-con-review` instead and STOP.
 2. **Load vision document** — `read_file` on the current vision document in `06.00-idea/self-updating-prompt-engineering/` (find the file matching `*-vision.v*.md` with the highest version)
-3. **Load STRUCTURE-README.md** — `read_file` on `.copilot/context/00.00-prompt-engineering/STRUCTURE-README.md` for Functional Categories
-4. **Load strategic review criteria** — `read_file` on the `pe-strategic-review` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
-5. **Load dependency map** — `read_file` on the `dependency-tracking` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+3. **Load 00.00-context-structure-index.md** — `read_file` on `.copilot/context/00.00-prompt-engineering/00.00-context-structure-index.md` for Functional Categories
+4. **Load strategic review criteria** — `read_file` on the `pe-strategic-review` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
+5. **Load dependency map** — `read_file` on the `dependency-tracking` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 6. **Read the target artifact** completely
 
 ### Phase 1: Structural validation

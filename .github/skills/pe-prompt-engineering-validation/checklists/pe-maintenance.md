@@ -46,7 +46,7 @@ Step-by-step guide for running periodic reviews of the prompt engineering artifa
     - Changed a prompt: `/pe-meta-update --mode plan --scope prompts --dim references`
 
 - [ ] **3. Verify dependency map** is current:
-  - New artifact? → Must be in the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories)
+  - New artifact? → Must be in the `dependency-tracking` file (see 00.00-context-structure-index.md → Functional Categories)
   - Deleted artifact? → Must be removed from map
   - Changed references? → Map must reflect new refs
 

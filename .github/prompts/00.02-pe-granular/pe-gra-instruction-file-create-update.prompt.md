@@ -70,7 +70,7 @@ If user input is incomplete, ask clarifying questions before proceeding.
 
 **Note:** Context Sources can be provided by user OR discovered automatically from:
 - Existing context files for the domain (`.copilot/context/{domain}/`)
-- Source patterns in `.copilot/context/STRUCTURE-README.md`
+- Source patterns in `.copilot/context/00.00-context-structure-index.md`
 
 ---
 
@@ -197,7 +197,7 @@ This request involves creating/modifying [file type].
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ---
 
@@ -252,8 +252,8 @@ Create or update instruction files that ensure Copilot applies:
 **Tools:** `read_file`, `fetch_webpage`, `semantic_search`, `list_dir`
 
 1. **Determine Operation Type** — UPDATE (existing file) or CREATE (new domain)
-2. **Discover Sources** by priority: user input → execution context → context files for domain → STRUCTURE-README.md patterns → semantic search → additional discovery
-3. **Read Context Files** for domain (`.copilot/context/{domain}/*.md`) and STRUCTURE-README.md source patterns
+2. **Discover Sources** by priority: user input → execution context → context files for domain → 00.00-context-structure-index.md patterns → semantic search → additional discovery
+3. **Read Context Files** for domain (`.copilot/context/{domain}/*.md`) and 00.00-context-structure-index.md source patterns
 4. **Collect and Merge** — combine all sources, run searches, list existing instruction files, check `applyTo` for conflicts
 5. **Present summary** — domain, filename, applyTo, source counts, conflict check results
 
@@ -463,11 +463,11 @@ context_dependencies:
 
 ## References
 
-- `.copilot/context/STRUCTURE-README.md` — Source patterns for context folders
+- `.copilot/context/00.00-context-structure-index.md` — Source patterns for context folders
 - `.copilot/context/{domain}/*.md` — Domain-specific context files
 - `.github/instructions/pe-prompts.instructions.md` — Example instruction file structure
 - `.github/instructions/pe-agents.instructions.md` — Example with tool guidance
-- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories) — Core principles
+- `validation-rules` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories) — Core principles
 - [VS Code: Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub: Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 
@@ -496,7 +496,7 @@ prompt_metadata:
   version: "1.1"
   changes:
     - "v1.1: Added source discovery from context files (.copilot/context/{domain}/)"
-    - "v1.1: Added STRUCTURE-README.md integration for source patterns"
+    - "v1.1: Added 00.00-context-structure-index.md integration for source patterns"
     - "v1.1: Added Phase 1.5 Source Prioritization & Selection"
     - "v1.1: Enhanced Phase 1 with source discovery priority order"
     - "v1.1: Added source classification (Primary/Secondary/Tertiary/Exclude)"

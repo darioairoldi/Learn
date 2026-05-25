@@ -63,8 +63,8 @@ Create new or update existing PE artifacts that serve the PE system. Skips resea
 ### Phase 0: Load PE-domain strategic context
 
 1. **Load vision document** — `read_file` on the current vision document in `06.00-idea/self-updating-prompt-engineering/` (find `*-vision.v*.md` with highest version)
-2. **Load STRUCTURE-README.md** — for Functional Categories and required categories
-3. **Load strategic review criteria** — `read_file` on the `pe-strategic-review` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+2. **Load 00.00-context-structure-index.md** — for Functional Categories and required categories
+3. **Load strategic review criteria** — `read_file` on the `pe-strategic-review` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 4. **Load dependency map** — `read_file` on the `dependency-tracking` files from `.copilot/context/00.00-prompt-engineering/`
 5. **Load dispatch table** — `read_file` on `.github/templates/00.00-prompt-engineering/artifact-type-dispatch.template.md`
 6. **Determine operation mode**: CREATE (file doesn't exist) or UPDATE (file exists)

@@ -144,7 +144,7 @@ Orchestrate a multi-agent workflow to create new skill(s) that:
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
 
-**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Full strategies:** `token-optimization` files in `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 ## Change Stability Protocol
 
@@ -342,7 +342,7 @@ Hand off to `@skill-validator` for scoped validation:
 
 ## 🔄 Error Recovery Workflows
 
-**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Recovery pattern:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Skill-design-specific recovery:
 - **Skill scope overlaps existing skill** → Present overlap analysis, offer merge/narrow/justify options
@@ -354,7 +354,7 @@ Skill-design-specific recovery:
 
 ## 📋 Response Management
 
-**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see STRUCTURE-README.md → Functional Categories)
+**📖 Response patterns:** `production-readiness` files from `.copilot/context/00.00-prompt-engineering/` (see 00.00-context-structure-index.md → Functional Categories)
 
 Skill-design-specific scenarios:
 - **Similar skill exists** → "Found existing [name] with overlapping scope. Options: (a) Extend existing, (b) Justify separate, (c) Cancel"
