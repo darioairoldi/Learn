@@ -1,8 +1,8 @@
 ---
 description: Instructions for creating and maintaining context files
 applyTo: '.copilot/context/**/*.md'
-version: "1.5.0"
-last_updated: "2026-04-24"
+version: "1.5.1"
+last_updated: "2026-05-21"
 goal: "Govern creation and maintenance of context files that serve as the single source of truth for principles and conventions"
 rationales:
   - "Context files are auto-indexed by semantic search, so structure must be consistent"

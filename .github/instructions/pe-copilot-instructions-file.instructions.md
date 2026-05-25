@@ -1,8 +1,8 @@
 ---
 description: Rules for maintaining the repository-wide copilot-instructions.md file — the highest-authority PE artifact, always injected last into every system prompt
 applyTo: '.github/copilot-instructions.md'
-version: "1.2.0"
-last_updated: "2026-04-27"
+version: "1.2.1"
+last_updated: "2026-05-21"
 goal: "Enforce structure, content boundaries, and maintenance triggers for the highest-authority PE artifact"
 rationales:
   - "As the final-authority file, it must contain only repo-specific rules not covered elsewhere"

@@ -1,8 +1,8 @@
 ---
 description: Instructions for creating and updating custom agent files
 applyTo: '.github/agents/**/*.agent.md'
-version: "1.9.0"
-last_updated: "2026-04-24"
+version: "1.10.0"
+last_updated: "2026-05-24"
 goal: "Ensure agent files have proper structure, tool access, and autonomous execution capabilities for their specialized roles"
 rationales:
   - "Agents need detailed technical instructions and tool restrictions to avoid scope overlap"
@@ -68,27 +68,29 @@ goal: "One-sentence purpose statement"  # REQUIRED (from A-23)
 - `last_updated` — ISO date of last modification
 - `context_dependencies` — list of context **folders** only (e.g., `"00.00-prompt-engineering/"`), not individual files. Used by the scheduled review to detect staleness via cascade validation: if any context file in a dependency folder has a newer `last_updated` than the agent, the agent is flagged as potentially stale.
 
-**📖 Advanced YAML fields + visibility matrix**: [01.02-prompt-assembly-architecture.md](.copilot/context/00.00-prompt-engineering/01.02-prompt-assembly-architecture.md)
-**📖 AGENTS.md vs .agent.md comparison**: [01.03-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md)
+**📖 Advanced YAML fields + visibility matrix**: [01.02-prompt-assembly-architecture.md](../../.copilot/context/00.00-prompt-engineering/01.02-prompt-assembly-architecture.md)
+**📖 AGENTS.md vs .agent.md comparison**: [01.03-file-type-decision-guide.md](../../.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md)
 
 ## Rules
 
 - Researchers with `fetch_webpage` MUST validate all internet findings. `Scope: local-only` = MUST NOT use `fetch_webpage`.
-- Keep agent core instructions < 1,000 tokens — extract to instruction/context files, use handoffs.
+- Keep agent core instructions preferably <1,000 tokens for maintainability; treat the per-type checklist ceiling as the enforcement boundary (agent hard ceiling: 2,500 tokens unless superseded).
 - Start minimal (persona + boundaries + 2-3 commands), test in real scenarios, iterate.
 - Three-tier boundaries (Always Do / Ask First / Never Do) are an agent-specific context engineering principle — prompts do not define boundaries.
+- **Runtime grounding alignment:** each entry in the three-tier boundaries section MUST correspond to a YAML `boundaries:` item. YAML is the source of truth; the body is the enforcement mechanism. 📖 See `00.03-metadata-contracts.md` — Runtime grounding protocol.
 - Agent conversations accumulate tool results across steps. For multi-step workflows, implement progressive summarization to prevent context bloat.
 
-**📖 Shared patterns (structural):** [02.04-agent-shared-patterns.md](.copilot/context/00.00-prompt-engineering/02.04-agent-shared-patterns.md)
-**📖 Shared patterns (workflow):** [02.05-agent-workflow-patterns.md](.copilot/context/00.00-prompt-engineering/02.05-agent-workflow-patterns.md)
-**📖 Orchestration:** [02.03-orchestrator-design-patterns.md](.copilot/context/00.00-prompt-engineering/02.03-orchestrator-design-patterns.md)
-**📖 Handoffs:** [02.01-handoffs-pattern.md](.copilot/context/00.00-prompt-engineering/02.01-handoffs-pattern.md)
+**📖 Shared patterns (structural):** [02.04-agent-shared-patterns.md](../../.copilot/context/00.00-prompt-engineering/02.04-agent-shared-patterns.md)
+**📖 Shared patterns (workflow):** [02.05-agent-workflow-patterns.md](../../.copilot/context/00.00-prompt-engineering/02.05-agent-workflow-patterns.md)
+**📖 Orchestration:** [02.03-orchestrator-design-patterns.md](../../.copilot/context/00.00-prompt-engineering/02.03-orchestrator-design-patterns.md)
+**📖 Handoffs:** [02.01-handoffs-pattern.md](../../.copilot/context/00.00-prompt-engineering/02.01-handoffs-pattern.md)
 
 ## Quality Checklist
 
 - [ ] YAML: description, agent (mode), tools required; model/handoffs optional; no `name:` field (C6)
 - [ ] Tools: 3–7 items, mode-aligned (H2, via pe-common)
 - [ ] Three-tier boundaries defined (H1)
+- [ ] Three-tier boundaries align with YAML `boundaries:` field (H14, via pe-common)
 - [ ] Single responsibility: one role per agent (H11)
 - [ ] "I don't know" scenarios defined (H4, via pe-common)
 - [ ] Tested with real repository tasks
@@ -96,5 +98,5 @@ goal: "One-sentence purpose statement"  # REQUIRED (from A-23)
 ## References
 
 - [VS Code: Custom Agents](https://code.visualstudio.com/docs/copilot/copilot-customization)
-- **📖** [.copilot/context/00.00-prompt-engineering/](.copilot/context/00.00-prompt-engineering/) — All PE context
+- **📖** [.copilot/context/00.00-prompt-engineering/](../../.copilot/context/00.00-prompt-engineering/) — All PE context
 - **📖** `.github/templates/00.00-prompt-engineering/agent.template.md` — Agent template

@@ -1,8 +1,8 @@
 ---
 description: Instructions for creating and updating effective prompt files
 applyTo: '.github/prompts/**/*.md'
-version: "1.4.0"
-last_updated: "2026-04-24"
+version: "1.5.0"
+last_updated: "2026-05-24"
 goal: "Guide creation of reusable, plan-level workflow prompt files that define what should be done and how"
 rationales:
   - "Prompts inject into USER prompt (not system), requiring a different authoring approach from agents"
@@ -23,11 +23,11 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 **CRITICAL** — block on failure:
 - **[C4]** Handoff targets: every `agent:` in `handoffs:` resolves to existing file
-- **[C6]** YAML frontmatter: name, description, agent mode, tools required
+- **[C6]** YAML frontmatter: name, description, agent mode, tools, goal, scope, boundaries, version required
 - **[C7]** Top YAML never modified: validation prompts MUST NOT touch article YAML
 
 **HIGH** — fix before use:
-- **[H9]** Required sections: purpose, workflow steps, output format
+- **[H9]** Required sections: purpose, workflow steps (including scope enforcement step), output format
 
 **MEDIUM** — fix when convenient:
 - **[M3]** Context rot prevention: multi-phase prompts use summarization

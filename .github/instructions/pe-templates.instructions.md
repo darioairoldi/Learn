@@ -1,8 +1,8 @@
 ---
 description: Rules for creating and maintaining template files used by prompts, agents, and skills
 applyTo: '.github/**/*template*'
-version: "1.5.0"
-last_updated: "2026-04-24"
+version: "1.5.1"
+last_updated: "2026-05-21"
 goal: "Ensure template files define reusable, token-efficient output formats loaded on-demand via references"
 rationales:
   - "Templates are loaded on-demand, so they must be self-contained and concise"

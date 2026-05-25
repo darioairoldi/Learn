@@ -1,0 +1,49 @@
+---
+title: "Prompt engineering context category catalog"
+description: "Detailed mapping from functional categories to canonical context files"
+version: "1.0.0"
+last_updated: "2026-05-21"
+domain: "prompt-engineering"
+goal: "Provide deterministic category-to-file mapping for consumers and validators"
+scope:
+  covers:
+    - "Functional category to file mappings"
+    - "Primary consumers by category"
+    - "Contractual category IDs"
+  excludes:
+    - "Full file content"
+    - "Maintenance workflow details"
+boundaries:
+  - "MUST use stable category IDs from STRUCTURE-README.md"
+  - "MUST update mappings when files are renamed or moved"
+  - "MUST keep canonical file assignments non-contradictory"
+rationales:
+  - "Explicit mapping prevents ambiguous references in prompts and agents"
+  - "A dedicated catalog improves maintainability without inflating the index file"
+---
+
+# Prompt engineering context category catalog
+
+| Category | Canonical files |
+|---|---|
+| governance | `00.01-governance-and-capability-baseline.md`, `00.02-capability-map.md`, `00.03-metadata-contracts.md` |
+| validation-rules | `01.01-context-engineering-principles.md`, `01.07-critical-rules-priority-matrix.md` |
+| assembly-architecture | `01.02-prompt-assembly-architecture.md` |
+| file-type-guide | `01.03-file-type-decision-guide.md` |
+| tool-alignment | `01.04-tool-composition-guide.md` |
+| glossary | `01.05-glossary.md` |
+| token-optimization | `01.06-system-parameters.md`, `02.02-context-window-and-token-optimization.md` |
+| orchestration-patterns | `02.01-handoffs-pattern.md`, `02.03-orchestrator-design-patterns.md` |
+| agent-patterns | `02.04-agent-shared-patterns.md`, `02.05-agent-workflow-patterns.md` |
+| specialized-patterns | `03.01-progressive-disclosure-pattern.md`, `03.02-model-specific-optimization.md`, `03.03-agent-hooks-reference.md`, `03.04-mcp-server-design-patterns.md`, `03.05-copilot-spaces-patterns.md`, `03.06-copilot-sdk-integration.md`, `03.07-template-authoring-patterns.md` |
+| validation-caching | `04.01-validation-caching-pattern.md` |
+| production-readiness | `04.03-production-readiness-patterns.md` |
+| runtime-validation | `04.04-orchestrator-runtime-validation.md` |
+| dependency-tracking | `05.01-artifact-dependency-map.md` |
+| lifecycle-ops | `05.02-artifact-lifecycle-management.md`, `05.03-pe-workflow-entry-points.md` |
+| audit-trail | `05.04-meta-review-log.md` |
+| effectiveness-tracking | `05.05-practical-effectiveness-log.md` |
+| pe-strategic-review | `05.06-pe-strategic-review-criteria.md` |
+| pe-dimension-catalog | `05.07-pe-meta-dimension-catalog.md` |
+| pe-type-checklists | `05.08-pe-meta-type-checklists.md` |
+

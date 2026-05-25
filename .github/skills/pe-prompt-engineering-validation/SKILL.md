@@ -343,10 +343,32 @@ Verify naming, location, and extension conventions.
 **Symptom**: Validation finds `plan` agent with `create_file`  
 **Solution**: Either change to `agent` mode or remove write tools and restructure workflow.
 
+## Dimension Mapping
+
+This skill's workflows map to the 27-dimension quality framework (see `05.07-dimension-applicability-matrix.md`):
+
+| Workflow | Dimensions Covered |
+|---|---|
+| Use Case Challenge | D1 (Goal Clarity), D2 (Scope Precision) |
+| Role Validation | D5 (Role Appropriateness) |
+| Tool Alignment | D6 (Tool Alignment), D7 (Mode Correctness) |
+| Workflow Reliability | D10 (Failure Recovery), D11 (Phase Completeness) |
+| Boundary Actionability | D8 (Boundary Quality), D9 (Boundary Completeness) |
+| Artifact Redundancy | D20 (Non-Redundancy), D21 (Single Source of Truth) |
+| Cross-Artifact Consistency | D22 (Rule Consistency), D23 (Layer Agreement) |
+| Token Budget Audit | D15 (Token Budget Compliance) |
+| YAML Frontmatter | D12 (Structural Completeness) |
+| Required Sections | D13 (Section Completeness) |
+| Convention Compliance | D14 (Naming Convention), D16 (Location Correctness) |
+
+Use `--dim <D#>` with `/pe-meta-review` to invoke specific dimension checks selectively.
+
 ## Resources
 
 - **📖 Complete validation examples:** `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md`
 - **📖 Tool composition patterns:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 - **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
+- **📖 Dimension applicability matrix:** `.copilot/context/00.00-prompt-engineering/05.07-dimension-applicability-matrix.md`
+- **📖 Type-specific checklists:** `.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md`
 - **📖 Artifact dependency map:** see `dependency-tracking` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 - **📖 Full system coherence audit:** `.github/skills/pe-artifact-coherence-check/SKILL.md`

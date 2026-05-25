@@ -1,0 +1,49 @@
+SUMMARY
+FileCount: 35
+C01YamlIssues: 0
+C01MissingRequired: 0
+C04StaleOver180Days: 0
+C05NotIndexed: 0
+C05IndexedMissingFile: 0
+C03OrphanLikeByDirectReference: 35
+C02DuplicatedMustNotSignals: 0
+DETAIL_C01_MISSING
+DETAIL_C04_STALE
+DETAIL_C05_NOT_INDEXED
+DETAIL_C05_INDEXED_MISSING
+DETAIL_C03_ORPHANLIKE
+00.01-governance-and-capability-baseline.md
+00.02-capability-map.md
+00.03-metadata-contracts.md
+01.01-context-engineering-principles.md
+01.02-prompt-assembly-architecture.md
+01.03-file-type-decision-guide.md
+01.04-tool-composition-guide.md
+01.05-glossary.md
+01.06-system-parameters.md
+01.07-critical-rules-priority-matrix.md
+02.01-handoffs-pattern.md
+02.02-context-window-and-token-optimization.md
+02.03-orchestrator-design-patterns.md
+02.04-agent-shared-patterns.md
+02.05-agent-workflow-patterns.md
+03.01-progressive-disclosure-pattern.md
+03.02-model-specific-optimization.md
+03.03-agent-hooks-reference.md
+03.04-mcp-server-design-patterns.md
+03.05-copilot-spaces-patterns.md
+03.06-copilot-sdk-integration.md
+03.07-template-authoring-patterns.md
+04.01-validation-caching-pattern.md
+04.02-adaptive-validation-patterns.md
+04.03-production-readiness-patterns.md
+04.04-orchestrator-runtime-validation.md
+05.01-artifact-dependency-map.md
+05.02-artifact-lifecycle-management.md
+05.03-pe-workflow-entry-points.md
+05.04-meta-review-log.md
+05.05-practical-effectiveness-log.md
+05.06-pe-strategic-review-criteria.md
+05.07-pe-meta-dimension-catalog.md
+05.08-pe-meta-type-checklists.md
+STRUCTURE-README.md

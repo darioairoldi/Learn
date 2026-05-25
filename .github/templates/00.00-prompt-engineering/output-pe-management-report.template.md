@@ -4,10 +4,10 @@ description: "PE management report format for meta-update orchestration"
 
 ## PE Management Report
 
-**Mode:** [fullcheck / healthcheck / performancecheck]
+**Mode:** [apply-mode / plan-mode / optimize-mode]
 **Scope:** [all / specific type / specific file]
 **Date:** [current date]
-**Source:** [update source (fullcheck) / N/A]
+**Source:** [update source (apply-mode) / N/A]
 
 ### Results
 
@@ -15,11 +15,11 @@ description: "PE management report format for meta-update orchestration"
 |---|---|
 | Artifacts analyzed | [N] |
 | Issues found | [N] (C:[N] H:[N] M:[N] L:[N]) |
-| Changes applied | [N] (fullcheck/performancecheck) or N/A (healthcheck) |
-| Health score | [N]/100 (healthcheck) or N/A |
-| Token savings | ~[N] lines (performancecheck) or N/A |
+| Changes applied | [N] (apply-mode / optimize-mode) or N/A (plan-mode) |
+| Health score | [N]/100 (plan-mode) or N/A |
+| Token savings | ~[N] lines (optimize-mode) or N/A |
 
-### Changes Applied (fullcheck/performancecheck only)
+### Changes Applied (apply-mode / optimize-mode only)
 
 | # | File | Change | Validated |
 |---|---|---|---|
@@ -31,7 +31,7 @@ description: "PE management report format for meta-update orchestration"
 |---|---|---|---|---|
 | 1 | [CRITICAL/HIGH/MEDIUM/LOW] | `[path]` | [description] | [Fixed/Open/Deferred] |
 
-### Optimization Summary (performancecheck only)
+### Optimization Summary (optimize-mode only)
 
 | # | Type | File | Change | Lines Saved |
 |---|---|---|---|---|

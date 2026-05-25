@@ -1,8 +1,8 @@
 ---
 description: Base instructions for all Markdown files—essential structure, formatting, and validation rules. See article-writing.instructions.md for comprehensive writing guidance.
 applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md'
-version: "1.2.0"
-last_updated: "2026-03-22"
+version: "1.7.0"
+last_updated: "2026-05-23"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
   - ".copilot/context/01.00-article-writing/"
@@ -123,6 +123,14 @@ All Markdown files and PE artifacts **MUST** be saved as **UTF-8** (with or with
 | **Emphasis** | **Bold** for emphasis, *italic* for definitions, <mark>mark</mark> for key concepts |
 | **Links** | Descriptive text (never "click here") |
 | **Images** | Always include alt text |
+
+### Plan status markers (`*plan.md`)
+
+All plan marking rules (status notation, section/item classification, consistency enforcement) are defined in a dedicated instruction file auto-loaded for plan files:
+
+📖 **Full rules:** `.github/instructions/plan-marking.instructions.md` (applyTo: `*plan*`)
+
+**Quick reference:** Use suffix-only notation — `(✅ done)`, `(🟡 todo)`, `(📌 next steps)`. Never use checkbox syntax `[x]`. Mark both section headings and list items. Classify sections as Action/Analysis/Proposal before marking.
 
 ---
 

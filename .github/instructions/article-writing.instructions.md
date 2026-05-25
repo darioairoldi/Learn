@@ -1,8 +1,8 @@
 ---
 description: Tier 1 (auto-loaded) essentials for article writing — voice, mechanics, formatting, accessibility, and boundaries. Extends documentation.instructions.md. For Diátaxis patterns, required elements, and deep writing style rules, see Tier 2 context file.
 applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md'
-version: "1.2.0"
-last_updated: "2026-03-22"
+version: "1.3.1"
+last_updated: "2026-05-22"
 context_dependencies:
   - ".copilot/context/01.00-article-writing/"
 ---
@@ -251,6 +251,13 @@ Use backticks for:
 - Keep items parallel in structure
 - Use sentence case
 - End with periods only if items are complete sentences
+
+### Plan status notation (`*plan.md`)
+
+- Follow `documentation.instructions.md` plan-status rules for all `*plan.md` files
+- Use suffix-only status notation: `Task text. (✅ done)`, `Task text. (🟡 todo)`, `Task text. (📌 next steps)`
+- Do not use prefix notation such as `✅ done: Task text` or mixed prefix/suffix formats
+- Use `(🟡 todo)` for pending exit criteria and `(✅ done)` only when criteria are met; reserve `(📌 next steps)` for post-exit follow-ups
 
 **Numbered lists:**
 1. Use for sequential steps

@@ -1,6 +1,6 @@
 ---
 name: pe-meta-scheduled-review
-description: "Lightweight periodic PE health check — detects stale artifacts, runs scoped healthcheck, proposes fixes, and updates the review log. Designed for weekly use with minimal cognitive load."
+description: "Lightweight periodic PE health check — detects stale artifacts, runs a scoped health review, proposes fixes, and updates the review log. Designed for weekly use with minimal cognitive load."
 agent: agent
 model: claude-opus-4.6
 tools:
@@ -18,17 +18,17 @@ handoffs:
     send: true
 agents: ['*']
 argument-hint: 'Optional: "--scope context|agents|prompts|instructions|skills|hooks|snippets|templates" to limit review. Default: auto-detect stale areas.'
-goal: "Detect stale PE artifacts and run scoped healthchecks with minimal cognitive load"
+goal: "Detect stale PE artifacts and run scoped health reviews with minimal cognitive load"
 version: "1.0.0"
 scope:
   covers:
     - "Staleness detection via last_updated dates and review log"
-    - "Scoped healthcheck on auto-detected stale areas"
+    - "Scoped health review on auto-detected stale areas"
+    - "Reliability spot-check (`--dim reliability`, D28-D35) included in the auto-rotation cycle"
     - "Fix proposal and targeted application via meta-optimizer"
   excludes:
     - "Full 8-phase pipeline (pe-meta-update handles this)"
-    - "Release-driven monitoring (pe-meta-release-monitor handles this)"
-boundaries:
+    - "Release-driven monitoring (pe-meta-release-monitor handles this)"boundaries:
   - "MUST auto-detect stale areas before auditing"
   - "MUST summarize context before handoffs (>8K token trigger)"
   - "MUST update review log after completion"
@@ -57,7 +57,7 @@ Lightweight periodic review optimized for weekly execution. Detects what's stale
 |---|---|---|---|
 | Phase 0.5 (Effectiveness) | Pattern summary (recurring issues, failed workflows) | ≤200 | Individual log entries, raw dates |
 | Phase 1 (Staleness) | Stale areas table + scope decision | ≤300 | Raw date comparisons, file listings |
-| Phase 2 (Healthcheck) | Severity-scored findings | ≤1,000 | Full audit analysis |
+| Phase 2 (Health review) | Severity-scored findings | ≤1,000 | Full audit analysis |
 | Phase 3 (Fix proposal) | Approved fixes list | ≤500 | Rejected proposals, discussion |
 | Phase 4 (Apply) | Applied/failed status per fix | ≤300 | Fix implementation details |
 
@@ -89,8 +89,8 @@ Read `05.04-meta-review-log.md` and scan `.copilot/context/00.00-prompt-engineer
 5. Agent file cascade check: for each agent file with `context_dependencies`, find the newest `last_updated` among context files in that dependency folder — flag if any context file is newer than the agent file
 6. Skill SKILL.md files with `last_updated` > 90 days old (if `version`/`last_updated` present in YAML)
 7. Template files: scan `.github/templates/` bottom `template_metadata` HTML comments for `last_updated` — flag templates > 90 days old or missing bottom metadata
-8. Time since last healthcheck run (from review log)
-9. Time since last fullcheck run (from review log)
+8. Time since last plan-mode run (from review log)
+9. Time since last apply-mode run (from review log)
 10. Any unprocessed VS Code/Copilot releases (from "Last processed versions" table)
 
 **If `--scope` is specified**: Limit scan to artifacts of that type only.
@@ -102,20 +102,20 @@ Read `05.04-meta-review-log.md` and scan `.copilot/context/00.00-prompt-engineer
 
 | Area | Stale items | Oldest | Action |
 |---|---|---|---|
-| Context files | [N] files > 90 days | [file] ([N] days) | Healthcheck |
-| Instruction files | [N] files > 90 days | [file] ([N] days) | Healthcheck |
+| Context files | [N] files > 90 days | [file] ([N] days) | Health review |
+| Instruction files | [N] files > 90 days | [file] ([N] days) | Health review |
 | Instruction cascade | [N] files with newer context deps | [file] | Re-validate |
-| Agent files | [N] files > 90 days | [file] ([N] days) | Healthcheck |
+| Agent files | [N] files > 90 days | [file] ([N] days) | Health review |
 | Agent cascade | [N] files with newer context deps | [file] | Re-validate |
-| Skills | [N] files > 90 days | [file] ([N] days) | Healthcheck |
-| Templates | [N] files > 90 days or missing metadata | [file] ([N] days) | Healthcheck |
-| Last healthcheck | [N] days ago | — | Re-run |
-| Last fullcheck | [N] days ago | — | Informational |
+| Skills | [N] files > 90 days | [file] ([N] days) | Health review |
+| Templates | [N] files > 90 days or missing metadata | [file] ([N] days) | Health review |
+| Last plan-mode run | [N] days ago | — | Re-run |
+| Last apply-mode run | [N] days ago | — | Informational |
 
 **Review scope**: [auto-detected areas or user-specified scope]
 ```
 
-If nothing is stale and last healthcheck was < 14 days ago → report "System is current" and skip to Phase 5 (log update only).
+If nothing is stale and last plan-mode run was < 14 days ago → report "System is current" and skip to Phase 5 (log update only).
 
 ## Phase 1.3: Override follow-up check
 
@@ -150,12 +150,12 @@ If no pending overrides → report "No override follow-ups pending" and proceed.
 
 **Output to user**: Brief paradigm challenge summary — what was evaluated, whether any alternative outperforms current architecture, and the recommendation (keep/investigate further/propose changes).
 
-## Phase 2: Scoped healthcheck
+## Phase 2: Scoped health review
 
 Delegate to `@meta-validator` in Ecosystem Audit mode.
 
 - **Scope**: Only the stale areas identified in Phase 1 (or user-specified `--scope`)
-- **Dimensions**: `coherence+structure+references+budgets`
+- **Dimensions**: `coherence+structure+references+budgets`. The auto-rotation cycle additionally includes `--dim reliability` (D28-D35) every 2nd run to surface process-reliability regressions (reproducibility, regression-protection, metadata-guard, multipass-validation-invariant, rollback-readiness, boundary-actionability, autonomy-calibration, portability-boundary). Override with `--dim` to pin a specific group.
 - **Output**: Severity-scored findings with fix recommendations
 
 If zero CRITICAL or HIGH issues → report "No action needed" and skip to Phase 5.
@@ -195,7 +195,7 @@ For approved fixes only:
 **Always runs**, even if no fixes were needed.
 
 Update `.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md`:
-1. Append a new entry under "Healthcheck runs" with date, scope, dimensions, findings, changes, health score
+1. Append a new entry under "Plan-mode runs" with date, scope, dimensions, findings, changes, health score
 2. Update the `last_updated` date in the YAML frontmatter to today
 3. Increment the scheduled review count in the "Paradigm Challenge Tracking" table — add a new row with today's date, the incremented review number, whether Phase 1.5 ran, key findings (if any), and action taken
 
@@ -206,14 +206,14 @@ After updating the review log, check whether rotation is needed (📖 thresholds
 1. Count total lines in `05.04-meta-review-log.md`
 2. If total exceeds 200 lines:
    a. Move entries older than 6 months to `.copilot/temp/pe-review-archive-{year}.md` (create if it doesn't exist, append if it does)
-   b. Keep only the last 6 entries per mode (healthcheck, fullcheck, performancecheck)
-   c. Preserve the "Last Processed Versions" table and "Last Fullcheck File Manifest" section — these are NEVER rotated
+   b. Keep only the last 6 entries per mode (plan-mode, apply-mode, optimize-mode)
+   c. Preserve the "Last Processed Versions" table and "Last Apply-Mode Run File Manifest" section — these are NEVER rotated
 3. If total is ≤200 lines: skip rotation
 
 ## CRITICAL BOUNDARIES
 
 ### Always Do
-- Run Phase 1 staleness scan before any healthcheck
+- Run Phase 1 staleness scan before any health review
 - Present findings and fix proposals before applying changes
 - Update the review log after every run (even if no issues found)
 - Report a final summary with health score
@@ -239,7 +239,7 @@ Scheduled-review-specific recovery:
 - **meta-validator unavailable** → Retry once, then report partial scan with staleness data only
 - **Fix fails validation** → Revert fix, mark as "deferred" in review log
 - **Review log missing or corrupted** → Create initial log entry, proceed with full staleness scan
-- **Can't determine staleness** → Default to full healthcheck scope, warn user
+- **Can't determine staleness** → Default to full health-review scope, warn user
 
 ---
 
@@ -248,7 +248,7 @@ Scheduled-review-specific recovery:
 **📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
 
 Scheduled-review-specific scenarios:
-- **Nothing stale** → "System is current — last healthcheck [N] days ago. No action needed."
+- **Nothing stale** → "System is current — last plan-mode run [N] days ago. No action needed."
 - **Review log not found** → "Review log missing. Creating initial entry and running full scan."
 - **Fix classified as manual-review** → Present to user with context, don't auto-apply
 
@@ -258,8 +258,8 @@ Scheduled-review-specific scenarios:
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | Everything current | Staleness scan finds nothing → log updated with "clean", no healthcheck |
-| 2 | Stale context files found | Healthcheck runs on stale scope → fixes proposed → user approves → applied |
+| 1 | Everything current | Staleness scan finds nothing → log updated with "clean", no health review |
+| 2 | Stale context files found | Health review runs on stale scope → fixes proposed → user approves → applied |
 | 3 | Manual-review fix | User prompted for decision → approved: applied, rejected: deferred in log |
 | 4 | Pending override follow-ups | Phase 1.3 finds unresolved overrides → evaluates each → updates Follow-up result in review log |
 | 5 | Override issue manifested | Phase 1.3 detects override caused problem → adds to Phase 2 findings for remediation |

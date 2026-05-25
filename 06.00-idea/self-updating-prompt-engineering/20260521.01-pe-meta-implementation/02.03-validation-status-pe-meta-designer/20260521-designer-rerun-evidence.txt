@@ -1,0 +1,1 @@
+timestamp=2026-05-21 14:39:37 artifact=c:\dev\darioairoldi\Learn\.github\agents\00.09-pe-meta\pe-meta-designer.agent.md a03_targets=pe-meta-validator,pe-meta-researcher a03_missing= a03_pass=True note=Scoped handoff check uses handoffs block only (ignores frontmatter mode field).

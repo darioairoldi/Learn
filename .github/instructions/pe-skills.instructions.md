@@ -1,8 +1,8 @@
 ---
 description: Instructions for creating Agent Skills (SKILL.md files)
 applyTo: '.github/skills/**/SKILL.md,.github/templates/skill-*.md'
-version: "1.5.0"
-last_updated: "2026-04-24"
+version: "1.5.1"
+last_updated: "2026-05-21"
 goal: "Govern creation of AI-discoverable agent skills that package domain-specific capabilities"
 rationales:
   - "Skills are discovered by description matching, so description quality is critical"

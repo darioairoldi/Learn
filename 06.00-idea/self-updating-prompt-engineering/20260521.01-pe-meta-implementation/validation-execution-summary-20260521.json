@@ -1,0 +1,341 @@
+{
+  "generated_at": "2026-05-21 15:24:53",
+  "total": 37,
+  "complete": 6,
+  "failed": 31,
+  "records": [
+    {
+      "index": 1,
+      "validation_file": "[02.01-validation-status-context-files.md](02.01-validation-status-context-files.md)",
+      "type": "context-set",
+      "target": "`context-whole`",
+      "status": "complete",
+      "blockers": "none",
+      "last_run": "2026-05-21"
+    },
+    {
+      "index": 2,
+      "validation_file": "[02.02-validation-status-pe-meta-builder.md](02.02-validation-status-pe-meta-builder.md)",
+      "type": "agent",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\agents\\00.09-pe-meta\\pe-meta-builder.agent.md`",
+      "status": "complete",
+      "blockers": "none",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 3,
+      "validation_file": "[02.03-validation-status-pe-meta-designer.md](02.03-validation-status-pe-meta-designer.md)",
+      "type": "agent",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\agents\\00.09-pe-meta\\pe-meta-designer.agent.md`",
+      "status": "complete",
+      "blockers": "none",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 4,
+      "validation_file": "[02.04-validation-status-pe-meta-optimizer.md](02.04-validation-status-pe-meta-optimizer.md)",
+      "type": "agent",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\agents\\00.09-pe-meta\\pe-meta-optimizer.agent.md`",
+      "status": "failed",
+      "blockers": "G-02: broken refs: .copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md; A-03: missing handoff targets: agent; A-05: missing deterministic-first process signals",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 5,
+      "validation_file": "[02.05-validation-status-pe-meta-researcher.md](02.05-validation-status-pe-meta-researcher.md)",
+      "type": "agent",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\agents\\00.09-pe-meta\\pe-meta-researcher.agent.md`",
+      "status": "failed",
+      "blockers": "G-02: broken refs: .github/templates/00.00-prompt-engineering/output-meta-researcher-report.template.md; .copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md; A-03: missing handoff targets: plan; A-05: missing deterministic-first process signals",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 6,
+      "validation_file": "[02.06-validation-status-pe-meta-validator.md](02.06-validation-status-pe-meta-validator.md)",
+      "type": "agent",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\agents\\00.09-pe-meta\\pe-meta-validator.agent.md`",
+      "status": "failed",
+      "blockers": "A-03: missing handoff targets: plan",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 7,
+      "validation_file": "[02.07-validation-status-pe-meta-adherence.md](02.07-validation-status-pe-meta-adherence.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-adherence.prompt.md`",
+      "status": "failed",
+      "blockers": "P-03: missing phase ordering or mode behavior guidance",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 8,
+      "validation_file": "[02.08-validation-status-pe-meta-agent-create-update.md](02.08-validation-status-pe-meta-agent-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-agent-create-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 9,
+      "validation_file": "[02.09-validation-status-pe-meta-agent-design.md](02.09-validation-status-pe-meta-agent-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-agent-design.prompt.md`",
+      "status": "failed",
+      "blockers": "G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 10,
+      "validation_file": "[02.10-validation-status-pe-meta-agent-review.md](02.10-validation-status-pe-meta-agent-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-agent-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 11,
+      "validation_file": "[02.11-validation-status-pe-meta-context-create-update.md](02.11-validation-status-pe-meta-context-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-context-create-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 12,
+      "validation_file": "[02.12-validation-status-pe-meta-context-design.md](02.12-validation-status-pe-meta-context-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-context-design.prompt.md`",
+      "status": "failed",
+      "blockers": "G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 13,
+      "validation_file": "[02.13-validation-status-pe-meta-context-review.md](02.13-validation-status-pe-meta-context-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-context-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 14,
+      "validation_file": "[02.14-validation-status-pe-meta-create-update.md](02.14-validation-status-pe-meta-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-create-update.prompt.md`",
+      "status": "complete",
+      "blockers": "none",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 15,
+      "validation_file": "[02.15-validation-status-pe-meta-design.md](02.15-validation-status-pe-meta-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-design.prompt.md`",
+      "status": "complete",
+      "blockers": "none",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 16,
+      "validation_file": "[02.16-validation-status-pe-meta-hook-create-update.md](02.16-validation-status-pe-meta-hook-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-hook-create-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 17,
+      "validation_file": "[02.17-validation-status-pe-meta-hook-design.md](02.17-validation-status-pe-meta-hook-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-hook-design.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 18,
+      "validation_file": "[02.18-validation-status-pe-meta-hook-review.md](02.18-validation-status-pe-meta-hook-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-hook-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 19,
+      "validation_file": "[02.19-validation-status-pe-meta-instruction-create-update.md](02.19-validation-status-pe-meta-instruction-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-instruction-create-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 20,
+      "validation_file": "[02.20-validation-status-pe-meta-instruction-design.md](02.20-validation-status-pe-meta-instruction-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-instruction-design.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 21,
+      "validation_file": "[02.21-validation-status-pe-meta-instruction-review.md](02.21-validation-status-pe-meta-instruction-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-instruction-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 22,
+      "validation_file": "[02.22-validation-status-pe-meta-prompt-create-update.md](02.22-validation-status-pe-meta-prompt-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-prompt-create-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 23,
+      "validation_file": "[02.23-validation-status-pe-meta-prompt-design.md](02.23-validation-status-pe-meta-prompt-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-prompt-design.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 24,
+      "validation_file": "[02.24-validation-status-pe-meta-prompt-review.md](02.24-validation-status-pe-meta-prompt-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-prompt-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 25,
+      "validation_file": "[02.25-validation-status-pe-meta-release-monitor.md](02.25-validation-status-pe-meta-release-monitor.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-release-monitor.prompt.md`",
+      "status": "failed",
+      "blockers": "G-02: broken refs: .copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 26,
+      "validation_file": "[02.26-validation-status-pe-meta-review.md](02.26-validation-status-pe-meta-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-review.prompt.md`",
+      "status": "complete",
+      "blockers": "none",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 27,
+      "validation_file": "[02.27-validation-status-pe-meta-scheduled-review.md](02.27-validation-status-pe-meta-scheduled-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-scheduled-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-02: broken refs: .copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 28,
+      "validation_file": "[02.28-validation-status-pe-meta-skill-create-update.md](02.28-validation-status-pe-meta-skill-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-skill-create-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 29,
+      "validation_file": "[02.29-validation-status-pe-meta-skill-design.md](02.29-validation-status-pe-meta-skill-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-skill-design.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 30,
+      "validation_file": "[02.30-validation-status-pe-meta-skill-review.md](02.30-validation-status-pe-meta-skill-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-skill-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 31,
+      "validation_file": "[02.31-validation-status-pe-meta-snippet-create-update.md](02.31-validation-status-pe-meta-snippet-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-snippet-create-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 32,
+      "validation_file": "[02.32-validation-status-pe-meta-snippet-design.md](02.32-validation-status-pe-meta-snippet-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-snippet-design.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 33,
+      "validation_file": "[02.33-validation-status-pe-meta-snippet-review.md](02.33-validation-status-pe-meta-snippet-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-snippet-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 34,
+      "validation_file": "[02.34-validation-status-pe-meta-template-create-update.md](02.34-validation-status-pe-meta-template-create-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-template-create-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 35,
+      "validation_file": "[02.35-validation-status-pe-meta-template-design.md](02.35-validation-status-pe-meta-template-design.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-template-design.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 36,
+      "validation_file": "[02.36-validation-status-pe-meta-template-review.md](02.36-validation-status-pe-meta-template-review.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-template-review.prompt.md`",
+      "status": "failed",
+      "blockers": "G-01: missing/invalid: rationales; G-03: missing goal or scope covers/excludes; P-03: missing phase ordering or mode behavior guidance; P-05: missing scope.excludes or boundaries",
+      "last_run": "2026-05-21 15:23:59"
+    },
+    {
+      "index": 37,
+      "validation_file": "[02.37-validation-status-pe-meta-update.md](02.37-validation-status-pe-meta-update.md)",
+      "type": "prompt",
+      "target": "`C:\\dev\\darioairoldi\\Learn\\.github\\prompts\\00.09-pe-meta\\pe-meta-update.prompt.md`",
+      "status": "failed",
+      "blockers": "G-02: broken refs: .copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md",
+      "last_run": "2026-05-21 15:23:59"
+    }
+  ]
+}

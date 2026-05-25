@@ -1,6 +1,6 @@
 ---
 name: pe-meta-update
-description: "Unified Prompt Engineering Artifact Management — 8-phase pipeline with structure/consistency/content audits, each with research-build-validate. Modes: fullcheck, healthcheck, performancecheck. Every phase independently disableable."
+description: "Unified Prompt Engineering Artifact Management — 8-phase pipeline with structure/consistency/content audits, each with research-build-validate. Pipeline phases (structure / consistency / content) are independently disableable via --skip. Execution depth controlled by --mode."
 agent: agent
 model: claude-opus-4.6
 tools:
@@ -26,72 +26,108 @@ handoffs:
     agent: pe-meta-optimizer
     send: true
 agents: ['*']
-argument-hint: 'Mode: "fullcheck [source]", "healthcheck [scope]", "performancecheck [scope]". Phase skips: --skip-source, --skip-structure, --skip-consistency, --skip-content. Flags: --plan, --no-external, --no-research. Scope: all/context/agents/prompts/instructions/skills/hooks/snippets/templates/filepath'
+argument-hint: '[--mode plan|apply] [--dim <group>] [--scope <type>] [--skip <stage>,...] [--incremental]'
 goal: "Orchestrate PE artifact management across 8 phases with research-build-validate cycles"
-version: "1.0.0"
+version: "2.0.0"
 scope:
   covers:
-    - "fullcheck — 8-phase pipeline with source research, structure/consistency/content audits"
-    - "healthcheck — read-only system review by scope and dimension"
-    - "performancecheck — deduplication, token optimization, structural improvements"
+    - "End-to-end pipeline with --mode (plan|apply), --dim, --scope, --skip controls per the v13 option taxonomy"
   excludes:
     - "Vision document changes (human-only)"
     - "Individual artifact creation (consolidated/granular prompts handle this)"
 boundaries:
-  - "MUST parse mode + scope + flags before executing any phase"
+  - "MUST parse --mode, --dim, --scope, --skip before executing any phase"
   - "MUST support phase-skip flags for targeted execution"
   - "MUST delegate to meta-agents (researcher, designer, validator, optimizer)"
 rationales:
   - "Unified orchestrator reduces duplicate coordination logic across separate audit prompts"
   - "Phase-skip flags enable targeted execution without running the full pipeline"
+  - "Removing preset aliases eliminates ambiguity between named shortcuts and explicit flags; one source of truth (option taxonomy) replaces two (presets + flags)"
 ---
 
 # Prompt Engineering Artifact Management
 
 Unified orchestrator for PE artifacts. Parse user input, determine mode + scope + flags, execute phases, report.
 
-## Modes
+## Invocation options
 
-| Mode | When | Phases | Changes |
-|---|---|---|---|
-| **fullcheck** | New guidance, comprehensive review, or no arguments | 1-2-3-4-5-6-7-8 | Builders apply changes |
-| **healthcheck** | "Is my system healthy?" | 2R-3R-4R-8 (research substeps only) | Report only |
-| **performancecheck** | "Reduce waste" | 4R(efficiency focus)-5-6-7-8 | Meta-optimizer applies |
+The orchestrator accepts five canonical options. There are no shortcut presets — every invocation is expressed as explicit `--mode` / `--dim` / `--scope` / `--skip` / `--incremental` flags.
 
-**Default**: URL/file/description = fullcheck. "review"/"audit"/"health" = healthcheck. "optimize"/"dedup"/"tokens" = performancecheck. No arguments = fullcheck (full analysis of current state). "plan"/"preview"/"what-if" = fullcheck --plan.
+### `--mode plan|apply` (default: `apply`)
 
-## Scope & Flags
+| Value | Behavior |
+|---|---|
+| `apply` | Full Research → Build → Validate cycle with low-risk autonomous apply + propose for higher-risk findings (default) |
+| `plan` | Research-only execution — Build and Validate substeps are skipped regardless of `--skip` selection because plan mode is assessment-only; produces health score and findings report; no file writes |
 
-**Scope** (default `all`): `all`, `context`, `instructions`, `agents`, `prompts`, `skills`, `hooks`, `snippets`, `templates`, or a **specific file path**. Only invoke agents relevant to parsed scope.
+### `--dim <group|D#>` (default: `full`)
+
+Dimension selection per the v13 option taxonomy: `full`, `freshness`, `quality`, `adherence`, `reliability`, `optimize`, `model`, `structural`, `strategic`, `context-full`, `context-health`, or specific `D1`–`D35`.
+
+When `--dim optimize` is active, the orchestrator delegates Phase 4 apply work to `@meta-optimizer` instead of per-type builders, and Phase 4 Research adopts an efficiency lens (token budgets, deduplication, structural improvements).
+
+### `--scope <type|path>` (default: `all`)
+
+`all`, `context`, `instructions`, `agents`, `prompts`, `skills`, `hooks`, `snippets`, `templates`, or a **specific file path**. Only invoke agents relevant to parsed scope.
 
 **When scope is a specific file path**: Research narrows to that artifact and its direct dependencies (from the `dependency-tracking` file — see STRUCTURE-README.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`). Regression test scopes to use cases that include the modified artifact.
 
-**Phase skip flags** (combinable, apply to fullcheck and healthcheck):
+### `--skip <stage>[,<stage>...]` (default: none)
 
-| Flag | Skips | Use when |
+| Stage | Skips | Use when |
 |---|---|---|
-| `--skip-source` | Phase 1 (source research) | No external input needed, analyze current state only |
-| `--skip-structure` | Phase 2 (structure audit) | Structure is known-good, focus on content |
-| `--skip-consistency` | Phase 3 (consistency audit) | Cross-artifact consistency already verified |
-| `--skip-content` | Phase 4 (content audit) | Individual artifacts already reviewed |
+| `research` | Phase 1 (source research) | No external input needed, analyze current state only |
+| `external` | Internet/URL fetching in all phases | No internet or local-only check desired |
+| `structure` | Phase 2 (structure audit) | Structure is known-good, focus on content |
+| `consistency` | Phase 3 (consistency audit) | Cross-artifact consistency already verified |
+| `content` | Phase 4 (content audit) | Individual artifacts already reviewed |
 
-**Behavior flags** (combinable):
+### `--incremental` (default: false)
 
-| Flag | Effect | Applies to |
-|---|---|---|
-| `--plan` | Stop before Phase 6 (apply). Preview changes only. | fullcheck, performancecheck |
-| `--no-external` | Skip internet search and external URL fetching. Local artifacts (context files + 05.02 reference articles) still analyzed. Faster. | All modes |
-| `--no-research` | Skip Phase 1 entirely. Apply user's change description directly. Requires specific file scope. | fullcheck |
-| `--incremental` | Process only artifacts modified since the last fullcheck. Uses `last_updated` dates and the "Last fullcheck file manifest" in `05.04-meta-review-log.md` to filter. Skips unchanged files in all audit phases. | fullcheck |
+Process only artifacts modified since the last `--mode apply` run. Uses `last_updated` dates and the "Last Apply-Mode Run File Manifest" in `05.04-meta-review-log.md` to filter. Skips unchanged files in all audit phases.
 
-**Examples:**
-- `fullcheck` = Full 8-phase pipeline analyzing current state against best practices
-- `fullcheck <URL>` = Research from URL + audit all dimensions
-- `fullcheck --skip-structure --skip-consistency` = Source research + content audit only
-- `fullcheck "fix boundaries" path/to/agent.md --no-research` = Direct change, validate, no research
-- `healthcheck --skip-content` = Structure + consistency audit only, no content review
-- `fullcheck --no-external` = Full pipeline using local artifacts only (context files + 05.02 articles, no internet — fast mode)
-- `fullcheck --incremental` = Process only artifacts changed since last fullcheck (fast, targeted)
+## Intent resolution from natural-language input
+
+When the user provides natural-language hints alongside or instead of flags, resolve them to canonical options as follows:
+
+| User intent / keyword | Resolves to |
+|---|---|
+| URL or file path provided | `--mode apply` (default), Phase 1 research enabled |
+| "review", "audit", "health", "diagnose" | `--mode plan --skip research` |
+| "optimize", "dedup", "tokens", "efficiency" | `--mode apply --dim optimize --skip research,structure,consistency` |
+| "plan", "preview", "what-if", "dry run" | `--mode plan` |
+| No arguments | `--mode apply` with full pipeline |
+
+Resolved options MUST be echoed back to the user as a single canonical invocation string before execution begins. Explicit `--` flags always override intent-derived defaults.
+
+## Argument parsing
+
+**Backward-compatible aliases** (resolved during parsing):
+
+| Legacy | Canonical |
+|---|---|
+| `--plan` | `--mode plan` |
+| `--no-external` | `--skip external` |
+| `--no-research` | `--skip research` |
+| `--skip-source` | `--skip research` |
+| `--skip-structure` | `--skip structure` |
+| `--skip-consistency` | `--skip consistency` |
+| `--skip-content` | `--skip content` |
+
+**Rejected preset tokens.** If the parser encounters a positional token equal to `healthcheck`, `performancecheck`, or `fullcheck`, it MUST refuse with the deterministic error and stop before Phase 1:
+
+> `"<token>" is no longer a supported preset. Use the canonical options per the v13 taxonomy. See pe-meta-update.prompt.md § Invocation options for the mapping.`
+
+## Examples
+
+- `/pe-meta-update --mode apply` — Full 8-phase pipeline analyzing current state against best practices
+- `/pe-meta-update --mode apply <URL>` — Research from URL + audit all dimensions
+- `/pe-meta-update --mode apply --skip structure,consistency` — Source research + content audit only
+- `/pe-meta-update --mode apply --skip research "fix boundaries" path/to/agent.md` — Direct change, validate, no research
+- `/pe-meta-update --mode plan --skip research,content` — Structure + consistency audit only, no content review
+- `/pe-meta-update --mode apply --skip external` — Full pipeline using local artifacts only (context files + 05.02 articles, no internet — fast mode)
+- `/pe-meta-update --mode apply --incremental` — Process only artifacts changed since the last apply-mode run (fast, targeted)
+- `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope context` — Efficiency-lens review of context files only
 
 ## CRITICAL BOUNDARIES
 
@@ -169,12 +205,12 @@ When Tiers 1-2 don't resolve, use LLM judgment WITH metadata as reference:
 
 | Transition | Strategy | Include | Exclude | Max tokens |
 |---|---|---|---|---|
-| **Orchestrator → meta-researcher** (Phase 1) | send: true | Source URL/description, scope, flags, --no-external status | N/A (first handoff) | ~2,000 |
+| **Orchestrator → meta-researcher** (Phase 1) | send: true | Source URL/description, scope, flags, `--skip external` status | N/A (first handoff) | ~2,000 |
 | **meta-researcher → Orchestrator** | Structured report | Prioritized recommendations classified by audit phase, impact matrix, alternative approaches | Raw internet fetches, full article text, source analysis | ≤2,000 |
 | **Orchestrator → meta-validator** (Phase 2R/3R) | send: true | Scope, audit dimension, Phase 1 findings summary (if available) | Full Phase 1 report, raw search results | ≤1,500 |
 | **Orchestrator → meta-designer** (Phase 2B/3B/4B) | send: true | Audit findings summary, scope, execution constraints | Raw audit analysis, prior phase conversation | ≤1,500 |
 | **meta-designer → type-specific builders** | Change specs | Per-file change specification: path, current content ref, proposed change, rationale | Design analysis, alternatives considered | ≤1,000/file |
-| **Orchestrator → meta-optimizer** (performancecheck) | send: true | Scope, efficiency findings, token budgets | Prior audit conversation | ≤1,000 |
+| **Orchestrator → meta-optimizer** (`--dim optimize`) | send: true | Scope, efficiency findings, token budgets | Prior audit conversation | ≤1,000 |
 
 ## Summarization Protocol
 
@@ -202,34 +238,34 @@ Between EVERY phase, run this deterministic context size check:
 4. **Act on thresholds** (📖 see `01.06-system-parameters.md` → Meta-Pipeline Context Thresholds):
    - **≤10,000 tokens**: Continue normally
    - **>10,000 tokens**: MUST summarize all prior phases per the Summarization Protocol table above
-   - **>20,000 tokens**: MUST write state to `.copilot/temp/fullcheck-state/` and recommend new session
+   - **>20,000 tokens**: MUST write state to `.copilot/temp/pe-meta-state/` and recommend new session
 
-**File-based isolation boundary**: Phases 5–8 MUST use file-based isolation. At the end of Phase 4 (or at Phase 5 entry), write the consolidated approved change list to `.copilot/temp/fullcheck-state/phase-5-changelist.md`. Phases 6–8 read from this file — they do NOT depend on conversation history from Phases 1–4.
+**File-based isolation boundary**: Phases 5–8 MUST use file-based isolation. At the end of Phase 4 (or at Phase 5 entry), write the consolidated approved change list to `.copilot/temp/pe-meta-state/phase-5-changelist.md`. Phases 6–8 read from this file — they do NOT depend on conversation history from Phases 1–4.
 
 ---
 
-## Incremental Filter (fullcheck --incremental only)
+## Incremental Filter (`--incremental` only)
 
 When `--incremental` is specified, build the artifact scope BEFORE Phase 1:
 
-1. **Load manifest**: Read `05.04-meta-review-log.md` → "Last fullcheck file manifest" section for the list of files and dates from the previous fullcheck
-2. **Detect changes**: For each PE artifact, compare `last_updated` in YAML frontmatter against the manifest date. If no manifest exists, fall back to `git diff --name-only` against the last fullcheck date from the review log
+1. **Load manifest**: Read `05.04-meta-review-log.md` → "Last Apply-Mode Run File Manifest" section for the list of files and dates from the previous apply-mode run
+2. **Detect changes**: For each PE artifact, compare `last_updated` in YAML frontmatter against the manifest date. If no manifest exists, fall back to `git diff --name-only` against the last apply-mode run date from the review log
 3. **Build scope**: Only files where `last_updated > manifest_date` (or newly created files) are in scope
 4. **Apply filter**: All audit phases (2, 3, 4) process ONLY in-scope files. Phase 1 research narrows to in-scope artifacts and their direct dependencies
 5. **Report filtered-out count**: In Phase 8 report, include: "Incremental: [N] artifacts in scope, [M] unchanged (skipped)"
 
-If no previous fullcheck is recorded (no manifest), warn: "No prior fullcheck found — running full scope instead of incremental" and proceed as normal fullcheck.
+If no previous apply-mode run is recorded (no manifest), warn: "No prior apply-mode run found — running full scope instead of incremental" and proceed with the full scope.
 
 ---
 
-## Phase 1: Source Research (fullcheck only — skip with --skip-source or --no-research)
+## Phase 1: Source Research (skip with `--skip research`)
 
 External knowledge gathering. Feeds findings into Phases 2-4 to inform audit research substeps.
 
 ### 1a: Full Research (default)
 
 Delegate to `@meta-researcher`: Analyze update source + authoritative references + internet. Produce self-contained research report with:
-- Evidence from authoritative sources (distilled context files **always**, 05.02 reference articles **always**, internet research **always** unless `--no-external`)
+- Evidence from authoritative sources (distilled context files **always**, 05.02 reference articles **always**, internet research **always** unless `--skip external`)
 - User-provided authoritative sources (URLs, files) analyzed when supplied
 - **Critical validation of internet findings** — each external finding must be evaluated for whether integrating it would improve artifact reliability, effectiveness, or efficiency; findings that are unuseful, unverifiable, or potentially misleading are flagged and excluded from recommendations
 - Improvement opportunities mapped to affected artifacts and quality dimensions
@@ -239,9 +275,9 @@ Delegate to `@meta-researcher`: Analyze update source + authoritative references
 
 **When scope is a specific file path**: Research focuses on that artifact and its dependency chain only.
 
-### 1b: Direct Application (--no-research, requires specific file scope)
+### 1b: Direct Application (--skip research, requires specific file scope)
 
-When `--no-research` + specific file path:
+When `--skip research` + specific file path:
 1. Read the target artifact completely
 2. Load relevant instruction file for the artifact type
 3. Load the dependency map for consumer impact
@@ -249,12 +285,12 @@ When `--no-research` + specific file path:
 
 ---
 
-## Phase 2: Structure Audit (skip with --skip-structure)
+## Phase 2: Structure Audit (skip with --skip structure)
 
 **Goal**: Validate the PE artifact ecosystem's structural integrity — what files exist, where they are, what role and rules each contains, whether the layout follows conventions.
 
-**fullcheck**: Runs all three substeps (Research, Build, Validate).
-**healthcheck**: Runs Research substep only. Findings feed into Phase 8 report.
+**When `--mode apply` (and `--skip structure` is not set)**: Runs all three substeps (Research, Build, Validate).
+**When `--mode plan`**: Runs Research substep only — Build and Validate substeps are skipped because plan mode is assessment-only. Findings feed into Phase 8 report.
 
 ### 2-Research
 
@@ -266,28 +302,28 @@ The orchestrator performs structural inventory directly (using `list_dir`, `file
 3. Builder/validator symmetry, orphan detection (via dependency map)
 4. STRUCTURE-README alignment, dependency map accuracy
 
-When Phase 1 produced findings, incorporate validated external best practices. When `--no-external`, compare against internal conventions and 05.02 reference articles.
+When Phase 1 produced findings, incorporate validated external best practices. When `--skip external`, compare against internal conventions and 05.02 reference articles.
 
 **Challenge step**: For each issue, propose **2+ resolution options**. Compare on effectiveness, reliability, efficiency. Recommend with rationale.
 
 **Output**: Structural findings report with severity-scored issues and ranked options.
 
-### 2-Build (fullcheck only)
+### 2-Build (`--mode apply` only)
 
 Delegate to `@meta-designer`: Transform structural findings into change specifications. Each spec independently executable by a type-specific builder. Include: rationale, alternatives considered, why recommended option wins, layer-ordered execution sequence.
 
-### 2-Validate (fullcheck only)
+### 2-Validate (`--mode apply` only)
 
 Delegate to `@meta-validator` (Design Validation mode): Verify structural changes won't break capabilities, respect dependency order, preserve builder/validator symmetry. Verdict: SAFE / FIX / UNSAFE.
 
 ---
 
-## Phase 3: Consistency Audit (skip with --skip-consistency)
+## Phase 3: Consistency Audit (skip with --skip consistency)
 
 **Goal**: Validate cross-artifact consistency — goal alignment across related artifacts, non-ambiguity, non-redundancy, non-contradiction between files.
 
-**fullcheck**: Runs all three substeps (Research, Build, Validate).
-**healthcheck**: Runs Research substep only. Findings feed into Phase 8 report.
+**When `--mode apply` (and `--skip consistency` is not set)**: Runs all three substeps (Research, Build, Validate).
+**When `--mode plan`**: Runs Research substep only — Build and Validate substeps are skipped because plan mode is assessment-only. Findings feed into Phase 8 report.
 
 ### 3-Research
 
@@ -300,29 +336,29 @@ Delegate to `@meta-validator` (Design Validation mode): Verify structural change
 4. Contradiction findings (conflicting rules across files)
 5. Cross-reference integrity issues (broken references, missing handoff targets)
 
-When Phase 1 produced findings, incorporate validated external standards for consistency improvements. When `--no-external`, compare against internal conventions and 05.02 reference articles.
+When Phase 1 produced findings, incorporate validated external standards for consistency improvements. When `--skip external`, compare against internal conventions and 05.02 reference articles.
 
 **Challenge step**: For each consistency issue from the validator, propose **2+ resolution strategies**. Compare on effectiveness, reliability, efficiency. Recommend with rationale.
 
 **Output**: Consistency findings report with severity-scored issues and ranked resolution options.
 
-### 3-Build (fullcheck only)
+### 3-Build (`--mode apply` only)
 
 Delegate to `@meta-designer`: Design change specifications for consistency fixes. Respect layer hierarchy (context owns rules, instructions enforce, agents apply). Deduplicate by consolidating into canonical sources. Max 2 clarification rounds with `@meta-researcher`.
 
-### 3-Validate (fullcheck only)
+### 3-Validate (`--mode apply` only)
 
 Delegate to `@meta-validator` (Design Validation mode): Verify consistency fixes don't introduce new contradictions, preserve all capabilities, and maintain single-source-of-truth. Verdict: SAFE / FIX / UNSAFE.
 
 ---
 
-## Phase 4: Content Audit (skip with --skip-content)
+## Phase 4: Content Audit (skip with --skip content)
 
 **Goal**: Validate individual artifact quality — per-file goal/role alignment, internal non-ambiguity, internal non-redundancy, internal non-contradiction, efficient structure.
 
-**fullcheck**: Runs all three substeps (Research, Build, Validate).
-**healthcheck**: Runs Research substep only. Findings feed into Phase 8 report.
-**performancecheck**: Runs Research substep focused on efficiency/budgets/redundancy. Feeds into Phase 5.
+**When `--mode apply` (and `--skip content` is not set)**: Runs all three substeps (Research, Build, Validate).
+**When `--mode plan`**: Runs Research substep only — Build and Validate substeps are skipped because plan mode is assessment-only. Findings feed into Phase 8 report.
+**When `--dim optimize`**: Runs Research substep focused on efficiency/budgets/redundancy. Feeds into Phase 5.
 
 ### 4-Research
 
@@ -335,27 +371,27 @@ Delegate per-artifact-type to type-specific validators (via `@meta-validator` wh
 5. **Efficient structure**: Is content organized for early commands, progressive disclosure, and minimal token usage? Are token budgets respected (context 2,500 max, instruction 1,500 max, prompt 1,500 max)?
 6. **Convention compliance**: YAML frontmatter, section structure, boundary minimums, tool count range (3-7)
 
-When Phase 1 produced findings, incorporate validated external best practices for individual artifact quality. When `--no-external`, compare against internal conventions and 05.02 reference articles.
+When Phase 1 produced findings, incorporate validated external best practices for individual artifact quality. When `--skip external`, compare against internal conventions and 05.02 reference articles.
 
 **Challenge step**: For each content issue, propose **2+ improvement options**. Example: verbose process section — option 1: compress + add reference to context file, option 2: externalize to template, option 3: restructure with early commands pattern. Compare on effectiveness, reliability, efficiency. Recommend with rationale.
 
 **Output**: Content findings report with per-file severity-scored issues and ranked improvement options.
 
-**performancecheck focus**: When mode is performancecheck, restrict analysis to checks 3-5 (redundancy, contradiction, efficiency) and skip goal/role/ambiguity/convention checks.
+**`--dim optimize` focus**: When `--dim optimize` is active, run all 6 checks with an efficiency lens — evaluate each check for optimization opportunities. Delegate apply to `@meta-optimizer` instead of per-type builders.
 
-### 4-Build (fullcheck only)
+### 4-Build (`--mode apply` only)
 
 Delegate to `@meta-designer`: Design change specifications across affected files. Each spec executable by its type-specific builder independently. Layer-ordered (L1 context, L2 instructions, L3 agents/skills, L4 prompts/templates).
 
-### 4-Validate (fullcheck only)
+### 4-Validate (`--mode apply` only)
 
 Delegate to `@meta-validator` (Design Validation mode): Verify content changes maintain goal alignment, don't weaken boundaries, and improve overall quality. Verdict: SAFE / FIX / UNSAFE.
 
 ---
 
-## Phase 5: User Approval (fullcheck + performancecheck — NEVER skippable)
+## Phase 5: User Approval (`--mode apply` only — NEVER skippable)
 
-**Context checkpoint**: Before starting Phase 5, run the Context Checkpoint Protocol. Write the consolidated change plan to `.copilot/temp/fullcheck-state/phase-5-changelist.md` using `create_file`. This file becomes the single source of truth for Phases 6–8 — conversation history from Phases 1–4 is no longer needed.
+**Context checkpoint**: Before starting Phase 5, run the Context Checkpoint Protocol. Write the consolidated change plan to `.copilot/temp/pe-meta-state/phase-5-changelist.md` using `create_file`. This file becomes the single source of truth for Phases 6–8 — conversation history from Phases 1–4 is no longer needed.
 
 Present consolidated change plan from all enabled audit phases with **diff-based preview**:
 
@@ -392,17 +428,17 @@ When the user approves a change that `@meta-validator` rated as **UNSAFE**, or o
 
 2. **Proceed with the approved change** — the override doesn't block application, but the dissenting opinion is preserved for institutional memory
 
-**performancecheck**: Present optimization plan with estimated line/token savings and diff previews. Options: approve / select / cancel.
+**When `--dim optimize`**: Present optimization plan with estimated line/token savings and diff previews. Options: approve / select / cancel.
 
 **If no findings from Phases 2-4**: Report "System is healthy — no changes needed" and skip to Phase 8.
 
 ---
 
-## Phase 6: Apply Changes (skip with --plan — NEVER without Phase 5 approval)
+## Phase 6: Apply Changes (skip with --mode plan — NEVER without Phase 5 approval)
 
-**Context checkpoint**: Read approved changes from `.copilot/temp/fullcheck-state/phase-5-changelist.md`. Do NOT rely on conversation history from Phases 1–4.
+**Context checkpoint**: Read approved changes from `.copilot/temp/pe-meta-state/phase-5-changelist.md`. Do NOT rely on conversation history from Phases 1–4.
 
-**If `--plan` flag**: Skip this phase. Produce report (Phase 8) with validated plan, marking changes as "PLANNED — not applied". Include command to apply later: `fullcheck <same-source> <same-scope>` (without `--plan`).
+**If `--mode plan`**: Skip this phase. Produce report (Phase 8) with validated plan, marking changes as "PLANNED — not applied". Include command to apply later: `/pe-meta-update --mode apply <same-source> --scope <same-scope>`.
 
 ### Rollback Snapshots
 
@@ -413,9 +449,9 @@ Before modifying any file:
 
 ### Apply
 
-**fullcheck**: Delegate to per-type builders (prompt/agent/context/instruction/skill/hook/snippet-builder) with full change specs and per-step self-validation.
+**Default `--mode apply` path**: Delegate to per-type builders (prompt/agent/context/instruction/skill/hook/snippet-builder) with full change specs and per-step self-validation.
 
-**performancecheck**: Delegate to `@meta-optimizer`. Process ONE file at a time. Verify no rules/capabilities lost.
+**When `--dim optimize`**: Delegate to `@meta-optimizer`. Process ONE file at a time. Verify no rules/capabilities lost.
 
 ---
 
@@ -474,29 +510,28 @@ After 7a/7b results are available, classify the failure type and route according
 
 **Report template**: `.github/templates/00.00-prompt-engineering/output-pe-management-report.template.md`
 
-Report includes: mode, scope, date, source, **phases executed** (which were skipped and why), artifacts analyzed, issues found by severity **and by phase** (structure/consistency/content), changes applied, health score (healthcheck: `100 - (CRITICAL*25 + HIGH*10 + MEDIUM*3 + LOW*1)`), token savings (performancecheck), rollback instructions.
+Report includes: mode, scope, date, source, **phases executed** (which were skipped and why), artifacts analyzed, issues found by severity **and by phase** (structure/consistency/content), changes applied, health score (`--mode plan`: `100 - (CRITICAL*25 + HIGH*10 + MEDIUM*3 + LOW*1)`), token savings (`--dim optimize`), rollback instructions.
 
 ### Audit Log Update
 
-**Always runs after any mode** (fullcheck, healthcheck, or performancecheck).
+**Always runs regardless of `--mode` or `--dim`.**
 
 Update `.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md`:
 
 1. Append entry under appropriate mode section with: date, mode, scope, phases executed, source, findings count by severity and phase, changes applied (or "None" / "Plan only"), health score
-2. For fullcheck with external sources: update "Last Processed Versions" table if release notes were analyzed
-3. For fullcheck (any variant): update "Last fullcheck file manifest" with the list of all PE artifact paths and their `last_updated` dates at the time of this run — this enables `--incremental` on the next fullcheck
+2. For `--mode apply` with external sources: update "Last Processed Versions" table if release notes were analyzed
+3. For `--mode apply` runs: update "Last Apply-Mode Run File Manifest" with the list of all PE artifact paths and their `last_updated` dates at the time of this run — this enables `--incremental` on the next apply-mode run
 4. Update `last_updated` in YAML frontmatter to today's date
 
 ### Test-Then-Apply Pattern
 
-When invoked from `/pe-meta-scheduled-review` or with `--plan`:
+When invoked from `/pe-meta-scheduled-review` or with `--mode plan`:
 
 ```
-healthcheck (runs 2R+3R+4R) — findings?
+--mode plan (runs 2R+3R+4R) — findings?
   No issues — log "clean" + stop
-  Issues found — fullcheck --plan (same scope)
-       — present plan to user
-       — user approves? fullcheck (apply)
+  Issues found — present plan to user (already produced by plan mode)
+       — user approves? re-invoke with --mode apply (same scope)
        — user declines? log "deferred" + stop
 ```
 
@@ -507,7 +542,7 @@ healthcheck (runs 2R+3R+4R) — findings?
 **📖 Recovery pattern:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
 
 Meta-update-specific recovery:
-- **fetch_webpage fails** → Switch to `--no-external` mode, warn user, continue with local artifacts
+- **fetch_webpage fails** → Switch to `--skip external` mode, warn user, continue with local artifacts
 - **meta-validator reports UNSAFE** → BLOCK changes, present issues, ask user for resolution
 - **Builder creates file with wrong structure** → Verify via `read_file`, hand off fix to builder (max 3 retries)
 - **Context window exhausted** → Checkpoint progress to Phase 8 report, recommend new session for remaining work
@@ -520,7 +555,7 @@ Meta-update-specific recovery:
 **📖 Response patterns:** [04.03-production-readiness-patterns.md](.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md)
 
 Meta-update-specific scenarios:
-- **Source URL unreachable** → "URL [url] is unreachable. Running in `--no-external` mode with local artifacts only."
+- **Source URL unreachable** → "URL [url] is unreachable. Running with `--skip external` using local artifacts only."
 - **Research returns no PE-relevant changes** → Report "no PE-relevant changes found", skip to Phase 8
 - **Ambiguous scope** → Ask user: "Your input matches multiple scopes: [list]. Which should I analyze?"
 - **Phase produces zero findings** → Report phase result, proceed to next (don't fabricate issues)
@@ -532,9 +567,9 @@ Meta-update-specific scenarios:
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | fullcheck with URL (happy path) | All 8 phases execute → research + audits + apply + validate + report + log |
-| 2 | healthcheck all | Phases 2R+3R+4R+8 only → report generated, no changes applied |
+| 1 | `/pe-meta-update --mode apply <URL>` (happy path) | All 8 phases execute → research + audits + apply + validate + report + log |
+| 2 | `/pe-meta-update --mode plan --skip research` | Phases 2R+3R+4R+8 only → report generated, no changes applied |
 | 3 | No changes needed | All audits pass → report "healthy", log updated with clean health score |
-| 4 | fullcheck --plan | Stops before Phase 6 → produces plan-only report marked "PLANNED" |
+| 4 | `/pe-meta-update --mode plan` | Stops before Phase 6 → produces plan-only report marked "PLANNED" |
 | 5 | Phase 7 regression failure | BLOCKS Phase 8 → presents broken capabilities with rollback instructions |
 | 6 | User approves UNSAFE change | Override logged in review log Override History → change applied → follow-up due at next scheduled review |

@@ -255,7 +255,7 @@ if ($metaReviewLog) {
             $logAgeDays = ($today - $logDate).Days
             if ($logAgeDays -gt $metaReviewThresholdDays) {
                 $metaReviewOverdue = $true
-                $warnings += "Meta-review log last updated $logAgeDays days ago ($logLastUpdated). Threshold: $metaReviewThresholdDays days. Run ``/meta-prompt-engineering-update healthcheck`` to refresh."
+                $warnings += "Meta-review log last updated $logAgeDays days ago ($logLastUpdated). Threshold: $metaReviewThresholdDays days. Run ``/pe-meta-update --mode plan --skip research`` to refresh."
             }
         }
         catch { }
@@ -275,7 +275,7 @@ if ($stubFiles.Count -gt 0) {
 
 if ($staleFiles.Count -gt 0) {
     $fileList = ($staleFiles | ForEach-Object { "  - $($_.file) ($($_.ageDays) days, last updated $($_.lastUpdated))" }) -join "`n"
-    $messageParts += "PE STALENESS ALERT: $($staleFiles.Count) context file(s) exceed the $stalenessThresholdDays-day freshness threshold:`n$fileList`nRun ``/meta-prompt-engineering-update healthcheck`` on stale areas."
+    $messageParts += "PE STALENESS ALERT: $($staleFiles.Count) context file(s) exceed the $stalenessThresholdDays-day freshness threshold:`n$fileList`nRun ``/pe-meta-update --mode plan --skip research`` on stale areas."
 }
 
 if ($staleTemplates.Count -gt 0) {

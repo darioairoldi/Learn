@@ -1,0 +1,10 @@
+timestamp=2026-05-21 14:30:53
+files_checked=3
+missing_files=0
+broken_local_links=0
+builder_always_count=11
+builder_ask_count=4
+builder_never_count=6
+builder_handoff_to_validator=1
+builder_context_dependencies_declared=1
+builder_deterministic_mentions=0

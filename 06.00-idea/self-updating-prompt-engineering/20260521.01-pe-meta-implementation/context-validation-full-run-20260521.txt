@@ -1,0 +1,71 @@
+C01_FILE_COUNT=35
+C01_NO_FRONTMATTER=0
+C01_MISSING_REQUIRED=1
+C01_EMPTY=0
+C01_NO_H1=0
+C02_DUP_LONG_LINES=8
+C02_AMBIG_FILES=7
+C02_ACTIONABILITY_SIGNALS=2
+C03_DIRECT_REF_ORPHANS=16
+C04_STALE_OVER_180=0
+C04_NO_URL_FILES=18
+C04_BROKEN_LOCAL_LINKS=11
+---DETAIL_C01_MISSING---
+STRUCTURE-README.md: missing description
+---DETAIL_C02_DUP_LONG_LINES---
+LINE: - **Internal**: [01.01-context-engineering-principles.md](01.01-context-engineering-principles.md) — Principle 8 (templa ... FILES: 03.07-template-authoring-patterns.md, 04.03-production-readiness-patterns.md
+LINE: **Referenced by**: `meta-validator` (capability preservation checks), `meta-designer` (change impact analysis), `pe-meta ... FILES: 00.01-governance-and-capability-baseline.md, 00.02-capability-map.md
+LINE: - **📖 Workflow entry points**: [05.03-pe-workflow-entry-points.md](05.03-pe-workflow-entry-points.md) ... FILES: 00.02-capability-map.md, 05.02-artifact-lifecycle-management.md, 05.04-meta-review-log.md, 05.05-practical-effectiveness-log.md
+LINE: - **📖 System parameters (boundary minimums)**: [01.06-system-parameters.md](01.06-system-parameters.md) ... FILES: 02.04-agent-shared-patterns.md, 02.05-agent-workflow-patterns.md
+LINE: - **External**: Liu et al. (2023) "Lost in the Middle", [OpenAI Prompt Caching](https://platform.openai.com/docs/guides/ ... FILES: 01.06-system-parameters.md, 02.02-context-window-and-token-optimization.md
+LINE: - **External**: [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/copilot-customization) ... FILES: 01.01-context-engineering-principles.md, 01.02-prompt-assembly-architecture.md, 01.03-file-type-decision-guide.md, 01.04-tool-composition-guide.md, 02.01-handoffs-pattern.md, 05.02-artifact-lifecycle-management.md
+LINE: - **📖 Production readiness patterns**: [04.03-production-readiness-patterns.md](04.03-production-readiness-patterns.md) ... FILES: 02.04-agent-shared-patterns.md, 02.05-agent-workflow-patterns.md
+LINE: **Referenced by**: All PE agents in `.github/agents/00.01-pe-consolidated/`, `00.02-pe-granular/`, `00.09-pe-meta/`, and ... FILES: 02.04-agent-shared-patterns.md, 02.05-agent-workflow-patterns.md
+---DETAIL_C02_ACTIONABILITY---
+02.01-handoffs-pattern.md: must/should=13, steps=0
+04.03-production-readiness-patterns.md: must/should=11, steps=0
+---DETAIL_C03_ORPHANS---
+00.02-capability-map.md
+00.03-metadata-contracts.md
+01.05-glossary.md
+01.06-system-parameters.md
+03.01-progressive-disclosure-pattern.md
+03.05-copilot-spaces-patterns.md
+03.06-copilot-sdk-integration.md
+03.07-template-authoring-patterns.md
+04.02-adaptive-validation-patterns.md
+04.04-orchestrator-runtime-validation.md
+05.01-artifact-dependency-map.md
+05.02-artifact-lifecycle-management.md
+05.03-pe-workflow-entry-points.md
+05.06-pe-strategic-review-criteria.md
+05.07-pe-meta-dimension-catalog.md
+05.08-pe-meta-type-checklists.md
+---DETAIL_C04_STALE---
+---DETAIL_C04_BROKEN_LOCAL---
+00.03-metadata-contracts.md: ../../../06.00-idea/self-updating-prompt-engineering/04.000-vision.v4.md
+00.03-metadata-contracts.md: ../../.github/instructions/pe-context-files.instructions.md
+01.01-context-engineering-principles.md: ../../.github/instructions/prompts.instructions.md
+01.01-context-engineering-principles.md: ../../.github/instructions/agents.instructions.md
+01.01-context-engineering-principles.md: ../../.github/instructions/context-files.instructions.md
+01.01-context-engineering-principles.md: ../../.github/instructions/skills.instructions.md
+01.02-prompt-assembly-architecture.md: ./01.03-file-type-decision-guide.md#agent-plugins-preview
+02.04-agent-shared-patterns.md: .copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md
+03.07-template-authoring-patterns.md: ../../.github/instructions/templates.instructions.md
+STRUCTURE-README.md: .copilot/context/00.00-prompt-engineering/
+STRUCTURE-README.md: .copilot/context/00.00-prompt-engineering/04.01-validation-caching-pattern.md
+
+---RERUN_2026_05_21---
+C01_FILE_COUNT=35
+C01_MISSING_REQUIRED=0
+C04_BROKEN_LOCAL_LINKS=0
+C02_TOOL_ALIGNMENT_CANONICAL=PASS
+C02_BOUNDARY_MIN_CANONICAL=PASS
+C02_RESPONSE_BRIDGE=PASS
+C02_ERROR_TEMPLATE_PATH=PASS
+C03_LIFECYCLE_ACTIVE=PASS
+C03_ENTRYPOINT_ACTIVE=PASS
+C03_ORCH_SEQUENCE=PASS
+C03_HANDOFF_RECOVERY=PASS
+C03_DEPMAP_STALENESS=PASS
+C03_EXEMPLARY_TIMING=PASS

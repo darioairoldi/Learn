@@ -1,8 +1,8 @@
 ---
 description: Rules for creating and maintaining reusable prompt-snippet fragments included via #file references
 applyTo: '.github/prompt-snippets/**/*.md'
-version: "1.4.0"
-last_updated: "2026-04-24"
+version: "1.4.1"
+last_updated: "2026-05-21"
 goal: "Ensure prompt snippets remain concise, self-contained, and non-duplicative reusable fragments"
 rationales:
   - "Snippets are not auto-injected or indexed as commands, so they must be self-contained"

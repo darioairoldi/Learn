@@ -103,11 +103,11 @@
       "Microsoft.AspNetCore.SignalR.Client": {
         "type": "Direct",
         "requested": "[8.*, )",
-        "resolved": "8.0.26",
-        "contentHash": "1HeyinolWYtnMANeFt1Fq2xvkqZdegC0WmiJWQA4suyKoMl6Yrid1XQZ2iZp1baOhvMU3GouK1BmEEI80zpQxg==",
+        "resolved": "8.0.27",
+        "contentHash": "m+hF3Ur1wOMZt665FCqcp+g8OLeA8hJClBlKmWa2Ut++rm+bY3NF8oUZlyGmSD3QHaNMQb4L7wI8qbLFqGtWTA==",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Connections.Client": "8.0.26",
-          "Microsoft.AspNetCore.SignalR.Client.Core": "8.0.26"
+          "Microsoft.AspNetCore.Http.Connections.Client": "8.0.27",
+          "Microsoft.AspNetCore.SignalR.Client.Core": "8.0.27"
         }
       },
       "Microsoft.Extensions.Hosting": {
@@ -142,9 +142,9 @@
       },
       "Microsoft.NET.ILLink.Tasks": {
         "type": "Direct",
-        "requested": "[8.0.26, )",
-        "resolved": "8.0.26",
-        "contentHash": "o7/yVssM2r9Wyln2s9edBd5ANZXqdSdBI+g7JqXkyJmXrhs2WsJp25K5yPnYrTgdKBCjKB8bg+O2oew4sgzFaA=="
+        "requested": "[8.0.27, )",
+        "resolved": "8.0.27",
+        "contentHash": "rQi9TxifHRnXP7lVRZH05DxD2/XGbJp12q0ozcbrlBlBnyyzssFTH/2vLhtKWUp2CT1qVscTrcYTFiwTyKPKRg=="
       },
       "Microsoft.SourceLink.GitHub": {
         "type": "Direct",
@@ -289,10 +289,10 @@
       },
       "Microsoft.AspNetCore.Connections.Abstractions": {
         "type": "Transitive",
-        "resolved": "8.0.26",
-        "contentHash": "LhBxFDa3oUFbuFzkZ7kDNlJmnn+igJemO7SLIl2qaya0yd1Bv+YJ+2tuik5pV7dBKwuXsH+DgIsWGpXBZP+HMA==",
+        "resolved": "8.0.27",
+        "contentHash": "Dy8J8CWzG08Lbueew4EgE3xCjYONlkiBcjWhAFuDTPWkPkKaQ/6qg0vMDfCX1/GLEmCddhn7/+qLQ5AT2RPiiw==",
         "dependencies": {
-          "Microsoft.Extensions.Features": "8.0.26",
+          "Microsoft.Extensions.Features": "8.0.27",
           "System.IO.Pipelines": "8.0.0"
         }
       },
@@ -307,20 +307,20 @@
       },
       "Microsoft.AspNetCore.Http.Connections.Client": {
         "type": "Transitive",
-        "resolved": "8.0.26",
-        "contentHash": "rCqmtu3mGH+EjU8K9emMAkCTXY8M6k3Ol1e1YAzgI4xTlzn83x7b1PE9PlbgW4jPXDNst5v3L7j3vrYKn2RFpw==",
+        "resolved": "8.0.27",
+        "contentHash": "IOLgy2VWc/6UtWKCHzZBpW8fAvG4Hh1PND4n0nWimI9zcpG19VmaKprJbrO52yZZg4YSVSILlgt9QyMJe3zCDQ==",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Connections.Common": "8.0.26",
+          "Microsoft.AspNetCore.Http.Connections.Common": "8.0.27",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
           "Microsoft.Extensions.Options": "8.0.2"
         }
       },
       "Microsoft.AspNetCore.Http.Connections.Common": {
         "type": "Transitive",
-        "resolved": "8.0.26",
-        "contentHash": "1UK4N+LnomPKO0Hxz0a7H8ThW0YhUT+LxgHy0gH9cVX4Dp9rMCJl5p3WZxZd0fgtm/ZcV4b5CHmxz7rNH3q0Gw==",
+        "resolved": "8.0.27",
+        "contentHash": "TkINXZQdZYPQKH94P7fB9zTZddVosF5rlEFKYO14szINeWBBMYQ0MvR2icw/cN6K3KNWB1OjIqnbNtI2mSgEzA==",
         "dependencies": {
-          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.26"
+          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.27"
         }
       },
       "Microsoft.AspNetCore.Http.Features": {
@@ -333,11 +333,11 @@
       },
       "Microsoft.AspNetCore.SignalR.Client.Core": {
         "type": "Transitive",
-        "resolved": "8.0.26",
-        "contentHash": "Xqva5vJu1mW1szFuWk6v54wVMNw9w/mMR/cOdYXZiVJ6VnBhkbZHYP0Q+sXmXyLfMS5AguxxMtx1i50Aggm8tQ==",
+        "resolved": "8.0.27",
+        "contentHash": "J6CZ+DPvrmcgIZe+/hXjv0l8/K34WIdu4KwG31sXFp9J+eOxjpVYgIZM3sMGm6CyPe2PGl7wZvq9g/TkkxFfBQ==",
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Common": "8.0.26",
-          "Microsoft.AspNetCore.SignalR.Protocols.Json": "8.0.26",
+          "Microsoft.AspNetCore.SignalR.Common": "8.0.27",
+          "Microsoft.AspNetCore.SignalR.Protocols.Json": "8.0.27",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Microsoft.Extensions.Logging": "8.0.1",
           "System.Threading.Channels": "8.0.0"
@@ -345,19 +345,19 @@
       },
       "Microsoft.AspNetCore.SignalR.Common": {
         "type": "Transitive",
-        "resolved": "8.0.26",
-        "contentHash": "JO5RiEE5nmQoRNLmeC9QLUG9VQgwv4y5X+pkSjM2d6nv0fdzHHIWt6MhY+J1IJsNXJepow7JFRrikyZ4FKn82w==",
+        "resolved": "8.0.27",
+        "contentHash": "bbI9QHW37cIFQoZBQFMfrZNx2c7vP3ky2Ewe/h4CO7BmQaGpSJLos75ONmEDJG+uDxNw8SAkyw212MVX/PJ5gw==",
         "dependencies": {
-          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.26",
+          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.27",
           "Microsoft.Extensions.Options": "8.0.2"
         }
       },
       "Microsoft.AspNetCore.SignalR.Protocols.Json": {
         "type": "Transitive",
-        "resolved": "8.0.26",
-        "contentHash": "B5IVV7WtQoxm2ye7TDrWMoYnv7pKZdAMYKFG2Wfvop6OMorhjIQn329O4o38/A1c4iC6NzfJRCpkMp8pYkXKUQ==",
+        "resolved": "8.0.27",
+        "contentHash": "G8/jhwdYUsNFwDOy3K7yDm3mJrql2oAdjs4jY5WT25JCn2gAnBnvt+nXWUwStpzw4BkP/6658ECVkBPY+3rUow==",
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Common": "8.0.26"
+          "Microsoft.AspNetCore.SignalR.Common": "8.0.27"
         }
       },
       "Microsoft.Azure.Cosmos": {
@@ -532,8 +532,8 @@
       },
       "Microsoft.Extensions.Features": {
         "type": "Transitive",
-        "resolved": "8.0.26",
-        "contentHash": "4gmXOhEw9PnieRu2GCLpewtDNkWOKVNt12FTuK3+sFu2VhLTKeDMSRFmTsigFNQoHWRJN+zF6ltjT6fdKHXjXw=="
+        "resolved": "8.0.27",
+        "contentHash": "aEMThqZn4vVY0MIsi6icXJEjPfE9tV293zUQAb+O5BO3mkVX4E/IwMzaO4e8GierLkvDvHnZerfFjtMdXFu4mQ=="
       },
       "Microsoft.Extensions.FileProviders.Abstractions": {
         "type": "Transitive",

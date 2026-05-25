@@ -1,0 +1,12 @@
+timestamp=2026-05-21 14:32:43
+g01_missing_fields=
+g01_semver=True
+g01_last_updated_iso=True
+a03_handoff_to_validator=1
+a04_context_dependencies=1
+a02_has_always=1
+a02_has_askfirst=1
+a02_has_never=1
+a05_has_process=1
+a05_deterministic_mentions=0
+full_builder_status_ok=True

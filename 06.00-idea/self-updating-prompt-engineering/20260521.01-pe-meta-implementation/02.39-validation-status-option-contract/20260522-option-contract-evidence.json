@@ -1,0 +1,62 @@
+[
+  {
+    "id": "D-AC-01",
+    "description": "Core review supports dim + with-deps",
+    "pass": true,
+    "evidence": "review argument-hint includes dim and dependency flags"
+  },
+  {
+    "id": "D-AC-02",
+    "description": "Scheduled review owns --mode orchestration control",
+    "pass": true,
+    "evidence": "scheduled arg-hint + matrix mode row"
+  },
+  {
+    "id": "D-AC-03",
+    "description": "Update supports --skip-* controls",
+    "pass": true,
+    "evidence": "update argument-hint and scope flags"
+  },
+  {
+    "id": "D-AC-04",
+    "description": "Update supports --no-research where applicable",
+    "pass": true,
+    "evidence": "update behavior flags include no-research"
+  },
+  {
+    "id": "D-AC-05",
+    "description": "Release-monitor supports plan + dim only for release checks",
+    "pass": true,
+    "evidence": "release-monitor argument-hint"
+  },
+  {
+    "id": "D-RJ-01",
+    "description": "Review rejects any --mode usage as redundant",
+    "pass": true,
+    "evidence": "review invalid combinations table has explicit mode rejection"
+  },
+  {
+    "id": "D-RJ-02",
+    "description": "Review rejects conflicting dependency flags",
+    "pass": true,
+    "evidence": "review invalid combinations table"
+  },
+  {
+    "id": "D-RJ-03",
+    "description": "Review rejects context-only dims on non-context targets",
+    "pass": true,
+    "evidence": "review invalid combinations table"
+  },
+  {
+    "id": "D-RJ-04",
+    "description": "Guidance-first routing is canonicalized to adherence",
+    "pass": true,
+    "evidence": "adherence rationale + review mode selection table"
+  },
+  {
+    "id": "D-RJ-05",
+    "description": "Release-diff requests route to release-monitor from update",
+    "pass": true,
+    "evidence": "update boundaries + matrix canonical ownership table"
+  }
+]

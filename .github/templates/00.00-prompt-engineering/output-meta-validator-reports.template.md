@@ -1,5 +1,5 @@
 ---
-description: "Report formats for meta-validator ecosystem audit modes"
+description: "Report formats for meta-validator — design validation, implementation validation, ecosystem audit, dimension-based review, and adherence matrix"
 ---
 
 # Meta-Validator Report Templates
@@ -172,15 +172,94 @@ description: "Report formats for meta-validator ecosystem audit modes"
 **Overall:** [N]/100
 ```
 
+---
+
+## Mode 4: Dimension-Based Review Report
+
+Use when reviewing an artifact with `--dim` parameter. Structure from `output-dimension-report.template.md`.
+
+```markdown
+## Dimension Review: [artifact path]
+
+**Date:** [ISO 8601]
+**Mode:** Individual / Dependency-aware / Guidance-first
+**Dimensions assessed:** [--dim value]
+**Artifact type:** [type]
+**Applicable dimensions:** [N] of 27 (per applicability matrix)
+
+### Dimension Results
+
+[For each assessed dimension, use the per-dimension format from output-dimension-report.template.md]
+
+### Cross-Dependency Coherence (if --with-deps)
+
+| Dependency | D17 Status | Contradictions found |
+|---|---|---|
+| [context file path] | ✅/❌ | [description or "None"] |
+
+### Adherence Summary (if D16 assessed)
+
+| Rule source | Rules checked | Implemented | Gaps |
+|---|---|---|---|
+| [context file] | [N] | [N] | [N] |
+
+### Consumer Impact (if context file target)
+
+**Affected consumers:** [N] artifacts load this file
+**Re-assessment recommended:** [Yes/No — Yes if rules were changed]
+```
+
+---
+
+## Mode 5: System-Wide Apply-Mode Review Report (Phase A-F)
+
+Use for `/pe-meta-update --mode apply`. Follows artifact-type ordering from vision v12.
+
+```markdown
+## System-Wide Apply-Mode Review Report
+
+**Date:** [ISO 8601]
+**Trigger:** [platform release / scheduled / manual]
+
+### Phase A: Context Files (Foundation Layer)
+| File | Dims assessed | ✅ | ⚠️ | ❌ | Blocking? |
+|---|---|---|---|---|---|
+
+### Phase B: Instruction Files
+| File | Dims assessed | ✅ | ⚠️ | ❌ | R-S8 compliant? |
+|---|---|---|---|---|---|
+
+### Phase C: Agent Bodies (adherence against Phase A/B)
+| File | Dims assessed | ✅ | ⚠️ | ❌ | D16 adherence |
+|---|---|---|---|---|---|
+
+### Phase D: Prompts (adherence against Phase A/B/C)
+| File | Dims assessed | ✅ | ⚠️ | ❌ | D16 adherence |
+|---|---|---|---|---|---|
+
+### Phase E: Templates, Snippets, Hooks
+| File | Dims assessed | ✅ | ⚠️ | ❌ |
+|---|---|---|---|---|
+
+### Phase F: Skills
+| File | Dims assessed | ✅ | ⚠️ | ❌ |
+|---|---|---|---|---|
+
+### Phase Ordering Notes
+[Any Phase A issues that blocked Phase C/D assessment]
+```
+
 <!--
 ---
 template_metadata:
-  version: "1.0.0"
-  last_updated: "2026-03-20"
+  version: "2.0.0"
+  last_updated: "2026-05-15"
   created: "2026-03-20"
   consumers:
-    - "meta-validator"
+    - "pe-meta-validator"
+    - "pe-meta review prompts"
   changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+    - "v2.0.0: Added Mode 4 (dimension-based review), Mode 5 (system-wide apply-mode review with Phase A-F ordering), --dim parameter support, cross-dependency coherence section, adherence summary, consumer impact section. Aligned with vision v12."
+    - "v1.0.0: Initial version — design validation, implementation validation, ecosystem audit"
 ---
 -->

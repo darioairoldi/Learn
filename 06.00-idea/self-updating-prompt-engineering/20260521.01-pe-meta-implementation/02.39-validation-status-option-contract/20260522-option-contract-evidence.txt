@@ -1,0 +1,13 @@
+run_timestamp=2026-05-22 19:31:19
+total_checks=10
+all_pass=True
+D-AC-01=True | Core review supports dim + with-deps
+D-AC-02=True | Scheduled review owns --mode orchestration control
+D-AC-03=True | Update supports --skip-* controls
+D-AC-04=True | Update supports --no-research where applicable
+D-AC-05=True | Release-monitor supports plan + dim only for release checks
+D-RJ-01=True | Review rejects any --mode usage as redundant
+D-RJ-02=True | Review rejects conflicting dependency flags
+D-RJ-03=True | Review rejects context-only dims on non-context targets
+D-RJ-04=True | Guidance-first routing is canonicalized to adherence
+D-RJ-05=True | Release-diff requests route to release-monitor from update

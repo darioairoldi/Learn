@@ -186,9 +186,27 @@ Verify the dependency map matches the actual artifact state.
 **Symptom**: New artifacts exist but aren't listed in the `dependency-tracking` file (see STRUCTURE-README.md → Functional Categories)
 **Solution**: Update the dependency map with new entries and reference counts
 
+## Dimension Mapping
+
+This skill's workflows map to the 27-dimension quality framework (see `05.07-dimension-applicability-matrix.md`):
+
+| Workflow | Dimensions Covered |
+|---|---|
+| Reference Integrity | D17 (Reference Integrity), D18 (Link Resolution) |
+| Rule Consistency | D22 (Rule Consistency), D23 (Layer Agreement) |
+| Handoff Chain | D24 (Handoff Completeness), D25 (Data Contract) |
+| Redundancy Scan | D20 (Non-Redundancy), D21 (Single Source of Truth) |
+| Token Budget | D15 (Token Budget Compliance) |
+| Dependency Map | D26 (Dependency Accuracy), D27 (Map Currency) |
+
+Use `--dim <D#>` with `/pe-meta-review` to invoke specific dimension checks selectively.
+Use `--with-deps` to trace cross-artifact consistency chains.
+
 ## Resources
 
 - **📖 Dependency map:** see `dependency-tracking` in `.copilot/context/00.00-prompt-engineering/` (STRUCTURE-README.md → Functional Categories)
 - **📖 Lifecycle management:** `.copilot/context/00.00-prompt-engineering/05.02-artifact-lifecycle-management.md`
 - **📖 Entry points:** `.copilot/context/00.00-prompt-engineering/05.03-pe-workflow-entry-points.md`
 - **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
+- **📖 Dimension applicability matrix:** `.copilot/context/00.00-prompt-engineering/05.07-dimension-applicability-matrix.md`
+- **📖 Type-specific checklists:** `.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md`

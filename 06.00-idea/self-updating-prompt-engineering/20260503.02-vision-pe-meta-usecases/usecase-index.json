@@ -1,0 +1,535 @@
+{
+  "version": "2.2.0",
+  "generated_at": "2026-05-24",
+  "entries": [
+    {
+      "id": "UC-22",
+      "group": "01-freshness",
+      "priority": "P0",
+      "path": "01-freshness/p0-01-context-quality-lifecycle.md",
+      "order": 1,
+      "title": "Context quality lifecycle",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-context-review <path> --dim context-full",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-14",
+      "group": "01-freshness",
+      "priority": "P0",
+      "path": "01-freshness/p0-02-release-impact-assessment.md",
+      "order": 2,
+      "title": "Platform release impact assessment",
+      "command_family": "release-diff",
+      "primary_entry_point": "/pe-meta-release-diff <url>",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-05",
+      "group": "01-freshness",
+      "priority": "P1",
+      "path": "01-freshness/p1-01-staleness-source-verification.md",
+      "order": 3,
+      "title": "Staleness and source verification",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim freshness",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-16",
+      "group": "01-freshness",
+      "priority": "P1",
+      "path": "01-freshness/p1-02-context-optimization.md",
+      "order": 4,
+      "title": "Context file optimization",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-context-review <path> --dim context-optimization",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-02",
+      "group": "02-quality-gates",
+      "priority": "P0",
+      "path": "02-quality-gates/p0-01-guidance-quality-assessment.md",
+      "order": 1,
+      "title": "Guidance quality assessment",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim quality",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-03",
+      "group": "02-quality-gates",
+      "priority": "P1",
+      "path": "02-quality-gates/p1-01-consistency-check.md",
+      "order": 2,
+      "title": "Consistency check (non-contradiction)",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode plan --dim quality --skip research,structure",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-04",
+      "group": "02-quality-gates",
+      "priority": "P1",
+      "path": "02-quality-gates/p1-02-redundancy-check.md",
+      "order": 3,
+      "title": "Redundancy check (single source of truth)",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim efficiency --scope context",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-07",
+      "group": "02-quality-gates",
+      "priority": "P1",
+      "path": "02-quality-gates/p1-03-coverage-gaps.md",
+      "order": 4,
+      "title": "Coverage gaps and unhappy path handling",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim quality",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-10",
+      "group": "02-quality-gates",
+      "priority": "P1",
+      "path": "02-quality-gates/p1-04-prioritization-review.md",
+      "order": 5,
+      "title": "Rules prioritization review",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-context-review 01.07-critical-rules-priority-matrix.md --dim prioritization",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-08",
+      "group": "02-quality-gates",
+      "priority": "P2",
+      "path": "02-quality-gates/p2-01-artifact-structure-review.md",
+      "order": 6,
+      "title": "Artifact structure and scope optimization",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --dim structural",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-13",
+      "group": "02-quality-gates",
+      "priority": "P2",
+      "path": "02-quality-gates/p2-02-vision-alignment-check.md",
+      "order": 7,
+      "title": "Vision alignment check",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --dim strategic",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-12",
+      "group": "03-consumer-correctness",
+      "priority": "P0",
+      "path": "03-consumer-correctness/p0-01-dependency-aware-full-review.md",
+      "order": 1,
+      "title": "Dependency-aware full review",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --deps full",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-11",
+      "group": "03-consumer-correctness",
+      "priority": "P1",
+      "path": "03-consumer-correctness/p1-01-guidance-adherence-verification.md",
+      "order": 2,
+      "title": "Guidance adherence verification",
+      "command_family": "guidance-first",
+      "primary_entry_point": "/pe-meta-adherence <guidance-path>",
+      "allowed_option_classes": [
+        "scope",
+        "deps"
+      ]
+    },
+    {
+      "id": "UC-21",
+      "group": "03-consumer-correctness",
+      "priority": "P1",
+      "path": "03-consumer-correctness/p1-02-model-specific-guidance-adherence.md",
+      "order": 3,
+      "title": "Model-specific guidance adherence",
+      "command_family": "guidance-first",
+      "primary_entry_point": "/pe-meta-adherence 03.02-model-specific-optimization.md",
+      "allowed_option_classes": [
+        "scope",
+        "deps"
+      ]
+    },
+    {
+      "id": "UC-06",
+      "group": "04-efficiency",
+      "priority": "P1",
+      "path": "04-efficiency/p1-01-token-budget-analysis.md",
+      "order": 1,
+      "title": "Token budget analysis",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-20",
+      "group": "04-efficiency",
+      "priority": "P1",
+      "path": "04-efficiency/p1-02-model-routing-correctness.md",
+      "order": 2,
+      "title": "Model routing correctness",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-19",
+      "group": "04-efficiency",
+      "priority": "P2",
+      "path": "04-efficiency/p2-01-processing-pipeline-efficiency.md",
+      "order": 3,
+      "title": "Processing pipeline efficiency",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope prompts",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-17",
+      "group": "04-efficiency",
+      "priority": "P2",
+      "path": "04-efficiency/p2-02-reference-load-efficiency.md",
+      "order": 4,
+      "title": "Reference load efficiency",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-18",
+      "group": "04-efficiency",
+      "priority": "P2",
+      "path": "04-efficiency/p2-03-handoff-efficiency.md",
+      "order": 5,
+      "title": "Handoff and summarization efficiency",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope prompts,agents",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-15",
+      "group": "04-efficiency",
+      "priority": "P2",
+      "path": "04-efficiency/p2-04-deterministic-first-optimization.md",
+      "order": 6,
+      "title": "Deterministic-first optimization",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-09",
+      "group": "04-efficiency",
+      "priority": "P3",
+      "path": "04-efficiency/p3-01-craftmanship-review.md",
+      "order": 7,
+      "title": "Craftmanship review",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --dim structural",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-01",
+      "group": "04-efficiency",
+      "priority": "P3",
+      "path": "04-efficiency/p3-02-structural-validation.md",
+      "order": 8,
+      "title": "Structural validation",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --dim structural --skip research,consistency,content",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-23",
+      "group": "05-reliability",
+      "priority": "P0",
+      "path": "05-reliability/p0-01-process-reproducibility.md",
+      "order": 1,
+      "title": "Process reproducibility",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --dim reliability --skip apply",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-24",
+      "group": "05-reliability",
+      "priority": "P0",
+      "path": "05-reliability/p0-02-regression-protection.md",
+      "order": 2,
+      "title": "Regression protection",
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update <target> --dim reliability",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-25",
+      "group": "05-reliability",
+      "priority": "P0",
+      "path": "05-reliability/p0-03-metadata-guard-enforcement.md",
+      "order": 3,
+      "title": "Metadata-guard enforcement",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --dim reliability --deps full",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-26",
+      "group": "05-reliability",
+      "priority": "P1",
+      "path": "05-reliability/p1-01-loop-stability-audit.md",
+      "order": 4,
+      "title": "Loop stability audit",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review --dim reliability --deps full",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-27",
+      "group": "05-reliability",
+      "priority": "P1",
+      "path": "05-reliability/p1-02-multipass-validation-invariant.md",
+      "order": 5,
+      "title": "Multi-pass validation invariant",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review --dim reliability",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-28",
+      "group": "05-reliability",
+      "priority": "P1",
+      "path": "05-reliability/p1-03-rollback-exercise.md",
+      "order": 6,
+      "title": "Rollback exercise",
+      "command_family": "scheduled",
+      "primary_entry_point": "/pe-meta-scheduled-review --dim reliability",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-29",
+      "group": "05-reliability",
+      "priority": "P1",
+      "path": "05-reliability/p1-04-boundary-actionability-redteam.md",
+      "order": 7,
+      "title": "Boundary actionability red-team",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review <path> --dim reliability --mode plan",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "deps",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-30",
+      "group": "05-reliability",
+      "priority": "P2",
+      "path": "05-reliability/p2-01-autonomy-calibration-audit.md",
+      "order": 8,
+      "title": "Autonomy calibration audit",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review --dim reliability --mode plan",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-31",
+      "group": "05-reliability",
+      "priority": "P2",
+      "path": "05-reliability/p2-02-conflict-resolution-coverage.md",
+      "order": 9,
+      "title": "Conflict-resolution coverage",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review .copilot/context/ --dim reliability --mode plan",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-32",
+      "group": "05-reliability",
+      "priority": "P2",
+      "path": "05-reliability/p2-03-portability-boundary-scan.md",
+      "order": 10,
+      "title": "Portability boundary scan",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review --dim reliability --mode plan",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    },
+    {
+      "id": "UC-33",
+      "group": "05-reliability",
+      "priority": "P2",
+      "path": "05-reliability/p2-04-mode-vs-risk-decoupling-check.md",
+      "order": 11,
+      "title": "Mode-vs-risk decoupling check",
+      "command_family": "review",
+      "primary_entry_point": "/pe-meta-review .github/prompts/00.09-pe-meta/ --dim reliability --mode plan",
+      "allowed_option_classes": [
+        "dim",
+        "scope",
+        "mode",
+        "skip"
+      ]
+    }
+  ]
+}

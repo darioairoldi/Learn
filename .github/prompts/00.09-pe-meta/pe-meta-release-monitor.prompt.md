@@ -1,6 +1,6 @@
 ---
 name: pe-meta-release-monitor
-description: "Track VS Code and GitHub Copilot releases — fetch latest release notes, diff against last processed version, run targeted fullcheck on affected PE artifact types, and update the review log."
+description: "Track VS Code and GitHub Copilot releases — fetch latest release notes, diff against last processed version, run a targeted apply-mode review on affected PE artifact types, and update the review log."
 agent: agent
 model: claude-opus-4.6
 tools:
@@ -30,23 +30,23 @@ version: "1.0.0"
 scope:
   covers:
     - "VS Code and GitHub Copilot release note fetching and diffing"
-    - "Targeted fullcheck scoped to affected PE artifact types"
+    - "Targeted apply-mode review scoped to affected PE artifact types"
     - "Review log version tracking updates"
   excludes:
     - "Scheduled staleness detection (pe-meta-scheduled-review handles this)"
     - "Full system audits (pe-meta-update handles this)"
 boundaries:
   - "MUST diff against last processed version from review log"
-  - "MUST scope fullcheck to only affected artifact types"
+  - "MUST scope the apply-mode review to only affected artifact types"
   - "MUST update review log with processed version after completion"
 rationales:
   - "Event-driven monitoring catches platform changes that time-based reviews miss"
-  - "Targeted fullcheck scope prevents re-auditing unaffected artifacts"
+  - "Targeted apply-mode review prevents re-auditing unaffected artifacts"
 ---
 
 # VS Code / Copilot Release Monitor
 
-Fetches the latest VS Code and GitHub Copilot release notes, diffs them against the last processed version recorded in the review log, and runs a targeted fullcheck only on PE artifact types affected by new features.
+Fetches the latest VS Code and GitHub Copilot release notes, diffs them against the last processed version recorded in the review log, and runs a targeted apply-mode review only on PE artifact types affected by new features.
 
 **When to run**: After a new VS Code or GitHub Copilot release. Complement to `/pe-meta-scheduled-review` (staleness-based) — this prompt is event-driven (release-based).
 
@@ -55,7 +55,7 @@ Fetches the latest VS Code and GitHub Copilot release notes, diffs them against 
 | Transition | Strategy | Include | Exclude | Max tokens |
 |---|---|---|---|---|
 | **Orchestrator → meta-researcher** (Phase 3) | send: true | Release diff summary, affected artifact types, scope | Full release notes text | ≤1,500 |
-| **Orchestrator → pe-meta-update** (Phase 4) | Delegated fullcheck | Mode, source (extracted changes), scope (affected types), --plan flag | Raw release notes, version comparison | ≤1,000 |
+| **Orchestrator → pe-meta-update** (Phase 4) | Delegated apply-mode review | Mode, source (extracted changes), scope (affected types), --plan flag | Raw release notes, version comparison | ≤1,000 |
 | **Orchestrator → builders** (Phase 6) | Approved changes | Per-file change specification | Rejected proposals, impact analysis | ≤500/file |
 
 ## Summarization Protocol
@@ -65,7 +65,7 @@ Fetches the latest VS Code and GitHub Copilot release notes, diffs them against 
 | Phase 1 (Load versions) | Last processed versions table | ≤200 | Raw log file content |
 | Phase 2 (Fetch releases) | Release diff: new features affecting PE | ≤1,000 | Full release notes text |
 | Phase 3 (Impact analysis) | Impact matrix: artifact type → affected files | ≤500 | Classification analysis |
-| Phase 4 (Targeted fullcheck) | Change proposals per artifact type | ≤1,000 | Fullcheck analysis details |
+| Phase 4 (Targeted apply-mode review) | Change proposals per artifact type | ≤1,000 | Review analysis details |
 | Phase 5 (Approval) | Approved change list | ≤500 | Rejected items, discussion |
 
 **Trigger**: Before EVERY handoff, estimate accumulated context. If >8,000 tokens: MUST summarize all prior phases to their "Summarize to" format before proceeding.
@@ -127,11 +127,11 @@ For each new feature or change identified in Phase 2:
 
 **Output**: Impact matrix showing which artifact types need updating and why.
 
-## Phase 4: Targeted fullcheck
+## Phase 4: Targeted apply-mode review
 
 For each affected artifact type identified in Phase 3, delegate to the `pe-meta-update` workflow:
 
-- **Mode**: `fullcheck`
+- **Mode**: `--mode apply`
 - **Source**: The extracted release notes content (not the URL — pass the relevant changes as a description)
 - **Scope**: Only the affected artifact types
 - **Flag**: Inherit `--plan` if the user specified it
@@ -142,7 +142,7 @@ If `--plan` is set → produce the change plan without applying and stop after t
 
 ## Phase 5: User approval
 
-Present the consolidated change plan from all targeted fullchecks:
+Present the consolidated change plan from all targeted apply-mode reviews:
 
 ```markdown
 ### Proposed changes from release [version]
@@ -167,7 +167,7 @@ Apply approved changes via the appropriate builder agents. Validate after each c
 Update `.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md`:
 
 1. Update the "Last Processed Versions" table with the new version numbers and today's date
-2. Append a new entry under "Fullcheck runs" with:
+2. Append a new entry under "Apply-mode runs" with:
    - Source: "VS Code [version] / Copilot [version] release notes"
    - Dimensions: artifact types that were checked
    - Findings and changes applied
@@ -179,7 +179,7 @@ Update `.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md`:
 - Check the review log for last processed versions BEFORE fetching
 - Present impact analysis and change proposals before applying
 - Update the review log after every run (even if no new releases found)
-- Map changes to specific PE artifact types — don't run system-wide fullcheck
+- Map changes to specific PE artifact types — don't run a system-wide apply-mode review
 
 ### Ask First
 - Applying changes to files with 6+ dependents
@@ -201,7 +201,7 @@ Update `.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md`:
 Release-monitor-specific recovery:
 - **fetch_webpage fails for release notes** → Warn user, ask for manual release notes paste
 - **Version parsing fails** → Ask user to confirm version numbers manually
-- **Targeted fullcheck finds no issues** → Log "no changes needed", update version table
+- **Targeted apply-mode review finds no issues** → Log "no changes needed", update version table
 - **Impact analysis unclear** → Default to broader scope, inform user
 
 ---
@@ -221,6 +221,6 @@ Release-monitor-specific scenarios:
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | New VS Code release (happy path) | Fetches → diffs → impact analysis → targeted fullcheck → apply → log |
+| 1 | New VS Code release (happy path) | Fetches → diffs → impact analysis → targeted apply-mode review → apply → log |
 | 2 | No new releases | Reports "already processed" → updates log timestamp → stops |
 | 3 | --plan flag | Generates change plan without applying → plan-only report |

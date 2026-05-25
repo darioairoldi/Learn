@@ -92,3 +92,10 @@ These conventions are **specific to this repository** and not covered by general
 1. **Language**: Write in English (international audience)
 2. **Images**: Store in `images/` subfolder within the article's folder
 3. **Series articles**: Include prev/next navigation links in conclusions
+
+### Instruction File Loading (CRITICAL)
+
+ALWAYS — make sure that ALL instruction files whose `applyTo` pattern matches any file relevant to the current task are loaded into the system prompt.
+In case not, load ALL the missing instruction files and follow their rules.
+Multiple patterns can match the same file (e.g., `*.md` AND `*plan*` both match a plan file).
+Rules from all matching files apply simultaneously.

@@ -1,7 +1,7 @@
 ---
 name: pe-meta-review
 description: "Review any PE-for-PE artifact against the PE vision, category contracts, quality bar, and ecosystem coherence — strategic review layer on top of structural validation"
-agent: plan
+agent: agent
 model: claude-opus-4.6
 tools:
   - semantic_search
@@ -9,6 +9,8 @@ tools:
   - file_search
   - grep_search
   - list_dir
+  - replace_string_in_file
+  - create_file
 handoffs:
   - label: "Structural Validation"
     agent: pe-con-validator
@@ -19,7 +21,10 @@ handoffs:
   - label: "Fix Issues"
     agent: pe-con-builder
     send: true
-argument-hint: '<file-path> — e.g., ".github/agents/00.09-pe-meta/pe-meta-validator.agent.md" or ".copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md"'
+  - label: "Optimize (--mode apply, complex findings)"
+    agent: pe-meta-optimizer
+    send: true
+argument-hint: '<file-path> [--mode plan|apply] — e.g., ".github/agents/00.09-pe-meta/pe-meta-validator.agent.md" or ".copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md"'
 version: "1.0.0"
 last_updated: "2026-04-28"
 goal: "Produce a strategic + structural validation report for any PE-for-PE artifact, covering vision alignment, category compliance, quality bar, and self-update readiness"
@@ -34,10 +39,11 @@ scope:
     - "Ecosystem coherence via pe-meta-validator"
   excludes:
     - "Domain artifacts (article-writing, documentation — use /pe-con-review for those)"
-    - "File modification (plan mode = read-only)"
-    - "Ecosystem-wide audits (use /pe-meta-update healthcheck)"
+    - "Ecosystem-wide audits (use /pe-meta-update --mode plan --skip research)"
 boundaries:
-  - "MUST stay read-only — plan mode"
+  - "Default mode: apply — implements non-breaking improvements autonomously; proposes breaking changes for human confirmation. Use `--mode plan` to opt into assessment-only output"
+  - "Risk classification determines execution, not command identity"
+  - "Write tools (`replace_string_in_file`, `create_file`) are active by default (`--mode apply`). Suppressed ONLY when `--mode plan` is explicitly specified OR when the finding is classified as breaking"
   - "MUST load PE-strategic context before validation"
   - "MUST run both structural AND strategic validation"
   - "Only applies to PE-for-PE artifacts (pe-* prefix or .copilot/context/00.00-prompt-engineering/)"
@@ -70,10 +76,11 @@ Strategic review for PE artifacts that serve the PE system itself. Adds vision a
 - When artifact has 6+ dependents — confirm scope of ecosystem coherence check before delegating to pe-meta-validator
 
 ### 🚫 Never Do
-- NEVER modify the file being reviewed (plan mode = read-only)
 - NEVER skip strategic validation even if structural validation passes — structural correctness alone is insufficient for PE-for-PE artifacts
 - NEVER approve artifacts that contradict vision rationales without explicit user override
 - NEVER run ecosystem coherence check without first completing structural + strategic validation
+- NEVER apply changes classified as breaking without human confirmation
+- NEVER apply changes when `--mode plan` is explicitly specified
 
 ## Process
 
@@ -151,11 +158,17 @@ pe-meta review prompts have a compact 4-phase pipeline and delegate structural v
 | **Orchestrator → pe-meta-validator** (optional) | send: true | File path + "ecosystem coherence check" + dependent count threshold (6+) | Structural findings, strategic analysis | ≤500 |
 | **Orchestrator → pe-con-builder** (for fixes) | send: true | File path + specific issues to fix from combined report | Full validation analysis | ≤500 |
 
+## Risk Classification
+
+#file:.github/prompt-snippets/pe-meta-risk-classification.md
+
 ## Response Management
 
 - **Not a PE artifact** → "This file is not a PE-for-PE artifact. Use `/pe-con-review` instead."
 - **Structural PASS but strategic FAIL** → Report strategic findings; structural correctness doesn't substitute for vision alignment
 - **All checks pass** → "This artifact meets both structural and strategic standards. No improvements needed."
+- **`--mode plan` active** → Report all findings as proposals; do not apply any changes
+- **`--mode apply` active (default)** → Apply non-breaking fixes autonomously; propose breaking changes for confirmation; delegate complex multi-file improvements to `@pe-meta-optimizer`
 
 ## Embedded Test Scenarios
 
