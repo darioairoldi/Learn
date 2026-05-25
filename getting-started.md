@@ -416,7 +416,7 @@ dotnet build --configuration Release
 - **IQPilot Overview**: [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md)
 - **IQPilot Getting Started**: [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md)
 - **Implementation Details**: [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md)
-- **Structure Overview**: [.github/STRUCTURE-README.md](.github/STRUCTURE-README.md)
+- **Structure Overview**: [.github/00.00-repository-structure.md](.github/00.00-repository-structure.md)
 - **Technical Docs**: [src/IQPilot/README.md](src/IQPilot/README.md)
 
 ## 🎓 Learning Resources

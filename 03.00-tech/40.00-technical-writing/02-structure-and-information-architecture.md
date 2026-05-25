@@ -1,4 +1,4 @@
-﻿---
+---
 # Quarto Metadata
 title: "Structure and Information Architecture"
 author: "Dario Airoldi"
@@ -996,14 +996,14 @@ Reordering changes the prerequisite chain and reading paths. Minimize disruption
 - **Alphabet:** Often within categories (Azure, Data, GitHub...)
 
 **Diátaxis mapping:**
-- **Tutorials:** GETTING-STARTED.md, introduction articles
+- **Tutorials:** getting-started.md, introduction articles
 - **How-to:** 04.00-howto/ folder
 - **Reference:** .copilot/context/, validation-criteria.md
 - **Explanation:** 03.00-tech/ conceptual articles
 
 ### Progressive disclosure implementation
 
-**Surface level:** README.md, GETTING-STARTED.md
+**Surface level:** README.md, getting-started.md
 **Detail level:** Topic articles in 03.00-tech/
 **Expert level:** Context files in .copilot/context/, source code
 

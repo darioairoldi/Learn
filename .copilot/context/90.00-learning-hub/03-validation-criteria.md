@@ -278,4 +278,4 @@ When IQPilot MCP server is enabled:
 - 16 specialized tools available
 - Cross-reference validation automated
 
-See `GETTING-STARTED.md` for IQPilot configuration.
+See `getting-started.md` for IQPilot configuration.

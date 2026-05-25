@@ -294,8 +294,8 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 ## 🔗 Essential Quick Links
 
 ### 🎯 Start Here
-- **[Getting Started](GETTING-STARTED.md)** - How to navigate this learning hub
-- **[Documentation Index](DOCUMENTATION-INDEX.md)** - Complete content listing
+- **[Getting Started](getting-started.md)** - How to navigate this learning hub
+- **[Documentation Index](documentation-index.md)** - Complete content listing
 - **[Learning Hub Introduction](06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction.md)** - Philosophy and approach
 - **[Using This Hub for Learning](06.00-idea/learning-hub/01-learning-hub-overview/02-using-learning-hub-for-learning-technologies.md)** - How to maximize value
 

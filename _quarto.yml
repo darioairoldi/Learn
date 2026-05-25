@@ -4,8 +4,8 @@ project:
   render:
     - "*.qmd"
     - "README.md"
-    - "GETTING-STARTED.md"
-    - "DOCUMENTATION-INDEX.md"
+    - "getting-started.md"
+    - "documentation-index.md"
     - "scripts/README.md"
     - "scripts/fix-broken-links/README.md"
     - "src/IQPilot/README.md"

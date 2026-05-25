@@ -186,7 +186,7 @@ The Diátaxis framework prevents common documentation failures:
 - **Solution:** Keep reference austere; move concepts to explanation articles
 
 **Repository application:** This technical writing series follows Diátaxis structure:
-- **Tutorial:** [Getting Started with IQPilot](../../GETTING-STARTED.md)
+- **Tutorial:** [Getting Started with IQPilot](../../getting-started.md)
 - **How-to:** [How to Structure Content for Copilot Instruction Files](../05.02-promptEngineering/05.00-how_to_structure_content_for_copilot_instruction_files.md)
 - **Reference:** [Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)
 - **Explanation:** This article
@@ -439,7 +439,7 @@ This repository's documentation system emerged from these foundational principle
 Our content organization follows Diátaxis categories:
 
 **<mark>Tutorials (Study + Practical)</mark>:**
-- [GETTING-STARTED.md](../../GETTING-STARTED.md) - IQPilot setup tutorial
+- [getting-started.md](../../getting-started.md) - IQPilot setup tutorial
 - [01.01-introduction-to-quarto.md](../20.01-markdown/01. QUARTO Doc/01.01-introduction-to-quarto.md) - Quarto learning path
 
 **<mark>How-to Guides (Work + Practical)</mark>:**

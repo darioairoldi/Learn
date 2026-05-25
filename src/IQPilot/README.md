@@ -638,7 +638,7 @@ Special thanks to:
 
 ## 📞 Support
 
-- **Documentation**: See [../../GETTING-STARTED.md](../../GETTING-STARTED.md) for setup
+- **Documentation**: See [../../getting-started.md](../../getting-started.md) for setup
 - **Conceptual Overview**: [../../06.00-idea/iqpilot/01-iqpilot-overview.md](../../06.00-idea/iqpilot/01-iqpilot-overview.md)
 - **Detailed Guide**: [../../06.00-idea/iqpilot/02-iqpilot-getting-started.md](../../06.00-idea/iqpilot/02-iqpilot-getting-started.md)
 - **Technical Details**: [../../06.00-idea/iqpilot/03-iqpilot-implementation-details.md](../../06.00-idea/iqpilot/03-iqpilot-implementation-details.md)

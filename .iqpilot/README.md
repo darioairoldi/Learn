@@ -195,7 +195,7 @@ IQPilot provides all previous metadata management functionality plus validation 
 
 ## Additional Resources
 
-- **[GETTING-STARTED.md](../GETTING-STARTED.md)** - Complete IQPilot setup
+- **[getting-started.md](../getting-started.md)** - Complete IQPilot setup
 - **[06.00-idea/iqpilot/01-iqpilot-overview.md](../06.00-idea/iqpilot/01-iqpilot-overview.md)** - Concepts and philosophy
 - **[06.00-idea/iqpilot/02-iqpilot-getting-started.md](../06.00-idea/iqpilot/02-iqpilot-getting-started.md)** - Installation guide
 - **[06.00-idea/iqpilot/03-iqpilot-implementation-details.md](../06.00-idea/iqpilot/03-iqpilot-implementation-details.md)** - Technical architecture

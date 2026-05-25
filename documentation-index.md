@@ -13,7 +13,7 @@ Complete guide to all documentation automation files and resources in this repos
 ## 🚀 Quick Links
 
 ### For New Users
-- 📖 [GETTING-STARTED.md](GETTING-STARTED.md) - **Start here!** Quick setup and mode selection
+- 📖 [getting-started.md](getting-started.md) - **Start here!** Quick setup and mode selection
 - 📘 [.iqpilot/README.md](.iqpilot/README.md) - **IQPilot modes guide** - Enable/disable, mode comparison
 - 🎯 [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) - What IQPilot is and why it matters
 - 🚀 [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md) - Installation and usage guide
@@ -23,7 +23,7 @@ Complete guide to all documentation automation files and resources in this repos
 - 📊 [src/IQPilot/README.md](src/IQPilot/README.md) - IQPilot MCP server source code
 
 ### For Content Writers
-- 📝 [.github/STRUCTURE-README.md](.github/STRUCTURE-README.md) - Automation structure overview
+- 📝 [.github/00.00-repository-structure.md](.github/00.00-repository-structure.md) - Automation structure overview
 - 📋 [.github/copilot-instructions.md](.github/copilot-instructions.md) - Global editorial standards
 
 ---
@@ -34,7 +34,7 @@ Complete guide to all documentation automation files and resources in this repos
 
 | File | Purpose | Audience |
 |------|---------|----------|
-| [GETTING-STARTED.md](GETTING-STARTED.md) | Complete IQPilot setup guide | All Users |
+| [getting-started.md](getting-started.md) | Complete IQPilot setup guide | All Users |
 | [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md) | Detailed installation & configuration | All Users |
 | [.copilot/scripts/build-iqpilot.ps1](.copilot/scripts/build-iqpilot.ps1) | Build automation script | Developers |
 
@@ -45,7 +45,7 @@ Complete guide to all documentation automation files and resources in this repos
 | [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md) | Architecture, folder structure, MCP integration | Developers |
 | [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) | Concepts, philosophy, use cases | All Users |
 | [src/IQPilot/README.md](src/IQPilot/README.md) | C# MCP Server source code documentation | Developers |
-| [.github/STRUCTURE-README.md](.github/STRUCTURE-README.md) | Repository structure & automation overview | All Users |
+| [.github/00.00-repository-structure.md](.github/00.00-repository-structure.md) | Repository structure & automation overview | All Users |
 
 ### ✍️ Content Creation
 
@@ -320,7 +320,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 → [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md)
 
 **I want to set up the repository:**
-→ [GETTING-STARTED.md](GETTING-STARTED.md)
+→ [getting-started.md](getting-started.md)
 
 **I want to write a new article:**
 → Choose template from `.github/templates/`
@@ -341,7 +341,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 ### By Role
 
 **Content Writer:**
-1. [GETTING-STARTED.md](GETTING-STARTED.md) - Setup
+1. [getting-started.md](getting-started.md) - Setup
 2. [.copilot/context/01.00-article-writing/01-style-guide.md](.copilot/context/01.00-article-writing/01-style-guide.md) - Writing standards
 3. [.github/templates/](.github/templates/) - Templates
 4. [.github/prompts/](.github/prompts/) - Validation tools
@@ -383,7 +383,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ### Most Common Needs
 
-1. **Setup:** [GETTING-STARTED.md](GETTING-STARTED.md) ← Start here!
+1. **Setup:** [getting-started.md](getting-started.md) ← Start here!
 2. **Write Article:** Use template + `/article-writing`
 3. **Validate:** `/structure-validation` → `/grammar-review` → `/publish-ready`
 4. **Rename Article:** F2 in VS Code (metadata syncs automatically)
@@ -401,7 +401,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 ## 🎯 Next Steps
 
 1. ✅ Read [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) to understand the concepts
-2. ✅ Read [GETTING-STARTED.md](GETTING-STARTED.md) for setup instructions
+2. ✅ Read [getting-started.md](getting-started.md) for setup instructions
 3. ✅ Build IQPilot: `.\.copilot\scripts\build-iqpilot.ps1`
 4. ✅ Reload VS Code
 5. ✅ Create test article
