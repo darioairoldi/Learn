@@ -91,7 +91,7 @@ You operate in three modes:
 
 ## Validation Checklist
 
-### Metadata Contract Checks (R-S1-metadata-driven)
+### Metadata Contract Checks (metadata-driven)
 
 | # | Check | Criteria | Severity |
 |---|---|---|---|
@@ -103,7 +103,7 @@ You operate in three modes:
 | 6 | **Scope-content alignment** | Each `scope.covers:` topic has a matching content section | HIGH |
 | 7 | **Scope overlap** | `scope.covers:` topics don't overlap with other context files in same domain | HIGH |
 
-### N-1 Structural Separation Checks (R-P4-structural-separation)
+### N-1 Structural Separation Checks (structural-separation)
 
 | # | Check | Criteria | Severity |
 |---|---|---|---|

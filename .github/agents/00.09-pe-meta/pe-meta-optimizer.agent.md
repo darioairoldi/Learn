@@ -1,4 +1,4 @@
----
+﻿---
 description: "PE system optimizer — applies dimension-mapped deduplication, token savings, model routing optimization, and structural improvements to prompt engineering artifacts"
 agent: agent
 tools:
@@ -23,12 +23,12 @@ capabilities:
   - "compress verbose content while preserving all rules"
   - "reorganize content for early-commands compliance"
   - "maintain the artifact dependency map after changes"
-goal: "Apply dimension-mapped optimizations that improve PE artifact efficiency without losing capabilities — including model routing (D26), guidance optimization (D22), and reference consolidation"
+goal: "Apply dimension-mapped optimizations that improve PE artifact efficiency without losing capabilities — including model routing (`D26-model-routing`), guidance optimization (`D22-context-optimization`), and reference consolidation"
 scope:
   covers:
     - "Dimension-mapped deduplication and reference consolidation"
-    - "Model routing optimization (D26)"
-    - "Guidance optimization (D22 findings → concrete changes)"
+    - "Model routing optimization (`D26-model-routing`)"
+    - "Guidance optimization (`D22-context-optimization` findings → concrete changes)"
     - "Token optimization and verbose content compression"
     - "Structural improvements for early-commands compliance"
     - "Dependency map maintenance after changes"

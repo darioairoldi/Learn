@@ -8,8 +8,8 @@ handoffs:
   - {label: "Build", agent: pe-meta-builder, send: true}
   - {label: "Validate", agent: pe-meta-validator, send: true}
 argument-hint: '<file-path-or-description> [--dim <group>]'
-version: "1.0.0"
-last_updated: "2026-05-15"
+version: "2.2.0"
+last_updated: "2026-05-31"
 goal: "Create or update PE-for-PE hooks with JSON schema validation and trigger wiring"
 scope:
   covers: ["Direct creation", "Updates with trigger preservation", "JSON schema enforcement"]
@@ -25,6 +25,21 @@ rationales:
 
 # Hook Create/Update
 
+> **v15.2 alignment.** This prompt always writes (creation/update is not assessment-only), so it honors vision v15.2 § Iteration budget — when a run hits the per-cycle change cap with validated work remaining, it emits a spillover plan (see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)) and records a `spillover=<path-or-none>` marker on the first-line `Resolved invocation:` log. `--mode` is rejected for this family per the option applicability matrix.
+
+## Phase 0a CF-05 + Phase 0b — Invocation gates
+
+This prompt enforces the **Phase 0a CF-05 artifact-type/path consistency check** AND the **Phase 0b domain coherence gate** defined in [`04.05-pe-meta-invocation-gates.md`](../../../.copilot/context/00.00-prompt-engineering/04.05-pe-meta-invocation-gates.md) (upstream authority: vision v15 § Domain detection, § Pipeline phases).
+
+**Locally true for this prompt:**
+
+- **CF-05 expected root.** Any resolved target path (positional `<file-path>`, `--scope`, or design output target) MUST resolve under `.github/hooks/`. Paths outside this root are REJECTED before Phase 0b runs; the rejection message MUST suggest the canonical replacement prompt name from the SoT § Per-prompt-class applicability matrix.
+- **Phase 0b scope.** Resolved file set = the target path (+ closure under `--deps full` when this prompt's argument-hint exposes `--deps`); degenerate single-file scope is single-domain by construction.
+- **Algorithm.** 3-tier metadata-first per the SoT: Tier 1 = each in-scope file's declared `domain:` frontmatter; Tier 2 = optional `pe-domain-map.yaml`; Tier 3 = `unknown`. The seed path does NOT constrain consumer domains when `--deps full` traverses the closure.
+- **Gate timing.** Runs BEFORE delegating to handoffs declared in this prompt's frontmatter.
+- **Consent tokens.** `bundle=accept` is recognized AND propagated when delegating to the orchestrator so it does not re-prompt; `--skip domain-coherence` is REJECTED with CF-05.
+- **When delegated from an orchestrator.** Phase 0a CF-05 is verified by the dispatcher and Phase 0b has already run on the single-domain resolved scope — this section's gate is a no-op in that path.
+
 ## Process
 1. Determine mode: CREATE or UPDATE
 2. **UPDATE**: Pre-change guard — verify trigger wiring unchanged unless explicitly requested
@@ -39,3 +54,13 @@ rationales:
 2. `--dim` restricts which quality dimensions to evaluate during pre-change review steps.
 3. `--scope` filters which artifact types to focus on when composing dependencies.
 4. Options `--mode`, `--deps`, and `--skip` are NOT supported for create-update commands — reject per `pe-meta-option-applicability-matrix.md`.
+
+## Output contract (spillover marker)
+
+The report MUST open with a first-line `Resolved invocation:` log echoing the `spillover=` marker:
+
+```text
+Resolved invocation: --scope=<…> … | spillover=<path-or-none>
+```
+
+If the per-cycle change cap is hit with validated work remaining, emit a spillover plan at `<run-folder>/<NN>-<kebab-name>-spillover.plan.md` per [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md) and record `spillover=<path>`; otherwise record `spillover=none`. `--mode plan` is NOT offered by this family, so no `plan-file=` marker is emitted.

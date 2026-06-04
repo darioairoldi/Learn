@@ -13,18 +13,18 @@ description: "Comprehensive guide to technical documentation foundations, explor
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [💡 What makes documentation "good"?](#-what-makes-documentation-good)
-- [🏗️ The Diátaxis framework: four documentation types](#-the-diátaxis-framework-four-documentation-types)
-- [⚖️ Diátaxis quality theory: functional vs. deep quality](#-diátaxis-quality-theory-functional-vs-deep-quality)
-- [📋 Major style guides comparison](#-major-style-guides-comparison)
-- [📖 Wikipedia's documentation model](#-wikipedias-documentation-model)
-- [🔀 Decision frameworks: when guidelines conflict](#-decision-frameworks-when-guidelines-conflict)
-- [📌 Applying foundations to this repository](#-applying-foundations-to-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Introduction 🎯](#introduction)
+- [What makes documentation "good"? 💡](#what-makes-documentation-good)
+- [The Diátaxis framework: four documentation types 🏗️](#the-diátaxis-framework-four-documentation-types)
+- [Diátaxis quality theory: functional vs. deep quality ⚖️](#diátaxis-quality-theory-functional-vs-deep-quality)
+- [Major style guides comparison 📋](#major-style-guides-comparison)
+- [Wikipedia's documentation model 📖](#wikipedias-documentation-model)
+- [Decision frameworks: when guidelines conflict 🔀](#decision-frameworks-when-guidelines-conflict)
+- [Applying foundations to this repository 📌](#applying-foundations-to-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 Technical documentation exists at the <mark>intersection</mark> of <mark>technology</mark>, <mark>communication</mark>, and <mark>user experience</mark>. Whether you're documenting APIs for developers, writing user guides for enterprise software, or creating knowledge bases for community projects, the fundamental question remains: **what makes documentation effective?**
 
@@ -37,7 +37,7 @@ This article establishes the foundational principles of technical documentation 
 
 **Prerequisites:** Familiarity with documentation concepts is helpful but not required. This article serves as the foundation for the entire technical writing series.
 
-## 💡 What makes documentation "good"?
+## What makes documentation "good"? 💡
 
 Before examining specific frameworks and guidelines, we must establish criteria for quality documentation. Drawing from multiple authoritative sources, effective technical documentation exhibits these characteristics:
 
@@ -101,7 +101,7 @@ This reconciliation helps you understand _why_ each validation dimension exists.
 
 > **On deliberate overlap with Article 05:** This article *defines* the six quality criteria and maps them to validation dimensions (definition level). [Article 05: Validation and Quality Assurance](05-validation-and-quality-assurance.md#the-documentation-quality-triangle) introduces the Quality Triangle and *operationalizes* the criteria into automated and manual checks (application level). Both perspectives are intentional—the three-level hierarchy (Triangle → criteria → dimensions) requires both articles. See [Article 08](08-consistency-standards-and-enforcement.md#acceptable-redundancy-across-articles) for the series redundancy policy.
 
-## 🏗️ The Diátaxis framework: four documentation types
+## The Diátaxis framework: four documentation types 🏗️
 
 The **<mark>Diátaxis framework** (from Ancient Greek διάταξις: "arrangement") provides a systematic approach to understanding documentation needs.  
 Created by <mark>Daniele Procida</mark>, it identifies four distinct documentation types based on two axes:
@@ -191,7 +191,7 @@ The Diátaxis framework prevents common documentation failures:
 - **Reference:** [Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)
 - **Explanation:** This article
 
-## ⚖️ Diátaxis quality theory: functional vs. deep quality
+## Diátaxis quality theory: functional vs. deep quality ⚖️
 
 The Diátaxis framework doesn't just organize documentation into four types—it also proposes a [theory of quality](https://diataxis.fr/quality/) that distinguishes two fundamentally different kinds of documentation excellence. This distinction matters because most validation systems (including this repository's) focus on one kind while the other requires a different approach entirely.
 
@@ -245,7 +245,7 @@ For deep quality, Diátaxis can do more. It helps documentation fit user needs b
 
 > **On deliberate overlap with Article 09:** This article provides the *full definition and theory* of functional vs. deep quality—definitions, characteristics, comparison table, and relationship to Diátaxis. [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md#-functional-quality-vs-deep-quality) applies the distinction to *measurement strategy*—what readability formulas can and can't capture, and what a complete measurement approach requires. See [Article 08](08-consistency-standards-and-enforcement.md#acceptable-redundancy-across-articles) for the series redundancy policy.
 
-## 📋 Major style guides comparison
+## Major style guides comparison 📋
 
 Different organizations approach technical writing with varying priorities. Understanding these differences helps you make informed decisions when guidelines conflict.
 
@@ -274,7 +274,7 @@ Different organizations approach technical writing with varying priorities. Unde
 
 **<mark>Wikipedia Manual of Style</mark>** — "<mark>Neutral point of view</mark>." Encyclopedic third-person tone, rigorous citation requirements (every claim needs a reliable source), NPOV policy, consensus-driven decisions. **When to prefer:** Technical articles requiring source verification, multi-viewpoint analysis, knowledge base articles. **Limitation for software docs:** Second-person prohibition is awkward for how-to guides, and over-citation can interrupt flow.
 
-## 📖 Wikipedia's documentation model
+## Wikipedia's documentation model 📖
 
 Wikipedia's approach to documentation offers valuable lessons, particularly around source credibility, neutrality, and community maintenance.
 
@@ -358,7 +358,7 @@ While pure NPOV isn't suitable for all technical documentation, its principles i
 - References section with emoji-classified sources
 - Related articles linked in context
 
-## 🔀 Decision frameworks: when guidelines conflict
+## Decision frameworks: when guidelines conflict 🔀
 
 Style guides sometimes contradict each other. Use these frameworks to decide:
 
@@ -430,7 +430,7 @@ When truly stuck, choose the option that:
 - **Resolution:** Use "internet" (lowercase)
 - **Rationale:** Current consensus, simpler rule (consistency > tradition)
 
-## 📌 Applying foundations to this repository
+## Applying foundations to this repository 📌
 
 This repository's documentation system emerged from these foundational principles:
 
@@ -509,7 +509,7 @@ This separation follows the single-responsibility principle: Quarto metadata con
 
 See [02-dual-yaml-metadata.md](../../.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md) for complete guidelines.
 
-## ✅ Conclusion
+## Conclusion ✅
 
 Effective technical documentation rests on three pillars: **framework understanding (Diátaxis)**, **style guide awareness** (Microsoft, Google, Apple, Wikipedia), and **decision-making capability** for when guidelines conflict.
 
@@ -527,7 +527,7 @@ Effective technical documentation rests on three pillars: **framework understand
 - **Related:** [02-structure-and-information-architecture.md](02-structure-and-information-architecture.md) — Progressive disclosure, LATCH framework, TOC strategies
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — How this repository operationalizes these principles through validation
 
-## 📚 References
+## References 📚
 
 ### Official style guides
 

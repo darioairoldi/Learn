@@ -34,20 +34,20 @@ rationales:
 
 ## Table of contents
 
-- [🎯 Problem statement](#-problem-statement)
-- [📋 Analysis methodology](#-analysis-methodology)
-- [🔍 Reference pattern taxonomy](#-reference-pattern-taxonomy)
-- [🔄 Category-based indirection strategy](#-category-based-indirection-strategy)
-- [🏗️ Findings by artifact tier](#️-findings-by-artifact-tier)
-- [💡 Improvement opportunities](#-improvement-opportunities)
-- [⚠️ References that MUST remain file-specific](#️-references-that-must-remain-file-specific)
-- [📌 Proposed changes](#-proposed-changes)
-- [✅ Implementation guidelines](#-implementation-guidelines)
-- [📚 References](#-references)
+- [Problem statement 🎯](#problem-statement)
+- [Analysis methodology 📋](#analysis-methodology)
+- [Reference pattern taxonomy 🔍](#reference-pattern-taxonomy)
+- [Category-based indirection strategy 🔄](#category-based-indirection-strategy)
+- [Findings by artifact tier 🏗️](#findings-by-artifact-tier)
+- [Improvement opportunities 💡](#improvement-opportunities)
+- [References that MUST remain file-specific ⚠️](#references-that-must-remain-file-specific)
+- [Proposed changes 📌](#proposed-changes)
+- [Implementation guidelines ✅](#implementation-guidelines)
+- [References 📚](#references)
 
 ---
 
-## 🎯 Problem statement
+## Problem statement 🎯
 
 The vision document (R-S5, chain alignment) establishes that artifacts should reference rule *sets* by folder/domain (coarse-grained, default — stale-proof) rather than individual rule IDs or filenames (fine-grained — fragile). Adding, removing, or renaming a rule shouldn't break any consumer.
 
@@ -59,7 +59,7 @@ Current PE artifacts contain numerous **fragile file-level references** — expl
 
 ---
 
-## 📋 Analysis methodology
+## Analysis methodology 📋
 
 ### Artifacts scanned
 
@@ -86,7 +86,7 @@ Current PE artifacts contain numerous **fragile file-level references** — expl
 
 ---
 
-## 🔍 Reference pattern taxonomy
+## Reference pattern taxonomy 🔍
 
 ### Pattern A: Versioned file references (HIGHEST fragility)
 
@@ -143,7 +143,7 @@ References using just the filename without the full path.
 
 ---
 
-## 🔄 Category-based indirection strategy
+## Category-based indirection strategy 🔄
 
 ### The problem with direct file references
 
@@ -231,7 +231,7 @@ Load the `validation-rules` files from `.copilot/context/00.00-prompt-engineerin
 
 ---
 
-## 🏗️ Findings by artifact tier
+## Findings by artifact tier 🏗️
 
 ### Finding F1: Vision document reference in pe-meta-researcher (HIGHEST fragility)
 
@@ -446,7 +446,7 @@ context_dependencies:
 
 ---
 
-## 💡 Improvement opportunities
+## Improvement opportunities 💡
 
 ### Priority ranking (updated with category strategy)
 
@@ -472,7 +472,7 @@ context_dependencies:
 
 ---
 
-## ⚠️ References that MUST remain file-specific
+## References that MUST remain file-specific ⚠️
 
 Not all file references should become folder references. The following patterns require file-level precision:
 
@@ -486,7 +486,7 @@ Not all file references should become folder references. The following patterns 
 
 ---
 
-## 📌 Proposed changes
+## Proposed changes 📌
 
 ### Change C0: Establish functional categories in STRUCTURE-README (FOUNDATION) — ✅ DONE
 
@@ -688,7 +688,7 @@ Unchanged from v1. Standardize all references to use `.copilot/context/00.00-pro
 
 ---
 
-## ✅ Implementation guidelines
+## Implementation guidelines ✅
 
 ### Principles for robust references (updated with category strategy)
 
@@ -728,7 +728,7 @@ Each change is independently reversible:
 
 ---
 
-## 📚 References
+## References 📚
 
 - **[06.000-vision.v6.md](06.000-vision.v6.md)** 📘 Internal
   Vision document defining R-S5 (chain alignment) — the rationale for folder-level references as default.

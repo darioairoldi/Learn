@@ -45,7 +45,7 @@ Implementation status (2026-05-22):
 
 Evidence:
 
-- [p0-01-dependency-aware-full-review.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/03-consumer-correctness/p0-01-dependency-aware-full-review.md) defines target + dependencies individually, recursive to depth 2, plus cross-dependency checks.
+- [p0-01-dependency-aware-full-review.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/03-consumer-correctness/p0-01-dependency-aware-full-review-usecase.md) defines target + dependencies individually, recursive to depth 2, plus cross-dependency checks.
 - [pe-meta-review.prompt.md](../../../../../.github/prompts/00.09-pe-meta/pe-meta-review.prompt.md) describes dependency-aware mode as target + immediate dependents.
 - Type-specific review prompts use narrow `--with-deps` checks (for example handoff contracts or spot-checks), not a shared recursive dependency protocol.
 
@@ -163,8 +163,8 @@ Implementation is close but fragmented:
 ## 📚 References
 
 - [20260515.02-vision.v12.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260515.02-vision.v12.md) — Vision and rationale for review modes and selective dimensions.
-- [README.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/README.md) — Use-case catalog and group map.
-- [p0-01-dependency-aware-full-review.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/03-consumer-correctness/p0-01-dependency-aware-full-review.md) — Expected dependency-aware semantics.
+- [README.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md) — Use-case catalog and group map.
+- [p0-01-dependency-aware-full-review.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/03-consumer-correctness/p0-01-dependency-aware-full-review-usecase.md) — Expected dependency-aware semantics.
 - [pe-meta-review.prompt.md](../../../../../.github/prompts/00.09-pe-meta/pe-meta-review.prompt.md) — Current orchestrator behavior.
 - [pe-meta-prompt-review.prompt.md](../../../../../.github/prompts/00.09-pe-meta/pe-meta-prompt-review.prompt.md) — Current type-specific prompt review behavior.
 - [pe-meta-scheduled-review.prompt.md](../../../../../.github/prompts/00.09-pe-meta/pe-meta-scheduled-review.prompt.md) — Current mention of `--dim full` in scheduled flow.

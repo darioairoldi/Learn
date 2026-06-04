@@ -211,7 +211,7 @@ The following table summarizes when to use each customization mechanism. The **M
 
 ---
 
-## 📚 Resources and references
+## Resources and references 📚
 
 ### Official documentation
 

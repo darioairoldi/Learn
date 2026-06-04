@@ -20,7 +20,7 @@ This template structures the output of guidance-first reviews (`/pe-meta-adheren
 ## Adherence Matrix: [guidance file path]
 
 **Reviewed**: [date]
-**Review mode**: Guidance-first (D16 adherence)
+**Review mode**: Guidance-first (`D16-adherence`)
 **Rules extracted**: [N]
 **Consumers found**: [M]
 

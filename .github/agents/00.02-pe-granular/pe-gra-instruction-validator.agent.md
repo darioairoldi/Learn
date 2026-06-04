@@ -34,7 +34,7 @@ boundaries:
   - "MUST rank all findings by severity (CRITICAL/HIGH/MEDIUM/LOW)"
   - "MUST verify applyTo pattern conflicts as the first check"
   - "MUST NOT approve files with conflicting applyTo overlaps"
-  - "MUST classify every rule as testable/mechanical vs behavioral/strategic (R-S8)"
+  - "MUST classify every rule as testable/mechanical vs behavioral/strategic (instruction-minimization)"
 rationales:
   - "Read-only mode ensures validation cannot introduce the issues it checks for"
   - "Severity-ranked findings prioritize critical fixes over cosmetic improvements"
@@ -69,7 +69,7 @@ You operate in two modes:
 - Check for contradictions against context files the instruction references
 - Categorize findings by severity (CRITICAL/HIGH/MEDIUM/LOW)
 - Provide specific line numbers for issues
-- Classify every rule as testable/mechanical vs behavioral/strategic (R-S8 instruction minimization)
+- Classify every rule as testable/mechanical vs behavioral/strategic (`instruction-minimization`)
 - **📖 Cross-handoff verification**: `agent-patterns` files (see 00.00-context-structure-index.md → Functional Categories) → "Output Schema Compliance"
 - **📖 Output minimization**: `agent-patterns` files → "Output Minimization"
 - **📖 Escalation protocol**: `agent-patterns` files → "Standard Escalation Protocol"
@@ -89,7 +89,7 @@ You operate in two modes:
 
 ## Validation Checklist
 
-### Metadata Contract Checks (R-S1-metadata-driven)
+### Metadata Contract Checks (metadata-driven)
 
 | # | Check | Criteria | Severity |
 |---|---|---|---|
@@ -107,7 +107,7 @@ You operate in two modes:
 | 7 | **No behavioral rules** | No voice/tone/style guidance that requires interpretation (belongs in context files) | HIGH |
 | 8 | **Context delegation** | Strategic/behavioral guidance delegated to context files via `📖` references | MEDIUM |
 
-#### Classification Procedure (R-S8)
+#### Classification Procedure (instruction-minimization)
 
 For every rule in the instruction file:
 

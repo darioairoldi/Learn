@@ -38,25 +38,25 @@ The architectural explanation of <mark>prompt injection points</mark>, while not
 
 ## Table of contents
 
-- 🔍 [1. Introduction and framing](#1-introduction-and-framing)
-- 🏗️ [2. The agent system prompt architecture](#2-the-agent-system-prompt-architecture)
+- 🔍 [1. Introduction and framing](#introduction-and-framing)
+- 🏗️ [2. The agent system prompt architecture](#the-agent-system-prompt-architecture)
   - System prompt layers
   - User prompt layers
   - Context window growth
-- 📋 [3. Custom instructions deep dive](#3-custom-instructions-deep-dive)
+- 📋 [3. Custom instructions deep dive](#custom-instructions-deep-dive)
   - Purpose and placement
   - Awesome Copilot and community instructions
-- 📝 [4. Prompt files deep dive](#4-prompt-files-deep-dive)
+- 📝 [4. Prompt files deep dive](#prompt-files-deep-dive)
   - Front matter capabilities
   - Injection point in user prompt
   - Workflow composition with instructions
-- 🧠 [5. Context rot and performance degradation](#5-context-rot-and-performance-degradation)
+- 🧠 [5. Context rot and performance degradation](#context-rot-and-performance-degradation)
   - Accuracy benchmarks
   - Practical implications
-- 🤖 [6. Custom agents deep dive](#6-custom-agents-deep-dive)
+- 🤖 [6. Custom agents deep dive](#custom-agents-deep-dive)
   - Identity vs. information
   - Tools, handoffs, and prompt placement
-- ⚡ [7. Composing an agentic workflow](#7-composing-an-agentic-workflow)
+- ⚡ [7. Composing an agentic workflow](#composing-an-agentic-workflow)
   - Phase 1: Plan
   - Phase 2: Generate
   - Phase 3: Implement
@@ -573,7 +573,7 @@ The three-phase pattern creates a clear cost structure:
 
 ---
 
-## 📚 References
+## References 📚
 
 ### Official documentation
 

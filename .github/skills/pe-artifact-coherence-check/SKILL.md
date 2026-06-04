@@ -188,18 +188,18 @@ Verify the dependency map matches the actual artifact state.
 
 ## Dimension Mapping
 
-This skill's workflows map to the 27-dimension quality framework (see `05.07-dimension-applicability-matrix.md`):
+This skill's workflows map to the 35-dimension quality framework (see [`05.07-pe-meta-dimension-catalog.md`](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)):
 
 | Workflow | Dimensions Covered |
 |---|---|
-| Reference Integrity | D17 (Reference Integrity), D18 (Link Resolution) |
-| Rule Consistency | D22 (Rule Consistency), D23 (Layer Agreement) |
-| Handoff Chain | D24 (Handoff Completeness), D25 (Data Contract) |
-| Redundancy Scan | D20 (Non-Redundancy), D21 (Single Source of Truth) |
-| Token Budget | D15 (Token Budget Compliance) |
-| Dependency Map | D26 (Dependency Accuracy), D27 (Map Currency) |
+| Reference Integrity | `D2-references` |
+| Rule Consistency | `D6-consistency`, `D17-cross-coherence` |
+| Handoff Chain | `D5-boundaries`, `D24-handoff-efficiency` |
+| Redundancy Scan | `D7-non-redundancy` |
+| Token Budget | `D3-token-budget`, `D20-token-chain` |
+| Dependency Map | `D17-cross-coherence`, `D22-context-optimization` |
 
-Use `--dim <D#>` with `/pe-meta-review` to invoke specific dimension checks selectively.
+Use `--dim <D#-readable-id>` with `/pe-meta-review` to invoke specific dimension checks selectively (bare `D#` is also accepted as input).
 Use `--with-deps` to trace cross-artifact consistency chains.
 
 ## Resources
@@ -208,5 +208,5 @@ Use `--with-deps` to trace cross-artifact consistency chains.
 - **📖 Lifecycle management:** `.copilot/context/00.00-prompt-engineering/05.02-artifact-lifecycle-management.md`
 - **📖 Entry points:** `.copilot/context/00.00-prompt-engineering/05.03-pe-workflow-entry-points.md`
 - **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
-- **📖 Dimension applicability matrix:** `.copilot/context/00.00-prompt-engineering/05.07-dimension-applicability-matrix.md`
+- **📖 Dimension catalog:** `.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md`
 - **📖 Type-specific checklists:** `.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md`

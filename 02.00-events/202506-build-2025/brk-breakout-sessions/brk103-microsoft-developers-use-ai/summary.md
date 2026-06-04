@@ -18,7 +18,7 @@ This session provides an authentic, practical look at how two Microsoft .NET dev
 
 ## Key Topics Covered
 
-### 🧠 **1. AI for Ideation and Problem-Solving**
+### **1. AI for Ideation and Problem-Solving** 🧠
 
 #### The 10-Year Kestrel Bug Story
 **Real-World Challenge:** A decade-old memory pool issue in Kestrel suddenly became critical for Azure App Service.
@@ -52,7 +52,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 ---
 
-### 📝 **2. Code Documentation and Maintenance**
+### **2. Code Documentation and Maintenance** 📝
 
 #### Automated Comment Generation
 **The Documentation Challenge:**
@@ -81,7 +81,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 ---
 
-### 💻 **3. Production Code Implementation**
+### **3. Production Code Implementation** 💻
 
 #### LINQ Shuffle Method (.NET 10)
 **Technical Innovation:** New randomization method for IEnumerable sequences.
@@ -109,7 +109,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 ---
 
-### 🐛 **4. Debugging and Issue Resolution**
+### **4. Debugging and Issue Resolution** 🐛
 
 #### Named Pipes Memory Leak Case Study
 **The Critical Bug Report:**
@@ -134,7 +134,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 ---
 
-### 🧪 **5. Testing and Quality Assurance**
+### **5. Testing and Quality Assurance** 🧪
 
 #### URI Template Testing Suite
 **Comprehensive Test Generation:**
@@ -152,7 +152,7 @@ Prompt Pattern: "Give me approaches, not answers"
 
 ---
 
-### 🔧 **6. Live Development Demonstration**
+### **6. Live Development Demonstration** 🔧
 
 #### Azure Aspire Repository Issue Resolution
 **Real-Time AI Development:**

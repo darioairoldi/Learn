@@ -334,7 +334,7 @@ Ran Python script using UV that automatically created virtual environment, conne
    - **Rationale:** Eliminate friction of repeated authentication prompts for developers on Mac/Linux
    - **Impact:** Cross-platform parity for Azure SQL development
 
-## 📚 Resources and References
+## Resources and References 📚
 
 ### Official Documentation
 

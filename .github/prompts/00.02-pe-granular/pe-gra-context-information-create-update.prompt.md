@@ -336,7 +336,7 @@ For multi-file domains, ensure cross-file vocabulary consistency and non-redunda
 ### Phase 3: Generate Context File
 **Tools:** `create_file`, `replace_string_in_file`, `multi_replace_string_in_file`
 
-**Required YAML Frontmatter** (metadata contract — R-S1-metadata-driven):
+**Required YAML Frontmatter** (metadata contract — metadata-driven):
 
 ```yaml
 ---
@@ -421,7 +421,7 @@ rationales:
 
 **Content Principles:**
 - Use imperative language (MUST, WILL, NEVER, SHOULD)
-- **Rule-bearing sections MUST use N-1 structural separation** — `**Rule**:`, `**Rationale**:`, `**Example**:` labeled blocks. This enables deterministic breaking/non-breaking classification (R-P4-structural-separation).
+- **Rule-bearing sections MUST use N-1 structural separation** — `**Rule**:`, `**Rationale**:`, `**Example**:` labeled blocks. This enables deterministic breaking/non-breaking classification (structural-separation).
 - Include repository-specific examples when possible
 - Reference other context files, don't duplicate content
 - Keep under 2,500 tokens; split if larger

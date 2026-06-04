@@ -56,7 +56,7 @@ version: "1.0.0"  # REQUIRED
 last_updated: "YYYY-MM-DD"  # REQUIRED
 context_dependencies:  # REQUIRED — folder-level only
   - "00.00-prompt-engineering/"
-domain: "prompt-engineering"  # REQUIRED (from A-23)
+domain: "prompt-engineering"  # REQUIRED — single scalar; see 00.03-metadata-contracts.md § `domain:` field semantics (multi-domain artifacts NOT supported; cross-domain dependencies handled via Phase 0b `bundle=cross-domain-deps`)
 capabilities:  # REQUIRED — 3-5 actionable verb phrases (from A-23)
   - "capability description"
 goal: "One-sentence purpose statement"  # REQUIRED (from A-23)

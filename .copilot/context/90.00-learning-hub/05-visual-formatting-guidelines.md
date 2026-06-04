@@ -1,3 +1,28 @@
+---
+title: "Visual Formatting Guidelines for Learning Hub"
+description: "Defines criteria-based rules for when and how to use visual formatting — `<mark>` tags, emojis, and table of contents — to enhance readability without overuse"
+version: "1.0.0"
+last_updated: "2026-05-26"
+domain: "learning-hub"
+goal: "Provide evidence-based guidance for visual formatting that improves readability while preventing decoration overuse"
+scope:
+  covers:
+    - "Mark tag (`<mark>`) usage: purpose, when to use, criteria, density guidelines"
+    - "Emoji section markers for visual navigation"
+    - "Table of contents for article structure navigation"
+    - "Critical retention vs. general emphasis distinction"
+    - "Density limits and overuse anti-patterns"
+  excludes:
+    - "General Markdown formatting (see documentation.instructions.md)"
+    - "Typography and accessibility (see separate accessibility context)"
+boundaries:
+  - "MUST limit `<mark>` to critical retention content only"
+  - "MUST NOT use visual formatting as decoration"
+rationales:
+  - "Density limits preserve highlighting effectiveness and visual hierarchy"
+  - "Criteria-based rules prevent subjective formatting decisions"
+---
+
 # Visual Formatting Guidelines for Learning Hub
 
 **Purpose**: Defines when and how to use visual formatting elements (`<mark>` tags, emojis, and table of contents) to improve readability and understandability in Learning Hub articles.

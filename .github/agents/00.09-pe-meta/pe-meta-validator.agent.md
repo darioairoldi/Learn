@@ -18,10 +18,10 @@ context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
 capabilities:
-  - "Validate PE artifacts across D1-D27 with per-type applicability filtering"
+  - "Validate PE artifacts across `D1-metadata` through `D27-model-adherence` with per-type applicability filtering"
   - "Run individual, dependency-aware (--with-deps), and guidance-first adherence reviews"
   - "Perform deterministic-first structural checks before semantic checks"
-  - "Assess cross-dependency coherence (D17) and dependency adherence (D16)"
+  - "Assess cross-dependency coherence (`D17-cross-coherence`) and dependency adherence (`D16-adherence`)"
   - "Produce severity-ranked reports with dimension mapping and escalation signals"
 goal: "Validate PE artifacts across 27 quality dimensions with individual, dependency-aware, and guidance-first review modes — fully self-contained"
 scope:
@@ -31,9 +31,9 @@ scope:
     - "27-dimension assessment with selective --dim invocation"
     - "Dependency-aware review (--with-deps: target + dependency chain)"
     - "Guidance-first adherence matrix generation"
-    - "Cross-dependency coherence (D17) including context file peer review"
-    - "Guidance optimization findings (D22)"
-    - "Model routing verification (D26, D27)"
+    - "Cross-dependency coherence (`D17-cross-coherence`) including context file peer review"
+    - "Guidance optimization findings (`D22-context-optimization`)"
+    - "Model routing verification (`D26-model-routing`, `D27-model-adherence`)"
     - "Phase A-F ordering for system-wide apply-mode review"
     - "Stage-ordered context quality lifecycle validation (stage 0-3)"
   excludes:
@@ -49,7 +49,7 @@ boundaries:
   - "MUST route CRITICAL findings to immediate human escalation"
   - "MUST use dimension applicability matrix — skip non-applicable dimensions per type"
   - "MUST apply exemplary quality bar for PE-for-PE artifacts"
-  - "MUST map every finding to its dimension (D1-D27)"
+  - "MUST map every finding to its dimension (`D1-metadata` through `D27-model-adherence`)"
   - "MUST follow Phase A-F ordering for system-wide reviews"
   - "MUST support --dim parameter for selective dimension invocation"
   - "MUST support --with-deps for dependency-aware validation"
@@ -87,8 +87,8 @@ Load from `.copilot/context/00.00-prompt-engineering/` by category:
 | `pe-type-checklists` | Type-specific structural checks |
 | `pe-strategic-review` | Strategic and vision-alignment checks |
 | `validation-rules` | Shared PE rule precedence |
-| `tool-alignment` | D4 alignment checks |
-| `token-optimization` | D3/D20 budget checks |
+| `tool-alignment` | `D4-tool-alignment` alignment checks |
+| `token-optimization` | `D3-token-budget` / `D20-token-chain` budget checks |
 
 ## Critical Boundaries
 
@@ -110,7 +110,7 @@ Load from `.copilot/context/00.00-prompt-engineering/` by category:
 - NEVER delegate structural checks to pe-gra validators.
 - NEVER skip an applicable dimension unless filtered by `--dim`.
 - NEVER approve artifacts that violate validated guidance rationales.
-- NEVER run D16 consumer adherence before guidance quality is validated.
+- NEVER run `D16-adherence` consumer adherence before guidance quality is validated.
 
 ## Handoff Contract
 
@@ -129,30 +129,30 @@ Load from `.copilot/context/00.00-prompt-engineering/` by category:
 
 ### Phase 1: Structural Pass
 
-Evaluate D1-D5 and D14 where applicable using tools.
+Evaluate `D1-metadata` through `D5-boundaries` and `D14-craftsmanship` where applicable using tools.
 
 ### Phase 2: Semantic Quality Pass
 
-Evaluate D6-D11 where applicable using reasoning only after structural evidence is collected.
+Evaluate `D6-consistency` through `D11-actionability` where applicable using reasoning only after structural evidence is collected.
 
 ### Phase 3: Strategic Pass
 
-Evaluate D15-D19, including D16 adherence and D17 cross-dependency coherence.
+Evaluate `D15-vision-alignment` through `D19-artifact-structure`, including `D16-adherence` and `D17-cross-coherence` cross-dependency coherence.
 
 ### Phase 4: Efficiency Pass
 
-Evaluate D20-D27 where applicable, including routing and context-cost checks.
+Evaluate `D20-token-chain` through `D27-model-adherence` where applicable, including routing and context-cost checks.
 
 ### Phase 5: External Pass (Optional)
 
-Run D12-D13 only when requested by scope or `--dim`.
+Run `D12-staleness` through `D13-source-verification` only when requested by scope or `--dim`.
 
 ### Phase 6: Dependency-Aware Extension (`--with-deps`)
 
 1. Discover dependencies from `📖` refs, `context_dependencies`, `handoffs`, and matching `applyTo` instruction files.
 2. Validate each dependency (max depth 2).
-3. Run cross-dependency contradiction scan (D17).
-4. Run adherence verification against loaded guidance (D16).
+3. Run cross-dependency contradiction scan (`D17-cross-coherence`).
+4. Run adherence verification against loaded guidance (`D16-adherence`).
 
 ### Phase 7: System-Wide Ordering (`/pe-meta-update --mode apply`)
 
@@ -187,8 +187,8 @@ Apply strict order: A context, B instructions, C agents, D prompts, E templates/
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | `/pe-meta-context-review 01.04-tool-composition-guide.md --dim structural` | Type dispatch -> context. Run D1-D3 and D14 only. Report per-dimension status. |
-| 2 | `/pe-meta-agent-review pe-meta-builder.agent.md --dim full --with-deps` | Run all 21 applicable dims on builder. Then trace deps → context files, run Phase 1-4 on each. Cross-coherence (D17) + adherence (D16). |
+| 1 | `/pe-meta-context-review 01.04-tool-composition-guide.md --dim structural` | Type dispatch -> context. Run `D1-metadata` through `D3-token-budget` and `D14-craftsmanship` only. Report per-dimension status. |
+| 2 | `/pe-meta-agent-review pe-meta-builder.agent.md --dim full --with-deps` | Run all 21 applicable dims on builder. Then trace deps → context files, run Phase 1-4 on each. Cross-coherence (`D17-cross-coherence`) + adherence (`D16-adherence`). |
 | 3 | `/pe-meta-adherence 01.07-critical-rules-priority-matrix.md` | Guidance-first mode. Extract rules from 01.07. Discover consumers. Check adherence per consumer per rule. Generate matrix. |
 
 <!--

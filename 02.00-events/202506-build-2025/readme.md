@@ -4,28 +4,28 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 
 ## Table of Contents
 
-### 🔧 .NET & Language Features
+### .NET & Language Features 🔧
 1. [BRK101: AI-Powered .NET Modernization](#brk101-ai-powered-net-modernization)
 2. [BRK103: Microsoft Developers Use AI](#brk103-microsoft-developers-use-ai)
 3. [BRK114: C# 14 Language Features and Beyond](#brk114-cs-14-language-features-and-beyond)
 4. [DEM515: Write Better C# Code](#dem515-write-better-c-code)
 5. [DEM518: Direct C# File Execution](#dem518-direct-c-file-execution)
 
-### 🤖 AI & Development Tools
+### AI & Development Tools 🤖
 6. [BRK104: Building Next Gen Apps with AI & .NET](#brk104-building-next-gen-apps-with-ai--net)
 7. [BRK119: Debug Like a Pro](#brk119-debug-like-a-pro)
 8. [BRK127: AI and Dev Box Developer Potential](#brk127-ai-and-dev-box-developer-potential)
 9. [DEM509: Essential AI Prompts for Developers](#dem509-essential-ai-prompts-for-developers)
 10. [DEM519: Agent Mode for Serious Developers](#dem519-agent-mode-for-serious-developers)
 
-### 🌐 Web Development & Cloud
+### Web Development & Cloud 🌐
 11. [BRK106: .NET Aspire AI & Cloud](#brk106-net-aspire-ai--cloud)
 12. [BRK122: ASP.NET Core & Blazor Future](#brk122-aspnet-core--blazor-future)
 13. [BRK123: Build AI Apps with Microsoft Graph](#brk123-build-ai-apps-with-microsoft-graph)
 14. [DEM508: .NET Aspire Testing](#dem508-net-aspire-testing)
 15. [DEM520: Local AI Development](#dem520-local-ai-development)
 
-### 🔗 Agents & Integration
+### Agents & Integration 🔗
 16. [BRK141: RAG for Enterprise Agents](#brk141-rag-for-enterprise-agents)
 17. [BRK155: Azure AI Foundry](#brk155-azure-ai-foundry)
 18. [BRK163: M365 Agents SDK](#brk163-m365-agents-sdk)
@@ -33,7 +33,7 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 20. [BRK176: Multi-Agent Solutions](#brk176-multi-agent-solutions)
 21. [DEM517: MCP Server](#dem517-mcp-server)
 
-### 🖥️ Windows & Infrastructure
+### Windows & Infrastructure 🖥️
 22. [BRK195: Inside Azure Innovations](#brk195-inside-azure-innovations)
 23. [BRK199: Accelerate Modernization](#brk199-accelerate-modernization)
 24. [BRK204: Microsoft Databases](#brk204-microsoft-databases)
@@ -43,7 +43,7 @@ This directory contains detailed notes and summaries from Microsoft Build 2025 s
 28. [BRK226: Windows Developer Tools](#brk226-windows-developer-tools)
 29. [BRK229: MCP on Windows](#brk229-mcp-on-windows)
 
-### 🛠️ Tools & Productivity
+### Tools & Productivity 🛠️
 30. [DEM524: Running LLMs Locally](#dem524-running-llms-locally)
 31. [DEM571: PowerToys Extensions](#dem571-powertoys-extensions)
 32. [DEM581: Transforming Microsoft Learn](#dem581-transforming-microsoft-learn)

@@ -13,7 +13,7 @@ format:
 
 # Hugo Static Site Generator Series
 
-## 📖 Overview
+## Overview 📖
 
 This series covers **Hugo**, the world's fastest **open-source static site generator** built with **Go**. Hugo excels at building documentation sites, blogs, and large-scale content projects with blazing-fast build times.
 
@@ -24,7 +24,7 @@ This series covers **Hugo**, the world's fastest **open-source static site gener
 - **Go template system** - Powerful and flexible
 - **Production-ready** - Built-in optimization features
 
-## 📚 Series Contents
+## Series Contents 📚
 
 ### Core Concepts
 
@@ -37,7 +37,7 @@ This series covers **Hugo**, the world's fastest **open-source static site gener
 
 5. **[Rendering Learning Hub with Hugo](05.03-rendering-learning-hub-with-hugo.md)** - Building knowledge management sites
 
-## 🎯 When to Choose Hugo
+## When to Choose Hugo 🎯
 
 | Use Case | Hugo | Quarto |
 |----------|------|--------|
@@ -46,7 +46,7 @@ This series covers **Hugo**, the world's fastest **open-source static site gener
 | Blogs and marketing sites | ✅ Excellent | ✅ Good |
 | Interactive notebooks | ❌ No support | ✅ Native |
 
-## 🔗 Related Resources
+## Related Resources 🔗
 
 - [Hugo Official Documentation](https://gohugo.io/documentation/)
 - [Go Template Documentation](https://pkg.go.dev/text/template)

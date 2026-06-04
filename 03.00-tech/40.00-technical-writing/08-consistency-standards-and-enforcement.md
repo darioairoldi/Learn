@@ -13,19 +13,19 @@ description: "Establish and enforce documentation consistency across terminology
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [📊 Dimensions of consistency](#-dimensions-of-consistency)
-- [📖 Building a project terminology glossary](#-building-a-project-terminology-glossary)
-- [📝 Style decision log](#-style-decision-log)
-- [📋 Consistency audit checklist](#-consistency-audit-checklist)
-- [🤖 Automated consistency enforcement](#-automated-consistency-enforcement)
-- [🔗 Cross-document consistency patterns](#-cross-document-consistency-patterns)
-- [🔄 Handling consistency during migration and evolution](#-handling-consistency-during-migration-and-evolution)
-- [📌 Applying consistency standards to this repository](#-applying-consistency-standards-to-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Introduction 🎯](#introduction)
+- [Dimensions of consistency 📊](#dimensions-of-consistency)
+- [Building a project terminology glossary 📖](#building-a-project-terminology-glossary)
+- [Style decision log 📝](#style-decision-log)
+- [Consistency audit checklist 📋](#consistency-audit-checklist)
+- [Automated consistency enforcement 🤖](#automated-consistency-enforcement)
+- [Cross-document consistency patterns 🔗](#cross-document-consistency-patterns)
+- [Handling consistency during migration and evolution 🔄](#handling-consistency-during-migration-and-evolution)
+- [Applying consistency standards to this repository 📌](#applying-consistency-standards-to-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 "Consistency" appears throughout documentation best practices—but what does it actually mean? It's more than using the same word twice. It's a multi-dimensional quality that spans terminology, structure, tone, formatting, and cross-references. Without a systematic approach, consistency degrades naturally as documentation grows, authors change, and conventions evolve.
 
@@ -43,7 +43,7 @@ This article covers:
 
 **Prerequisites:** Familiarity with [writing style principles](01-writing-style-and-voice-principles.md), [structure and information architecture](02-structure-and-information-architecture.md), and [validation and quality assurance](05-validation-and-quality-assurance.md) provides useful context.
 
-## 📊 Dimensions of consistency
+## Dimensions of consistency 📊
 
 Consistency isn't a single thing—it's five distinct dimensions, each requiring different strategies to manage.
 
@@ -114,7 +114,7 @@ Consistency isn't a single thing—it's five distinct dimensions, each requiring
 - **Terminology alignment** — When article A introduces a term, article B uses the same term (not a synonym)
 - **Series awareness** — Articles reference their position in the series and maintain forward/backward links
 
-## 📖 Building a project terminology glossary
+## Building a project terminology glossary 📖
 
 A <mark>terminology glossary</mark> is your single source of truth for how concepts are named and described. Without one, consistency depends on memory—a fragile foundation.
 
@@ -171,7 +171,7 @@ swap:
   API path: endpoint
 ```
 
-## 📝 Style decision log
+## Style decision log 📝
 
 A <mark>style decision log</mark> records the choices you've made about your documentation style—and, critically, *why* you made them. It's the institutional memory that prevents revisiting the same debates.
 
@@ -227,7 +227,7 @@ Add a style decision entry when:
 - You discover an inconsistency and resolve it
 - A new tool or framework introduces new terminology
 
-## 📋 Consistency audit checklist
+## Consistency audit checklist 📋
 
 An audit checklist transforms consistency review from a subjective activity into a structured, repeatable process.
 
@@ -276,7 +276,7 @@ Run this quarterly or after major content changes:
 - [ ] Prerequisites form a logical learning path
 - [ ] Metadata is up to date in all articles
 
-## 🤖 Automated consistency enforcement
+## Automated consistency enforcement 🤖
 
 Manual review catches inconsistencies—but not reliably. Automation scales consistency enforcement and catches issues before they reach readers.
 
@@ -422,7 +422,7 @@ if ($violations.Count -gt 0) {
 }
 ```
 
-## 🔗 Cross-document consistency patterns
+## Cross-document consistency patterns 🔗
 
 Consistency within a single article is necessary but not sufficient. Documentation series—like this one—require consistency *across* articles.
 
@@ -533,7 +533,7 @@ A <mark>concept coverage matrix</mark> maps which articles cover which concepts,
 
 **Where to store it:** The matrix can live in a dedicated document outside the series (this repository uses `99.00-temp/` for working documents) or as a section in the series' anchor article. The important thing is that it exists and is regularly updated—not where it lives.
 
-## 🔄 Handling consistency during migration and evolution
+## Handling consistency during migration and evolution 🔄
 
 Documentation isn't static. Terminology changes, structures evolve, and tools get replaced. Managing consistency during change is harder than establishing it initially.
 
@@ -578,7 +578,7 @@ As documentation grows organically, consistency naturally degrades. Combat this 
 - **Pre-publication review** — Every article gets a consistency review before publishing
 - **Automation** — Vale and markdownlint catch common issues without human effort
 
-## 📌 Applying consistency standards to this repository
+## Applying consistency standards to this repository 📌
 
 This series uses consistency standards throughout. Here's how the principles in this article apply to the Technical Documentation Excellence series:
 
@@ -662,7 +662,7 @@ This repository uses:
 - Automated glossary violation detection across the series
 - Cross-reference bidirectionality checking
 
-## ✅ Conclusion
+## Conclusion ✅
 
 Consistency isn't a property that documentation either has or lacks—it's a multi-dimensional quality that requires deliberate systems to achieve and maintain. Terminology glossaries, style decision logs, audit checklists, and automated tooling work together to enforce consistency at scale.
 
@@ -681,7 +681,7 @@ Consistency isn't a property that documentation either has or lacks—it's a mul
 - **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — The voice and style decisions that consistency enforcement protects
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — Validation frameworks that measure consistency as a quality dimension
 
-## 📚 References
+## References 📚
 
 ### Consistency and style guides
 

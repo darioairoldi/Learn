@@ -1,12 +1,12 @@
 # 🎯 CosmosDB Partitioning Strategies
 
-## 📋 Overview
+## Overview 📋
 
 **Partition key selection** is the most critical design decision in Azure Cosmos DB. It directly impacts **performance, scalability, cost, and query efficiency**. Unlike traditional databases where you can modify partition schemes after deployment, Cosmos DB partition keys are **<mark>immutable</mark>** - you cannot change them without recreating the container and migrating data.
 
 This article provides comprehensive guidance on choosing the right partitioning strategy for different scenarios, with practical examples and performance considerations.
 
-## 📚 Table of Contents
+## Table of Contents 📚
 
 1. 📋 Overview
 2. 🔍 Partitioning Fundamentals
@@ -38,7 +38,7 @@ This article provides comprehensive guidance on choosing the right partitioning 
     - Collection Lifecycle Management
 11. 📝 APPENDIX: Partitioning for Example Feed Database
 
-## 🔍 Partitioning Fundamentals
+## Partitioning Fundamentals 🔍
 
 ### Logical vs Physical Partitions
 
@@ -83,7 +83,7 @@ A good partition key should have:
 4. **📈 Future Growth**: Accommodates scaling requirements
 5. **🚫 Immutability**: Value rarely changes
 
-## 🎯 Core Partitioning Strategies
+## Core Partitioning Strategies 🎯
 
 ### 1. Entity ID-Based Partitioning
 
@@ -114,12 +114,12 @@ public class HyperfragmentedProduct
 }
 ```
 
-#### ✅ When to Use
+#### When to Use ✅
 - **Write-heavy workloads** with minimal cross-item queries
 - **Point read scenarios** where you always know the exact ID
 - **Uniform access patterns** across all entities
 
-#### ❌ When to Avoid
+#### When to Avoid ❌
 - **Range queries** or filtering by other properties
 - **Aggregation queries** across multiple items
 - **Reporting scenarios** requiring cross-partition analysis
@@ -167,13 +167,13 @@ public static class TimePartitionHelpers
 }
 ```
 
-#### ✅ When to Use
+#### When to Use ✅
 - **Time-series data** with chronological access patterns
 - **Log aggregation** and analytics systems
 - **Recent data prioritization** scenarios
 - **Natural archival requirements**
 
-#### ❌ When to Avoid
+#### When to Avoid ❌
 - **Uniform temporal access** across all historical data
 - **Heavy write workloads** concentrated in current time period
 
@@ -211,13 +211,13 @@ public class TenantDocument
 }
 ```
 
-#### ✅ When to Use
+#### When to Use ✅
 - **Multi-tenant applications** with tenant isolation
 - **Category-based queries** and analytics
 - **Business domain segmentation**
 - **Access control requirements**
 
-#### ❌ When to Avoid
+#### When to Avoid ❌
 - **Highly skewed category distributions**
 - **Frequent cross-category queries**
 - **Categories with unpredictable growth**
@@ -261,12 +261,12 @@ public static class HybridPartitionStrategies
 }
 ```
 
-#### ✅ When to Use
+#### When to Use ✅
 - **Complex query patterns** requiring multiple access paths
 - **Large datasets** needing better distribution
 - **Mixed workload scenarios**
 
-#### ❌ When to Avoid
+#### When to Avoid ❌
 - **Simple, uniform access patterns**
 - **Small datasets** that don't require complex partitioning
 
@@ -315,16 +315,16 @@ public static class SyntheticKeyStrategies
 }
 ```
 
-#### ✅ When to Use
+#### When to Use ✅
 - **Extremely high-volume scenarios**
 - **Hot partition problems**
 - **Uniform distribution requirements**
 
-#### ❌ When to Avoid
+#### When to Avoid ❌
 - **Query patterns requiring specific partition targeting**
 - **Small to medium datasets**
 
-## 📊 Strategy Comparison Matrix
+## Strategy Comparison Matrix 📊
 
 | Strategy | Cardinality | Distribution | Query Efficiency | Complexity | Best For |
 |----------|-------------|--------------|------------------|------------|----------|
@@ -334,7 +334,7 @@ public static class SyntheticKeyStrategies
 | **Hybrid** | 🟢 High | 🟢 Good | 🟢 Good | 🔴 Complex | Complex scenarios |
 | **Synthetic** | 🟢 Very High | 🟢 Perfect | 🔴 Poor | 🔴 Very Complex | High-volume uniform |
 
-## 🎮 Scenario-Based Recommendations
+## Scenario-Based Recommendations 🎮
 
 ### High-Volume Applications
 
@@ -524,7 +524,7 @@ public static string GetInfrastructurePartition(string zone, string deviceType, 
 - **Benefits**: Geographic and temporal analytics, device type insights
 - **Trade-offs**: Complex cross-zone queries
 
-## ⚠️ Anti-Patterns and Pitfalls
+## Anti-Patterns and Pitfalls ⚠️
 
 ### 1. **Hyperfragmentation (GUID Partition Keys)**
 
@@ -614,7 +614,7 @@ public class GoodOrder
 }
 ```
 
-## 🔧 Implementation Guidelines
+## Implementation Guidelines 🔧
 
 ### 1. **Partition Key Design Checklist**
 
@@ -707,7 +707,7 @@ public static async Task<Container> CreateOptimizedContainer(
 }
 ```
 
-## 📈 Performance Optimization
+## Performance Optimization 📈
 
 ### 1. **Query Optimization Patterns**
 
@@ -796,7 +796,7 @@ public class BulkOperationOptimizer
 }
 ```
 
-## 🔍 Monitoring and Diagnostics
+## Monitoring and Diagnostics 🔍
 
 ### 1. **Partition Metrics Monitoring**
 
@@ -855,7 +855,7 @@ public class PartitioningAlerts
 }
 ```
 
-## 🚀 Advanced Partitioning Techniques
+## Advanced Partitioning Techniques 🚀
 
 For complex, high-volume applications, traditional single-collection approaches may not provide optimal performance. This section covers advanced architectural patterns that combine partitioning strategies with sophisticated data lifecycle management.
 
@@ -1231,7 +1231,7 @@ public class MultiYearCollectionApproach
 - ❌ **Schema Evolution**: Different containers may have different schemas over time
 - ❌ **Performance**: Sequential queries instead of parallel partitioning
 
-## 📊 Advanced Techniques Comparison
+## Advanced Techniques Comparison 📊
 
 | Approach | Complexity | Performance | Cost | Maintenance | Scalability |
 |----------|------------|-------------|------|-------------|-------------|
@@ -1240,7 +1240,7 @@ public class MultiYearCollectionApproach
 | **Single Collection** | 🟢 Low | 🟡 Good | 🟡 Good | 🟢 Low | 🟡 Limited |
 | **Multiple Collections** | 🔴 High | 🔴 Poor | 🔴 Expensive | 🔴 High | 🔴 Poor |
 
-## 🎯 **Recommendation Hierarchy**
+## **Recommendation Hierarchy** 🎯
 
 ### **Tier 1: Production-Ready Solutions**
 1. **Hot/Warm Architecture + TTL + Near Real-Time Migration** ⭐ **BEST**
@@ -1260,7 +1260,7 @@ public class MultiYearCollectionApproach
    - High operational overhead and complexity
    - Better alternatives available in Tiers 1-2
 
-## 🛠️ **Implementation Decision Framework**
+## **Implementation Decision Framework** 🛠️
 
 Use this framework to choose the right approach:
 

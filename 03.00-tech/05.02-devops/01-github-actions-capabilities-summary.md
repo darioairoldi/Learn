@@ -2,12 +2,12 @@
 
 ## Table of Contents
 
-1. [How GitHub Actions Work](#1-how-github-actions-work)
-2. [Key Extensibility Capabilities](#2-key-extensibility-capabilities)
-3. [How Security Works](#3-how-security-works)
-4. [Most Important Limitations](#4-most-important-limitations)
-5. [Appendix — Diginsight Components Workflow Architecture](#5-appendix--diginsight-components-workflow-architecture)
-6. [Appendix — Comparison: GitHub Actions vs Azure DevOps Pipelines](#6-appendix--comparison-github-actions-vs-azure-devops-pipelines)
+1. [How GitHub Actions Work](#how-github-actions-work)
+2. [Key Extensibility Capabilities](#key-extensibility-capabilities)
+3. [How Security Works](#how-security-works)
+4. [Most Important Limitations](#most-important-limitations)
+5. [Appendix — Diginsight Components Workflow Architecture](#appendix--diginsight-components-workflow-architecture)
+6. [Appendix — Comparison: GitHub Actions vs Azure DevOps Pipelines](#appendix--comparison-github-actions-vs-azure-devops-pipelines)
 
 ---
 

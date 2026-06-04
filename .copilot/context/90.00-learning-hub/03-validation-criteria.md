@@ -1,3 +1,28 @@
+---
+title: "Learning Hub Validation Criteria"
+description: "Defines validation criteria, quality thresholds, and content lifecycle standards specific to the Learning Hub — extending general article validation with repository-specific rules"
+version: "1.0.0"
+last_updated: "2026-05-26"
+domain: "learning-hub"
+goal: "Establish validation standards and quality gates that ensure articles meet Learning Hub publication requirements"
+scope:
+  covers:
+    - "Repository-specific standards (draft, in-review, published, archived lifecycle)"
+    - "Metadata requirements and validation history tracking"
+    - "Series-specific validation (consistency, completeness, progression)"
+    - "Quality thresholds by dimension (grammar, readability, structure, accuracy, link validity)"
+    - "Content category-specific validation focus"
+  excludes:
+    - "General article writing standards (see article-writing.instructions.md)"
+    - "Dual metadata block structure (see 02-dual-yaml-metadata.md)"
+boundaries:
+  - "MUST define only Learning Hub-specific thresholds above general standards"
+  - "MUST NOT duplicate criteria from base documentation.instructions.md"
+rationales:
+  - "Repository-specific thresholds prevent quality drift across a growing documentation site"
+  - "Category-specific validation focus ensures each content type meets its intended purpose"
+---
+
 # Learning Hub Validation Criteria
 
 This document defines validation criteria and quality thresholds specific to the Learning Hub documentation site. These supplement the general validation criteria found in `.copilot/context/01.00-article-writing/02-validation-criteria.md`.

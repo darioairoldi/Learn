@@ -23,9 +23,9 @@ handoffs:
   - label: "Ecosystem Coherence"
     agent: pe-meta-validator
     send: true
-argument-hint: '<artifact-type> <description> — e.g., "agent for validating category coverage" or "context file for MCP tool composition patterns"'
-version: "1.0.0"
-last_updated: "2026-04-28"
+argument-hint: '<artifact-type> <description> [bundle=accept] — e.g., "agent for validating category coverage" or "context file for MCP tool composition patterns"'
+version: "2.2.0"
+last_updated: "2026-05-31"
 goal: "Design and create a PE-for-PE artifact that is both structurally correct and strategically aligned with the PE vision, using the full research → build → validate pipeline with added strategic checks"
 scope:
   covers:
@@ -33,6 +33,8 @@ scope:
     - "Vision alignment enforcement during design"
     - "Category reference compliance by construction"
     - "Ecosystem impact analysis before creation"
+    - "Phase 0b — domain coherence (per 04.05-pe-meta-invocation-gates.md)"
+    - "bundle=accept consent token recognition on multi-domain scopes"
   excludes:
     - "Domain artifacts (article-writing, documentation — use /pe-con-design for those)"
     - "Ecosystem-wide audits (use /pe-meta-update for those)"
@@ -42,6 +44,9 @@ boundaries:
   - "MUST pass PE-strategic constraints to pe-con-researcher and pe-con-builder"
   - "MUST run double validation (structural + ecosystem coherence)"
   - "Only for PE-for-PE artifacts — redirect domain artifacts to /pe-con-design"
+  - "Phase 0b is NOT skippable; --skip domain-coherence is rejected with CF-05; Phase 0b runs on the planned target before delegating to pe-con-researcher/pe-con-builder"
+  - "bundle=accept is the ONLY valid consent token (closed set); recorded on first-line `Resolved invocation:` log"
+  - "Phase 0a CF-05 artifact-type/path consistency does NOT apply at this orchestrator-level layer (artifact-type is supplied as the first positional argument); CF-05 is enforced ONLY by per-artifact prompts"
 rationales:
   - "PE-for-PE artifacts set the quality standard — they must be designed with vision alignment from the start"
   - "Adding strategic context to the research phase prevents structurally correct but strategically misaligned artifacts"
@@ -55,6 +60,18 @@ Design and create PE artifacts that serve the PE system itself — with vision a
 **When to use this vs `/pe-con-design`:**
 - This prompt → creating PE infrastructure (pe-* agents, pe-* prompts, PE context files, pe-* instructions, pe-* skills)
 - `/pe-con-design` → creating domain-specific artifacts (article-writing, documentation, devops)
+
+## Phase 0b — Domain coherence
+
+This prompt enforces the Phase 0b domain coherence gate defined in [`04.05-pe-meta-invocation-gates.md`](../../../.copilot/context/00.00-prompt-engineering/04.05-pe-meta-invocation-gates.md) (upstream authority: current vision document § Domain-coherent batching). The 3-tier metadata-first domain resolution algorithm, seed-vs-deps decision matrix, dispatch table, `bundle=…` closed set, and `bundle=accept` consent semantics are specified there and MUST NOT be re-implemented here.
+
+**Locally true for this prompt:**
+
+1. **Scope = the planned target.** The design output's intended path determines its domain (Tier 1: explicit `domain:` decision in the design spec; Tier 2: `pe-domain-map.yaml` heuristic; Tier 3: `unknown`). When the design imports peers as dependencies, those peers extend the in-scope set.
+2. **Gate runs BEFORE Phase 2 (Build).** Domain footprint is computed after research, before delegating to pe-con-builder. Multi-domain designs block (or require `bundle=accept`) so a new artifact doesn't silently establish cross-domain coupling without consent.
+3. **Consent token.** `bundle=accept` is the only valid token (closed set, case-sensitive). Recorded on the first-line `Resolved invocation:` log as `bundle=accepted-bundle`.
+4. **Phase 0a CF-05 does NOT apply at this layer.** The `<artifact-type>` first positional argument carries explicit type intent; CF-05 (path/prefix mismatch on existing files) is enforced ONLY by per-artifact prompts.
+5. **`--skip domain-coherence` rejected.** Phase 0b is not skippable; bypass multi-domain gating only via `bundle=accept`.
 
 ## Process
 

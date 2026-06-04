@@ -1,3 +1,28 @@
+---
+title: "Reference Classification System"
+description: "Establishes emoji-based reference classification system (📘 Official, 📗 Verified Community, 📒 Community, 📕 Unverified) for reader trust assessment"
+version: "1.0.0"
+last_updated: "2026-05-26"
+domain: "learning-hub"
+goal: "Enable readers to quickly assess source reliability and authority using standardized emoji classification markers"
+scope:
+  covers:
+    - "Classification markers and trust levels (📘 Official, 📗 Verified Community, 📒 Community, 📕 Unverified)"
+    - "Domain-based classification rules"
+    - "Official sources classification (Microsoft, vendor documentation)"
+    - "Verified community sources (official blogs, recognized experts, academic)"
+    - "Community sources (tutorials, personal blogs, Stack Overflow)"
+  excludes:
+    - "Article writing guidance for reference integration (see article-writing.instructions.md)"
+    - "Metadata management for references (see 02-dual-yaml-metadata.md)"
+boundaries:
+  - "MUST use emoji markers consistently across all articles"
+  - "MUST classify every reference before publishing"
+rationales:
+  - "Visual markers improve scannability and reader trust calibration"
+  - "Domain-based rules ensure consistency without per-reference judgment calls"
+---
+
 # Reference Classification System
 
 ## Overview

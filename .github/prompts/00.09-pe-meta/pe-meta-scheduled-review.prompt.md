@@ -1,4 +1,4 @@
----
+﻿---
 name: pe-meta-scheduled-review
 description: "Lightweight periodic PE health check — detects stale artifacts, runs a scoped health review, proposes fixes, and updates the review log. Designed for weekly use with minimal cognitive load."
 agent: agent
@@ -17,21 +17,28 @@ handoffs:
     agent: pe-meta-optimizer
     send: true
 agents: ['*']
-argument-hint: 'Optional: "--scope context|agents|prompts|instructions|skills|hooks|snippets|templates" to limit review. Default: auto-detect stale areas.'
+argument-hint: 'Optional: "--scope context|agents|prompts|instructions|skills|hooks|snippets|templates [bundle=accept]" to limit review. Default: auto-detect stale areas.'
 goal: "Detect stale PE artifacts and run scoped health reviews with minimal cognitive load"
-version: "1.0.0"
+version: "2.2.0"
+last_updated: "2026-05-31"
 scope:
   covers:
     - "Staleness detection via last_updated dates and review log"
     - "Scoped health review on auto-detected stale areas"
-    - "Reliability spot-check (`--dim reliability`, D28-D35) included in the auto-rotation cycle"
+    - "Reliability spot-check (`--dim reliability`, `D28-reproducibility` through `D35-portability-boundary`) included in the auto-rotation cycle"
     - "Fix proposal and targeted application via meta-optimizer"
+    - "Phase 0b — domain coherence (per 04.05-pe-meta-invocation-gates.md)"
+    - "bundle=accept consent token recognition on multi-domain stale-area scopes"
   excludes:
     - "Full 8-phase pipeline (pe-meta-update handles this)"
-    - "Release-driven monitoring (pe-meta-release-monitor handles this)"boundaries:
+    - "Release-driven monitoring (pe-meta-update --source <url> handles this)"
+boundaries:
   - "MUST auto-detect stale areas before auditing"
   - "MUST summarize context before handoffs (>8K token trigger)"
   - "MUST update review log after completion"
+  - "Phase 0b is NOT skippable; --skip domain-coherence is rejected with CF-05; Phase 0b runs on the resolved stale-area set BEFORE delegating to meta-validator/meta-optimizer"
+  - "bundle=accept is the ONLY valid consent token (closed set); recorded on first-line `Resolved invocation:` log"
+  - "Phase 0a CF-05 artifact-type/path consistency does NOT apply at this orchestrator-level layer; when this prompt delegates to pe-meta-update, Phase 0b is enforced by the delegate as well"
 rationales:
   - "Lightweight design optimized for weekly execution reduces review fatigue"
   - "Auto-detecting stale areas avoids re-checking healthy artifacts"
@@ -40,6 +47,8 @@ rationales:
 # Scheduled PE Review
 
 Lightweight periodic review optimized for weekly execution. Detects what's stale → audits only stale areas → proposes fixes → updates the review log.
+
+> **v15.2 alignment.** This prompt rejects `--mode` and is **exempt** from the § Iteration budget spillover contract (vision v15.2 § Iteration budget item #5 — assessment-only / scheduled families do not emit a `spillover=` marker). It proposes fixes (Phase 3) and applies low-risk ones (Phase 4) within its own bounded scan, not via the autonomous per-cycle change cap, so no spillover plan is produced.
 
 **Design principle**: Minimal user input. Run `/pe-meta-scheduled-review` with no arguments for a full auto-detected review, or add `--scope <type>` to focus on one artifact type.
 
@@ -76,6 +85,19 @@ Read `.copilot/context/00.00-prompt-engineering/05.05-practical-effectiveness-lo
 **Output to user**: Brief effectiveness summary — what's been logged, any actionable patterns.
 
 If no new entries → report "No effectiveness data since last review" and proceed to Phase 1.
+
+## Phase 0b — Domain coherence
+
+This prompt enforces the Phase 0b domain coherence gate defined in [`04.05-pe-meta-invocation-gates.md`](../../../.copilot/context/00.00-prompt-engineering/04.05-pe-meta-invocation-gates.md) (upstream authority: current vision document § Domain-coherent batching). The 3-tier metadata-first domain resolution algorithm, seed-vs-deps decision matrix, dispatch table, `bundle=…` closed set, and `bundle=accept` consent semantics are specified there and MUST NOT be re-implemented here.
+
+**Locally true for this prompt:**
+
+1. **Scope = resolved stale-area set.** The output of Phase 1 (auto-detected stale files or `--scope`-filtered subset) is the in-scope file set. Each stale file's declared `domain:` frontmatter is read first (Tier 1); `pe-domain-map.yaml` (Tier 2) and `unknown` (Tier 3) follow.
+2. **Gate runs BEFORE Phase 2 (Health review).** Domain footprint is computed on the stale set, before delegating to meta-validator. Multi-domain stale areas block (in `--mode apply` semantics) until `bundle=accept` consent or a per-domain split is selected.
+3. **Consent token.** `bundle=accept` is the only valid token (closed set, case-sensitive). Recorded on the first-line `Resolved invocation:` log as `bundle=accepted-bundle`.
+4. **Delegation note.** Phase 4 "Apply fixes" may delegate to `pe-meta-update` for non-trivial reconciliation; when it does, Phase 0b is re-enforced by the delegate on its own resolved scope (no double-prompting if the consent token is already provided).
+5. **Phase 0a CF-05 does NOT apply at this layer.** Stale-area scanning is artifact-type-agnostic; CF-05 is enforced ONLY by per-artifact prompts when invoked by Phase 4.
+6. **`--skip domain-coherence` rejected.** Phase 0b is not skippable; bypass multi-domain gating only via `bundle=accept`.
 
 ## Phase 1: Staleness scan
 
@@ -155,7 +177,7 @@ If no pending overrides → report "No override follow-ups pending" and proceed.
 Delegate to `@meta-validator` in Ecosystem Audit mode.
 
 - **Scope**: Only the stale areas identified in Phase 1 (or user-specified `--scope`)
-- **Dimensions**: `coherence+structure+references+budgets`. The auto-rotation cycle additionally includes `--dim reliability` (D28-D35) every 2nd run to surface process-reliability regressions (reproducibility, regression-protection, metadata-guard, multipass-validation-invariant, rollback-readiness, boundary-actionability, autonomy-calibration, portability-boundary). Override with `--dim` to pin a specific group.
+- **Dimensions**: `coherence+structure+references+budgets`. The auto-rotation cycle additionally includes `--dim reliability` (`D28-reproducibility` through `D35-portability-boundary`) every 2nd run to surface process-reliability regressions (reproducibility, regression-protection, metadata-guard, multipass-validation-invariant, rollback-readiness, boundary-actionability, autonomy-calibration, portability-boundary). Override with `--dim` to pin a specific group.
 - **Output**: Severity-scored findings with fix recommendations
 
 If zero CRITICAL or HIGH issues → report "No action needed" and skip to Phase 5.
@@ -217,6 +239,8 @@ After updating the review log, check whether rotation is needed (📖 thresholds
 - Present findings and fix proposals before applying changes
 - Update the review log after every run (even if no issues found)
 - Report a final summary with health score
+- Run Phase 0b on the resolved stale-area set BEFORE delegating to meta-validator
+- Echo `bundle=…` marker on the first line of the `Resolved invocation:` log
 
 ### Ask First
 - Applying fixes classified as `manual-review`
@@ -228,6 +252,8 @@ After updating the review log, check whether rotation is needed (📖 thresholds
 - **NEVER modify top YAML frontmatter** in article files
 - **NEVER skip the review log update**
 - **NEVER remove capabilities** — only extend, refine, or deprecate
+- **NEVER bypass Phase 0b** — `--skip domain-coherence` is rejected with CF-05; bypass multi-domain gating ONLY via `bundle=accept`
+- **NEVER accept consent tokens other than `bundle=accept`** (case-sensitive, closed set)
 
 ---
 

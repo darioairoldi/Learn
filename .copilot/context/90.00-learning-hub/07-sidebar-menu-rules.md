@@ -1,3 +1,28 @@
+---
+title: "Sidebar Menu Rules for Quarto Navigation"
+description: "Defines transformation rules for converting folder/file names to sidebar menu items — numeric prefix removal, date-separator normalization, and Title Case application"
+version: "1.0.0"
+last_updated: "2026-05-26"
+domain: "learning-hub"
+goal: "Establish deterministic rules for transforming folder/file names into readable sidebar menu items"
+scope:
+  covers:
+    - "Numeric prefix removal and transformation algorithm"
+    - "Supported prefix patterns (XX.YY-name, XX.YY name, XX-name, XX name)"
+    - "Date prefix handling with space-dash-space separator"
+    - "Separator character normalization (hyphen/space/underscore → space-dash-space)"
+    - "Transformation examples and regex patterns"
+  excludes:
+    - "Folder naming conventions (see 06-folder-organization-and-navigation.md)"
+    - "Navigation menu generation logic (see Quarto configuration)"
+boundaries:
+  - "MUST normalize date separators to space-dash-space format"
+  - "MUST NOT modify the content after the separator"
+rationales:
+  - "Deterministic transformation ensures menu consistency without per-item tweaking"
+  - "Date separator normalization prevents visual inconsistency from varied input formats"
+---
+
 # Sidebar Menu Rules for Quarto Navigation
 
 **Purpose**: Define rules for generating sidebar menu items from folder/file structures, independent of strict naming conventions.

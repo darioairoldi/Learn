@@ -1,6 +1,6 @@
-# PE-meta command option applicability matrix
+﻿# PE-meta command option applicability matrix
 
-This matrix defines the canonical option taxonomy for all PE-meta commands. Options are organized into 5 classes with deterministic applicability rules.
+This matrix defines the canonical option taxonomy for all PE-meta commands. Options are organized into 7 classes with deterministic applicability rules (vision v14 surface).
 
 ## Option classes
 
@@ -8,19 +8,77 @@ This matrix defines the canonical option taxonomy for all PE-meta commands. Opti
 |---|---|---|---|
 | Dimension | `--dim <group\|D#\|full>` | What quality dimensions to evaluate | Universal — all review/update/design/create commands |
 | Dependency | `--deps none\|direct\|full\|<N>` | How deep to follow dependency chains | Review + guidance-first + scheduled (pass-through) |
-| Scope | `--scope <type>[,<type>...]` | What artifact types to focus on | Universal — all commands |
-| Mode | `--mode plan\|apply` | Whether to preview or execute changes | Review + guidance-first + update + release-monitor |
+| Scope | `--scope <type-token\|comma-paths>` | Artifact-type token OR comma-separated paths | Universal — all commands |
+| Source | `--source <id>\|<url>[,...]` | Filter monitored sources (or an ad-hoc external `--source <url>`) passed through to researcher | Update + scheduled-review only |
+| Window | `--start <date\|version>` / `--end <date\|version>` | Bounded-delta endpoints (value-shape: ISO date OR a source-version token resolved to a timestamp via the source's `version_scheme`); derives `breadth=bounded-delta` | Update only |
+| Mode | `--mode plan\|apply` | Whether to preview or execute changes | Review + guidance-first + update |
 | Skip | `--skip <stage>[,<stage>...]` | Which pipeline phases or resources to bypass | Update (all stages); type-specific review (research, external only) |
 
 ## Canonical applicability matrix
 
-| Option | Review | Design | Create-update | Scheduled-review | Update | Release-monitor | Adherence |
-|---|---|---|---|---|---|---|---|
-| `--dim` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| `--deps` | ✅ | ❌ | ❌ | ✅ (pass-through) | ❌ | ❌ | ✅ |
-| `--scope` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| `--mode` | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| `--skip` | ✅ (research, external) | ❌ | ❌ | ✅ (research, external) | ✅ (all stages) | ✅ (research, external) | ❌ |
+| Option | Review | Design | Create-update | Scheduled-review | Update | Adherence |
+|---|---|---|---|---|---|---|
+| `--dim` | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| `--deps` | ✅ | ❌ | ❌ | ✅ (pass-through) | ❌ | ✅ |
+| `--scope` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `--source` | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| `--start`/`--end` | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| `--mode` | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ |
+| `--skip` | ✅ (research, external) | ❌ | ❌ | ✅ (research, external) | ✅ (all stages) | ❌ |
+
+## Derived breadth (vision v14)
+
+Breadth is NOT a user-supplied flag — it is **derived** by the orchestrator from caller-type and window endpoints:
+
+| Caller-type | Window endpoints | Derived `breadth` | Researcher output shape |
+|---|---|---|---|
+| `manual` | none | `full` | snapshot |
+| `trigger-fired` | none | `incremental` | digest (reads per-source state) |
+| any | `--start` and/or `--end` present | `bounded-delta` | window-digest (defaults endpoints from `lookback.default_days`) |
+
+**Rule #2 (composition constraint):** `--skip research` combined with derived `breadth=full` is REJECTED via CF-05 — a full sweep that skips research has no inputs to act on. Allowed: `--skip research` with `incremental` or `bounded-delta` (state-only re-validation).
+
+**Value-shape `--start`/`--end` (vision v15.3).** Each window bound takes one of two shapes, resolved deterministically at Phase 0a: a **date** (ISO-8601, `now`, or a relative offset `-Nd`) OR a **source-version token** (e.g. `1.099`) resolved to its publish timestamp via the source's `version_scheme` (`semver`\|`dated`\|`model-version`\|`none`). This mirrors the two-shape `--scope` parser and adds **no new parameter** (`minimal-canonical-surface` preserved). Two guard rails: (1) a version-shaped bound requires a **singleton** `--source` — otherwise rejected via CF-05 (`version window requires a single --source`); (2) a version bound against a `version_scheme: none` source is rejected (`source <id> has no version scheme; use a date window`). A `--start`/`--end` window resolves `breadth=bounded-delta` and **overrides** recorded `pass` coverage inside `[--start, --end]` (the re-baseline / distrust-recovery path).
+
+## Per-artifact prompt invocation matrix
+
+The orchestrator routes each (artifact-type, dim-family) pair to the corresponding type-specific prompt — **never** hand-write per-type branches:
+
+| Artifact type | dim-family=review | dim-family=create-update | dim-family=design |
+|---|---|---|---|
+| `context` | `/pe-meta-context-review` | `/pe-meta-context-create-update` | `/pe-meta-context-design` |
+| `instructions` | `/pe-meta-instructions-review` | `/pe-meta-instructions-create-update` | `/pe-meta-instructions-design` |
+| `agents` | `/pe-meta-agents-review` | `/pe-meta-agents-create-update` | `/pe-meta-agents-design` |
+| `prompts` | `/pe-meta-prompts-review` | `/pe-meta-prompts-create-update` | `/pe-meta-prompts-design` |
+| `skills` | `/pe-meta-skills-review` | `/pe-meta-skills-create-update` | `/pe-meta-skills-design` |
+| `hooks` | `/pe-meta-hooks-review` | `/pe-meta-hooks-create-update` | `/pe-meta-hooks-design` |
+| `snippets` | `/pe-meta-snippets-review` | `/pe-meta-snippets-create-update` | `/pe-meta-snippets-design` |
+| `templates` | `/pe-meta-templates-review` | `/pe-meta-templates-create-update` | `/pe-meta-templates-design` |
+
+## Pipeline phases and `--skip` mapping
+
+| Pipeline phase | Stage name (mapped by `--skip`) | Notes |
+|---|---|---|
+| Phase 0a | _(conversational pre-parser; never skippable)_ | Resolves free-form intent → canonical 7 params |
+| Phase 0a-precondition | _(artifact-type/path consistency check; never skippable)_ | CF-05 on prompt-name-prefix vs positional-path-root mismatch; per-artifact prompts only (orchestrator-level prompts skip) |
+| Phase 0b | _(domain coherence check; never skippable; `--skip domain-coherence` REJECTED)_ | Computes seed and dependency footprints separately via metadata-first 3-tier algorithm; emits `bundle=…` on first-line `Resolved invocation:` log |
+| Phase 1 (research) | `research` | Cannot be skipped on derived `breadth=full` (rule #2) |
+| Phase 1.5 (organizational pass) | `structure` | Gated on `breadth=full` AND multi-file scope |
+| Phase 2 (structure audit) | `structure` | Orchestrators only |
+| Phase 3 (consistency audit) | `consistency` | Orchestrators only |
+| Phase 4 (content audit + per-artifact routing) | `content` | Orchestrators only |
+| Phase 6 (apply + outcome-log) | _(not skippable)_ | Writes `.copilot/temp/pe-meta-state/outcomes/<run-id>.jsonl` |
+| Phase 8 (report + first-line `Resolved invocation:` log) | _(not skippable)_ | Persists `new_anchors[]` for incremental runs after successful applies |
+
+## `--scope` value shape (formal)
+
+`--scope` accepts EXACTLY ONE of:
+1. An **artifact-type token**: `context | instructions | agents | prompts | skills | hooks | snippets | templates | all`
+2. A **comma-separated path list**: folders end with `/`, files end with `.md`
+
+**Mixing rejected**: `--scope context,.github/prompts/foo.md` → CF-05 (type token cannot coexist with path entries).
+
+**Phase 0b applies universally to every scope-bearing mechanism.** Once `--scope` has been resolved to a concrete file set — whether by an artifact-type token, a comma-separated path list, a positional `<file-path>` (per-artifact prompts), or the default-all expansion — Phase 0b reads each in-scope file's declared `domain:` frontmatter and computes the seed and dependency footprints. The domain-coherence gate is therefore orthogonal to the scope-bearing mechanism: every command family (orchestrator-level + per-artifact + scheduled) honors Phase 0b regardless of `--mode` value.
 
 ## Option detail: `--deps`
 
@@ -54,6 +112,8 @@ This matrix defines the canonical option taxonomy for all PE-meta commands. Opti
 | `apply` | Full R-B-V + apply changes (default) |
 
 **Note:** `--mode plan --skip research` is the canonical assessment-only invocation (diagnose without designing or applying changes). It supersedes the former `healthcheck` preset.
+
+**Applicability (vision v15.2 § Option applicability matrix).** `--mode` is accepted by **Review ✅** (`apply` default, `--mode plan` previews), **Guidance-first / Adherence ✅** (`apply` default, `--mode plan` previews), and **Update ✅** (`apply` default, `--mode plan` previews). It is rejected by **Creation (Design + Create-update) ❌** (always writes) and **Scheduled-review ❌** (delegates execution to sub-commands). The canonical applicability matrix `--mode` row above reflects this exactly.
 
 ## Option detail: `--skip`
 
@@ -96,19 +156,39 @@ The canonical replacements are:
 | `--skip-structure` | `--skip structure` | Retained for compatibility |
 | `--skip-consistency` | `--skip consistency` | Retained for compatibility |
 | `--skip-content` | `--skip content` | Retained for compatibility |
+| `--incremental` | _(no canonical replacement)_ | **PRESERVED EXCLUSIVELY for trigger-fired callers**. Manual use → CF-05 (see retired-flag table below). |
+
+## Retired v13.x flags (vision v14)
+
+The parser MUST be table-driven and reject the following flags with the uniform CF-05 template:
+
+> `<flag> retired in v14; use <v14-replacement> — see vision v15 changelog § Historical: v13 → v14 deprecated flag map`
+
+| Retired flag | v14 replacement |
+|---|---|
+| `--breadth full\|incremental\|catch-up` | Derived from caller-type + `--start`/`--end` (no flag) |
+| `--since <date>` | `--start <YYYY-MM-DD>` |
+| `--between <a..b>` | `--start <a> --end <b>` |
+| `--area <area>` | `--scope <type-token>` or `--scope <comma-paths>` |
+| `--artifact <type>` | `--scope <type-token>` |
+| `--consumer <path>` | `--scope <comma-paths>` (path entry) |
+| `--subject <topic>` | `--scope <comma-paths>` (specific file path) |
+| `--concern <category>` | `--dim <group>` |
+| `--mode-review` | `--mode plan` (review intent) or `--mode apply` (default for `*-review` prompts) |
+| `--incremental` (on manual callers) | _(no replacement)_ — manual callers always derive `full`; if a bounded sweep is needed, use `--start`/`--end` for `bounded-delta` |
 
 ## Canonical command ownership for overlap-prone capabilities
 
 | Capability | Canonical command | Compatibility route | Routing rule |
 |---|---|---|---|
 | Guidance-first adherence matrix | `/pe-meta-adherence` | Scheduled-review guidance-first rotation | Always route to canonical; never accept `--mode guidance-first` in other commands |
-| Release-diff driven monitoring | `/pe-meta-release-monitor` | `/pe-meta-update --mode apply <release-url>` | Prefer release-monitor; keep compatibility route for explicit requests |
+| External-platform reconciliation (release-diff) | `/pe-meta-update --source <url>` | _(none — Release-monitor family retired in vision v15.2)_ | Reconcile against a platform/model release via an Update invocation scoped to an external `--source <url>`, optionally windowed with `--start`/`--end` |
 
 Orchestration narratives are intentionally preserved in orchestration prompts and are not overlap defects:
 
 1. Scheduling and cadence guidance → `/pe-meta-scheduled-review`
 2. Lifecycle rotation guidance → `/pe-meta-scheduled-review`
-3. Release-diff guidance → `/pe-meta-release-monitor`
+3. External-platform reconciliation guidance → `/pe-meta-update --source <url>`
 4. Multi-phase orchestration guidance → `/pe-meta-update`
 
 ## Deterministic rejection format
@@ -146,7 +226,7 @@ Corrective action MUST include one of:
 /pe-meta-review .github/prompts/ --dim reliability --mode plan
 ```
 
-> **Dim alias:** `--dim robustness` is a deprecated alias for `--dim adherence` (accepted for one release with a deprecation notice; resolves to `--dim adherence`). `--dim reliability` is the canonical group for system-reliability dimensions D28-D35. See `.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md` for the full dimension group inventory.
+> **No `--dim` aliases.** Every `--dim` value resolves to exactly one canonical group. Unknown values (including the retired `robustness` name) are rejected via CF-05 with the full canonical enumeration. `--dim adherence` covers consumer-correctness dimensions (`D5-boundaries`, `D6-consistency`, `D16-adherence`, `D18-coverage`); `--dim reliability` covers system-reliability dimensions (`D28-reproducibility` through `D35-portability-boundary`). See `.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md` for the full dimension group inventory.
 
 ### Dependency traversal
 
@@ -168,7 +248,7 @@ Corrective action MUST include one of:
 
 ```
 /pe-meta-update --mode plan --scope agents
-/pe-meta-release-monitor <url> --mode plan
+/pe-meta-update --source <url> --mode plan
 ```
 
 ### Pipeline stage skipping

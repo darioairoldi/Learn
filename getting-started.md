@@ -8,7 +8,7 @@ description: "Quick start guide for IQPilot - optional AI-assisted content devel
 
 # Getting Started with IQPilot in Learn Hub
 
-## 🎯 Overview
+## Overview 🎯
 
 This repository uses **IQPilot** - an optional AI-assisted content development tool that enhances GitHub Copilot with specialized validation, gap analysis, and metadata management capabilities.
 
@@ -37,7 +37,7 @@ This repository uses **IQPilot** - an optional AI-assisted content development t
 
 See [`.iqpilot/README.md`](.iqpilot/README.md) for mode comparison and switching guide.
 
-## 📋 Prerequisites
+## Prerequisites 📋
 
 Before you begin, ensure you have:
 
@@ -47,7 +47,7 @@ Before you begin, ensure you have:
 - ✅ **Node.js** (v20.x or later) - [Download here](https://nodejs.org/)
 - ✅ **PowerShell** (Windows - usually pre-installed)
 
-## 🚀 First-Time Setup
+## First-Time Setup 🚀
 
 ### Quick Setup (Prompts Only Mode)
 
@@ -152,7 +152,7 @@ To enable: .vscode/settings.json → "iqpilot.enabled": true
 
 If not working as expected, check the [Troubleshooting](#troubleshooting) section.
 
-## 🎛️ Switching Modes
+## Switching Modes 🎛️
 
 See [`.iqpilot/README.md`](.iqpilot/README.md) for complete guide on:
 - Mode comparison (MCP vs Prompts Only vs Off)
@@ -160,7 +160,7 @@ See [`.iqpilot/README.md`](.iqpilot/README.md) for complete guide on:
 - Performance considerations
 - Troubleshooting mode issues
 
-## 📝 Using IQPilot
+## Using IQPilot 📝
 
 ### Creating a New Article
 
@@ -234,7 +234,7 @@ dotnet build --configuration Release
 .\.copilot\scripts\check-stale-validations.ps1
 ```
 
-## 📖 Available IQPilot Capabilities
+## Available IQPilot Capabilities 📖
 
 IQPilot provides 16 MCP tools accessible through natural language with GitHub Copilot:
 
@@ -262,7 +262,7 @@ IQPilot provides 16 MCP tools accessible through natural language with GitHub Co
 
 **Usage:** Just ask in natural language - Copilot maps to appropriate tools automatically!
 
-## 🎛️ Configuration
+## Configuration 🎛️
 
 ### IQPilot Configuration
 
@@ -306,7 +306,7 @@ When you open this workspace, VS Code will suggest installing:
 
 Accept the recommendations or install manually.
 
-## 🏗️ Folder Structure Overview
+## Folder Structure Overview 🏗️
 
 ```
 .github/
@@ -349,7 +349,7 @@ howto/                           # How-to guides
 events/                          # Conference notes
 ```
 
-## 🔍 Commands Reference
+## Commands Reference 🔍
 
 ### VS Code Tasks
 
@@ -373,7 +373,7 @@ In Copilot Chat, use natural language:
 
 Copilot automatically invokes appropriate IQPilot MCP tools.
 
-## 🐛 Troubleshooting
+## Troubleshooting 🐛
 
 ### IQPilot Tools Not Available in Copilot
 
@@ -411,7 +411,7 @@ dotnet build --configuration Release
 
 **Note:** IQPilot's FileWatcherService handles metadata sync automatically when running as MCP server.
 
-## 📚 Additional Documentation
+## Additional Documentation 📚
 
 - **IQPilot Overview**: [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md)
 - **IQPilot Getting Started**: [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md)
@@ -419,7 +419,7 @@ dotnet build --configuration Release
 - **Structure Overview**: [.github/00.00-repository-structure.md](.github/00.00-repository-structure.md)
 - **Technical Docs**: [src/IQPilot/README.md](src/IQPilot/README.md)
 
-## 🎓 Learning Resources
+## Learning Resources 🎓
 
 ### Workflow Guides
 - Use prompts in `.github/prompts/01.00-article-writing/` for article creation
@@ -431,7 +431,7 @@ dotnet build --configuration Release
 - `.copilot/context/01.00-article-writing/02-validation-criteria.md`
 - `.github/copilot-instructions.md`
 
-## 🎉 You're Ready!
+## You're Ready! 🎉
 
 Start creating content with confidence knowing that:
 - ✅ IQPilot MCP server integrates with GitHub Copilot
@@ -453,7 +453,7 @@ Start creating content with confidence knowing that:
 
 ---
 
-## 💡 Tips for Success
+## Tips for Success 💡
 
 1. **Validate incrementally** - Check as you write sections, not at the end
 2. **Use templates** - Saves time and ensures consistency

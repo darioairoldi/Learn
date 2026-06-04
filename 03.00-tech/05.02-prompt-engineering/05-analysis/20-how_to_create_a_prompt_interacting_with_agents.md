@@ -17,34 +17,34 @@ This article explains how to design an <mark>orchestrator prompt</mark> that coo
 
 ## Table of contents
 
-- [🎯 The Problem: Complex Multi-Phase Workflows](#-the-problem-complex-multi-phase-workflows)
-- [🏗️ Architecture Overview](#️-architecture-overview)
+- [The Problem: Complex Multi-Phase Workflows 🎯](#the-problem-complex-multi-phase-workflows)
+- [Architecture Overview 🏗️](#architecture-overview)
   - [Advanced Agent Deployment Options](#advanced-agent-deployment-options)
   - [Sharing Agents Across Teams](#sharing-agents-across-teams)
   - [Cross-Platform Compatibility: Claude Skills](#cross-platform-compatibility-claude-skills)
-- [📋 The Specialized Agent Pattern](#-the-specialized-agent-pattern)
-- [🎯 Use Case Challenge Methodology](#-use-case-challenge-methodology)
-- [🔀 Orchestrator Design: Phase-Based Coordination](#-orchestrator-design-phase-based-coordination)
-- [📡 Information exchange](#-information-exchange)
-- [🧠 Structure Definition & Architecture Analysis (Phase 3)](#-structure-definition--architecture-analysis-phase-3)
+- [The Specialized Agent Pattern 📋](#the-specialized-agent-pattern)
+- [Use Case Challenge Methodology 🎯](#use-case-challenge-methodology)
+- [Orchestrator Design: Phase-Based Coordination 🔀](#orchestrator-design-phase-based-coordination)
+- [Information exchange 📡](#information-exchange)
+- [Structure Definition & Architecture Analysis (Phase 3) 🧠](#structure-definition--architecture-analysis-phase-3)
   - [Tool Composition Validation](#tool-composition-validation)
   - [Agent Dependencies Planning (Phases 5-6)](#agent-dependencies-planning-phases-5-6)
-- [🔧 Handling Agent Creation Within the Workflow](#-handling-agent-creation-within-the-workflow)
-- [🔄 The Complete Workflow](#-the-complete-workflow)
-- [🔄 Execution Flow Control Patterns](#-execution-flow-control-patterns)
+- [Handling Agent Creation Within the Workflow 🔧](#handling-agent-creation-within-the-workflow)
+- [The Complete Workflow 🔄](#the-complete-workflow)
+- [Execution Flow Control Patterns 🔄](#execution-flow-control-patterns)
   - [Iteration Control with Bounded Loops](#iteration-control-with-bounded-loops)
   - [Recursion Control for Agent Creation](#recursion-control-for-agent-creation)
   - [Error Handling Paths](#error-handling-paths)
   - [Parallel vs. Sequential Execution](#parallel-vs-sequential-execution)
-- [💡 Key Design Decisions](#-key-design-decisions)
+- [Key Design Decisions 💡](#key-design-decisions)
   - [Validation Loop Limits](#validation-loop-limits)
   - [Pre-Save Validation](#pre-save-validation)
-- [📝 Implementation Example](#-implementation-example)
-- [📊 Real Implementation Case Study](#-real-implementation-case-study)
-- [🎯 Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Implementation Example 📝](#implementation-example)
+- [Real Implementation Case Study 📊](#real-implementation-case-study)
+- [Conclusion 🎯](#conclusion)
+- [References 📚](#references)
 
-### 🎯 The Problem: Complex Multi-Phase Workflows
+### The Problem: Complex Multi-Phase Workflows 🎯
 
 Consider the task: **"Create a new prompt file following repository best practices."**
 
@@ -100,7 +100,7 @@ Split the monolithic prompt into:
 └───────────┘ └───────────┘ └───────────┘ └───────────┘
 ```
 
-### 🏗️ Architecture Overview
+### Architecture Overview 🏗️
 
 ### The Prompt Creation System
 
@@ -439,7 +439,7 @@ You are an expert code reviewer focused on:
 
 > **Note:** The `allowed-tools` attribute in Claude skills is not currently supported in VS Code. For tool-specific workflows, use custom agents.
 
-### 📋 The Specialized Agent Pattern
+### The Specialized Agent Pattern 📋
 
 Each specialized agent follows a consistent structure:
 
@@ -593,7 +593,7 @@ tools:
 
 Learn more: [VS Code MCP Servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
 
-### 🎯 Use Case Challenge Methodology
+### Use Case Challenge Methodology 🎯
 
 Before building any prompt or agent, <mark>**validate that the goal is clear and actionable**</mark> by generating realistic use cases.  
 This battle-tested methodology prevents scope creep and reveals tool/boundary requirements early.
@@ -707,7 +707,7 @@ When creating agents (not prompts), apply additional **Role Challenge** tests:
 **Validated Role**: [final role definition]
 ```
 
-### 🔀 Orchestrator Design: Phase-Based Coordination
+### Orchestrator Design: Phase-Based Coordination 🔀
 
 The orchestrator prompt coordinates the workflow through distinct phases, optionally using <mark>planning mode</mark> for upfront design:
 
@@ -841,7 +841,7 @@ Phase 8: Fix (→ prompt-updater)
 - Validate → Automatic, builder self-checked (`send: true`)
 - Fix → Automatic re-validation (`send: true`)
 
-### 📡 Information exchange
+### Information exchange 📡
 
 Effective multi-agent orchestration requires explicit protocols for how information flows between agents—data contracts, context carryover strategies, and token-efficient communication patterns.
 
@@ -855,7 +855,7 @@ This case study's prompt creation workflow uses several techniques covered in de
 
 **Key principle for this case study:** Handoff prompts reference previous phase outputs using natural language ("the requirements above", "from the research phase") because conversation history is automatically available to the target agent.
 
-### 🧠 Structure Definition & Architecture Analysis (Phase 3)
+### Structure Definition & Architecture Analysis (Phase 3) 🧠
 
 The orchestrator's most important job is **determining optimal architecture** for the task. This happens in Phase 3, which now includes tool composition validation and agent dependency planning.
 
@@ -1093,7 +1093,7 @@ Create agents using: `@agent-design-and-create`
 **Approve creation plan? (yes/no/modify)**
 ```
 
-### 🔧 Handling Agent Creation Within the Workflow
+### Handling Agent Creation Within the Workflow 🔧
 
 When Phase 3 determines that new agents are needed, the workflow branches:
 
@@ -1180,7 +1180,7 @@ When multiple agents are needed, create them iteratively:
 **Proceed with Agent 2? (yes/no/review Agent 1)**
 ```
 
-### 🔄 The Complete Workflow
+### The Complete Workflow 🔄
 
 ### Standard Flow (Single Prompt)
 
@@ -1253,7 +1253,7 @@ Phase 5: Validate All → prompt-validator
 ✅ Complete: Full code review system ready
 ```
 
-### ⚙️ Execution Flow Control Patterns
+### Execution Flow Control Patterns ⚙️
 
 Multi-agent orchestrations require explicit **flow control** to prevent infinite loops, handle errors gracefully, and coordinate parallel execution.
 
@@ -1438,7 +1438,7 @@ Strategic checkpoints ensure user control at critical moments:
 - Fix phase (auto-triggers re-validation)
 ```
 
-### 💡 Key Design Decisions
+### Key Design Decisions 💡
 
 ### 1. Orchestrator Never Implements
 
@@ -1557,7 +1557,7 @@ Builders must self-validate **before** saving files to catch issues early:
 
 **Why?** Catching issues before file creation is cheaper than validation/fix cycles.
 
-### 🎛️ Context Engineering for Orchestrators
+### Context Engineering for Orchestrators 🎛️
 
 Multi-agent workflows can exceed token limits without optimization. Apply these patterns:
 
@@ -1600,7 +1600,7 @@ When orchestrations involve many MCP servers:
 
 Learn more: `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
 
-### 📝 Implementation Example
+### Implementation Example 📝
 
 ### The Orchestrator YAML
 
@@ -1760,7 +1760,7 @@ fixes:
 **Handoff to updater? (auto if critical issues)**
 ```
 
-### 📊 Real Implementation Case Study
+### Real Implementation Case Study 📊
 
 The patterns in this article were battle-tested by designing and implementing a complete prompt/agent creation system. The case study documents:
 
@@ -1808,7 +1808,7 @@ This companion document includes:
 - 2-week staged implementation roadmap
 - Success criteria and validation checklists
 
-## 🎯 Conclusion
+## Conclusion 🎯
 
 Building complex AI workflows requires moving beyond monolithic prompts to orchestrated multi-agent systems. The key principles are:
 

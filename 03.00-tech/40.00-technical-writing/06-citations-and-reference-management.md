@@ -13,19 +13,19 @@ description: "Master technical citation practices through source evaluation fram
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [❓ Why citations matter in technical writing](#-why-citations-matter-in-technical-writing)
-- [🔍 Source evaluation frameworks](#-source-evaluation-frameworks)
-- [📊 The reference classification system](#-the-reference-classification-system)
-- [📝 Citation formatting](#-citation-formatting)
-- [⏳ Managing references over time](#-managing-references-over-time)
-- [🔗 Preventing link rot](#-preventing-link-rot)
-- [📖 Wikipedia's approach to sources](#-wikipedias-approach-to-sources)
-- [📌 Applying citations to this repository](#-applying-citations-to-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Introduction 🎯](#introduction)
+- [Why citations matter in technical writing ❓](#why-citations-matter-in-technical-writing)
+- [Source evaluation frameworks 🔍](#source-evaluation-frameworks)
+- [The reference classification system 📊](#the-reference-classification-system)
+- [Citation formatting 📝](#citation-formatting)
+- [Managing references over time ⏳](#managing-references-over-time)
+- [Preventing link rot 🔗](#preventing-link-rot)
+- [Wikipedia's approach to sources 📖](#wikipedias-approach-to-sources)
+- [Applying citations to this repository 📌](#applying-citations-to-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 Citations in technical documentation serve different purposes than academic citations. They establish credibility, enable verification, and help readers find additional resources—but they must be practical for the technical writing context.
 
@@ -39,7 +39,7 @@ This article covers:
 
 **Prerequisites:** Understanding of [validation principles](05-validation-and-quality-assurance.md) helps contextualize reference validation.
 
-## ❓ Why citations matter in technical writing
+## Why citations matter in technical writing ❓
 
 ### The purposes of technical citations
 
@@ -87,7 +87,7 @@ Dated references help readers assess whether information is current.
 - Your own original analysis
 - Basic syntax from official documentation (implicit)
 
-## 🔍 Source evaluation frameworks
+## Source evaluation frameworks 🔍
 
 Not all sources are equally reliable. Evaluation frameworks help you assess source quality.
 
@@ -157,7 +157,7 @@ Are there more authoritative sources for this claim?
 **<mark>T - Trace claims to original</mark>**
 Where did this information originally come from?
 
-## 📊 The reference classification system
+## The reference classification system 📊
 
 This repository uses a four-tier classification system to indicate source reliability at a glance.
 
@@ -244,7 +244,7 @@ Is the source from the product/service vendor?
 - Recognized educators (Fireship, Traversy Media) → 📗 Verified
 - Unknown creators → 📒 Community
 
-## 📝 Citation formatting
+## Citation formatting 📝
 
 Consistent citation formatting aids readability and enables automation.
 
@@ -314,7 +314,7 @@ This is a really great resource that you should definitely read because it's ver
 
 **Guideline:** Cite enough to establish credibility without disrupting readability. If every sentence has a citation, consider whether you're adding value or just aggregating sources.
 
-## ⏳ Managing references over time
+## Managing references over time ⏳
 
 References require maintenance. Links break, content changes, better sources emerge.
 
@@ -352,7 +352,7 @@ Maintain awareness of references in your documentation:
 - Scheduled review (quarterly recommended)
 - Major industry changes
 
-## 🔗 Preventing link rot
+## Preventing link rot 🔗
 
 Link rot—URLs that no longer work—undermines documentation credibility.
 
@@ -408,7 +408,7 @@ Studies suggest:
 [Archived version](archive-url) available. Seeking current source.
 ```
 
-## 📖 Wikipedia's approach to sources
+## Wikipedia's approach to sources 📖
 
 Wikipedia has developed sophisticated source practices worth studying.
 
@@ -485,7 +485,7 @@ Description of relevance.
 4. **Dead links happen** - Have a strategy for broken links
 5. **Anyone can edit** - Build verification into your process
 
-## 📌 Applying citations to this repository
+## Applying citations to this repository 📌
 
 ### Reference standards
 
@@ -568,7 +568,7 @@ This means that when you run reference validation, you aren't just checking link
 4. **Monthly:** Run link checker site-wide
 5. **On broken link:** Update or archive immediately
 
-## ✅ Conclusion
+## Conclusion ✅
 
 Citations aren't just an academic formality bolted onto technical writing—they're a structural component of documentation quality. Every reference you add serves multiple purposes simultaneously: it provides evidence for readers who want to verify your claims, signals that you've done due diligence on your sources, and creates a network of resources that extends your documentation's value beyond its own pages.
 
@@ -593,7 +593,7 @@ The key insight is that citation quality is observable. Unlike deep quality char
 - **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Quality criteria that references support (Accuracy, Completeness)
 - **Related:** [09-measuring-readability-and-comprehension.md](09-measuring-readability-and-comprehension.md) — Measuring documentation quality beyond citations
 
-## 📚 References
+## References 📚
 
 ### Source evaluation
 

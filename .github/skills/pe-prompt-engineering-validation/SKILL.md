@@ -345,30 +345,30 @@ Verify naming, location, and extension conventions.
 
 ## Dimension Mapping
 
-This skill's workflows map to the 27-dimension quality framework (see `05.07-dimension-applicability-matrix.md`):
+> **Disambiguation.** The `D#` codes in the table below refer to this SKILL's OWN local dimension list (a 27-dimension validation framework for prompt/agent quality). They do NOT correspond to the catalog at `.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md`, whose `D#-readable-id` codes (e.g. `D6-consistency`, `D26-model-routing`) have different semantics. The catalog's `--dim` flag does NOT accept this SKILL's identifiers.
 
-| Workflow | Dimensions Covered |
+| Workflow | Dimensions Covered (SKILL-local) |
 |---|---|
-| Use Case Challenge | D1 (Goal Clarity), D2 (Scope Precision) |
-| Role Validation | D5 (Role Appropriateness) |
-| Tool Alignment | D6 (Tool Alignment), D7 (Mode Correctness) |
-| Workflow Reliability | D10 (Failure Recovery), D11 (Phase Completeness) |
-| Boundary Actionability | D8 (Boundary Quality), D9 (Boundary Completeness) |
-| Artifact Redundancy | D20 (Non-Redundancy), D21 (Single Source of Truth) |
-| Cross-Artifact Consistency | D22 (Rule Consistency), D23 (Layer Agreement) |
-| Token Budget Audit | D15 (Token Budget Compliance) |
-| YAML Frontmatter | D12 (Structural Completeness) |
-| Required Sections | D13 (Section Completeness) |
-| Convention Compliance | D14 (Naming Convention), D16 (Location Correctness) |
+| Use Case Challenge | `D1-goal-clarity`, `D2-scope-precision` |
+| Role Validation | `D5-role-appropriateness` |
+| Tool Alignment | `D6-tool-alignment`, `D7-mode-correctness` |
+| Workflow Reliability | `D10-failure-recovery`, `D11-phase-completeness` |
+| Boundary Actionability | `D8-boundary-quality`, `D9-boundary-completeness` |
+| Artifact Redundancy | `D20-non-redundancy`, `D21-single-source-of-truth` |
+| Cross-Artifact Consistency | `D22-rule-consistency`, `D23-layer-agreement` |
+| Token Budget Audit | `D15-token-budget-compliance` |
+| YAML Frontmatter | `D12-structural-completeness` |
+| Required Sections | `D13-section-completeness` |
+| Convention Compliance | `D14-naming-convention`, `D16-location-correctness` |
 
-Use `--dim <D#>` with `/pe-meta-review` to invoke specific dimension checks selectively.
+These SKILL-local identifiers are documentation handles only. To invoke catalog-level dimension checks selectively, use `/pe-meta-review --dim <catalog-id>` where `<catalog-id>` is one of the codes from `05.07-pe-meta-dimension-catalog.md` (e.g. `D6-consistency`, `D11-actionability`).
 
 ## Resources
 
 - **📖 Complete validation examples:** `.copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md`
 - **📖 Tool composition patterns:** `.copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md`
 - **📖 Context engineering principles:** `.copilot/context/00.00-prompt-engineering/01.01-context-engineering-principles.md`
-- **📖 Dimension applicability matrix:** `.copilot/context/00.00-prompt-engineering/05.07-dimension-applicability-matrix.md`
+- **📖 Dimension catalog (35 dimensions, canonical `D#-readable-id`):** `.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md`
 - **📖 Type-specific checklists:** `.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md`
 - **📖 Artifact dependency map:** see `dependency-tracking` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 - **📖 Full system coherence audit:** `.github/skills/pe-artifact-coherence-check/SKILL.md`

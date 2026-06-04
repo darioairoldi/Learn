@@ -8,7 +8,7 @@
 
 ## Operating Modes
 
-### 🚀 MCP Mode (Recommended)
+### MCP Mode (Recommended) 🚀
 **Settings:** `iqpilot.enabled: true, iqpilot.mode: "mcp"`
 
 **What You Get:**
@@ -20,7 +20,7 @@
 
 **When to Use:** Active content development with frequent validations
 
-### 📝 Prompts Only Mode
+### Prompts Only Mode 📝
 **Settings:** `iqpilot.enabled: true, iqpilot.mode: "prompts-only"`
 
 **What You Get:**
@@ -31,7 +31,7 @@
 
 **When to Use:** Occasional article creation, prefer lightweight setup
 
-### ❌ Off Mode
+### Off Mode ❌
 **Settings:** `iqpilot.enabled: false`
 
 **What You Get:**
@@ -70,7 +70,7 @@ Click the IQPilot status bar item (right side) → Select mode
 
 ## What Happens When You Disable IQPilot?
 
-### ✅ Still Works (Always Available)
+### Still Works (Always Available) ✅
 
 **GitHub Copilot Features:**
 - Chat and code completion
@@ -83,7 +83,7 @@ Click the IQPilot status bar item (right side) → Select mode
 - `.github/prompts/*.md` - Standalone prompts (use in Copilot Chat)
 - `.copilot/scripts/*.ps1` - Run PowerShell scripts manually
 
-### ❌ Stops Working (IQPilot MCP Only)
+### Stops Working (IQPilot MCP Only) ❌
 
 **Enhanced Features:**
 - IQPilot MCP tools (16 specialized tools)

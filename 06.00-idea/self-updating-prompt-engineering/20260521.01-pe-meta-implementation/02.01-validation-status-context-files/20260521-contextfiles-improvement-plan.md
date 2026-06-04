@@ -13,21 +13,21 @@ source_status_file: "../02.01-validation-status-context-files.md"
 
 Purpose: resolve C-01, C-02, C-03, and C-04 blockers so the context-set state can be promoted from `failed` to `complete`.
 
-## 🎯 Current blockers
+## Current blockers 🎯
 
 1. C-01 fail: `STRUCTURE-README.md` is missing `description` in frontmatter.
 2. C-02 partial: duplicated and ambiguously layered rules (especially tool alignment, boundary minimums, and response-management ownership).
 3. C-03 partial: uncertain scope for lifecycle and entry-point files (`05.02`, `05.03`) plus uncovered behavior guidance.
 4. C-04 fail: seven broken local links in context files.
 
-## 📋 Scope and constraints
+## Scope and constraints 📋
 
 1. Scope is limited to `.copilot/context/00.00-prompt-engineering/*.md` and related references.
 2. Do not change user-facing behavior of PE prompts/agents unless the change is explicitly required by blocker resolution.
 3. Prefer reference consolidation over content duplication.
 4. Keep `STRUCTURE-README.md` category taxonomy stable unless a category is proven unused.
 
-## ⚙️ Work plan by validation case
+## Work plan by validation case ⚙️
 
 ### C-01 metadata validity
 
@@ -85,7 +85,7 @@ Pass criteria:
 - `BrokenLocalLinks=0`
 - `StaleOver180=0`
 
-## 🏗️ Execution sequence
+## Execution sequence 🏗️
 
 1. Fix C-04 links first (removes deterministic hard failures quickly).
 2. Fix C-01 metadata gap.
@@ -93,7 +93,7 @@ Pass criteria:
 4. Resolve C-03 scope and behavior-coverage gaps.
 5. Re-run C-01..C-04 and update `../02.01-validation-status-context-files.md`.
 
-## ✅ Validation rerun checklist
+## Validation rerun checklist ✅
 
 - [x] C-01 rerun captured.
 - [x] C-02 rerun captured.
@@ -101,7 +101,7 @@ Pass criteria:
 - [x] C-04 rerun captured.
 - [x] Status file promoted to `complete` or kept `failed` with exact residual blockers.
 
-## 📌 Ownership and evidence
+## Ownership and evidence 📌
 
 Owner: `pe-meta-validator` workflow run (manual bootstrap until full automation is active).
 

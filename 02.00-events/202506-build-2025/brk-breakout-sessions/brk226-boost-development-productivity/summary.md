@@ -18,7 +18,7 @@ This session showcases the latest productivity tools and enhancements from the W
 
 ## Key Topics Covered
 
-### ⚡ **1. PowerToys: Enhanced Windows Utilities Suite**
+### **1. PowerToys: Enhanced Windows Utilities Suite** ⚡
 
 #### ZoomIt Integration 
 **New Addition:** Screen annotation and zoom tool integrated from SysInternals
@@ -49,7 +49,7 @@ AI workflow: Image OCR → Text extraction → File creation → Explorer integr
 
 ---
 
-### 🚀 **2. Command Palette: Next-Generation Launcher**
+### **2. Command Palette: Next-Generation Launcher** 🚀
 
 #### Evolution from PowerToys Run
 **Design Goals:**
@@ -80,7 +80,7 @@ AI workflow: Image OCR → Text extraction → File creation → Explorer integr
 
 ---
 
-### 📝 **3. Windows Built-in Text Editor: "Edit"**
+### **3. Windows Built-in Text Editor: "Edit"** 📝
 
 #### Revolutionary Command-Line Integration
 **Problem Solved:** Breaking workflow when editing configuration files
@@ -110,7 +110,7 @@ AI workflow: Image OCR → Text extraction → File creation → Explorer integr
 
 ---
 
-### 🖥️ **4. Windows Settings Improvements**
+### **4. Windows Settings Improvements** 🖥️
 
 #### Developer Settings Reorganization
 **"For Developers" → "Advanced" Page Redesign:**
@@ -152,7 +152,7 @@ AI workflow: Image OCR → Text extraction → File creation → Explorer integr
 
 ---
 
-### 📦 **5. WinGet Configuration Management**
+### **5. WinGet Configuration Management** 📦
 
 #### Export and Import System Configuration
 
@@ -182,7 +182,7 @@ winget configure export
 
 ---
 
-### 💻 **6. Windows Terminal Enhancements**
+### **6. Windows Terminal Enhancements** 💻
 
 #### User Interface Improvements
 
@@ -201,7 +201,7 @@ winget configure export
 
 ---
 
-### 🐧 **7. Windows Subsystem for Linux (WSL) Open Source**
+### **7. Windows Subsystem for Linux (WSL) Open Source** 🐧
 
 #### Community and Ecosystem Impact
 

@@ -29,7 +29,7 @@ The [v13 vision goal](../../../../06.00-idea/self-updating-prompt-engineering/20
 
 > "maintains PE artifacts at peak **reliability, effectiveness, and efficiency** — with the maximum degree of autonomy that assessed risk allows"
 
-The word *robustness* never appears in the vision. It surfaces only in the use-case [README.md](../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/README.md) and in [`05.07-pe-meta-dimension-catalog.md`](../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md) as a `--dim` alias bound to **consumer-correctness** dimensions (D5, D6, D16, D18 — boundaries + consistency + adherence + coverage).
+The word *robustness* never appears in the vision. It surfaces only in the use-case [README.md](../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md) and in [`05.07-pe-meta-dimension-catalog.md`](../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md) as a `--dim` alias bound to **consumer-correctness** dimensions (D5, D6, D16, D18 — boundaries + consistency + adherence + coverage).
 
 That overload is misleading. In standard software engineering, *robustness* means resistance to perturbation and graceful degradation — a **reliability** property of the self-update process, not an adherence property of consumers.
 

@@ -1,9 +1,9 @@
 # 🌐 Azure CosmosDB Access Options (with C#)
 
-## 📋 Overview
+## Overview 📋
 **Azure Cosmos DB** is a fully managed NoSQL database service that provides **global distribution, elastic scaling, and multi-model support** with comprehensive SLAs for throughput, latency, availability, and consistency. It offers multiple APIs including **SQL (Core)**, **MongoDB**, **Cassandra**, **Gremlin**, and **Table**, making it highly versatile for various application patterns.
 
-## 📚 Table of Contents
+## Table of Contents 📚
 
 1. 📋 Overview
 2. 🔧 Available Approaches
@@ -33,7 +33,7 @@
 9. 🔗 Useful Resources
 10. 📝 Summary
 
-## 🔧 Available Approaches
+## Available Approaches 🔧
 
 ### 1. **SQL API (Core)**
 - **Native JSON document model** with rich <mark>SQL querying</mark> capabilities
@@ -55,7 +55,7 @@
   - **Alternative**: <mark>`Azure.Data.Tables`</mark> for Azure Table Storage
   - **Deprecated (⚠️)**: <mark>`Microsoft.Azure.Cosmos.Table`</mark> (discontinued)
 
-## 📦 Key Libraries
+## Key Libraries 📦
 
 ### Primary Library
 ```xml
@@ -91,7 +91,7 @@
 <PackageReference Include="Azure.Identity" Version="1.10.4" />
 ```
 
-## ⚡ Basic Operations
+## Basic Operations ⚡
 
 ### Setting Up a Cosmos Client
 
@@ -209,7 +209,7 @@ public class TodoItemWithSystemTextJson
 }
 ```
 
-## 🔄 CRUD Operations
+## CRUD Operations 🔄
 
 ### Query (Read)
 
@@ -993,7 +993,7 @@ await container.DeleteItemAsync<TodoItem>(
     deleteOptions);
 ```
 
-## 🚀 Advanced Patterns
+## Advanced Patterns 🚀
 
 ### Bulk Operations
 
@@ -1296,7 +1296,7 @@ public class TodoService : ITodoService
 }
 ```
 
-## 🔐 Authentication Approaches
+## Authentication Approaches 🔐
 
 Azure Cosmos DB supports multiple authentication methods, each with its own security characteristics and use cases:
 
@@ -1384,7 +1384,7 @@ var resourceTokenCosmosClient = new CosmosClient(
 6. **Set up alerts** for unusual access patterns
 7. **Regularly rotate keys** to limit exposure from potential leaks
 
-## 🔄 Migration from Legacy SDK
+## Migration from Legacy SDK 🔄
 
 Azure Cosmos DB has evolved significantly, and several legacy SDKs have been **deprecated and discontinued**. Understanding the migration path is crucial for maintaining secure, performant applications.
 
@@ -1766,7 +1766,7 @@ Moving to `Microsoft.Azure.Cosmos` provides:
 
 > **⚠️ Important**: Microsoft will not provide security updates or bug fixes for legacy SDKs. Migration to `Microsoft.Azure.Cosmos` is strongly recommended for security and compatibility reasons.
 
-## 🔗 Useful Resources
+## Useful Resources 🔗
 
 - **Official Documentation**: [Azure Cosmos DB Documentation](https://learn.microsoft.com/en-us/azure/cosmos-db/)<br>
   Comprehensive documentation covering Azure Cosmos DB concepts, capabilities, APIs, and service-level features. Essential for understanding provisioning models, consistency levels, indexing policies, and architectural considerations for designing Cosmos DB solutions.
@@ -1783,7 +1783,7 @@ Moving to `Microsoft.Azure.Cosmos` provides:
 - **Migration Guide**: [Migrating from DocumentDB SDK to Cosmos DB SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/MIGRATE.md)<br>
   Detailed migration guide for transitioning from the legacy Microsoft.Azure.DocumentDB SDK to the modern Microsoft.Azure.Cosmos SDK, with code comparisons, breaking change explanations, and step-by-step migration strategies.
 
-## 📝 Summary
+## Summary 📝
 
 The **Microsoft.Azure.Cosmos** SDK is the recommended approach for accessing Azure Cosmos DB from C#. It provides:
 

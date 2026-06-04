@@ -2,19 +2,19 @@
 
 ![alt text](<images/00.000 azure container app.png>)
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-- [🎯 Overview](#-overview)
-- [📋 Prerequisites](#-prerequisites)
-- [🚀 Step-by-Step Guide](#-step-by-step-guide)
+- [Overview 🎯](#overview)
+- [Prerequisites 📋](#prerequisites)
+- [Step-by-Step Guide 🚀](#step-by-step-guide)
   - [Step 1: Authenticate with Azure](#step-1-authenticate-with-azure)
   - [Step 2: Create a Resource Group](#step-2-create-a-resource-group)
   - [Step 3: Install Container App Extension](#step-3-install-container-app-extension)
   - [Step 4: Create Container App Environment](#step-4-create-container-app-environment)
   - [Step 5: Deploy the Container App](#step-5-deploy-the-container-app)
-- [🔗 References](#-references)
+- [References 🔗](#references)
 
-## 🎯 Overview
+## Overview 🎯
 
 This guide demonstrates how to use the Azure Command-Line Interface (Azure CLI) to create and deploy an Azure Container App. Azure Container Apps is a fully managed serverless container service that enables you to run microservices and containerized applications on a serverless platform. 
 
@@ -26,7 +26,7 @@ By following this tutorial, you will learn how to:
 
 This approach is ideal for developers who prefer command-line tools and automation over using the Azure Portal.
 
-## 📋 Prerequisites
+## Prerequisites 📋
 
 Before starting, ensure you have:
 - Azure CLI installed on your machine
@@ -34,7 +34,7 @@ Before starting, ensure you have:
 - Your Azure tenant ID
 - Basic understanding of container concepts
 
-## 🚀 Step-by-Step Guide
+## Step-by-Step Guide 🚀
 
 ### Step 1: Authenticate with Azure
 
@@ -88,7 +88,7 @@ az containerapp create --name diginsighttools-testmc-ca-01 --resource-group digi
 
 After successful deployment, you can access your application using the FQDN returned by the command.
 
-## 🔗 References
+## References 🔗
 
 ### Official Azure Documentation
 

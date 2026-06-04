@@ -13,21 +13,21 @@ description: "Leverage AI tools effectively for documentation creation, review, 
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [🤖 AI capabilities and limitations](#-ai-capabilities-and-limitations)
-- [✍️ AI-assisted writing workflows](#-ai-assisted-writing-workflows)
-- [💡 Prompt engineering for documentation](#-prompt-engineering-for-documentation)
-- [🔍 AI-powered validation](#-ai-powered-validation)
-- [⚠️ Preventing hallucinations](#-preventing-hallucinations)
+- [Introduction 🎯](#introduction)
+- [AI capabilities and limitations 🤖](#ai-capabilities-and-limitations)
+- [AI-assisted writing workflows ✍️](#ai-assisted-writing-workflows)
+- [Prompt engineering for documentation 💡](#prompt-engineering-for-documentation)
+- [AI-powered validation 🔍](#ai-powered-validation)
+- [Preventing hallucinations ⚠️](#preventing-hallucinations)
   - [Advanced hallucination detection](#advanced-hallucination-detection)
-- [👤 Human-in-the-loop patterns](#-human-in-the-loop-patterns)
-- [🏗️ Building documentation agents](#-building-documentation-agents)
-- [⚖️ Ethical considerations](#-ethical-considerations)
-- [📌 Applying AI in this repository](#-applying-ai-in-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Human-in-the-loop patterns 👤](#human-in-the-loop-patterns)
+- [Building documentation agents 🏗️](#building-documentation-agents)
+- [Ethical considerations ⚖️](#ethical-considerations)
+- [Applying AI in this repository 📌](#applying-ai-in-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 AI language models have transformed documentation workflows. They can draft, review, translate, and improve documentation at unprecedented speed. But they also introduce new failure modes: hallucinated facts, confident errors, and stylistic inconsistencies.
 
@@ -43,7 +43,7 @@ This article covers:
 
 **Prerequisites:** Familiarity with [validation principles](05-validation-and-quality-assurance.md) provides context for AI validation approaches.
 
-## 🤖 AI capabilities and limitations
+## AI capabilities and limitations 🤖
 
 Understanding what AI does well—and poorly—is essential for effective use.
 
@@ -142,7 +142,7 @@ The following matrix maps documentation tasks to AI capability levels. The **Mod
 
 > **Currency note:** This matrix reflects capabilities as of early 2026 (GPT-4o, Claude Sonnet 4, Gemini 2.5 Pro). Model capabilities evolve rapidly—revisit this table when new model versions ship.
 
-## ✍️ AI-assisted writing workflows
+## AI-assisted writing workflows ✍️
 
 Effective AI use requires thoughtful integration into existing workflows.
 
@@ -225,7 +225,7 @@ Human: Idea → AI: Expand → Human: Refine → AI: Improve → Human: Finalize
 
 **Key risk:** AI contributions may drift from accurate to plausible.
 
-## 💡 Prompt engineering for documentation
+## Prompt engineering for documentation 💡
 
 Effective prompts produce better AI outputs for documentation tasks.
 
@@ -358,7 +358,7 @@ Classify these references according to the repository's system:
 For each reference, explain your classification reasoning.
 ```
 
-## 🔍 AI-powered validation
+## AI-powered validation 🔍
 
 AI can assist in validation but requires careful application.
 
@@ -455,7 +455,7 @@ validation_results:
     suggestions_applied: 3
 ```
 
-## ⚠️ Preventing hallucinations
+## Preventing hallucinations ⚠️
 
 Hallucinations—confident but false outputs—are AI's most dangerous failure mode for documentation.
 
@@ -612,7 +612,7 @@ Before publishing AI-generated content:
 - [ ] RAG-retrieved sources reviewed for relevance and currency
 - [ ] Tool-verified outputs checked for pass/fail results
 
-## 👤 Human-in-the-loop patterns
+## Human-in-the-loop patterns 👤
 
 Effective AI use keeps humans in meaningful control.
 
@@ -683,7 +683,7 @@ Human drafts → AI improves → Human adjusts → AI refines → Published
 | Complex, nuanced content | Human as Collaborator |
 | Critical technical accuracy | Human as Editor + Expert Review |
 
-## 🏗️ Building documentation agents
+## Building documentation agents 🏗️
 
 AI agents can automate documentation workflows beyond simple prompts.
 
@@ -770,7 +770,7 @@ All agent decisions can be:
 - Reference established criteria
 - Require human judgment for final decisions
 
-## ⚖️ Ethical considerations
+## Ethical considerations ⚖️
 
 AI in documentation raises ethical questions worth considering.
 
@@ -822,7 +822,7 @@ The human who:
 - "The AI wrote it" is not an excuse
 - Verification is non-negotiable
 
-## 📌 Applying AI in this repository
+## Applying AI in this repository 📌
 
 ### Current AI integration
 
@@ -887,7 +887,7 @@ Located in [.github/agents/](../../.github/agents/):
 **Cache duration:** 7 days (configurable)
 **Cache invalidation:** Content hash change
 
-## ✅ Conclusion
+## Conclusion ✅
 
 AI enhances documentation writing when used thoughtfully. The key is maintaining human oversight while leveraging AI's strengths in generation, review, and validation.
 
@@ -908,7 +908,7 @@ AI enhances documentation writing when used thoughtfully. The key is maintaining
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — Validation dimensions that apply to AI-generated content
 - **Related:** [06-citations-and-reference-management.md](06-citations-and-reference-management.md) — Reference management for AI-assisted writing
 
-## 📚 References
+## References 📚
 
 ### AI and documentation
 

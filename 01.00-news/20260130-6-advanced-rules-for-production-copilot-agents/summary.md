@@ -30,14 +30,14 @@ The speaker uses a racing car metaphor throughout—if Part 1 **built the engine
 
 ## Table of contents
 
-- 🎯 [Introduction: From Demo to Production](#0000-introduction-from-demo-to-production)
-- 🏗️ [Rule 7: <mark>Grounding & Citations</mark>](#0151-rule-7-grounding--citations-stop-hallucinations)
-- 🛡️ [Rule 8: <mark>Guardrails & Security</mark>](#0639-rule-8-guardrails--security-anti-jailbreak)
-- 🧪 [Rule 9: <mark>Rigorous Testing</mark>](#1447-rule-9-rigorous-testing-output-validation)
-- 🧠 [Rule 10: <mark>Self-Critique Architecture</mark>](#1955-rule-10-self-critique-editor-journalist-architecture)
-- 📟 [Rule 11: <mark>Monitoring & Observability</mark>](#2733-rule-11-monitoring--observability-tracking-kpis)
-- 🔄 [Rule 12: <mark>Feedback Loop</mark>](#3236-rule-12-feedback-loop-roi-optimization)
-- 🏎️ [Recap: The "Agent Fleet" Transition](#3719-recap-the-agent-fleet-transition)
+- 🎯 [Introduction: From Demo to Production](#introduction-from-demo-to-production)
+- 🏗️ [Rule 7: <mark>Grounding & Citations</mark>](#rule-7-grounding--citations-stop-hallucinations)
+- 🛡️ [Rule 8: <mark>Guardrails & Security</mark>](#rule-8-guardrails--security-anti-jailbreak)
+- 🧪 [Rule 9: <mark>Rigorous Testing</mark>](#rule-9-rigorous-testing-output-validation)
+- 🧠 [Rule 10: <mark>Self-Critique Architecture</mark>](#rule-10-self-critique-editor-journalist-architecture)
+- 📟 [Rule 11: <mark>Monitoring & Observability</mark>](#rule-11-monitoring--observability-tracking-kpis)
+- 🔄 [Rule 12: <mark>Feedback Loop</mark>](#rule-12-feedback-loop-roi-optimization)
+- 🏎️ [Recap: The "Agent Fleet" Transition](#recap-the-agent-fleet-transition)
 
 ---
 
@@ -295,7 +295,7 @@ Don't start from "which tool do I use"—start from "<mark>what do I want to mea
 
 ---
 
-## 📚 Resources and References
+## Resources and References 📚
 
 ### Official Documentation
 

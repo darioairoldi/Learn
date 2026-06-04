@@ -239,16 +239,16 @@ Operational policy:
 - **[Self-updating prompt engineering: vision and rationale (v12)](../../../../../06.00-idea/self-updating-prompt-engineering/20260515.02-vision.v12.md)** 📘 [Official internal]
 Description: Canonical vision document for autonomy, quality objectives, and risk-calibrated process behavior.
 
-- **[Use-case catalog README](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/README.md)** 📘 [Official internal]
+- **[Use-case catalog README](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md)** 📘 [Official internal]
 Description: Group-level execution map for freshness, quality gates, consumer correctness, and efficiency.
 
 - **[Use-case index JSON](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/usecase-index.json)** 📘 [Official internal]
 Description: Machine-readable source of use-case ordering and priority.
 
-- **[UC-12 dependency-aware full review](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/03-consumer-correctness/p0-01-dependency-aware-full-review.md)** 📘 [Official internal]
+- **[UC-12 dependency-aware full review](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/03-consumer-correctness/p0-01-dependency-aware-full-review-usecase.md)** 📘 [Official internal]
 Description: Canonical definition of full dependency-aware review behavior and depth.
 
-- **[UC-02 guidance quality assessment](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/02-quality-gates/p0-01-guidance-quality-assessment.md)** 📘 [Official internal]
+- **[UC-02 guidance quality assessment](../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/02-quality-gates/p0-01-guidance-quality-assessment-usecase.md)** 📘 [Official internal]
 Description: Quality gate definition supporting autonomy preconditions.
 
 - **[PE-meta review orchestrator](../../../../../.github/prompts/00.09-pe-meta/pe-meta-review.prompt.md)** 📘 [Official internal]

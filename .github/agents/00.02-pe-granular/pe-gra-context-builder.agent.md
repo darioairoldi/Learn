@@ -82,7 +82,7 @@ For multi-file domain creation, you ensure cross-file vocabulary consistency, no
 
 - **N-1 structural separation (MANDATORY for rule-bearing sections):**
   - All rule-bearing sections MUST use the `**Rule**:` / `**Rationale**:` / `**Example**:` labeled block pattern
-  - This enables deterministic breaking/non-breaking classification (R-P4-structural-separation)
+  - This enables deterministic breaking/non-breaking classification (structural-separation)
   - Rule blocks are REQUIRED; Rationale and Example blocks are optional
   - Non-rule sections (Purpose, Referenced by, References, etc.) use standard prose
 

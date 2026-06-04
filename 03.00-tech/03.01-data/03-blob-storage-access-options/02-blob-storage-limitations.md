@@ -2,45 +2,45 @@
 
 Azure Blob Storage is Microsoft's object storage solution for the cloud, providing massive scalability and high availability for unstructured data. However, like any service, it comes with specific limitations that can impact your application's performance, scalability, and functionality. Understanding these constraints is crucial for designing robust and efficient storage solutions.
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-- [1. 📊 Performance Limitations](#1--performance-limitations)
+- [1. 📊 Performance Limitations](#performance-limitations)
   - [Throughput and Bandwidth Limits](#throughput-and-bandwidth-limits)
   - [IOPS Constraints](#iops-constraints)
   - [Latency Characteristics](#latency-characteristics)
-- [2. 📈 Scalability Limitations](#2--scalability-limitations)
+- [2. 📈 Scalability Limitations](#scalability-limitations)
   - [Storage Account Limits](#storage-account-limits)
   - [Container and Blob Limits](#container-and-blob-limits)
   - [Request Rate Limits](#request-rate-limits)
-- [3. 💾 Storage Capacity Constraints](#3--storage-capacity-constraints)
+- [3. 💾 Storage Capacity Constraints](#storage-capacity-constraints)
   - [Maximum Storage Limits](#maximum-storage-limits)
   - [Blob Size Limitations](#blob-size-limitations)
   - [Metadata Limitations](#metadata-limitations)
-- [4. 🔧 Functionality Limitations](#4--functionality-limitations)
+- [4. 🔧 Functionality Limitations](#functionality-limitations)
   - [Access Tier Constraints](#access-tier-constraints)
   - [Security and Compliance Limits](#security-and-compliance-limits)
   - [Geographic Redundancy Limitations](#geographic-redundancy-limitations)
-- [5. 🌐 Network and Connectivity Limitations](#5--network-and-connectivity-limitations)
+- [5. 🌐 Network and Connectivity Limitations](#network-and-connectivity-limitations)
   - [Bandwidth Throttling](#bandwidth-throttling)
   - [Connection Limits](#connection-limits)
   - [Regional Availability](#regional-availability)
-- [6. 💰 Cost-Related Limitations](#6--cost-related-limitations)
+- [6. 💰 Cost-Related Limitations](#cost-related-limitations)
   - [Transaction Costs](#transaction-costs)
   - [Data Transfer Charges](#data-transfer-charges)
   - [Storage Pricing Tiers](#storage-pricing-tiers)
-- [7. 🔍 Monitoring Key Metrics](#7--monitoring-key-metrics)
+- [7. 🔍 Monitoring Key Metrics](#monitoring-key-metrics)
   - [Performance Metrics](#performance-metrics)
   - [Capacity Metrics](#capacity-metrics)
-- [8. ⚡ Performance Optimization Strategies](#8--performance-optimization-strategies)
+- [8. ⚡ Performance Optimization Strategies](#performance-optimization-strategies)
   - [Design Patterns](#design-patterns)
   - [Caching Strategies](#caching-strategies)
-- [9. ❗ Common Issues](#9--common-issues)
+- [9. ❗ Common Issues](#common-issues)
   - [Throttling Issues](#throttling-issues)
   - [Latency Problems](#latency-problems)
-- [10. ✅ Best Practices](#10--best-practices)
+- [10. ✅ Best Practices](#best-practices)
   - [Architecture Guidelines](#architecture-guidelines)
   - [Performance Optimization](#performance-optimization)
-- [📚 References](#-references)
+- [References 📚](#references)
 
 ---
 
@@ -635,7 +635,7 @@ Critical Alerts to Configure:
 
 ---
 
-## 📚 References
+## References 📚
 
 **[Azure Blob Storage Scalability and Performance Targets](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets)**  
 *Official Microsoft documentation covering all scalability limits, performance targets, and best practices for Azure Blob Storage. Essential reference for understanding service boundaries and planning capacity.*

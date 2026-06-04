@@ -1,8 +1,8 @@
 ---
 title: "Validation criteria for technical documentation"
 description: "Quality thresholds, validation dimensions, automated checking criteria, and content lifecycle metrics for technical documentation review"
-version: "2.2.0"
-last_updated: "2026-04-26"
+version: "2.2.1"
+last_updated: "2026-05-27"
 domain: "article-writing"
 goal: "Define measurable pass/fail thresholds and validation dimensions so that article quality review produces consistent, reproducible results — not subjective opinions"
 scope:
@@ -125,7 +125,7 @@ Every article MUST satisfy three quality dimensions simultaneously:
 ---
 ## 🏗️ Series-Level Validation Dimensions
 
-The seven dimensions above validate **individual articles**. When articles form a series, four additional dimensions validate the **series as a whole**. These dimensions are checked by [Phase 2.5: Content Architecture Validation](../../.github/prompts/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions.prompt.md) in the series review prompt.
+The seven dimensions above validate **individual articles**. When articles form a series, four additional dimensions validate the **series as a whole**. These dimensions are checked by [Phase 2.5: Content Architecture Validation](../../../.github/prompts/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions.prompt.md) in the series review prompt.
 
 | Dimension | Definition | Pass criteria | Fail criteria |
 |-----------|-----------|--------------|---------------|
@@ -147,8 +147,8 @@ The seven dimensions above validate **individual articles**. When articles form 
 Series-level dimensions use the same outcome scale as per-article dimensions: **passed**, **minor_issues**, **needs_revision**, **failed**. A series is publish-ready when all four series-level dimensions are passed or minor_issues, AND individual articles pass per-article validation.
 
 **Source rules:**
-- Architecture compliance, category coverage, progression coherence: [Art. 02 — Series architecture and planning](../../03.00-tech/40.00-technical-writing/02-structure-and-information-architecture.md)
-- Structural echo: [Art. 08 — Series-level audit](../../03.00-tech/40.00-technical-writing/08-consistency-standards-and-enforcement.md)
+- Architecture compliance, category coverage, progression coherence: [Art. 02 — Series architecture and planning](../../../03.00-tech/40.00-technical-writing/02-structure-and-information-architecture.md)
+- Structural echo: [Art. 08 — Series-level audit](../../../03.00-tech/40.00-technical-writing/08-consistency-standards-and-enforcement.md)
 
 📖 **Detailed check procedures:** `.github/templates/article-review-series-for-consistency-gaps-and-extensions/guidance-architecture-validation.template.md`
 
@@ -157,7 +157,7 @@ Series-level dimensions use the same outcome scale as per-article dimensions: **
 
 Readability formulas predict whether text *should* be understandable. Comprehension tests measure whether text *is actually* understood. Use these methods for high-stakes content (onboarding guides, API quickstarts) or when readability scores pass but user feedback indicates confusion.
 
-📖 **Full methodology with protocols and examples:** [Article 09: Measuring Readability and Comprehension](../../03.00-tech/40.00-technical-writing/09-measuring-readability-and-comprehension.md)
+📖 **Full methodology with protocols and examples:** [Article 09: Measuring Readability and Comprehension](../../../03.00-tech/40.00-technical-writing/09-measuring-readability-and-comprehension.md)
 
 ### Cloze test
 

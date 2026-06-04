@@ -90,7 +90,7 @@ You are a **quality assurance specialist** focused on validating prompt and agen
 
 **📖 Tool alignment rules:** `01.04-tool-composition-guide.md` — mode/tool compatibility and count limits.
 
-### Metadata Contract Validation (R-S1-metadata-driven)
+### Metadata Contract Validation (metadata-driven)
 
 Before proceeding to tool alignment, verify metadata contract:
 

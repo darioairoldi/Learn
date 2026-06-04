@@ -8,19 +8,19 @@
 
 ## Table of Contents
 
-1. [Introduction to AI-Powered Debugging Workflow](#1-introduction-to-ai-powered-debugging-workflow)
-2. [Sentry-Copilot Integration Demonstration](#2-sentry-copilot-integration-demonstration)
-   - 2.1. [Setting Up the Demo Environment](#21-setting-up-the-demo-environment)
-   - 2.2. [Feature Flag Activation and Issue Detection](#22-feature-flag-activation-and-issue-detection)
-   - 2.3. [Copilot Commands and Issue Management](#23-copilot-commands-and-issue-management)
-3. [Root Cause Analysis with Seer AI Agent](#3-root-cause-analysis-with-seer-ai-agent)
-   - 3.1. [Autofix Feature Overview](#31-autofix-feature-overview)
-   - 3.2. [Interactive Debugging Process](#32-interactive-debugging-process)
-   - 3.3. [Solution Generation and Code Analysis](#33-solution-generation-and-code-analysis)
-4. [GitHub Integration and Pull Request Automation](#4-github-integration-and-pull-request-automation)
-   - 4.1. [Automated Code Fix Generation](#41-automated-code-fix-generation)
-   - 4.2. [Pull Request Creation Workflow](#42-pull-request-creation-workflow)
-5. [Developer Workflow Philosophy and Future Vision](#5-developer-workflow-philosophy-and-future-vision)
+1. [Introduction to AI-Powered Debugging Workflow](#introduction-to-ai-powered-debugging-workflow)
+2. [Sentry-Copilot Integration Demonstration](#sentry-copilot-integration-demonstration)
+   - 2.1. [Setting Up the Demo Environment](#setting-up-the-demo-environment)
+   - 2.2. [Feature Flag Activation and Issue Detection](#feature-flag-activation-and-issue-detection)
+   - 2.3. [Copilot Commands and Issue Management](#copilot-commands-and-issue-management)
+3. [Root Cause Analysis with Seer AI Agent](#root-cause-analysis-with-seer-ai-agent)
+   - 3.1. [Autofix Feature Overview](#autofix-feature-overview)
+   - 3.2. [Interactive Debugging Process](#interactive-debugging-process)
+   - 3.3. [Solution Generation and Code Analysis](#solution-generation-and-code-analysis)
+4. [GitHub Integration and Pull Request Automation](#github-integration-and-pull-request-automation)
+   - 4.1. [Automated Code Fix Generation](#automated-code-fix-generation)
+   - 4.2. [Pull Request Creation Workflow](#pull-request-creation-workflow)
+5. [Developer Workflow Philosophy and Future Vision](#developer-workflow-philosophy-and-future-vision)
 
 ---
 

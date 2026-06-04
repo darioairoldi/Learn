@@ -30,18 +30,18 @@ rationales:
 
 # PE-meta implementation overview
 
-## 📋 Table of contents
+## Table of contents 📋
 
-- [🎯 Purpose and operating model](#-purpose-and-operating-model)
-- [🏗️ Artifact inventory used by pe-meta](#️-artifact-inventory-used-by-pe-meta)
-- [⚙️ Validation operating flow](#️-validation-operating-flow)
-- [✅ Validation plan by artifact type](#-validation-plan-by-artifact-type)
-- [🚀 Suggested execution order for implementation validation](#-suggested-execution-order-for-implementation-validation)
-- [📚 References](#-references)
+- [Purpose and operating model 🎯](#purpose-and-operating-model)
+- [Artifact inventory used by pe-meta 🏗️](#artifact-inventory-used-by-pe-meta)
+- [Validation operating flow ⚙️](#validation-operating-flow)
+- [Validation plan by artifact type ✅](#validation-plan-by-artifact-type)
+- [Suggested execution order for implementation validation 🚀](#suggested-execution-order-for-implementation-validation)
+- [References 📚](#references)
 
 ---
 
-## 🎯 Purpose and operating model
+## Purpose and operating model 🎯
 
 This document defines the implementation view of the pe-meta system.
 
@@ -56,7 +56,7 @@ The implementation model is aligned with the current vision and use-case stack, 
 
 ---
 
-## 🏗️ Artifact inventory used by pe-meta
+## Artifact inventory used by pe-meta 🏗️
 
 ### Implementation artifact families
 
@@ -165,7 +165,7 @@ All files in `.copilot/context/00.00-prompt-engineering/` are part of the pe-met
 
 ---
 
-## ⚙️ Validation operating flow
+## Validation operating flow ⚙️
 
 Validation should follow a deterministic-first, phase-ordered strategy:
 
@@ -188,7 +188,7 @@ This ordering is mandatory because consumer adherence checks are invalid when fo
 
 ---
 
-## ✅ Validation plan by artifact type
+## Validation plan by artifact type ✅
 
 ### Global validation cases (apply to every artifact)
 
@@ -220,9 +220,9 @@ Validation cases:
 
 Validation steps:
 
-1. Run structural checks (D1-D3, D14 baseline).
-2. Run quality checks (D6-D11) on changed or targeted files.
-3. Run cross-coherence (D17 peer mode for context layer).
+1. Run structural checks (`D1-metadata` through `D3-token-budget`, `D14-craftsmanship` baseline).
+2. Run quality checks (`D6-consistency` through `D11-actionability`) on changed or targeted files.
+3. Run cross-coherence (`D17-cross-coherence` peer mode for context layer).
 4. Validate category placement and dependency map entry consistency.
 5. If changed, confirm downstream consumer adherence sampling.
 
@@ -258,7 +258,7 @@ Validation steps:
 2. Verify boundaries include always/ask-first/never semantics where applicable.
 3. Resolve handoff agent labels and verify existence.
 4. Execute adherence checks against loaded context files.
-5. Validate efficiency dimensions (D20-D27 as applicable).
+5. Validate efficiency dimensions (`D20-token-chain` through `D27-model-adherence` as applicable).
 
 ### Template files (`.github/templates/00.00-prompt-engineering/*.template.md`)
 
@@ -356,7 +356,7 @@ Validation steps:
 
 ---
 
-## 🚀 Suggested execution order for implementation validation
+## Suggested execution order for implementation validation 🚀
 
 Use this run order for a complete implementation audit:
 
@@ -372,19 +372,19 @@ Use this run order for a complete implementation audit:
 
 ---
 
-## 📚 References
+## References 📚
 
 **[Self-updating prompt engineering: vision and rationale (v12)](../20260515.02-vision.v12.md)** 📘 [Official]  
 Description (2-4 sentences): Defines the strategic objective, autonomy model, and architecture principles that pe-meta implements. It is the normative source for system boundaries and validation philosophy. Use this when checking whether implementation behavior still reflects strategic intent.
 
-**[pe-meta use cases](../20260503.02-vision-pe-meta-usecases/README.md)** 📘 [Official]  
+**[pe-meta use cases](../20260503.02-vision-pe-meta-usecases/00-overview.md)** 📘 [Official]  
 Description (2-4 sentences): Maps quality dimensions to executable scenarios and invocation examples. It provides the operational bridge between the vision and the prompt/agent artifacts. Use this when designing or validating targeted review workflows.
 
 **[PE context pack structure](../../../.copilot/context/00.00-prompt-engineering/STRUCTURE-README.md)** 📘 [Official]  
 Description (2-4 sentences): Indexes the context categories and tracking files consumed by pe-meta. It is the anchor for dependency, lifecycle, and category-level validation. Use this when validating context coverage and dependency map integrity.
 
 **[PE meta dimension catalog](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)** 📘 [Official]  
-Description (2-4 sentences): Defines the full dimension set and applicability model used by validator and review workflows. It is required for dimension-scoped validation and non-applicable dimension skipping. Use this as the authoritative source for D1-D27 definitions.
+Description (2-4 sentences): Defines the full dimension set and applicability model used by validator and review workflows. It is required for dimension-scoped validation and non-applicable dimension skipping. Use this as the authoritative source for `D1-metadata` through `D27-model-adherence` definitions.
 
 **[PE meta type checklists](../../../.copilot/context/00.00-prompt-engineering/05.08-pe-meta-type-checklists.md)** 📘 [Official]  
 Description (2-4 sentences): Provides type-specific structural and quality checklists used by design/create/review prompts. It operationalizes quality expectations by artifact type. Use this before validating any individual artifact.

@@ -1,13 +1,13 @@
 the following article analyzes interesting points about Azure App Configuration
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-- [💰 Q. What pricing tiers are available for Azure App Configuration?](#q-what-pricing-tiers-are-available-for-azure-app-configuration)
-- [🔗 Q. Can Azure key vault be integrated on a value by value basis only?](#q-can-azure-key-vault-be-integrated-on-a-value-by-value-basis-only)
+- [Q. What pricing tiers are available for Azure App Configuration? 💰](#q-what-pricing-tiers-are-available-for-azure-app-configuration)
+- [Q. Can Azure key vault be integrated on a value by value basis only? 🔗](#q-can-azure-key-vault-be-integrated-on-a-value-by-value-basis-only)
 
 ---
 
-## 💰 Q. What pricing tiers are available for Azure App Configuration?
+## Q. What pricing tiers are available for Azure App Configuration? 💰
 ![alt text](<images/01.001 pricing tiers.png>)
 
 Azure App Configuration offers four pricing tiers, each designed for different use cases:
@@ -80,7 +80,7 @@ Azure App Configuration offers four pricing tiers, each designed for different u
 > - May be over-provisioned for smaller workloads
 > - <mark>Cannot downgrade to Free or Developer tier directly</mark>
 
-## 🔗 Q. Can Azure key vault be integrated on a value by value basis only?
+## Q. Can Azure key vault be integrated on a value by value basis only? 🔗
 
 **Yes, Azure Key Vault integration with Azure App Configuration works on a value-by-value basis ONLY.** You cannot do a bulk integration where all Key Vault secrets automatically appear in App Configuration.
 

@@ -1,3 +1,28 @@
+---
+title: "Folder Organization and Navigation Rules"
+description: "Establishes folder naming conventions (kebab-case with numeric prefixes), date-prefix patterns, glob sorting limitations, and decision framework for explicit vs. glob-based navigation"
+version: "1.0.0"
+last_updated: "2026-05-26"
+domain: "learning-hub"
+goal: "Codify kebab-case naming, numeric prefix patterns, and glob-vs-explicit decision rules that enable consistent folder discovery and ordering"
+scope:
+  covers:
+    - "Full kebab-case rule (spaces → hyphens)"
+    - "Numeric prefix patterns (XX.YY- format)"
+    - "Date prefix patterns (YYYYMMDD, YYYYMM)"
+    - "Glob sorting behavior (alphabetical, oldest-first for dates)"
+    - "Decision table: glob vs. explicit list"
+  excludes:
+    - "Sidebar menu item transformation (see 07-sidebar-menu-rules.md)"
+    - "Quarto configuration (see _quarto.yml)"
+boundaries:
+  - "MUST use hyphens (not spaces) as separator after numeric prefixes"
+  - "MUST NOT use spaces in folder/file names"
+rationales:
+  - "Kebab-case enables consistent glob patterns and tool parsing"
+  - "Explicit list for news addresses glob's alphabetical limitation for newest-first ordering"
+---
+
 # Folder Organization and Navigation Rules
 
 This document defines folder naming conventions, organization patterns, and sidebar menu rules for the Learning Hub documentation site.

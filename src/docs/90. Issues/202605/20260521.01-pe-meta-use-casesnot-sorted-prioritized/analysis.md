@@ -322,7 +322,7 @@ Severity is High because this is a portfolio-governance issue that can systemati
 ### Analyzed sources
 
 - `06.00-idea/self-updating-prompt-engineering/20260515.02-vision.v12.md`
-- `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/README.md`
+- `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md`
 - `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/01-structural-validation.md`
 - `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/02-guidance-quality.md`
 - `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/05-staleness-verification.md`

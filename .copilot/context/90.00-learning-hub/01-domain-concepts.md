@@ -1,3 +1,28 @@
+---
+title: "Domain Concepts for Learning Documentation Site"
+description: "Defines core learning documentation concepts — repository purpose, 7-category taxonomy, content depth model, and quality dimensions for the Learning Hub"
+version: "1.0.0"
+last_updated: "2026-05-26"
+domain: "learning-hub"
+goal: "Establish the shared conceptual foundation and terminology for all Learning Hub content"
+scope:
+  covers:
+    - "Repository purpose and learning goals"
+    - "7-category content taxonomy (Overview, Getting Started, Concepts, How-to, Analysis, Reference, Resources)"
+    - "Progressive depth model for layered learning"
+    - "Technology Radar framework for adoption decisions"
+    - "Quality dimensions (accuracy, currency)"
+  excludes:
+    - "Article writing mechanics and style (see article-writing.instructions.md)"
+    - "Folder/file naming conventions (see 06-folder-organization-and-navigation.md)"
+boundaries:
+  - "MUST define only conceptual taxonomy, not implementation details"
+  - "MUST NOT prescribe file-naming or metadata structure"
+rationales:
+  - "Shared conceptual foundation prevents terminology drift across documentation"
+  - "Explicit depth model enables strategic content planning vs. accidental overlap"
+---
+
 # Domain Concepts for Learning Documentation Site
 
 This document defines core concepts, principles, and terminology used throughout this learning and documentation repository.

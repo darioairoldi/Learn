@@ -22,38 +22,38 @@ The article explores the two primary authentication models (**<mark>Single-Tenan
 
 You'll learn about the necessary configurations, authentication flows, and trade-offs between different approaches.
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-- [🔑 Key Concepts & Terminology](#-key-concepts--terminology)
-- [🏗 Understanding External Identities in Azure AD](#-understanding-external-identities-in-azure-ad)
+- [Key Concepts & Terminology 🔑](#key-concepts--terminology)
+- [Understanding External Identities in Azure AD 🏗](#understanding-external-identities-in-azure-ad)
   - [What is an External User?](#what-is-an-external-user)
   - [Identity Types: Personal vs Organizational](#identity-types-personal-vs-organizational)
-- [🔐 Authentication Models](#-authentication-models)
+- [Authentication Models 🔐](#authentication-models)
   - [Single-Tenant Applications](#single-tenant-applications)
   - [Multi-Tenant Applications](#multi-tenant-applications)
-- [🔄 How Authentication Works](#-how-authentication-works)
+- [How Authentication Works 🔄](#how-authentication-works)
   - [Single-Tenant Authentication Flow](#single-tenant-authentication-flow)
   - [Multi-Tenant Authentication Flow](#multi-tenant-authentication-flow)
   - [Token Issuance and Authority](#token-issuance-and-authority)
   - [Endpoint Differences](#endpoint-differences)
-- [⚙️ Configuration Scenarios](#️-configuration-scenarios)
+- [Configuration Scenarios ⚙️](#configuration-scenarios)
   - [External User with Public Account](#external-user-with-public-account)
   - [External User with Azure AD Account from Another Tenant](#external-user-with-azure-ad-account-from-another-tenant)
-- [✅ Required Configurations](#-required-configurations)
+- [Required Configurations ✅](#required-configurations)
   - [Hosting Tenant (Local Azure AD)](#hosting-tenant-local-azure-ad)
   - [Remote Tenant (If Applicable)](#remote-tenant-if-applicable)
-- [� Security Considerations](#-security-considerations)
+- [Security Considerations �](#security-considerations)
   - [Trust Boundaries](#trust-boundaries)
   - [Token Validation](#token-validation)
   - [Conditional Access Policies](#conditional-access-policies)
   - [Compromise Scenarios](#compromise-scenarios)
-- [📊 Comparing the Approaches](#-comparing-the-approaches)
-- [🛠 Choosing the Right Model](#-choosing-the-right-model)
-- [📚 References](#-references)
+- [Comparing the Approaches 📊](#comparing-the-approaches)
+- [Choosing the Right Model 🛠](#choosing-the-right-model)
+- [References 📚](#references)
 
 ---
 
-## 🔑 Key Concepts & Terminology
+## Key Concepts & Terminology 🔑
 
 Before diving into authentication models, it's essential to understand the core concepts and terminology used throughout this guide.
 
@@ -138,7 +138,7 @@ Example: When `jane@fabrikam.com` signs into a Contoso app, Azure AD detects Fab
 
 ---
 
-## 🏗 Understanding External Identities in Azure AD
+## Understanding External Identities in Azure AD 🏗
 
 ### What is an External User?
 
@@ -156,7 +156,7 @@ Azure AD supports two primary types of external identities:
 
 ---
 
-## 🔐 Authentication Models
+## Authentication Models 🔐
 
 Azure AD offers two distinct authentication models for handling external users, each with different security and operational characteristics.
 
@@ -196,7 +196,7 @@ Azure AD offers two distinct authentication models for handling external users, 
 
 ---
 
-## 🔄 How Authentication Works
+## How Authentication Works 🔄
 
 Understanding the authentication flow is essential for troubleshooting issues and optimizing your implementation. 
 The flow differs significantly between single-tenant and multi-tenant models.
@@ -331,7 +331,7 @@ https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize
 
 ---
 
-## ⚙️ Configuration Scenarios
+## Configuration Scenarios ⚙️
 
 Understanding how external users authenticate in different scenarios helps you choose the appropriate model for your needs. Let's explore real-world examples.
 
@@ -439,7 +439,7 @@ Contoso offers a SaaS project management tool (multi-tenant) but also has enterp
 
 ---
 
-## ✅ Required Configurations
+## Required Configurations ✅
 
 ### Hosting Tenant (Local Azure AD)
 
@@ -481,7 +481,7 @@ Key settings to configure:
 
 ---
 
-## 🔒 Security Considerations
+## Security Considerations 🔒
 
 Understanding the security implications of each authentication model is critical for protecting your resources and data.
 
@@ -687,7 +687,7 @@ if (blockedTenants.Contains(user.TenantId))
 
 ---
 
-## 📊 Comparing the Approaches
+## Comparing the Approaches 📊
 
 | Model | Pros | Cons |
 |-------|------|------|
@@ -696,7 +696,7 @@ if (blockedTenants.Contains(user.TenantId))
 
 ---
 
-## 🛠 Choosing the Right Model
+## Choosing the Right Model 🛠
 
 **Use Single-Tenant when**:
 - Building internal applications
@@ -714,7 +714,7 @@ if (blockedTenants.Contains(user.TenantId))
 
 ---
 
-## 📚 References
+## References 📚
 
 ### Official Microsoft Documentation
 

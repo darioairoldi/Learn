@@ -1,4 +1,4 @@
----
+﻿---
 description: "PE ecosystem design specialist — transforms research findings into dimension-mapped change plans with type-specific design knowledge, exemplary quality bar enforcement, and vision alignment verification"
 agent: plan
 tools:
@@ -29,10 +29,10 @@ goal: "Produce type-aware, dimension-mapped change specifications with exemplary
 scope:
   covers:
     - "Type-specific design knowledge for all 8 PE artifact types"
-    - "Dimension-mapped change specifications (D1-D27)"
+    - "Dimension-mapped change specifications (`D1-metadata` through `D27-model-adherence`)"
     - "Exemplary quality bar enforcement (pe-strategic-review category)"
     - "Pre/post-change guard design patterns"
-    - "Model routing recommendations per design step (R-P6)"
+    - "Model routing recommendations per design step (model-routing)"
     - "Transform research findings into concrete change specifications"
     - "Impact analysis using artifact dependency map"
     - "Builder delegation and change ordering by dependency layer"

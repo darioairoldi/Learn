@@ -1,14 +1,19 @@
 {
-  "version": "2.2.0",
-  "generated_at": "2026-05-24",
+  "version": "2.5.0",
+  "generated_at": "2026-06-04",
   "entries": [
     {
       "id": "UC-22",
       "group": "01-freshness",
       "priority": "P0",
-      "path": "01-freshness/p0-01-context-quality-lifecycle.md",
+      "path": "01-freshness/p0-01-context-quality-lifecycle-usecase.md",
       "order": 1,
       "title": "Context quality lifecycle",
+      "dimensions_covered": [
+        "D6-consistency",
+        "D12-staleness",
+        "D22-context-optimization"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-context-review <path> --dim context-full",
       "allowed_option_classes": [
@@ -22,24 +27,36 @@
       "id": "UC-14",
       "group": "01-freshness",
       "priority": "P0",
-      "path": "01-freshness/p0-02-release-impact-assessment.md",
+      "path": "01-freshness/p0-02-release-impact-assessment-usecase.md",
       "order": 2,
       "title": "Platform release impact assessment",
-      "command_family": "release-diff",
-      "primary_entry_point": "/pe-meta-release-diff <url>",
+      "dimensions_covered": [
+        "D12-staleness",
+        "D13-source-verification"
+      ],
+      "command_family": "update",
+      "primary_entry_point": "/pe-meta-update --source <url>",
       "allowed_option_classes": [
         "dim",
         "scope",
         "skip"
+      ],
+      "capability_tags": [
+        "processing-state",
+        "coverage-completeness"
       ]
     },
     {
       "id": "UC-05",
       "group": "01-freshness",
       "priority": "P1",
-      "path": "01-freshness/p1-01-staleness-source-verification.md",
+      "path": "01-freshness/p1-01-staleness-source-verification-usecase.md",
       "order": 3,
       "title": "Staleness and source verification",
+      "dimensions_covered": [
+        "D12-staleness",
+        "D13-source-verification"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim freshness",
       "allowed_option_classes": [
@@ -47,15 +64,23 @@
         "scope",
         "mode",
         "skip"
+      ],
+      "capability_tags": [
+        "processing-state",
+        "coverage-completeness"
       ]
     },
     {
       "id": "UC-16",
       "group": "01-freshness",
       "priority": "P1",
-      "path": "01-freshness/p1-02-context-optimization.md",
+      "path": "01-freshness/p1-02-context-optimization-usecase.md",
       "order": 4,
       "title": "Context file optimization",
+      "dimensions_covered": [
+        "D22-context-optimization",
+        "D23-reference-efficiency"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-context-review <path> --dim context-optimization",
       "allowed_option_classes": [
@@ -69,9 +94,18 @@
       "id": "UC-02",
       "group": "02-quality-gates",
       "priority": "P0",
-      "path": "02-quality-gates/p0-01-guidance-quality-assessment.md",
+      "path": "02-quality-gates/p0-01-guidance-quality-assessment-usecase.md",
       "order": 1,
       "title": "Guidance quality assessment",
+      "dimensions_covered": [
+        "D6-consistency",
+        "D7-non-redundancy",
+        "D8-prioritization",
+        "D9-clarity",
+        "D10-completeness",
+        "D11-actionability",
+        "D27-model-adherence"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim quality",
       "allowed_option_classes": [
@@ -85,9 +119,12 @@
       "id": "UC-03",
       "group": "02-quality-gates",
       "priority": "P1",
-      "path": "02-quality-gates/p1-01-consistency-check.md",
+      "path": "02-quality-gates/p1-01-consistency-check-usecase.md",
       "order": 2,
       "title": "Consistency check (non-contradiction)",
+      "dimensions_covered": [
+        "D6-consistency"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode plan --dim quality --skip research,structure",
       "allowed_option_classes": [
@@ -101,9 +138,12 @@
       "id": "UC-04",
       "group": "02-quality-gates",
       "priority": "P1",
-      "path": "02-quality-gates/p1-02-redundancy-check.md",
+      "path": "02-quality-gates/p1-02-redundancy-check-usecase.md",
       "order": 3,
       "title": "Redundancy check (single source of truth)",
+      "dimensions_covered": [
+        "D7-non-redundancy"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim efficiency --scope context",
       "allowed_option_classes": [
@@ -117,9 +157,13 @@
       "id": "UC-07",
       "group": "02-quality-gates",
       "priority": "P1",
-      "path": "02-quality-gates/p1-03-coverage-gaps.md",
+      "path": "02-quality-gates/p1-03-coverage-gaps-usecase.md",
       "order": 4,
       "title": "Coverage gaps and unhappy path handling",
+      "dimensions_covered": [
+        "D10-completeness",
+        "D18-coverage"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode plan --skip research --dim quality",
       "allowed_option_classes": [
@@ -133,9 +177,12 @@
       "id": "UC-10",
       "group": "02-quality-gates",
       "priority": "P1",
-      "path": "02-quality-gates/p1-04-prioritization-review.md",
+      "path": "02-quality-gates/p1-04-prioritization-review-usecase.md",
       "order": 5,
       "title": "Rules prioritization review",
+      "dimensions_covered": [
+        "D8-prioritization"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-context-review 01.07-critical-rules-priority-matrix.md --dim prioritization",
       "allowed_option_classes": [
@@ -149,9 +196,13 @@
       "id": "UC-08",
       "group": "02-quality-gates",
       "priority": "P2",
-      "path": "02-quality-gates/p2-01-artifact-structure-review.md",
+      "path": "02-quality-gates/p2-01-artifact-structure-review-usecase.md",
       "order": 6,
       "title": "Artifact structure and scope optimization",
+      "dimensions_covered": [
+        "D14-craftsmanship",
+        "D19-artifact-structure"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review <path> --dim structural",
       "allowed_option_classes": [
@@ -165,9 +216,14 @@
       "id": "UC-13",
       "group": "02-quality-gates",
       "priority": "P2",
-      "path": "02-quality-gates/p2-02-vision-alignment-check.md",
+      "path": "02-quality-gates/p2-02-vision-alignment-check-usecase.md",
       "order": 7,
       "title": "Vision alignment check",
+      "dimensions_covered": [
+        "D15-vision-alignment",
+        "D16-adherence",
+        "D17-cross-coherence"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review <path> --dim strategic",
       "allowed_option_classes": [
@@ -181,9 +237,16 @@
       "id": "UC-12",
       "group": "03-consumer-correctness",
       "priority": "P0",
-      "path": "03-consumer-correctness/p0-01-dependency-aware-full-review.md",
+      "path": "03-consumer-correctness/p0-01-dependency-aware-full-review-usecase.md",
       "order": 1,
       "title": "Dependency-aware full review",
+      "dimensions_covered": [
+        "D5-boundaries",
+        "D6-consistency",
+        "D16-adherence",
+        "D17-cross-coherence",
+        "D18-coverage"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review <path> --deps full",
       "allowed_option_classes": [
@@ -197,9 +260,12 @@
       "id": "UC-11",
       "group": "03-consumer-correctness",
       "priority": "P1",
-      "path": "03-consumer-correctness/p1-01-guidance-adherence-verification.md",
+      "path": "03-consumer-correctness/p1-01-guidance-adherence-verification-usecase.md",
       "order": 2,
       "title": "Guidance adherence verification",
+      "dimensions_covered": [
+        "D16-adherence"
+      ],
       "command_family": "guidance-first",
       "primary_entry_point": "/pe-meta-adherence <guidance-path>",
       "allowed_option_classes": [
@@ -211,9 +277,13 @@
       "id": "UC-21",
       "group": "03-consumer-correctness",
       "priority": "P1",
-      "path": "03-consumer-correctness/p1-02-model-specific-guidance-adherence.md",
+      "path": "03-consumer-correctness/p1-02-model-specific-guidance-adherence-usecase.md",
       "order": 3,
       "title": "Model-specific guidance adherence",
+      "dimensions_covered": [
+        "D26-model-routing",
+        "D27-model-adherence"
+      ],
       "command_family": "guidance-first",
       "primary_entry_point": "/pe-meta-adherence 03.02-model-specific-optimization.md",
       "allowed_option_classes": [
@@ -225,9 +295,13 @@
       "id": "UC-06",
       "group": "04-efficiency",
       "priority": "P1",
-      "path": "04-efficiency/p1-01-token-budget-analysis.md",
+      "path": "04-efficiency/p1-01-token-budget-analysis-usecase.md",
       "order": 1,
       "title": "Token budget analysis",
+      "dimensions_covered": [
+        "D3-token-budget",
+        "D20-token-chain"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
       "allowed_option_classes": [
@@ -241,9 +315,12 @@
       "id": "UC-20",
       "group": "04-efficiency",
       "priority": "P1",
-      "path": "04-efficiency/p1-02-model-routing-correctness.md",
+      "path": "04-efficiency/p1-02-model-routing-correctness-usecase.md",
       "order": 2,
       "title": "Model routing correctness",
+      "dimensions_covered": [
+        "D26-model-routing"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
       "allowed_option_classes": [
@@ -257,9 +334,12 @@
       "id": "UC-19",
       "group": "04-efficiency",
       "priority": "P2",
-      "path": "04-efficiency/p2-01-processing-pipeline-efficiency.md",
+      "path": "04-efficiency/p2-01-processing-pipeline-efficiency-usecase.md",
       "order": 3,
       "title": "Processing pipeline efficiency",
+      "dimensions_covered": [
+        "D25-processing-efficiency"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope prompts",
       "allowed_option_classes": [
@@ -273,9 +353,12 @@
       "id": "UC-17",
       "group": "04-efficiency",
       "priority": "P2",
-      "path": "04-efficiency/p2-02-reference-load-efficiency.md",
+      "path": "04-efficiency/p2-02-reference-load-efficiency-usecase.md",
       "order": 4,
       "title": "Reference load efficiency",
+      "dimensions_covered": [
+        "D23-reference-efficiency"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
       "allowed_option_classes": [
@@ -289,9 +372,12 @@
       "id": "UC-18",
       "group": "04-efficiency",
       "priority": "P2",
-      "path": "04-efficiency/p2-03-handoff-efficiency.md",
+      "path": "04-efficiency/p2-03-handoff-efficiency-usecase.md",
       "order": 5,
       "title": "Handoff and summarization efficiency",
+      "dimensions_covered": [
+        "D24-handoff-efficiency"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope prompts,agents",
       "allowed_option_classes": [
@@ -305,9 +391,12 @@
       "id": "UC-15",
       "group": "04-efficiency",
       "priority": "P2",
-      "path": "04-efficiency/p2-04-deterministic-first-optimization.md",
+      "path": "04-efficiency/p2-04-deterministic-first-optimization-usecase.md",
       "order": 6,
       "title": "Deterministic-first optimization",
+      "dimensions_covered": [
+        "D21-deterministic-first"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts",
       "allowed_option_classes": [
@@ -321,9 +410,12 @@
       "id": "UC-09",
       "group": "04-efficiency",
       "priority": "P3",
-      "path": "04-efficiency/p3-01-craftmanship-review.md",
+      "path": "04-efficiency/p3-01-craftmanship-review-usecase.md",
       "order": 7,
       "title": "Craftmanship review",
+      "dimensions_covered": [
+        "D14-craftsmanship"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review <path> --dim structural",
       "allowed_option_classes": [
@@ -337,9 +429,17 @@
       "id": "UC-01",
       "group": "04-efficiency",
       "priority": "P3",
-      "path": "04-efficiency/p3-02-structural-validation.md",
+      "path": "04-efficiency/p3-02-structural-validation-usecase.md",
       "order": 8,
       "title": "Structural validation",
+      "dimensions_covered": [
+        "D1-metadata",
+        "D2-hierarchy",
+        "D3-token-budget",
+        "D4-tool-alignment",
+        "D5-boundaries",
+        "D14-craftsmanship"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review <path> --dim structural --skip research,consistency,content",
       "allowed_option_classes": [
@@ -353,9 +453,12 @@
       "id": "UC-23",
       "group": "05-reliability",
       "priority": "P0",
-      "path": "05-reliability/p0-01-process-reproducibility.md",
+      "path": "05-reliability/p0-01-process-reproducibility-usecase.md",
       "order": 1,
       "title": "Process reproducibility",
+      "dimensions_covered": [
+        "D28-reproducibility"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review <path> --dim reliability --skip apply",
       "allowed_option_classes": [
@@ -370,9 +473,12 @@
       "id": "UC-24",
       "group": "05-reliability",
       "priority": "P0",
-      "path": "05-reliability/p0-02-regression-protection.md",
+      "path": "05-reliability/p0-02-regression-protection-usecase.md",
       "order": 2,
       "title": "Regression protection",
+      "dimensions_covered": [
+        "D29-regression-protection"
+      ],
       "command_family": "update",
       "primary_entry_point": "/pe-meta-update <target> --dim reliability",
       "allowed_option_classes": [
@@ -387,9 +493,12 @@
       "id": "UC-25",
       "group": "05-reliability",
       "priority": "P0",
-      "path": "05-reliability/p0-03-metadata-guard-enforcement.md",
+      "path": "05-reliability/p0-03-metadata-guard-enforcement-usecase.md",
       "order": 3,
       "title": "Metadata-guard enforcement",
+      "dimensions_covered": [
+        "D30-metadata-guard"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review <path> --dim reliability --deps full",
       "allowed_option_classes": [
@@ -404,9 +513,12 @@
       "id": "UC-26",
       "group": "05-reliability",
       "priority": "P1",
-      "path": "05-reliability/p1-01-loop-stability-audit.md",
+      "path": "05-reliability/p1-01-loop-stability-audit-usecase.md",
       "order": 4,
       "title": "Loop stability audit",
+      "dimensions_covered": [
+        "D29-regression-protection"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review --dim reliability --deps full",
       "allowed_option_classes": [
@@ -421,9 +533,12 @@
       "id": "UC-27",
       "group": "05-reliability",
       "priority": "P1",
-      "path": "05-reliability/p1-02-multipass-validation-invariant.md",
+      "path": "05-reliability/p1-02-multipass-validation-invariant-usecase.md",
       "order": 5,
       "title": "Multi-pass validation invariant",
+      "dimensions_covered": [
+        "D31-multipass-validation-invariant"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review --dim reliability",
       "allowed_option_classes": [
@@ -437,9 +552,12 @@
       "id": "UC-28",
       "group": "05-reliability",
       "priority": "P1",
-      "path": "05-reliability/p1-03-rollback-exercise.md",
+      "path": "05-reliability/p1-03-rollback-exercise-usecase.md",
       "order": 6,
       "title": "Rollback exercise",
+      "dimensions_covered": [
+        "D32-rollback-readiness"
+      ],
       "command_family": "scheduled",
       "primary_entry_point": "/pe-meta-scheduled-review --dim reliability",
       "allowed_option_classes": [
@@ -454,9 +572,12 @@
       "id": "UC-29",
       "group": "05-reliability",
       "priority": "P1",
-      "path": "05-reliability/p1-04-boundary-actionability-redteam.md",
+      "path": "05-reliability/p1-04-boundary-actionability-redteam-usecase.md",
       "order": 7,
       "title": "Boundary actionability red-team",
+      "dimensions_covered": [
+        "D33-boundary-actionability"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review <path> --dim reliability --mode plan",
       "allowed_option_classes": [
@@ -471,9 +592,12 @@
       "id": "UC-30",
       "group": "05-reliability",
       "priority": "P2",
-      "path": "05-reliability/p2-01-autonomy-calibration-audit.md",
+      "path": "05-reliability/p2-01-autonomy-calibration-audit-usecase.md",
       "order": 8,
       "title": "Autonomy calibration audit",
+      "dimensions_covered": [
+        "D34-autonomy-calibration"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review --dim reliability --mode plan",
       "allowed_option_classes": [
@@ -487,9 +611,12 @@
       "id": "UC-31",
       "group": "05-reliability",
       "priority": "P2",
-      "path": "05-reliability/p2-02-conflict-resolution-coverage.md",
+      "path": "05-reliability/p2-02-conflict-resolution-coverage-usecase.md",
       "order": 9,
       "title": "Conflict-resolution coverage",
+      "dimensions_covered": [
+        "D8-prioritization"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review .copilot/context/ --dim reliability --mode plan",
       "allowed_option_classes": [
@@ -503,9 +630,12 @@
       "id": "UC-32",
       "group": "05-reliability",
       "priority": "P2",
-      "path": "05-reliability/p2-03-portability-boundary-scan.md",
+      "path": "05-reliability/p2-03-portability-boundary-scan-usecase.md",
       "order": 10,
       "title": "Portability boundary scan",
+      "dimensions_covered": [
+        "D35-portability-boundary"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review --dim reliability --mode plan",
       "allowed_option_classes": [
@@ -519,9 +649,12 @@
       "id": "UC-33",
       "group": "05-reliability",
       "priority": "P2",
-      "path": "05-reliability/p2-04-mode-vs-risk-decoupling-check.md",
+      "path": "05-reliability/p2-04-mode-vs-risk-decoupling-check-usecase.md",
       "order": 11,
       "title": "Mode-vs-risk decoupling check",
+      "dimensions_covered": [
+        "D34-autonomy-calibration"
+      ],
       "command_family": "review",
       "primary_entry_point": "/pe-meta-review .github/prompts/00.09-pe-meta/ --dim reliability --mode plan",
       "allowed_option_classes": [

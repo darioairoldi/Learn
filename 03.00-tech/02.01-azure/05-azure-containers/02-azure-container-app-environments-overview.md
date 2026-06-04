@@ -2,34 +2,34 @@
 
 ## Table of Contents
 
-1. 🌐 [What is Azure Container App Environment?](#-what-is-azure-container-app-environment)
-2. 🏗️ [Architecture and Components](#️-architecture-and-components)
+1. 🌐 [What is Azure Container App Environment?](#what-is-azure-container-app-environment)
+2. 🏗️ [Architecture and Components](#architecture-and-components)
    - [Core Infrastructure](#core-infrastructure)
    - [Networking Components](#networking-components)
    - [Security Boundaries](#security-boundaries)
-3. ⭐ [Key Characteristics](#-key-characteristics)
+3. ⭐ [Key Characteristics](#key-characteristics)
    - [Isolation and Multi-tenancy](#isolation-and-multi-tenancy)
    - [Shared Resources](#shared-resources)
    - [Network Configuration](#network-configuration)
    - [Logging and Monitoring](#logging-and-monitoring)
-4. 🔧 [Environment Configuration](#-environment-configuration)
+4. 🔧 [Environment Configuration](#environment-configuration)
    - [Virtual Network Integration](#virtual-network-integration)
    - [Log Analytics Workspace](#log-analytics-workspace)
    - [Resource Management](#resource-management)
-5. 🚀 [Deployment and Management](#-deployment-and-management)
+5. 🚀 [Deployment and Management](#deployment-and-management)
    - [Environment Creation](#environment-creation)
    - [Container App Deployment](#container-app-deployment)
    - [Scaling and Performance](#scaling-and-performance)
-6. 🔒 [Security and Compliance](#-security-and-compliance)
+6. 🔒 [Security and Compliance](#security-and-compliance)
    - [Network Security](#network-security)
    - [Identity and Access Management](#identity-and-access-management)
    - [Data Protection](#data-protection)
-7. 💰 [Cost Management](#-cost-management)
+7. 💰 [Cost Management](#cost-management)
    - [Billing Model](#billing-model)
    - [Resource Optimization](#resource-optimization)
-8. 📚 [References](#-references)
+8. 📚 [References](#references)
 
-## 🌐 What is Azure Container App Environment?
+## What is Azure Container App Environment? 🌐
 
 An <mark>**Azure Container App Environment**</mark> is a <mark>secure, isolated boundary</mark> that groups one or more container apps together.<br>
 It serves as a <mark>deployment target</mark> and management unit that provides **shared infrastructure**, **networking**, and **configuration** for all container apps deployed within it.
@@ -39,7 +39,7 @@ This design enables efficient resource utilization while providing the necessary
 
 The <mark>environment abstracts away the underlying Kubernetes infrastructure complexity</mark>, providing developers with a simplified deployment model while maintaining enterprise-grade security, networking, and observability capabilities.
 
-## 🏗️ Architecture and Components
+## Architecture and Components 🏗️
 
 ### Core Infrastructure
 
@@ -67,7 +67,7 @@ The <mark>environment abstracts away the underlying Kubernetes infrastructure co
 
 **<mark>Secret Management**: Provides a secure way to manage and inject secrets, connection strings, and configuration data into container apps.
 
-## ⭐ Key Characteristics
+## Key Characteristics ⭐
 
 ### Isolation and Multi-tenancy
 
@@ -101,7 +101,7 @@ The <mark>environment abstracts away the underlying Kubernetes infrastructure co
 
 **Integration with Azure Monitor**: Full integration with Azure Monitor ecosystem for alerting, dashboards, and advanced analytics.
 
-## 🔧 Environment Configuration
+## Environment Configuration 🔧
 
 ### Virtual Network Integration
 
@@ -127,7 +127,7 @@ The <mark>environment abstracts away the underlying Kubernetes infrastructure co
 
 **Resource Quotas**: Configurable limits on CPU, memory, and instance counts to control resource consumption and costs.
 
-## 🚀 Deployment and Management
+## Deployment and Management 🚀
 
 ### Environment Creation
 
@@ -155,7 +155,7 @@ The <mark>environment abstracts away the underlying Kubernetes infrastructure co
 
 **Capacity Planning**: Tools and metrics to help plan for future capacity needs and optimize resource allocation.
 
-## 🔒 Security and Compliance
+## Security and Compliance 🔒
 
 ### Network Security
 
@@ -181,7 +181,7 @@ The <mark>environment abstracts away the underlying Kubernetes infrastructure co
 
 **Compliance**: Supports various compliance standards including SOC, ISO, and region-specific requirements.
 
-## 💰 Cost Management
+## Cost Management 💰
 
 ### Billing Model
 
@@ -199,7 +199,7 @@ The <mark>environment abstracts away the underlying Kubernetes infrastructure co
 
 **Budget Controls**: Ability to set spending limits and alerts to prevent unexpected costs.
 
-## 📚 References
+## References 📚
 
 1. **[Azure Container Apps environments documentation](https://docs.microsoft.com/en-us/azure/container-apps/environment)** - Microsoft's official documentation covering all aspects of Container App Environments, including setup, configuration, and management. Essential reading for understanding environment architecture and capabilities.
 

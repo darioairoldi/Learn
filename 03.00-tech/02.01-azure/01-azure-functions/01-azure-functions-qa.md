@@ -1,19 +1,19 @@
 the following article analyzes interesting points about azure functions
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-- [💰 Q. What plans are available?](#q-what-plans-are-available-)
-- [🎯 Q. What triggers are available?](#q-what-triggers-are-available-)
-- [📊 Q. How does autoscale work in different execution plans?](#q-how-does-autoscale-works-in-different-execution-plans-)
-- [📄 Q. Role and structure of 'function.json', 'hosts.json' and 'local.settings.json' files?](#q-role-and-structure-of-functionjson-hostsjson-and-localsettingsjson-files)
-- [🔄 Q. What are Durable Functions?](#q-what-are-durable-functions)
-- [⚠️ Q. What are Limitations of Azure Functions?](#q-what-are-limitations-of-azure-functions-) - See **[detailed article](02-azure-functions-limitations.md)**
-- [📝 Additional Information](#additional-information)
-- [📚 References](#-references)
+- [Q. What plans are available? 💰](#q-what-plans-are-available-)
+- [Q. What triggers are available? 🎯](#q-what-triggers-are-available-)
+- [Q. How does autoscale work in different execution plans? 📊](#q-how-does-autoscale-works-in-different-execution-plans-)
+- [Q. Role and structure of 'function.json', 'hosts.json' and 'local.settings.json' files? 📄](#q-role-and-structure-of-functionjson-hostsjson-and-localsettingsjson-files)
+- [Q. What are Durable Functions? 🔄](#q-what-are-durable-functions)
+- [Q. What are Limitations of Azure Functions? ⚠️](#q-what-are-limitations-of-azure-functions-) - See **[detailed article](02-azure-functions-limitations.md)**
+- [Additional Information 📝](#additional-information)
+- [References 📚](#references)
 
 ---
 
-## 💰 Q. What plans are available ?
+## Q. What plans are available ? 💰
 
 <img src="images/01.001a functions plans.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
 
@@ -39,7 +39,7 @@ the following article analyzes interesting points about azure functions
   - **Pros**: Custom containers with dependencies, <mark>**scale to 1000 instances**</mark>, VNet integration, <mark>GPU support for AI workloads</mark>, <mark>Dapr integration</mark>, unified environment with microservices, multi-revision support
   - **Cons**: More complex setup, <mark>cold starts when scaling to zero</mark>, <mark>no deployment slots</mark>, <mark>no Functions access keys</mark> via portal, requires storage account per revision for multi-revision scenarios, <mark>Linux only</mark>
 
-## 🎯 Q. What triggers are available ?
+## Q. What triggers are available ? 🎯
 
 <img src="images/01.002 Functions vs webjobs.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
 
@@ -142,7 +142,7 @@ the following article analyzes interesting points about azure functions
     - 1MB event size limit
     - Can duplicate events (at-least-once delivery)
 
-## 📊 Q. How does autoscale work in different execution plans ?
+## Q. How does autoscale work in different execution plans ? 📊
 
 Azure Functions uses <mark>different scaling mechanisms depending on the hosting plan</mark>. Understanding these differences is crucial for choosing the right plan for your workload.
 
@@ -263,7 +263,7 @@ The table below summarizes the key differences:
 - **<mark>Dedicated plan</mark>** is best for predictable, steady workloads where you control scaling behavior
 
 
-## 📄 Q. Role and structure of 'function.json', 'hosts.json' and 'local.settings.json' files?
+## Q. Role and structure of 'function.json', 'hosts.json' and 'local.settings.json' files? 📄
 
 Azure Functions uses several configuration files to define **function behavior**, **runtime configuration** and  **application settings**.<br> 
 Understanding these files is essential for developing and deploying functions effectively.
@@ -518,7 +518,7 @@ Understanding these files is essential for developing and deploying functions ef
     - Reference Key Vault: `@Microsoft.KeyVault(SecretUri=https://...)`
 
     ---
-## 🔄 Q. What are Durable Functions?
+## Q. What are Durable Functions? 🔄
 
 <mark>**Durable Functions**</mark> is an extension of Azure Functions that enables you to write **stateful workflows in a serverless environment**. While regular Azure Functions are stateless and event-driven, Durable Functions allow you to:
 
@@ -585,7 +585,7 @@ As mentioned in your document, Durable Functions are configured in the `host.jso
 
 ---
 
-## ⚠️ Q. What are Limitations of Azure Functions ?
+## Q. What are Limitations of Azure Functions ? ⚠️
 
 Azure Functions has various limitations that vary by hosting plan. Key constraints include:
 
@@ -611,13 +611,13 @@ Azure Functions has various limitations that vary by hosting plan. Key constrain
 
 ---
 
-## 📝 ADDITIONAL INFORMATION:
+## ADDITIONAL INFORMATION: 📝
 
-### ⚙️ Q. Compare Azure Functions to WebJobs ?
+### Q. Compare Azure Functions to WebJobs ? ⚙️
 
 <img src="images/01.002 Functions vs webjobs.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
 
-## 📚 References
+## References 📚
 
 ### Azure Functions Official Documentation
 

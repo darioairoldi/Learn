@@ -193,11 +193,11 @@ Use when reviewing an artifact with `--dim` parameter. Structure from `output-di
 
 ### Cross-Dependency Coherence (if --with-deps)
 
-| Dependency | D17 Status | Contradictions found |
+| Dependency | D17-cross-coherence Status | Contradictions found |
 |---|---|---|
 | [context file path] | ✅/❌ | [description or "None"] |
 
-### Adherence Summary (if D16 assessed)
+### Adherence Summary (if D16-adherence assessed)
 
 | Rule source | Rules checked | Implemented | Gaps |
 |---|---|---|---|
@@ -230,11 +230,11 @@ Use for `/pe-meta-update --mode apply`. Follows artifact-type ordering from visi
 |---|---|---|---|---|---|
 
 ### Phase C: Agent Bodies (adherence against Phase A/B)
-| File | Dims assessed | ✅ | ⚠️ | ❌ | D16 adherence |
+| File | Dims assessed | ✅ | ⚠️ | ❌ | D16-adherence |
 |---|---|---|---|---|---|
 
 ### Phase D: Prompts (adherence against Phase A/B/C)
-| File | Dims assessed | ✅ | ⚠️ | ❌ | D16 adherence |
+| File | Dims assessed | ✅ | ⚠️ | ❌ | D16-adherence |
 |---|---|---|---|---|---|
 
 ### Phase E: Templates, Snippets, Hooks

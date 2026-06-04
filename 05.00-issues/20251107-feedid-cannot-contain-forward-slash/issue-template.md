@@ -4,34 +4,34 @@ Date: **28 Oct 2025**<br>
 Author: **Dario Airoldi**
 
 ## Table of Contents
-- [📝 DESCRIPTION](#description)
-- [ℹ️ CONTEXT INFORMATION / REPRO STEPS](#context-information--repro-steps)
-- [🔍 ANALYSIS](#analysis)
-- [➕ ADDITIONAL INFORMATION](#additional-information)
-- [📚 REFERENCES](#references)
+- [DESCRIPTION 📝](#description)
+- [CONTEXT INFORMATION / REPRO STEPS ℹ️](#context-information--repro-steps)
+- [ANALYSIS 🔍](#analysis)
+- [ADDITIONAL INFORMATION ➕](#additional-information)
+- [REFERENCES 📚](#references)
 
-## 📝 DESCRIPTION
+## DESCRIPTION 📝
 TODO: short description of the issue goes here.
 
 
-## ℹ️ CONTEXT INFORMATION / REPRO STEPS
+## CONTEXT INFORMATION / REPRO STEPS ℹ️
 TODO: context information about the environment and repro steps go here.
 
 
 
 
 
-## 🔍 ANALYSIS
+## ANALYSIS 🔍
 TODO: analysis about why issue is happening and feasible solutions goes here.
 
 
 
-## ➕ ADDITIONAL INFORMATION
+## ADDITIONAL INFORMATION ➕
 TODO: additional details about correlated behaviours and explanations...
 
 
 
-## 📚 REFERENCES
+## REFERENCES 📚
 
 - [Sample reference](https://SampleLink.com): Description of the reference / why it is relevant.
 

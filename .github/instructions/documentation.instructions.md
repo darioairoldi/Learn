@@ -1,8 +1,8 @@
 ---
 description: Base instructions for all Markdown files—essential structure, formatting, and validation rules. See article-writing.instructions.md for comprehensive writing guidance.
-applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md'
-version: "1.7.0"
-last_updated: "2026-05-23"
+applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md,src/docs/**/*.md'
+version: "1.9.0"
+last_updated: "2026-06-01"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
   - ".copilot/context/01.00-article-writing/"
@@ -131,6 +131,57 @@ All plan marking rules (status notation, section/item classification, consistenc
 📖 **Full rules:** `.github/instructions/plan-marking.instructions.md` (applyTo: `*plan*`)
 
 **Quick reference:** Use suffix-only notation — `(✅ done)`, `(🟡 todo)`, `(📌 next steps)`. Never use checkbox syntax `[x]`. Mark both section headings and list items. Classify sections as Action/Analysis/Proposal before marking.
+
+### Procedural step markers (executed-work narratives)
+
+Status-suffix marking is NOT limited to `*plan*` files. It also applies to any Markdown document that narrates **discrete units of executed or pending work performed by the author/agent** — typically the Resolution, Remediation, Implementation, Fix, **Verification**, **Acceptance**, or **Follow-up** sections of issue reports, post-mortems, change narratives, and analysis documents.
+
+**Trigger patterns (MUST be marked):**
+
+- Numbered or named **step headings** under Resolution-type sections: `### Step 1 — …`, `### Step 2 — …`, `### Phase N — …`, `### Fix N — …`
+- **Any list (numbered OR bulleted)** in the same sections whose items describe an action taken or pending
+- **Verification checklists, acceptance checklists, completion checklists, sign-off lists** — regardless of list style
+- Section names that match (case-insensitive) any of: `Verification`, `Acceptance criteria`, `Resolution`, `Remediation`, `Implementation`, `Fix`, `Follow-up`, `Next actions`, `Recommendations`, `Sign-off`
+
+**Format:** Same suffix notation as `plan-marking.instructions.md` — `(✅ done)`, `(🟡 todo)`, `(📌 next steps)`. Append to the heading text or list item text.
+
+**Checkbox syntax is FORBIDDEN in any executed-work section** — `- [x]` and `- [ ]` items MUST be rewritten as plain bullets with a status suffix. This applies even when the section is titled "checklist". The Markdown checkbox feature is a reader-interaction widget; it does not encode authoritative status and conflicts with the suffix-only contract.
+
+**Examples (correct):**
+
+```markdown
+### Step 1 — Confirm the rule exists in the instruction file (✅ done)
+### Step 2 — Apply the cap to v15 (✅ done)
+### Step 3 — Add lint enforcement (🟡 todo)
+
+### Verification checklist
+
+- Schema authority file updated to v1.3.0. (✅ done)
+- Body principle headings carry priority lines. (🟡 todo)
+- Downstream sweep for renamed IDs. (🟡 todo)
+```
+
+**Anti-patterns (MUST be rewritten):**
+
+```markdown
+<!-- WRONG — checkbox syntax forbidden in executed-work sections -->
+- [x] Schema authority file updated.
+- [ ] Body priority lines added.
+
+<!-- WRONG — bare bullet with no status suffix -->
+- Schema authority file updated.
+- Body priority lines added.
+```
+
+**Quick conversion recipe (on first edit of any matching section):**
+
+1. Replace every `- [x] …` with `- … (✅ done)`.
+2. Replace every `- [ ] …` with `- … (🟡 todo)`.
+3. If the bullet describes a deferred follow-up (post-exit), use `(📌 next steps)` instead.
+
+**Exception — instructional content authored FOR THE READER:** Tutorial steps, how-to procedures, and getting-started guides describe work the *reader* will do, not work the author has done. These MUST NOT carry status suffixes (checkbox syntax is acceptable there as a reader-interaction widget).
+
+**Disambiguator:** Is the item describing work YOU (author/agent) did/will do, or work the READER will do? Only the former is markable with status suffixes; only the latter may use `[ ]` checkboxes.
 
 ---
 

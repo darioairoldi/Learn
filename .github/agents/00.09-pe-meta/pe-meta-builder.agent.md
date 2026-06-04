@@ -48,7 +48,7 @@ boundaries:
   - "MUST read the COMPLETE target file before modifying"
   - "MUST include 3-5 lines of context in all replace operations"
   - "MUST use type dispatch to apply appropriate build patterns"
-  - "MUST map every build action to the dimensions it affects (D1-D27)"
+  - "MUST map every build action to the dimensions it affects (`D1-metadata` through `D27-model-adherence`)"
 rationales:
   - "Self-contained builder eliminates dependency on pe-gra builders for PE artifacts"
   - "Construction invariants catch quality issues during creation — cheaper than fix cycles"
@@ -191,9 +191,9 @@ For context file changes, classify using the general autonomy gradient:
 |---|---|---|
 | Metadata fixes | Autonomous | Apply directly, no notification needed |
 | Reference fixes | Autonomous | Apply directly |
-| Wording preserving same guidance | Autonomous + notify | Apply if pre-change guard + invariants + D17 peer coherence pass |
+| Wording preserving same guidance | Autonomous + notify | Apply if pre-change guard + invariants + `D17-cross-coherence` peer coherence pass |
 | Non-redundancy refactoring | Autonomous + notify | Apply if no rule lost + consumers still covered |
-| New coverage within scope | Autonomous + notify | Apply if D6 consistency + D17 peer coherence pass |
+| New coverage within scope | Autonomous + notify | Apply if `D6-consistency` + `D17-cross-coherence` peer coherence pass |
 | Rule behavior change | Human required | Escalate — breaking for consumers |
 | Scope change | Human required | Escalate — changes artifact contract |
 

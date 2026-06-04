@@ -14,32 +14,32 @@ format:
 
 ## Table of Contents
 
-- [🔑 Understanding External User Types](#-understanding-external-user-types)
+- [Understanding External User Types 🔑](#understanding-external-user-types)
   - [ExternalAzureAD Identity Type](#externalazuread-identity-type)
   - [Mail Identity Type](#mail-identity-type)
   - [Microsoft Account (MSA) Identity Type](#microsoft-account-msa-identity-type)
   - [Social Identity Providers](#social-identity-providers)
-- [📬 The Invitation and Redemption Process](#-the-invitation-and-redemption-process)
+- [The Invitation and Redemption Process 📬](#the-invitation-and-redemption-process)
   - [Invitation Flow Overview](#invitation-flow-overview)
   - [Redemption Methods and Their Impact](#redemption-methods-and-their-impact)
   - [Critical Decision Point: Authentication Method](#critical-decision-point-authentication-method)
-- [⚙️ Capabilities and Limitations by Identity Type](#️-capabilities-and-limitations-by-identity-type)
+- [Capabilities and Limitations by Identity Type ⚙️](#capabilities-and-limitations-by-identity-type)
   - [ExternalAzureAD Capabilities](#externalazuread-capabilities)
   - [Mail Identity Limitations](#mail-identity-limitations)
   - [Microsoft Account Considerations](#microsoft-account-considerations)
-- [✅ Best Practices for Guest User Management](#-best-practices-for-guest-user-management)
+- [Best Practices for Guest User Management ✅](#best-practices-for-guest-user-management)
   - [Ensuring Proper Identity Federation](#ensuring-proper-identity-federation)
   - [Troubleshooting Common Issues](#troubleshooting-common-issues)
   - [Organizational Policies](#organizational-policies)
-- [📚 Appendix: Technical Details](#-appendix-technical-details)
+- [Appendix: Technical Details 📚](#appendix-technical-details)
   - [Appendix A: User Principal Name (UPN) Formats](#appendix-a-user-principal-name-upn-formats)
   - [Appendix B: Invitation API Behavior](#appendix-b-invitation-api-behavior)
   - [Appendix C: Conditional Access and Guest Users](#appendix-c-conditional-access-and-guest-users)
-- [🔗 References](#-references)
+- [References 🔗](#references)
 
 ---
 
-## 🔑 Understanding External User Types
+## Understanding External User Types 🔑
 
 <mark>Azure AD</mark> (now <mark>Microsoft Entra ID</mark>) supports <mark>multiple types of external users</mark>, each with **different characteristics**, **capabilities**, and **limitations**. 
 
@@ -117,7 +117,7 @@ Only available if the <mark>hosting tenant has explicitly configured and enabled
 
 ---
 
-## 📬 The Invitation and Redemption Process
+## The Invitation and Redemption Process 📬
 
 The invitation redemption process is critical in determining the resulting guest user identity type. Understanding this flow helps administrators ensure guests obtain the correct identity type for their organizational needs.
 
@@ -191,7 +191,7 @@ The key decision point occurs at **Step 3** in the flow. The user must:
 
 ---
 
-## ⚙️ Capabilities and Limitations by Identity Type
+## Capabilities and Limitations by Identity Type ⚙️
 
 Different external user identity types have varying levels of functionality within the hosting organization.
 
@@ -262,7 +262,7 @@ Different external user identity types have varying levels of functionality with
 
 ---
 
-## ✅ Best Practices for Guest User Management
+## Best Practices for Guest User Management ✅
 
 ### Ensuring Proper Identity Federation
 
@@ -353,7 +353,7 @@ Different external user identity types have varying levels of functionality with
 
 ---
 
-## 📚 Appendix: Technical Details
+## Appendix: Technical Details 📚
 
 ### Appendix A: User Principal Name (UPN) Formats
 
@@ -436,7 +436,7 @@ Conditional Access policies interact differently with various guest identity typ
 
 ---
 
-## 🔗 References
+## References 🔗
 
 **Official Microsoft Documentation:**
 

@@ -1,6 +1,6 @@
----
+﻿---
 name: pe-meta-update
-description: "Unified Prompt Engineering Artifact Management — 8-phase pipeline with structure/consistency/content audits, each with research-build-validate. Pipeline phases (structure / consistency / content) are independently disableable via --skip. Execution depth controlled by --mode."
+description: "Unified Prompt Engineering Artifact Management — 9-phase pipeline (Phase 0a conversational pre-parser, Phase 1 research, Phase 1.5 organizational pass, Phases 2–4 audits each with research-build-validate, Phases 5–8 approval/apply/regression/report) under the vision v14 default-full invocation contract and seven-parameter canonical option surface. Parameter-less manual invocations are a deliberate full sweep; trigger-fired invocations are incremental; explicit `--start`/`--end` produces bounded-delta. Pipeline phases (structure / consistency / content) are independently disableable via `--skip`. Execution depth controlled by `--mode`."
 agent: agent
 model: claude-opus-4.6
 tools:
@@ -26,113 +26,368 @@ handoffs:
     agent: pe-meta-optimizer
     send: true
 agents: ['*']
-argument-hint: '[--mode plan|apply] [--dim <group>] [--scope <type>] [--skip <stage>,...] [--incremental]'
-goal: "Orchestrate PE artifact management across 8 phases with research-build-validate cycles"
-version: "2.0.0"
+argument-hint: '[--mode plan|apply] [--scope <artifact-type-token>|<path>[,<path>...]] [--source <source-id>|<url>[,...]] [--dim <group|D#>] [--start <date|version>] [--end <date|version>] [--deps none|direct|full|<N>] [--skip <stage>[,<stage>...]] [bundle=accept]'
+goal: "Orchestrate PE artifact management across 9 phases under the vision v14 default-full invocation contract and seven-parameter canonical option surface (default-full-investigation, minimal-consistent-option-surface)"
+version: "2.2.0"
+last_updated: "2026-05-31"
 scope:
   covers:
-    - "End-to-end pipeline with --mode (plan|apply), --dim, --scope, --skip controls per the v13 option taxonomy"
+    - "End-to-end pipeline with the seven canonical parameters per vision v14 — `--mode`, `--scope`, `--source`, `--dim`, `--start`/`--end`, `--deps`, `--skip`"
+    - "Default-full invocation contract (default-full-investigation): parameter-less manual invocations run a full sweep; trigger-fired invocations run incremental; explicit `--start`/`--end` produces bounded-delta"
+    - "Value-shape `--scope` parser: a single artifact-type token (`context|instructions|agents|prompts|skills|hooks|snippets|templates|all`) OR a comma-separated set of paths (folders end `/`, files end `.md`)"
+    - "Phase 0a conversational pre-parser: free-form scoping intent (subjects, concerns, consumer chains) is resolved into the seven canonical parameters BEFORE strict parsing; phases 1–8 only ever consume canonical options"
+    - "Phase 0a precondition — artifact-type/path consistency check (CF-05): per-artifact prompts encode an expected artifact-type root; mismatched positional paths or `--scope` values are rejected before Phase 0b with the canonically-correct prompt name suggested. CF-05 operates on artifact-type ROOT (deterministic from path), NOT on semantic domain (declared in frontmatter)"
+    - "Phase 0b — domain coherence check: deterministic, non-skippable step between Phase 0a and Phase 1; computes seed footprint and dependency footprint SEPARATELY using the metadata-first 3-tier domain resolution algorithm (declared `domain:` frontmatter → optional per-repo `pe-domain-map.yaml` heuristic → `unknown`); emits one of `bundle=single-domain` | `bundle=cross-domain-deps` | `bundle=multi-domain-gated` | `bundle=accepted-bundle` | `bundle=multi-domain-advisory`"
+    - "Metadata-first 3-tier domain resolution: Tier 1 declared `domain:` frontmatter wins; Tier 2 optional per-repo `pe-domain-map.yaml` path-slug heuristic; Tier 3 `unknown` fallback. Heuristic NEVER overrides declared metadata. Per-file `domain-source=declared|path-heuristic|unknown` surfaced in Phase 8 report"
+    - "Seed footprint vs dependency footprint decision matrix: seed=1 ∧ deps adds 0 → `bundle=single-domain`; seed=1 ∧ deps adds ≥1 → `bundle=cross-domain-deps` (one review, per-dep-domain specialized lenses, NO split); seed≥2 → `bundle=multi-domain-gated` per domain-coherent-batching (numbered split proposal)"
+    - "`bundle=accept` consent token: single-keystroke bypass for the multi-domain gate; only valid consent value; recorded on first-line `Resolved invocation:` log as `bundle=accepted-bundle`"
+    - "Per-artifact prompt invocation matrix: `(--scope-resolved-artifact-type, --dim) → pe-meta-{type}-{review|create-update|design}` selection"
+    - "Pipeline phases / `--skip` mapping including rule #2: `--skip research` is INCOMPATIBLE with derived `breadth=full`"
+    - "Phase 1.5 Organizational Pass when derived `breadth=full` AND resolved `--scope` is broader than a single file"
+    - "First-line `Resolved invocation:` log emitted before Phase 1 runs AND echoed in the Phase 8 report — always includes the resolved `bundle=…` marker"
   excludes:
     - "Vision document changes (human-only)"
-    - "Individual artifact creation (consolidated/granular prompts handle this)"
+    - "Individual artifact creation (per-artifact `pe-meta-{type}-{create-update|design}` prompts handle this)"
 boundaries:
-  - "MUST parse --mode, --dim, --scope, --skip before executing any phase"
-  - "MUST support phase-skip flags for targeted execution"
-  - "MUST delegate to meta-agents (researcher, designer, validator, optimizer)"
+  - "MUST parse the seven canonical parameters (`--mode`, `--scope`, `--source`, `--dim`, `--start`/`--end`, `--deps`, `--skip`) and REJECT all other `--*` flags with CF-05 deprecation notices"
+  - "MUST derive `breadth` (`full`|`incremental`|`bounded-delta`) per vision v14 rule #2: manual + no window → `full`; trigger-fired + no window → `incremental`; any `--start`/`--end` → `bounded-delta`. MUST NOT accept `--breadth` as a flag"
+  - "MUST run Phase 0a (conversational pre-parser) before strict parsing whenever any non-canonical token appears; canonical resolution MUST be echoed to the caller BEFORE Phase 1 runs"
+  - "MUST run Phase 0a precondition (artifact-type/path consistency check, CF-05) at the END of Phase 0a, BEFORE Phase 0b. The rejection error MUST name the expected root and suggest the canonically-correct prompt name. CF-05 operates on artifact-type ROOT, NOT on semantic domain"
+  - "MUST run Phase 0b (domain coherence check) between Phase 0a and Phase 1 on every invocation. Phase 0b is NOT skippable; `--skip domain-coherence` is REJECTED with CF-05"
+  - "MUST compute seed footprint and dependency footprint SEPARATELY in Phase 0b; MUST emit one of the five `bundle=…` markers; MUST echo the marker on the first line of the `Resolved invocation:` log"
+  - "MUST accept `bundle=accept` as the ONLY consent token for the multi-domain gate; MUST REJECT all other `bundle=…` values with CF-05 (closed set: only `accept`)"
+  - "MUST NOT treat `--dim` as a domain override — `--dim` is a dimension-group selector per v14 (filters which audit dimensions Phase 2–4 exercises); domain footprint is always computed from per-file `domain:` metadata regardless of `--dim` value"
+  - "MUST select the per-artifact prompt via the invocation matrix from `(--scope-resolved-artifact-type, --dim)`; MUST NOT hand-write per-artifact-type branches"
+  - "MUST reject `--skip research` when derived `breadth=full` with CF-05 (vision v14 § Pipeline phases and `--skip` mapping, rule #2)"
+  - "MUST emit a machine-parseable first-line `Resolved invocation: --mode=… --scope=… --source=… --dim=… --start=… --end=… --deps=… --skip=… | breadth=… | caller=… | bundle=…` log identical across plan and apply modes"
+  - "MUST delegate to meta-agents (researcher, designer, validator, optimizer) and per-artifact-type prompts; never duplicate their logic inline"
+  - "MUST accept `--incremental` ONLY as a single-window deprecation alias for trigger-fired callers (resolves to derived `breadth=incremental`); MUST reject it with CF-05 for manual callers because acceptance would violate default-full-investigation"
 rationales:
-  - "Unified orchestrator reduces duplicate coordination logic across separate audit prompts"
-  - "Phase-skip flags enable targeted execution without running the full pipeline"
-  - "Removing preset aliases eliminates ambiguity between named shortcuts and explicit flags; one source of truth (option taxonomy) replaces two (presets + flags)"
+  - "default-full-investigation — parameter-less manual invocations must be a deliberate full sweep, not a silent narrowing; strategies are subtractive"
+  - "minimal-consistent-option-surface — collapsing the surface to seven parameters keeps semantics consistent across phases; every additional flag risks overlap or silent re-interpretation downstream"
+  - "Breadth is a *derived* attribute (not a flag) so the same logic resolves it identically from caller-type and window across plan and apply runs"
+  - "Value-shape `--scope` absorbs `--area`/`--artifact`/`--consumer` into one parameter with two unambiguous shapes (artifact-type token OR paths)"
+  - "Phase 0a isolates free-form, LLM-mediated scoping resolution from strict parsing so phases 1–8 always consume canonical options"
+  - "Per-artifact prompt invocation matrix removes the need to branch on artifact-type inline — the orchestrator only routes; per-type prompts own the work"
+  - "Rule #2 (`--skip research` incompatible with derived `breadth=full`) preserves the default-full contract: a full sweep without research is structurally meaningless"
+  - "First-line `Resolved invocation:` log is the observable proxy for the default-full contract — every run reveals what was actually executed before any side effects occur"
 ---
 
 # Prompt Engineering Artifact Management
 
-Unified orchestrator for PE artifacts. Parse user input, determine mode + scope + flags, execute phases, report.
+Unified orchestrator for PE artifacts under the vision v15.1 default-full invocation contract and seven-parameter canonical option surface. Phase 0a resolves free-form input to canonical options, the parser validates the seven canonical parameters, breadth is derived, phases 1–8 execute, and the first-line `Resolved invocation:` log makes the actual execution observable before any side effects.
 
-## Invocation options
+> **v15.1 alignment.** This prompt honors vision v15.1.0 § Plan-mode output contract (every `--mode plan` invocation emits an actionable plan file on disk — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)) and § Iteration budget (every `--mode apply` invocation that hits the per-cycle change cap emits a spillover plan — see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)). The full retired-flag → v14 destination map lives in the [vision v15 changelog § Historical: v13 → v14 deprecated flag map](../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) and in the parser test inventory below.
 
-The orchestrator accepts five canonical options. There are no shortcut presets — every invocation is expressed as explicit `--mode` / `--dim` / `--scope` / `--skip` / `--incremental` flags.
+> **v14 alignment (v2.1.0, 2026-05-29).** This prompt was rebased from the v13 surface (`--breadth`, `--since`/`--between`, `--area`/`--artifact`/`--consumer`, `--subject`/`--concern`, `--mode-review`, `catch-up`, plain `--incremental`) onto the vision v14 contracts: seven canonical parameters, derived breadth, value-shape `--scope` parser, Phase 0a conversational pre-parser, per-artifact prompt invocation matrix, pipeline-phases / `--skip` mapping with rule #2, default-full invocation contract, and the first-line `Resolved invocation:` log.
+
+## Invocation options (canonical seven-parameter surface, vision v14)
+
+The orchestrator accepts **exactly seven canonical parameters**. Any other `--*` flag is REJECTED with CF-05 and a deprecation notice pointing to its v14 destination. The full retired-flag → v14 destination map is in the [migration table](#retired-flag-migration-table-vision-v14) below and in the [vision v15 changelog § Historical: v13 → v14 deprecated flag map](../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md).
 
 ### `--mode plan|apply` (default: `apply`)
 
 | Value | Behavior |
 |---|---|
-| `apply` | Full Research → Build → Validate cycle with low-risk autonomous apply + propose for higher-risk findings (default) |
-| `plan` | Research-only execution — Build and Validate substeps are skipped regardless of `--skip` selection because plan mode is assessment-only; produces health score and findings report; no file writes |
+| `apply` | Full Research → Build → Validate cycle with low-risk autonomous apply + propose for higher-risk findings (default). Honors vision v15.1 § Iteration budget — emits spillover plan on overflow per [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md) |
+| `plan` | Research-only execution — Build and Validate substeps are skipped regardless of `--skip` selection because plan mode is assessment-only; produces health score, findings report, AND an actionable plan file on disk per vision v15.1 § Plan-mode output contract — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md); no source-artifact writes |
+
+### `--scope <artifact-type-token>|<path>[,<path>...]` (default: `all`)
+
+Value-shape parser per vision v14 § Option taxonomy. Exactly two unambiguous shapes:
+
+| Shape | Recognition rule | Examples |
+|---|---|---|
+| **Artifact-type token** | Single token matching `all\|context\|instructions\|agents\|prompts\|skills\|hooks\|snippets\|templates` | `--scope context`, `--scope all` |
+| **Path set** | One or more comma-separated paths — folders end `/`, files end `.md` | `--scope .github/prompts/00.09-pe-meta/`, `--scope path/a.md,path/b.md` |
+
+Mixing the two shapes in one invocation is REJECTED with CF-05 (`--scope must be EITHER a single artifact-type token OR a path set, not both`). When `--scope` is a single file path, Research narrows to that artifact and its direct dependencies (from the `dependency-tracking` file — see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`).
+
+### `--source <source-id>|<url>[,...]` (default: all monitored sources)
+
+Filters Phase 1 research and Tier-2 screening to the named sources (e.g., `--source vscode-release-notes`, `--source vscode-release-notes,copilot-model-changelog`). Each value carries one of two shapes (mirroring the two-shape `--scope` parser):
+
+- A **source-id** shape — a token resolving to a configured source in `pe-self-update.config.json` → `monitored_sources`. Unknown source IDs are REJECTED with CF-05.
+- A **URL** shape — a raw `https://…` release-notes URL for an **ad-hoc** source not in the monitored set (e.g. `--source https://code.visualstudio.com/updates/v1_110`). Phase 1 fetches it via `fetch_webpage` and treats it as a single-source ingestion for this run only; it is NOT persisted to the source ledger (no `version_scheme`, so version-shaped `--start`/`--end` is rejected against it — use a date window). This is the explicit external-platform reconciliation path that replaces the retired Release-monitor prompt: auto-fetch of the monitored set is the parameter-less default; a specific release URL is supplied via `--source <url>`.
 
 ### `--dim <group|D#>` (default: `full`)
 
-Dimension selection per the v13 option taxonomy: `full`, `freshness`, `quality`, `adherence`, `reliability`, `optimize`, `model`, `structural`, `strategic`, `context-full`, `context-health`, or specific `D1`–`D35`.
+Dimension selection: `full`, `freshness`, `quality`, `adherence`, `reliability`, `optimize`, `model`, `structural`, `strategic`, `context-full`, `context-health`, or specific `D1-metadata` through `D35-portability-boundary`.
 
-When `--dim optimize` is active, the orchestrator delegates Phase 4 apply work to `@meta-optimizer` instead of per-type builders, and Phase 4 Research adopts an efficiency lens (token budgets, deduplication, structural improvements).
+When `--dim optimize` is active, the orchestrator delegates Phase 4 apply work to `@meta-optimizer` instead of per-type builders, and Phase 4 Research adopts an efficiency lens (token budgets, deduplication, structural improvements). When `--dim adherence` is active, the orchestrator routes Phase 4 via the per-artifact matrix to `pe-meta-adherence` for sampled consumer verification.
 
-### `--scope <type|path>` (default: `all`)
+### `--start <date|version>` / `--end <date|version>` (default: none)
 
-`all`, `context`, `instructions`, `agents`, `prompts`, `skills`, `hooks`, `snippets`, `templates`, or a **specific file path**. Only invoke agents relevant to parsed scope.
+Explicit research window. Either bound MAY be supplied alone (open-ended interval). Any non-empty value triggers **derived `breadth=bounded-delta`** per the resolution rules below.
 
-**When scope is a specific file path**: Research narrows to that artifact and its direct dependencies (from the `dependency-tracking` file — see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`). Regression test scopes to use cases that include the modified artifact.
+**Value-shape (vision v15.3 — § Processing-state model).** Each bound carries one of two shapes, resolved deterministically at Phase 0a (mirroring the two-shape `--scope` parser):
+
+- A **date** shape — ISO-8601 (`YYYY-MM-DD`), `now`, or a relative offset (`-7d`, `-90d`).
+- A **source-version** shape — a token matching the scoped source's `version_scheme` (e.g. `1.099` for a `semver` source), resolved to that version's publish timestamp via the source's `version_scheme` before phases 1–8 run.
+
+A bounded-delta window **overrides recorded coverage inside the window** — every processing unit whose source-input falls in `[--start, --end]` is reprocessed even when its recorded `status == pass` (the re-baseline / distrust-recovery path). Two guard rails (enforced at Phase 0a): a version-shaped bound REQUIRES a singleton `--source` (rejected otherwise), and a source whose `version_scheme` is `none` rejects a version-shaped bound ("use a date window"). This adds **no new parameter** — it widens the value space of an existing one, so `minimal-canonical-surface` is preserved.
+
+### `--deps none|direct|full|<N>` (default: `none`)
+
+Dependency-chain depth for Phase 4 per-artifact work. `direct` = first-level only; `full` = bounded recursive traversal (default depth 5); `<N>` = explicit numeric depth.
 
 ### `--skip <stage>[,<stage>...]` (default: none)
 
 | Stage | Skips | Use when |
 |---|---|---|
-| `research` | Phase 1 (source research) | No external input needed, analyze current state only |
+| `research` | Phase 1 (source research) | INCOMPATIBLE with derived `breadth=full` (rejected with CF-05) — see rule #2 in [Pipeline phases and `--skip` mapping](#pipeline-phases-and---skip-mapping) |
 | `external` | Internet/URL fetching in all phases | No internet or local-only check desired |
+| `organizational` | Phase 1.5 (organizational pass) | Cross-artifact organizational concerns already verified |
 | `structure` | Phase 2 (structure audit) | Structure is known-good, focus on content |
 | `consistency` | Phase 3 (consistency audit) | Cross-artifact consistency already verified |
 | `content` | Phase 4 (content audit) | Individual artifacts already reviewed |
 
-### `--incremental` (default: false)
+## Derived breadth (vision v14 § Default-full invocation contract)
 
-Process only artifacts modified since the last `--mode apply` run. Uses `last_updated` dates and the "Last Apply-Mode Run File Manifest" in `05.04-meta-review-log.md` to filter. Skips unchanged files in all audit phases.
+`breadth` is a **resolved attribute** — never a flag. The orchestrator MUST derive it before any phase runs and MUST emit it in the first-line `Resolved invocation:` log.
 
-## Intent resolution from natural-language input
+| Caller type | `--start` / `--end` present? | Derived breadth | Phase 1 output contract |
+|---|---|---|---|
+| Manual (interactive) | No | `full` | Current-state snapshot across entire monitored-sources catalog (Phase 1.5 gate opens) |
+| Trigger-fired (scheduled/hook/file-watcher) | No | `incremental` | Change digest for the stale processing units (PUs) per the § Incremental filter work-set computation |
+| Either | Yes (one or both bounds; date **or** source-version) | `bounded-delta` | Bounded-window digest between the explicit endpoints; recorded `pass` coverage is overridden inside the window |
 
-When the user provides natural-language hints alongside or instead of flags, resolve them to canonical options as follows:
+**Rejection.** `--breadth` (any value) is REJECTED with CF-05: `--breadth retired in v14; breadth is derived from caller-type and --start/--end — see vision v14 § Default-full invocation contract`.
 
-| User intent / keyword | Resolves to |
+## Retired-flag migration table (vision v14 — historical)
+
+Every retired v13 flag is REJECTED with CF-05 using a uniform message template: `<flag> retired in v14; use <v14-replacement> — see vision v15 changelog § Historical: v13 → v14 deprecated flag map`. The parser MUST table-drive these rejections; do NOT hand-write per-flag prose.
+
+| Retired v13 surface | v14 destination |
 |---|---|
-| URL or file path provided | `--mode apply` (default), Phase 1 research enabled |
-| "review", "audit", "health", "diagnose" | `--mode plan --skip research` |
-| "optimize", "dedup", "tokens", "efficiency" | `--mode apply --dim optimize --skip research,structure,consistency` |
-| "plan", "preview", "what-if", "dry run" | `--mode plan` |
-| No arguments | `--mode apply` with full pipeline |
+| `--breadth full\|incremental\|catch-up` | Derived attribute; logged on first line of every run report |
+| `catch-up` value (any flag) | `--start <older-than-default>` on any caller; resolves to `bounded-delta` |
+| `--since <date>` | `--start <date>` |
+| `--between <a>..<b>` | `--start <a> --end <b>` |
+| `--area <token>` | `--scope <artifact-type-token>` |
+| `--artifact <path>` | `--scope <path>[,<path>...]` |
+| `--consumer <path>` | `--scope <agent-or-prompt-file> --deps full` |
+| `--subject <kw>` | Resolved by Phase 0a → comma-separated `--scope` enumeration |
+| `--concern <kw>` | Resolved by Phase 0a → `--scope` (+ `--dim` when keyword maps to a dimension) |
+| `--mode-review individual\|dep-aware\|guidance-first` | Auto-derived from `--scope` artifact-type via per-artifact prompt invocation matrix; guidance-first leg covered by `--dim adherence` |
+| `--incremental` | **Single migration-window alias** — accepted ONLY for trigger-fired callers (resolves to derived `breadth=incremental`); REJECTED for manual callers (would violate default-full-investigation) |
+| Any other unrecognized `--*` | CF-05 rejection with full canonical seven-parameter enumeration |
 
-Resolved options MUST be echoed back to the user as a single canonical invocation string before execution begins. Explicit `--` flags always override intent-derived defaults.
+## Phase 0a — conversational pre-parser (vision v14 § Option taxonomy)
 
-## Argument parsing
+**When it runs.** Phase 0a runs BEFORE strict parsing whenever the raw invocation contains any token that is not one of the seven canonical parameters or a recognized value. It is LLM-mediated, so it is the ONLY place in the pipeline where free-form input is allowed to influence canonical resolution.
 
-**Backward-compatible aliases** (resolved during parsing):
+**What it does.**
 
-| Legacy | Canonical |
+1. Reads the raw invocation (including any natural-language hints like `"recheck anything affected by the April VS Code release"` or `"focus on consumer-correctness for the adherence prompt"`).
+2. Resolves free-form intent into the seven canonical parameters using these rules:
+    - Subject keywords (e.g., `"April VS Code release"`) → enumerate matching artifact paths and emit a comma-separated `--scope` enumeration.
+    - Concern keywords (e.g., `"consumer-correctness"`, `"freshness"`) → set `--dim` to the matching group; if the keyword names a topic without a dimension, also emit a `--scope` enumeration.
+    - Consumer chains (e.g., `"the adherence prompt and what it depends on"`) → emit `--scope <consumer-file> --deps full`.
+    - Temporal hints (e.g., `"since April"`, `"between April and May"`) → emit `--start`/`--end`.
+3. Echoes the resolved canonical invocation back to the caller BEFORE Phase 1 runs (gives caller a chance to abort or correct).
+4. Hands the canonical seven-parameter set to the strict parser. Phases 1–8 NEVER see free-form input.
+
+**Non-determinism risk.** Phase 0a is LLM-mediated. Two callers passing the same prompt MAY get the same canonical resolution, but reproducibility is not guaranteed. Mitigation: every resolution is echoed back AND logged on the first line of the Phase 8 report (`Resolved invocation:` log). Downstream determinism is preserved because phases 1–8 only consume the canonical resolution.
+
+### Phase 0a value-shape `--start`/`--end` resolution (vision v15.3 § Processing-state model)
+
+After free-form resolution settles and BEFORE the strict parser runs, Phase 0a resolves each supplied `--start`/`--end` bound to a timestamp so phases 1–8 only ever consume a resolved time window:
+
+1. **Detect the shape of each bound deterministically.** ISO-8601 (`YYYY-MM-DD`), `now`, or a relative offset (`-Nd`) → **date** shape (used directly). A token matching the scoped source's `version_scheme` pattern (`semver` | `dated` | `model-version`) → **source-version** shape.
+2. **Resolve a version-shaped bound to a timestamp.** Look up the scoped source's `version_scheme` in `pe-self-update.config.json`, find that version's publish timestamp (from the source ledger `last_seen_*` history or by fetching the source), and substitute the resolved timestamp into the window. `version_scheme` thus plays a dual role — ledger version recorder AND parser version-token recognizer.
+3. **Enforce the two guard rails (reject with CF-05):**
+    - A version-shaped bound with a non-singleton `--source` (or `--source` omitted, which resolves to all monitored sources) → `version window requires a single --source`.
+    - A version-shaped bound against a source whose `version_scheme` is `none` → `source <id> has no version scheme; use a date window`.
+4. **Echo the resolved window** on the first-line `Resolved invocation:` log as resolved timestamps (the version token is preserved in the audit narrative). No `--incremental` token is accepted at this stage.
+
+This widens an existing parameter's value space exactly as the value-shape `--scope` parser does; it introduces no new parameter and keeps breadth a derived attribute.
+
+### Phase 0a precondition — artifact-type/path consistency check (CF-05)
+
+> **Spec SoT:** [`04.05-pe-meta-invocation-gates.md`](../../../.copilot/context/00.00-prompt-engineering/04.05-pe-meta-invocation-gates.md) § Phase 0a CF-05. The table, rejection message format, and applicability rules below MUST stay byte-equivalent (modulo wording) to the context file. Per-artifact prompts pin their single expected root locally and cite the context file for the canonical mapping.
+
+**When it runs.** At the END of Phase 0a, after free-form resolution has settled but BEFORE Phase 0b. Runs on every invocation of a **per-artifact prompt** (e.g. `/pe-meta-context-review`, `/pe-meta-prompt-review`). Orchestrator-level prompts (`/pe-meta-update`, `/pe-meta-review`, `/pe-meta-create-update`, `/pe-meta-design`, `/pe-meta-adherence`, `/pe-meta-scheduled-review`) are artifact-type-agnostic by design and SKIP this check.
+
+**What it does.** Compares the artifact-type ROOT implied by the prompt name against the artifact-type ROOT resolved from the positional `<file-path>` or `--scope` value. Mismatch is REJECTED with CF-05 before Phase 0b runs.
+
+**Prompt-name-prefix → expected-root table.**
+
+| Prompt name prefix | Expected root |
 |---|---|
-| `--plan` | `--mode plan` |
-| `--no-external` | `--skip external` |
-| `--no-research` | `--skip research` |
-| `--skip-source` | `--skip research` |
-| `--skip-structure` | `--skip structure` |
-| `--skip-consistency` | `--skip consistency` |
-| `--skip-content` | `--skip content` |
+| `pe-meta-context-*` | `.copilot/context/` |
+| `pe-meta-instruction-*` | `.github/instructions/` |
+| `pe-meta-agent-*` | `.github/agents/` |
+| `pe-meta-prompt-*` | `.github/prompts/` |
+| `pe-meta-skill-*` | `.github/skills/` |
+| `pe-meta-hook-*` | `.github/hooks/` |
+| `pe-meta-template-*` | `.github/templates/` |
+| `pe-meta-snippet-*` | `.github/prompt-snippets/` |
 
-**Rejected preset tokens.** If the parser encounters a positional token equal to `healthcheck`, `performancecheck`, or `fullcheck`, it MUST refuse with the deterministic error and stop before Phase 1:
+**CF-05 rejection message format.**
 
-> `"<token>" is no longer a supported preset. Use the canonical options per the v13 taxonomy. See pe-meta-update.prompt.md § Invocation options for the mapping.`
+```text
+CF-05: artifact-type/path mismatch. Invoked prompt /<invoked-prompt> expects positional paths under <expected-root>; supplied path resolves under <actual-root>. Canonical replacement: /<canonical-prompt> '<supplied-path>' <other-args>.
+```
+
+**Operates on ROOT, not domain.** This check is deterministic from path. It does NOT read frontmatter and is NOT a domain check. Domain coherence is a separate concern handled by Phase 0b (which reads `domain:` frontmatter from each in-scope file).
+
+## Per-artifact prompt invocation matrix (vision v14 § Per-artifact prompt invocation matrix)
+
+After parsing, the orchestrator routes Phase 4 work via this matrix from `(--scope-resolved-artifact-type, --dim)` → per-artifact prompt. The orchestrator MUST NOT hand-write per-artifact-type branches.
+
+| Resolved artifact type | `--dim` family | Selected prompt |
+|---|---|---|
+| `context` | review-family (default, `freshness`, `quality`, `structural`, `strategic`, `model`, `optimize`, `context-full`, `context-health`) | `pe-meta-context-review` |
+| `context` | `--dim adherence` | `pe-meta-adherence` (target = each context file in scope) |
+| `instructions` | review-family | `pe-meta-instruction-review` |
+| `instructions` | `--dim adherence` | `pe-meta-adherence` |
+| `agents` | review-family | `pe-meta-agent-review` |
+| `agents` | `--dim adherence` | `pe-meta-adherence` |
+| `prompts` | review-family | `pe-meta-prompt-review` |
+| `prompts` | `--dim adherence` | `pe-meta-adherence` |
+| `skills` | review-family | `pe-meta-skill-review` |
+| `hooks` | review-family | `pe-meta-hook-review` |
+| `snippets` | review-family | `pe-meta-snippet-review` |
+| `templates` | review-family | `pe-meta-template-review` |
+| any | `--dim optimize` | `@pe-meta-optimizer` (orchestrator delegation, not a per-artifact prompt) |
+| any (creation intent surfaced by Phase 0a) | — | `pe-meta-{type}-create-update` or `pe-meta-{type}-design` per intent |
+
+**Path-shape `--scope`.** When `--scope` is a path set, the orchestrator infers the artifact type from the path prefix (e.g., `.github/prompts/` → `prompts`) and applies the matching matrix row.
+
+**Per-artifact prompt invocation matrix — Phase 0b inheritance.** When a per-artifact prompt is invoked DIRECTLY by the user with a positional `<file-path>`, it runs its own minimal Phase 0b stub before delegating to the orchestrator. The stub MUST handle the positional-path scope-extraction step per vision v15 § Domain detection § per-invocation-type matrix and MUST read each in-scope file's declared `domain:` frontmatter to compute the footprint (the seed file's path does NOT constrain consumer domains when `--deps full` traverses the closure). The algorithm SoT is [`04.05-pe-meta-invocation-gates.md`](../../../.copilot/context/00.00-prompt-engineering/04.05-pe-meta-invocation-gates.md) — per-artifact prompts cite that file (not this prompt) so sibling-to-sibling coupling is avoided.
+
+## Phase 0b — Domain coherence check (vision v15 § Domain-coherent batching)
+
+> **Algorithm SoT:** [`04.05-pe-meta-invocation-gates.md`](../../../.copilot/context/00.00-prompt-engineering/04.05-pe-meta-invocation-gates.md). The spec below is this prompt's implementation of the shared contract — algorithm, decision matrix, dispatch table, `bundle=…` closed set, and `bundle=accept` consent semantics MUST stay byte-equivalent (modulo wording) to the context file. When the contract changes, update the context file FIRST and re-validate this section with `pe-meta-adherence`.
+
+**Goal.** Prevent silent heterogeneous batching by computing the semantic-domain footprint of the resolved scope (seed AND `--deps`-closure) BEFORE Phase 1 runs. When the footprint exceeds one domain, gate `--mode apply` until the caller either splits the run per-domain or appends explicit `bundle=accept` consent. Honest per-file metadata is the input; deterministic dispatch is the output.
+
+**Inputs.**
+
+- The canonical seven-parameter invocation resolved by Phase 0a (and validated against the Phase 0a precondition CF-05 check).
+- The **metadata-first 3-tier domain resolution algorithm** defined in vision v15 § Domain detection:
+  - **Tier 1 (authoritative):** Read each in-scope file's `domain:` frontmatter value. Tier 1 NEVER loses to a lower tier when present.
+  - **Tier 2 (optional heuristic):** If `pe-domain-map.yaml` exists at repo root, apply path-slug heuristic for files without declared `domain:`. Map entries are flagged per-file in the Phase 8 report so authors can migrate to declared metadata.
+  - **Tier 3 (fallback):** Files unresolved by Tier 1 or Tier 2 receive `domain: unknown`. `unknown` is a reserved domain-id; repos MUST NOT declare `domain: unknown` in any file (the orchestrator emits a Phase 8 warning when a declared value collides with the reserved id).
+
+**Algorithm (deterministic, 5 steps).**
+
+1. **Resolve scope to file set.** Expand `--scope` (artifact-type token → all files under root; path → enumerated files; path-set → union). If `--deps direct|full|<N>` is present, traverse the `dependency-tracking` closure to depth N and union into the file set. Tag each file as `role=seed` (named by the caller) or `role=dep` (added by closure traversal).
+2. **Resolve domain per file.** For each file, apply Tier 1 → Tier 2 → Tier 3 and record `domain-source` (`declared` | `path-heuristic` | `unknown`). `--dim` is NEVER consulted here — `--dim` is a dimension-group selector per v14 (filters which audit dimensions Phase 2–4 exercises); it never affects domain resolution.
+3. **Compute seed footprint and dependency footprint SEPARATELY.** Seed footprint = `{distinct domains across files where role=seed}`. Dependency footprint = `{distinct domains across files where role=dep AND domain ∉ seed footprint}`. Recording the two sets separately is what enables the `cross-domain-deps` discrimination in step 4.
+4. **Dispatch from the seed-vs-deps decision matrix.**
+
+   | Seed footprint | Additional dep-domains | Disposition (`bundle=…`) | Phase 1 action |
+   |---|---|---|---|
+   | 1 | 0 | `single-domain` | Proceed without prompt |
+   | 1 | ≥ 1 | `cross-domain-deps` | Proceed as ONE review with per-dep-domain specialized analysis lenses in Phase 2–4 (no split — splitting a single-seed cross-domain-deps invocation produces incomplete reviews because the consumer artifact needs all declared deps present to be evaluated) |
+   | ≥ 2 | n/a | `multi-domain-gated` (`--mode apply`) or `multi-domain-advisory` (`--mode plan`) | `apply`: emit numbered split proposal and BLOCK Phase 1 until user selects a split or appends `bundle=accept` (→ `bundle=accepted-bundle`); `plan`: include split proposal in Phase 8 report and proceed |
+
+5. **Emit the first-line `Resolved invocation:` log marker.** Append `| bundle=<disposition>` to the canonical first-line log so the disposition is observable before any side effects occur.
+
+**Outputs.**
+
+- **Domain footprint table** in the Phase 8 report with one row per in-scope file and columns `path | role (seed/dep) | domain | domain-source (declared/path-heuristic/unknown)`. Files resolved by Tier 2 or Tier 3 are flagged in the report so authors can backfill declared metadata.
+- **Numbered split proposal** (only when disposition is `multi-domain-gated` or `multi-domain-advisory`): one numbered line per detected domain plus a final `[N]` line for "proceed as one atomic bundle (equivalent to appending `bundle=accept`)". Example shape:
+
+   ```text
+   Phase 0b detected 3 distinct domains in the resolved scope:
+
+   [1] prompt-engineering  (12 files)
+   [2] article-writing     (4 files)
+   [3] learning-hub        (2 files)
+   [4] proceed as one atomic bundle (bundle=accept)
+
+   Select a split number (1-3) to run that domain only, run all three sequentially (all), or [4] to proceed as one atomic bundle.
+
+   Note: 2 files were resolved by path-heuristic (Tier 2) and 2 files by unknown fallback (Tier 3). Consider adding `domain:` to those files' YAML frontmatter; see the Phase 8 report for the exact file list.
+   ```
+
+**Gate behavior summary.**
+
+| `--mode` | Seed footprint | Additional dep-domains | `bundle=accept` present? | Phase 0b disposition | Phase 1 runs? |
+|---|---|---|---|---|---|
+| `apply` | 1 | 0 | n/a | `single-domain` | Yes |
+| `apply` | 1 | ≥ 1 | n/a | `cross-domain-deps` | Yes (one run; per-dep-domain lenses in Phase 2–4) |
+| `apply` | ≥ 2 | n/a | no | `multi-domain-gated` | No — BLOCK on user input |
+| `apply` | ≥ 2 | n/a | yes | `accepted-bundle` | Yes |
+| `plan` | 1 | 0 | n/a | `single-domain` | Yes |
+| `plan` | 1 | ≥ 1 | n/a | `cross-domain-deps` | Yes (one run; per-dep-domain lenses in Phase 2–4) |
+| `plan` | ≥ 2 | n/a | n/a | `multi-domain-advisory` | Yes (with advisory in report) |
+
+**`bundle=accept` consent token.** Single-keystroke bypass for the multi-domain gate. Appended as a trailing positional token (e.g. `/pe-meta-update --mode apply --scope context bundle=accept`). It is the ONLY accepted consent value — `bundle=skip`, `bundle=yes`, `bundle=true`, etc. are REJECTED with CF-05. Consent is recorded on the first-line `Resolved invocation:` log as `bundle=accepted-bundle` (distinct from the un-consented `bundle=multi-domain-gated` marker so the audit trail preserves the discrimination).
+
+**CF-05 rejection — `--skip domain-coherence`.** Phase 0b is NOT in the skippable set. `--skip domain-coherence` is REJECTED with CF-05:
+
+```text
+CF-05: --skip domain-coherence is rejected; Phase 0b is not skippable per vision v15 § Domain-coherent batching. To bypass the gate on a multi-domain scope, append bundle=accept to the invocation.
+```
+
+**`--dim` orthogonality.** `--dim` is a dimension-group selector per v14 (filters which audit dimensions Phase 2–4 exercises). It is NEVER a domain override. The domain footprint is always computed from per-file declared `domain:` metadata (with Tier 2/3 fallback) regardless of the `--dim` value. Parser test P0b-13 pins this invariant.
+
+**Determinism.** The domain map is computed ONCE at Phase 0b entry and frozen for the rest of the run. The 3-tier algorithm runs in < 1 second on the largest current workspace (51 files, 3 domains); each file's YAML frontmatter is read once and cached. No LLM call required.
+
+## Pipeline phases and `--skip` mapping (vision v14 § Pipeline phases and `--skip` mapping)
+
+| Phase | Title | `--skip` value that retires it | Runs when |
+|---|---|---|---|
+| 0 | Argument parsing & breadth derivation | (cannot be skipped) | Always |
+| 0a | Conversational pre-parser | (auto — runs only on non-canonical input) | When free-form input present |
+| 0a-precondition | Artifact-type/path consistency check (CF-05) | (cannot be skipped) | Only on per-artifact prompts (orchestrator-level prompts skip) |
+| 0b | Domain coherence check | (cannot be skipped; `--skip domain-coherence` is REJECTED with CF-05) | Always; emits `bundle=…` marker on the `Resolved invocation:` log |
+| 1 | Source research | `research` | Always unless `--skip research` AND derived `breadth ≠ full` |
+| 1.5 | Organizational pass | `organizational` | When derived `breadth=full` AND resolved `--scope` is broader than a single file |
+| 2 | Structure audit | `structure` | Default; skippable |
+| 3 | Consistency audit | `consistency` | Default; skippable |
+| 4 | Content audit (per-artifact via matrix) | `content` | Default; skippable |
+| 5 | User approval | (cannot be skipped in `--mode apply`) | `--mode apply` only |
+| 6 | Apply changes | (skipped automatically in `--mode plan`) | `--mode apply` only |
+| 7 | Regression test | (cannot be skipped when Phase 6 applies changes) | After Phase 6 changes |
+| 8 | Report + log | (cannot be skipped) | Always |
+
+**Rule #1.** `--skip external` retires internet/URL fetching across ALL phases that would otherwise use `fetch_webpage`.
+
+**Rule #2 (CRITICAL — vision v14).** `--skip research` is INCOMPATIBLE with derived `breadth=full` because a full sweep without source research is structurally meaningless under the default-full invocation contract. The parser MUST REJECT the combination with CF-05: `--skip research is incompatible with derived breadth=full; either drop --skip research or narrow the window with --start/--end (which derives breadth=bounded-delta)`.
 
 ## Examples
 
-- `/pe-meta-update --mode apply` — Full 8-phase pipeline analyzing current state against best practices
-- `/pe-meta-update --mode apply <URL>` — Research from URL + audit all dimensions
-- `/pe-meta-update --mode apply --skip structure,consistency` — Source research + content audit only
-- `/pe-meta-update --mode apply --skip research "fix boundaries" path/to/agent.md` — Direct change, validate, no research
-- `/pe-meta-update --mode plan --skip research,content` — Structure + consistency audit only, no content review
-- `/pe-meta-update --mode apply --skip external` — Full pipeline using local artifacts only (context files + 05.02 articles, no internet — fast mode)
-- `/pe-meta-update --mode apply --incremental` — Process only artifacts changed since the last apply-mode run (fast, targeted)
-- `/pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope context` — Efficiency-lens review of context files only
+- `/pe-meta-update` — Parameter-less manual invocation. Derives `breadth=full`. Runs Phases 0 → 1 → 1.5 → 2 → 3 → 4 → 5 → 6 → 7 → 8 against the entire monitored-sources catalog and the entire PE artifact tree. (default-full-investigation contract.)
+- `/pe-meta-update --mode plan` — Same as above but stops after Phase 4 and produces an assessment-only report.
+- `/pe-meta-update --scope context` — Manual, `--scope` is the artifact-type token `context`. Derived `breadth=full`, but Phase 1.5 Organizational Pass STILL runs because the resolved scope (all context files) is broader than a single file.
+- `/pe-meta-update --scope .copilot/context/00.00-prompt-engineering/01.07-critical-rules-priority-matrix.md` — Single-file path scope. Derived `breadth=full`, but Phase 1.5 is SKIPPED (single-file gate).
+- `/pe-meta-update --start 2026-04-01` — Manual + window. Derives `breadth=bounded-delta`. Phase 1 produces a bounded-window digest between `2026-04-01` and "now".
+- `/pe-meta-update --start 2026-04-01 --end 2026-04-30` — Same as above with both endpoints.
+- `/pe-meta-update --source vscode-release-notes` — Manual, source-filtered. Derived `breadth=full`, but Phase 1 consults only the `vscode-release-notes` source.
+- `/pe-meta-update --mode apply --dim optimize --skip structure,consistency --scope context` — Efficiency-lens review of context files only.
+- `/pe-meta-update --mode apply --dim adherence --scope .copilot/context/00.00-prompt-engineering/01.07-critical-rules-priority-matrix.md --deps full` — Adherence sampling for a specific guidance file across its full dependency chain.
+- `/pe-meta-update --incremental` (trigger-fired only) — Single-window deprecation alias. Resolves to derived `breadth=incremental`. REJECTED if invoked manually.
+- `/pe-meta-update --mode apply --scope .github/prompts/00.09-pe-meta/pe-meta-update.prompt.md --deps full` — Manual + single-seed-file + `--deps full`. Phase 0b expands the dependency closure (vision contexts, dependency-tracking files, instruction files). Seed footprint = `{prompt-engineering}` (1 domain); dep closure adds `{article-writing, learning-hub}`. Disposition = `bundle=cross-domain-deps` — ONE review runs with per-dep-domain specialized lenses applied in Phase 2–4; the review is NOT split because the consumer artifact needs all declared deps present to be evaluated.
+- `/pe-meta-update --mode apply --scope context` — Manual + artifact-type token. Phase 0b enumerates all `.copilot/context/` files; seed footprint spans `{prompt-engineering, article-writing, learning-hub}` (3 domains). Disposition = `bundle=multi-domain-gated` — Phase 1 is BLOCKED until the user selects a numbered split (1/2/3 per domain) OR appends `bundle=accept` to convert to `bundle=accepted-bundle`.
+- `/pe-meta-update --mode apply --scope context bundle=accept` — Same scope as above but with explicit consent. Phase 0b records `bundle=accepted-bundle` on the first-line log and proceeds without gating Phase 1. Phase 8 report still emits the domain-footprint table.
+
+**Rejected examples (CF-05).**
+
+- `/pe-meta-update --breadth full` → `--breadth retired in v14; breadth is derived from caller-type and --start/--end — see vision v14 § Default-full invocation contract`.
+- `/pe-meta-update --since 2026-04-01` → `--since retired in v14; use --start <YYYY-MM-DD> — see vision v15 changelog § Historical: v13 → v14 deprecated flag map`.
+- `/pe-meta-update --area context` → `--area retired in v14; use --scope <artifact-type-token> — see vision v15 changelog § Historical: v13 → v14 deprecated flag map`.
+- `/pe-meta-update --subject "April VS Code release"` → Phase 0a resolution required; if invoked directly without Phase 0a route, CF-05: `--subject retired in v14; free-form intent is resolved by Phase 0a — see vision v14 § Option taxonomy`.
+- `/pe-meta-update --mode-review guidance-first` → CF-05: `--mode-review retired in v14; use --dim adherence — see vision v15 changelog § Historical: v13 → v14 deprecated flag map`.
+- `/pe-meta-update --incremental` (manual caller) → CF-05: `--incremental is accepted only for trigger-fired callers; manual invocations are contracted to derived breadth=full per default-full-investigation`.
+- `/pe-meta-update --skip research` (manual, no window) → CF-05: `--skip research is incompatible with derived breadth=full; either drop --skip research or narrow the window with --start/--end (which derives breadth=bounded-delta)`.
+- `/pe-meta-update healthcheck` → CF-05: `"healthcheck" is no longer a supported preset. Use the seven canonical parameters per vision v14 — see § Invocation options`.
+- `/pe-meta-update --skip domain-coherence` → CF-05: `--skip domain-coherence is rejected; Phase 0b is not skippable per vision v15 § Domain-coherent batching. To bypass the gate on a multi-domain scope, append bundle=accept to the invocation.`
+- `/pe-meta-update --scope context bundle=skip` → CF-05: `bundle=skip is not a valid consent token; the closed set is {accept}. Use bundle=accept to bypass the multi-domain gate.`
+- `/pe-meta-update --scope context bundle=yes` → CF-05: `bundle=yes is not a valid consent token; the closed set is {accept}. Use bundle=accept to bypass the multi-domain gate.`
+- `/pe-meta-context-review .github/prompts/00.09-pe-meta/pe-meta-update.prompt.md` → CF-05 (artifact-type/path mismatch from the Phase 0a precondition): `Invoked prompt /pe-meta-context-review expects positional paths under .copilot/context/; supplied path resolves under .github/prompts/. Canonical replacement: /pe-meta-prompt-review '.github/prompts/00.09-pe-meta/pe-meta-update.prompt.md'.`
 
 ## CRITICAL BOUNDARIES
 
 ### Always Do
 - Parse mode, scope, flags FIRST
+- **Run Phase 0a precondition (artifact-type/path consistency check, CF-05) on every per-artifact prompt invocation**: compare prompt-name prefix against positional-path root; reject with CF-05 and suggest the canonically-correct prompt name on mismatch. Orchestrator-level prompts skip this check (artifact-type-agnostic by design).
+- **Run Phase 0b (domain coherence check) on every invocation BEFORE Phase 1**: resolve scope, apply the metadata-first 3-tier algorithm, compute seed and dependency footprints separately, dispatch from the decision matrix, emit `bundle=…` on the first-line `Resolved invocation:` log.
+- **Honor `bundle=accept` as the ONLY consent token** for the multi-domain gate; record consented runs as `bundle=accepted-bundle` (distinct from un-consented `bundle=multi-domain-gated`) so the audit trail preserves the discrimination.
 - Load dependency map (the `dependency-tracking` files — see 00.00-context-structure-index.md → Functional Categories in `.copilot/context/00.00-prompt-engineering/`)
 - **Use three-tier classification for every proposed change** (see Classification Protocol below)
 - In each audit phase Research substep: **challenge current state, propose 2+ alternative approaches per finding, compare on effectiveness/reliability/efficiency**
@@ -163,6 +418,9 @@ Resolved options MUST be echoed back to the user as a single canonical invocatio
 - **NEVER skip validation after changes**
 - **NEVER remove capabilities** — only extend, refine, or deprecate
 - **NEVER classify a change without checking N-1 block labels first** (when available)
+- **NEVER skip Phase 0b** — `--skip domain-coherence` is REJECTED with CF-05; the only legitimate bypass is `bundle=accept` (which surfaces the disposition on the audit log rather than hiding it)
+- **NEVER treat `--dim` as a domain override** — `--dim` is a dimension-group selector per v14; domain footprint is always computed from per-file `domain:` metadata regardless of `--dim` value (parser test P0b-13 pins this invariant)
+- **NEVER override declared `domain:` frontmatter with a Tier 2 heuristic match** — Tier 1 always wins when present; Tier 2 only applies to files without declared `domain:` and emits a Phase 8 report flag suggesting metadata backfill
 
 ---
 
@@ -244,27 +502,66 @@ Between EVERY phase, run this deterministic context size check:
 
 ---
 
-## Incremental Filter (`--incremental` only)
+## Processing-state model (vision v15.3 § Processing-state model)
 
-When `--incremental` is specified, build the artifact scope BEFORE Phase 1:
+Processing state is recorded on **two independent axes** — never collapsed to one scalar timestamp.
 
-1. **Load manifest**: Read `05.04-meta-review-log.md` → "Last Apply-Mode Run File Manifest" section for the list of files and dates from the previous apply-mode run
-2. **Detect changes**: For each PE artifact, compare `last_updated` in YAML frontmatter against the manifest date. If no manifest exists, fall back to `git diff --name-only` against the last apply-mode run date from the review log
-3. **Build scope**: Only files where `last_updated > manifest_date` (or newly created files) are in scope
-4. **Apply filter**: All audit phases (2, 3, 4) process ONLY in-scope files. Phase 1 research narrows to in-scope artifacts and their direct dependencies
-5. **Report filtered-out count**: In Phase 8 report, include: "Incremental: [N] artifacts in scope, [M] unchanged (skipped)"
+**Source ledger (input axis).** One file per monitored source at `<state.path>/triggers/<source-id>.json` (path from `pe-self-update.config.json` → `state.path`). It is a rebuildable cache of what the world last looked like:
 
-If no previous apply-mode run is recorded (no manifest), warn: "No prior apply-mode run found — running full scope instead of incremental" and proceed with the full scope.
+```json
+{
+  "source_id": "vscode-release-notes",
+  "version_scheme": "semver",
+  "last_seen_version": "1.107",
+  "last_seen_timestamp": "2026-05-29T00:00:00Z",
+  "last_digest_hash": "<sha256>"
+}
+```
+
+**Artifact coverage (processing axis).** The durable single source of truth, recorded per artifact in the bottom validation-metadata block — one cell per `(artifact × applicable-dimension)`:
+
+```yaml
+coverage:
+  <dimension-id>:
+    source_versions: { "<source-id>": "<version-or-timestamp>", ... }
+    depth: research | screening | deep
+    status: pass | fail | partial | never
+    last_run: "<YYYY-MM-DDTHH:MM:SSZ>"
+```
+
+A **processing unit (PU)** is one `(artifact × applicable-dimension)` — applicability follows `active-dimensions-follow-evidence`. A PU is **stale** when its `status == never`, OR `status != pass`, OR any dependency source's ledger `last_seen_version` / `last_seen_timestamp` is newer than the PU's recorded `source_versions[dep]`. Every writing prompt MUST emit the `coverage` block in this identical shape (defined here as the canonical block).
+
+## Incremental filter (trigger-fired derived `breadth=incremental` only)
+
+When derived `breadth=incremental` (trigger-fired caller, no `--start`/`--end`), build the **PU work set** BEFORE Phase 1 from the source ledger and the per-artifact coverage metadata:
+
+1. **Read the source ledgers** — for each source in resolved `--source` (or all monitored sources when omitted), read `<state.path>/triggers/<source-id>.json` (schema above). Version-keyed sources compare `last_seen_version`; time-keyed sources compare `last_seen_timestamp`.
+2. **Compute the PU work set** — for each in-scope artifact, for each applicable dimension (per `active-dimensions-follow-evidence`), include the PU iff it is **stale**: its recorded `source_versions[dep]` is older than the dependency's ledger watermark, OR `status != pass`, OR `status == never`. Never-covered and non-pass PUs are ALWAYS included (at-least-once guarantee). PUs whose recorded `source_versions` equal the ledger latest AND `status == pass` are skipped (no-redundant).
+3. **Build scope** — only artifacts owning at least one stale PU are in scope. Phase 1 produces a change digest (not a snapshot) per the researcher output contract.
+4. **Apply filter** — all audit phases (2, 3, 4) process ONLY the stale PUs.
+5. **Persist new state** — at end of Phase 8, write each processed PU's coverage cell and advance the per-source ledger `last_seen_*`.
+
+If a source ledger file is missing on a trigger-fired call, warn `No prior ledger for source <id>; treating all its PUs as never-covered (full sweep for this source)` and treat that source's PUs as stale while leaving the global derived `breadth=incremental` intact for unaffected sources.
+
+**Manual callers MUST NOT reach this branch.** `--incremental` is rejected for manual callers per CF-05 (default-full-investigation). Manual + window callers reach the bounded-delta branch instead, where the explicit `--start` bound is the watermark and recorded `pass` coverage is **overridden** inside `[--start, --end]` (every PU in the window is reprocessed — the re-baseline / distrust-recovery path).
 
 ---
 
-## Phase 1: Source Research (skip with `--skip research`)
+## Phase 1: Source Research (skip with `--skip research` — only when derived `breadth ≠ full`)
 
-External knowledge gathering. Feeds findings into Phases 2-4 to inform audit research substeps.
+External knowledge gathering. Feeds findings into Phases 1.5, 2, 3, 4 to inform audit research substeps.
+
+> **Research output contract (vision v14).** The researcher MUST emit ONE of three template-bound output shapes, selected by derived breadth:
+>
+> | Derived breadth | Output shape | Template |
+> |---|---|---|
+> | `full` | Current-state snapshot across the entire monitored-sources catalog | `pe-meta-research-snapshot.template.md` |
+> | `incremental` | Change digest for the stale PUs (per § Incremental filter) | `pe-meta-research-digest.template.md` |
+> | `bounded-delta` | Bounded-window digest between explicit `--start`/`--end` (date or source-version) | `pe-meta-research-window-digest.template.md` (includes `window.start`/`window.end` fields) |
 
 ### 1a: Full Research (default)
 
-Delegate to `@meta-researcher`: Analyze update source + authoritative references + internet. Produce self-contained research report with:
+Delegate to `@meta-researcher` with the resolved canonical invocation (the agent reads `--source`, derived `breadth`, `--start`/`--end`). The agent loads `pe-self-update.config.json` for the monitored-sources catalog and state location. Produce a self-contained report shaped by the contract above with:
 - Evidence from authoritative sources (distilled context files **always**, 05.02 reference articles **always**, internet research **always** unless `--skip external`)
 - User-provided authoritative sources (URLs, files) analyzed when supplied
 - **Critical validation of internet findings** — each external finding must be evaluated for whether integrating it would improve artifact reliability, effectiveness, or efficiency; findings that are unuseful, unverifiable, or potentially misleading are flagged and excluded from recommendations
@@ -275,13 +572,33 @@ Delegate to `@meta-researcher`: Analyze update source + authoritative references
 
 **When scope is a specific file path**: Research focuses on that artifact and its dependency chain only.
 
-### 1b: Direct Application (--skip research, requires specific file scope)
+### 1b: Direct application (`--scope <file.md>` + `--mode apply --skip research`, derived `breadth ≠ full`)
 
-When `--skip research` + specific file path:
+When the caller scopes to a single file path AND `--skip research` AND derived `breadth ≠ full` (i.e., `bounded-delta`):
 1. Read the target artifact completely
 2. Load relevant instruction file for the artifact type
 3. Load the dependency map for consumer impact
 4. Skip to Phase 5 (user approval) with user's change description as the change spec
+
+This branch is unreachable from manual + no-window callers (rule #2 rejection prevents it).
+
+---
+
+## Phase 1.5: Organizational Pass (skip with `--skip organizational`)
+
+**Gate.** Runs ONLY when derived `breadth=full` AND the resolved `--scope` is broader than a single file (either an artifact-type token resolving to ≥2 files, or a path set with ≥2 files). Skipped on single-file scopes and on `incremental`/`bounded-delta` breadths.
+
+**Goal.** Before the per-artifact audits (Phases 2–4) drill into individual files, the organizational pass verifies cross-artifact organizational concerns that only surface at the catalog level:
+1. **Inventory completeness** — every PE artifact type has at least one researcher/builder/validator pairing where the architecture requires symmetry.
+2. **Orphan detection** — every artifact has at least one declared consumer in the dependency map (orphan flag if not).
+3. **Layer cross-cuts** — context-layer rules referenced by ≥2 instruction layers are flagged for canonical-source verification.
+4. **Naming and locator parity** — file paths, frontmatter `name:` fields, and `STRUCTURE-README` table rows reconcile.
+5. **Series and sequence integrity** — `Order in group:` markers, sequence labels, and duplicate H1s are detected.
+6. **Cross-domain consumer chains** — agents/prompts that depend on context files outside their declared category are surfaced.
+
+Findings from this phase scope Phase 2 (structure) — Phase 2 narrows from "everything" to "everything plus the organizational concerns Phase 1.5 surfaced".
+
+**Execution.** Orchestrator runs this directly (using `list_dir`, `file_search`, `grep_search`, `read_file`). Do NOT delegate to a per-type validator. Output: organizational findings report consumed by Phase 2's screening step.
 
 ---
 
@@ -362,22 +679,24 @@ Delegate to `@meta-validator` (Design Validation mode): Verify consistency fixes
 
 ### 4-Research
 
-Delegate per-artifact-type to type-specific validators (via `@meta-validator` which delegates to `prompt-validator`, `agent-validator`, `context-validator`, `instruction-validator`, `skill-validator`, `hook-validator`, `prompt-snippet-validator`, `template-validator`):
+**Per-artifact prompt invocation matrix (vision v14).** Route Phase 4 work via the matrix from `(--scope-resolved-artifact-type, --dim)` defined above (§ Per-artifact prompt invocation matrix). The orchestrator selects ONE prompt per artifact-type slice and invokes it with the canonical scope. Do NOT hand-write per-artifact-type branches or call type-specific validators directly here.
 
-1. **Goal/role alignment**: Does the artifact's content match its stated description and role?
-2. **Internal non-ambiguity**: Are all rules, instructions, and boundaries clear and unambiguous within the file?
-3. **Internal non-redundancy**: Is any content repeated within the same file?
-4. **Internal non-contradiction**: Do any sections contradict each other within the same file?
-5. **Efficient structure**: Is content organized for early commands, progressive disclosure, and minimal token usage? Are token budgets respected (context 2,500 max, instruction 1,500 max, prompt 1,500 max)?
-6. **Convention compliance**: YAML frontmatter, section structure, boundary minimums, tool count range (3-7)
+Each per-artifact `pe-meta-{type}-review` prompt owns its own check inventory (goal/role alignment, internal non-ambiguity, internal non-redundancy, internal non-contradiction, efficient structure, convention compliance). The orchestrator MUST NOT duplicate those checks inline. Phase 1 findings flow into the matrix-selected prompt via the canonical handoff contract.
 
-When Phase 1 produced findings, incorporate validated external best practices for individual artifact quality. When `--skip external`, compare against internal conventions and 05.02 reference articles.
+**Screening step (vision v14 § Default-full invocation contract).** Before invoking the matrix-selected prompt, screen the in-scope artifact set against the Phase 1 research output:
+- For `breadth=full` (snapshot): compare current artifact state against the snapshot's `pe-relevant-changes[]` — flag any artifact whose declared dependencies appear in the changes list.
+- For `breadth=incremental` (change digest): screen against `digest.entries[]` since per-source `last_review_timestamp` — narrow to artifacts touched by the change set.
+- For `breadth=bounded-delta` (window digest): screen against `window.entries[]` between explicit endpoints — same narrowing logic but bounded.
 
-**Challenge step**: For each content issue, propose **2+ improvement options**. Example: verbose process section — option 1: compress + add reference to context file, option 2: externalize to template, option 3: restructure with early commands pattern. Compare on effectiveness, reliability, efficiency. Recommend with rationale.
+When `--skip external`, screen against internal conventions and 05.02 reference articles only.
+
+**Challenge step**: For each content issue surfaced by the matrix-selected prompt, propose **2+ improvement options**. Compare on effectiveness, reliability, efficiency. Recommend with rationale.
 
 **Output**: Content findings report with per-file severity-scored issues and ranked improvement options.
 
-**`--dim optimize` focus**: When `--dim optimize` is active, run all 6 checks with an efficiency lens — evaluate each check for optimization opportunities. Delegate apply to `@meta-optimizer` instead of per-type builders.
+**`--dim optimize` focus**: When `--dim optimize` is active, delegate to `@meta-optimizer` instead of the per-artifact matrix; run efficiency-lens checks (token budgets, deduplication, structural improvements).
+
+**`--dim adherence` focus**: When `--dim adherence` is active, the matrix routes every in-scope artifact through `pe-meta-adherence` for sampled consumer verification. Sampling parameters come from `pe-self-update.config.json` → `sampling.adherence_consumers_per_file`.
 
 ### 4-Build (`--mode apply` only)
 
@@ -438,7 +757,7 @@ When the user approves a change that `@meta-validator` rated as **UNSAFE**, or o
 
 **Context checkpoint**: Read approved changes from `.copilot/temp/pe-meta-state/phase-5-changelist.md`. Do NOT rely on conversation history from Phases 1–4.
 
-**If `--mode plan`**: Skip this phase. Produce report (Phase 8) with validated plan, marking changes as "PLANNED — not applied". Include command to apply later: `/pe-meta-update --mode apply <same-source> --scope <same-scope>`.
+**If `--mode plan`**: Skip this phase. Produce report (Phase 8) with validated plan, marking changes as "PLANNED — not applied". Include command to apply later: `/pe-meta-update --mode apply <same-source> --scope <same-scope>`. **Additionally**, emit the actionable plan file at the canonical plan-mode path per [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md) and record `plan-file=<path>` for Phase 8 to echo on the first-line log.
 
 ### Rollback Snapshots
 
@@ -452,6 +771,28 @@ Before modifying any file:
 **Default `--mode apply` path**: Delegate to per-type builders (prompt/agent/context/instruction/skill/hook/snippet-builder) with full change specs and per-step self-validation.
 
 **When `--dim optimize`**: Delegate to `@meta-optimizer`. Process ONE file at a time. Verify no rules/capabilities lost.
+
+### Phase 6 outcome-log append (vision v14)
+
+After every successful apply step (or at end of Phase 6 if all-or-nothing batches were used), append an outcome entry to `.copilot/temp/pe-meta-state/outcomes/<run-id>.jsonl` (one JSON object per line) shaped:
+
+```json
+{ "phase": 6, "artifact": "<path>", "change": "<title>", "classification": "breaking|non-breaking", "confidence": "deterministic|llm-assisted", "autonomy": "autonomous|approved", "validations_passed": true|false, "outcome": "applied|rolled-back|skipped", "timestamp": "<ISO-8601>" }
+```
+
+This file is the source of truth for Phase 8's outcome rollup and for trigger-fired callers that need to advance per-source `last_review_timestamp` only after successful applies.
+
+### Phase 6 per-cycle iteration budget (vision v15.1 § Iteration budget)
+
+**Default cap:** 10 autonomous changes per cycle (configurable). Only `autonomy: autonomous` changes count; `autonomy: approved` and rejected/skipped findings do NOT count.
+
+**Overflow detection.** After each apply step, the orchestrator increments the autonomous-change counter. When the counter reaches the cap AND at least one validated finding remains unapplied, the orchestrator MUST:
+
+1. Stop applying further autonomous changes.
+2. Emit a **spillover plan file** at `<run-folder>/<NN>-<kebab-name>-spillover.plan.md` following the path-resolution algorithm in [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md). One goal-table row per remaining-but-unapplied validated finding carrying `scope tag`, `principle impact`, `downstream landing`, and `original-run=<run-id>`.
+3. Record `spillover=<path>` for Phase 8 to echo on the first-line log; otherwise record `spillover=none`.
+
+The spillover plan emission is NOT skippable. See snippet for full contract.
 
 ---
 
@@ -510,7 +851,15 @@ After 7a/7b results are available, classify the failure type and route according
 
 **Report template**: `.github/templates/00.00-prompt-engineering/output-pe-management-report.template.md`
 
-Report includes: mode, scope, date, source, **phases executed** (which were skipped and why), artifacts analyzed, issues found by severity **and by phase** (structure/consistency/content), changes applied, health score (`--mode plan`: `100 - (CRITICAL*25 + HIGH*10 + MEDIUM*3 + LOW*1)`), token savings (`--dim optimize`), rollback instructions.
+> **First-line `Resolved invocation:` log (vision v14 — success criterion #12, extended in v15.1).** The Phase 8 report MUST begin with one machine-parseable line in this exact shape:
+>
+> ```text
+> Resolved invocation: --mode=<plan|apply> --scope=<token-or-path-set> --source=<id-or-csv-or-empty> --dim=<group|D#> --start=<resolved-date|none> --end=<resolved-date|none> --deps=<value> --skip=<csv-or-empty> | breadth=<full|incremental|bounded-delta> | caller=<manual|trigger-fired> | plan-file=<path-or-none> | spillover=<path-or-none>
+> ```
+>
+> The orchestrator MUST also have emitted this identical line BEFORE Phase 1 ran. The Phase 8 echo gives the consumer the resolved invocation as the very first observable artifact of the report, before any narrative. **v15.1 markers:** `plan-file=<path>` is emitted whenever `--mode=plan` (canonical plan file path written under vision § Plan-mode output contract); `spillover=<path>` is emitted when Phase 6 hit the iteration-budget cap with remaining findings, otherwise `spillover=none`. **v15.3:** `--start`/`--end` are echoed as **resolved timestamps** even when the caller supplied a source-version token (the original token is preserved in the report narrative).
+
+Report includes: **first-line `Resolved invocation:` log**, mode, scope, date, source, derived breadth, **phases executed** (which were skipped and why), artifacts analyzed, issues found by severity **and by phase** (organizational/structure/consistency/content), changes applied, health score (`--mode plan`: `100 - (CRITICAL*25 + HIGH*10 + MEDIUM*3 + LOW*1)`), token savings (`--dim optimize`), outcome-log rollup (from `.copilot/temp/pe-meta-state/outcomes/<run-id>.jsonl`), rollback instructions.
 
 ### Audit Log Update
 
@@ -518,10 +867,11 @@ Report includes: mode, scope, date, source, **phases executed** (which were skip
 
 Update `.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md`:
 
-1. Append entry under appropriate mode section with: date, mode, scope, phases executed, source, findings count by severity and phase, changes applied (or "None" / "Plan only"), health score
-2. For `--mode apply` with external sources: update "Last Processed Versions" table if release notes were analyzed
-3. For `--mode apply` runs: update "Last Apply-Mode Run File Manifest" with the list of all PE artifact paths and their `last_updated` dates at the time of this run — this enables `--incremental` on the next apply-mode run
-4. Update `last_updated` in YAML frontmatter to today's date
+1. Append entry under appropriate mode section with: **first-line `Resolved invocation:` log**, date, mode, scope, derived breadth, phases executed, source, findings count by severity and phase, changes applied (or "None" / "Plan only"), health score, outcome-log run-id reference
+2. **Write per-PU coverage cells.** For every processed PU, write its `coverage.<dimension>` cell (`source_versions`, `depth`, `status`, `last_run`) into the target artifact's bottom validation-metadata block (canonical shape per § Processing-state model). This per-artifact coverage is the durable single source of truth.
+3. **Advance the source ledger.** For `--mode apply` runs that consulted external sources, update each consulted source's ledger `last_seen_version` / `last_seen_timestamp` / `last_digest_hash` in `<state.path>/triggers/<source-id>.json` ONLY for sources whose outcome entries are all `applied` or `skipped` (no `rolled-back`). The markdown **"Last Processed Versions"** table in `05.04-meta-review-log.md` is demoted to a human-readable **mirror** of the ledger — never the source of truth.
+4. **Emit the coverage report line.** Append `coverage: <covered>/<total> PUs; <n> never-covered` to the Phase 8 report so the at-least-once frontier is observable.
+5. Update `last_updated` in YAML frontmatter to today's date
 
 ### Test-Then-Apply Pattern
 
@@ -567,9 +917,33 @@ Meta-update-specific scenarios:
 
 | # | Scenario | Expected Behavior |
 |---|---|---|
-| 1 | `/pe-meta-update --mode apply <URL>` (happy path) | All 8 phases execute → research + audits + apply + validate + report + log |
-| 2 | `/pe-meta-update --mode plan --skip research` | Phases 2R+3R+4R+8 only → report generated, no changes applied |
-| 3 | No changes needed | All audits pass → report "healthy", log updated with clean health score |
-| 4 | `/pe-meta-update --mode plan` | Stops before Phase 6 → produces plan-only report marked "PLANNED" |
-| 5 | Phase 7 regression failure | BLOCKS Phase 8 → presents broken capabilities with rollback instructions |
-| 6 | User approves UNSAFE change | Override logged in review log Override History → change applied → follow-up due at next scheduled review |
+| 1 | `/pe-meta-update` (parameter-less manual, happy path) | Derived `breadth=full` → Phases 0 → 1 → 1.5 → 2 → 3 → 4 → 5 → 6 → 7 → 8 execute; first-line `Resolved invocation:` log echoed before Phase 1 AND as first line of Phase 8 report |
+| 2 | `/pe-meta-update --mode plan` | Phases 0 → 1 → 1.5 → 2 → 3 → 4 → 8 execute; Phases 5/6/7 skipped; report marked "PLANNED" |
+| 3 | `/pe-meta-update --start 2026-04-01` | Derived `breadth=bounded-delta`; Phase 1 emits window digest; Phase 1.5 SKIPPED (breadth ≠ full) |
+| 4 | `/pe-meta-update --scope path/to/file.md` | Single-file scope; derived `breadth=full`; Phase 1.5 SKIPPED (single-file gate) |
+| 5 | `/pe-meta-update --scope context` | Artifact-type token; derived `breadth=full`; Phase 1.5 RUNS (multi-file scope); Phase 4 routes via matrix to `pe-meta-context-review` |
+| 6 | `/pe-meta-update --dim adherence --scope path.md --deps full` | Phase 4 routes via matrix to `pe-meta-adherence` for sampling |
+| 7 | `/pe-meta-update --skip research` (manual, no window) | CF-05 rejection: rule #2 — `--skip research` incompatible with derived `breadth=full` |
+| 8 | `/pe-meta-update --breadth full` | CF-05 rejection: `--breadth` retired in v14 |
+| 9 | `/pe-meta-update --incremental` (manual caller) | CF-05 rejection: `--incremental` rejected for manual callers (would violate default-full-investigation) |
+| 10 | `/pe-meta-update --incremental` (trigger-fired caller) | Accepted as single-window deprecation alias; resolves to derived `breadth=incremental` |
+| 11 | No changes needed | All audits pass → report "healthy", log updated with clean health score |
+| 12 | Phase 7 regression failure | BLOCKS Phase 8 → presents broken capabilities with rollback instructions |
+| 13 | User approves UNSAFE change | Override logged in review log Override History → change applied |
+| 14 | Free-form intent (e.g., `/pe-meta-update recheck consumer-correctness on the adherence prompt`) | Phase 0a resolves → canonical invocation echoed → user confirms → strict parser receives canonical seven-parameter set |
+| 15 | `/pe-meta-update --start 1.099 --source vscode-release-notes` | Version-shaped bound, singleton source → Phase 0a resolves `1.099` to its publish timestamp via the source's `version_scheme`; derived `breadth=bounded-delta`; recorded `pass` coverage overridden inside the window (re-baseline) |
+| 16 | `/pe-meta-update --start 1.099` (no `--source` / non-singleton) | CF-05 rejection: `version window requires a single --source` |
+| 17 | `/pe-meta-update --start 2025-06-18 --source mcp-spec` then version token against a `version_scheme: none` source | A version-shaped bound against a `version_scheme: none` source is rejected: `source <id> has no version scheme; use a date window` |
+| 18 | Trigger-fired incremental, a PU with recorded `source_versions` equal to ledger latest and `status=pass` | PU skipped (no-redundant); a never-covered or newer-source-version PU is always processed (at-least-once); coverage-report line emitted |
+
+<!--
+prompt_metadata:
+  filename: "pe-meta-update.prompt.md"
+  version: "2.2.0"
+  last_updated: "2026-06-04"
+  changes:
+    - "v2.2.0 (2026-06-04): Rebased onto vision v15.3 (processing-state model). Retitled `--start`/`--end` to `<date|version>` with value-shape resolution (date OR source-version token resolved to a timestamp via the source's `version_scheme`); two guard rails (version window requires a single `--source`; `version_scheme: none` rejects version tokens). Added Phase 0a value-shape `--start`/`--end` resolution subsection. Added § Processing-state model (two-axis: source ledger at `<state.path>/triggers/<source-id>.json` + per-artifact `coverage` block as durable single source of truth; PU = artifact×applicable-dimension; staleness rule). Rewrote § Incremental filter to compute the stale-PU work set (at-least-once: never-covered always processed; no-redundant: current+pass skipped) instead of a scalar `last_review_timestamp`. Phase 8 audit log now writes per-PU coverage cells, advances the per-source ledger `last_seen_*`, demotes the markdown Last Processed Versions table to a human-readable mirror, and emits a `coverage: <covered>/<total> PUs; <n> never-covered` report line. Bounded-delta overrides recorded `pass` coverage inside `[--start,--end]` (re-baseline / distrust-recovery). Added embedded test scenarios 15-18. Echoed resolved-timestamp `--start`/`--end` in the first-line log."
+    - "v2.1.0 (2026-05-29): Rebased onto vision v14. Replaced v13.x surface (`--breadth`, `--since`/`--between`, `--area`/`--artifact`/`--consumer`, `--subject`/`--concern`, `--mode-review`, `catch-up`, manual `--incremental`) with seven canonical parameters (`--mode`, `--scope`, `--source`, `--dim`, `--start`/`--end`, `--deps`, `--skip`). Added value-shape `--scope` parser (artifact-type token OR path set). Added Phase 0a conversational pre-parser. Added per-artifact prompt invocation matrix routing Phase 4 work by `(scope-resolved-artifact-type, --dim)`. Added pipeline-phases/`--skip` mapping including rule #2 (`--skip research` INCOMPATIBLE with derived `breadth=full`). Added Phase 1.5 Organizational Pass gated on `breadth=full AND multi-file scope`. Added three-shape research output contract (snapshot/digest/window-digest by derived breadth). Added first-line `Resolved invocation:` log echoed BEFORE Phase 1 AND as first line of Phase 8 report. Added Phase 6 outcome-log append. Updated Phase 8 audit log to advance per-source `last_review_timestamp` only after successful applies. Preserved `--incremental` as single-migration-window alias on TRIGGER-FIRED callers only; REJECTED for manual callers (default-full-investigation). All retired flags rejected via uniform CF-05 message template. Rationales default-full-investigation and minimal-consistent-option-surface added to frontmatter."
+    - "v2.0.0: Eight-phase pipeline with --mode/--dim/--scope/--skip; removed preset aliases; phase-skip flags."
+-->
+

@@ -1,3 +1,29 @@
+---
+title: "Dual Metadata Block Structure for Articles"
+description: "Defines two-block YAML architecture for articles — top block for rendering, bottom HTML-comment block for validation tracking — with I/O protocols and use cases"
+version: "1.0.0"
+last_updated: "2026-05-26"
+domain: "learning-hub"
+goal: "Establish the canonical two-block metadata structure that decouples document rendering from internal validation tracking"
+scope:
+  covers:
+    - "Top YAML block for document metadata (rendering, site generation)"
+    - "Bottom HTML comment YAML block for validation metadata (hidden from readers)"
+    - "Complete article structure with both blocks"
+    - "Metadata vs. validation split rationale"
+    - "Benefits of traveling metadata (no orphaned files)"
+  excludes:
+    - "Specific validation criteria per category (see 03-validation-criteria.md)"
+    - "Reference classification schemes (see 04-reference-classification.md)"
+boundaries:
+  - "MUST keep top YAML reserved for static site generator frontmatter"
+  - "MUST NOT allow validation prompts to modify top YAML block"
+  - "MUST ensure bottom block remains valid HTML comment"
+rationales:
+  - "Separating concerns enables safe workflow automation without corrupting rendering"
+  - "Embedded metadata travels with articles, eliminating orphaned validation records"
+---
+
 # Dual Metadata Block Structure for Articles
 
 ## Overview

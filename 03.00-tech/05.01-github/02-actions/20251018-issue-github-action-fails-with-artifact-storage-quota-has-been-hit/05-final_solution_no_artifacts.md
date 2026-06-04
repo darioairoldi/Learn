@@ -1,19 +1,19 @@
 # FINAL SOLUTION: No Artifacts Approach
 
-## 🔴 The Real Problem
+## The Real Problem 🔴
 
 You're absolutely right! The split-job approach I initially suggested **still uses artifacts**, which means:
 - ❌ Still counts against your storage quota
 - ❌ Can still hit quota limits if workflow runs frequently
 - ❌ Only reduces the problem, doesn't solve it
 
-## ✅ The Real Solution: ZERO Artifacts
+## The Real Solution: ZERO Artifacts ✅
 
 You need a workflow that **doesn't use artifacts at all**. Here are your options:
 
 ---
 
-## 🎯 Recommended Solution Options
+## Recommended Solution Options 🎯
 
 ### **Option 1: Use Quarto's Built-in Publish** ⭐ **EASIEST & BEST**
 
@@ -81,7 +81,7 @@ Render → Manually push docs to gh-pages branch
 
 ---
 
-## 📊 Comparison Table
+## Comparison Table 📊
 
 | Approach | Artifacts Used? | Quota Impact | Works on Windows? | Complexity |
 |----------|----------------|--------------|-------------------|------------|
@@ -92,7 +92,7 @@ Render → Manually push docs to gh-pages branch
 
 ---
 
-## 🚀 Implementation Steps
+## Implementation Steps 🚀
 
 ### To Use Option 1 (Quarto Built-in - RECOMMENDED):
 
@@ -125,7 +125,7 @@ Render → Manually push docs to gh-pages branch
 
 ---
 
-## 🎯 Why Quarto Built-in is Best
+## Why Quarto Built-in is Best 🎯
 
 The `quarto publish gh-pages` command is specifically designed for this use case:
 
@@ -144,7 +144,7 @@ quarto publish gh-pages --no-prompt --no-browser
 
 ---
 
-## 🧹 Cleaning Up After Switch
+## Cleaning Up After Switch 🧹
 
 After switching to the no-artifact approach:
 
@@ -160,7 +160,7 @@ After switching to the no-artifact approach:
 
 ---
 
-## 📝 Quick Decision Guide
+## Quick Decision Guide 📝
 
 **Use Quarto Built-in (`quarto-publish.simple.yml`) if:**
 - ✅ You want the simplest solution
@@ -180,7 +180,7 @@ After switching to the no-artifact approach:
 
 ---
 
-## ✅ Summary
+## Summary ✅
 
 **The issue with the current approach:**
 - Still uses artifacts (even with 1-day retention)

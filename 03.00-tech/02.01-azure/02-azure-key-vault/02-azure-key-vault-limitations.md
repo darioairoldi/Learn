@@ -2,18 +2,18 @@
 
 This article provides a comprehensive overview of <mark>Azure Key Vault limitations</mark>, constraints, and considerations that should be taken into account when designing solutions.
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-1. [⚡ Service Limits and Quotas](#1--service-limits-and-quotas)
-2. [🔒 Security and Access Limitations](#2--security-and-access-limitations)
-3. [🌍 Regional and Availability Limitations](#3--regional-and-availability-limitations)
-4. [🔧 Feature-Specific Limitations](#4--feature-specific-limitations)
-5. [🔌 Integration and Compatibility Limitations](#5--integration-and-compatibility-limitations)
-6. [💰 Cost Considerations and Limitations](#6--cost-considerations-and-limitations)
-7. [✅ Best Practices to Work Within Limitations](#7--best-practices-to-work-within-limitations)
-8. [❌ When NOT to Use Azure Key Vault](#8--when-not-to-use-azure-key-vault)
-9. [📊 Summary and Decision Matrix](#9--summary-and-decision-matrix)
-10. [📚 References and Further Reading](#10--references-and-further-reading)
+1. [Service Limits and Quotas ⚡](#service-limits-and-quotas)
+2. [Security and Access Limitations 🔒](#security-and-access-limitations)
+3. [Regional and Availability Limitations 🌍](#regional-and-availability-limitations)
+4. [Feature-Specific Limitations 🔧](#feature-specific-limitations)
+5. [Integration and Compatibility Limitations 🔌](#integration-and-compatibility-limitations)
+6. [Cost Considerations and Limitations 💰](#cost-considerations-and-limitations)
+7. [Best Practices to Work Within Limitations ✅](#best-practices-to-work-within-limitations)
+8. [When NOT to Use Azure Key Vault ❌](#when-not-to-use-azure-key-vault)
+9. [Summary and Decision Matrix 📊](#summary-and-decision-matrix)
+10. [References and Further Reading 📚](#references-and-further-reading)
 
 ---
 

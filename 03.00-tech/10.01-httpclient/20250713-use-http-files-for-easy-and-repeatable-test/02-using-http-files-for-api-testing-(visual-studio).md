@@ -2,39 +2,39 @@
 
 ## Table of Contents
 
-- [📖 Introduction](#-introduction)
-- [🚀 Getting Started](#-getting-started)
+- [Introduction 📖](#introduction)
+- [Getting Started 🚀](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Creating an HTTP File](#creating-an-http-file)
-- [📝 Basic HTTP Request Syntax](#-basic-http-request-syntax)
+- [Basic HTTP Request Syntax 📝](#basic-http-request-syntax)
   - [Simple GET Request](#simple-get-request)
   - [Request with Headers](#request-with-headers)
   - [POST Request with JSON Body](#post-request-with-json-body)
   - [Multiple Requests in One File](#multiple-requests-in-one-file)
-- [⚡ Advanced Features](#-advanced-features)
+- [Advanced Features ⚡](#advanced-features)
   - [Using Variables](#using-variables)
   - [Environment-Specific Variables](#environment-specific-variables)
   - [Request Comments](#request-comments)
   - [File Upload](#file-upload)
-- [🔗 Request Chaining and Multiple Request Files](#-request-chaining-and-multiple-request-files)
+- [Request Chaining and Multiple Request Files 🔗](#request-chaining-and-multiple-request-files)
   - [Request Chaining in Visual Studio](#request-chaining-in-visual-studio)
   - [Request Chaining in VSCode (For Comparison)](#request-chaining-in-vscode-for-comparison)
   - [Managing Multiple HTTP Files](#managing-multiple-http-files)
   - [Sharing Variables Across Files](#sharing-variables-across-files)
   - [Cross-File Workflow Example](#cross-file-workflow-example)
-- [▶️ Executing Requests](#️-executing-requests)
+- [Executing Requests ▶️](#executing-requests)
   - [Running a Request](#running-a-request)
   - [Viewing Responses](#viewing-responses)
-- [🧪 Testing Workflows](#-testing-workflows)
+- [Testing Workflows 🧪](#testing-workflows)
   - [Authentication Flow](#authentication-flow)
   - [CRUD Operations Testing](#crud-operations-testing)
-- [✅ Best Practices](#-best-practices)
-  - [1. Organize Your HTTP Files](#1-organize-your-http-files)
-  - [2. Use Meaningful Names and Comments](#2-use-meaningful-names-and-comments)
-  - [3. Version Control Your HTTP Files](#3-version-control-your-http-files)
-  - [4. Separate Sensitive Data](#4-separate-sensitive-data)
-  - [5. Test Edge Cases](#5-test-edge-cases)
-- [⚖️ Visual Studio vs VSCode Differences in Handling .http Files](#️-visual-studio-vs-vscode-differences-in-handling-http-files)
+- [Best Practices ✅](#best-practices)
+  - [1. Organize Your HTTP Files](#organize-your-http-files)
+  - [2. Use Meaningful Names and Comments](#use-meaningful-names-and-comments)
+  - [3. Version Control Your HTTP Files](#version-control-your-http-files)
+  - [4. Separate Sensitive Data](#separate-sensitive-data)
+  - [5. Test Edge Cases](#test-edge-cases)
+- [Visual Studio vs VSCode Differences in Handling .http Files ⚖️](#visual-studio-vs-vscode-differences-in-handling-http-files)
   - [IDE Integration](#ide-integration)
   - [Feature Differences](#feature-differences)
   - [Variables Support Comparison](#variables-support-comparison)
@@ -43,22 +43,22 @@
   - [Response Viewing](#response-viewing)
   - [When to Use Which](#when-to-use-which)
   - [Migration Considerations](#migration-considerations)
-- [🔄 Integration with CI/CD](#-integration-with-cicd)
+- [Integration with CI/CD 🔄](#integration-with-cicd)
   - [Generate Tests from HTTP Files](#generate-tests-from-http-files)
   - [Use as Living Documentation](#use-as-living-documentation)
-- [🔧 Troubleshooting](#-troubleshooting)
+- [Troubleshooting 🔧](#troubleshooting)
   - [Common Issues](#common-issues)
-- [🎯 Conclusion](#-conclusion)
-- [📚 Additional Resources](#-additional-resources)
+- [Conclusion 🎯](#conclusion)
+- [Additional Resources 📚](#additional-resources)
 
-## 📖 Introduction
+## Introduction 📖
 
 HTTP files (`.http` or `.rest`) provide a simple, text-based way to define and execute HTTP requests directly within <mark>Visual Studio</mark>.<br>
 This approach offers developers a lightweight alternative to traditional API testing tools like **Postman** or **Insomnia**, keeping API tests version-controlled alongside your code.
 
 Visual Studio's built-in support for HTTP files makes it easy to test APIs during development without leaving your IDE, streamlining the development workflow and improving productivity.
 
-## 🚀 Getting Started
+## Getting Started 🚀
 
 ### Prerequisites
 
@@ -73,7 +73,7 @@ Visual Studio's built-in support for HTTP files makes it easy to test APIs durin
 4. Name your file (e.g., `api-tests.http`)
 5. Click **Add**
 
-## 📝 Basic HTTP Request Syntax
+## Basic HTTP Request Syntax 📝
 
 ### Simple GET Request
 
@@ -135,7 +135,7 @@ Content-Type: application/json
 DELETE https://api.example.com/users/123
 ```
 
-## ⚡ Advanced Features
+## Advanced Features ⚡
 
 ### Using Variables
 
@@ -445,7 +445,7 @@ Content-Type: text/plain
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
 
-## 🔗 Request Chaining and Multiple Request Files
+## Request Chaining and Multiple Request Files 🔗
 
 Request chaining allows you to use the response from one request in subsequent requests, enabling complex testing workflows. Managing multiple HTTP files helps organize different API endpoints and testing scenarios.
 
@@ -727,7 +727,7 @@ Authorization: Bearer {{authToken}}
 
 This manual approach ensures clarity but requires discipline to keep variables synchronized across files.
 
-## ▶️ Executing Requests
+## Executing Requests ▶️
 
 ### Running a Request
 
@@ -744,7 +744,7 @@ Visual Studio displays responses in a separate pane showing:
 - Response body (with syntax highlighting for JSON/XML)
 - Response time
 
-## 🧪 Testing Workflows
+## Testing Workflows 🧪
 
 ### Authentication Flow
 
@@ -803,7 +803,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/products/{{productId}}
 ```
 
-## ✅ Best Practices
+## Best Practices ✅
 
 ### 1. Organize Your HTTP Files
 
@@ -888,7 +888,7 @@ Content-Type: application/json
 }
 ```
 
-## ⚖️ Visual Studio vs VSCode Differences in Handling .http Files
+## Visual Studio vs VSCode Differences in Handling .http Files ⚖️
 
 While both Visual Studio and Visual Studio Code support HTTP files, there are important differences in how they handle these files:
 
@@ -1409,7 +1409,7 @@ HTTP files are largely compatible between both IDEs for basic scenarios:
 - ⚠️ Advanced VSCode features won't work in Visual Studio
 - ⚠️ Environment-specific settings need manual adaptation
 
-## 🔄 Integration with CI/CD
+## Integration with CI/CD 🔄
 
 While HTTP files are great for manual testing, consider these approaches for automation:
 
@@ -1438,7 +1438,7 @@ public async Task GetUsers_ReturnsSuccessStatusCode()
 - Use them as examples in API documentation
 - Reference them in README files for quick testing
 
-## 🔧 Troubleshooting
+## Troubleshooting 🔧
 
 ### Common Issues
 
@@ -1462,7 +1462,7 @@ public async Task GetUsers_ReturnsSuccessStatusCode()
 - Verify API endpoint is accessible
 - Check firewall/network settings
 
-## 🎯 Conclusion
+## Conclusion 🎯
 
 HTTP files in Visual Studio provide a powerful, code-first approach to API testing. By keeping your API tests as simple text files alongside your code, you can:
 
@@ -1474,7 +1474,7 @@ HTTP files in Visual Studio provide a powerful, code-first approach to API testi
 
 While they may not replace comprehensive API testing tools for all scenarios, HTTP files excel at providing fast, developer-friendly API testing during the development process. Understanding the differences between Visual Studio and VSCode implementations helps you choose the right tool for your specific needs and leverage the appropriate features for your workflow.
 
-## 📚 Additional Resources
+## Additional Resources 📚
 
 - [Visual Studio HTTP file documentation](https://learn.microsoft.com/en-us/aspnet/core/test/http-files)
 - [REST Client for VSCode](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)

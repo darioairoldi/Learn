@@ -12,13 +12,13 @@
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Pattern Matching Deep Dive](#2-pattern-matching-deep-dive)
-3. [Records and Value Semantics](#3-records-and-value-semantics)
-4. [Collection Expressions Unified Syntax](#4-collection-expressions-unified-syntax)
-5. [Practical Implementation Guidance](#5-practical-implementation-guidance)
-6. [Migration & Adoption Strategy](#6-migration--adoption-strategy)
-7. [Technical Advantages & Developer Experience](#7-technical-advantages--developer-experience)
+1. [Executive Summary](#executive-summary)
+2. [Pattern Matching Deep Dive](#pattern-matching-deep-dive)
+3. [Records and Value Semantics](#records-and-value-semantics)
+4. [Collection Expressions Unified Syntax](#collection-expressions-unified-syntax)
+5. [Practical Implementation Guidance](#practical-implementation-guidance)
+6. [Migration & Adoption Strategy](#migration--adoption-strategy)
+7. [Technical Advantages & Developer Experience](#technical-advantages--developer-experience)
 
 ---
 

@@ -1,4 +1,4 @@
-# Azure App Configuration with Key Vault Integration 🚀
+# 🚀 Azure App Configuration with Key Vault Integration
 
 A comprehensive guide to setting up Azure App Configuration with Azure Key Vault for secure configuration management.
 

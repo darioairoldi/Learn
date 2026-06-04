@@ -4,30 +4,30 @@ Date and time handling is a crucial aspect of software development, and C# provi
 
 ## Table of Contents
 
-1. [📅 Overview of C# Date and Time Types](#overview-of-c-date-and-time-types)
-2. [⏰ DateTime Structure](#datetime-structure)
+1. [Overview of C# Date and Time Types 📅](#overview-of-c-date-and-time-types)
+2. [DateTime Structure ⏰](#datetime-structure)
    - [Basic Operations and Properties](#basic-operations-and-properties)
    - [DateTime Limitations](#datetime-limitations)
    - [DateTime Formatting](#datetime-formatting)
-3. [🌍 DateTimeOffset Structure](#datetimeoffset-structure)
+3. [DateTimeOffset Structure 🌍](#datetimeoffset-structure)
    - [Time Zone Awareness](#time-zone-awareness)
    - [Performance Considerations](#performance-considerations)
    - [When to Use DateTimeOffset](#when-to-use-datetimeoffset)
-4. [⏱️ TimeSpan Structure](#timespan-structure)
+4. [TimeSpan Structure ⏱️](#timespan-structure)
    - [Duration Representation](#duration-representation)
    - [TimeSpan Operations](#timespan-operations)
    - [TimeSpan Formatting](#timespan-formatting)
-5. [🆕 DateOnly and TimeOnly (.NET 6+)](#dateonly-and-timeonly-net-6)
+5. [DateOnly and TimeOnly (.NET 6+) 🆕](#dateonly-and-timeonly-net-6)
    - [DateOnly Features](#dateonly-features)
    - [TimeOnly Features](#timeonly-features)
-6. [✅ Best Practices](#best-practices)
+6. [Best Practices ✅](#best-practices)
    - [Choosing the Right Type](#choosing-the-right-type)
    - [Thread Safety](#thread-safety)
    - [Globalization Considerations](#globalization-considerations)
-7. [⚠️ Common Pitfalls](#common-pitfalls)
-8. [📚 References](#references)
+7. [Common Pitfalls ⚠️](#common-pitfalls)
+8. [References 📚](#references)
 
-## 📅 Overview of C# Date and Time Types
+## Overview of C# Date and Time Types 📅
 
 C# offers several built-in types for handling date and time data, each designed for specific scenarios:
 
@@ -37,7 +37,7 @@ C# offers several built-in types for handling date and time data, each designed 
 - **<mark>DateOnly** (.NET 6+): Represents dates without time components
 - **<mark>TimeOnly** (.NET 6+): Represents time without date components
 
-## ⏰ DateTime Structure
+## DateTime Structure ⏰
 
 The `DateTime` structure is the most commonly used type for representing dates and times in C#. It represents an instant in time, typically expressed as a date and time of day.
 
@@ -153,7 +153,7 @@ Console.WriteLine(dt.ToString("fff"));                  // 123 (milliseconds)
 Console.WriteLine(dt.ToString("ffffff"));               // 123000 (microseconds)
 ```
 
-## 🌍 DateTimeOffset Structure
+## DateTimeOffset Structure 🌍
 
 `DateTimeOffset` represents a point in time, typically expressed as a date and time of day, relative to Coordinated Universal Time (UTC). It includes timezone offset information, making it more suitable for applications that need to handle multiple time zones.
 
@@ -234,7 +234,7 @@ var estTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
 var localTime = meeting.GetLocalTime(estTimeZone); // Converts to EST
 ```
 
-## ⏱️ TimeSpan Structure
+## TimeSpan Structure ⏱️
 
 `TimeSpan` represents a time interval or duration. It's useful for measuring elapsed time, representing time differences, and performing time arithmetic.
 
@@ -323,7 +323,7 @@ TimeSpan longDuration = TimeSpan.FromDays(365.25);
 Console.WriteLine($"Long duration: {longDuration.Days} days"); // 365 days
 ```
 
-## 🆕 DateOnly and TimeOnly (.NET 6+)
+## DateOnly and TimeOnly (.NET 6+) 🆕
 
 .NET 6 introduced `DateOnly` and `TimeOnly` structures to handle scenarios where you need only date or only time information.
 
@@ -390,7 +390,7 @@ Console.WriteLine(now.ToString("hh:mm tt"));    // 02:30 PM
 #endif
 ```
 
-## ✅ Best Practices
+## Best Practices ✅
 
 ### Choosing the Right Type
 
@@ -503,7 +503,7 @@ public class GlobalizedApp
 }
 ```
 
-## ⚠️ Common Pitfalls
+## Common Pitfalls ⚠️
 
 ### 1. **DateTime.Now vs DateTime.UtcNow**
 ```csharp
@@ -559,7 +559,7 @@ var stopwatch = Stopwatch.StartNew();
 TimeSpan elapsed = stopwatch.Elapsed;
 ```
 
-## 📚 References
+## References 📚
 
 ### Core Documentation
 - [Microsoft Docs - DateTime Struct](https://docs.microsoft.com/en-us/dotnet/api/system.datetime) - Official documentation for the DateTime structure, covering all properties, methods, and usage patterns. Essential reference for understanding DateTime capabilities and limitations.

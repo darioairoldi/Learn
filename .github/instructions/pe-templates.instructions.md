@@ -69,7 +69,7 @@ Template files define reusable output formats, input schemas, and document struc
 
 Every template MUST include a bottom `template_metadata` HTML comment for version tracking and consumer traceability. This follows the **dual metadata pattern** (📖 `02-dual-yaml-metadata.md`):
 
-- **Top YAML** — invariant discovery properties (`description:` only)
+- **Top YAML** — invariant discovery properties (`description:` and `domain:`). `domain:` is a single scalar identifying the semantic domain the template serves; see `00.03-metadata-contracts.md` § `domain:` field semantics.
 - **Bottom HTML comment** — variable tracking properties (`version`, `last_updated`, `consumers`, `changes`)
 
 ```html
@@ -97,7 +97,7 @@ Update `last_updated` and `version` on every modification. Keep `consumers` in s
 - [ ] Naming follows category convention (M6)
 - [ ] `📖` references resolve (H12)
 - [ ] Bottom `template_metadata` block present with `version`, `last_updated`, `consumers`
-- [ ] Top YAML includes `description:` field
+- [ ] Top YAML includes `description:` and `domain:` fields
 
 ## References
 

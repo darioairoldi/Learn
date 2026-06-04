@@ -2,21 +2,21 @@
 
 Azure Functions provides powerful serverless computing capabilities, but it comes with several limitations that you should be aware of when designing your solutions. These limitations vary by hosting plan and can impact your architecture decisions.
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-- [1. Execution Time Limits](#1-execution-time-limits)
-- [2. Scaling Limits](#2-scaling-limits)
-- [3. Cold Start Delays](#3-cold-start-delays)
-- [4. Memory and CPU Constraints](#4-memory-and-cpu-constraints)
-- [5. Network and Connectivity Limitations](#5-network-and-connectivity-limitations)
-- [6. Storage Limitations](#6-storage-limitations)
-- [7. Language and Runtime Constraints](#7-language-and-runtime-constraints)
-- [8. Monitoring and Debugging Limitations](#8-monitoring-and-debugging-limitations)
-- [9. Security and Compliance Constraints](#9-security-and-compliance-constraints)
-- [10. Plan-Specific Limitations](#10-plan-specific-limitations)
-- [11. Cost Considerations](#11-cost-considerations)
-- [12. Development and Deployment Limitations](#12-development-and-deployment-limitations)
-- [13. Latency and Scalability Limits](#13--latency-and-scalability-limits)
+- [1. Execution Time Limits](#execution-time-limits)
+- [2. Scaling Limits](#scaling-limits)
+- [3. Cold Start Delays](#cold-start-delays)
+- [4. Memory and CPU Constraints](#memory-and-cpu-constraints)
+- [5. Network and Connectivity Limitations](#network-and-connectivity-limitations)
+- [6. Storage Limitations](#storage-limitations)
+- [7. Language and Runtime Constraints](#language-and-runtime-constraints)
+- [8. Monitoring and Debugging Limitations](#monitoring-and-debugging-limitations)
+- [9. Security and Compliance Constraints](#security-and-compliance-constraints)
+- [10. Plan-Specific Limitations](#plan-specific-limitations)
+- [11. Cost Considerations](#cost-considerations)
+- [12. Development and Deployment Limitations](#development-and-deployment-limitations)
+- [13. Latency and Scalability Limits](#latency-and-scalability-limits)
 - [Summary: Key Limitations by Use Case](#summary-key-limitations-by-use-case)
 - [Best Practices to Mitigate Limitations](#best-practices-to-mitigate-limitations)
 
@@ -595,7 +595,7 @@ Track these metrics to understand latency and scalability:
 
 ---
 
-## 📚 References
+## References 📚
 
 - **[Azure Functions Scale and Hosting](https://learn.microsoft.com/azure/azure-functions/functions-scale)** - Official documentation on all hosting plans
 - **[Azure Functions Best Practices](https://learn.microsoft.com/azure/azure-functions/functions-best-practices)** - Performance, reliability, and security recommendations

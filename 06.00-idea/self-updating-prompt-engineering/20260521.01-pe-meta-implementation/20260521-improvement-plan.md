@@ -28,7 +28,7 @@ rationales:
 
 # PE-meta validation improvement plan
 
-## ✅ Execution outcome
+## Execution outcome ✅
 
 The plan has been executed.
 
@@ -43,7 +43,7 @@ Execution evidence:
 Status index updated:
 - [02.00-validation-status.md](02.00-validation-status.md) now reflects complete status across all previously failed rows.
 
-## 🎯 Current answer to your question
+## Current answer to your question 🎯
 Yes, [02.00-validation-status.md](02.00-validation-status.md) is not fully updated to the current state.
 
 A deterministic recheck of all rows currently marked failed was executed and written to:
@@ -54,7 +54,7 @@ Recheck summary:
 - Now passing: 6
 - Still failing: 25
 
-## ✅ Rows marked failed but now passing
+## Rows marked failed but now passing ✅
 The following rows are stale in [02.00-validation-status.md](02.00-validation-status.md) and can be updated to complete after runbook confirmation:
 
 1. [02.06-validation-status-pe-meta-validator.md](02.06-validation-status-pe-meta-validator.md)
@@ -64,7 +64,7 @@ The following rows are stale in [02.00-validation-status.md](02.00-validation-st
 5. [02.27-validation-status-pe-meta-scheduled-review.md](02.27-validation-status-pe-meta-scheduled-review.md)
 6. [02.37-validation-status-pe-meta-update.md](02.37-validation-status-pe-meta-update.md)
 
-## ⚠️ Active failure set (25 rows)
+## Active failure set (25 rows) ⚠️
 
 ### Root cause A: missing deterministic-first process signals (2 agent rows)
 Affected:
@@ -137,7 +137,7 @@ Observed unmet check:
 Fix intent:
 - Add explicit phase headings and/or explicit mode behavior sections (for example: parse mode flags, review mode behavior, phase ordering language).
 
-## ⚙️ Execution plan
+## Execution plan ⚙️
 
 ### Phase 1: baseline refresh (no content edits)
 1. Keep [recheck-failed-rows-20260521.json](recheck-failed-rows-20260521.json) as evidence baseline.
@@ -163,7 +163,7 @@ Fix intent:
 2. Keep only active blockers in the table.
 3. Bump version and last-updated metadata in the index.
 
-## 📏 Definition of done
+## Definition of done 📏
 
 1. All rows previously marked failed are either complete or have a new, evidence-backed blocker.
 2. No row remains failed due only to stale references in the index.
@@ -173,13 +173,13 @@ Fix intent:
 - P03_has_phase_or_mode_guidance = pass on all affected prompts.
 4. [02.00-validation-status.md](02.00-validation-status.md) and rerun evidence are consistent.
 
-## 📚 Evidence
+## Evidence 📚
 
 1. [02.00-validation-status.md](02.00-validation-status.md)
 2. [recheck-failed-rows-20260521.json](recheck-failed-rows-20260521.json)
 3. [validation-execution-summary-20260521.json](validation-execution-summary-20260521.json)
 
-## ✅ Workstream C completion mapping
+## Workstream C completion mapping ✅
 
 Lifecycle-specific tracking rows and completion evidence are now in place.
 

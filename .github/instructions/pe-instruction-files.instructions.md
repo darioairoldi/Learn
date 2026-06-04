@@ -43,6 +43,7 @@ description: "One-sentence description of what these instructions enforce"
 applyTo: '{glob pattern targeting specific file types}'
 version: "1.0.0"
 last_updated: "YYYY-MM-DD"
+domain: "prompt-engineering"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---
@@ -54,6 +55,7 @@ context_dependencies:
 | `applyTo` | ✅ MUST | Valid glob pattern matching ONLY the intended file types |
 | `version` | ✅ MUST | Semantic version (`major.minor.patch`). Increment on every change. |
 | `last_updated` | ✅ MUST | ISO date (`YYYY-MM-DD`). Update on every change. Enables staleness detection. |
+| `domain` | ✅ MUST | Single scalar identifying the semantic domain the instructions target (e.g. `"prompt-engineering"`, `"article-writing"`). 📖 See `00.03-metadata-contracts.md` § `domain:` field semantics. |
 | `context_dependencies` | ✅ MUST | Folder paths of referenced context files. Enables cascade staleness detection. Required for ALL instruction files that reference context files via `📖`. |
 
 ### Shared-Baseline Exception

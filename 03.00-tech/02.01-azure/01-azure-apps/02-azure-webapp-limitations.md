@@ -2,34 +2,34 @@
 
 This article provides a comprehensive analysis of <mark>Azure Web Apps limitations</mark> and practical solutions to overcome them. Solutions are presented from simplest to most complex, with detailed implementation guidance.
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-1. [🚀 Performance and Scaling Limitations](#1--performance-and-scaling-limitations)
+1. [Performance and Scaling Limitations 🚀](#performance-and-scaling-limitations)
    - Configuration Adjustments
    - Scale Up/Out Strategies
    - Performance Optimization
-2. [💾 Storage and File System Limitations](#2--storage-and-file-system-limitations)
+2. [Storage and File System Limitations 💾](#storage-and-file-system-limitations)
    - Local Storage Workarounds
    - External Storage Integration
    - Persistent Storage Solutions
-3. [🌐 Networking and Connectivity Limitations](#3--networking-and-connectivity-limitations)
+3. [Networking and Connectivity Limitations 🌐](#networking-and-connectivity-limitations)
    - DNS and Domain Configuration
    - IP Address and Port Restrictions
    - Virtual Network Integration
-4. [⏱️ Runtime and Execution Limitations](#4--runtime-and-execution-limitations)
+4. [Runtime and Execution Limitations ⏱️](#runtime-and-execution-limitations)
    - Timeout Management
    - Process and Thread Handling
    - Resource Consumption Optimization
-5. [🔧 Platform and Technology Limitations](#5--platform-and-technology-limitations)
+5. [Platform and Technology Limitations 🔧](#platform-and-technology-limitations)
    - Runtime Stack Constraints
    - Feature Availability
    - Custom Extension Solutions
-6. [📊 Monitoring and Diagnostics Limitations](#6--monitoring-and-diagnostics-limitations)
+6. [Monitoring and Diagnostics Limitations 📊](#monitoring-and-diagnostics-limitations)
    - Built-in Monitoring Enhancement
    - External Monitoring Integration
    - Advanced Diagnostics Setup
-7. [✅ Best Practices Summary](#7--best-practices-summary)
-8. [📚 References](#8--references)
+7. [Best Practices Summary ✅](#best-practices-summary)
+8. [References 📚](#references)
 
 **Appendices:**
 - [A. Advanced Configuration Details](#appendix-a-advanced-configuration-details)

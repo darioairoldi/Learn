@@ -226,7 +226,7 @@ This integrates existing use cases rather than replacing them.
 - ✅ Updated `20260515.02-vision.v12.md` to elevate source-grounded staleness resolution as a top-priority goal.
   Completion note (2026-05-21): Updated goal and scope coverage to include autonomous investigation of authoritative and user-provided sources with source validation before integration.
 
-- ✅ Updated `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/README.md`.
+- ✅ Updated `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md`.
   Completion note (2026-05-21): Added UC-22 to phase and cross-type indexes and clarified UC-16 as optimization-scoped.
 
 - ✅ Updated `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/16-context-optimization.md`.
@@ -384,7 +384,7 @@ The implementation is complete when all items below are true.
 ## References
 
 - `06.00-idea/self-updating-prompt-engineering/20260515.02-vision.v12.md`
-- `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/README.md`
+- `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md`
 - `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/02-guidance-quality.md`
 - `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/03-consistency-check.md`
 - `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/04-redundancy-check.md`

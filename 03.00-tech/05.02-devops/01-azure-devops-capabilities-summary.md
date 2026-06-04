@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-1. [How Azure DevOps Pipelines Work](#1-how-azure-devops-pipelines-work)
-2. [Key Extensibility Capabilities](#2-key-extensibility-capabilities)
-3. [How Security Works](#3-how-security-works)
-4. [Most Important Limitations](#4-most-important-limitations)
-5. [Appendix — NH-Shared Template Architecture](#5-appendix--nh-shared-template-architecture)
+1. [How Azure DevOps Pipelines Work](#how-azure-devops-pipelines-work)
+2. [Key Extensibility Capabilities](#key-extensibility-capabilities)
+3. [How Security Works](#how-security-works)
+4. [Most Important Limitations](#most-important-limitations)
+5. [Appendix — NH-Shared Template Architecture](#appendix--nh-shared-template-architecture)
 
 ---
 

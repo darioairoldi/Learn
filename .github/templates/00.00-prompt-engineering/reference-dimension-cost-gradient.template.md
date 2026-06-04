@@ -1,4 +1,4 @@
----
+﻿---
 title: "Reference — Dimension Cost Gradient"
 description: "Estimated cost per --dim invocation lifted from 05.07-pe-meta-dimension-catalog.md. Reference table — load only when cost estimation is needed."
 version: "1.0.0"
@@ -32,15 +32,15 @@ This reference holds the estimated cost per `--dim` invocation. Use it when plan
 
 | Invocation | Dimensions | Estimated cost |
 |---|---|---|
-| `--dim metadata` | D1 only | Near-zero (deterministic) |
-| `--dim references` | D2 only | Near-zero (deterministic) |
-| `--dim structural` | D1-D5, D14 | Low (mostly deterministic) |
-| `--dim quality` | D6-D11, D27 | Medium (LLM reasoning) |
+| `--dim metadata` | `D1-metadata` only | Near-zero (deterministic) |
+| `--dim references` | `D2-references` only | Near-zero (deterministic) |
+| `--dim structural` | `D1-metadata` through `D5-boundaries`, `D14-craftsmanship` | Low (mostly deterministic) |
+| `--dim quality` | `D6-consistency` through `D11-actionability`, `D27-model-adherence` | Medium (LLM reasoning) |
 | `--dim efficiency` | 11 dimensions | Medium-high (mixed) |
 | `--dim optimize` | 10 dimensions | Medium-high (mixed; delegates to @meta-optimizer during apply) |
-| `--dim context-health` | D6-D12, D22 | Medium-high (quality + organization) |
+| `--dim context-health` | `D6-consistency` through `D12-staleness`, `D22-context-optimization` | Medium-high (quality + organization) |
 | `--dim context-full` | 16 dimensions | High (full context assessment) |
-| `--dim reliability` | D28-D35 (8 dimensions) | Medium-high (mostly reasoning; some deterministic for metadata-guard and reproducibility checks) |
+| `--dim reliability` | `D28-reproducibility` through `D35-portability-boundary` (8 dimensions) | Medium-high (mostly reasoning; some deterministic for metadata-guard and reproducibility checks) |
 | `--dim full` | All 35 | High (full assessment) |
 | `--dim full --with-deps` | All 35 + dependency chain | Very high (multi-artifact) |
 

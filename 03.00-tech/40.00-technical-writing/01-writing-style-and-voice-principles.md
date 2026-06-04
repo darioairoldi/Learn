@@ -13,19 +13,19 @@ description: "Comprehensive guide to writing style, voice, and tone in technical
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [✍️ Active vs. passive voice](#-active-vs-passive-voice)
-- [📊 Readability formulas explained](#-readability-formulas-explained)
-- [📐 Sentence structure and length](#-sentence-structure-and-length)
-- [🔍 Voice guidelines: Microsoft vs. Google vs. Wikipedia](#-voice-guidelines-microsoft-vs-google-vs-wikipedia)
-- [👤 Person usage (first, second, third)](#-person-usage-first-second-third)
-- [🎭 Tone and register](#-tone-and-register)
-- [⚠️ Common voice pitfalls](#-common-voice-pitfalls)
-- [📌 Applying style principles to this repository](#-applying-style-principles-to-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Introduction 🎯](#introduction)
+- [Active vs. passive voice ✍️](#active-vs-passive-voice)
+- [Readability formulas explained 📊](#readability-formulas-explained)
+- [Sentence structure and length 📐](#sentence-structure-and-length)
+- [Voice guidelines: Microsoft vs. Google vs. Wikipedia 🔍](#voice-guidelines-microsoft-vs-google-vs-wikipedia)
+- [Person usage (first, second, third) 👤](#person-usage-first-second-third)
+- [Tone and register 🎭](#tone-and-register)
+- [Common voice pitfalls ⚠️](#common-voice-pitfalls)
+- [Applying style principles to this repository 📌](#applying-style-principles-to-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 Voice and style form the personality of your documentation. While content accuracy ensures correctness, voice determines whether readers can **understand**, **trust**, and **act on** that information.
 
@@ -39,7 +39,7 @@ This article explores:
 
 **Prerequisites:** Understanding of [foundational documentation principles](00-foundations-of-technical-documentation.md) is helpful but not required.
 
-## ✍️ Active vs. passive voice
+## Active vs. passive voice ✍️
 
 Voice refers to the relationship between the subject and verb in a sentence. This seemingly simple grammatical choice profoundly affects clarity, tone, and reader engagement.
 
@@ -154,7 +154,7 @@ Voice refers to the relationship between the subject and verb in a sentence. Thi
 
 **Automated detection:** This repository's validation system flags excessive passive voice through grammar analysis.
 
-## 📊 Readability formulas explained
+## Readability formulas explained 📊
 
 Readability formulas quantify text complexity, helping ensure documentation matches audience capabilities. This section surveys seven widely used formulas with practical targets and score interpretation for technical writers.
 
@@ -327,7 +327,7 @@ The following table compares all seven formulas. Use it to choose which formulas
 
 > **Going deeper:** [Article 09: Measuring Readability and Comprehension](09-measuring-readability-and-comprehension.md) covers comprehension testing (cloze tests, recall tests, think-aloud protocols), information scent theory, mental model alignment, documentation usability testing, and quantitative benchmarks by Diátaxis content type.
 
-## 📐 Sentence structure and length
+## Sentence structure and length 📐
 
 Sentence length directly affects comprehension. Research shows optimal sentence length for technical documentation is **15-25 words**.
 
@@ -393,7 +393,7 @@ Effective technical writing mixes sentence types:
 ✅ **Optimized (3 sentences, ~17 words each, Flesch ~55):**
 > "This section explains how to configure the load balancer for HTTP requests. The configuration includes session affinity via cookies and automatic health checks. Health checks remove unresponsive servers from rotation."
 
-## 🔍 Voice guidelines: Microsoft vs. Google vs. Wikipedia
+## Voice guidelines: Microsoft vs. Google vs. Wikipedia 🔍
 
 Different organizations prioritize different aspects of voice. Understanding these priorities helps you make informed decisions.
 
@@ -489,7 +489,7 @@ Different organizations prioritize different aspects of voice. Understanding the
 | **Tone** | Conversational | Friendly-precise | Neutral-academic | Professional-accessible |
 | **Technical terms** | Define on first use | Link to glossary | Link to related articles | Define + link |
 
-## 👤 Person usage (first, second, third)
+## Person usage (first, second, third) 👤
 
 Person choice fundamentally affects tone and reader relationship with content.
 
@@ -565,7 +565,7 @@ Based on [documentation.instructions.md](../../.github/instructions/documentatio
 | **Explanation** | Third person + educational first plural (we) | Neutral analysis + shared exploration |
 | **Validation prompts** | Second (addressing the model) | Clear agent instructions |
 
-## 🎭 Tone and register
+## Tone and register 🎭
 
 Tone conveys attitude; register indicates formality level. Both should match audience expectations and content purpose.
 
@@ -639,7 +639,7 @@ Wikipedia identifies problematic [words that undermine neutrality](https://en.wi
 
 **Repository application:** Our validation system flags these patterns through logic and fact-checking dimensions.
 
-## ⚠️ Common voice pitfalls
+## Common voice pitfalls ⚠️
 
 ### Pitfall 1: mixing person
 
@@ -712,7 +712,7 @@ More examples:
 | "Reached a conclusion" | "Concluded" |
 | "Give consideration to" | "Consider" |
 
-## 📌 Applying style principles to this repository
+## Applying style principles to this repository 📌
 
 ### Voice standards from documentation instructions
 
@@ -771,7 +771,7 @@ Documentation style evolves based on:
 
 **Living document principle:** Style guidelines adapt as best practices emerge, while maintaining consistency within existing content.
 
-## ✅ Conclusion
+## Conclusion ✅
 
 Voice and style fundamentally shape documentation effectiveness. They determine whether readers can understand, trust, and act on your content.
 
@@ -790,7 +790,7 @@ Voice and style fundamentally shape documentation effectiveness. They determine 
 - **Related:** [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) — How validation operationalizes these principles
 - **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Framework context for voice decisions
 
-## 📚 References
+## References 📚
 
 ### Official style guides
 

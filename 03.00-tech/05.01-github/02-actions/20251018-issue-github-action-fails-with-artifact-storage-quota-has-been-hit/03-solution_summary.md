@@ -1,12 +1,12 @@
 # Summary - GitHub Actions Artifact Storage Quota Issue
 
-## ✅ SOLUTION COMPLETED
+## SOLUTION COMPLETED ✅
 
 I've successfully analyzed and fixed your GitHub Actions artifact storage quota issue!
 
 ---
 
-## 🔍 What Was The Problem?
+## What Was The Problem? 🔍
 
 Your workflow was using `actions/upload-artifact@v4` to create an intermediate artifact between the build and deploy jobs. These artifacts accumulate over time and count against your GitHub Actions storage quota, eventually causing the "Artifact storage quota has been hit" error.
 
@@ -23,7 +23,7 @@ Your workflow was using `actions/upload-artifact@v4` to create an intermediate a
 
 ---
 
-## ✨ The Fix
+## The Fix ✨
 
 I've updated your workflow to use short-lived artifacts (1 day retention) and properly separate build and deploy environments:
 
@@ -47,7 +47,7 @@ I've updated your workflow to use short-lived artifacts (1 day retention) and pr
 
 ---
 
-## 📁 Files Modified/Created
+## Files Modified/Created 📁
 
 ### Modified:
 - ✅ `.github/workflows/quarto-publish.win64.yml` - Fixed workflow to eliminate artifacts
@@ -62,7 +62,7 @@ I've updated your workflow to use short-lived artifacts (1 day retention) and pr
 
 ---
 
-## 🚀 Next Steps (What You Need To Do)
+## Next Steps (What You Need To Do) 🚀
 
 ### 1. Run the Cleanup Script
 ```powershell
@@ -84,7 +84,7 @@ git push origin main
 
 ---
 
-## 📊 Expected Results
+## Expected Results 📊
 
 **Immediate:**
 - ✅ Cleanup script removes all existing artifacts
@@ -99,7 +99,7 @@ git push origin main
 
 ---
 
-## 🎯 Why This Works
+## Why This Works 🎯
 
 **Artifact Types and Storage Impact:**
 
@@ -117,7 +117,7 @@ git push origin main
 
 ---
 
-## 📚 Documentation
+## Documentation 📚
 
 For more details, see:
 - **QUICKSTART.md** - Step-by-step implementation guide
@@ -126,7 +126,7 @@ For more details, see:
 
 ---
 
-## 🆘 If You Need Help
+## If You Need Help 🆘
 
 1. Check the QUICKSTART.md for step-by-step instructions
 2. Review README.md for troubleshooting steps
@@ -135,7 +135,7 @@ For more details, see:
 
 ---
 
-## ✅ Checklist
+## Checklist ✅
 
 - [ ] Run `cleanup-artifacts.ps1`
 - [ ] Commit and push the fixed workflow file

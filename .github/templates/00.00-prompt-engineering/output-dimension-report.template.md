@@ -1,4 +1,4 @@
----
+﻿---
 template_metadata:
   name: "output-dimension-report"
   description: "Per-dimension finding report format for pe-meta-validator — one section per assessed dimension with status, findings, and metrics"
@@ -32,11 +32,11 @@ This template structures per-dimension findings in validation reports. One secti
 ### Metrics
 
 [Dimension-specific metrics. Examples:]
-- D1: `goal: ✅ | scope: ✅ | boundaries: ✅ | rationales: ❌ | version: ✅`
-- D2: `📖 refs: 7/7 ✅ | markdown links: 3/3 ✅ | slash-commands: 2/2 ✅`
-- D3: `Token count: 1,847 / 2,500 budget (74%)`
-- D5: `Always: 6 (≥5 ✅) | Ask: 2 (≥2 ✅) | Never: 4 (≥3 ✅)`
-- D23: `Refs total: 8 | Used: 6 | Unused: 2 | Upfront: 5 | Phase-specific: 3`
+- `D1-metadata`: `goal: ✅ | scope: ✅ | boundaries: ✅ | rationales: ❌ | version: ✅`
+- `D2-references`: `📖 refs: 7/7 ✅ | markdown links: 3/3 ✅ | slash-commands: 2/2 ✅`
+- `D3-token-budget`: `Token count: 1,847 / 2,500 budget (74%)`
+- `D5-boundaries`: `Always: 6 (≥5 ✅) | Ask: 2 (≥2 ✅) | Never: 4 (≥3 ✅)`
+- `D23-reference-efficiency`: `Refs total: 8 | Used: 6 | Unused: 2 | Upfront: 5 | Phase-specific: 3`
 
 ---
 

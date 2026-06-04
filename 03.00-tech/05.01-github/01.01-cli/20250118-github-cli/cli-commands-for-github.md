@@ -1,37 +1,37 @@
 # 🚀 CLI Commands to Interact with GitHub Repositories
 
-## 📑 Table of Contents
+## Table of Contents 📑
 
-- [🚀 CLI Commands to Interact with GitHub Repositories](#-cli-commands-to-interact-with-github-repositories)
-  - [📑 Table of Contents](#-table-of-contents)
-  - [📖 Overview](#-overview)
+- [CLI Commands to Interact with GitHub Repositories 🚀](#cli-commands-to-interact-with-github-repositories)
+  - [Table of Contents 📑](#table-of-contents)
+  - [Overview 📖](#overview)
     - [Available CLI Tools](#available-cli-tools)
     - [Command Categories](#command-categories)
-  - [💻 GitHub CLI (gh) Commands](#-github-cli-gh-commands)
+  - [GitHub CLI (gh) Commands 💻](#github-cli-gh-commands)
     - [Authentication](#authentication)
     - [Repository Management](#repository-management)
     - [Issues and Pull Requests](#issues-and-pull-requests)
     - [GitHub Actions](#github-actions)
     - [Releases](#releases)
     - [Gists](#gists)
-  - [🔧 Git Commands](#-git-commands)
+  - [Git Commands 🔧](#git-commands)
     - [Repository Operations](#repository-operations)
     - [Branch Management](#branch-management)
     - [Commit Operations](#commit-operations)
     - [Remote Operations](#remote-operations)
-  - [🌐 GitHub REST API via CLI](#-github-rest-api-via-cli)
+  - [GitHub REST API via CLI 🌐](#github-rest-api-via-cli)
     - [Basic API Calls](#basic-api-calls)
     - [Artifacts Management](#artifacts-management)
     - [Workflow Runs](#workflow-runs)
     - [Repository Information](#repository-information)
-  - [📚 Additional Details](#-additional-details)
+  - [Additional Details 📚](#additional-details)
     - [gh auth - Authentication Management](#gh-auth---authentication-management)
     - [gh repo - Repository Operations](#gh-repo---repository-operations)
     - [gh pr - Pull Request Management](#gh-pr---pull-request-management)
     - [gh run - GitHub Actions Workflow Management](#gh-run---github-actions-workflow-management)
     - [gh api - Direct API Access](#gh-api---direct-api-access)
  - [gh release - Release Management](#gh-release---release-management)
-  - [🔗 References](#-references)
+  - [References 🔗](#references)
  - [Official Documentation](#official-documentation)
     - [GitHub CLI Resources](#github-cli-resources)
     - [API Documentation](#api-documentation)
@@ -39,7 +39,7 @@
 
 ---
 
-## 📖 Overview
+## Overview 📖
 
 ### Available CLI Tools
 
@@ -67,7 +67,7 @@ GitHub CLI commands are organized into these main categories:
 
 ---
 
-## 💻 GitHub CLI (gh) Commands
+## GitHub CLI (gh) Commands 💻
 
 ### Authentication
 
@@ -263,7 +263,7 @@ gh gist delete GIST-ID
 
 ---
 
-## 🔧 Git Commands
+## Git Commands 🔧
 
 ### Repository Operations
 
@@ -368,7 +368,7 @@ git remote show origin
 
 ---
 
-## 🌐 GitHub REST API via CLI
+## GitHub REST API via CLI 🌐
 
 ### Basic API Calls
 
@@ -450,7 +450,7 @@ gh api /repos/OWNER/REPO/stats/commit_activity
 
 ---
 
-## 📚 Additional Details
+## Additional Details 📚
 
 ### gh auth - Authentication Management
 
@@ -721,7 +721,7 @@ gh release view v1.0.0 --web
 
 ---
 
-## 🔗 References
+## References 🔗
 
 ### Official Documentation
 

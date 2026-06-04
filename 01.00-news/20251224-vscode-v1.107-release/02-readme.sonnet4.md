@@ -61,7 +61,7 @@ The session also highlighted the general availability of Microsoft's first-party
 
 ---
 
-## 🎯 Year in Review and Strategic Direction
+## Year in Review and Strategic Direction 🎯
 
 **Start Time:** 00:01:44 | **Duration:** 15m 11s  
 **Speaker:** Kai Maetzel (Engineering Manager, VS Code)
@@ -117,7 +117,7 @@ Kai outlined emerging themes for 2025:
 
 ---
 
-## 🤖 Unified Agentic Experience
+## Unified Agentic Experience 🤖
 
 **Start Time:** 00:16:55 | **Duration:** 12m 35s  
 **Speaker:** Brigit Murtaugh (Product Manager)
@@ -179,7 +179,7 @@ Released shortly after 1.107.0:
 
 ---
 
-## 🧠 Model Management and <mark>BYOK</mark>
+## Model Management and <mark>BYOK</mark> 🧠
 
 **Start Time:** 00:29:30 | **Duration:** 10m 0s  
 **Speaker:** Logan Ramos (Engineer)
@@ -227,7 +227,7 @@ Logan demonstrated using Copilot Free account with Cerebras API:
 
 ---
 
-## 🔌 HuggingFace Integration
+## HuggingFace Integration 🔌
 
 **Start Time:** 00:39:28 | **Duration:** 10m 50s  
 **Speaker:** Celina Hanouti (Software Engineer, Hugging Face)
@@ -264,7 +264,7 @@ Celina implemented a real GitHub issue for HuggingFace Hub Python SDK:
 
 ---
 
-## 🛠️ MCP Protocol Updates
+## MCP Protocol Updates 🛠️
 
 **Start Time:** 00:50:19 | **Duration:** 14m 40s  
 **Speaker:** Connor Peet (Engineer)
@@ -338,7 +338,7 @@ Connor built a custom MCP server for website design:
 
 ---
 
-## 🐍 SQL Python Driver GA
+## SQL Python Driver GA 🐍
 
 **Start Time:** 01:04:59 | **Duration:** 24m 20s  
 **Speaker:** David Levy (Product Manager, SQL Server Drivers)
@@ -403,7 +403,7 @@ David highlighted notebook applications for data professionals:
 
 ---
 
-## 📊 Technical Deep Dive
+## Technical Deep Dive 📊
 
 ### Architecture Patterns Identified
 
@@ -474,7 +474,7 @@ Resource Return → Download
 
 ---
 
-## 🎬 Appendix A: Demo Walkthroughs
+## Appendix A: Demo Walkthroughs 🎬
 
 ### Demo 1: Unified Agent Experience (Brigit Murtaugh)
 
@@ -558,7 +558,7 @@ Resource Return → Download
 
 ---
 
-## 📚 References
+## References 📚
 
 ### Official Documentation
 

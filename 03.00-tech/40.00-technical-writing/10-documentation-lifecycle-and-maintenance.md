@@ -13,20 +13,20 @@ description: "Manage documentation through its entire lifecycle—from creation 
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [🔄 The documentation lifecycle](#-the-documentation-lifecycle)
-- [📋 Content freshness and staleness detection](#-content-freshness-and-staleness-detection)
-- [🏗️ Versioned documentation strategies](#-versioned-documentation-strategies)
-- [⚠️ Technical debt in documentation](#-technical-debt-in-documentation)
-- [👥 Ownership and maintenance responsibility](#-ownership-and-maintenance-responsibility)
-- [📐 Documentation SLAs](#-documentation-slas)
-- [📦 Deprecation and archival](#-deprecation-and-archival)
-- [⚙️ Tooling for lifecycle management](#-tooling-for-lifecycle-management)
-- [📌 Applying lifecycle management to this repository](#-applying-lifecycle-management-to-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Introduction 🎯](#introduction)
+- [The documentation lifecycle 🔄](#the-documentation-lifecycle)
+- [Content freshness and staleness detection 📋](#content-freshness-and-staleness-detection)
+- [Versioned documentation strategies 🏗️](#versioned-documentation-strategies)
+- [Technical debt in documentation ⚠️](#technical-debt-in-documentation)
+- [Ownership and maintenance responsibility 👥](#ownership-and-maintenance-responsibility)
+- [Documentation SLAs 📐](#documentation-slas)
+- [Deprecation and archival 📦](#deprecation-and-archival)
+- [Tooling for lifecycle management ⚙️](#tooling-for-lifecycle-management)
+- [Applying lifecycle management to this repository 📌](#applying-lifecycle-management-to-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 Most documentation guidance focuses on *creating* content—writing clearly, structuring logically, validating thoroughly. But documentation that's accurate on the day it's published can become misleading six months later when APIs change, features evolve, or best practices shift. Reliability isn't a one-time achievement; it's an ongoing commitment.
 
@@ -46,7 +46,7 @@ This article covers the full <mark>documentation lifecycle</mark>—the stages c
 
 **Prerequisites:** Familiarity with [validation and quality assurance](05-validation-and-quality-assurance.md) and [consistency standards](08-consistency-standards-and-enforcement.md) provides useful context. Understanding of [foundations](00-foundations-of-technical-documentation.md) is recommended.
 
-## 🔄 The documentation lifecycle
+## The documentation lifecycle 🔄
 
 Documentation isn't static—it moves through phases, and each phase has distinct activities, risks, and quality concerns. Understanding these phases helps you plan maintenance before it becomes urgent.
 
@@ -99,7 +99,7 @@ Decisions made during creation directly affect maintenance cost. Front-load thes
 - **Change sensitivity** — Identify which parts depend on external factors (UI screenshots, API responses, CLI output) that change without your control.
 - **Cross-references** — Link to canonical sources instead of duplicating volatile information. If the Azure portal changes its navigation, one update propagates through all cross-references.
 
-## 📋 Content freshness and staleness detection
+## Content freshness and staleness detection 📋
 
 <mark>Content freshness</mark> measures how current and accurate documentation is relative to the product or technology it describes. <mark>Staleness</mark> is the opposite—content that no longer reflects reality.
 
@@ -150,7 +150,7 @@ Don't rely on memory or manual tracking. Automate freshness checks:
 4. **Feedback channels** — Set up issue templates or feedback forms for readers to report inaccuracies
 5. **Git history analysis** — Track file modification dates relative to freshness thresholds
 
-## 🏗️ Versioned documentation strategies
+## Versioned documentation strategies 🏗️
 
 When products support multiple versions simultaneously, documentation must serve users on different versions without confusing either group. <mark>Versioned documentation</mark> provides version-specific content while maintaining a coherent overall experience.
 
@@ -195,7 +195,7 @@ Docs v1 (Active)    ──────────────▶  Docs v1 (Arch
 - Don't delete archived documentation—redirect it and mark it clearly as superseded
 - Maintain redirects for at least 12 months after retirement
 
-## ⚠️ Technical debt in documentation
+## Technical debt in documentation ⚠️
 
 <mark>Documentation debt</mark>—like technical debt in code—accumulates when maintainers take shortcuts or defer necessary updates. Article [05-validation-and-quality-assurance.md](05-validation-and-quality-assurance.md) introduces this concept briefly with four debt types. Here, we expand on how to identify, measure, and systematically reduce documentation debt.
 
@@ -247,7 +247,7 @@ Schedule dedicated "documentation health" sprints quarterly. Focus exclusively o
 - Run automated link checks in CI (prevents reference debt)
 - Review structural consistency during series reviews (prevents structural debt)
 
-## 👥 Ownership and maintenance responsibility
+## Ownership and maintenance responsibility 👥
 
 Documentation without clear ownership becomes nobody's responsibility. Ownership models define who's accountable for content accuracy and updates.
 
@@ -280,7 +280,7 @@ When an owner leaves or transitions:
 4. **Verify transfer** — New owner confirms they understand the content and can maintain it
 5. **Update metadata** — Change ownership fields in all affected articles
 
-## 📐 Documentation SLAs
+## Documentation SLAs 📐
 
 A <mark>documentation SLA</mark> (service level agreement) defines the maximum acceptable time between a product change and the corresponding documentation update. Without SLAs, documentation updates drift indefinitely.
 
@@ -321,7 +321,7 @@ Documentation SLAs work best when integrated into existing workflows:
 - **Change notifications** — Set up automated alerts when product changes occur (release notes published, feature flags toggled, API versions bumped)
 - **Blocked deployments** — For P0/P1 items, consider blocking deployment until documentation is updated (or at minimum logged for immediate follow-up)
 
-## 📦 Deprecation and archival
+## Deprecation and archival 📦
 
 Retiring documentation gracefully matters as much as publishing it well. Abrupt removal breaks inbound links, frustrates users, and erodes trust.
 
@@ -383,7 +383,7 @@ archive/
 
 Include a deprecation log that records what was retired, when, why, and where users should go instead.
 
-## ⚙️ Tooling for lifecycle management
+## Tooling for lifecycle management ⚙️
 
 Manual lifecycle management doesn't scale. These tools and patterns help automate the most tedious aspects:
 
@@ -425,7 +425,7 @@ Integrate lifecycle checks into your documentation pipeline:
 4. **On schedule (monthly)** — Generate documentation health dashboard, flag articles below freshness threshold
 5. **On product release** — Flag articles referencing the previous version for review
 
-## 📌 Applying lifecycle management to this repository
+## Applying lifecycle management to this repository 📌
 
 This section maps lifecycle concepts to the specific structure and tooling of this Learning Documentation Site.
 
@@ -462,7 +462,7 @@ This article's lifecycle concepts complement the validation system described in 
 - **Lifecycle management** ensures quality persists over time
 - Together, they form a complete reliability framework: validate content quality *and* monitor content currency
 
-## ✅ Conclusion
+## Conclusion ✅
 
 Documentation reliability isn't achieved at publication—it's maintained through deliberate lifecycle management. The most beautifully written article becomes a liability if it describes a workflow that no longer exists or references an API that's been retired.
 
@@ -482,7 +482,7 @@ Documentation reliability isn't achieved at publication—it's maintained throug
 - **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Quality criteria that lifecycle management sustains over time
 - **Related:** [12-writing-for-global-audiences.md](12-writing-for-global-audiences.md) — Translation maintenance as a lifecycle concern
 
-## 📚 References
+## References 📚
 
 ### Official documentation
 

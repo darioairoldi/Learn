@@ -23,7 +23,7 @@ Agent Skills are **portable, resource-rich workflows** across VS Code, CLI, and 
 
 **CRITICAL** — block on failure:
 - **[C3]** Token budget: description + body < 1,500 tokens
-- **[C6]** YAML frontmatter: name and description required
+- **[C6]** YAML frontmatter: name, description, **domain** required
 
 **HIGH** — fix before use:
 - **[H7]** Narrow scope: one workflow domain per skill
@@ -44,6 +44,7 @@ name: skill-name           # lowercase, hyphens, max 64 chars
 description: >             # max 1024 chars
   What this skill does and technologies involved.
   Use when [scenario 1], [scenario 2], or [scenario 3].
+domain: "prompt-engineering"   # REQUIRED — single scalar; the semantic domain the skill primarily serves. 📖 00.03-metadata-contracts.md § `domain:` field semantics
 ---
 ```
 

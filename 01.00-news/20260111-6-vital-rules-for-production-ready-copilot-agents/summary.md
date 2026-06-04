@@ -28,15 +28,15 @@ The session focuses on practical techniques used in real production projects to 
 
 ## Table of Contents
 
-- 🚨 [00:00 - The Uncomfortable Truth About AI Hallucinations](#000---the-uncomfortable-truth-about-ai-hallucinations)
-- 📐 [04:56 - The Invisible Line: Chat Prompts vs Agent Prompts](#0456---the-invisible-line-chat-prompts-vs-agent-prompts)
-- ⚙️ [11:36 - Rule 1: <mark>Treat System Prompts as Production Software</mark>](#1136---rule-1-treat-system-prompts-as-production-software)
-- 🔄 [20:41 - Rule 2: <mark>Beyond "Think Step by Step" - Structured Reasoning</mark>](#2041---rule-2-beyond-think-step-by-step---structured-reasoning)
-- ✂️ [27:47 - Rule 3: <mark>Ruthless Reduction - The 10-20% Token Target</mark>](#2747---rule-3-ruthless-reduction---the-10-20-token-target)
-- 🤖 [33:27 - Rule 4: <mark>Automate Reviews with Agent Reviewers</mark>](#3327---rule-4-automate-reviews-with-agent-reviewers)
-- 🧠 [39:41 - Rule 5: <mark>Separate Behavior from Context</mark>](#3941---rule-5-separate-behavior-from-context)
-- 🎯 [44:20 - Rule 6: <mark>Model-Specific Prompt Optimization</mark>](#4420---rule-6-model-specific-prompt-optimization)
-- 📋 [47:56 - Recap and Looking Forward](#4756---recap-and-looking-forward)
+- 🚨 [00:00 - The Uncomfortable Truth About AI Hallucinations](#the-uncomfortable-truth-about-ai-hallucinations)
+- 📐 [04:56 - The Invisible Line: Chat Prompts vs Agent Prompts](#the-invisible-line-chat-prompts-vs-agent-prompts)
+- ⚙️ [11:36 - Rule 1: <mark>Treat System Prompts as Production Software</mark>](#rule-1-treat-system-prompts-as-production-software)
+- 🔄 [20:41 - Rule 2: <mark>Beyond "Think Step by Step" - Structured Reasoning</mark>](#rule-2-beyond-think-step-by-step---structured-reasoning)
+- ✂️ [27:47 - Rule 3: <mark>Ruthless Reduction - The 10-20% Token Target</mark>](#rule-3-ruthless-reduction---the-10-20-token-target)
+- 🤖 [33:27 - Rule 4: <mark>Automate Reviews with Agent Reviewers</mark>](#rule-4-automate-reviews-with-agent-reviewers)
+- 🧠 [39:41 - Rule 5: <mark>Separate Behavior from Context</mark>](#rule-5-separate-behavior-from-context)
+- 🎯 [44:20 - Rule 6: <mark>Model-Specific Prompt Optimization</mark>](#rule-6-model-specific-prompt-optimization)
+- 📋 [47:56 - Recap and Looking Forward](#recap-and-looking-forward)
 
 ---
 

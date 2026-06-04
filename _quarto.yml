@@ -309,129 +309,6 @@ website:
             href: "02.00-events/202511-ignite-2025/03-migrate-and-modernize/brk431-cloud-native-innovations-with-mark-russinovich/summary.md"
           - text: "---"
           - text: "All event content available via sidebar →"
-      - text: "Architectures"
-        menu:
-          - href: "03.00-tech/21.01-feed/20251005-feeds-architectures-and-protocols/01-podcast-and-rss-feed-information-gathering-and-analysis.md"
-            text: "Podcast and RSS Feed Analysis"
-          - href: "03.00-tech/21.01-feed/20251005-feeds-architectures-and-protocols/02-analyzing-atom-and-rss-specifications.md"
-            text: "Analyzing Atom and RSS Specifications"
-          - href: "03.00-tech/21.01-feed/20251005-feeds-architectures-and-protocols/03-additional-metadata-for-rss-and-atom-feeds.md"
-            text: "Additional Metadata for RSS and Atom Feeds"
-          - href: "03.00-tech/21.01-feed/20251005-feeds-architectures-and-protocols/04-c#-reference-classes-for-reading-feeds.md"
-            text: "C# Reference Classes for Reading Feeds"
-      - text: "Azure"
-        menu:
-          - text: "Azure Best Practices"
-            href: "03.00-tech/02.01-azure/00-azure-naming-conventions/readme.md"
-          - text: "---"
-          - text: "Security & Identity"
-          - href: "03.00-tech/01.01-authentication/20251102-authenticating-external-users-in-azure-ad/01-external-users-authentication-in-azure-ad-explained.md"
-            text: "Azure AD External Users Explained"
-          - href: "03.00-tech/01.01-authentication/20251102-authenticating-external-users-in-azure-ad/02-external-users-types-and-invitation-process.md"
-            text: "External Users Types & Invitation"
-          - text: "---"
-          - text: "Data Services"
-          - href: "03.00-tech/03.01-data/01-table-storage-access-options/readme.md"
-            text: "Table Storage Access"
-          - href: "03.00-tech/03.01-data/03-blob-storage-access-options/01-blob-storage-access-options.md"
-            text: "Blob Storage Access Options"
-          - href: "03.00-tech/03.01-data/03-blob-storage-access-options/02-blob-storage-limitations.md"
-            text: "Blob Storage Limitations"
-          - href: "03.00-tech/03.01-data/02-cosmosdb-access-options/01-azure-cosmosdb-access-options.md"
-            text: "CosmosDB Access"
-          - text: "---"
-          - text: "Messaging & Events"
-          - href: "03.00-tech/02.01-azure/08-eventhub-access-options/readme.md"
-            text: "EventHub Access"
-          - text: "---"
-          - text: "Developer Learning Path"
-          - href: "03.00-tech/02.01-azure/01-azure-apps/01-azure-apps-qa.md"
-            text: "Azure Apps Q&A"
-          - href: "03.00-tech/02.01-azure/01-azure-apps/02-azure-webapp-limitations.md"
-            text: "Azure Web App Limitations"
-          - href: "03.00-tech/02.01-azure/01-azure-apps/03-cli-commands.md"
-            text: "Azure Apps CLI Commands"
-          - href: "03.00-tech/02.01-azure/01-azure-apps/04-azure-web-app-cli-commands-guide.md"
-            text: "Azure Web App CLI Guide"
-          - href: "03.00-tech/02.01-azure/01-azure-functions/01-azure-functions-qa.md"
-            text: "Azure Functions Q&A"
-          - href: "03.00-tech/02.01-azure/01-azure-functions/02-azure-functions-limitations.md"
-            text: "Azure Functions Limitations"
-          - href: "03.00-tech/02.01-azure/02-azure-key-vault/01-azure-keyvault-qa.md"
-            text: "Azure Key Vault Q&A"
-          - href: "03.00-tech/02.01-azure/02-azure-key-vault/02-azure-key-vault-limitations.md"
-            text: "Azure Key Vault Limitations"
-          - href: "03.00-tech/02.01-azure/02-azure-key-vault/03-howto.create-and-retrieve-secrets-from-azure-key-vault.md"
-            text: "Azure Key Vault HowTo"
-          - href: "03.00-tech/02.01-azure/03-azure-app-configuration/01-azure-app-configuration-qa.md"
-            text: "Azure App Configuration Q&A"
-          - href: "03.00-tech/02.01-azure/03-azure-app-configuration/03-azure-app-configuration-exercise.md"
-            text: "Azure App Configuration Exercise"
-          - href: "03.00-tech/02.01-azure/04-monitor-app-performance/01-azure-monitor-qa.md"
-            text: "Azure Monitor Q&A"
-          - href: "03.00-tech/02.01-azure/05-azure-containers/01-azure-container-app.md"
-            text: "Azure Container App"
-          - href: "03.00-tech/02.01-azure/05-azure-containers/02-azure-container-app-environments-overview.md"
-            text: "Azure Container App Environments"
-          - href: "03.00-tech/02.01-azure/05-azure-containers/03-howto.-use-az-cli-to-create-azure-container-app.md.md"
-            text: "Azure Container App CLI HowTo"
-          - href: "03.00-tech/02.01-azure/05-azure-containers/99-azure-containers-qa.md"
-            text: "Azure Containers Q&A"
-      - text: "Markdown & Docs"
-        menu:
-          - text: "Quarto Documentation"
-          - href: "03.00-tech/20.01-markdown/01-quarto/01.01-introduction-to-quarto.md"
-            text: "Using Quarto (Overview)"
-          - href: "03.00-tech/20.01-markdown/01-quarto/01.02-how-quarto-works.md"
-            text: "Quarto Architecture: How It Works"
-          - href: "03.00-tech/20.01-markdown/01-quarto/02.01-monolithic-vs-modular-deployment.md"
-            text: "Quarto: Monolithic vs. Modular Deployment"
-          - href: "03.00-tech/20.01-markdown/01-quarto/02.02-split-navigation-build.md"
-            text: "Quarto: Split Navigation Build"
-          - href: "03.00-tech/20.01-markdown/01-quarto/03.01-quarto-yml-structure.md"
-            text: "Quarto.yml Document Structure"
-          - href: "03.00-tech/20.01-markdown/01-quarto/05.01-theming-and-styling.md"
-            text: "Quarto Theming and Styling"
-          - href: "03.00-tech/20.01-markdown/01-quarto/04.01-markdown-features.md"
-            text: "Quarto-Specific Markdown Features"
-          - href: "03.00-tech/20.01-markdown/01-quarto/07.01-build-optimization.md"
-            text: "Optimizing Quarto Build & Deploy"
-          - href: "03.00-tech/20.01-markdown/01-quarto/06.01-sidebar-layout.md"
-            text: "How Quarto Sidebar Works"
-          - href: "03.00-tech/20.01-markdown/01-quarto/06.02-navigation-workflow.md"
-            text: "Quarto Navigation Workflow"
-          - href: "03.00-tech/20.01-markdown/01-quarto/06.03-transition-optimization.md"
-            text: "Sidebar Page Transition Optimization"
-          - href: "03.00-tech/20.01-markdown/01-quarto/08.01-troubleshooting-guide.md"
-            text: "Troubleshooting Quarto Sites"
-          - href: "03.00-tech/20.01-markdown/01-quarto/09.01-github-pages-deployment.md"
-            text: "Deploying Quarto to GitHub Pages"
-          - href: "03.00-tech/20.01-markdown/01-quarto/09.02-azure-storage-deployment.md"
-            text: "Deploying Quarto to Azure Storage"
-          - href: "03.00-tech/20.01-markdown/01-quarto/10.01-customizing-markdown-rendering-with-lua-filters.md"
-            text: "Customizing with Lua Filters"
-          - text: "---"
-          - text: "MkDocs Documentation"
-          - href: "03.00-tech/20.01-markdown/02-mkdocs/000.000-using-mkdocs.md"
-            text: "Using MkDocs (Overview)"
-          - href: "03.00-tech/20.01-markdown/02-mkdocs/001.001-architecture-how-mkdocs-works.md"
-            text: "MkDocs Architecture: How It Works"
-          - href: "03.00-tech/20.01-markdown/02-mkdocs/001.002-architecture-monolithic-vs.-modular-deployment.md"
-            text: "MkDocs: Monolithic vs. Modular Deployment"
-          - text: "---"
-          - text: "Hugo Documentation"
-          - href: "03.00-tech/20.01-markdown/03-hugo/readme.md"
-            text: "Hugo Series Overview"
-          - href: "03.00-tech/20.01-markdown/03-hugo/01.01-introduction-to-hugo.md"
-            text: "Introduction to Hugo"
-          - href: "03.00-tech/20.01-markdown/03-hugo/01.02-hugo-core-concepts.md"
-            text: "Hugo Core Concepts"
-          - href: "03.00-tech/20.01-markdown/03-hugo/01.03-goldmark-markdown-processing.md"
-            text: "Goldmark Markdown Processing"
-          - href: "03.00-tech/20.01-markdown/03-hugo/01.04-hugo-vs-quarto.md"
-            text: "Hugo vs Quarto Comparison"
-          - href: "03.00-tech/20.01-markdown/03-hugo/05.03-rendering-learning-hub-with-hugo.md"
-            text: "Rendering Learning Hub with Hugo"
       - text: "Technologies"
         menu:
           - text: "GitHub & Version Control"
@@ -500,45 +377,45 @@ website:
           - href: "04.00-howto/20251013-howto-expose-my-computer-with-no-ip-ddns/howto.expose-my-computer-with-no-ip-ddns.md"
             text: "No-IP DDNS Setup"
     right:
-      - text: "Ideas & Projects"
+      - text: "Ideas"
         menu:
           - href: "06.00-idea/iqpilot/01-iqpilot-overview.md"
             text: "iqpilot - AI Quality Tool"
           - href: "06.00-idea/learning-hub/01-learning-hub-overview/01-learning-hub-introduction.md"
             text: "Learning Hub Overview"
-          - text: "---"
-          - href: "20250815-diy-battery-pack/readme.md"
-            text: "DIY Battery Packs"
-          - href: "20250815-diy-ebike/summary.md"
-            text: "DIY E-Bike Projects"
-      - text: "Culture & Travel"
+      - text: "Culture"
         menu:
           - href: "90.00-travel/paris-2025/readme.md"
             text: "Paris Cultural Journey 2025"
           - href: "90.00-travel/seattle-2026/00-gita-a-san-francisco-e-seattle.prep.md"
             text: "San Francisco & seattle-2026"
-      - icon: bell-fill
-        href: "#"
-        aria-label: "Intelligent Notifications"
-      - icon: rss
-        href: "#"
-        aria-label: "Intelligent Feeds"
-      - icon: sliders
-        href: "#"
-        aria-label: "Intelligent Rules"
+      - text: "Other"
+        menu:
+          - href: "20250815-diy-battery-pack/readme.md"
+            text: "DIY Battery Packs"
+          - href: "20250815-diy-ebike/summary.md"
+            text: "DIY E-Bike Projects"
+      - text: "About"
+        menu:
+          - href: "README.md"
+            text: "About"
+          - href: "LICENSE"
+            text: "License"
       - icon: github
         href: "https://github.com/darioairoldi/Learn"
         aria-label: "GitHub Repository"
 
   sidebar:
-    style: "floating"
+    style: "docked"
     search: false
-    collapse-level: 3
+    collapse-level: 2
     contents:
       - href: index.qmd
         text: "Home"
         icon: house-fill
         contents: "06.00-idea/learning-hub/01-learning-hub-overview/*.md"
+
+      - text: "---"
 
       - section: "News & Updates"
         icon: newspaper
@@ -570,6 +447,8 @@ website:
               - text: "Analysis"
                 href: "01.00-news/20251224-vscode-v1.107-release/02-readme.sonnet4.md"
 
+      - text: "---"
+
       - section: "Events"
         icon: calendar-event
         contents:
@@ -580,6 +459,8 @@ website:
           - section: "Ignite Conference 2025"
             icon: microsoft
             contents: "02.00-events/202511-ignite-2025/**/*.md"
+
+      - text: "---"
 
       - section: "Technologies"
         icon: cpu
@@ -773,7 +654,6 @@ website:
               - text: "Writing for Global Audiences"
                 href: "03.00-tech/40.00-technical-writing/12-writing-for-global-audiences.md"
               - section: "microsoft-writing-style-guide"
-                icon: microsoft
                 contents:
                   - text: "Overview & Philosophy"
                     href: "03.00-tech/40.00-technical-writing/microsoft-writing-style-guide/00-microsoft-style-guide-overview.md"
@@ -786,9 +666,13 @@ website:
                   - text: "Principles Reference (YAML/JSON)"
                     href: "03.00-tech/40.00-technical-writing/microsoft-writing-style-guide/04-microsoft-style-principles-reference.md"
 
+      - text: "---"
+
       - section: "How-To Guides"
         icon: tools
         contents: "04.00-howto/**/*.md"
+
+      - text: "---"
 
       - section: "Issues & Solutions"
         icon: wrench-adjustable
@@ -835,10 +719,13 @@ execute:
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: [cosmo, theme-light.scss]
+      dark:  [cosmo, theme-dark.scss]
     toc: true
     toc-depth: 3
     css: styles.css
+    include-in-header: header-includes.html
     grid:
       sidebar-width: 300px
       body-width: 900px

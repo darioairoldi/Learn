@@ -13,21 +13,21 @@ description: "Establish documentation quality through validation frameworks, rev
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [🏗️ Validation frameworks](#-validation-frameworks)
-- [📏 The seven validation dimensions](#-the-seven-validation-dimensions)
-- [👥 Review processes](#-review-processes)
-- [📊 Quality metrics](#-quality-metrics)
-- [🤖 Automated validation](#-automated-validation)
-- [🛠️ Documentation tooling ecosystem](#-documentation-tooling-ecosystem)
-- [🧪 Documentation testing](#-documentation-testing)
-- [📈 Metrics dashboard](#-metrics-dashboard)
-- [🔄 Continuous improvement](#-continuous-improvement)
-- [📌 Applying validation to this repository](#-applying-validation-to-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Introduction 🎯](#introduction)
+- [Validation frameworks 🏗️](#validation-frameworks)
+- [The seven validation dimensions 📏](#the-seven-validation-dimensions)
+- [Review processes 👥](#review-processes)
+- [Quality metrics 📊](#quality-metrics)
+- [Automated validation 🤖](#automated-validation)
+- [Documentation tooling ecosystem 🛠️](#documentation-tooling-ecosystem)
+- [Documentation testing 🧪](#documentation-testing)
+- [Metrics dashboard 📈](#metrics-dashboard)
+- [Continuous improvement 🔄](#continuous-improvement)
+- [Applying validation to this repository 📌](#applying-validation-to-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 Documentation quality isn't subjective—it can be measured, validated, and improved systematically. This article presents frameworks for assessing and ensuring documentation quality.
 
@@ -44,7 +44,7 @@ This article covers:
 
 **Prerequisites:** Familiarity with [writing style](01-writing-style-and-voice-principles.md), [structure](02-structure-and-information-architecture.md), and [code documentation](04-code-documentation-excellence.md).
 
-## 🏗️ Validation frameworks
+## Validation frameworks 🏗️
 
 Different organizations approach documentation validation differently. Understanding multiple frameworks helps you build the right approach for your context.
 
@@ -131,7 +131,7 @@ Microsoft documentation emphasizes:
 4. **Task orientation** - Helps users accomplish goals
 5. **Consistency** - Follows style guide
 
-## 📏 The seven validation dimensions
+## The seven validation dimensions 📏
 
 This repository uses seven validation dimensions, documented in [validation-criteria.md](../../.copilot/context/01.00-article-writing/02-validation-criteria.md).
 
@@ -271,7 +271,7 @@ This repository uses seven validation dimensions, documented in [validation-crit
 | 📒 | Community | Personal blogs, forums |
 | 📕 | Unverified | Broken links, unknown sources |
 
-## 👥 Review processes
+## Review processes 👥
 
 Automated validation catches mechanical issues. Human review catches conceptual issues, audience mismatches, and subtle errors.
 
@@ -332,7 +332,7 @@ Automated validation catches mechanical issues. Human review catches conceptual 
 - Explain reasoning for disagreements
 - Thank reviewers
 
-## 📊 Quality metrics
+## Quality metrics 📊
 
 Metrics make quality visible and improvable over time.
 
@@ -390,7 +390,7 @@ From [validation-criteria.md](../../.copilot/context/01.00-article-writing/02-va
 | Link Validity | 100% | Site-wide |
 | Reference Classification | 100% classified | Per article |
 
-## 🤖 Automated validation
+## Automated validation 🤖
 
 Automation scales validation and provides consistency.
 
@@ -480,7 +480,7 @@ This repository's [IQPilot MCP server](../../src/IQPilot/) provides validation t
 4. Results cached to avoid redundant validation
 5. Metadata updated with validation status
 
-## 🛠️ Documentation tooling ecosystem
+## Documentation tooling ecosystem 🛠️
 
 The validation tools above are part of a broader <mark>docs-as-code</mark> approach where documentation follows the same workflows as software: version control, pull requests, automated checks, and continuous deployment.
 
@@ -554,7 +554,7 @@ Scaling documentation beyond a single author requires explicit patterns:
 
 **For more on tooling integration with consistency enforcement:** See [Article 08](08-consistency-standards-and-enforcement.md) for Vale configuration, markdownlint setup, and automated style enforcement patterns.
 
-## 🧪 Documentation testing
+## Documentation testing 🧪
 
 Validation checks whether documentation meets defined standards. <mark>Documentation testing</mark> goes further—it verifies that documentation actually *works* for its intended audience. Testing answers the question: "Can real users accomplish their goals using this documentation?"
 
@@ -570,7 +570,7 @@ The distinction is critical:
 | **When to use** | Every commit, every review | Before major releases, after significant changes |
 | **Cost** | Low (automated) to medium (review) | Medium to high (requires participants) |
 
-Both are necessary. A document can pass all seven [validation dimensions](#-the-seven-validation-dimensions) and still confuse users if its mental model doesn't match theirs.
+Both are necessary. A document can pass all seven [validation dimensions](#the-seven-validation-dimensions) and still confuse users if its mental model doesn't match theirs.
 
 ### Smoke testing
 
@@ -637,9 +637,9 @@ Documentation testing fits into the broader quality workflow at specific trigger
 | **Quarterly review** | Heuristic evaluation + metrics review | Expert assessment against documentation heuristics |
 | **User feedback spike** | Targeted task-completion testing | Focused on problematic areas |
 
-## 📈 Metrics dashboard
+## Metrics dashboard 📈
 
-Individual metrics (covered in [Quality metrics](#-quality-metrics)) become actionable only when you can see them together, track trends over time, and connect them to decisions. A <mark>metrics dashboard</mark> transforms scattered measurements into a unified quality view.
+Individual metrics (covered in [Quality metrics](#quality-metrics)) become actionable only when you can see them together, track trends over time, and connect them to decisions. A <mark>metrics dashboard</mark> transforms scattered measurements into a unified quality view.
 
 ### Dashboard design principles
 
@@ -744,7 +744,7 @@ Metrics without action are decoration. Define clear escalation rules:
 | Validation pass rate drops below 90% | Block merge until resolved | CI/CD pipeline |
 | Smoke test overdue by 30+ days | Schedule testing session | QA reviewer |
 
-## 🔄 Continuous improvement
+## Continuous improvement 🔄
 
 Quality isn't a destination—it's a process.
 
@@ -815,7 +815,7 @@ Like technical debt, documentation debt accumulates:
 2. Identified gaps added to backlog
 3. Validation confirms completeness
 
-## 📌 Applying validation to this repository
+## Applying validation to this repository 📌
 
 ### Validation metadata system
 
@@ -878,7 +878,7 @@ All references should use classification markers:
 Brief description of content and relevance.
 ```
 
-## ✅ Conclusion
+## Conclusion ✅
 
 Documentation validation transforms quality from aspiration to achievement. Systematic validation across multiple dimensions ensures documentation meets and maintains high standards.
 
@@ -898,7 +898,7 @@ Documentation validation transforms quality from aspiration to achievement. Syst
 - **Related:** [07-ai-enhanced-documentation-writing.md](07-ai-enhanced-documentation-writing.md) — AI-powered validation approaches
 - **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Readability principles
 
-## 📚 References
+## References 📚
 
 ### Quality frameworks
 

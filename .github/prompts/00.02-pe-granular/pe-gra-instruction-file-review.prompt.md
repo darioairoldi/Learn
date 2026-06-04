@@ -410,4 +410,4 @@ For layer audits (6+ files), report after each file's validation:
 |---|---|---|
 | 1 | Review instruction file (happy path) | Loads file → checks applyTo patterns → validates layer boundaries → produces report |
 | 2 | applyTo pattern overlaps with existing file | Flags overlap as CRITICAL → identifies conflicting file → recommends resolution |
-| 3 | Instruction file embeds behavioral rules | Flags as HIGH (R-S8 minimization) → recommends moving to context file |
+| 3 | Instruction file embeds behavioral rules | Flags as HIGH (instruction-minimization minimization) → recommends moving to context file |

@@ -13,20 +13,20 @@ description: "Master documentation structure through progressive disclosure, the
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [📊 Progressive disclosure: layering complexity](#-progressive-disclosure-layering-complexity)
-- [🏗️ The LATCH framework](#-the-latch-framework)
-- [📋 Table of contents strategies](#-table-of-contents-strategies)
-- [🧭 Navigation hierarchies](#-navigation-hierarchies)
-- [📄 Page structure patterns](#-page-structure-patterns)
-- [🎨 Content design principles](#-content-design-principles)
-- [🔗 Cross-referencing strategies](#-cross-referencing-strategies)
-- [ Series architecture and planning](#-series-architecture-and-planning)
-- [📌 Applying architecture to this repository](#-applying-architecture-to-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Introduction 🎯](#introduction)
+- [Progressive disclosure: layering complexity 📊](#progressive-disclosure-layering-complexity)
+- [The LATCH framework 🏗️](#the-latch-framework)
+- [Table of contents strategies 📋](#table-of-contents-strategies)
+- [Navigation hierarchies 🧭](#navigation-hierarchies)
+- [Page structure patterns 📄](#page-structure-patterns)
+- [Content design principles 🎨](#content-design-principles)
+- [Cross-referencing strategies 🔗](#cross-referencing-strategies)
+- [ Series architecture and planning](#series-architecture-and-planning)
+- [Applying architecture to this repository 📌](#applying-architecture-to-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 Information architecture determines whether users **find** and **understand** your documentation. Even perfectly written content fails if users can't locate it or can't determine which sections apply to their needs.
 
@@ -41,7 +41,7 @@ This article explores:
 
 **Prerequisites:** Understanding of [documentation foundations](00-foundations-of-technical-documentation.md) and the Diátaxis framework is helpful.
 
-## 📊 Progressive disclosure: layering complexity
+## Progressive disclosure: layering complexity 📊
 
 Progressive disclosure presents information in layers, revealing complexity gradually based on user needs. This principle, borrowed from interface design, reduces cognitive load while ensuring advanced users can access complete information.
 
@@ -125,7 +125,7 @@ Choose your path:
 ✅ **Progressive alternative:**
 > Explicit labels: "**Required for production:** Configure rate limiting before deployment"
 
-## 🏗️ The LATCH framework
+## The LATCH framework 🏗️
 
 Richard Saul Wurman's LATCH framework identifies five fundamental ways to organize information. Every organizational scheme is a variation of these five approaches.
 
@@ -285,7 +285,7 @@ Real documentation combines multiple LATCH approaches:
 - **Hierarchy:** Numbered folders (01.00-news, 02.00-events...)
 - **Alphabet:** Within categories, often alphabetical
 
-## 📋 Table of contents strategies
+## Table of contents strategies 📋
 
 Tables of contents serve two functions: **navigation** (getting to content) and **orientation** (understanding structure).
 
@@ -383,7 +383,7 @@ Best for explanation articles or conceptual documentation.
 
 **This repository's approach:** Manual TOCs for key articles (control over presentation), with Quarto's automatic navigation sidebar for site-wide navigation.
 
-## 🧭 Navigation hierarchies
+## Navigation hierarchies 🧭
 
 Navigation systems guide users through documentation at multiple scales: site-wide, section-level, and within documents.
 
@@ -472,7 +472,7 @@ website:
 - **Topic sections** group related content (Category)
 - **Automatic sidebar** from Quarto reduces maintenance
 
-## 📄 Page structure patterns
+## Page structure patterns 📄
 
 Individual pages follow structural patterns that support comprehension and navigation.
 
@@ -635,7 +635,7 @@ Wikipedia provides a well-tested pattern for encyclopedic content:
 - **"See also" for discovery:** Related topics for exploration
 - **Notes vs. References:** Explanatory notes separated from source citations
 
-## 🎨 Content design principles
+## Content design principles 🎨
 
 Page structure patterns describe *how* to arrange individual documents. Content design principles address the higher-level question: *how do you decide what content to create and how to break it apart?* These principles guide decisions before you start writing a single page.
 
@@ -752,7 +752,7 @@ The appropriate depth depends on the article's Diátaxis type and its role in th
 
 > **See also:** [Article 11](11-visual-documentation-and-diagrams.md#visual-requirements-by-article-type) for guidance on which visual types are appropriate at each depth level.
 
-## 🔗 Cross-referencing strategies
+## Cross-referencing strategies 🔗
 
 Cross-references connect related content, supporting both navigation and comprehension.
 
@@ -985,7 +985,7 @@ Reordering changes the prerequisite chain and reading paths. Minimize disruption
 
 > **See also:** [Article 08](08-consistency-standards-and-enforcement.md#handling-consistency-during-migration-and-evolution) for consistency maintenance strategies during series changes. [Article 10](10-documentation-lifecycle-and-maintenance.md#deprecation-and-archival) for the full deprecation and archival lifecycle.
 
-## 📌 Applying architecture to this repository
+## Applying architecture to this repository 📌
 
 ### Current architecture
 
@@ -1028,7 +1028,7 @@ From [documentation.instructions.md](../../.github/instructions/documentation.in
 6. References section (for articles with citations)
 7. Validation metadata (bottom YAML)
 
-## ✅ Conclusion
+## Conclusion ✅
 
 Information architecture determines documentation usability. The right structure helps readers find, understand, and act on information efficiently.
 
@@ -1048,7 +1048,7 @@ Information architecture determines documentation usability. The right structure
 - **Related:** [00-foundations-of-technical-documentation.md](00-foundations-of-technical-documentation.md) — Diátaxis framework context
 - **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Voice principles that complement structure
 
-## 📚 References
+## References 📚
 
 ### Information architecture foundations
 

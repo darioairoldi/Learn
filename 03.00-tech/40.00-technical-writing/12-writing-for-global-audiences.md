@@ -13,20 +13,20 @@ description: "Write technical documentation that works for international readers
 
 ## Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [📋 Key terminology](#-key-terminology)
-- [🌍 Why global-ready writing matters](#-why-global-ready-writing-matters)
-- [✍️ Global-ready language patterns](#-global-ready-language-patterns)
-- [🚫 What to avoid](#-what-to-avoid)
-- [📐 Formatting for global audiences](#-formatting-for-global-audiences)
-- [🔄 Translation-friendly documentation](#-translation-friendly-documentation)
-- [🧪 Cultural adaptation and sensitivity](#-cultural-adaptation-and-sensitivity)
-- [⚙️ Tooling and automation](#-tooling-and-automation)
-- [📌 Applying global writing to this repository](#-applying-global-writing-to-this-repository)
-- [✅ Conclusion](#-conclusion)
-- [📚 References](#-references)
+- [Introduction 🎯](#introduction)
+- [Key terminology 📋](#key-terminology)
+- [Why global-ready writing matters 🌍](#why-global-ready-writing-matters)
+- [Global-ready language patterns ✍️](#global-ready-language-patterns)
+- [What to avoid 🚫](#what-to-avoid)
+- [Formatting for global audiences 📐](#formatting-for-global-audiences)
+- [Translation-friendly documentation 🔄](#translation-friendly-documentation)
+- [Cultural adaptation and sensitivity 🧪](#cultural-adaptation-and-sensitivity)
+- [Tooling and automation ⚙️](#tooling-and-automation)
+- [Applying global writing to this repository 📌](#applying-global-writing-to-this-repository)
+- [Conclusion ✅](#conclusion)
+- [References 📚](#references)
 
-## 🎯 Introduction
+## Introduction 🎯
 
 Over 1 billion people speak English as a second language. Many of your readers process technical documentation in a language that isn't their first—and some read machine-translated versions. Writing that works only for native English speakers fails a significant portion of your audience.
 
@@ -44,7 +44,7 @@ This article consolidates <mark>internationalization</mark> (i18n), <mark>locali
 
 **Prerequisites:** Familiarity with [writing style principles](01-writing-style-and-voice-principles.md) and [accessibility in technical writing](03-accessibility-in-technical-writing.md) provides useful context.
 
-## 📋 Key terminology
+## Key terminology 📋
 
 Before diving in, let's clarify three terms that are often confused:
 
@@ -56,7 +56,7 @@ Before diving in, let's clarify three terms that are often confused:
 
 **The relationship:** Internationalization makes localization possible. Localization includes translation but also covers cultural adaptation. Good technical writing practices make all three easier.
 
-## 🌍 Why global-ready writing matters
+## Why global-ready writing matters 🌍
 
 ### The business case
 
@@ -86,7 +86,7 @@ Global-ready writing isn't just for content that *will* be translated. It helps:
 - **Human translators** — Less ambiguity means faster, more accurate work
 - **Native English readers** — Simpler, more direct writing is better writing for everyone
 
-## ✍️ Global-ready language patterns
+## Global-ready language patterns ✍️
 
 These patterns make your documentation clearer for all readers and significantly easier to translate.
 
@@ -177,7 +177,7 @@ In translation-friendly writing, strategic repetition is better than ambiguous c
 | Start the profiler, then run the app. | Start the profiler, and then run the app. |
 | If the VM started and you're able to connect... | If the VM has started and if you're able to connect... |
 
-## 🚫 What to avoid
+## What to avoid 🚫
 
 ### Idioms and colloquialisms
 
@@ -217,7 +217,7 @@ Don't assume shared cultural knowledge:
 
 Terms like "gonna," "wanna," "gotta," "kinda," and "ain't" confuse non-native speakers and machine translation. Contractions like "it's," "don't," and "you'll" are fine (Microsoft style requires them), but informal contractions that merge words nonstandard-ly should be avoided.
 
-## 📐 Formatting for global audiences
+## Formatting for global audiences 📐
 
 ### Dates and times
 
@@ -281,7 +281,7 @@ Use the international format with country code:
 - ✅ "+1 (425) 555-0100"
 - ❌ "(425) 555-0100" (assumes US)
 
-## 🔄 Translation-friendly documentation
+## Translation-friendly documentation 🔄
 
 ### How translation workflows work
 
@@ -346,7 +346,7 @@ AI tools can help with translation workflows, but they require careful oversight
 
 For more on AI-assisted documentation workflows, see [AI-enhanced documentation writing](07-ai-enhanced-documentation-writing.md).
 
-## 🧪 Cultural adaptation and sensitivity
+## Cultural adaptation and sensitivity 🧪
 
 ### Beyond language: cultural dimensions
 
@@ -387,7 +387,7 @@ Don't rely on color alone to convey meaning (this is also an [accessibility requ
 
 Symbols can have different meanings in different cultures—when in doubt, pair them with text labels.
 
-## ⚙️ Tooling and automation
+## Tooling and automation ⚙️
 
 ### Linting for global-readiness
 
@@ -450,7 +450,7 @@ If you use machine translation, evaluate quality with:
 - **Back-translation** — Translate MT output back to source language and compare (quick check)
 - **Task-based testing** — Can readers complete tasks using the translated documentation? (gold standard)
 
-## 📌 Applying global writing to this repository
+## Applying global writing to this repository 📌
 
 This repository follows several global-ready conventions already—and has room to improve.
 
@@ -482,7 +482,7 @@ Several articles in this series cover related topics from different angles:
 | [08 — Consistency](08-consistency-standards-and-enforcement.md) | Terminology glossaries; consistent naming across documents |
 | [MS 02 — Mechanics](microsoft-writing-style-guide/02-microsoft-mechanics-and-formatting.md) | Global-ready writing rules; date/time formatting; idiom avoidance |
 
-## ✅ Conclusion
+## Conclusion ✅
 
 Global-ready writing isn't a separate skill—it's a refinement of good writing practices. Clear sentences, explicit grammar, consistent terminology, and cultural awareness make documentation better for *all* readers, not just international ones.
 
@@ -501,7 +501,7 @@ Global-ready writing isn't a separate skill—it's a refinement of good writing 
 - **Related:** [03-accessibility-in-technical-writing.md](03-accessibility-in-technical-writing.md) — Plain language and cognitive accessibility
 - **Related:** [01-writing-style-and-voice-principles.md](01-writing-style-and-voice-principles.md) — Sentence structure and readability fundamentals
 
-## 📚 References
+## References 📚
 
 ### Official documentation
 

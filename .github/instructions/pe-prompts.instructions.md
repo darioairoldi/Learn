@@ -23,7 +23,7 @@ Prompt files are **reusable, plan-level workflows** for common development tasks
 
 **CRITICAL** — block on failure:
 - **[C4]** Handoff targets: every `agent:` in `handoffs:` resolves to existing file
-- **[C6]** YAML frontmatter: name, description, agent mode, tools, goal, scope, boundaries, version required
+- **[C6]** YAML frontmatter: name, description, agent mode, tools, goal, scope, boundaries, version, **domain** required
 - **[C7]** Top YAML never modified: validation prompts MUST NOT touch article YAML
 
 **HIGH** — fix before use:
@@ -45,6 +45,7 @@ name: prompt-file-name
 description: "One-sentence description"
 agent: plan  # or: agent
 model: claude-opus-4.6
+domain: "prompt-engineering"  # REQUIRED — single scalar; identifies the semantic domain the prompt targets (see 00.03-metadata-contracts.md § domain: field semantics)
 tools:
   - read_file
   - grep_search
@@ -65,7 +66,7 @@ tools:
 
 ## Quality Checklist
 
-- [ ] YAML: name, description, agent mode, tools present (C6)
+- [ ] YAML: name, description, agent mode, tools, domain present (C6)
 - [ ] Handoff targets resolve to existing agents (C4)
 - [ ] Purpose and workflow steps defined (H9)
 - [ ] Multi-phase prompts use summarization (M3)

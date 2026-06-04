@@ -83,7 +83,7 @@ You are a **quality assurance specialist** focused on validating agent files for
 
 ## Validation Checklist
 
-### 0. Metadata Contract Validation (R-S1-metadata-driven)
+### 0. Metadata Contract Validation (metadata-driven)
 
 ```markdown
 | Check | Pass Criteria | Severity |
