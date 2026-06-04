@@ -1,0 +1,576 @@
+<!-- ==========================================================================
+     Runtime Bootswatch theme switcher (article §4)
+     ==========================================================================
+     Adds a client-side theme picker (25 Bootswatch themes) to the navbar,
+     layered ON TOP of Quarto's own light/dark toggle and persisted in
+     localStorage. Independent of the two static (cosmo light / cosmo dark)
+     themes compiled by Quarto.
+
+     Responsibilities:
+       - Maintain a THEMES table (name, mode, primary, bg, fg, border + pair).
+       - Inject a <link> to the chosen Bootswatch CSS from jsDelivr.
+       - Neutralise the Learning Hub custom CSS (styles.css) so the chosen
+         theme renders pristine.
+       - Re-apply dark styling for dark Bootswatch themes (sidebar/highlights),
+         using the selected theme's own bg/fg/border.
+       - Fix navbar dropdown contrast under Bootstrap 5.3.
+       - Sync with Quarto's native dark toggle via a MutationObserver.
+       - Apply the saved theme in <head> before paint to minimise FOUC.
+     ========================================================================== -->
+<style id="ds-switcher-base">
+  /* Theme picker dropdown styling */
+  .ds-theme-menu {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .ds-theme-menu .dropdown-item.active,
+  .ds-theme-menu .dropdown-item:active {
+    font-weight: 600;
+  }
+
+  .ds-theme-dot {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  /* Nested submenu support inside the About dropdown (Bootstrap 5 ships none). */
+  .dropdown-submenu {
+    position: relative;
+  }
+
+  .dropdown-submenu>.dropdown-toggle::after {
+    content: "\25B8";
+    border: none;
+    float: right;
+    margin-top: 2px;
+    margin-left: 8px;
+    vertical-align: 0;
+  }
+
+  .dropdown-submenu>.ds-submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    left: auto;
+    margin-top: -1px;
+    max-height: 70vh;
+    overflow-y: auto;
+    min-width: 240px;
+    z-index: 1100;
+  }
+
+  .dropdown-submenu.show>.ds-submenu {
+    display: block;
+  }
+
+  @media (max-width: 767.98px) {
+    .dropdown-submenu>.ds-submenu {
+      position: static;
+      box-shadow: none;
+      border: none;
+      padding-left: 1rem;
+      max-height: none;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    "use strict";
+
+    // The 25 Bootswatch 5.3.3 themes with their mode + key colors.
+    // `pair` = the opposite-mode sibling used when the native toggle flips.
+    var THEMES = [
+      { name: "default", label: "Default (Quarto)", mode: "light", primary: "#2780e3", bg: "#ffffff", fg: "#373a3c", border: "#dee2e6", pair: "darkly" },
+      { name: "cerulean", mode: "light", primary: "#2fa4e7", bg: "#ffffff", fg: "#495057", border: "#dee2e6", pair: "darkly" },
+      { name: "cosmo", mode: "light", primary: "#2780e3", bg: "#ffffff", fg: "#373a3c", border: "#dee2e6", pair: "darkly" },
+      { name: "cyborg", mode: "dark", primary: "#2a9fd6", bg: "#060606", fg: "#adafae", border: "#282828", pair: "flatly" },
+      { name: "darkly", mode: "dark", primary: "#375a7f", bg: "#222222", fg: "#e9ecef", border: "#444444", pair: "flatly" },
+      { name: "flatly", mode: "light", primary: "#2c3e50", bg: "#ffffff", fg: "#212529", border: "#dee2e6", pair: "darkly" },
+      { name: "journal", mode: "light", primary: "#eb6864", bg: "#ffffff", fg: "#222222", border: "#dee2e6", pair: "darkly" },
+      { name: "litera", mode: "light", primary: "#4582ec", bg: "#ffffff", fg: "#212529", border: "#dee2e6", pair: "darkly" },
+      { name: "lumen", mode: "light", primary: "#158cba", bg: "#ffffff", fg: "#555555", border: "#dee2e6", pair: "darkly" },
+      { name: "lux", mode: "light", primary: "#1a1a1a", bg: "#ffffff", fg: "#55595c", border: "#dee2e6", pair: "darkly" },
+      { name: "materia", mode: "light", primary: "#2196f3", bg: "#ffffff", fg: "#212529", border: "#dee2e6", pair: "darkly" },
+      { name: "minty", mode: "light", primary: "#78c2ad", bg: "#ffffff", fg: "#888888", border: "#dee2e6", pair: "darkly" },
+      { name: "morph", mode: "light", primary: "#378dfc", bg: "#e8eaf1", fg: "#54595f", border: "#d4d7e0", pair: "darkly" },
+      { name: "pulse", mode: "light", primary: "#593196", bg: "#ffffff", fg: "#444444", border: "#dee2e6", pair: "darkly" },
+      { name: "quartz", mode: "dark", primary: "#e83283", bg: "#1a1a2e", fg: "#ffffff", border: "#3a3a5a", pair: "flatly" },
+      { name: "sandstone", mode: "light", primary: "#325d88", bg: "#ffffff", fg: "#3e3f3a", border: "#dee2e6", pair: "darkly" },
+      { name: "simplex", mode: "light", primary: "#d9230f", bg: "#ffffff", fg: "#212529", border: "#dee2e6", pair: "darkly" },
+      { name: "sketchy", mode: "light", primary: "#333333", bg: "#ffffff", fg: "#212529", border: "#dee2e6", pair: "darkly" },
+      { name: "slate", mode: "dark", primary: "#3a3f44", bg: "#272b30", fg: "#aaaaaa", border: "#1c1e22", pair: "flatly" },
+      { name: "solar", mode: "dark", primary: "#b58900", bg: "#002b36", fg: "#839496", border: "#073642", pair: "flatly" },
+      { name: "spacelab", mode: "light", primary: "#446e9b", bg: "#ffffff", fg: "#495057", border: "#dee2e6", pair: "darkly" },
+      { name: "superhero", mode: "dark", primary: "#df691a", bg: "#0f2537", fg: "#ebebeb", border: "#1a3a52", pair: "flatly" },
+      { name: "united", mode: "light", primary: "#e95420", bg: "#ffffff", fg: "#212529", border: "#dee2e6", pair: "darkly" },
+      { name: "vapor", mode: "dark", primary: "#6f42c1", bg: "#1a0933", fg: "#e0d6f5", border: "#44318d", pair: "flatly" },
+      { name: "yeti", mode: "light", primary: "#008cba", bg: "#ffffff", fg: "#222222", border: "#dee2e6", pair: "darkly" },
+      { name: "zephyr", mode: "light", primary: "#3459e6", bg: "#ffffff", fg: "#212529", border: "#dee2e6", pair: "darkly" }
+    ];
+
+    var STORAGE_KEY = "ds-bootswatch-theme";
+    var CDN = "https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/";
+    // Custom CSS files that must be neutralised when a non-default theme is active.
+    var CUSTOM_CSS_RE = /styles\.css(\?|$)/;
+
+    function themeByName(name) {
+      for (var i = 0; i < THEMES.length; i++) {
+        if (THEMES[i].name === name) return THEMES[i];
+      }
+      return THEMES[0];
+    }
+
+    function getSaved() {
+      try { return localStorage.getItem(STORAGE_KEY) || "default"; }
+      catch (e) { return "default"; }
+    }
+
+    function setSaved(name) {
+      try { localStorage.setItem(STORAGE_KEY, name); } catch (e) { }
+    }
+
+    // --- Bootswatch <link> -------------------------------------------------
+    function setBootswatchLink(theme) {
+      var link = document.getElementById("ds-bootswatch");
+      if (theme.name === "default") {
+        if (link) link.parentNode.removeChild(link);
+        return;
+      }
+      if (!link) {
+        link = document.createElement("link");
+        link.id = "ds-bootswatch";
+        link.rel = "stylesheet";
+        // Place after the head so it wins over the compiled Quarto theme bundle.
+        document.head.appendChild(link);
+      }
+      link.href = CDN + theme.name + "/bootstrap.min.css";
+    }
+
+    // --- Neutralise Learning Hub custom CSS --------------------------------
+    function toggleCustomCss(disabled) {
+      var links = document.querySelectorAll('link[rel="stylesheet"]');
+      for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute("href") || "";
+        if (CUSTOM_CSS_RE.test(href)) {
+          links[i].disabled = disabled;
+          links[i].media = disabled ? "not all" : "all";
+        }
+      }
+    }
+
+    // --- Re-apply dark styling for dark Bootswatch themes ------------------
+    // Disabling styles.css removes the body.quarto-dark sidebar/highlight rules,
+    // so re-emit equivalent rules using the selected theme's own colors.
+    function applyDarkOverride(theme) {
+      var styleEl = document.getElementById("ds-dark-override");
+      if (theme.name === "default" || theme.mode !== "dark") {
+        if (styleEl) styleEl.parentNode.removeChild(styleEl);
+        return;
+      }
+      if (!styleEl) {
+        styleEl = document.createElement("style");
+        styleEl.id = "ds-dark-override";
+        document.head.appendChild(styleEl);
+      }
+      var surface = theme.bg;
+      var text = theme.fg;
+      var border = theme.border;
+      styleEl.textContent =
+        "#quarto-sidebar { background-color: " + surface + " !important; border-color: " + border + " !important; }" +
+        "#quarto-sidebar .sidebar-item a, #quarto-sidebar .sidebar-item-text { color: " + text + " !important; }" +
+        "#quarto-sidebar .sidebar-item a:hover, #quarto-sidebar .sidebar-item a.active, " +
+        "#quarto-sidebar .sidebar-item-text:hover, #quarto-sidebar .sidebar-item-text.active { color: #fff !important; }" +
+        "mark, .mark { background-color: #4d3f17 !important; color: #ffe9a6 !important; }";
+    }
+
+    // --- Neutralise the SCSS-baked Learning Hub customizations -------------
+    // theme-light.scss bakes the orange navbar ($navbar-bg) and the yellow
+    // .alert-primary banner straight into Quarto's compiled theme bundle, so
+    // disabling styles.css cannot remove them. For any non-default theme,
+    // reset the navbar to the selected theme's own primary and restore the
+    // standard Bootstrap banner colors, so the theme renders pristine. Pass
+    // null (default theme) to clear the override and keep the custom colors.
+    function setThemeOverride(theme) {
+      var styleEl = document.getElementById("ds-theme-override");
+      if (!theme) {
+        if (styleEl) styleEl.parentNode.removeChild(styleEl);
+        return;
+      }
+      if (!styleEl) {
+        styleEl = document.createElement("style");
+        styleEl.id = "ds-theme-override";
+        document.head.appendChild(styleEl);
+      }
+      styleEl.textContent =
+        ".navbar { background-color: " + theme.primary + " !important; }" +
+        ".alert-primary {" +
+        "background-color: var(--bs-primary-bg-subtle) !important;" +
+        "color: var(--bs-primary-text-emphasis) !important;" +
+        "border-color: var(--bs-primary-border-subtle) !important;" +
+        "}";
+    }
+
+    // --- Fix navbar dropdown contrast (Bootstrap 5.3) ----------------------
+    // Quarto's navbar carries data-bs-theme="dark"; under a light theme the
+    // dropdown menus inherit it and turn black. Scope each navbar dropdown to
+    // the selected theme's own mode.
+    function applyMenuTheme(theme) {
+      var menus = document.querySelectorAll(".navbar .dropdown-menu, .navbar [data-bs-theme]");
+      for (var i = 0; i < menus.length; i++) {
+        menus[i].setAttribute("data-bs-theme", theme.mode);
+      }
+    }
+
+    // --- Apply a theme -----------------------------------------------------
+    function applyTheme(name, persist) {
+      var theme = themeByName(name);
+      var isCustom = theme.name !== "default";
+      setBootswatchLink(theme);
+      toggleCustomCss(isCustom);
+      applyDarkOverride(theme);
+      setThemeOverride(isCustom ? theme : null);
+      applyMenuTheme(theme);
+      // Keep Bootstrap's component scope in sync with the chosen mode.
+      document.documentElement.setAttribute("data-bs-theme", theme.mode);
+      if (persist) setSaved(theme.name);
+      markActive(theme.name);
+    }
+
+    function markActive(name) {
+      var items = document.querySelectorAll(".ds-theme-menu .dropdown-item");
+      for (var i = 0; i < items.length; i++) {
+        items[i].classList.toggle("active", items[i].getAttribute("data-theme") === name);
+      }
+    }
+
+    // Apply saved theme as early as possible (before paint) to minimise FOUC.
+    applyTheme(getSaved(), false);
+
+    // --- Build the About-menu theme controls + observers (once DOM ready) --
+    function whenReady() {
+      injectMenu();
+      applyTheme(getSaved(), false); // re-apply now that body-end links exist
+      observeNativeToggle();
+    }
+
+    // Swap to the opposite-mode sibling of the active theme (or sensible default).
+    function toggleMode() {
+      var current = themeByName(getSaved());
+      var next;
+      if (current.name === "default") {
+        next = "darkly"; // leaving the default light theme -> a dark theme
+      } else {
+        next = themeByName(current.pair).name;
+      }
+      applyTheme(next, true);
+    }
+
+    // Clear the saved theme and restore the site default (custom yellow navbar).
+    function resetTheme() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) { }
+      applyTheme("default", false);
+    }
+
+    // Build the scrollable list of all themes (used as the Theme submenu).
+    function buildThemeSubmenu() {
+      var ul = document.createElement("ul");
+      ul.className = "dropdown-menu ds-submenu ds-theme-menu";
+      for (var i = 0; i < THEMES.length; i++) {
+        var t = THEMES[i];
+        var liItem = document.createElement("li");
+        var item = document.createElement("a");
+        item.className = "dropdown-item";
+        item.href = "#";
+        item.setAttribute("data-theme", t.name);
+        var label = t.label || (t.name.charAt(0).toUpperCase() + t.name.slice(1));
+        item.innerHTML = '<span class="ds-theme-dot" style="background:' + t.primary + '"></span>' +
+          label + ' <small class="text-muted">(' + t.mode + ')</small>';
+        item.addEventListener("click", (function (name) {
+          return function (ev) { ev.preventDefault(); applyTheme(name, true); };
+        })(t.name));
+        liItem.appendChild(item);
+        ul.appendChild(liItem);
+      }
+      return ul;
+    }
+
+    // Locate the navbar "About" dropdown's <ul> menu.
+    function findAboutMenu() {
+      var toggles = document.querySelectorAll(".navbar .nav-item.dropdown > .nav-link.dropdown-toggle");
+      for (var i = 0; i < toggles.length; i++) {
+        if ((toggles[i].textContent || "").trim().toLowerCase() === "about") {
+          return toggles[i].parentElement.querySelector(".dropdown-menu");
+        }
+      }
+      return null;
+    }
+
+    // Append: divider, Theme submenu, Toggle light/dark, Reset theme.
+    function injectMenu() {
+      var menu = findAboutMenu();
+      if (!menu || menu.querySelector("[data-ds-theme-root]")) return false;
+
+      var divider = document.createElement("li");
+      divider.innerHTML = '<hr class="dropdown-divider">';
+      menu.appendChild(divider);
+
+      var themeLi = document.createElement("li");
+      themeLi.className = "dropdown-submenu";
+      themeLi.setAttribute("data-ds-theme-root", "");
+      var themeLink = document.createElement("a");
+      themeLink.className = "dropdown-item dropdown-toggle";
+      themeLink.href = "#";
+      themeLink.textContent = "Theme";
+      themeLink.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        themeLi.classList.toggle("show");
+      });
+      themeLi.appendChild(themeLink);
+      themeLi.appendChild(buildThemeSubmenu());
+      menu.appendChild(themeLi);
+
+      var toggleLi = document.createElement("li");
+      var toggleA = document.createElement("a");
+      toggleA.className = "dropdown-item";
+      toggleA.href = "#";
+      toggleA.textContent = "Toggle light / dark";
+      toggleA.addEventListener("click", function (ev) { ev.preventDefault(); toggleMode(); });
+      toggleLi.appendChild(toggleA);
+      menu.appendChild(toggleLi);
+
+      var resetLi = document.createElement("li");
+      var resetA = document.createElement("a");
+      resetA.className = "dropdown-item";
+      resetA.href = "#";
+      resetA.textContent = "Reset theme";
+      resetA.addEventListener("click", function (ev) { ev.preventDefault(); resetTheme(); });
+      resetLi.appendChild(resetA);
+      menu.appendChild(resetLi);
+
+      markActive(getSaved());
+      return true;
+    }
+
+    // Close any open submenu when clicking elsewhere.
+    document.addEventListener("click", function (ev) {
+      var open = document.querySelectorAll(".dropdown-submenu.show");
+      for (var i = 0; i < open.length; i++) {
+        if (!open[i].contains(ev.target)) open[i].classList.remove("show");
+      }
+    });
+
+    // --- Sync with Quarto's native dark toggle -----------------------------
+    function observeNativeToggle() {
+      var observer = new MutationObserver(function () {
+        var saved = themeByName(getSaved());
+        if (saved.name === "default") return; // native toggle owns the default theme
+        var nativeDark = document.body.classList.contains("quarto-dark");
+        // If the user flipped the native toggle while a custom theme is active,
+        // swap the custom theme to its opposite-mode pair.
+        if (nativeDark && saved.mode === "light") {
+          applyTheme(saved.pair, true);
+        } else if (!nativeDark && saved.mode === "dark") {
+          applyTheme(saved.pair, true);
+        }
+      });
+      observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", whenReady);
+    } else {
+      whenReady();
+    }
+  })();
+</script>
+
+<!-- ==========================================================================
+     Full-width layout + resizable left navigation sidebar
+     ==========================================================================
+     1. Re-flows the docked page grid so the body column fills the viewport
+        (minmax(0, 1fr)) instead of being capped at a fixed body-width, and
+        drives the navigation column from a CSS variable (--ds-sidebar-width).
+     2. Adds a draggable col-resize handle on the sidebar's right edge; the
+        chosen width is clamped, persisted in localStorage, and restored on
+        load. Double-click the handle to reset to the default width.
+     Requires the sidebar to be docked (website.sidebar.style: docked).
+     ========================================================================== -->
+<style>
+  @media (min-width: 992px) {
+
+    /* Re-flow the docked page grid so the navigation column follows a CSS
+       variable and the body content fills the remaining width. !important
+       wins over Quarto's per-layout variants (docked, docked.fullcontent,
+       docked.slimcontent, docked.listing) regardless of their higher
+       selector specificity. */
+    body.docked .page-columns {
+      grid-template-columns:
+        [screen-start] 1.5em [screen-start-inset] var(--ds-sidebar-width, 300px) [page-start page-start-inset body-start-outset body-start] 1.5em [body-content-start] minmax(0, 1fr) [body-content-end] 1.5em [body-end body-end-outset page-end-inset page-end] minmax(0, 280px) [screen-end-inset] 1.5em [screen-end] !important;
+    }
+
+    .ds-sidebar-resizer {
+      position: fixed;
+      width: 10px;
+      margin-left: -5px;
+      cursor: col-resize;
+      z-index: 1056;
+      background: transparent;
+      touch-action: none;
+    }
+
+    .ds-sidebar-resizer::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 5px;
+      width: 1px;
+      background: var(--bs-border-color, #dee2e6);
+      transition: background-color .15s ease, width .15s ease, left .15s ease;
+    }
+
+    .ds-sidebar-resizer:hover::after,
+    .ds-sidebar-resizer.ds-dragging::after {
+      width: 3px;
+      left: 4px;
+      background: var(--bs-primary, #2780e3);
+    }
+
+    /* Suppress the sidebar's width transition while dragging so it tracks the
+       pointer instantly instead of easing behind it. */
+    body.ds-sidebar-resizing {
+      cursor: col-resize;
+      user-select: none;
+    }
+
+    body.ds-sidebar-resizing #quarto-sidebar {
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .ds-sidebar-resizer {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    "use strict";
+
+    var KEY = "ds-sidebar-width";
+    var MIN = 150;
+    var MAX = 600;
+    var DEFAULT = 300;
+    var root = document.documentElement;
+
+    function readWidth() {
+      try {
+        var v = parseInt(localStorage.getItem(KEY), 10);
+        return isNaN(v) ? null : v;
+      } catch (e) { return null; }
+    }
+    function writeWidth(px) {
+      try { localStorage.setItem(KEY, String(px)); } catch (e) { /* private mode */ }
+    }
+    function clearWidth() {
+      try { localStorage.removeItem(KEY); } catch (e) { /* private mode */ }
+    }
+    function clamp(v) { return Math.max(MIN, Math.min(MAX, v)); }
+    function applyWidth(px) { root.style.setProperty("--ds-sidebar-width", px + "px"); }
+    function currentVar() {
+      var v = parseFloat(getComputedStyle(root).getPropertyValue("--ds-sidebar-width"));
+      return isNaN(v) ? DEFAULT : v;
+    }
+
+    // Restore the saved width ASAP to minimise layout flashing.
+    var saved = readWidth();
+    if (saved) applyWidth(clamp(saved));
+
+    function setup() {
+      var sidebar = document.getElementById("quarto-sidebar");
+      if (!sidebar) return false;
+      if (document.querySelector(".ds-sidebar-resizer")) return true;
+
+      var handle = document.createElement("div");
+      handle.className = "ds-sidebar-resizer";
+      handle.setAttribute("role", "separator");
+      handle.setAttribute("aria-orientation", "vertical");
+      handle.title = "Drag to resize the navigation. Double-click to reset.";
+      document.body.appendChild(handle);
+
+      function reposition() {
+        var r = sidebar.getBoundingClientRect();
+        // Hidden / collapsed (mobile) — let CSS media query handle visibility.
+        handle.style.left = r.right + "px";
+        handle.style.top = r.top + "px";
+        handle.style.height = Math.max(0, window.innerHeight - r.top) + "px";
+      }
+
+      var dragging = false;
+      var startLeft = 0;
+      var pad = 0; // non-variable part of the sidebar (left gutter)
+
+      function onMove(e) {
+        if (!dragging) return;
+        var w = clamp(Math.round(e.clientX - startLeft - pad));
+        applyWidth(w);
+        reposition();
+        e.preventDefault();
+      }
+      function onUp() {
+        if (!dragging) return;
+        dragging = false;
+        handle.classList.remove("ds-dragging");
+        document.body.classList.remove("ds-sidebar-resizing");
+        window.removeEventListener("pointermove", onMove);
+        window.removeEventListener("pointerup", onUp);
+        writeWidth(Math.round(currentVar()));
+        reposition();
+      }
+      handle.addEventListener("pointerdown", function (e) {
+        var rect = sidebar.getBoundingClientRect();
+        startLeft = rect.left;
+        pad = rect.width - currentVar(); // measured left gutter (~1.5em)
+        dragging = true;
+        handle.classList.add("ds-dragging");
+        document.body.classList.add("ds-sidebar-resizing");
+        window.addEventListener("pointermove", onMove);
+        window.addEventListener("pointerup", onUp);
+        e.preventDefault();
+      });
+      handle.addEventListener("dblclick", function () {
+        root.style.removeProperty("--ds-sidebar-width");
+        clearWidth();
+        reposition();
+      });
+
+      window.addEventListener("resize", reposition);
+      window.addEventListener("scroll", reposition, true);
+      reposition();
+      return true;
+    }
+
+    function whenReady() {
+      if (setup()) return;
+      var obs = new MutationObserver(function () { if (setup()) obs.disconnect(); });
+      obs.observe(document.documentElement, { childList: true, subtree: true });
+      setTimeout(function () { obs.disconnect(); }, 10000);
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", whenReady);
+    } else {
+      whenReady();
+    }
+  })();
+</script>
