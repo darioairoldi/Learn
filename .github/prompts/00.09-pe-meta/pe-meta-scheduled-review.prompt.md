@@ -19,8 +19,8 @@ handoffs:
 agents: ['*']
 argument-hint: 'Optional: "--scope context|agents|prompts|instructions|skills|hooks|snippets|templates [bundle=accept]" to limit review. Default: auto-detect stale areas.'
 goal: "Detect stale PE artifacts and run scoped health reviews with minimal cognitive load"
-version: "2.2.0"
-last_updated: "2026-05-31"
+version: "2.3.0"
+last_updated: "2026-06-04"
 scope:
   covers:
     - "Staleness detection via last_updated dates and review log"
@@ -48,7 +48,7 @@ rationales:
 
 Lightweight periodic review optimized for weekly execution. Detects what's stale → audits only stale areas → proposes fixes → updates the review log.
 
-> **v15.2 alignment.** This prompt rejects `--mode` and is **exempt** from the § Iteration budget spillover contract (vision v15.2 § Iteration budget item #5 — assessment-only / scheduled families do not emit a `spillover=` marker). It proposes fixes (Phase 3) and applies low-risk ones (Phase 4) within its own bounded scan, not via the autonomous per-cycle change cap, so no spillover plan is produced.
+> **v15.4 alignment.** This prompt rejects `--mode` and is therefore **exempt** from the vision v15.4 `apply = plan + execute` contract and the eighth canonical parameter `--plan-file` (applicability matrix: `--plan-file` ❌ for the Scheduled family). It is likewise **exempt** from the § Iteration budget checkpoint contract — assessment-only / scheduled families do not materialize an apply-pipeline plan or emit a `spillover=` marker. It proposes fixes (Phase 3) and applies low-risk ones (Phase 4) within its own bounded scan, not via the autonomous per-cycle change cap, so no plan artifact is produced.
 
 **Design principle**: Minimal user input. Run `/pe-meta-scheduled-review` with no arguments for a full auto-detected review, or add `--scope <type>` to focus on one artifact type.
 

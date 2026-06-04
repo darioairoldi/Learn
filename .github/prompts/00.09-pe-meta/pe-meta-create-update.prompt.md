@@ -21,9 +21,9 @@ handoffs:
   - label: "Ecosystem Coherence"
     agent: pe-meta-validator
     send: true
-argument-hint: '<artifact-type> <file-path-or-description> [bundle=accept] — e.g., "agent .github/agents/00.09-pe-meta/pe-meta-optimizer.agent.md" or "context file for category enforcement patterns"'
-version: "2.2.0"
-last_updated: "2026-05-31"
+argument-hint: '<artifact-type> <file-path-or-description> [--plan-file <path>] [bundle=accept] — e.g., "agent .github/agents/00.09-pe-meta/pe-meta-optimizer.agent.md" or "context file for category enforcement patterns"'
+version: "2.3.0"
+last_updated: "2026-06-04"
 goal: "Create or update PE-for-PE artifacts with strategic pre-change guards, category compliance enforcement, and post-change metadata reconciliation"
 scope:
   covers:
@@ -45,6 +45,9 @@ boundaries:
   - "Phase 0b is NOT skippable; --skip domain-coherence is rejected with CF-05; Phase 0b runs on the resolved file set BEFORE building or delegating"
   - "bundle=accept is the ONLY valid consent token (closed set); recorded on first-line `Resolved invocation:` log"
   - "Phase 0a CF-05 artifact-type/path consistency does NOT apply at this orchestrator-level layer (artifact-type is supplied as the first positional argument and validated by dispatch table); enforced by per-artifact prompts when delegated"
+  - "`apply = plan + execute` (vision v15.4): this prompt materializes a build/change plan (pre-change guard + category + build spec) then executes it via pe-con-builder. CREATE has no baseline (fresh mode); UPDATE reconciles against the existing artifact's metadata (escalate-not-overwrite human-authored decisions)"
+  - "`--plan-file <path>` (vision v15.4) sets plan location/identity ONLY and never decides regenerate-vs-trust; a same-conversation just-generated plan is an implicit baseline. Default auto-name path — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)"
+  - "Model-routing seam (vision v15.4): the plan/reconcile step runs on the reasoning-grade `model:` declared here; delegated execution (pe-con-builder) carries its own standard-grade `model:` — no mid-prompt switching"
 rationales:
   - "Skipping research for speed when requirements are already known, but NOT skipping strategic guards"
   - "Pre-change guards prevent drift from vision alignment during updates"
@@ -62,6 +65,8 @@ Create new or update existing PE artifacts that serve the PE system. Skips resea
 **When to use this vs `/pe-meta-design`:**
 - This prompt → requirements are already clear, you know what to build/change
 - `/pe-meta-design` → uncertain requirements, need research and use case challenge
+
+> **v15.4 alignment.** This prompt honors the vision v15.4 **`apply = plan + execute`** contract: it materializes a build/change plan (pre-change guard, category compliance, build spec) and then executes it. CREATE runs in **fresh** mode (no baseline); UPDATE **reconciles** against the existing artifact (escalate-not-overwrite human-authored decisions). `--plan-file <path>` (the eighth canonical parameter) sets plan location/identity ONLY and never decides regenerate-vs-trust — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md). The model-routing seam keeps plan/reconcile on this prompt's reasoning-grade model while delegated execution (pe-con-builder) carries its own standard-grade `model:`.
 
 ## Phase 0b — Domain coherence
 

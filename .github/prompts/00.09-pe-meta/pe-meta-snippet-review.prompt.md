@@ -27,7 +27,7 @@ rationales:
 
 # Snippet Review
 
-> **v15.2 alignment.** This prompt honors vision v15.2 § Plan-mode output contract (every `--mode plan` invocation emits an actionable plan file on disk — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)) and § Iteration budget (every `--mode apply` invocation that hits the per-cycle change cap emits a spillover plan — see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)). The first-line `Resolved invocation:` log echoes `plan-file=<path-or-none>` and `spillover=<path-or-none>` markers.
+> **v15.4 alignment.** This prompt honors the vision v15.4 **`apply = plan + execute`** contract: every `--mode apply` run first materializes/reconciles a plan, then executes it; `--mode plan` materializes the same plan and stops (see § Plan output contract and [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)). The eighth canonical parameter **`--plan-file`** sets plan location/identity only; the **fresh / reconcile / trust** execution modes follow from (baseline-available? × research-runs?), and the § Iteration budget checkpoint (see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)) emits a plan with a `trust`-mode resume when a run hits the per-cycle change cap. The first-line `Resolved invocation:` log echoes `plan-file=<path-or-none>` and `spillover=<path-or-none>` markers.
 
 ## Phase 0a CF-05 + Phase 0b — Invocation gates
 

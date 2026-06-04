@@ -2,6 +2,8 @@
 
 The orchestrator enforces a per-cycle change cap to bound cost and blast radius. When the cap is hit mid-run, a spillover plan file MUST be emitted so the next cycle can resume without re-investigation.
 
+> **Spillover is a special case of the always-plan checkpoint, not a bolt-on.** Every mutating run already materializes a plan (see [pe-meta-plan-file-contract.md](pe-meta-plan-file-contract.md) § Plan output contract). Overflow simply emits the *remaining-but-unapplied* slice as its own plan and resumes it next cycle. The resume is a **trust-mode** consumption of that spillover plan (baseline available via `original-run=`, research skipped), drift-guarded per the cross-run rule.
+
 ### 1. Budget rule
 
 - **Default cap:** 10 autonomous changes per cycle (configurable).
@@ -28,7 +30,7 @@ One goal-table row per remaining-but-unapplied validated finding carrying:
 - `scope tag`
 - `principle impact`
 - `downstream landing`
-- `original-run=<plan-file-or-run-id>` — linkage so the next cycle can resume context without re-investigating.
+- `original-run=<plan-file-or-run-id>` — linkage so the next cycle can resume context without re-investigating. The next cycle consumes the spillover plan in **trust** mode (baseline available, `--skip research`), subject to the cross-run drift guard.
 
 ### 5. First-line marker
 
@@ -44,4 +46,5 @@ Linter rejects reports that omit the marker on overflow runs (vision success cri
 ### 6. Forward references
 
 - Vision § Iteration budget — authoritative rule.
-- Vision § Plan-mode output contract — shares the same path algorithm.
+- Vision § Plan output contract — shares the same path algorithm; spillover is a special case of the always-plan checkpoint.
+- Vision § Plan execution modes — the spillover resume is a trust-mode consumption.

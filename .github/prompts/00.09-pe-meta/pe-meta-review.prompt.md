@@ -24,9 +24,9 @@ handoffs:
   - label: "Optimize (--mode apply, complex findings)"
     agent: pe-meta-optimizer
     send: true
-argument-hint: '<file-path> [--mode plan|apply] [bundle=accept] — e.g., ".github/agents/00.09-pe-meta/pe-meta-validator.agent.md" or ".copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md"'
-version: "2.2.0"
-last_updated: "2026-05-31"
+argument-hint: '<file-path> [--mode plan|apply] [--plan-file <path>] [bundle=accept] — e.g., ".github/agents/00.09-pe-meta/pe-meta-validator.agent.md" or ".copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md"'
+version: "2.3.0"
+last_updated: "2026-06-04"
 goal: "Produce a strategic + structural validation report for any PE-for-PE artifact, covering vision alignment, category compliance, quality bar, and self-update readiness"
 scope:
   covers:
@@ -43,9 +43,11 @@ scope:
     - "Domain artifacts (article-writing, documentation — use /pe-con-review for those)"
     - "Ecosystem-wide audits (use /pe-meta-update --mode plan --skip research)"
 boundaries:
-  - "Default mode: apply — implements non-breaking improvements autonomously; proposes breaking changes for human confirmation. Use `--mode plan` to opt into assessment-only output"
+  - "`apply = plan + execute` (vision v15.4): `--mode apply` first materializes/reconciles a plan (assessment phases) then executes it (implements non-breaking improvements autonomously; proposes breaking changes for human confirmation). `--mode plan` runs the same assessment and stops after the plan is materialized — assessment-only output"
   - "Risk classification determines execution, not command identity"
-  - "Write tools (`replace_string_in_file`, `create_file`) are active by default (`--mode apply`). Suppressed ONLY when `--mode plan` is explicitly specified OR when the finding is classified as breaking"
+  - "Write tools (`replace_string_in_file`, `create_file`) are active during the execute step of `--mode apply`. Suppressed when `--mode plan` is specified (plan materialized, not executed) OR when the finding is classified as breaking"
+  - "`--plan-file <path>` (vision v15.4) sets plan location/identity ONLY and never decides regenerate-vs-trust. Supplied → baseline: with assessment running this reconciles (preserves human-authored decisions, escalate-not-overwrite); with `--skip research` it trusts the baseline (cross-run drift guard REQUIRED). A same-conversation just-generated plan is an implicit baseline. Default auto-name path; see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)"
+  - "Model-routing seam (vision v15.4): the assessment/plan/reconcile phases run on the reasoning-grade `model:` declared here; delegated execution (pe-con-builder / pe-meta-optimizer) carries its own standard-grade `model:` — no mid-prompt switching"
   - "MUST load PE-strategic context before validation"
   - "MUST run both structural AND strategic validation"
   - "Only applies to PE-for-PE artifacts (pe-* prefix or .copilot/context/00.00-prompt-engineering/)"
@@ -66,7 +68,7 @@ Strategic review for PE artifacts that serve the PE system itself. Adds vision a
 - This prompt → artifact is PE infrastructure (pe-* agents, pe-* prompts, PE context files, pe-* instructions, pe-* skills)
 - `/pe-con-review` → artifact is domain-specific (article-writing, documentation, devops)
 
-> **v15.2 alignment.** This prompt honors vision v15.2 § Plan-mode output contract (every `--mode plan` invocation emits an actionable plan file on disk — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)) and § Iteration budget (every `--mode apply` invocation that hits the per-cycle change cap emits a spillover plan — see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)). The Phase 4 first-line `Resolved invocation:` log echoes `plan-file=<path-or-none>` and `spillover=<path-or-none>` markers.
+> **v15.4 alignment.** This prompt honors the vision v15.4 contracts: **`apply = plan + execute`** (every `--mode apply` run first materializes/reconciles a plan, then executes it; `--mode plan` materializes the same plan and stops — see § Plan output contract and [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)); the eighth canonical parameter **`--plan-file`** (location/identity only); the **fresh / reconcile / trust** execution modes (baseline-available? × research-runs?) with the cross-run **drift guard** REQUIRED in trust mode; the **model-routing seam** (reasoning model for plan/reconcile, standard model for execution via each delegated agent's own `model:`); and § Iteration budget (an `apply` run that hits the per-cycle change cap checkpoints the remaining plan items for trust-mode resume — see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)). The Phase 4 first-line `Resolved invocation:` log echoes `plan-file=<path-or-none>` and `spillover=<path-or-none>` markers.
 
 ## CRITICAL BOUNDARIES
 

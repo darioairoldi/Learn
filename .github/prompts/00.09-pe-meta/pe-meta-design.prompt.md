@@ -23,9 +23,9 @@ handoffs:
   - label: "Ecosystem Coherence"
     agent: pe-meta-validator
     send: true
-argument-hint: '<artifact-type> <description> [bundle=accept] — e.g., "agent for validating category coverage" or "context file for MCP tool composition patterns"'
-version: "2.2.0"
-last_updated: "2026-05-31"
+argument-hint: '<artifact-type> <description> [--plan-file <path>] [bundle=accept] — e.g., "agent for validating category coverage" or "context file for MCP tool composition patterns"'
+version: "2.3.0"
+last_updated: "2026-06-04"
 goal: "Design and create a PE-for-PE artifact that is both structurally correct and strategically aligned with the PE vision, using the full research → build → validate pipeline with added strategic checks"
 scope:
   covers:
@@ -47,6 +47,9 @@ boundaries:
   - "Phase 0b is NOT skippable; --skip domain-coherence is rejected with CF-05; Phase 0b runs on the planned target before delegating to pe-con-researcher/pe-con-builder"
   - "bundle=accept is the ONLY valid consent token (closed set); recorded on first-line `Resolved invocation:` log"
   - "Phase 0a CF-05 artifact-type/path consistency does NOT apply at this orchestrator-level layer (artifact-type is supplied as the first positional argument); CF-05 is enforced ONLY by per-artifact prompts"
+  - "`apply = plan + execute` (vision v15.4): this prompt runs research, materializes a design plan, then executes the build. With no baseline this is **fresh** mode; supplying `--plan-file` as a baseline alongside research makes it **reconcile** (escalate-not-overwrite human-authored design decisions)"
+  - "`--plan-file <path>` (vision v15.4) sets plan location/identity ONLY and never decides regenerate-vs-trust; a same-conversation just-generated plan is an implicit baseline. Default auto-name path — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)"
+  - "Model-routing seam (vision v15.4): research + design-plan run on the reasoning-grade `model:` declared here; delegated execution (pe-con-builder) carries its own standard-grade `model:` — no mid-prompt switching"
 rationales:
   - "PE-for-PE artifacts set the quality standard — they must be designed with vision alignment from the start"
   - "Adding strategic context to the research phase prevents structurally correct but strategically misaligned artifacts"
@@ -60,6 +63,8 @@ Design and create PE artifacts that serve the PE system itself — with vision a
 **When to use this vs `/pe-con-design`:**
 - This prompt → creating PE infrastructure (pe-* agents, pe-* prompts, PE context files, pe-* instructions, pe-* skills)
 - `/pe-con-design` → creating domain-specific artifacts (article-writing, documentation, devops)
+
+> **v15.4 alignment.** This prompt honors the vision v15.4 **`apply = plan + execute`** contract: it runs research, materializes a design plan, then executes the build. With no baseline it runs in **fresh** mode (research drives the plan, no drift guard); supplying `--plan-file` as a baseline alongside research makes it **reconcile** (preserve human-authored design decisions, escalate-not-overwrite). `--plan-file <path>` (the eighth canonical parameter) sets plan location/identity ONLY and never decides regenerate-vs-trust — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md). The model-routing seam keeps research + design-plan on this prompt's reasoning-grade model while delegated execution (pe-con-builder) carries its own standard-grade `model:`.
 
 ## Phase 0b — Domain coherence
 

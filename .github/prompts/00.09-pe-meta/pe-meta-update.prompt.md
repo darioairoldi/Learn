@@ -1,6 +1,6 @@
 ﻿---
 name: pe-meta-update
-description: "Unified Prompt Engineering Artifact Management — 9-phase pipeline (Phase 0a conversational pre-parser, Phase 1 research, Phase 1.5 organizational pass, Phases 2–4 audits each with research-build-validate, Phases 5–8 approval/apply/regression/report) under the vision v14 default-full invocation contract and seven-parameter canonical option surface. Parameter-less manual invocations are a deliberate full sweep; trigger-fired invocations are incremental; explicit `--start`/`--end` produces bounded-delta. Pipeline phases (structure / consistency / content) are independently disableable via `--skip`. Execution depth controlled by `--mode`."
+description: "Unified Prompt Engineering Artifact Management — 9-phase pipeline (Phase 0a conversational pre-parser, Phase 1 research, Phase 1.5 organizational pass, Phases 2–4 audits each with research-build-validate, Phases 5–8 approval/apply/regression/report) under the vision v15.4 default-full invocation contract and eight-parameter canonical option surface. `--mode apply` always materializes a plan then executes it (one execution engine); `--mode plan` materializes the plan and stops. Parameter-less manual invocations are a deliberate full sweep; trigger-fired invocations are incremental; explicit `--start`/`--end` produces bounded-delta. Pipeline phases (structure / consistency / content) are independently disableable via `--skip`. Execution depth controlled by `--mode`; plan-artifact location by `--plan-file`."
 agent: agent
 model: claude-opus-4.6
 tools:
@@ -26,30 +26,33 @@ handoffs:
     agent: pe-meta-optimizer
     send: true
 agents: ['*']
-argument-hint: '[--mode plan|apply] [--scope <artifact-type-token>|<path>[,<path>...]] [--source <source-id>|<url>[,...]] [--dim <group|D#>] [--start <date|version>] [--end <date|version>] [--deps none|direct|full|<N>] [--skip <stage>[,<stage>...]] [bundle=accept]'
-goal: "Orchestrate PE artifact management across 9 phases under the vision v14 default-full invocation contract and seven-parameter canonical option surface (default-full-investigation, minimal-consistent-option-surface)"
-version: "2.2.0"
-last_updated: "2026-05-31"
+argument-hint: '[--mode plan|apply] [--scope <artifact-type-token>|<path>[,<path>...]] [--source <source-id>|<url>[,...]] [--dim <group|D#>] [--start <date|version>] [--end <date|version>] [--deps none|direct|full|<N>] [--skip <stage>[,<stage>...]] [--plan-file <path>] [bundle=accept]'
+goal: "Orchestrate PE artifact management across 9 phases under the vision v15.4 default-full invocation contract and eight-parameter canonical option surface (default-full-investigation, minimal-consistent-option-surface); `--mode apply` always materializes a plan then executes it via one execution engine"
+version: "2.3.0"
+last_updated: "2026-06-04"
 scope:
   covers:
-    - "End-to-end pipeline with the seven canonical parameters per vision v14 — `--mode`, `--scope`, `--source`, `--dim`, `--start`/`--end`, `--deps`, `--skip`"
+    - "End-to-end pipeline with the eight canonical parameters per vision v15.4 — `--mode`, `--scope`, `--source`, `--dim`, `--start`/`--end`, `--deps`, `--skip`, `--plan-file`"
     - "Default-full invocation contract (default-full-investigation): parameter-less manual invocations run a full sweep; trigger-fired invocations run incremental; explicit `--start`/`--end` produces bounded-delta"
     - "Value-shape `--scope` parser: a single artifact-type token (`context|instructions|agents|prompts|skills|hooks|snippets|templates|all`) OR a comma-separated set of paths (folders end `/`, files end `.md`)"
-    - "Phase 0a conversational pre-parser: free-form scoping intent (subjects, concerns, consumer chains) is resolved into the seven canonical parameters BEFORE strict parsing; phases 1–8 only ever consume canonical options"
+    - "Phase 0a conversational pre-parser: free-form scoping intent (subjects, concerns, consumer chains) is resolved into the eight canonical parameters BEFORE strict parsing; phases 1–8 only ever consume canonical options"
     - "Phase 0a precondition — artifact-type/path consistency check (CF-05): per-artifact prompts encode an expected artifact-type root; mismatched positional paths or `--scope` values are rejected before Phase 0b with the canonically-correct prompt name suggested. CF-05 operates on artifact-type ROOT (deterministic from path), NOT on semantic domain (declared in frontmatter)"
     - "Phase 0b — domain coherence check: deterministic, non-skippable step between Phase 0a and Phase 1; computes seed footprint and dependency footprint SEPARATELY using the metadata-first 3-tier domain resolution algorithm (declared `domain:` frontmatter → optional per-repo `pe-domain-map.yaml` heuristic → `unknown`); emits one of `bundle=single-domain` | `bundle=cross-domain-deps` | `bundle=multi-domain-gated` | `bundle=accepted-bundle` | `bundle=multi-domain-advisory`"
     - "Metadata-first 3-tier domain resolution: Tier 1 declared `domain:` frontmatter wins; Tier 2 optional per-repo `pe-domain-map.yaml` path-slug heuristic; Tier 3 `unknown` fallback. Heuristic NEVER overrides declared metadata. Per-file `domain-source=declared|path-heuristic|unknown` surfaced in Phase 8 report"
     - "Seed footprint vs dependency footprint decision matrix: seed=1 ∧ deps adds 0 → `bundle=single-domain`; seed=1 ∧ deps adds ≥1 → `bundle=cross-domain-deps` (one review, per-dep-domain specialized lenses, NO split); seed≥2 → `bundle=multi-domain-gated` per domain-coherent-batching (numbered split proposal)"
     - "`bundle=accept` consent token: single-keystroke bypass for the multi-domain gate; only valid consent value; recorded on first-line `Resolved invocation:` log as `bundle=accepted-bundle`"
     - "Per-artifact prompt invocation matrix: `(--scope-resolved-artifact-type, --dim) → pe-meta-{type}-{review|create-update|design}` selection"
-    - "Pipeline phases / `--skip` mapping including rule #2: `--skip research` is INCOMPATIBLE with derived `breadth=full`"
+    - "Pipeline phases / `--skip` mapping including rule #2: `--skip research` is INCOMPATIBLE with derived `breadth=full` UNLESS `--plan-file` references a validated baseline plan (which substitutes for research — trust mode)"
+    - "`--plan-file <path>` (eighth canonical parameter): plan-artifact location/identity ONLY; never decides regenerate-vs-trust; default auto-name `<run-folder>/<NN>-<kebab-name>.plan.md`, fallback `.copilot/temp/pe-meta-state/plans/YYYYMMDD-HHMMSS-<kebab-name>.plan.md`"
+    - "Always plan-then-execute: `--mode apply` materializes/reconciles a plan (Phases 1–4) then executes it (Phases 5–7) via one execution engine; fresh / reconcile / trust execution modes resolved from (baseline available?) × (research runs?); drift guard required only in cross-run trust mode"
+    - "Model-routing seam: Phases 1–4 (research/plan/reconcile) on a reasoning-grade model, Phases 5–7 (execution) on a standard/cheaper model, realized via each delegated meta-agent's own `model:` field"
     - "Phase 1.5 Organizational Pass when derived `breadth=full` AND resolved `--scope` is broader than a single file"
     - "First-line `Resolved invocation:` log emitted before Phase 1 runs AND echoed in the Phase 8 report — always includes the resolved `bundle=…` marker"
   excludes:
     - "Vision document changes (human-only)"
     - "Individual artifact creation (per-artifact `pe-meta-{type}-{create-update|design}` prompts handle this)"
 boundaries:
-  - "MUST parse the seven canonical parameters (`--mode`, `--scope`, `--source`, `--dim`, `--start`/`--end`, `--deps`, `--skip`) and REJECT all other `--*` flags with CF-05 deprecation notices"
+  - "MUST parse the eight canonical parameters (`--mode`, `--scope`, `--source`, `--dim`, `--start`/`--end`, `--deps`, `--skip`, `--plan-file`) and REJECT all other `--*` flags with CF-05 deprecation notices"
   - "MUST derive `breadth` (`full`|`incremental`|`bounded-delta`) per vision v14 rule #2: manual + no window → `full`; trigger-fired + no window → `incremental`; any `--start`/`--end` → `bounded-delta`. MUST NOT accept `--breadth` as a flag"
   - "MUST run Phase 0a (conversational pre-parser) before strict parsing whenever any non-canonical token appears; canonical resolution MUST be echoed to the caller BEFORE Phase 1 runs"
   - "MUST run Phase 0a precondition (artifact-type/path consistency check, CF-05) at the END of Phase 0a, BEFORE Phase 0b. The rejection error MUST name the expected root and suggest the canonically-correct prompt name. CF-05 operates on artifact-type ROOT, NOT on semantic domain"
@@ -58,39 +61,50 @@ boundaries:
   - "MUST accept `bundle=accept` as the ONLY consent token for the multi-domain gate; MUST REJECT all other `bundle=…` values with CF-05 (closed set: only `accept`)"
   - "MUST NOT treat `--dim` as a domain override — `--dim` is a dimension-group selector per v14 (filters which audit dimensions Phase 2–4 exercises); domain footprint is always computed from per-file `domain:` metadata regardless of `--dim` value"
   - "MUST select the per-artifact prompt via the invocation matrix from `(--scope-resolved-artifact-type, --dim)`; MUST NOT hand-write per-artifact-type branches"
-  - "MUST reject `--skip research` when derived `breadth=full` with CF-05 (vision v14 § Pipeline phases and `--skip` mapping, rule #2)"
-  - "MUST emit a machine-parseable first-line `Resolved invocation: --mode=… --scope=… --source=… --dim=… --start=… --end=… --deps=… --skip=… | breadth=… | caller=… | bundle=…` log identical across plan and apply modes"
+  - "MUST reject `--skip research` when derived `breadth=full` with CF-05 (vision v15.4 § Pipeline phases and `--skip` mapping, rule #2) UNLESS `--plan-file` references a validated baseline plan — in which case the baseline substitutes for research (trust mode) and the cross-run drift guard is REQUIRED"
+  - "MUST emit a machine-parseable first-line `Resolved invocation: --mode=… --scope=… --source=… --dim=… --start=… --end=… --deps=… --skip=… --plan-file=… | breadth=… | caller=… | bundle=…` log identical across plan and apply modes"
   - "MUST delegate to meta-agents (researcher, designer, validator, optimizer) and per-artifact-type prompts; never duplicate their logic inline"
   - "MUST accept `--incremental` ONLY as a single-window deprecation alias for trigger-fired callers (resolves to derived `breadth=incremental`); MUST reject it with CF-05 for manual callers because acceptance would violate default-full-investigation"
 rationales:
   - "default-full-investigation — parameter-less manual invocations must be a deliberate full sweep, not a silent narrowing; strategies are subtractive"
-  - "minimal-consistent-option-surface — collapsing the surface to seven parameters keeps semantics consistent across phases; every additional flag risks overlap or silent re-interpretation downstream"
+  - "minimal-consistent-option-surface — collapsing the surface to eight parameters keeps semantics consistent across phases; every additional flag risks overlap or silent re-interpretation downstream"
   - "Breadth is a *derived* attribute (not a flag) so the same logic resolves it identically from caller-type and window across plan and apply runs"
   - "Value-shape `--scope` absorbs `--area`/`--artifact`/`--consumer` into one parameter with two unambiguous shapes (artifact-type token OR paths)"
   - "Phase 0a isolates free-form, LLM-mediated scoping resolution from strict parsing so phases 1–8 always consume canonical options"
   - "Per-artifact prompt invocation matrix removes the need to branch on artifact-type inline — the orchestrator only routes; per-type prompts own the work"
-  - "Rule #2 (`--skip research` incompatible with derived `breadth=full`) preserves the default-full contract: a full sweep without research is structurally meaningless"
+  - "Rule #2 (`--skip research` incompatible with derived `breadth=full`) preserves the default-full contract: a full sweep without research is structurally meaningless — EXCEPT when `--plan-file` references a validated baseline, because the plan IS the prior research product (trust mode), making the skip a principled exception rather than a silent narrowing"
   - "First-line `Resolved invocation:` log is the observable proxy for the default-full contract — every run reveals what was actually executed before any side effects occur"
 ---
 
 # Prompt Engineering Artifact Management
 
-Unified orchestrator for PE artifacts under the vision v15.1 default-full invocation contract and seven-parameter canonical option surface. Phase 0a resolves free-form input to canonical options, the parser validates the seven canonical parameters, breadth is derived, phases 1–8 execute, and the first-line `Resolved invocation:` log makes the actual execution observable before any side effects.
+Unified orchestrator for PE artifacts under the vision v15.4 default-full invocation contract and eight-parameter canonical option surface. Phase 0a resolves free-form input to canonical options, the parser validates the eight canonical parameters, breadth is derived, phases 1–8 execute, and the first-line `Resolved invocation:` log makes the actual execution observable before any side effects. `--mode apply` always materializes a plan then executes it through one execution engine.
 
-> **v15.1 alignment.** This prompt honors vision v15.1.0 § Plan-mode output contract (every `--mode plan` invocation emits an actionable plan file on disk — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)) and § Iteration budget (every `--mode apply` invocation that hits the per-cycle change cap emits a spillover plan — see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)). The full retired-flag → v14 destination map lives in the [vision v15 changelog § Historical: v13 → v14 deprecated flag map](../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) and in the parser test inventory below.
+> **v15.4 alignment.** This prompt honors vision v15.4.0 § Plan output contract (a plan file is materialized on **every** mutating run — both `--mode plan` and `--mode apply`; `apply` additionally executes it through one execution engine — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md)), § Plan execution modes (fresh / reconcile / trust off two booleans), § Model-routing seam (Phases 1–4 reasoning model, Phases 5–7 standard model), and § Iteration budget (overflow spillover plan — see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)). The full retired-flag → v14 destination map lives in the [vision v15 changelog § Historical: v13 → v14 deprecated flag map](../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) and in the parser test inventory below.
 
 > **v14 alignment (v2.1.0, 2026-05-29).** This prompt was rebased from the v13 surface (`--breadth`, `--since`/`--between`, `--area`/`--artifact`/`--consumer`, `--subject`/`--concern`, `--mode-review`, `catch-up`, plain `--incremental`) onto the vision v14 contracts: seven canonical parameters, derived breadth, value-shape `--scope` parser, Phase 0a conversational pre-parser, per-artifact prompt invocation matrix, pipeline-phases / `--skip` mapping with rule #2, default-full invocation contract, and the first-line `Resolved invocation:` log.
 
-## Invocation options (canonical seven-parameter surface, vision v14)
+## Invocation options (canonical eight-parameter surface, vision v15.4)
 
-The orchestrator accepts **exactly seven canonical parameters**. Any other `--*` flag is REJECTED with CF-05 and a deprecation notice pointing to its v14 destination. The full retired-flag → v14 destination map is in the [migration table](#retired-flag-migration-table-vision-v14) below and in the [vision v15 changelog § Historical: v13 → v14 deprecated flag map](../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md).
+The orchestrator accepts **exactly eight canonical parameters**. Any other `--*` flag is REJECTED with CF-05 and a deprecation notice pointing to its v14 destination. The full retired-flag → v14 destination map is in the [migration table](#retired-flag-migration-table-vision-v14) below and in the [vision v15 changelog § Historical: v13 → v14 deprecated flag map](../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md).
 
 ### `--mode plan|apply` (default: `apply`)
 
 | Value | Behavior |
 |---|---|
-| `apply` | Full Research → Build → Validate cycle with low-risk autonomous apply + propose for higher-risk findings (default). Honors vision v15.1 § Iteration budget — emits spillover plan on overflow per [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md) |
-| `plan` | Research-only execution — Build and Validate substeps are skipped regardless of `--skip` selection because plan mode is assessment-only; produces health score, findings report, AND an actionable plan file on disk per vision v15.1 § Plan-mode output contract — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md); no source-artifact writes |
+| `apply` | **Materialize/reconcile plan (Phases 1–4) → execute plan (Phases 5–7) → report (Phase 8)** (default). One execution engine shared with plan consumption (`apply = plan + execute`); low-risk autonomous apply + propose for higher-risk findings. Phases 1–4 run on a reasoning-grade model, Phases 5–7 on a standard/cheaper model (the plan→execute model seam). Materializes the plan on every run; honors vision v15.4 § Iteration budget — emits spillover plan on overflow per [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md) |
+| `plan` | **Materialize/reconcile plan, then stop** (`plan = apply minus execute`) — Phases 5–7 are not executed. Produces health score, findings report, AND an actionable plan file on disk per vision v15.4 § Plan output contract — see [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md); no source-artifact writes |
+
+**Execution modes (fresh / reconcile / trust).** Whether the plan is regenerated or trusted is governed by two orthogonal booleans — **(baseline available?) × (research runs?)** — never by file existence. A baseline is a plan named by `--plan-file` OR a plan generated earlier in the same conversation. `--skip research` (existing parameter) decides regenerate-vs-trust:
+
+| baseline available? | research runs? | Mode | Behavior | Drift guard |
+|---|---|---|---|---|
+| no | yes | **fresh** | Generate plan from research → write → execute. | skipped (back-to-back) |
+| yes | yes | **reconcile** | Load baseline, merge fresh evidence, preserve human decisions, re-verify coverage + actionability, overwrite → execute. | skipped (research re-validates) |
+| yes | no | **trust** | Execute baseline as-is. | **REQUIRED** (cross-run target-section hashing) |
+| no | no | **invalid** | Rejected at `breadth=full` (no baseline to substitute for research). | — |
+
+In **reconcile**, human-authored rows (park-lot rulings, consent lines, scope tags, rationales) MUST NOT be silently overwritten — contradicting evidence escalates. See [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md) § Execution modes / § Reconcile.
 
 ### `--scope <artifact-type-token>|<path>[,<path>...]` (default: `all`)
 
@@ -135,12 +149,21 @@ Dependency-chain depth for Phase 4 per-artifact work. `direct` = first-level onl
 
 | Stage | Skips | Use when |
 |---|---|---|
-| `research` | Phase 1 (source research) | INCOMPATIBLE with derived `breadth=full` (rejected with CF-05) — see rule #2 in [Pipeline phases and `--skip` mapping](#pipeline-phases-and---skip-mapping) |
+| `research` | Phase 1 (source research) | INCOMPATIBLE with derived `breadth=full` (rejected with CF-05) UNLESS `--plan-file` references a validated baseline plan — the baseline substitutes for research (trust mode), and the cross-run drift guard becomes REQUIRED. See rule #2 in [Pipeline phases and `--skip` mapping](#pipeline-phases-and---skip-mapping) |
 | `external` | Internet/URL fetching in all phases | No internet or local-only check desired |
 | `organizational` | Phase 1.5 (organizational pass) | Cross-artifact organizational concerns already verified |
 | `structure` | Phase 2 (structure audit) | Structure is known-good, focus on content |
 | `consistency` | Phase 3 (consistency audit) | Cross-artifact consistency already verified |
 | `content` | Phase 4 (content audit) | Individual artifacts already reviewed |
+
+### `--plan-file <path>` (default: auto-name)
+
+Plan-artifact **location/identity only** — the eighth canonical parameter (vision v15.4 § Option taxonomy). It does NOT change what is assessed or applied, and it **never decides regenerate-vs-trust** (that is governed by `--skip research`; see the Execution modes table under `--mode`).
+
+- **Omitted (default):** the plan lands at the auto-name path `<run-folder>/<NN>-<kebab-name>.plan.md`; fallback `.copilot/temp/pe-meta-state/plans/YYYYMMDD-HHMMSS-<kebab-name>.plan.md` when no run folder applies.
+- **Supplied:** `--plan-file <path>` overrides the location AND marks that path as a **baseline** for this run. With research running this resolves to **reconcile**; with `--skip research` it resolves to **trust** (drift-guarded). A same-conversation just-generated plan is an implicit baseline even without `--plan-file`.
+
+See [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md) for the full path algorithm, execution-ready-precision clause, and drift-guard rule.
 
 ## Derived breadth (vision v14 § Default-full invocation contract)
 
@@ -171,22 +194,22 @@ Every retired v13 flag is REJECTED with CF-05 using a uniform message template: 
 | `--concern <kw>` | Resolved by Phase 0a → `--scope` (+ `--dim` when keyword maps to a dimension) |
 | `--mode-review individual\|dep-aware\|guidance-first` | Auto-derived from `--scope` artifact-type via per-artifact prompt invocation matrix; guidance-first leg covered by `--dim adherence` |
 | `--incremental` | **Single migration-window alias** — accepted ONLY for trigger-fired callers (resolves to derived `breadth=incremental`); REJECTED for manual callers (would violate default-full-investigation) |
-| Any other unrecognized `--*` | CF-05 rejection with full canonical seven-parameter enumeration |
+| Any other unrecognized `--*` | CF-05 rejection with full canonical eight-parameter enumeration |
 
 ## Phase 0a — conversational pre-parser (vision v14 § Option taxonomy)
 
-**When it runs.** Phase 0a runs BEFORE strict parsing whenever the raw invocation contains any token that is not one of the seven canonical parameters or a recognized value. It is LLM-mediated, so it is the ONLY place in the pipeline where free-form input is allowed to influence canonical resolution.
+**When it runs.** Phase 0a runs BEFORE strict parsing whenever the raw invocation contains any token that is not one of the eight canonical parameters or a recognized value. It is LLM-mediated, so it is the ONLY place in the pipeline where free-form input is allowed to influence canonical resolution.
 
 **What it does.**
 
 1. Reads the raw invocation (including any natural-language hints like `"recheck anything affected by the April VS Code release"` or `"focus on consumer-correctness for the adherence prompt"`).
-2. Resolves free-form intent into the seven canonical parameters using these rules:
+2. Resolves free-form intent into the eight canonical parameters using these rules:
     - Subject keywords (e.g., `"April VS Code release"`) → enumerate matching artifact paths and emit a comma-separated `--scope` enumeration.
     - Concern keywords (e.g., `"consumer-correctness"`, `"freshness"`) → set `--dim` to the matching group; if the keyword names a topic without a dimension, also emit a `--scope` enumeration.
     - Consumer chains (e.g., `"the adherence prompt and what it depends on"`) → emit `--scope <consumer-file> --deps full`.
     - Temporal hints (e.g., `"since April"`, `"between April and May"`) → emit `--start`/`--end`.
 3. Echoes the resolved canonical invocation back to the caller BEFORE Phase 1 runs (gives caller a chance to abort or correct).
-4. Hands the canonical seven-parameter set to the strict parser. Phases 1–8 NEVER see free-form input.
+4. Hands the canonical eight-parameter set to the strict parser. Phases 1–8 NEVER see free-form input.
 
 **Non-determinism risk.** Phase 0a is LLM-mediated. Two callers passing the same prompt MAY get the same canonical resolution, but reproducibility is not guaranteed. Mitigation: every resolution is echoed back AND logged on the first line of the Phase 8 report (`Resolved invocation:` log). Downstream determinism is preserved because phases 1–8 only consume the canonical resolution.
 
@@ -265,7 +288,7 @@ After parsing, the orchestrator routes Phase 4 work via this matrix from `(--sco
 
 **Inputs.**
 
-- The canonical seven-parameter invocation resolved by Phase 0a (and validated against the Phase 0a precondition CF-05 check).
+- The canonical eight-parameter invocation resolved by Phase 0a (and validated against the Phase 0a precondition CF-05 check).
 - The **metadata-first 3-tier domain resolution algorithm** defined in vision v15 § Domain detection:
   - **Tier 1 (authoritative):** Read each in-scope file's `domain:` frontmatter value. Tier 1 NEVER loses to a lower tier when present.
   - **Tier 2 (optional heuristic):** If `pe-domain-map.yaml` exists at repo root, apply path-slug heuristic for files without declared `domain:`. Map entries are flagged per-file in the Phase 8 report so authors can migrate to declared metadata.
@@ -336,7 +359,7 @@ CF-05: --skip domain-coherence is rejected; Phase 0b is not skippable per vision
 | 0a | Conversational pre-parser | (auto — runs only on non-canonical input) | When free-form input present |
 | 0a-precondition | Artifact-type/path consistency check (CF-05) | (cannot be skipped) | Only on per-artifact prompts (orchestrator-level prompts skip) |
 | 0b | Domain coherence check | (cannot be skipped; `--skip domain-coherence` is REJECTED with CF-05) | Always; emits `bundle=…` marker on the `Resolved invocation:` log |
-| 1 | Source research | `research` | Always unless `--skip research` AND derived `breadth ≠ full` |
+| 1 | Source research | `research` | Always unless (`--skip research` AND derived `breadth ≠ full`) OR (`--skip research` AND `--plan-file` references a validated baseline — trust mode, drift-guarded) |
 | 1.5 | Organizational pass | `organizational` | When derived `breadth=full` AND resolved `--scope` is broader than a single file |
 | 2 | Structure audit | `structure` | Default; skippable |
 | 3 | Consistency audit | `consistency` | Default; skippable |
@@ -348,7 +371,7 @@ CF-05: --skip domain-coherence is rejected; Phase 0b is not skippable per vision
 
 **Rule #1.** `--skip external` retires internet/URL fetching across ALL phases that would otherwise use `fetch_webpage`.
 
-**Rule #2 (CRITICAL — vision v14).** `--skip research` is INCOMPATIBLE with derived `breadth=full` because a full sweep without source research is structurally meaningless under the default-full invocation contract. The parser MUST REJECT the combination with CF-05: `--skip research is incompatible with derived breadth=full; either drop --skip research or narrow the window with --start/--end (which derives breadth=bounded-delta)`.
+**Rule #2 (CRITICAL — vision v15.4).** `--skip research` is INCOMPATIBLE with derived `breadth=full` because a full sweep without source research is structurally meaningless under the default-full invocation contract — **EXCEPT** when `--plan-file` references a validated baseline plan, because the plan IS the prior research product (trust mode). Without a baseline the parser MUST REJECT the combination with CF-05: `--skip research is incompatible with derived breadth=full unless --plan-file references a validated baseline plan; either drop --skip research, supply --plan-file, or narrow the window with --start/--end (which derives breadth=bounded-delta)`. In trust mode the cross-run drift guard (target-section hashing) is REQUIRED: a hash mismatch escalates the drifted row rather than applying a stale edit.
 
 ## Examples
 
@@ -375,7 +398,7 @@ CF-05: --skip domain-coherence is rejected; Phase 0b is not skippable per vision
 - `/pe-meta-update --mode-review guidance-first` → CF-05: `--mode-review retired in v14; use --dim adherence — see vision v15 changelog § Historical: v13 → v14 deprecated flag map`.
 - `/pe-meta-update --incremental` (manual caller) → CF-05: `--incremental is accepted only for trigger-fired callers; manual invocations are contracted to derived breadth=full per default-full-investigation`.
 - `/pe-meta-update --skip research` (manual, no window) → CF-05: `--skip research is incompatible with derived breadth=full; either drop --skip research or narrow the window with --start/--end (which derives breadth=bounded-delta)`.
-- `/pe-meta-update healthcheck` → CF-05: `"healthcheck" is no longer a supported preset. Use the seven canonical parameters per vision v14 — see § Invocation options`.
+- `/pe-meta-update healthcheck` → CF-05: `"healthcheck" is no longer a supported preset. Use the eight canonical parameters per vision v15.4 — see § Invocation options`.
 - `/pe-meta-update --skip domain-coherence` → CF-05: `--skip domain-coherence is rejected; Phase 0b is not skippable per vision v15 § Domain-coherent batching. To bypass the gate on a multi-domain scope, append bundle=accept to the invocation.`
 - `/pe-meta-update --scope context bundle=skip` → CF-05: `bundle=skip is not a valid consent token; the closed set is {accept}. Use bundle=accept to bypass the multi-domain gate.`
 - `/pe-meta-update --scope context bundle=yes` → CF-05: `bundle=yes is not a valid consent token; the closed set is {accept}. Use bundle=accept to bypass the multi-domain gate.`
@@ -857,7 +880,7 @@ After 7a/7b results are available, classify the failure type and route according
 > Resolved invocation: --mode=<plan|apply> --scope=<token-or-path-set> --source=<id-or-csv-or-empty> --dim=<group|D#> --start=<resolved-date|none> --end=<resolved-date|none> --deps=<value> --skip=<csv-or-empty> | breadth=<full|incremental|bounded-delta> | caller=<manual|trigger-fired> | plan-file=<path-or-none> | spillover=<path-or-none>
 > ```
 >
-> The orchestrator MUST also have emitted this identical line BEFORE Phase 1 ran. The Phase 8 echo gives the consumer the resolved invocation as the very first observable artifact of the report, before any narrative. **v15.1 markers:** `plan-file=<path>` is emitted whenever `--mode=plan` (canonical plan file path written under vision § Plan-mode output contract); `spillover=<path>` is emitted when Phase 6 hit the iteration-budget cap with remaining findings, otherwise `spillover=none`. **v15.3:** `--start`/`--end` are echoed as **resolved timestamps** even when the caller supplied a source-version token (the original token is preserved in the report narrative).
+> The orchestrator MUST also have emitted this identical line BEFORE Phase 1 ran. The Phase 8 echo gives the consumer the resolved invocation as the very first observable artifact of the report, before any narrative. **v15.1 markers:** `plan-file=<path>` is emitted whenever `--mode=plan` (canonical plan file path written under vision § Plan output contract); `spillover=<path>` is emitted when Phase 6 hit the iteration-budget cap with remaining findings, otherwise `spillover=none`. **v15.3:** `--start`/`--end` are echoed as **resolved timestamps** even when the caller supplied a source-version token (the original token is preserved in the report narrative).
 
 Report includes: **first-line `Resolved invocation:` log**, mode, scope, date, source, derived breadth, **phases executed** (which were skipped and why), artifacts analyzed, issues found by severity **and by phase** (organizational/structure/consistency/content), changes applied, health score (`--mode plan`: `100 - (CRITICAL*25 + HIGH*10 + MEDIUM*3 + LOW*1)`), token savings (`--dim optimize`), outcome-log rollup (from `.copilot/temp/pe-meta-state/outcomes/<run-id>.jsonl`), rollback instructions.
 
@@ -930,7 +953,7 @@ Meta-update-specific scenarios:
 | 11 | No changes needed | All audits pass → report "healthy", log updated with clean health score |
 | 12 | Phase 7 regression failure | BLOCKS Phase 8 → presents broken capabilities with rollback instructions |
 | 13 | User approves UNSAFE change | Override logged in review log Override History → change applied |
-| 14 | Free-form intent (e.g., `/pe-meta-update recheck consumer-correctness on the adherence prompt`) | Phase 0a resolves → canonical invocation echoed → user confirms → strict parser receives canonical seven-parameter set |
+| 14 | Free-form intent (e.g., `/pe-meta-update recheck consumer-correctness on the adherence prompt`) | Phase 0a resolves → canonical invocation echoed → user confirms → strict parser receives canonical eight-parameter set |
 | 15 | `/pe-meta-update --start 1.099 --source vscode-release-notes` | Version-shaped bound, singleton source → Phase 0a resolves `1.099` to its publish timestamp via the source's `version_scheme`; derived `breadth=bounded-delta`; recorded `pass` coverage overridden inside the window (re-baseline) |
 | 16 | `/pe-meta-update --start 1.099` (no `--source` / non-singleton) | CF-05 rejection: `version window requires a single --source` |
 | 17 | `/pe-meta-update --start 2025-06-18 --source mcp-spec` then version token against a `version_scheme: none` source | A version-shaped bound against a `version_scheme: none` source is rejected: `source <id> has no version scheme; use a date window` |
@@ -939,9 +962,10 @@ Meta-update-specific scenarios:
 <!--
 prompt_metadata:
   filename: "pe-meta-update.prompt.md"
-  version: "2.2.0"
+  version: "2.3.0"
   last_updated: "2026-06-04"
   changes:
+    - "v2.3.0 (2026-06-04): Rebased onto vision v15.4 (always plan-then-execute + orthogonal `--plan-file`). `--mode apply` now materializes/reconciles a plan (Phases 1–4) then executes it (Phases 5–7) via one execution engine shared with plan consumption (`apply = plan + execute`); `--mode plan` materializes the plan and stops. Added the eighth canonical parameter `--plan-file <path>` (plan-artifact location/identity ONLY; never decides regenerate-vs-trust) with auto-name default + timestamped fallback. Added the fresh / reconcile / trust execution-mode table off two booleans (baseline available? × research runs?); reconcile preserves human-authored decisions (escalate-not-overwrite). Extended rule #2: `--skip research` is now legal at `breadth=full` when `--plan-file` references a validated baseline (trust mode), with the cross-run drift guard REQUIRED. Added the per-phase model-routing note (Phases 1–4 reasoning model, Phases 5–7 standard model). Updated every canonical-surface enumeration seven→eight and added `--plan-file=…` to the first-line Resolved-invocation log."
     - "v2.2.0 (2026-06-04): Rebased onto vision v15.3 (processing-state model). Retitled `--start`/`--end` to `<date|version>` with value-shape resolution (date OR source-version token resolved to a timestamp via the source's `version_scheme`); two guard rails (version window requires a single `--source`; `version_scheme: none` rejects version tokens). Added Phase 0a value-shape `--start`/`--end` resolution subsection. Added § Processing-state model (two-axis: source ledger at `<state.path>/triggers/<source-id>.json` + per-artifact `coverage` block as durable single source of truth; PU = artifact×applicable-dimension; staleness rule). Rewrote § Incremental filter to compute the stale-PU work set (at-least-once: never-covered always processed; no-redundant: current+pass skipped) instead of a scalar `last_review_timestamp`. Phase 8 audit log now writes per-PU coverage cells, advances the per-source ledger `last_seen_*`, demotes the markdown Last Processed Versions table to a human-readable mirror, and emits a `coverage: <covered>/<total> PUs; <n> never-covered` report line. Bounded-delta overrides recorded `pass` coverage inside `[--start,--end]` (re-baseline / distrust-recovery). Added embedded test scenarios 15-18. Echoed resolved-timestamp `--start`/`--end` in the first-line log."
     - "v2.1.0 (2026-05-29): Rebased onto vision v14. Replaced v13.x surface (`--breadth`, `--since`/`--between`, `--area`/`--artifact`/`--consumer`, `--subject`/`--concern`, `--mode-review`, `catch-up`, manual `--incremental`) with seven canonical parameters (`--mode`, `--scope`, `--source`, `--dim`, `--start`/`--end`, `--deps`, `--skip`). Added value-shape `--scope` parser (artifact-type token OR path set). Added Phase 0a conversational pre-parser. Added per-artifact prompt invocation matrix routing Phase 4 work by `(scope-resolved-artifact-type, --dim)`. Added pipeline-phases/`--skip` mapping including rule #2 (`--skip research` INCOMPATIBLE with derived `breadth=full`). Added Phase 1.5 Organizational Pass gated on `breadth=full AND multi-file scope`. Added three-shape research output contract (snapshot/digest/window-digest by derived breadth). Added first-line `Resolved invocation:` log echoed BEFORE Phase 1 AND as first line of Phase 8 report. Added Phase 6 outcome-log append. Updated Phase 8 audit log to advance per-source `last_review_timestamp` only after successful applies. Preserved `--incremental` as single-migration-window alias on TRIGGER-FIRED callers only; REJECTED for manual callers (default-full-investigation). All retired flags rejected via uniform CF-05 message template. Rationales default-full-investigation and minimal-consistent-option-surface added to frontmatter."
     - "v2.0.0: Eight-phase pipeline with --mode/--dim/--scope/--skip; removed preset aliases; phase-skip flags."

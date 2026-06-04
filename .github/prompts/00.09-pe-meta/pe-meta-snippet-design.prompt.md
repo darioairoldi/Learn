@@ -28,7 +28,7 @@ rationales:
 
 # Snippet Design
 
-> **v15.2 alignment.** This prompt always writes (creation/update is not assessment-only), so it honors vision v15.2 § Iteration budget — when a run hits the per-cycle change cap with validated work remaining, it emits a spillover plan (see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md)) and records a `spillover=<path-or-none>` marker on the first-line `Resolved invocation:` log. `--mode` is rejected for this family per the option applicability matrix.
+> **v15.4 alignment.** This prompt always writes (creation/update is not assessment-only) and rejects `--mode`, so it is **exempt** from the vision v15.4 `apply = plan + execute` contract and the eighth canonical parameter `--plan-file` (applicability matrix: both ❌ for this family). It honors vision v15.4 § Iteration budget — when a run hits the per-cycle change cap with validated work remaining, it emits a checkpoint/spillover plan (see [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md), now framed as the always-plan checkpoint with a `trust`-mode resume) and records a `spillover=<path-or-none>` marker on the first-line `Resolved invocation:` log.
 
 ## Phase 0a CF-05 + Phase 0b — Invocation gates
 
