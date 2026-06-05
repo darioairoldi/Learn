@@ -1,5 +1,3 @@
-
-
 ---
 # Quarto Metadata
 title: "Issue: Sidebar and body use mismatched backgrounds in dark mode"
@@ -125,10 +123,10 @@ body.quarto-dark nav.sidebar-navigation {
 
 **Status:** Resolved
 
-- [x] Root cause identified (two different background tokens)
-- [x] Fix applied to `styles.css`
-- [ ] Visually verified in dark mode after Quarto rebuild
-- [ ] Confirmed Bootswatch dark themes still match (no regression)
+- Root cause identified (two different background tokens). (✅ done)
+- Fix applied to `styles.css`. (✅ done)
+- Visually verified in dark mode after Quarto rebuild. (🟡 todo)
+- Confirmed Bootswatch dark themes still match (no regression). (🟡 todo)
 
 ---
 
