@@ -27,14 +27,14 @@
    - [Security and Monitoring](#security-and-monitoring)
 7. 📚 [References](#references)
 
-## What is Azure Container Apps? 🚀
+## 🚀 What is Azure Container Apps?
 
 <mark>**Azure Container Apps**</mark> is a serverless container platform that enables you to run microservices and containerized applications without managing complex infrastructure.<br>
 Built on top of <mark>Azure Kubernetes Service (AKS)</mark>, it abstracts away the underlying Kubernetes complexity while providing the benefits of container orchestration.
 
 The service is designed for modern application patterns, particularly microservices architectures, and provides a fully managed environment where developers can focus on their application code rather than infrastructure management.
 
-## Architecture and Components 🏗️
+## 🏗️ Architecture and Components
 
 ### Core Components
 
@@ -59,7 +59,7 @@ The underlying infrastructure leverages:
 - **<mark>Envoy Proxy**: Handles ingress and service mesh capabilities
 - **<mark>Dapr (Distributed Application Runtime)**: Provides microservices building blocks
 
-## Key Characteristics ⭐
+## ⭐ Key Characteristics
 
 ### Serverless and Auto-scaling
 
@@ -95,7 +95,7 @@ The underlying infrastructure leverages:
 
 **Secret management**: Securely store and inject configuration secrets and connection strings into your applications.
 
-## Common Use Cases 💼
+## 💼 Common Use Cases
 
 ### API Endpoints
 
@@ -113,7 +113,7 @@ Build applications that respond to events from various Azure services like Servi
 
 Create distributed applications composed of loosely coupled services that can scale independently. Each microservice can be deployed as a separate container app with its own scaling rules.
 
-## Scaling Capabilities 📊
+## 📊 Scaling Capabilities
 
 ### Dynamic Scaling Triggers
 
@@ -129,7 +129,7 @@ Azure Container Apps supports various scaling triggers through KEDA:
 
 Most applications can scale down to zero replicas when there's no traffic or events, reducing costs to zero during idle periods. Applications scaling on CPU or memory metrics cannot scale to zero as they require active monitoring of these resources.
 
-## Integration and Management 🔧
+## 🔧 Integration and Management
 
 ### Management Tools
 
@@ -148,7 +148,7 @@ Most applications can scale down to zero replicas when there's no traffic or eve
 
 **Secret Management**: Store sensitive configuration data securely and inject it into applications at runtime.
 
-## References 📚
+## 📚 References
 
 1. **[Azure Container Apps documentation](https://docs.microsoft.com/en-us/azure/container-apps/)** - Microsoft's official comprehensive documentation covering all aspects of Azure Container Apps, including quickstarts, tutorials, and best practices. Essential reading for understanding the platform's capabilities and implementation details.
 

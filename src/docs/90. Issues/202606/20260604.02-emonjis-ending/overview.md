@@ -1,4 +1,3 @@
-
 ---
 # Quarto Metadata
 title: "Issue: Trailing heading emojis are hard to read in TOC and sidebar"

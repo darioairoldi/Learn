@@ -8,7 +8,7 @@ description: "Step through dependency source code alongside your own by toggling
 
 # Debug solutions with dependencies as project references
 
-## Introduction 🎯
+## 🎯 Introduction
 
 When you're troubleshooting a bug that lives inside a NuGet dependency, decompilation and symbol servers only get you so far. Wouldn't it be better to set breakpoints directly in the dependency's source code and step through it as if it were part of your own solution?
 
@@ -33,7 +33,7 @@ This article explains the pattern, walks you through setup, and covers common pi
 
 ---
 
-## How the pattern works 🏗️
+## 🏗️ How the pattern works
 
 The core idea is simple: for each dependency family, a pair of MSBuild properties controls whether the dependency is resolved from its NuGet package or from a local source clone.
 
@@ -136,7 +136,7 @@ Each project file uses conditional `ProjectReference` / `PackageReference` items
 
 ---
 
-## Real-world examples from the Diginsight ecosystem 📋
+## 📋 Real-world examples from the Diginsight ecosystem
 
 The Diginsight organization uses this pattern across multiple repositories. Each samples repository follows the same dual-solution convention:
 
@@ -199,7 +199,7 @@ graph LR
 
 ---
 
-## Setup: enabling DirectImport ⚙️
+## ⚙️ Setup: enabling DirectImport
 
 ### Step 1 — Clone the dependency repositories locally
 
@@ -242,7 +242,7 @@ This file lives at `src\Directory.Build.props.user` and is **git-ignored** (mach
 
 ---
 
-## Which solution to build ✅
+## ✅ Which solution to build
 
 Use this decision tree to pick the right solution:
 
@@ -261,7 +261,7 @@ flowchart TD
 
 ---
 
-## Pros and cons 💡
+## 💡 Pros and cons
 
 ### Pros
 
@@ -286,7 +286,7 @@ flowchart TD
 
 ---
 
-## Troubleshooting 🔧
+## 🔧 Troubleshooting
 
 ### Build fails with "project not found" after enabling DirectImport
 
@@ -316,7 +316,7 @@ dotnet msbuild src/Telemetry.Samples.DebugDependencies.sln -t:WriteLinesToFile `
 
 ---
 
-## Summary 🚀
+## 🚀 Summary
 
 The DebugDependencies solution pattern enables seamless cross-repository source-level debugging by leveraging conditional MSBuild `ProjectReference` / `PackageReference` items controlled by two properties per dependency family (`*DirectImport` and `*SolutionDirectory`).
 
@@ -334,7 +334,7 @@ The DebugDependencies solution pattern enables seamless cross-repository source-
 
 ---
 
-## References 📚
+## 📚 References
 
 **[diginsight/telemetry](https://github.com/diginsight/telemetry)** 📗 [Verified Community]
 The core Diginsight telemetry library. Provides automatic observability for .NET applications using `ILogger<>` and `System.Diagnostics`. This is the primary dependency toggled in the `Telemetry.Samples.DebugDependencies.sln` solution.

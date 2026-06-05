@@ -9,7 +9,7 @@ description: "Planned articles and topic map for the Prompt Engineering for GitH
 
 This document tracks the planned and published articles in the **Prompt Engineering for GitHub Copilot** series, organized by Diátaxis category.
 
-## Folder structure 🏗️
+## 🏗️ Folder structure
 
 The series follows the [Diátaxis framework](https://diataxis.fr/) with six content folders:
 
@@ -22,7 +22,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 | `05-analysis/` | Analysis | Case studies and applied multi-agent patterns |
 | `06-reference/` | Reference | Settings, IDE support, and compatibility tables |
 
-## Published articles 📋
+## 📋 Published articles
 
 ### 01-overview (2 articles)
 
@@ -96,7 +96,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 | 01.10 | [Customization decision framework reference](./06-reference/01.10-customization_decision_framework_reference.md) | ✅ Published |
 | 01.11 | [YAML frontmatter reference](./06-reference/01.11-yaml_frontmatter_reference.md) | ✅ Published |
 
-## Planned articles 🚀
+## 🚀 Planned articles
 
 | Number | Folder | Topic | Priority | Notes |
 |--------|--------|-------|----------|-------|
@@ -104,7 +104,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 | 16.00 | 04-howto | How to version and maintain prompt libraries | Medium | Version control patterns, deprecation, team collaboration |
 | 17.00–19.00 | 04-howto | Reserved | — | Available for future how-to topics |
 
-## Numbering convention 📚
+## 📚 Numbering convention
 
 - **01.00**: Series overview and customization stack map
 - **01.01**: Appendix (Copilot Spaces)
@@ -120,7 +120,7 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 
 ---
 
-## PE Artifact Maintenance 🔧
+## 🔧 PE Artifact Maintenance
 
 ### Infrastructure Overview
 

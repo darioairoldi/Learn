@@ -1,12 +1,12 @@
 the following article analyzes interesting points about Azure Key Vault
 
-## Table of Contents 📑
+## 📑 Table of Contents
 
 - [Q. What interfaces exist to interact with Azure Key Vault? 🔐](#q-what-interfaces-exist-to-interact-with-azure-key-vault)
 
 ---
 
-## Q. What interfaces exist to interact with Azure Key Vault? 🔐
+## 🔐 Q. What interfaces exist to interact with Azure Key Vault?
 
 **1. <mark>Azure Portal**: Web-based graphical interface for managing Key Vault resources, secrets, keys, and certificates through a browser.
 

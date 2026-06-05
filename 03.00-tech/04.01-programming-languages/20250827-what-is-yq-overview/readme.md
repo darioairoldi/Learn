@@ -1,6 +1,6 @@
 # How to Convert YAML to JSON - Complete Guide
 
-## Table of Contents 📋
+## 📋 Table of Contents
 
 - [Overview 📖](#overview)
 - [Simple Solutions ⚡](#simple-solutions)
@@ -21,7 +21,7 @@
 
 ---
 
-## **Overview** 📖
+## 📖 **Overview**
 
 Converting YAML to JSON is a common task in modern development workflows, especially when working with configuration files, CI/CD pipelines, and documentation systems. This guide covers practical solutions from simple online tools to enterprise-grade automation, based on real-world implementation experience.
 
@@ -38,7 +38,7 @@ In our Quarto documentation project, we needed to convert `_quarto.yml` navigati
 
 ---
 
-## **Simple Solutions** ⚡
+## ⚡ **Simple Solutions**
 
 ### Online Converters
 
@@ -126,7 +126,7 @@ Convert-YamlToJson -YamlFilePath "_quarto.yml" -JsonOutputPath "config.json"
 
 ---
 
-## **Command-Line Tools** 🛠️
+## 🛠️ **Command-Line Tools**
 
 ### yq Tool (Recommended)
 
@@ -311,7 +311,7 @@ convertYamlToJson('_quarto.yml', 'config.json');
 
 ---
 
-## **Programming Solutions** 💻
+## 💻 **Programming Solutions**
 
 ### PowerShell Script Integration
 
@@ -538,7 +538,7 @@ if __name__ == '__main__':
 
 ---
 
-## **Advanced Integration** 🔄
+## 🔄 **Advanced Integration**
 
 ### Build Pipeline Integration
 
@@ -626,7 +626,7 @@ stages:
 
 ---
 
-## **References** 📚
+## 📚 **References**
 
 ### Official Documentation
 - **[yq Documentation](https://mikefarah.gitbook.io/yq/)** - Complete guide to the yq command-line YAML processor

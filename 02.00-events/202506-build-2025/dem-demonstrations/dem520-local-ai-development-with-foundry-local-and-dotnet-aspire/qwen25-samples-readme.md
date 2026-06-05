@@ -43,7 +43,7 @@ A complete web application demonstrating:
 - **Full .NET Aspire Integration** - Packages like `Microsoft.Extensions.Hosting.FoundryLocal` are in development
 - Seamless orchestration as shown in the Build session
 
-## Current Status ✅
+## ✅ Current Status
 
 **All code compiles and runs successfully!** The samples can:
 

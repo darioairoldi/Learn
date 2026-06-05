@@ -1,13 +1,13 @@
 the following article analyzes interesting points about Azure Monitor
 
-## Table of Contents 📑
+## 📑 Table of Contents
 
 - [Q. Azure Monitor Features 📊](#q-azure-monitor-features)
 - [Q. Appinsight vs OpenTelemetry 🔄](#q-appinsight-vs-opentelemetry)
 
 ---
 
-## Q. Azure Monitor Features 📊
+## 📊 Q. Azure Monitor Features
 
 | Feature | Description |
 |---------|-------------|
@@ -19,7 +19,7 @@ the following article analyzes interesting points about Azure Monitor
 | <mark>Application Map | A high level top-down view of the application architecture and at-a-glance visual references to component health and responsiveness. |
 | <mark>Distributed Tracing | Search and visualize an end-to-end flow of a given execution or transaction. |
 
-## Q. Appinsight vs OpenTelemetry 🔄
+## 🔄 Q. Appinsight vs OpenTelemetry
 
 | Application Insights | OpenTelemetry |
 |---------------------|---------------|

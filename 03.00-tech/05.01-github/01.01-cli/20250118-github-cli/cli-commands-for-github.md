@@ -1,6 +1,6 @@
 # 🚀 CLI Commands to Interact with GitHub Repositories
 
-## Table of Contents 📑
+## 📑 Table of Contents
 
 - [CLI Commands to Interact with GitHub Repositories 🚀](#cli-commands-to-interact-with-github-repositories)
   - [Table of Contents 📑](#table-of-contents)
@@ -39,7 +39,7 @@
 
 ---
 
-## Overview 📖
+## 📖 Overview
 
 ### Available CLI Tools
 
@@ -67,7 +67,7 @@ GitHub CLI commands are organized into these main categories:
 
 ---
 
-## GitHub CLI (gh) Commands 💻
+## 💻 GitHub CLI (gh) Commands
 
 ### Authentication
 
@@ -263,7 +263,7 @@ gh gist delete GIST-ID
 
 ---
 
-## Git Commands 🔧
+## 🔧 Git Commands
 
 ### Repository Operations
 
@@ -368,7 +368,7 @@ git remote show origin
 
 ---
 
-## GitHub REST API via CLI 🌐
+## 🌐 GitHub REST API via CLI
 
 ### Basic API Calls
 
@@ -450,7 +450,7 @@ gh api /repos/OWNER/REPO/stats/commit_activity
 
 ---
 
-## Additional Details 📚
+## 📚 Additional Details
 
 ### gh auth - Authentication Management
 
@@ -721,7 +721,7 @@ gh release view v1.0.0 --web
 
 ---
 
-## References 🔗
+## 🔗 References
 
 ### Official Documentation
 

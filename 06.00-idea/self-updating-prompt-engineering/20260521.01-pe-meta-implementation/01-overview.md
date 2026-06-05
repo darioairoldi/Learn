@@ -30,7 +30,7 @@ rationales:
 
 # PE-meta implementation overview
 
-## Table of contents 📋
+## 📋 Table of contents
 
 - [Purpose and operating model 🎯](#purpose-and-operating-model)
 - [Artifact inventory used by pe-meta 🏗️](#artifact-inventory-used-by-pe-meta)
@@ -41,7 +41,7 @@ rationales:
 
 ---
 
-## Purpose and operating model 🎯
+## 🎯 Purpose and operating model
 
 This document defines the implementation view of the pe-meta system.
 
@@ -56,7 +56,7 @@ The implementation model is aligned with the current vision and use-case stack, 
 
 ---
 
-## Artifact inventory used by pe-meta 🏗️
+## 🏗️ Artifact inventory used by pe-meta
 
 ### Implementation artifact families
 
@@ -165,7 +165,7 @@ All files in `.copilot/context/00.00-prompt-engineering/` are part of the pe-met
 
 ---
 
-## Validation operating flow ⚙️
+## ⚙️ Validation operating flow
 
 Validation should follow a deterministic-first, phase-ordered strategy:
 
@@ -188,7 +188,7 @@ This ordering is mandatory because consumer adherence checks are invalid when fo
 
 ---
 
-## Validation plan by artifact type ✅
+## ✅ Validation plan by artifact type
 
 ### Global validation cases (apply to every artifact)
 
@@ -356,7 +356,7 @@ Validation steps:
 
 ---
 
-## Suggested execution order for implementation validation 🚀
+## 🚀 Suggested execution order for implementation validation
 
 Use this run order for a complete implementation audit:
 
@@ -372,7 +372,7 @@ Use this run order for a complete implementation audit:
 
 ---
 
-## References 📚
+## 📚 References
 
 **[Self-updating prompt engineering: vision and rationale (v12)](../20260515.02-vision.v12.md)** 📘 [Official]  
 Description (2-4 sentences): Defines the strategic objective, autonomy model, and architecture principles that pe-meta implements. It is the normative source for system boundaries and validation philosophy. Use this when checking whether implementation behavior still reflects strategic intent.

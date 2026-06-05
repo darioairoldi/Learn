@@ -18,7 +18,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 ## Key Topics Covered
 
-### **1. The Imperative for .NET Upgrades** 🚀
+### 🚀 **1. The Imperative for .NET Upgrades**
 
 **Core Concept:** Regular .NET upgrades are essential for performance, security, compliance, and ecosystem compatibility.
 
@@ -38,7 +38,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 ---
 
-### **2. Upgrade vs. Modernization: Understanding the Spectrum** 🔄
+### 🔄 **2. Upgrade vs. Modernization: Understanding the Spectrum**
 
 **Upgrade (Point A → Point B):**
 
@@ -61,7 +61,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 ---
 
-### **3. Traditional Tools: .NET Upgrade Assistant & Azure Migrate** 🛠️
+### 🛠️ **3. Traditional Tools: .NET Upgrade Assistant & Azure Migrate**
 
 #### .NET Upgrade Assistant
 **Capabilities:**
@@ -91,7 +91,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 ---
 
-### **4. AI-Powered Upgrade: GitHub Copilot for .NET Modernization** 🤖
+### 🤖 **4. AI-Powered Upgrade: GitHub Copilot for .NET Modernization**
 
 **Core Innovation:** Intelligent, context-aware upgrades that learn from developer interventions.
 
@@ -116,7 +116,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 ---
 
-### **5. AI-Assisted Modernization: Formula-Based Code Transformation** 🌐
+### 🌐 **5. AI-Assisted Modernization: Formula-Based Code Transformation**
 
 **Concept:** Pre-built and custom "formulas" for large-scale code pattern migrations.
 
@@ -144,7 +144,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 ---
 
-### **6. Real-World Impact and Adoption** 📈
+### 📈 **6. Real-World Impact and Adoption**
 
 #### Microsoft Internal Results
 - **Teams and Xbox** - Significant upgrade acceleration
@@ -158,7 +158,7 @@ This session demonstrates how AI-powered tools are transforming .NET application
 
 ---
 
-### **7. Future Roadmap and Vision** 🔮
+### 🔮 **7. Future Roadmap and Vision**
 
 #### Near-term Enhancements
 - **Framework → Core migration support** - Bridge the final gap in upgrade tooling

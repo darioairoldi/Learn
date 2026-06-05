@@ -49,7 +49,7 @@ rationales:
 
 ---
 
-## Problem this solves 🎯
+## 🎯 Problem this solves
 
 R-S5 (chain alignment) currently defines two reference levels:
 
@@ -76,7 +76,7 @@ Beyond the two-level gap, the vision has four additional gaps that prevent robus
 
 ---
 
-## Core proposal 💡
+## 💡 Core proposal
 
 Introduce **Level 1.5: Category-based indirection** — a third reference level that sits between folder references and file references.
 
@@ -105,7 +105,7 @@ Introduce **Level 1.5: Category-based indirection** — a third reference level 
 
 ---
 
-## Enforcement flow: how categories survive refactoring 🔄
+## 🔄 Enforcement flow: how categories survive refactoring
 
 ### The problem
 
@@ -179,7 +179,7 @@ The enforcement uses **mechanisms the vision already defines** — metadata-driv
 
 ---
 
-## Proposed changes to the vision 📋
+## 📋 Proposed changes to the vision
 
 ### Change V1: Extend R-S5 chain alignment with Level 1.5 (HIGH priority) — ✅ DONE
 
@@ -357,7 +357,7 @@ Since the vision already has extensive chain alignment coverage in R-S5, the cle
 
 ---
 
-## Risk assessment ⚠️
+## ⚠️ Risk assessment
 
 ### Risks
 
@@ -379,7 +379,7 @@ Since the vision already has extensive chain alignment coverage in R-S5, the cle
 
 ---
 
-## Validation criteria ✅
+## ✅ Validation criteria
 
 The vision update succeeds when:
 
@@ -394,7 +394,7 @@ The vision update succeeds when:
 
 ---
 
-## References 📚
+## 📚 References
 
 - **[06.000-vision.v6.md](06.000-vision.v6.md)** 📘 Internal
   Current vision document — target of these proposed changes.

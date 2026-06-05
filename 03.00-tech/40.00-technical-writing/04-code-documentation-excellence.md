@@ -25,7 +25,7 @@ description: "Master code documentation through API reference standards, inline 
 - [Conclusion ✅](#conclusion)
 - [References 📚](#references)
 
-## Introduction 🎯
+## 🎯 Introduction
 
 Code documentation occupies a unique position—it lives at the intersection of technical precision and human communication. Developers read it while debugging at 2 AM, implementing features under deadline pressure, or trying to understand code they wrote six months ago.
 
@@ -40,7 +40,7 @@ This article covers:
 
 **Prerequisites:** Understanding of [writing style principles](01-writing-style-and-voice-principles.md) and [documentation structure](02-structure-and-information-architecture.md).
 
-## API reference documentation 📡
+## 📡 API reference documentation
 
 API reference documentation must be simultaneously **comprehensive** (complete information) and **scannable** (quickly findable). This creates a unique writing challenge.
 
@@ -181,7 +181,7 @@ Throws: Error
 - Idempotency key documentation
 - Pagination guidance
 
-## Inline code comments 💬
+## 💬 Inline code comments
 
 Comments in code serve different purposes than external documentation. They explain **why**, not **what**.
 
@@ -305,7 +305,7 @@ public User CreateUser(string name, string email)
 function createUser(name, email) {
 ```
 
-## Code examples in documentation 📝
+## 📝 Code examples in documentation
 
 Code examples are often the most-read part of documentation. Users scan to examples, copy them, modify them. Good examples make or break developer experience.
 
@@ -457,7 +457,7 @@ curl https://api.example.com/users/usr_123 \
 </details>
 ```
 
-## Error message design ⚠️
+## ⚠️ Error message design
 
 Error messages are documentation that appears when something goes wrong—precisely when users need the most help.
 
@@ -554,7 +554,7 @@ except AuthenticationError as e:
 ```
 ```
 
-## Changelog and release notes 📋
+## 📋 Changelog and release notes
 
 Changelogs communicate what changed between versions. They serve multiple audiences: developers upgrading, managers evaluating, and security teams auditing.
 
@@ -659,7 +659,7 @@ None in this release.
 [Full changelog →](./CHANGELOG.md#110---2026-01-14)
 ```
 
-## README files 📄
+## 📄 README files
 
 The README is often the first documentation users see. It must quickly convey what a project does and how to get started.
 
@@ -732,7 +732,7 @@ From [README.md](../../README.md):
 - **Getting started:** Links to setup documentation
 - **Navigation aids:** Links to key sections
 
-## Documentation generators ⚙️
+## ⚙️ Documentation generators
 
 Many languages have documentation generators that produce reference documentation from code comments.
 
@@ -795,7 +795,7 @@ def get_users(
 - Version control generated documentation
 - Or regenerate as part of CI/CD
 
-## Applying code documentation standards to this repository 📌
+## 📌 Applying code documentation standards to this repository
 
 ### This repository's code
 

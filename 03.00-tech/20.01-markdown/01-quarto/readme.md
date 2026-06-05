@@ -2,7 +2,7 @@
 
 A comprehensive guide to using Quarto for technical documentation websites, covering architecture, customization, optimization, and deployment.
 
-## Series Overview 📚
+## 📚 Series Overview
 
 **Target Audience:** Intermediate to advanced developers creating documentation sites with Quarto
 
@@ -16,7 +16,7 @@ A comprehensive guide to using Quarto for technical documentation websites, cove
 
 ---
 
-## Reading Order 🗺️
+## 🗺️ Reading Order
 
 ### 01 - Introduction & Fundamentals
 
@@ -110,7 +110,7 @@ Azure Storage Account static websites, CDN integration, custom domains
 
 ---
 
-## Quick Start Paths 🎯
+## 🎯 Quick Start Paths
 
 ### New to Quarto?
 **Start here:** Articles 1 → 2 → 5 → 6 → 13  
@@ -130,7 +130,7 @@ Azure Storage Account static websites, CDN integration, custom domains
 
 ---
 
-## Prerequisites 📋
+## 📋 Prerequisites
 
 Before starting this series, you should have:
 
@@ -148,7 +148,7 @@ Before starting this series, you should have:
 
 ---
 
-## Series Scope & Limitations 🔧
+## 🔧 Series Scope & Limitations
 
 ### What This Series Covers
 
@@ -177,7 +177,7 @@ Before starting this series, you should have:
 
 ---
 
-## When to Choose Quarto 🆚
+## 🆚 When to Choose Quarto
 
 ### Quarto is Ideal For:
 
@@ -206,7 +206,7 @@ Before starting this series, you should have:
 
 ---
 
-## Series Maintenance 🔄
+## 🔄 Series Maintenance
 
 **Review Schedule:**
 - Quarterly review for Quarto version updates
@@ -222,7 +222,7 @@ Before starting this series, you should have:
 
 ---
 
-## Additional Resources 📖
+## 📖 Additional Resources
 
 ### Official Documentation
 - [Quarto Official Website](https://quarto.org/)
@@ -242,7 +242,7 @@ Before starting this series, you should have:
 
 ---
 
-## Series Metadata 📊
+## 📊 Series Metadata
 
 ```yaml
 series_info:

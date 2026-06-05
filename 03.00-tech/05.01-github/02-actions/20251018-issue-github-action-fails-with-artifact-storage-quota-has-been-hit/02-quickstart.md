@@ -2,7 +2,7 @@
 
 ## What Was Done
 
-### 1. Workflow File Fixed ✅
+### ✅ 1. Workflow File Fixed
 **File**: `.github/workflows/quarto-publish.win64.yml`
 
 **Changes Made:**

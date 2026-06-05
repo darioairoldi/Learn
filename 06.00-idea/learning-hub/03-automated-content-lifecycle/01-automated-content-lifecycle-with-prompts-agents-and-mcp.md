@@ -47,7 +47,7 @@ This document proposes a layered automation architecture that uses GitHub Copilo
 
 ---
 
-## Lessons learned: the prompt engineering series 🔬
+## 🔬 Lessons learned: the prompt engineering series
 
 The prompt engineering series (15 published articles in `03.00-tech/05.02-prompt-engineering/`) served as an unplanned but thorough test of Learning Hub's taxonomy concepts. A comprehensive review uncovered six categories of problems that any documentation system must address automatically.
 
@@ -104,7 +104,7 @@ The prompt engineering series (15 published articles in `03.00-tech/05.02-prompt
 
 ---
 
-## Taxonomy improvements based on real-world experience 🔧
+## 🔧 Taxonomy improvements based on real-world experience
 
 The prompt engineering review revealed several improvements needed in the taxonomy itself.
 
@@ -697,7 +697,7 @@ The validation mapping enables three automation patterns:
 
 ---
 
-## The automation architecture 🏗️
+## 🏗️ The automation architecture
 
 The Learning Hub content lifecycle is automated through four layers, each using the appropriate tool for its scope.
 
@@ -724,7 +724,7 @@ Each layer addresses a different automation need:
 
 ---
 
-## Layer 1: Prompts — single-article operations 📋
+## 📋 Layer 1: Prompts — single-article operations
 
 Prompts are the atomic units of the content lifecycle. They serve two distinct purposes:
 
@@ -954,7 +954,7 @@ argument-hint: 'Attach the article to analyze with #file'
 
 ---
 
-## Layer 2: Agents — specialized roles 🤖
+## 🤖 Layer 2: Agents — specialized roles
 
 Agents are persistent specialists that handle multi-file analysis and complex workflows. Each agent has a narrow role, specific tool access, and clear boundaries.
 
@@ -1202,7 +1202,7 @@ tools:
 
 ---
 
-## Layer 3: Subagent orchestrations — multi-agent workflows 🎭
+## 🎭 Layer 3: Subagent orchestrations — multi-agent workflows
 
 Subagent orchestrations coordinate multiple agents for complex workflows that span the entire content lifecycle.
 
@@ -1374,7 +1374,7 @@ maintenance-sweep-coordinator
 
 ---
 
-## Layer 4: IQPilot MCP server — deterministic infrastructure ⚙️
+## ⚙️ Layer 4: IQPilot MCP server — deterministic infrastructure
 
 The IQPilot MCP server handles operations that should be deterministic, fast, and don't require AI reasoning. It currently provides 16 tools across four categories.
 
@@ -1464,7 +1464,7 @@ The following tools address gaps discovered during the prompt engineering review
 
 ---
 
-## Content lifecycle workflows 🔄
+## 🔄 Content lifecycle workflows
 
 This section maps the complete content lifecycle to the automation layers defined above. The lifecycle has six phases—three creative (research, develop, create), three evaluative (review, maintain, evolve). Earlier versions of this document focused almost entirely on the evaluative phases. The creative phases below ensure that content starts strong, not just finishes clean.
 
@@ -1591,7 +1591,7 @@ When articles grow too large, drift from their category, or need deeper treatmen
 
 ---
 
-## Implementation roadmap 🗺️
+## 🗺️ Implementation roadmap
 
 ### Phase 1: Foundation + creative prompts (weeks 1–2)
 
@@ -1656,7 +1656,7 @@ When articles grow too large, drift from their category, or need deeper treatmen
 
 ---
 
-## Conclusion 🎯
+## 🎯 Conclusion
 
 The prompt engineering series review revealed that maintaining documentation quality at scale requires systematic automation, not just good intentions. The six categories of problems discovered—staleness, cross-reference fragility, coverage gaps, redundancy, structural inconsistency, and content tension—map precisely to the Learning Hub taxonomy's structure.
 
@@ -1684,7 +1684,7 @@ But quality automation alone isn't enough. **Content must start strong, not just
 
 ---
 
-## References 📚
+## 📚 References
 
 ### Internal documentation
 

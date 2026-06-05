@@ -2,7 +2,7 @@
 
 Azure Blob Storage is Microsoft's object storage solution for the cloud, providing massive scalability and high availability for unstructured data. However, like any service, it comes with specific limitations that can impact your application's performance, scalability, and functionality. Understanding these constraints is crucial for designing robust and efficient storage solutions.
 
-## Table of Contents 📑
+## 📑 Table of Contents
 
 - [1. 📊 Performance Limitations](#performance-limitations)
   - [Throughput and Bandwidth Limits](#throughput-and-bandwidth-limits)
@@ -635,7 +635,7 @@ Critical Alerts to Configure:
 
 ---
 
-## References 📚
+## 📚 References
 
 **[Azure Blob Storage Scalability and Performance Targets](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets)**  
 *Official Microsoft documentation covering all scalability limits, performance targets, and best practices for Azure Blob Storage. Essential reference for understanding service boundaries and planning capacity.*

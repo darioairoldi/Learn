@@ -2,7 +2,7 @@
 
 This article provides a comprehensive overview of <mark>Azure Key Vault limitations</mark>, constraints, and considerations that should be taken into account when designing solutions.
 
-## Table of Contents 📑
+## 📑 Table of Contents
 
 1. [Service Limits and Quotas ⚡](#service-limits-and-quotas)
 2. [Security and Access Limitations 🔒](#security-and-access-limitations)

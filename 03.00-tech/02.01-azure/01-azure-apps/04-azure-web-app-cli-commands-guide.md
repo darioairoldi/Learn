@@ -21,11 +21,11 @@
   - [SSL/TLS Configuration](#ssltls-configuration)
 - 📚 [References](#references)
 
-## Introduction 🌐
+## 🌐 Introduction
 
 Azure Web Apps provide a powerful platform-as-a-service (PaaS) solution for hosting web applications. The Azure CLI offers comprehensive commands to manage every aspect of your web apps, from creation and configuration to deployment and monitoring. This guide covers the essential `az webapp` commands and their practical applications.
 
-## Prerequisites 📋
+## 📋 Prerequisites
 
 Before using Azure Web App CLI commands, ensure you have:
 
@@ -41,7 +41,7 @@ az login
 az account set --subscription "Your-Subscription-Name"
 ```
 
-## Web App Management 🚀
+## 🚀 Web App Management
 
 ### Creating Web Apps
 
@@ -90,7 +90,7 @@ az webapp show --name diginsighttools-testmc-job-itn-01 --resource-group diginsi
 az webapp show --name diginsighttools-testmc-job-itn-01 --resource-group diginsighttools-testmc-rg-itn-01 --query defaultHostName --output tsv
 ```
 
-## Configuration and Settings ⚙️
+## ⚙️ Configuration and Settings
 
 ### App Settings Management
 
@@ -132,7 +132,7 @@ az webapp config connection-string set \
 az webapp config connection-string list --name diginsighttools-testmc-job-itn-01 --resource-group diginsighttools-testmc-rg-itn-01
 ```
 
-## Deployment Operations 📦
+## 📦 Deployment Operations
 
 ### Source Control Deployment
 
@@ -177,7 +177,7 @@ az webapp deployment list-publishing-profiles \
   --resource-group diginsighttools-testmc-rg-itn-01
 ```
 
-## Advanced Management 🔧
+## 🔧 Advanced Management
 
 ### Scaling and Performance
 
@@ -232,7 +232,7 @@ az webapp log tail --name diginsighttools-testmc-job-itn-01 --resource-group dig
 az webapp log download --name diginsighttools-testmc-job-itn-01 --resource-group diginsighttools-testmc-rg-itn-01 --log-file logs.zip
 ```
 
-## Security and Access 🔒
+## 🔒 Security and Access
 
 ### Authentication and Authorization
 
@@ -278,7 +278,7 @@ az webapp config ssl upload \
 az webapp update --name diginsighttools-testmc-job-itn-01 --resource-group diginsighttools-testmc-rg-itn-01 --https-only true
 ```
 
-## References 📚
+## 📚 References
 
 ### Official Documentation
 - **[Azure CLI Web App Commands Reference](https://docs.microsoft.com/en-us/cli/azure/webapp)** - Complete reference documentation for all `az webapp` commands, including syntax, parameters, and examples. Essential for understanding all available options and command variations.

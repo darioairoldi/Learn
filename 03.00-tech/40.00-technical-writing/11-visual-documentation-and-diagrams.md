@@ -26,7 +26,7 @@ description: "Create effective visual documentation using diagrams-as-code, scre
 - [Conclusion ✅](#conclusion)
 - [References 📚](#references)
 
-## Introduction 🎯
+## 🎯 Introduction
 
 The technical writing series up to this point focuses on text-based documentation—writing style, structure, accessibility, validation, and consistency. But many concepts resist clear textual explanation. System architectures, data flows, decision trees, and UI interactions are often easier to understand visually. The gap isn't just about "adding pictures"—it's about choosing the right visual medium, maintaining visuals over time, and ensuring they're accessible to all readers.
 
@@ -44,7 +44,7 @@ This article covers:
 
 **Prerequisites:** Familiarity with [accessibility in technical writing](03-accessibility-in-technical-writing.md) provides essential context for the accessibility sections. Understanding of [documentation lifecycle](10-documentation-lifecycle-and-maintenance.md) helps with visual content maintenance strategies.
 
-## When to use visuals vs. text 📋
+## 📋 When to use visuals vs. text
 
 Not every concept benefits from a diagram. Adding visuals indiscriminately clutters documentation and increases maintenance burden. The decision to use a visual should be deliberate.
 
@@ -106,7 +106,7 @@ The following table maps each Diátaxis article type to its recommended visual p
 | Moderate | Art. 02, Art. 07, Art. 09 | Tables and structured comparisons | Add concept map (Art. 02), workflow diagram (Art. 07), formula visualization (Art. 09) |
 | Text-only | Art. 00, 01, 03, 04, 05, 06, 08, 10, 12 | No diagrams or screenshots | Add 1–2 targeted visuals per article based on the type-specific guidance above |
 
-## Diagrams-as-code 🏗️
+## 🏗️ Diagrams-as-code
 
 <mark>Diagrams-as-code</mark> means writing diagrams in a text-based syntax that renders into visual output. Like documentation-as-code, this approach enables version control, diff tracking, and automated rendering—solving the maintenance problems that plague image-based diagrams.
 
@@ -262,7 +262,7 @@ App -> User: JSON Response
 
 **Recommendation for this repository:** Use Mermaid as the default—it renders natively in GitHub and Quarto. Reach for PlantUML or D2 when Mermaid's layout limitations become a problem.
 
-## Architecture documentation models 📐
+## 📐 Architecture documentation models
 
 Architecture diagrams without a consistent model become ad hoc drawings that confuse more than they clarify. Two frameworks bring structure to architecture visualization.
 
@@ -335,7 +335,7 @@ C4Context
 
 **C4 vs. Arc42:** They're complementary, not competing. Use C4's zoom levels for consistent diagram abstraction within Arc42's section structure. Arc42 Section 3 maps to C4 Level 1; Section 5 maps to Levels 2-3; Section 6 uses sequence diagrams at any C4 level.
 
-## Screenshot best practices 📸
+## 📸 Screenshot best practices
 
 Screenshots are the most fragile form of visual documentation. UI changes, theme updates, and localization shifts all invalidate them. Use screenshots deliberately and maintain them rigorously.
 
@@ -392,7 +392,7 @@ Before reaching for a screenshot, consider lighter-weight alternatives:
 | **Diagrams-as-code** | Showing UI structure abstractly | Version-controlled; maintainable |
 | **GIF/video** | Multi-step interactions | Shows motion and transitions |
 
-## Visual information hierarchy 🎨
+## 🎨 Visual information hierarchy
 
 <mark>Visual hierarchy</mark> guides readers through content by using size, position, contrast, and whitespace to signal importance and relationships. Principles from graphic design apply directly to technical documentation.
 
@@ -433,7 +433,7 @@ Color adds meaning but introduces accessibility risks. Follow these rules:
 - **Test for color blindness** — Simulate deuteranopia (red-green) and tritanopia (blue-yellow) views. Tools like Coblis or Chrome DevTools' "Emulate vision deficiencies" help
 - **Provide a legend** — When meaning depends on color, include a visible legend
 
-## Accessibility for visual content ♿
+## ♿ Accessibility for visual content
 
 Visual documentation creates accessibility barriers unless you plan for them. This section builds on [accessibility in technical writing](03-accessibility-in-technical-writing.md), which covers alt text fundamentals. Here, we go deeper into visual-specific accessibility.
 
@@ -484,7 +484,7 @@ Test your visual documentation with a screen reader to verify the experience:
 4. Confirm that any interactive elements (links in SVGs) are navigable
 5. Verify that the text description following the diagram provides equivalent information
 
-## Video and animated documentation 🎬
+## 🎬 Video and animated documentation
 
 Video and animated content (GIFs, short screencasts) can demonstrate interactions that static images can't capture. But they're expensive to produce, impossible to search, and difficult to maintain.
 
@@ -524,7 +524,7 @@ Video and animated content (GIFs, short screencasts) can demonstrate interaction
 
 > **Accessibility note:** Auto-playing GIFs violate WCAG 2.2.2 (Pause, Stop, Hide) unless users can pause them. Prefer `<video>` with controls over GIF for anything longer than a brief moment.
 
-## Tooling and workflow integration ⚙️
+## ⚙️ Tooling and workflow integration
 
 ### Documentation pipeline integration
 
@@ -558,7 +558,7 @@ Integrate visual documentation into your docs-as-code workflow:
 
 **Recommendation:** Keep generated images out of version control (add to `.gitignore`). Track only the source files and render at build time. Exception: screenshots and manually created SVGs that don't have a code-based source.
 
-## Applying visual documentation to this repository 📌
+## 📌 Applying visual documentation to this repository
 
 This section maps visual documentation concepts to the Learning Documentation Site's structure and tooling.
 
@@ -587,7 +587,7 @@ This section maps visual documentation concepts to the Learning Documentation Si
 
 5. **Integrate with freshness checks** — Extend the lifecycle management approach from [10-documentation-lifecycle-and-maintenance.md](10-documentation-lifecycle-and-maintenance.md) to track screenshot freshness alongside text content.
 
-## Conclusion ✅
+## ✅ Conclusion
 
 Visual documentation isn't decoration—it's a tool for conveying relationships, structures, and flows that text alone struggles to express. But visuals require the same discipline as text: deliberate decisions about when to use them, consistent patterns when creating them, accessibility for all readers, and maintenance strategies that prevent them from becoming stale.
 
@@ -607,7 +607,7 @@ Visual documentation isn't decoration—it's a tool for conveying relationships,
 - **Related:** [08-consistency-standards-and-enforcement.md](08-consistency-standards-and-enforcement.md) — Visual consistency as a dimension of documentation consistency
 - **Related:** [12-writing-for-global-audiences.md](12-writing-for-global-audiences.md) — Visual meaning across cultures
 
-## References 📚
+## 📚 References
 
 ### Official documentation
 

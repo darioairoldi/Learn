@@ -12,21 +12,21 @@ validation_scope: "individual"
 
 Use this runbook when pe-meta orchestration commands are unavailable.
 
-## Goal 🎯
+## 🎯 Goal
 
 Run all global cases and type-specific cases as independent prompt executions, with traceable evidence per case.
 
-## Target artifact 📋
+## 📋 Target artifact
 
 - Path: `C:\dev\darioairoldi\Learn\.github\prompts\00.09-pe-meta\pe-meta-snippet-design.prompt.md`
 - Status file: `../02.32-validation-status-pe-meta-snippet-design.md`
 
-## Execution modes ⚙️
+## ⚙️ Execution modes
 
 1. Preferred: invoke each local prompt file in this folder from Copilot Chat (copy-paste prompt content).
 2. Do not depend on pe-meta slash commands for completion of this runbook.
 
-## Step-by-step ✅
+## ✅ Step-by-step
 
 1. Check if the target file exists.
 2. If missing, run `00a-bootstrap-create-prompt.prompt.md` first.
@@ -35,7 +35,7 @@ Run all global cases and type-specific cases as independent prompt executions, w
 5. Update checkboxes in `../02.32-validation-status-pe-meta-snippet-design.md`.
 6. Add an execution-log row with date, runner, result, and residual blockers.
 
-## Case order 🔢
+## 🔢 Case order
 
 1. `01-g01-metadata-contract.prompt.md`
 2. `02-g02-reference-integrity.prompt.md`
@@ -48,7 +48,7 @@ Run all global cases and type-specific cases as independent prompt executions, w
 9. `09-p04-delegation-handoff-correctness.prompt.md`
 10. `10-p05-scope-boundary-safety.prompt.md`
 
-## Output contract for each case run 📌
+## 📌 Output contract for each case run
 
 Use this compact output shape:
 

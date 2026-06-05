@@ -7,13 +7,13 @@ This folder addresses the **reliability** pole of the goal trio (reliability / e
 
 ---
 
-## Dimension catalog 📚
+## 📚 Dimension catalog
 
 Dimension references in this README use the canonical `D#-readable-id` form defined in [`05.07-pe-meta-dimension-catalog.md`](../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md). The catalog is the single source of truth for what each `D#-readable-id` and each `--dim` group resolves to.
 
 **Primary `--dim` group for this folder:** `--dim reliability` (resolves to `D28-reproducibility` through `D35-portability-boundary`; see catalog § *Dimension groups*).
 
-## Dimensions covered 📐
+## 📐 Dimensions covered
 
 Reliability dimensions plus the cross-cutting `D8-prioritization` (rationale precedence) exercised by at least one use case in this folder.
 
@@ -31,7 +31,7 @@ Reliability dimensions plus the cross-cutting `D8-prioritization` (rationale pre
 
 ---
 
-## Why this folder exists 🎯
+## 🎯 Why this folder exists
 
 The other four folders address freshness (cross-cutting), guidance quality (effectiveness), consumer adherence (effectiveness), and efficiency. None of them dedicates a use case to:
 
@@ -50,7 +50,7 @@ This folder fills the gap.
 
 ---
 
-## Coverage matrix (vision anchors → use cases) 📋
+## 📋 Coverage matrix (vision anchors → use cases)
 
 | Anchor | Vision reference | Use case |
 |---|---|---|
@@ -71,7 +71,7 @@ Every anchor is addressed by at least one UC; some UCs cover multiple anchors.
 
 ---
 
-## Run order 🧭
+## 🧭 Run order
 
 Priority flow: `P0 → P1 → P2`.
 
@@ -97,7 +97,7 @@ Priority flow: `P0 → P1 → P2`.
 
 ---
 
-## Entry points ⚙️
+## ⚙️ Entry points
 
 ```text
 /pe-meta-review <path> --dim reliability                              # full reliability audit
@@ -110,7 +110,7 @@ Priority flow: `P0 → P1 → P2`.
 
 ---
 
-## Related folders 🔗
+## 🔗 Related folders
 
 - [`01-freshness/`](../01-freshness/00-overview.md) — staleness drives the need for reliable corrections
 - [`02-quality-gates/`](../02-quality-gates/00-overview.md) — guidance quality is a precondition for reliable autonomous behavior (R-S9)

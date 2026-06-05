@@ -5,11 +5,11 @@
 > **Order in group:** 11
 > **Vision anchor:** R12 — Goal § Low-risk autonomy rule: "command identity MUST NOT be interpreted as a permission ceiling that overrides risk classification"
 
-## Purpose 🎯
+## 🎯 Purpose
 
 Verify that **a command's default mode never silently gates a low-risk change**. The vision is explicit: `--mode plan` vs `--mode apply` is a UX convenience for the user, not a permission level. If a low-risk, high-confidence change is found by a Review command running in default mode, it MUST be applied autonomously (or with notification), regardless of which command found it.
 
-## Invocation ⚙️
+## ⚙️ Invocation
 
 **Command family:** Review (audit on the engine itself)
 **Primary entry point:** `/pe-meta-review .github/prompts/00.09-pe-meta/ --dim reliability --mode plan`
@@ -25,7 +25,7 @@ Verify that **a command's default mode never silently gates a low-risk change**.
 | `--scope path` | Recommended — scope to the prompts and the applicability matrix |
 | `--mode plan` | Default — reports defects; fix is a prompt-author edit |
 
-## Behavior 🔬
+## 🔬 Behavior
 
 ### Audit 1: Prompt instruction text
 
@@ -46,21 +46,21 @@ Walk recent `autonomy_level: human_required` entries. For each entry:
 
 Verify the option-applicability matrix's `--mode` rules do not couple mode to autonomy in any command family. The applicability matrix's `--mode` column governs availability of the option, not the resulting autonomy.
 
-## Dimensions covered 📐
+## 📐 Dimensions covered
 
 `D34-autonomy-calibration` — adjacent
 `D33-boundary-actionability` — adjacent (the rule's actionability is what this UC tests)
 Reliability group — primary
 
-## Reliability analysis 🚦
+## 🚦 Reliability analysis
 
 The low-risk autonomy rule is a *vision-level invariant*. If the engine has even one prompt that contradicts it, that prompt silently downgrades the autonomy gradient for any work it touches. The defect class is invisible at single-prompt review; only a cross-prompt audit catches it. This UC is the audit.
 
-## Cost & efficiency 💰
+## 💰 Cost & efficiency
 
 Audit 1 is grep-grade (near-zero cost). Audit 2 is log-scan + LLM judgment on borderline cases. Audit 3 is YAML parse. Total: low cost.
 
-## Related use cases 🔗
+## 🔗 Related use cases
 
 - [p2-01-autonomy-calibration-audit](p2-01-autonomy-calibration-audit-usecase.md) — false-escalation rate computed there feeds this UC's audit 2
 - [p1-04-boundary-actionability-redteam](p1-04-boundary-actionability-redteam-usecase.md) — both audit how vision invariants survive in artifact text

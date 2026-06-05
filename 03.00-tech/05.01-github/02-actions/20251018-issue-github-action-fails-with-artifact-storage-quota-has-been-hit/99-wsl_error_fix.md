@@ -1,6 +1,6 @@
 # WSL Error Fix - Updated Solution
 
-## New Issue Encountered 🔴
+## 🔴 New Issue Encountered
 
 When trying to use `actions/upload-pages-artifact@v3` on a self-hosted Windows runner, we encountered:
 
@@ -10,7 +10,7 @@ Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NO
 Process completed with exit code 1.
 ```
 
-## Why This Happened 🔍
+## 🔍 Why This Happened
 
 The `actions/upload-pages-artifact@v3` action uses `tar` to create archives, which requires either:
 - A Linux environment (bash, tar utilities)
@@ -18,7 +18,7 @@ The `actions/upload-pages-artifact@v3` action uses `tar` to create archives, whi
 
 Your self-hosted Windows runner doesn't have WSL installed, so the action fails.
 
-## Solution: Hybrid Runner Approach ✅
+## ✅ Solution: Hybrid Runner Approach
 
 Instead of trying to run everything on Windows, we split the workflow to use the **best runner for each job**:
 
@@ -33,7 +33,7 @@ Instead of trying to run everything on Windows, we split the workflow to use the
 - ✅ Uses `upload-pages-artifact@v3` (works perfectly on Linux)
 - ✅ Deploys to GitHub Pages
 
-## Workflow Structure 📊
+## 📊 Workflow Structure
 
 ```yaml
 jobs:
@@ -54,7 +54,7 @@ jobs:
       - Deploy to Pages
 ```
 
-## Benefits of This Approach 🎯
+## 🎯 Benefits of This Approach
 
 1. **✅ No WSL Required**
    - Build happens on native Windows
@@ -73,7 +73,7 @@ jobs:
    - Windows for Quarto (your tooling)
    - Linux for Pages deployment (GitHub's tooling)
 
-## What Changed from Previous Solution 🔄
+## 🔄 What Changed from Previous Solution
 
 ### Previous Attempt (Failed):
 ```yaml
@@ -102,7 +102,7 @@ jobs:
       - deploy-pages@v4
 ```
 
-## Alternative Solutions (Not Recommended) 📋
+## 📋 Alternative Solutions (Not Recommended)
 
 If you really wanted to use only your Windows runner, you could:
 
@@ -120,7 +120,7 @@ If you really wanted to use only your Windows runner, you could:
 
 **Verdict**: The hybrid runner approach is simpler and more maintainable.
 
-## Current Status ✅
+## ✅ Current Status
 
 - ✅ Workflow updated to use hybrid approach
 - ✅ Build on Windows self-hosted runner
@@ -128,7 +128,7 @@ If you really wanted to use only your Windows runner, you could:
 - ✅ Short-lived artifacts (1 day retention)
 - ✅ Should work immediately on next run!
 
-## Next Steps 🚀
+## 🚀 Next Steps
 
 1. **Test the updated workflow**
    - Commit and push the changes

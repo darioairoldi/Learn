@@ -37,7 +37,7 @@ Burke Holland introduces <mark>MCP Apps</mark>—a new capability that lets MCP 
 
 ---
 
-## What are MCP apps? 🎯
+## 🎯 What are MCP apps?
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 0:10 – 0:29, 1:41 – 1:57
@@ -52,7 +52,7 @@ Burke Holland introduces <mark>MCP Apps</mark>—a new capability that lets MCP 
 
 ---
 
-## Enabling the experimental feature ⚙️
+## ⚙️ Enabling the experimental feature
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 0:32 – 0:42
@@ -64,7 +64,7 @@ Burke Holland introduces <mark>MCP Apps</mark>—a new capability that lets MCP 
 
 ---
 
-## LIFX light control demo 💡
+## 💡 LIFX light control demo
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 0:46 – 3:28
@@ -82,7 +82,7 @@ Burke demonstrates a custom MCP server that controls LIFX smart light bulbs. Fir
 
 ---
 
-## Building a hello world MCP server 🏗️
+## 🏗️ Building a hello world MCP server
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 3:33 – 7:24
@@ -102,7 +102,7 @@ Burke demonstrates a custom MCP server that controls LIFX smart light bulbs. Fir
 
 ---
 
-## Adding MCP apps UI to the server 🎨
+## 🎨 Adding MCP apps UI to the server
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 8:08 – 12:55
@@ -123,7 +123,7 @@ After building and restarting the server, there are now two tools. Calling "show
 
 ---
 
-## Forcing the AI to wait with promises ⏳
+## ⏳ Forcing the AI to wait with promises
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 13:06 – 17:13
@@ -145,7 +145,7 @@ After building and restarting the server, there are now two tools. Calling "show
 
 ---
 
-## Future outlook and skills 🔮
+## 🔮 Future outlook and skills
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 17:16 – 18:24
@@ -199,7 +199,7 @@ After building and restarting the server, there are now two tools. Calling "show
 
 ---
 
-## Resources and references 📚
+## 📚 Resources and references
 
 ### Official documentation
 

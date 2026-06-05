@@ -38,7 +38,7 @@ Burke Holland deconstructs the VS Code agent system prompt to reveal exactly whe
 
 ## Session content
 
-### The VS Code agent system prompt architecture 🏗️
+### 🏗️ The VS Code agent system prompt architecture
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 0:00 – 3:55
@@ -63,7 +63,7 @@ Burke walks through the complete anatomy of what happens when you send a message
 
 ---
 
-### Custom instructions 📋
+### 📋 Custom instructions
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 3:56 – 6:56
@@ -90,7 +90,7 @@ Burke installs a Next.js best practices instruction file from the <mark>[Awesome
 
 ---
 
-### Prompt files 📝
+### 📝 Prompt files
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 6:57 – 12:07
@@ -112,7 +112,7 @@ Burke demonstrates a "remember" prompt file that uses GPT-4.1 (a cheaper model) 
 
 ---
 
-### Context rot and context window management 🧠
+### 🧠 Context rot and context window management
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 10:24 – 12:07
@@ -130,7 +130,7 @@ This phenomenon directly impacts how you should think about custom instructions 
 
 ---
 
-### Custom agents 🤖
+### 🤖 Custom agents
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 12:08 – 15:07
@@ -153,7 +153,7 @@ Burke examines the built-in Plan mode agent, which follows a three-step workflow
 
 ---
 
-### Composing agentic workflows: plan, generate, implement ⚡
+### ⚡ Composing agentic workflows: plan, generate, implement
 
 **Discussed by:** Burke Holland  
 **Timestamps:** 15:08 – 20:00
@@ -220,7 +220,7 @@ Burke runs the full workflow: he plans a UI refactor with Opus 4.5, generates a 
 
 ---
 
-## Resources and references 📚
+## 📚 Resources and references
 
 ### Official documentation
 

@@ -2,7 +2,7 @@
 
 A comprehensive guide to setting up Azure App Configuration with Azure Key Vault for secure configuration management.
 
-## Table of Contents 📑
+## 📑 Table of Contents
 
 1. [Overview](#overview)
 2. [Prerequisites](#prerequisites)
@@ -35,7 +35,7 @@ This tutorial demonstrates how to:
 
 ---
 
-## Step 1: Create Azure Resources 🏗️
+## 🏗️ Step 1: Create Azure Resources
 
 ### Create Resource Group
 
@@ -104,7 +104,7 @@ az role assignment create --assignee $userPrincipal --role "App Configuration Da
 
 ---
 
-## Step 2: Add Configuration Values ⚙️
+## ⚙️ Step 2: Add Configuration Values
 
 Use **`az appconfig kv set`** to add a new configuration setting with key "Dev:conStr" and a sample connection string value to the App Configuration instance:
 ```powershell
@@ -168,7 +168,7 @@ az keyvault set-policy --name $keyVaultName --object-id $principalId --secret-pe
 
 ---
 
-## Step 4: Access Configuration in C# 💻
+## 💻 Step 4: Access Configuration in C#
 
 Use **`builder.AddAzureAppConfiguration`** to read the configuration value from Azure App Configuration in a C# application:
 
@@ -215,7 +215,7 @@ catch (Exception ex)
 
 ---
 
-## References 📚
+## 📚 References
 
 ### Official Microsoft Documentation
 

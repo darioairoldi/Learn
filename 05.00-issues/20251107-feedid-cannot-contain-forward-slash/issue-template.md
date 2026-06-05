@@ -10,28 +10,28 @@ Author: **Dario Airoldi**
 - [ADDITIONAL INFORMATION ➕](#additional-information)
 - [REFERENCES 📚](#references)
 
-## DESCRIPTION 📝
+## 📝 DESCRIPTION
 TODO: short description of the issue goes here.
 
 
-## CONTEXT INFORMATION / REPRO STEPS ℹ️
+## ℹ️ CONTEXT INFORMATION / REPRO STEPS
 TODO: context information about the environment and repro steps go here.
 
 
 
 
 
-## ANALYSIS 🔍
+## 🔍 ANALYSIS
 TODO: analysis about why issue is happening and feasible solutions goes here.
 
 
 
-## ADDITIONAL INFORMATION ➕
+## ➕ ADDITIONAL INFORMATION
 TODO: additional details about correlated behaviours and explanations...
 
 
 
-## REFERENCES 📚
+## 📚 REFERENCES
 
 - [Sample reference](https://SampleLink.com): Description of the reference / why it is relevant.
 

@@ -51,14 +51,14 @@
 - [Conclusion 🎯](#conclusion)
 - [Additional Resources 📚](#additional-resources)
 
-## Introduction 📖
+## 📖 Introduction
 
 HTTP files (`.http` or `.rest`) provide a simple, text-based way to define and execute HTTP requests directly within <mark>Visual Studio</mark>.<br>
 This approach offers developers a lightweight alternative to traditional API testing tools like **Postman** or **Insomnia**, keeping API tests version-controlled alongside your code.
 
 Visual Studio's built-in support for HTTP files makes it easy to test APIs during development without leaving your IDE, streamlining the development workflow and improving productivity.
 
-## Getting Started 🚀
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -73,7 +73,7 @@ Visual Studio's built-in support for HTTP files makes it easy to test APIs durin
 4. Name your file (e.g., `api-tests.http`)
 5. Click **Add**
 
-## Basic HTTP Request Syntax 📝
+## 📝 Basic HTTP Request Syntax
 
 ### Simple GET Request
 
@@ -135,7 +135,7 @@ Content-Type: application/json
 DELETE https://api.example.com/users/123
 ```
 
-## Advanced Features ⚡
+## ⚡ Advanced Features
 
 ### Using Variables
 
@@ -445,7 +445,7 @@ Content-Type: text/plain
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
 
-## Request Chaining and Multiple Request Files 🔗
+## 🔗 Request Chaining and Multiple Request Files
 
 Request chaining allows you to use the response from one request in subsequent requests, enabling complex testing workflows. Managing multiple HTTP files helps organize different API endpoints and testing scenarios.
 
@@ -727,7 +727,7 @@ Authorization: Bearer {{authToken}}
 
 This manual approach ensures clarity but requires discipline to keep variables synchronized across files.
 
-## Executing Requests ▶️
+## ▶️ Executing Requests
 
 ### Running a Request
 
@@ -744,7 +744,7 @@ Visual Studio displays responses in a separate pane showing:
 - Response body (with syntax highlighting for JSON/XML)
 - Response time
 
-## Testing Workflows 🧪
+## 🧪 Testing Workflows
 
 ### Authentication Flow
 
@@ -803,7 +803,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/products/{{productId}}
 ```
 
-## Best Practices ✅
+## ✅ Best Practices
 
 ### 1. Organize Your HTTP Files
 
@@ -888,7 +888,7 @@ Content-Type: application/json
 }
 ```
 
-## Visual Studio vs VSCode Differences in Handling .http Files ⚖️
+## ⚖️ Visual Studio vs VSCode Differences in Handling .http Files
 
 While both Visual Studio and Visual Studio Code support HTTP files, there are important differences in how they handle these files:
 
@@ -1409,7 +1409,7 @@ HTTP files are largely compatible between both IDEs for basic scenarios:
 - ⚠️ Advanced VSCode features won't work in Visual Studio
 - ⚠️ Environment-specific settings need manual adaptation
 
-## Integration with CI/CD 🔄
+## 🔄 Integration with CI/CD
 
 While HTTP files are great for manual testing, consider these approaches for automation:
 
@@ -1438,7 +1438,7 @@ public async Task GetUsers_ReturnsSuccessStatusCode()
 - Use them as examples in API documentation
 - Reference them in README files for quick testing
 
-## Troubleshooting 🔧
+## 🔧 Troubleshooting
 
 ### Common Issues
 
@@ -1462,7 +1462,7 @@ public async Task GetUsers_ReturnsSuccessStatusCode()
 - Verify API endpoint is accessible
 - Check firewall/network settings
 
-## Conclusion 🎯
+## 🎯 Conclusion
 
 HTTP files in Visual Studio provide a powerful, code-first approach to API testing. By keeping your API tests as simple text files alongside your code, you can:
 
@@ -1474,7 +1474,7 @@ HTTP files in Visual Studio provide a powerful, code-first approach to API testi
 
 While they may not replace comprehensive API testing tools for all scenarios, HTTP files excel at providing fast, developer-friendly API testing during the development process. Understanding the differences between Visual Studio and VSCode implementations helps you choose the right tool for your specific needs and leverage the appropriate features for your workflow.
 
-## Additional Resources 📚
+## 📚 Additional Resources
 
 - [Visual Studio HTTP file documentation](https://learn.microsoft.com/en-us/aspnet/core/test/http-files)
 - [REST Client for VSCode](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)

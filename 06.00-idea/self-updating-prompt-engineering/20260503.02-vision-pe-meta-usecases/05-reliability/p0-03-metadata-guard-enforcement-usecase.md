@@ -5,11 +5,11 @@
 > **Order in group:** 3
 > **Vision anchors:** R5 — Boundary "MUST trigger post-change metadata reconciliation"; R6 — Boundary "Self-update infrastructure staleness is CRITICAL severity, never cached, never skipped"
 
-## Purpose 🎯
+## 🎯 Purpose
 
 Verify the **closed feedback loop** the vision relies on: every artifact change is preceded by a pre-change guard (block-by-default on metadata contradictions) and followed by post-change metadata reconciliation. Additionally verify the **fail-closed boundary** on self-update infrastructure staleness — it MUST actually block, not be silently bypassed.
 
-## Invocation ⚙️
+## ⚙️ Invocation
 
 **Command family:** Review / Scheduled
 **Primary entry point:** `/pe-meta-review <path> --dim reliability --deps full`
@@ -28,7 +28,7 @@ Verify the **closed feedback loop** the vision relies on: every artifact change 
 | `--mode plan` | Default — this UC reports; remediation is delegated to specific update flows |
 | `--skip cache` | Force fresh check on infra-staleness boundary (the boundary requires no-cache anyway) |
 
-## Behavior 🔬
+## 🔬 Behavior
 
 ### Audit 1: Pre/post-change protocol presence
 
@@ -52,22 +52,22 @@ For each guard verdict in the window, re-run the pre-change check against the re
 3. Expected: deterministic refusal with the CRITICAL-severity message.
 4. If the command proceeds → **CRITICAL** finding: fail-closed boundary breached. This is a release-blocker.
 
-## Dimensions covered 📐
+## 📐 Dimensions covered
 
 `D30-metadata-guard` — primary.
 `D29-regression-protection` — secondary (the snapshot pair lives in metadata-guard entries).
 
-## Reliability analysis 🚦
+## 🚦 Reliability analysis
 
 The metadata-guard protocol IS the closed loop that makes the system self-correcting. If it can be bypassed — silently or by configuration — the entire autonomy gradient collapses to "trust the LLM." This UC is the most important reliability check in the catalog.
 
 The infrastructure-staleness audit is intentionally adversarial: it injects a known-stale state and verifies the system refuses to proceed. Passing this audit is a release gate for any change to the pe-meta engine.
 
-## Cost & efficiency 💰
+## 💰 Cost & efficiency
 
 Audit 1 is near-zero cost (log scan). Audit 2 is medium (re-runs guards). Audit 3 is small but disruptive (requires a test fixture; should run in a sandboxed branch or feature flag).
 
-## Related use cases 🔗
+## 🔗 Related use cases
 
 - [p0-02-regression-protection](p0-02-regression-protection-usecase.md) — relies on the metadata-guard entries this UC validates
 - [p1-04-boundary-actionability-redteam](p1-04-boundary-actionability-redteam-usecase.md) — verifies the runtime *expression* of boundaries; this UC verifies the *change-time gates*

@@ -1,12 +1,18 @@
 <#
 .SYNOPSIS
-  Move leading emoji(s) on Markdown headings to the end of the heading line.
+  Move trailing emoji(s) on Markdown headings to the leading position.
 
-  Turns:   ## 🏗️ How the stack fits together
-  Into:    ## How the stack fits together 🏗️
+  Turns:   ## How the stack fits together 🏗️
+  Into:    ## 🏗️ How the stack fits together
 
-  This improves left-edge alignment of the auto-generated "On this page" TOC
-  and the docked sidebar, which derive their entries from heading text.
+  Leading emojis form a clean vertical icon rail in the auto-generated
+  "On this page" TOC and the docked sidebar (which derive their entries from
+  heading text), and they stay attached to the text when a line wraps.
+
+  Rules:
+    - Applies to H1-H6. Only relocates emojis that already exist on a heading;
+      it never adds or removes emojis.
+    - Skips lines inside fenced code blocks (``` or ~~~).
 
 .PARAMETER Apply
   Without this switch the script only previews changes (dry run).
@@ -21,26 +27,31 @@ $ErrorActionPreference = 'Stop'
 # Repo root = parent of this script's folder
 $root = Split-Path -Parent $PSScriptRoot
 
-# Folders to skip (generated output, tooling, PE artifacts, deps)
+# Folders to skip (generated output, tooling, PE artifacts, deps).
+# Note: src/docs IS in scope; the rest of src (tooling code) is excluded below.
 $excludeDirs = @(
-    'docs', '.git', '.github', '.copilot', 'node_modules', '.quarto',
-    '_site', '_freeze', 'site_libs', 'src', 'scripts', 'deploy',
-    'index_files', 'README_files', '99.00-temp'
+    'docs', '.git', '.github', '.copilot', '.iqpilot', '.vscode',
+    'node_modules', '.quarto', '_site', '_freeze', 'site_libs',
+    'scripts', 'deploy', 'index_files', 'README_files', '99.00-temp'
 )
 
-# Leading-emoji heading matcher.
+# Trailing-emoji heading matcher.
 # Group 1: "## " (hashes + spaces)
-# Group 2: one-or-more emoji code units (symbols, surrogates, variation
+# Group 2: the heading text
+# Group 3: one-or-more trailing emoji code units (symbols, surrogates, variation
 #          selectors, ZWJ, skin-tone modifiers, common pictographic ranges)
-# Group 3: the heading text
-$emojiClass = '[\p{Cs}\p{So}\uFE0F\u200D\u2190-\u21FF\u2300-\u27BF\u2B00-\u2BFF\u2122\u2139\u24C2\u3030\u303D\u3297\u3299]'
-$pattern = [regex]"^(#{1,6}[ \t]+)((?:$emojiClass)+)[ \t]+(\S.*?)[ \t]*$"
+$emojiClass = '[\p{Cs}\uFE0F\u200D\u20E3\u2190-\u21FF\u2300-\u27BF\u2900-\u297F\u2B00-\u2BFF\u2600-\u26FF\u2122\u2139\u24C2\u3030\u303D\u3297\u3299]'
+$pattern = [regex]"^(#{1,6}[ \t]+)(\S.*?)[ \t]+((?:$emojiClass)+)[ \t]*$"
 
 $files = Get-ChildItem -Path $root -Recurse -Filter *.md -File |
     Where-Object {
         $rel = $_.FullName.Substring($root.Length).TrimStart('\','/')
-        $top = ($rel -split '[\\/]')[0]
-        $excludeDirs -notcontains $top
+        $segments = $rel -split '[\\/]'
+        $top = $segments[0]
+        if ($excludeDirs -contains $top) { return $false }
+        # Exclude src/* tooling code, but keep src/docs articles in scope.
+        if ($top -eq 'src' -and $segments.Count -gt 1 -and $segments[1] -ne 'docs') { return $false }
+        return $true
     }
 
 $totalChanges = 0
@@ -65,9 +76,9 @@ foreach ($file in $files) {
         $m = $pattern.Match($lines[$i])
         if ($m.Success) {
             $hashes = $m.Groups[1].Value
-            $emoji  = $m.Groups[2].Value.Trim()
-            $title  = $m.Groups[3].Value
-            $new = "$hashes$title $emoji"
+            $title  = $m.Groups[2].Value.TrimEnd()
+            $emoji  = $m.Groups[3].Value.Trim()
+            $new = "$hashes$emoji $title"
             if ($new -ne $lines[$i]) {
                 $rel = $file.FullName.Substring($root.Length).TrimStart('\','/')
                 Write-Host "[$rel]" -ForegroundColor Cyan

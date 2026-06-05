@@ -44,7 +44,7 @@ github.com
 
 ---
 
-## SOLUTION IMPLEMENTED 🎯
+## 🎯 SOLUTION IMPLEMENTED
 
 ### Root Cause
 The workflow was using `actions/upload-artifact@v4` to create an intermediate artifact between the build and deploy jobs. This artifact counts against your GitHub Actions storage quota, which accumulates over time with each workflow run.
@@ -113,7 +113,7 @@ Error code: Bash/Service/CreateInstance/GetDefaultDistro/WSL_E_DEFAULT_DISTRO_NO
 
 ---
 
-## Cleanup Existing Artifacts 🧹
+## 🧹 Cleanup Existing Artifacts
 
 A PowerShell script has been created to clean up existing artifacts and old workflow runs:
 
@@ -132,7 +132,7 @@ The script will:
 
 ---
 
-## Manual Cleanup Commands (Reference) 📋
+## 📋 Manual Cleanup Commands (Reference)
 
 If you prefer manual cleanup instead of using the script:
 
@@ -159,7 +159,7 @@ gh run delete <run-id> --repo darioairoldi/Learn
 
 ---
 
-## Next Steps ⏭️
+## ⏭️ Next Steps
 
 1. ✅ **Workflow has been fixed** - The `.github/workflows/quarto-publish.win64.yml` file has been updated
 2. 🔄 **Run the cleanup script** to remove existing artifacts and old workflow runs
@@ -172,7 +172,7 @@ gh run delete <run-id> --repo darioairoldi/Learn
 
 ---
 
-## Advanced Troubleshooting (If Issues Persist) 📚
+## 📚 Advanced Troubleshooting (If Issues Persist)
 
 ### Step 1: Check GitHub Billing Dashboard
 
@@ -235,7 +235,7 @@ If none of the above works, this is likely a GitHub platform issue:
 
 ---
 
-## Resolution Timeline 📝
+## 📝 Resolution Timeline
 
 ### Actions Taken
 - ✅ **Analyzed the issue** - Identified artifact storage quota problem
@@ -250,7 +250,7 @@ If none of the above works, this is likely a GitHub platform issue:
 
 ---
 
-## Key Learnings 🎓
+## 🎓 Key Learnings
 
 **Problem**: Using `actions/upload-artifact@v4` for GitHub Pages deployment creates unnecessary artifacts that consume storage quota.
 

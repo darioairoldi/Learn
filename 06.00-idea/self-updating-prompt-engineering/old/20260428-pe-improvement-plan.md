@@ -32,7 +32,7 @@ rationales:
 
 ---
 
-## Current compliance: pe-meta vs vision's 9-step workflow 🎯
+## 🎯 Current compliance: pe-meta vs vision's 9-step workflow
 
 | Vision step | pe-meta component | Compliance | Key issue |
 |---|---|---|---|
@@ -50,7 +50,7 @@ rationales:
 
 ---
 
-## Gap analysis (6 findings) 📊
+## 📊 Gap analysis (6 findings)
 
 | # | Gap | Severity | Vision rationale violated | Current state | Required state |
 |---|---|---|---|---|---|
@@ -65,7 +65,7 @@ rationales:
 
 ---
 
-## Improvement plan 📋
+## 📋 Improvement plan
 
 ### Step 1 (✅ DONE): Add vision document loading to pe-meta-researcher (G1)
 
@@ -133,7 +133,7 @@ rationales:
 
 ---
 
-## Post-improvement: use pe-meta to improve other tiers 🔄
+## 🔄 Post-improvement: use pe-meta to improve other tiers
 
 Once Steps 1–4 are applied, pe-meta becomes vision-compliant. Then use it to improve the other tiers:
 
@@ -147,7 +147,7 @@ Once Steps 1–4 are applied, pe-meta becomes vision-compliant. Then use it to i
 
 ---
 
-## Success criteria ✅
+## ✅ Success criteria
 
 | Criterion | Verification |
 |---|---|
@@ -160,7 +160,7 @@ Once Steps 1–4 are applied, pe-meta becomes vision-compliant. Then use it to i
 
 ---
 
-## References 📚
+## 📚 References
 
 - **📖** [06.000-vision.v6.md](06.000-vision.v6.md) — Self-updating PE vision (authoritative)
 - **📖** [06.000-prompt-engineering-improvement.plan.md](06.000-prompt-engineering-improvement.plan.md) — Prior improvement plan (Steps 1–11, completed)

@@ -295,7 +295,7 @@ Don't start from "which tool do I use"—start from "<mark>what do I want to mea
 
 ---
 
-## Resources and References 📚
+## 📚 Resources and References
 
 ### Official Documentation
 

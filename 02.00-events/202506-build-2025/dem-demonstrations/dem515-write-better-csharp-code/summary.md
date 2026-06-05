@@ -18,7 +18,7 @@ This session focuses on three powerful but underutilized C# features that can si
 
 ## Key Topics Covered
 
-### **1. Pattern Matching - Beyond Simple Type Checks** 🔍
+### 🔍 **1. Pattern Matching - Beyond Simple Type Checks**
 
 **Core Concept:** Pattern matching extends beyond traditional type checking to provide flexible, expressive ways to test and extract data from objects.
 
@@ -45,7 +45,7 @@ This session focuses on three powerful but underutilized C# features that can si
 
 ---
 
-### **2. Records - Value-Based Object Semantics** 📝
+### 📝 **2. Records - Value-Based Object Semantics**
 
 **Core Concept:** Records flip C#'s default reference-based equality to content-based equality, perfect for representing immutable data.
 
@@ -66,7 +66,7 @@ This session focuses on three powerful but underutilized C# features that can si
 
 ---
 
-### **3. Collection Expressions - Unified Collection Syntax** 🗂️
+### 🗂️ **3. Collection Expressions - Unified Collection Syntax**
 
 **Core Concept:** A single, clean syntax that works across all collection types with compiler-optimized implementations.
 

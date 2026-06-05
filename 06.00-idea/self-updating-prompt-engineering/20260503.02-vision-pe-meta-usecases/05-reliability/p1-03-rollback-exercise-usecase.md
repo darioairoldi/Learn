@@ -5,11 +5,11 @@
 > **Order in group:** 6
 > **Vision anchor:** R8 — R-S6-tier-blast-radius: "Group snapshots for rollback are tier-scoped"
 
-## Purpose 🎯
+## 🎯 Purpose
 
 Periodically exercise the **snapshot/restore** capability. A snapshot system that is never tested degrades silently — by the time a real rollback is needed, the snapshots may be incomplete, the restore script may be broken, or tier-scoping may be misconfigured. This UC fires a controlled drill.
 
-## Invocation ⚙️
+## ⚙️ Invocation
 
 **Command family:** Scheduled / Review
 **Primary entry point:** `/pe-meta-scheduled-review --dim reliability` (rotation; drill runs on configured cadence)
@@ -26,7 +26,7 @@ Periodically exercise the **snapshot/restore** capability. A snapshot system tha
 | `--deps direct\|full` | Verify dependent artifacts are included in the snapshot |
 | `--mode plan` | Skip the actual restore (assessment-only); default `apply` runs the drill |
 
-## Behavior 🔬
+## 🔬 Behavior
 
 ### Pre-drill checks (always run)
 
@@ -51,19 +51,19 @@ Periodically exercise the **snapshot/restore** capability. A snapshot system tha
 - **HIGH**: tier-scope metadata missing or wrong.
 - **MEDIUM**: drill succeeded but exceeded declared time budget.
 
-## Dimensions covered 📐
+## 📐 Dimensions covered
 
 `D32-rollback-readiness` — primary.
 
-## Reliability analysis 🚦
+## 🚦 Reliability analysis
 
 This UC validates the "executing low-risk changes autonomously with post-execution notification" loop's safety net. Without a working rollback, "autonomous with notification" degrades to "autonomous with hope." The drill cadence is itself a configuration parameter that this UC reports on: too rare → silent rot risk; too frequent → cost overhead.
 
-## Cost & efficiency 💰
+## 💰 Cost & efficiency
 
 Pre-drill checks are near-zero cost. The full drill consumes one snapshot/restore cycle (filesystem-bound, no LLM cost). Default cadence: weekly on a designated test fixture; quarterly on a real low-tier artifact.
 
-## Related use cases 🔗
+## 🔗 Related use cases
 
 - [p0-02-regression-protection](p0-02-regression-protection-usecase.md) — uses snapshots as restore targets
 - [p0-03-metadata-guard-enforcement](p0-03-metadata-guard-enforcement-usecase.md) — snapshot pair is one of the metadata-guard entries

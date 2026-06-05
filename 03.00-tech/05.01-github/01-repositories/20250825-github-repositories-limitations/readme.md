@@ -103,7 +103,7 @@ format:
     - [Monitoring and Cost Management](#monitoring-and-cost-management)
     - [Open Source Projects and Community Resources](#open-source-projects-and-community-resources)
 
-## Introduction 📚
+## 📚 Introduction
 
 GitHub's free tier provides excellent value for most projects, 
 but certain limitations can become problematic for repositories with large files, extensive documentation, or high bandwidth usage. 
@@ -113,7 +113,7 @@ This article analyzes practical strategies to overcome these limitations while m
 Our analysis is based on a real-world case study of a learning repository that exceeded GitHub's Git LFS bandwidth limits, resulting in blocked operations and additional charges. <br>
 We explore multiple solution approaches, from simple paid upgrades to sophisticated custom implementations.
 
-## Understanding GitHub Free Tier Limitations ⚠️
+## ⚠️ Understanding GitHub Free Tier Limitations
 
 ### Repository Size & Storage Constraints
 
@@ -260,7 +260,7 @@ Monthly Impact: $52.50 + complete hosting failure
 - **Manual intervention required** for large file management
 - **Split workflows** across multiple platforms
 
-## Problem Analysis 🔍
+## 🔍 Problem Analysis
 
 ### Common Scenarios Leading to Limitations
 
@@ -303,7 +303,7 @@ Documentation repositories commonly accumulate large static content:
 
 Cost in size can be multiplied by cost in bandwidth, especially with multiple users and CI/CD pipelines.
 
-## Solution Options Overview 🎯
+## 🎯 Solution Options Overview
 
 We identified six primary approaches to overcome GitHub limitations:
 
@@ -314,7 +314,7 @@ We identified six primary approaches to overcome GitHub limitations:
 5. **GitHub Releases for large assets**
 6. **Repository optimization strategies**
 
-## Option 1: GitHub Paid Plans 💳
+## 💳 Option 1: GitHub Paid Plans
 
 ### Overview
 Upgrade to GitHub Pro, Team, or Enterprise for higher limits and predictable costs.
@@ -358,7 +358,7 @@ Upgrade to GitHub Pro, Team, or Enterprise for higher limits and predictable cos
 - Projects with moderate overage needs
 - Organizations wanting official support
 
-## Option 2: Alternative Git LFS Providers 🔄
+## 🔄 Option 2: Alternative Git LFS Providers
 
 ### Overview
 Use third-party Git LFS providers that offer more generous free tiers or better pricing.
@@ -414,7 +414,7 @@ git push gitlab main
 - Cost-sensitive applications
 - Open source projects (many providers offer free tiers)
 
-## Option 3: Custom Git LFS Server 🛠️
+## 🛠️ Option 3: Custom Git LFS Server
 
 ### Overview
 Implement a custom Git LFS server using cloud storage as the backend, providing unlimited storage at cloud storage prices.
@@ -552,7 +552,7 @@ docker run -d \
 - Organizations wanting full control over their LFS infrastructure
 - Learning environments exploring Git LFS internals
 
-## Option 4: External Storage with File Links ☁️
+## ☁️ Option 4: External Storage with File Links
 
 ### Overview
 Store large files outside the Git repository and reference them via links in documentation.
@@ -727,7 +727,7 @@ Create consistent documentation patterns:
 - Teams comfortable managing external storage
 - Cost-sensitive applications with predictable access patterns
 
-## Option 5: GitHub Releases for Large Assets 📦
+## 📦 Option 5: GitHub Releases for Large Assets
 
 ### Overview
 Use GitHub Releases to distribute large files without affecting repository size or LFS quotas.
@@ -899,7 +899,7 @@ EOF
 - Software distributions with large binary files
 - Projects with stable, versioned large assets
 
-## Option 6: Repository Optimization 🔧
+## 🔧 Option 6: Repository Optimization
 
 ### Overview
 Optimize repository structure and content to stay within GitHub's free tier limitations through strategic file management and Git practices.
@@ -1110,7 +1110,7 @@ jobs:
 - Organizations with Git expertise
 - Cost-conscious projects willing to invest time
 
-## Implementation Recommendations 🚀
+## 🚀 Implementation Recommendations
 
 ### Immediate Actions (Day 1)
 1. **Assess current usage** via GitHub billing page
@@ -1130,7 +1130,7 @@ jobs:
 3. **Plan for growth** and scaling requirements
 4. **Document lessons learned** for team knowledge sharing
 
-## Case Study: Learn Repository Solution 📖
+## 📖 Case Study: Learn Repository Solution
 
 ### Problem Statement
 The Learn repository, containing conference notes and documentation, exceeded GitHub's free Git LFS bandwidth limits, resulting in:
@@ -1208,7 +1208,7 @@ git lfs track "*.mp4" "*.zip"    # Keep large binaries in LFS
 - Quarterly assessment of file organization
 - Annual review of solution effectiveness vs. alternatives
 
-## Conclusion 🎉
+## 🎉 Conclusion
 
 GitHub's free tier limitations, while restrictive for large file storage and intensive CI/CD usage, can be effectively overcome through a variety of strategies. The optimal solution depends on your specific needs, technical expertise, and budget constraints.
 
@@ -1251,7 +1251,7 @@ Organizations should regularly reassess their strategies to ensure optimal cost-
 
 The landscape of repository hosting and large file management continues to evolve, with new solutions and services emerging regularly. Staying informed about these developments will help ensure your chosen strategy remains optimal over time.
 
-## References 📚
+## 📚 References
 
 ### Official Documentation
 - **[GitHub Pricing and Plans](https://github.com/pricing)** - Official GitHub pricing information, including free tier limitations and paid plan features. Essential for understanding current limits and costs.

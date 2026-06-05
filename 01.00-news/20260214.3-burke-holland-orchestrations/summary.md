@@ -253,7 +253,7 @@ The framework generated 2,770 lines of code while using only 10.8K of the contex
 
 ---
 
-## Resources and references 📚
+## 📚 Resources and references
 
 ### Official documentation
 

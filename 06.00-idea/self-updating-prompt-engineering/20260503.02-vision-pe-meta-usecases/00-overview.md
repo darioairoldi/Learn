@@ -8,7 +8,7 @@
 
 ---
 
-## Folder map 📂
+## 📂 Folder map
 
 | Folder | Purpose | Priority flow |
 |---|---|---|
@@ -20,7 +20,7 @@
 
 ---
 
-## Quick start 🧭
+## 🧭 Quick start
 
 | Trigger | Start here | Then |
 |---|---|---|
@@ -32,11 +32,11 @@
 
 ---
 
-## Dimension catalog 📚
+## 📚 Dimension catalog
 
 The **authoritative** definition of every dimension (`D#-readable-id`) and every `--dim` group referenced anywhere in this use-case set lives in [`05.07-pe-meta-dimension-catalog.md`](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md). Folder READMEs and individual use cases anchor to that catalog — they MUST NOT redefine dimensions inline.
 
-## Dimension group shortcuts — routing across folders ⚙️
+## ⚙️ Dimension group shortcuts — routing across folders
 
 Use `--dim <group>` to scope a review or update to a specific cluster of dimensions. The catalog enumerates the exact dimensions in each group; this table only routes the **group** to the folder(s) where its primary use cases live.
 
@@ -69,7 +69,7 @@ Example dimension-scoped commands:
 
 ---
 
-## Machine-readable index 🧾
+## 🧾 Machine-readable index
 
 Use [`usecase-index.json`](usecase-index.json) for tooling, automation, and deterministic run-order resolution.
 
@@ -84,7 +84,7 @@ Each entry includes:
 
 ---
 
-## Complete use-case list (new paths) 🔗
+## 🔗 Complete use-case list (new paths)
 
 ### 01-freshness
 - [p0-01-context-quality-lifecycle](01-freshness/p0-01-context-quality-lifecycle-usecase.md)
@@ -131,7 +131,7 @@ Each entry includes:
 
 ---
 
-## `--skip` stage scenarios ⏭️
+## ⏭️ `--skip` stage scenarios
 
 Use `--skip` to omit processing phases when prerequisites are met or when speed is prioritized:
 
@@ -155,7 +155,7 @@ Use `--skip` to omit processing phases when prerequisites are met or when speed 
 
 ---
 
-## `--scope` composition scenarios 🎯
+## 🎯 `--scope` composition scenarios
 
 `--scope` controls **what** to assess; `--deps` controls **how deep** to traverse. They are orthogonal:
 
@@ -173,7 +173,7 @@ Use `--skip` to omit processing phases when prerequisites are met or when speed 
 
 ---
 
-## Command overlap resolution ⚖️
+## ⚖️ Command overlap resolution
 
 When multiple commands could serve a trigger, use this table to pick the canonical entry point:
 
@@ -189,7 +189,7 @@ When multiple commands could serve a trigger, use this table to pick the canonic
 
 ---
 
-## Compatibility map (old -> new) 🗺️
+## 🗺️ Compatibility map (old -> new)
 
 | Old filename | New filename |
 |---|---|

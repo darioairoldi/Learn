@@ -10,7 +10,7 @@ description: "Complete guide to all documentation automation files and resources
 
 Complete guide to all documentation automation files and resources in this repository.
 
-## Quick Links 🚀
+## 🚀 Quick Links
 
 ### For New Users
 - 📖 [getting-started.md](getting-started.md) - **Start here!** Quick setup and mode selection
@@ -28,9 +28,9 @@ Complete guide to all documentation automation files and resources in this repos
 
 ---
 
-## Documentation by Category 📂
+## 📂 Documentation by Category
 
-### Setup & Installation 🛠️
+### 🛠️ Setup & Installation
 
 | File | Purpose | Audience |
 |------|---------|----------|
@@ -38,7 +38,7 @@ Complete guide to all documentation automation files and resources in this repos
 | [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md) | Detailed installation & configuration | All Users |
 | [.copilot/scripts/build-iqpilot.ps1](.copilot/scripts/build-iqpilot.ps1) | Build automation script | Developers |
 
-### Architecture & Implementation 🏗️
+### 🏗️ Architecture & Implementation
 
 | File | Purpose | Audience |
 |------|---------|----------|
@@ -47,7 +47,7 @@ Complete guide to all documentation automation files and resources in this repos
 | [src/IQPilot/README.md](src/IQPilot/README.md) | C# MCP Server source code documentation | Developers |
 | [.github/00.00-repository-structure.md](.github/00.00-repository-structure.md) | Repository structure & automation overview | All Users |
 
-### Content Creation ✍️
+### ✍️ Content Creation
 
 | File | Purpose | Audience |
 |------|---------|----------|
@@ -62,7 +62,7 @@ Complete guide to all documentation automation files and resources in this repos
 | [.github/templates/prompt-template.md](.github/templates/prompt-template.md) | Blank prompt file template | Writers |
 | [.github/templates/metadata-template.yml](.github/templates/metadata-template.yml) | Metadata schema template | Writers |
 
-### Editorial Standards 📏
+### 📏 Editorial Standards
 
 | File | Purpose | Audience |
 |------|---------|----------|
@@ -71,7 +71,7 @@ Complete guide to all documentation automation files and resources in this repos
 | [.copilot/context/01.00-article-writing/02-validation-criteria.md](.copilot/context/01.00-article-writing/02-validation-criteria.md) | Quality thresholds for publishing | Writers |
 | [.copilot/context/90.00-learning-hub/01-domain-concepts.md](.copilot/context/90.00-learning-hub/01-domain-concepts.md) | Core concepts & terminology | All Users |
 
-### AI Prompt Files 🤖
+### 🤖 AI Prompt Files
 
 **IQPilot supports dual-mode operation:**
 
@@ -109,7 +109,7 @@ Located in `.iqpilot/prompts/` - used automatically when IQPilot is in MCP mode:
 
 **Automatic Selection:** Copilot automatically chooses enhanced version if IQPilot MCP is active, falls back to standalone if not.
 
-### Path-Specific Instructions 📋
+### 📋 Path-Specific Instructions
 
 Automatically applied to files in specific folders:
 
@@ -123,7 +123,7 @@ Automatically applied to files in specific folders:
 
 ---
 
-## Prompt Engineering Ecosystem 🤖
+## 🤖 Prompt Engineering Ecosystem
 
 Complete guide to prompt, agent, and context engineering in this repository.
 
@@ -244,7 +244,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 @workspace /context-information-create-update [describe updates needed]
 ```
 
-### Automation Scripts 🔧
+### 🔧 Automation Scripts
 
 | File | Purpose | Usage |
 |------|---------|-------|
@@ -252,7 +252,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 | [.copilot/scripts/validate-metadata.ps1](.copilot/scripts/validate-metadata.ps1) | Validate metadata schema | `.\.copilot\scripts\validate-metadata.ps1` |
 | [.copilot/scripts/check-stale-validations.ps1](.copilot/scripts/check-stale-validations.ps1) | Find outdated validations | `.\.copilot\scripts\check-stale-validations.ps1` |
 
-### VS Code Configuration ⚙️
+### ⚙️ VS Code Configuration
 
 | File | Purpose | Audience |
 |------|---------|----------|
@@ -261,7 +261,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 | [.vscode/settings.json](.vscode/settings.json) | Workspace settings | All Users |
 | [.vscode/extensions.json](.vscode/extensions.json) | Recommended extensions | All Users |
 
-### Source Code 📦
+### 📦 Source Code
 
 | Directory | Purpose | Audience |
 |-----------|---------|----------|
@@ -270,21 +270,21 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ---
 
-## Documentation Roadmap 🗺️
+## 🗺️ Documentation Roadmap
 
-### Phase 1: IQPilot Core ✅
+### ✅ Phase 1: IQPilot Core
 - [x] IQPilot overview and concepts
 - [x] Getting started guide
 - [x] Implementation details
 - [x] MCP server architecture
 
-### Phase 2: Integration 🚧
+### 🚧 Phase 2: Integration
 - [x] VS Code extension
 - [ ] MCP tools implementation
 - [ ] Validation engine
 - [ ] Template system
 
-### Phase 3: User Guides ✅
+### ✅ Phase 3: User Guides
 - [x] Prompt documentation
 - [x] Workflow guides
 - [x] Templates
@@ -297,7 +297,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ---
 
-## Documentation Statistics 📊
+## 📊 Documentation Statistics
 
 | Category | Count | Total Lines |
 |----------|-------|-------------|
@@ -312,7 +312,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ---
 
-## Finding What You Need 🔍
+## 🔍 Finding What You Need
 
 ### By Task
 
@@ -379,7 +379,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ---
 
-## Quick Help 🆘
+## 🆘 Quick Help
 
 ### Most Common Needs
 
@@ -398,7 +398,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 ---
 
-## Next Steps 🎯
+## 🎯 Next Steps
 
 1. ✅ Read [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) to understand the concepts
 2. ✅ Read [getting-started.md](getting-started.md) for setup instructions

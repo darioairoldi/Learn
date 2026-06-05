@@ -1,15 +1,15 @@
 # Guidance quality gates use cases
 
-## Purpose 🎯
+## 🎯 Purpose
 Use these cases when the main goal is to verify that guidance is safe, complete, non-contradictory, and ready to support autonomy.
 
-## Dimension catalog 📚
+## 📚 Dimension catalog
 
 Dimension references in this README use the canonical `D#-readable-id` form defined in [`05.07-pe-meta-dimension-catalog.md`](../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md). The catalog is the single source of truth for what each `D#-readable-id` and each `--dim` group resolves to.
 
 **Primary `--dim` groups for this folder:** `--dim quality`, `--dim structural`, `--dim strategic` (see catalog § *Dimension groups*).
 
-## Dimensions covered 📐
+## 📐 Dimensions covered
 
 | Dimension | `--dim` group(s) | Realizing use case(s) |
 |---|---|---|
@@ -27,7 +27,7 @@ Dimension references in this README use the canonical `D#-readable-id` form defi
 | `D19-artifact-structure` | structural / strategic | [p2-01-artifact-structure-review](p2-01-artifact-structure-review-usecase.md) |
 | `D27-model-adherence` | quality / model | [p0-01-guidance-quality-assessment](p0-01-guidance-quality-assessment-usecase.md) |
 
-## Recommended command entry points ⚙️
+## ⚙️ Recommended command entry points
 
 | Scenario | Command | Options |
 |---|---|---|
@@ -40,7 +40,7 @@ Dimension references in this README use the canonical `D#-readable-id` form defi
 
 **Allowed option classes:** `--dim`, `--scope`, `--deps`, `--skip`
 
-## Run order 📋
+## 📋 Run order
 1. [p0-01-guidance-quality-assessment](p0-01-guidance-quality-assessment-usecase.md) — primary autonomy-readiness gate.
 2. [p1-01-consistency-check](p1-01-consistency-check-usecase.md) — removes contradictions.
 3. [p1-02-redundancy-check](p1-02-redundancy-check-usecase.md) — enforces single source of truth.
@@ -49,7 +49,7 @@ Dimension references in this README use the canonical `D#-readable-id` form defi
 6. [p2-01-artifact-structure-review](p2-01-artifact-structure-review-usecase.md) — improves structure and scope.
 7. [p2-02-vision-alignment-check](p2-02-vision-alignment-check-usecase.md) — confirms strategic alignment.
 
-## When to start here ✅
+## ✅ When to start here
 - Guidance changes before autonomous rollout.
 - Ambiguity, contradiction, or completeness concerns.
 - Rule-priority or structure cleanup work.

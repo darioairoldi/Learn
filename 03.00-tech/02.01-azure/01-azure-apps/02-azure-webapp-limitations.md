@@ -2,7 +2,7 @@
 
 This article provides a comprehensive analysis of <mark>Azure Web Apps limitations</mark> and practical solutions to overcome them. Solutions are presented from simplest to most complex, with detailed implementation guidance.
 
-## Table of Contents 📑
+## 📑 Table of Contents
 
 1. [Performance and Scaling Limitations 🚀](#performance-and-scaling-limitations)
    - Configuration Adjustments

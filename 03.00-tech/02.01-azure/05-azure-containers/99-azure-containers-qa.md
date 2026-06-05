@@ -32,7 +32,7 @@ Both **Azure Container Apps** and **Azure Web App for Containers** (Web Containe
 
 ### Features & Capabilities Comparison
 
-#### Azure Container Apps Advantages ✅
+#### ✅ Azure Container Apps Advantages
 - **Scale-to-Zero**: True serverless capability with consumption-based billing
 - **Event-Driven Scaling**: KEDA integration for queue-based and custom metrics scaling  
 - **Microservices Native**: Built-in service discovery and traffic splitting
@@ -42,7 +42,7 @@ Both **Azure Container Apps** and **Azure Web App for Containers** (Web Containe
 - **Traffic Splitting**: A/B testing and blue-green deployments built-in
 - **Advanced Networking**: Better VNet integration and custom networking
 
-#### Azure Web App for Containers Advantages ✅
+#### ✅ Azure Web App for Containers Advantages
 - **Simplicity**: Familiar App Service model for existing Azure customers
 - **Deployment Slots**: Built-in staging/production slot swapping
 - **Integrated Tooling**: Rich Visual Studio and VS Code integration

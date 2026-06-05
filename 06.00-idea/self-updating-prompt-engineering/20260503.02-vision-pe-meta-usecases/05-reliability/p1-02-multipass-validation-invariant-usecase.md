@@ -5,11 +5,11 @@
 > **Order in group:** 5
 > **Vision anchor:** R2 — R-L2-self-correction; "It doesn't mean: executing changes that haven't passed at least one independent validation pass"
 
-## Purpose 🎯
+## 🎯 Purpose
 
 Assert the invariant that **every committed change has at least one independent validation pass entry** in the outcome log. R-L2 is a precondition for the autonomy gradient — if the invariant is breached even once, the gradient's safety guarantee is invalid.
 
-## Invocation ⚙️
+## ⚙️ Invocation
 
 **Command family:** Review / Scheduled
 **Primary entry point:** `/pe-meta-review --dim reliability`
@@ -27,7 +27,7 @@ Assert the invariant that **every committed change has at least one independent 
 | `--mode plan` | Default — reports breaches; does not modify |
 | `--skip research` | Skip external evidence (this UC is internal log audit) |
 
-## Behavior 🔬
+## 🔬 Behavior
 
 1. Walk `outcome-log.jsonl` entries in the window (default: last 30 days).
 2. For each `outcome: success|rolled_back` entry with `autonomy_level ∈ {autonomous, notify}`:
@@ -40,20 +40,20 @@ Assert the invariant that **every committed change has at least one independent 
    - Array with ≥1 independent pass but reported failure → **MEDIUM** (validation ran but committed anyway — process bug)
 4. Output breach list with commit ID, target artifact, missing-pass kind, and remediation suggestion.
 
-## Dimensions covered 📐
+## 📐 Dimensions covered
 
 `D31-multipass-validation-invariant` — primary.
 `D30-metadata-guard` — adjacent (validation entries live in the same log structure).
 
-## Reliability analysis 🚦
+## 🚦 Reliability analysis
 
 The vision explicitly forbids skipping validation to save tokens (conflict rule R-L2 vs R-P2). This UC is the deterministic enforcement of that rule. It is a release-gate for any change to the pe-meta engine itself: a regression in the validation-pass recorder would silently invalidate the autonomy gradient.
 
-## Cost & efficiency 💰
+## 💰 Cost & efficiency
 
 Near-zero cost (log scan). Should run on every scheduled review cycle.
 
-## Related use cases 🔗
+## 🔗 Related use cases
 
 - [p0-03-metadata-guard-enforcement](p0-03-metadata-guard-enforcement-usecase.md) — adjacent audit on the same log
 - [p2-01-autonomy-calibration-audit](p2-01-autonomy-calibration-audit-usecase.md) — uses validation-pass density as a calibration input

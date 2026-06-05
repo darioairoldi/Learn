@@ -39,7 +39,7 @@ format:
 
 ---
 
-## Understanding External User Types 🔑
+## 🔑 Understanding External User Types
 
 <mark>Azure AD</mark> (now <mark>Microsoft Entra ID</mark>) supports <mark>multiple types of external users</mark>, each with **different characteristics**, **capabilities**, and **limitations**. 
 
@@ -117,7 +117,7 @@ Only available if the <mark>hosting tenant has explicitly configured and enabled
 
 ---
 
-## The Invitation and Redemption Process 📬
+## 📬 The Invitation and Redemption Process
 
 The invitation redemption process is critical in determining the resulting guest user identity type. Understanding this flow helps administrators ensure guests obtain the correct identity type for their organizational needs.
 
@@ -191,7 +191,7 @@ The key decision point occurs at **Step 3** in the flow. The user must:
 
 ---
 
-## Capabilities and Limitations by Identity Type ⚙️
+## ⚙️ Capabilities and Limitations by Identity Type
 
 Different external user identity types have varying levels of functionality within the hosting organization.
 
@@ -262,7 +262,7 @@ Different external user identity types have varying levels of functionality with
 
 ---
 
-## Best Practices for Guest User Management ✅
+## ✅ Best Practices for Guest User Management
 
 ### Ensuring Proper Identity Federation
 
@@ -353,7 +353,7 @@ Different external user identity types have varying levels of functionality with
 
 ---
 
-## Appendix: Technical Details 📚
+## 📚 Appendix: Technical Details
 
 ### Appendix A: User Principal Name (UPN) Formats
 
@@ -436,7 +436,7 @@ Conditional Access policies interact differently with various guest identity typ
 
 ---
 
-## References 🔗
+## 🔗 References
 
 **Official Microsoft Documentation:**
 

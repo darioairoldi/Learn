@@ -12,18 +12,18 @@
 > **Bundle disposition:** `single-domain` (this use case's primary invocations are per-domain by construction)
 > **Scope mechanism:** `path-set`
 
-## Goal 🎯
+## 🎯 Goal
 
 Prevent silent heterogeneous-bundle execution. Whenever a resolved `--scope` (regardless of invocation shape) covers ≥ 2 semantic domains, surface the domain footprint and propose canonical per-domain split commands **before any mutation runs**. Bundle execution requires explicit consent (`bundle=accept`). When a single-seed positional invocation pulls cross-domain dependencies via `--deps`, run ONE review against the union with per-dependency-domain specialized analysis lenses (no split — consumer artifacts need ALL their declared dependencies present to be evaluated correctly).
 
-## Trigger conditions ⚙️
+## ⚙️ Trigger conditions
 
 - Any `/pe-meta-*` invocation whose resolved `--scope` seed covers ≥ 2 semantic domains.
 - `pe-meta-scheduled-review` auto-rotation when the rotation lands on a cross-domain target.
 - User-issued bundle audit (e.g. `/pe-meta-update --mode plan --scope all --dim reliability`).
 - Per-artifact prompt invoked with a positional `<file-path>` whose `--deps full` closure pulls in additional semantic domains.
 
-## Primary invocations ⚙️
+## ⚙️ Primary invocations
 
 Three canonical per-domain commands derived from the originating incident (heterogeneous `--scope context` split into one run per domain):
 
@@ -39,7 +39,7 @@ Bundle-accept variant for callers who genuinely want one atomic run:
 /pe-meta-update --mode apply --scope context bundle=accept
 ```
 
-## Phase 0a precondition — artifact-type/path consistency check 🧭
+## 🧭 Phase 0a precondition — artifact-type/path consistency check
 
 Per-artifact prompts encode an expected artifact-type root in their name (e.g. `pe-meta-context-*` ⇒ `.copilot/context/`). When the positional path or `--scope` value resolves to a different root, Phase 0a **rejects with CF-05 before Phase 0b runs**.
 
@@ -59,7 +59,7 @@ Per-artifact prompts encode an expected artifact-type root in their name (e.g. `
 
 Orchestrator-level prompts (`pe-meta-update`, `pe-meta-review`, `pe-meta-create-update`, `pe-meta-design`, `pe-meta-scheduled-review`, `pe-meta-release-monitor`, `pe-meta-adherence`) are artifact-type-agnostic and skip this check.
 
-## Phase 0b flow — all five invocation shapes 🧭
+## 🧭 Phase 0b flow — all five invocation shapes
 
 Phase 0b applies identically to each invocation shape; only the **file set** differs by shape. The domain footprint is computed by reading each in-scope file's `domain:` YAML frontmatter (Tier 1), falling back to an optional per-repo `pe-domain-map.yaml` heuristic (Tier 2), and finally to `unknown` (Tier 3) per vision § Domain detection.
 
@@ -80,7 +80,7 @@ Phase 0b applies identically to each invocation shape; only the **file set** dif
 
 **Note 3 — seed footprint vs dependency footprint.** Phase 0b computes the domain footprint **separately for the seed scope** (files explicitly named by `--scope` or positional path, BEFORE `--deps` traversal) and **for the dependency closure** (files added by `--deps direct`/`--deps full`). Three dispositions follow from a small decision matrix: (a) seed=1 AND deps=0 → `bundle=single-domain`; (b) seed≥2 (regardless of deps) → `bundle=multi-domain-gated` and propose split per domain-coherent-batching; (c) seed=1 AND deps adds ≥ 1 additional domain → `bundle=cross-domain-deps`, run ONE review against the union with per-dependency-domain specialized analysis lenses (no split). Splitting a single-seed cross-domain-deps invocation would produce **incomplete reviews** because a consumer artifact needs ALL its declared dependencies present to be evaluated correctly — see § Specialized lens (cross-domain-deps) below.
 
-## Specialized lens (cross-domain-deps) 🔬
+## 🔬 Specialized lens (cross-domain-deps)
 
 When Phase 0b emits `bundle=cross-domain-deps`, Phase 2–4 audits run **ONCE on the seed**; only the rule-adherence and context-comparison sub-checks within each audit are evaluated per dependency-domain:
 
@@ -102,7 +102,7 @@ When Phase 0b emits `bundle=cross-domain-deps`, Phase 2–4 audits run **ONCE on
 
 **Why this is not a bypass of domain-coherent-batching.** domain-coherent-batching governs the seed-multi-domain case (the user explicitly asked for broad scope). The cross-domain-deps branch handles a case domain-coherent-batching was never the right tool for: the user named ONE artifact, and the cross-domain deps are infrastructure that artifact requires, not separate review targets. Splitting would produce incomplete reviews, which is the opposite of domain-coherent-batching's intent.
 
-## Expected outputs 📤
+## 📤 Expected outputs
 
 - Per-run report with `bundle=` (one of `single-domain | multi-domain-gated | accepted-bundle | split-N | cross-domain-deps`) AND `scope-source=` markers on the first line.
 - Per-domain `outcome-log.jsonl` entries when the bundle is split.
@@ -110,11 +110,11 @@ When Phase 0b emits `bundle=cross-domain-deps`, Phase 2–4 audits run **ONCE on
 - When `bundle=cross-domain-deps`, the Phase 8 report sections findings under one subsection per distinct dep-domain (one lens per subsection).
 - Tier-2 (`domain-source=path-heuristic`) and Tier-3 (`domain-source=unknown`) assignments are flagged per-file in the Phase 8 report so authors can backfill missing `domain:` fields.
 
-## Dimensions exercised 📐
+## 📐 Dimensions exercised
 
 `D33-boundary-actionability`, `D31-multipass-validation-invariant`, `D5-boundaries`, `D28-reproducibility`.
 
-## Cross-references 🔗
+## 🔗 Cross-references
 
 - Vision § Domain-coherent batching — the canonical rule statement.
 - Vision § Domain detection — artifact-type root vs. semantic domain; metadata-first 3-tier resolution algorithm; per-invocation-type scope-extraction matrix; artifact-type/path consistency check; **seed footprint vs dependency footprint — the specialized-lens branch**; `--deps full` and the metadata-first payoff; cross-repo portability.

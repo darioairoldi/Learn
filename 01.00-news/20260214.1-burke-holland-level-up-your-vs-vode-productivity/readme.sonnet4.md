@@ -573,7 +573,7 @@ The three-phase pattern creates a clear cost structure:
 
 ---
 
-## References 📚
+## 📚 References
 
 ### Official documentation
 

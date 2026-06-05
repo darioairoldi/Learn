@@ -2,7 +2,7 @@
 
 Azure Functions provides powerful serverless computing capabilities, but it comes with several limitations that you should be aware of when designing your solutions. These limitations vary by hosting plan and can impact your architecture decisions.
 
-## Table of Contents 📑
+## 📑 Table of Contents
 
 - [1. Execution Time Limits](#execution-time-limits)
 - [2. Scaling Limits](#scaling-limits)
@@ -595,7 +595,7 @@ Track these metrics to understand latency and scalability:
 
 ---
 
-## References 📚
+## 📚 References
 
 - **[Azure Functions Scale and Hosting](https://learn.microsoft.com/azure/azure-functions/functions-scale)** - Official documentation on all hosting plans
 - **[Azure Functions Best Practices](https://learn.microsoft.com/azure/azure-functions/functions-best-practices)** - Performance, reliability, and security recommendations
