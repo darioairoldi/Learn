@@ -1,0 +1,21 @@
+Microsoft Build
+June 2-3, 2026
+Session: ODSP930
+Speakers: Jason Liu, Sarah Chieng
+Jason Liu: Once Spark landed, with the speed that Cerebras gives you, it's become my daily driver.
+Sarah Chieng: It feels like an infomercial. Codex Spark is a lighter, faster version of Codex running on Cerebras Inference.
+Jason Liu: Our models on Cerebras are going to get smarter. The speed is already there, and the intelligence is catching up.
+Sarah Chieng: Today, we want to show you how to actually take advantage of that speed with some demos that you can build yourself in the app.
+Jason Liu: Great. let's get into it. So the first automation I made when I just joined OpenAI was to just understand what's going on in Slack. And so we've built some automations here that basically checks upon Slack, figures out what kind of topics are happening, what kind of product launches are arriving, to tell me what's going on. Obviously, we can turn this to, you know, every day, but with Codex Spark, these tasks run incredibly fast. One of the great things about Codex Spark is that we can define multi-agents. And so, maybe the main agent is responsible for understanding what my goals are for the day. It can kick off sub-agents that are fast Spark agents to read all of Slack or Google Drive or Google Meets, and really help me understand what's going on within the company and what my responsibilities are.
+Sarah Chieng: No, this is super cool. I love it.
+Jason Liu: The second automation I use is for my open-source projects. So, for one of my libraries, what I do now is every day, I actually run a job that just checks for any open pull requests and any issues. Spark can help us figure out what are the duplicate issues, whether or not projects are in the pipeline. And then for any pull requests, it'll actually pull them down, review the code, look at the comments, and just fix them and push them back up. That way, anything that I'm working on is already fully tested. And for the third example, a place where Spark really shines is in interactive coding. Oftentimes, when I know what I want to do and I use Codex, tasks might take five or 10 minutes.
+This takes me out of the flow state. The joy of using Spark is that things are incredibly interactive. Now, let's jump in and see an example of how interactive Spark can be.
+One of the benefits of using a model that is so fast is that when you're building on an application that reloads when the code changes oftentimes you can build in a pretty real-time way. Let's take a look at an example. Can you take a look at the homepage and add a "See More" link to the bottom right?
+The bottom right of every single cell. Then I would love for you to add a little arrow after "See More" so people know that it is a link. Make sure it's blue with no underline. Can you also make sure that the first blog post is actually a featured section, and then we go to recent writing? And then can you delete all of the three posts to explore and enough structure, all that stuff?
+You can delete all that stuff. That's perfect.
+Sarah Chieng: Speed is a major unlock. Those were just a few ways to take advantage of Spark inside the Codex app, but there are dozens more. The point is, once you have a model that responds instantly, you stop thinking of it as a tool you occasionally query and start thinking of it as infrastructure that's always running.
+Jason Liu: Here's what I think about it. The slower, smarter models, full Codex, is like a bus for the mind. You can get on, fall asleep, wake up, and you're there. It did all the work. Spark is like a fast car. You might have to pay attention to the road, but you can get there way faster if you know what you're doing. But here's the thing I want developers to understand. This is just v1. Our models on Cerebras are going to get smarter.
+Sarah Chieng: Which means the tasks that are Codex-only today might be Spark tomorrow. So learn the tools now, because when Spark v2, v3 land --
+Jason Liu: You're going to want to know how to use them.
+[ Music ]
+END

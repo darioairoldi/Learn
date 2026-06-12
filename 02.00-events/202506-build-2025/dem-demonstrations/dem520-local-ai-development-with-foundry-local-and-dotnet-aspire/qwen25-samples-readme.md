@@ -1,5 +1,7 @@
 # Foundry Local Samples
 
+![Local AI Development with Foundry Local and .NET Aspire](images/session-banner.png)
+
 This repository contains sample code demonstrating how to load and initialize local models using Microsoft's Foundry Local service, both as a standalone application and integrated with .NET Aspire.
 
 ## Samples Included

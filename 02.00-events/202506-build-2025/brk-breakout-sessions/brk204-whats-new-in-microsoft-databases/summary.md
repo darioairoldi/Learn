@@ -6,7 +6,7 @@
 **Speakers:** Arun Ulag (CVP, Microsoft), Shireesh Thota (CVP Azure Databases, Microsoft), Priya Sathy (Partner Director of Product SQL, Microsoft), Charles Feddersen (Partner Director of Program Management, Microsoft), Kirill Gavrylyuk (VP Azure Cosmos DB, Microsoft), Genis Campa (Head of Data Innovation, NTT Data)  
 **Link:** [Microsoft Build 2025 Session BRK204]
 
-![Microsoft Database Portfolio](images/microsoft-databases-ai.png)
+![Whats New in Microsoft Databases](images/session-banner.png)
 
 ---
 
@@ -516,4 +516,3 @@ NTT Data
 ---
 
 *This session demonstrates Microsoft's comprehensive database portfolio evolution for the AI era, showing how traditional database platforms are being transformed into AI-ready foundations for next-generation intelligent applications while maintaining enterprise-grade reliability, security, and performance.*
-

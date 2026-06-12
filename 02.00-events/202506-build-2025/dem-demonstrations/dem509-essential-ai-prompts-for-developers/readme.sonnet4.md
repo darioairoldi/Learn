@@ -6,7 +6,7 @@
 **Speaker:** Burke Holland (Developer Advocate, Microsoft)  
 **Link:** [Microsoft Build 2025 Session DEM509](https://mybuild.microsoft.com/sessions/DEM509)
 
-![Essential AI Prompts for Developers](images/essential-ai-prompts-developers.png)
+![Essential AI Prompts for Developers](images/session-banner.png)
 
 ---
 

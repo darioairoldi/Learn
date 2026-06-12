@@ -1,5 +1,6 @@
-.NET MAUI allows you to create multi-platform apps for iOS, Android, macOS, and Windows. See how you can boost your productivity with AI enhancements in GitHub Copilot and Visual Studio and learn how the entire development lifecycle is being transformed with .NET Aspire. Join us and see how intelligent productivity tools and beautiful controls and components come together to build native and hybrid apps with .NET MAUI's latest features. 
+![Build AI Apps with Microsoft Graph Data](images/session-banner.png)
 
+.NET MAUI allows you to create multi-platform apps for iOS, Android, macOS, and Windows. See how you can boost your productivity with AI enhancements in GitHub Copilot and Visual Studio and learn how the entire development lifecycle is being transformed with .NET Aspire. Join us and see how intelligent productivity tools and beautiful controls and components come together to build native and hybrid apps with .NET MAUI's latest features. 
 
 AI Summary
 **Introduction to WebVTT and Interaction:** The session begins with a friendly greeting and casual conversation, where the speaker acknowledges the audience and sets a relaxed tone for the discussion.

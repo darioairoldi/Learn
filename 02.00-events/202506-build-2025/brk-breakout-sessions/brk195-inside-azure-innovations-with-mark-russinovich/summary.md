@@ -6,13 +6,13 @@
 **Speaker:** Mark Russinovich (CTO, Deputy CISO, Technical Fellow for Microsoft Azure)  
 **Link:** [Microsoft Build 2025 Session BRK195]
 
-![Azure Infrastructure Innovation](images/azure-innovations-russinovich.png)
+![Inside Azure Innovations with Mark Russinovich](images/session-banner.png)
 
 ---
 
 ## Executive Summary
 
-Mark Russinovich delivers his signature "Inside Azure Innovations" session, showcasing cutting-edge infrastructure developments, cloud-native computing advances, and groundbreaking research initiatives. This comprehensive tour spans Azure Boost 2.0 performance enhancements, revolutionary storage scaling, Linux security innovations, confidential computing breakthroughs, and concludes with Microsoft Research's optical computing—the world's first analog optical computer demonstration at a major tech conference.
+Mark Russinovich delivers his signature "Inside Azure Innovations" session, showcasing cutting-edge infrastructure developments, cloud-native computing advances, and groundbreaking research initiatives. This comprehensive tour spans Azure Boost 2.0 performance enhancements, revolutionary storage scaling, Linux security innovations, confidential computing breakthroughs, and concludes with Microsoft Research's optical computingï¿½the world's first analog optical computer demonstration at a major tech conference.
 
 ---
 

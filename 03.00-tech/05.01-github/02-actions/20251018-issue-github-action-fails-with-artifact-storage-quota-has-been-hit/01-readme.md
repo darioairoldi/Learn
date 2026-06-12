@@ -3,7 +3,7 @@
 ## Issue Description
 
 Github action is failing with the error bleow:
-![alt text](<images/01.001 uploadpages failure.png>)
+![alt text](<images/01.001-uploadpages-failure.png>)
 
 **Github Repo**: darioairoldi/Learn<br>
 **Action file**: .github/workflows/quarto-publish.win64.yml<br>
@@ -30,7 +30,7 @@ More info on storage limits: https://docs.github.com/en/billing/managing-billing
 ``` 
 
 also, the github repo shows the following:
-![alt text](<images/01.002 github message.png>)
+![alt text](<images/01.002-github-message.png>)
 
 ## Analysis
 

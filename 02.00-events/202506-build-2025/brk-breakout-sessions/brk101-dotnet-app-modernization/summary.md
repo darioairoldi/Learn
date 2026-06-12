@@ -6,7 +6,7 @@
 **Speakers:** Scott Hunter (VP of Product, Azure Developer), Chester Husk (Product Manager, .NET Tools)  
 **Link:** [Microsoft Build 2025 Session BRK101](https://build.microsoft.com/en-US/sessions/BRK101)
 
-![.NET App Modernization](images/dotnet-modernization.png)
+![.NET App Modernization](images/session-banner.png)
 
 ---
 
@@ -245,4 +245,3 @@ Microsoft
 ---
 
 *This session represents a pivotal moment in .NET development tooling, demonstrating how AI can transform the traditionally manual and error-prone process of application modernization into an intelligent, automated workflow that scales across entire organizations.*
-

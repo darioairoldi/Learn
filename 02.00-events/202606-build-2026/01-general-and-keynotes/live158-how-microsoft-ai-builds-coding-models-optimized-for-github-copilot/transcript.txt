@@ -1,0 +1,1452 @@
+WEBVTT
+
+00:00:00.510 --> 00:00:12.120
+[ Music ]
+
+00:00:12.120 --> 00:00:12.720
+SETH JUAREZ: Hello, my friends.
+
+00:00:12.720 --> 00:00:16.800
+We are back, and I
+love AI, and at Build,
+
+00:00:16.800 --> 00:00:19.890
+Microsoft Build this year, there
+was a ton of models released.
+
+00:00:19.890 --> 00:00:22.410
+I think there were seven
+MAI models released,
+
+00:00:22.410 --> 00:00:25.170
+but one of the ones that was
+super interesting to me,
+
+00:00:25.170 --> 00:00:29.040
+because I'm a dev, is MAI
+Code Flash, and I have some
+
+00:00:29.040 --> 00:00:30.570
+of the researchers here with us.
+
+00:00:30.570 --> 00:00:32.400
+We're going to ask the
+hard-hitting questions.
+
+00:00:32.400 --> 00:00:34.110
+I'm going to try
+not to sound dumb
+
+00:00:34.110 --> 00:00:35.850
+because these are
+the smart dudes.
+
+00:00:35.850 --> 00:00:37.200
+Why don't you tell us who
+you are and what you do?
+
+00:00:37.200 --> 00:00:38.280
+We'll start with you.
+
+00:00:38.280 --> 00:00:39.000
+YANG LIU: Hi, everyone.
+
+00:00:39.000 --> 00:00:44.280
+I'm Yang. I'm the Research Lead
+approaching part of this model.
+
+00:00:44.280 --> 00:00:44.790
+PENGCHENG HE: I'm Pengcheng,
+
+00:00:44.790 --> 00:00:49.800
+the leader of the development
+of MAI Code AI model.
+
+00:00:49.800 --> 00:00:52.200
+SETH JUAREZ: So this
+particular model was
+
+00:00:52.200 --> 00:00:56.580
+specifically built with
+GitHub Copilot in mind.
+
+00:00:56.580 --> 00:00:57.150
+Is that right?
+
+00:00:57.150 --> 00:00:58.830
+So Peng, why don't
+we start with you?
+
+00:00:58.830 --> 00:01:01.080
+What does that actually mean?
+
+00:01:01.080 --> 00:01:02.850
+PENGCHENG HE: Yeah, to me,
+
+00:01:02.850 --> 00:01:06.270
+the purpose of building model
+means we didn't take a general
+
+00:01:06.270 --> 00:01:11.160
+purpose model and adapt it for
+code at the end, but actually,
+
+00:01:11.160 --> 00:01:14.340
+we built it from
+the very beginning
+
+00:01:14.340 --> 00:01:19.050
+for GitHub Copilot scenario,
+and we optimized it
+
+00:01:19.050 --> 00:01:23.360
+for a Copilot experience
+from very beginning.
+
+00:01:23.360 --> 00:01:25.340
+SETH JUAREZ: So for those
+that are thinking, okay,
+
+00:01:25.340 --> 00:01:31.520
+MAI Code Flash was optimized
+with VS Code, Copilot in mind,
+
+00:01:31.520 --> 00:01:33.990
+what does that mean for people?
+
+00:01:33.990 --> 00:01:35.400
+PENGCHENG HE: What it means,
+
+00:01:35.400 --> 00:01:37.860
+it's not just the
+generic code snippets.
+
+00:01:37.860 --> 00:01:42.060
+It will understand the
+repository context, use tools,
+
+00:01:42.060 --> 00:01:45.930
+understand the user's intent,
+and make a targeted edit
+
+00:01:45.930 --> 00:01:49.920
+and respond quickly, especially
+for GitHub Copilot users,
+
+00:01:49.920 --> 00:01:53.850
+so we will optimize it for
+the real user workflow.
+
+00:01:53.850 --> 00:01:54.300
+SETH JUAREZ: I see.
+
+00:01:54.300 --> 00:01:56.250
+So why don't you tell us
+more about what that looks
+
+00:01:56.250 --> 00:01:59.190
+like in practice when you
+optimize for VS Code?
+
+00:01:59.190 --> 00:02:02.550
+YANG LIU: Yes, so I think
+it means it's not just good
+
+00:02:02.550 --> 00:02:03.540
+at some benchmarks.
+
+00:02:03.540 --> 00:02:04.980
+It's definitely good
+at many benchmarks,
+
+00:02:04.980 --> 00:02:10.020
+but in the real code engine,
+it also means it interacts
+
+00:02:10.020 --> 00:02:11.670
+with you in your proper way.
+
+00:02:11.670 --> 00:02:14.880
+It asks your questions
+without long thinking
+
+00:02:14.880 --> 00:02:15.960
+for some simple questions.
+
+00:02:15.960 --> 00:02:19.770
+It uses unit tests at the
+correct time, at the right time.
+
+00:02:19.770 --> 00:02:21.930
+It uses proper testing.
+
+00:02:21.930 --> 00:02:23.940
+So it's basically optimized
+
+00:02:23.940 --> 00:02:26.760
+for the best use
+experience in VS Code.
+
+00:02:26.760 --> 00:02:27.660
+SETH JUAREZ: So tell
+me more about that,
+
+00:02:27.660 --> 00:02:32.130
+because I was trained in machine
+learning, and effectively,
+
+00:02:32.130 --> 00:02:35.250
+what I understand models to be
+is it's this huge structure,
+
+00:02:35.250 --> 00:02:37.860
+you push a lot of data through
+it, some linear algebra
+
+00:02:37.860 --> 00:02:39.720
+and calculus to optimize it.
+
+00:02:39.720 --> 00:02:42.450
+Tell me about the data that
+you're specifically pushing
+
+00:02:42.450 --> 00:02:46.290
+through it to make this model
+super good for VS Code users.
+
+00:02:46.290 --> 00:02:47.370
+YANG LIU: That's a
+very good question.
+
+00:02:47.370 --> 00:02:50.700
+So that's why reinforced
+learning plays a very important
+
+00:02:50.700 --> 00:02:53.280
+role here, so which
+means in this training,
+
+00:02:53.280 --> 00:02:56.730
+we let model interact with real
+product partners with real
+
+00:02:56.730 --> 00:03:00.960
+VS Code with the same two sets
+that developers use every day,
+
+00:03:00.960 --> 00:03:04.530
+with the same prompts you use
+every day, and it can interact
+
+00:03:04.530 --> 00:03:06.060
+with (inaudible),
+with the environment,
+
+00:03:06.060 --> 00:03:09.030
+like your daily task, and we
+can create and we work model
+
+00:03:09.030 --> 00:03:13.020
+with a lot of like, is the
+task fulfilled for you,
+
+00:03:13.020 --> 00:03:16.890
+and that's it, like have
+very proper product behavior
+
+00:03:16.890 --> 00:03:19.920
+and also many things that you
+think the model should do the
+
+00:03:19.920 --> 00:03:23.310
+best for your daily task,
+and it's all be done
+
+00:03:23.310 --> 00:03:27.480
+by very good reinforcing
+with real product partners.
+
+00:03:27.480 --> 00:03:27.780
+SETH JUAREZ: I see.
+
+00:03:27.780 --> 00:03:29.760
+So there is a base model,
+
+00:03:29.760 --> 00:03:32.460
+and then you're doing
+reinforcement learning on top
+
+00:03:32.460 --> 00:03:34.650
+of it to adapt the behavior.
+
+00:03:34.650 --> 00:03:35.520
+Is that right?
+
+00:03:35.520 --> 00:03:36.600
+Tell us more about that.
+
+00:03:36.600 --> 00:03:37.530
+PENGCHENG HE: Multiple stages.
+
+00:03:37.530 --> 00:03:39.450
+The reinforcement
+is the last stage
+
+00:03:39.450 --> 00:03:41.430
+to make the model
+perfectly aligned
+
+00:03:41.430 --> 00:03:43.530
+with user experience
+in GitHub Copilot.
+
+00:03:43.530 --> 00:03:44.070
+SETH JUAREZ: So tell me more.
+
+00:03:44.070 --> 00:03:45.600
+So you're doing --
+you're actually,
+
+00:03:45.600 --> 00:03:47.160
+when you're training the
+model, you're training it
+
+00:03:47.160 --> 00:03:49.080
+with the actual VS Code stuff.
+
+00:03:49.080 --> 00:03:49.710
+Is that right?
+
+00:03:49.710 --> 00:03:50.760
+Tell me about the stages.
+
+00:03:50.760 --> 00:03:51.720
+PENGCHENG HE: When
+we train the model,
+
+00:03:51.720 --> 00:03:53.070
+we have multiple stages.
+
+00:03:53.070 --> 00:03:55.410
+We started with
+supervised fine-tuning
+
+00:03:55.410 --> 00:03:58.920
+to make the model follow
+user instruction and respond
+
+00:03:58.920 --> 00:04:02.730
+with aligned format, and then
+we gradually trained the model
+
+00:04:02.730 --> 00:04:07.200
+with a lot of diverse data
+in a way from simple task,
+
+00:04:07.200 --> 00:04:11.070
+simple coding task to complex
+coding task, stage by stage.
+
+00:04:11.070 --> 00:04:13.890
+And the final stage is that we
+use the reinforcement learning
+
+00:04:13.890 --> 00:04:16.860
+to make the model to learn
+in the real environment
+
+00:04:16.860 --> 00:04:22.520
+as a product, so in the real
+scenario, real environment,
+
+00:04:22.520 --> 00:04:26.600
+close to product, so that we
+make the training, evaluation,
+
+00:04:26.600 --> 00:04:30.020
+and the production in
+the same workflow.
+
+00:04:30.020 --> 00:04:33.540
+So that's the difference
+from our model.
+
+00:04:33.540 --> 00:04:34.620
+That's the difference
+from our model
+
+00:04:34.620 --> 00:04:36.270
+from a general
+multi-purpose model.
+
+00:04:36.270 --> 00:04:37.800
+SETH JUAREZ: And this is
+so cool, because I want
+
+00:04:37.800 --> 00:04:39.630
+to restate this, because
+as I'm hearing this,
+
+00:04:39.630 --> 00:04:41.160
+it's kind of super cool.
+
+00:04:41.160 --> 00:04:42.750
+You basically have a base model,
+
+00:04:42.750 --> 00:04:44.850
+and you do supervised
+fine-tuning,
+
+00:04:44.850 --> 00:04:49.080
+first with simple tasks,
+then with more complex --
+
+00:04:49.080 --> 00:04:51.270
+it's almost like you're
+taking it to school on how
+
+00:04:51.270 --> 00:04:52.560
+to be a good programmer.
+
+00:04:52.560 --> 00:04:55.410
+Simple task, more complex task,
+
+00:04:55.410 --> 00:04:58.020
+and then you test benchmarks
+over the top of that.
+
+00:04:58.020 --> 00:04:58.620
+Is that right?
+
+00:04:58.620 --> 00:04:58.920
+PENGCHENG HE: Yes.
+
+00:04:58.920 --> 00:05:01.560
+And this benchmark is
+not general benchmark.
+
+00:05:01.560 --> 00:05:05.790
+So this benchmark is customized
+to use the same environment
+
+00:05:05.790 --> 00:05:08.070
+as our product, use
+the same harness.
+
+00:05:08.070 --> 00:05:12.060
+SETH JUAREZ: So it's a
+purpose-built model for people
+
+00:05:12.060 --> 00:05:13.140
+that use this harness.
+
+00:05:13.140 --> 00:05:13.740
+PENGCHENG HE: Yes.
+
+00:05:13.740 --> 00:05:14.040
+YANG LIU: Yes.
+
+00:05:14.040 --> 00:05:14.820
+SETH JUAREZ: That's really cool.
+
+00:05:14.820 --> 00:05:16.200
+So this is cool.
+
+00:05:16.200 --> 00:05:17.610
+Tell me about the model size,
+
+00:05:17.610 --> 00:05:20.310
+because one of the things
+I tell people is, hey,
+
+00:05:20.310 --> 00:05:22.770
+if you're doing a generic
+task and you're not sure,
+
+00:05:22.770 --> 00:05:25.440
+you got to use a pretty
+big model and then learn
+
+00:05:25.440 --> 00:05:27.630
+and then maybe like
+fine-tune a smaller model.
+
+00:05:27.630 --> 00:05:30.330
+Tell me about the model
+size here and why
+
+00:05:30.330 --> 00:05:32.820
+that particularly matters.
+
+00:05:32.820 --> 00:05:36.630
+YANG LIU: Yeah, MAI Code 1
+Flash is a 5-billion active
+
+00:05:36.630 --> 00:05:39.270
+parameter model but
+actually a MOE model.
+
+00:05:39.270 --> 00:05:43.980
+So the total capacity is
+about 137 billion parameters,
+
+00:05:43.980 --> 00:05:45.630
+so which is fairly large.
+
+00:05:45.630 --> 00:05:47.880
+I think model size plays a
+very important role here.
+
+00:05:47.880 --> 00:05:49.890
+It's like you cannot
+have a trade-off
+
+00:05:49.890 --> 00:05:52.710
+between the model intelligence,
+the speed, and the cost.
+
+00:05:52.710 --> 00:05:54.870
+That's the three things
+that we care about.
+
+00:05:54.870 --> 00:05:57.090
+And with this large MOE model
+
+00:05:57.090 --> 00:05:59.010
+but with small
+active parameters,
+
+00:05:59.010 --> 00:06:01.320
+it actually achieves
+a balance point
+
+00:06:01.320 --> 00:06:03.870
+or sweep point for
+your daily task.
+
+00:06:03.870 --> 00:06:06.690
+You don't need to
+waste a lot of tokens,
+
+00:06:06.690 --> 00:06:11.280
+but you still have very powerful
+models for your daily work.
+
+00:06:11.280 --> 00:06:12.060
+Yeah.
+
+00:06:12.060 --> 00:06:12.930
+SETH JUAREZ: So tell
+me more about that,
+
+00:06:12.930 --> 00:06:15.480
+because you said a
+5-billion parameter model,
+
+00:06:15.480 --> 00:06:17.310
+but you're using a
+mixture of experts.
+
+00:06:17.310 --> 00:06:18.210
+So tell me how that works.
+
+00:06:18.210 --> 00:06:21.240
+So for people that haven't heard
+that, what does that look like?
+
+00:06:21.240 --> 00:06:25.050
+YANG LIU: So basically,
+imagine it's a neural model
+
+00:06:25.050 --> 00:06:28.170
+and you have a lot of
+parameters, but in each token,
+
+00:06:28.170 --> 00:06:31.440
+each input, all they need to
+activate, a part of them,
+
+00:06:31.440 --> 00:06:33.990
+and that part of them
+will serve a task.
+
+00:06:33.990 --> 00:06:36.990
+The rest of them can be
+activated for other tasks,
+
+00:06:36.990 --> 00:06:40.770
+for other tokens, so which
+means each influence,
+
+00:06:40.770 --> 00:06:44.370
+only part of network activated,
+and this saves a lot of cost.
+
+00:06:44.370 --> 00:06:45.990
+SETH JUAREZ: Yeah, so the model,
+
+00:06:45.990 --> 00:06:48.750
+total model is only 5
+billion parameters or --
+
+00:06:48.750 --> 00:06:51.960
+YANG LIU: No, total model
+is the 137 parameters.
+
+00:06:51.960 --> 00:06:53.010
+SETH JUAREZ: But only active
+
+00:06:53.010 --> 00:06:54.630
+at a single time
+is the 5 billion
+
+00:06:54.630 --> 00:06:55.470
+because of the
+mixture of experts.
+
+00:06:55.470 --> 00:06:56.070
+YANG LIU: Yes, yes.
+
+00:06:56.070 --> 00:06:57.990
+SETH JUAREZ: And this is the
+cool part that people --
+
+00:06:57.990 --> 00:06:59.760
+that I love about this.
+
+00:06:59.760 --> 00:07:02.850
+Machine learning has gotten
+so good that a mixture
+
+00:07:02.850 --> 00:07:06.660
+of experts effectively shuts off
+an entire part of the model,
+
+00:07:06.660 --> 00:07:10.920
+using nice vector calculus,
+and it pushes the exact query
+
+00:07:10.920 --> 00:07:12.660
+through one of the experts
+
+00:07:12.660 --> 00:07:15.390
+so that you're actually getting
+super-fast inference speed.
+
+00:07:15.390 --> 00:07:17.820
+So effective model size
+is 5 billion parameters.
+
+00:07:17.820 --> 00:07:19.050
+YANG LIU: Yeah, not
+just one expert.
+
+00:07:19.050 --> 00:07:21.900
+It's like mixed on
+many experts, yeah.
+
+00:07:21.900 --> 00:07:22.560
+SETH JUAREZ: That's amazing.
+
+00:07:22.560 --> 00:07:26.220
+So what does that mean
+for speed and accuracy?
+
+00:07:26.220 --> 00:07:27.900
+YANG LIU: So if you look
+at our blog, our model,
+
+00:07:27.900 --> 00:07:31.560
+you can see the latency of
+models is super good comparing
+
+00:07:31.560 --> 00:07:35.010
+with the same quality and
+intelligence, and also,
+
+00:07:35.010 --> 00:07:35.940
+I think Pengcheng mentioned,
+
+00:07:35.940 --> 00:07:38.610
+we also optimize model
+for token efficiency.
+
+00:07:38.610 --> 00:07:41.610
+So if you combine model
+efficiency and token efficiency,
+
+00:07:41.610 --> 00:07:44.340
+you will find it just
+a beast at its size.
+
+00:07:44.340 --> 00:07:45.240
+SETH JUAREZ: It's just fat.
+
+00:07:45.240 --> 00:07:49.350
+Yeah, because it's like a
+big model with little models
+
+00:07:49.350 --> 00:07:51.210
+that together make it
+a little bit faster.
+
+00:07:51.210 --> 00:07:54.210
+So what has been the most
+exciting part for you
+
+00:07:54.210 --> 00:07:57.660
+and challenging parts
+of building this model?
+
+00:07:57.660 --> 00:07:59.070
+PENGCHENG HE: I think
+actually there's a lot
+
+00:07:59.070 --> 00:08:00.360
+of challenges, as I said.
+
+00:08:00.360 --> 00:08:03.270
+From beginning, the model
+is just putting next token,
+
+00:08:03.270 --> 00:08:06.930
+so it cannot follow either
+instruction or use tools.
+
+00:08:06.930 --> 00:08:09.540
+So we did do something
+called a "code start"
+
+00:08:09.540 --> 00:08:12.540
+to make the model
+follow user instruction
+
+00:08:12.540 --> 00:08:14.550
+and do some simple
+reasoning tasks.
+
+00:08:14.550 --> 00:08:17.070
+So basically it can,
+just like children,
+
+00:08:17.070 --> 00:08:21.810
+we start from a very young baby
+and make it gradually grow
+
+00:08:21.810 --> 00:08:24.480
+up to a post-doctorate.
+
+00:08:24.480 --> 00:08:29.160
+So that's the first step,
+is the kindergarten, right?
+
+00:08:29.160 --> 00:08:31.500
+That's code start,
+and after that,
+
+00:08:31.500 --> 00:08:37.610
+we can make the model keep
+climbing to the higher level.
+
+00:08:37.610 --> 00:08:40.460
+SETH JUAREZ: Yeah,
+so a lot of folks,
+
+00:08:40.460 --> 00:08:42.860
+and I fall under this trap
+because, maybe, I don't know,
+
+00:08:42.860 --> 00:08:44.720
+we like biggie-sizing things.
+
+00:08:44.720 --> 00:08:46.160
+Sometimes we fall into
+this trap of thinking
+
+00:08:46.160 --> 00:08:50.330
+that a bigger model is going to
+be better at specific tasks,
+
+00:08:50.330 --> 00:08:51.440
+and that's not always the case.
+
+00:08:51.440 --> 00:08:53.810
+Sometimes a smaller model
+can be even better.
+
+00:08:53.810 --> 00:08:57.150
+Why is that the
+case for MAI Flash?
+
+00:08:57.150 --> 00:08:59.490
+YANG LIU: So I think
+model size matters a lot
+
+00:08:59.490 --> 00:09:01.440
+for the intelligent,
+but not all of it.
+
+00:09:01.440 --> 00:09:03.360
+We take good care of training.
+
+00:09:03.360 --> 00:09:07.050
+We use the same harness,
+our very proper design data
+
+00:09:07.050 --> 00:09:09.510
+for this model to make sure
+the model can always climb
+
+00:09:09.510 --> 00:09:11.700
+on its reward in training.
+
+00:09:11.700 --> 00:09:13.440
+So I think the
+outcome is very good.
+
+00:09:13.440 --> 00:09:16.530
+It's not just
+limited to its size.
+
+00:09:16.530 --> 00:09:17.910
+It's a very powerful model.
+
+00:09:17.910 --> 00:09:19.590
+SETH JUAREZ: Okay, so I
+think you brought something
+
+00:09:19.590 --> 00:09:20.700
+to show us.
+
+00:09:20.700 --> 00:09:22.590
+Can you show us what we got?
+
+00:09:22.590 --> 00:09:24.360
+So we're going to go
+to the screen here,
+
+00:09:24.360 --> 00:09:27.480
+and you brought a little bit of
+something to show us in action.
+
+00:09:27.480 --> 00:09:28.110
+Is that right?
+
+00:09:28.110 --> 00:09:29.430
+YANG LIU: Yes, yes.
+
+00:09:29.430 --> 00:09:32.960
+So what I'm showing is
+a demo we just made.
+
+00:09:32.960 --> 00:09:35.120
+This is using our
+model in VS Code,
+
+00:09:35.120 --> 00:09:37.460
+developing a frontend web app.
+
+00:09:37.460 --> 00:09:39.870
+You can see the
+model is very fast.
+
+00:09:39.870 --> 00:09:40.800
+You give it a prompt.
+
+00:09:40.800 --> 00:09:44.310
+It do a lot of things, like the
+token on the fly is super quick,
+
+00:09:44.310 --> 00:09:47.040
+and use the custom model
+training with VS Code
+
+00:09:47.040 --> 00:09:49.740
+and use the native
+(inaudible) very efficiently,
+
+00:09:49.740 --> 00:09:54.890
+and in the end, you can see it
+developed a very nice-looking
+
+00:09:54.890 --> 00:10:01.830
+app in a very short time, and
+I think here's another demo.
+
+00:10:01.830 --> 00:10:03.270
+It's a bit different.
+
+00:10:03.270 --> 00:10:07.940
+The model is prompted to
+build a, I would say,
+
+00:10:07.940 --> 00:10:13.850
+a retro-style game, and you
+can see the UI is pretty good.
+
+00:10:13.850 --> 00:10:17.480
+We do put a lot of efforts
+on improving the models
+
+00:10:17.480 --> 00:10:23.050
+from inability, and with the
+native harness in training,
+
+00:10:24.210 --> 00:10:26.250
+it seems to do it
+pretty efficiently.
+
+00:10:26.250 --> 00:10:28.050
+SETH JUAREZ: Yeah, and
+this is pretty cool,
+
+00:10:28.050 --> 00:10:31.320
+because now this particular
+model is available
+
+00:10:31.320 --> 00:10:32.370
+in VS Code that people use.
+
+00:10:32.370 --> 00:10:33.870
+Is that right?
+
+00:10:33.870 --> 00:10:36.600
+YANG LIU: We are rolling
+out the model gradually,
+
+00:10:36.600 --> 00:10:40.860
+and you can use, if
+you got the model,
+
+00:10:40.860 --> 00:10:42.690
+you will see your model picker.
+
+00:10:42.690 --> 00:10:44.310
+SETH JUAREZ: So what has
+been the funnest part
+
+00:10:44.310 --> 00:10:45.930
+about building this model?
+
+00:10:45.930 --> 00:10:50.250
+Because in this case, you're
+building a frontier model
+
+00:10:50.250 --> 00:10:52.680
+but for a very
+specific use case.
+
+00:10:52.680 --> 00:10:55.560
+What are some learnings that
+you've had along the way?
+
+00:10:55.560 --> 00:10:59.640
+PENGCHENG HE: Learning, I
+think, uses real workflows,
+
+00:10:59.640 --> 00:11:02.220
+important for us to
+optimize the model
+
+00:11:02.220 --> 00:11:05.820
+for users' purpose instead
+of general benchmark.
+
+00:11:05.820 --> 00:11:11.670
+So without using the
+Copilot (inaudible),
+
+00:11:11.670 --> 00:11:13.950
+we cannot even make
+the model work
+
+00:11:13.950 --> 00:11:16.290
+as perfect as today in Copilot.
+
+00:11:16.290 --> 00:11:17.280
+SETH JUAREZ: And can you
+tell us a little bit
+
+00:11:17.280 --> 00:11:20.070
+about how you test these models
+so folks get a sense for it,
+
+00:11:20.070 --> 00:11:21.600
+because you're not
+just like doing waves,
+
+00:11:21.600 --> 00:11:23.670
+but you're testing these
+models as they go.
+
+00:11:23.670 --> 00:11:25.290
+Tell us about the
+testing process.
+
+00:11:25.290 --> 00:11:26.940
+YANG LIU: So definitely
+we have very good
+
+00:11:26.940 --> 00:11:27.960
+benchmark results.
+
+00:11:27.960 --> 00:11:31.770
+If you look at the broad
+across many benchmarks,
+
+00:11:31.770 --> 00:11:35.310
+I think it's a frontier
+model at its size.
+
+00:11:35.310 --> 00:11:36.930
+As Pengcheng said,
+we also care a lot
+
+00:11:36.930 --> 00:11:39.330
+about your user experience,
+so that's why we do a lot
+
+00:11:39.330 --> 00:11:43.050
+of A-B testing online to make
+sure the model can fulfill your
+
+00:11:43.050 --> 00:11:45.600
+test, your engagement with
+this model is correct,
+
+00:11:45.600 --> 00:11:47.880
+you don't cancel too
+much for the model.
+
+00:11:47.880 --> 00:11:49.680
+SETH JUAREZ: So if
+you've used this model,
+
+00:11:49.680 --> 00:11:51.990
+tell us what the experience has
+been like using this model.
+
+00:11:51.990 --> 00:11:53.550
+You said it's a little snappier.
+
+00:11:53.550 --> 00:11:54.390
+It's a little faster.
+
+00:11:54.390 --> 00:11:56.880
+Tell us about the experience.
+
+00:11:56.880 --> 00:11:59.280
+PENGCHENG HE: To me, I think
+for most of the tasks,
+
+00:11:59.280 --> 00:12:02.790
+it's comparable to today's
+frontier bigger models,
+
+00:12:02.790 --> 00:12:07.050
+but just for some challenging
+tasks, we must recognize
+
+00:12:07.050 --> 00:12:13.260
+that still (inaudible)
+that scaling,
+
+00:12:13.260 --> 00:12:15.480
+or a small model still have
+some limit for challenge,
+
+00:12:15.480 --> 00:12:19.260
+but for most of the daily work,
+I think this works good for me.
+
+00:12:19.260 --> 00:12:21.450
+SETH JUAREZ: So generally,
+when we go from a bigger model
+
+00:12:21.450 --> 00:12:25.560
+to a smaller model, it gets very
+focused on the particular task
+
+00:12:25.560 --> 00:12:27.390
+that you fine-tuned it for.
+
+00:12:27.390 --> 00:12:30.900
+What are some things that people
+should not expect it to be?
+
+00:12:30.900 --> 00:12:31.920
+You know what I'm saying?
+
+00:12:31.920 --> 00:12:34.290
+Because I don't want people to
+use the model and be like, wow,
+
+00:12:34.290 --> 00:12:36.750
+it's not writing poems
+for me or something.
+
+00:12:36.750 --> 00:12:39.480
+Tell us about what are some
+things that are super good at
+
+00:12:39.480 --> 00:12:40.140
+and what are some things
+
+00:12:40.140 --> 00:12:43.140
+that maybe you should
+use other models for?
+
+00:12:43.140 --> 00:12:46.050
+YANG LIU: So I would say for
+most of the daily tasks,
+
+00:12:46.050 --> 00:12:49.980
+back and front end, different
+programming languages,
+
+00:12:49.980 --> 00:12:54.420
+it's a very good model,
+but writing a poem,
+
+00:12:54.420 --> 00:12:58.590
+do a lot of creative writing
+things, we are not optimized
+
+00:12:58.590 --> 00:13:00.450
+for that, but that's
+still do something,
+
+00:13:00.450 --> 00:13:03.450
+but maybe you should
+use other models.
+
+00:13:03.450 --> 00:13:03.870
+SETH JUAREZ: Cool.
+
+00:13:03.870 --> 00:13:06.810
+So I hear you have
+one more demo.
+
+00:13:06.810 --> 00:13:08.040
+Can you show us that one?
+
+00:13:08.040 --> 00:13:09.810
+And this one, does
+this one have audio?
+
+00:13:09.810 --> 00:13:12.480
+YANG LIU: This one
+has audio, yes.
+
+00:13:12.480 --> 00:13:13.710
+SETH JUAREZ: Okay,
+so are we equipped
+
+00:13:13.710 --> 00:13:15.240
+for audio, Tom, on this one?
+
+00:13:15.240 --> 00:13:16.170
+TOM: We are ready for it.
+
+00:13:16.170 --> 00:13:17.550
+SETH JUAREZ: Okay,
+they're ready for it.
+
+00:13:17.550 --> 00:13:18.630
+By the way, Tom's awesome.
+
+00:13:18.630 --> 00:13:22.380
+PENGCHENG HE: This is for
+some audience (inaudible).
+
+00:13:22.380 --> 00:13:24.520
+SETH JUAREZ: Can
+you maximize it?
+
+00:13:25.530 --> 00:13:28.890
+SPEAKER 1: I can start coding
+agents, give them tasks.
+
+00:13:28.890 --> 00:13:29.730
+SPEAKER 2: That sounds cool.
+
+00:13:29.730 --> 00:13:33.270
+Can you run the web app locally
+so we can start testing?
+
+00:13:33.270 --> 00:13:33.630
+SPEAKER 1: I got it.
+
+00:13:33.630 --> 00:13:35.130
+Let me work on that.
+
+00:13:35.130 --> 00:13:38.070
+I need your approval to start
+the Veeq development server.
+
+00:13:38.070 --> 00:13:40.030
+SPEAKER 2: Sure, I approve.
+
+00:13:41.610 --> 00:13:42.870
+SPEAKER 1: The development
+server started
+
+00:13:42.870 --> 00:13:44.310
+on local host app.
+
+00:13:44.310 --> 00:13:44.700
+SPEAKER 2: Thanks.
+
+00:13:44.700 --> 00:13:48.330
+Can you now change the
+background color of the web app
+
+00:13:48.330 --> 00:13:51.780
+to a gradient of blue and green?
+
+00:13:51.780 --> 00:13:52.110
+SPEAKER 1: I got it.
+
+00:13:52.110 --> 00:13:53.800
+Let me work on that.
+
+00:13:57.390 --> 00:13:58.830
+The agent updated the project.
+
+00:13:58.830 --> 00:13:59.640
+SPEAKER 2: Thanks.
+
+00:13:59.640 --> 00:14:02.790
+Now can you check what kind
+of unit tests we have and see
+
+00:14:02.790 --> 00:14:06.780
+if there's any missing
+and clear them?
+
+00:14:06.780 --> 00:14:07.110
+SPEAKER 1: I got it.
+
+00:14:07.110 --> 00:14:08.490
+Let me work on that.
+
+00:14:08.490 --> 00:14:09.810
+The test suite is ready to run.
+
+00:14:09.810 --> 00:14:12.900
+I need your approval
+to execute the NPM.
+
+00:14:12.900 --> 00:14:14.860
+SPEAKER 2: Sure, I approve.
+
+00:14:15.960 --> 00:14:17.970
+SPEAKER 1: The agent
+added unit tests
+
+00:14:17.970 --> 00:14:19.230
+for the profile header.
+
+00:14:19.230 --> 00:14:22.380
+SPEAKER 2: What's going on
+with the agents right now?
+
+00:14:22.380 --> 00:14:23.310
+SPEAKER 1: One moment.
+
+00:14:23.310 --> 00:14:26.850
+Checking. All three agents are
+actively checking the current
+
+00:14:26.850 --> 00:14:27.750
+app structure.
+
+00:14:27.750 --> 00:14:31.630
+One is planning to refactor
+components into a (inaudible).
+
+00:14:33.360 --> 00:14:34.380
+SETH JUAREZ: So why
+don't we just --
+
+00:14:34.380 --> 00:14:35.640
+tell us what we just looked at.
+
+00:14:35.640 --> 00:14:39.270
+PENGCHENG HE: So this model
+is actually our approach.
+
+00:14:39.270 --> 00:14:44.010
+We combined our latest
+state-of-art MAI transfer app
+
+00:14:44.010 --> 00:14:47.760
+model, MAI OS model, and
+MAI Code Flash model
+
+00:14:47.760 --> 00:14:49.740
+for this fun project.
+
+00:14:49.740 --> 00:14:50.520
+SETH JUAREZ: That's cool,
+
+00:14:50.520 --> 00:14:54.090
+because now that you have
+specific purpose-built models,
+
+00:14:54.090 --> 00:14:55.470
+you can start to
+put them together
+
+00:14:55.470 --> 00:14:57.750
+to do some really cool things.
+
+00:14:57.750 --> 00:15:00.420
+Tell us about how you
+came up with this.
+
+00:15:00.420 --> 00:15:01.680
+YANG LIU: It seems very natural
+
+00:15:01.680 --> 00:15:04.530
+when MAI comes all these
+seven models together.
+
+00:15:04.530 --> 00:15:07.500
+So it's kind of natural to
+see how we can combine them
+
+00:15:07.500 --> 00:15:12.540
+and how we can imagine the
+developers in the future.
+
+00:15:12.540 --> 00:15:14.430
+So that's a very
+natural project.
+
+00:15:14.430 --> 00:15:15.720
+SETH JUAREZ: So what should
+developers take away
+
+00:15:15.720 --> 00:15:16.620
+from all of this?
+
+00:15:16.620 --> 00:15:18.600
+We'll start with you, and
+then we'll come to you.
+
+00:15:18.600 --> 00:15:20.250
+PENGCHENG HE: Take
+away, I think,
+
+00:15:20.250 --> 00:15:22.290
+imagination is important, right?
+
+00:15:22.290 --> 00:15:24.540
+We can imagine in the
+coming few months
+
+00:15:24.540 --> 00:15:26.910
+as we have even better
+sense come out.
+
+00:15:26.910 --> 00:15:27.450
+SETH JUAREZ: Fantastic.
+
+00:15:27.450 --> 00:15:28.350
+And what about you?
+
+00:15:28.350 --> 00:15:31.440
+YANG LIU: I think my takeaway is
+we are seriously treating the
+
+00:15:31.440 --> 00:15:34.800
+best model for our product, the
+best code and other products,
+
+00:15:34.800 --> 00:15:36.990
+and this is just the
+beginning of our journey.
+
+00:15:36.990 --> 00:15:38.970
+Please stay tuned,
+and looking forward
+
+00:15:38.970 --> 00:15:40.260
+to what will happen next.
+
+00:15:40.260 --> 00:15:40.920
+SETH JUAREZ: That's amazing.
+
+00:15:40.920 --> 00:15:42.930
+And so as developers
+try this out,
+
+00:15:42.930 --> 00:15:44.460
+make sure you give us feedback,
+
+00:15:44.460 --> 00:15:46.710
+because I'm sure you want
+feedback on how the models work.
+
+00:15:46.710 --> 00:15:47.820
+YANG LIU: Yes, yes.
+
+00:15:47.820 --> 00:15:48.630
+Feedbacks are very welcome.
+
+00:15:48.630 --> 00:15:49.680
+PENGCHENG HE: We love feedback.
+
+00:15:49.680 --> 00:15:50.610
+SETH JUAREZ: And you're
+going to continue
+
+00:15:50.610 --> 00:15:52.800
+to improve this
+model and do work.
+
+00:15:52.800 --> 00:15:53.370
+Is that right?
+
+00:15:53.370 --> 00:15:56.220
+Tell me about the
+future of this.
+
+00:15:56.220 --> 00:15:58.410
+YANG LIU: So definitely,
+I want to mention,
+
+00:15:58.410 --> 00:16:01.410
+we need feedback so we
+can improve the model,
+
+00:16:01.410 --> 00:16:04.200
+and this is a mini-size model.
+
+00:16:04.200 --> 00:16:07.860
+Just stay tuned for some
+more powerful beasts.
+
+00:16:07.860 --> 00:16:08.220
+SETH JUAREZ: Awesome.
+
+00:16:08.220 --> 00:16:10.590
+Well, thank you so much for
+spending some time with us.
+
+00:16:10.590 --> 00:16:11.100
+It's been amazing.
+
+00:16:11.100 --> 00:16:11.670
+I'm a nerd.
+
+00:16:11.670 --> 00:16:12.540
+I love this stuff.
+
+00:16:12.540 --> 00:16:15.240
+So thank you so much, and we'll
+be back right after this.
+
+00:16:15.240 --> 00:16:16.600
+We'll see you.

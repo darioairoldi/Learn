@@ -1,5 +1,7 @@
 # Working Qwen2.5 Sample with Foundry Local
 
+![Local AI Development with Foundry Local and .NET Aspire](images/session-banner.png)
+
 ## Important Note about Package Availability
 
 The packages I initially used in the sample don't match the actual available packages. Based on Microsoft Learn documentation, here are the correct packages and approach:

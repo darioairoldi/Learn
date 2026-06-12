@@ -5,7 +5,7 @@
 **Speakers:** Yina Arenas (VP Azure AI Foundry, Microsoft), Marco Casalaina (VP Products & AI Futurist Core AI, Microsoft), Pablo Castro (CVP & Distinguished Engineer AI Platform, Microsoft), Seth Juarez (Principal Program Manager, Microsoft)  
 **Link:** [Microsoft Build 2025 Session STUDIO14]
 
-![Azure AI Foundry and Enterprise AI](images/azure-ai-foundry-agents.png)
+![Agents AI and Azure AI Foundry](images/session-banner.png)
 
 ---
 
@@ -464,4 +464,3 @@ Microsoft
 ---
 
 *This studio session reveals how Microsoft is building the fundamental infrastructure for enterprise AI - from intelligent data retrieval through Azure AI Search to sophisticated agent orchestration via Azure AI Foundry. The conversation demonstrates that successful AI implementation requires not just powerful models, but comprehensive platforms that handle data quality, safety, security, and seamless integration with existing business systems.*
-

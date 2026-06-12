@@ -12,6 +12,8 @@
 
 **Link:** [Microsoft Build 2025 Session BRK199](https://mybuild.microsoft.com/sessions/BRK199)
 
+![Accelerate Modernization](images/session-banner.png)
+
 ---
 
 ## Table of Contents

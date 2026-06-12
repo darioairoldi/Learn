@@ -1,0 +1,4951 @@
+WEBVTT
+
+00:00:00.510 --> 00:00:03.343
+[ Music ]
+
+00:00:03.368 --> 00:00:04.830
+Maddy Montaquila: We are live.
+
+00:00:04.830 --> 00:00:06.210
+Hello, everybody.
+
+00:00:06.210 --> 00:00:07.290
+David Fowler: Yay!
+
+00:00:07.290 --> 00:00:09.480
+Maddy Montaquila: This is
+the coolest demo happening
+
+00:00:09.480 --> 00:00:10.856
+at this time slot, I promise.
+
+00:00:10.881 --> 00:00:12.360
+David Fowler: This is
+overflow -- it's not.
+
+00:00:12.360 --> 00:00:13.715
+Maddy Montaquila:
+It's not overflow.
+
+00:00:13.740 --> 00:00:15.000
+Thank you for coming.
+
+00:00:15.000 --> 00:00:17.150
+If you have any problems
+hearing, I know it's loud
+
+00:00:17.175 --> 00:00:19.124
+in here because there's
+other sessions happening.
+
+00:00:19.150 --> 00:00:20.413
+There are headsets in the back,
+
+00:00:20.438 --> 00:00:22.486
+so you can actually get your own
+volume and turn it up manually.
+
+00:00:22.511 --> 00:00:23.370
+David Fowler:
+Can I get one?
+
+00:00:23.370 --> 00:00:25.860
+Maddy Montaquila: Keep it
+low because we talk really loud.
+
+00:00:25.860 --> 00:00:28.110
+So, you know, but
+if you need that.
+
+00:00:28.110 --> 00:00:32.520
+Welcome to Aspire for Agents:
+Transform How You Build
+
+00:00:32.520 --> 00:00:34.670
+and Deploy Distributed Apps.
+
+00:00:34.670 --> 00:00:39.740
+How many people here think they
+are building a distributed app?
+
+00:00:39.740 --> 00:00:43.380
+Okay, how many people
+have a website with a database?
+
+00:00:43.380 --> 00:00:45.090
+Okay, that's a distributed app.
+
+00:00:45.090 --> 00:00:48.263
+So, good job self-identifying.
+
+00:00:48.288 --> 00:00:49.500
+I'm Maddy Montaquila.
+
+00:00:49.500 --> 00:00:50.790
+I am a PM for Aspire.
+
+00:00:50.790 --> 00:00:52.553
+David Fowler:
+I'm David, the boss.
+
+00:00:52.578 --> 00:00:54.038
+Maddy Montaquila:
+He thinks he is.
+
+00:00:54.063 --> 00:00:55.436
+No one's allowed
+to report to him.
+
+00:00:55.461 --> 00:00:56.490
+That was written out.
+
+00:00:56.490 --> 00:00:58.440
+David Fowler: It'd be a bad day.
+
+00:00:58.440 --> 00:01:01.740
+Maddy Montaquila: We
+are going to try and show a lot
+
+00:01:01.740 --> 00:01:05.190
+in 45 minutes, but we have
+Beth on our team at the booth,
+
+00:01:05.190 --> 00:01:07.708
+and then we'll go back to the
+booth right over in the DevTools
+
+00:01:07.733 --> 00:01:10.200
+and Framework section after
+this talk for Q&amp;A if people want
+
+00:01:10.200 --> 00:01:12.660
+to come by and get
+a sticker and say hi.
+
+00:01:12.660 --> 00:01:14.880
+We are here to
+talk about Aspire.
+
+00:01:14.880 --> 00:01:18.090
+Who has used Aspire?
+
+00:01:18.090 --> 00:01:22.350
+Oh -- oh, we got
+a good room here!
+
+00:01:22.350 --> 00:01:24.690
+So the slides we're
+going to try to blow
+
+00:01:24.690 --> 00:01:27.570
+through because we
+want to mostly do code.
+
+00:01:27.570 --> 00:01:29.756
+The reason I'm going
+to show the slides,
+
+00:01:29.781 --> 00:01:31.655
+A, is so that if you watch
+the recording back,
+
+00:01:31.693 --> 00:01:33.993
+you can pause it, and B, so
+that you can screenshot them
+
+00:01:34.018 --> 00:01:35.250
+and send them to your coworkers
+
+00:01:35.250 --> 00:01:36.661
+when they ask
+you what Aspire is.
+
+00:01:36.686 --> 00:01:39.150
+Right, easy peasy.
+
+00:01:39.150 --> 00:01:41.100
+The latest way we've been
+talking about Aspire is
+
+00:01:41.100 --> 00:01:44.250
+that any modern distributed
+app, you can pick anything
+
+00:01:44.250 --> 00:01:45.960
+out of any of these boxes.
+
+00:01:45.960 --> 00:01:47.592
+It is confusing, right?
+
+00:01:47.604 --> 00:01:51.540
+The second you go from
+just one NPM run to NPM run
+
+00:01:51.540 --> 00:01:56.610
+and Docker Compose up, or to NPM
+run and a.NET run, and you have
+
+00:01:56.610 --> 00:01:58.590
+to make sure the ports
+are in the right places,
+
+00:01:58.590 --> 00:02:01.440
+or your agent starts running
+an NPM run, and then it trips
+
+00:02:01.440 --> 00:02:02.670
+over itself and stops it,
+
+00:02:02.670 --> 00:02:04.155
+and then it's like,
+oh, the app died.
+
+00:02:04.180 --> 00:02:05.760
+Oh, I have to restart the app.
+
+00:02:05.760 --> 00:02:09.150
+The second any of that starts
+happening, apps get complicated.
+
+00:02:09.150 --> 00:02:13.821
+And what we do in the Dev Loop
+
+00:02:13.833 --> 00:02:16.800
+doesn't always translate
+well to deployment.
+
+00:02:16.800 --> 00:02:19.650
+So when you have something
+that works on your box,
+
+00:02:19.650 --> 00:02:22.410
+it may work in isolation,
+but then you try to put it
+
+00:02:22.410 --> 00:02:24.870
+up in a containerized
+environment or an app service
+
+00:02:24.870 --> 00:02:27.090
+or in a vanilla
+Kubernetes cluster
+
+00:02:27.090 --> 00:02:29.910
+or your own hand-rolled
+deployment runtime,
+
+00:02:29.910 --> 00:02:33.720
+and it doesn't work or feel
+at all the same as it did
+
+00:02:33.720 --> 00:02:36.000
+when you were
+developing it locally.
+
+00:02:36.000 --> 00:02:38.556
+And that was originally
+the premise of Aspire.
+
+00:02:38.580 --> 00:02:39.644
+It was twofold.
+
+00:02:39.669 --> 00:02:42.150
+One was to turn on things that
+we thought you should turn
+
+00:02:42.150 --> 00:02:44.640
+on in an app, which is
+much less important now
+
+00:02:44.640 --> 00:02:47.160
+because Copilot does
+that for you or your agent.
+
+00:02:47.160 --> 00:02:50.850
+But the other was to glue,
+
+00:02:50.850 --> 00:02:54.210
+stick together all the
+individual pieces of your stack
+
+00:02:54.210 --> 00:02:57.690
+so that when you run locally,
+it feels as close to real life
+
+00:02:57.690 --> 00:03:01.020
+as possible, and you're
+able to compose and debug
+
+00:03:01.020 --> 00:03:02.910
+that in an actually
+meaningful way instead
+
+00:03:02.910 --> 00:03:05.130
+of everything in isolation.
+
+00:03:05.130 --> 00:03:08.100
+So the one-liner, Aspire is
+an agent-ready code-first tool
+
+00:03:08.100 --> 00:03:10.256
+to compose, debug, and
+deploy any distributed app.
+
+00:03:10.281 --> 00:03:11.358
+David Fowler:
+That's one line?
+
+00:03:11.383 --> 00:03:12.450
+Maddy Montaquila:
+That's one line.
+
+00:03:12.450 --> 00:03:14.970
+It's almost a run-on sentence,
+but grammatically it is correct,
+
+00:03:14.970 --> 00:03:16.830
+and it uses an Oxford comma.
+
+00:03:16.830 --> 00:03:17.850
+Thank you very much.
+
+00:03:17.850 --> 00:03:20.790
+I expect that to be used always.
+
+00:03:20.790 --> 00:03:23.310
+If people say, what's Aspire?
+
+00:03:23.310 --> 00:03:25.166
+And we're like, well...
+
+00:03:25.191 --> 00:03:26.910
+I've seen a bunch of
+people who have been
+
+00:03:26.910 --> 00:03:28.848
+by the booth this week, too,
+just asking what it is.
+
+00:03:28.873 --> 00:03:30.840
+And we're like, it's
+a tool, it's a tool.
+
+00:03:30.840 --> 00:03:32.610
+It's kind of like
+a Bootstrapper.
+
+00:03:32.610 --> 00:03:33.990
+It's kind of like
+Docker Compose,
+
+00:03:33.990 --> 00:03:36.420
+replacement, better types.
+
+00:03:36.420 --> 00:03:39.960
+You have to really dive into
+it to get it, but there's a lot
+
+00:03:39.960 --> 00:03:44.760
+of individual pieces, and what's
+good to know about Aspire is all
+
+00:03:44.760 --> 00:03:47.580
+of the pieces can be
+wielded on their own.
+
+00:03:47.580 --> 00:03:49.500
+So we talk about
+the CLI as the thing
+
+00:03:49.500 --> 00:03:51.573
+that actually runs everything,
+all the other pieces,
+
+00:03:51.598 --> 00:03:53.534
+but there's this app host file,
+which is where we're going
+
+00:03:53.559 --> 00:03:55.835
+to spend most of the time today
+talking about how to build
+
+00:03:55.860 --> 00:03:57.925
+out an app host to
+be a custom developer
+
+00:03:57.937 --> 00:03:59.970
+experience for your app.
+
+00:03:59.970 --> 00:04:02.490
+There are our integrations,
+which are how we package
+
+00:04:02.490 --> 00:04:06.270
+up what we think the
+right way to turn on, run,
+
+00:04:06.270 --> 00:04:10.260
+and connect to resources
+locally and in the cloud are,
+
+00:04:10.260 --> 00:04:12.930
+and you can totally overwrite
+those however you need.
+
+00:04:12.930 --> 00:04:15.810
+And then we have a dashboard,
+which you can run completely
+
+00:04:15.810 --> 00:04:17.280
+in isolation of an app host.
+
+00:04:17.280 --> 00:04:19.590
+You don't need to have
+a fully Aspire-ified app
+
+00:04:19.590 --> 00:04:20.850
+to use the dashboard.
+
+00:04:20.850 --> 00:04:24.330
+There's a really good demo on
+the VS Code YouTube right now
+
+00:04:24.330 --> 00:04:25.740
+of using the Aspire dashboard
+
+00:04:25.740 --> 00:04:28.080
+as just a standalone
+open telemetry viewer
+
+00:04:28.080 --> 00:04:31.230
+to see what your
+Copilot is doing,
+
+00:04:31.230 --> 00:04:32.880
+because it emits telemetry now.
+
+00:04:32.880 --> 00:04:35.040
+So you can see all the
+tokens and things it's doing
+
+00:04:35.040 --> 00:04:37.956
+and all the tool calls
+and turns and everything.
+
+00:04:37.980 --> 00:04:39.125
+There's a lot.
+
+00:04:39.150 --> 00:04:41.073
+David Fowler: The best
+way to onboard your team is
+
+00:04:41.098 --> 00:04:42.920
+to use the dashboard
+as a viewer,
+
+00:04:42.920 --> 00:04:45.230
+and that becomes the
+Trojan horse for more stuff.
+
+00:04:45.230 --> 00:04:46.280
+Maddy Montaquila: Yeah.
+
+00:04:46.280 --> 00:04:48.936
+That's how we sneak
+Aspire into everything.
+
+00:04:49.966 --> 00:04:53.250
+We say one of our main
+principles for Aspire a lot
+
+00:04:53.250 --> 00:04:55.230
+of times is, how is this
+different than Pulumi?
+
+00:04:55.230 --> 00:04:59.610
+How is this different than
+insert cloud IAC thing here?
+
+00:04:59.610 --> 00:05:02.280
+Aspire really is about the
+developer experience first,
+
+00:05:02.280 --> 00:05:04.650
+and then taking the developer
+experience and translating
+
+00:05:04.650 --> 00:05:08.060
+that into something that's
+ops-appropriate, ops-friendly.
+
+00:05:08.060 --> 00:05:09.733
+So we have never thought --
+
+00:05:09.758 --> 00:05:11.660
+originally when we
+started building Aspire,
+
+00:05:11.660 --> 00:05:15.060
+we were in no way trying to
+replace deployment manifests.
+
+00:05:15.060 --> 00:05:17.250
+At this point, the app
+host has become so mature
+
+00:05:17.250 --> 00:05:21.570
+that you can use the same file
+to generate manifests and assets
+
+00:05:21.570 --> 00:05:23.699
+to run on whatever
+deployment runtime you want.
+
+00:05:23.724 --> 00:05:25.170
+I do it, I have apps
+
+00:05:25.170 --> 00:05:27.960
+that a couple hundred people hit
+every month that are fully --
+
+00:05:27.960 --> 00:05:29.816
+my CI is Aspire Deploy.
+
+00:05:29.841 --> 00:05:30.840
+David Fowler:
+Your side hustle?
+
+00:05:30.840 --> 00:05:31.710
+Maddy Montaquila:
+My side hustle.
+
+00:05:31.710 --> 00:05:32.895
+I mean, it's bingo.
+
+00:05:32.920 --> 00:05:37.055
+It's not really, it's not good.
+[ Laughs ]
+
+00:05:37.080 --> 00:05:39.570
+The point being, your
+app host, that one file,
+
+00:05:39.570 --> 00:05:42.120
+becomes a single source of
+truth for both dev and deploy,
+
+00:05:42.120 --> 00:05:43.620
+and there's no config drift.
+
+00:05:43.645 --> 00:05:45.690
+Which is very helpful,
+especially in this world
+
+00:05:45.690 --> 00:05:49.050
+where we're moving like
+a million miles an hour.
+
+00:05:49.050 --> 00:05:54.870
+Our integrations, we have 110
+hosting -- we have a lot.
+
+00:05:54.870 --> 00:05:57.420
+The point of Aspire and
+all of our integrations is
+
+00:05:57.420 --> 00:05:59.311
+that they're all built
+on the same primitives.
+
+00:05:59.336 --> 00:06:02.130
+So you have access to
+every single thing that we use
+
+00:06:02.130 --> 00:06:04.860
+to build out custom
+experiences for Redis,
+
+00:06:04.860 --> 00:06:09.510
+or for Azure Container
+Apps, or for Elastic Cache.
+
+00:06:09.510 --> 00:06:11.400
+Like, insert thing here.
+
+00:06:11.400 --> 00:06:13.710
+Those same primitives
+are accessible to everyone.
+
+00:06:13.710 --> 00:06:16.830
+So your app host can
+literally be just like, run LS.
+
+00:06:16.830 --> 00:06:19.830
+Run Grep, and that is
+a fully valid app host.
+
+00:06:19.830 --> 00:06:21.570
+And everything is built on that.
+
+00:06:21.570 --> 00:06:22.800
+So it's code, it's code.
+
+00:06:22.800 --> 00:06:24.784
+You can comment it out,
+you can IF statement it.
+
+00:06:24.809 --> 00:06:27.420
+You can use launch
+profiles, I don't care.
+
+00:06:27.420 --> 00:06:29.850
+David Fowler: We had an
+Aspire Fridays where the team
+
+00:06:29.850 --> 00:06:31.860
+that built Codespaces came on,
+
+00:06:31.860 --> 00:06:34.729
+and they turned their
+random script in the repository
+
+00:06:34.754 --> 00:06:36.960
+into an app host, and it made
+it super nice and organized.
+
+00:06:36.960 --> 00:06:39.570
+Maddy Montaquila:
+It was amazing, it was so cool.
+
+00:06:39.594 --> 00:06:41.580
+And then this is a
+screenshot of the dashboard.
+
+00:06:41.580 --> 00:06:42.894
+I'm not going
+to dissect it here.
+
+00:06:42.919 --> 00:06:44.790
+It's more fun to
+do it -- click clacky.
+
+00:06:44.790 --> 00:06:46.830
+But if you don't know what
+OpenTelemetry is, OTel,
+
+00:06:46.830 --> 00:06:48.630
+we'll call it OTel for
+the rest of the day.
+
+00:06:48.630 --> 00:06:52.456
+OpenTelemetry, it's the
+eminent standard of tracing.
+
+00:06:52.481 --> 00:06:54.523
+David Fowler: Telemetry,
+tracing logs, metrics.
+
+00:06:54.548 --> 00:06:56.423
+Maddy Montaquila: Yeah, and
+it works in container resources,
+
+00:06:56.448 --> 00:06:59.760
+backends, front
+ends, a lot of stuff.
+
+00:06:59.760 --> 00:07:02.880
+And then in the last, I don't
+know, year-ish, I don't know
+
+00:07:02.880 --> 00:07:05.413
+if anyone's heard of
+this thing called, like, AI.
+
+00:07:05.438 --> 00:07:06.783
+It's, like, around a little bit.
+
+00:07:06.808 --> 00:07:08.476
+David Fowler: Hold
+on, who here has heard
+
+00:07:08.501 --> 00:07:09.990
+about OTel or OpenTelemetry?
+
+00:07:09.990 --> 00:07:11.250
+Maddy Montaquila: OTel.
+
+00:07:11.275 --> 00:07:12.833
+Oh, that's good, that's awesome.
+
+00:07:12.858 --> 00:07:15.536
+David Fowler: Okay, who
+here is using coding agents?
+
+00:07:17.083 --> 00:07:20.021
+Maddy Montaquila:
+Good, good answer, good.
+
+00:07:20.046 --> 00:07:22.500
+If you ask your coding
+agent to put OTel in your app
+
+00:07:22.500 --> 00:07:24.330
+for you, it will
+do it in one shot.
+
+00:07:24.330 --> 00:07:25.740
+That works now.
+
+00:07:25.740 --> 00:07:27.660
+So, very exciting.
+
+00:07:27.660 --> 00:07:31.320
+We have spent a lot of time
+building certain features
+
+00:07:31.320 --> 00:07:32.970
+of Aspire out specifically
+
+00:07:32.970 --> 00:07:37.980
+to optimize your
+coding agent's interaction
+
+00:07:37.980 --> 00:07:41.310
+with your app --
+experience, usability.
+
+00:07:41.310 --> 00:07:43.860
+And so what we've done,
+I think the last, like,
+
+00:07:43.860 --> 00:07:45.059
+seven, eight, nine months --
+
+00:07:45.084 --> 00:07:46.540
+David Fowler:
+That's the old slide--
+
+00:07:46.565 --> 00:07:47.910
+Maddy Montaquila: Oh,
+yeah, we have more skills now.
+
+00:07:47.910 --> 00:07:49.170
+David Fowler:
+There's more skills.
+
+00:07:49.170 --> 00:07:51.060
+Maddy Montaquila:
+But this slide is better.
+
+00:07:51.060 --> 00:07:53.850
+What we do with Aspire
+is we try to give your agent,
+
+00:07:53.850 --> 00:07:56.790
+we do give your agent,
+a deterministic harness
+
+00:07:56.790 --> 00:08:00.240
+on how the app runs and how
+it all connects to each other.
+
+00:08:00.240 --> 00:08:03.300
+So when you start up a new
+session, you don't have to --
+
+00:08:03.300 --> 00:08:06.060
+it doesn't grep through
+all the files and figure
+
+00:08:06.060 --> 00:08:08.370
+out your read me and, oh,
+I need to start this and then
+
+00:08:08.370 --> 00:08:10.045
+I need to start this
+and just fall over itself.
+
+00:08:10.070 --> 00:08:13.050
+There is a single source of
+truth for how your app runs
+
+00:08:13.050 --> 00:08:15.330
+and how everything
+connects to each other
+
+00:08:15.330 --> 00:08:18.826
+that your agent can
+just, one CLI command.
+
+00:08:18.851 --> 00:08:19.950
+David Fowler: Inspect it.
+
+00:08:19.950 --> 00:08:21.721
+Maddy Montaquila: And
+we've built a ton of features
+
+00:08:21.746 --> 00:08:24.300
+into the CLI, specific for
+agents that you can use.
+
+00:08:24.300 --> 00:08:25.980
+They're just CLI calls.
+
+00:08:25.980 --> 00:08:28.680
+But we do -- we'll show a
+little bit, but we do things
+
+00:08:28.680 --> 00:08:30.390
+like, we manage your
+ports for you so that
+
+00:08:30.390 --> 00:08:33.030
+if you're doing multiple
+agents and multiple work trees,
+
+00:08:33.030 --> 00:08:35.850
+you don't have to deal with
+everything trying to launch
+
+00:08:35.850 --> 00:08:39.270
+on 3000 or 8080 and
+them all conflicting.
+
+00:08:39.270 --> 00:08:41.700
+We have a bunch of
+integrations specifically
+
+00:08:41.700 --> 00:08:44.730
+for getting more information
+back out to the coding agent.
+
+00:08:44.730 --> 00:08:46.740
+So we'll show you how
+you can debug a browser
+
+00:08:46.740 --> 00:08:49.086
+and actually get your
+F12 developer logs
+
+00:08:49.111 --> 00:08:50.610
+into the coding
+agent without having
+
+00:08:50.610 --> 00:08:52.410
+to take a screenshot
+and paste it in.
+
+00:08:52.410 --> 00:08:54.390
+There is a whole
+bunch of stuff we do.
+
+00:08:54.390 --> 00:08:58.740
+But Aspire is really dev first,
+human first, person sitting,
+
+00:08:58.740 --> 00:09:02.550
+typing or prompting
+or whatever it is now.
+
+00:09:02.550 --> 00:09:05.160
+And then we just try to bring
+the same experience we give you
+
+00:09:05.160 --> 00:09:09.480
+to coding agents and on the
+other side, like to people new
+
+00:09:09.480 --> 00:09:11.626
+to your team coming in and
+sitting in and onboarding.
+
+00:09:11.651 --> 00:09:12.510
+David Fowler: Yep.
+
+00:09:12.510 --> 00:09:14.585
+Maddy Montaquila: We make it
+really easy, so -- how did I do?
+
+00:09:14.611 --> 00:09:16.381
+Oh, my God, I said
+under 10 minutes.
+
+00:09:16.405 --> 00:09:17.395
+David Fowler:
+Pretty good, pretty good.
+
+00:09:17.420 --> 00:09:18.623
+Maddy Montaquila:
+Nailed it, I nailed it.
+
+00:09:18.648 --> 00:09:21.307
+David Fowler: Okay, so
+we're going to just to give a --
+
+00:09:21.331 --> 00:09:23.468
+has everyone seen
+the Aspire site?
+
+00:09:23.493 --> 00:09:24.630
+Wonderful.
+
+00:09:24.630 --> 00:09:27.630
+The docs are updated
+super often now.
+
+00:09:27.630 --> 00:09:30.600
+We have AI, we actually automate
+docs -- humans review them,
+
+00:09:30.600 --> 00:09:32.960
+but every change
+that goes into Aspire
+
+00:09:32.972 --> 00:09:34.800
+gets sent a PR to
+the docs repository.
+
+00:09:34.800 --> 00:09:37.620
+So now our docs should be pretty
+up to date with our product,
+
+00:09:37.620 --> 00:09:39.518
+which is a big win for
+us because it was not
+
+00:09:39.543 --> 00:09:41.580
+that way in the beginning.
+
+00:09:41.580 --> 00:09:43.740
+So, go here and get information.
+
+00:09:43.740 --> 00:09:46.186
+We change Aspire --
+we ship every four weeks.
+
+00:09:46.211 --> 00:09:47.288
+Maddy Montaquila: Ish.
+
+00:09:47.313 --> 00:09:49.290
+David Fowler:
+Four-ish weeks.
+
+00:09:49.290 --> 00:09:51.058
+And there are big
+changes, so it's worthwhile
+
+00:09:51.083 --> 00:09:53.180
+if you want to keep up to date
+with what's going on,
+
+00:09:53.192 --> 00:09:55.290
+look here to figure
+out what's new.
+
+00:09:55.290 --> 00:09:56.610
+Maddy Montaquila:
+Aspire.dev.
+
+00:09:56.610 --> 00:09:57.738
+Easiest thing to remember.
+
+00:09:57.763 --> 00:09:59.310
+David Fowler: Aspire.dev.
+
+00:09:59.310 --> 00:10:01.680
+That was fun to get, to buy.
+
+00:10:01.680 --> 00:10:05.159
+We ship 13.4 on Monday
+
+00:10:05.171 --> 00:10:09.129
+at, like, 3 p.m., and
+there's a 13.42 now.
+
+00:10:09.154 --> 00:10:10.170
+Maddy Montaquila:
+Yeah, we serviced it.
+
+00:10:10.170 --> 00:10:12.286
+David Fowler: We just
+shipped two patches, oops.
+
+00:10:12.311 --> 00:10:14.030
+Bugs, but whatever.
+
+00:10:14.030 --> 00:10:16.070
+So I will not update in the talk
+
+00:10:16.082 --> 00:10:18.246
+live because that will be fun,
+I will do it at the end.
+
+00:10:18.271 --> 00:10:19.310
+Maddy Montaquila: Yeah.
+
+00:10:19.310 --> 00:10:21.851
+David Fowler: But I want to show
+you the app we have for Build.
+
+00:10:21.876 --> 00:10:24.540
+So this idea, we're
+all about agents now.
+
+00:10:24.540 --> 00:10:26.040
+So agents need to exist.
+
+00:10:26.040 --> 00:10:29.580
+And you can imagine a
+problem where you want
+
+00:10:29.580 --> 00:10:32.106
+to book an appointment
+in your calendar, right?
+
+00:10:32.131 --> 00:10:34.020
+So you do it, you
+book an appointment.
+
+00:10:34.020 --> 00:10:36.660
+But you want the agent to go
+off and do really smart things.
+
+00:10:36.660 --> 00:10:39.240
+Like, tell me on that day
+if I should wear, like,
+
+00:10:39.240 --> 00:10:41.723
+long pants or short pants.
+
+00:10:41.748 --> 00:10:43.461
+Tell me if there's
+going to be a conflict.
+
+00:10:43.486 --> 00:10:46.410
+Tell me if I can prep
+somewhere earlier
+
+00:10:46.410 --> 00:10:48.000
+in the day before
+the meeting happens.
+
+00:10:48.000 --> 00:10:50.490
+And then for that meeting,
+if there's an agenda, like,
+
+00:10:50.490 --> 00:10:52.820
+tell me what I should
+prep for the agenda.
+
+00:10:52.820 --> 00:10:55.100
+I think it's kind of what you
+would expect coming from,
+
+00:10:55.100 --> 00:10:57.860
+like, Google or Office.
+
+00:10:57.860 --> 00:10:59.810
+We built, like, a mini
+version with Aspire.
+
+00:10:59.810 --> 00:11:01.340
+And the thought process was,
+
+00:11:01.340 --> 00:11:03.215
+how would you build
+that kind of system, right?
+
+00:11:03.240 --> 00:11:04.880
+And it's never one thing.
+
+00:11:04.880 --> 00:11:06.654
+It's, like, the web front end,
+
+00:11:06.666 --> 00:11:08.460
+the backend, the agent
+runs in the background.
+
+00:11:08.460 --> 00:11:09.258
+It has to be secure.
+
+00:11:09.283 --> 00:11:10.680
+It runs in the sandbox
+and the container.
+
+00:11:10.680 --> 00:11:12.159
+So when you're
+dreaming up this system,
+
+00:11:12.184 --> 00:11:13.293
+you're trying to
+figure out, okay,
+
+00:11:13.305 --> 00:11:15.390
+how do I snap
+the parts together?
+
+00:11:15.390 --> 00:11:17.653
+What should exist,
+what should I build them in?
+
+00:11:17.678 --> 00:11:19.156
+Maddy Montaquila:
+I have these Lego bricks.
+
+00:11:19.181 --> 00:11:20.548
+And you're like, how
+do I get them to all...
+
+00:11:20.573 --> 00:11:21.646
+do the same thing?
+
+00:11:21.671 --> 00:11:23.203
+David Fowler: To play together--
+so Aspire gives you what
+
+00:11:23.215 --> 00:11:25.243
+you call the Lego baseplate.
+
+00:11:25.268 --> 00:11:26.373
+Maddy Montaquila:
+The little green thing
+
+00:11:26.385 --> 00:11:27.693
+that you stick them on?
+
+00:11:27.718 --> 00:11:29.449
+David Fowler: Yeah,
+and you can just, like,
+
+00:11:29.474 --> 00:11:31.830
+front end, backend, agent,
+
+00:11:31.830 --> 00:11:33.284
+and then do this, right?
+
+00:11:33.309 --> 00:11:37.000
+So this app host
+was slopped together.
+
+00:11:37.025 --> 00:11:40.140
+Maddy Montaquila: In
+the last 48 hours, by the way.
+
+00:11:40.140 --> 00:11:42.600
+David Fowler:
+Three days, not two days.
+
+00:11:42.600 --> 00:11:43.980
+So I'm going to
+run Aspire start.
+
+00:11:43.980 --> 00:11:47.220
+So when you use Aspire,
+you install the CLI,
+
+00:11:47.220 --> 00:11:49.166
+the CLI you get from Aspire.dev.
+
+00:11:49.191 --> 00:11:51.512
+If you go on this wonderful
+site, there's this button here
+
+00:11:51.537 --> 00:11:53.406
+that no one can figure
+out what it means.
+
+00:11:53.431 --> 00:11:54.516
+Maddy Montaquila:
+Glenn.
+
+00:11:54.541 --> 00:11:56.054
+David Fowler: It's a
+download link to get Aspire.
+
+00:11:56.079 --> 00:11:57.711
+Maddy Montaquila: That's
+the button you were looking for.
+
+00:11:57.736 --> 00:12:00.420
+David Fowler: We are,
+as of yesterday, in WinGet.
+
+00:12:00.444 --> 00:12:02.370
+So you can WinGet
+and install Aspire.cli.
+
+00:12:02.370 --> 00:12:05.439
+We are going to be in
+Homebrew... pretty soon.
+
+00:12:05.464 --> 00:12:06.510
+Maddy Montaquila:
+Pretty soon.
+
+00:12:06.510 --> 00:12:07.290
+David Fowler:
+We'll figure that out.
+
+00:12:07.290 --> 00:12:08.528
+And we'll be in NPM soon.
+
+00:12:08.553 --> 00:12:10.890
+So you can get it from anywhere,
+so that should just work.
+
+00:12:10.890 --> 00:12:12.480
+So I have the CLI installed.
+
+00:12:12.480 --> 00:12:13.756
+You can run -- it'll help.
+
+00:12:13.780 --> 00:12:16.145
+See the old commands
+that Maddy loves.
+
+00:12:16.170 --> 00:12:18.106
+So many commands, Maddy.
+
+00:12:18.131 --> 00:12:19.648
+Maddy Montaquila:
+So many commands.
+
+00:12:19.673 --> 00:12:22.088
+David Fowler:
+And then, Aspire, oh --
+
+00:12:22.113 --> 00:12:23.393
+Apsire.
+
+00:12:23.418 --> 00:12:24.933
+Maddy Montaquila:
+Apsire start.
+
+00:12:24.958 --> 00:12:26.580
+David Fowler: Aspire
+start runs the app host
+
+00:12:26.580 --> 00:12:28.020
+in the background, this is new.
+
+00:12:28.020 --> 00:12:29.570
+Start happened because
+
+00:12:29.582 --> 00:12:31.605
+as coding agents run these
+long-running commands,
+
+00:12:31.617 --> 00:12:32.633
+they get confused --
+
+00:12:32.658 --> 00:12:34.021
+Maddy Montaquila:
+Yeah, coding agents hate
+
+00:12:34.046 --> 00:12:35.568
+blocking processes in general.
+
+00:12:35.593 --> 00:12:36.910
+David Fowler: Yeah,
+and some got better at
+
+00:12:36.922 --> 00:12:38.278
+putting it in the background,
+but for the most part,
+
+00:12:38.290 --> 00:12:40.214
+they're trying to see
+when the command
+
+00:12:40.226 --> 00:12:41.786
+ends to know when it's done.
+
+00:12:41.811 --> 00:12:43.793
+So start just kicks off the
+app host in the background,
+
+00:12:43.818 --> 00:12:45.420
+dumps a bunch of information.
+
+00:12:45.420 --> 00:12:49.019
+And now, I can look at my
+app host, which is an MTS file.
+
+00:12:49.044 --> 00:12:50.100
+This is a big change.
+
+00:12:50.100 --> 00:12:51.211
+If you were not
+paying attention,
+
+00:12:51.236 --> 00:12:54.096
+Aspire supports both C# and TypeScript now.
+
+00:12:54.121 --> 00:12:56.009
+Maddy Montaquila:
+Yep -- for the app host.
+
+00:12:56.034 --> 00:12:57.436
+For the definition
+of your app model.
+
+00:12:57.461 --> 00:12:58.230
+David Fowler: For
+the app host itself -- yep.
+
+00:12:58.230 --> 00:12:59.520
+I mean, we support
+every language
+
+00:12:59.520 --> 00:13:02.250
+in the actual app host itself,
+but you can offer the app host
+
+00:13:02.250 --> 00:13:05.850
+in C# or TypeScript now in 2026.
+
+00:13:05.850 --> 00:13:07.860
+Maddy Montaquila: 2026.
+
+00:13:07.860 --> 00:13:12.696
+And Aspire run is the blocking
+command version of Aspire start.
+
+00:13:12.721 --> 00:13:14.190
+So we even made
+shirts that were like,
+
+00:13:14.190 --> 00:13:15.703
+Aspire run, we're so cool.
+
+00:13:15.728 --> 00:13:16.320
+David Fowler: Exactly.
+
+00:13:16.320 --> 00:13:17.100
+Maddy Montaquila: And
+then we were like, oh man,
+
+00:13:17.100 --> 00:13:18.510
+we're going to change that.
+
+00:13:18.535 --> 00:13:20.546
+But they both exist,
+so you can use them both.
+
+00:13:20.571 --> 00:13:21.931
+David Fowler: The
+benefit to this I can kind
+
+00:13:21.956 --> 00:13:24.625
+of see what's on the machine,
+so I can do Aspire PS
+
+00:13:24.637 --> 00:13:26.370
+and see the running
+Aspire is on my machine.
+
+00:13:26.395 --> 00:13:28.470
+You can control them,
+stop them, see the versions.
+
+00:13:28.470 --> 00:13:32.490
+It's kind of a nice way to
+manage your overall Aspire runs.
+
+00:13:32.490 --> 00:13:35.769
+So I am going to
+show the app first,
+
+00:13:35.781 --> 00:13:37.137
+and then we'll talk about
+
+00:13:37.149 --> 00:13:38.671
+the dashboard features
+and what it gives you.
+
+00:13:38.696 --> 00:13:40.804
+Maddy Montaquila: Yeah, so what just
+happened when you did Aspire start
+
+00:13:40.829 --> 00:13:42.836
+is, like, a lot of
+different things.
+
+00:13:42.861 --> 00:13:45.060
+Aspire is not a runtime.
+
+00:13:45.060 --> 00:13:48.330
+It is not something that's
+going to host your threads.
+
+00:13:48.330 --> 00:13:51.703
+It is literally a process
+starter and stopper.
+
+00:13:51.728 --> 00:13:53.340
+David Fowler:
+Process and other things.
+
+00:13:53.340 --> 00:13:54.158
+Maddy Montaquila:
+And other things.
+
+00:13:54.182 --> 00:13:56.185
+But if you think about it,
+everything's on a thread, right?
+
+00:13:56.211 --> 00:13:58.318
+Somewhere, whether that
+thread's in Docker or not.
+
+00:13:58.343 --> 00:14:01.470
+So what Aspire just did,
+if you look at his app host,
+
+00:14:01.470 --> 00:14:03.540
+it ran a couple NPM installs.
+
+00:14:03.540 --> 00:14:05.250
+So it found package JSONs.
+
+00:14:05.275 --> 00:14:06.930
+It said, oh, you
+have dependencies.
+
+00:14:06.930 --> 00:14:08.730
+Let me make sure
+those are restored.
+
+00:14:08.730 --> 00:14:12.930
+It ran an NPM run dev
+with a custom port
+
+00:14:12.930 --> 00:14:15.240
+for the web front end, which
+is how we handle our port
+
+00:14:15.240 --> 00:14:19.153
+management so that we
+don't conflict in work trees.
+
+00:14:19.178 --> 00:14:20.266
+It ran --
+
+00:14:20.291 --> 00:14:22.371
+David Fowler: It ran
+the container image.
+
+00:14:22.396 --> 00:14:23.523
+Postgres and PC web.
+
+00:14:23.548 --> 00:14:24.810
+Maddy Montaquila: I mean,
+you had the container image
+
+00:14:24.810 --> 00:14:27.090
+because we weren't going to make
+you watch a Docker pull live.
+
+00:14:27.115 --> 00:14:28.800
+But if he did not
+have the Postgres
+
+00:14:28.800 --> 00:14:32.550
+container, it would go into
+Docker or Podman or Rancher
+
+00:14:32.550 --> 00:14:36.060
+and pull the container
+image and then open it up,
+
+00:14:36.060 --> 00:14:38.520
+make sure that the
+connection values and strings
+
+00:14:38.520 --> 00:14:39.949
+on everything are good to go.
+
+00:14:39.974 --> 00:14:42.240
+And then it starts everything.
+
+00:14:42.240 --> 00:14:45.210
+Everything has a different way
+of saying it's healthy or not
+
+00:14:45.210 --> 00:14:46.668
+or we just take our best guess.
+
+00:14:46.693 --> 00:14:48.504
+It says everything's healthy,
+cool, thumbs up.
+
+00:14:48.529 --> 00:14:49.563
+David Fowler:
+Educated guess.
+
+00:14:49.588 --> 00:14:50.737
+Maddy Montaquila:
+Educated guess.
+
+00:14:50.762 --> 00:14:51.990
+So let's look at the app.
+
+00:14:51.990 --> 00:14:54.390
+David Fowler: So the
+app is a really simple app.
+
+00:14:54.390 --> 00:14:58.050
+And because we have Aegis now,
+you can over-engineer all the UI
+
+00:14:58.050 --> 00:14:59.524
+to make it look beautiful.
+
+00:14:59.549 --> 00:15:01.050
+Maddy Montaquila:
+To make it look like --
+
+00:15:01.050 --> 00:15:02.730
+David Fowler:
+Beautiful, beautiful.
+
+00:15:02.730 --> 00:15:04.650
+Beautiful.
+
+00:15:04.650 --> 00:15:06.930
+So I can just, like, drag on --
+oh, this is so nice.
+
+00:15:06.930 --> 00:15:09.750
+I can drag to book a meeting.
+
+00:15:09.750 --> 00:15:11.810
+And I can hit book.
+
+00:15:11.834 --> 00:15:13.901
+So the idea is this,
+I book a meeting.
+
+00:15:13.913 --> 00:15:16.140
+This is clipped, oh
+my gosh, I got to fix it.
+
+00:15:16.140 --> 00:15:17.940
+Anyway, it's clipped.
+
+00:15:17.940 --> 00:15:20.310
+I book a meeting
+and the agent goes off
+
+00:15:20.310 --> 00:15:22.170
+and it runs this
+background process
+
+00:15:22.170 --> 00:15:25.200
+and it will tell me things like
+I should book my prep time
+
+00:15:25.200 --> 00:15:27.600
+at 10:45, 10 to 10:45.
+
+00:15:27.600 --> 00:15:29.049
+It's going to be wet in Seattle.
+
+00:15:29.074 --> 00:15:30.240
+I mean, I think this is fixed
+
+00:15:30.240 --> 00:15:32.685
+because it's always raining
+in Seattle, so it's always wet.
+
+00:15:32.710 --> 00:15:34.764
+So wear a raincoat.
+
+00:15:34.789 --> 00:15:36.630
+Travel time,
+and then a build checklist.
+
+00:15:36.630 --> 00:15:37.950
+So this is the overall demo.
+
+00:15:37.950 --> 00:15:40.080
+Like, you book a meeting
+and the agent runs
+
+00:15:40.080 --> 00:15:42.690
+and it tells you stuff,
+it's a very simple experience.
+
+00:15:42.690 --> 00:15:45.060
+But behind the scenes, a lot
+of stuff has to happen to make
+
+00:15:45.060 --> 00:15:46.530
+this all work end-to-end.
+
+00:15:46.530 --> 00:15:49.110
+So, I was making this demo.
+
+00:15:49.110 --> 00:15:50.190
+And I thought to myself,
+
+00:15:50.190 --> 00:15:52.650
+what are some super useful
+things you would want to do
+
+00:15:52.650 --> 00:15:55.460
+if you were developing --
+I've lost, like, my thing.
+
+00:15:55.485 --> 00:15:56.784
+Where's the browser --
+oh, here.
+
+00:15:56.809 --> 00:15:58.094
+Maddy Montaquila:
+Go back, yeah.
+
+00:15:58.119 --> 00:15:59.640
+David Fowler:
+I've lost the plot.
+
+00:15:59.640 --> 00:16:01.500
+So, the app starts.
+
+00:16:01.500 --> 00:16:02.820
+And I was thinking,
+what would be useful?
+
+00:16:02.820 --> 00:16:04.770
+So you have an
+app that has events.
+
+00:16:04.770 --> 00:16:06.939
+And I want to be able to
+kind of clear the calendar
+
+00:16:06.964 --> 00:16:09.030
+to start over and, like,
+play around, right?
+
+00:16:09.030 --> 00:16:11.550
+And that's a useful thing
+to have in your app.
+
+00:16:11.550 --> 00:16:13.680
+But it's not really
+part of the app.
+
+00:16:13.680 --> 00:16:16.920
+So what you would do is build an
+admin UI somewhere in your app
+
+00:16:16.920 --> 00:16:18.720
+or somewhere, like, on your app.
+
+00:16:18.720 --> 00:16:20.190
+And it would only be for admins.
+
+00:16:20.190 --> 00:16:21.642
+So you'd have auth behind it.
+
+00:16:21.667 --> 00:16:22.866
+The Aspire dashboard.
+
+00:16:22.891 --> 00:16:23.890
+Maddy Montaquila: Or
+you'd just swagger or scaler
+
+00:16:23.890 --> 00:16:26.111
+or something and just,
+like, raw hit the end point.
+
+00:16:26.136 --> 00:16:27.180
+David Fowler: Hit
+the end points directly.
+
+00:16:27.180 --> 00:16:28.530
+Maddy Montaquila:
+Yeah, it's always fun.
+
+00:16:28.530 --> 00:16:30.750
+David Fowler: But for these
+admin things that aren't part
+
+00:16:30.750 --> 00:16:31.950
+of your app, you can
+put it somewhere else.
+
+00:16:31.950 --> 00:16:35.100
+So the Aspire dashboard has a
+way for you to author commands.
+
+00:16:35.100 --> 00:16:37.650
+And commands show up on
+individual resources.
+
+00:16:37.650 --> 00:16:39.090
+Each one of these is a
+resource, a container,
+
+00:16:39.090 --> 00:16:40.890
+a process, all these things.
+
+00:16:40.890 --> 00:16:42.000
+Maddy Montaquila:
+Two-finger scroll.
+
+00:16:42.000 --> 00:16:44.602
+David Fowler: No, it's,
+like, much-- it's different.
+
+00:16:44.627 --> 00:16:45.680
+You don't want the zoom?
+
+00:16:45.705 --> 00:16:47.010
+Maddy Montaquila:
+No, I want the nice zoom.
+
+00:16:47.010 --> 00:16:47.640
+David Fowler:
+You want this zoom.
+
+00:16:47.640 --> 00:16:49.230
+Maddy Montaquila:
+Control, two-finger scroll.
+
+00:16:49.230 --> 00:16:50.761
+That zooms,
+see how nice that is?
+
+00:16:50.786 --> 00:16:51.840
+It zooms.
+
+00:16:51.840 --> 00:16:53.430
+David Fowler:
+What's better?
+
+00:16:53.430 --> 00:16:56.940
+Yeah, okay --
+so I added two commands.
+
+00:16:56.940 --> 00:16:59.700
+One is to make a
+random calendar.
+
+00:16:59.700 --> 00:17:01.560
+And the other one is
+to clear the calendar.
+
+00:17:01.560 --> 00:17:03.690
+So I can just click on this,
+
+00:17:03.690 --> 00:17:05.850
+ask for a confirmation,
+clear the calendar.
+
+00:17:05.850 --> 00:17:08.168
+And in my app, now
+they're all gone, right?
+
+00:17:08.193 --> 00:17:10.450
+No more events, pretty cool.
+
+00:17:10.475 --> 00:17:14.130
+And then I can generate a
+calendar based on Build
+
+00:17:14.130 --> 00:17:15.720
+or based on something random.
+
+00:17:15.720 --> 00:17:17.430
+This is, like, database seeding.
+
+00:17:17.430 --> 00:17:21.510
+So you all have a script,
+NPM script or a script
+
+00:17:21.510 --> 00:17:24.330
+or a CMD script that is, like,
+run this giant bash file
+
+00:17:24.330 --> 00:17:25.650
+that no one keeps up-to-date.
+
+00:17:25.650 --> 00:17:27.695
+It's always stale, never works.
+
+00:17:27.720 --> 00:17:29.010
+New dev joins your team.
+
+00:17:29.010 --> 00:17:30.330
+They run the command, it fails.
+
+00:17:30.330 --> 00:17:32.163
+And their readme is out
+of date because no one
+
+00:17:32.188 --> 00:17:33.720
+takes care of it, right?
+
+00:17:33.720 --> 00:17:35.430
+That can be part of your app.
+
+00:17:35.430 --> 00:17:38.400
+It can be part of the thing that
+you run so it's always working.
+
+00:17:38.400 --> 00:17:41.970
+So the goal here is to
+let you express behavior
+
+00:17:41.970 --> 00:17:44.700
+for individual apps and your
+projects in the app host.
+
+00:17:44.700 --> 00:17:46.530
+So I can see it with,
+like, Build information.
+
+00:17:46.530 --> 00:17:48.531
+It should show me a bunch
+of events now that are, like,
+
+00:17:48.556 --> 00:17:51.210
+Buildy, whatever that means.
+
+00:17:51.210 --> 00:17:55.350
+And this UI is driven by
+code in the app host.
+
+00:17:55.350 --> 00:17:56.331
+So if I go to the app host --
+
+00:17:56.424 --> 00:17:56.910
+Maddy Montaquila: Nope.
+
+00:17:56.910 --> 00:17:58.080
+David Fowler: What?
+
+00:17:58.080 --> 00:17:59.700
+Maddy Montaquila: We need to
+show people the dashboard.
+
+00:17:59.700 --> 00:18:00.370
+We have not even
+shown the--
+
+00:18:00.373 --> 00:18:00.990
+David Fowler: Which dashboard?
+
+00:18:00.990 --> 00:18:01.620
+Maddy Montaquila:
+This dashboard.
+
+00:18:01.620 --> 00:18:03.006
+David Folwer: Oh, the
+features in the dashboard.
+
+00:18:03.012 --> 00:18:03.390
+Maddy Montaquila: Yeah.
+
+00:18:03.390 --> 00:18:05.250
+So the dashboard, this
+is the Aspire dashboard.
+
+00:18:05.250 --> 00:18:07.320
+I know a lot of you are familiar
+with already using Aspire.
+
+00:18:07.320 --> 00:18:10.610
+But for those of you
+at home who haven't,
+
+00:18:10.610 --> 00:18:13.260
+there are a lot of things here.
+
+00:18:13.260 --> 00:18:16.350
+It is a really good command
+center for your app.
+
+00:18:16.529 --> 00:18:16.890
+David Fowler: Yep.
+
+00:18:16.890 --> 00:18:17.880
+Maddy Montaquila: And
+like Fowler said,
+
+00:18:17.880 --> 00:18:19.320
+it's all driven
+from this app host.
+
+00:18:19.320 --> 00:18:20.670
+It's all driven from one file.
+
+00:18:20.670 --> 00:18:24.120
+What we do is we just show it
+to you in ways that are useful.
+
+00:18:24.120 --> 00:18:26.794
+So the best example, like,
+click on a resource row here.
+
+00:18:27.890 --> 00:18:29.510
+We know everything
+about this resource.
+
+00:18:29.510 --> 00:18:30.830
+We know the thread
+it's running on.
+
+00:18:30.830 --> 00:18:32.780
+We know where it's running from.
+
+00:18:32.780 --> 00:18:33.980
+We know what process it is.
+
+00:18:33.980 --> 00:18:37.190
+But if you keep scrolling,
+we also are able to --
+
+00:18:37.190 --> 00:18:39.630
+keep going, keep
+going, keep going.
+
+00:18:39.630 --> 00:18:42.360
+We are able to actually
+see and manage all
+
+00:18:42.360 --> 00:18:43.860
+of the config that's
+been injected to it,
+
+00:18:43.860 --> 00:18:45.480
+mostly through environment
+variables, right?
+
+00:18:45.480 --> 00:18:48.300
+So in the case of a front end,
+the number one thing you need
+
+00:18:48.300 --> 00:18:49.950
+in there is your backend URL.
+
+00:18:49.950 --> 00:18:50.520
+David Fowler: Yep.
+
+00:18:50.520 --> 00:18:52.710
+Maddy Montaquila: And a lot of
+times you just hard code it
+
+00:18:52.710 --> 00:18:55.380
+and you say, my backend runs
+on 8080 and that's that.
+
+00:18:55.380 --> 00:18:57.360
+But then your work
+tree throws up.
+
+00:18:57.360 --> 00:19:00.660
+And so, what we do is we
+actually are just using
+
+00:19:00.660 --> 00:19:04.200
+environment variables to
+override common config.
+
+00:19:04.200 --> 00:19:06.120
+It's really not magic.
+
+00:19:06.120 --> 00:19:06.450
+David Fowler: Hold on.
+
+00:19:06.450 --> 00:19:08.520
+Maddy Montaquila: It feels
+a little bit magical.
+
+00:19:08.520 --> 00:19:09.750
+David Fowler: So
+team appreciation.
+
+00:19:09.750 --> 00:19:10.320
+Maddy Montaquila: It's amazing.
+
+00:19:10.320 --> 00:19:11.460
+David Fowler: The amount
+of stuff we made to work.
+
+00:19:11.460 --> 00:19:13.890
+So for example, this
+is running on HTTPS.
+
+00:19:13.890 --> 00:19:14.970
+Maddy Montaquila:
+It's using dev certs.
+
+00:19:14.970 --> 00:19:15.810
+David Fowler: You have
+to create certificates.
+
+00:19:15.810 --> 00:19:18.990
+You have to inject certificates
+for every language, for Node,
+
+00:19:18.990 --> 00:19:20.070
+and they're all different.
+
+00:19:20.070 --> 00:19:21.840
+So each of these integrations,
+
+00:19:21.840 --> 00:19:23.520
+they add Node.js,
+they add C Sharp.
+
+00:19:23.520 --> 00:19:27.890
+They all encapsulate behaviors
+for build, debug, dev,
+
+00:19:27.890 --> 00:19:32.930
+deploy for that thing, for
+Next, for Ubicorn, for Python.
+
+00:19:32.930 --> 00:19:35.360
+And you can encapsulate those
+behaviors in an integration
+
+00:19:35.360 --> 00:19:36.380
+and they appear as these things.
+
+00:19:36.380 --> 00:19:37.760
+So this looks pretty simple.
+
+00:19:37.760 --> 00:19:40.650
+It's like you call the single
+line, like, add Node.js app.
+
+00:19:40.650 --> 00:19:42.240
+But it had to inject
+the OTL config
+
+00:19:42.240 --> 00:19:43.920
+for that specific language.
+
+00:19:43.920 --> 00:19:45.450
+It had to inject the
+certs for that language.
+
+00:19:45.450 --> 00:19:46.770
+It had to inject the
+Node environment.
+
+00:19:46.770 --> 00:19:49.260
+This is a, like,
+Node-specific value.
+
+00:19:49.260 --> 00:19:50.100
+And .NET is different.
+
+00:19:50.100 --> 00:19:53.070
+So we have to understand each
+language, each integration,
+
+00:19:53.070 --> 00:19:54.060
+and then kind of explain how
+
+00:19:54.060 --> 00:19:58.590
+to convert the Aspire
+behaviors into that language.
+
+00:19:58.590 --> 00:20:00.360
+Maddy Montaquila: The reason I
+always bring this up is just
+
+00:20:00.360 --> 00:20:04.260
+because a lot of people are
+like, what magic are you using?
+
+00:20:04.260 --> 00:20:04.261
+David Fowler: It's magic.
+
+00:20:04.261 --> 00:20:04.950
+Maddy Montaquila: And
+we're like, we're not.
+
+00:20:04.950 --> 00:20:07.020
+We're just sticking environment
+variables in the right place.
+
+00:20:07.020 --> 00:20:08.460
+We just have really
+smart people who know
+
+00:20:08.460 --> 00:20:10.920
+which environment variables
+need to be set and when.
+
+00:20:10.920 --> 00:20:11.430
+David Fowler: Exactly.
+
+00:20:11.430 --> 00:20:12.630
+Maddy Montaquila:
+So it's -- yeah.
+
+00:20:12.630 --> 00:20:15.210
+So if you go to the
+Traces tab on the side.
+
+00:20:15.210 --> 00:20:17.130
+So this app is instrumented
+with open telemetry.
+
+00:20:17.130 --> 00:20:18.990
+It's going to pull, like, every
+second and it's really annoying.
+
+00:20:18.990 --> 00:20:20.490
+If you hit the
+pause button up top
+
+00:20:20.490 --> 00:20:21.570
+to pause collecting traces --
+
+00:20:21.570 --> 00:20:22.350
+David Fowler: You can pause.
+
+00:20:22.350 --> 00:20:23.100
+Maddy Montaquila: You can pause.
+
+00:20:23.100 --> 00:20:23.730
+It's very nice.
+
+00:20:23.730 --> 00:20:24.540
+David Fowler: So nice.
+
+00:20:24.540 --> 00:20:26.790
+Maddy Montaquila: So open
+telemetry, like we said,
+
+00:20:26.790 --> 00:20:32.100
+standard for viewing and traces,
+metrics, and structured logs.
+
+00:20:32.100 --> 00:20:32.690
+David Fowler: Yep.
+
+00:20:32.690 --> 00:20:35.060
+Maddy Montaquila: So we
+have a console log viewer.
+
+00:20:35.060 --> 00:20:36.980
+So all your console
+logs, instead of being
+
+00:20:36.980 --> 00:20:38.270
+between seven
+different terminals
+
+00:20:38.270 --> 00:20:40.760
+or seven different background
+tasks in a coding agent,
+
+00:20:40.760 --> 00:20:42.590
+we can consolidate that
+all here in the dashboard.
+
+00:20:42.590 --> 00:20:45.000
+And then you can filter
+by resource, of course.
+
+00:20:45.000 --> 00:20:47.250
+You can download all of these
+and export them, by the way.
+
+00:20:47.250 --> 00:20:48.570
+So when something's
+really broken,
+
+00:20:48.570 --> 00:20:49.950
+you just download the logs
+
+00:20:49.950 --> 00:20:52.290
+and then you send the whole
+log stream to your team.
+
+00:20:52.290 --> 00:20:53.580
+And you say, why is
+this broken, guys?
+
+00:20:53.580 --> 00:20:55.050
+David Fowler: You can do it
+here and I export the logs
+
+00:20:55.050 --> 00:20:56.100
+and traces and metrics.
+
+00:20:56.100 --> 00:20:57.720
+Maddy Montaquila: Yeah,
+there's a lot of buttons.
+
+00:20:57.720 --> 00:20:59.280
+But the traces -- there are.
+
+00:20:59.280 --> 00:21:00.060
+There are a lot of buttons.
+
+00:21:00.060 --> 00:21:00.930
+David Fowler: A lot of buttons.
+
+00:21:00.930 --> 00:21:04.410
+Maddy Montaquila: The traces,
+if you click into one of these,
+
+00:21:04.410 --> 00:21:08.970
+we have a full end-to-end
+trace of when Fowler clicks
+
+00:21:08.970 --> 00:21:13.830
+on a button or when we pull the
+database or when the agent asks
+
+00:21:13.830 --> 00:21:15.780
+if there's been any
+changes or anything.
+
+00:21:15.780 --> 00:21:18.510
+You can see this is just
+a 204 from the worker,
+
+00:21:18.510 --> 00:21:22.710
+which is where the agent
+runs, into the API,
+
+00:21:22.710 --> 00:21:24.330
+which then hits the
+Postgres database.
+
+00:21:24.330 --> 00:21:24.870
+David Fowler: Yeah.
+
+00:21:24.870 --> 00:21:26.010
+Maddy Montaquila:
+And you can use this
+
+00:21:26.010 --> 00:21:29.580
+to not only debug your flows
+and see what's going on,
+
+00:21:29.580 --> 00:21:32.550
+but you can also use this to
+actually profile your app.
+
+00:21:32.550 --> 00:21:33.270
+David Fowler: Performance, yeah.
+
+00:21:33.270 --> 00:21:34.050
+Maddy Montaquila:
+Performance-wise.
+
+00:21:34.050 --> 00:21:35.130
+So this is a really
+good way to be like,
+
+00:21:35.130 --> 00:21:36.300
+why does this call take so long?
+
+00:21:36.300 --> 00:21:38.670
+Oh, it's because it's calling
+the database 17 times.
+
+00:21:38.670 --> 00:21:40.710
+Like, we could probably
+streamline that.
+
+00:21:40.710 --> 00:21:41.700
+David Fowler: And this
+is cool for humans.
+
+00:21:41.700 --> 00:21:44.460
+So like, the dashboard,
+the visuals.
+
+00:21:44.460 --> 00:21:46.650
+Maddy Montaquila: If you go
+back to the Resources tab
+
+00:21:46.650 --> 00:21:49.110
+and you open a browser --
+
+00:21:49.110 --> 00:21:49.620
+David Fowler: Open a browser.
+
+00:21:49.620 --> 00:21:52.140
+Maddy Montaquila:
+Down, down, scroll.
+
+00:21:52.140 --> 00:21:55.890
+There is a way, and we'll
+show how we did this in code,
+
+00:21:55.890 --> 00:21:58.950
+to annotate web front-end
+resources as well
+
+00:21:58.950 --> 00:22:02.850
+with the ability to open them in
+a tracked, debuggable browser,
+
+00:22:02.850 --> 00:22:07.170
+which means that the logs
+from your F12 can come back
+
+00:22:07.170 --> 00:22:10.710
+into this dashboard and whatever
+other place you're exporting.
+
+00:22:10.710 --> 00:22:12.570
+So if you also, if you use
+something like Grafana
+
+00:22:12.570 --> 00:22:16.860
+or Prometheus or whatever,
+Honeycomb, if you use those
+
+00:22:16.860 --> 00:22:19.470
+for local dev, you can
+have Aspire also --
+
+00:22:19.470 --> 00:22:20.490
+Seek is one, Seek.
+
+00:22:20.490 --> 00:22:20.850
+David Fowler: Yeah.
+
+00:22:20.850 --> 00:22:22.500
+Maddy Montaquila: You
+can have Aspire export
+
+00:22:22.500 --> 00:22:24.750
+to the Aspire dashboard as
+kind of the control plane
+
+00:22:24.750 --> 00:22:26.850
+of the actual app
+and also those tools
+
+00:22:26.850 --> 00:22:28.860
+if you have really
+built-in reporting
+
+00:22:28.860 --> 00:22:32.190
+and if you're
+advanced with OTel.
+
+00:22:32.190 --> 00:22:32.880
+David Fowler: The theme is just
+
+00:22:32.880 --> 00:22:36.420
+that if you can visualize
+all the parts of your app,
+
+00:22:36.420 --> 00:22:38.760
+if you can see connections
+between the front-end,
+
+00:22:38.760 --> 00:22:42.390
+the client app in the browser,
+the backend, the database --
+
+00:22:42.390 --> 00:22:47.100
+and you can drag it around for
+fun for hours, the graph --
+
+00:22:47.100 --> 00:22:50.250
+it makes it easier to debug
+these more complex apps.
+
+00:22:50.250 --> 00:22:53.730
+If you have a single app, it's
+a static file or a database
+
+00:22:53.730 --> 00:22:55.920
+on disk, maybe you
+don't need Aspire
+
+00:22:55.920 --> 00:22:57.480
+because it's not
+doing enough for you.
+
+00:22:57.480 --> 00:22:59.400
+But the moment you build
+anything more real
+
+00:22:59.400 --> 00:23:03.030
+that requires a database
+or a cache or anything
+
+00:23:03.030 --> 00:23:06.000
+like a front-end and backend,
+this becomes invaluable.
+
+00:23:06.000 --> 00:23:06.180
+Maddy Montaquila: Yeah.
+
+00:23:06.180 --> 00:23:06.990
+David Fowler: Right?
+
+00:23:06.990 --> 00:23:08.430
+How many times we've
+been on stream
+
+00:23:08.430 --> 00:23:11.340
+when the front-end
+is buggy or it works
+
+00:23:11.340 --> 00:23:13.890
+for five minutes locally, then
+you deploy it, then it's broken?
+
+00:23:13.890 --> 00:23:15.780
+And just having the
+end-to-end trace,
+
+00:23:15.780 --> 00:23:18.090
+having the end-to-end loss
+between client and server,
+
+00:23:18.090 --> 00:23:20.520
+it not only helps us,
+but it helps agents.
+
+00:23:20.520 --> 00:23:23.790
+So we made a big change in
+13.0 where we said everything
+
+00:23:23.790 --> 00:23:25.545
+in the dashboard must
+be visible to agents.
+
+00:23:25.577 --> 00:23:26.220
+Maddy Montaquila: Yep.
+
+00:23:26.220 --> 00:23:29.490
+David Fowler: So this is just
+UI over an API, and the API has
+
+00:23:29.490 --> 00:23:32.070
+to be exposed to both the
+CLI and the dashboard.
+
+00:23:32.070 --> 00:23:36.000
+So now, in 13.4 and beyond,
+
+00:23:36.000 --> 00:23:38.100
+the agent can do the same
+things humans can do.
+
+00:23:38.100 --> 00:23:41.940
+So if you said to Copilot or
+Claude or whatever else, hey,
+
+00:23:41.940 --> 00:23:44.940
+tell me when the app is
+slow, it'll open up Aspire,
+
+00:23:44.940 --> 00:23:48.480
+the command line, Aspire, Aspire
+OTel, and it will get traces,
+
+00:23:48.480 --> 00:23:52.980
+export them, analyze, look at
+the code, make changes, rerun,
+
+00:23:52.980 --> 00:23:54.900
+trace again in its loop.
+
+00:23:54.900 --> 00:23:56.880
+And you can kind of
+optimize a bunch of things.
+
+00:23:56.880 --> 00:24:00.240
+So as a fun story, for
+13.4, I was trying
+
+00:24:00.240 --> 00:24:03.900
+to profile why Aspire start
+was so slow for non-apps.
+
+00:24:03.900 --> 00:24:09.030
+And I instrumented the
+CLI, the dashboard,
+
+00:24:09.030 --> 00:24:11.610
+the orchestrator, the RPC.
+
+00:24:11.610 --> 00:24:14.730
+We run, like, five things when
+Aspire start happens, right?
+
+00:24:14.730 --> 00:24:18.270
+And I added it everywhere,
+and then I added a command
+
+00:24:18.270 --> 00:24:21.750
+that booted the dashboard, ran
+the thing, got all the traces,
+
+00:24:21.750 --> 00:24:24.840
+and the agent just read it
+in a loop and optimized,
+
+00:24:24.840 --> 00:24:26.250
+like, four parts of it.
+
+00:24:26.250 --> 00:24:27.090
+Super incredible.
+
+00:24:27.090 --> 00:24:29.700
+So once you start giving
+the agent information,
+
+00:24:29.700 --> 00:24:31.710
+Aspire helps you close the loop.
+
+00:24:31.710 --> 00:24:32.820
+Maddy Montaquila: They call
+it giving the agent eyes
+
+00:24:32.820 --> 00:24:33.990
+or senses or whatever it is.
+
+00:24:33.990 --> 00:24:35.220
+David Fowler: Give
+it eyes, yeah.
+
+00:24:35.220 --> 00:24:36.030
+Maddy Montaquila: So
+okay, so flip back.
+
+00:24:36.030 --> 00:24:37.650
+Let's look at the app host.
+
+00:24:37.650 --> 00:24:39.259
+So Fowler mentioned this.
+
+00:24:40.320 --> 00:24:43.350
+Right now, you can orchestrate,
+you can author of the app host,
+
+00:24:43.350 --> 00:24:45.660
+the orchestrator in
+TypeScript or C Sharp.
+
+00:24:45.660 --> 00:24:48.493
+Python, Java, Go, coming
+soon, God knows what's next.
+
+00:24:50.040 --> 00:24:50.670
+David Fowler: Rust.
+
+00:24:50.670 --> 00:24:53.010
+Maddy Montaquila: But the
+way that Aspire works,
+
+00:24:53.010 --> 00:24:56.040
+the way that you build out
+your app host or app model is
+
+00:24:56.040 --> 00:24:57.510
+with a set of resources.
+
+00:24:57.510 --> 00:25:00.180
+So a resource is the
+individual line of a thing
+
+00:25:00.180 --> 00:25:02.340
+that shows up in the dashboard.
+
+00:25:02.340 --> 00:25:04.380
+David Fowler: So out of
+the app is one resource.
+
+00:25:04.380 --> 00:25:05.430
+Maddy Montaquila:
+That's one resource.
+
+00:25:05.430 --> 00:25:07.950
+Sometimes it has children
+resources it brings in, too.
+
+00:25:07.950 --> 00:25:08.100
+David Fowler: Yeah.
+
+00:25:08.100 --> 00:25:08.190
+Maddy Montaquila: Like,
+
+00:25:08.190 --> 00:25:09.677
+we'll bring in the NPM
+installer--
+
+00:25:09.689 --> 00:25:10.045
+David Fowler: Yep.
+
+00:25:10.064 --> 00:25:10.857
+Maddy Montaquila: by default.
+
+00:25:10.890 --> 00:25:12.180
+You can switch it to PNPM.
+
+00:25:12.180 --> 00:25:13.050
+Like, yes, it works with that.
+
+00:25:13.050 --> 00:25:14.190
+Like, stop asking us.
+
+00:25:14.190 --> 00:25:14.970
+Does it work with this?
+
+00:25:14.970 --> 00:25:16.680
+Yes. It is.
+
+00:25:16.680 --> 00:25:17.190
+It is just --
+
+00:25:17.190 --> 00:25:18.180
+David Fowler: You
+can ask us still.
+
+00:25:18.180 --> 00:25:19.230
+Maddy Montaquila: You can
+ask us, but I'm going
+
+00:25:19.230 --> 00:25:21.120
+to say yes, just for the record.
+
+00:25:21.120 --> 00:25:23.160
+David Fowler: It works.
+
+00:25:23.160 --> 00:25:25.980
+Maddy Montaquila: And
+integrations are our opinions
+
+00:25:25.980 --> 00:25:29.820
+on the right way to turn on
+a Vite app and to run it.
+
+00:25:29.820 --> 00:25:33.030
+So there's the dev certs, the
+OTel environment injection.
+
+00:25:33.030 --> 00:25:36.780
+In this case, we're overwriting
+the port variable for you
+
+00:25:36.780 --> 00:25:40.350
+so that we can manage
+the port and not Vite.
+
+00:25:40.350 --> 00:25:42.570
+David Fowler: And just
+to appreciate how easy
+
+00:25:42.570 --> 00:25:44.490
+and difficult some
+of these things are,
+
+00:25:44.490 --> 00:25:48.240
+if you want to enable HTTPS
+in Vite or Redis, like,
+
+00:25:48.240 --> 00:25:51.690
+that is a whole day of work or
+a week of work just to figure
+
+00:25:51.690 --> 00:25:53.790
+out how to configure
+it for that one thing.
+
+00:25:53.790 --> 00:25:55.260
+And then when you want
+to connect that thing
+
+00:25:55.260 --> 00:25:57.840
+to a separate thing, there
+is, like, four weeks of work.
+
+00:25:57.840 --> 00:26:01.470
+So take that to everything
+that you have in your app.
+
+00:26:01.470 --> 00:26:04.380
+I want a Postgres, a front end.
+
+00:26:04.380 --> 00:26:06.180
+So you're using, like, four
+different technologies
+
+00:26:06.180 --> 00:26:08.040
+because every app now has
+four different things, right?
+
+00:26:08.040 --> 00:26:09.030
+And you're trying to
+make sense of it.
+
+00:26:09.030 --> 00:26:12.120
+And the app host helps you
+reason about all the parts,
+
+00:26:12.120 --> 00:26:14.370
+how they connect, how they
+pass data across each other,
+
+00:26:14.370 --> 00:26:16.037
+and then how calls
+work at runtime.
+
+00:26:16.112 --> 00:26:16.410
+Maddy Montaquila: Right.
+
+00:26:16.410 --> 00:26:18.090
+David Fowler: So we're
+trying to give you a model
+
+00:26:18.090 --> 00:26:21.270
+for expressing that
+overall intent, right?
+
+00:26:21.270 --> 00:26:23.370
+Maddy Montaquila: So yeah, we
+give you a lot of, basically,
+
+00:26:23.370 --> 00:26:27.240
+methods that you add on to your
+builder, to these resources,
+
+00:26:27.240 --> 00:26:30.120
+that let you define the model
+of your app, how things relate
+
+00:26:30.120 --> 00:26:31.860
+to each other, and
+in what order.
+
+00:26:31.860 --> 00:26:32.400
+David Fowler: Yeah.
+
+00:26:32.400 --> 00:26:33.630
+Maddy Montaquila: And
+what can access what.
+
+00:26:33.630 --> 00:26:37.140
+So the web app here, the Vite
+app, it is waiting for the API
+
+00:26:37.140 --> 00:26:41.400
+to start and report healthy
+or 200 before it starts.
+
+00:26:41.400 --> 00:26:43.050
+And then it knows
+the API exists.
+
+00:26:43.050 --> 00:26:43.920
+It has that reference.
+
+00:26:43.920 --> 00:26:46.560
+So that's passed in
+as API under HTTP,
+
+00:26:46.560 --> 00:26:48.390
+underscore HTTP is
+what was in there.
+
+00:26:48.390 --> 00:26:48.450
+David Fowler: Yeah.
+
+00:26:48.450 --> 00:26:49.320
+And if you look here, like,
+
+00:26:49.320 --> 00:26:52.020
+you don't see any
+port numbers, right?
+
+00:26:52.020 --> 00:26:53.340
+That's key.
+
+00:26:53.340 --> 00:26:55.380
+So this thing is
+saying, add a Vite app
+
+00:26:55.380 --> 00:26:57.390
+with a computer
+environment, ACA,
+
+00:26:57.390 --> 00:26:59.490
+set the environment
+variable API-based URL,
+
+00:26:59.490 --> 00:27:01.470
+but get the endpoint
+from the API reference.
+
+00:27:01.470 --> 00:27:02.130
+This is how you pass.
+
+00:27:02.130 --> 00:27:04.890
+This is passing in a specific
+endpoint called HTTP
+
+00:27:04.890 --> 00:27:06.510
+from the backend
+to the front end.
+
+00:27:06.510 --> 00:27:08.850
+And this is important because
+when it resolves locally,
+
+00:27:08.850 --> 00:27:10.950
+it is some local host
+address that's random.
+
+00:27:10.950 --> 00:27:12.690
+When you deploy it, when
+you go somewhere else,
+
+00:27:12.690 --> 00:27:14.070
+when you change the environment,
+
+00:27:14.070 --> 00:27:15.840
+you have a reference
+to the endpoint.
+
+00:27:15.840 --> 00:27:16.950
+You don't have, like, the value.
+
+00:27:16.950 --> 00:27:19.230
+You don't have
+hardcore port 8000.
+
+00:27:19.230 --> 00:27:21.450
+You don't have the
+HTTPS or HTTP port.
+
+00:27:21.450 --> 00:27:24.780
+And we spend so many hours,
+like, trying to figure out how
+
+00:27:24.780 --> 00:27:27.300
+to go from, like, local
+environment working,
+
+00:27:27.300 --> 00:27:28.410
+working well,
+you're super happy.
+
+00:27:28.410 --> 00:27:30.300
+You deploy it to Azure,
+somewhere in Azure
+
+00:27:30.300 --> 00:27:33.060
+or somewhere remotely,
+and the endpoints change.
+
+00:27:33.060 --> 00:27:34.260
+Or HTTPS isn't on.
+
+00:27:34.260 --> 00:27:35.490
+Or HTTP is on.
+
+00:27:35.490 --> 00:27:36.720
+So we handle that for you.
+
+00:27:36.720 --> 00:27:38.490
+We handle, if you
+use references,
+
+00:27:38.490 --> 00:27:41.280
+if you use our model, we will
+do the work to kind of, like,
+
+00:27:41.280 --> 00:27:44.130
+figure out, in that environment,
+what are all the quirks?
+
+00:27:44.130 --> 00:27:46.290
+How do you manage HTTPS
+in this environment?
+
+00:27:46.290 --> 00:27:47.670
+How do you configure it to
+start to that environment?
+
+00:27:47.670 --> 00:27:49.140
+And we do all the mapping
+
+00:27:49.140 --> 00:27:52.170
+to turn this super
+simple-looking model into, like,
+
+00:27:52.170 --> 00:27:54.390
+if you want this to work
+in that environment,
+
+00:27:54.390 --> 00:27:55.860
+this environment,
+these five things.
+
+00:27:55.860 --> 00:27:58.590
+So it's this, like,
+master configurator
+
+00:27:58.590 --> 00:28:00.570
+for your, like, dev app, right?
+
+00:28:00.570 --> 00:28:01.830
+Maddy Montaquila: So scroll
+through this a little bit,
+
+00:28:01.830 --> 00:28:04.680
+because there's a lot
+in this app host.
+
+00:28:04.680 --> 00:28:07.920
+We'll talk a bit about Foundry.
+
+00:28:07.920 --> 00:28:08.430
+David Fowler: Can you see all?
+
+00:28:08.430 --> 00:28:10.480
+Maddy Montaquila: God,
+you give me heartburn.
+
+00:28:12.330 --> 00:28:13.410
+Yeah, go back to the top.
+
+00:28:13.410 --> 00:28:15.030
+Let's see what we have here.
+
+00:28:15.030 --> 00:28:15.660
+We're doing a bunch.
+
+00:28:15.660 --> 00:28:18.150
+This is a chunky app host.
+
+00:28:18.150 --> 00:28:21.300
+But the first thing in here is
+just turning on the database.
+
+00:28:21.300 --> 00:28:22.770
+So this is builder.addPostgres
+
+00:28:22.770 --> 00:28:26.490
+Postgres is an integration
+that we have that pulls
+
+00:28:26.490 --> 00:28:27.630
+down the Postgres
+database image.
+
+00:28:27.630 --> 00:28:29.370
+You could add on to that.
+
+00:28:29.370 --> 00:28:29.910
+Oh, you have it.
+
+00:28:29.910 --> 00:28:33.480
+With PGWeb, which adds
+the Postgres web viewer
+
+00:28:33.480 --> 00:28:34.380
+for the database.
+
+00:28:34.380 --> 00:28:37.860
+You could do something,
+like, with Postgres MCP.
+
+00:28:37.860 --> 00:28:38.430
+David Fowler: Yes.
+
+00:28:38.430 --> 00:28:39.420
+Maddy Montaquila:
+Where we will wire
+
+00:28:39.420 --> 00:28:40.830
+up the MCP for you now.
+
+00:28:40.830 --> 00:28:42.690
+You can define that in here,
+so you don't have to pull
+
+00:28:42.690 --> 00:28:44.400
+and install the MCP
+on your own anymore.
+
+00:28:44.400 --> 00:28:48.420
+We'll give it the ports that
+it's running on and whatever.
+
+00:28:48.420 --> 00:28:48.870
+With MCP.
+
+00:28:48.870 --> 00:28:49.320
+David Fowler:
+Where's this thing?
+
+00:28:49.320 --> 00:28:50.980
+Maddy Montaquila: With MCP.
+
+00:28:51.990 --> 00:28:53.970
+MCP?
+
+00:28:53.970 --> 00:28:55.680
+David Fowler: With MCP server.
+
+00:28:55.680 --> 00:28:56.280
+Maddy Montaquila: Oh.
+
+00:28:56.280 --> 00:28:58.260
+Sorry. I don't know what
+the command is called.
+
+00:28:58.260 --> 00:29:00.000
+I thought it was Postgres MCP.
+
+00:29:00.000 --> 00:29:00.540
+David Fowler: IntelliSense.
+
+00:29:00.540 --> 00:29:01.230
+Bad IntelliSense.
+
+00:29:01.230 --> 00:29:01.920
+Maddy Montaquila:
+Bad IntelliSense.
+
+00:29:01.920 --> 00:29:03.510
+Yeah, I'm terrible
+at IntelliSense.
+
+00:29:03.510 --> 00:29:04.200
+David Fowler: You're
+bad at IntelliSense.
+
+00:29:04.200 --> 00:29:04.770
+Maddy Montaquila: We're checking
+
+00:29:04.770 --> 00:29:06.360
+in some environment
+variables here.
+
+00:29:06.360 --> 00:29:09.630
+We're saying, hey, is this
+running in this mode?
+
+00:29:09.630 --> 00:29:12.630
+Should we enable inference with
+the Copilot SDK here or not?
+
+00:29:12.630 --> 00:29:14.910
+We're processing environment
+variables to kind
+
+00:29:14.910 --> 00:29:16.290
+of determine the run mode.
+
+00:29:16.290 --> 00:29:18.090
+What's cool about
+environment variables,
+
+00:29:18.090 --> 00:29:21.060
+if you use the built-in Aspire
+parameters, is what we call,
+
+00:29:21.060 --> 00:29:24.630
+like, strongly resourced
+environment variables
+
+00:29:24.630 --> 00:29:25.740
+that you define in the app host.
+
+00:29:25.740 --> 00:29:28.890
+You can set and unset
+and change those
+
+00:29:28.890 --> 00:29:31.110
+within the dashboard
+or over the CLI.
+
+00:29:31.110 --> 00:29:31.830
+David Fowler: I should
+do that, shouldn't I?
+
+00:29:31.830 --> 00:29:32.640
+Maddy Montaquila:
+You should do that.
+
+00:29:32.640 --> 00:29:33.510
+David Fowler: Okay,
+let me do it.
+
+00:29:33.510 --> 00:29:36.630
+So I'm going to set this
+environment variable.
+
+00:29:36.630 --> 00:29:38.430
+Maddy Montaquila: What?
+
+00:29:38.430 --> 00:29:39.930
+Go into the dashboard.
+
+00:29:39.930 --> 00:29:40.680
+David Fowler: What?
+
+00:29:40.680 --> 00:29:41.860
+Maddy Montaquila: Oh.
+
+00:29:42.960 --> 00:29:44.790
+David Fowler: Let's
+go all the way.
+
+00:29:44.790 --> 00:29:46.590
+Maddy Montaquila: You
+misspelled inference.
+
+00:29:46.590 --> 00:29:47.310
+David Fowler: Did I?
+
+00:29:47.310 --> 00:29:48.300
+Maddy Montaquila: Inferece.
+
+00:29:48.300 --> 00:29:49.260
+There you go.
+
+00:29:49.260 --> 00:29:49.650
+David Fowler: No, this is --
+
+00:29:49.650 --> 00:29:50.670
+Maddy Montaquila: Aspire stop.
+
+00:29:50.670 --> 00:29:52.120
+David Fowler: Just this.
+
+00:29:54.660 --> 00:29:56.460
+It'll work, right?
+
+00:29:56.460 --> 00:29:56.880
+Maddy Montaquila: I don't know.
+
+00:29:56.880 --> 00:29:58.200
+I don't know if this
+is going to work.
+
+00:29:58.200 --> 00:30:00.360
+David Fowler: Probably.
+
+00:30:00.360 --> 00:30:00.510
+Maddy Montaquila: Okay.
+
+00:30:00.510 --> 00:30:01.590
+David Fowler: Hopefully.
+
+00:30:01.590 --> 00:30:02.980
+Keep going.
+
+00:30:04.380 --> 00:30:06.810
+Maddy Montaquila:
+So did it work?
+
+00:30:06.810 --> 00:30:07.080
+David Fowler: Yeah.
+
+00:30:07.080 --> 00:30:07.560
+Maddy Montaquila: Okay, good.
+
+00:30:07.560 --> 00:30:08.130
+David Fowler: Of course.
+
+00:30:08.130 --> 00:30:08.580
+Maddy Montaquila: Good.
+
+00:30:08.580 --> 00:30:10.890
+Okay. So what that
+just did was turn
+
+00:30:10.890 --> 00:30:13.650
+on a whole new resource that's
+defined in the app host.
+
+00:30:13.650 --> 00:30:16.080
+That's Microsoft Foundry.
+
+00:30:16.080 --> 00:30:18.990
+So Foundry is a --
+
+00:30:18.990 --> 00:30:20.520
+David Fowler: Our agent
+PAZ, our agent platform.
+
+00:30:20.520 --> 00:30:21.900
+Maddy Montaquila:
+Agent PAZ, yeah.
+
+00:30:21.900 --> 00:30:23.640
+I think everyone's
+probably heard about it.
+
+00:30:23.640 --> 00:30:24.840
+David Fowler: Has anyone
+ever used Foundry?
+
+00:30:24.840 --> 00:30:25.260
+Maddy Montaquila: Any Foundry?
+
+00:30:25.260 --> 00:30:25.860
+David Fowler: Azure Foundry?
+
+00:30:25.860 --> 00:30:26.940
+Maddy Montaquila: Oh, nice.
+
+00:30:26.940 --> 00:30:27.420
+David Fowler: It's brand new.
+
+00:30:27.420 --> 00:30:28.200
+Maddy Montaquila: You
+can go bother Glenn
+
+00:30:28.200 --> 00:30:29.280
+with your issues after.
+
+00:30:29.280 --> 00:30:29.910
+David Fowler: In the back, yeah.
+
+00:30:29.910 --> 00:30:31.200
+Maddy Montaquila: He's
+shaking his head.
+
+00:30:31.200 --> 00:30:32.550
+He's in the scally cap.
+
+00:30:32.550 --> 00:30:35.880
+So I'll just argue with him.
+
+00:30:35.880 --> 00:30:39.270
+What we do with Foundry
+is at dev time,
+
+00:30:39.270 --> 00:30:41.670
+if you are authenticated
+anywhere on your machine
+
+00:30:41.670 --> 00:30:45.510
+with Azure, whether that's the
+Azure CLI or VS Code or EZD,
+
+00:30:45.510 --> 00:30:51.510
+what we do is say, hey, we know
+that you have an Azure account.
+
+00:30:51.510 --> 00:30:53.460
+Would you like us to
+provision a resource
+
+00:30:53.460 --> 00:30:55.080
+for you to develop against?
+
+00:30:55.080 --> 00:30:56.700
+So the dashboard pops it.
+
+00:30:56.700 --> 00:30:58.440
+This comes in as part of
+our Foundry integration.
+
+00:30:58.440 --> 00:31:00.960
+The dashboard's going to pop it
+and say, hey, I need resources
+
+00:31:00.960 --> 00:31:02.130
+for your Azure subscription.
+
+00:31:02.130 --> 00:31:03.480
+So if you hit "Enter Values" --
+
+00:31:03.480 --> 00:31:03.840
+David Fowler: This happens
+
+00:31:03.840 --> 00:31:05.760
+for any Azure resource,
+not just Foundry.
+
+00:31:05.760 --> 00:31:07.260
+Maddy Montaquila: Yes,
+any Azure resource.
+
+00:31:07.260 --> 00:31:10.380
+You can also build this
+experience out for anything.
+
+00:31:10.380 --> 00:31:11.220
+David Fowler: Super important.
+
+00:31:11.220 --> 00:31:11.790
+Maddy Montaquila:
+Super important.
+
+00:31:11.790 --> 00:31:14.670
+David Fowler: This
+is not in Aspire.
+
+00:31:14.670 --> 00:31:15.030
+Maddy Montaquila:
+This is in a package.
+
+00:31:15.030 --> 00:31:17.550
+David Fowler: Aspire
+lets you pop dialogues
+
+00:31:17.550 --> 00:31:19.290
+and show all these fancy UI.
+
+00:31:19.290 --> 00:31:23.880
+This is in the specific Azure,
+like the Azure-based libraries.
+
+00:31:23.880 --> 00:31:26.970
+It says, I need auth to
+do anything in Azure.
+
+00:31:26.970 --> 00:31:31.620
+And it says, I'm going to query
+the Azure CLI on your machine,
+
+00:31:31.620 --> 00:31:33.840
+find your application, and
+then show you a dialog
+
+00:31:33.840 --> 00:31:35.010
+that you log in to Azure.
+
+00:31:35.010 --> 00:31:36.510
+So normally when
+you're doing this,
+
+00:31:36.510 --> 00:31:40.020
+you have a readme somewhere in
+your apps that's out of date.
+
+00:31:40.020 --> 00:31:41.580
+Maddy Montaquila: And a.env.
+
+00:31:41.580 --> 00:31:41.730
+David Fowler: And a .env.
+
+00:31:41.730 --> 00:31:44.010
+And then some dev joins your
+team, and then they have
+
+00:31:44.010 --> 00:31:45.810
+to figure out where
+the creds are.
+
+00:31:45.810 --> 00:31:47.670
+How do you enter my credentials
+for my subscription?
+
+00:31:47.670 --> 00:31:48.960
+Or maybe it's shared.
+
+00:31:48.960 --> 00:31:49.440
+Maddy Montaquila: They have
+to go into Add Portal.
+
+00:31:49.440 --> 00:31:49.920
+David Fowler: Yeah.
+
+00:31:49.920 --> 00:31:50.940
+Maddy Montaquila: They
+have to find the dev sub,
+
+00:31:50.940 --> 00:31:53.160
+they have to copy-paste
+the subscription ID,
+
+00:31:53.160 --> 00:31:54.930
+and then they have to
+go and put that in env.
+
+00:31:54.930 --> 00:31:55.500
+David Fowler: Put it in env.
+
+00:31:55.500 --> 00:31:56.370
+Maddy Montaquila: And
+then they have to go back
+
+00:31:56.370 --> 00:31:57.390
+and they have to
+get the tenant ID,
+
+00:31:57.390 --> 00:31:58.890
+and then they have
+to put that in env.
+
+00:31:58.890 --> 00:31:58.950
+David Fowler: Yeah.
+
+00:31:58.950 --> 00:31:59.760
+Maddy Montaquila: And
+then they have to figure
+
+00:31:59.760 --> 00:32:01.620
+out if they want to make a new
+resource group, they have to do
+
+00:32:01.620 --> 00:32:03.390
+that manually, or they
+have to, God forbid,
+
+00:32:03.390 --> 00:32:04.980
+use the AZCLI to do it by hand.
+
+00:32:04.980 --> 00:32:05.670
+That's terrifying.
+
+00:32:05.670 --> 00:32:06.420
+David Fowler: Yep.
+
+00:32:06.420 --> 00:32:09.360
+Maddy Montaquila: The AZCLI
+now exists solely for Copilot.
+
+00:32:09.360 --> 00:32:10.980
+I will never use it again.
+
+00:32:10.980 --> 00:32:11.700
+Never again.
+
+00:32:11.700 --> 00:32:13.470
+Too many commands.
+
+00:32:13.470 --> 00:32:14.910
+We're picking Sweden and
+central, because that's
+
+00:32:14.910 --> 00:32:16.590
+where we know the model
+will probably deploy
+
+00:32:16.590 --> 00:32:19.270
+and run right now, because
+the Swedes are asleep.
+
+00:32:20.700 --> 00:32:21.780
+David Fowler: Woo!
+
+00:32:21.780 --> 00:32:24.270
+So this is cool, because
+it does a lot of things.
+
+00:32:24.270 --> 00:32:27.390
+It is going to provision
+the resource in Azure.
+
+00:32:27.390 --> 00:32:30.480
+This model is very much each
+dev gets their own subscription
+
+00:32:30.480 --> 00:32:32.010
+to be a sandbox.
+
+00:32:32.010 --> 00:32:33.720
+You aren't sharing resources.
+
+00:32:33.720 --> 00:32:35.070
+I can imagine a
+model where you want
+
+00:32:35.070 --> 00:32:36.300
+to share the same
+subscription, but you want
+
+00:32:36.300 --> 00:32:38.310
+to have different resource
+names to avoid conflicts.
+
+00:32:38.310 --> 00:32:41.670
+But we heard from developers
+that one big source of pain is,
+
+00:32:41.670 --> 00:32:44.490
+like, I am sharing a
+subscription with my team,
+
+00:32:44.490 --> 00:32:47.100
+and we conflict on the same
+thing in Azure all the time.
+
+00:32:47.100 --> 00:32:50.040
+So how do you make it so each
+dev gets their own play space?
+
+00:32:50.040 --> 00:32:52.320
+And they don't have to worry
+about connection strings
+
+00:32:52.320 --> 00:32:54.570
+or going to the portal or
+figuring out how to, like,
+
+00:32:54.570 --> 00:32:56.250
+grab the right URL to put
+
+00:32:56.250 --> 00:32:58.110
+into their app once they
+have it provisioned.
+
+00:32:58.110 --> 00:32:58.380
+Maddy Montaquila: Yeah.
+
+00:32:58.380 --> 00:33:00.450
+David Fowler: This experience
+just says, you know,
+
+00:33:00.450 --> 00:33:04.200
+add a foundry resource with
+reference, passing the value
+
+00:33:04.200 --> 00:33:05.670
+of the foundry
+resource to my app,
+
+00:33:05.670 --> 00:33:08.850
+and then we populate the
+data in your environment
+
+00:33:08.850 --> 00:33:09.780
+to make that just work.
+
+00:33:09.780 --> 00:33:11.910
+So we're doing the
+things you do already.
+
+00:33:11.910 --> 00:33:14.280
+We just, like, codify
+those as patterns.
+
+00:33:14.280 --> 00:33:16.260
+So you don't have to,
+like, think about, okay,
+
+00:33:16.260 --> 00:33:18.240
+let me grow here, copy
+and paste that value,
+
+00:33:18.240 --> 00:33:20.550
+put it in a secret
+file, do it over here.
+
+00:33:20.550 --> 00:33:22.920
+It just codifies the entire
+experience into this model.
+
+00:33:22.920 --> 00:33:23.190
+Maddy Montaquila: Yeah.
+
+00:33:23.190 --> 00:33:26.700
+So with Aspire, you're able
+to clone and run an app
+
+00:33:26.700 --> 00:33:29.580
+with provisioned resources,
+whether they're in Azure
+
+00:33:29.580 --> 00:33:32.490
+or wherever, or just external
+endpoints somewhere,
+
+00:33:32.490 --> 00:33:34.410
+without having to
+open any portals.
+
+00:33:34.410 --> 00:33:37.260
+Like, there's no click ops
+involved in getting it set up.
+
+00:33:37.260 --> 00:33:38.340
+I mean, the click
+ops are clicking
+
+00:33:38.340 --> 00:33:40.830
+in the dashboard to
+click your thing.
+
+00:33:40.830 --> 00:33:41.310
+David Fowler: Yeah.
+
+00:33:41.310 --> 00:33:42.420
+Maddy Montaquila: You can
+also have the agent do it.
+
+00:33:42.420 --> 00:33:44.220
+The agent's able
+to set parameters
+
+00:33:44.220 --> 00:33:45.330
+and secrets like that.
+
+00:33:45.330 --> 00:33:48.000
+So what's cool about our
+parameter system is we don't
+
+00:33:48.000 --> 00:33:49.350
+save it in your environment.
+
+00:33:49.350 --> 00:33:50.640
+We don't do a .env file.
+
+00:33:50.640 --> 00:33:52.800
+We actually put it in
+your user profile.
+
+00:33:52.800 --> 00:33:54.570
+So it is unique per work tree.
+
+00:33:54.570 --> 00:33:54.780
+David Fowler: Yeah.
+
+00:33:54.780 --> 00:33:55.620
+Maddy Montaquila: Which
+means you can test
+
+00:33:55.620 --> 00:33:57.750
+against different subs
+and different work trees.
+
+00:33:57.750 --> 00:34:00.060
+But, more importantly, you
+cannot accidentally commit it
+
+00:34:00.060 --> 00:34:03.930
+to source, which is a big
+issue right now with Copilot.
+
+00:34:03.930 --> 00:34:04.110
+David Fowler: It is.
+
+00:34:04.110 --> 00:34:05.340
+Maddy Montaquila: It's
+gotten a lot better at it.
+
+00:34:05.340 --> 00:34:06.060
+David Fowler: Yeah, yeah.
+
+00:34:06.060 --> 00:34:08.070
+But, for a while,
+like, you know,
+
+00:34:08.070 --> 00:34:10.140
+if you didn't ignore
+things the right way,
+
+00:34:10.140 --> 00:34:11.910
+people were pushing tokens
+off left and right.
+
+00:34:11.910 --> 00:34:12.780
+It was a whole thing.
+
+00:34:12.780 --> 00:34:13.590
+They still do.
+
+00:34:13.590 --> 00:34:16.320
+Maddy Montaquila: This is
+also for Azure resources.
+
+00:34:16.320 --> 00:34:18.210
+I know at Build, we have
+a lot of Azure people
+
+00:34:18.210 --> 00:34:20.610
+who are actually,
+like, real ops people.
+
+00:34:20.610 --> 00:34:22.710
+So you see stuff like
+this and you're like,
+
+00:34:22.710 --> 00:34:24.900
+that will never work in my
+enterprise environment.
+
+00:34:24.900 --> 00:34:26.280
+Like, blah, blah, blah.
+
+00:34:26.280 --> 00:34:28.890
+We're actually, we've worked
+with all the Azure teams
+
+00:34:28.890 --> 00:34:30.510
+for the integrations we have.
+
+00:34:30.510 --> 00:34:32.190
+And AWS is an
+integration for us.
+
+00:34:32.190 --> 00:34:33.450
+We have vanilla Kubernetes.
+
+00:34:33.450 --> 00:34:34.620
+We have vanilla Docker Compose.
+
+00:34:34.620 --> 00:34:38.010
+It's not vendor lock to Azure,
+but we work for Microsoft.
+
+00:34:38.010 --> 00:34:39.390
+So we did spend a
+lot of time talking
+
+00:34:39.390 --> 00:34:41.490
+to our friends on
+the Azure team.
+
+00:34:41.490 --> 00:34:43.980
+We are not only provisioning
+the resource group
+
+00:34:43.980 --> 00:34:45.990
+and the Foundry project
+and deploying a model,
+
+00:34:45.990 --> 00:34:48.510
+but we're also
+provisioning roles
+
+00:34:48.510 --> 00:34:50.880
+so that only the
+correct things inside
+
+00:34:50.880 --> 00:34:53.580
+of my app host can
+talk to that resource.
+
+00:34:53.580 --> 00:34:56.040
+So I am doing security
+things now at this point.
+
+00:34:56.040 --> 00:34:58.800
+And I'm saying the front end
+is what knows about Foundry.
+
+00:34:58.800 --> 00:35:01.980
+So that role gets now assigned
+to that resource in Azure,
+
+00:35:01.980 --> 00:35:04.710
+meaning I can't have some
+random person come in
+
+00:35:04.710 --> 00:35:06.000
+and hit this from the internet.
+
+00:35:06.000 --> 00:35:06.570
+David Fowler: Funny story.
+
+00:35:06.570 --> 00:35:08.940
+It's so secure, I
+couldn't do it myself.
+
+00:35:08.940 --> 00:35:12.180
+So the app could talk to my
+agent, but I couldn't see it.
+
+00:35:12.180 --> 00:35:12.780
+Maddy Montaquila: Yes.
+
+00:35:12.780 --> 00:35:13.740
+It is very funny.
+
+00:35:13.740 --> 00:35:14.070
+Okay.
+
+00:35:14.070 --> 00:35:14.520
+David Fowler: Good rules.
+
+00:35:14.520 --> 00:35:16.050
+Maddy Montaquila: Let's talk
+about how to transition all
+
+00:35:16.050 --> 00:35:17.970
+of this into deployment.
+
+00:35:17.970 --> 00:35:19.650
+While this is deploying,
+because we'll show the demo
+
+00:35:19.650 --> 00:35:20.730
+with the agent after.
+
+00:35:20.730 --> 00:35:22.350
+It takes about five
+to seven minutes,
+
+00:35:22.350 --> 00:35:24.270
+depending on conference Wi-Fi.
+
+00:35:24.270 --> 00:35:27.150
+David Fowler: So we didn't
+show the web browser logs.
+
+00:35:27.150 --> 00:35:29.580
+We spoke about it, but I think
+it's worthwhile showing you how
+
+00:35:29.580 --> 00:35:29.820
+it works.
+
+00:35:29.820 --> 00:35:31.950
+So like, when you add the --
+
+00:35:31.950 --> 00:35:35.850
+there's a piece of code
+in your app that is this
+
+00:35:35.850 --> 00:35:39.150
+with browser logs method.
+
+00:35:39.150 --> 00:35:39.840
+This is new.
+
+00:35:39.840 --> 00:35:40.500
+It's an integration.
+
+00:35:40.500 --> 00:35:42.240
+It's an Aspire hosting browser.
+
+00:35:42.240 --> 00:35:45.210
+And when you add it to a
+resource, it will open
+
+00:35:45.210 --> 00:35:48.960
+up the track browser with the
+debug port, and it will scrape.
+
+00:35:48.960 --> 00:35:52.260
+It'll ask for logs from the
+console and network requests.
+
+00:35:52.260 --> 00:35:54.150
+So you can imagine how
+annoying it is to debug,
+
+00:35:54.150 --> 00:35:55.200
+like, client-type failures.
+
+00:35:55.200 --> 00:35:58.170
+You're always, like, in your
+app in a terminal trying
+
+00:35:58.170 --> 00:35:59.910
+to debug your thing, and
+then you're in the browser,
+
+00:35:59.910 --> 00:36:01.740
+F12 in this, like,
+little cramped space.
+
+00:36:01.740 --> 00:36:02.940
+Maddy Montaquila:
+Cores everywhere.
+
+00:36:02.940 --> 00:36:04.050
+David Fowler: And
+cores is not working
+
+00:36:04.050 --> 00:36:05.430
+and you're super unhappy.
+
+00:36:05.430 --> 00:36:09.060
+So this resource is
+added to that project,
+
+00:36:09.060 --> 00:36:13.530
+and I can launch this
+little track browser thing,
+
+00:36:13.530 --> 00:36:16.080
+and it spawned the browser,
+and it looks normal.
+
+00:36:16.080 --> 00:36:17.700
+ But what's happening behind
+the scenes is I open
+
+00:36:17.700 --> 00:36:20.600
+up this log panel.
+
+00:36:20.600 --> 00:36:24.050
+You can see the network traffic
+and the console debug logs.
+
+00:36:24.050 --> 00:36:25.490
+  So this is just
+showing Vite output,
+
+00:36:25.490 --> 00:36:27.450
+and it's showing all the
+requests from the client.
+
+00:36:27.450 --> 00:36:29.730
+You can use this to
+debug your entire stack.
+
+00:36:29.730 --> 00:36:30.900
+Your full stack, right?
+
+00:36:30.900 --> 00:36:35.940
+Your, like, client to backend
+to database, entire thing.
+
+00:36:35.940 --> 00:36:37.020
+The beauty of this thing is
+
+00:36:37.020 --> 00:36:38.310
+that the agent has
+the same information.
+
+00:36:38.310 --> 00:36:44.570
+So if I now go into my console
+and I were to run Aspire logs,
+
+00:36:44.570 --> 00:36:46.430
+it can dump the whole,
+the same information.
+
+00:36:46.430 --> 00:36:48.620
+So the agent can just use
+this, and it can search.
+
+00:36:48.620 --> 00:36:50.030
+So I can do Aspire log search --
+
+00:36:50.030 --> 00:36:51.630
+like, I don't know,
+bugs, whatever.
+
+00:36:51.630 --> 00:36:53.760
+I'm going to find
+things, but in general.
+
+00:36:53.760 --> 00:36:54.960
+So you can search logs.
+
+00:36:54.960 --> 00:36:56.010
+You can search traces.
+
+00:36:56.010 --> 00:36:57.240
+You can search all
+the information,
+
+00:36:57.240 --> 00:37:00.650
+all that information in the
+dashboard, in the model,
+
+00:37:00.650 --> 00:37:04.190
+is exposed to the CLI for
+agents and the dashboard.
+
+00:37:04.190 --> 00:37:05.600
+Maddy Montaquila: Do you
+have an agent open anywhere?
+
+00:37:05.600 --> 00:37:07.070
+David Fowler: I have
+lots of agents.
+
+00:37:07.070 --> 00:37:11.190
+So here's an app where Maddy was
+telling me I should add another
+
+00:37:11.190 --> 00:37:13.200
+language for fun
+because why not?
+
+00:37:13.200 --> 00:37:13.920
+Just for a talk.
+
+00:37:13.920 --> 00:37:17.580
+So I told the agent, like,
+tell me what I should add,
+
+00:37:17.580 --> 00:37:19.620
+and they added Python
+for some reason.
+
+00:37:19.620 --> 00:37:22.140
+No, hey, I love Python.
+
+00:37:22.140 --> 00:37:24.540
+And it, you know, added the
+Python app to my application.
+
+00:37:24.540 --> 00:37:26.430
+And has anyone here
+used the GitHub app?
+
+00:37:26.430 --> 00:37:27.360
+It's brand new.
+
+00:37:27.360 --> 00:37:27.570
+Maddy Montaquila: It's awesome.
+
+00:37:27.570 --> 00:37:30.030
+David Fowler: It came out,
+I think, like, last week.
+
+00:37:30.030 --> 00:37:31.380
+No, last week.
+
+00:37:31.380 --> 00:37:33.210
+And it became available today.
+
+00:37:33.210 --> 00:37:33.960
+Maddy Montaquila: Yes.
+
+00:37:33.960 --> 00:37:35.100
+David Fowler: So if
+you don't have it,
+
+00:37:35.100 --> 00:37:36.780
+here's a preview of what it is.
+
+00:37:36.780 --> 00:37:38.460
+On the left, there's sessions.
+
+00:37:38.460 --> 00:37:39.900
+This is my demo app.
+
+00:37:39.900 --> 00:37:41.100
+I have a bunch of
+different things
+
+00:37:41.100 --> 00:37:44.190
+that I made work
+before this talk.
+
+00:37:44.190 --> 00:37:45.180
+And they were all in work trees.
+
+00:37:45.180 --> 00:37:47.490
+So each one of these
+is a unique work tree.
+
+00:37:47.490 --> 00:37:50.130
+And the benefit of using
+Aspire with agents here is
+
+00:37:50.130 --> 00:37:53.100
+that I have this, like,
+there's this "Run" button.
+
+00:37:53.100 --> 00:37:55.140
+I have this configured script.
+
+00:37:55.140 --> 00:37:58.680
+The GitHub app lets you
+configure scripts to run an app.
+
+00:37:58.680 --> 00:38:00.180
+And it can do whatever.
+
+00:38:00.180 --> 00:38:03.120
+But what it can do is you
+can say whenever you start a
+
+00:38:03.120 --> 00:38:07.770
+workspace or start an app,
+run the app host -- isolated.
+
+00:38:07.770 --> 00:38:09.810
+Let me -- yeah.
+
+00:38:09.810 --> 00:38:13.380
+Isolated. That says, take
+all the ports that I had
+
+00:38:13.380 --> 00:38:15.180
+in my application
+and randomize them.
+
+00:38:15.180 --> 00:38:17.160
+Make sure there's no conflicts.
+
+00:38:17.160 --> 00:38:18.720
+Because when I want
+to run many sessions,
+
+00:38:18.720 --> 00:38:21.060
+I don't want port conflicts
+across work trees.
+
+00:38:21.060 --> 00:38:24.360
+Any state that I had that were
+secrets for my dev environment,
+
+00:38:24.360 --> 00:38:26.430
+make a unique one per work tree.
+
+00:38:26.430 --> 00:38:27.120
+So it does that.
+
+00:38:27.120 --> 00:38:31.650
+And then, on stop, it'll
+delete the work tree.
+
+00:38:31.650 --> 00:38:33.030
+And it will get rid
+of the app host.
+
+00:38:33.030 --> 00:38:34.260
+It will tear down.
+
+00:38:34.260 --> 00:38:36.870
+That lets me preview
+multiple app hosts
+
+00:38:36.870 --> 00:38:41.120
+in parallel while working in
+the same, like, source tree.
+
+00:38:41.120 --> 00:38:41.510
+Right?
+
+00:38:41.510 --> 00:38:43.160
+Maddy Montaquila: And if
+you scroll up in here,
+
+00:38:43.160 --> 00:38:44.420
+did it use any Aspire commands
+
+00:38:44.420 --> 00:38:45.470
+that we can look
+at in the session?
+
+00:38:45.470 --> 00:38:46.220
+I don't know.
+
+00:38:46.220 --> 00:38:49.130
+We have a set of skills that
+we give you now with Aspire.
+
+00:38:49.130 --> 00:38:51.200
+So just straight
+up, the CLI, like,
+
+00:38:51.200 --> 00:38:52.730
+we don't even need
+an MCP or anything.
+
+00:38:52.730 --> 00:38:55.380
+We do have an MCP, but
+it's, you don't need it.
+
+00:38:55.380 --> 00:38:56.520
+You can just use skills.
+
+00:38:56.520 --> 00:38:57.180
+David Fowler: Yeah, so, yeah.
+
+00:38:57.180 --> 00:39:00.120
+Maddy Montaquila: If you
+run Aspire agent init,
+
+00:39:00.120 --> 00:39:03.300
+if you're already using Aspire,
+that gives you the option to add
+
+00:39:03.300 --> 00:39:06.030
+or update or add the
+new Aspire skills.
+
+00:39:06.030 --> 00:39:07.440
+We have a whole repo of them.
+
+00:39:07.440 --> 00:39:08.280
+They do a whole bunch of things.
+
+00:39:08.280 --> 00:39:09.960
+Like, one of them is
+literally just the right way
+
+00:39:09.960 --> 00:39:11.970
+for the agent to
+monitor the app.
+
+00:39:11.970 --> 00:39:14.880
+One of them is how to wield
+custom commands and resources.
+
+00:39:14.880 --> 00:39:17.190
+So if the agent wants to see
+my database and knows how
+
+00:39:17.190 --> 00:39:19.800
+to search what custom commands
+are available and use them.
+
+00:39:19.800 --> 00:39:20.610
+David Fowler: Exactly.
+
+00:39:20.610 --> 00:39:21.930
+Maddy Montaquila: And
+one of them is wait.
+
+00:39:21.930 --> 00:39:22.740
+That's a great one.
+
+00:39:22.740 --> 00:39:25.890
+Wait for this thing to happen
+or be healthy or be successful.
+
+00:39:25.890 --> 00:39:28.080
+So you don't have to
+have the agent go, okay,
+
+00:39:28.080 --> 00:39:30.720
+I'm going to sleep
+for 120 seconds, BRB.
+
+00:39:30.720 --> 00:39:32.800
+David Fowler: You
+can probably show --
+
+00:39:34.010 --> 00:39:34.760
+Maddy Montaquila: There's
+a lot of stuff going on.
+
+00:39:34.760 --> 00:39:35.330
+David Fowler: There's
+a lot of stuff here.
+
+00:39:35.330 --> 00:39:35.870
+So I'll just --
+
+00:39:35.870 --> 00:39:37.100
+Maddy Montaquila: But
+anyways, just, yeah.
+
+00:39:37.100 --> 00:39:39.140
+You can ask -- like, if you
+ask the agent or the --
+
+00:39:39.140 --> 00:39:39.770
+David Fowler: There it is.
+
+00:39:39.770 --> 00:39:40.220
+Maddy Montaquila: Yeah.
+
+00:39:40.220 --> 00:39:42.320
+David Fowler: So I told it to
+check the logs, and it's looking
+
+00:39:42.320 --> 00:39:44.430
+at the skill to monitor the app.
+
+00:39:44.430 --> 00:39:46.160
+Found the skill, and it's going
+to start running commands,
+
+00:39:46.160 --> 00:39:47.750
+like Aspire logs,
+Aspire all these things
+
+00:39:47.750 --> 00:39:49.070
+to figure out what's going on.
+
+00:39:49.070 --> 00:39:50.450
+And the app is pretty cool.
+
+00:39:50.450 --> 00:39:52.790
+The app can actually launch a
+browser in the terminal to kind
+
+00:39:52.790 --> 00:39:55.230
+of see the browser and
+do things with it.
+
+00:39:55.230 --> 00:39:55.410
+But, yeah.
+
+00:39:55.410 --> 00:39:56.940
+So Aspire is agent-ready.
+
+00:39:56.940 --> 00:39:58.830
+I would say it is
+optimized for agents.
+
+00:39:58.830 --> 00:40:01.920
+So you can use it to kind
+of performance profile,
+
+00:40:01.920 --> 00:40:04.650
+look at logs, do development,
+and it helps you, like,
+
+00:40:04.650 --> 00:40:07.200
+completely close the
+overall loop, agent loop.
+
+00:40:07.200 --> 00:40:07.440
+Maddy Montaquila: Okay.
+
+00:40:07.440 --> 00:40:08.250
+Go back to the app.
+
+00:40:08.250 --> 00:40:09.630
+We need to talk
+about deployment.
+
+00:40:09.630 --> 00:40:10.710
+David Fowler: All right.
+
+00:40:10.710 --> 00:40:11.100
+Maddy Montaquila: Four minutes.
+
+00:40:11.100 --> 00:40:11.101
+Four minutes.
+
+00:40:11.101 --> 00:40:13.290
+David Fowler: So I am,
+like, lost, but it's here.
+
+00:40:13.290 --> 00:40:13.830
+Maddy Montaquila: Okay.
+
+00:40:13.830 --> 00:40:19.170
+So at the very top of
+this, I believe -- yes.
+
+00:40:19.170 --> 00:40:22.890
+So this is deployed to an Azure
+container app environment.
+
+00:40:22.890 --> 00:40:25.350
+We pulled in add Azure
+container app environment,
+
+00:40:25.350 --> 00:40:27.930
+which is also an integration,
+same building block,
+
+00:40:27.930 --> 00:40:29.730
+but this one's specific
+for deployment.
+
+00:40:29.730 --> 00:40:32.010
+And so, each of these
+individual resources know how
+
+00:40:32.010 --> 00:40:34.320
+to generate themselves
+into a Docker file
+
+00:40:34.320 --> 00:40:37.130
+or whatever the deployable asset
+that makes sense for them is.
+
+00:40:37.130 --> 00:40:39.890
+What Azure container apps
+environment integration does is
+
+00:40:39.890 --> 00:40:41.600
+how to take those things
+and translate them
+
+00:40:41.600 --> 00:40:44.450
+into Bicep or YAML or whatever.
+
+00:40:44.450 --> 00:40:45.410
+Whatever makes sense.
+
+00:40:45.410 --> 00:40:45.680
+I don't know.
+
+00:40:45.680 --> 00:40:47.640
+Name your integration here.
+
+00:40:47.640 --> 00:40:50.370
+And how to overwrite
+properties on that
+
+00:40:50.370 --> 00:40:53.660
+so you don't actually have to
+manually hand edit Bicep ever.
+
+00:40:53.660 --> 00:40:56.930
+So if you run Aspire publish --
+
+00:40:56.930 --> 00:40:59.750
+Fowler pre-deployed this because
+we weren't going to wait for it.
+
+00:40:59.750 --> 00:41:04.830
+So if you run Aspire deploy,
+it will generate assets.
+
+00:41:04.830 --> 00:41:07.830
+It will use whatever the correct
+thing for the runtime based
+
+00:41:07.830 --> 00:41:10.620
+on that integration is to
+deploy it to the cloud,
+
+00:41:10.620 --> 00:41:13.170
+to a container apps environment,
+connect things together,
+
+00:41:13.170 --> 00:41:15.240
+make sure everything
+is seeded correctly.
+
+00:41:15.240 --> 00:41:16.790
+Oh, what did you do?
+
+00:41:16.790 --> 00:41:17.690
+David Fowler: In
+theory, it works.
+
+00:41:17.690 --> 00:41:18.770
+Maddy Montaquila: In
+theory, it works?
+
+00:41:18.770 --> 00:41:19.460
+David Fowler: Add
+more things to it.
+
+00:41:19.460 --> 00:41:20.810
+Maddy Montaquila: Did
+you break something?
+
+00:41:20.810 --> 00:41:21.470
+David Fowler: Yeah.
+
+00:41:21.470 --> 00:41:22.430
+Maddy Montaquila: Open
+a different work tree.
+
+00:41:22.430 --> 00:41:24.140
+I don't know.
+
+00:41:24.140 --> 00:41:24.470
+David Fowler: Good point.
+
+00:41:24.470 --> 00:41:24.800
+It's good.
+
+00:41:24.800 --> 00:41:26.280
+Maddy Montaquila: Yeah.
+
+00:41:26.280 --> 00:41:28.440
+But you can also do
+something, Aspire publish.
+
+00:41:28.440 --> 00:41:30.840
+We kind of give you escape
+hatches along the way
+
+00:41:30.840 --> 00:41:31.560
+for deployment.
+
+00:41:31.560 --> 00:41:31.860
+David Fowler: We do.
+
+00:41:31.860 --> 00:41:32.970
+Maddy Montaquila: Because
+it really depends
+
+00:41:32.970 --> 00:41:34.950
+if this is a greenfield
+app, if this is an app
+
+00:41:34.950 --> 00:41:37.170
+that has a really
+advanced DevOps team.
+
+00:41:37.170 --> 00:41:38.640
+Like, your DevOps people
+
+00:41:38.640 --> 00:41:42.840
+or the DevOps people here do not
+want you just black box running
+
+00:41:42.840 --> 00:41:45.540
+a single Aspire deploy and
+them having no idea what's
+
+00:41:45.540 --> 00:41:47.100
+actually happening.
+
+00:41:47.100 --> 00:41:47.790
+David Fowler: Not in production,
+
+00:41:47.790 --> 00:41:50.820
+but for ephemeral environment,
+it makes sense for devs
+
+00:41:50.820 --> 00:41:53.010
+to have an environment
+you can spin up,
+
+00:41:53.010 --> 00:41:54.990
+see the entire thing working,
+but then when you promote,
+
+00:41:54.990 --> 00:41:56.850
+you want, like, more
+lockdown, more rules,
+
+00:41:56.850 --> 00:41:57.600
+more whatever else, right?
+
+00:41:57.600 --> 00:42:01.140
+But Aspire is really
+good for both stages.
+
+00:42:01.140 --> 00:42:01.260
+Maddy Montaquila: Right.
+
+00:42:01.260 --> 00:42:03.300
+David Fowler: Or if you're a
+smaller team or smaller apps,
+
+00:42:03.300 --> 00:42:05.070
+you can do the entire
+end-to-end with Aspire.
+
+00:42:05.070 --> 00:42:07.320
+Maddy Montaquila: And you
+can overwrite things.
+
+00:42:07.320 --> 00:42:09.060
+Are you -- oh, is it
+going to work now?
+
+00:42:09.060 --> 00:42:10.410
+David Fowler: No.
+
+00:42:10.410 --> 00:42:12.360
+Maddy Montaquila: No, he says.
+
+00:42:12.360 --> 00:42:14.490
+David Fowler: It failed before.
+
+00:42:14.490 --> 00:42:15.480
+Maddy Montaquila:
+It should be fine.
+
+00:42:15.480 --> 00:42:17.690
+It should be fine.
+
+00:42:17.690 --> 00:42:19.280
+Okay. Well, just go into
+the code because I want
+
+00:42:19.280 --> 00:42:22.130
+to show customizing,
+configuring it.
+
+00:42:22.130 --> 00:42:23.060
+David Fowler: I
+see what happened.
+
+00:42:23.060 --> 00:42:23.630
+Maddy Montaquila: Oh.
+
+00:42:23.630 --> 00:42:26.100
+So if you go into,
+like, the front end --
+
+00:42:26.100 --> 00:42:26.610
+David Fowler: The front end?
+
+00:42:26.610 --> 00:42:28.800
+Maddy Montaquila: I'd
+go to a resource.
+
+00:42:28.800 --> 00:42:29.970
+David Fowler: So one example is
+
+00:42:29.970 --> 00:42:33.930
+that we're setting the capacity
+for a Foundry resource.
+
+00:42:33.930 --> 00:42:33.931
+Maddy Montaquila: Oh,
+there you go, great.
+
+00:42:33.931 --> 00:42:35.520
+David Fowler: When you add a
+Foundry project or deployment,
+
+00:42:35.520 --> 00:42:40.050
+we're adding a ChatGPT-5 mini
+model, and when deploying,
+
+00:42:40.050 --> 00:42:42.810
+it will set the capacity
+to 10, whatever it is.
+
+00:42:42.810 --> 00:42:44.280
+It means, like, 10
+times something.
+
+00:42:44.280 --> 00:42:44.281
+Maddy Montaquila: Right.
+
+00:42:44.281 --> 00:42:48.210
+David Fowler: But we expose
+the entire Bicep object model.
+
+00:42:48.210 --> 00:42:49.260
+This is not our team.
+
+00:42:49.260 --> 00:42:51.060
+The Azure SDK team
+actually built this.
+
+00:42:51.060 --> 00:42:54.420
+We express the Bicep model
+in your language, so C Sharp
+
+00:42:54.420 --> 00:42:57.540
+or TypeScript, and you can
+mutate all the properties you
+
+00:42:57.540 --> 00:42:58.280
+want to mutate.
+
+00:42:58.280 --> 00:42:58.970
+We don't lock it down.
+
+00:42:58.970 --> 00:42:59.180
+Maddy Montaquila: Right.
+
+00:42:59.180 --> 00:43:01.130
+David Fowler: We give you
+defaults, and then your job is
+
+00:43:01.130 --> 00:43:03.140
+to customize it and do
+more things from there.
+
+00:43:03.140 --> 00:43:03.740
+Maddy Montaquila: Right,
+
+00:43:03.740 --> 00:43:06.950
+so then you can create the
+correct Bicep for your use case.
+
+00:43:06.950 --> 00:43:07.910
+And what's really nice
+
+00:43:07.910 --> 00:43:10.980
+about this is you can literally
+do a wait, chat, dot,
+
+00:43:10.980 --> 00:43:14.820
+and then scroll through
+all of the things, like,
+
+00:43:14.820 --> 00:43:17.880
+everything that you get on
+your container app resource
+
+00:43:17.880 --> 00:43:21.180
+or your app service or
+your helm resource.
+
+00:43:21.180 --> 00:43:23.070
+David Fowler: Yep.
+
+00:43:23.070 --> 00:43:24.180
+Maddy Montaquila: So
+this is deployed.
+
+00:43:24.180 --> 00:43:27.120
+David Fowler: To show the
+deployed version before we land,
+
+00:43:27.120 --> 00:43:31.830
+this is deployed in Azure
+Container Apps for the front end
+
+00:43:31.830 --> 00:43:33.570
+and the backend for the agent.
+
+00:43:33.570 --> 00:43:37.100
+Actually, there's a
+front end website.
+
+00:43:37.100 --> 00:43:40.190
+There's a backend worker process
+in Azure Container Apps,
+
+00:43:40.190 --> 00:43:43.700
+and there's an agent container
+sandbox in hosted agents.
+
+00:43:43.700 --> 00:43:45.830
+So there's a bunch of different
+Azure resources hosted
+
+00:43:45.830 --> 00:43:46.910
+in different places.
+
+00:43:46.910 --> 00:43:50.310
+In Foundry, you can see I have
+two agents here hanging out.
+
+00:43:50.310 --> 00:43:53.040
+So this system is, like, spread
+across multiple platforms,
+
+00:43:53.040 --> 00:43:55.530
+multiple compute environments.
+
+00:43:55.530 --> 00:43:57.900
+Doing that is completely
+non-trivial by default
+
+00:43:57.900 --> 00:44:01.140
+because you have to span
+not only ACA but, like,
+
+00:44:01.140 --> 00:44:02.550
+Foundry hosted service.
+
+00:44:02.550 --> 00:44:05.790
+And the way Aspire makes that
+easier is you can kind of say
+
+00:44:05.790 --> 00:44:09.750
+in Aspire, my front end and
+my application can be in ACA.
+
+00:44:09.750 --> 00:44:11.070
+This is the compute environment.
+
+00:44:11.070 --> 00:44:14.040
+So I'm saying take my API
+resource and the worker
+
+00:44:14.040 --> 00:44:16.200
+and the front end,
+put it in ACA.
+
+00:44:16.200 --> 00:44:17.670
+But I want the sandboxes to be
+
+00:44:17.670 --> 00:44:20.130
+in the hosted agent service
+because it's secure.
+
+00:44:20.130 --> 00:44:22.200
+I can spin up one on the
+fly and have it go away.
+
+00:44:22.200 --> 00:44:24.630
+I can have my coding agent,
+you know, crap on disk
+
+00:44:24.630 --> 00:44:26.820
+and then not worry about messing
+
+00:44:26.820 --> 00:44:28.440
+with other customers'
+information.
+
+00:44:28.440 --> 00:44:28.800
+Maddy Montaquila: Right.
+
+00:44:28.800 --> 00:44:30.150
+David Fowler: So I'm
+kind of building
+
+00:44:30.150 --> 00:44:32.070
+that design with Aspire.
+
+00:44:32.070 --> 00:44:33.720
+And it becomes, like,
+pretty trivial to do.
+
+00:44:33.720 --> 00:44:34.560
+Maddy Montaquila: Yeah.
+
+00:44:34.560 --> 00:44:37.050
+The online stream cuts off
+in exactly 15 seconds.
+
+00:44:37.050 --> 00:44:38.100
+So that's why I'm switching
+back to the slides.
+
+00:44:38.100 --> 00:44:38.760
+David Fowler: Yep.
+
+00:44:38.760 --> 00:44:41.940
+Maddy Montaquila: Aspire.dev
+is where everything is. 
+
+00:44:41.940 --> 00:44:42.870
+Join our Discord.
+
+00:44:42.870 --> 00:44:43.860
+Join us most Fridays.
+
+00:44:43.860 --> 00:44:45.690
+We live stream to YouTube.
+
+00:44:45.690 --> 00:44:48.960
+Please fill out the session
+evaluation and get some details.
+
+00:44:48.960 --> 00:44:52.590
+The sample code for this app
+will be uploaded tonight.
+
+00:44:52.590 --> 00:44:54.090
+David Fowler: Yep.
+
+00:44:54.090 --> 00:44:54.900
+Maddy Montaquila: And
+then for those of you
+
+00:44:54.900 --> 00:44:56.490
+in the room -- I
+nailed that timing.
+
+00:44:56.490 --> 00:44:57.540
+That was pretty good, right?
+
+00:44:57.540 --> 00:44:57.780
+David Fowler: You did.
+
+00:44:57.780 --> 00:44:58.500
+Maddy Montaquila:
+I can chill now
+
+00:44:58.500 --> 00:45:00.360
+because the stream's offline.
+
+00:45:00.360 --> 00:45:02.040
+No, for those of you in the
+room, we're going to go hang
+
+00:45:02.040 --> 00:45:04.470
+out at the booth for the
+rest of the afternoon
+
+00:45:04.470 --> 00:45:06.930
+or until one of us falls over.
+
+00:45:06.930 --> 00:45:07.380
+David Fowler: Immediately.
+
+00:45:07.380 --> 00:45:08.580
+Maddy Montaquila:
+Immediately, yeah.
+
+00:45:08.580 --> 00:45:09.930
+So we're more than
+happy to talk.
+
+00:45:09.930 --> 00:45:11.850
+We would love to hear, if
+you're using Aspire already,
+
+00:45:11.850 --> 00:45:16.050
+how you're using it, what
+has been easy to sell people
+
+00:45:16.050 --> 00:45:19.680
+on your team on,
+what's been hard.
+
+00:45:19.680 --> 00:45:22.140
+The best way to learn what
+Aspire is, is to use it
+
+00:45:22.140 --> 00:45:24.240
+or to show it, and so
+it does make it hard
+
+00:45:24.240 --> 00:45:25.980
+to explain what it is.
+
+00:45:25.980 --> 00:45:29.220
+But we're really working
+on arming our fans,
+
+00:45:29.220 --> 00:45:32.370
+the people who are using it and
+get it and our contributors,
+
+00:45:32.370 --> 00:45:36.180
+with the tools to help
+people explain and use it.
+
+00:45:36.180 --> 00:45:36.181
+David Fowler: Yes.
+
+00:45:36.181 --> 00:45:37.200
+Maddy Montaquila:
+Because once you use it,
+
+00:45:37.200 --> 00:45:38.700
+you're never going to
+be able to go back.
+
+00:45:38.700 --> 00:45:42.300
+I promise you, Chris Reddington,
+who did all the setup
+
+00:45:42.300 --> 00:45:44.940
+for the machines and the dev
+tools and frameworks area,
+
+00:45:44.940 --> 00:45:46.680
+he said that he
+only just used it
+
+00:45:46.680 --> 00:45:47.850
+for the first time two weeks ago
+
+00:45:47.850 --> 00:45:49.800
+because we made him
+install it on everything.
+
+00:45:49.800 --> 00:45:51.210
+And since then, he
+has not been able
+
+00:45:51.210 --> 00:45:52.410
+to create a project without it.
+
+00:45:52.410 --> 00:45:53.850
+He won't stop using it.
+
+00:45:53.850 --> 00:45:57.600
+So anecdotally, like, you will
+get hooked, and we're going
+
+00:45:57.600 --> 00:45:59.580
+to make it easy for you to
+get hooked even further.
+
+00:45:59.580 --> 00:46:01.440
+So thank you so much.
+
+00:46:01.440 --> 00:46:03.520
+We really appreciate it.
+
+00:46:03.520 --> 00:46:07.330
+[ Applause ]

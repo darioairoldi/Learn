@@ -1,7 +1,7 @@
 # Azure Container Apps Overview
 
  [Implement Azure Container Apps](<https://learn.microsoft.com/en-us/training/modules/implement-azure-container-apps/>)
-![alt text](<images/01.001 learning path.png>)
+![alt text](<images/01.001-learning-path.png>)
 
 ## Table of Contents
 

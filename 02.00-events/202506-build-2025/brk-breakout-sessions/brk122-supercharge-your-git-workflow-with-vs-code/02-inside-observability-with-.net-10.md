@@ -1,5 +1,7 @@
 # Inside Observability with .NET 10
 
+![Supercharge Your Git Workflow with VS Code](images/session-banner.png)
+
 ## Table of Contents
 
 1. [Overview](#overview)

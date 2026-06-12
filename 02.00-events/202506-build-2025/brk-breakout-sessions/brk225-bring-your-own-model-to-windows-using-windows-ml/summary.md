@@ -6,7 +6,7 @@
 **Speakers:** Ryan Demopoulos (Principal Product Manager, Microsoft), Xiaoxi Han (Senior Software Engineer, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK225]
 
-![Windows ML 2.0](images/windows-ml-bring-your-own-model.png)
+![Bring Your Own Model to Windows Using Windows ML](images/session-banner.png)
 
 ---
 
@@ -257,7 +257,7 @@ IHV Partnership Program:
 ### ????? **8. Developer Partner Success Stories**
 
 #### Enterprise Adoption Feedback
-**Volker Rölke (Adobe Premier Pro/After Effects):**
+**Volker Rï¿½lke (Adobe Premier Pro/After Effects):**
 > "Premier Pro and After Effects are leading professional video editing applications that often handle terabytes of video footage. Our goal is to adopt the new Windows ML once it matures enough to handle the heavy ML workloads."
 
 **Carl Woodward (Development Perspective):**
@@ -267,7 +267,7 @@ IHV Partnership Program:
 **Luyan Zhang (Simplicity Achievement):**
 > "The simplicity amazed me. Following Microsoft easy approach, get an ONNX model, add it to your app, and integrate it into your code, we converted a complex AI feature to Windows ML in just three days."
 
-**Barthélémy Kiss (Powder Strategic Advantage):**
+**Barthï¿½lï¿½my Kiss (Powder Strategic Advantage):**
 > "Powder is an early adopter of Windows ML, and it has enabled us to integrate models three times faster, transforming speed into a key strategic advantage."
 
 ---
@@ -275,7 +275,7 @@ IHV Partnership Program:
 ### ?? **9. Powder: Real-World AI Gaming Application**
 
 #### Automatic Gameplay Highlight Detection
-**Barthélémy's AI-Native Vision:**
+**Barthï¿½lï¿½my's AI-Native Vision:**
 > "We transform gameplay into highlights automatically. How does it work? You just play. We record, find great moments, and package them for sharing... It's the kind of AI-native experience that just starts to be possible."
 
 **Powder Technical Achievement:**
@@ -317,7 +317,7 @@ AI Gaming Platform:
 
 > *"The simplicity amazed me... we converted a complex AI feature to Windows ML in just three days."* - Luyan Zhang (Developer Partner)
 
-> *"We do the work once, and it works everywhere."* - Barthélémy Kiss (Powder)
+> *"We do the work once, and it works everywhere."* - Barthï¿½lï¿½my Kiss (Powder)
 
 ---
 
@@ -446,4 +446,3 @@ Microsoft
 ---
 
 *This comprehensive session demonstrates Microsoft's commitment to democratizing AI development on Windows through intelligent platform design, automatic hardware optimization, and unprecedented developer experience simplification. Windows ML 2.0 represents a fundamental shift toward write-once, run-everywhere AI applications with optimal performance across the entire Windows hardware ecosystem.*
-

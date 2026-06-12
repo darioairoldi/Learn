@@ -1,0 +1,1249 @@
+WEBVTT
+
+00:00:07.350 --> 00:00:08.070
+SPEAKER 1: Welcome back
+
+00:00:08.070 --> 00:00:10.590
+to the broadcast stage
+here at Microsoft Build.
+
+00:00:10.590 --> 00:00:14.220
+We're in the beautiful city
+of San Francisco and boy,
+
+00:00:14.220 --> 00:00:18.210
+are we talking about
+innovation at scale and speed.
+
+00:00:18.210 --> 00:00:20.370
+And no one is better
+at talking about that
+
+00:00:20.370 --> 00:00:21.900
+than my friend Adrian.
+
+00:00:21.900 --> 00:00:24.030
+We're going to have a great
+conversation, Adrian.
+
+00:00:24.030 --> 00:00:24.780
+Welcome back.
+
+00:00:24.780 --> 00:00:25.260
+ADRIAN MACIAS: Thank you.
+
+00:00:25.260 --> 00:00:25.770
+We sure are.
+
+00:00:25.770 --> 00:00:28.680
+I'm excited to talk about the
+developer experience with you.
+
+00:00:28.680 --> 00:00:29.610
+SPEAKER 1: Absolutely.
+
+00:00:29.610 --> 00:00:31.530
+It's really important
+that we're able
+
+00:00:31.530 --> 00:00:34.320
+to help developers understand
+what's different for them
+
+00:00:34.320 --> 00:00:37.140
+and make sure to give them
+real actionable items
+
+00:00:37.140 --> 00:00:39.060
+and help take them deep.
+
+00:00:39.060 --> 00:00:41.490
+Talk to me about something
+that you're really excited
+
+00:00:41.490 --> 00:00:44.340
+about that we've been talking
+about here at Microsoft Build.
+
+00:00:44.340 --> 00:00:45.030
+ADRIAN MACIAS: Well absolutely.
+
+00:00:45.030 --> 00:00:47.880
+I think one of the most exciting
+things is the developer
+
+00:00:47.880 --> 00:00:51.480
+experience itself and how
+that is radically changing.
+
+00:00:51.480 --> 00:00:54.930
+Just in the last six months,
+developers are exploring spaces
+
+00:00:54.930 --> 00:00:59.070
+and trying new things that they
+practically couldn't do before.
+
+00:00:59.070 --> 00:01:03.510
+And I think it's the confluence
+of a number of different things.
+
+00:01:03.510 --> 00:01:06.180
+There's technology, there's
+software, there's agentic AI,
+
+00:01:06.180 --> 00:01:07.590
+there's hardware platforms.
+
+00:01:07.590 --> 00:01:10.080
+I'm really excited to dig into
+all of that with you today.
+
+00:01:10.080 --> 00:01:11.400
+SPEAKER 1: I know that
+you have a passion
+
+00:01:11.400 --> 00:01:12.720
+for the developer community.
+
+00:01:12.720 --> 00:01:15.870
+Do you ever find all
+of this overwhelming?
+
+00:01:15.870 --> 00:01:17.340
+I mean, sometimes to me,
+
+00:01:17.340 --> 00:01:19.260
+I'm more of a builder
+than a pro dev.
+
+00:01:19.260 --> 00:01:21.690
+But nonetheless, sometimes
+I find all the change a bit
+
+00:01:21.690 --> 00:01:23.850
+overwhelming to keep up
+with and understand.
+
+00:01:23.850 --> 00:01:25.770
+How do you do it?
+
+00:01:25.770 --> 00:01:26.700
+ADRIAN MACIAS: It's difficult.
+
+00:01:26.700 --> 00:01:30.570
+Certainly, I think the idea
+was trying to become an expert
+
+00:01:30.570 --> 00:01:32.820
+at things is historically
+how we've worked.
+
+00:01:32.820 --> 00:01:35.880
+And now it's really just about
+becoming an experimenter,
+
+00:01:35.880 --> 00:01:38.190
+trying things, not being
+afraid to take risk
+
+00:01:38.190 --> 00:01:40.920
+and trying new approaches
+to solving problems.
+
+00:01:40.920 --> 00:01:42.360
+That's the time
+we're in right now.
+
+00:01:42.360 --> 00:01:46.170
+I think that's what's at bear
+(phonetic) for developers.
+
+00:01:46.170 --> 00:01:47.130
+SPEAKER 1: One of the things
+
+00:01:47.130 --> 00:01:49.980
+that I find sometimes a little
+bit overwhelming is all
+
+00:01:49.980 --> 00:01:52.260
+of the changes that are
+happening so quickly.
+
+00:01:52.260 --> 00:01:55.170
+I mean, I'm more of a builder
+than a pro developer.
+
+00:01:55.170 --> 00:01:58.110
+But nonetheless, how do you
+figure out how to keep track
+
+00:01:58.110 --> 00:01:59.940
+of everything that's happening?
+
+00:01:59.940 --> 00:02:01.980
+ADRIAN MACIAS: Well I think
+the key to developers today is
+
+00:02:01.980 --> 00:02:04.230
+that that approach to
+solving problems is
+
+00:02:04.230 --> 00:02:05.310
+fundamentally changing.
+
+00:02:05.310 --> 00:02:08.280
+Whereas in the past, we
+had to commit to a plan,
+
+00:02:08.280 --> 00:02:10.680
+the cost to commit to that
+plan, and the investments
+
+00:02:10.680 --> 00:02:13.710
+that we'd make with resources
+and times was really critical.
+
+00:02:13.710 --> 00:02:16.320
+Now, the cost to
+explore is zero.
+
+00:02:16.320 --> 00:02:17.850
+And so it's really
+easier (phonetic)
+
+00:02:17.850 --> 00:02:19.260
+to try different things.
+
+00:02:19.260 --> 00:02:22.050
+SPEAKER 1: Yeah, and that
+ability to experiment almost
+
+00:02:22.050 --> 00:02:25.020
+at scale with all the new
+things, do you think that's fun?
+
+00:02:25.020 --> 00:02:26.000
+Do you enjoy that?
+
+00:02:26.000 --> 00:02:26.840
+ADRIAN MACIAS: Well, it's fun.
+
+00:02:26.840 --> 00:02:29.600
+I'm more excited about
+what comes out of it.
+
+00:02:29.600 --> 00:02:31.910
+And I think that's what
+engineers and developers want.
+
+00:02:31.910 --> 00:02:32.960
+They want the end product.
+
+00:02:32.960 --> 00:02:34.100
+What am I creating?
+
+00:02:34.100 --> 00:02:36.050
+And what's happening right
+now is the machine has
+
+00:02:36.050 --> 00:02:37.100
+fundamentally changed.
+
+00:02:37.100 --> 00:02:38.870
+So what's coming out
+of the machine is also
+
+00:02:38.870 --> 00:02:39.980
+fundamentally different.
+
+00:02:39.980 --> 00:02:41.060
+And that is exciting.
+
+00:02:41.060 --> 00:02:43.100
+SPEAKER 1: Explain that,
+the machine has changed.
+
+00:02:43.100 --> 00:02:44.240
+What do you mean by that?
+
+00:02:44.240 --> 00:02:46.820
+ADRIAN MACIAS: So if you
+look at what's happening
+
+00:02:46.820 --> 00:02:51.150
+with AI coding or agentic AI,
+it's changing our process
+
+00:02:51.150 --> 00:02:52.590
+on how we approach problems.
+
+00:02:52.590 --> 00:02:56.490
+It's changing the flow that we
+use, the decisions we make,
+
+00:02:56.490 --> 00:02:59.160
+the choices that we even
+have at our disposal,
+
+00:02:59.160 --> 00:03:01.800
+which means I can
+take more risk,
+
+00:03:01.800 --> 00:03:04.620
+I can try new ideas,
+I can try new tools.
+
+00:03:04.620 --> 00:03:06.450
+And if it sticks, it's great.
+
+00:03:06.450 --> 00:03:09.390
+And if something doesn't
+work quite right,
+
+00:03:09.390 --> 00:03:11.190
+it's okay to just
+put that code aside
+
+00:03:11.190 --> 00:03:13.110
+and try a completely
+different approach.
+
+00:03:13.110 --> 00:03:16.950
+And so, that really fosters
+an era of innovation.
+
+00:03:16.950 --> 00:03:21.060
+And that iteration lets you end
+up at places you might not have
+
+00:03:21.060 --> 00:03:22.650
+with a traditional
+design approach.
+
+00:03:22.650 --> 00:03:25.320
+SPEAKER 1: Yeah, it's almost
+like surprise and delay at scale
+
+00:03:25.320 --> 00:03:26.220
+with the developer (phonetic).
+
+00:03:26.220 --> 00:03:27.270
+ADRIAN MACIAS: There is.
+
+00:03:27.270 --> 00:03:30.120
+In music or art, we talk
+about happy accidents.
+
+00:03:30.120 --> 00:03:31.290
+I think engineers are starting
+
+00:03:31.290 --> 00:03:34.500
+to enjoy this design
+space as well.
+
+00:03:34.500 --> 00:03:36.600
+SPEAKER 1: So how does
+that play out between AMD
+
+00:03:36.600 --> 00:03:39.540
+and Microsoft and
+(inaudible) specifically?
+
+00:03:39.540 --> 00:03:40.590
+ADRIAN MACIAS: Yeah,
+that's really key.
+
+00:03:40.590 --> 00:03:43.650
+Because tools and technology
+are only part of the problem.
+
+00:03:43.650 --> 00:03:45.030
+But you have to foster
+that community.
+
+00:03:45.030 --> 00:03:46.680
+You have to foster
+that innovation.
+
+00:03:46.680 --> 00:03:50.280
+And that means having an open
+ecosystem with open software,
+
+00:03:50.280 --> 00:03:53.250
+open platforms, and really
+investing in that community
+
+00:03:53.250 --> 00:03:55.890
+of developers so that they
+create that innovation
+
+00:03:55.890 --> 00:03:57.240
+that we're all depending on.
+
+00:03:57.240 --> 00:03:59.130
+SPEAKER 1: And how do
+you do that at AMD?
+
+00:03:59.130 --> 00:03:59.490
+ADRIAN MACIAS: Well,
+
+00:03:59.490 --> 00:04:03.600
+open source software is really a
+key pillar to what we're doing.
+
+00:04:03.600 --> 00:04:06.000
+Putting software out in
+the open source community,
+
+00:04:06.000 --> 00:04:08.940
+exciting the developer
+community with events like this
+
+00:04:08.940 --> 00:04:11.580
+so that they're coming to the
+table and bringing their ideas.
+
+00:04:11.580 --> 00:04:14.070
+We have a number of different
+ecosystems that we participate
+
+00:04:14.070 --> 00:04:16.410
+in where we have more
+developers coming in
+
+00:04:16.410 --> 00:04:17.700
+and contributing their ideas
+
+00:04:17.700 --> 00:04:20.460
+than AMD may even have
+developers contributing
+
+00:04:20.460 --> 00:04:21.540
+to that codebase.
+
+00:04:21.540 --> 00:04:24.210
+So it's really just, how
+do we create that energy
+
+00:04:24.210 --> 00:04:26.190
+and excitement
+around the industry?
+
+00:04:26.190 --> 00:04:29.100
+SPEAKER 1: I think developers
+also, historically, but now more
+
+00:04:29.100 --> 00:04:31.110
+than ever, they want to
+get their hands dirty,
+
+00:04:31.110 --> 00:04:33.570
+they want to actually do
+the things that matter.
+
+00:04:33.570 --> 00:04:34.650
+If there are a few things
+
+00:04:34.650 --> 00:04:37.080
+that you would have
+developers physically doing,
+
+00:04:37.080 --> 00:04:39.410
+what would that look like?
+
+00:04:39.410 --> 00:04:40.250
+ADRIAN MACIAS: I
+think the key is
+
+00:04:40.250 --> 00:04:45.410
+to explore a couple modalities
+in the choice space.
+
+00:04:45.410 --> 00:04:49.010
+So if you think about one of
+the new dimensions to explore,
+
+00:04:49.010 --> 00:04:51.240
+it's where things are running.
+
+00:04:51.240 --> 00:04:54.840
+Right, so in the past, I might
+be doing my developments simply
+
+00:04:54.840 --> 00:04:56.310
+on the cloud and
+exclusively on the cloud.
+
+00:04:56.310 --> 00:05:00.060
+Now, I have the opportunity to
+explore something like an AIPC
+
+00:05:00.060 --> 00:05:02.460
+and do significant AI
+development there.
+
+00:05:02.460 --> 00:05:05.940
+I can also decide where my
+workload is going to run.
+
+00:05:05.940 --> 00:05:07.890
+It's perhaps even
+a hybrid solution
+
+00:05:07.890 --> 00:05:09.870
+between a cloud and
+a client device.
+
+00:05:09.870 --> 00:05:12.330
+That's the idea of locality.
+
+00:05:12.330 --> 00:05:15.600
+The other new innovation
+that's happening is modality.
+
+00:05:15.600 --> 00:05:19.260
+We now have new AI technologies
+that can listen to us speak,
+
+00:05:19.260 --> 00:05:22.650
+that can watch our face,
+and detect our emotions.
+
+00:05:22.650 --> 00:05:24.480
+That we can text with
+them and chat with them,
+
+00:05:24.480 --> 00:05:27.450
+but we can also generate
+images and rich media content.
+
+00:05:27.450 --> 00:05:29.250
+So the modality that
+we have choices
+
+00:05:29.250 --> 00:05:32.580
+over is significantly
+more significant
+
+00:05:32.580 --> 00:05:34.800
+than it was just six months ago.
+
+00:05:34.800 --> 00:05:38.010
+And thirdly, we also have new
+devices that we can explore.
+
+00:05:38.010 --> 00:05:40.800
+So we have CPUs, there are GPUs,
+
+00:05:40.800 --> 00:05:43.020
+there's also neural
+processing units that are
+
+00:05:43.020 --> 00:05:44.610
+in a lot of these AIPCs.
+
+00:05:44.610 --> 00:05:48.060
+And that gives us a new type of
+capability that we can explore
+
+00:05:48.060 --> 00:05:51.660
+to trade off cost or power
+or performance in ways
+
+00:05:51.660 --> 00:05:53.100
+that we didn't have before.
+
+00:05:53.100 --> 00:05:55.260
+So my advice is get out there
+
+00:05:55.260 --> 00:05:58.320
+and explore these
+different design choices.
+
+00:05:58.320 --> 00:06:02.010
+We have a developer showcase
+where you can attend and listen
+
+00:06:02.010 --> 00:06:05.250
+to a lot of the sessions
+and demos and presentations
+
+00:06:05.250 --> 00:06:08.100
+that are here this week to
+learn more about those.
+
+00:06:08.100 --> 00:06:09.990
+SPEAKER 1: And what I love
+about that is you don't have
+
+00:06:09.990 --> 00:06:12.210
+to be right here in San
+Francisco to do it, of course.
+
+00:06:12.210 --> 00:06:15.570
+There's a large digital audience
+for this particular show.
+
+00:06:15.570 --> 00:06:17.910
+And all of these sessions
+are available online.
+
+00:06:17.910 --> 00:06:19.770
+People can participate in them.
+
+00:06:19.770 --> 00:06:23.640
+And it's really democratizing
+access to this learning
+
+00:06:23.640 --> 00:06:25.650
+and intelligence, and it's free.
+
+00:06:25.650 --> 00:06:27.480
+Right, I think that
+that changes the way
+
+00:06:27.480 --> 00:06:29.850
+that developer
+ecosystem can evolve.
+
+00:06:29.850 --> 00:06:33.240
+And what do you see happening
+in the next three to six months
+
+00:06:33.240 --> 00:06:35.580
+in that developer
+ecosystem based on some
+
+00:06:35.580 --> 00:06:37.470
+of these announcements,
+new modalities
+
+00:06:37.470 --> 00:06:41.460
+that you're talking about, new
+form factors, and compute?
+
+00:06:41.460 --> 00:06:42.630
+ADRIAN MACIAS: Well,
+it's interesting.
+
+00:06:42.630 --> 00:06:45.990
+One of the challenges
+we have with choice is
+
+00:06:45.990 --> 00:06:47.730
+that we are not inside
+the box, right.
+
+00:06:47.730 --> 00:06:49.980
+Humans are not in there, our
+brains are not programmed
+
+00:06:49.980 --> 00:06:53.760
+into the box yet to make some
+of those choices for us.
+
+00:06:53.760 --> 00:06:56.070
+But we have the
+emergence of agentic AI.
+
+00:06:56.070 --> 00:06:59.520
+And this is a solution to
+this existential problem
+
+00:06:59.520 --> 00:07:02.970
+of so many choices, how
+do we create options,
+
+00:07:02.970 --> 00:07:06.330
+how do we control the
+technology that we've created?
+
+00:07:06.330 --> 00:07:10.290
+So agentic AI is a new
+microservice that's evolving
+
+00:07:10.290 --> 00:07:12.750
+on top of our traditional
+software solutions,
+
+00:07:12.750 --> 00:07:14.130
+hardware platforms.
+
+00:07:14.130 --> 00:07:17.370
+And so this is going to be an
+interesting space to see change
+
+00:07:17.370 --> 00:07:18.690
+over the next six months.
+
+00:07:18.690 --> 00:07:21.570
+I think we're going to see
+more applications developed
+
+00:07:21.570 --> 00:07:22.920
+in a dynamic fashion.
+
+00:07:22.920 --> 00:07:26.970
+Rather than static features
+or static capabilities,
+
+00:07:26.970 --> 00:07:30.630
+we're going to see solutions
+and software emerge that adapts
+
+00:07:30.630 --> 00:07:32.850
+to the user and the user needs
+
+00:07:32.850 --> 00:07:35.490
+as they're interacting
+with the software.
+
+00:07:35.490 --> 00:07:37.680
+SPEAKER 1: And I also
+think about, to me,
+
+00:07:37.680 --> 00:07:40.410
+it seems as if developers
+now have to think also
+
+00:07:40.410 --> 00:07:44.160
+about orchestration, about
+the multiagent ecosystem
+
+00:07:44.160 --> 00:07:45.420
+that may exist.
+
+00:07:45.420 --> 00:07:48.600
+Their particular solution
+may not exist all by itself.
+
+00:07:48.600 --> 00:07:51.030
+It may be interacting
+with other components
+
+00:07:51.030 --> 00:07:52.170
+that it doesn't even know yet,
+
+00:07:52.170 --> 00:07:53.700
+or maybe haven't even
+been invented yet.
+
+00:07:53.700 --> 00:07:55.650
+How do you think
+about that part?
+
+00:07:55.650 --> 00:07:56.580
+ADRIAN MACIAS:
+Yeah, it's similar
+
+00:07:56.580 --> 00:08:00.150
+to what we were just
+describing is there's a need
+
+00:08:00.150 --> 00:08:03.330
+to have a dynamic
+intelligence in the systems
+
+00:08:03.330 --> 00:08:05.520
+that we're building and the
+software that we're shipping.
+
+00:08:05.520 --> 00:08:07.740
+Because there are so many
+choices and options.
+
+00:08:07.740 --> 00:08:09.840
+We need to refine
+those choices around,
+
+00:08:09.840 --> 00:08:11.550
+what problem are we
+trying to solve?
+
+00:08:11.550 --> 00:08:12.930
+Is cost important?
+
+00:08:12.930 --> 00:08:14.580
+Are we resource constrained?
+
+00:08:14.580 --> 00:08:17.820
+The cost of memory these
+days is a key design choice.
+
+00:08:17.820 --> 00:08:20.400
+So looking at those
+different cost parameters
+
+00:08:20.400 --> 00:08:24.180
+and making intelligent decisions
+about the choices that we make.
+
+00:08:24.180 --> 00:08:27.690
+I may choose to run something
+local simply because tokens are
+
+00:08:27.690 --> 00:08:28.770
+so expensive right now.
+
+00:08:28.770 --> 00:08:30.960
+Or I may choose to push
+something to the cloud
+
+00:08:30.960 --> 00:08:33.330
+because I really want the
+quality of that result.
+
+00:08:33.330 --> 00:08:37.500
+And that's the opportunity that
+agentic AI is presenting to us.
+
+00:08:37.500 --> 00:08:39.180
+SPEAKER 1: When I think
+about that, I also,
+
+00:08:39.180 --> 00:08:41.160
+of course, think about security.
+
+00:08:41.160 --> 00:08:43.440
+And how are you thinking about,
+
+00:08:43.440 --> 00:08:45.510
+how do you want our
+developer community to think
+
+00:08:45.510 --> 00:08:48.450
+about security as they
+experiment, as they think
+
+00:08:48.450 --> 00:08:51.510
+about this explosion of
+agentic experiences,
+
+00:08:51.510 --> 00:08:54.600
+and as they choose the locations
+where they're having things run?
+
+00:08:54.600 --> 00:08:55.980
+How do you think about that?
+
+00:08:55.980 --> 00:08:56.220
+ADRIAN MACIAS: Yeah,
+
+00:08:56.220 --> 00:08:58.350
+there are many layers
+to that conversation.
+
+00:08:58.350 --> 00:08:59.550
+I'm excited about the work
+
+00:08:59.550 --> 00:09:01.470
+that Microsoft is
+doing in this space.
+
+00:09:01.470 --> 00:09:05.130
+Security is fundamentally
+a platform solution.
+
+00:09:05.130 --> 00:09:07.950
+So we need to think about
+it from the user level,
+
+00:09:07.950 --> 00:09:10.980
+the user's data, all the way
+down to platform access,
+
+00:09:10.980 --> 00:09:15.810
+networking, file access, and
+different types of security,
+
+00:09:15.810 --> 00:09:19.530
+firewalls that may go
+on the platform itself.
+
+00:09:19.530 --> 00:09:23.760
+What I'm excited about are some
+of the emergent capabilities
+
+00:09:23.760 --> 00:09:25.380
+in routing on the platform.
+
+00:09:25.380 --> 00:09:28.650
+So, for instance, if I'm
+running a workload here
+
+00:09:28.650 --> 00:09:31.830
+on my local AIPC, but I'm
+also connected to the cloud,
+
+00:09:31.830 --> 00:09:34.560
+I want to make sure my personal
+information is secure.
+
+00:09:34.560 --> 00:09:37.500
+So we now have technology that
+has the intelligence to listen
+
+00:09:37.500 --> 00:09:40.770
+to the things I'm asking and
+route my personal information
+
+00:09:40.770 --> 00:09:44.370
+to remain local on the platform
+and still leveraging the power
+
+00:09:44.370 --> 00:09:47.910
+of the cloud and foundation
+AI when I need it.
+
+00:09:47.910 --> 00:09:49.770
+SPEAKER 1: What I love about
+all of this is it feels
+
+00:09:49.770 --> 00:09:53.250
+like our creativity as builders
+
+00:09:53.250 --> 00:09:56.370
+and developers is really
+being unleashed with all
+
+00:09:56.370 --> 00:09:57.930
+of these new capabilities.
+
+00:09:57.930 --> 00:09:59.310
+How do you think about that?
+
+00:09:59.310 --> 00:10:03.090
+I feel like if I was a new
+developer, or if I had been
+
+00:10:03.090 --> 00:10:06.450
+in the ecosystem a long
+time, all of a sudden,
+
+00:10:06.450 --> 00:10:07.830
+basically, the sky's the limit.
+
+00:10:07.830 --> 00:10:10.560
+There are limitations, the
+technology's still evolving,
+
+00:10:10.560 --> 00:10:14.100
+but how do you think creativity
+plays a part in all the change
+
+00:10:14.100 --> 00:10:16.800
+that we're dealing
+with right now?
+
+00:10:16.800 --> 00:10:17.970
+ADRIAN MACIAS: I
+fundamentally believe
+
+00:10:17.970 --> 00:10:21.480
+in the saying that says
+the speed of innovation
+
+00:10:21.480 --> 00:10:24.360
+of proportional to the
+speed of iteration.
+
+00:10:24.360 --> 00:10:28.170
+And I think the faster we move,
+the more creative we get.
+
+00:10:28.170 --> 00:10:31.980
+And so, this is a time, this is
+a technology that's making us
+
+00:10:31.980 --> 00:10:35.610
+all more creative, just by
+virtue of moving faster,
+
+00:10:35.610 --> 00:10:38.640
+trying things over and over
+again, and seeing what comes
+
+00:10:38.640 --> 00:10:40.410
+out of that, that
+beautiful experiment.
+
+00:10:40.410 --> 00:10:41.130
+SPEAKER 1: Some of us call
+
+00:10:41.130 --> 00:10:43.110
+that building the playing
+hall, flying it (phonetic).
+
+00:10:43.110 --> 00:10:45.090
+But I love your
+interpretation of that.
+
+00:10:45.090 --> 00:10:47.460
+I think that that is fantastic.
+
+00:10:47.460 --> 00:10:50.490
+Because I think that that
+willingness to experiment
+
+00:10:50.490 --> 00:10:54.030
+at speed and scale, there's a
+certain courage to that, right,
+
+00:10:54.030 --> 00:10:56.850
+that I find in the developer
+community as a whole.
+
+00:10:56.850 --> 00:10:59.910
+Willingness to tinker,
+willingness to experiment.
+
+00:10:59.910 --> 00:11:02.700
+Tell us about some of the other
+things that we announced here
+
+00:11:02.700 --> 00:11:05.730
+at Build between Microsoft
+and AMD and why they matter
+
+00:11:05.730 --> 00:11:07.680
+to the developer community.
+
+00:11:07.680 --> 00:11:11.280
+ADRIAN MACIAS: Well, one of
+the more exciting projects
+
+00:11:11.280 --> 00:11:14.850
+that my team is working
+on is the WinML SDK.
+
+00:11:14.850 --> 00:11:19.320
+And the importance of that is
+democratizing the platform
+
+00:11:19.320 --> 00:11:20.580
+for developers, right.
+
+00:11:20.580 --> 00:11:22.500
+So there are many different
+hardware technologies,
+
+00:11:22.500 --> 00:11:24.420
+many different
+software technologies.
+
+00:11:24.420 --> 00:11:26.730
+The speed of iteration
+means there's quite a bit
+
+00:11:26.730 --> 00:11:29.040
+of fragmentation
+in the ecosystem.
+
+00:11:29.040 --> 00:11:31.290
+And so, sometimes, it's
+difficult for developers
+
+00:11:31.290 --> 00:11:33.360
+to choose which direction
+they need to go
+
+00:11:33.360 --> 00:11:33.870
+or where they're going
+
+00:11:33.870 --> 00:11:36.090
+to get the best
+performance or solution.
+
+00:11:36.090 --> 00:11:37.230
+So the work we're doing together
+
+00:11:37.230 --> 00:11:40.140
+with Microsoft is creating
+a platform that's scalable.
+
+00:11:40.140 --> 00:11:42.450
+But it's also lowering the
+friction for developers.
+
+00:11:42.450 --> 00:11:47.550
+So they're not having to make
+very low-level investments
+
+00:11:47.550 --> 00:11:51.120
+in a specific technology,
+they're able to leverage a rich,
+
+00:11:51.120 --> 00:11:55.470
+robust ecosystem around this
+SDK and begin their development
+
+00:11:55.470 --> 00:11:57.630
+at a much higher
+level of abstraction.
+
+00:11:57.630 --> 00:12:00.540
+SPEAKER 1: Anything that
+accelerates the work
+
+00:12:00.540 --> 00:12:02.190
+of developers, I feel
+like is a good thing.
+
+00:12:02.190 --> 00:12:04.500
+Because it gets them that
+much closer to that output
+
+00:12:04.500 --> 00:12:05.910
+that you were talking about.
+
+00:12:05.910 --> 00:12:08.700
+Do you have any advice for how
+people really understand the
+
+00:12:08.700 --> 00:12:13.830
+quality of their output
+in these new solutions?
+
+00:12:13.830 --> 00:12:14.190
+ADRIAN MACIAS: The idea
+
+00:12:14.190 --> 00:12:17.310
+of quality is
+fundamentally changing
+
+00:12:17.310 --> 00:12:19.080
+as we add layers to the stack.
+
+00:12:19.080 --> 00:12:22.080
+So we used to think
+about quality in AI
+
+00:12:22.080 --> 00:12:24.300
+as like the simple
+accuracy of a model.
+
+00:12:24.300 --> 00:12:26.580
+Like, is this a cat
+or is this a dog?
+
+00:12:26.580 --> 00:12:30.180
+And you could quantify
+your quality that way.
+
+00:12:30.180 --> 00:12:33.300
+And as we introduced LLMs,
+the idea of quality changed.
+
+00:12:33.300 --> 00:12:36.960
+Well, is it quality around
+summarizing my document
+
+00:12:36.960 --> 00:12:38.100
+or is it quality
+
+00:12:38.100 --> 00:12:41.610
+around answering questions
+or eighth grade math?
+
+00:12:41.610 --> 00:12:45.690
+And so, how we evaluation
+AI is becoming equally
+
+00:12:45.690 --> 00:12:47.190
+more sophisticated.
+
+00:12:47.190 --> 00:12:49.590
+Now with the emergence of
+agentic AI, we're having
+
+00:12:49.590 --> 00:12:52.590
+to invent whole new
+concepts around quality.
+
+00:12:52.590 --> 00:12:56.160
+How do I know if the agent
+is making good choices?
+
+00:12:56.160 --> 00:12:58.770
+If it's routing my data
+to the best solution?
+
+00:12:58.770 --> 00:13:03.780
+There's really no deterministic
+way of categorizing that.
+
+00:13:03.780 --> 00:13:05.700
+So we're inventing
+the idea of quality
+
+00:13:05.700 --> 00:13:07.500
+and how we measure
+quality as well.
+
+00:13:07.500 --> 00:13:08.160
+SPEAKER 1: I love that.
+
+00:13:08.160 --> 00:13:11.970
+I find that freeing
+because I think it was due
+
+00:13:11.970 --> 00:13:12.870
+for that change.
+
+00:13:12.870 --> 00:13:14.910
+So I want to thank
+you for your time.
+
+00:13:14.910 --> 00:13:15.090
+ADRIAN MACIAS: Thank you.
+
+00:13:15.090 --> 00:13:16.500
+SPEAKER 1: I love
+having a conversation
+
+00:13:16.500 --> 00:13:18.960
+with somebody who's clearly
+passionate about the technology,
+
+00:13:18.960 --> 00:13:21.120
+but also the people who
+are in the community.
+
+00:13:21.120 --> 00:13:22.140
+That is wonderful.
+
+00:13:22.140 --> 00:13:23.220
+So thank you so much.
+
+00:13:23.220 --> 00:13:24.960
+ADRIAN MACIAS: Thank you
+for the opportunity.
+
+00:13:24.960 --> 00:13:29.160
+SPEAKER 1: You can always go
+deeper on AMD's Showcase page.
+
+00:13:29.160 --> 00:13:32.220
+We want you to go find it
+at build.microsoft.com.
+
+00:13:32.220 --> 00:13:34.050
+There's article,
+there's information,
+
+00:13:34.050 --> 00:13:35.340
+there's demonstrations.
+
+00:13:35.340 --> 00:13:37.080
+So many great things about it.
+
+00:13:37.080 --> 00:13:38.520
+Make sure you go
+and check it out.
+
+00:13:38.520 --> 00:13:39.540
+And thanks for joining us.
+
+00:13:39.540 --> 00:13:41.620
+We'll see you again soon.

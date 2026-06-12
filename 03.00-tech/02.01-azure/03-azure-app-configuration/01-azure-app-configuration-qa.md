@@ -8,7 +8,7 @@ the following article analyzes interesting points about Azure App Configuration
 ---
 
 ## 💰 Q. What pricing tiers are available for Azure App Configuration?
-![alt text](<images/01.001 pricing tiers.png>)
+![alt text](<images/01.001-pricing-tiers.png>)
 
 Azure App Configuration offers four pricing tiers, each designed for different use cases:
 

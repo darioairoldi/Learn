@@ -41,7 +41,7 @@ This tutorial demonstrates how to:
 
 Resource groups are logical containers for Azure resources. Use the `az group` commands to manage them:
 
-![alt text](<images/01.001 az group commands.png>)
+![alt text](<images/01.001-az-group-commands.png>)
 
 ```powershell
 az group create --name samples-testmc-rg-itn-01  --location italynorth
@@ -61,13 +61,13 @@ az keyvault create --name $keyVaultName --resource-group $resourceGroup --locati
 # Grant yourself access to set secrets
 az keyvault set-policy --name $keyVaultName --upn $userPrincipal --secret-permissions get list set delete
 ```
-![alt text](<images/02.001 azure key vault.png>)
+![alt text](<images/02.001-azure-key-vault.png>)
 
 ### Create App Configuration Instance
 
 Azure App Configuration provides centralized configuration management. The following commands register the provider and create an instance in the Free tier:
 
-![alt text](<images/02.000 az appconfig create.png>)
+![alt text](<images/02.000-az-appconfig-create.png>)
 
 Use **`az appconfig create`** to create an Azure App Configuration instance in the Free tier:
 
@@ -81,7 +81,7 @@ az provider show --namespace Microsoft.AppConfiguration --query "registrationSta
 az appconfig create --location $location --name $appConfigName --resource-group $resourceGroup --sku Free
 ```
 
-![alt text](<images/03.001 az appconfig create.png>)
+![alt text](<images/03.001-az-appconfig-create.png>)
 
 **List App Configuration instances:**
 
@@ -111,9 +111,9 @@ Use **`az appconfig kv set`** to add a new configuration setting with key "Dev:c
 az appconfig kv set --name $appConfigName --key Dev:conStr --value 'sampleconnectionString' --yes
 ```
 
-![alt text](<images/03.002 az appconfig kv set.png>)
+![alt text](<images/03.002-az-appconfig-kv-set.png>)
 
-![alt text](<images/03.003 connectionstring view.png>)
+![alt text](<images/03.003-connectionstring-view.png>)
 
 
 ## Step 3: add the connection string to Azure Key Vault and reference it from App Configuration
@@ -125,7 +125,7 @@ az keyvault secret set --vault-name $keyVaultName --name 'DevConStr' --value $co
 ```
 
 
-![alt text](<images/04.001 akv secret.png>)
+![alt text](<images/04.001-akv-secret.png>)
 
 
 ### Reference Key Vault Secret from App Configuration
@@ -142,7 +142,7 @@ $secretUri=$(az keyvault secret show --vault-name $keyVaultName --name 'DevConSt
 az appconfig kv set-keyvault --name $appConfigName --key 'Dev:conStr' --secret-identifier $secretUri --yes
 ```
 
-![alt text](<images/04.002 akv secret from app configuration.png>)
+![alt text](<images/04.002-akv-secret-from-app-configuration.png>)
 
 ### Configure Managed Identity
 
@@ -152,7 +152,7 @@ az appconfig kv set-keyvault --name $appConfigName --key 'Dev:conStr' --secret-i
 az appconfig identity assign --name $appConfigName --resource-group $resourceGroup
 ```
 
-![alt text](<images/04.003 managed identity for appconfig.png>)
+![alt text](<images/04.003-managed-identity-for-appconfig.png>)
 
 **Get the managed identity principal ID:**
 

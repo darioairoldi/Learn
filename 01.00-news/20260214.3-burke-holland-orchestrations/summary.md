@@ -15,7 +15,7 @@ description: "Summary of Burke Holland's video on agent orchestration—how to b
 **Duration:** ~17 minutes  
 **Speakers:** Burke Holland (Senior Cloud Advocate, Microsoft)
 
-![Session title slide](<images/001.01 session title.png>)
+![Session title slide](<images/001.01-session-title.png>)
 
 ---
 

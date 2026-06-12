@@ -1,0 +1,3280 @@
+WEBVTT
+
+00:00:01.633 --> 00:00:02.280
+Anastasiya Tarnouskaya:
+All right.
+
+00:00:02.280 --> 00:00:03.660
+Good morning, everybody.
+
+00:00:03.660 --> 00:00:08.310
+Thanks for starting day two
+at Build with us at BRK 260.
+
+00:00:08.310 --> 00:00:11.400
+Today we'll be talking about how
+you can build local, AI-powered
+
+00:00:11.400 --> 00:00:15.210
+apps for the over 1 billion
+Windows devices out there,
+
+00:00:15.210 --> 00:00:17.850
+no need for a cloud
+setup, no token costs,
+
+00:00:17.850 --> 00:00:19.710
+and no network needed,
+
+00:00:19.710 --> 00:00:22.440
+all through a stack that's
+generally available and ready
+
+00:00:22.440 --> 00:00:24.150
+for your production workloads,
+
+00:00:24.150 --> 00:00:26.970
+and powered with the latest
+innovation from across Microsoft
+
+00:00:26.970 --> 00:00:31.830
+and our silicon partners: AMD,
+Intel, Nvidia, and Qualcomm.
+
+00:00:31.830 --> 00:00:34.020
+We also have several
+announcements and a ton
+
+00:00:34.020 --> 00:00:37.890
+of live demos lined up across
+five devices, so it's going
+
+00:00:37.890 --> 00:00:38.850
+to be quite something.
+
+00:00:38.850 --> 00:00:41.580
+So let's go ahead
+and get started.
+
+00:00:41.580 --> 00:00:43.350
+We are your speakers
+for this session.
+
+00:00:43.350 --> 00:00:46.470
+My name is Anastasia, and I'm a
+Product Manager at Microsoft,
+
+00:00:46.470 --> 00:00:48.000
+working on Windows ML.
+
+00:00:48.000 --> 00:00:49.290
+Aditi Narvekar: And
+my name is Aditi.
+
+00:00:49.290 --> 00:00:50.880
+I'm a Product Manager
+at Microsoft,
+
+00:00:50.880 --> 00:00:53.520
+working on the AI APIs.
+
+00:00:53.520 --> 00:00:54.570
+Anastasiya Tarnouskaya: Awesome.
+
+00:00:54.570 --> 00:00:57.180
+So for those of you that
+attended the keynote yesterday,
+
+00:00:57.180 --> 00:01:00.840
+you'll have heard Satya talk
+about unmetered intelligence,
+
+00:01:00.840 --> 00:01:04.790
+or shifting from always running
+your AI workloads in the cloud
+
+00:01:04.790 --> 00:01:07.460
+to running them locally
+using just the hardware
+
+00:01:07.460 --> 00:01:10.610
+on everyday PCs, and
+only going to the cloud
+
+00:01:10.610 --> 00:01:14.030
+when your workload truly needs
+it, and it's worth the cost.
+
+00:01:14.030 --> 00:01:17.150
+And thanks to recent
+advancements in AI models,
+
+00:01:17.150 --> 00:01:20.090
+hardware, and the software
+stacks that run them, today,
+
+00:01:20.090 --> 00:01:24.750
+every Windows PC is becoming
+increasingly AI-capable,
+
+00:01:24.750 --> 00:01:28.200
+leveraging powerful GPUs
+for maximum performance
+
+00:01:28.200 --> 00:01:32.850
+and compute-intensive
+workloads, NPUs on Copilot+ PCs
+
+00:01:32.850 --> 00:01:36.630
+for maximum power efficiency
+and always-on experiences,
+
+00:01:36.630 --> 00:01:38.970
+and even CPUs for maximum reach,
+
+00:01:38.970 --> 00:01:41.220
+especially with
+lighter-weight workloads.
+
+00:01:41.220 --> 00:01:42.480
+But enough talking about it.
+
+00:01:42.480 --> 00:01:45.570
+Let's take a look at some
+of the real-world examples
+
+00:01:45.570 --> 00:01:48.660
+of what developers are
+building using local AI
+
+00:01:48.660 --> 00:01:51.310
+through Foundry on Windows.
+
+00:01:53.520 --> 00:03:03.900
+[ Music ]
+
+00:03:03.900 --> 00:03:04.560
+Aditi Narvekar: Wow.
+
+00:03:04.560 --> 00:03:07.620
+So you are telling me all those
+experiences are running AI
+
+00:03:07.620 --> 00:03:08.700
+models locally?
+
+00:03:08.700 --> 00:03:09.420
+Anastasiya Tarnouskaya:
+That's right,
+
+00:03:09.420 --> 00:03:11.910
+all local, no cloud setup.
+
+00:03:11.910 --> 00:03:12.270
+All right.
+
+00:03:12.270 --> 00:03:14.670
+So let's talk about
+why developers
+
+00:03:14.670 --> 00:03:17.700
+and enterprises are
+betting on local AI,
+
+00:03:17.700 --> 00:03:21.540
+from Adobe to WhatsApp,
+building some incredible local
+
+00:03:21.540 --> 00:03:23.340
+AI-powered experiences.
+
+00:03:23.340 --> 00:03:27.180
+The first is, running models
+locally can help improve privacy
+
+00:03:27.180 --> 00:03:29.490
+and security, because
+there is no customer
+
+00:03:29.490 --> 00:03:31.350
+or sensitive enterprise data
+
+00:03:31.350 --> 00:03:33.900
+that ever has to
+leave the device.
+
+00:03:33.900 --> 00:03:35.910
+Second, it reduces latency
+
+00:03:35.910 --> 00:03:38.370
+because there's no round-trip
+that's needed to the cloud,
+
+00:03:38.370 --> 00:03:40.830
+and that's going to be
+particularly critical
+
+00:03:40.830 --> 00:03:42.990
+for real-time workloads.
+
+00:03:42.990 --> 00:03:45.810
+Third, it enables AI
+experiences without the need
+
+00:03:45.810 --> 00:03:47.160
+for a network connection,
+
+00:03:47.160 --> 00:03:49.710
+because all of the compute
+is taking place right
+
+00:03:49.710 --> 00:03:51.150
+on the device.
+
+00:03:51.150 --> 00:03:54.570
+And finally, not all AI
+workloads need cloud scale,
+
+00:03:54.570 --> 00:03:59.040
+and running models locally can
+significantly cut down costs.
+
+00:03:59.040 --> 00:04:01.980
+And it's not just developers
+that are betting on local AI.
+
+00:04:01.980 --> 00:04:05.340
+Microsoft experiences are
+betting on it as well,
+
+00:04:05.340 --> 00:04:08.250
+from Outlook Summarize
+to GitHub Copilot,
+
+00:04:08.250 --> 00:04:11.340
+all built using the same
+stack that's being offered
+
+00:04:11.340 --> 00:04:14.490
+to developers and enterprises.
+
+00:04:14.490 --> 00:04:16.980
+Aditi Narvekar: So how can
+developers get started building
+
+00:04:16.980 --> 00:04:18.240
+these AI-powered apps?
+
+00:04:18.240 --> 00:04:19.620
+Anastasiya Tarnouskaya:
+Yeah, I'm glad you asked.
+
+00:04:19.620 --> 00:04:21.690
+That's what Foundry
+on Windows is for.
+
+00:04:21.690 --> 00:04:24.090
+And that includes
+the Windows AI APIs,
+
+00:04:24.090 --> 00:04:28.260
+which are the turnkey APIs,
+powered by Windows inbox models
+
+00:04:28.260 --> 00:04:31.530
+that you can use for common
+tasks, such as natural language,
+
+00:04:31.530 --> 00:04:33.230
+vision, and many others.
+
+00:04:33.230 --> 00:04:35.390
+And these are generally
+going to be the easiest way
+
+00:04:35.390 --> 00:04:38.600
+for developers to get started
+building local, AI-powered
+
+00:04:38.600 --> 00:04:40.760
+experiences on Windows.
+
+00:04:40.760 --> 00:04:42.590
+Then for developers
+that are interested
+
+00:04:42.590 --> 00:04:45.260
+in using common,
+open-source models,
+
+00:04:45.260 --> 00:04:48.740
+they can run those locally using
+Foundry Local, which has a range
+
+00:04:48.740 --> 00:04:52.970
+of models that have already been
+pre-optimized to run really well
+
+00:04:52.970 --> 00:04:55.220
+across all Windows devices.
+
+00:04:55.220 --> 00:04:59.700
+And then you can use Windows ML
+to run your own custom model.
+
+00:04:59.700 --> 00:05:02.490
+This can be one that you
+trained yourself or found
+
+00:05:02.490 --> 00:05:06.840
+on Hugging Face and then
+fine-tuned for your scenario.
+
+00:05:06.840 --> 00:05:10.260
+And Windows ML is also
+the underlying backbone
+
+00:05:10.260 --> 00:05:13.110
+that powers the entire
+Foundry on Windows stack,
+
+00:05:13.110 --> 00:05:16.740
+enabling its core
+cross-silicon capabilities.
+
+00:05:16.740 --> 00:05:17.610
+All right.
+
+00:05:17.610 --> 00:05:20.970
+Now it's time to introduce
+our demo scenario,
+
+00:05:20.970 --> 00:05:24.450
+the Unmetered Token Café,
+which is powered by Foundry
+
+00:05:24.450 --> 00:05:26.640
+on Windows, where
+the coffee is great,
+
+00:05:26.640 --> 00:05:30.330
+and cloud token costs
+are a thing of the past.
+
+00:05:30.330 --> 00:05:33.210
+So this café just opened.
+
+00:05:33.210 --> 00:05:36.840
+Like any small business, the
+owners are wearing every hat,
+
+00:05:36.840 --> 00:05:39.240
+doing everything from
+taking customer orders
+
+00:05:39.240 --> 00:05:41.880
+to running their
+Experimental Brews program.
+
+00:05:41.880 --> 00:05:44.670
+They don't have the budget
+for cloud AI bills.
+
+00:05:44.670 --> 00:05:47.520
+They don't want to have to rely
+on their flaky café network
+
+00:05:47.520 --> 00:05:51.060
+for all of their business
+operations, and they need all
+
+00:05:51.060 --> 00:05:54.780
+of their workloads to
+just work using the PCs
+
+00:05:54.780 --> 00:05:56.400
+that they already own.
+
+00:05:56.400 --> 00:05:56.760
+All right.
+
+00:05:56.760 --> 00:05:58.560
+So throughout the
+rest of the session,
+
+00:05:58.560 --> 00:06:01.230
+we're going to be enabling
+various local AI-powered
+
+00:06:01.230 --> 00:06:04.890
+experiences for this café
+through Foundry on Windows.
+
+00:06:04.890 --> 00:06:06.090
+But as you can imagine,
+
+00:06:06.090 --> 00:06:08.370
+the possibilities are
+really limitless in terms
+
+00:06:08.370 --> 00:06:11.220
+of how you can use Foundry
+on Windows and local AI
+
+00:06:11.220 --> 00:06:14.340
+for your own apps and
+enterprise workflows.
+
+00:06:14.340 --> 00:06:17.430
+So to get started, Aditi,
+what would be the best way
+
+00:06:17.430 --> 00:06:20.790
+for the café to enable
+customer orders?
+
+00:06:20.790 --> 00:06:21.810
+Aditi Narvekar: Great question.
+
+00:06:21.810 --> 00:06:24.420
+Well, the café has
+a drive-through,
+
+00:06:24.420 --> 00:06:25.770
+and customers drive up.
+
+00:06:25.770 --> 00:06:28.050
+They speak their order
+into the microphone.
+
+00:06:28.050 --> 00:06:31.080
+And we need to convert their
+spoken order into text.
+
+00:06:31.080 --> 00:06:33.600
+And the easiest way to
+get started with this is
+
+00:06:33.600 --> 00:06:36.480
+through the Windows AI APIs.
+
+00:06:36.480 --> 00:06:38.190
+So today I'm going to demo
+
+00:06:38.190 --> 00:06:41.460
+to you my sample
+drive-through application.
+
+00:06:41.460 --> 00:06:44.520
+I'm going to be running this
+on my Microsoft Surface device
+
+00:06:44.520 --> 00:06:47.770
+with a Qualcomm Snapdragon NPU.
+
+00:06:50.490 --> 00:06:50.880
+All righty.
+
+00:06:50.880 --> 00:06:53.760
+So here is my
+drive-through application.
+
+00:06:53.760 --> 00:06:55.680
+And let's say a
+customer rolls up.
+
+00:06:55.680 --> 00:06:57.750
+They're going to hit that
+"Press to Talk" button,
+
+00:06:57.750 --> 00:07:00.540
+speak into the microphone,
+and say their order.
+
+00:07:00.540 --> 00:07:01.770
+In the back end, this is going
+
+00:07:01.770 --> 00:07:04.710
+to use our brand-new
+speech recognition API
+
+00:07:04.710 --> 00:07:08.880
+to convert their spoken order
+into a string into text.
+
+00:07:08.880 --> 00:07:11.820
+So Anastasiya, tell me, what
+would you like to order today?
+
+00:07:11.820 --> 00:07:13.260
+Anastasiya Tarnouskaya:
+Yeah, I think I would
+
+00:07:13.260 --> 00:07:15.450
+like to get a matcha latte.
+
+00:07:15.450 --> 00:07:18.330
+I would want to get it
+with soy milk, extra hot,
+
+00:07:18.330 --> 00:07:19.620
+because I'm always cold,
+
+00:07:19.620 --> 00:07:22.930
+and then maybe a
+croissant on the side as well.
+
+00:07:24.330 --> 00:07:26.190
+Aditi Narvekar: And there we go.
+
+00:07:26.190 --> 00:07:28.740
+Here is Anastasiya's
+order outputted
+
+00:07:28.740 --> 00:07:31.860
+by our new speech
+recognition API.
+
+00:07:31.860 --> 00:07:35.130
+So this particular API took
+input from the microphone,
+
+00:07:35.130 --> 00:07:39.090
+but it can also take input from
+audio files and audio streams,
+
+00:07:39.090 --> 00:07:41.250
+like if you were trying
+to enable a call
+
+00:07:41.250 --> 00:07:43.500
+or meeting type of scenario.
+
+00:07:43.500 --> 00:07:46.560
+So that demo, though, that
+was running on the NPU,
+
+00:07:46.560 --> 00:07:49.020
+right? But what about
+the devices at the café
+
+00:07:49.020 --> 00:07:51.420
+that might not be Copilot+ PCs?
+
+00:07:51.420 --> 00:07:53.670
+Would they still be able
+to run the workload?
+
+00:07:53.670 --> 00:07:55.200
+Yeah, the really great thing
+
+00:07:55.200 --> 00:07:59.190
+about this API is it runs
+best on Copilot+ PCs,
+
+00:07:59.190 --> 00:08:00.480
+it uses the NPU,
+
+00:08:00.480 --> 00:08:03.630
+but it also works for CPU.
+
+00:08:03.630 --> 00:08:06.510
+Now when we first released
+the AI APIs, we released them
+
+00:08:06.510 --> 00:08:09.690
+for the NPU, but we heard
+so much customer feedback
+
+00:08:09.690 --> 00:08:12.390
+that you would all like
+to address a much broader
+
+00:08:12.390 --> 00:08:13.740
+hardware spectrum.
+
+00:08:13.740 --> 00:08:15.600
+And we hear you.
+
+00:08:15.600 --> 00:08:17.850
+So today, we're super
+excited to share
+
+00:08:17.850 --> 00:08:21.810
+that we're expanding the support
+of many of the AI APIs to run
+
+00:08:21.810 --> 00:08:26.220
+on CPUs and to run on GPUs.
+
+00:08:26.220 --> 00:08:28.980
+So you can reach a broader
+set of devices, a broader set
+
+00:08:28.980 --> 00:08:31.950
+of customers with these APIs.
+
+00:08:31.950 --> 00:08:35.010
+So for my next demo, I'm
+going to show you Phi Silica,
+
+00:08:35.010 --> 00:08:39.720
+our small language model,
+newly running on GPU.
+
+00:08:39.720 --> 00:08:43.560
+Okay. So all of those
+orders that we took
+
+00:08:43.560 --> 00:08:46.890
+in through the speech to text
+API, well, they're sitting
+
+00:08:46.890 --> 00:08:51.570
+as unstructured text
+in a barista queue.
+
+00:08:51.570 --> 00:08:53.850
+And we want someone
+looking at this queue
+
+00:08:53.850 --> 00:08:57.000
+to really easily be able to
+understand what they need to do.
+
+00:08:57.000 --> 00:08:59.820
+So here I have my
+ordering application,
+
+00:08:59.820 --> 00:09:01.680
+and a barista is going
+to take a look at this
+
+00:09:01.680 --> 00:09:03.690
+and maybe hit one
+of these orders.
+
+00:09:03.690 --> 00:09:04.860
+In the back end, this is going
+
+00:09:04.860 --> 00:09:07.380
+to use Phi Silica,
+running on GPU.
+
+00:09:07.380 --> 00:09:09.930
+It's going to extract all
+the relevant information
+
+00:09:09.930 --> 00:09:13.320
+and structure its output
+as JSON, which, again,
+
+00:09:13.320 --> 00:09:18.150
+is using a new API for
+structuring Phi Silica output.
+
+00:09:18.150 --> 00:09:21.390
+You can see on the task manager
+there's a little spike on GPU,
+
+00:09:21.390 --> 00:09:23.790
+because it's all running
+locally on the GPU.
+
+00:09:23.790 --> 00:09:26.910
+And here is the JSON
+output that I wanted
+
+00:09:26.910 --> 00:09:28.320
+from the language model.
+
+00:09:28.320 --> 00:09:31.530
+And you could see, this is
+the drink I want, the size,
+
+00:09:31.530 --> 00:09:33.900
+the modifiers,
+quantities, everything.
+
+00:09:33.900 --> 00:09:37.830
+Really quick glance, you
+know what you're making.
+
+00:09:37.830 --> 00:09:40.380
+And how I implemented this?
+
+00:09:40.380 --> 00:09:42.750
+Actually pretty straightforward
+to use the AI APIs.
+
+00:09:42.750 --> 00:09:45.000
+It's just a few lines of code.
+
+00:09:45.000 --> 00:09:48.570
+All of our APIs use a very
+similar calling pattern.
+
+00:09:48.570 --> 00:09:51.390
+So first, I'm going to check if
+the model is ready on the device
+
+00:09:51.390 --> 00:09:53.850
+by calling this "get
+ready state" function.
+
+00:09:53.850 --> 00:09:57.360
+If it's not ready, I
+call "ensure ready async",
+
+00:09:57.360 --> 00:09:59.730
+which is going to install it.
+
+00:09:59.730 --> 00:10:05.430
+Then next step is initialize
+the model with "create async".
+
+00:10:05.430 --> 00:10:07.860
+And then the very last step
+is generating a response
+
+00:10:07.860 --> 00:10:08.820
+from the model.
+
+00:10:08.820 --> 00:10:11.310
+Here I've done a little
+bit of fancier work
+
+00:10:11.310 --> 00:10:13.920
+with defining the JSON
+schema that I want.
+
+00:10:13.920 --> 00:10:18.420
+But I just call this "generate
+structured JSON response".
+
+00:10:18.420 --> 00:10:19.200
+And there you have it.
+
+00:10:19.200 --> 00:10:24.250
+Really easy to use
+the Windows AI APIs.
+
+00:10:25.520 --> 00:10:30.840
+[ Applause ]
+
+00:10:30.840 --> 00:10:33.210
+We already have
+production experiences
+
+00:10:33.210 --> 00:10:35.760
+that are using Phi
+Silica on GPU.
+
+00:10:35.760 --> 00:10:37.890
+For example, if you've
+used the summarize feature
+
+00:10:37.890 --> 00:10:41.260
+in Outlook, that
+uses Phi on GPU.
+
+00:10:42.840 --> 00:10:45.330
+Now let's take a broader
+look at the set of AI APIs
+
+00:10:45.330 --> 00:10:46.820
+that are available today.
+
+00:10:46.820 --> 00:10:50.450
+Starting on the top left, we
+have our task-specific APIs.
+
+00:10:50.450 --> 00:10:53.090
+Many of these are already
+generally available.
+
+00:10:53.090 --> 00:10:55.700
+These are things like
+image description,
+
+00:10:55.700 --> 00:10:59.250
+conversation summary, text
+summary, text to table.
+
+00:10:59.250 --> 00:11:01.830
+But we know that real
+scenarios sometimes need more
+
+00:11:01.830 --> 00:11:05.940
+customization, and that's where
+our customization APIs come in.
+
+00:11:05.940 --> 00:11:09.780
+This is fine-tuning the language
+model with LoRA adapters,
+
+00:11:09.780 --> 00:11:12.420
+doing app content
+search, or RAG,
+
+00:11:12.420 --> 00:11:15.990
+and structuring your
+language model output.
+
+00:11:15.990 --> 00:11:18.660
+On the top right, we
+have our media APIs.
+
+00:11:18.660 --> 00:11:22.620
+This is video super resolution
+and speech recognition.
+
+00:11:22.620 --> 00:11:25.380
+So that enables audio
+video features for you.
+
+00:11:25.380 --> 00:11:28.770
+And then on the bottom
+corner, we have imaging APIs.
+
+00:11:28.770 --> 00:11:31.200
+This is a growing
+set of imaging APIs.
+
+00:11:31.200 --> 00:11:34.140
+And you can take these,
+apply them to any domain,
+
+00:11:34.140 --> 00:11:36.540
+accessibility, productivity,
+
+00:11:36.540 --> 00:11:40.230
+enterprise workflows,
+you name it.
+
+00:11:40.230 --> 00:11:42.630
+And just to give you a
+glimpse, these are the APIs
+
+00:11:42.630 --> 00:11:47.470
+that we have now expanded
+to run on GPUs and CPUs.
+
+00:11:48.720 --> 00:11:49.530
+All right.
+
+00:11:49.530 --> 00:11:53.370
+So we already have a ton of ISVs
+that are using the AI APIs.
+
+00:11:53.370 --> 00:11:56.760
+But today we're really excited
+to have Alfred from ClipChamp
+
+00:11:56.760 --> 00:11:59.700
+with us to show us
+video super resolution.
+
+00:11:59.700 --> 00:12:01.260
+And he's going to
+be demoing this
+
+00:12:01.260 --> 00:12:05.320
+on an Asus device
+with the AMD NPU.
+
+00:12:08.100 --> 00:12:09.390
+Alfred: Thanks, Aditi.
+
+00:12:09.390 --> 00:12:10.320
+Hello, everyone.
+
+00:12:10.320 --> 00:12:12.210
+I'm Alfred from
+Microsoft ClipChamp,
+
+00:12:12.210 --> 00:12:14.970
+the free video editor
+built into Windows.
+
+00:12:14.970 --> 00:12:17.700
+In ClipChamp, we want video
+creation to be simple
+
+00:12:17.700 --> 00:12:19.950
+and accessible for everyone.
+
+00:12:19.950 --> 00:12:21.900
+A common part of
+editing is using clips
+
+00:12:21.900 --> 00:12:24.690
+from different sources
+like phones, old videos,
+
+00:12:24.690 --> 00:12:27.990
+and screen recordings, but those
+clips may not match the final
+
+00:12:27.990 --> 00:12:29.880
+export resolution, making parts
+
+00:12:29.880 --> 00:12:33.180
+of the video look
+soft or blurry.
+
+00:12:33.180 --> 00:12:36.930
+This is where video super
+resolution, or VSR, can help.
+
+00:12:36.930 --> 00:12:39.540
+It uses AI to upscale a
+video and add details
+
+00:12:39.540 --> 00:12:41.850
+that simple resizing cannot.
+
+00:12:41.850 --> 00:12:44.070
+We are adding this local
+model into ClipChamp,
+
+00:12:44.070 --> 00:12:46.980
+so users can do this
+without leaving the editor.
+
+00:12:46.980 --> 00:12:48.880
+The flow is simple.
+
+00:12:51.360 --> 00:12:54.780
+Select a video, open
+the "Upscale" panel,
+
+00:12:54.780 --> 00:12:58.860
+choose a resolution,
+then click "Upscale."
+
+00:12:58.860 --> 00:13:00.630
+When it's running, let
+me switch to the code
+
+00:13:00.630 --> 00:13:03.310
+and show how we integrate VSR.
+
+00:13:04.710 --> 00:13:07.830
+We start by making sure
+that the model is ready.
+
+00:13:07.830 --> 00:13:10.800
+Then we create a video
+scaler instance.
+
+00:13:10.800 --> 00:13:14.470
+With the scaler ready, here
+is how we upscale each frame.
+
+00:13:15.840 --> 00:13:18.480
+This method receives a decoder
+frame from the pipeline,
+
+00:13:18.480 --> 00:13:20.550
+along with an output surface.
+
+00:13:20.550 --> 00:13:24.150
+We pass both to scale and
+out comes the upscale frame.
+
+00:13:24.150 --> 00:13:26.280
+Finally, the encoder
+can turn them back
+
+00:13:26.280 --> 00:13:29.130
+into a video, as simple as that.
+
+00:13:29.130 --> 00:13:31.170
+The upscale should be done.
+
+00:13:31.170 --> 00:13:33.510
+And yep. Oh, wait, it's still
+-- oh, yeah, there we go.
+
+00:13:33.510 --> 00:13:37.330
+It's run. Here's a
+quick comparison video.
+
+00:13:42.240 --> 00:13:43.050
+Watch the face.
+
+00:13:43.050 --> 00:13:44.820
+It looks much sharper
+on the right.
+
+00:13:44.820 --> 00:13:46.630
+It's pretty cool, right?
+
+00:13:48.520 --> 00:13:53.070
+[ Applause ]
+
+00:13:53.070 --> 00:13:54.840
+And here's the best part.
+
+00:13:54.840 --> 00:13:57.750
+VSR can run on both CPU and NPU.
+
+00:13:57.750 --> 00:13:59.820
+So more Windows
+devices can use it.
+
+00:13:59.820 --> 00:14:02.760
+And NPU makes the
+experience even better.
+
+00:14:02.760 --> 00:14:05.490
+Anyone can get sharper
+videos inside ClipChamp
+
+00:14:05.490 --> 00:14:07.230
+and in your apps, too.
+
+00:14:07.230 --> 00:14:08.130
+Now's your turn.
+
+00:14:08.130 --> 00:14:10.410
+We can't wait to see what
+you can do with VSR.
+
+00:14:10.410 --> 00:14:11.160
+Thank you very much.
+
+00:14:11.160 --> 00:14:13.520
+Enjoy the rest of
+Microsoft Build.
+
+00:14:13.520 --> 00:14:16.440
+[ Applause ]
+
+00:14:16.440 --> 00:14:18.750
+Aditi Narvekar: Thank you,
+Alfred, for that demo.
+
+00:14:18.750 --> 00:14:21.300
+I know that at the café,
+they're definitely going
+
+00:14:21.300 --> 00:14:26.160
+to be using VSR, ClipChamp, to
+make their marketing videos
+
+00:14:26.160 --> 00:14:28.390
+to help promote the cafe.
+
+00:14:29.700 --> 00:14:31.650
+Okay. So in the keynote,
+
+00:14:31.650 --> 00:14:34.710
+you might have heard
+Satya talking about Aion.
+
+00:14:34.710 --> 00:14:38.670
+And you're wondering, how
+does Aion fit into our story?
+
+00:14:38.670 --> 00:14:42.060
+Well, Aion is going to be
+the successor to Phi Silica.
+
+00:14:42.060 --> 00:14:45.300
+And it will be available
+via the AI APIs.
+
+00:14:45.300 --> 00:14:47.550
+But until then, you can go
+to that link and try it
+
+00:14:47.550 --> 00:14:49.980
+out for yourself, and we
+can give you a little sneak
+
+00:14:49.980 --> 00:14:51.880
+preview today.
+
+00:14:55.530 --> 00:14:57.810
+Okay. So if you remember
+Build last year,
+
+00:14:57.810 --> 00:15:01.050
+we showed the Prompt API
+in the Edge browser.
+
+00:15:01.050 --> 00:15:02.970
+Today this is being
+powered by Aion.
+
+00:15:02.970 --> 00:15:04.980
+And you can also try Prompt API.
+
+00:15:04.980 --> 00:15:11.040
+Just toggle on a few
+flags in the Edge Canary.
+
+00:15:11.040 --> 00:15:13.050
+And so here I have a prompt.
+
+00:15:13.050 --> 00:15:14.400
+I have a system prompt.
+
+00:15:14.400 --> 00:15:17.670
+And I'm going to hit "Run,"
+
+00:15:17.670 --> 00:15:21.280
+and this will generate a
+response right here on the side.
+
+00:15:25.050 --> 00:15:26.700
+There we go.
+
+00:15:26.700 --> 00:15:28.980
+Okay. So today, with Aion,
+
+00:15:28.980 --> 00:15:34.080
+we are getting even bigger
+improvements in model quality,
+
+00:15:34.080 --> 00:15:37.530
+in context window, faster
+tokens per second.
+
+00:15:37.530 --> 00:15:40.710
+And this is going to level up
+the language model experience
+
+00:15:40.710 --> 00:15:43.350
+that you get with the AI APIs.
+
+00:15:43.350 --> 00:15:49.200
+And just like all of our other
+APIs, Aion is going to be in box.
+
+00:15:49.200 --> 00:15:51.450
+So you don't need to
+handle any distribution.
+
+00:15:51.450 --> 00:15:54.700
+Windows is going to
+do it all for you.
+
+00:15:58.290 --> 00:16:01.350
+Okay. So now you have
+seen in-box APIs.
+
+00:16:01.350 --> 00:16:05.100
+But what if you want to run
+common open-source models?
+
+00:16:05.100 --> 00:16:09.420
+Well, that is what
+Foundry Local is for.
+
+00:16:09.420 --> 00:16:12.780
+You might be familiar with
+Microsoft Foundry on Azure.
+
+00:16:12.780 --> 00:16:14.880
+Well, we have Foundry
+Local, which enables you
+
+00:16:14.880 --> 00:16:19.890
+to run common, open-source
+models on CPUs, GPUs, and NPUs.
+
+00:16:19.890 --> 00:16:22.680
+And now Foundry Local is in GA.
+
+00:16:22.680 --> 00:16:25.650
+So Anastasiya, tell me, what is
+the next thing we should enable
+
+00:16:25.650 --> 00:16:27.030
+for the coffee shop?
+
+00:16:27.030 --> 00:16:27.360
+Anastasiya Tarnouskaya: Yeah.
+
+00:16:27.360 --> 00:16:30.780
+Well, there are lots of
+customers like me that really
+
+00:16:30.780 --> 00:16:32.490
+like their matcha lattes.
+
+00:16:32.490 --> 00:16:36.120
+I want to make sure that
+the cafe never runs out.
+
+00:16:36.120 --> 00:16:38.070
+How should they
+implement, maybe,
+
+00:16:38.070 --> 00:16:40.530
+an inventory management system?
+
+00:16:40.530 --> 00:16:43.710
+Aditi Narvekar: Yeah, they
+are getting a ton of demos --
+
+00:16:43.710 --> 00:16:46.110
+excuse me, they're getting
+a ton of deliveries,
+
+00:16:46.110 --> 00:16:48.120
+and they need to
+easily take inventory
+
+00:16:48.120 --> 00:16:49.620
+of everything that's
+being dropped off.
+
+00:16:49.620 --> 00:16:52.920
+Delivery drivers are dropping
+stuff off daily, weekly.
+
+00:16:52.920 --> 00:16:55.470
+So we are going to
+use Foundry Local
+
+00:16:55.470 --> 00:16:58.840
+to power an inventory
+application.
+
+00:17:01.290 --> 00:17:03.090
+Okay. So I'm going
+to get started
+
+00:17:03.090 --> 00:17:07.800
+and kick off my inventory app.
+
+00:17:07.800 --> 00:17:10.650
+And here, I will
+upload an image of all
+
+00:17:10.650 --> 00:17:13.200
+of my dropped off product.
+
+00:17:13.200 --> 00:17:15.660
+And once that model is
+loaded into memory,
+
+00:17:15.660 --> 00:17:17.690
+I'll hit "Identify Items."
+
+00:17:17.690 --> 00:17:18.890
+In the back end, this is going
+
+00:17:18.890 --> 00:17:21.800
+to use the Qwen 3.5
+vision language model.
+
+00:17:21.800 --> 00:17:24.470
+It's brand new to the
+Foundry Local catalog.
+
+00:17:24.470 --> 00:17:27.770
+And it's going to classify
+everything, describe everything
+
+00:17:27.770 --> 00:17:29.690
+in that image, so it makes
+it really easy for me
+
+00:17:29.690 --> 00:17:33.890
+to know what I got and
+log the inventory.
+
+00:17:33.890 --> 00:17:35.370
+There we go.
+
+00:17:36.630 --> 00:17:39.330
+So I can show you in code
+how straightforward it is
+
+00:17:39.330 --> 00:17:41.100
+to use Foundry Local.
+
+00:17:41.100 --> 00:17:42.300
+In my experience, the best way
+
+00:17:42.300 --> 00:17:44.310
+to get started is go check
+out the GitHub repo.
+
+00:17:44.310 --> 00:17:46.020
+There's a ton of samples there.
+
+00:17:46.020 --> 00:17:49.080
+Really easy jumping off point.
+
+00:17:49.080 --> 00:17:53.100
+So first, I call this
+"get model" function.
+
+00:17:53.100 --> 00:17:55.350
+To that, I'm passing Qwen 3.5,
+
+00:17:55.350 --> 00:17:58.500
+the 9 billion parameter
+variant that I want.
+
+00:17:58.500 --> 00:18:01.500
+Then Step 2, I call
+"model.download"
+
+00:18:01.500 --> 00:18:04.560
+to download it to the device.
+
+00:18:04.560 --> 00:18:06.240
+Then I'm going to call
+
+00:18:06.240 --> 00:18:08.970
+"model.load," load
+it into memory.
+
+00:18:08.970 --> 00:18:10.740
+Once it is loaded into memory,
+
+00:18:10.740 --> 00:18:13.530
+I will call "create
+responses client."
+
+00:18:13.530 --> 00:18:17.010
+And then the last step is
+actually generating a response.
+
+00:18:17.010 --> 00:18:18.960
+So here I call "create
+streaming," and I pass
+
+00:18:18.960 --> 00:18:23.340
+to it an input, which is my
+input image, and a prompt,
+
+00:18:23.340 --> 00:18:27.210
+"You are a helpful coffee
+shop inventory assistant."
+
+00:18:27.210 --> 00:18:28.020
+And here we go.
+
+00:18:28.020 --> 00:18:29.970
+There's a description
+of everything
+
+00:18:29.970 --> 00:18:32.100
+that came in that image.
+
+00:18:32.100 --> 00:18:33.330
+Anastasiya Tarnouskaya:
+Phew, what a relief
+
+00:18:33.330 --> 00:18:34.830
+that I'm always going to be able
+
+00:18:34.830 --> 00:18:37.260
+to get my matcha
+latte at this cafe.
+
+00:18:37.260 --> 00:18:39.870
+And really cool that Foundry
+Local will take care of things
+
+00:18:39.870 --> 00:18:41.760
+like model management as well.
+
+00:18:41.760 --> 00:18:44.040
+Aditi, could you tell us a
+little bit more about how
+
+00:18:44.040 --> 00:18:47.430
+that all works and the
+tech behind Foundry Local?
+
+00:18:47.430 --> 00:18:49.170
+Aditi Narvekar: Yeah,
+great question.
+
+00:18:49.170 --> 00:18:51.150
+Well, starting on the
+left, you have access
+
+00:18:51.150 --> 00:18:52.800
+to a rich model catalog.
+
+00:18:52.800 --> 00:18:55.890
+This is everything from
+open-source GPT models
+
+00:18:55.890 --> 00:18:58.830
+to DeepSeek, Mistral, Qwen, Phi,
+
+00:18:58.830 --> 00:19:01.320
+even Whisper for
+speech scenarios.
+
+00:19:01.320 --> 00:19:02.940
+And today, what is net new?
+
+00:19:02.940 --> 00:19:05.070
+Well, we have new
+variants of Qwen,
+
+00:19:05.070 --> 00:19:06.810
+like that vision
+language model you saw,
+
+00:19:06.810 --> 00:19:09.570
+and there's new
+speech models, too.
+
+00:19:09.570 --> 00:19:13.250
+And you can access all of these
+through the Foundry Local SDK,
+
+00:19:13.250 --> 00:19:16.670
+which abstracts away all the
+complexity of model management
+
+00:19:16.670 --> 00:19:18.950
+and device-specific
+hardware acceleration,
+
+00:19:18.950 --> 00:19:22.160
+whether that is for
+CPU, GPU, or NPU.
+
+00:19:22.160 --> 00:19:24.810
+You don't need to write
+device-specific code.
+
+00:19:24.810 --> 00:19:27.780
+And then on the right is
+the Foundry Local CLI.
+
+00:19:27.780 --> 00:19:29.310
+So you can play
+around with models,
+
+00:19:29.310 --> 00:19:32.530
+see which best fits
+your scenario.
+
+00:19:33.630 --> 00:19:34.110
+All right.
+
+00:19:34.110 --> 00:19:35.910
+With that, I'm going to
+hand it to Anastasiya.
+
+00:19:35.910 --> 00:19:37.350
+Tell us about Windows ML.
+
+00:19:37.350 --> 00:19:39.320
+Anastasiya Tarnouskaya:
+Yeah, thanks, Aditi.
+
+00:19:39.320 --> 00:19:41.870
+Now those earlier
+scenarios, as you saw,
+
+00:19:41.870 --> 00:19:45.170
+were using ready-to-use
+AI models and APIs.
+
+00:19:45.170 --> 00:19:48.290
+But if you wanted to run your
+own custom model, for example,
+
+00:19:48.290 --> 00:19:51.860
+one that you trained yourself
+or maybe found on Hugging Face,
+
+00:19:51.860 --> 00:19:54.920
+that's where you would
+use Windows ML directly.
+
+00:19:54.920 --> 00:19:55.340
+Aditi Narvekar: So what kind
+
+00:19:55.340 --> 00:19:59.180
+of devices can the coffee
+shop use to use Windows ML?
+
+00:19:59.180 --> 00:19:59.630
+Anastasiya Tarnouskaya:
+Yeah, well,
+
+00:19:59.630 --> 00:20:02.840
+the good news is Windows ML
+has really broad support,
+
+00:20:02.840 --> 00:20:06.900
+starting with Windows 10 1809
+and above, Windows Server
+
+00:20:06.900 --> 00:20:10.290
+2019 and above, and
+even Windows 365,
+
+00:20:10.290 --> 00:20:14.280
+to provide a cloud-based Windows
+environment so that developers
+
+00:20:14.280 --> 00:20:15.660
+or potentially employees
+
+00:20:15.660 --> 00:20:18.510
+at the Unmetered Token Café
+can access their Windows ML
+
+00:20:18.510 --> 00:20:21.090
+development environment
+from any device.
+
+00:20:21.090 --> 00:20:27.010
+That can be another PC, a Mac,
+mobile device, or a browser.
+
+00:20:28.350 --> 00:20:28.740
+All right.
+
+00:20:28.740 --> 00:20:32.370
+So one scenario where Windows ML
+is going to be really helpful
+
+00:20:32.370 --> 00:20:34.320
+at the Unmetered Token Café is
+
+00:20:34.320 --> 00:20:38.310
+for their Experimental Brews
+program, where the cafe rolls
+
+00:20:38.310 --> 00:20:41.730
+out new menu items to customers
+and then classify sentiment
+
+00:20:41.730 --> 00:20:44.010
+for the reviews that
+come in to get a sense
+
+00:20:44.010 --> 00:20:46.290
+of how the menu item is doing.
+
+00:20:46.290 --> 00:20:47.550
+For this scenario, I'm going
+
+00:20:47.550 --> 00:20:50.250
+to be using a custom,
+open-source model.
+
+00:20:50.250 --> 00:20:53.730
+So Windows ML is going
+to be the perfect fit,
+
+00:20:53.730 --> 00:20:57.450
+allowing me to run the model
+locally and performantly
+
+00:20:57.450 --> 00:21:00.060
+through one unified
+stack that scales
+
+00:21:00.060 --> 00:21:02.880
+across all Windows devices.
+
+00:21:02.880 --> 00:21:05.520
+Now for those of you that have
+spent some time in this space,
+
+00:21:05.520 --> 00:21:08.340
+you'll know that it's not
+actually always as simple
+
+00:21:08.340 --> 00:21:10.890
+as just taking a
+model and running it.
+
+00:21:10.890 --> 00:21:14.310
+Sometimes you'll need to spend
+some time optimizing your model.
+
+00:21:14.310 --> 00:21:17.340
+And depending on your scenario
+and your target hardware,
+
+00:21:17.340 --> 00:21:20.940
+that can be somewhat
+complex and time consuming.
+
+00:21:20.940 --> 00:21:23.580
+For example, if your model
+doesn't export cleanly,
+
+00:21:23.580 --> 00:21:26.790
+or if some of your model
+operators aren't supported
+
+00:21:26.790 --> 00:21:29.310
+out of the box on
+your target hardware.
+
+00:21:29.310 --> 00:21:32.430
+And so to help with just
+that, we're really excited
+
+00:21:32.430 --> 00:21:35.670
+to announce the brand-new
+Windows ML CLI,
+
+00:21:35.670 --> 00:21:37.410
+which is now
+available in preview
+
+00:21:37.410 --> 00:21:39.120
+for you to try it on GitHub.
+
+00:21:39.120 --> 00:21:41.250
+And it's intended
+to cater to all
+
+00:21:41.250 --> 00:21:43.410
+of your model
+optimization needs.
+
+00:21:43.410 --> 00:21:46.600
+So check it out at
+aka.ms/winmlcli.
+
+00:21:48.690 --> 00:21:48.960
+All right.
+
+00:21:48.960 --> 00:21:53.100
+So let's talk about what the
+Windows ML CLI provides.
+
+00:21:53.100 --> 00:21:56.400
+First off, it provides a
+one-stop tool chain and set
+
+00:21:56.400 --> 00:21:58.860
+of agent skills, so
+that as a developer,
+
+00:21:58.860 --> 00:22:02.580
+you can take your model through
+conversion, optimization,
+
+00:22:02.580 --> 00:22:06.360
+and benchmarking
+through one flow.
+
+00:22:06.360 --> 00:22:10.800
+Next, the CLI is built to give
+developers maximum flexibility.
+
+00:22:10.800 --> 00:22:13.620
+You can use primitive
+commands to run each stage
+
+00:22:13.620 --> 00:22:15.780
+of the optimization
+pipeline yourself
+
+00:22:15.780 --> 00:22:18.990
+and have really hands-on
+control over exactly how
+
+00:22:18.990 --> 00:22:21.990
+that takes place, or you
+can keep things simple
+
+00:22:21.990 --> 00:22:25.830
+and run the whole thing end to
+end using a prebuilt config.
+
+00:22:25.830 --> 00:22:29.310
+And third, the CLI is built to
+integrate with AI workflows
+
+00:22:29.310 --> 00:22:32.340
+and agents and provides
+a set of agent skills
+
+00:22:32.340 --> 00:22:34.980
+to make it really easy
+for you to get started
+
+00:22:34.980 --> 00:22:38.160
+and incorporate it into
+your AI-driven workflows,
+
+00:22:38.160 --> 00:22:40.260
+for example, using
+GitHub Copilot
+
+00:22:40.260 --> 00:22:42.480
+or your tooling of choice.
+
+00:22:42.480 --> 00:22:44.580
+And then for developers
+that prefer to get started
+
+00:22:44.580 --> 00:22:47.040
+with some UI, you can also check
+
+00:22:47.040 --> 00:22:48.600
+out the Foundry
+Toolkit extension
+
+00:22:48.600 --> 00:22:50.820
+in VS Code to get started.
+
+00:22:50.820 --> 00:22:51.300
+All right.
+
+00:22:51.300 --> 00:22:53.250
+So let's see this in action.
+
+00:22:53.250 --> 00:22:56.670
+We are going to be running
+the Windows ML CLI
+
+00:22:56.670 --> 00:23:00.390
+to optimize the model that
+we are going to be using
+
+00:23:00.390 --> 00:23:04.140
+to classify sentiment for
+new items at the café.
+
+00:23:04.140 --> 00:23:07.110
+And I'm going to be running
+this demo on a Surface Laptop
+
+00:23:07.110 --> 00:23:10.980
+for Business, Seventh Edition
+laptop with Intel processors.
+
+00:23:10.980 --> 00:23:13.080
+But it's important to
+note that the output
+
+00:23:13.080 --> 00:23:16.440
+of the CLI is actually going
+to be a portable model
+
+00:23:16.440 --> 00:23:19.590
+that I'm going to be able
+to run across all devices.
+
+00:23:19.590 --> 00:23:22.470
+So let's check it out.
+
+00:23:22.470 --> 00:23:22.680
+All right.
+
+00:23:22.680 --> 00:23:25.050
+So here, I have a Python
+virtual environment
+
+00:23:25.050 --> 00:23:27.270
+with the CLI already running.
+
+00:23:27.270 --> 00:23:30.690
+So let me go ahead and
+type in the WinML command.
+
+00:23:30.690 --> 00:23:34.110
+And what this is going to do is
+list out all of the commands
+
+00:23:34.110 --> 00:23:37.080
+that are available for me
+to try out through the CLI.
+
+00:23:37.080 --> 00:23:41.190
+Let me then go ahead and
+type in "WinML Catalog".
+
+00:23:41.190 --> 00:23:45.180
+And this is going to list
+out just some of the models
+
+00:23:45.180 --> 00:23:47.340
+that are available
+for me to optimize
+
+00:23:47.340 --> 00:23:48.990
+through the Windows ML CLI.
+
+00:23:48.990 --> 00:23:52.440
+But as you can imagine, you can
+use it for many more models,
+
+00:23:52.440 --> 00:23:56.130
+for example, other models that
+you might find on Hugging Face
+
+00:23:56.130 --> 00:23:58.350
+or your own model that
+you trained yourself
+
+00:23:58.350 --> 00:24:00.360
+and then converted
+to ONNX format.
+
+00:24:00.360 --> 00:24:03.330
+So Aditi, out of this
+list, is there any model
+
+00:24:03.330 --> 00:24:05.730
+that catches your eye that
+we can potentially use
+
+00:24:05.730 --> 00:24:08.760
+for this sentiment
+analysis scenario?
+
+00:24:08.760 --> 00:24:09.240
+Aditi Narvekar: Yeah.
+
+00:24:09.240 --> 00:24:13.680
+Is there one there called
+"Cardiff NLP for Sentiment"?
+
+00:24:13.680 --> 00:24:14.010
+Anastasiya Tarnouskaya: Yeah.
+
+00:24:14.010 --> 00:24:15.150
+Great eye.
+
+00:24:15.150 --> 00:24:18.870
+Okay. So the next thing that
+we would do is run the WinML
+
+00:24:18.870 --> 00:24:20.160
+"Inspect" command.
+
+00:24:20.160 --> 00:24:23.190
+Now just for time, I've
+already pre-run this command,
+
+00:24:23.190 --> 00:24:25.200
+and I'm going to show you
+what the output is going
+
+00:24:25.200 --> 00:24:26.130
+to look like.
+
+00:24:26.130 --> 00:24:29.130
+And what this command
+does is it helps me rule
+
+00:24:29.130 --> 00:24:32.400
+out common reasons why a
+particular model might not be a
+
+00:24:32.400 --> 00:24:35.970
+good fit to optimize through the
+WinML CLI before I spend too
+
+00:24:35.970 --> 00:24:37.200
+much time on it.
+
+00:24:37.200 --> 00:24:39.240
+In this case, I
+already ran this.
+
+00:24:39.240 --> 00:24:40.770
+The output is looking good.
+
+00:24:40.770 --> 00:24:42.240
+I don't see any errors.
+
+00:24:42.240 --> 00:24:45.180
+So I'm good to continue forward.
+
+00:24:45.180 --> 00:24:47.220
+The next thing that I would
+do is actually go ahead
+
+00:24:47.220 --> 00:24:48.780
+and export my model.
+
+00:24:48.780 --> 00:24:51.540
+This command I've also
+pre-run, just for time,
+
+00:24:51.540 --> 00:24:54.390
+and I'm showing you here
+what the output looks like.
+
+00:24:54.390 --> 00:24:57.300
+And what this is going to do is
+essentially just convert the
+
+00:24:57.300 --> 00:24:59.040
+model to ONNX format.
+
+00:24:59.040 --> 00:25:01.590
+And then that's what we are
+going to use for the rest
+
+00:25:01.590 --> 00:25:04.710
+of the optimization workflow.
+
+00:25:04.710 --> 00:25:07.650
+Now that we have exported
+our model, let's go ahead
+
+00:25:07.650 --> 00:25:11.010
+and run the "Analyze" command.
+
+00:25:11.010 --> 00:25:13.080
+And what this is
+going to do is read
+
+00:25:13.080 --> 00:25:17.010
+through my model graph
+operator by operator and see
+
+00:25:17.010 --> 00:25:21.210
+which of my model operators are
+supported on my target hardware.
+
+00:25:21.210 --> 00:25:23.580
+In this case, if I scroll
+up and take a look
+
+00:25:23.580 --> 00:25:27.360
+at what the output looks
+like for Qualcomm,
+
+00:25:27.360 --> 00:25:28.920
+I can see that a bunch
+
+00:25:28.920 --> 00:25:31.380
+of the operators here
+are showing in green.
+
+00:25:31.380 --> 00:25:32.100
+That's good.
+
+00:25:32.100 --> 00:25:35.010
+That means the operator
+is fully supported.
+
+00:25:35.010 --> 00:25:36.960
+For anything that's
+showing in yellow,
+
+00:25:36.960 --> 00:25:38.820
+that means it's
+partially supported,
+
+00:25:38.820 --> 00:25:40.770
+so it might fall back to CPU.
+
+00:25:40.770 --> 00:25:44.280
+And if I were to see anything in
+red, which I don't have here,
+
+00:25:44.280 --> 00:25:47.490
+that would mean that the
+operator isn't supported at all.
+
+00:25:47.490 --> 00:25:49.440
+So now that I've run
+this, the next thing
+
+00:25:49.440 --> 00:25:52.350
+that I would do is run
+the "Optimize" command.
+
+00:25:52.350 --> 00:25:54.840
+And let me just resize
+this really quickly
+
+00:25:54.840 --> 00:25:57.750
+so that you can see
+me running that.
+
+00:25:57.750 --> 00:25:59.820
+So I'm running the
+"Optimize" command.
+
+00:25:59.820 --> 00:26:02.940
+And this is going to
+take in the config file
+
+00:26:02.940 --> 00:26:04.830
+that the previous step generated
+
+00:26:04.830 --> 00:26:09.300
+to actually rewrite my model
+graph, fuse graph operators,
+
+00:26:09.300 --> 00:26:11.400
+and address any of
+those operators
+
+00:26:11.400 --> 00:26:12.960
+that weren't fully supported.
+
+00:26:12.960 --> 00:26:15.630
+So I just ran that, and
+that ran really quickly.
+
+00:26:15.630 --> 00:26:18.300
+So now let me rerun
+the "Analyze" command,
+
+00:26:18.300 --> 00:26:20.580
+because I want to make sure
+that everything is showing
+
+00:26:20.580 --> 00:26:23.160
+up as green before
+I take next steps.
+
+00:26:23.160 --> 00:26:23.970
+All right.
+
+00:26:23.970 --> 00:26:26.340
+And as you can see,
+that's running.
+
+00:26:26.340 --> 00:26:29.340
+And now everything across
+the board is showing
+
+00:26:29.340 --> 00:26:32.130
+up as green, which is great.
+
+00:26:32.130 --> 00:26:34.050
+So the last thing that
+I'm going to do here
+
+00:26:34.050 --> 00:26:36.960
+in the CLI is run
+this "Perf" command.
+
+00:26:36.960 --> 00:26:40.080
+And this is going to help
+me benchmark my model.
+
+00:26:40.080 --> 00:26:43.440
+It's going to give me some
+stats about throughput
+
+00:26:43.440 --> 00:26:46.260
+and other indicators for
+me to have confidence
+
+00:26:46.260 --> 00:26:49.680
+that the model is ready for
+my production workload.
+
+00:26:49.680 --> 00:26:52.710
+And here, you can see we're
+getting a live graph showing
+
+00:26:52.710 --> 00:26:54.750
+NPU utilization.
+
+00:26:54.750 --> 00:26:56.430
+It's really high,
+so that's great.
+
+00:26:56.430 --> 00:26:59.340
+And my performance is
+looking pretty good as well.
+
+00:26:59.340 --> 00:27:01.140
+So I think I'm good to go ahead
+
+00:27:01.140 --> 00:27:03.030
+and move forward
+with this model.
+
+00:27:03.030 --> 00:27:04.620
+Aditi Narvekar: Yeah,
+it was also super cool
+
+00:27:04.620 --> 00:27:08.580
+that everything you needed was
+available in one CLI tool.
+
+00:27:08.580 --> 00:27:09.120
+Anastasiya Tarnouskaya:
+That's right.
+
+00:27:09.120 --> 00:27:11.070
+And in this particular workflow,
+
+00:27:11.070 --> 00:27:14.040
+I ran each command,
+command by command.
+
+00:27:14.040 --> 00:27:16.980
+But I could have also
+used a prebuilt config
+
+00:27:16.980 --> 00:27:18.810
+to run the whole
+thing end to end.
+
+00:27:18.810 --> 00:27:20.790
+Or I could have
+used GitHub Copilot
+
+00:27:20.790 --> 00:27:24.870
+and had my agents do the model
+optimization flow for me.
+
+00:27:24.870 --> 00:27:25.320
+All right.
+
+00:27:25.320 --> 00:27:28.440
+So now that we've
+optimized our model,
+
+00:27:28.440 --> 00:27:32.490
+let's talk about how Windows ML
+is going to help us run it and,
+
+00:27:32.490 --> 00:27:35.520
+more broadly, how Windows
+ML can benefit you
+
+00:27:35.520 --> 00:27:38.250
+in running your own
+custom AI workloads
+
+00:27:38.250 --> 00:27:43.590
+across Windows GPUs,
+NPUs, and CPUs.
+
+00:27:43.590 --> 00:27:45.690
+First off, scale.
+
+00:27:45.690 --> 00:27:48.090
+Windows ML serves as
+an abstraction layer
+
+00:27:48.090 --> 00:27:51.540
+to make it easier for developers
+to scale their models
+
+00:27:51.540 --> 00:27:55.170
+across chipsets and hardware
+vendors without having to get
+
+00:27:55.170 --> 00:27:58.110
+as deep in hardware
+specifics or have to deal
+
+00:27:58.110 --> 00:28:01.170
+with several different SDKs.
+
+00:28:01.170 --> 00:28:03.150
+With ONNX Runtime integration,
+
+00:28:03.150 --> 00:28:06.780
+Windows ML also provides a
+high degree of flexibility
+
+00:28:06.780 --> 00:28:09.720
+on what models can
+run and where.
+
+00:28:09.720 --> 00:28:11.100
+Next, performance.
+
+00:28:11.100 --> 00:28:13.650
+We're partnering with our
+silicon partners to make sure
+
+00:28:13.650 --> 00:28:16.950
+that the latest performance
+improvements, innovation,
+
+00:28:16.950 --> 00:28:20.730
+support for new models and
+devices makes it into the stack
+
+00:28:20.730 --> 00:28:23.820
+through hardware vendor-owned
+execution providers.
+
+00:28:23.820 --> 00:28:26.730
+This way, you get
+like-native benefits,
+
+00:28:26.730 --> 00:28:30.660
+but through one, unified stack.
+
+00:28:30.660 --> 00:28:32.310
+And third, deployment.
+
+00:28:32.310 --> 00:28:34.830
+Windows ML provides
+a system-wide copy
+
+00:28:34.830 --> 00:28:38.250
+of runtime dependencies, along
+with APIs to help you pull
+
+00:28:38.250 --> 00:28:41.040
+down the right bits
+based on your device.
+
+00:28:41.040 --> 00:28:42.150
+This way, you don't have
+
+00:28:42.150 --> 00:28:45.030
+to package those runtime
+dependencies with your app,
+
+00:28:45.030 --> 00:28:47.280
+can reduce your app
+size, and don't have
+
+00:28:47.280 --> 00:28:50.940
+to recompile your app every
+time an update takes place.
+
+00:28:50.940 --> 00:28:53.520
+And with our vendor
+certification program,
+
+00:28:53.520 --> 00:28:57.840
+the bits that are provided from
+Windows ML to app developers go
+
+00:28:57.840 --> 00:29:00.360
+through rigorous,
+Windows-specific testing
+
+00:29:00.360 --> 00:29:01.410
+with every update.
+
+00:29:01.410 --> 00:29:04.290
+So regardless of how you're
+deploying Windows ML,
+
+00:29:04.290 --> 00:29:07.380
+you're getting the runtime
+dependencies that are optimized
+
+00:29:07.380 --> 00:29:09.480
+for stability,
+Windows-maintained,
+
+00:29:09.480 --> 00:29:14.100
+and will help you have a
+smooth update process.
+
+00:29:14.100 --> 00:29:17.550
+And then, one last thing
+to call it on this slide,
+
+00:29:17.550 --> 00:29:20.880
+Windows ML also provides a
+unified tool chain and set
+
+00:29:20.880 --> 00:29:22.890
+of agent skills, as
+we talked about,
+
+00:29:22.890 --> 00:29:26.760
+such as the Windows ML CLI and
+the Foundry Toolkit extension
+
+00:29:26.760 --> 00:29:31.350
+for VS Code to help developers
+prep and optimize their models.
+
+00:29:31.350 --> 00:29:33.720
+Aditi Narvekar: So that
+sentiment analysis workflow,
+
+00:29:33.720 --> 00:29:36.420
+I wish it was possible to
+run that through a website,
+
+00:29:36.420 --> 00:29:39.690
+so that anyone at the cafe
+could access it without having
+
+00:29:39.690 --> 00:29:42.690
+to download an app or without
+having to use the cloud.
+
+00:29:42.690 --> 00:29:42.990
+Anastasiya Tarnouskaya: Yeah.
+
+00:29:42.990 --> 00:29:45.330
+Well, the good news is they can.
+
+00:29:45.330 --> 00:29:47.340
+Not only is Windows ML supported
+
+00:29:47.340 --> 00:29:50.400
+for your everyday, native
+Windows app experiences,
+
+00:29:50.400 --> 00:29:53.520
+it's also supported for
+web apps through WebNN,
+
+00:29:53.520 --> 00:29:57.060
+which is available in preview
+with a few experimental flags
+
+00:29:57.060 --> 00:30:01.530
+in any Chromium-based browser,
+such as Edge or Chrome.
+
+00:30:01.530 --> 00:30:04.620
+And you can think of WebNN as
+the layer that sits on top
+
+00:30:04.620 --> 00:30:08.490
+of native ML APIs, like
+Windows ML on Windows,
+
+00:30:08.490 --> 00:30:12.360
+providing near-native
+access to GPUs, NPUs,
+
+00:30:12.360 --> 00:30:15.180
+and CPUs through framework APIs.
+
+00:30:15.180 --> 00:30:17.670
+And that means that even
+websites can benefit
+
+00:30:17.670 --> 00:30:20.850
+from native, Windows ML-based
+hardware acceleration
+
+00:30:20.850 --> 00:30:22.740
+without racking up token costs
+
+00:30:22.740 --> 00:30:26.130
+or sending sensitive
+enterprise data to the cloud.
+
+00:30:26.130 --> 00:30:26.490
+All right.
+
+00:30:26.490 --> 00:30:29.520
+So let's see this in action.
+
+00:30:29.520 --> 00:30:33.870
+And I am once more going to
+be using the Surface Laptop
+
+00:30:33.870 --> 00:30:38.460
+for Business Seventh Edition
+laptop with Intel processors.
+
+00:30:38.460 --> 00:30:42.460
+But this time we're going to
+be inferencing the model.
+
+00:30:46.050 --> 00:30:46.320
+All right.
+
+00:30:46.320 --> 00:30:50.250
+So here I have VS Code
+open with my web app.
+
+00:30:50.250 --> 00:30:53.850
+And I have the
+sentimentanalyzer.js file open,
+
+00:30:53.850 --> 00:30:58.290
+which is where the bulk of my
+inferencing code is going to be.
+
+00:30:58.290 --> 00:30:59.730
+Some of the key things to call
+
+00:30:59.730 --> 00:31:03.840
+out here is I'm using the
+ONNX Runtime Web APIs,
+
+00:31:03.840 --> 00:31:06.330
+which are framework
+APIs that I can use
+
+00:31:06.330 --> 00:31:09.030
+for running ONNX
+models in the browser.
+
+00:31:09.030 --> 00:31:12.390
+And under the hood, that's going
+to use WebNN, which is going
+
+00:31:12.390 --> 00:31:14.460
+to be working with
+Windows ML to get
+
+00:31:14.460 --> 00:31:18.030
+that native, Windows ML-based
+hardware acceleration.
+
+00:31:18.030 --> 00:31:21.360
+I'm then going to go ahead
+and pass in the models
+
+00:31:21.360 --> 00:31:24.720
+that I optimized earlier
+through the Windows ML CLI.
+
+00:31:24.720 --> 00:31:26.010
+And then we're going to go ahead
+
+00:31:26.010 --> 00:31:28.050
+and create our
+inference session.
+
+00:31:28.050 --> 00:31:30.450
+And so to do that, I'm
+going to use the WebNN,
+
+00:31:30.450 --> 00:31:35.550
+create context APIs here to set
+up my session, and I'm going
+
+00:31:35.550 --> 00:31:37.500
+to pass in a device type.
+
+00:31:37.500 --> 00:31:41.190
+Now initially, this is set to
+NPU, but let's actually go ahead
+
+00:31:41.190 --> 00:31:44.820
+and change it to CPU, because
+we're going to want this to work
+
+00:31:44.820 --> 00:31:49.440
+on all the devices at the
+cafe, not just Copilot+ PCs.
+
+00:31:49.440 --> 00:31:52.830
+So I've gone ahead and updated
+that to CPU, and then we'll set
+
+00:31:52.830 --> 00:31:57.060
+up our inference session by
+passing in that context here,
+
+00:31:57.060 --> 00:32:00.210
+the model data from earlier,
+as well as setting the name
+
+00:32:00.210 --> 00:32:03.000
+of our execution
+provider to WebNN.
+
+00:32:03.000 --> 00:32:05.700
+And then the rest of this file
+is just going to take care
+
+00:32:05.700 --> 00:32:10.620
+of things like model
+tokenization, tensorization,
+
+00:32:10.620 --> 00:32:13.470
+running inference, and then
+based off of the model outputs,
+
+00:32:13.470 --> 00:32:17.820
+classifying my sentiment as
+positive, neutral, or negative.
+
+00:32:17.820 --> 00:32:18.270
+All right.
+
+00:32:18.270 --> 00:32:20.820
+So let's see this running.
+
+00:32:20.820 --> 00:32:22.890
+Going to do a hard refresh here.
+
+00:32:22.890 --> 00:32:25.350
+And as you can see in the
+bottom right-hand corner,
+
+00:32:25.350 --> 00:32:28.890
+we're going to be running this
+on the CPU to classify sentiment
+
+00:32:28.890 --> 00:32:32.970
+for this Decaf Eclipse beverage,
+which is a no-caffeine espresso.
+
+00:32:32.970 --> 00:32:35.970
+So let's see how that's going
+to do with the customers
+
+00:32:35.970 --> 00:32:38.760
+at the Unmetered Token Café.
+
+00:32:38.760 --> 00:32:40.860
+Okay. So this is now running.
+
+00:32:40.860 --> 00:32:43.830
+And as you can see, I'm
+getting that blip on the CPU
+
+00:32:43.830 --> 00:32:46.650
+because we're using
+the CPU on this device
+
+00:32:46.650 --> 00:32:47.850
+to classify sentiment
+
+00:32:47.850 --> 00:32:49.710
+for these reviews
+that are coming in.
+
+00:32:49.710 --> 00:32:51.720
+Nothing needs to
+go to the cloud.
+
+00:32:51.720 --> 00:32:56.220
+I'm getting latency of about 300
+milliseconds and about three
+
+00:32:56.220 --> 00:32:58.410
+and a half reviews getting
+classified per second.
+
+00:32:58.410 --> 00:32:59.640
+So not bad.
+
+00:32:59.640 --> 00:33:02.100
+And if I take a look
+at the slide chart
+
+00:33:02.100 --> 00:33:06.690
+and the sentiment trend, this
+beverage isn't doing the best.
+
+00:33:06.690 --> 00:33:09.750
+A lot of neutral
+sentiment and negative
+
+00:33:09.750 --> 00:33:12.090
+and positive, roughly equal.
+
+00:33:12.090 --> 00:33:15.510
+So maybe that was a little
+bit of a questionable choice.
+
+00:33:15.510 --> 00:33:15.900
+All right.
+
+00:33:15.900 --> 00:33:20.370
+So now let's go ahead and go
+back to VS Code, and we're going
+
+00:33:20.370 --> 00:33:23.550
+to update this to now run on
+the NPU, because I also want
+
+00:33:23.550 --> 00:33:25.200
+to get a sense of what
+this is going to look
+
+00:33:25.200 --> 00:33:29.010
+like for the Copilot+
+PCs at the café.
+
+00:33:29.010 --> 00:33:32.160
+So let's now go back
+and refresh this page.
+
+00:33:32.160 --> 00:33:34.980
+And just to make things more
+interesting, we're now going
+
+00:33:34.980 --> 00:33:38.340
+to classify sentiment for
+this Aurora Latte Beverage,
+
+00:33:38.340 --> 00:33:40.080
+which is a lavender
+honey beverage
+
+00:33:40.080 --> 00:33:43.080
+with a gradient port
+from violet to gold.
+
+00:33:43.080 --> 00:33:45.720
+And as you can see in the
+bottom right-hand corner,
+
+00:33:45.720 --> 00:33:48.660
+this is now going to be
+running on my device's NPU.
+
+00:33:48.660 --> 00:33:50.790
+So let's see how this does.
+
+00:33:50.790 --> 00:33:51.720
+All right.
+
+00:33:51.720 --> 00:33:55.170
+Right away you can see blazing
+fast performance compared
+
+00:33:55.170 --> 00:33:57.240
+to what we saw on the CPU.
+
+00:33:57.240 --> 00:34:00.780
+I'm getting just 30
+milliseconds of latency here,
+
+00:34:00.780 --> 00:34:04.050
+over 11 reviews being classified
+per second, so that's more
+
+00:34:04.050 --> 00:34:05.820
+than times three the reviews --
+
+00:34:05.820 --> 00:34:08.160
+the rate that we were
+seeing for CPUs.
+
+00:34:08.160 --> 00:34:10.680
+And this beverage is doing
+much better as well.
+
+00:34:10.680 --> 00:34:12.000
+That's great news.
+
+00:34:12.000 --> 00:34:12.720
+All right.
+
+00:34:12.720 --> 00:34:14.370
+A lot of positive sentiment.
+
+00:34:14.370 --> 00:34:17.100
+And negative is very low.
+
+00:34:17.100 --> 00:34:18.330
+Aditi Narvekar: Yeah, I
+think I want to try one
+
+00:34:18.330 --> 00:34:20.700
+of these Aurora Lattes.
+
+00:34:20.700 --> 00:34:22.080
+Anastasiya
+Tarnouskaya: For sure.
+
+00:34:22.080 --> 00:34:24.750
+Aditi Narvekar: So this
+was a super cool demo,
+
+00:34:24.750 --> 00:34:27.780
+but is this ready
+for production?
+
+00:34:27.780 --> 00:34:28.140
+Anastasiya Tarnouskaya: Yeah.
+
+00:34:28.140 --> 00:34:31.800
+Well, Windows ML went to general
+availability just last fall,
+
+00:34:31.800 --> 00:34:33.420
+and already, there are dozens
+
+00:34:33.420 --> 00:34:37.650
+of partners shipping production
+experiences on Windows ML
+
+00:34:37.650 --> 00:34:39.630
+to general availability.
+
+00:34:39.630 --> 00:34:42.480
+Those include Adobe,
+Canva Affinity,
+
+00:34:42.480 --> 00:34:44.540
+Speechify, and many others.
+
+00:34:44.540 --> 00:34:45.500
+And speaking of that,
+
+00:34:45.500 --> 00:34:48.530
+we actually have a couple
+very special guests here.
+
+00:34:48.530 --> 00:34:52.010
+We have Jordi and Flex, who
+are from the VoiceMod team,
+
+00:34:52.010 --> 00:34:55.550
+who have built a really
+compelling experience using
+
+00:34:55.550 --> 00:34:57.590
+Windows ML that's going
+to give you a sense
+
+00:34:57.590 --> 00:35:00.570
+of just how low-latency
+Windows ML
+
+00:35:00.570 --> 00:35:02.310
+and local AI experiences can be.
+
+00:35:02.310 --> 00:35:04.080
+And they're going to
+be running their demo
+
+00:35:04.080 --> 00:35:10.140
+on a different device,
+on this device,
+
+00:35:10.140 --> 00:35:12.600
+which is an Asus
+Zenbook A16 laptop
+
+00:35:12.600 --> 00:35:14.160
+with a Qualcomm Snapdragon NPU.
+
+00:35:14.160 --> 00:35:17.520
+So Jordi and Flex,
+welcome, and come on up.
+
+00:35:17.520 --> 00:35:22.030
+[ Applause ]
+
+00:35:22.030 --> 00:35:22.990
+Jordi Janer: Hi, everyone.
+
+00:35:22.990 --> 00:35:24.580
+everyone, I'm Jordi,
+Head of Research
+
+00:35:24.580 --> 00:35:26.370
+and Innovation at VoiceMod.
+
+00:35:26.370 --> 00:35:27.090
+Flex: Hi, everyone.
+
+00:35:27.090 --> 00:35:28.080
+My name is Flex.
+
+00:35:28.080 --> 00:35:30.660
+I'm a Content Creator
+and VoiceMod Ambassador.
+
+00:35:30.660 --> 00:35:32.460
+Jordi Janer: We're a
+Windows-first platform
+
+00:35:32.460 --> 00:35:35.400
+that lets anyone transform
+your voice in real time
+
+00:35:35.400 --> 00:35:39.270
+through voice filters,
+soundboards, and creation tools.
+
+00:35:39.270 --> 00:35:41.580
+Flex: Gamers and streamers
+customize everything:
+
+00:35:41.580 --> 00:35:43.950
+their skins, their
+avatars, their setups.
+
+00:35:43.950 --> 00:35:46.920
+But their voice is still the
+one thing left untouched.
+
+00:35:46.920 --> 00:35:48.420
+That's where VoiceMod comes in.
+
+00:35:48.420 --> 00:35:50.700
+So anyone can sound
+exactly the way they want
+
+00:35:50.700 --> 00:35:53.880
+to be heard online, whether
+in game or in voice chats.
+
+00:35:53.880 --> 00:35:56.280
+Jordi Janer: And VoiceMod
+delivers a sophisticated audio
+
+00:35:56.280 --> 00:36:00.240
+generation pipeline by combining
+digital signal processing
+
+00:36:00.240 --> 00:36:04.830
+effects and cutting-edge
+generative AI
+
+00:36:04.830 --> 00:36:06.810
+speech-to-speech models.
+
+00:36:06.810 --> 00:36:09.540
+And to have a truly
+immersive experience,
+
+00:36:09.540 --> 00:36:13.110
+our AI models can operate
+at ultra-low latency,
+
+00:36:13.110 --> 00:36:17.400
+below 45 milliseconds, so that
+any voice interaction feels
+
+00:36:17.400 --> 00:36:20.510
+instantaneous and natural.
+
+00:36:20.510 --> 00:36:26.280
+And to do that at scale, we've
+been building on Windows ML.
+
+00:36:26.280 --> 00:36:28.830
+And Windows ML has allowed us
+
+00:36:28.830 --> 00:36:32.100
+to offload heavy AI
+inference computation
+
+00:36:32.100 --> 00:36:35.910
+from the CPU to NPUs and GPUs.
+
+00:36:35.910 --> 00:36:40.110
+And basically, to us, Windows
+ML offers three things: first,
+
+00:36:40.110 --> 00:36:43.290
+it has allowed to run higher
+quality models locally,
+
+00:36:43.290 --> 00:36:46.020
+so there's no cloud
+dependency; second,
+
+00:36:46.020 --> 00:36:49.680
+it allows to reduce the app
+size, thanks to the abstraction
+
+00:36:49.680 --> 00:36:52.860
+of the execution providers;
+and third, it allows us
+
+00:36:52.860 --> 00:36:56.670
+to deliver four times
+faster as we built it once,
+
+00:36:56.670 --> 00:37:01.200
+and then we could deploy across
+our silicon partners: Qualcomm,
+
+00:37:01.200 --> 00:37:04.230
+Nvidia, AMD, and Intel.
+
+00:37:04.230 --> 00:37:06.540
+But to better understand
+how it works,
+
+00:37:06.540 --> 00:37:09.420
+I think the best we can
+do is to see it live.
+
+00:37:09.420 --> 00:37:12.720
+So Flex, would you like
+to show us the magic?
+
+00:37:12.720 --> 00:37:13.890
+Flex: Absolutely, Jordi.
+
+00:37:13.890 --> 00:37:15.600
+We are going to give some spice
+
+00:37:15.600 --> 00:37:18.330
+to these Fortnite
+skins using VoiceMod.
+
+00:37:18.330 --> 00:37:20.370
+So our first skin here
+is called the Ice King,
+
+00:37:20.370 --> 00:37:23.190
+and I want to give him a
+voice that is powerful,
+
+00:37:23.190 --> 00:37:26.530
+that is scary, that
+is commanding.
+
+00:37:27.660 --> 00:37:30.720
+Maybe something like this.
+
+00:37:30.720 --> 00:37:34.080
+Maybe a skin like this,
+maybe a voice like this.
+
+00:37:34.080 --> 00:37:37.260
+Or a skin like this?
+
+00:37:37.260 --> 00:37:38.520
+I don't know.
+
+00:37:38.520 --> 00:37:43.080
+Let's try, maybe, this voice.
+
+00:37:43.080 --> 00:37:46.860
+I think this one maybe fits a
+little bit better for this guy.
+
+00:37:46.860 --> 00:37:50.100
+Or actually, let's try this one.
+
+00:37:50.100 --> 00:37:51.870
+I don't know.
+
+00:37:51.870 --> 00:37:53.790
+This might not be
+the right voice.
+
+00:37:53.790 --> 00:37:54.990
+What do you think, Jordi?
+
+00:37:54.990 --> 00:37:56.590
+Jordi Janer: That's cool.
+
+00:37:58.650 --> 00:37:59.460
+Flex: I agree.
+
+00:37:59.460 --> 00:38:01.890
+And I feel like everyone
+wouldn't mind grabbing a coffee
+
+00:38:01.890 --> 00:38:03.510
+and sticking around for
+the rest of the stream,
+
+00:38:03.510 --> 00:38:05.880
+but alas, the show must go on.
+
+00:38:05.880 --> 00:38:07.800
+Jordi Janer: Thanks, Microsoft
+Build, and thank you
+
+00:38:07.800 --> 00:38:11.520
+to the Windows ML team
+for making this possible.
+
+00:38:11.520 --> 00:38:17.500
+[ Applause ]
+
+00:38:20.640 --> 00:38:21.480
+Anastasiya Tarnouskaya:
+Fantastic.
+
+00:38:21.480 --> 00:38:22.980
+Thank you, Jordi and Flex.
+
+00:38:22.980 --> 00:38:23.940
+Incredible demo.
+
+00:38:23.940 --> 00:38:25.560
+And great that
+Windows ML was able
+
+00:38:25.560 --> 00:38:27.570
+to help you scale
+your experience
+
+00:38:27.570 --> 00:38:30.200
+across more Windows devices.
+
+00:38:30.200 --> 00:38:30.410
+All right.
+
+00:38:30.410 --> 00:38:33.110
+So finally, let's take a
+look at all of what's new
+
+00:38:33.110 --> 00:38:36.170
+for Windows ML in 2026.
+
+00:38:36.170 --> 00:38:39.560
+First off, as we talked about,
+the Windows ML CLI is available
+
+00:38:39.560 --> 00:38:42.920
+for you to try out and
+preview on GitHub to optimize
+
+00:38:42.920 --> 00:38:45.290
+and prepare your models.
+
+00:38:45.290 --> 00:38:48.440
+If you're running generative
+AI experiences, for example,
+
+00:38:48.440 --> 00:38:51.830
+using LLMs or other generative
+workflows, you're going
+
+00:38:51.830 --> 00:38:53.270
+to see some
+performance speed up,
+
+00:38:53.270 --> 00:38:56.990
+so up to times 2.6 throughput
+for Gen AI workloads,
+
+00:38:56.990 --> 00:38:59.010
+depending on which
+model you're using.
+
+00:38:59.010 --> 00:39:02.490
+And if you're using the default
+CPU execution provider,
+
+00:39:02.490 --> 00:39:04.890
+you're going to see some
+performance speedups also
+
+00:39:04.890 --> 00:39:05.940
+with the newest version
+
+00:39:05.940 --> 00:39:10.020
+of Windows ML that's currently
+available in preview.
+
+00:39:10.020 --> 00:39:12.300
+Next, Windows ML
+2.0 has shipped.
+
+00:39:12.300 --> 00:39:15.570
+That includes ONNX Runtime
+improvements and support
+
+00:39:15.570 --> 00:39:19.350
+for new hardware vendor plugin
+execution providers, which,
+
+00:39:19.350 --> 00:39:21.930
+across the two of those,
+is going to mean support
+
+00:39:21.930 --> 00:39:24.710
+for new models,
+fundamentals improvements,
+
+00:39:24.710 --> 00:39:28.440
+and improved compatibility
+between releases.
+
+00:39:28.440 --> 00:39:31.410
+WebNN is also available for
+you to try out and preview,
+
+00:39:31.410 --> 00:39:33.990
+and that's how you can
+bring native, hardware-based
+
+00:39:33.990 --> 00:39:38.130
+acceleration to your web apps as
+well in Chromium-based browsers
+
+00:39:38.130 --> 00:39:41.190
+through a few
+experimental flags.
+
+00:39:41.190 --> 00:39:43.710
+Then, because of how
+Windows ML works,
+
+00:39:43.710 --> 00:39:47.310
+all apps that are built using
+Windows ML also get to benefit
+
+00:39:47.310 --> 00:39:49.080
+from all of the innovation
+that's happening
+
+00:39:49.080 --> 00:39:52.560
+from across the entire
+silicon ecosystem.
+
+00:39:52.560 --> 00:39:56.580
+So from AMD, Intel, Nvidia,
+and Qualcomm, for example,
+
+00:39:56.580 --> 00:40:00.480
+support for all the newest,
+latest, and greatest devices
+
+00:40:00.480 --> 00:40:05.070
+like Ryzen AI 400 series
+processors from AMD,
+
+00:40:05.070 --> 00:40:08.400
+Intel Core Ultra
+Series 3 processors,
+
+00:40:08.400 --> 00:40:14.790
+the upcoming Nvidia RTX Spark
+and DGX Station devices as well,
+
+00:40:14.790 --> 00:40:18.570
+as well as Qualcomm Snapdragon
+X2 Elite processors.
+
+00:40:18.570 --> 00:40:21.540
+And those aren't the only things
+that are new, the new devices,
+
+00:40:21.540 --> 00:40:23.700
+although those are
+definitely very cool.
+
+00:40:23.700 --> 00:40:26.910
+There are also tons of other
+improvements, as you can see
+
+00:40:26.910 --> 00:40:30.270
+on the slide, ranging across
+fundamentals improvements,
+
+00:40:30.270 --> 00:40:34.410
+performance, tooling
+improvements, and so much more.
+
+00:40:34.410 --> 00:40:34.890
+All right.
+
+00:40:34.890 --> 00:40:37.830
+Aditi, we've covered a
+lot in this session.
+
+00:40:37.830 --> 00:40:39.180
+What are some of the takeaways
+
+00:40:39.180 --> 00:40:41.790
+that we should leave
+our audience with?
+
+00:40:41.790 --> 00:40:42.330
+Aditi Narvekar: You're right.
+
+00:40:42.330 --> 00:40:44.280
+We did cover a ton of content.
+
+00:40:44.280 --> 00:40:46.770
+So let's bring it all home.
+
+00:40:46.770 --> 00:40:50.280
+Okay. Through the narrative
+of this Unmetered Token Café,
+
+00:40:50.280 --> 00:40:52.590
+we were able to show
+you how easy it is
+
+00:40:52.590 --> 00:40:56.010
+to get started building
+experiences with the AI APIs
+
+00:40:56.010 --> 00:40:58.620
+and how we've expanded
+many of those capabilities
+
+00:40:58.620 --> 00:41:01.530
+to now run on CPUs and GPUs.
+
+00:41:01.530 --> 00:41:04.920
+We showed how you can run common
+open-source models locally
+
+00:41:04.920 --> 00:41:06.120
+with Foundry Local.
+
+00:41:06.120 --> 00:41:09.270
+And now Foundry Local is in GA.
+
+00:41:09.270 --> 00:41:11.880
+And then we showed how you
+can bring your own model
+
+00:41:11.880 --> 00:41:17.010
+with Windows ML and do complex
+optimizations with one CLI tool.
+
+00:41:17.010 --> 00:41:20.010
+And we are so excited to
+see what you all can build
+
+00:41:20.010 --> 00:41:22.600
+with Microsoft
+Foundry on Windows.
+
+00:41:23.910 --> 00:41:26.580
+So before you all leave,
+take out your phones.
+
+00:41:26.580 --> 00:41:29.550
+We have a ton of resources
+to help get you started.
+
+00:41:29.550 --> 00:41:32.490
+Take a photo of all
+of those links there.
+
+00:41:32.490 --> 00:41:36.210
+We also have other sessions at
+Build that might be relevant
+
+00:41:36.210 --> 00:41:38.250
+that could help you
+get started as well.
+
+00:41:38.250 --> 00:41:40.730
+And then please
+scan that QR code.
+
+00:41:40.730 --> 00:41:43.400
+Provide us feedback on the
+session, on our product.
+
+00:41:43.400 --> 00:41:45.410
+We love to hear from you all.
+
+00:41:45.410 --> 00:41:48.080
+And then Anastasiya and I will
+stick around in the lobby
+
+00:41:48.080 --> 00:41:51.180
+if you want to come talk
+to us, ask us questions.
+
+00:41:51.180 --> 00:41:53.520
+Thank you all so much.
+
+00:41:53.520 --> 00:41:59.030
+[ Applause ]

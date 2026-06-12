@@ -6,6 +6,8 @@
 **Speakers:** Michael Von Hippel (Senior Product Manager, Microsoft Windows), Donald Thompson (Distinguished Engineer, Microsoft), Alexander Sklar, Jesse Bishop, Kiran Kumar  
 **Link:** [Microsoft Build 2025 Session BRK229](https://build.microsoft.com)
 
+![Unlock Agents for Your Apps Using MCP on Windows](images/session-banner.png)
+
 ---
 
 ## Table of Contents

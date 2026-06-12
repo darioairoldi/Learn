@@ -14,13 +14,13 @@ Complete guide to all documentation automation files and resources in this repos
 
 ### For New Users
 - 📖 [getting-started.md](getting-started.md) - **Start here!** Quick setup and mode selection
-- 📘 [.iqpilot/README.md](.iqpilot/README.md) - **IQPilot modes guide** - Enable/disable, mode comparison
+- 📘 [.iqpilot/readme.md](.iqpilot/readme.md) - **IQPilot modes guide** - Enable/disable, mode comparison
 - 🎯 [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) - What IQPilot is and why it matters
 - 🚀 [06.00-idea/iqpilot/02-iqpilot-getting-started.md](06.00-idea/iqpilot/02-iqpilot-getting-started.md) - Installation and usage guide
 
 ### For Developers
 - 🔧 [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md) - Technical architecture & implementation
-- 📊 [src/IQPilot/README.md](src/IQPilot/README.md) - IQPilot MCP server source code
+- 📊 [src/IQPilot/readme.md](src/IQPilot/readme.md) - IQPilot MCP server source code
 
 ### For Content Writers
 - 📝 [.github/00.00-repository-structure.md](.github/00.00-repository-structure.md) - Automation structure overview
@@ -44,7 +44,7 @@ Complete guide to all documentation automation files and resources in this repos
 |------|---------|----------|
 | [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md) | Architecture, folder structure, MCP integration | Developers |
 | [06.00-idea/iqpilot/01-iqpilot-overview.md](06.00-idea/iqpilot/01-iqpilot-overview.md) | Concepts, philosophy, use cases | All Users |
-| [src/IQPilot/README.md](src/IQPilot/README.md) | C# MCP Server source code documentation | Developers |
+| [src/IQPilot/readme.md](src/IQPilot/readme.md) | C# MCP Server source code documentation | Developers |
 | [.github/00.00-repository-structure.md](.github/00.00-repository-structure.md) | Repository structure & automation overview | All Users |
 
 ### ✍️ Content Creation
@@ -207,13 +207,13 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 | Article | Topic |
 |---------|-------|
-| [02.00 Naming Conventions](03.00-tech/05.02-prompt-engineering/02-getting-started/02.00-how_to_name_and_organize_prompt_files.md) | File and folder organization |
-| [03.00 Prompt Structure](03.00-tech/05.02-prompt-engineering/04-howto/03.00-how_to_structure_content_for_copilot_prompt_files.md) | YAML frontmatter and sections |
-| [04.00 Agent Structure](03.00-tech/05.02-prompt-engineering/04-howto/04.00-how_to_structure_content_for_copilot_agent_files.md) | Personas, handoffs, boundaries |
-| [05.00 Instruction Structure](03.00-tech/05.02-prompt-engineering/04-howto/05.00-how_to_structure_content_for_copilot_instruction_files.md) | Path-specific instructions |
-| [06.00 Skills Structure](03.00-tech/05.02-prompt-engineering/04-howto/06.00-how_to_structure_content_for_copilot_skills.md) | Agent skills (SKILL.md files) |
-| [07.00 MCP Servers](03.00-tech/05.02-prompt-engineering/04-howto/07.00-how_to_create_mcp_servers_for_copilot.md) | Model Context Protocol servers |
-| [20-21 Multi-Agent Example](03.00-tech/05.02-prompt-engineering/05-analysis/20-how_to_create_a_prompt_interacting_with_agents.md) | Real-world multi-agent workflow |
+| [02.00 Naming Conventions](03.00-tech/05.02-prompt-engineering/02-getting-started/02.00-how-to-name-and-organize-prompt-files.md) | File and folder organization |
+| [03.00 Prompt Structure](03.00-tech/05.02-prompt-engineering/04-howto/03.00-how-to-structure-content-for-copilot-prompt-files.md) | YAML frontmatter and sections |
+| [04.00 Agent Structure](03.00-tech/05.02-prompt-engineering/04-howto/04.00-how-to-structure-content-for-copilot-agent-files.md) | Personas, handoffs, boundaries |
+| [05.00 Instruction Structure](03.00-tech/05.02-prompt-engineering/04-howto/05.00-how-to-structure-content-for-copilot-instruction-files.md) | Path-specific instructions |
+| [06.00 Skills Structure](03.00-tech/05.02-prompt-engineering/04-howto/06.00-how-to-structure-content-for-copilot-skills.md) | Agent skills (SKILL.md files) |
+| [07.00 MCP Servers](03.00-tech/05.02-prompt-engineering/04-howto/07.00-how-to-create-mcp-servers-for-copilot.md) | Model Context Protocol servers |
+| [20-21 Multi-Agent Example](03.00-tech/05.02-prompt-engineering/05-analysis/20-how-to-create-a-prompt-interacting-with-agents.md) | Real-world multi-agent workflow |
 | [22 Documentation Site](03.00-tech/05.02-prompt-engineering/05-analysis/22-prompts-and-markdown-structure-for-a-documentation-site.md) | Repository-specific patterns |
 
 ### Templates
@@ -333,7 +333,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 → [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md)
 
 **I want to develop IQPilot:**
-→ [src/IQPilot/README.md](src/IQPilot/README.md)
+→ [src/IQPilot/readme.md](src/IQPilot/readme.md)
 
 **I want to configure settings:**
 → [.vscode/settings.json](.vscode/settings.json)
@@ -348,7 +348,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 
 **Developer:**
 1. [06.00-idea/iqpilot/03-iqpilot-implementation-details.md](06.00-idea/iqpilot/03-iqpilot-implementation-details.md) - Architecture
-2. [src/IQPilot/README.md](src/IQPilot/README.md) - Technical details
+2. [src/IQPilot/readme.md](src/IQPilot/readme.md) - Technical details
 3. [.vscode/tasks.json](.vscode/tasks.json) - Build tasks
 4. [.vscode/launch.json](.vscode/launch.json) - Debug configs
 
@@ -362,7 +362,7 @@ Complete guide to prompt, agent, and context engineering in this repository.
 **Markdown Documentation:**
 - All `.md` files in root directory
 - `.copilot/context/*.md`
-- `src/IQPilot/README.md`, `src/IQPilot/README.IQPilot.md`
+- `src/IQPilot/readme.md`, `src/IQPilot/README.IQPilot.md`
 
 **YAML Configuration:**
 - `.github/templates/metadata-template.yml`

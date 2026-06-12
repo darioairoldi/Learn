@@ -12,6 +12,8 @@
 
 **Link:** [Microsoft Build 2025 Session STUDIO14](https://build.microsoft.com/en-US/sessions/STUDIO14)
 
+![Agents AI and Azure AI Foundry](images/session-banner.png)
+
 ---
 
 ## Table of Contents

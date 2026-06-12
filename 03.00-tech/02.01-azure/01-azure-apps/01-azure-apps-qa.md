@@ -91,9 +91,9 @@ You can add a sidecar container through the Deployment Center in the app's manag
 
 The following table highlights the differences between the two automatic scaling options:
 
-![alt text](<images/01. autoscaling options.png>)
+![alt text](<images/01.-autoscaling-options.png>)
 
 ## Q. Slot specific settings
 what settings are slot specific in Azure Web Apps?
 
-![alt text](<images/02.slotspecific settings.png>)
+![alt text](<images/02.slotspecific-settings.png>)

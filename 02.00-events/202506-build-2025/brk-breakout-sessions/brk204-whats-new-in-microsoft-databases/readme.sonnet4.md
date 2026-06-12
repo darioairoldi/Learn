@@ -6,7 +6,7 @@
 **Speakers:** Arun Ulag (CVP Azure Data Team, Microsoft), Shireesh Thota (CVP Azure Databases, Microsoft), Priya Sathy (Partner Director of Product SQL, Microsoft), Charles Feddersen (Partner Director of Program Management, Microsoft), Kirill Gavrylyuk (VP Azure Cosmos DB, Microsoft), Genis Campa (Head of Data Innovation, NTT Data)  
 **Link:** [Microsoft Build 2025 Session BRK204](https://mybuild.microsoft.com/sessions/BRK204)
 
-![Microsoft Database Portfolio](images/microsoft-databases-ai.png)
+![Whats New in Microsoft Databases](images/session-banner.png)
 
 ---
 

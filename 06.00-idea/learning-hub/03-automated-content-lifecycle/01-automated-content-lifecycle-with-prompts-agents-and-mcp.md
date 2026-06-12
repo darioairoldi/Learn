@@ -42,8 +42,8 @@ This document proposes a layered automation architecture that uses GitHub Copilo
 ### Prerequisites
 
 - Familiarity with the [Learning Hub documentation taxonomy](../02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md)
-- Understanding of [GitHub Copilot customization](../../03.00-tech/05.02-prompt-engineering/01-overview/01.00-the_github_copilot_customization_stack.md) (prompts, agents, MCP)
-- Access to the repository's [IQPilot MCP server](../../src/IQPilot/README.md)
+- Understanding of [GitHub Copilot customization](../../03.00-tech/05.02-prompt-engineering/01-overview/01.00-the-github-copilot-customization-stack.md) (prompts, agents, MCP)
+- Access to the repository's [IQPilot MCP server](../../src/IQPilot/readme.md)
 
 ---
 
@@ -134,7 +134,7 @@ article_metadata:
       - "MCP server configuration"
   audience: "intermediate"                  # beginner | intermediate | advanced
   prerequisites:
-    - article: "01.00-how_github_copilot_uses_markdown_and_prompt_folders.md"
+    - article: "01.00-how-github-copilot-uses-markdown-and-prompt-folders.md"
       reason: "Assumes understanding of prompt file basics"
 
   # --- Dependencies (what makes this stale?) ---
@@ -303,14 +303,14 @@ subject:
     getting-started:
       status: published
       articles:
-        - path: "02-getting-started/01.00-how_github_copilot_uses_markdown_and_prompt_folders.md"
+        - path: "02-getting-started/01.00-how-github-copilot-uses-markdown-and-prompt-folders.md"
     concepts:
       status: planned
       articles: []
     howto:
       status: published
       articles:
-        - path: "02.00-how_to_name_and_organize_prompt_files.md"
+        - path: "02.00-how-to-name-and-organize-prompt-files.md"
         - path: "03.00-how_to_write_effective_copilot_instructions.md"
         # ... all how-to articles
     analysis:
@@ -1697,10 +1697,10 @@ Core transformation principles—information-centric, structured knowledge devel
 **[Using Learning Hub for learning technologies](../01-learning-hub-overview/02-using-learning-hub-for-learning-technologies.md)** [Internal Reference]
 Monitoring sources, scheduled prompts, and technology radar implementation. The freshness monitoring agent builds on this document's intelligence sources.
 
-**[IQPilot MCP server](../../src/IQPilot/README.md)** [Internal Reference]
+**[IQPilot MCP server](../../src/IQPilot/readme.md)** [Internal Reference]
 Technical documentation for the existing MCP server. New taxonomy-related tools extend the existing tool categories.
 
-**[Prompt engineering series](../../03.00-tech/05.02-prompt-engineering/ROADMAP.md)** [Internal Reference]
+**[Prompt engineering series](../../03.00-tech/05.02-prompt-engineering/roadmap.md)** [Internal Reference]
 The series whose review generated the practical lessons informing this architecture.
 
 ### GitHub Copilot customization
@@ -1754,7 +1754,7 @@ article_metadata:
   related:
     - "../01-learning-hub-overview/01-learning-hub-introduction.md"
     - "../02-documentation-taxonomy/01-learning-hub-documentation-taxonomy.md"
-    - "../../src/IQPilot/README.md"
+    - "../../src/IQPilot/readme.md"
 
   # --- Revalidation ---
   revalidation:

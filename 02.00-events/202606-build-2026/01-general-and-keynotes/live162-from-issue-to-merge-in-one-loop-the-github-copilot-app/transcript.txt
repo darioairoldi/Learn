@@ -1,0 +1,1785 @@
+WEBVTT
+
+00:00:00.510 --> 00:00:08.700
+[ Music ]
+
+00:00:08.700 --> 00:00:09.510
+BURKE HOLLAND: Hey.
+
+00:00:09.510 --> 00:00:10.590
+All right, welcome bank.
+
+00:00:10.590 --> 00:00:12.510
+SETH JUAREZ: They're
+like "Hurry up Burke.
+
+00:00:12.510 --> 00:00:14.460
+Okay? We're doing a show here."
+
+00:00:14.460 --> 00:00:15.540
+BURKE HOLLAND: Tom
+is so mean to me.
+
+00:00:15.540 --> 00:00:16.380
+It's like we're going.
+
+00:00:16.380 --> 00:00:17.190
+Go. Do it now.
+
+00:00:17.190 --> 00:00:18.150
+Go.
+
+00:00:18.150 --> 00:00:19.200
+SETH JUAREZ: We're
+doing it live.
+
+00:00:19.200 --> 00:00:20.130
+BURKE HOLLAND: We're live.
+
+00:00:20.130 --> 00:00:21.900
+Hey, everybody, what's up?
+
+00:00:21.900 --> 00:00:24.000
+Welcome back.
+
+00:00:24.000 --> 00:00:24.870
+Where is lunch?
+
+00:00:24.870 --> 00:00:27.060
+SETH JUAREZ: I was
+asking the same thing.
+
+00:00:27.060 --> 00:00:29.400
+I got a stale donut
+back there for you.
+
+00:00:29.400 --> 00:00:30.750
+I bit a little bit off of it.
+
+00:00:30.750 --> 00:00:31.590
+Are you okay with having --
+
+00:00:31.590 --> 00:00:32.340
+BURKE HOLLAND: Yeah,
+that's fine as long
+
+00:00:32.340 --> 00:00:33.360
+as you softened up that --
+
+00:00:33.360 --> 00:00:33.960
+SETH JUAREZ: I sure did.
+
+00:00:33.960 --> 00:00:34.860
+I licked the whole thing.
+
+00:00:34.860 --> 00:00:35.490
+It's ready to go.
+
+00:00:35.490 --> 00:00:35.510
+BURKE HOLLAND: Perfect.
+
+00:00:35.510 --> 00:00:36.630
+It's disgusting.
+
+00:00:36.630 --> 00:00:38.340
+How is everyone?
+
+00:00:38.340 --> 00:00:40.530
+Yeah? Having a good time?
+
+00:00:40.530 --> 00:00:42.960
+Really? All right, there we go.
+
+00:00:42.960 --> 00:00:44.880
+What are we doing tonight?
+
+00:00:44.880 --> 00:00:46.200
+SETH JUAREZ: Can we come?
+
+00:00:46.200 --> 00:00:46.650
+BURKE HOLLAND: Yeah.
+
+00:00:46.650 --> 00:00:48.420
+SETH JUAREZ: I mean
+we have no plans.
+
+00:00:48.420 --> 00:00:49.830
+Seriously, we have no plans.
+
+00:00:49.830 --> 00:00:51.030
+BURKE HOLLAND: No one has
+invited us to anything.
+
+00:00:51.030 --> 00:00:51.420
+SETH JUAREZ: They don't
+invite us to things.
+
+00:00:51.420 --> 00:00:52.260
+BURKE HOLLAND: It's
+not even a joke.
+
+00:00:52.260 --> 00:00:52.710
+SETH JUAREZ: No.
+
+00:00:52.710 --> 00:00:53.190
+BURKE HOLLAND:
+Somebody was like,
+
+00:00:53.190 --> 00:00:54.750
+there's an OpenClaw
+meetup at GitHub.
+
+00:00:54.750 --> 00:00:55.680
+And I was like, "Can I go?"
+
+00:00:55.680 --> 00:00:57.090
+And they said "No."
+
+00:00:57.090 --> 00:00:57.750
+Like, what the heck?
+
+00:00:57.750 --> 00:00:58.260
+SETH JUAREZ: Well, I know.
+
+00:00:58.260 --> 00:01:00.570
+I went to a thing the
+other day, MVP thing,
+
+00:01:00.570 --> 00:01:01.530
+and nobody invited me.
+
+00:01:01.530 --> 00:01:05.280
+And they had to write
+something on a name badge.
+
+00:01:05.280 --> 00:01:08.220
+Oh, yeah, you were supposed
+to be here the whole time.
+
+00:01:08.220 --> 00:01:08.610
+BURKE HOLLAND: Nice.
+
+00:01:08.610 --> 00:01:09.300
+Now they tell you.
+
+00:01:09.300 --> 00:01:10.680
+Okay, Seth.
+
+00:01:10.680 --> 00:01:12.330
+SETH JUAREZ: Yes.
+
+00:01:12.330 --> 00:01:14.070
+We have official business
+to get done here.
+
+00:01:14.070 --> 00:01:15.000
+BURKE HOLLAND: I
+have talking points.
+
+00:01:15.000 --> 00:01:16.230
+SETH JUAREZ: Yeah.
+
+00:01:16.230 --> 00:01:19.020
+BURKE HOLLAND: We've been
+talking agents all day.
+
+00:01:19.020 --> 00:01:22.380
+Here is the surface --
+
+00:01:22.380 --> 00:01:23.910
+Let's talk about the
+GitHub Copilot app.
+
+00:01:23.910 --> 00:01:25.980
+SETH JUAREZ: Agents are great.
+
+00:01:25.980 --> 00:01:27.240
+Wait, I thought we were doing --
+
+00:01:27.240 --> 00:01:29.250
+BURKE HOLLAND: I love AI.
+
+00:01:29.250 --> 00:01:31.890
+SETH JUAREZ: But workflow
+is scattered across --
+
+00:01:31.890 --> 00:01:34.560
+By the way, this is weird
+because I usually do interviews,
+
+00:01:34.560 --> 00:01:35.640
+but he's interviewing me.
+
+00:01:35.640 --> 00:01:38.010
+And so it's like the
+Spider-Man meme right now.
+
+00:01:38.010 --> 00:01:38.790
+BURKE HOLLAND: We're
+pointing at each other.
+
+00:01:38.790 --> 00:01:39.570
+Yeah, exactly.
+
+00:01:39.570 --> 00:01:39.960
+SETH JUAREZ: That's right.
+
+00:01:39.960 --> 00:01:42.360
+BURKE HOLLAND: Well, we're
+going to have to figure
+
+00:01:42.360 --> 00:01:43.170
+out how to make this work.
+
+00:01:43.170 --> 00:01:44.550
+It's going to be a
+disaster, start to finish.
+
+00:01:44.550 --> 00:01:47.460
+But we're talking about
+the GitHub Copilot app.
+
+00:01:47.460 --> 00:01:48.030
+SETH JUAREZ: Yes.
+
+00:01:48.030 --> 00:01:51.060
+BURKE HOLLAND: Which is,
+because I know what you need,
+
+00:01:51.060 --> 00:01:54.630
+is another app with which
+to do agentic coding.
+
+00:01:54.630 --> 00:01:57.420
+And you're in luck because
+we've got one for you.
+
+00:01:57.420 --> 00:01:57.870
+SETH JUAREZ: That's right.
+
+00:01:57.870 --> 00:01:58.830
+And now here's the
+thing, though.
+
+00:01:58.830 --> 00:02:00.150
+Here's the thing, though.
+
+00:02:00.150 --> 00:02:02.850
+Because I like to categorize
+things in my head
+
+00:02:02.850 --> 00:02:05.160
+so that I know where things fit.
+
+00:02:05.160 --> 00:02:07.020
+Because I have an OCD brain.
+
+00:02:07.020 --> 00:02:10.140
+I need to know where things
+fit, or I will not fall asleep.
+
+00:02:10.140 --> 00:02:10.290
+BURKE HOLLAND: Okay.
+
+00:02:10.290 --> 00:02:11.820
+SETH JUAREZ: So we have the CLI.
+
+00:02:11.820 --> 00:02:12.840
+BURKE HOLLAND: Yep.
+
+00:02:12.840 --> 00:02:15.450
+SETH JUAREZ: We have
+agents in VS Code.
+
+00:02:15.450 --> 00:02:16.020
+BURKE HOLLAND: Correct.
+
+00:02:16.020 --> 00:02:18.000
+SETH JUAREZ: Now we have
+the GitHub Copilot app.
+
+00:02:18.000 --> 00:02:19.830
+BURKE HOLLAND: Why do we
+have the GitHub Copilot app?
+
+00:02:19.830 --> 00:02:22.710
+SETH JUAREZ: And this is
+where I'm starting to think.
+
+00:02:22.710 --> 00:02:28.260
+It depends on where the
+code is in your workflow
+
+00:02:28.260 --> 00:02:31.950
+and where the projects are
+with respect to your workflow.
+
+00:02:31.950 --> 00:02:32.520
+Hear me out.
+
+00:02:32.520 --> 00:02:33.000
+BURKE HOLLAND: Okay.
+
+00:02:33.000 --> 00:02:35.460
+SETH JUAREZ: When you're
+in the CLI, you are zoned
+
+00:02:35.460 --> 00:02:38.240
+in on a very specific project,
+
+00:02:38.240 --> 00:02:41.120
+very specific task,
+nothing else.
+
+00:02:41.120 --> 00:02:41.960
+BURKE HOLLAND: Okay.
+
+00:02:41.960 --> 00:02:45.320
+SETH JUAREZ: And you are not
+necessarily super interested
+
+00:02:45.320 --> 00:02:48.390
+in seeing the code while
+you're doing work.
+
+00:02:48.390 --> 00:02:51.510
+You are interested
+perfunctorily, right?
+
+00:02:51.510 --> 00:02:52.170
+Is that a word?
+
+00:02:52.170 --> 00:02:52.440
+BURKE HOLLAND: Yeah.
+
+00:02:52.440 --> 00:02:54.990
+No, it is a word, but I'm
+not -- I'm a simple man.
+
+00:02:54.990 --> 00:02:57.000
+You're going to have
+to dial it back.
+
+00:02:57.000 --> 00:02:57.390
+SETH JUAREZ: I know.
+
+00:02:57.390 --> 00:03:01.620
+Okay. So I am not -- I don't
+even know how to say it.
+
+00:03:01.620 --> 00:03:02.160
+BURKE HOLLAND: Otherwise, sorry.
+
+00:03:02.160 --> 00:03:02.640
+SETH JUAREZ: I'm not interested
+
+00:03:02.640 --> 00:03:03.600
+in looking at the code.
+
+00:03:03.600 --> 00:03:06.300
+BURKE HOLLAND: What is another
+word for perfunctorily?
+
+00:03:06.300 --> 00:03:07.140
+SETH JUAREZ: I don't
+think I used it wrong.
+
+00:03:07.140 --> 00:03:07.410
+Everyone is --
+
+00:03:07.410 --> 00:03:08.400
+BURKE HOLLAND: I can't
+even think anymore.
+
+00:03:08.400 --> 00:03:09.180
+Anyway.
+
+00:03:09.180 --> 00:03:10.380
+SETH JUAREZ: Use the
+CLI for this one
+
+00:03:10.380 --> 00:03:12.420
+because you're not
+looking at code.
+
+00:03:12.420 --> 00:03:13.980
+You're focused in.
+
+00:03:13.980 --> 00:03:14.880
+So that's CLI.
+
+00:03:14.880 --> 00:03:17.100
+When you're inside of
+Visual Studio Code,
+
+00:03:17.100 --> 00:03:20.790
+you might be working on
+something in a specific project,
+
+00:03:20.790 --> 00:03:23.250
+but you're very concerned
+about, for example,
+
+00:03:23.250 --> 00:03:24.240
+you're building an SDK,
+
+00:03:24.240 --> 00:03:26.130
+and you're very concerned
+about API shape.
+
+00:03:26.130 --> 00:03:28.080
+You want to see the code
+that's being put out.
+
+00:03:28.080 --> 00:03:30.330
+You're working with the
+files and looking at it.
+
+00:03:30.330 --> 00:03:32.610
+Notice that that's
+one click stop up.
+
+00:03:32.610 --> 00:03:34.500
+Because when you're in the
+CLI, you're literally looking
+
+00:03:34.500 --> 00:03:36.600
+at I'm going to solve
+this thing and do it,
+
+00:03:36.600 --> 00:03:37.560
+but I'm not looking at the code.
+
+00:03:37.560 --> 00:03:39.150
+And if you are, it's
+somewhere else.
+
+00:03:39.150 --> 00:03:42.480
+In VS Code, same agentic
+harness, but you're looking
+
+00:03:42.480 --> 00:03:44.070
+at the code that's going on.
+
+00:03:44.070 --> 00:03:48.090
+The Copilot app is a click
+stop up from that because
+
+00:03:48.090 --> 00:03:51.180
+that is multiple projects
+at the same time.
+
+00:03:51.180 --> 00:03:53.190
+You see? So if you're working
+on a lot of things at once,
+
+00:03:53.190 --> 00:03:54.270
+like you're starting your day,
+
+00:03:54.270 --> 00:03:56.490
+you might have five
+or six projects.
+
+00:03:56.490 --> 00:03:59.430
+GitHub Copilot app, start your
+day, see what's going on.
+
+00:03:59.430 --> 00:04:02.760
+If you can go to my screen here,
+you can see I have a home thing.
+
+00:04:02.760 --> 00:04:03.810
+I have what am I working on,
+
+00:04:03.810 --> 00:04:05.940
+"Add fetch-first
+guidance for WorkIQ."
+
+00:04:05.940 --> 00:04:07.410
+You can see your
+particular work.
+
+00:04:07.410 --> 00:04:11.160
+Oh, I have a lot of security
+things I need to do.
+
+00:04:11.160 --> 00:04:11.490
+BURKE HOLLAND: Yeah.
+
+00:04:11.490 --> 00:04:13.350
+Hey, take care of
+the Dependabot.
+
+00:04:13.350 --> 00:04:13.950
+SETH JUAREZ: Uh-oh.
+
+00:04:13.950 --> 00:04:14.940
+Dependabot.
+
+00:04:14.940 --> 00:04:17.580
+Notice that this is now
+zoomed out from the --
+
+00:04:17.580 --> 00:04:19.200
+I'm super laser-focused
+on a project.
+
+00:04:19.200 --> 00:04:20.280
+Not looking at code.
+
+00:04:20.280 --> 00:04:22.110
+I'm super laser-focused
+on a project.
+
+00:04:22.110 --> 00:04:23.490
+BURKE HOLLAND: And you're
+like at the repo level.
+
+00:04:23.490 --> 00:04:25.650
+SETH JUAREZ: I'm at the
+repo, multiple repo levels.
+
+00:04:25.650 --> 00:04:26.970
+So that's how I like
+to think about it.
+
+00:04:26.970 --> 00:04:27.630
+What do you think about it?
+
+00:04:27.630 --> 00:04:28.110
+What do you do?
+
+00:04:28.110 --> 00:04:32.600
+BURKE HOLLAND: Well, I want
+to hear more about it.
+
+00:04:32.600 --> 00:04:35.390
+Why is it that we would
+want to have this view
+
+00:04:35.390 --> 00:04:37.230
+of the world other than --
+
+00:04:37.230 --> 00:04:39.540
+Because it seems to me like what
+you're describing is if I'm
+
+00:04:39.540 --> 00:04:40.950
+in VS Code on a project,
+
+00:04:40.950 --> 00:04:42.690
+it's like a bottom-up
+view of the world.
+
+00:04:42.690 --> 00:04:44.100
+And this is like
+a top-down view.
+
+00:04:44.100 --> 00:04:44.760
+SETH JUAREZ: Yeah.
+
+00:04:44.760 --> 00:04:46.290
+And here's the thing.
+
+00:04:46.290 --> 00:04:48.570
+And this is the part
+everyone is like,
+
+00:04:48.570 --> 00:04:50.790
+the cost of code is
+now zero, and tokens,
+
+00:04:50.790 --> 00:04:52.110
+it's the cost of tokens.
+
+00:04:52.110 --> 00:04:54.630
+But the reality was, and here's
+the secret, and I'll tell you,
+
+00:04:54.630 --> 00:04:57.030
+make sure I'll whisper it
+because I don't want anyone else
+
+00:04:57.030 --> 00:05:00.800
+to know, code was always
+the easiest part.
+
+00:05:00.800 --> 00:05:02.060
+BURKE HOLLAND: Yes, that
+has always been true.
+
+00:05:02.060 --> 00:05:03.950
+I would agree.
+
+00:05:03.950 --> 00:05:08.390
+SETH JUAREZ: When you're
+pen to code -- Pen to --
+
+00:05:08.390 --> 00:05:09.080
+BURKE HOLLAND: Keyboard to --
+
+00:05:09.080 --> 00:05:11.210
+SETH JUAREZ: Keyboard to pencil.
+
+00:05:11.210 --> 00:05:14.750
+When you're doing the code --
+when you're doing the code,
+
+00:05:14.750 --> 00:05:17.190
+you have already thought
+everything through.
+
+00:05:17.190 --> 00:05:18.720
+There's nothing else
+to think about.
+
+00:05:18.720 --> 00:05:20.310
+You're writing it, and
+then as you're going,
+
+00:05:20.310 --> 00:05:22.110
+you're thinking about,
+oh, this isn't working.
+
+00:05:22.110 --> 00:05:22.830
+BURKE HOLLAND:
+Well, you're coding
+
+00:05:22.830 --> 00:05:24.120
+and thinking as you go, right?
+
+00:05:24.120 --> 00:05:27.360
+SETH JUAREZ: Yeah, but the
+higher level of what I'm trying
+
+00:05:27.360 --> 00:05:29.650
+to accomplish is over.
+
+00:05:30.720 --> 00:05:32.250
+Because you're writing --
+I'll give you an example.
+
+00:05:32.250 --> 00:05:33.030
+I'll give you an example.
+
+00:05:33.030 --> 00:05:35.730
+I'm writing a website, and
+I need a Submit button
+
+00:05:35.730 --> 00:05:37.740
+to launch something
+into outer space.
+
+00:05:37.740 --> 00:05:39.150
+It's super easy.
+
+00:05:39.150 --> 00:05:41.370
+When you're doing that, you
+already know all the systems
+
+00:05:41.370 --> 00:05:42.600
+that you're going
+to integrate with.
+
+00:05:42.600 --> 00:05:44.220
+You already know that there's
+going to be a button.
+
+00:05:44.220 --> 00:05:45.960
+You already know that you're
+going to need a long command.
+
+00:05:45.960 --> 00:05:46.950
+BURKE HOLLAND: Yeah.
+
+00:05:46.950 --> 00:05:49.350
+SETH JUAREZ: It's like
+you already know most
+
+00:05:49.350 --> 00:05:50.490
+of what's going on.
+
+00:05:50.490 --> 00:05:54.300
+And you're at the last mile
+of the work of putting
+
+00:05:54.300 --> 00:05:56.010
+from keyboard to code.
+
+00:05:56.010 --> 00:05:56.310
+BURKE HOLLAND: Okay.
+
+00:05:56.310 --> 00:05:57.390
+SETH JUAREZ: And
+that's the thing.
+
+00:05:57.390 --> 00:06:00.750
+But the real work happens when
+you're trying to decide what
+
+00:06:00.750 --> 00:06:04.890
+to do and when to do it
+and what it belongs to.
+
+00:06:04.890 --> 00:06:05.310
+BURKE HOLLAND: Okay.
+
+00:06:05.310 --> 00:06:05.880
+SETH JUAREZ: And that's
+
+00:06:05.880 --> 00:06:07.800
+where the GitHub
+Copilot app is awesome
+
+00:06:07.800 --> 00:06:11.130
+because you start your day, and
+I'm like, oh, let's go back
+
+00:06:11.130 --> 00:06:12.450
+to my screen here, I have a lot
+
+00:06:12.450 --> 00:06:14.760
+of stuff I need to
+have my agent do.
+
+00:06:14.760 --> 00:06:15.930
+There's a lot of stuff
+that I need to figure out.
+
+00:06:15.930 --> 00:06:17.490
+It looks like I have
+some releases here.
+
+00:06:17.490 --> 00:06:19.740
+It looks like I need to
+do some other stuff,
+
+00:06:19.740 --> 00:06:21.810
+sketch edits, or whatever.
+
+00:06:21.810 --> 00:06:24.990
+I have a holistic view of what's
+going on, and then I can start
+
+00:06:24.990 --> 00:06:26.220
+to zoom in with the
+GitHub Copilot.
+
+00:06:26.220 --> 00:06:26.430
+BURKE HOLLAND: Now,
+
+00:06:26.430 --> 00:06:28.950
+that's just the projects
+that you have loaded.
+
+00:06:28.950 --> 00:06:30.510
+Right. But this is the
+other thing I like is
+
+00:06:30.510 --> 00:06:33.960
+because on GitHub,
+you see everything.
+
+00:06:33.960 --> 00:06:34.200
+SETH JUAREZ: Yes.
+
+00:06:34.200 --> 00:06:37.050
+BURKE HOLLAND: And in here,
+it's just this stuff.
+
+00:06:37.050 --> 00:06:37.260
+SETH JUAREZ: Correct.
+
+00:06:37.260 --> 00:06:39.300
+BURKE HOLLAND: This subset,
+just what I'm working on.
+
+00:06:39.300 --> 00:06:40.410
+I like that a lot.
+
+00:06:40.410 --> 00:06:42.030
+I don't know about everybody
+else, but when it comes
+
+00:06:42.030 --> 00:06:43.770
+to GitHub notifications,
+I go in there,
+
+00:06:43.770 --> 00:06:45.120
+and I look, and I'm like, nope.
+
+00:06:45.120 --> 00:06:45.510
+SETH JUAREZ: Nope.
+
+00:06:45.510 --> 00:06:47.340
+BURKE HOLLAND: I go
+right back out again.
+
+00:06:47.340 --> 00:06:49.650
+SETH JUAREZ: No, because
+I have so many projects
+
+00:06:49.650 --> 00:06:52.380
+that I don't even look at
+-- You know how there's --
+
+00:06:52.380 --> 00:06:53.910
+I don't know what
+that view is on.com
+
+00:06:53.910 --> 00:06:55.350
+where it's all the things.
+
+00:06:55.350 --> 00:06:55.950
+BURKE HOLLAND: It's everything.
+
+00:06:55.950 --> 00:06:57.780
+It's literally everything.
+
+00:06:57.780 --> 00:06:59.040
+SETH JUAREZ: But this
+is not everything.
+
+00:06:59.040 --> 00:07:00.810
+This is what I have to do now.
+
+00:07:00.810 --> 00:07:02.250
+So this is the project level.
+
+00:07:02.250 --> 00:07:04.680
+But the cool thing about the
+GitHub Copilot app is it allows
+
+00:07:04.680 --> 00:07:07.950
+you to start at the holistic
+level, decide what to do.
+
+00:07:07.950 --> 00:07:08.940
+And then when you go --
+
+00:07:08.940 --> 00:07:09.750
+For example, I was trying
+
+00:07:09.750 --> 00:07:12.900
+to get some Foundry
+local stuff to work.
+
+00:07:12.900 --> 00:07:14.370
+Notice that in Quick chats,
+
+00:07:14.370 --> 00:07:17.910
+this Quick chat thing
+is not in a project.
+
+00:07:17.910 --> 00:07:18.480
+BURKE HOLLAND: Yes.
+
+00:07:18.480 --> 00:07:21.570
+SETH JUAREZ: It's me
+ideating about work.
+
+00:07:21.570 --> 00:07:22.020
+BURKE HOLLAND: Yes.
+
+00:07:22.020 --> 00:07:23.550
+SETH JUAREZ: And so
+notice that that, again,
+
+00:07:23.550 --> 00:07:26.040
+is outside of a single project.
+
+00:07:26.040 --> 00:07:27.810
+Not the holistic view of life.
+
+00:07:27.810 --> 00:07:31.020
+But maybe I'm trying to think
+about a thing to do a thing.
+
+00:07:31.020 --> 00:07:31.860
+BURKE HOLLAND:
+That is super nice
+
+00:07:31.860 --> 00:07:33.660
+because it can't touch
+any of your files.
+
+00:07:33.660 --> 00:07:33.930
+SETH JUAREZ: No.
+
+00:07:33.930 --> 00:07:35.430
+BURKE HOLLAND: Because a lot
+of times I'll ask a question
+
+00:07:35.430 --> 00:07:36.990
+in the AI will be like,
+oh, yeah, it's this.
+
+00:07:36.990 --> 00:07:38.340
+I went ahead and
+made that change.
+
+00:07:38.340 --> 00:07:39.930
+No. I just wanted to know.
+
+00:07:39.930 --> 00:07:40.020
+SETH JUAREZ: Ah!
+
+00:07:40.020 --> 00:07:40.230
+Yeah.
+
+00:07:40.230 --> 00:07:41.640
+BURKE HOLLAND: I didn't want
+you to actually do anything.
+
+00:07:41.640 --> 00:07:42.180
+SETH JUAREZ: Yeah.
+
+00:07:42.180 --> 00:07:44.760
+And not only that, but this
+can span multiple projects.
+
+00:07:44.760 --> 00:07:48.240
+For example, I work on
+a lot of side apps now
+
+00:07:48.240 --> 00:07:50.430
+that help me do presentations.
+
+00:07:50.430 --> 00:07:51.720
+I built something
+called Cut Ready.
+
+00:07:51.720 --> 00:07:52.320
+BURKE HOLLAND: I've used one.
+
+00:07:52.320 --> 00:07:52.590
+Yes.
+
+00:07:52.590 --> 00:07:53.910
+SETH JUAREZ: I built
+something called Snipsy
+
+00:07:53.910 --> 00:07:55.170
+to help me hotkey.
+
+00:07:55.170 --> 00:07:57.390
+I built something called
+Elucim to help me show.
+
+00:07:57.390 --> 00:07:57.900
+BURKE HOLLAND: You
+built something
+
+00:07:57.900 --> 00:07:58.890
+to help you name things.
+
+00:07:58.890 --> 00:07:59.400
+SETH JUAREZ: Yeah.
+
+00:07:59.400 --> 00:08:02.430
+Those names are
+delightful, like CutReady.
+
+00:08:02.430 --> 00:08:03.510
+Doesn't that sound like a thing?
+
+00:08:03.510 --> 00:08:04.050
+BURKE HOLLAND: Amazing.
+
+00:08:04.050 --> 00:08:04.620
+SETH JUAREZ: Or Snipsy.
+
+00:08:04.620 --> 00:08:05.640
+BURKE HOLLAND:
+Obviously, AI-generated.
+
+00:08:05.640 --> 00:08:07.170
+SETH JUAREZ: But the thing
+about -- Yeah, for sure.
+
+00:08:07.170 --> 00:08:09.810
+But the thing about it is
+they're all Tauri apps.
+
+00:08:09.810 --> 00:08:10.290
+Is that how you say it?
+
+00:08:10.290 --> 00:08:11.610
+Tauri? How do you call it?
+
+00:08:11.610 --> 00:08:13.740
+BURKE HOLLAND: You've got to
+stop using these words, bro.
+
+00:08:13.740 --> 00:08:15.030
+SETH JUAREZ: No, Tauri
+is a real thing.
+
+00:08:15.030 --> 00:08:15.660
+BURKE HOLLAND: Tauri?
+
+00:08:15.660 --> 00:08:16.350
+SETH JUAREZ: Yes.
+
+00:08:16.350 --> 00:08:17.820
+T-A-U-R-I.
+
+00:08:17.820 --> 00:08:19.470
+BURKE HOLLAND: Has
+anybody heard that word?
+
+00:08:19.470 --> 00:08:20.820
+Raise your hand if
+you've heard that word.
+
+00:08:20.820 --> 00:08:21.330
+SETH JUAREZ: Come on.
+
+00:08:21.330 --> 00:08:22.440
+BURKE HOLLAND: No
+one has heard that.
+
+00:08:22.440 --> 00:08:26.190
+You just made that up in
+front of all these people.
+
+00:08:26.190 --> 00:08:27.420
+SETH JUAREZ: Tauri.
+
+00:08:27.420 --> 00:08:29.400
+Here. This thing right here.
+
+00:08:29.400 --> 00:08:30.600
+BURKE HOLLAND: Tauri.
+
+00:08:30.600 --> 00:08:31.740
+SETH JUAREZ: Did
+I call it wrong?
+
+00:08:31.740 --> 00:08:32.310
+BURKE HOLLAND: Yes.
+
+00:08:32.310 --> 00:08:32.970
+SETH JUAREZ: What's it called?
+
+00:08:32.970 --> 00:08:34.200
+BURKE HOLLAND: Tauri.
+
+00:08:34.200 --> 00:08:35.010
+SETH JUAREZ: I'm showing
+
+00:08:35.010 --> 00:08:37.050
+up at a party saying a
+thing wrong, like an idiot.
+
+00:08:37.050 --> 00:08:37.890
+BURKE HOLLAND: Well, I
+didn't know you were talking
+
+00:08:37.890 --> 00:08:38.700
+about a technology.
+
+00:08:38.700 --> 00:08:39.990
+I thought it was like
+an English word.
+
+00:08:39.990 --> 00:08:40.920
+SETH JUAREZ: Oh, no, no, no.
+
+00:08:40.920 --> 00:08:41.190
+BURKE HOLLAND: Okay.
+
+00:08:41.190 --> 00:08:42.420
+SETH JUAREZ: This thing.
+
+00:08:42.420 --> 00:08:42.750
+BURKE HOLLAND: Tauri.
+
+00:08:42.750 --> 00:08:42.760
+Tauri.
+
+00:08:42.760 --> 00:08:42.930
+SETH JUAREZ: This
+is cool, right?
+
+00:08:42.930 --> 00:08:45.870
+Because this is like an
+electron super-thin web view
+
+00:08:45.870 --> 00:08:47.580
+with Rust in the backend.
+
+00:08:47.580 --> 00:08:48.360
+And all of my clients --
+
+00:08:48.360 --> 00:08:49.080
+BURKE HOLLAND:
+Wait, what is this?
+
+00:08:49.080 --> 00:08:50.460
+This is what you're building on?
+
+00:08:50.460 --> 00:08:51.060
+SETH JUAREZ: That's
+what I'm building on.
+
+00:08:51.060 --> 00:08:51.570
+BURKE HOLLAND: Okay.
+
+00:08:51.570 --> 00:08:53.940
+SETH JUAREZ: And so as I'm
+building these things,
+
+00:08:53.940 --> 00:08:56.880
+I've noticed that there's
+shared infrastructure
+
+00:08:56.880 --> 00:08:58.560
+that I'm using
+across all my apps.
+
+00:08:58.560 --> 00:09:00.180
+And so, for example,
+in the GitHub app,
+
+00:09:00.180 --> 00:09:02.400
+I can start to ideate
+in Quick chats.
+
+00:09:02.400 --> 00:09:05.250
+Hold on. Several of my projects
+are using the same thing,
+
+00:09:05.250 --> 00:09:07.260
+and I find that we've
+written the same thing
+
+00:09:07.260 --> 00:09:08.250
+over and over again.
+
+00:09:08.250 --> 00:09:11.940
+Is there a way for us to
+put these things together?
+
+00:09:11.940 --> 00:09:14.850
+So, for example, agentive is
+the harness I use that I wrote
+
+00:09:14.850 --> 00:09:18.390
+in Rust to do agentic
+stuff in my Tauri.
+
+00:09:18.390 --> 00:09:19.110
+Tauri.
+
+00:09:19.110 --> 00:09:20.220
+BURKE HOLLAND: Tauri.
+
+00:09:20.220 --> 00:09:21.690
+SETH JUAREZ: This is
+where I do the ideation
+
+00:09:21.690 --> 00:09:22.770
+for this kind of thing.
+
+00:09:22.770 --> 00:09:24.780
+BURKE HOLLAND: Now, can you
+click into that for a second?
+
+00:09:24.780 --> 00:09:24.990
+SETH JUAREZ: Yeah.
+
+00:09:24.990 --> 00:09:27.390
+BURKE HOLLAND: Now, I did
+notice that in the Quick chat,
+
+00:09:27.390 --> 00:09:29.190
+so down there, you actually --
+
+00:09:29.190 --> 00:09:31.020
+So the other thing I like is
+I'm chatting, I'm chatting,
+
+00:09:31.020 --> 00:09:32.640
+and I'm like, okay, I
+actually want to do this.
+
+00:09:32.640 --> 00:09:34.650
+You can then pick the project.
+
+00:09:34.650 --> 00:09:36.960
+So if you go down, you can
+then attach the Quick chat
+
+00:09:36.960 --> 00:09:37.590
+session to.
+
+00:09:37.590 --> 00:09:37.980
+SETH JUAREZ: I didn't know that.
+
+00:09:37.980 --> 00:09:38.880
+Where is it?
+
+00:09:38.880 --> 00:09:39.420
+BURKE HOLLAND:
+Right next to you.
+
+00:09:39.420 --> 00:09:40.260
+It's right next to your cursor.
+
+00:09:40.260 --> 00:09:41.010
+Over. Right there.
+
+00:09:41.010 --> 00:09:44.310
+Boom. And you can just pick it
+and be like, okay, now go do it.
+
+00:09:44.310 --> 00:09:47.100
+So it's disconnected until
+you want it connected,
+
+00:09:47.100 --> 00:09:48.780
+and then it's there.
+
+00:09:48.780 --> 00:09:49.740
+SETH JUAREZ: It's disconnected
+
+00:09:49.740 --> 00:09:51.120
+until we're connected.
+
+00:09:51.120 --> 00:09:51.840
+BURKE HOLLAND: Until
+it's connected.
+
+00:09:51.840 --> 00:09:52.980
+SETH JUAREZ: Like our
+dinner plans tonight.
+
+00:09:52.980 --> 00:09:53.220
+BURKE HOLLAND: Right.
+
+00:09:53.220 --> 00:09:53.940
+We have none.
+
+00:09:53.940 --> 00:09:54.300
+SETH JUAREZ: None.
+
+00:09:54.300 --> 00:09:58.110
+We're disconnected
+until we're connected.
+
+00:09:58.110 --> 00:09:58.470
+BURKE HOLLAND: Right.
+
+00:09:58.470 --> 00:09:59.190
+With all these folks.
+
+00:09:59.190 --> 00:09:59.580
+SETH JUAREZ: Yeah.
+
+00:09:59.580 --> 00:10:02.280
+So this is a cool part -- this
+is a cool part about this.
+
+00:10:02.280 --> 00:10:05.730
+But then the last thing,
+with the GitHub Copilot app,
+
+00:10:05.730 --> 00:10:09.120
+is you can actually zoom
+in again and start to work
+
+00:10:09.120 --> 00:10:11.910
+on your own, for
+example, hey, resume.
+
+00:10:11.910 --> 00:10:16.470
+This is, Elucim is my program,
+my thing that's an agentic,
+
+00:10:16.470 --> 00:10:18.510
+draw stuff for me
+to explain stuff.
+
+00:10:18.510 --> 00:10:20.730
+I can actually go through
+and look at all the stuff
+
+00:10:20.730 --> 00:10:23.940
+that it's doing and then
+zoom into the exact changes.
+
+00:10:23.940 --> 00:10:25.890
+So notice that the
+Copilot app allows me
+
+00:10:25.890 --> 00:10:29.780
+to start holistically
+with my work.
+
+00:10:29.780 --> 00:10:32.600
+I can think about multiple
+projects at once.
+
+00:10:32.600 --> 00:10:34.850
+And then I can zoom
+into a single project.
+
+00:10:34.850 --> 00:10:36.920
+So this is why, these
+are all different apps,
+
+00:10:36.920 --> 00:10:39.380
+but they have different,
+for me, headspaces.
+
+00:10:39.380 --> 00:10:41.030
+So sometimes I'm
+in the CLI a lot.
+
+00:10:41.030 --> 00:10:43.550
+So, for example, here you can
+see I was doing some work
+
+00:10:43.550 --> 00:10:46.490
+with Elucim in the Copilot
+app and in VS Code
+
+00:10:46.490 --> 00:10:48.800
+because I was interested
+in the API shape.
+
+00:10:48.800 --> 00:10:51.230
+But then I could go over
+here and take a look at some
+
+00:10:51.230 --> 00:10:52.160
+of the changes that were there.
+
+00:10:52.160 --> 00:10:54.290
+So that's how I tend to
+navigate these things.
+
+00:10:54.290 --> 00:10:56.210
+BURKE HOLLAND: Now, Seth,
+let me tell you the thing
+
+00:10:56.210 --> 00:10:57.650
+that I love most about this app.
+
+00:10:57.650 --> 00:11:00.260
+This is the single best
+feature of any app ever.
+
+00:11:00.260 --> 00:11:01.130
+SETH JUAREZ: Is it Canvas?
+
+00:11:01.130 --> 00:11:01.580
+BURKE HOLLAND: No.
+
+00:11:01.580 --> 00:11:03.050
+SETH JUAREZ: Oh, I was
+going to show that next.
+
+00:11:03.050 --> 00:11:05.970
+BURKE HOLLAND: Whenever you
+start working on a new project,
+
+00:11:05.970 --> 00:11:08.460
+what do you got to do,
+like an existing project,
+
+00:11:08.460 --> 00:11:09.060
+what do you got to do?
+
+00:11:09.060 --> 00:11:09.990
+SETH JUAREZ: I got
+to get a drink.
+
+00:11:09.990 --> 00:11:10.440
+BURKE HOLLAND: No.
+
+00:11:10.440 --> 00:11:11.580
+SETH JUAREZ: Oh, sorry.
+
+00:11:11.580 --> 00:11:12.390
+BURKE HOLLAND: No.
+
+00:11:12.390 --> 00:11:13.110
+You go out.
+
+00:11:13.110 --> 00:11:14.670
+You get the URL.
+
+00:11:14.670 --> 00:11:15.570
+You clone it.
+
+00:11:15.570 --> 00:11:16.770
+You have to clone
+it to your machine,
+
+00:11:16.770 --> 00:11:18.300
+and then you have
+to open the editor.
+
+00:11:18.300 --> 00:11:20.130
+It's a whole thing, right?
+
+00:11:20.130 --> 00:11:24.000
+But go open it -- So find
+a new project to work on.
+
+00:11:24.000 --> 00:11:25.560
+This is such a simple thing,
+
+00:11:25.560 --> 00:11:27.120
+but this is the thing I
+find most compelling.
+
+00:11:27.120 --> 00:11:27.660
+SETH JUAREZ: My to-dos.
+
+00:11:27.660 --> 00:11:28.440
+BURKE HOLLAND: No, no, no.
+
+00:11:28.440 --> 00:11:29.610
+Go to GitHub.
+
+00:11:29.610 --> 00:11:31.200
+So pick one off GitHub.
+
+00:11:31.200 --> 00:11:32.070
+SETH JUAREZ: I did.
+
+00:11:32.070 --> 00:11:32.460
+BURKE HOLLAND: Did you?
+
+00:11:32.460 --> 00:11:33.090
+SETH JUAREZ: Yeah.
+
+00:11:33.090 --> 00:11:33.660
+Oh, no.
+
+00:11:33.660 --> 00:11:34.740
+BURKE HOLLAND: Go to
+GitHub repository, yeah,
+
+00:11:34.740 --> 00:11:36.090
+and just pick anything.
+
+00:11:36.090 --> 00:11:38.160
+So imagine you're starting
+work on a new project.
+
+00:11:38.160 --> 00:11:39.150
+SETH JUAREZ: Ooh,
+let's pull agentive.
+
+00:11:39.150 --> 00:11:40.200
+That's the thing I was
+just telling people.
+
+00:11:40.200 --> 00:11:40.470
+BURKE HOLLAND: Boom.
+
+00:11:40.470 --> 00:11:43.410
+And then it's just there, and
+you can just start working.
+
+00:11:43.410 --> 00:11:44.880
+There's no clone.
+
+00:11:44.880 --> 00:11:46.050
+There's no opening the editor.
+
+00:11:46.050 --> 00:11:46.560
+SETH JUAREZ: In a work tree.
+
+00:11:46.560 --> 00:11:48.060
+BURKE HOLLAND: In a work tree.
+
+00:11:48.060 --> 00:11:49.770
+I know it's a small thing.
+
+00:11:49.770 --> 00:11:53.610
+But this is the kind of stuff
+that really excites me.
+
+00:11:53.610 --> 00:11:53.970
+SETH JUAREZ: But it's better.
+
+00:11:53.970 --> 00:11:54.930
+BURKE HOLLAND: I
+don't care about --
+
+00:11:54.930 --> 00:11:55.320
+SETH JUAREZ: It's better.
+
+00:11:55.320 --> 00:11:55.560
+BURKE HOLLAND: Okay.
+
+00:11:55.560 --> 00:11:56.400
+SETH JUAREZ: It's better.
+
+00:11:56.400 --> 00:11:58.560
+Let's talk about Canvas
+because we got two minutes.
+
+00:11:58.560 --> 00:11:59.460
+Believe it or not.
+
+00:11:59.460 --> 00:12:02.550
+So Canvas, the thing I
+like about Canvas is we --
+
+00:12:02.550 --> 00:12:03.930
+And this is the zoom out now.
+
+00:12:03.930 --> 00:12:06.120
+This is like the drop
+the mic situation.
+
+00:12:06.120 --> 00:12:09.210
+We are used to talking to
+these things via chat.
+
+00:12:09.210 --> 00:12:11.220
+I got to interact with
+this thing via chat.
+
+00:12:11.220 --> 00:12:11.700
+BURKE HOLLAND: Right.
+
+00:12:11.700 --> 00:12:14.430
+SETH JUAREZ: Canvas allows
+you or allows the LLM
+
+00:12:14.430 --> 00:12:18.240
+or the agent, Harness, to
+actually create a canvas
+
+00:12:18.240 --> 00:12:20.850
+where you can interact with
+it a little bit differently.
+
+00:12:20.850 --> 00:12:23.910
+So for Elucim, my
+diagram generator thing,
+
+00:12:23.910 --> 00:12:26.280
+I built a canvas that allows me
+
+00:12:26.280 --> 00:12:29.730
+to explore the repo
+and make sure I know.
+
+00:12:29.730 --> 00:12:31.290
+So, for example,
+if I go over here,
+
+00:12:31.290 --> 00:12:34.620
+I want to say,
+"Elucim at a glance."
+
+00:12:34.620 --> 00:12:35.940
+And I'm like, hold
+on, wait a minute.
+
+00:12:35.940 --> 00:12:36.480
+I don't know.
+
+00:12:36.480 --> 00:12:37.770
+Tell me what core is.
+
+00:12:37.770 --> 00:12:41.790
+I can actually click on this
+thing, and it will go back,
+
+00:12:41.790 --> 00:12:44.010
+and the agent will
+be like, hey, look,
+
+00:12:44.010 --> 00:12:45.750
+this is what this thing is.
+
+00:12:45.750 --> 00:12:47.310
+BURKE HOLLAND: Oh, it sent
+a prompt to the agent.
+
+00:12:47.310 --> 00:12:47.670
+SETH JUAREZ: Yes.
+
+00:12:47.670 --> 00:12:48.270
+BURKE HOLLAND: Ah.
+
+00:12:48.270 --> 00:12:49.530
+SETH JUAREZ: And I can talk
+
+00:12:49.530 --> 00:12:52.350
+with the agent to
+update the canvas.
+
+00:12:52.350 --> 00:12:55.650
+So now I have this way of
+interacting with the --
+
+00:12:55.650 --> 00:12:56.910
+And this is only
+going to get better.
+
+00:12:56.910 --> 00:12:58.680
+This is super early.
+
+00:12:58.680 --> 00:13:00.510
+This is using the diagram
+generator that I have.
+
+00:13:00.510 --> 00:13:03.660
+It allows me to know and
+interact with the agent harness
+
+00:13:03.660 --> 00:13:05.490
+in a different way,
+not just chat.
+
+00:13:05.490 --> 00:13:07.110
+BURKE HOLLAND: Yes, this
+is super interesting.
+
+00:13:07.110 --> 00:13:10.380
+The idea here is that you
+want a UI to interact
+
+00:13:10.380 --> 00:13:12.570
+with the app that doesn't exist.
+
+00:13:12.570 --> 00:13:16.560
+So you just create it
+because you can do that.
+
+00:13:16.560 --> 00:13:17.880
+For instance, one of the ones
+
+00:13:17.880 --> 00:13:19.860
+that I created was
+similar to what you did.
+
+00:13:19.860 --> 00:13:22.800
+But I said, show me all of
+the projects in this app
+
+00:13:22.800 --> 00:13:24.210
+and put main in the middle.
+
+00:13:24.210 --> 00:13:26.670
+And then show me how far
+they've diverged from main just
+
+00:13:26.670 --> 00:13:29.070
+by positioning so that
+I could visually see
+
+00:13:29.070 --> 00:13:32.940
+which ones were way
+off, way, way behind.
+
+00:13:32.940 --> 00:13:34.740
+So that's the kind of
+stuff that you can't get.
+
+00:13:34.740 --> 00:13:35.460
+You can just build it.
+
+00:13:35.460 --> 00:13:36.150
+SETH JUAREZ: I mean,
+look how cool this is.
+
+00:13:36.150 --> 00:13:38.310
+I click my stuff,
+and I'm like, hey.
+
+00:13:38.310 --> 00:13:40.440
+It's like, hey, look at,
+because this is the internals
+
+00:13:40.440 --> 00:13:41.790
+of how these things are drawn.
+
+00:13:41.790 --> 00:13:44.130
+And it's like, hey, the
+inspector is a control panel
+
+00:13:44.130 --> 00:13:45.180
+for editing, blah, blah, blah.
+
+00:13:45.180 --> 00:13:46.680
+Well, tell me about
+the document.
+
+00:13:46.680 --> 00:13:50.130
+And it's just very cool, and
+then I can also go the other way
+
+00:13:50.130 --> 00:13:51.930
+as well, and it's just
+a super cool feature.
+
+00:13:51.930 --> 00:13:52.590
+BURKE HOLLAND: It's awesome.
+
+00:13:52.590 --> 00:13:54.210
+You know what I love, Seth?
+
+00:13:54.210 --> 00:13:57.900
+I love that everything is moving
+so slowly, and it's so easy
+
+00:13:57.900 --> 00:14:01.830
+to understand all the new
+features and technology.
+
+00:14:01.830 --> 00:14:03.630
+It used to be hard.
+
+00:14:03.630 --> 00:14:04.050
+Now --
+
+00:14:04.050 --> 00:14:06.030
+SETH JUAREZ: You're smearing
+my makeup here, Burke.
+
+00:14:06.030 --> 00:14:06.930
+I just --
+
+00:14:06.930 --> 00:14:07.890
+BURKE HOLLAND: I'm exhausted.
+
+00:14:07.890 --> 00:14:10.380
+All right, Seth,
+thank you very much.
+
+00:14:10.380 --> 00:14:11.550
+On behalf of everyone --
+
+00:14:11.550 --> 00:14:12.060
+SETH JUAREZ: Thank you, sir.
+
+00:14:12.060 --> 00:14:12.720
+BURKE HOLLAND: --
+get out of here.
+
+00:14:12.720 --> 00:14:13.350
+SETH JUAREZ: All
+right, we'll see you.
+
+00:14:13.350 --> 00:14:13.620
+BURKE HOLLAND: See you.
+
+00:14:13.620 --> 00:14:14.730
+Bye.
+
+00:14:14.730 --> 00:14:16.430
+We'll be right back.
+
+00:14:16.430 --> 00:14:19.430
+[ Music ]

@@ -6,6 +6,8 @@
 **Speakers:** Tucker Burns (GPM, Windows Platform + Developer Team), Dian Hartono (Product Manager Lead, Windows Developer Platform Team)  
 **Link:** [Microsoft Build 2025 Session BRK223](https://mybuild.microsoft.com/sessions/BRK223)
 
+![An Overview of Windows AI Foundry](images/session-banner.png)
+
 ---
 
 ## Table of Contents

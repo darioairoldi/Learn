@@ -6,6 +6,8 @@
 **Speaker:** Mark Russinovich (CTO, Deputy CISO, Technical Fellow for Microsoft Azure)  
 **Link:** [Microsoft Build 2025 Session BRK195](https://mybuild.microsoft.com/sessions/BRK195)
 
+![Inside Azure Innovations with Mark Russinovich](images/session-banner.png)
+
 ---
 
 ## Table of Contents

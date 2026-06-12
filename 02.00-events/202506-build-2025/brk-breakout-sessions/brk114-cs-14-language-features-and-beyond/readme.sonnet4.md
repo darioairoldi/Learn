@@ -6,6 +6,8 @@
 **Speakers:** **Mads Torgersen** (Principal Architect, Microsoft), **Dustin Campbell** (Principal Software Engineer, Microsoft)  
 **Link:** [Microsoft Build 2025 - BRK114](https://build.microsoft.com/sessions/BRK114)
 
+![C# 14 Language Features and Beyond](images/session-banner.png)
+
 ## Table of Contents
 
 - [Introduction and Session Overview](#introduction-and-session-overview)

@@ -1,0 +1,1453 @@
+WEBVTT
+
+00:00:00.030 --> 00:00:00.450
+SETH JUAREZ: Welcome back.
+
+00:00:00.450 --> 00:00:02.490
+We're here at Microsoft
+Build, and I'm super-excited
+
+00:00:02.490 --> 00:00:03.390
+to be here with Julia.
+
+00:00:03.390 --> 00:00:04.290
+How you doing, my friend?
+
+00:00:04.290 --> 00:00:05.790
+JULIA KASPER: I'm
+doing fantastic.
+
+00:00:05.790 --> 00:00:06.390
+Thank you.
+
+00:00:06.390 --> 00:00:08.280
+SETH JUAREZ: The thing I love
+about Build is we get to talk
+
+00:00:08.280 --> 00:00:11.190
+about the cool stuff
+behind the scenes,
+
+00:00:11.190 --> 00:00:12.630
+and we get to ask all
+sorts of questions.
+
+00:00:12.630 --> 00:00:14.160
+We have a live audience
+here, as well,
+
+00:00:14.160 --> 00:00:15.750
+so they might ask
+some questions.
+
+00:00:15.750 --> 00:00:17.640
+Why don't you tell us who
+you are, and what you do.
+
+00:00:17.640 --> 00:00:18.720
+JULIA KASPER: Cool.
+
+00:00:18.720 --> 00:00:19.470
+My name is Julia.
+
+00:00:19.470 --> 00:00:22.350
+I'm a Product Manager
+on the VS Code team.
+
+00:00:22.350 --> 00:00:25.020
+I joined the team
+last year in August,
+
+00:00:25.020 --> 00:00:27.660
+and yeah, it's been a fun ride.
+
+00:00:27.660 --> 00:00:32.130
+SETH JUAREZ: The thing is,
+just don't work on VS Code.
+
+00:00:32.130 --> 00:00:33.210
+Let me paint the stage.
+
+00:00:33.210 --> 00:00:35.670
+We're in an agentic coding era.
+
+00:00:35.670 --> 00:00:38.430
+For me, it started last
+December and we kind of go
+
+00:00:38.430 --> 00:00:41.250
+and we pick the model and we
+just happily just go along
+
+00:00:41.250 --> 00:00:44.160
+and pick a model, and
+it seems super-easy,
+
+00:00:44.160 --> 00:00:45.630
+but that's what you work on.
+
+00:00:45.630 --> 00:00:45.990
+JULIA KASPER: Yeah.
+
+00:00:45.990 --> 00:00:47.400
+SETH JUAREZ: It's not as
+easy as it sounds, right?
+
+00:00:47.400 --> 00:00:49.260
+JULIA KASPER: Yeah, so I
+thought the same thing,
+
+00:00:49.260 --> 00:00:51.090
+funny that you say this.
+
+00:00:51.090 --> 00:00:52.020
+I'm in VS Code.
+
+00:00:52.020 --> 00:00:55.080
+I'm using the chat extension,
+and from time to time,
+
+00:00:55.080 --> 00:00:56.970
+a new model shows up
+and I'm, oh, great.
+
+00:00:56.970 --> 00:00:59.790
+I'm just going to
+use the new one.
+
+00:00:59.790 --> 00:01:02.580
+Since I joined the VS Code
+team, I'm in charge of --
+
+00:01:02.580 --> 00:01:04.200
+or I'm helping the
+team, not in charge of,
+
+00:01:04.200 --> 00:01:05.190
+but I'm helping the team.
+
+00:01:05.190 --> 00:01:08.010
+It's very collaborative
+in what all goes
+
+00:01:08.010 --> 00:01:12.750
+into releasing these new models
+in our VS Code extension.
+
+00:01:12.750 --> 00:01:13.920
+It is a ride.
+
+00:01:13.920 --> 00:01:15.300
+I can tell you that much.
+
+00:01:15.300 --> 00:01:19.500
+It's not as easy as, oh, we
+get a new model endpoint,
+
+00:01:19.500 --> 00:01:22.500
+and boom here it is
+and it just works.
+
+00:01:22.500 --> 00:01:25.650
+There are so many things and
+pieces that go into this,
+
+00:01:25.650 --> 00:01:28.470
+from us working very closely
+with the model providers
+
+00:01:28.470 --> 00:01:31.890
+and getting their insights and
+what the new model is all about.
+
+00:01:31.890 --> 00:01:33.960
+So yeah, there are a
+lot of things that go
+
+00:01:33.960 --> 00:01:35.430
+above and beyond here.
+
+00:01:35.430 --> 00:01:37.020
+SETH JUAREZ: I'm just picking
+the thing, and I'm, like,
+
+00:01:37.020 --> 00:01:39.240
+these things are all
+compatible or are the same.
+
+00:01:39.240 --> 00:01:41.640
+Can you give us a sense
+for how not the same --
+
+00:01:41.640 --> 00:01:44.760
+these are all like all very
+special flowers, whether they're
+
+00:01:44.760 --> 00:01:47.100
+for a certain company
+or from a certain type.
+
+00:01:47.100 --> 00:01:47.910
+Tell us about that.
+
+00:01:47.910 --> 00:01:50.820
+JULIA KASPER: Yeah, so I
+think the biggest aha moment
+
+00:01:50.820 --> 00:01:53.700
+for me was even within
+the same model family,
+
+00:01:53.700 --> 00:01:59.700
+let's pick the GPT ones,
+and GPT-5.4 to 5.5,
+
+00:01:59.700 --> 00:02:01.530
+even within this model family,
+
+00:02:01.530 --> 00:02:04.140
+it kind of had its
+own new personality,
+
+00:02:04.140 --> 00:02:07.860
+and we had to adjust our
+coding harness to it.
+
+00:02:07.860 --> 00:02:10.080
+That's why we work very closely
+with them because for us,
+
+00:02:10.080 --> 00:02:12.170
+the models are also a black box,
+
+00:02:12.170 --> 00:02:13.610
+so we are getting
+their insights.
+
+00:02:13.610 --> 00:02:15.920
+What has their
+research team worked
+
+00:02:15.920 --> 00:02:18.800
+on in making the new
+model endpoint better?
+
+00:02:18.800 --> 00:02:22.490
+It truly is like every new time
+we're getting a new model,
+
+00:02:22.490 --> 00:02:24.290
+it has its own personality,
+
+00:02:24.290 --> 00:02:26.720
+even more across
+different model providers
+
+00:02:26.720 --> 00:02:28.460
+like Anthropic and OpenAI.
+
+00:02:28.460 --> 00:02:33.180
+These differ even more, but even
+within the same model family
+
+00:02:33.180 --> 00:02:38.400
+or model provider section, it's
+already very, very different.
+
+00:02:38.400 --> 00:02:40.740
+SETH JUAREZ: We talk about
+models, even from 5.4 to 5.5,
+
+00:02:40.740 --> 00:02:42.600
+you talk about personality
+or characteristics traits,
+
+00:02:42.600 --> 00:02:45.000
+and you talk about the
+harness a little bit too.
+
+00:02:45.000 --> 00:02:49.140
+Do you have to make changes to
+the harness for every model?
+
+00:02:49.140 --> 00:02:50.310
+If people don't know
+what a harness is,
+
+00:02:50.310 --> 00:02:52.290
+can you help them understand
+what a harness is
+
+00:02:52.290 --> 00:02:54.720
+and how new models make it
+so you have to change them?
+
+00:02:54.720 --> 00:02:55.680
+JULIA KASPER: Totally, yeah,
+
+00:02:55.680 --> 00:02:57.150
+so I brought a
+little bit of a --
+
+00:02:57.150 --> 00:02:58.440
+SETH JUAREZ: Oh, oh,
+let's go to the screen.
+
+00:02:58.440 --> 00:03:00.690
+JULIA KASPER: --
+flow chart diagram.
+
+00:03:00.690 --> 00:03:03.030
+Just to give a very high
+level of, hey, these are all
+
+00:03:03.030 --> 00:03:06.030
+of the steps that we
+have to think about.
+
+00:03:06.030 --> 00:03:07.680
+As I mentioned, we
+work very closely
+
+00:03:07.680 --> 00:03:10.000
+with the model providers.
+
+00:03:11.010 --> 00:03:13.230
+I thought it was
+very "processy."
+
+00:03:13.230 --> 00:03:15.570
+Oh, yes, of course, we learn
+about this new process.
+
+00:03:15.570 --> 00:03:17.130
+It's very casual.
+
+00:03:17.130 --> 00:03:19.050
+The model providers
+reach out to us.
+
+00:03:19.050 --> 00:03:22.020
+They're like, hey, our research
+team told us we have something
+
+00:03:22.020 --> 00:03:23.280
+that is working.
+
+00:03:23.280 --> 00:03:27.030
+Then our entire team from
+the Copilot API team
+
+00:03:27.030 --> 00:03:30.450
+that gets the new model
+onboarded to also us
+
+00:03:30.450 --> 00:03:35.520
+on client side, like VS Code, we
+all go in and we start working.
+
+00:03:35.520 --> 00:03:38.700
+In particular, we work on
+optimizing the harness,
+
+00:03:38.700 --> 00:03:40.620
+so what is this harness?
+
+00:03:40.620 --> 00:03:44.640
+The harness itself is the
+system, the environment, your AI
+
+00:03:44.640 --> 00:03:46.140
+or your LLM is running.
+
+00:03:46.140 --> 00:03:49.950
+Essentially, the LLM only
+provides or gives back tokens,
+
+00:03:49.950 --> 00:03:52.500
+but how do we make changes?
+
+00:03:52.500 --> 00:03:53.820
+How do we edit files?
+
+00:03:53.820 --> 00:03:55.590
+How do we run in terminal?
+
+00:03:55.590 --> 00:03:58.740
+This is what we consider our
+harness, and these are all
+
+00:03:58.740 --> 00:04:02.430
+of the changes we have to make
+sure it works once a new model
+
+00:04:02.430 --> 00:04:03.450
+comes up.
+
+00:04:03.450 --> 00:04:06.270
+There are four very important
+things we always look
+
+00:04:06.270 --> 00:04:07.980
+at whenever we have
+a new harness.
+
+00:04:07.980 --> 00:04:10.230
+It's our system prompt.
+
+00:04:10.230 --> 00:04:13.170
+For every model, for
+every different model,
+
+00:04:13.170 --> 00:04:15.660
+across even different
+model providers,
+
+00:04:15.660 --> 00:04:17.640
+we have our own system prompt.
+
+00:04:17.640 --> 00:04:22.320
+We have different built-in tools
+that these models can call.
+
+00:04:22.320 --> 00:04:24.360
+Even across different
+model providers,
+
+00:04:24.360 --> 00:04:27.540
+they tend to call
+different tools, as well,
+
+00:04:27.540 --> 00:04:29.610
+so we have to make sure
+the right tool sets are
+
+00:04:29.610 --> 00:04:30.750
+being called.
+
+00:04:30.750 --> 00:04:34.860
+Then, also, context management,
+different models have,
+
+00:04:34.860 --> 00:04:36.720
+or work with, different
+model contexts.
+
+00:04:36.720 --> 00:04:39.450
+Then, also, the agent loop
+and how do we call it?
+
+00:04:39.450 --> 00:04:40.890
+How do we load in the tools?
+
+00:04:40.890 --> 00:04:43.290
+We just have to make sure
+it works end-to-end.
+
+00:04:43.290 --> 00:04:45.540
+SETH JUAREZ: So hold
+up, so effectively,
+
+00:04:45.540 --> 00:04:47.790
+every time you get a new model,
+
+00:04:47.790 --> 00:04:52.110
+every model gets its own special
+flower kind of situation
+
+00:04:52.110 --> 00:04:54.300
+in the harness, so that for us,
+
+00:04:54.300 --> 00:04:57.020
+as we're using this,
+we really can't tell.
+
+00:04:57.020 --> 00:04:58.190
+JULIA KASPER: Yes, correct.
+
+00:04:58.190 --> 00:05:02.390
+Well, actually, let me
+switch over to my table.
+
+00:05:02.390 --> 00:05:04.190
+SETH JUAREZ: Oh, can you hit
+"Control +" a couple times?
+
+00:05:04.190 --> 00:05:04.910
+JULIA KASPER: Yes, of course.
+
+00:05:04.910 --> 00:05:05.630
+There you go.
+
+00:05:05.630 --> 00:05:05.660
+SETH JUAREZ: There you go.
+
+00:05:05.660 --> 00:05:07.020
+JULIA KASPER: All right.
+
+00:05:08.100 --> 00:05:09.600
+This is a fun, little project.
+
+00:05:09.600 --> 00:05:10.860
+It's called "DJ Julia" --
+
+00:05:10.860 --> 00:05:13.380
+SETH JUAREZ: "Control +" one
+more time because I'm old.
+
+00:05:13.380 --> 00:05:13.680
+JULIA KASPER: There you go.
+
+00:05:13.680 --> 00:05:14.910
+SETH JUAREZ: There you go.
+
+00:05:14.910 --> 00:05:15.900
+JULIA KASPER: It's
+just like a fun,
+
+00:05:15.900 --> 00:05:18.270
+little project that I have.
+
+00:05:18.270 --> 00:05:22.230
+Right before this session, I
+created this prompt, which is,
+
+00:05:22.230 --> 00:05:24.720
+hey, for my DJ app, I want you
+
+00:05:24.720 --> 00:05:27.780
+to create a new music
+pattern for me.
+
+00:05:27.780 --> 00:05:30.720
+Just to kind of show you, first
+of all, everyone can go in
+
+00:05:30.720 --> 00:05:34.320
+and explore what the harness
+does whenever we make these
+
+00:05:34.320 --> 00:05:35.880
+calls to the LLM.
+
+00:05:35.880 --> 00:05:37.320
+You see a bunch of styling.
+
+00:05:37.320 --> 00:05:39.240
+It does a bunch of
+different things, right?
+
+00:05:39.240 --> 00:05:40.380
+It's searched.
+
+00:05:40.380 --> 00:05:43.560
+So whenever you switch
+to our chat debug logs,
+
+00:05:43.560 --> 00:05:46.020
+you can really see all
+of the different things
+
+00:05:46.020 --> 00:05:48.930
+that are happening
+behind the scenes.
+
+00:05:48.930 --> 00:05:49.260
+SETH JUAREZ: Hold on.
+
+00:05:49.260 --> 00:05:49.920
+You went really fast.
+
+00:05:49.920 --> 00:05:50.760
+Let's pause for a second.
+
+00:05:50.760 --> 00:05:54.180
+So there is a chat debug log
+where you can see, effectively,
+
+00:05:54.180 --> 00:05:55.950
+every step the
+harness has taken?
+
+00:05:55.950 --> 00:05:58.470
+JULIA KASPER: Exactly, every
+step, every tool call.
+
+00:05:58.470 --> 00:06:01.200
+What is the system prompt
+that is being applied?
+
+00:06:01.200 --> 00:06:05.280
+So here, for example -- let
+me close this really quick --
+
+00:06:05.280 --> 00:06:09.150
+you can see the request
+message is being separated
+
+00:06:09.150 --> 00:06:12.690
+between the system prompt, and
+you will notice this one is
+
+00:06:12.690 --> 00:06:14.820
+with the GPT 5.5 model.
+
+00:06:14.820 --> 00:06:18.900
+If you would do the exact
+same prompt with, let's say,
+
+00:06:18.900 --> 00:06:22.200
+Opus-4.6, it will have a
+different system message
+
+00:06:22.200 --> 00:06:22.770
+as well.
+
+00:06:22.770 --> 00:06:23.850
+That's how we optimize,
+
+00:06:23.850 --> 00:06:27.030
+and we make sure every
+new model gets the latest
+
+00:06:27.030 --> 00:06:30.210
+and best together with the model
+providers that we work on,
+
+00:06:30.210 --> 00:06:33.300
+because they clearly know
+their models so much better.
+
+00:06:33.300 --> 00:06:35.310
+It also helps us
+to really optimize
+
+00:06:35.310 --> 00:06:39.180
+and make sure it works
+truly end-to-end as well.
+
+00:06:39.180 --> 00:06:41.250
+Then, also, if you're
+interested in seeing all
+
+00:06:41.250 --> 00:06:45.090
+of the different tools that are
+being called, as an example,
+
+00:06:45.090 --> 00:06:48.750
+the GPT model family
+always uses "apply patch"
+
+00:06:48.750 --> 00:06:53.460
+versus the Anthropic models,
+they use "insert file."
+
+00:06:53.460 --> 00:06:57.390
+Just some nuances, how different
+all of these models truly are.
+
+00:06:57.390 --> 00:06:58.860
+SETH JUAREZ: You talk about
+how different they are.
+
+00:06:58.860 --> 00:07:03.120
+Is there a way you could show
+us how they are different?
+
+00:07:03.120 --> 00:07:04.320
+JULIA KASPER: Sure.
+
+00:07:04.320 --> 00:07:05.430
+Let's try this here.
+
+00:07:05.430 --> 00:07:10.530
+I used this.
+
+00:07:10.530 --> 00:07:11.520
+Let's go back.
+
+00:07:11.520 --> 00:07:15.660
+For everyone to see, I used
+this using the GPT-5.5 one.
+
+00:07:15.660 --> 00:07:21.720
+Let's just do this
+with the Opus 4.7 one.
+
+00:07:21.720 --> 00:07:23.820
+I'm doing the exact same prompt.
+
+00:07:23.820 --> 00:07:26.040
+First of all, also,
+another challenge we have
+
+00:07:26.040 --> 00:07:30.750
+in the AI space, even using
+the same exact model,
+
+00:07:30.750 --> 00:07:32.400
+it is non-deterministic.
+
+00:07:32.400 --> 00:07:33.390
+SETH JUAREZ: Of course.
+
+00:07:33.390 --> 00:07:34.710
+JULIA KASPER: Every
+time you run this,
+
+00:07:34.710 --> 00:07:36.390
+even within the
+same model family,
+
+00:07:36.390 --> 00:07:39.570
+you will always get a
+different input or output,
+
+00:07:39.570 --> 00:07:41.940
+but just to show you
+how much they differ,
+
+00:07:41.940 --> 00:07:45.510
+even within the same harness
+
+00:07:45.510 --> 00:07:47.430
+and just having the
+different model here.
+
+00:07:47.430 --> 00:07:49.560
+SETH JUAREZ: Yeah, because, I
+mean, this thing is sampling,
+
+00:07:49.560 --> 00:07:51.900
+you know, according
+to the distribution
+
+00:07:51.900 --> 00:07:53.040
+of the model's output.
+
+00:07:53.040 --> 00:07:56.070
+I like to say "stochastic
+process" as much as I can.
+
+00:07:56.070 --> 00:07:57.090
+It's like a five-dollar word
+
+00:07:57.090 --> 00:07:58.320
+that makes you
+sound really smart.
+
+00:07:58.320 --> 00:07:59.370
+I don't know what it
+means all the way,
+
+00:07:59.370 --> 00:08:00.810
+but that's what they told me.
+
+00:08:00.810 --> 00:08:03.630
+Effectively, this is all
+probabilistic, and so it's going
+
+00:08:03.630 --> 00:08:05.400
+to be different every time,
+even within the same model.
+
+00:08:05.400 --> 00:08:05.940
+JULIA KASPER: Exactly.
+
+00:08:05.940 --> 00:08:06.480
+SETH JUAREZ: Okay.
+
+00:08:06.480 --> 00:08:07.680
+What do you got?
+
+00:08:07.680 --> 00:08:08.040
+JULIA KASPER: All right.
+
+00:08:08.040 --> 00:08:11.400
+If you remember what we had
+before our system prompt --
+
+00:08:11.400 --> 00:08:14.110
+let's go here.
+
+00:08:17.970 --> 00:08:18.990
+There you go.
+
+00:08:18.990 --> 00:08:23.040
+This was the system
+prompt we had previously.
+
+00:08:23.040 --> 00:08:25.950
+I'm just going to close this.
+
+00:08:25.950 --> 00:08:29.700
+It does a bunch of
+pre-classification checks
+
+00:08:29.700 --> 00:08:33.060
+and stuff like that, so now,
+if we go to the latest one
+
+00:08:33.060 --> 00:08:37.550
+that we trusted with
+the Claude one,
+
+00:08:37.550 --> 00:08:40.220
+you can see the instruction
+files are different.
+
+00:08:40.220 --> 00:08:43.160
+With the GPT 5.5,
+we had something
+
+00:08:43.160 --> 00:08:47.060
+to make sure it inserts before,
+because the GPT 5.5 ones,
+
+00:08:47.060 --> 00:08:49.790
+they are more prone to
+immediately go and run
+
+00:08:49.790 --> 00:08:54.680
+in terminal, but we wanted to,
+hey, first explore a little bit,
+
+00:08:54.680 --> 00:08:57.050
+and then go and run it
+because we have seen
+
+00:08:57.050 --> 00:09:00.020
+so much more success with
+these kind of system prompts,
+
+00:09:00.020 --> 00:09:03.740
+rather than using the ones that
+we previously had with 5.4.
+
+00:09:03.740 --> 00:09:06.830
+All of this was worked together
+with the OpenAI folks.
+
+00:09:06.830 --> 00:09:07.940
+SETH JUAREZ: This is
+really impressive
+
+00:09:07.940 --> 00:09:14.660
+because betwixt us friends, I
+built my own harness in Rust.
+
+00:09:14.660 --> 00:09:17.400
+I started changing models,
+assuming that it was going
+
+00:09:17.400 --> 00:09:20.970
+to work, and things
+just stopped working.
+
+00:09:20.970 --> 00:09:22.530
+When a model comes out,
+it's like, all right,
+
+00:09:22.530 --> 00:09:23.670
+gang, let's get together.
+
+00:09:23.670 --> 00:09:25.410
+Let's figure out what
+the right prompt is.
+
+00:09:25.410 --> 00:09:27.570
+Let's figure out how they
+do tool calls, et cetera.
+
+00:09:27.570 --> 00:09:28.890
+You have to do all of that work.
+
+00:09:28.890 --> 00:09:31.830
+JULIA KASPER: Exactly, yeah.
+
+00:09:31.830 --> 00:09:33.210
+I love that you're
+building your own harness,
+
+00:09:33.210 --> 00:09:36.300
+but one of the benefits for
+using our built-in one --
+
+00:09:36.300 --> 00:09:38.550
+and there's no harm in building
+your own and, of course,
+
+00:09:38.550 --> 00:09:42.200
+making your own changes -- is we
+do work very closely with them,
+
+00:09:42.200 --> 00:09:46.520
+and we are truly optimizing for
+all of the new checkpoints.
+
+00:09:46.520 --> 00:09:49.590
+We are optimizing in a way
+that it will, hopefully,
+
+00:09:49.590 --> 00:09:52.650
+work for most folks out of the
+box, and you don't have to worry
+
+00:09:52.650 --> 00:09:55.260
+about it because we know how
+much work that actually goes
+
+00:09:55.260 --> 00:09:58.260
+into always updating and
+making these changes.
+
+00:09:58.260 --> 00:09:59.490
+That's one of the benefits
+
+00:09:59.490 --> 00:10:02.040
+for using GitHub Copilot
+in your code as well.
+
+00:10:02.040 --> 00:10:04.710
+SETH JUAREZ: My harness is
+nowhere near as skillful
+
+00:10:04.710 --> 00:10:09.330
+as theirs, and it's literally
+for helping me write stuff.
+
+00:10:09.330 --> 00:10:12.150
+Even for a separate task,
+does your harness have
+
+00:10:12.150 --> 00:10:15.210
+to be different, or is this all
+optimized for writing code?
+
+00:10:15.210 --> 00:10:17.160
+JULIA KASPER: That's
+optimized for writing code.
+
+00:10:17.160 --> 00:10:19.950
+That's why you see in the
+instruction file, usually,
+
+00:10:19.950 --> 00:10:21.690
+the very first one is, hey,
+
+00:10:21.690 --> 00:10:24.780
+you're an expert AI
+programming assistant.
+
+00:10:24.780 --> 00:10:28.860
+We are putting the model
+in context of where it is.
+
+00:10:28.860 --> 00:10:30.450
+It's in a coding environment.
+
+00:10:30.450 --> 00:10:34.920
+It has to make sure it is
+not just giving you text.
+
+00:10:34.920 --> 00:10:35.940
+It is going in.
+
+00:10:35.940 --> 00:10:38.550
+It is using our built-in
+tools like "run in terminal,"
+
+00:10:38.550 --> 00:10:40.830
+all of these things,
+to make sure it works
+
+00:10:40.830 --> 00:10:44.190
+in the environment we
+are grounding it into.
+
+00:10:44.190 --> 00:10:45.540
+SETH JUAREZ: I'm assuming
+you're not, like, oh,
+
+00:10:45.540 --> 00:10:46.590
+we got a new model, everybody.
+
+00:10:46.590 --> 00:10:48.930
+Let's just use the last
+one and change a couple
+
+00:10:48.930 --> 00:10:50.810
+of words, see what it does.
+
+00:10:50.810 --> 00:10:52.730
+I'm sure there's
+a better process
+
+00:10:52.730 --> 00:10:54.320
+to do this kind of testing.
+
+00:10:54.320 --> 00:10:56.150
+Can you tell us how?
+
+00:10:56.150 --> 00:10:57.980
+JULIA KASPER: To be very honest,
+
+00:10:57.980 --> 00:11:00.500
+a lot of the times whenever
+we get a new checkpoint,
+
+00:11:00.500 --> 00:11:02.690
+the very first thing -- and
+this is something we get
+
+00:11:02.690 --> 00:11:03.620
+from the model providers --
+
+00:11:03.620 --> 00:11:06.090
+they tell us, "Just
+use the system prompts
+
+00:11:06.090 --> 00:11:10.020
+from the prior model, and
+let's just see how it goes."
+
+00:11:10.020 --> 00:11:12.480
+We're like, okay, I guess.
+
+00:11:12.480 --> 00:11:16.080
+The reason why they want us
+to do that is they want us
+
+00:11:16.080 --> 00:11:19.890
+to see how good it already is
+
+00:11:19.890 --> 00:11:22.350
+without doing all of
+the optimization.
+
+00:11:22.350 --> 00:11:22.770
+SETH JUAREZ: As you're working.
+
+00:11:22.770 --> 00:11:25.710
+JULIA KASPER: Yeah, and
+how do we measure this?
+
+00:11:25.710 --> 00:11:27.420
+We measure this by
+running a bunch
+
+00:11:27.420 --> 00:11:29.790
+of offline eval benchmarks.
+
+00:11:29.790 --> 00:11:32.010
+We do this by
+internal dogfooding.
+
+00:11:32.010 --> 00:11:34.890
+These are two in-parallel
+things that are going on,
+
+00:11:34.890 --> 00:11:37.680
+and once we have
+these benchmarks run,
+
+00:11:37.680 --> 00:11:40.140
+we share the results
+with the model provider.
+
+00:11:40.140 --> 00:11:42.390
+Then, based on that, they're
+like, oh, okay, I see.
+
+00:11:42.390 --> 00:11:45.690
+It's already maybe better,
+but let's start tweaking
+
+00:11:45.690 --> 00:11:47.340
+and let's start going in.
+
+00:11:47.340 --> 00:11:48.690
+How about this?
+
+00:11:48.690 --> 00:11:53.310
+Then we sometimes
+have had a model
+
+00:11:53.310 --> 00:11:55.380
+where we basically just removed
+everything, and we're like,
+
+00:11:55.380 --> 00:11:57.720
+okay, we have to start
+from scratch here.
+
+00:11:57.720 --> 00:12:00.090
+Then we optimized
+it and optimized it
+
+00:12:00.090 --> 00:12:03.120
+to make sure whenever
+the model launch day is,
+
+00:12:03.120 --> 00:12:09.700
+it truly is the perfect
+model to hit the crowd.
+
+00:12:10.770 --> 00:12:12.990
+SETH JUAREZ: For example,
+I'm a traditional dev.
+
+00:12:12.990 --> 00:12:14.220
+I did some machine learning.
+
+00:12:14.220 --> 00:12:16.110
+We had things called
+"evaluations."
+
+00:12:16.110 --> 00:12:18.210
+We do things as
+devs as unit tests.
+
+00:12:18.210 --> 00:12:20.730
+Do you have something like that,
+that you systematically run
+
+00:12:20.730 --> 00:12:25.050
+through to improve the prompt
+or see, hey, it's this good,
+
+00:12:25.050 --> 00:12:25.950
+but now it's this good?
+
+00:12:25.950 --> 00:12:29.100
+What does that look
+like in your process?
+
+00:12:29.100 --> 00:12:30.960
+JULIA KASPER: Our process here,
+and this probably is going
+
+00:12:30.960 --> 00:12:34.590
+to touch a little bit on evals.
+
+00:12:34.590 --> 00:12:36.810
+Yes, we have offline
+evals, especially,
+
+00:12:36.810 --> 00:12:38.490
+we run these before the launch.
+
+00:12:38.490 --> 00:12:41.100
+After launch, we also still
+optimize the harness,
+
+00:12:41.100 --> 00:12:42.270
+which is very important.
+
+00:12:42.270 --> 00:12:45.510
+It's never a ship and let's go.
+
+00:12:45.510 --> 00:12:48.480
+It's always, we go in and
+we iterate even after,
+
+00:12:48.480 --> 00:12:52.200
+so what are the benchmarks
+or how do we evaluate it?
+
+00:12:52.200 --> 00:12:54.480
+There are a bunch of public
+benchmarks out there.
+
+00:12:54.480 --> 00:12:58.320
+We bench one of the very known
+ones, and we still run these.
+
+00:12:58.320 --> 00:13:01.230
+Even though there are a lot
+of conversations/controversy
+
+00:13:01.230 --> 00:13:03.960
+around these public benchmarks,
+one of them being --
+
+00:13:03.960 --> 00:13:08.070
+and the model providers have
+told us directly as well --
+
+00:13:08.070 --> 00:13:12.690
+the models are so smart now that
+you're always kind of going
+
+00:13:12.690 --> 00:13:15.960
+to get this, so use this as
+a regression test rather
+
+00:13:15.960 --> 00:13:19.260
+than really evaluating
+the quality of it.
+
+00:13:19.260 --> 00:13:20.040
+We still run these.
+
+00:13:20.040 --> 00:13:20.610
+We share them.
+
+00:13:20.610 --> 00:13:22.230
+We see if the model
+has regressed.
+
+00:13:22.230 --> 00:13:26.100
+We use it for optimization of
+our harnesses as well, but then,
+
+00:13:26.100 --> 00:13:31.080
+the more important one is we
+have our own internal benchmark,
+
+00:13:31.080 --> 00:13:33.390
+which is called VSC Bench.
+
+00:13:33.390 --> 00:13:37.800
+It currently has 100-plus
+tasks, or instances,
+
+00:13:37.800 --> 00:13:40.320
+that we run every time.
+
+00:13:40.320 --> 00:13:44.160
+Before launch, we run across
+different reasoning efforts.
+
+00:13:44.160 --> 00:13:47.220
+We make some changes to the
+system prompt as an example.
+
+00:13:47.220 --> 00:13:49.830
+We see how it changes,
+and we look at these,
+
+00:13:49.830 --> 00:13:52.050
+what we call "model
+report cards,"
+
+00:13:52.050 --> 00:13:54.150
+to see how it's
+performing against it.
+
+00:13:54.150 --> 00:13:56.580
+SETH JUAREZ: So you're not
+just yoloing a model out,
+
+00:13:56.580 --> 00:14:00.330
+you have a full
+benchmark of a bunch
+
+00:14:00.330 --> 00:14:01.380
+of stuff that you're testing.
+
+00:14:01.380 --> 00:14:03.540
+Can you show us a
+little bit, the card?
+
+00:14:03.540 --> 00:14:03.630
+JULIA KASPER: Yeah.
+
+00:14:03.630 --> 00:14:04.080
+SETH JUAREZ: Help us out.
+
+00:14:04.080 --> 00:14:04.770
+Show us that.
+
+00:14:04.770 --> 00:14:08.790
+JULIA KASPER: I did
+this this morning.
+
+00:14:08.790 --> 00:14:10.410
+SETH JUAREZ: Can you
+"Control +" a couple times?
+
+00:14:10.410 --> 00:14:11.070
+JULIA KASPER: Sorry, yes.
+
+00:14:11.070 --> 00:14:11.520
+SETH JUAREZ: You're good.
+
+00:14:11.520 --> 00:14:12.120
+Thank you.
+
+00:14:12.120 --> 00:14:12.510
+JULIA KASPER: There you go.
+
+00:14:12.510 --> 00:14:13.620
+I ran this this morning,
+
+00:14:13.620 --> 00:14:17.850
+and basically how it
+works is we have a
+
+00:14:17.850 --> 00:14:21.540
+VS Code Insiders
+instance in an ACA.
+
+00:14:21.540 --> 00:14:24.450
+Whenever we run our offline
+evals, we spin one up.
+
+00:14:24.450 --> 00:14:27.600
+It's always using the latest,
+so I ran it this morning
+
+00:14:27.600 --> 00:14:30.660
+so it truly has the latest
+Insider version in it.
+
+00:14:30.660 --> 00:14:36.390
+How I did this, I ran it against
+GPT-5.4 two times and GPT-5.5.
+
+00:14:36.390 --> 00:14:36.960
+Typically, we try to run it
+
+00:14:36.960 --> 00:14:36.961
+against GPT-5.4 two
+times and GPT-5.5.
+
+00:14:36.961 --> 00:14:38.490
+Typically, we would try
+to run it five times
+
+00:14:38.490 --> 00:14:43.500
+because of the non-deterministic
+problem that we have with AI.
+
+00:14:43.500 --> 00:14:46.620
+Then our next step, this is
+where it gets really exciting,
+
+00:14:46.620 --> 00:14:48.600
+is the performance metrics.
+
+00:14:48.600 --> 00:14:50.880
+We look at the resolution rate.
+
+00:14:50.880 --> 00:14:55.830
+Resolution rate is was this
+task successful or not?
+
+00:14:55.830 --> 00:14:59.550
+We evaluate this by certain
+assertions we have, and we think
+
+00:14:59.550 --> 00:15:00.930
+of it like a checklist.
+
+00:15:00.930 --> 00:15:04.170
+It goes through and says, for
+this test case, was it resolved?
+
+00:15:04.170 --> 00:15:06.060
+Did it hit all of
+the checkmarks?
+
+00:15:06.060 --> 00:15:07.950
+Yes, and then it's resolved.
+
+00:15:07.950 --> 00:15:11.160
+It goes in and shows 153
+
+00:15:11.160 --> 00:15:14.370
+out of the 248 test
+cases were resolved.
+
+00:15:14.370 --> 00:15:15.120
+SETH JUAREZ: Nice.
+
+00:15:15.120 --> 00:15:16.560
+JULIA KASPER: This is
+how we can compare
+
+00:15:16.560 --> 00:15:18.180
+across the different
+model families.
+
+00:15:18.180 --> 00:15:19.500
+SETH JUAREZ: This
+is pretty amazing,
+
+00:15:19.500 --> 00:15:21.750
+so what should developers
+take away from this?
+
+00:15:21.750 --> 00:15:25.170
+We've got about 45 seconds.
+
+00:15:25.170 --> 00:15:28.680
+JULIA KASPER: First of all,
+always keep trying new models.
+
+00:15:28.680 --> 00:15:30.480
+Give us feedback if
+there's anything
+
+00:15:30.480 --> 00:15:32.700
+that doesn't work as expected.
+
+00:15:32.700 --> 00:15:35.400
+We are continuously
+upgrading and doing this,
+
+00:15:35.400 --> 00:15:37.890
+and also, I've done the same.
+
+00:15:37.890 --> 00:15:40.680
+I gave a model a
+one-try kind of thing,
+
+00:15:40.680 --> 00:15:44.610
+but because we are putting so
+much effort in these models,
+
+00:15:44.610 --> 00:15:47.250
+just make sure to maybe
+sometimes come back
+
+00:15:47.250 --> 00:15:49.740
+and give it another try.
+
+00:15:49.740 --> 00:15:54.060
+Also, then, offline
+evals are a huge topic.
+
+00:15:54.060 --> 00:15:57.600
+Anybody building their own
+coding harness, it has been one
+
+00:15:57.600 --> 00:16:00.180
+of the tools that
+we, as Microsoft,
+
+00:16:00.180 --> 00:16:03.000
+have been super successful and
+the model providers are loving.
+
+00:16:03.000 --> 00:16:05.670
+It's definitely a space
+to dig more into.
+
+00:16:05.670 --> 00:16:06.900
+SETH JUAREZ: Awesome, well,
+thank you so much for being
+
+00:16:06.900 --> 00:16:08.160
+with us, and thank you
+so much for watching.
+
+00:16:08.160 --> 00:16:09.270
+We'll see you after this.
+
+00:16:09.270 --> 00:16:10.520
+JULIA KASPER: Thank you.
+
+00:16:10.520 --> 00:16:18.190
+[ Music ]

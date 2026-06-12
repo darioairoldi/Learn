@@ -16,7 +16,7 @@ description: "Deep analysis of Burke Holland's session deconstructing the VS Cod
 **Speakers:** Burke Holland (Senior Cloud Advocate, Microsoft)  
 **Associated Summary:** [summary.md](summary.md)
 
-![Session title slide](<images/001.01 session title.png>)
+![Session title slide](<images/001.01-session-title.png>)
 
 ---
 

@@ -709,16 +709,16 @@ scripts/
 
 ## References
 
-**[How to use agent hooks for lifecycle automation](../../03.00-tech/05.02-prompt-engineering/04-howto/09.00-how_to_use_agent_hooks_for_lifecycle_automation.md)** 📘 [Internal]
+**[How to use agent hooks for lifecycle automation](../../03.00-tech/05.02-prompt-engineering/04-howto/09.00-how-to-use-agent-hooks-for-lifecycle-automation.md)** 📘 [Internal]
 Complete reference for hook configuration, lifecycle events, and I/O protocol.
 
 **[Agent hooks reference](../../.copilot/context/00.00-prompt-engineering/11-agent-hooks-reference.md)** 📘 [Internal]
 Quick reference for hook events and JSON schema.
 
-**[The GitHub Copilot customization stack](../../03.00-tech/05.02-prompt-engineering/01-overview/01.00-the_github_copilot_customization_stack.md)** 📘 [Internal]
+**[The GitHub Copilot customization stack](../../03.00-tech/05.02-prompt-engineering/01-overview/01.00-the-github-copilot-customization-stack.md)** 📘 [Internal]
 Overview of all customization layers that TuneIQ monitors.
 
-**[Understanding skills, hooks, and lifecycle automation](../../03.00-tech/05.02-prompt-engineering/03-concepts/01.05-understanding_skills_hooks_and_lifecycle_automation.md)** 📘 [Internal]
+**[Understanding skills, hooks, and lifecycle automation](../../03.00-tech/05.02-prompt-engineering/03-concepts/01.05-understanding-skills-hooks-and-lifecycle-automation.md)** 📘 [Internal]
 Conceptual foundation for hooks and skills.
 
 **[VS Code Copilot customization](https://code.visualstudio.com/docs/copilot/copilot-customization)** 📘 [Official]

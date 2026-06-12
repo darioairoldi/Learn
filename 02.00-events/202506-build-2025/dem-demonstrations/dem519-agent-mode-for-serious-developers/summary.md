@@ -7,7 +7,7 @@
 **Format:** Demo Session - Seattle Only  
 **Link:** [Microsoft Build 2025 Session DEM519]
 
-![VS Code Agent Mode](images/vscode-agent-mode-demo.png)
+![Agent Mode for Serious Developers](images/session-banner.png)
 
 ---
 
@@ -408,4 +408,3 @@ VS Code Team, Microsoft
 ---
 
 *This demonstration session showcases the transformative potential of Agent Mode in VS Code, proving that autonomous AI coding can deliver professional-grade results while dramatically accelerating learning and development speed. The real-world Kaggle competition success demonstrates how AI agents can democratize access to expert-level capabilities across different domains and skill levels.*
-

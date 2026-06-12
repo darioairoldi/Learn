@@ -6,6 +6,8 @@
 **Speakers:** Denizhan Yigitbas (Senior Product Manager, Microsoft), Dhruv Muttaraju (Product Manager, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK127](https://build.microsoft.com/en-US/sessions/BRK127)
 
+![Unleash Developer Potential with AI and Dev Box](images/session-banner.png)
+
 ---
 
 ## Table of Contents

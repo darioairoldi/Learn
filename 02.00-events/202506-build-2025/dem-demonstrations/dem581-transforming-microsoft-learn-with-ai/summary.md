@@ -1,6 +1,8 @@
 # Overview
-Imagine a future where acquiring knowledge is more accessible, personalized, and efficient than ever. Microsoft Learn is integrating AI into skills-focused educational experiences. These features offer personalized, AI-generated plans, and an AI assistant that helps you find answers fast. Join us to explore this modern version of learning and use the power of AI to architect your future.
 
+![Transforming Microsoft Learn with AI](images/session-banner.png)
+
+Imagine a future where acquiring knowledge is more accessible, personalized, and efficient than ever. Microsoft Learn is integrating AI into skills-focused educational experiences. These features offer personalized, AI-generated plans, and an AI assistant that helps you find answers fast. Join us to explore this modern version of learning and use the power of AI to architect your future.
 
 # About the speakers
 
@@ -13,4 +15,3 @@ Derek Peterson
 Principal PM Manager
 Microsoft
 Derek Peterson is a Principal PM Manager at Microsoft Learn, specializing in creating experiences that empower customers and partners to leverage Microsoft technologies. His work encompasses documentation, training, and various other assistive experiences designed to help users build, scale, and commercialize their innovations on Microsoft platforms.
-

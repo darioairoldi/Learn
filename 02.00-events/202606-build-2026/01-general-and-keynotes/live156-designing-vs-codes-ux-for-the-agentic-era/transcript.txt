@@ -1,0 +1,67 @@
+Microsoft Build
+June 2-3, 2026
+Session: LIVE156
+Speakers: Burke Holland, Joanna Oikawa
+Burke Holland: All right. Hey everybody. Welcome back. And we're joined by Joanna, who's the Design Lead on VS Code. How many designers are there on VS Code?
+Joanna Oikawa: There are four.
+Burke Holland: Four designers.
+Joanna Oikawa: Yes. A small but mighty Design and UX Engineering Team.
+Burke Holland: Yes. So interesting back story here. For those of you who are here, you get to hear this. There is a UX channel in the chat, and it's one of my favorites, because you'll see tons of stuff there that never sees the light of day, but all the prototypes, you're like, I've been thinking, what if chat looked like this? And you're like, that's amazing. It's one of my favorite places to hang out and just watch the tower building. Very cool.
+Joanna Oikawa: Yeah. It's great because a lot of the engineers also own UX. And so we're able to have a small team and work really quickly, because everybody is thinking and sharing and owning UX together.
+Burke Holland: Yeah, it's very cool. I wish I was a designer.
+Joanna Oikawa: You could.
+Burke Holland: If you could have one ability that you don't have, what would it be?
+Joanna Oikawa: Me?
+Burke Holland: Yeah.
+Joanna Oikawa: Oh, my gosh. Probably print making, like physical posters and graphic design, a little bit more of that.
+Burke Holland: It wouldn't be singing, Celine Dion or something? You could have picked anything.
+Joanna Oikawa: Oh, I could have picked anything, and I picked something very close to my mom.
+Burke Holland: You're living your best life. Okay. So almost shipped designs. Are there a couple of examples that we can see?
+Joanna Oikawa: Sure. Yeah. I mean, I have kind of a walkthrough of what our journey to the agents window looks. And that includes a lot of things that are close but not quite what we ended up shipping, and some things that we're still thinking about. So I have, here in Figma, you can see back in December, we were starting to think about what the evolution of that "Agents" panel that we launched last fall was going to look like.
+How can we make it easier to switch and check on your agents while you're focused in VS Code? And so we start to play with this menu that's attached to the central search bar as a way to quickly find those things. And you can see in the product today, we have a similar menu, but we grew and learned more about the feedback. And so we started to think more about what a full-screen experience would look like, still within the concept of the same editor window, but we started with the welcome page. And we ended up shipping something close to this, but one of the key differences was what kind of information we wanted to show here. And so this took a lot of feedback, user research, to learn about what data across what workspaces do you want to see things.
+And we really learned that a lot of folks wanted to see sessions across different projects.
+Burke Holland: How do you make that decision? Is it just looking at telemetry? I mean, this seems like this stuff is hard. It's extremely hard. And when you see products that are really well designed, they're just easy to use, that is extremely difficult to do. So I'm very curious about, like, how do you figure out which one of these designs is the right one to go with?
+Joanna Oikawa: It's a challenge because we're working in an existing product with existing patterns and preferences and then trying to support new ways of working entirely.
+Burke Holland: Yeah. Modalities that we don't really know what they look like.
+Joanna Oikawa: And so we're learning about them on our team. And our customers, our users are learning about them. And it's kind of building the boat while it's running type thing.
+Burke Holland: Yeah, we're changing the wheels on the bus while it's -- so who makes the final call on that? Is that you? Are you the one who says ship it or don't ship it?
+Joanna Oikawa: We're always kind of improving on it, so there's not usually a final call. We'll put it into insiders first. We'll experiment.
+Burke Holland: Oh, that's right. Test rollout.
+Joanna Oikawa: We'll run research. We'll get feedback. And then we're just kind of continuously touching a lot of these problem spaces as we learn more, as our users learn more. No one really calls it final on the team. We just kind of keep going until we're happy with it.
+Burke Holland: Okay. And y'all have something called UI Power Hour. UI Power Hour. Is that a thing?
+Joanna Oikawa: I don't know.
+Burke Holland: It says what it is, how it works, and why it matters at this velocity.
+Joanna Oikawa: I have no idea.
+Burke Holland: The AI has hallucinated facts. AI designers shipping their own fixes, oh, with Figma MCP. Nice.
+Joanna Oikawa: Yeah, absolutely. We have taken advantage of the capability to take designs from Figma, just like this, and move them into code more quickly and, more importantly, take code and update our Figma components, so that you can work in either tool, whatever is easiest for you. And all of our designers ship code as well. And so we --
+Burke Holland: Oh, really? Are you submitting PRs?
+Joanna Oikawa: Yes.
+Burke Holland: Now is that a change from 12 months ago, or has it always been that way?
+Joanna Oikawa: A lot of former designers, like David Dossett, have been very integrated in the code base as well. But it's kind of a new thing for us. So we're finding that balance of when to submit PRs, when to just create prototypes, when to just work in Figma, what's most efficient. We have a lot of web-based prototypes as well that we use. This is from last December as well when we were starting to talk about our new themes and color refreshes and what were some of the experimental styles that we wanted to play with. And so prototyping these to make them interactive was excellent. And we didn't end up shipping this exact code, but it gave us something to share with the team, gather feedback. And you can see some of the options that we had here, like the shadow on the panels, the lighter panels than the rest of the background, these are things that we ended up changing.
+Burke Holland: The VS Code icon in the top right corner was flashing. I like that.
+Joanna Oikawa: Yeah. The evolution of this is the "Update" button that lives up there now. But we got feedback that the flashing button was a little too much.
+Burke Holland: A little too annoying?
+Joanna Oikawa: Yeah. So maybe we'll just add it for you.
+Burke Holland: I really like it. Okay. So what I'm hearing, Joanna, because I heard this from Courtney as well, is that everybody is now -- would it be accurate to say that everyone is a developer? In other words, PMs are submitting PRs. Designers are submitting PRs. So that, to me, seems to be a huge change. The job has really expanded beyond just design.
+Joanna Oikawa: Everyone is a developer, and everyone is a designer as well. Like I said, a lot of our engineers --
+Burke Holland: That's very true.
+Joanna Oikawa: -- they're able to come up with new ideas and get farther in the UX process than they would have in the past because they have more design guidelines that are available, and the code can look at what's happened in the past, and they can bring a prototype to us for feedback.
+Burke Holland: Yeah, that's very true.
+Joanna Oikawa: And so we get to share a lot of responsibilities because of these tools.
+Burke Holland: It moves in both directions. I'm curious, do y'all think that maybe in the future, the job is you do everything? Do you know what I mean? You're a designer and a PM and an engineer. Everyone literally does everything. We don't have siloed disciplines anymore. Or no?
+Joanna Oikawa: The way I think about it and the way our team thinks about it is depth versus breadth. And so my depth will probably always be in user experience and visual design. And that's where my deep expertise comes in. But with AI, you can have more breadth than in the past. So, for instance, writing a Kusto query used to take me forever, and it was really cumbersome and difficult to do. But now I can look up data on our telemetry and make decisions off of that much easier. So I can put on that analyst hat, PM hat, even though I don't have that extreme depth.
+Burke Holland: So for those folks who don't work in Microsoft, Kusto is, well, Kuso is a public thing, too, I think. But Kusto is a language for querying telemetry and data. And Microsoft is very data driven. Right? It doesn't just make decisions on the fly. Everything has to be backed by data. So we used to have people whose sole job was to write Kusto queries and then make dashboards and present that data. That was Devon. That's what he did. And if you needed data, you'd have to go to Devon, because he's the only one who knew. But I guess now just anyone could do it.
+Joanna Oikawa: We're able to get farther on our own.
+Burke Holland: Holy crap. This place is coming apart. As far as design, though, goes with agents, one of the things I've noticed is that we talk about AI psychosis. And one of the ways that it manifests is that now I think that I'm a good designer. And so the AI makes the design. I'm like, I really like that. And other people will show me their thing. They're like, I built this with Opus or whatever, and they're super proud of it, and it's just purple and gradients all over the place. I'm like, that is a monstrosity. So it does seem like, yes, you can do, but also there needs to be someone in the room who's like, we're not going to do that. Close.
+Joanna Oikawa: That's where the depth and the taste comes in, having folks, and, similarly, having engineers who can tell me that's not possible, or that's not smart, or it's going to slow down the app, when I have this fun idea. Having these complementary depths really helps find the right balance for the product.
+Burke Holland: So I know we're kind of off the rails of design, but I'm interested in this, because if you're old like me, I've been around for so long that I've just seen everything, right? So it's like taste and experience is more of just, like, I've just done every stupid thing you can do. And so I know how it all ends. I've burned myself every possible way. I'm just covered in blisters. How do we develop the taste if you don't get to get burned anymore because the agent is doing all the work? I'm worried about how do we create more of these folks?
+Joanna Oikawa: That's why having a validation loop and making sure what you're shipping is solving the problem that you intended, and you're getting feedback, and you're kind of closing the loop on decisions that you're making. That's how you'll actually find out is this little thing that I vibe coded, added really quickly, is it actually solving the problem, or does it have a greater sense of importance and permanence because it's out there and available? So holding ourselves responsible for making sure that the things we ship work and taking things out when it doesn't work, because it's so easy to just add, add, add, add, add.
+Burke Holland: Yeah, it's fascinating. It is easy to do. I almost feel like we're at the point, especially with AI, where it's like, I don't know if y'all have ever -- are there any artists in the room, people who paint or draw? If you draw, then you know that when you're drawing, there is a point at which you should stop drawing. From here on out, you're just going to make it worse. And I feel like that's the same way with AI. You can build every possible feature, but you should really stop and consider whether or not you should do that.
+Joanna Oikawa: And that's been a big theme with the Agents Window, because we want to provide a place where you can focus and easily navigate and complement the craziness of running multiple agents in parallel. And that requires kind of pulling back things that historically might have been an option in VS Code. And so I'll even show in Figma here what that started to look when we realized we needed kind of a separate window in a space to look across multiple projects and have that focused view. We really questioned every single element on the screen of whether it was going to be --
+Burke Holland: Distracting or necessary.
+Joanna Oikawa: -- needed. Does it help me make decisions in this moment, or does it add more information and options and distractions? And so we played a lot with what the output looks like, what the session list information needs to include, and then even at this level, what information do I need to start my day to check on things, to babysit multiple agents at a time, and how do we balance that with not making people feel overwhelmed and like there's too many things happening at once that it's out of their control.
+Burke Holland: Well, I, on behalf of all developers, am thankful for designers who can help us ship good-looking stuff. Thank you so much. A round of applause for Joanna.
+Joanna Oikawa: Thanks for having me.
+Burke Holland: You're my favorite designer. Don't tell Elijah I said that. All right. Thanks so much. All right, folks, we'll be right back. We're going to do Doom next. I don't know how.
+[ Music ]
+END

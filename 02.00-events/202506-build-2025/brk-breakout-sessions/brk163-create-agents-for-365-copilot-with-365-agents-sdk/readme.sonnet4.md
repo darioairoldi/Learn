@@ -7,6 +7,8 @@
 **Customer Speakers:** Renil Abdulkader (Engineering Director, KPMG LLP), Gaurave Sehgal (Senior Director, KPMG LLP)  
 **Link:** [Microsoft Build 2025 Session BRK163](https://mybuild.microsoft.com/sessions/BRK163)
 
+![Create Agents for 365 Copilot with 365 Agents SDK](images/session-banner.png)
+
 ---
 
 ## Table of Contents

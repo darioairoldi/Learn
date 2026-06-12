@@ -6,6 +6,8 @@
 **Speakers:** Cagri (Charlie) Aslan (Principal Software Engineering Manager, Microsoft), Harshada Hole (Sr. Product Manager, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK119](https://build.microsoft.com/sessions/BRK119)
 
+![Debug Like a Pro Improve Your Efficiency](images/session-banner.png)
+
 ---
 
 ## Table of Contents

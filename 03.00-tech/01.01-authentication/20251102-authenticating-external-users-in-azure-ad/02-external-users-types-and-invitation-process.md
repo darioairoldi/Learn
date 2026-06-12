@@ -125,7 +125,7 @@ The invitation redemption process is critical in determining the resulting guest
 
 The invitation process follows these key stages:
 
-<img src="images/01.002 Invitation flow.png" alt="Invitation Flow Diagram" width="600" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+<img src="images/01.002-invitation-flow.png" alt="Invitation Flow Diagram" width="600" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
 
 **Stage 1: Invitation Creation**
 - Administrator creates a guest user invitation in Azure AD

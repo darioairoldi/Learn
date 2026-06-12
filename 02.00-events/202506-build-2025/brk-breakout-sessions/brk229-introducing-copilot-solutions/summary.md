@@ -1,5 +1,7 @@
 # BRK229: Introducing Copilot Solutions
 
+![Introducing Copilot Solutions](images/session-banner.png)
+
 ## Summary
 This session introduces Copilot Solutions and their integration capabilities.
 

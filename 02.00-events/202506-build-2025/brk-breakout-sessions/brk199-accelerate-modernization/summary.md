@@ -6,7 +6,7 @@
 **Speakers:** Mohammad Nofal (Global Black Belt Lead, Microsoft), Anoop Iyer (Director, Business Strategy, Microsoft), Michael Yen-Chi Ho (Senior Product Manager, Microsoft), Bryce Hunt (Founding GTM Engineer, Cognition AI), Tinius Alexander Lystad (CTO, Visma AS)  
 **Link:** [Microsoft Build 2025 Session BRK199]
 
-![App Modernization at Scale](images/app-modernization-scale.png)
+![Accelerate Modernization](images/session-banner.png)
 
 ---
 
@@ -170,7 +170,7 @@ Microsoft's new **App Modernization Guidance** provides step-by-step transformat
 
 **Business Impact:**
 
-- **€600,000 annual savings** in hosting and licensing costs
+- **ï¿½600,000 annual savings** in hosting and licensing costs
 - **Significant performance improvements** over legacy system
 - **Enhanced developer engagement** and job satisfaction
 - **Accelerated feature development** capability
@@ -390,4 +390,3 @@ Visma AS
 ---
 
 *This session represents a comprehensive roadmap for organizations seeking to accelerate their modernization journey through AI-powered tools and methodologies, demonstrating how legacy systems can be transformed into cloud-native solutions at enterprise scale.*
-

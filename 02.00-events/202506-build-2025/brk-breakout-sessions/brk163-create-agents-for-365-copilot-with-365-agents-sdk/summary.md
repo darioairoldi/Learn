@@ -7,7 +7,7 @@
 **Customer Speakers:** Renil Abdulkader (Engineering Director, KPMG LLP), Gaurave Sehgal (Senior Director, KPMG LLP)  
 **Link:** [Microsoft Build 2025 Session BRK163]
 
-![M365 Agents SDK Development](images/m365-agents-sdk-custom-engine.png)
+![Create Agents for 365 Copilot with 365 Agents SDK](images/session-banner.png)
 
 ---
 
@@ -471,4 +471,3 @@ KPMG LLP
 ---
 
 *This comprehensive session demonstrates the power and flexibility of the Microsoft 365 Agents SDK for enterprise agent development, showcasing how organizations can build sophisticated, multi-channel agents with complete control over AI models, orchestration, and knowledge integration while leveraging Microsoft's enterprise-grade security and authentication infrastructure.*
-

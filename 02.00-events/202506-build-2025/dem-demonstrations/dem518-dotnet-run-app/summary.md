@@ -6,7 +6,7 @@
 **Speakers:** Damian Edwards (Principal Architect, Microsoft)  
 **Link:** [Microsoft Build 2025 Session DEM518]
 
-![Direct C# File Execution](images/dotnet-run-direct.png)
+![.NET Run App](images/session-banner.png)
 
 ---
 
@@ -360,4 +360,3 @@ Microsoft
 ---
 
 *This session marks a significant milestone in .NET's evolution, removing barriers to entry while maintaining the power and flexibility that makes C# a premier development platform. The direct file execution capability represents Microsoft's commitment to developer productivity and learning accessibility.*
-

@@ -6,6 +6,8 @@
 - Build link: [DEM517](https://build.microsoft.com/en-US/sessions/DEM517?source=sessions)
 - Internal sharepoint stream: [DEM517](https://microsofteur.sharepoint.com/teams/MicrosoftInternal11/_layouts/15/stream.aspx?id=%2Fteams%2FMicrosoftInternal11%2FShared%20Documents%2FEvents%2F20250502%20%2D%20Build%202025%2FDEM517%20%2D%20Build%2C%20Deploy%2C%20%26%20Use%20Your%20First%20Model%20Context%20Protocol%20%28MCP%29%20Server%2FDEM517%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ea38d6185%2Dc17f%2D41d8%2D8748%2D0578c6324bab)
 
+![Build Deploy and Use Your First MCP Server](images/session-banner.png)
+
 ---
 
 ## Table of Contents
@@ -45,8 +47,6 @@ The protocol enables AI tools to access:
 - **External APIs** and **services**
 - **Custom tools** and **resources**
 
-![alt text](<images/000.01 MCPdefined.png>)
-
 ### The Three Components of MCP
 
 #### 1. **Hosts**
@@ -63,8 +63,6 @@ The protocol enables AI tools to access:
 - **Lightweight programs that expose capabilities through MCP**
 - The actual providers of data, tools, and functionality
 - Can run locally, in containers, or remotely
-
-![alt text](<images/000.01 MCP Components.png>)
 
 ## MCP Architecture and Deployment Options
 
@@ -268,8 +266,6 @@ During the session, the presenter showed a real-time example of how MCP works by
 - **Schema-aware responses** - Provides consistent data structure for AI analysis
 - **Seamless integration** - Works alongside other MCP servers like the GitHub server
 
-![alt text](<images/001.01 MCP Commands discovered.png>)
-
 **Technical Implementation:**
 ```json
 {
@@ -457,8 +453,6 @@ Microsoft's API Management and API Center services are "optimized for remote MCP
 
 In essence, Microsoft's role is that of a **collaborative ecosystem partner** - they provide the platform, tools, and enterprise capabilities that make MCP practical for real-world deployment, while respecting and supporting the open standard created by Anthropic and the broader community.
 
-![alt text](<images/002.01 MCP clients hosts tools.png>)
-
 ## Conclusion
 
 Model Context Protocol represents a significant advancement in AI tool integration, providing a standardized way to extend AI capabilities with external data and tools. Its open standard approach, combined with robust security features and flexible deployment options, makes it an ideal solution for organizations looking to enhance their AI workflows while maintaining security and operational efficiency.
@@ -514,4 +508,3 @@ The demonstrated examples show how MCP can transform developer workflows by prov
 - **[WebVTT (Web Video Text Tracks)](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)** - Format used for the session transcript, demonstrating how structured data formats can be processed and analyzed using MCP-enabled AI tools.
 
 other references:
-![alt text](<images/002.01 references.png>)

@@ -6,6 +6,8 @@
 **Speakers:** Vid Chari (Copilot Studio Marketing), Gary Pretty (Principal Product Manager, Copilot Studio), Salem Bacha (Principal Architect, Copilot Studio), Mike Stall (Architect, Copilot Studio), Sarah Critchley (Principal PM, Microsoft 365 Agents SDK), Matthew Barbour (Principal Architect, Power Platform & Development Manager, Agents SDK)  
 **Link:** [Microsoft Build 2025 Session BRK176](https://mybuild.microsoft.com/sessions/BRK176)
 
+![Agent Solutions with Copilot Studio and M365 Agents SDK](images/session-banner.png)
+
 ---
 
 ## Table of Contents

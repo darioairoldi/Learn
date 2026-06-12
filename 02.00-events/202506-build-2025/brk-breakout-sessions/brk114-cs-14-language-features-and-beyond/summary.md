@@ -1,5 +1,6 @@
-Join **Mads and Dustin** on a demo-filled tour through upcoming features in **C# 14** and beyond. Dictionary expressions, new kinds of extension members and field access in auto-properties are some of the ways that C# keeps making your code clearer, cleaner and more expressive.
+![C# 14 Language Features and Beyond](images/session-banner.png)
 
+Join **Mads and Dustin** on a demo-filled tour through upcoming features in **C# 14** and beyond. Dictionary expressions, new kinds of extension members and field access in auto-properties are some of the ways that C# keeps making your code clearer, cleaner and more expressive.
 
 ## **AI Summary**
 **Introduction:** In the session, further developments and enhancements to the C# language were introduced, including new techniques for handling complex operations more efficiently and making the code cleaner.
@@ -16,7 +17,6 @@ Join **Mads and Dustin** on a demo-filled tour through upcoming features in **C#
 
 Overall, the discussion indicated a strong push towards making C# more versatile and efficient, ensuring it remains competitive and capable of addressing modern software development challenges.
 
-
 About the speakers
 
 **Dustin Campbell**
@@ -28,4 +28,3 @@ Dustin Campbell is a principal software engineer on the .NET Developer Experienc
 Architect
 Microsoft
 Mads is the lead designer of the C# programming language and a Principal Architect at Microsoft.
-
