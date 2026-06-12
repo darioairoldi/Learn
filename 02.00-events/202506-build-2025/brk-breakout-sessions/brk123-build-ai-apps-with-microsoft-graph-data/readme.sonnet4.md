@@ -1,7 +1,5 @@
 # AI Infused Mobile & Desktop App Development with .NET MAUI
 
-![alt text](<images/mobile and desktop app development with dotnet maui.png>)
-
 ## Session Overview
 
 **Session Code:** BRK123  
@@ -16,6 +14,8 @@
 - Gerald Versluis (Community)
 - Maddy
 - Uma Maheswari Chandrabose (Syncfusion)
+
+![Build AI Apps with Microsoft Graph Data](images/session-banner.png)
 
 ## Executive Summary
 

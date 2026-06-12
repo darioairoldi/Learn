@@ -6,6 +6,8 @@
 **Speakers:** Mike Griese (Senior Software Engineer, Microsoft), Niels Laute (Senior Software Engineer, Microsoft)  
 **Link:** [Microsoft Build 2025 Session DEM571](https://build.microsoft.com/en-US/sessions/DEM571)
 
+![Extending Your Application with PowerToys](images/session-banner.png)
+
 ---
 
 ## Table of Contents

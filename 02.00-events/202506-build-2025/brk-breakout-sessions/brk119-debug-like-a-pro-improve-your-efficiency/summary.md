@@ -6,7 +6,7 @@
 **Speakers:** Cagri (Charlie) Aslan (Principal Software Engineering Manager, Microsoft), Harshada Hole (Sr. Product Manager, Microsoft)   \
 **Link:** [Microsoft Build 2025 Session BRK119]
 
-![Visual Studio Debugging with Copilot](images/visual-studio-debugging-copilot.png)
+![Debug Like a Pro Improve Your Efficiency](images/session-banner.png)
 
 ---
 
@@ -518,4 +518,3 @@ Microsoft
 ---
 
 *This session demonstrates that AI-enhanced debugging is not about replacing developer expertise, but amplifying it through intelligent analysis, contextual insights, and guided problem-solving that transforms debugging from reactive investigation to proactive, AI-assisted development.*
-

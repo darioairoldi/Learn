@@ -1,5 +1,7 @@
 # Appendix A: CS Version History and Features
 
+![C# 14 Language Features and Beyond](images/session-banner.png)
+
 This appendix provides a comprehensive chronological overview of C# language evolution from version 1.0 to the upcoming C# 14.0. Each version entry includes major language features, their purposes, and links to official documentation.
 
 ## C# 1.0 (2002) - .NET Framework 1.0

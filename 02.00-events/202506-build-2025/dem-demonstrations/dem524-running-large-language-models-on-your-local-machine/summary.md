@@ -6,7 +6,7 @@
 **Speaker:** Rodrigo Diaz Concha (Technical Fellow, Intelexion)  
 **Link:** [Microsoft Build 2025 Session DEM524](https://mybuild.microsoft.com/sessions/202506)
 
-![Local LLMs with Foundry Local](images/local-llms-foundry-local.png)
+![Running Large Language Models on Your Local Machine](images/session-banner.png)
 
 ---
 

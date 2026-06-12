@@ -6,6 +6,8 @@
 **Speakers:** Aaron Bjork (Product Management Director, Microsoft Copilot Studio Team), Abram Jackson (PM for M365 Copilot Extensibility, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK165](https://mybuild.microsoft.com/sessions/BRK165)
 
+![Building Agents for Microsoft 365 Copilot](images/session-banner.png)
+
 ---
 
 ## Table of Contents

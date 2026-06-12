@@ -293,7 +293,7 @@ X-API-Key: {{apiKey}}
 ```
 
 **How to switch environments in Visual Studio:**
-![alt text](<images/02.001 Visual Studio environment selector.png>)
+![alt text](<images/02.001-visual-studio-environment-selector.png>)
 
 
 

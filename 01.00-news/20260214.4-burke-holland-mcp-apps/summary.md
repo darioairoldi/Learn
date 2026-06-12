@@ -15,7 +15,7 @@ description: "Summary of Burke Holland's video on MCP Apps — the new standard 
 **Duration:** ~18 minutes  
 **Speakers:** Burke Holland (Senior Cloud Advocate, Microsoft)
 
-![Session title slide for MCP Apps](<images/001.01 session title.png>)
+![Session title slide for MCP Apps](<images/001.01-session-title.png>)
 
 ---
 

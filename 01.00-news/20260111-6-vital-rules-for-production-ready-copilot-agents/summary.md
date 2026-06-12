@@ -15,7 +15,7 @@ description: "Professional prompt engineering techniques for deploying AI agents
 **Duration:** ~48 minutes  
 **Speaker:** Mario Fontana (Microsoft)  
 
-![Session Title](<images/001.01b session title.png>)
+![Session Title](<images/001.01b-session-title.png>)
 ---
 
 ## Executive Summary

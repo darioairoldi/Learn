@@ -7,12 +7,13 @@
 **Topic:** Streamlining Application Testing with .NET Aspire and Playwright  
 **Event:** Microsoft Build 2025  
 
+![Streamlining Application Testing with .NET Aspire and Playwright](images/session-banner.png)
+
 This session demonstrates how to effectively combine **.NET Aspire** and **Playwright** to create robust, end-to-end testing solutions for distributed applications.<br> The presentation provides practical examples, source code, and real-world scenarios to help developers implement these technologies in their testing workflows.
 
 ## Key Technologies
 
 ### .NET Aspire
-![alt text](<images/000.00 dnetaspire.png>)
 **.NET Aspire** is a comprehensive set of libraries, frameworks, and tools designed for building observable, production-ready distributed application systems.<br> 
 It provides:
 
@@ -23,7 +24,6 @@ It provides:
 - **Container Integrations**: Seamless integration with various databases and services through containers
 
 ### Playwright
-![alt text](<images/001.01 playwright.png>)
 Playwright is a modern, cross-platform testing framework that enables reliable end-to-end testing across multiple browsers and operating systems:
 
 - **Cross-Browser Support**: Works with **Chromium**, **Firefox**, and **WebKit**

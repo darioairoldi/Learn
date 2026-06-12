@@ -1,0 +1,2969 @@
+WEBVTT
+
+00:00:02.250 --> 00:00:05.340
+Alberto Martinez: I
+guess that is my cue.
+
+00:00:05.340 --> 00:00:08.530
+The music is down and
+the spirit is low.
+
+00:00:09.690 --> 00:00:10.980
+Well, welcome this afternoon.
+
+00:00:10.980 --> 00:00:16.440
+It seems like we are in an
+energy low due to lunchtime
+
+00:00:16.440 --> 00:00:19.980
+and no one had the
+coffee kick up yet.
+
+00:00:19.980 --> 00:00:22.900
+I hope you have some
+coffee coming in here.
+
+00:00:23.970 --> 00:00:28.410
+This place is super cool
+because it's an improv place.
+
+00:00:28.410 --> 00:00:30.750
+And so that's what
+I'm going to do.
+
+00:00:30.750 --> 00:00:32.460
+I'm going to improv
+my whole presentation
+
+00:00:32.460 --> 00:00:34.260
+and see how it goes.
+
+00:00:34.260 --> 00:00:34.590
+All right?
+
+00:00:34.590 --> 00:00:36.180
+Will that work?
+
+00:00:36.180 --> 00:00:40.830
+And then we do a
+whodunit mystery just
+
+00:00:40.830 --> 00:00:43.150
+to keep the energy high.
+
+00:00:44.280 --> 00:00:46.620
+Because we are so
+few in the room,
+
+00:00:46.620 --> 00:00:48.780
+maybe we can accept questions.
+
+00:00:48.780 --> 00:00:49.620
+No, maybe not.
+
+00:00:49.620 --> 00:00:51.690
+He asked me whether he asked
+a question in the beginning
+
+00:00:51.690 --> 00:00:53.730
+or during or at the end.
+
+00:00:53.730 --> 00:00:57.630
+So we waited for the end
+to do the presentation.
+
+00:00:57.630 --> 00:00:59.220
+My name is Alberto Martinez.
+
+00:00:59.220 --> 00:01:01.380
+I do work for Qualcomm.
+
+00:01:01.380 --> 00:01:04.950
+I'm responsible for
+the software strategy
+
+00:01:04.950 --> 00:01:06.840
+in the compute business.
+
+00:01:06.840 --> 00:01:07.680
+What does that mean?
+
+00:01:07.680 --> 00:01:09.170
+I'm not sure.
+
+00:01:09.170 --> 00:01:12.140
+It means I have to look into
+the future with a crystal ball,
+
+00:01:12.140 --> 00:01:14.660
+check it a little bit,
+say, where is agentic
+
+00:01:14.660 --> 00:01:17.420
+and orchestration and all this
+fancy work they're going,
+
+00:01:17.420 --> 00:01:21.020
+and look at it to say,
+maybe, sometimes.
+
+00:01:21.020 --> 00:01:24.650
+But I learned something in my
+experience, almost 40 years
+
+00:01:24.650 --> 00:01:27.530
+in the industry, that
+if you want the future,
+
+00:01:27.530 --> 00:01:30.360
+if you want to predict the
+future -- it's a famous quote,
+
+00:01:30.360 --> 00:01:31.650
+so I don't know who said.
+
+00:01:31.650 --> 00:01:33.090
+There are many
+attributions to it.
+
+00:01:33.090 --> 00:01:36.270
+But if you want to
+predict the future,
+
+00:01:36.270 --> 00:01:38.520
+you have to go and create it.
+
+00:01:38.520 --> 00:01:41.100
+Right? If you wait for
+someone to create it for you,
+
+00:01:41.100 --> 00:01:42.750
+then you're a follower.
+
+00:01:42.750 --> 00:01:45.840
+If you create the future,
+then you are the innovator,
+
+00:01:45.840 --> 00:01:46.710
+the people that follow.
+
+00:01:46.710 --> 00:01:52.000
+So my story today is about
+uncovering a mystery
+
+00:01:54.420 --> 00:01:59.100
+in the agentic story and
+the orchestration story.
+
+00:01:59.100 --> 00:02:03.480
+And start peeling that
+onion to try to understand,
+
+00:02:03.480 --> 00:02:05.970
+where does it go, right?
+
+00:02:05.970 --> 00:02:08.940
+What do we need to do?
+
+00:02:08.940 --> 00:02:13.740
+One thing is very clear, is
+while we are relying on AI,
+
+00:02:13.740 --> 00:02:17.460
+specifically in
+agentic, big models,
+
+00:02:17.460 --> 00:02:20.040
+all sizes, to do work for us.
+
+00:02:20.040 --> 00:02:22.320
+By the way, show of hands.
+
+00:02:22.320 --> 00:02:25.520
+Raise your hand if you
+use AI queries, prompts,
+
+00:02:25.520 --> 00:02:29.960
+or activities more than
+a few hours a day.
+
+00:02:29.960 --> 00:02:33.830
+Let's say you spend
+hours during the day.
+
+00:02:33.830 --> 00:02:35.580
+Raise your hand.
+
+00:02:37.380 --> 00:02:39.210
+My friend from Qualcomm
+should raise your hand,
+
+00:02:39.210 --> 00:02:41.910
+otherwise you are punished.
+
+00:02:41.910 --> 00:02:43.050
+All right.
+
+00:02:43.050 --> 00:02:44.580
+So a few of you have spent it.
+
+00:02:44.580 --> 00:02:48.930
+How many of you have
+actually run out of tokens?
+
+00:02:48.930 --> 00:02:50.130
+You run out of tokens.
+
+00:02:50.130 --> 00:02:53.640
+I actually, I had a
+measure of how running
+
+00:02:53.640 --> 00:02:55.680
+out of tokens affects
+my daily life.
+
+00:02:55.680 --> 00:02:58.680
+Obviously, at the office, we
+don't see the tokens running
+
+00:02:58.680 --> 00:03:05.040
+out until the CIO come back and
+say, okay, guys, you're cut off.
+
+00:03:05.040 --> 00:03:07.410
+What they see in the
+back end, right,
+
+00:03:07.410 --> 00:03:11.250
+is the dollar counter
+going up, right?
+
+00:03:11.250 --> 00:03:14.910
+And people asking, okay,
+when this is going to stop?
+
+00:03:14.910 --> 00:03:16.650
+And this is a trade-off
+that is happening.
+
+00:03:16.650 --> 00:03:20.370
+We're replacing some --
+we're amplifying people.
+
+00:03:20.370 --> 00:03:23.790
+I feel 10x more productive since
+I use AI in a daily basis,
+
+00:03:23.790 --> 00:03:25.890
+and I use it all the time.
+
+00:03:25.890 --> 00:03:30.660
+Not only for research, but for
+development and for practice.
+
+00:03:30.660 --> 00:03:36.300
+But at the same time, my dear
+wife, she's an attorney.
+
+00:03:36.300 --> 00:03:40.810
+She's not a technologist,
+and she uses AI.
+
+00:03:41.820 --> 00:03:44.430
+And we had a personal account.
+
+00:03:44.430 --> 00:03:48.000
+And I, in a personal
+account, I run out of tokens
+
+00:03:48.000 --> 00:03:49.560
+in a few hours, right?
+
+00:03:49.560 --> 00:03:52.170
+I sit down and
+start doing things.
+
+00:03:52.170 --> 00:03:54.090
+And I run out of tokens,
+and they say, chill out,
+
+00:03:54.090 --> 00:03:58.740
+wait until 8 p.m. this evening
+in order to continue your work.
+
+00:03:58.740 --> 00:04:04.140
+That's never happened to my
+wife until last weekend.
+
+00:04:04.140 --> 00:04:06.540
+And I say, okay, that's
+an inflection point.
+
+00:04:06.540 --> 00:04:12.210
+Now it's hitting the
+consumer, which means we have
+
+00:04:12.210 --> 00:04:14.130
+to do something about it.
+
+00:04:14.130 --> 00:04:16.890
+It's not only making money in
+the counter and the backend
+
+00:04:16.890 --> 00:04:19.350
+for people that
+provide infrastructure
+
+00:04:19.350 --> 00:04:21.300
+and foundational
+models, but it's also
+
+00:04:21.300 --> 00:04:24.140
+for everyday life
+that it's becoming.
+
+00:04:24.140 --> 00:04:26.990
+And as our Qualcomm
+CEO, Cristiano Amon,
+
+00:04:26.990 --> 00:04:32.360
+said in Computex this week,
+it's multiplying 10x and 100x
+
+00:04:32.360 --> 00:04:33.710
+because agents are just going
+
+00:04:33.710 --> 00:04:37.950
+to run even a higher
+rate on the token.
+
+00:04:37.950 --> 00:04:41.760
+And so it becomes a tokenization
+or a token economics
+
+00:04:41.760 --> 00:04:43.770
+that is becoming an issue.
+
+00:04:43.770 --> 00:04:45.600
+My talk is about that.
+
+00:04:45.600 --> 00:04:48.960
+And if you take the
+red thread to the end,
+
+00:04:48.960 --> 00:04:50.730
+the solution is in our hands.
+
+00:04:50.730 --> 00:04:53.730
+It's in our hands, not only from
+the point of view of economics,
+
+00:04:53.730 --> 00:04:56.520
+but from the point of view
+of power conservation,
+
+00:04:56.520 --> 00:05:00.210
+energy consumption, and latency.
+
+00:05:00.210 --> 00:05:02.670
+With that, I told you what
+I'm going to tell you.
+
+00:05:02.670 --> 00:05:04.020
+Now I'm going to tell you.
+
+00:05:04.020 --> 00:05:05.430
+And then I'm going to
+repeat what I told you
+
+00:05:05.430 --> 00:05:08.400
+so you can remember
+that at the end.
+
+00:05:08.400 --> 00:05:12.660
+So I created a
+provocative message.
+
+00:05:12.660 --> 00:05:16.560
+Stop routing your docstrings to
+a 7 billion parameter model.
+
+00:05:16.560 --> 00:05:19.800
+If you're a developer, you
+know what a docstring is.
+
+00:05:19.800 --> 00:05:22.890
+Basically, you're informing
+your code of what is
+
+00:05:22.890 --> 00:05:25.060
+that that this code does.
+
+00:05:27.120 --> 00:05:30.840
+But when you take your
+code and blindly send it
+
+00:05:30.840 --> 00:05:34.290
+to a very large model,
+you're spending tokens
+
+00:05:34.290 --> 00:05:38.400
+and something doesn't need
+to go to a very large model.
+
+00:05:38.400 --> 00:05:40.650
+So that is the conversation
+we're going to have.
+
+00:05:40.650 --> 00:05:44.850
+So we want to talk about token
+savings, latency reduction
+
+00:05:44.850 --> 00:05:46.440
+that could come up from that.
+
+00:05:46.440 --> 00:05:49.290
+And it's a potential because our
+research shows it could be a
+
+00:05:49.290 --> 00:05:52.470
+latency reduction, depending
+on the hardware that you have
+
+00:05:52.470 --> 00:05:54.600
+and the optimization of models
+and so on and so forth.
+
+00:05:54.600 --> 00:05:58.020
+But the potential latency
+reduction, the capabilities
+
+00:05:58.020 --> 00:05:59.790
+and products that
+Qualcomm provide.
+
+00:05:59.790 --> 00:06:00.960
+I'm sure there are
+others that do.
+
+00:06:00.960 --> 00:06:02.430
+I don't know who could be.
+
+00:06:02.430 --> 00:06:06.780
+And train off compute
+capabilities and memory.
+
+00:06:06.780 --> 00:06:09.300
+And how we analyze
+in our research how
+
+00:06:09.300 --> 00:06:12.120
+to develop a solution that
+addressed that problem
+
+00:06:12.120 --> 00:06:16.440
+that I hope you take into
+account in your next design
+
+00:06:16.440 --> 00:06:20.280
+and your next capabilities
+that you provide forward.
+
+00:06:20.280 --> 00:06:22.530
+How I break the time here?
+
+00:06:22.530 --> 00:06:26.160
+I have 38 minutes and 34
+seconds to tell you this story
+
+00:06:26.160 --> 00:06:27.510
+and allow for questions.
+
+00:06:27.510 --> 00:06:28.500
+First of all, I will tell you
+
+00:06:28.500 --> 00:06:31.110
+about what is the math
+and why it's broken.
+
+00:06:31.110 --> 00:06:32.970
+I will introduce the
+Snapdragon X2 Elite.
+
+00:06:32.970 --> 00:06:36.630
+Only one page because I
+get paid by Qualcomm.
+
+00:06:36.630 --> 00:06:39.960
+So I do need to say
+these things, right?
+
+00:06:39.960 --> 00:06:44.490
+Then I will tell you a video of
+our demonstration of a proof
+
+00:06:44.490 --> 00:06:47.670
+of concept that started
+with an emulator
+
+00:06:47.670 --> 00:06:50.730
+that I created using AI code.
+
+00:06:50.730 --> 00:06:52.920
+The emulator got popularity
+inside Qualcomm.
+
+00:06:52.920 --> 00:06:56.790
+Our CEO, Cristiano, wanted to
+demonstrate it at Computex.
+
+00:06:56.790 --> 00:06:59.400
+And I took the delivery to
+take the same demonstration
+
+00:06:59.400 --> 00:07:01.620
+and bring it here.
+
+00:07:01.620 --> 00:07:03.360
+I will talk about
+three-tier architecture.
+
+00:07:03.360 --> 00:07:04.920
+There can be more tiers.
+
+00:07:04.920 --> 00:07:07.140
+I will just say the
+minimum of three tiers.
+
+00:07:07.140 --> 00:07:09.270
+That makes sense to me.
+
+00:07:09.270 --> 00:07:12.390
+Or that makes different sense.
+
+00:07:12.390 --> 00:07:14.580
+Our research and the
+reference to our research.
+
+00:07:14.580 --> 00:07:16.680
+And we wrap it up.
+
+00:07:16.680 --> 00:07:18.750
+Is that a good plan?
+
+00:07:18.750 --> 00:07:22.570
+Or should we put some EDM
+music so you guys can wake up?
+
+00:07:23.610 --> 00:07:24.000
+Speaker 1: Good plan.
+
+00:07:24.000 --> 00:07:24.510
+Alberto Martinez: Good plan?
+
+00:07:24.510 --> 00:07:24.930
+All right.
+
+00:07:24.930 --> 00:07:26.250
+Thank you.
+
+00:07:26.250 --> 00:07:27.960
+Okay. Where is the broken math?
+
+00:07:27.960 --> 00:07:31.620
+If you add docstring
+into your prompt,
+
+00:07:31.620 --> 00:07:34.620
+if your prompt contains
+processing docstrings,
+
+00:07:34.620 --> 00:07:36.390
+it takes about 180 tokens.
+
+00:07:36.390 --> 00:07:37.740
+That's our research.
+
+00:07:37.740 --> 00:07:40.830
+Changes. If you're using the
+cloud, you're sending to a model
+
+00:07:40.830 --> 00:07:42.930
+that is over 70
+billion parameters.
+
+00:07:42.930 --> 00:07:44.880
+That's the smallest.
+
+00:07:44.880 --> 00:07:45.240
+Right?
+
+00:07:45.240 --> 00:07:50.130
+If you're fixing a lint error,
+you're spending 210 tokens.
+
+00:07:50.130 --> 00:07:53.490
+If you're generating a
+CRUD route, 460 tokens.
+
+00:07:53.490 --> 00:07:58.860
+If you're doing a security
+audit, it goes off the roof.
+
+00:07:58.860 --> 00:08:03.600
+You start with 3,800
+tokens to create it.
+
+00:08:03.600 --> 00:08:05.310
+And if you do a
+cross-repo refactor,
+
+00:08:05.310 --> 00:08:07.830
+which is about the same
+complexity in our research
+
+00:08:07.830 --> 00:08:11.970
+of security audit,
+it's 3,900 tokens.
+
+00:08:11.970 --> 00:08:12.390
+Okay.
+
+00:08:12.390 --> 00:08:16.770
+Your miles will vary
+based on your classifier
+
+00:08:16.770 --> 00:08:18.120
+and so on and so forth.
+
+00:08:18.120 --> 00:08:19.890
+I'm using this as an example.
+
+00:08:19.890 --> 00:08:21.870
+All the small letters said that.
+
+00:08:21.870 --> 00:08:24.870
+So yeah, don't use
+money in that.
+
+00:08:24.870 --> 00:08:25.920
+But it costs money.
+
+00:08:25.920 --> 00:08:27.990
+All the things cost money.
+
+00:08:27.990 --> 00:08:29.520
+Those tokens cost you money.
+
+00:08:29.520 --> 00:08:32.940
+That in the lower side,
+people are spending $36,000.
+
+00:08:32.940 --> 00:08:37.460
+I have heard, anecdotally,
+from vendors and partners,
+
+00:08:37.460 --> 00:08:42.890
+that in some cases, they're
+spending $35,000 per developer
+
+00:08:42.890 --> 00:08:44.450
+per month.
+
+00:08:44.450 --> 00:08:49.410
+I will say that is probably
+Qualcomm's case, our own data.
+
+00:08:49.410 --> 00:08:51.540
+But if you take it in the
+low side and the average
+
+00:08:51.540 --> 00:08:54.960
+of the curve, looking at the
+distribution in the lower side,
+
+00:08:54.960 --> 00:08:57.330
+those things are $36,000
+and 50 developers.
+
+00:08:57.330 --> 00:09:02.460
+So there's a wide range of
+people spending money on this.
+
+00:09:02.460 --> 00:09:06.390
+What we do know is when you
+apply agentic and orchestration
+
+00:09:06.390 --> 00:09:09.660
+to these functions,
+this goes 10x.
+
+00:09:09.660 --> 00:09:10.860
+So now we're going to add these.
+
+00:09:10.860 --> 00:09:13.080
+And so, this means
+instead of $36,000,
+
+00:09:13.080 --> 00:09:15.300
+we're going to be
+paying in short order,
+
+00:09:15.300 --> 00:09:19.230
+because this is an
+exponential growth curve,
+
+00:09:19.230 --> 00:09:22.290
+you will have $360,000
+or $3,600,000.
+
+00:09:22.290 --> 00:09:23.970
+Peter Steinberger was talking
+
+00:09:23.970 --> 00:09:28.680
+about he's spending a
+million dollars a month.
+
+00:09:28.680 --> 00:09:29.040
+Right?
+
+00:09:29.040 --> 00:09:30.480
+Well, maybe he can do that.
+
+00:09:30.480 --> 00:09:34.500
+I cannot afford it, personally.
+
+00:09:34.500 --> 00:09:36.330
+Genius that he is.
+
+00:09:36.330 --> 00:09:39.150
+I cannot afford that.
+
+00:09:39.150 --> 00:09:43.170
+When you look at the workload
+distribution of this complexity,
+
+00:09:43.170 --> 00:09:46.680
+you see that about 34%
+of all this workload,
+
+00:09:46.680 --> 00:09:51.060
+when you take a prompt on
+average, you take that,
+
+00:09:51.060 --> 00:09:55.020
+we use Claude Sonnet
+4.6, and the data coming
+
+00:09:55.020 --> 00:09:58.950
+from Claude Sonnet 4.6 to create
+this distribution, you will see
+
+00:09:58.950 --> 00:10:08.060
+that about 1,300 queries are
+simple in the score of 1
+
+00:10:08.060 --> 00:10:10.220
+to 4 complexity, and I
+have reference to how
+
+00:10:10.220 --> 00:10:12.410
+that score is measured.
+
+00:10:12.410 --> 00:10:17.580
+About medium to low, about
+1,500 queries of that.
+
+00:10:17.580 --> 00:10:19.800
+Medium to high, another 7%.
+
+00:10:19.800 --> 00:10:26.640
+By the way, if you send those
+queries to a Snapdragon X2 Elite
+
+00:10:26.640 --> 00:10:29.370
+with a capacity and compute, a
+memory bandwidth that you have,
+
+00:10:29.370 --> 00:10:32.040
+you can run it locally.
+
+00:10:32.040 --> 00:10:34.440
+Now, the remaining is complex.
+
+00:10:34.440 --> 00:10:40.920
+20%, sometimes 30%, that you
+will have to send to a model
+
+00:10:40.920 --> 00:10:43.650
+that the X2 Elite cannot run.
+
+00:10:43.650 --> 00:10:49.170
+You can send it to a more
+capable on-prem device,
+
+00:10:49.170 --> 00:10:50.550
+or you will send
+it to the cloud.
+
+00:10:50.550 --> 00:10:52.080
+So it's talking
+about three tiers.
+
+00:10:52.080 --> 00:10:53.460
+That's what we had in mind.
+
+00:10:53.460 --> 00:10:58.080
+You have your personal computer
+or the computer at your desk.
+
+00:10:58.080 --> 00:11:02.010
+You might have a workstation or
+an on-prem headless machine,
+
+00:11:02.010 --> 00:11:03.660
+and then you have a cloud.
+
+00:11:03.660 --> 00:11:07.200
+If you think about saving
+that this provides,
+
+00:11:07.200 --> 00:11:12.750
+you can justify pretty much
+any hardware in your office.
+
+00:11:12.750 --> 00:11:15.480
+Any hardware sitting
+in your office.
+
+00:11:15.480 --> 00:11:18.340
+And you can explain
+that to your CIO.
+
+00:11:19.650 --> 00:11:22.320
+And the spec of why we say
+the Snapdragon X2 Elite,
+
+00:11:22.320 --> 00:11:25.710
+because it's a new
+generation of product.
+
+00:11:25.710 --> 00:11:29.580
+It has 80 TOPS capacity.
+
+00:11:29.580 --> 00:11:33.660
+It provides 143% greater
+compute capacity
+
+00:11:33.660 --> 00:11:35.340
+to our previous generation.
+
+00:11:35.340 --> 00:11:38.580
+Provides up to 122
+gigabytes of memory,
+
+00:11:38.580 --> 00:11:41.490
+up to 225 gigabyte per
+second memory bandwidth.
+
+00:11:41.490 --> 00:11:46.050
+That is in the Stream Edition,
+152 in the Elite Edition.
+
+00:11:46.050 --> 00:11:50.940
+And support your favorite data
+types, generally speaking.
+
+00:11:50.940 --> 00:11:53.820
+Now, there is a differential
+between data types
+
+00:11:53.820 --> 00:11:55.500
+that I will also talk about,
+
+00:11:55.500 --> 00:11:58.800
+because it's
+important to address.
+
+00:11:58.800 --> 00:12:01.170
+So far with me, right?
+
+00:12:01.170 --> 00:12:08.400
+So money expenditure, breaking
+it down, the question is how.
+
+00:12:08.400 --> 00:12:09.730
+Right?
+
+00:12:11.310 --> 00:12:15.210
+Let me address for a moment
+the quantization question.
+
+00:12:15.210 --> 00:12:18.150
+It's tremendously true
+that developing code
+
+00:12:18.150 --> 00:12:22.560
+in floating point historically
+have been an easier task.
+
+00:12:22.560 --> 00:12:24.720
+And actually, from the
+point of view of precision,
+
+00:12:24.720 --> 00:12:26.850
+provide better precision.
+
+00:12:26.850 --> 00:12:30.010
+On the other hand, when
+you're using TGA formats,
+
+00:12:31.140 --> 00:12:34.140
+especially in the weights,
+you can head out to 50%,
+
+00:12:34.140 --> 00:12:37.200
+which is not taken into
+account in my calculations,
+
+00:12:37.200 --> 00:12:40.890
+50% reduction over
+floating point.
+
+00:12:40.890 --> 00:12:46.890
+So I mean, a model that takes
+50 gigabytes of memory,
+
+00:12:46.890 --> 00:12:51.270
+or 100 gigabytes of memory in
+floating point, and in TGA,
+
+00:12:51.270 --> 00:12:55.860
+it would take 50 gigabytes, and
+now it fits in the right format.
+
+00:12:55.860 --> 00:12:58.230
+Then, bandwidth
+savings, because now,
+
+00:12:58.230 --> 00:13:00.540
+with the smaller
+weight size in TGA,
+
+00:13:00.540 --> 00:13:03.120
+we all know that then you're
+consuming half the memory
+
+00:13:03.120 --> 00:13:06.970
+bandwidth, or a quarter memory
+bandwidth into using TGA 4.
+
+00:13:09.540 --> 00:13:14.910
+And, it reduces your power in
+general, for many reasons.
+
+00:13:14.910 --> 00:13:18.750
+But, in floating point,
+or in INT16 activations,
+
+00:13:18.750 --> 00:13:21.240
+preserve forward the
+numerical precision,
+
+00:13:21.240 --> 00:13:23.130
+as critical for
+the instructions,
+
+00:13:23.130 --> 00:13:27.270
+avoid activation collapse,
+and we support it.
+
+00:13:27.270 --> 00:13:30.750
+The point I'm trying to make,
+that is your power-conscious,
+
+00:13:30.750 --> 00:13:35.280
+memory-conscious,
+and interior format,
+
+00:13:35.280 --> 00:13:37.410
+or reduced interior format,
+might take the task.
+
+00:13:37.410 --> 00:13:41.100
+If you look at research in this,
+
+00:13:41.100 --> 00:13:43.380
+the quality gap can
+be reduced by 5%.
+
+00:13:43.380 --> 00:13:47.070
+If you're in the tolerance
+of your precision,
+
+00:13:47.070 --> 00:13:51.540
+this is a good thing, is in
+any complexity score, 1 to 7.
+
+00:13:51.540 --> 00:13:56.010
+Now, as you go to a complexity
+score, or greater than 7, then,
+
+00:13:56.010 --> 00:13:59.010
+I wouldn't recommend, to move
+your quantization to interiors,
+
+00:13:59.010 --> 00:14:04.320
+because now, your precision,
+has become very, very relevant.
+
+00:14:04.320 --> 00:14:06.720
+Okay, with that plug,
+to the hardware,
+
+00:14:06.720 --> 00:14:08.640
+let's talk about the numbers.
+
+00:14:08.640 --> 00:14:09.660
+What the research shows.
+
+00:14:09.660 --> 00:14:16.860
+If you look at this dual axis, Y
+axis chart, you will find out,
+
+00:14:16.860 --> 00:14:20.100
+on the left-hand side,
+the request per day,
+
+00:14:20.100 --> 00:14:25.440
+for this research, again,
+we use Sonnet 4.6, and,
+
+00:14:25.440 --> 00:14:30.810
+in the Y axis the average
+tokens per request.
+
+00:14:30.810 --> 00:14:35.820
+If you divide between -- there
+are about, typical tasks,
+
+00:14:35.820 --> 00:14:38.460
+this is a summary of
+the tasks, you know,
+
+00:14:38.460 --> 00:14:40.530
+we call access the tasks,
+that we did in the research,
+
+00:14:40.530 --> 00:14:44.520
+but there is about, 20 to
+30 different task types,
+
+00:14:44.520 --> 00:14:47.520
+that you can talk about.
+
+00:14:47.520 --> 00:14:53.220
+If you look at the tokens
+request per complexity,
+
+00:14:53.220 --> 00:14:55.650
+you will see the majority,
+you see the curve,
+
+00:14:55.650 --> 00:14:59.580
+is lifted to this left
+in requests per day,
+
+00:14:59.580 --> 00:15:02.190
+and to the right, in
+token complexity,
+
+00:15:02.190 --> 00:15:04.440
+if you see the linear curve.
+
+00:15:04.440 --> 00:15:07.110
+So you can see that on device,
+
+00:15:07.110 --> 00:15:12.540
+you can have up to
+3,100 requests.
+
+00:15:12.540 --> 00:15:15.390
+On-prem device, there
+is more capable to do,
+
+00:15:15.390 --> 00:15:18.510
+a noise reduction request,
+and the remaining go
+
+00:15:18.510 --> 00:15:21.510
+to high complex models.
+
+00:15:21.510 --> 00:15:26.160
+That will save you a number
+between 50 to up to 70%
+
+00:15:26.160 --> 00:15:31.960
+of the computational on your
+tokens dedicated to computation.
+
+00:15:36.900 --> 00:15:38.310
+The way we divided this
+
+00:15:38.310 --> 00:15:44.070
+and it what prototype gives us
+a distribution that you could,
+
+00:15:44.070 --> 00:15:49.590
+using the same $36,000
+calculated above, you can save
+
+00:15:49.590 --> 00:15:56.400
+up to $24,000 of that per
+day by dividing the tasks
+
+00:15:56.400 --> 00:15:59.700
+or dividing the prompts into
+tasks that can be executed
+
+00:15:59.700 --> 00:16:01.930
+in independent models.
+
+00:16:03.480 --> 00:16:10.560
+So that would be, as of
+April, 1.6 billion tokens
+
+00:16:10.560 --> 00:16:13.560
+that can be processed locally.
+
+00:16:13.560 --> 00:16:16.860
+I want you to hear
+that one more time.
+
+00:16:16.860 --> 00:16:21.270
+1.6 billion could be
+processed locally.
+
+00:16:21.270 --> 00:16:27.120
+And I'm not telling you a
+server class on your desk.
+
+00:16:27.120 --> 00:16:31.710
+I'm talking to you about
+your laptop, right?
+
+00:16:31.710 --> 00:16:36.030
+Or I'm talking to you a
+more capable workstation.
+
+00:16:36.030 --> 00:16:42.180
+I'm not saying put a
+rack right in your desk,
+
+00:16:42.180 --> 00:16:43.890
+water-cooled rack on your desk.
+
+00:16:43.890 --> 00:16:44.910
+That's not what
+I'm talking about.
+
+00:16:44.910 --> 00:16:48.330
+I'm talking about the
+hardware that you can go
+
+00:16:48.330 --> 00:16:52.320
+and buy today in Best Buy.
+
+00:16:52.320 --> 00:17:00.760
+And you can save 1.6 billion
+tokens with no quality loss.
+
+00:17:02.910 --> 00:17:05.220
+Zero quality loss.
+
+00:17:05.220 --> 00:17:08.750
+For developers, I mean,
+especially for the CIO,
+
+00:17:08.750 --> 00:17:10.640
+I don't know how
+many CIOs are here.
+
+00:17:10.640 --> 00:17:11.510
+Maybe not too many.
+
+00:17:11.510 --> 00:17:13.850
+Maybe in the cameras on
+the other side, right?
+
+00:17:13.850 --> 00:17:15.200
+I don't know how many of you,
+
+00:17:15.200 --> 00:17:17.660
+but I'm sure you'll
+see how you will love
+
+00:17:17.660 --> 00:17:18.800
+to hear this conversation.
+
+00:17:18.800 --> 00:17:21.360
+And we're making this
+conversation real
+
+00:17:22.860 --> 00:17:24.610
+moving forward.
+
+00:17:25.890 --> 00:17:27.870
+So what I'm going to
+show you is the demo.
+
+00:17:27.870 --> 00:17:31.590
+It's a video of the demo
+because there is no setup here
+
+00:17:31.590 --> 00:17:33.480
+to do an actual demo.
+
+00:17:33.480 --> 00:17:37.080
+But this is the same demo
+that was shown on Computex
+
+00:17:37.080 --> 00:17:41.430
+by Cristiano Amon or a version
+of it because, you know,
+
+00:17:41.430 --> 00:17:44.820
+if you are a CEO, your demo
+can be worked on right
+
+00:17:44.820 --> 00:17:48.660
+until the last minute,
+right, of the presentation.
+
+00:17:48.660 --> 00:17:50.790
+One can make changes
+to that presentation.
+
+00:17:50.790 --> 00:17:55.740
+If you are a researcher like
+me, you ended up, you know,
+
+00:17:55.740 --> 00:18:02.430
+presenting your final
+deck to Microsoft Build
+
+00:18:02.430 --> 00:18:06.360
+at least one week or two weeks
+ahead of the presentation.
+
+00:18:06.360 --> 00:18:11.040
+I'll put it a little bit later,
+but I did the best I could.
+
+00:18:11.040 --> 00:18:12.600
+So here it is.
+
+00:18:12.600 --> 00:18:13.650
+The demo, what it does.
+
+00:18:13.650 --> 00:18:18.960
+We take the same prompt, which
+is design a Snapdragon page
+
+00:18:18.960 --> 00:18:20.850
+with a link to a Qualcomm.com
+
+00:18:20.850 --> 00:18:24.360
+with Taiwanese Kongming lantern
+floating in the background.
+
+00:18:24.360 --> 00:18:29.280
+Now, this is a super simple
+task, but it's collapsed, right?
+
+00:18:29.280 --> 00:18:31.920
+It's a prompt that is collapsed.
+
+00:18:31.920 --> 00:18:37.440
+The most complex task in here is
+creating the lantern floating
+
+00:18:37.440 --> 00:18:38.970
+in the background.
+
+00:18:38.970 --> 00:18:42.150
+It's a little bit of physics
+model that needs to be run,
+
+00:18:42.150 --> 00:18:46.830
+a planning of that in the
+background, execution of that,
+
+00:18:46.830 --> 00:18:49.050
+is some complex code
+that had to be run.
+
+00:18:49.050 --> 00:18:53.430
+And that is over 70
+billion parameters
+
+00:18:53.430 --> 00:18:54.930
+that is required
+to execute that.
+
+00:18:54.930 --> 00:18:57.510
+So smaller parameters
+won't do good work.
+
+00:18:57.510 --> 00:19:02.630
+We try. We have videos of
+those that do from 3 billion
+
+00:19:02.630 --> 00:19:06.170
+to 30 billion to 70
+billion to 120 billion.
+
+00:19:06.170 --> 00:19:08.780
+We had the same request,
+and we broke it down.
+
+00:19:08.780 --> 00:19:11.900
+For the demo today, I will
+show you the two streams.
+
+00:19:11.900 --> 00:19:14.713
+The Claude 4.7 Opus
+
+00:19:15.113 --> 00:19:18.390
+from Anthropic Cloud,
+or the hybrid mode,
+
+00:19:18.390 --> 00:19:21.870
+where we divide the
+five tasks that are.
+
+00:19:21.870 --> 00:19:26.340
+The classifier, and this is
+the keyword we're using now.
+
+00:19:26.340 --> 00:19:29.550
+The classifier decided
+what's required in order
+
+00:19:29.550 --> 00:19:32.100
+to satisfy the prompt.
+
+00:19:32.100 --> 00:19:34.200
+In the hybrid mode,
+what we decided to do,
+
+00:19:34.200 --> 00:19:37.230
+or the classifier decided
+to do, is five tasks.
+
+00:19:37.230 --> 00:19:39.410
+One is a medium.
+
+00:19:39.410 --> 00:19:43.250
+It requires up to 32
+billion parameter model.
+
+00:19:43.250 --> 00:19:45.080
+And three are easy that can run
+
+00:19:45.080 --> 00:19:48.480
+in an 8 billion parameter
+model in the PC.
+
+00:19:48.480 --> 00:19:50.370
+And one is hard.
+
+00:19:50.370 --> 00:19:52.950
+The coming lanterns
+floating in the background
+
+00:19:52.950 --> 00:19:56.460
+that is secured in
+a Claude 4.7 Opus.
+
+00:19:56.460 --> 00:19:59.760
+And we'd run in, and
+we'd let them race,
+
+00:19:59.760 --> 00:20:02.070
+and see what is the
+result of that.
+
+00:20:02.070 --> 00:20:04.590
+Sound like an interesting
+thing to see?
+
+00:20:04.590 --> 00:20:06.030
+Yeah?
+
+00:20:06.030 --> 00:20:08.130
+Want to see the race?
+
+00:20:08.130 --> 00:20:12.090
+There is an F1 car
+parked in the front.
+
+00:20:12.090 --> 00:20:14.220
+An ANG. I love F1.
+
+00:20:14.220 --> 00:20:15.510
+Okay.
+
+00:20:15.510 --> 00:20:17.520
+These are running.
+
+00:20:17.520 --> 00:20:21.330
+In the left-hand side,
+you have the Opus 4.7.
+
+00:20:21.330 --> 00:20:23.370
+As you expect, it's
+running faster,
+
+00:20:23.370 --> 00:20:26.430
+because the hybrid model
+hasn't been optimized.
+
+00:20:26.430 --> 00:20:29.580
+I expect that to change
+significantly over time,
+
+00:20:29.580 --> 00:20:33.690
+as our software team --
+where is my software team?
+
+00:20:33.690 --> 00:20:37.620
+The head of the software
+team is sitting in the back.
+
+00:20:37.620 --> 00:20:38.850
+I blame it on him.
+
+00:20:38.850 --> 00:20:41.070
+So we have to optimize
+it a little bit better.
+
+00:20:41.070 --> 00:20:43.050
+And you can see the
+counters going.
+
+00:20:43.050 --> 00:20:44.520
+I'm going to accelerate
+this a little bit,
+
+00:20:44.520 --> 00:20:48.030
+because then you might get
+bored by seeing code running.
+
+00:20:48.030 --> 00:20:50.900
+Watching the matrix
+fall down, right?
+
+00:20:50.900 --> 00:20:55.490
+That's like watching the
+matrix writing Python code.
+
+00:20:55.490 --> 00:20:57.990
+I'm going to move it faster.
+
+00:20:59.520 --> 00:21:04.610
+So now you have the same
+result, because that was done
+
+00:21:04.610 --> 00:21:06.090
+to prepare for Computex.
+
+00:21:06.090 --> 00:21:07.710
+It says, thank you, Taiwan.
+
+00:21:07.710 --> 00:21:11.880
+But as you see in the left-hand
+side and the right-hand side,
+
+00:21:11.880 --> 00:21:13.140
+it's the same picture.
+
+00:21:13.140 --> 00:21:16.410
+The lanterns actually
+move when it's running.
+
+00:21:16.410 --> 00:21:19.080
+And the model that
+executed results the same.
+
+00:21:19.080 --> 00:21:22.080
+But the difference is, the one
+
+00:21:22.080 --> 00:21:26.130
+on the left is four
+times more expensive
+
+00:21:26.130 --> 00:21:28.230
+than the one on the right.
+
+00:21:28.230 --> 00:21:33.440
+The one on the left took
+21 cents, token-wise.
+
+00:21:33.440 --> 00:21:36.260
+Now imagine that this is
+not just at the developer.
+
+00:21:36.260 --> 00:21:39.050
+Because everything we do
+today is actually code.
+
+00:21:39.050 --> 00:21:41.000
+Any prompt creates a derivative.
+
+00:21:41.000 --> 00:21:43.760
+Either you tell them to create
+a PowerPoint presentation,
+
+00:21:43.760 --> 00:21:47.430
+review Excel spreadsheet,
+compile data sets.
+
+00:21:47.430 --> 00:21:49.650
+It is writing code.
+
+00:21:49.650 --> 00:21:53.670
+It's writing Python,
+JavaScript, HTML compilations.
+
+00:21:53.670 --> 00:21:55.560
+It's doing code.
+
+00:21:55.560 --> 00:21:57.510
+And as you write code,
+and if you classify
+
+00:21:57.510 --> 00:22:02.130
+that data correctly, in this
+particular case, we're saving
+
+00:22:02.130 --> 00:22:06.270
+4X. And we said before,
+at least 50% you can reduce.
+
+00:22:06.270 --> 00:22:09.750
+So look at the two
+streams of that gamut,
+
+00:22:09.750 --> 00:22:13.080
+the opportunity that
+presents itself.
+
+00:22:13.080 --> 00:22:19.230
+If people -- how we can
+justify paying for X more?
+
+00:22:19.230 --> 00:22:22.290
+It's hard to justify, right?
+
+00:22:22.290 --> 00:22:24.690
+Like in the old days,
+I did learn to learn
+
+00:22:24.690 --> 00:22:27.450
+to program in an IBM 460.
+
+00:22:27.450 --> 00:22:28.620
+I'm that old.
+
+00:22:28.620 --> 00:22:30.750
+It was a punch card
+and everything.
+
+00:22:30.750 --> 00:22:35.040
+So if you ever know what that
+is, look it up in a museum.
+
+00:22:35.040 --> 00:22:38.220
+And we sent everything
+to a server, right?
+
+00:22:38.220 --> 00:22:39.390
+And we had a little monitor.
+
+00:22:39.390 --> 00:22:42.420
+And in my case, a
+punch card machine.
+
+00:22:42.420 --> 00:22:43.830
+Not even a terminal for my case.
+
+00:22:43.830 --> 00:22:46.320
+Because I was in engineering,
+electrical engineering,
+
+00:22:46.320 --> 00:22:48.000
+not in computer science.
+
+00:22:48.000 --> 00:22:51.480
+So terminal was for
+computer science.
+
+00:22:51.480 --> 00:22:52.470
+Not for engineers.
+
+00:22:52.470 --> 00:22:53.790
+Not for electrical engineers.
+
+00:22:53.790 --> 00:22:56.490
+Anyway, I'm digressing
+like an old man.
+
+00:22:56.490 --> 00:23:02.370
+And so 4X, 20 cents
+versus 5.5 cents.
+
+00:23:02.370 --> 00:23:05.580
+$14,000 a month, if you do
+this in a recurrent fashion,
+
+00:23:05.580 --> 00:23:08.520
+imagine your marketing team
+is preparing with pages,
+
+00:23:08.520 --> 00:23:10.960
+product launches, and
+so on and so forth,
+
+00:23:12.360 --> 00:23:17.950
+versus almost $4,000
+differential.
+
+00:23:19.770 --> 00:23:23.220
+Well, this is one way to
+save the planet, guys.
+
+00:23:23.220 --> 00:23:26.070
+Don't send everything
+to the cloud.
+
+00:23:26.070 --> 00:23:28.390
+Send what matters to the cloud.
+
+00:23:30.090 --> 00:23:30.450
+All right.
+
+00:23:30.450 --> 00:23:35.160
+So what does this mean for
+provider, developer, and users?
+
+00:23:35.160 --> 00:23:38.190
+All benefits simultaneously.
+
+00:23:38.190 --> 00:23:43.300
+65% less cloud GPU
+cycles consume.
+
+00:23:44.520 --> 00:23:46.560
+I didn't show the demonstration
+of sub-milliseconds
+
+00:23:46.560 --> 00:23:48.690
+because the demo
+didn't provide that.
+
+00:23:48.690 --> 00:23:51.570
+In the demo, we'll have shown
+my sub-millisecond latency.
+
+00:23:51.570 --> 00:23:52.920
+I will have shown you that.
+
+00:23:52.920 --> 00:23:54.450
+But research shows
+that we can get
+
+00:23:54.450 --> 00:23:59.640
+to sub-200 millisecond
+responses on device turnaround
+
+00:23:59.640 --> 00:24:02.580
+and at least user
+cost reduction.
+
+00:24:02.580 --> 00:24:05.280
+This is tremendous value.
+
+00:24:05.280 --> 00:24:07.620
+Tremendous, tremendous value.
+
+00:24:07.620 --> 00:24:10.590
+So in the case of that partner
+
+00:24:10.590 --> 00:24:14.980
+that is paying $35,000
+a month per developer,
+
+00:24:17.430 --> 00:24:22.230
+is they integrate a
+solution like this, right?
+
+00:24:22.230 --> 00:24:26.970
+$15,000 savings, or more
+than $15,000 savings,
+
+00:24:26.970 --> 00:24:29.200
+that can buy a lot of hardware.
+
+00:24:30.360 --> 00:24:32.790
+Hardware that stays
+with the user three,
+
+00:24:32.790 --> 00:24:35.970
+four years between the
+replacement cycle.
+
+00:24:35.970 --> 00:24:40.590
+They can replace the cycle
+of hardware every month
+
+00:24:40.590 --> 00:24:43.630
+and still will be saving money.
+
+00:24:44.850 --> 00:24:46.830
+I mean, get that in.
+
+00:24:46.830 --> 00:24:48.450
+You can replace your
+hardware every month
+
+00:24:48.450 --> 00:24:51.450
+and you're still saving money.
+
+00:24:51.450 --> 00:24:55.660
+It's an incredible,
+powerful equation.
+
+00:24:57.240 --> 00:25:00.060
+So let's talk about
+how to achieve that.
+
+00:25:00.060 --> 00:25:05.970
+The way we envision this, three
+tiers in this case, 13 billion
+
+00:25:05.970 --> 00:25:08.580
+and below for sure,
+up to 34 billion
+
+00:25:08.580 --> 00:25:12.840
+in soon-to-release
+architectures,
+
+00:25:12.840 --> 00:25:18.870
+is your complexity score between
+-- this is logic entropy.
+
+00:25:18.870 --> 00:25:22.170
+You will see the
+research in the back.
+
+00:25:22.170 --> 00:25:27.180
+In a score 1 to 6, smaller
+models, we run it locally,
+
+00:25:27.180 --> 00:25:30.300
+up to 100 billion parameters,
+or slightly more,
+
+00:25:30.300 --> 00:25:33.330
+120 billion parameters,
+can run on-prem,
+
+00:25:33.330 --> 00:25:35.280
+work stations, or servers.
+
+00:25:35.280 --> 00:25:36.360
+These are not what are cool.
+
+00:25:36.360 --> 00:25:37.920
+This is just
+something that looks
+
+00:25:37.920 --> 00:25:41.370
+like a little box that's
+sitting under your desk.
+
+00:25:41.370 --> 00:25:44.130
+Or anything bigger than that,
+you just send it to the cloud.
+
+00:25:44.130 --> 00:25:49.470
+Like security audits,
+code repo, right?
+
+00:25:49.470 --> 00:25:51.370
+Send it to the cloud.
+
+00:25:53.730 --> 00:25:57.180
+We look at the energy
+entropy threshold for that,
+
+00:25:57.180 --> 00:26:02.550
+or the entropy threshold for
+that, and the way we look at how
+
+00:26:02.550 --> 00:26:04.410
+to make, a possible
+way to look at it,
+
+00:26:04.410 --> 00:26:08.790
+that's what we call
+the classifier.
+
+00:26:08.790 --> 00:26:11.130
+The classifier becomes
+a very important IP,
+
+00:26:11.130 --> 00:26:12.960
+and you developers should think
+
+00:26:12.960 --> 00:26:18.270
+about the classifier
+as your capability.
+
+00:26:18.270 --> 00:26:20.640
+I mean, the concept is simple.
+
+00:26:20.640 --> 00:26:24.510
+Like any great idea,
+the concept is simple.
+
+00:26:24.510 --> 00:26:28.230
+The opportunity is
+developing the IP
+
+00:26:28.230 --> 00:26:31.650
+that solves the problem
+better than others.
+
+00:26:31.650 --> 00:26:35.190
+The way we look at this problem
+is four-prong analysis, right?
+
+00:26:35.190 --> 00:26:37.680
+We first look at
+the prompt and look
+
+00:26:37.680 --> 00:26:39.720
+at the token count
+for the prompt.
+
+00:26:39.720 --> 00:26:43.470
+Think about a small classifier,
+which is a small model,
+
+00:26:43.470 --> 00:26:45.780
+that I need to re-add
+in sub-20 milliseconds.
+
+00:26:45.780 --> 00:26:46.980
+Why sub-20 milliseconds?
+
+00:26:46.980 --> 00:26:47.730
+Because you start looking
+
+00:26:47.730 --> 00:26:51.270
+at below 200 millisecond
+threshold response time.
+
+00:26:51.270 --> 00:26:53.190
+You look at 10% of
+that, a rule of thumb,
+
+00:26:53.190 --> 00:26:55.230
+20 milliseconds is
+my response time.
+
+00:26:55.230 --> 00:26:57.510
+That's my top threshold
+for my classifier.
+
+00:26:57.510 --> 00:27:00.600
+So I say my classifier cannot
+take more than 20 milliseconds,
+
+00:27:00.600 --> 00:27:02.250
+and it cannot use
+more than 50 tokens.
+
+00:27:02.250 --> 00:27:06.570
+So it's lost in the
+noise of the request.
+
+00:27:06.570 --> 00:27:08.730
+If you see me squinting,
+it's for two reasons.
+
+00:27:08.730 --> 00:27:11.190
+I'm not used to
+light in my face.
+
+00:27:11.190 --> 00:27:13.990
+I'm a shy person,
+believe it or not.
+
+00:27:15.150 --> 00:27:16.830
+And second, I'm short-sighted.
+
+00:27:16.830 --> 00:27:21.120
+So I want to focus in your face,
+and then I have to squint.
+
+00:27:21.120 --> 00:27:26.070
+Second, we look at the abstract
+system three-part debt,
+
+00:27:26.070 --> 00:27:28.530
+meaning when you're parsing,
+
+00:27:28.530 --> 00:27:32.850
+how deep is the tree
+of decision logic?
+
+00:27:32.850 --> 00:27:35.700
+Do you have an if clause
+in your prompt, right?
+
+00:27:35.700 --> 00:27:41.490
+Is you say, okay, create a
+webpage that had a landing page
+
+00:27:41.490 --> 00:27:43.650
+for Snapdragon X2 Elite.
+
+00:27:43.650 --> 00:27:47.670
+However, if we haven't released
+Snapdragon X2 Elite yet,
+
+00:27:47.670 --> 00:27:50.040
+I want you to create a
+page that looks like this.
+
+00:27:50.040 --> 00:27:54.120
+However, I want a different page
+that does this and use data
+
+00:27:54.120 --> 00:27:56.010
+from this set or that set.
+
+00:27:56.010 --> 00:27:59.100
+So your depth of
+the decision tree
+
+00:27:59.100 --> 00:28:01.620
+of what the model had
+to do is increasing.
+
+00:28:01.620 --> 00:28:03.540
+So you can create a
+classifier to look
+
+00:28:03.540 --> 00:28:09.630
+into how deeply embedded is your
+decision tree to make a decision
+
+00:28:09.630 --> 00:28:12.600
+of where the request
+needs to go.
+
+00:28:12.600 --> 00:28:15.540
+The first thing we look at is
+cross-file reference count.
+
+00:28:15.540 --> 00:28:20.310
+So look at this email and
+look at that presentation.
+
+00:28:20.310 --> 00:28:22.740
+Search the web for
+this information.
+
+00:28:22.740 --> 00:28:25.830
+Combine that to
+create a solution.
+
+00:28:25.830 --> 00:28:27.930
+The more cross-file
+reference count.
+
+00:28:27.930 --> 00:28:29.220
+By the way, all
+these are thresholds
+
+00:28:29.220 --> 00:28:32.190
+that you can manipulate
+to find your best point.
+
+00:28:32.190 --> 00:28:35.160
+And actually, your model can
+be adaptive for the, you know,
+
+00:28:35.160 --> 00:28:36.450
+you can make it recursive
+
+00:28:36.450 --> 00:28:39.900
+to make your model be
+adaptive and self-learning.
+
+00:28:39.900 --> 00:28:43.380
+And finally, security flags.
+
+00:28:43.380 --> 00:28:45.000
+It's an authorization request.
+
+00:28:45.000 --> 00:28:46.110
+It's a crypt injection.
+
+00:28:46.110 --> 00:28:48.390
+It's an injection
+or compliance term.
+
+00:28:48.390 --> 00:28:50.970
+Any mask that trigger
+a compliance,
+
+00:28:50.970 --> 00:28:55.620
+security compliance query,
+triggered a red flag for us
+
+00:28:55.620 --> 00:28:57.390
+when we look at the classifier.
+
+00:28:57.390 --> 00:28:59.340
+To break that down into, okay,
+
+00:28:59.340 --> 00:29:02.340
+let's look at this carefully
+before we go further.
+
+00:29:02.340 --> 00:29:07.740
+When we had a security red flag,
+then we paid very deep attention
+
+00:29:07.740 --> 00:29:10.800
+to a confident fallback.
+
+00:29:10.800 --> 00:29:13.950
+So what we do in the confident
+fallback is the entropy
+
+00:29:13.950 --> 00:29:17.490
+of the query is getting
+too complex, right?
+
+00:29:17.490 --> 00:29:21.990
+Real time as the query
+is being executed,
+
+00:29:21.990 --> 00:29:25.830
+then we can stop the query
+and fall back to cloud.
+
+00:29:25.830 --> 00:29:29.220
+So what you do is, okay,
+the entropy is increasing.
+
+00:29:29.220 --> 00:29:33.510
+The models say yes, but it's
+taking too long, right?
+
+00:29:33.510 --> 00:29:35.760
+So that means our
+entropy is high.
+
+00:29:35.760 --> 00:29:41.640
+So before you go deeper
+into the weeds, stop it
+
+00:29:41.640 --> 00:29:43.290
+and reshuffle up to the cloud.
+
+00:29:43.290 --> 00:29:46.140
+So it's always a
+fallback situation.
+
+00:29:46.140 --> 00:29:48.840
+And then you can look at
+what went wrong, right,
+
+00:29:48.840 --> 00:29:51.030
+over time and correct it.
+
+00:29:51.030 --> 00:29:52.680
+So the power here
+
+00:29:52.680 --> 00:29:56.670
+for us developers is how
+we build that classifier.
+
+00:29:56.670 --> 00:29:59.190
+Obviously, there's a lot of
+work that can be done in order
+
+00:29:59.190 --> 00:30:02.850
+to improve it, create more
+powerful classifiers.
+
+00:30:02.850 --> 00:30:06.660
+That's the nature of the power
+of the IP that can be created
+
+00:30:06.660 --> 00:30:09.660
+for companies, like I have
+seen tons of companies here
+
+00:30:09.660 --> 00:30:13.470
+at the Build Conference that
+would be super interested
+
+00:30:13.470 --> 00:30:16.620
+to create a powerful
+classifier that allows
+
+00:30:16.620 --> 00:30:18.790
+to create these solutions.
+
+00:30:20.490 --> 00:30:23.310
+Almost on time to open for
+questions, but I don't know.
+
+00:30:23.310 --> 00:30:26.370
+You guys don't think like
+you have too many questions.
+
+00:30:26.370 --> 00:30:28.150
+Clear as mud.
+
+00:30:31.050 --> 00:30:33.270
+This is a boring -- the other
+ones were kind of boring.
+
+00:30:33.270 --> 00:30:35.160
+This is the most boring page.
+
+00:30:35.160 --> 00:30:39.000
+You know, when you do research,
+you like research reference.
+
+00:30:39.000 --> 00:30:41.610
+I'm not going to read
+my research reference.
+
+00:30:41.610 --> 00:30:45.930
+I talk here about entropy
+calculations, you know,
+
+00:30:45.930 --> 00:30:48.240
+quantization research.
+
+00:30:48.240 --> 00:30:50.130
+I'm sorry.
+
+00:30:50.130 --> 00:30:53.010
+And edge inference and
+routing capabilities research
+
+00:30:53.010 --> 00:30:54.390
+that has happened in this.
+
+00:30:54.390 --> 00:30:56.700
+I'm not going to get attribution
+for all the good work
+
+00:30:56.700 --> 00:30:57.660
+that people have done.
+
+00:30:57.660 --> 00:31:00.570
+I mean, to me, but to all the
+people that have done research,
+
+00:31:00.570 --> 00:31:02.550
+as you know, new
+research is based
+
+00:31:02.550 --> 00:31:05.340
+on some other people's research
+and take it to the next level.
+
+00:31:05.340 --> 00:31:09.780
+So thank you to all those ladies
+and gentlemen that have worked
+
+00:31:09.780 --> 00:31:14.850
+on creating enough capacity for
+us to talk about these things
+
+00:31:14.850 --> 00:31:16.960
+at this point in time.
+
+00:31:18.150 --> 00:31:21.750
+So finally, wrapping
+it up for us.
+
+00:31:21.750 --> 00:31:26.010
+The evidence is 73%
+can be resolvable.
+
+00:31:26.010 --> 00:31:28.800
+If you put a gap on it, 50%,
+it would be super happy.
+
+00:31:28.800 --> 00:31:31.380
+Even 10% is a lot of money.
+
+00:31:31.380 --> 00:31:38.350
+But research showed the max stop
+of that is about 73% today.
+
+00:31:39.870 --> 00:31:44.880
+68% of Stack Overflow
+developers surveyed in 2024,
+
+00:31:44.880 --> 00:31:50.910
+people are using tools in 2024
+for documentation boilerplates.
+
+00:31:50.910 --> 00:31:54.090
+Okay, that is 100% local.
+
+00:31:54.090 --> 00:31:57.510
+If you look at 73% enterprise
+code-based workload analytics
+
+00:31:57.510 --> 00:32:00.180
+study, 50-developer
+team analysis
+
+00:32:00.180 --> 00:32:03.120
+across maintenance-heavy
+code base,
+
+00:32:03.120 --> 00:32:06.690
+50% to 60% use lower
+edge resolution.
+
+00:32:06.690 --> 00:32:10.260
+So that means also small
+models running locally.
+
+00:32:10.260 --> 00:32:15.840
+And even if you go to the
+opportunity to optimize
+
+00:32:15.840 --> 00:32:18.870
+for integer quantization,
+you will find out you lose
+
+00:32:18.870 --> 00:32:22.140
+about only 5% on your precision.
+
+00:32:22.140 --> 00:32:24.720
+We give you tremendous
+memory capacity even
+
+00:32:24.720 --> 00:32:27.360
+for a local device, tremendous
+reduction in power,
+
+00:32:27.360 --> 00:32:30.960
+tremendous reduction on
+bandwidth requirements.
+
+00:32:30.960 --> 00:32:35.190
+That makes your model
+super powerful to execute
+
+00:32:35.190 --> 00:32:37.720
+and a power-efficient NPU.
+
+00:32:40.260 --> 00:32:41.340
+So build it yourself.
+
+00:32:41.340 --> 00:32:43.710
+That's my call to action.
+
+00:32:43.710 --> 00:32:46.560
+Look at your request logs.
+
+00:32:46.560 --> 00:32:51.490
+Categorize your last week AI
+coding request by complexity.
+
+00:32:52.560 --> 00:32:55.290
+Find that threshold for you.
+
+00:32:55.290 --> 00:32:57.030
+Add the simple request,
+
+00:32:57.030 --> 00:33:00.340
+completion boilerplate,
+link fixes.
+
+00:33:01.590 --> 00:33:04.770
+Route by complexity,
+not by habit.
+
+00:33:04.770 --> 00:33:06.870
+It's easy to send everything
+to a bigger model.
+
+00:33:06.870 --> 00:33:09.450
+You know it's going to solve it.
+
+00:33:09.450 --> 00:33:14.640
+But it's like using a
+gas-guzzler car to go
+
+00:33:14.640 --> 00:33:17.280
+for groceries two blocks away.
+
+00:33:17.280 --> 00:33:18.810
+All right?
+
+00:33:18.810 --> 00:33:21.070
+It's a waste of resources.
+
+00:33:22.920 --> 00:33:27.090
+Measure for two weeks, right?
+
+00:33:27.090 --> 00:33:33.300
+Track the token cost, the
+latency, and then repeat.
+
+00:33:33.300 --> 00:33:36.480
+Optimize your
+classifier and repeat.
+
+00:33:36.480 --> 00:33:39.240
+Rinse and repeat.
+
+00:33:39.240 --> 00:33:40.920
+That is the solution space.
+
+00:33:40.920 --> 00:33:42.390
+We can not only save money,
+
+00:33:42.390 --> 00:33:45.540
+but we can save some
+polar bears' habitats
+
+00:33:45.540 --> 00:33:47.370
+and some penguins
+on the other side
+
+00:33:47.370 --> 00:33:50.790
+of the world, right,
+as we do this.
+
+00:33:50.790 --> 00:33:56.410
+And I will open it
+up for questions.
+
+00:34:00.090 --> 00:34:03.520
+I was asked to plant some
+questions, but I didn't do it.
+
+00:34:06.570 --> 00:34:09.210
+The gentleman in the front.
+
+00:34:09.210 --> 00:34:12.570
+If you can tell me who you
+are, that would be great.
+
+00:34:12.570 --> 00:34:13.440
+Speaker 2: This is Nathan.
+
+00:34:13.440 --> 00:34:15.390
+I'm with Lockheed.
+
+00:34:15.390 --> 00:34:19.110
+When we do these prompts,
+
+00:34:19.110 --> 00:34:21.660
+oftentimes my prompts
+are quite large,
+
+00:34:21.660 --> 00:34:25.970
+and the prompts
+themselves are complex,
+
+00:34:25.970 --> 00:34:31.790
+but they could be broken down
+and sent off to separate agents
+
+00:34:31.790 --> 00:34:36.030
+or have pieces done here,
+there, and elsewhere.
+
+00:34:36.030 --> 00:34:39.000
+My typical work, I
+rarely see that happen
+
+00:34:39.000 --> 00:34:43.620
+with the automated features
+in Klein and Claude.
+
+00:34:43.620 --> 00:34:47.310
+But periodically I
+do see that come up.
+
+00:34:47.310 --> 00:34:50.730
+Now, this classifier
+you were talking about,
+
+00:34:50.730 --> 00:34:53.920
+that sounds like something
+we would have to write.
+
+00:34:55.980 --> 00:34:57.330
+Alberto Martinez: Great.
+
+00:34:57.330 --> 00:34:58.680
+Thank you for the question.
+
+00:34:58.680 --> 00:35:03.390
+The classifiers are
+not readily available.
+
+00:35:03.390 --> 00:35:07.770
+We are working on that
+research ourselves
+
+00:35:07.770 --> 00:35:11.760
+and make available
+that classifier.
+
+00:35:11.760 --> 00:35:14.790
+But I'm promoting the
+ecosystem to create them.
+
+00:35:14.790 --> 00:35:15.180
+Speaker 2: Okay.
+
+00:35:15.180 --> 00:35:16.260
+Alberto Martinez: Right?
+
+00:35:16.260 --> 00:35:17.940
+Now, you could
+create it yourself.
+
+00:35:17.940 --> 00:35:21.270
+I don't think -- that is
+a powerful IP to have,
+
+00:35:21.270 --> 00:35:25.620
+and it's a competitive advantage
+to create an IP that creates
+
+00:35:25.620 --> 00:35:27.330
+that classification opportunity.
+
+00:35:27.330 --> 00:35:29.640
+So you think about it,
+you're competing with --
+
+00:35:29.640 --> 00:35:32.610
+you're Lockheed --
+your next competitor.
+
+00:35:32.610 --> 00:35:35.580
+If you both are using
+the same classifier,
+
+00:35:35.580 --> 00:35:39.510
+you both do not have value
+or competitive advantage
+
+00:35:39.510 --> 00:35:42.450
+for your IT enterprise support.
+
+00:35:42.450 --> 00:35:43.860
+If you write the
+classifier yourself,
+
+00:35:43.860 --> 00:35:47.160
+you might create a competitive
+advantage for you.
+
+00:35:47.160 --> 00:35:51.180
+Or you can have people write
+the classifier for you.
+
+00:35:51.180 --> 00:35:52.890
+I don't think it's
+that difficult.
+
+00:35:52.890 --> 00:35:57.660
+A first order classifier,
+right, is not that difficult.
+
+00:35:57.660 --> 00:36:01.380
+Getting to a very
+nuanced classifier
+
+00:36:01.380 --> 00:36:04.800
+that is retroactively learning
+and improving over time,
+
+00:36:04.800 --> 00:36:07.950
+that is a little bit
+more sophisticated work.
+
+00:36:07.950 --> 00:36:12.570
+And I encourage all of you
+to develop that classifier.
+
+00:36:12.570 --> 00:36:15.810
+The classifier will live
+in an orchestrator.
+
+00:36:15.810 --> 00:36:17.610
+So think about it that way.
+
+00:36:17.610 --> 00:36:21.000
+Your orchestrator should
+own the classifier
+
+00:36:21.000 --> 00:36:23.040
+because the orchestrator
+is the one that is going
+
+00:36:23.040 --> 00:36:25.740
+to ship the request to agents.
+
+00:36:25.740 --> 00:36:28.070
+And the agents are
+attached to models.
+
+00:36:28.070 --> 00:36:29.930
+So now there's a
+different problem there
+
+00:36:29.930 --> 00:36:31.850
+that also we are
+doing research on,
+
+00:36:31.850 --> 00:36:34.790
+which is why, model,
+when, and who.
+
+00:36:34.790 --> 00:36:38.420
+Today, we do a task
+then by knowledge.
+
+00:36:38.420 --> 00:36:41.630
+Right? We know this model
+is capable to do Foo.
+
+00:36:41.630 --> 00:36:44.790
+Therefore, we send
+it to Foo model.
+
+00:36:44.790 --> 00:36:49.770
+Right? In the near future,
+I expect that to change.
+
+00:36:49.770 --> 00:36:53.160
+Meaning, capabilities of the
+model, the orchestrators,
+
+00:36:53.160 --> 00:36:55.560
+the devices, need to be known.
+
+00:36:55.560 --> 00:36:57.120
+in a global fashion.
+
+00:36:57.120 --> 00:37:00.370
+Sorry, did I answer -- I hope
+I answered your question.
+
+00:37:04.010 --> 00:37:05.610
+Great question.
+
+00:37:11.700 --> 00:37:12.600
+Could you tell me who you are?
+
+00:37:12.600 --> 00:37:13.290
+I appreciate it.
+
+00:37:13.290 --> 00:37:14.880
+Speaker 3: Yeah, I'm Bridget.
+
+00:37:14.880 --> 00:37:18.570
+I'm an engineer at Vasion, and
+I was kind of interesting more
+
+00:37:18.570 --> 00:37:21.090
+on the classifier, and
+like on the slide,
+
+00:37:21.090 --> 00:37:24.060
+you had like a fifth section
+that you haven't talked about,
+
+00:37:24.060 --> 00:37:27.210
+so it was kind of -- and then
+also talking about classifiers
+
+00:37:27.210 --> 00:37:29.430
+when you're like
+developing from yourself,
+
+00:37:29.430 --> 00:37:31.980
+how you can standardize them
+across like an organization,
+
+00:37:31.980 --> 00:37:35.470
+because I know it's more of like
+an independent thing currently.
+
+00:37:36.540 --> 00:37:39.690
+Alberto Martinez: The fifth leg,
+I thought I did mention it,
+
+00:37:39.690 --> 00:37:43.950
+but let me restate it, because
+it might not have landed.
+
+00:37:43.950 --> 00:37:46.860
+The fifth leg is your fallback.
+
+00:37:46.860 --> 00:37:52.770
+Right? The four prongs on
+your classifier will not be
+
+00:37:52.770 --> 00:37:56.430
+sufficient every time.
+
+00:37:56.430 --> 00:37:58.260
+Right? They will not.
+
+00:37:58.260 --> 00:38:03.410
+Therefore, there will be, let's
+call it a prediction error.
+
+00:38:03.410 --> 00:38:06.050
+Your classifier is
+making a prediction.
+
+00:38:06.050 --> 00:38:07.610
+Like we did in CPU architecture.
+
+00:38:07.610 --> 00:38:10.610
+I did work on CPU architecture
+at some point in my career.
+
+00:38:10.610 --> 00:38:11.870
+When we look at
+CPU architecture,
+
+00:38:11.870 --> 00:38:13.490
+we have prefecture,
+and prefecture has
+
+00:38:13.490 --> 00:38:15.770
+to determine what is the next
+instruction to execute and go
+
+00:38:15.770 --> 00:38:17.220
+in the right direction.
+
+00:38:17.220 --> 00:38:20.790
+So if you know that, you also
+know that it's not perfect.
+
+00:38:20.790 --> 00:38:24.930
+And failing to -- you
+have to have a fallback.
+
+00:38:24.930 --> 00:38:27.240
+When it failed, you have
+to have a fallback.
+
+00:38:27.240 --> 00:38:28.440
+So it's the same concept here,
+
+00:38:28.440 --> 00:38:31.320
+using that architecture
+knowledge to say, okay,
+
+00:38:31.320 --> 00:38:32.250
+I have to have a fallback.
+
+00:38:32.250 --> 00:38:36.900
+If my predictor is failing
+to classify this correctly,
+
+00:38:36.900 --> 00:38:43.310
+I need to have a measure of
+success while it's executing.
+
+00:38:43.310 --> 00:38:46.790
+And the measure of
+success is the entropy.
+
+00:38:46.790 --> 00:38:49.430
+When I look at the
+entropy as measured by,
+
+00:38:49.430 --> 00:38:52.520
+I put the research
+there, is measured by,
+
+00:38:52.520 --> 00:38:56.820
+and that entropy is growing
+faster than my expectation,
+
+00:38:56.820 --> 00:38:59.700
+then I abort the request.
+
+00:38:59.700 --> 00:39:02.550
+And then, in this case,
+you have two choices.
+
+00:39:02.550 --> 00:39:05.520
+You can try to reclassify it.
+
+00:39:05.520 --> 00:39:07.650
+You have more than
+two, but at least two.
+
+00:39:07.650 --> 00:39:09.180
+You can try to reclassify it,
+
+00:39:09.180 --> 00:39:10.620
+although the answer
+will be the same.
+
+00:39:10.620 --> 00:39:13.440
+You use the same parameter,
+you have learned nothing,
+
+00:39:13.440 --> 00:39:17.010
+and/or send it to
+the cloud, right?
+
+00:39:17.010 --> 00:39:21.360
+So eat the bullet, send it to
+the cloud, and pay the cost
+
+00:39:21.360 --> 00:39:23.610
+because you want
+a proper answer,
+
+00:39:23.610 --> 00:39:26.200
+not a hallucinated answer.
+
+00:39:27.480 --> 00:39:28.140
+Speaker 3: Thanks.
+
+00:39:28.140 --> 00:39:29.560
+Alberto Martinez: Thank you.
+
+00:39:38.790 --> 00:39:39.900
+Speaker 4: Hey, I'm Malika.
+
+00:39:39.900 --> 00:39:42.480
+I'm from Qualcomm
+product management team.
+
+00:39:42.480 --> 00:39:43.590
+Alberto Martinez: I
+swear I didn't plant you
+
+00:39:43.590 --> 00:39:44.430
+to ask a question.
+
+00:39:44.430 --> 00:39:46.180
+Speaker 4: You did not.
+
+00:39:47.580 --> 00:39:53.840
+Question I had was, if the
+models have this bigger size
+
+00:39:53.840 --> 00:39:58.730
+and smaller size subsets that we
+can query for different tasks,
+
+00:39:58.730 --> 00:40:02.360
+do you perceive any
+system level changes?
+
+00:40:02.360 --> 00:40:06.060
+Like how will the application
+development be around it?
+
+00:40:08.040 --> 00:40:09.450
+Alberto Martinez: I don't
+think it's different
+
+00:40:09.450 --> 00:40:14.100
+than application development
+that lean on orchestration.
+
+00:40:14.100 --> 00:40:15.330
+Right?
+
+00:40:15.330 --> 00:40:16.620
+Speaker 4: I mean,
+if time permits,
+
+00:40:16.620 --> 00:40:20.520
+can we go through like
+creating a video, right?
+
+00:40:20.520 --> 00:40:25.230
+If we make this video creation
+model into three parts,
+
+00:40:25.230 --> 00:40:30.030
+one of audio, video,
+and sentiment analysis,
+
+00:40:30.030 --> 00:40:35.400
+now the application, instead
+of managing one model output,
+
+00:40:35.400 --> 00:40:38.370
+it now has three model outputs.
+
+00:40:38.370 --> 00:40:39.660
+Alberto Martinez: Yes.
+
+00:40:39.660 --> 00:40:42.810
+That's one way, and
+the other one is
+
+00:40:42.810 --> 00:40:47.960
+within that specific track -- so
+you have three tracks, right?
+
+00:40:47.960 --> 00:40:51.770
+The video, the sentiment, and
+the audio and your example.
+
+00:40:51.770 --> 00:40:56.340
+Even within those three
+tracks, you can classify based
+
+00:40:56.340 --> 00:40:59.760
+on the tasks assigned
+to the query,
+
+00:40:59.760 --> 00:41:05.370
+so you can even parse
+that even further.
+
+00:41:05.370 --> 00:41:09.930
+Each one of them will have their
+own type of entropy limit,
+
+00:41:09.930 --> 00:41:13.860
+and each one of them will
+have a classifier format
+
+00:41:13.860 --> 00:41:16.050
+that's diverse.
+
+00:41:16.050 --> 00:41:19.740
+You're talking GenAI,
+right, in this case,
+
+00:41:19.740 --> 00:41:23.280
+which is behavior slightly
+different than LLMs, right,
+
+00:41:23.280 --> 00:41:25.350
+in the case for
+measuring entropy
+
+00:41:25.350 --> 00:41:28.680
+and classification,
+but applied similar.
+
+00:41:28.680 --> 00:41:29.070
+Speaker 4: I see.
+
+00:41:29.070 --> 00:41:31.440
+Who will aggregate the
+inputs from all of this?
+
+00:41:31.440 --> 00:41:32.130
+Alberto Martinez:
+The orchestrator.
+
+00:41:32.130 --> 00:41:33.180
+Speaker 4: The orchestrator.
+
+00:41:33.180 --> 00:41:37.080
+Alberto Martinez: The
+classifier had an input,
+
+00:41:37.080 --> 00:41:40.740
+an execution monitoring, an
+aggregation output that belong
+
+00:41:40.740 --> 00:41:43.980
+into the orchestrator
+routing logic.
+
+00:41:43.980 --> 00:41:44.640
+Speaker 4: Awesome, thank you.
+
+00:41:44.640 --> 00:41:45.900
+Alberto Martinez: At least
+that's the way we're thinking
+
+00:41:45.900 --> 00:41:46.650
+about it.
+
+00:41:46.650 --> 00:41:49.860
+As I said, this is
+a work in progress.
+
+00:41:49.860 --> 00:41:51.540
+Speaker 4: Thank you.
+
+00:41:51.540 --> 00:41:54.480
+Alberto Martinez: I haven't
+written, published the paper
+
+00:41:54.480 --> 00:41:57.460
+yet for the research, but
+I promise I will do so.
+
+00:41:59.430 --> 00:42:02.460
+You're getting a
+preview of the paper.
+
+00:42:02.460 --> 00:42:08.190
+All right, I have two
+minutes, 45 seconds to spare.
+
+00:42:08.190 --> 00:42:13.150
+That is one question, or I can
+send you to drink some coffee.
+
+00:42:14.940 --> 00:42:16.470
+All right, thank you very much.
+
+00:42:16.470 --> 00:42:20.020
+I really appreciate your
+time, and welcome to Build.
+
+00:42:20.020 --> 00:42:22.520
+[ Applause ]
+
+00:42:22.520 --> 00:42:27.110
+[ Music ]

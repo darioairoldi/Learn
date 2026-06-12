@@ -187,7 +187,7 @@ The Diátaxis framework prevents common documentation failures:
 
 **Repository application:** This technical writing series follows Diátaxis structure:
 - **Tutorial:** [Getting Started with IQPilot](../../getting-started.md)
-- **How-to:** [How to Structure Content for Copilot Instruction Files](../05.02-promptEngineering/05.00-how_to_structure_content_for_copilot_instruction_files.md)
+- **How-to:** [How to Structure Content for Copilot Instruction Files](../05.02-promptEngineering/05.00-how-to-structure-content-for-copilot-instruction-files.md)
 - **Reference:** [Validation Criteria](../../.copilot/context/01.00-article-writing/02-validation-criteria.md)
 - **Explanation:** This article
 

@@ -1,4 +1,4 @@
-﻿# UC-21: Model-specific guidance adherence
+# UC-21: Model-specific guidance adherence
 
 > **Group:** C - Consumer implementation correctness  
 > **Priority:** P1  
@@ -41,9 +41,9 @@ Verifies that an artifact's prompting patterns follow the best practices of the 
 
 **Source guidance:**
 - `.copilot/context/00.00-prompt-engineering/03.02-model-specific-optimization.md`
-- `03.00-tech/05.02-prompt-engineering/04-howto/08.01-appendix_openai_prompting_guide.md`
-- `03.00-tech/05.02-prompt-engineering/04-howto/08.02-appendix_anthropic_prompting_guide.md`
-- `03.00-tech/05.02-prompt-engineering/04-howto/08.03-appendix_google_prompting_guide.md`
+- `03.00-tech/05.02-prompt-engineering/04-howto/08.01-appendix-openai-prompting-guide.md`
+- `03.00-tech/05.02-prompt-engineering/04-howto/08.02-appendix-anthropic-prompting-guide.md`
+- `03.00-tech/05.02-prompt-engineering/04-howto/08.03-appendix-google-prompting-guide.md`
 
 **Checks performed:**
 1. **Identify model family** — read `model:` from YAML → Anthropic / OpenAI / Google / unspecified

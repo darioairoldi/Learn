@@ -1,5 +1,7 @@
 # Passkey Authentication Information
 
+![Supercharge Your Git Workflow with VS Code](images/session-banner.png)
+
 ## What are Passkeys?
 
 Passkeys are a modern, secure authentication method that **completely replaces traditional passwords with cryptographic credentials**.<br>

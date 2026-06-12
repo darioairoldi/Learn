@@ -6,6 +6,8 @@
 **Speaker:** Devin Valenciano (Senior Product Manager, VS Code Team, Microsoft)  
 **Link:** [Microsoft Build 2025 Session DEM519](https://mybuild.microsoft.com/sessions/DEM519)
 
+![Agent Mode for Serious Developers](images/session-banner.png)
+
 ---
 
 ## Table of Contents

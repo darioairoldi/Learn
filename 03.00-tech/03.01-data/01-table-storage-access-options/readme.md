@@ -148,7 +148,7 @@ The `TableClient` class abstracts the complexity of direct HTTP REST API calls b
 | **TableServiceClient** | **TableClient** |
 |------------------------|------------------|
 | Account-level client for managing multiple tables | Table-level client for CRUD operations on entities |
-| ![alt text](<images/001.00 TableServiceClient.png>) | ![alt text](<images/001.01 TableClient.png>) |
+| ![alt text](<images/001.00-tableserviceclient.png>) | ![alt text](<images/001.01-tableclient.png>) |
 
 
 ### Define Your Entity
@@ -159,7 +159,7 @@ Azure Table Storage supports two primary approaches for defining entities: imple
 
 The `ITableEntity` interface is the **modern, recommended approach** for defining strongly-typed entities. It provides compile-time safety, IntelliSense support, and explicit control over your data model.
 
-<img src="images/002.00 ITableEntity.png" alt="ITableEntity Interface Diagram" style="border: 2px solid #0078d4; border-radius: 8px; padding: 10px; background-color: #f8f9fa; display: block; margin: 20px auto; max-width: 100%;">
+<img src="images/002.00-itableentity.png" alt="ITableEntity Interface Diagram" style="border: 2px solid #0078d4; border-radius: 8px; padding: 10px; background-color: #f8f9fa; display: block; margin: 20px auto; max-width: 100%;">
 
 **Key Characteristics of ITableEntity:**
 

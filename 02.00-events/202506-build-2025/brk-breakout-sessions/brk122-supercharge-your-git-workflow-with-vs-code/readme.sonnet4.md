@@ -11,6 +11,8 @@
 **Recordings:** 
 - https://build.microsoft.com/en-US/sessions/BRK122?source=sessions
 
+![Supercharge Your Git Workflow with VS Code](images/session-banner.png)
+
 ## Table of Contents
 
 1. [Executive Summary](#executive-summary)
@@ -43,18 +45,14 @@ The speakers highlighted four key areas of investment: **security enhancements**
 
 The .NET 10 release focuses on four key areas of investment to enhance the developer experience and application capabilities:
 
-![alt text](<images/000.01a focus areas.png>)
-
 - **Security Enhancements** - Implement modern authentication patterns with passkey support and improved OAuth 2.0 token management
 - **App Observability and Diagnostics** - Provide comprehensive metrics collection and advanced diagnostic tools for better application monitoring
 - **Performance Improvements** - Optimize memory management, JSON processing, and startup times for faster, more efficient applications
 - **Pain Points and Developer Experience** - Address long-standing framework limitations and improve developer productivity through better tooling
 
-
 ### 1. Security Enhancements
 
 #### Passkey Authentication Support
-![alt text](<images/000.01 loginwithpaskeys.png>)
 
 - **Revolutionary change**: Complete replacement of traditional passwords with cryptographic credentials
 - **Implementation**: Public-private key pairs with secure storage in authenticators
@@ -81,11 +79,8 @@ The .NET 10 release focuses on four key areas of investment to enhance the devel
 - **Documentation overhaul**: Scenario-based tutorials and video content
 
 ### 2. App Observability and Diagnostics
-![alt text](<images/001.00 ovservability.png>)
 
 #### Enhanced Metrics Collection
-
-![alt text](<images/001.01 metrics.png>)
 
 - **Kestrel memory pool metrics**: Memory usage tracking and optimization
 - **Authentication/Authorization metrics**: Security operation monitoring
@@ -95,7 +90,6 @@ The .NET 10 release focuses on four key areas of investment to enhance the devel
   - Interactive rendering metrics
 
 #### Blazor WebAssembly Diagnostics
-![alt text](<images/001.02 blazor diagnostics.png>)
 
 - **Browser DevTools integration**: Performance profiling capabilities
 - **Extractable diagnostics**: 
@@ -110,8 +104,6 @@ The .NET 10 release focuses on four key areas of investment to enhance the devel
 - **Identity model logging**: JWT token validation visibility
 
 ### 3. Performance Improvements
-
-![](<images/001.02 performance improvements.png>)
 
 #### Memory Management Optimizations
 - **Kestrel memory pool evolution**: Dynamic memory release capabilities
@@ -147,7 +139,6 @@ The .NET 10 release focuses on four key areas of investment to enhance the devel
 - **Build-time generation**: Performance and deployment optimizations
 
 #### JSON Patch with System.Text.Json
-![alt text](<images/002.02 JSON patch.png>)
 
 - **Modern JSON library support**: Eliminates Newtonsoft.Json dependency
 - **Concurrent operation safety**: Test operations for data consistency
@@ -625,8 +616,6 @@ public class HybridIdentityService : IIdentityService
 - **Better developer tools**: Unified debugging across native/web parts
 
 ## APPENDIX 02: .NET 10 Scaffolding Tools - `dotnet scaffold` Command
-
-![alt text](<images/dotnet scaffold.png>)
 
 ### Overview of `dotnet scaffold` Command
 

@@ -7,7 +7,7 @@
 **Additional Speakers:** Vid Chari, Matthew Barbour, Mike Stall, Sarah Critchley  
 **Link:** [Microsoft Build 2025 Session BRK176]
 
-![Multi-Agent Orchestration](images/multi-agent-copilot-studio-sdk.png)
+![Agent Solutions with Copilot Studio and M365 Agents SDK](images/session-banner.png)
 
 ---
 
@@ -525,4 +525,3 @@ Microsoft
 ---
 
 *This comprehensive session demonstrates Microsoft's vision for seamless multi-agent orchestration across development approaches, platforms, and organizational structures. The unified architecture enables organizations to build sophisticated agent ecosystems that transform business processes while providing choice in development methodology and deployment strategy.*
-

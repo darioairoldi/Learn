@@ -99,7 +99,7 @@
 La prima giornata ha seguito un percorso classico dal **cuore storico di Parigi** fino al suo simbolo più iconico.<br>
 Partendo dall'**Île de la Cité** con **Notre-Dame**, abbiamo attraversato il Quartiere Latino, camminato lungo la Senna ammirando i suoi ponti storici, per concludere alla Torre Eiffel al tramonto.
 
-![alt text](<images/001.00 Ile de la cité.jpg>)
+![alt text](<images/001.00-ile-de-la-cité.jpg>)
 
 **Aneddoto**: L'Île de la Cité era completamente diversa nel Medioevo: oltre a Notre-Dame, ospitava oltre 20 chiese e migliaia di abitanti. Napoleone III fece demolire la maggior parte degli edifici medievali per creare gli spazi aperti che vediamo oggi. Il Palais de la Cité era il vero cuore del potere reale francese fino a quando Carlo V non trasferì la residenza al Louvre nel XIV secolo.
 
@@ -109,7 +109,7 @@ Partendo dall'**Île de la Cité** con **Notre-Dame**, abbiamo attraversato il Q
 La **Sainte-Chapelle**, costruita tra il **1241 e il 1248** per volere di **Luigi IX** (San Luigi), era la cappella palatina del palazzo reale medievale che sorgeva sull'Île de la Cité. <br>
 Faceva parte del complesso del **Palais de la Cité**, residenza dei **re di Francia fino al XIV secolo**. Le sue vetrate, alte 15 metri, narrano la storia biblica dall'Antico al Nuovo Testamento in 1.113 scene.
 
-![alt text](<images/001.01 SainteChapelle.jpg>)
+![alt text](<images/001.01-saintechapelle.jpg>)
 
 
 #### Tribunal pour Enfants
@@ -120,39 +120,39 @@ L'edificio che oggi ospita il **Tribunal pour Enfants** (Tribunale per i Minori)
 
 La **Conciergerie**, antica prigione del palazzo reale, è tristemente famosa per aver ospitato **Maria Antonietta** prima della sua esecuzione durante la Rivoluzione Francese.<br>
 Originariamente era parte del Palais de la Cité e serviva come residenza del **"concierge" (governatore)** del palazzo. Le sue sale gotiche testimoniano il potere reale medievale.
-![alt text](<images/001.02 Conciergerie.jpg>)
+![alt text](<images/001.02-conciergerie.jpg>)
 
 #### Passeggiata lungo la Senna - Pont Neuf e Pont au Change
 
 Dopo la visita alla Conciergerie, abbiamo camminato lungo le **banchine della Senna** verso il **Pont Neuf**, il ponte più antico di Parigi nonostante il nome ("Ponte Nuovo"). Costruito tra il **1578 e il 1607** sotto Enrico IV, è il primo ponte parigino costruito senza case sopra, offrendo una vista libera sul fiume.
-![alt text](<images/001.02a pont Neuf.jpg.jpg>)
+![alt text](<images/001.02a-pont-neuf.jpg.jpg>)
 
 Dal Pont Neuf abbiamo attraversato per raggiungere il **Pont au Change** ("Ponte del Cambio"), che prende il nome dalle botteghe di cambiavalute che vi si trovavano nel Medioevo. L'attuale struttura in pietra risale al **1860** e sostituì il ponte medievale che collegava l'Île de la Cité al quartiere commerciale della riva destra. Questo ponte offre una prospettiva privilegiata sulla Conciergerie e sul complesso del Palais de Justice.
 
 #### Pont Notre-Dame
 
 Il **Pont Notre-Dame**, ricostruito più volte nella sua storia, è uno dei ponti più antichi di Parigi. L'attuale struttura in pietra risale al 1919, ma qui sorgeva già un ponte nel XII secolo. Il ponte offre una vista privilegiata sulla facciata orientale di Notre-Dame e collega l'Île de la Cité alla riva destra della Senna.
-![alt text](<images/001.03 pont notre dame.jpg>)
+![alt text](<images/001.03-pont-notre-dame.jpg>)
 
 **Aneddoto sui Ponti di Parigi**: <br>
 Attualmente Parigi conta **37 ponti** che attraversano la Senna all'interno dei confini della città. L'ultimo ponte costruito è il **Pont Charles de Gaulle** (2006), seguito dal **Pont Simone de Beauvoir** (inaugurato nel 2006), una passerella pedonale e ciclabile che collega la Bibliothèque Nationale de France al Parc de Bercy. Il **primo ponte** di Parigi fu il **Petit Pont** (esistente già in epoca romana), ma il **Pont Neuf** che abbiamo attraversato rimane il **più antico ancora esistente** nella sua forma originale, nonostante il nome "nuovo". 
 
 Durante la nostra passeggiata abbiamo notato i caratteristici **bateaux parisiens** che navigano in continuazione sulla Senna: questi battelli turistici possono trasportare fino a **500-800 passeggeri** a seconda del modello, offrendo crociere panoramiche che permettono di ammirare i monumenti da una prospettiva unica. Curiosamente, Parigi ha più ponti per chilometro quadrato di qualsiasi altra capitale europea!
 
-![alt text](<images/001.03b bateaux parisiens.jpg>)
+![alt text](<images/001.03b-bateaux-parisiens.jpg>)
 
 #### Tour Saint-Jacques
 
 La **Tour Saint-Jacques**, alta 54 metri, è tutto ciò che rimane della chiesa di Saint-Jacques-la-Boucherie, demolita nel 1797. Questa torre gotica flamboyant del XVI secolo è famosa per essere stata un punto di partenza per i pellegrini diretti a Santiago de Compostela. Oggi ospita una stazione meteorologica e offre una vista panoramica su Parigi.
 
-![alt text](<images/001.04 tour saint Jaques.jpg>)
+![alt text](<images/001.04-tour-saint-jaques.jpg>)
 
 
 #### Hôtel de Ville
 
 L'**Hôtel de Ville** (Municipio di Parigi) è un magnifico esempio di architettura neo-rinascimentale francese. L'edificio attuale fu ricostruito tra il 1874 e il 1882 dopo essere stato distrutto durante la Comune di Parigi nel 1871. La sua facciata elaborata è decorata con 136 statue che rappresentano personalità illustri della storia francese.
 
-![alt text](<images/001.05 hotel de ville.jpg>)
+![alt text](<images/001.05-hotel-de-ville.jpg>)
 
 #### Pont d'Arcole
 
@@ -160,13 +160,13 @@ Il **Pont d'Arcole**, costruito nel 1856, prende il nome dalla battaglia di Arco
 
 Dal ponte si intravede la **Place Louis Aragon** sull'**Île Saint-Louis**, l'isola adiacente all'Île de la Cité.
 
-![alt text](<images/001.06 place louis aragon.jpg>)
+![alt text](<images/001.06-place-louis-aragon.jpg>)
 
 #### Île Saint-Louis
 
 L'**Île Saint-Louis** è una delle perle nascoste di Parigi, un'isola residenziale del XVII secolo che ha mantenuto intatto il suo carattere aristocratico. Originariamente formata da due isolotti separati (**Île aux Vaches** e **Île Notre-Dame**), fu unificata e urbanizzata tra il **1614 e il 1664** dall'architetto **Louis Le Vau**.
 
-![alt text](<images/001.06a Ile saint louis.jpg>)
+![alt text](<images/001.06a-ile-saint-louis.jpg>)
 
 L'isola è caratterizzata da:
 
@@ -181,21 +181,21 @@ L'isola ospitò illustri personalità come **Charles Baudelaire**, **Théophile 
 
 La **Cathédrale Notre-Dame de Paris**, capolavoro dell'architettura gotica francese, fu costruita tra il 1163 e il 1345. Nonostante i gravi danni dell'incendio del 15 aprile 2019, la cattedrale rimane un simbolo immortale di Parigi. Le sue torri, i rosoni, i doccioni e la celebre guglia (in ricostruzione) rappresentano otto secoli di storia e fede.
 
-![alt text](<images/001.07 Notre Dame.jpg>)
+![alt text](<images/001.07-notre-dame.jpg>)
 
 #### Crème de Paris - Sosta Gastronomica
 
 Dopo la visita a Notre-Dame, ci siamo concessi una deliziosa pausa alla **Crème de Paris**, una caratteristica creperia parigina famosa per i suoi waffle salati. Il locale, situato nel cuore del quartiere turistico, offre un'esperienza culinaria autentica con waffle preparati al momento e farciti con ingredienti di qualità. Una perfetta combinazione tra la tradizione francese del waffle e l'innovazione gastronomica contemporanea, ideale per riprendere le forze durante l'esplorazione della città.
 
-![alt text](<images/001.08 Creme de Paris.jpg>)
+![alt text](<images/001.08-creme-de-paris.jpg>)
 
-![alt text](<images/001.08a saluti da la creme.jpg>)
+![alt text](<images/001.08a-saluti-da-la-creme.jpg>)
 
 ### Palazzo del Louvre
 
 Dopo il pranzo, abbiamo ripreso il nostro itinerario in direzione del **Palazzo del Louvre**, uno dei monumenti più emblematici di Parigi e testimone di quasi mille anni di storia francese.
 
-![alt text](<images/001.09a palazzo del louvre.jpg>)
+![alt text](<images/001.09a-palazzo-del-louvre.jpg>)
 
 #### Storia del Palazzo del Louvre
 
@@ -214,20 +214,20 @@ Durante la **Rivoluzione Francese** (1793), il Louvre fu trasformato in **museo 
 **L'Era Moderna (XX-XXI secolo)**
 La trasformazione più rivoluzionaria avvenne sotto **François Mitterrand** con il progetto del **"Grand Louvre"** (1981-1999). L'architetto **Ieoh Ming Pei** progettò la famosa **Piramide di vetro** (inaugurata nel 1989), creando un nuovo ingresso che combina modernità e tradizione. Oggi il Louvre è il **museo più visitato al mondo** con oltre 9 milioni di visitatori annui.
 
-![alt text](<images/001.10 era moderna.jpg>)
+![alt text](<images/001.10-era-moderna.jpg>)
 
 **Curiosità Architettonica**: Il Louvre attuale copre **72.735 m²** e le sue collezioni spaziano dall'antichità al 1848. La **Gioconda di Leonardo da Vinci** rimane l'opera più famosa, ma il museo custodisce oltre **35.000 opere** esposte tra le sue 403 sale.
 
-![alt text](<images/001.10a era moderna.jpg>)
+![alt text](<images/001.10a-era-moderna.jpg>)
 
 
-![alt text](<images/001.11 piazza della piramide.jpg>)
+![alt text](<images/001.11-piazza-della-piramide.jpg>)
 
 
-![alt text](<images/001.12 corridoi.jpg>)
+![alt text](<images/001.12-corridoi.jpg>)
 
 
-![alt text](<images/001.13 Pavillons.jpg>)
+![alt text](<images/001.13-pavillons.jpg>)
 
 ### Percorso in Bicicletta lungo la Senna - Dal Louvre alla Tour Eiffel
 
@@ -248,11 +248,11 @@ Dopo aver esplorato il Palazzo del Louvre, abbiamo concluso la nostra giornata c
 
 Il percorso si conclude spettacolarmente con l'**apparizione graduale della Torre Eiffel**, che si staglia sempre più imponente all'orizzonte. Arrivando al **Champ de Mars** proprio al tramonto, abbiamo potuto ammirare la torre nella sua luce dorata, momento perfetto per concludere una giornata ricca di storia e cultura.
 
-![alt text](<images/001.14 percorso in bici.jpg>)
+![alt text](<images/001.14-percorso-in-bici.jpg>)
 
 **Aneddoto Ciclistico**: Parigi ha oltre **1.000 km di piste ciclabili** e il sistema **Vélib'** con più di 20.000 biciclette disponibili in 1.800 stazioni. Le banchine della Senna sono state pedonalizzate definitivamente nel 2016, creando uno dei percorsi urbani più belli d'Europa per ciclisti e pedoni.
 
-![alt text](<images/001.15a Torre Eiffel tramonto.jpg>)
+![alt text](<images/001.15a-torre-eiffel-tramonto.jpg>)
 
 #### Dal Trocadéro - La Vista più Spettacolare
 
@@ -266,7 +266,7 @@ Il **Palais de Chaillot**, costruito per l'**Esposizione Universale del 1937**, 
 
 **Aneddoto del Trocadéro**: Il nome "Trocadéro" deriva dalla **battaglia di Trocadero** (1823) in Spagna, vinta dalle truppe francesi. Le terrazze del Chaillot sono anche famose per essere state il palcoscenico di eventi storici, come la proclamazione della **Dichiarazione Universale dei Diritti dell'Uomo** da parte dell'ONU nel 1948, proprio di fronte alla Torre Eiffel illuminata.
 
-![alt text](<images/001.16 vista dal Trocadero.jpg>)
+![alt text](<images/001.16-vista-dal-trocadero.jpg>)
 
 #### Verso Montmartre - Fine della Prima Giornata
 
@@ -282,7 +282,7 @@ La facciata del locale, con il suo caratteristico **mulino a vento rosso**, si i
 
 **Aneddoto del Moulin Rouge**: Il celebre cabaret fu immortalato dai dipinti di **Henri de Toulouse-Lautrec**, che frequentava assiduamente il locale e ne ritrasse ballerine e artisti. Il **French Cancan**, la danza caratteristica del Moulin Rouge, fu creata proprio qui e divenne simbolo di libertà e trasgressione nella Parigi di fine Ottocento.
 
-![alt text](<images/001.17 Moulin Rouge sera.jpg>)
+![alt text](<images/001.17-moulin-rouge-sera.jpg>)
 
 **Fine della Prima Giornata**: Dopo questa suggestiva conclusione, raggiungiamo il nostro albergo a Montmartre, pronti per esplorare domani questo quartiere bohémien ricco di storia artistica e panorami mozzafiato su Parigi.
 
@@ -310,7 +310,7 @@ Ci racconta come Montmartre, in passato, fosse un **villaggio indipendente** sit
 
 **Lo Stile Haussmanniano**: È proprio al **barone Georges-Eugène Haussmann** (1809-1891), prefetto della Senna sotto Napoleone III dal 1853 al 1870, che si deve il nome dello **"stile haussmanniano"** caratteristico di Parigi. Haussmann trasformò radicalmente la capitale francese con i suoi grandi boulevard rettilinei, gli edifici in pietra chiara di 6-7 piani con balconi in ferro battuto al secondo e quinto piano, le mansarde tipiche e le facciate uniformi che conferiscono a Parigi la sua identità architettonica unica al mondo.
 
-![alt text](<images/002.01 palazzi hausmaniani.jpg>)
+![alt text](<images/002.01-palazzi-hausmaniani.jpg>)
 
 **Curiosità di Montmartre**: Marco ci spiega che la collina di Montmartre, alta **130 metri**, è la **seconda elevazione naturale di Parigi** dopo la Butte Bergeyre.<br>Nel XIX secolo era famosa per i suoi **mulini a vento** (ne esistevano oltre 30), di cui oggi rimangono solo il **Moulin Rouge** e il **Moulin de la Galette**.
 
@@ -326,7 +326,7 @@ Da Place Blanche ci dirigiamo lungo la celebre **Rue Lepic**, una delle strade p
 
 Durante la nostra passeggiata lungo Rue Lepic, facciamo una sosta imperdibile al famoso **Café des Deux Moulins**, situato al numero 15 della strada. Questo caratteristico bistrot parigino è diventato celebre in tutto il mondo grazie al film **"Il favoloso mondo di Amélie"** (2001) di Jean-Pierre Jeunet, dove la protagonista Audrey Tautou lavorava come cameriera.
 
-![alt text](<images/002.02 Cafe des Deux Moulins.jpg>)
+![alt text](<images/002.02-cafe-des-deux-moulins.jpg>)
 
 **L'Atmosfera di Amélie**: Il café conserva ancora oggi l'arredamento originale del film: i tipici tavoli in formica verde, le sedie in paglia, i lampadari vintage e l'atmosfera retrò che ha conquistato milioni di spettatori. Marco ci racconta come il locale sia diventato un vero **pellegrinaggio cinematografico**, visitato quotidianamente da turisti che cercano di rivivere la magia del film.
 
@@ -336,7 +336,7 @@ Durante la nostra passeggiata lungo Rue Lepic, facciamo una sosta imperdibile al
 
 Proseguendo lungo Rue Lepic, Marco ci indica uno dei luoghi più significativi per la storia dell'arte: l'**appartamento al numero 54** dove vissero i fratelli **Vincent e Theo van Gogh** dal **giugno 1886 al febbraio 1888**. Questo periodo parigino fu cruciale per l'evoluzione artistica di Vincent, che qui scoprì l'impressionismo e il post-impressionismo.
 
-![alt text](<images/002.02 maison des freres van gogh.png>)
+![alt text](<images/002.02-maison-des-freres-van-gogh.png>)
 
 **Il Periodo Parigino di Vincent**: Durante i due anni trascorsi a Montmartre, Vincent van Gogh dipinse oltre **200 opere**, trasformando radicalmente il suo stile. Abbandonò i toni scuri del periodo olandese per abbracciare i colori vivaci dell'impressionismo francese. In questo appartamento creò celebri autoritratti e vedute di Montmartre, tra cui **"Vista da Montmartre"** e **"Mulini a vento di Montmartre"**.
 
@@ -350,11 +350,11 @@ Proseguendo lungo Rue Lepic, Marco ci indica uno dei luoghi più significativi p
 
 Dopo la pausa al Café des Deux Moulins, continuiamo la nostra ascesa lungo Rue Lepic fino a raggiungere la suggestiva **Place des Abbesses**, una delle piazze più caratteristiche e romantiche di Montmartre. Questa piccola piazza, che prende il nome dall'antica **Abbazia delle Dame di Montmartre** (fondata nel 1133), ospita uno dei simboli d'amore più famosi al mondo.
 
-![alt text](<images/002.02 Dame di montmartre.jpg>)
+![alt text](<images/002.02-dame-di-montmartre.jpg>)
 
 **Il Mur des Je t'aime (Muro dell'Amore)**: Nel giardino **Square Jehan Rictus**, adiacente alla piazza, si trova il celebre **"Mur des Je t'aime"**, creato nel **2000** dall'artista **Frédéric Baron** e dalla calligrafa **Claire Kito**. Questo muro di **40 m²** riporta la frase "Ti amo" scritta in **più di 300 lingue e dialetti diversi**, rappresentando un messaggio universale di pace e amore.
 
-![alt text](<images/002.03a Muro dell'amore.jpg>)
+![alt text](<images/002.03a-muro-dell'amore.jpg>)
 
 **L'Opera d'Arte**: Il muro è composto da **612 piastrelle di porcellana smaltata blu scuro** su cui sono incise 1.500 volte le parole "Ti amo" in caratteri bianchi e rossi. Le macchie rosse sparse sulla superficie rappresentano i **frammenti di un cuore spezzato**, simboleggiando l'umanità divisa che trova unità nell'amore universale.
 
@@ -364,7 +364,7 @@ Dopo la pausa al Café des Deux Moulins, continuiamo la nostra ascesa lungo Rue 
 
 **Curiosità sulla Profondità**: La stazione Abbesses è la **stazione della metropolitana più profonda di Parigi**, situata a **36 metri sotto il livello stradale**. Questa profondità eccezionale è dovuta alla necessità di scavare sotto la collina di Montmartre per raggiungere un terreno stabile. Per questo motivo, la stazione è dotata di due ascensori e di una scala elicoidale di **285 gradini** che pochi turisti osano affrontare a piedi!
 
-![alt text](<images/002.04 Metro Art Nouveau.jpg>)
+![alt text](<images/002.04-metro-art-nouveau.jpg>)
 
 **Aneddoto Romantico**: La Place des Abbesses è diventata meta di pellegrinaggio per innamorati di tutto il mondo. Molte coppie vengono qui per scattare foto davanti al Muro dell'Amore e per toccare le scritte nella propria lingua, credendo che questo gesto porti fortuna al loro rapporto. Marco ci racconta che ogni giorno decine di proposte di matrimonio avvengono davanti a questo muro, rendendolo uno dei luoghi più romantici di Parigi.
 
@@ -378,10 +378,10 @@ Lasciando la romantica Place des Abbesses, Marco ci guida attraverso le stradine
 
 Arriviamo finalmente al celebre **Bateau-Lavoir**, situato al **13 di Place Émile Goudeau**. Questo edificio, che deve il suo nome alla sua forma che ricordava i battelli-lavatoi della Senna, è considerato la **culla dell'arte moderna** e il luogo di nascita del **movimento cubista**.
 
-![alt text](<images/002.05 Bateau Lavoir.jpg>)
+![alt text](<images/002.05-bateau-lavoir.jpg>)
 
 **Gli Anni Eroici (1904-1909)**: Il Bateau-Lavoir ospitò negli atelier più spartani alcuni dei nomi più illustri dell'arte mondiale. **Pablo Picasso** vi si stabilì nel **1904** nell'atelier numero 7, dove dipinse le celebri **"Demoiselles d'Avignon"** (1907), opera considerata l'atto di nascita del cubismo. Qui lavorarono anche **Georges Braque**, **Juan Gris**, **Amedeo Modigliani**, e il poeta **Guillaume Apollinaire**.
-![alt text](<images/Demoiselles d'Avignon.jpg>)
+![alt text](<images/demoiselles-d'avignon.jpg>)
 
 **La Vita Bohémien**: Marco ci descrive le condizioni spartane in cui vivevano questi artisti: atelier freddi d'inverno, senza acqua corrente, illuminati solo da lucernari. Nonostante le difficoltà economiche, il Bateau-Lavoir divenne un **laboratorio creativo** dove nacquero le avanguardie artistiche che avrebbero rivoluzionato l'arte del XX secolo.
 
@@ -393,7 +393,7 @@ Arriviamo finalmente al celebre **Bateau-Lavoir**, situato al **13 di Place Émi
 
 Lasciando il Bateau-Lavoir, Marco ci guida attraverso le stradine caratteristiche di Montmartre verso il **Moulin de la Galette**, uno degli ultimi mulini a vento storici di Parigi. Il nostro percorso ci porta attraverso la pittoresca **Rue d'Orchampt**, una delle strade più affascinanti e meno turistiche del quartiere.
 
-![alt text](<images/002.05a mulin de la galette.jpg>)
+![alt text](<images/002.05a-mulin-de-la-galette.jpg>)
 
 **Rue d'Orchampt - L'Eleganza Nascosta**: Questa strada residenziale, che serpeggia lungo il versante nord di Montmartre, è caratterizzata da **ville e cottage** in stile anglo-normanno costruiti negli anni '20 e '30. L'atmosfera è quella di un villaggio di campagna nel cuore di Parigi, con giardini privati, cancelletti in ferro battuto e un'architettura che si discosta completamente dallo stile haussmanniano del resto della città.
 
@@ -401,7 +401,7 @@ Lasciando il Bateau-Lavoir, Marco ci guida attraverso le stradine caratteristich
 
 Al **numero 11 bis di Rue d'Orchampt** si trova la **casa di Dalida** (1933-1987), la celebre cantante franco-italiana che visse qui per oltre vent'anni fino alla sua tragica morte. La villa, nascosta da una vegetazione rigogliosa, divenne il rifugio privato dell'artista che vendette oltre **170 milioni di dischi** in tutto il mondo.
 
-![alt text](<images/002.06 Maison de Dalida.jpg>)
+![alt text](<images/002.06-maison-de-dalida.jpg>)
 
 **La Diva di Montmartre**: **Iolanda Cristina Gigliotti**, questo il vero nome di Dalida, scelse Montmartre come sua dimora parigina dal **1962**. La casa divenne teatro delle sue gioie e dei suoi dolori, ospitando feste memorabili ma anche i momenti più difficili della sua vita privata. Marco ci racconta come Dalida amasse passeggiare per le stradine del quartiere, spesso riconosciuta e salutata affettuosamente dai residenti.
 
@@ -415,7 +415,7 @@ Al **numero 11 bis di Rue d'Orchampt** si trova la **casa di Dalida** (1933-1987
 
 Prima di dirigerci verso Rue de l'Abreuvoir, Marco ci conduce attraverso il suggestivo **Square Suzanne Buisson**, un piccolo giardino pubblico che nasconde uno dei monumenti più significativi per comprendere le origini cristiane di Montmartre. Questo spazio verde, dedicato alla **Resistente francese Suzanne Buisson** (1883-1946), ospita una delle statue più impressionanti e cariche di storia sacra di tutto il quartiere.
 
-![alt text](<images/002.06b Square Suzanne Buisson.jpg>)
+![alt text](<images/002.06b-square-suzanne-buisson.jpg>)
 
 #### La Statua di Saint Denis - Il Patrono Decapitato
 
@@ -438,11 +438,11 @@ Al centro del giardino si erge la **statua di Saint Denis** (San Dionigi), primo
 
 Continuando il nostro percorso verso il Moulin de la Galette, Marco ci conduce attraverso la celebre **Rue de l'Abreuvoir**, considerata una delle **strade più belle e fotografate** di tutto Montmartre. Questa piccola via acciottolata, il cui nome significa "strada dell'abbeveratoio", evoca l'epoca in cui Montmartre era ancora un villaggio rurale e qui si abbeveravano gli animali.
 
-![alt text](<images/002.07a Rue de l'Abreuvoir.jpg>)
+![alt text](<images/002.07a-rue-de-l'abreuvoir.jpg>)
 
 **L'Atmosfera da Cartolina**: La Rue de l'Abreuvoir conserva perfettamente l'atmosfera della **Montmartre d'epoca**, con le sue case basse dai colori pastello, i giardini nascosti dietro cancelletti di ferro battuto, e le vigne che ancora oggi crescono sui versanti della collina. Camminando sui suoi sampietrini irregolari, si ha la sensazione di essere tornati indietro nel tempo, quando artisti come **Maurice Utrillo** immortalavano queste stradine nei loro dipinti.
 
-![alt text](<images/002.08 Rue de l'Abreuvoir.jpg>)
+![alt text](<images/002.08-rue-de-l'abreuvoir.jpg>)
 
 
 **L'Eredità Artistica**: Questa strada fu dimora e fonte d'ispirazione per numerosi artisti del XIX e XX secolo. Le piccole case con i loro giardini segreti ospitarono pittori, musicisti e scrittori che trovavano qui la tranquillità necessaria per la loro arte, lontano dal caos della città che si estendeva ai piedi della collina.
@@ -451,7 +451,7 @@ Continuando il nostro percorso verso il Moulin de la Galette, Marco ci conduce a
 
 Al termine di Rue de l'Abreuvoir, nella piccola **Place Marcel Aymé** (dedicata al celebre scrittore francese), ci imbattiamo nel **busto commemorativo di Dalida**, una delle attrazioni più visitate di Montmartre. Questo busto in bronzo, inaugurato nel **1997** nel decimo anniversario della sua morte, è diventato un vero luogo di pellegrinaggio per i fan di tutto il mondo.
 
-![alt text](<images/002.08 Busto di Dalida.jpg>)
+![alt text](<images/002.08-busto-di-dalida.jpg>)
 
 **L'Opera Commemorativa**: Il busto, realizzato dallo scultore **Aslan Alain Bourdain**, ritrae Dalida con il suo inconfondibile sorriso e la caratteristica pettinatura degli anni '70. L'opera cattura l'essenza dell'artista nel momento della sua massima fama, quando dominava le classifiche europee e internazionali con hits come **"Gigi l'Amoroso"** e **"Monday Tuesday"**.
 
@@ -465,7 +465,7 @@ Al termine di Rue de l'Abreuvoir, nella piccola **Place Marcel Aymé** (dedicata
 
 Proseguendo la nostra passeggiata attraverso le stradine di Montmartre, arriviamo finalmente alla celebre **Maison Rose**, situata all'angolo tra **Rue de l'Abreuvoir** e **Rue des Saules**. Questo piccolo ristorante dalle pareti rosa shocking è diventato uno dei **simboli più fotografati** di tutto Montmartre e una tappa obbligata per chiunque visiti il quartiere.
 
-![alt text](<images/002.09 Maison Rose.jpg>)
+![alt text](<images/002.09-maison-rose.jpg>)
 
 **Storia della Maison Rose**: La **Maison Rose** deve il suo nome e la sua fama al colore caratteristico delle sue pareti, dipinte di rosa sin dal **1908**. Originariamente chiamata **"Cabaret de la Consigne"**, il locale fu trasformato dalla sua proprietaria **Germaine Gargallo**, modella e musa di **Pablo Picasso** durante il suo periodo del **"Periodo Rosa"** (1904-1906). La donna decise di dipingere l'edificio dello stesso colore che Picasso utilizzava nei suoi dipinti di quel periodo.
 
@@ -483,7 +483,7 @@ Proseguendo la nostra passeggiata attraverso le stradine di Montmartre, arriviam
 
 Lasciando la celebre Maison Rose, Marco ci conduce attraverso la **Rue de Mont-Cenis**, una delle arterie storiche che ci porta verso la sommità della collina di Montmartre. Questa strada, che prende il nome dall'antico **Monte Cenisio** (riferimento alle montagne alpine), ci offre l'opportunità di attraversare i caratteristici **vicoli degli artisti** che hanno reso famoso questo quartiere bohémien.
 
-![alt text](<images/002.11 vicoli degli artisti.jpg>)
+![alt text](<images/002.11-vicoli-degli-artisti.jpg>)
 
 **L'Atmosfera dei Vicoli**: Mentre saliamo attraverso questi stretti passaggi acciottolati, Marco ci racconta come questi vicoli siano stati **teatro della vita quotidiana degli artisti** di Montmartre per oltre un secolo. Ogni angolo, ogni scalinata, ogni piccola piazzetta ha visto passare pittori con i loro cavalletti, poeti con i loro quaderni, musicisti con i loro strumenti, creando un'atmosfera unica al mondo.
 
@@ -515,7 +515,7 @@ Al termine della nostra salita attraverso i vicoli, arriviamo alla **Église Sai
 
 Dalla piazzetta della Église Saint-Pierre, bastano pochi passi per trovarsi di fronte alla **Basilique du Sacré-Cœur**, la maestosa basilica che corona la collina di Montmartre e rappresenta uno dei simboli più riconoscibili di Parigi. Questo capolavoro dell'architettura sacra del XIX secolo conclude magnificamente il nostro percorso attraverso la storia, l'arte e la spiritualità di Montmartre.
 
-![alt text](<images/002.12 Basilique du Sacré-Cœur.jpg>)
+![alt text](<images/002.12-basilique-du-sacré-cœur.jpg>)
 
 **Storia della Costruzione**: La **Basilica del Sacré-Cœur** fu costruita come **voto nazionale** dopo la sconfitta francese nella Guerra Franco-Prussiana (1870-1871) e la tragica Comune di Parigi. Il progetto, iniziato nel **1875** su disegno dell'architetto **Paul Abadie**, fu completato solo nel **1914**, richiedendo quasi quarant'anni di lavori. La basilica fu consacrata definitivamente nel **1919**, dopo la vittoria nella Prima Guerra Mondiale.
 
@@ -539,11 +539,11 @@ Dalla piazzetta della Église Saint-Pierre, bastano pochi passi per trovarsi di 
 
 **Conclusione del Percorso**: Con la visita alla Basilique du Sacré-Cœur si conclude magnificamente il nostro viaggio attraverso Montmartre, dalle origini pagane e cristiane (Saint Denis, Saint-Pierre) all'arte moderna (Picasso, van Gogh), dalla musica (Dalida) al cinema (Amélie), fino alla spiritualità contemporanea di questo santuario che veglia eternamente su Parigi.
 
-![alt text](<images/002.13 vista da sacre coeur.jpg>)
+![alt text](<images/002.13-vista-da-sacre-coeur.jpg>)
 
 la vista dalla basilica è impagabile
 
-![alt text](<images/002.14 vista da sacre coeur.jpg>)
+![alt text](<images/002.14-vista-da-sacre-coeur.jpg>)
 
 #### Pomeriggio: Parc des Princes - Lo Stadio del PSG
 
@@ -575,15 +575,15 @@ La **visita guidata del Parc des Princes** ci porta attraverso i luoghi più esc
 
 La visita si conclude al **PSG Store ufficiale**, il più grande negozio dedicato al Paris Saint-Germain, situato all'interno dello stadio.
 
-![alt text](<images/002.16 PSG Store.jpg>)
+![alt text](<images/002.16-psg-store.jpg>)
 
 Daniela e Giulio al PSG Store si sono sfogati
-![alt text](<images/002.17 PSG Store.jpg>)
+![alt text](<images/002.17-psg-store.jpg>)
 
-![alt text](<images/002.17a PSG Store.jpg>)
+![alt text](<images/002.17a-psg-store.jpg>)
 
 quindi all'adiacente stadio del Rolann Garros
-![alt text](<images/002.18 Rolan Garros.jpg>)
+![alt text](<images/002.18-rolan-garros.jpg>)
 
 
 
@@ -607,7 +607,7 @@ Per concludere questa giornata ricca di contrasti, dalle vette spirituali di Mon
 
 **Viaggio verso il Quartiere Latino**: Dal Parc des Princes prendiamo la **Linea 9** fino a **Châtelet**, poi cambiamo con la **Linea 4** direzione **Porte de Clignancourt** fino a **Saint-Germain-des-Prés**. Una breve passeggiata attraverso le caratteristiche stradine del **6° arrondissement** ci conduce al cuore del Quartiere Latino e alla leggendaria **Università della Sorbona**.
 
-![alt text](<images/002.19 Sorbona.jpg>)
+![alt text](<images/002.19-sorbona.jpg>)
 
 **Storia dell'Università**: La **Sorbona**, fondata nel **1253** da **Robert de Sorbon**, cappellano di **Re Luigi IX** (San Luigi), è una delle università più antiche e prestigiose del mondo. Marco ci racconta come questa istituzione abbia formato alcune delle menti più brillanti della storia: da **San Tommaso d'Aquino** a **Marie Curie**, da **Jean-Paul Sartre** a **Simone de Beauvoir**.
 
@@ -617,13 +617,13 @@ Per concludere questa giornata ricca di contrasti, dalle vette spirituali di Mon
 
 **Maggio '68 e l'Eredità Studentesca**: Marco ci racconta come la Sorbona sia stata **l'epicentro della rivoluzione studentesca del Maggio '68**, quando gli studenti parigini scossero non solo la Francia ma l'intero mondo occidentale. Le sue aule e cortili furono teatro di assemblee storiche che cambiarono per sempre la società francese ed europea.
 
-![alt text](<images/002.19a Sorbona.jpg>)
+![alt text](<images/002.19a-sorbona.jpg>)
 
 #### Il Panthéon - Il Tempio della Gloria Nazionale
 
 Dalla Sorbona, una breve passeggiata lungo **Rue Soufflot** ci conduce al maestoso **Panthéon**, che si erge imponente sulla **Montagna di Sainte-Geneviève**.
 
-![alt text](<images/002.20 Panthéon.jpg>)
+![alt text](<images/002.20-panthéon.jpg>)
 
 **Architettura Neoclassica**: Il **Panthéon**, progettato da **Jacques-Germain Soufflot** e completato nel **1790**, rappresenta uno dei capolavori dell'**architettura neoclassica** francese. La sua cupola alta **83 metri**, ispirata a quella di San Pietro a Roma, domina la skyline del Quartiere Latino e offre una vista panoramica eccezionale su Parigi.
 
@@ -633,13 +633,13 @@ Dalla Sorbona, una breve passeggiata lungo **Rue Soufflot** ci conduce al maesto
 
 **Il Pendolo di Foucault**: All'interno ammiriamo una riproduzione del celebre **Pendolo di Foucault**, che nel 1851 dimostrò per la prima volta la rotazione terrestre attraverso un esperimento meccanico. Questo strumento scientifico aggiunge una dimensione di scoperta e innovazione al carattere commemorativo del monumento.
 
-![alt text](<images/002.20a Panthéon.jpg>)
+![alt text](<images/002.20a-panthéon.jpg>)
 
 #### Jardins du Luxembourg - L'Oasi Aristocratica
 
 Concludiamo la nostra giornata nei **Jardins du Luxembourg**, considerati tra i più belli e romantici di Parigi.
 
-![alt text](<images/002.21 Jardins du Luxembourg.jpg>)
+![alt text](<images/002.21-jardins-du-luxembourg.jpg>)
 
 **Storia dei Giardini**: I **Jardins du Luxembourg** furono creati nel **1612** per volere di **Maria de' Medici**, vedova di **Enrico IV**, che desiderava un giardino che le ricordasse i **Giardini di Boboli** della sua Firenze natale. Il progetto, affidato all'architetto **Salomon de Brosse**, creò un perfetto esempio di **giardino alla francese**.
 
@@ -651,17 +651,17 @@ Concludiamo la nostra giornata nei **Jardins du Luxembourg**, considerati tra i 
 
 **La Vista Panoramica**: Dal belvedere dei giardini si gode una vista spettacolare che abbraccia il **Panthéon**, **Notre-Dame**, la **Torre Eiffel** e l'**Osservatorio di Parigi**. Questo panorama sintetizza perfettamente la grandezza architettonica e culturale della capitale francese.
 
-![alt text](<images/002.21a Jardins du Luxembourg.jpg>)
+![alt text](<images/002.21a-jardins-du-luxembourg.jpg>)
 
 **Conclusione della Giornata**: Con il tramonto sui Jardins du Luxembourg si conclude una giornata straordinaria che ci ha portato dalle vette spirituali di Montmartre (Sacré-Cœur), attraverso lo sport moderno (PSG), fino al cuore intellettuale di Parigi (Sorbona, Panthéon). Questa varietà di esperienze rappresenta perfettamente l'anima multiforme di Parigi: città di fede e di sapere, di tradizione e di modernità, di arte e di vita quotidiana.
 
-![alt text](<images/002.21b Jardins du Luxembourg.jpg>)
+![alt text](<images/002.21b-jardins-du-luxembourg.jpg>)
 
-![alt text](<images/002.21c Jardins du Luxembourg.jpg>)
+![alt text](<images/002.21c-jardins-du-luxembourg.jpg>)
 
-![alt text](<images/002.21d Jardins du Luxembourg.jpg>)
+![alt text](<images/002.21d-jardins-du-luxembourg.jpg>)
 
-![alt text](<images/002.21e Jardins du Luxembourg.jpg>)
+![alt text](<images/002.21e-jardins-du-luxembourg.jpg>)
 
 ---
 
@@ -680,7 +680,7 @@ L'ultima giornata inizia con la **maestosità dell'Arc de Triomphe**, prosegue l
 
 La terza giornata inizia alle **9:00** con la visita al simbolo per eccellenza della **gloria militare francese**: l'**Arc de Triomphe**. Questo monumento, che domina la **Place Charles de Gaulle** (ex Place de l'Étoile), rappresenta l'apoteosi dell'architettura commemorativa napoleonica e il cuore simbolico della Francia moderna.
 
-![alt text](<images/003.01 Arc de Triomphe.jpg>)
+![alt text](<images/003.01-arc-de-triomphe.jpg>)
 
 
 **Storia del Monumento**: L'**Arc de Triomphe** fu commissionato da **Napoleone I** nel **1806**, dopo la vittoria di **Austerlitz**, per celebrare le glorie dell'**Armée d'Orient** e di tutti i soldati francesi. L'architetto **Jean Chalgrin** si ispirò all'**Arco di Tito** romano, ma ampliandone enormemente le dimensioni: **50 metri di altezza**, **45 metri di larghezza** e **22 metri di profondità** ne fanno uno degli archi di trionfo più grandi del mondo.
@@ -711,7 +711,7 @@ La terza giornata inizia alle **9:00** con la visita al simbolo per eccellenza d
 
 Dopo aver ammirato Parigi dall'alto dell'Arc de Triomphe, iniziamo la nostra discesa lungo i leggendari **Champs-Élysées**, l'avenue più famosa al mondo che si estende per **1,9 chilometri** dalla Place Charles de Gaulle alla Place de la Concorde.
 
-![alt text](<images/003.02 Champs-Élysées.jpg>)
+![alt text](<images/003.02-champs-élysées.jpg>)
 
 **Storia dell'Avenue**: I **Champs-Élysées** (letteralmente "Campi Elisi") furono creati nel **1667** da **André Le Nôtre**, l'architetto paesaggista di Luigi XIV e creatore dei giardini di Versailles. Originariamente era un semplice viale alberato che collegava il **Palazzo delle Tuileries** ai boschi circostanti. Il nome deriva dalla mitologia greca e si riferisce al luogo dove, secondo gli antichi, riposavano le anime dei virtuosi dopo la morte.
 
@@ -721,7 +721,7 @@ Dopo aver ammirato Parigi dall'alto dell'Arc de Triomphe, iniziamo la nostra dis
 
 La nostra prima tappa è la storica **Maison Ladurée** al numero **75**, una delle pasticcerie più prestigiose al mondo e birthplace del **macaron** moderno.
 
-![alt text](<images/003.03 Ladurée.jpg>)
+![alt text](<images/003.03-ladurée.jpg>)
 
 **Storia di Ladurée**: Fondata nel **1862** da **Louis Ernest Ladurée**, la pasticceria nacque dall'incontro fortuito tra un fornaio e un pasticciere. Dopo un incendio nel **1871**, la moglie **Jeanne Souchard** trasformò il locale in un **salon de thé**, creando uno dei primi spazi parigini dove le donne potevano incontrarsi pubblicamente senza essere accompagnate.
 
@@ -759,7 +759,7 @@ Proseguiamo verso il **numero 101**, dove si trova il **flagship store** di **Lo
 
 Al **numero 60** troviamo il prestigioso **Galeries Lafayette**, il più famoso grande magazzino francese, che rappresenta l'arte del shopping parigino dal **1893**.
 
-![alt text](<images/003.05 Galeries Lafayette.jpg>)
+![alt text](<images/003.05-galeries-lafayette.jpg>)
 
 **L'Art de Vivre Français**: Su **4 piani** e **6.000 metri quadrati**, Galeries Lafayette offre una selezione dei migliori marchi francesi e internazionali: da **Chanel** e **Dior** per la haute couture, a **Hermès** e **Goyard** per la pelletteria, fino ai gioielli **Cartier** e **Van Cleef & Arpels**.
 
@@ -769,7 +769,7 @@ Al **numero 60** troviamo il prestigioso **Galeries Lafayette**, il più famoso 
 
 Una sosta obbligatoria al **numero 72** per la boutique di **Pierre Hermé**, considerato il **"Picasso della pasticceria"** e rivoluzionario del macaron contemporaneo.
 
-![alt text](<images/003.06 Pierre Hermé.jpg>)
+![alt text](<images/003.06-pierre-hermé.jpg>)
 
 **L'Innovazione Dolciaria**: **Pierre Hermé**, formatosi presso **Lenôtre** e **Fauchon**, ha rivoluzionato l'arte pasticciera francese introducendo **sapori inediti** e **tecniche innovative**. I suoi macarons non sono semplici dolci, ma vere **"haute couture culinarie"**.
 
@@ -795,7 +795,7 @@ La boutique **Swarovski** offre le celebri creazioni in **cristallo austriaco** 
 
 Avvicinandoci alla fine degli Champs-Élysées, verso **Place de la Concorde**, ci troviamo di fronte a uno dei panorami architettonici più spettacolari di Parigi: i maestosi **Grand Palais** e **Petit Palais**, due capolavori gemelli che si ergono come guardiani monumentali all'ingresso dei **Jardins des Champs-Élysées**.
 
-![alt text](<images/003.07 Grand Palais.jpg>)
+![alt text](<images/003.07-grand-palais.jpg>)
 
 **L'Eredità dell'Esposizione Universale del 1900**: Entrambi i palazzi furono costruiti specificamente per l'**Esposizione Universale del 1900**, evento che celebrava l'ingresso di Parigi nel XX secolo e che accolse oltre **50 milioni di visitatori**. Questi monumenti rappresentano l'apogeo dell'**architettura Belle Époque** e dell'**Art Nouveau** francese.
 
@@ -815,13 +815,13 @@ Avvicinandoci alla fine degli Champs-Élysées, verso **Place de la Concorde**, 
 
 Dall'altra parte dell'**Avenue Winston Churchill**, il **Petit Palais** si presenta come un gioiello di eleganza e raffinatezza architettonica.
 
-![alt text](<images/003.09 Petit Palais.jpg>)
+![alt text](<images/003.09-petit-palais.jpg>)
 
 **Architettura di Charles Girault**: Progettato dall'architetto **Charles Girault**, il Petit Palais rappresenta un perfetto esempio di **eclettismo Belle Époque**, combinando elementi **neoclassici**, **barocchi** e **Art Nouveau**. La sua cupola centrale e i portici laterali creano una composizione armoniosa che dialoga elegantemente con il Grand Palais.
 
 **Il Peristilio e il Giardino**: L'elemento più suggestivo del Petit Palais è il **peristilio semicircolare** che abbraccia un **giardino interno** con fontane e sculture. Questo spazio, ispirato alle ville italiane rinascimentali, offre un'oasi di pace nel cuore di Parigi e crea un perfetto raccordo tra architettura e natura.
 
-![alt text](<images/003.09a Petit Palais.jpg>)
+![alt text](<images/003.09a-petit-palais.jpg>)
 
 **Museo delle Belle Arti della Città di Parigi**: Il Petit Palais ospita una delle collezioni più ricche di Parigi: **opere dall'antichità al 1914**, includendo capolavori di **Courbet**, **Cézanne**, **Monet**, **Renoir** e una straordinaria collezione di **oggetti d'arte decorativa**. L'ingresso è **gratuito per le collezioni permanenti**, rendendolo uno dei tesori nascosti più accessibili della capitale.
 
@@ -835,17 +835,17 @@ Dall'altra parte dell'**Avenue Winston Churchill**, il **Petit Palais** si prese
 
 **La Vista dai Giardini**: Dai **Jardins des Champs-Élysées**, la vista sui due palazzi è particolarmente suggestiva: le cupole e le quadrighe si stagliano contro il cielo parigino, mentre i **platani secolari** incorniciando questo panorama monumentale che cambia colore e atmosfera ad ogni ora del giorno.
 
-![alt text](<images/003.10 pl louvre.jpg>)
+![alt text](<images/003.10-pl-louvre.jpg>)
 
 **Curiosità Belle Époque**: Durante l'Esposizione del 1900, il Grand Palais ospitò la prima **gara olimpica di golf** nella storia moderna, mentre il Petit Palais accoglieva le **arti decorative francesi**. Entrambi furono visitati da **50 milioni di persone** in soli 6 mesi, un record assoluto per l'epoca che testimonia il successo straordinario di questo evento internazionale.
 
-![alt text](<images/003.11 senne & t eiffel.jpg>)
+![alt text](<images/003.11-senne-and-t-eiffel.jpg>)
 
 #### Conclusione Rilassante: Il Pallone Generali nei Jardins des Tuileries
 
 Per concludere in bellezza questa giornata ricca di cultura, storia e shopping, ci dirigiamo verso i **Jardins des Tuileries** per un momento di relax al celebre **Pallone Generali**, l'aerostato vincolato che è diventato uno dei simboli più romantici e tecnologici di Parigi.
 
-![alt text](<images/003.12 Pallone Generali.jpg>)
+![alt text](<images/003.12-pallone-generali.jpg>)
 
 **Il Pallone del Trocadéro Generali**: Il **Pallone Generali** è un **aerostato vincolato** di **32 metri di diametro** che si eleva fino a **150 metri di altezza**, offrendo una vista panoramica unica su Parigi. Installato nei **Jardins des Tuileries** nel **1999**, questo pallone rappresenta una perfetta fusione tra **tecnologia moderna** e **tradizione aeronautica francese**.
 
@@ -853,13 +853,13 @@ Per concludere in bellezza questa giornata ricca di cultura, storia e shopping, 
 
 **Un'Esperienza Sensoriale Unica**: La salita nel **Pallone Generali** dura circa **10-15 minuti** e può ospitare fino a **30 passeggeri** per volo. L'ascensione è lenta e silenziosa, permettendo di ammirare gradualmente Parigi che si allontana sotto i nostri piedi: dai **tetti hausmanniani** alle cupole dorate degli **Invalides**, dalla **Torre Eiffel** al **Sacré-Cœur**, ogni angolo della capitale si svela in una prospettiva completamente nuova.
 
-![alt text](<images/003.12a Pallone Generali.jpg>)
+![alt text](<images/003.12a-pallone-generali.jpg>)
 
 **La Vista a 360 Gradi**: A **150 metri di altezza**, la vista abbraccia un raggio di oltre **35 chilometri**. Verso ovest si scorgono i grattacieli de **La Défense** e l'**Arc de Triomphe**, verso est la cattedrale di **Notre-Dame** e la collina di **Montmartre**, verso sud la **Torre Eiffel** e gli **Invalides**. Questa prospettiva aerea permette di comprendere l'urbanistica parigina e l'armonia della città progettata da Haussmann.
 
 **Il Rilassamento nei Giardini**: Dopo l'emozione del volo, ci rilassiamo nei **Jardins des Tuileries**, passeggiando tra le **sculture di Maillol** e le aiuole geometriche alla francese. Questi giardini, creati nel **XVI secolo** per **Caterina de' Medici**, offrono un'oasi di tranquillità nel cuore di Parigi.
 
-![alt text](<images/003.13 Jardins Tuileries Relax.jpg>)
+![alt text](<images/003.13-jardins-tuileries-relax.jpg>)
 
 **Le Sedie alla Francese**: Una tradizione tipicamente parigina sono le iconiche **sedie metalliche verdi** sparse per i giardini. Ci sediamo su una di queste sedie storiche, orientandola verso il panorama che preferiamo: la **Place de la Concorde** con il suo obelisco, il **Louvre** con la sua piramide di vetro, o semplicemente verso i **platani secolari** che creano giochi di luce e ombra sul prato.
 
@@ -877,7 +877,7 @@ Per concludere in bellezza questa giornata ricca di cultura, storia e shopping, 
 
 Procedendo verso la fine della nostra passeggiata nei Jardins des Tuileries, ci troviamo di fronte a uno dei gioielli più eleganti e meno conosciuti di Parigi: l'**Arc de Triomphe du Carrousel**, il "piccolo fratello" del più famoso Arc de Triomphe degli Champs-Élysées.
 
-![alt text](<images/003.14 Arc Triomphe Carrousel.jpg>)
+![alt text](<images/003.14-arc-triomphe-carrousel.jpg>)
 
 **Storia e Commissione Napoleonica**: L'**Arc de Triomphe du Carrousel** fu commissionato da **Napoleone I** nel **1806** per celebrare le vittorie del **1805**, in particolare la battaglia di **Austerlitz**. Progettato dagli architetti **Charles Percier** e **Pierre-François-Léonard Fontaine**, fu completato in soli **2 anni** (1808), molto prima del suo "fratello maggiore" degli Champs-Élysées.
 
@@ -911,7 +911,7 @@ Procedendo verso la fine della nostra passeggiata nei Jardins des Tuileries, ci 
 
 **Conclusione delle Tre Giornate**: Con questa esperienza aerea che ci permette di abbracciare con lo sguardo tutta Parigi, si concludono tre giorni indimenticabili che ci hanno portato dalle **vette spirituali** di Montmartre alle **profondità culturali** del Louvre, dallo **sport moderno** del PSG alle **tradizioni artigiane** delle pasticcerie, dalla **grandezza imperiale** dell'Arc de Triomphe alla **tecnologia sostenibile** del Pallone Generali. Parigi si rivela così in tutta la sua complessità: città di storia e innovazione, di tradizione e modernità, di arte e vita quotidiana, un crogiolo di esperienze che rimarranno per sempre nel cuore e nella memoria.
 
-![alt text](images/20250803_175654.jpg)
+![alt text](images/20250803-175654.jpg)
 
 
 ---

@@ -9,6 +9,8 @@
 **Format:** Live demonstration with code examples  
 **Link:** [Microsoft Build 2025 Session DEM520](https://mybuild.microsoft.com/sessions/DEM520)
 
+![Local AI Development with Foundry Local and .NET Aspire](images/session-banner.png)
+
 ## Session Introduction
 
 The session begins with acknowledgment of the late hour and long week of the conference, with the presenter mentioning a challenge to do juggling throughout the session to keep the audience engaged.

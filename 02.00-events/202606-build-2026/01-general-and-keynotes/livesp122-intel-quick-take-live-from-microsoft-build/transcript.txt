@@ -1,0 +1,200 @@
+WEBVTT
+
+00:00:02.460 --> 00:00:03.090
+KARUANA GATIMU: Welcome back
+
+00:00:03.090 --> 00:00:04.770
+to the Show Floor
+at Microsoft Build.
+
+00:00:04.770 --> 00:00:08.670
+I'm so excited to be here at
+the beautiful Intel booth.
+
+00:00:08.670 --> 00:00:11.460
+I'm here to have a
+conversation with Bryan,
+
+00:00:11.460 --> 00:00:13.770
+my friend Bryan here, who
+is going to tell us all
+
+00:00:13.770 --> 00:00:15.990
+about what Microsoft and
+Intel are doing together.
+
+00:00:15.990 --> 00:00:17.850
+Bryan, welcome to
+Microsoft Build.
+
+00:00:17.850 --> 00:00:18.570
+BRYAN HIESTAND:
+Thank you very much.
+
+00:00:18.570 --> 00:00:19.710
+KARUANA GATIMU: I heard
+it's your first one.
+
+00:00:19.710 --> 00:00:20.370
+BRYAN HIESTAND: First time.
+
+00:00:20.370 --> 00:00:22.530
+KARUANA GATIMU: Well, we're
+happy to have you here for sure.
+
+00:00:22.530 --> 00:00:25.110
+What do people need to
+know about the partnership
+
+00:00:25.110 --> 00:00:26.940
+that we have between
+our two companies?
+
+00:00:26.940 --> 00:00:27.600
+BRYAN HIESTAND: Yeah, I mean,
+
+00:00:27.600 --> 00:00:30.240
+Intel and Microsoft have a
+decades-long partnership,
+
+00:00:30.240 --> 00:00:32.880
+and we've been supporting the
+developer community for --
+
+00:00:32.880 --> 00:00:35.460
+Intel has -- for
+almost 30 years now,
+
+00:00:35.460 --> 00:00:39.000
+so it's been a very long time,
+and we're very proud of that.
+
+00:00:39.000 --> 00:00:43.110
+One thing that we try to do
+is we try to help developers
+
+00:00:43.110 --> 00:00:47.490
+to optimize their applications
+across the compute continuum.
+
+00:00:47.490 --> 00:00:53.070
+What I mean by that is not
+every workload is optimized
+
+00:00:53.070 --> 00:00:55.050
+for a specific compute type.
+
+00:00:55.050 --> 00:00:56.010
+There could be CPU.
+
+00:00:56.010 --> 00:00:56.970
+There could be GPU.
+
+00:00:56.970 --> 00:00:58.560
+It could be NPU.
+
+00:00:58.560 --> 00:01:01.800
+We are helping developers to
+optimize their code to run best
+
+00:01:01.800 --> 00:01:04.290
+on the right infrastructure
+for their workload.
+
+00:01:04.290 --> 00:01:05.040
+KARUANA GATIMU: Oh, that's good.
+
+00:01:05.040 --> 00:01:06.690
+How do they get
+started with that?
+
+00:01:06.690 --> 00:01:09.060
+What do they need to
+know to move forward?
+
+00:01:09.060 --> 00:01:13.230
+BRYAN HIESTAND: Yeah, so we
+have 100 million AI PCs,
+
+00:01:13.230 --> 00:01:17.000
+actually more than 100 million
+AI PCs, out in the market
+
+00:01:17.000 --> 00:01:20.900
+that are made to run on,
+and are capable of running,
+
+00:01:20.900 --> 00:01:23.690
+across those compute
+infrastructures.
+
+00:01:23.690 --> 00:01:26.930
+We also have software
+toolkits to help developers
+
+00:01:26.930 --> 00:01:29.150
+to optimize their
+code to run best
+
+00:01:29.150 --> 00:01:33.630
+on the infrastructure that's
+best for that workload.
+
+00:01:33.630 --> 00:01:34.530
+KARUANA GATIMU:
+That is fantastic.
+
+00:01:34.530 --> 00:01:36.840
+Now, everyone's always really
+concerned about security.
+
+00:01:36.840 --> 00:01:37.920
+What about that?
+
+00:01:37.920 --> 00:01:38.550
+BRYAN HIESTAND: Absolutely.
+
+00:01:38.550 --> 00:01:41.610
+I think security, especially
+in this kind of age of AI,
+
+00:01:41.610 --> 00:01:44.040
+is growing in importance.
+
+00:01:44.040 --> 00:01:46.440
+Intel has developed a
+technology called TDX,
+
+00:01:46.440 --> 00:01:49.830
+which enables confidential
+computing in Azure.
+
+00:01:49.830 --> 00:01:53.520
+Essentially, what that does
+is it allows developers
+
+00:01:53.520 --> 00:01:55.800
+to run sensitive data
+and sensitive workloads
+
+00:01:55.800 --> 00:01:58.080
+in a confidential computing
+environment and have the peace
+
+00:01:58.080 --> 00:01:59.940
+of mind that their
+data is secure.
+
+00:01:59.940 --> 00:02:01.410
+KARUANA GATIMU:
+That's fantastic.
+
+00:02:01.410 --> 00:02:03.330
+You can learn about
+that and more
+
+00:02:03.330 --> 00:02:05.190
+on the Partner Showcase page.
+
+00:02:05.190 --> 00:02:07.270
+Make sure to check it out.

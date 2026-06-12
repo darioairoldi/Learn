@@ -1,0 +1,1181 @@
+WEBVTT
+
+00:00:00.990 --> 00:00:01.770
+NIKISHA REYES-GRANGE:
+Hi, everyone.
+
+00:00:01.770 --> 00:00:04.620
+Thanks for joining
+us, and happy Build.
+
+00:00:04.620 --> 00:00:06.570
+My name is Nikisha Reyes-Grange.
+
+00:00:06.570 --> 00:00:10.110
+I'm Senior Director with Azure
+Data and AI, and I'm joined
+
+00:00:10.110 --> 00:00:12.750
+by my colleagues
+Charles and Sachin.
+
+00:00:12.750 --> 00:00:16.470
+Charles Feddersen is the
+Director of Program Management
+
+00:00:16.470 --> 00:00:19.230
+for Postgres and MySQL on Azure,
+
+00:00:19.230 --> 00:00:24.000
+and Sachin Patney is the General
+Manager of App Development
+
+00:00:24.000 --> 00:00:26.880
+for Azure Data, and
+we're here to share some
+
+00:00:26.880 --> 00:00:30.990
+of the top data news that we
+announced today at Build.
+
+00:00:30.990 --> 00:00:32.820
+So I'm going to start
+with Charles, okay?
+
+00:00:32.820 --> 00:00:33.180
+CHARLES FEDDERSEN: Yeah.
+
+00:00:33.180 --> 00:00:35.010
+NIKISHA REYES-GRANGE:
+Because, excellent,
+
+00:00:35.010 --> 00:00:36.870
+we have two things
+to talk about today.
+
+00:00:36.870 --> 00:00:38.820
+We're going to be talking
+about Azure HorizonDB.
+
+00:00:38.820 --> 00:00:40.320
+We're also going to be
+talking about Rayfin,
+
+00:00:40.320 --> 00:00:42.870
+but let's start with
+Azure HorizonDB.
+
+00:00:42.870 --> 00:00:44.100
+Talk to us, Charles.
+
+00:00:44.100 --> 00:00:45.090
+Tell us about it.
+
+00:00:45.090 --> 00:00:47.220
+CHARLES FEDDERSEN: So HorizonDB
+was a big keynote announcement.
+
+00:00:47.220 --> 00:00:50.850
+It's our new really sort of
+Postgres service designed
+
+00:00:50.850 --> 00:00:54.240
+for building apps and also
+running enterprise applications.
+
+00:00:54.240 --> 00:00:55.950
+So we made the
+announcement this morning.
+
+00:00:55.950 --> 00:00:57.840
+It's in public preview today.
+
+00:00:57.840 --> 00:00:59.340
+Everyone can go ahead
+and get started.
+
+00:00:59.340 --> 00:00:59.760
+NIKISHA REYES-GRANGE:
+That's awesome,
+
+00:00:59.760 --> 00:01:02.190
+and what problems is it solving?
+
+00:01:02.190 --> 00:01:05.070
+CHARLES FEDDERSEN: So I think
+one of the interesting things
+
+00:01:05.070 --> 00:01:07.020
+about Postgres is
+the sheer breadth
+
+00:01:07.020 --> 00:01:08.550
+of adoption that it's seeing.
+
+00:01:08.550 --> 00:01:11.010
+On the one hand, your
+events like Build,
+
+00:01:11.010 --> 00:01:14.750
+developer conferences, there's
+a lot of Postgres adoption
+
+00:01:14.750 --> 00:01:18.200
+at that end of the spectrum
+because it's open source,
+
+00:01:18.200 --> 00:01:21.050
+has a great extensibility model,
+and you're just seeing tons
+
+00:01:21.050 --> 00:01:22.490
+of new apps being built on it.
+
+00:01:22.490 --> 00:01:24.450
+And then on the other
+end of the spectrum,
+
+00:01:24.450 --> 00:01:26.460
+you've got your
+enterprise adoption
+
+00:01:26.460 --> 00:01:29.580
+where they're bringing these
+applications to the cloud.
+
+00:01:29.580 --> 00:01:30.450
+And so what we're trying to do
+
+00:01:30.450 --> 00:01:34.320
+with HorizonDB is really
+serve a very large market
+
+00:01:34.320 --> 00:01:36.420
+by bringing a bunch of
+new AI capabilities
+
+00:01:36.420 --> 00:01:38.430
+and developer-centric
+tooling in VS Code
+
+00:01:38.430 --> 00:01:41.460
+to help you build apps quicker
+and faster on Horizon while
+
+00:01:41.460 --> 00:01:44.130
+at the same time delivering
+things like enterprise security,
+
+00:01:44.130 --> 00:01:45.660
+network security, all of that
+
+00:01:45.660 --> 00:01:48.000
+so that enterprises can run
+those mission-critical workloads
+
+00:01:48.000 --> 00:01:50.550
+as well at pretty
+big scale sometimes.
+
+00:01:50.550 --> 00:01:51.960
+NIKISHA REYES-GRANGE:
+That's fantastic.
+
+00:01:51.960 --> 00:01:53.970
+And what are you most
+excited about with it?
+
+00:01:53.970 --> 00:01:55.560
+Like, what do you think
+devs are really going
+
+00:01:55.560 --> 00:01:57.210
+to love about HorizonDB?
+
+00:01:57.210 --> 00:01:59.910
+CHARLES FEDDERSEN: So we've
+made a couple of big focuses
+
+00:01:59.910 --> 00:02:01.170
+on things like performance.
+
+00:02:01.170 --> 00:02:03.990
+Of course, one of the things
+that I actually love in addition
+
+00:02:03.990 --> 00:02:05.760
+to HorizonDB is what we've done
+
+00:02:05.760 --> 00:02:07.650
+with developer
+tooling in VS Code.
+
+00:02:07.650 --> 00:02:11.160
+About a year ago, we built this
+entirely new VS Code extension.
+
+00:02:11.160 --> 00:02:14.760
+We've invested a lot of energy
+into making it look fantastic,
+
+00:02:14.760 --> 00:02:17.070
+making it super functional
+for both develop --
+
+00:02:17.070 --> 00:02:19.800
+database management but
+then also development,
+
+00:02:19.800 --> 00:02:22.590
+and then within Horizon itself
+we've got a new feature called
+
+00:02:22.590 --> 00:02:23.880
+"AI Pipelines."
+
+00:02:23.880 --> 00:02:25.770
+Think of it as like
+a sort of a lazy
+
+00:02:25.770 --> 00:02:27.690
+or a synchronous
+background task.
+
+00:02:27.690 --> 00:02:30.930
+It's really good for building
+workflows in the database
+
+00:02:30.930 --> 00:02:34.200
+for these AI applications
+that require a lot of sort
+
+00:02:34.200 --> 00:02:37.970
+of interactivity with
+APIs and models.
+
+00:02:37.970 --> 00:02:39.200
+NIKISHA REYES-GRANGE:
+That's wonderful.
+
+00:02:39.200 --> 00:02:43.430
+And tell us how should we
+think about Azure HorizonDB
+
+00:02:43.430 --> 00:02:45.710
+versus other Postgres services?
+
+00:02:45.710 --> 00:02:48.260
+Because your team even
+builds Azure database
+
+00:02:48.260 --> 00:02:49.220
+for Postgres, right?
+
+00:02:49.220 --> 00:02:50.900
+So how should we be
+thinking about that?
+
+00:02:50.900 --> 00:02:52.520
+CHARLES FEDDERSEN: So the
+thing about HorizonDB is
+
+00:02:52.520 --> 00:02:55.800
+that the core database
+layer, it's just Postgres,
+
+00:02:55.800 --> 00:02:57.930
+and so any app that you've
+built for Postgres,
+
+00:02:57.930 --> 00:03:01.620
+that runs on Postgres is just
+going to work on HorizonDB.
+
+00:03:01.620 --> 00:03:04.050
+So in a sense, there's
+not a lot of difference
+
+00:03:04.050 --> 00:03:07.050
+at the most important
+part, which is the API
+
+00:03:07.050 --> 00:03:08.760
+and how developers work with it.
+
+00:03:08.760 --> 00:03:10.830
+Under the covers, in
+the storage layer,
+
+00:03:10.830 --> 00:03:14.040
+we built an entirely new
+storage engine for both log
+
+00:03:14.040 --> 00:03:16.620
+and storing data, and that's
+really where it differs
+
+00:03:16.620 --> 00:03:20.280
+from Postgres and Azure
+database for Postgres as well.
+
+00:03:20.280 --> 00:03:23.040
+It provides significantly
+more performance
+
+00:03:23.040 --> 00:03:25.530
+with high availability
+across zones
+
+00:03:25.530 --> 00:03:27.450
+and also significantly
+larger scale.
+
+00:03:27.450 --> 00:03:29.970
+So that's sort of the key
+architectural difference,
+
+00:03:29.970 --> 00:03:32.100
+but for developers,
+it's just Postgres.
+
+00:03:32.100 --> 00:03:33.300
+NIKISHA REYES-GRANGE:
+That's fantastic.
+
+00:03:33.300 --> 00:03:34.710
+Sachin, you're up next.
+
+00:03:34.710 --> 00:03:38.490
+So we have, on the
+Azure HorizonDB side,
+
+00:03:38.490 --> 00:03:41.220
+we're really trying to fix
+some of the performance
+
+00:03:41.220 --> 00:03:43.740
+and scale issues that developers
+run into, but we also know
+
+00:03:43.740 --> 00:03:45.480
+that sometimes back end
+
+00:03:45.480 --> 00:03:47.370
+and governance can
+also be challenging.
+
+00:03:47.370 --> 00:03:48.780
+Can you talk to us about Rayfin?
+
+00:03:48.780 --> 00:03:49.860
+What is it?
+
+00:03:49.860 --> 00:03:52.890
+SACHIN PATNEY: Yeah, so
+Rayfin is an open source SDK
+
+00:03:52.890 --> 00:03:57.390
+and CLI, and it helps you
+define your back end in code,
+
+00:03:57.390 --> 00:03:59.940
+and so that way you
+can kind of keep all
+
+00:03:59.940 --> 00:04:02.610
+of your backend primitives
+and all that right
+
+00:04:02.610 --> 00:04:04.440
+where your application logic is.
+
+00:04:04.440 --> 00:04:08.010
+And then the CLI, kind of, when
+you deploy the application,
+
+00:04:08.010 --> 00:04:10.980
+it translates all of those
+things, like your database
+
+00:04:10.980 --> 00:04:14.760
+or functions or auth,
+into services in Fabric,
+
+00:04:14.760 --> 00:04:16.620
+and so you get like
+a governed database,
+
+00:04:16.620 --> 00:04:20.490
+you get isolated functions
+and scale out of the box.
+
+00:04:20.490 --> 00:04:21.540
+NIKISHA REYES-GRANGE:
+Fantastic, okay.
+
+00:04:21.540 --> 00:04:24.060
+And so what problems
+were you trying to solve
+
+00:04:24.060 --> 00:04:27.060
+when you were creating Rayfin?
+
+00:04:27.060 --> 00:04:28.050
+SACHIN PATNEY: That's a
+really good question.
+
+00:04:28.050 --> 00:04:30.720
+So I think like most people,
+
+00:04:30.720 --> 00:04:34.800
+like we've all been using coding
+agents and it's really easy
+
+00:04:34.800 --> 00:04:38.100
+to get started with application,
+that you can build beautiful,
+
+00:04:38.100 --> 00:04:40.620
+amazing applications,
+and typically,
+
+00:04:40.620 --> 00:04:43.860
+if your application requires a
+back end, your agent would spin
+
+00:04:43.860 --> 00:04:48.090
+up something more locally like a
+MySQL or like just file storage
+
+00:04:48.090 --> 00:04:50.550
+on your machine, and now
+when you want to go take
+
+00:04:50.550 --> 00:04:53.040
+that application to
+production, you kind of have
+
+00:04:53.040 --> 00:04:56.790
+to like rethink it a little bit
+for architecture, for scale,
+
+00:04:56.790 --> 00:04:59.160
+for -- like especially if
+you're within an enterprise,
+
+00:04:59.160 --> 00:05:00.690
+you have to kind of think
+about your compliance,
+
+00:05:00.690 --> 00:05:02.310
+governance, and security.
+
+00:05:02.310 --> 00:05:03.540
+And so I think this
+is the problem
+
+00:05:03.540 --> 00:05:06.570
+that Rayfin helps you solve
+because you can continue using
+
+00:05:06.570 --> 00:05:09.120
+and developing these
+vibe-coded applications.
+
+00:05:09.120 --> 00:05:12.240
+You can kind of focus
+on the business logic,
+
+00:05:12.240 --> 00:05:14.760
+and then when you deploy
+it, it helps you kind
+
+00:05:14.760 --> 00:05:19.440
+of not just run it locally, but
+also translate that into Fabric
+
+00:05:19.440 --> 00:05:21.900
+and sort of inherit the
+governance compliance aspects
+
+00:05:21.900 --> 00:05:23.010
+of it.
+
+00:05:23.010 --> 00:05:24.180
+NIKISHA REYES-GRANGE: Fantastic.
+
+00:05:24.180 --> 00:05:27.030
+And so how should we think
+about Rayfin compared
+
+00:05:27.030 --> 00:05:28.530
+to other platforms
+
+00:05:28.530 --> 00:05:31.950
+that developers might
+be using to build apps?
+
+00:05:31.950 --> 00:05:32.970
+SACHIN PATNEY: Yeah,
+it's a good question,
+
+00:05:32.970 --> 00:05:36.780
+and a good distinction
+to make is
+
+00:05:36.780 --> 00:05:39.900
+that Rayfin is not an
+app-building platform, right?
+
+00:05:39.900 --> 00:05:42.240
+In fact, it's
+designed to work well
+
+00:05:42.240 --> 00:05:44.520
+with existing
+app-building platforms.
+
+00:05:44.520 --> 00:05:46.560
+So say, for example,
+
+00:05:46.560 --> 00:05:49.830
+I personally love using
+the GitHub Copilot CLI
+
+00:05:49.830 --> 00:05:53.940
+to build my applications, and
+what Rayfin does is it provides
+
+00:05:53.940 --> 00:05:56.730
+like an SDK CLI so that
+GitHub Copilot can use
+
+00:05:56.730 --> 00:05:59.430
+to go express the
+back end in code
+
+00:05:59.430 --> 00:06:01.740
+and use the CLI to go deploy it.
+
+00:06:01.740 --> 00:06:03.840
+And so the way to kind
+of think about it is
+
+00:06:03.840 --> 00:06:07.140
+like just any application out
+there, so I think we partnered
+
+00:06:07.140 --> 00:06:08.670
+with Replit for this example.
+
+00:06:08.670 --> 00:06:11.340
+So somebody wants to go use
+their favorite browser-based
+
+00:06:11.340 --> 00:06:15.090
+tool in Replit, they can still
+use the Rayfin SDK CLI to kind
+
+00:06:15.090 --> 00:06:17.700
+of build out the back end
+and helps them deploy it
+
+00:06:17.700 --> 00:06:21.060
+and manage their app within
+their Fabric tenant.
+
+00:06:21.060 --> 00:06:21.960
+NIKISHA REYES-GRANGE:
+That's fantastic.
+
+00:06:21.960 --> 00:06:24.960
+And I'm going to ask,
+then, why did you decide
+
+00:06:24.960 --> 00:06:26.550
+to build this for Fabric?
+
+00:06:26.550 --> 00:06:29.280
+Can you talk about how
+Rayfin either changes
+
+00:06:29.280 --> 00:06:31.560
+or expands the vision for Fabric
+
+00:06:31.560 --> 00:06:34.410
+and the overall
+value prop of it?
+
+00:06:34.410 --> 00:06:37.320
+SACHIN PATNEY: Yeah,
+so even within Fabric,
+
+00:06:37.320 --> 00:06:42.570
+so Fabric is a primary SaaS
+platform, which you have
+
+00:06:42.570 --> 00:06:44.430
+like zero infrastructure
+and maintenance,
+
+00:06:44.430 --> 00:06:47.460
+and people already building
+a bunch of data solutions,
+
+00:06:47.460 --> 00:06:50.850
+and when the databases
+were coming into Fabric,
+
+00:06:50.850 --> 00:06:53.310
+people were looking to
+build operational apps,
+
+00:06:53.310 --> 00:06:56.580
+and instead of us providing like
+out-of-the-box SaaS experiences,
+
+00:06:56.580 --> 00:07:00.840
+we wanted to let
+organizations use some
+
+00:07:00.840 --> 00:07:04.740
+of these app-building tools to
+go and build custom front ends
+
+00:07:04.740 --> 00:07:07.860
+and applications within
+the organizations
+
+00:07:07.860 --> 00:07:09.810
+and in the future
+also allow them
+
+00:07:09.810 --> 00:07:13.290
+to build more customer-facing
+applications.
+
+00:07:13.290 --> 00:07:15.510
+And then instead of
+like having some sort
+
+00:07:15.510 --> 00:07:19.020
+of complex ETL pipelines to
+land data back in Fabric,
+
+00:07:19.020 --> 00:07:20.820
+your application data
+is already in Fabric,
+
+00:07:20.820 --> 00:07:25.440
+so business users can go
+do downstream analytics
+
+00:07:25.440 --> 00:07:26.760
+through Fabric.
+
+00:07:26.760 --> 00:07:27.960
+NIKISHA REYES-GRANGE: Fantastic.
+
+00:07:27.960 --> 00:07:30.510
+Earlier you had mentioned
+vibe-coding apps,
+
+00:07:30.510 --> 00:07:34.290
+and definitely there are --
+sometimes there's a perception
+
+00:07:34.290 --> 00:07:39.330
+of vibe code versus more meaty
+kind of enterprise applications.
+
+00:07:39.330 --> 00:07:45.060
+How does Rayfin kind of
+expand those two extremes?
+
+00:07:45.060 --> 00:07:47.760
+SACHIN PATNEY: Yeah, so I think
+Rayfin's primary focus is
+
+00:07:47.760 --> 00:07:50.580
+to -- so the thing we talk
+
+00:07:50.580 --> 00:07:53.760
+about is taking your prototype
+to production, right?
+
+00:07:53.760 --> 00:07:57.030
+So you kind of start building an
+application and you want to kind
+
+00:07:57.030 --> 00:07:59.250
+of bring it to production.
+
+00:07:59.250 --> 00:08:01.320
+We want to sort of lower that
+gap, like you don't have
+
+00:08:01.320 --> 00:08:02.490
+to think too much about it,
+
+00:08:02.490 --> 00:08:04.630
+you're kind of the
+way you build it.
+
+00:08:06.330 --> 00:08:10.710
+But Rayfin is for -- we
+want it to be for everyone,
+
+00:08:10.710 --> 00:08:14.700
+so we are also going to open
+source parts of our runtime
+
+00:08:14.700 --> 00:08:18.600
+that will allow you to self-host
+those applications yourself,
+
+00:08:18.600 --> 00:08:20.850
+and we are looking to partner
+with the community to kind
+
+00:08:20.850 --> 00:08:25.230
+of build this out to support
+different infrastructure types.
+
+00:08:25.230 --> 00:08:25.560
+NIKISHA REYES-GRANGE: Got it.
+
+00:08:25.560 --> 00:08:28.740
+So if someone doesn't want
+to deploy within Fabric,
+
+00:08:28.740 --> 00:08:29.940
+that will be an option?
+
+00:08:29.940 --> 00:08:32.250
+SACHIN PATNEY: Yes, and that's
+the option we'll enable.
+
+00:08:32.250 --> 00:08:33.330
+NIKISHA REYES-GRANGE: Fantastic.
+
+00:08:33.330 --> 00:08:35.520
+Charles, speaking of community,
+
+00:08:35.520 --> 00:08:38.010
+we know that certainly
+Microsoft is huge
+
+00:08:38.010 --> 00:08:41.160
+within the Postgres community
+and just does a ton
+
+00:08:41.160 --> 00:08:44.670
+to keep the Postgres
+project going, right?
+
+00:08:44.670 --> 00:08:46.650
+Can you talk to us
+more about that?
+
+00:08:46.650 --> 00:08:48.690
+CHARLES FEDDERSEN: Yeah, so
+actually I'm not sure that a lot
+
+00:08:48.690 --> 00:08:51.720
+of people are fully
+aware of the magnitude
+
+00:08:51.720 --> 00:08:54.810
+of what we do in Postgres.
+
+00:08:54.810 --> 00:08:58.080
+Microsoft is actually one
+of the largest contributors
+
+00:08:58.080 --> 00:08:59.670
+to the upstream
+Postgres project.
+
+00:08:59.670 --> 00:09:03.840
+I think in Postgres 19, which
+is coming up this year,
+
+00:09:03.840 --> 00:09:09.180
+I think we modified around about
+8% of all of the lines of code
+
+00:09:09.180 --> 00:09:10.410
+that were modified
+in this version.
+
+00:09:10.410 --> 00:09:14.850
+It's a useful measure of sort
+of thinking about the level
+
+00:09:14.850 --> 00:09:18.840
+of investment we're making in
+the upstream Postgres project.
+
+00:09:18.840 --> 00:09:21.930
+We're a really strong team of
+committers, and it's part of,
+
+00:09:21.930 --> 00:09:25.170
+obviously, participating
+responsibly
+
+00:09:25.170 --> 00:09:27.330
+in these open source projects.
+
+00:09:27.330 --> 00:09:30.840
+It also enables us to bring
+a lot of what we learn
+
+00:09:30.840 --> 00:09:34.050
+about running Postgres at
+some serious cloud scale
+
+00:09:34.050 --> 00:09:37.020
+that doesn't show up at perhaps
+small scale, bring that back
+
+00:09:37.020 --> 00:09:38.190
+into the upstream project,
+
+00:09:38.190 --> 00:09:40.740
+which everybody obviously
+benefits from, and obviously,
+
+00:09:40.740 --> 00:09:42.570
+having committers
+on staff as well
+
+00:09:42.570 --> 00:09:45.660
+for our enterprise customers,
+or for any customers,
+
+00:09:45.660 --> 00:09:49.890
+who might hit more gnarly
+things in Postgres sometimes.
+
+00:09:49.890 --> 00:09:52.890
+We've got folks on staff who can
+help them with that as well.
+
+00:09:52.890 --> 00:09:56.850
+We also run the largest virtual
+Postgres event on the planet.
+
+00:09:56.850 --> 00:10:00.450
+We run a podcast, and obviously,
+we're incredibly active in a lot
+
+00:10:00.450 --> 00:10:02.880
+of the community events as
+well all over the world.
+
+00:10:02.880 --> 00:10:03.570
+NIKISHA REYES-GRANGE:
+That's fantastic.
+
+00:10:03.570 --> 00:10:06.420
+And why are you committing
+so much to Postgres?
+
+00:10:06.420 --> 00:10:08.370
+What's the vision here?
+
+00:10:08.370 --> 00:10:09.420
+CHARLES FEDDERSEN: We
+have a lot of customers
+
+00:10:09.420 --> 00:10:14.220
+who are entrusting us to run
+mission-critical applications,
+
+00:10:14.220 --> 00:10:16.470
+and I think that we can best do
+
+00:10:16.470 --> 00:10:18.750
+that if we're
+active participants
+
+00:10:18.750 --> 00:10:20.430
+in the open source
+project ourselves.
+
+00:10:20.430 --> 00:10:22.560
+And so we're going
+to keep investing
+
+00:10:22.560 --> 00:10:24.060
+in the upstream project.
+
+00:10:24.060 --> 00:10:27.260
+We're going to keep building
+our cloud services on Azure
+
+00:10:27.260 --> 00:10:29.750
+that meet these
+enterprise requirements,
+
+00:10:29.750 --> 00:10:31.550
+serving new developer scenarios.
+
+00:10:31.550 --> 00:10:34.130
+You're building phenomenal
+tooling in VS Code that,
+
+00:10:34.130 --> 00:10:36.720
+by the way, works
+with any Postgres.
+
+00:10:36.720 --> 00:10:38.400
+I think that's just
+a very holistic way
+
+00:10:38.400 --> 00:10:42.360
+to approach Postgres, and if
+we're going to be a vendor
+
+00:10:42.360 --> 00:10:45.420
+in the space, then we need to
+invest on all of those fronts.
+
+00:10:45.420 --> 00:10:46.140
+NIKISHA REYES-GRANGE:
+I love that.
+
+00:10:46.140 --> 00:10:48.480
+Can we go back to
+the capabilities
+
+00:10:48.480 --> 00:10:51.420
+for AI for a sec there?
+
+00:10:51.420 --> 00:10:54.780
+So you mentioned the AI
+pipeline they're bringing in.
+
+00:10:54.780 --> 00:10:57.720
+Postgres, I believe, was
+the first database engine
+
+00:10:57.720 --> 00:11:00.630
+that really started embedding
+AI capabilities, right?
+
+00:11:00.630 --> 00:11:03.510
+The pgvector extension
+and whatnot.
+
+00:11:03.510 --> 00:11:05.430
+Can you talk to us a bit
+more about what some
+
+00:11:05.430 --> 00:11:09.240
+of those capabilities are that
+are baked into Azure HorizonDB?
+
+00:11:09.240 --> 00:11:10.470
+CHARLES FEDDERSEN:
+It's fascinating.
+
+00:11:10.470 --> 00:11:15.210
+This pgvector extension was not
+the most deployed extension
+
+00:11:15.210 --> 00:11:17.790
+at the time that ChatGPT
+hit, and we all went
+
+00:11:17.790 --> 00:11:20.010
+and learned what embeddings and
+vectors were, and if you look
+
+00:11:20.010 --> 00:11:21.540
+at the adoption of
+that embedding,
+
+00:11:21.540 --> 00:11:23.760
+it just sort of
+went straight up.
+
+00:11:23.760 --> 00:11:25.470
+And so we've built
+on that in Horizon.
+
+00:11:25.470 --> 00:11:27.240
+I talked about the AI Pipelines.
+
+00:11:27.240 --> 00:11:30.000
+We've also shipped AI functions
+that make it possible
+
+00:11:30.000 --> 00:11:33.540
+to interact with models in
+Microsoft Foundry directly
+
+00:11:33.540 --> 00:11:35.970
+from the SQL language, which
+is really comfortable for SQL
+
+00:11:35.970 --> 00:11:37.470
+and database developers.
+
+00:11:37.470 --> 00:11:40.170
+We've built native AI
+model management so that
+
+00:11:40.170 --> 00:11:43.890
+when you provision Horizon,
+automatically a set of models,
+
+00:11:43.890 --> 00:11:48.330
+embedding, re-ranking models
+are automatically what we call
+
+00:11:48.330 --> 00:11:50.190
+"registered" in Horizon.
+
+00:11:50.190 --> 00:11:51.750
+So you can provision
+Horizon just
+
+00:11:51.750 --> 00:11:53.610
+by start calling these
+models directly from SQL.
+
+00:11:53.610 --> 00:11:55.950
+You don't need to stitch
+together all the Azure parts
+
+00:11:55.950 --> 00:11:57.240
+to make that happen.
+
+00:11:57.240 --> 00:12:00.000
+We've also done full-text
+search, which in
+
+00:12:00.000 --> 00:12:02.670
+and of itself is maybe
+not considered AI,
+
+00:12:02.670 --> 00:12:04.470
+but when you blend it
+with a vector search,
+
+00:12:04.470 --> 00:12:08.160
+you can now do a full hybrid
+search in Horizon as well,
+
+00:12:08.160 --> 00:12:11.580
+and you can even re-rank those
+results using the re-ranking
+
+00:12:11.580 --> 00:12:14.460
+models that we have, and that
+just provides incredibly
+
+00:12:14.460 --> 00:12:17.370
+performant search, but also
+incredibly relevant search
+
+00:12:17.370 --> 00:12:19.110
+so that if you're
+feeding language models
+
+00:12:19.110 --> 00:12:22.380
+that are basically producing
+outputs off your enterprise
+
+00:12:22.380 --> 00:12:24.900
+data, you're getting the most
+relevant results fed to them
+
+00:12:24.900 --> 00:12:26.580
+and that's what everyone wants.
+
+00:12:26.580 --> 00:12:27.450
+NIKISHA REYES-GRANGE: Can
+you give me an example
+
+00:12:27.450 --> 00:12:28.800
+of a hybrid search?
+
+00:12:28.800 --> 00:12:28.980
+CHARLES FEDDERSEN: Yeah,
+
+00:12:28.980 --> 00:12:30.960
+so a hybrid search is
+basically a fusion
+
+00:12:30.960 --> 00:12:33.240
+of like full-text search
+and vector search.
+
+00:12:33.240 --> 00:12:35.970
+So you could do a
+vector search by itself
+
+00:12:35.970 --> 00:12:39.060
+and the similarity will give
+you pretty good results, right?
+
+00:12:39.060 --> 00:12:41.100
+And to scan, it actually
+does a very good job just
+
+00:12:41.100 --> 00:12:42.030
+out of the box.
+
+00:12:42.030 --> 00:12:44.670
+And then we also ship pgvector,
+so you've got what's called
+
+00:12:44.670 --> 00:12:46.200
+"HNSW" and "IVFFlat,"
+
+00:12:46.200 --> 00:12:48.750
+so all three indexes are
+available in Horizon.
+
+00:12:48.750 --> 00:12:52.350
+But then you can then fuse it in
+the same query with full text,
+
+00:12:52.350 --> 00:12:54.000
+which can improve the relevance,
+
+00:12:54.000 --> 00:12:56.220
+and then you can also
+rank them on top of that.
+
+00:12:56.220 --> 00:12:57.600
+And in fact, you can
+even go even further
+
+00:12:57.600 --> 00:13:01.170
+and use graph capabilities built
+natively into Postgres as well.
+
+00:13:01.170 --> 00:13:04.200
+And we've built this really cool
+graph visualization in VS Code
+
+00:13:04.200 --> 00:13:06.390
+as well so you can see
+exactly how the data relates.
+
+00:13:06.390 --> 00:13:08.820
+NIKISHA REYES-GRANGE: Okay,
+well, thank you both very much.
+
+00:13:08.820 --> 00:13:09.840
+We are done.
+
+00:13:09.840 --> 00:13:11.040
+Thank you for joining us today.
+
+00:13:11.040 --> 00:13:12.700
+Happy Build.

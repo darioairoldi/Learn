@@ -97,7 +97,7 @@
 
 The **CosmosClient class** is the primary interface for interacting with Azure Cosmos DB SQL API. It provides a thread-safe client that manages connections, handles retries, and implements the Azure Cosmos DB protocol.
 
-![alt text](<images/001.01 CosmosClientClass.png>)
+![alt text](<images/001.01-cosmosclientclass.png>)
 
 ```csharp
 using Microsoft.Azure.Cosmos;

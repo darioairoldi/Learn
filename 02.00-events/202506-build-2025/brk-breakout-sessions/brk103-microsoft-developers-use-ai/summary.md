@@ -6,7 +6,7 @@
 **Speakers:** David Fowler (Distinguished Engineer, Microsoft), Stephen Toub (Partner Software Engineer, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK103]
 
-![AI in Real-World Development](images/microsoft-developers-ai-coding.png)
+![Microsoft Developers Use AI](images/session-banner.png)
 
 ---
 

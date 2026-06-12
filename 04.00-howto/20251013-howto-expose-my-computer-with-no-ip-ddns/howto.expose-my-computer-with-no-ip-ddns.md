@@ -37,7 +37,7 @@ This guide walks you through the entire process.
 3. Create a hostname (e.g., `myhost.ddns.net`).
 4. Confirm your email and activate the hostname.
 
-<img src="images/00.000 noip hostname.png" alt="No-IP hostname configuration" width="600" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+<img src="images/00.000-noip-hostname.png" alt="No-IP hostname configuration" width="600" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
 
 
 ## ✅ 2. Install the No-IP DUC (Dynamic Update Client)
@@ -48,7 +48,7 @@ The DUC keeps your hostname updated with your current public IP.
   - Log in with your **No-IP credentials** (or **DDNS Key** if configured).
   - Select the hostname you created.
 
-<img src="images/00.001a noip DUC.png" alt="No-IP hostname configuration" width="300" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+<img src="images/00.001a-noip-duc.png" alt="No-IP hostname configuration" width="300" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
 
 ## ✅ 3. Configure the DUC
 - Open **Preferences**:
@@ -61,7 +61,7 @@ The DUC keeps your hostname updated with your current public IP.
 - If you signed up with Google, you must **set a No-IP password** via the password reset link.
 - Alternatively, you can use **DDNS Key credentials**, but they only work on the same Windows account where configured.
 
-<img src="images/00.002 preferences.png" alt="No-IP hostname configuration" width="400" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+<img src="images/00.002-preferences.png" alt="No-IP hostname configuration" width="400" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
 
 
 ## ✅ 5. Verify the Setup
@@ -85,7 +85,7 @@ To access services (RDP, SSH, web server):
    - **SSH**: TCP 22
    - **Custom apps**: Define as needed.
 
-<img src="images/01.002 portmapping.png" alt="No-IP hostname configuration" width="400" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+<img src="images/01.002-portmapping.png" alt="No-IP hostname configuration" width="400" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
 
 ## 🔒 7. Secure Your Setup
 - Use **strong passwords** for remote services.

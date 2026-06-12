@@ -1,0 +1,1139 @@
+WEBVTT
+
+00:00:00.420 --> 00:00:03.300
+BURKE HOLLAND: Hey, welcome
+back, everybody online,
+
+00:00:03.300 --> 00:00:06.390
+watching online
+and here at Build.
+
+00:00:06.390 --> 00:00:08.460
+I love -- I see some
+familiar faces sticking
+
+00:00:08.460 --> 00:00:09.870
+around through every session.
+
+00:00:09.870 --> 00:00:10.470
+I love you.
+
+00:00:10.470 --> 00:00:11.940
+You especially,
+thank you very much.
+
+00:00:11.940 --> 00:00:12.180
+All right.
+
+00:00:12.180 --> 00:00:13.170
+This fellow in the front.
+
+00:00:13.170 --> 00:00:13.500
+All right.
+
+00:00:13.500 --> 00:00:20.100
+Now, I'd like to welcome Justin
+from the VS Code team, is here.
+
+00:00:20.100 --> 00:00:21.360
+Here's my talking points.
+
+00:00:21.360 --> 00:00:22.380
+Let's get right to them.
+
+00:00:22.380 --> 00:00:22.980
+JUSTIN CHEN: Sure.
+
+00:00:22.980 --> 00:00:23.490
+BURKE HOLLAND: No.
+
+00:00:23.490 --> 00:00:26.520
+So we're going to talk today
+about the integrated browser,
+
+00:00:26.520 --> 00:00:28.020
+I believe, which you work on.
+
+00:00:28.020 --> 00:00:28.350
+JUSTIN CHEN: Yes.
+
+00:00:28.350 --> 00:00:28.620
+BURKE HOLLAND: Right.
+
+00:00:28.620 --> 00:00:30.630
+This is the feature
+that you built inside
+
+00:00:30.630 --> 00:00:32.220
+of Visual Studio Code.
+
+00:00:32.220 --> 00:00:35.400
+And this again -- this is
+a completely different way
+
+00:00:35.400 --> 00:00:38.640
+of working with -- of building
+things in programming
+
+00:00:38.640 --> 00:00:39.960
+that is kind of
+showing up everywhere.
+
+00:00:39.960 --> 00:00:41.340
+It's in the Copilot app.
+
+00:00:41.340 --> 00:00:43.530
+I think the first place I saw
+it was Visual Studio Code.
+
+00:00:43.530 --> 00:00:46.770
+So tell me more about what
+this is and how it works.
+
+00:00:46.770 --> 00:00:47.070
+JUSTIN CHEN: Sure.
+
+00:00:47.070 --> 00:00:49.110
+Yeah, to clarify, I
+actually don't work
+
+00:00:49.110 --> 00:00:50.430
+on it entirely now anymore.
+
+00:00:50.430 --> 00:00:52.410
+It's passed off to a couple
+other engineers on the team.
+
+00:00:52.410 --> 00:00:55.740
+But yeah, we started off
+about a year ago on this.
+
+00:00:55.740 --> 00:00:57.270
+It started in the
+simple browser.
+
+00:00:57.270 --> 00:00:58.980
+And one of the problems
+that we were trying
+
+00:00:58.980 --> 00:01:02.790
+to solve was being able to
+kind of have local development
+
+00:01:02.790 --> 00:01:05.280
+and help with the local
+development all within VS Code
+
+00:01:05.280 --> 00:01:07.920
+without leaving the browser, or
+without leaving the application
+
+00:01:07.920 --> 00:01:09.660
+and going to an
+external browser.
+
+00:01:09.660 --> 00:01:10.770
+And what that ends up looking
+
+00:01:10.770 --> 00:01:14.490
+like is having this integrated
+browser, which can do everything
+
+00:01:14.490 --> 00:01:17.970
+from launch local agent, like
+locally hosted websites.
+
+00:01:17.970 --> 00:01:21.440
+It can also do things like
+log in to any website
+
+00:01:21.440 --> 00:01:22.340
+that you want as well.
+
+00:01:22.340 --> 00:01:24.470
+So to kind of show off what
+that looks like, I'll go ahead
+
+00:01:24.470 --> 00:01:26.510
+and share my -- there's nothing
+up there, but I'll go ahead
+
+00:01:26.510 --> 00:01:27.440
+and share my screen here.
+
+00:01:27.440 --> 00:01:29.820
+I'm not sure what the audience
+will see out there yet.
+
+00:01:29.820 --> 00:01:31.170
+BURKE HOLLAND:
+Yeah, can we get --
+
+00:01:31.170 --> 00:01:33.990
+can we get Justin's screen up?
+
+00:01:33.990 --> 00:01:34.590
+They're working on it.
+
+00:01:34.590 --> 00:01:36.570
+There's a mad dash back there.
+
+00:01:36.570 --> 00:01:37.410
+It's down here.
+
+00:01:37.410 --> 00:01:37.830
+JUSTIN CHEN: Cool.
+
+00:01:37.830 --> 00:01:39.660
+So maybe they already see that.
+
+00:01:39.660 --> 00:01:40.290
+Cool, perfect.
+
+00:01:40.290 --> 00:01:42.750
+BURKE HOLLAND: Oh, this
+doesn't change, does it?
+
+00:01:42.750 --> 00:01:45.840
+Wow. I've only
+been here all day.
+
+00:01:45.840 --> 00:01:46.440
+JUSTIN CHEN: It's okay.
+
+00:01:46.440 --> 00:01:47.160
+I just got here.
+
+00:01:47.160 --> 00:01:47.480
+BURKE HOLLAND: Unbelievable.
+
+00:01:47.480 --> 00:01:47.640
+Thank you.
+
+00:01:47.640 --> 00:01:50.190
+JUSTIN CHEN: But, yeah, so
+to kind of show off what
+
+00:01:50.190 --> 00:01:52.080
+that looks like, so I'm
+going to go over here,
+
+00:01:52.080 --> 00:01:54.630
+and there are a couple different
+entry points to this, actually.
+
+00:01:54.630 --> 00:01:58.200
+So the first one is a little
+bit more on the nose.
+
+00:01:58.200 --> 00:02:01.140
+You go over here to the
+command palette, and you do --
+
+00:02:01.140 --> 00:02:03.330
+and you do Open
+Integrated Browser.
+
+00:02:03.330 --> 00:02:04.230
+So I'm going to click on this.
+
+00:02:04.230 --> 00:02:05.190
+BURKE HOLLAND: Can you
+zoom in a bit, maybe?
+
+00:02:05.190 --> 00:02:05.910
+JUSTIN CHEN: Yes, let me zoom
+
+00:02:05.910 --> 00:02:08.430
+in a tiny bit here,
+maybe one more time.
+
+00:02:08.430 --> 00:02:12.210
+And you can see I can go
+over to like github.com/ --
+
+00:02:12.210 --> 00:02:14.460
+and you can see here I
+already logged in myself,
+
+00:02:14.460 --> 00:02:16.500
+so I'm already logged
+in here, but --
+
+00:02:16.500 --> 00:02:17.630
+BURKE HOLLAND: So you're
+just browsing GitHub inside
+
+00:02:17.630 --> 00:02:17.860
+of VS Code.
+
+00:02:17.860 --> 00:02:17.920
+JUSTIN CHEN: Yeah.
+
+00:02:17.920 --> 00:02:20.760
+I'm just browsing
+GitHub inside VS Code.
+
+00:02:20.760 --> 00:02:23.670
+It's not supposed to replace
+an external browser,
+
+00:02:23.670 --> 00:02:26.910
+but it's something that you
+can use in app development.
+
+00:02:26.910 --> 00:02:28.020
+So I'm going to go over here.
+
+00:02:28.020 --> 00:02:31.410
+I already launched this
+on port number 6967,
+
+00:02:31.410 --> 00:02:32.730
+but here I have a little --
+
+00:02:32.730 --> 00:02:33.900
+BURKE HOLLAND: Who is this?
+
+00:02:33.900 --> 00:02:34.470
+Pokemon.
+
+00:02:34.470 --> 00:02:37.590
+JUSTIN CHEN: Yes,
+it's a little app
+
+00:02:37.590 --> 00:02:39.360
+that I've been working
+on just for myself.
+
+00:02:39.360 --> 00:02:41.130
+A lot of my PRs into the public
+
+00:02:41.130 --> 00:02:44.670
+VS Code repo are unfortunately
+based on Pokemon names,
+
+00:02:44.670 --> 00:02:47.640
+and this is just helping me kind
+of gauge, "Oh, where exactly,
+
+00:02:47.640 --> 00:02:49.110
+when exactly was
+this issue made?
+
+00:02:49.110 --> 00:02:50.400
+What exactly does it do?"
+
+00:02:50.400 --> 00:02:51.990
+BURKE HOLLAND: It's a Bulbasaur.
+
+00:02:51.990 --> 00:02:53.730
+I know that because
+it says "Bulbasaur."
+
+00:02:53.730 --> 00:02:54.600
+I was a little late.
+
+00:02:54.600 --> 00:02:55.860
+I'm a little -- like that's,
+
+00:02:55.860 --> 00:02:57.900
+I'm in the wrong
+demographic for Pokemon.
+
+00:02:57.900 --> 00:02:59.580
+Yeah, sorry about that.
+
+00:02:59.580 --> 00:03:00.660
+JUSTIN CHEN: No
+worries, no worries.
+
+00:03:00.660 --> 00:03:02.910
+I know Pierce has been really
+into Pokemon recently, so --
+
+00:03:02.910 --> 00:03:03.270
+BURKE HOLLAND: Yes.
+
+00:03:03.270 --> 00:03:05.400
+And I know his kids are,
+too, big time, okay.
+
+00:03:05.400 --> 00:03:05.640
+JUSTIN CHEN: Yes.
+
+00:03:05.640 --> 00:03:07.050
+Yes. But, yeah, something great
+
+00:03:07.050 --> 00:03:08.730
+about this integrated browser
+is you can do a bunch
+
+00:03:08.730 --> 00:03:09.450
+of stuff with this.
+
+00:03:09.450 --> 00:03:13.140
+So one of the original features
+that we had is this button
+
+00:03:13.140 --> 00:03:15.540
+up here, which lets you
+add an element to chat.
+
+00:03:15.540 --> 00:03:17.250
+So I'm going to go ahead
+and click on this,
+
+00:03:17.250 --> 00:03:19.710
+and you can see I can
+go over and hover
+
+00:03:19.710 --> 00:03:21.540
+on any specific
+element, and it'll add
+
+00:03:21.540 --> 00:03:23.130
+that element directly into chat.
+
+00:03:23.130 --> 00:03:24.060
+BURKE HOLLAND: So
+this is kind of like
+
+00:03:24.060 --> 00:03:26.850
+if you had the browser DevTools
+open and you're doing the pick
+
+00:03:26.850 --> 00:03:28.020
+and then you're going, okay.
+
+00:03:28.020 --> 00:03:28.680
+JUSTIN CHEN: Exactly.
+
+00:03:28.680 --> 00:03:30.120
+BURKE HOLLAND: And what
+exactly does that add
+
+00:03:30.120 --> 00:03:32.190
+to the -- to the chat there?
+
+00:03:32.190 --> 00:03:32.760
+JUSTIN CHEN: Yeah, yeah.
+
+00:03:32.760 --> 00:03:34.830
+So it adds a element screenshot,
+
+00:03:34.830 --> 00:03:36.600
+so you can see here there's
+a cute little photo.
+
+00:03:36.600 --> 00:03:40.170
+It also adds a bunch of
+information about the div,
+
+00:03:40.170 --> 00:03:41.730
+about the URL that
+it comes from,
+
+00:03:41.730 --> 00:03:43.290
+what the element is called.
+
+00:03:43.290 --> 00:03:44.400
+BURKE HOLLAND: So
+wait, wait, hold on.
+
+00:03:44.400 --> 00:03:46.350
+If I could, so attached element,
+
+00:03:46.350 --> 00:03:50.130
+it says what the element
+is, the URL, the path.
+
+00:03:50.130 --> 00:03:51.300
+What is a path?
+
+00:03:51.300 --> 00:03:51.570
+JUSTIN CHEN: Yeah.
+
+00:03:51.570 --> 00:03:54.870
+The path is just the total path
+just coming from the very top.
+
+00:03:54.870 --> 00:03:55.260
+BURKE HOLLAND: Oh, okay.
+
+00:03:55.260 --> 00:03:56.850
+So it's like if you're
+walking down the tree.
+
+00:03:56.850 --> 00:03:57.540
+JUSTIN CHEN: Exactly.
+
+00:03:57.540 --> 00:03:59.490
+BURKE HOLLAND: And then the
+outer HTML, interesting.
+
+00:03:59.490 --> 00:04:00.030
+JUSTIN CHEN: Yeah.
+
+00:04:00.030 --> 00:04:01.410
+So that can be
+particularly helpful
+
+00:04:01.410 --> 00:04:04.710
+if you don't want the agent
+to spend too long searching
+
+00:04:04.710 --> 00:04:06.810
+for what exactly we
+want it to work on.
+
+00:04:06.810 --> 00:04:08.610
+BURKE HOLLAND: So you're
+basically giving it the page
+
+00:04:08.610 --> 00:04:11.340
+and then the element out
+of it within the context.
+
+00:04:11.340 --> 00:04:11.850
+JUSTIN CHEN: Exactly.
+
+00:04:11.850 --> 00:04:12.300
+BURKE HOLLAND: Okay.
+
+00:04:12.300 --> 00:04:13.020
+Very interesting.
+
+00:04:13.020 --> 00:04:13.050
+JUSTIN CHEN: Yeah.
+
+00:04:13.050 --> 00:04:15.180
+So it's pretty cool because
+you can also customize this.
+
+00:04:15.180 --> 00:04:17.610
+Let's say we don't actually
+want to attach all of the CSS.
+
+00:04:17.610 --> 00:04:19.050
+We actually have a
+setting for this
+
+00:04:19.050 --> 00:04:21.750
+where you can disable
+the CSS or disable parts
+
+00:04:21.750 --> 00:04:23.790
+and bits and pieces of this.
+
+00:04:23.790 --> 00:04:25.140
+BURKE HOLLAND: Oh, it
+includes the CSS, too,
+
+00:04:25.140 --> 00:04:26.340
+so it knows about the styling.
+
+00:04:26.340 --> 00:04:26.970
+JUSTIN CHEN: Exactly.
+
+00:04:26.970 --> 00:04:28.830
+BURKE HOLLAND: Oh, I thought
+it was just adding just
+
+00:04:28.830 --> 00:04:29.790
+the element.
+
+00:04:29.790 --> 00:04:30.120
+JUSTIN CHEN: Yeah.
+
+00:04:30.120 --> 00:04:30.960
+Yeah, we added it.
+
+00:04:30.960 --> 00:04:33.480
+We changed it so that it adds
+a little bit more as well.
+
+00:04:33.480 --> 00:04:37.650
+Here, on this hover, this
+kind of shows a more concise
+
+00:04:37.650 --> 00:04:42.390
+and a little bit more of a
+quick what you need to know
+
+00:04:42.390 --> 00:04:43.830
+from that element, so
+you can just hover over
+
+00:04:43.830 --> 00:04:45.890
+and it will show this.
+
+00:04:45.890 --> 00:04:46.310
+But, yeah.
+
+00:04:46.310 --> 00:04:49.460
+This is a great way for you
+to pass off to the agent.
+
+00:04:49.460 --> 00:04:52.100
+A couple other buttons in
+the integrated browser,
+
+00:04:52.100 --> 00:04:54.350
+you talked a little bit earlier
+about the Chrome DevTools.
+
+00:04:54.350 --> 00:04:56.160
+That's something we
+have here as well.
+
+00:04:56.160 --> 00:04:58.440
+Sorry if this is not
+particularly zoomed in.
+
+00:04:58.440 --> 00:04:58.800
+BURKE HOLLAND: That's all right.
+
+00:04:58.800 --> 00:05:00.210
+You got a lot going on here.
+
+00:05:00.210 --> 00:05:01.800
+JUSTIN CHEN: But you can
+see here we have the
+
+00:05:01.800 --> 00:05:02.790
+Chrome DevTools.
+
+00:05:02.790 --> 00:05:04.050
+I can load some stuff
+in the console.
+
+00:05:04.050 --> 00:05:05.100
+BURKE HOLLAND: Oh, the whole
+DevTools are in there.
+
+00:05:05.100 --> 00:05:06.810
+JUSTIN CHEN: Exactly, the
+entire DevTools is in here.
+
+00:05:06.810 --> 00:05:09.330
+I can do the same thing,
+selecting elements and trying
+
+00:05:09.330 --> 00:05:11.070
+to see exactly what it is.
+
+00:05:11.070 --> 00:05:12.210
+The last thing
+that we have here,
+
+00:05:12.210 --> 00:05:14.940
+which I think is pretty cool,
+is actually something that some
+
+00:05:14.940 --> 00:05:16.440
+of the engineers on our
+team recently added.
+
+00:05:16.440 --> 00:05:18.300
+It's called the
+Emulation Toolbar.
+
+00:05:18.300 --> 00:05:21.330
+And what this means is now
+I can click on this button.
+
+00:05:21.330 --> 00:05:22.410
+This is the Emulation Toolbar.
+
+00:05:22.410 --> 00:05:26.310
+You can set the dimensions,
+DPR, the scale.
+
+00:05:26.310 --> 00:05:26.910
+BURKE HOLLAND: Oh, devices.
+
+00:05:26.910 --> 00:05:27.600
+JUSTIN CHEN: Exactly.
+
+00:05:27.600 --> 00:05:29.730
+So now I can put this
+into mobile mode.
+
+00:05:29.730 --> 00:05:32.040
+I'm scrolling using
+my mouse like this.
+
+00:05:32.040 --> 00:05:34.470
+I can also select
+some presets here,
+
+00:05:34.470 --> 00:05:38.190
+and it'll change based
+on those dimensions.
+
+00:05:38.190 --> 00:05:40.170
+So this will be really
+easy for just quick
+
+00:05:40.170 --> 00:05:42.030
+and easy mobile development.
+
+00:05:42.030 --> 00:05:42.360
+BURKE HOLLAND: Okay.
+
+00:05:42.360 --> 00:05:43.710
+Now I have a question for you.
+
+00:05:43.710 --> 00:05:46.050
+Can the agent drive this browser
+
+00:05:46.050 --> 00:05:48.900
+without further
+integrations required?
+
+00:05:48.900 --> 00:05:51.510
+Do I need Playwright, agent
+browser, all that stuff?
+
+00:05:51.510 --> 00:05:52.110
+JUSTIN CHEN: Exactly.
+
+00:05:52.110 --> 00:05:53.580
+This is actually
+something that we added,
+
+00:05:53.580 --> 00:05:56.820
+and you actually don't need
+anything else besides everything
+
+00:05:56.820 --> 00:05:59.280
+that we have built in VS Code
+to have the agent drive this.
+
+00:05:59.280 --> 00:06:01.350
+So I'm going to go ahead and
+click on this button here.
+
+00:06:01.350 --> 00:06:03.480
+It says "Share with
+Agent," and I'm going
+
+00:06:03.480 --> 00:06:04.650
+to remove these for now.
+
+00:06:04.650 --> 00:06:05.850
+BURKE HOLLAND: Oh, and I
+see the glowing border
+
+00:06:05.850 --> 00:06:06.210
+around the edge.
+
+00:06:06.210 --> 00:06:06.330
+JUSTIN CHEN: Yeah.
+
+00:06:06.330 --> 00:06:10.320
+So the glowing border means
+we're now sharing the browser
+
+00:06:10.320 --> 00:06:11.010
+with the agent.
+
+00:06:11.010 --> 00:06:11.910
+BURKE HOLLAND: Or it
+means you're talking
+
+00:06:11.910 --> 00:06:13.980
+to Siri, one of the two.
+
+00:06:13.980 --> 00:06:17.310
+JUSTIN CHEN: For
+copyright purposes.
+
+00:06:17.310 --> 00:06:18.060
+BURKE HOLLAND: We'll cut that.
+
+00:06:18.060 --> 00:06:18.840
+Cut from the (inaudible).
+
+00:06:18.840 --> 00:06:20.850
+JUSTIN CHEN: As we're showing
+Pokemon on the screen.
+
+00:06:20.850 --> 00:06:20.970
+BURKE HOLLAND: Oh, jeez.
+
+00:06:20.970 --> 00:06:22.290
+Sorry.
+
+00:06:22.290 --> 00:06:24.540
+JUSTIN CHEN: But really quickly
+here, I'll ask the agent
+
+00:06:24.540 --> 00:06:32.160
+to navigate to the "Calculator"
+tab and run some tests.
+
+00:06:32.160 --> 00:06:35.310
+I spelled "tests" wrong,
+but it should do the job.
+
+00:06:35.310 --> 00:06:36.580
+So we'll let it
+work a little bit.
+
+00:06:36.580 --> 00:06:37.830
+BURKE HOLLAND: Untangling
+the spaghetti,
+
+00:06:37.830 --> 00:06:39.120
+adjusting the warp drive.
+
+00:06:39.120 --> 00:06:39.570
+I like that.
+
+00:06:39.570 --> 00:06:40.560
+Did you add those, too?
+
+00:06:40.560 --> 00:06:41.580
+JUSTIN CHEN: I did
+add those, too.
+
+00:06:41.580 --> 00:06:42.210
+BURKE HOLLAND: The fun little --
+
+00:06:42.210 --> 00:06:45.210
+JUSTIN CHEN: I did add fun
+little, little tidbits.
+
+00:06:45.210 --> 00:06:48.120
+But, yeah, you can see here,
+so it took a screenshot first
+
+00:06:48.120 --> 00:06:51.330
+to just kind of try to
+see where exactly it is.
+
+00:06:51.330 --> 00:06:53.980
+It's going to do some searches.
+
+00:06:57.330 --> 00:06:59.040
+BURKE HOLLAND: Now,
+while this is running,
+
+00:06:59.040 --> 00:07:00.870
+the other thing that's
+pretty important about --
+
+00:07:00.870 --> 00:07:02.850
+you don't like the yellow mode?
+
+00:07:02.850 --> 00:07:05.580
+JUSTIN CHEN: I wanted to keep
+it off for dramatic purposes.
+
+00:07:05.580 --> 00:07:07.020
+BURKE HOLLAND: Oh, okay.
+
+00:07:07.020 --> 00:07:08.370
+One of the things that's
+important about being able
+
+00:07:08.370 --> 00:07:12.210
+to pick elements is that -- I
+don't know if you all know,
+
+00:07:12.210 --> 00:07:15.570
+but tokens are expensive
+now, more expensive
+
+00:07:15.570 --> 00:07:17.430
+than they were three months ago.
+
+00:07:17.430 --> 00:07:20.790
+And so a lot of times,
+you'll say if you're messing
+
+00:07:20.790 --> 00:07:22.410
+with the nav bar --
+I'm guilty of this
+
+00:07:22.410 --> 00:07:24.720
+because we have unlimited
+tokens and so we don't --
+
+00:07:24.720 --> 00:07:26.160
+we don't live in a reality.
+
+00:07:26.160 --> 00:07:27.360
+It's one of the best
+perks of the job.
+
+00:07:27.360 --> 00:07:32.610
+But instead of saying I want
+to xxx with the nav bar,
+
+00:07:32.610 --> 00:07:35.730
+then the agent has to go
+grep your files and find
+
+00:07:35.730 --> 00:07:37.110
+out where the nav bar is.
+
+00:07:37.110 --> 00:07:41.010
+And agents are like post-trained
+on grep, and they just go nuts.
+
+00:07:41.010 --> 00:07:44.520
+They will read every single file
+that may even have remotely
+
+00:07:44.520 --> 00:07:46.050
+to do with the nav bar.
+
+00:07:46.050 --> 00:07:50.460
+And two million input tokens
+later, you get the result.
+
+00:07:50.460 --> 00:07:54.150
+It's much, much better if you
+go click and add the element,
+
+00:07:54.150 --> 00:07:55.980
+and then the agent doesn't
+have to go do that.
+
+00:07:55.980 --> 00:07:57.420
+I can't stress this enough.
+
+00:07:57.420 --> 00:07:59.460
+If you want to save tokens,
+
+00:07:59.460 --> 00:08:02.100
+stop giving the agent
+vague instructions.
+
+00:08:02.100 --> 00:08:04.980
+Tell it exactly which file,
+pick the element; otherwise,
+
+00:08:04.980 --> 00:08:07.920
+you're going to burn
+millions of input tokens
+
+00:08:07.920 --> 00:08:09.600
+with the agent having
+to find things itself.
+
+00:08:09.600 --> 00:08:10.800
+You do not want that.
+
+00:08:10.800 --> 00:08:11.220
+Okay.
+
+00:08:11.220 --> 00:08:13.230
+JUSTIN CHEN: It's unfortunate
+that you're talking about that,
+
+00:08:13.230 --> 00:08:16.260
+and the agent currently is
+actually having a hard time
+
+00:08:16.260 --> 00:08:18.270
+finding the "Calculator" tab.
+
+00:08:18.270 --> 00:08:19.290
+BURKE HOLLAND: It's doing
+the exact thing I just said.
+
+00:08:19.290 --> 00:08:22.380
+JUSTIN CHEN: It's doing the
+exact same thing that you said.
+
+00:08:22.380 --> 00:08:24.960
+So, yeah, to kind of try
+to debug all of this,
+
+00:08:24.960 --> 00:08:30.700
+I'm actually just going to have
+it relaunch and launch the app.
+
+00:08:31.770 --> 00:08:32.490
+BURKE HOLLAND: I like your --
+
+00:08:32.490 --> 00:08:38.490
+you got some great prompts
+there: laksjdhflak.
+
+00:08:38.490 --> 00:08:40.590
+Very, very generic.
+
+00:08:40.590 --> 00:08:44.340
+JUSTIN CHEN: Calculator
+tab and run some tests.
+
+00:08:44.340 --> 00:08:47.880
+Yeah. So this is kind of the
+full end-to-end workflow
+
+00:08:47.880 --> 00:08:49.650
+of it going to the
+Calculator tab.
+
+00:08:49.650 --> 00:08:51.750
+It'll launch.
+
+00:08:51.750 --> 00:08:54.780
+I had a great demo of it going
+through and clicking on a bunch
+
+00:08:54.780 --> 00:08:56.550
+of stuff, but unfortunately --
+
+00:08:56.550 --> 00:08:57.180
+BURKE HOLLAND: The gods --
+
+00:08:57.180 --> 00:08:58.050
+JUSTIN CHEN: The gods said no.
+
+00:08:58.050 --> 00:08:59.070
+BURKE HOLLAND: They smote you.
+
+00:08:59.070 --> 00:09:00.330
+JUSTIN CHEN: The gods said no.
+
+00:09:00.330 --> 00:09:01.560
+One really quick thing is
+
+00:09:01.560 --> 00:09:03.660
+that we actually have Playwright
+integration with this as well.
+
+00:09:03.660 --> 00:09:06.050
+So I mean, it's
+doing the thing now.
+
+00:09:06.050 --> 00:09:07.490
+We have Playwright integration
+with this as well.
+
+00:09:07.490 --> 00:09:09.200
+So one of the things I
+showed off earlier was the
+
+00:09:09.200 --> 00:09:10.400
+Emulation Toolbar.
+
+00:09:10.400 --> 00:09:12.260
+With the Emulation Toolbar,
+it's actually really great
+
+00:09:12.260 --> 00:09:14.690
+because you can go through
+and through Playwright,
+
+00:09:14.690 --> 00:09:17.310
+it'll run code, and it
+can do things like, "Oh,
+
+00:09:17.310 --> 00:09:18.570
+I'm going to change
+the viewport."
+
+00:09:18.570 --> 00:09:19.830
+So, I mean, we see
+this working now.
+
+00:09:19.830 --> 00:09:23.980
+So, really quickly, let's just
+say test in different viewports.
+
+00:09:25.620 --> 00:09:27.810
+And instead of using
+these browser tools
+
+00:09:27.810 --> 00:09:29.580
+that I just showed off
+here, where it just went
+
+00:09:29.580 --> 00:09:32.940
+and did a bunch of clicking,
+now it's going to read the --
+
+00:09:32.940 --> 00:09:36.210
+read the page and run some
+Playwright code which will test
+
+00:09:36.210 --> 00:09:38.130
+and take screenshots of
+different viewports,
+
+00:09:38.130 --> 00:09:41.460
+different scale, like different
+sizes, and it'll do all of that
+
+00:09:41.460 --> 00:09:42.420
+for you directly in Playwright.
+
+00:09:42.420 --> 00:09:43.740
+BURKE HOLLAND: And this
+is all in VS Code.
+
+00:09:43.740 --> 00:09:45.140
+There's nothing you need
+to do to install this.
+
+00:09:45.140 --> 00:09:46.010
+It's just there.
+
+00:09:46.010 --> 00:09:47.070
+And you get it for free.
+
+00:09:47.070 --> 00:09:47.190
+JUSTIN CHEN: Yes.
+
+00:09:47.190 --> 00:09:47.280
+Free.
+
+00:09:47.280 --> 00:09:47.370
+BURKE HOLLAND: How?
+
+00:09:47.370 --> 00:09:49.710
+You're giving away the
+integrated browser.
+
+00:09:49.710 --> 00:09:50.970
+JUSTIN CHEN: Exactly, exactly.
+
+00:09:50.970 --> 00:09:52.110
+BURKE HOLLAND: One-time offer.
+
+00:09:52.110 --> 00:09:54.540
+Your money, if you don't
+like the integrated browser,
+
+00:09:54.540 --> 00:09:55.410
+you get your money back.
+
+00:09:55.410 --> 00:09:55.740
+All right.
+
+00:09:55.740 --> 00:09:57.450
+Justin, thank you so
+much for being here.
+
+00:09:57.450 --> 00:09:57.900
+JUSTIN CHEN: Thank you so much.
+
+00:09:57.900 --> 00:09:58.890
+BURKE HOLLAND: A round
+of applause for Justin.
+
+00:09:58.890 --> 00:09:59.880
+We'll be right back, folks.
+
+00:09:59.880 --> 00:10:01.520
+Thank you.
+
+00:10:01.520 --> 00:10:05.200
+[ Applause ]

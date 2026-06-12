@@ -6,6 +6,8 @@
 **Speakers:** Scott Hunter (VP of Product, Azure Developer), Chester Husk (Product Manager, .NET Tools)  
 **Link:** [Microsoft Build 2025 Session BRK101](https://build.microsoft.com/en-US/sessions/BRK101)
 
+![.NET App Modernization](images/session-banner.png)
+
 ---
 
 ## Table of Contents

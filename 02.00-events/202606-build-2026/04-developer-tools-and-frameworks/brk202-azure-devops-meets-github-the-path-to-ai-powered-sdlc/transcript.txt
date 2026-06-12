@@ -1,0 +1,3782 @@
+WEBVTT
+
+00:00:02.370 --> 00:00:04.960
+Dave Burnison: Good
+afternoon, everybody.
+
+00:00:06.300 --> 00:00:07.890
+Oof, let's try that again.
+
+00:00:07.890 --> 00:00:09.120
+I know it's after lunch,
+
+00:00:09.120 --> 00:00:10.710
+but you've had your
+caffeine, haven't you?
+
+00:00:10.710 --> 00:00:11.940
+Good afternoon, everybody.
+
+00:00:11.940 --> 00:00:13.410
+All: Good afternoon.
+
+00:00:13.410 --> 00:00:14.820
+Dave Burnison: All
+right, there you go.
+
+00:00:14.820 --> 00:00:16.380
+My name is Dave Burnison.
+
+00:00:16.380 --> 00:00:21.690
+I'm a senior DevOps advocate
+at GitHub, but before coming
+
+00:00:21.690 --> 00:00:25.260
+over to GitHub, I was at
+Microsoft for a number of years,
+
+00:00:25.260 --> 00:00:30.210
+and I'd become an advocate
+for the Azure DevOps team.
+
+00:00:30.210 --> 00:00:32.970
+Dan Hellem: Dan Hellem,
+I am a Project Manager
+
+00:00:32.970 --> 00:00:37.230
+on Azure DevOps, so responsible
+for Azure repos, boards, Wiki,
+
+00:00:37.230 --> 00:00:39.660
+some of our AI stuff, et cetera.
+
+00:00:39.660 --> 00:00:40.980
+Dave Burnison: All right,
+well, let's get right into it.
+
+00:00:40.980 --> 00:00:43.110
+We only have 45 minutes.
+
+00:00:43.110 --> 00:00:47.340
+Today, we want to talk about
+Azure DevOps and GitHub:
+
+00:00:47.340 --> 00:00:51.270
+Your Path to Agentic AI.
+
+00:00:51.270 --> 00:00:55.020
+So, for a long time,
+Azure DevOps, GitHub,
+
+00:00:55.020 --> 00:01:01.140
+seen as separate platforms,
+but over the last few years,
+
+00:01:01.140 --> 00:01:04.290
+Dan and his team especially
+have been working on more
+
+00:01:04.290 --> 00:01:07.620
+and better integrations
+in everything.
+
+00:01:07.620 --> 00:01:11.010
+So, now, integrating GitHub
+
+00:01:11.010 --> 00:01:14.370
+with Azure DevOps is
+your path to agentic AI.
+
+00:01:14.370 --> 00:01:16.980
+So, I want to show you some of
+the new features, but also,
+
+00:01:16.980 --> 00:01:21.570
+hopefully, inspire you about
+how to think about using AI
+
+00:01:21.570 --> 00:01:25.020
+for Azure DevOps through GitHub.
+
+00:01:25.020 --> 00:01:31.140
+So, we want to take a look and
+talk about where we're at today,
+
+00:01:31.140 --> 00:01:33.420
+kind of our messaging
+for Azure DevOps.
+
+00:01:33.420 --> 00:01:35.850
+And whether you're a
+small startup team
+
+00:01:35.850 --> 00:01:40.590
+or an enterprise team with
+thousands of developers,
+
+00:01:40.590 --> 00:01:43.140
+we want to enable you to
+choose the best tool chain
+
+00:01:43.140 --> 00:01:47.700
+that fits your team's workflow
+and your project requirements.
+
+00:01:47.700 --> 00:01:52.020
+If you're a small team
+with a greenfield project,
+
+00:01:52.020 --> 00:01:56.400
+GitHub may have everything that
+you need, including, you know,
+
+00:01:56.400 --> 00:02:00.660
+issues and projects for
+planning and tracking and such.
+
+00:02:00.660 --> 00:02:03.000
+But if you're one of those teams
+
+00:02:03.000 --> 00:02:06.420
+who has heavily
+customized Azure boards,
+
+00:02:06.420 --> 00:02:09.000
+lots of Azure pipelines
+templates, you know,
+
+00:02:09.000 --> 00:02:12.630
+you're rolling things up
+across team projects to kind
+
+00:02:12.630 --> 00:02:15.780
+of a portfolio level,
+then we want to talk
+
+00:02:15.780 --> 00:02:18.690
+about integrating Azure
+DevOps with GitHub
+
+00:02:18.690 --> 00:02:22.200
+because that supercharges
+your teams with AI.
+
+00:02:22.200 --> 00:02:25.560
+You want to fully harness GitHub
+Copilot's agentic power while
+
+00:02:25.560 --> 00:02:28.500
+continuing to leverage the
+investments you've made
+
+00:02:28.500 --> 00:02:33.780
+in Azure boards, Azure
+pipelines, test plans, and more.
+
+00:02:33.780 --> 00:02:35.310
+Now, users of Azure boards
+
+00:02:35.310 --> 00:02:39.450
+and Azure pipelines can now
+really harness the agentic power
+
+00:02:39.450 --> 00:02:43.800
+of GitHub Copilot cloud
+agent in their work.
+
+00:02:43.800 --> 00:02:47.310
+And we know there's teams that
+this might not be the right time
+
+00:02:47.310 --> 00:02:49.650
+to make that migration.
+
+00:02:49.650 --> 00:02:52.470
+You know, maybe they're
+sustaining engineering projects
+
+00:02:52.470 --> 00:02:56.970
+in Azure repos that need that
+stability and continuity.
+
+00:02:56.970 --> 00:02:59.490
+So, we'll talk about how
+Microsoft is continuing
+
+00:02:59.490 --> 00:03:03.840
+to invest in Azure DevOps in
+areas of boards and repos
+
+00:03:03.840 --> 00:03:06.240
+and pipelines and test plans.
+
+00:03:06.240 --> 00:03:07.980
+Dan's got some things I
+think you're really going
+
+00:03:07.980 --> 00:03:09.300
+to like there.
+
+00:03:09.300 --> 00:03:14.580
+So, I am going to switch
+over to demo mode.
+
+00:03:14.580 --> 00:03:18.990
+And I've got a series of videos
+here, so we don't have to wait
+
+00:03:18.990 --> 00:03:21.540
+for Copilot necessarily.
+
+00:03:21.540 --> 00:03:23.850
+But I want to start off.
+
+00:03:23.850 --> 00:03:27.840
+Actually, let me get
+to -- here we go.
+
+00:03:27.840 --> 00:03:29.730
+Just kind of with the basics.
+
+00:03:29.730 --> 00:03:32.970
+So, I've got, you know, my
+Azure DevOps environment.
+
+00:03:32.970 --> 00:03:38.460
+I'm leveraging the boards
+and everything here.
+
+00:03:38.460 --> 00:03:42.600
+You know, I've got my hierarchy
+even showing the backlog right
+
+00:03:42.600 --> 00:03:44.670
+here on the dashboard.
+
+00:03:44.670 --> 00:03:48.150
+And, you know, you can
+see all that good stuff.
+
+00:03:48.150 --> 00:03:51.600
+But I want to show you
+the GitHub Copilot app.
+
+00:03:51.600 --> 00:03:54.240
+This is a really low
+barrier to entry,
+
+00:03:54.240 --> 00:03:56.460
+especially if you're
+a project manager
+
+00:03:56.460 --> 00:03:58.500
+that lives in Azure boards.
+
+00:03:58.500 --> 00:04:00.750
+Maybe, you know, you're not
+technical to where you're
+
+00:04:00.750 --> 00:04:04.800
+in Visual Studio Code every
+day and things like that.
+
+00:04:04.800 --> 00:04:10.350
+So, let's talk about how you
+can use the GitHub Copilot app
+
+00:04:10.350 --> 00:04:13.300
+in your work.
+
+00:04:14.310 --> 00:04:19.290
+So, if I go into the settings
+and under the MCP servers,
+
+00:04:19.290 --> 00:04:21.630
+we can see I've got
+this configured
+
+00:04:21.630 --> 00:04:25.410
+for the Azure DevOps
+remote MCP server.
+
+00:04:25.410 --> 00:04:28.160
+Simply plug in the server name.
+
+00:04:28.160 --> 00:04:31.470
+Plug in the URL to
+your organization.
+
+00:04:31.470 --> 00:04:34.710
+Specify what tools
+you want to use.
+
+00:04:34.710 --> 00:04:37.020
+And in my case, I've got,
+you know, work items,
+
+00:04:37.020 --> 00:04:40.800
+Azure pipelines, test
+plans, Wiki, et cetera.
+
+00:04:40.800 --> 00:04:42.660
+But my repos are in GitHub.
+
+00:04:42.660 --> 00:04:48.810
+So, you know, I'm not going to
+say we need the repo tools here.
+
+00:04:48.810 --> 00:04:57.600
+So, I can come in here, connect
+this to my GitHub repo.
+
+00:04:57.600 --> 00:04:58.170
+And I'm going to say, well,
+
+00:04:58.170 --> 00:05:02.220
+what Azure DevOps projects
+can I access from here?
+
+00:05:02.220 --> 00:05:05.040
+And we'll see that it's going to
+say, okay, I'm going to reach
+
+00:05:05.040 --> 00:05:07.110
+out and use that MCP server.
+
+00:05:07.110 --> 00:05:08.010
+There it is.
+
+00:05:08.010 --> 00:05:11.070
+The ADO remote MCP
+server to do that.
+
+00:05:11.070 --> 00:05:12.930
+And show me my list
+of team projects.
+
+00:05:12.930 --> 00:05:13.530
+It's all right.
+
+00:05:13.530 --> 00:05:17.010
+I want to start doing some
+stuff with the Tailspin Toys.
+
+00:05:17.010 --> 00:05:21.210
+So, are there any user stories
+or bugs recently assigned to me
+
+00:05:21.210 --> 00:05:25.290
+where the state is
+set to new or active
+
+00:05:25.290 --> 00:05:27.720
+in the Tailspin shelter project?
+
+00:05:27.720 --> 00:05:30.720
+If so, show me those details.
+
+00:05:30.720 --> 00:05:32.790
+So, there's our user stories.
+
+00:05:32.790 --> 00:05:35.400
+And the way I set up
+the instructions,
+
+00:05:35.400 --> 00:05:39.000
+it's even giving me a
+link to that user story.
+
+00:05:39.000 --> 00:05:41.328
+So, right from
+here, I can go and
+
+00:05:41.352 --> 00:05:43.680
+take a look at the user story.
+
+00:05:43.680 --> 00:05:46.830
+Now, I look through the
+details of this user story,
+
+00:05:46.830 --> 00:05:49.500
+and it's like, you know, I'm not
+sure that's really following our
+
+00:05:49.500 --> 00:05:51.030
+standards and best practices
+
+00:05:51.030 --> 00:05:53.850
+for how a user story
+should be set up.
+
+00:05:53.850 --> 00:05:58.590
+Well, when we did this
+session for Ignite last fall,
+
+00:05:58.590 --> 00:06:02.670
+Dan had set up a Wiki with
+defining what's a good epic,
+
+00:06:02.670 --> 00:06:08.880
+what's a good feature, you
+know, what's a good user story.
+
+00:06:08.880 --> 00:06:11.940
+I wonder if we could take that
+and turn that into agents
+
+00:06:11.940 --> 00:06:15.330
+and custom instructions
+that Copilot could use
+
+00:06:15.330 --> 00:06:18.390
+so that we could then come
+back to Copilot and say, hey,
+
+00:06:18.390 --> 00:06:22.080
+help me refine my user
+stories and everything.
+
+00:06:22.080 --> 00:06:25.170
+So, we'll see that
+here in a little bit.
+
+00:06:25.170 --> 00:06:27.900
+Also, Azure pipelines.
+
+00:06:27.900 --> 00:06:31.770
+What's the status of
+our pipelines runs?
+
+00:06:31.770 --> 00:06:35.190
+So, we can take a look
+and see right from here.
+
+00:06:35.190 --> 00:06:38.160
+We've got a couple of
+different pipeline runs.
+
+00:06:38.160 --> 00:06:40.530
+A couple of different
+pipelines, PR checks,
+
+00:06:40.530 --> 00:06:42.810
+and a build and deploy pipeline.
+
+00:06:42.810 --> 00:06:45.930
+And we can see they're
+currently succeeding.
+
+00:06:45.930 --> 00:06:49.740
+So yeah, you can access
+many different things
+
+00:06:49.740 --> 00:06:53.880
+from within Azure DevOps
+through the MCP server.
+
+00:06:53.880 --> 00:06:56.910
+So there, go right to the
+details there and see.
+
+00:06:56.910 --> 00:07:00.390
+We're connected up to our
+Tailspin Shelter repo
+
+00:07:00.390 --> 00:07:04.110
+and see the last commit
+even jump into the last PR
+
+00:07:04.110 --> 00:07:07.560
+and everything right from
+there if we wanted to.
+
+00:07:07.560 --> 00:07:08.550
+All right.
+
+00:07:08.550 --> 00:07:14.070
+I think that's -- yeah, and then
+seeing our unit tests, results,
+
+00:07:14.070 --> 00:07:16.620
+and everything
+from here as well.
+
+00:07:16.620 --> 00:07:18.090
+Now, moving on, I want to talk
+
+00:07:18.090 --> 00:07:20.970
+about converting
+those Wiki pages
+
+00:07:20.970 --> 00:07:25.380
+into Copilot instructions
+and Copilot agents.
+
+00:07:25.380 --> 00:07:30.310
+So, I went back to
+the Copilot app.
+
+00:07:33.570 --> 00:07:35.580
+Whoops. It passed my prompt.
+
+00:07:35.580 --> 00:07:42.250
+Come on. So, there's our Wiki
+pages with all that information.
+
+00:07:46.680 --> 00:07:50.280
+We even have sample markdown
+for what it should look
+
+00:07:50.280 --> 00:07:53.490
+like since we're keeping
+everything in markdown.
+
+00:07:53.490 --> 00:08:02.340
+So, now if I go over to the
+Copilot app -- here we go.
+
+00:08:02.340 --> 00:08:06.150
+Do we have any information in
+Azure DevOps that would make
+
+00:08:06.150 --> 00:08:10.990
+for a good Copilot custom
+agent or a good skill?
+
+00:08:12.690 --> 00:08:15.240
+Let it think and noodle on that
+a little bit, and it comes back
+
+00:08:15.240 --> 00:08:17.880
+and says, yeah, we've got
+these Wiki pages out here.
+
+00:08:17.880 --> 00:08:21.420
+I'm like, all right, let's start
+out, create a user story on this
+
+00:08:21.420 --> 00:08:22.920
+and set the user story's title
+
+00:08:22.920 --> 00:08:27.240
+to convert Wiki contents
+into Copilot agents.
+
+00:08:27.240 --> 00:08:32.580
+And then I said, create a pull
+request for this user story.
+
+00:08:32.580 --> 00:08:38.310
+So, the agent's going to go
+off and do all of that work.
+
+00:08:38.310 --> 00:08:39.600
+And we see it comes back
+
+00:08:39.600 --> 00:08:43.170
+and it creates a backlog
+manager custom agent and a set
+
+00:08:43.170 --> 00:08:46.530
+of work item quality
+custom instructions.
+
+00:08:46.530 --> 00:08:48.900
+And as you probably know,
+
+00:08:48.900 --> 00:08:52.740
+those instructions are
+just markdown files.
+
+00:08:52.740 --> 00:08:54.900
+So, here's our backlog
+manager agent, right?
+
+00:08:54.900 --> 00:08:56.730
+It pulled all that
+information from the Wiki,
+
+00:08:56.730 --> 00:09:00.030
+created that custom
+agent for us.
+
+00:09:00.030 --> 00:09:05.740
+And similarly, the custom
+instructions file here as well.
+
+00:09:11.280 --> 00:09:13.750
+All right, skip ahead.
+
+00:09:17.060 --> 00:09:24.020
+So, next, we've got a user story
+for this dog adoption website.
+
+00:09:24.020 --> 00:09:25.220
+It started out very basic.
+
+00:09:25.220 --> 00:09:27.960
+You know, you can see
+different dogs to pick from,
+
+00:09:27.960 --> 00:09:30.990
+but we want to be able
+to filter it by breed.
+
+00:09:30.990 --> 00:09:33.600
+And we're going to have the
+Copilot cloud agent actually do
+
+00:09:33.600 --> 00:09:34.830
+the work for us.
+
+00:09:34.830 --> 00:09:37.980
+But first, we're going
+to use the Copilot app
+
+00:09:37.980 --> 00:09:43.720
+to help us refine that basic
+user story that's out there.
+
+00:09:45.480 --> 00:09:52.470
+So, I asked for, you know, any
+user stories assigned to me.
+
+00:09:52.470 --> 00:09:54.000
+Anything new there?
+
+00:09:54.000 --> 00:09:56.880
+Let's skip ahead here
+to the good parts.
+
+00:09:56.880 --> 00:10:00.270
+So there, it found
+the user story, 42.
+
+00:10:00.270 --> 00:10:02.470
+Here's the details.
+
+00:10:03.600 --> 00:10:06.480
+And then I said, hey, does this
+user story follow our standards?
+
+00:10:06.480 --> 00:10:08.520
+It came back and said, no,
+there's a lot of areas
+
+00:10:08.520 --> 00:10:10.080
+where it doesn't have, you know,
+
+00:10:10.080 --> 00:10:12.900
+good acceptance criteria
+and everything else.
+
+00:10:12.900 --> 00:10:15.750
+So I said, use that
+backlog manager agent
+
+00:10:15.750 --> 00:10:19.680
+to help me refine
+this work item.
+
+00:10:19.680 --> 00:10:24.690
+And then we see skip ahead, and
+there we can see all the changes
+
+00:10:24.690 --> 00:10:29.550
+that it made to refine
+that backlog work item.
+
+00:10:29.550 --> 00:10:35.160
+And then next, we're going to
+go into the work item itself.
+
+00:10:35.160 --> 00:10:36.900
+And if I look at the history,
+
+00:10:36.900 --> 00:10:40.860
+we can see exactly all
+the changes that it made.
+
+00:10:40.860 --> 00:10:43.500
+So you know, some pretty
+significant updates there.
+
+00:10:43.500 --> 00:10:48.180
+Now I want to say, all right,
+let's take that user story
+
+00:10:48.180 --> 00:10:51.900
+and assign it to Copilot
+to do the work for us.
+
+00:10:51.900 --> 00:10:56.010
+And here, whoops, when we
+go in and select our agent,
+
+00:10:56.010 --> 00:10:58.140
+you can see there's that
+backlog agent right there.
+
+00:10:58.140 --> 00:11:01.020
+But I've also got
+agents for Bicep
+
+00:11:01.020 --> 00:11:05.580
+and Azure Pipelines
+and other things.
+
+00:11:05.580 --> 00:11:11.580
+So, here we go, here's the
+work that the agent did.
+
+00:11:11.580 --> 00:11:12.960
+So, you're probably
+familiar with this.
+
+00:11:12.960 --> 00:11:16.230
+But one of the things I want to
+highlight here, another benefit
+
+00:11:16.230 --> 00:11:20.730
+of moving code over to GitHub,
+if I dive into that session
+
+00:11:20.730 --> 00:11:25.290
+and scroll down a ways here,
+it's going to check the changes
+
+00:11:25.290 --> 00:11:28.620
+with Copilot code
+review and CodeQL,
+
+00:11:28.620 --> 00:11:30.090
+the security scanning tools.
+
+00:11:30.090 --> 00:11:33.570
+And you can see, based on
+the code review comments,
+
+00:11:33.570 --> 00:11:37.860
+there's a couple of updates
+that it's making there.
+
+00:11:37.860 --> 00:11:40.950
+So, if we scroll down,
+then there's the evidence
+
+00:11:40.950 --> 00:11:42.840
+of running the security scans.
+
+00:11:42.840 --> 00:11:44.580
+Luckily, found no scan there.
+
+00:11:44.580 --> 00:11:47.070
+But the idea is we want
+to make sure the code
+
+00:11:47.070 --> 00:11:50.850
+that the agents are writing for
+you is as secure as possible.
+
+00:11:50.850 --> 00:11:55.230
+And you don't have to
+have licenses for CodeQL
+
+00:11:55.230 --> 00:12:00.960
+to have CodeQL run on the code
+that the agents are generating.
+
+00:12:00.960 --> 00:12:02.940
+And then we saw the diffs there.
+
+00:12:02.940 --> 00:12:06.270
+Then I went in, pulled this
+up in a code space, and said,
+
+00:12:06.270 --> 00:12:07.650
+okay, let me test this out.
+
+00:12:07.650 --> 00:12:11.460
+Let me just run this locally
+within this code space
+
+00:12:11.460 --> 00:12:14.700
+and see what that breed
+filter looks like.
+
+00:12:14.700 --> 00:12:15.720
+There we go.
+
+00:12:15.720 --> 00:12:18.180
+So, now we can select
+by, you know, breed,
+
+00:12:18.180 --> 00:12:19.800
+American Staffordshire Terrier,
+
+00:12:19.800 --> 00:12:22.920
+and see that that's exactly what
+-- and that's a good start.
+
+00:12:22.920 --> 00:12:25.140
+We've got other refinements
+we want to make,
+
+00:12:25.140 --> 00:12:28.350
+but that's good enough for now.
+
+00:12:28.350 --> 00:12:29.760
+All right, so now
+the next thing,
+
+00:12:29.760 --> 00:12:31.950
+and I think this is really cool.
+
+00:12:31.950 --> 00:12:35.370
+This is really a great way
+to connect Azure DevOps
+
+00:12:35.370 --> 00:12:40.530
+and GitHub together with
+security campaigns.
+
+00:12:40.530 --> 00:12:43.383
+So, one of the
+things with GitHub
+
+00:12:43.407 --> 00:12:46.260
+Advanced Security is we can go
+
+00:12:46.260 --> 00:12:49.440
+in and create a campaign.
+
+00:12:49.440 --> 00:12:51.750
+If I go up to my
+organization level,
+
+00:12:51.750 --> 00:12:54.780
+we can see we've got a
+number of campaigns here,
+
+00:12:54.780 --> 00:12:58.410
+and I've got one specifically
+for Tailspin Shelter
+
+00:12:58.410 --> 00:13:02.550
+where I said, show me all the
+critical and high alerts,
+
+00:13:02.550 --> 00:13:05.670
+and let's set a
+deadline of Monday,
+
+00:13:05.670 --> 00:13:08.340
+June 15th there in the middle.
+
+00:13:08.340 --> 00:13:10.000
+Whoops.
+
+00:13:14.790 --> 00:13:15.810
+There we go.
+
+00:13:15.810 --> 00:13:19.380
+And, look, both of those
+alerts could be fixed
+
+00:13:19.380 --> 00:13:23.280
+by Copilot autofix, and we'll
+see that here in a little bit.
+
+00:13:23.280 --> 00:13:29.730
+But I'm going to go back now
+to the Copilot app and say,
+
+00:13:29.730 --> 00:13:32.760
+are there security campaigns
+that include this repo?
+
+00:13:32.760 --> 00:13:34.650
+Shows me all the
+security campaigns.
+
+00:13:34.650 --> 00:13:37.590
+Highlights that one
+specific to this repo.
+
+00:13:37.590 --> 00:13:40.470
+Now, make sure that's paused.
+
+00:13:40.470 --> 00:13:43.470
+All right, so for
+security campaign 14,
+
+00:13:43.470 --> 00:13:45.270
+create an Azure boards feature.
+
+00:13:45.270 --> 00:13:48.900
+Create a user story for
+each of those alerts
+
+00:13:48.900 --> 00:13:54.060
+and link those campaigns and
+alerts right into my work items
+
+00:13:54.060 --> 00:13:56.820
+so that I can track them
+where I'm tracking all
+
+00:13:56.820 --> 00:14:00.390
+of my other project work, right,
+
+00:14:00.390 --> 00:14:04.410
+and having links
+right back to them.
+
+00:14:04.410 --> 00:14:06.330
+I think this is a
+pretty powerful way
+
+00:14:06.330 --> 00:14:09.360
+to connect Azure
+boards in GitHub.
+
+00:14:09.360 --> 00:14:11.430
+So, now if we look
+at the results,
+
+00:14:11.430 --> 00:14:14.970
+there's our new feature,
+our two user stories,
+
+00:14:14.970 --> 00:14:19.110
+and then if I go -- oh,
+and then also making sure
+
+00:14:19.110 --> 00:14:22.260
+that the work items are assigned
+the same way the alerts are
+
+00:14:22.260 --> 00:14:28.800
+assigned in Azure or in
+the security campaigns.
+
+00:14:28.800 --> 00:14:35.040
+So, I think next I go over to
+Azure boards itself, and yeah,
+
+00:14:35.040 --> 00:14:37.830
+we can see those items
+now on our backlog.
+
+00:14:37.830 --> 00:14:41.670
+And if I dig into
+that feature there,
+
+00:14:41.670 --> 00:14:48.540
+you can see the link right
+there to the security campaign.
+
+00:14:48.540 --> 00:14:52.290
+And if we keep going
+through there,
+
+00:14:52.290 --> 00:14:54.660
+there's our security campaign.
+
+00:14:54.660 --> 00:14:59.370
+I go into this guy, and we can
+see when we look at the details,
+
+00:14:59.370 --> 00:15:02.610
+it was assigned to me, but
+I could assign it right
+
+00:15:02.610 --> 00:15:05.280
+to Copilot here if I wanted to.
+
+00:15:05.280 --> 00:15:09.210
+Now, you can see there was
+an auto fix here, right?
+
+00:15:09.210 --> 00:15:12.030
+And this wasn't just a
+simple one line change.
+
+00:15:12.030 --> 00:15:14.070
+There was a few lines
+that needed to be changed
+
+00:15:14.070 --> 00:15:16.770
+to fix this, so
+able to really deal
+
+00:15:16.770 --> 00:15:22.140
+with some more sophisticated
+changes and everything.
+
+00:15:22.140 --> 00:15:23.880
+What else did I
+show in this one?
+
+00:15:23.880 --> 00:15:25.920
+I think that was
+it for that one.
+
+00:15:25.920 --> 00:15:27.660
+All right.
+
+00:15:27.660 --> 00:15:32.460
+So, the next one,
+oh, Copilot CLI.
+
+00:15:32.460 --> 00:15:37.740
+So, when you configure the
+GitHub Copilot app locally,
+
+00:15:37.740 --> 00:15:43.830
+that configuration is also
+valid for the CLI as well.
+
+00:15:43.830 --> 00:15:49.620
+So, now as a developer,
+I can go into the CLI
+
+00:15:49.620 --> 00:15:54.720
+and see my MCP
+configuration here,
+
+00:15:54.720 --> 00:15:58.200
+and it's that same,
+ADO remote MCP.
+
+00:15:58.200 --> 00:16:01.920
+And now I can start
+querying about, you know,
+
+00:16:01.920 --> 00:16:05.280
+what's in Azure DevOps
+and what's in GitHub.
+
+00:16:05.280 --> 00:16:17.790
+So, as soon as that prompt
+comes up -- come on.
+
+00:16:17.790 --> 00:16:21.660
+Yeah, what does the
+code in this repo do?
+
+00:16:21.660 --> 00:16:22.740
+What's the tech stack?
+
+00:16:22.740 --> 00:16:24.720
+So, query that code.
+
+00:16:24.720 --> 00:16:28.530
+And it gives me a really
+nice summary here, you know,
+
+00:16:28.530 --> 00:16:31.200
+but it also says, yeah,
+here's a summary of the code.
+
+00:16:31.200 --> 00:16:34.260
+But, hey, we're using
+Azure pipelines for CI/CD.
+
+00:16:34.260 --> 00:16:38.760
+We're using Azure boards
+for project management.
+
+00:16:38.760 --> 00:16:40.800
+And then I can go
+through and say, yeah,
+
+00:16:40.800 --> 00:16:44.100
+show me what are the active
+or resolved user stories
+
+00:16:44.100 --> 00:16:46.330
+that are assigned to me.
+
+00:16:47.460 --> 00:16:52.530
+And the one, there we go.
+
+00:16:52.530 --> 00:16:56.640
+Filter pet listings by breed
+using a multi-select dropdown.
+
+00:16:56.640 --> 00:17:00.330
+So, now I'm going to say,
+what's the status of this?
+
+00:17:00.330 --> 00:17:03.450
+And notice I didn't have
+to say AB42 or whatever.
+
+00:17:03.450 --> 00:17:05.280
+I just said status of the filter
+
+00:17:05.280 --> 00:17:08.850
+by breed user story
+in the related code.
+
+00:17:08.850 --> 00:17:11.130
+And then it shows me, hey,
+
+00:17:11.130 --> 00:17:13.170
+here's your pull
+request right here.
+
+00:17:13.170 --> 00:17:18.690
+It's waiting for you to
+merge it so that it can go
+
+00:17:18.690 --> 00:17:21.630
+and get deployed to
+production and everything.
+
+00:17:21.630 --> 00:17:23.130
+So, even from the command line,
+
+00:17:23.130 --> 00:17:29.100
+we can bring together
+Azure DevOps and GitHub.
+
+00:17:29.100 --> 00:17:29.610
+All right.
+
+00:17:29.610 --> 00:17:33.360
+And with that, some other
+things I could show,
+
+00:17:33.360 --> 00:17:37.350
+but I want to give Dan plenty
+of time to talk about stuff.
+
+00:17:37.350 --> 00:17:39.030
+Dan Hellem: You're out of time.
+
+00:17:39.030 --> 00:17:39.450
+Good?
+
+00:17:39.450 --> 00:17:39.870
+Dave Burnison: Yep.
+
+00:17:39.870 --> 00:17:40.050
+Dan Hellem: All right.
+
+00:17:40.050 --> 00:17:40.920
+Dave Burnison: All good.
+
+00:17:40.920 --> 00:17:44.130
+Dan Hellem: So, we've missed
+a couple things here.
+
+00:17:44.130 --> 00:17:45.510
+I just want to reiterate.
+
+00:17:45.510 --> 00:17:47.220
+Dave Burnison: Oh, yeah.
+
+00:17:47.220 --> 00:17:48.210
+Dan Hellem: Get this
+thing going faster.
+
+00:17:48.210 --> 00:17:48.780
+MCP server.
+
+00:17:48.780 --> 00:17:52.590
+So, as everybody's familiar with
+MCP server, I assume by now,
+
+00:17:52.590 --> 00:17:54.450
+we have two MCP servers
+now in Azure DevOps.
+
+00:17:54.450 --> 00:17:55.050
+We have a local.
+
+00:17:55.050 --> 00:17:56.100
+We have a remote.
+
+00:17:56.100 --> 00:17:58.950
+I'll talk about why we still
+have two here in a minute.
+
+00:17:58.950 --> 00:17:59.850
+Both of them are set up.
+
+00:17:59.850 --> 00:18:03.750
+They have all basically the same
+tools for work, work items,
+
+00:18:03.750 --> 00:18:05.010
+repos, wiki, test
+plans, et cetera.
+
+00:18:05.010 --> 00:18:07.110
+It has all the same stuff.
+
+00:18:07.110 --> 00:18:09.780
+The Platinum experience is
+really if you're driving this
+
+00:18:09.780 --> 00:18:13.740
+out of VS Code and GitHub
+Copilot, it works super well.
+
+00:18:13.740 --> 00:18:19.370
+And then in remote, we've also
+consolidated a bunch of tools.
+
+00:18:19.370 --> 00:18:21.890
+It now supports service
+principles, managed identities.
+
+00:18:21.890 --> 00:18:24.860
+You can actually go ahead and
+create an agent in Foundry.
+
+00:18:24.860 --> 00:18:25.940
+We're a part of that catalog.
+
+00:18:25.940 --> 00:18:28.790
+And then we're working on right
+now -- when I say working on,
+
+00:18:28.790 --> 00:18:30.290
+it's been several months,
+
+00:18:30.290 --> 00:18:33.000
+getting to work with
+Copilot Studio.
+
+00:18:33.000 --> 00:18:37.140
+And so, that's stuff that
+we are working on now.
+
+00:18:37.140 --> 00:18:38.670
+And we're hoping that
+something will be coming
+
+00:18:38.670 --> 00:18:41.580
+out in the next few weeks.
+
+00:18:41.580 --> 00:18:43.590
+The reason we have
+two is we've had
+
+00:18:43.590 --> 00:18:45.600
+to build our remote
+MCP server on Entra.
+
+00:18:45.600 --> 00:18:47.460
+And Entra has a bunch of
+restrictions on what you can
+
+00:18:47.460 --> 00:18:48.600
+and cannot do with
+other clients.
+
+00:18:48.600 --> 00:18:51.240
+So, if you try to pull up Claude
+and use our remote MCP server,
+
+00:18:51.240 --> 00:18:52.200
+it's not going to
+work right now.
+
+00:18:52.200 --> 00:18:54.540
+Right? If you try to do it with
+Cursor or Codex, it won't work.
+
+00:18:54.540 --> 00:18:57.600
+And so, we're working with Entra
+to try to get around those.
+
+00:18:57.600 --> 00:18:58.740
+So, that's why we're
+going to keep local
+
+00:18:58.740 --> 00:19:00.390
+up until that happens.
+
+00:19:00.390 --> 00:19:04.500
+So, that's our MCP server.
+
+00:19:04.500 --> 00:19:08.010
+And I'm going to skip
+through all of this stuff.
+
+00:19:08.010 --> 00:19:08.280
+Dave Burnison: Yep.
+
+00:19:08.280 --> 00:19:13.380
+I've got slides in there that
+have got URLs to go dive
+
+00:19:13.380 --> 00:19:15.510
+in to learn more about it.
+
+00:19:15.510 --> 00:19:17.880
+So yeah, when you download
+the deck after the session,
+
+00:19:17.880 --> 00:19:18.420
+you can get to all
+
+00:19:18.420 --> 00:19:20.700
+that information,
+dive in, learn more.
+
+00:19:20.700 --> 00:19:21.060
+Dan Hellem: All right.
+
+00:19:21.060 --> 00:19:22.980
+So, Dave was just kind
+of showing, hey,
+
+00:19:22.980 --> 00:19:26.130
+if your repos have been
+migrated over into Azure repos,
+
+00:19:26.130 --> 00:19:30.660
+I'm sorry, GitHub, what's
+that whole story look like?
+
+00:19:30.660 --> 00:19:32.580
+And so, we spent a lot of
+investment over the last couple
+
+00:19:32.580 --> 00:19:34.230
+of years of just making
+sure that, you know,
+
+00:19:34.230 --> 00:19:36.090
+when you move your repos
+over, you're probably going
+
+00:19:36.090 --> 00:19:37.710
+to be staying in boards, you're
+probably going to be staying
+
+00:19:37.710 --> 00:19:39.750
+in pipelines, you're probably
+going to stay in test plans,
+
+00:19:39.750 --> 00:19:41.400
+and we want to make sure
+that integration is awesome.
+
+00:19:41.400 --> 00:19:44.130
+So, a lot of this stuff,
+it's not new, right?
+
+00:19:44.130 --> 00:19:46.050
+It shouldn't come to any
+surprise to anybody.
+
+00:19:46.050 --> 00:19:48.120
+But we spent a bunch of time
+investing in that space, right,
+
+00:19:48.120 --> 00:19:49.920
+making sure that you
+have full traceability
+
+00:19:49.920 --> 00:19:52.380
+between your work items and
+GitHub commits and pull requests
+
+00:19:52.380 --> 00:19:55.140
+and branches and
+that kind of thing.
+
+00:19:55.140 --> 00:19:57.810
+We've also spent a lot of
+time on scale improvements.
+
+00:19:57.810 --> 00:19:59.550
+So, we originally set it
+up where you could have
+
+00:19:59.550 --> 00:20:03.450
+about 500 repos connected to
+a project per connection.
+
+00:20:03.450 --> 00:20:05.150
+We're now at 2,000.
+
+00:20:05.150 --> 00:20:06.380
+And so, we had to do
+that because more
+
+00:20:06.380 --> 00:20:09.020
+and more bigger organizations
+started coming into the product,
+
+00:20:09.020 --> 00:20:10.910
+started moving their
+repos over into GitHub,
+
+00:20:10.910 --> 00:20:13.190
+and started increasing
+the demand there.
+
+00:20:13.190 --> 00:20:15.380
+This is one that we're going
+to continue to work on.
+
+00:20:15.380 --> 00:20:16.250
+It's probably going
+to be something
+
+00:20:16.250 --> 00:20:17.700
+that we have to work on forever.
+
+00:20:17.700 --> 00:20:19.260
+I'll give you an example.
+
+00:20:19.260 --> 00:20:22.230
+We had a customer today who
+wanted to connect 30,000 repos
+
+00:20:22.230 --> 00:20:24.330
+to a particular project.
+
+00:20:24.330 --> 00:20:26.490
+If you think that's crazy, we
+had a customer from last week
+
+00:20:26.490 --> 00:20:29.550
+who have 80,000 repos they
+want to connect to a project.
+
+00:20:29.550 --> 00:20:32.610
+That's 1.5 repo per every
+person in the company.
+
+00:20:32.610 --> 00:20:35.100
+So, that's a lot of repos that
+they had sitting out there
+
+00:20:35.100 --> 00:20:35.880
+that they want to connect.
+
+00:20:35.880 --> 00:20:38.370
+So, this is a challenge that
+we're going to have to continue
+
+00:20:38.370 --> 00:20:40.440
+to deal with on a regular basis,
+and we're going to continue
+
+00:20:40.440 --> 00:20:42.660
+to make that
+improvement over time.
+
+00:20:42.660 --> 00:20:44.340
+And, of course, if you're
+using the integration,
+
+00:20:44.340 --> 00:20:46.470
+you can obviously open your
+pipeline up and connect it
+
+00:20:46.470 --> 00:20:48.450
+to the repo that you
+move, so you don't have
+
+00:20:48.450 --> 00:20:50.250
+to change your pipelines around.
+
+00:20:50.250 --> 00:20:54.810
+We've added the licensing or
+improved the licensing friction.
+
+00:20:54.810 --> 00:20:56.970
+So, if you purchase a
+GitHub Enterprise license,
+
+00:20:56.970 --> 00:20:59.250
+you automatically get a
+basic license for free.
+
+00:20:59.250 --> 00:21:01.380
+Well, not for free, for
+part of that purchase.
+
+00:21:01.380 --> 00:21:04.770
+And then GitHub Enterprise Cloud
+with Data Residency is something
+
+00:21:04.770 --> 00:21:07.320
+that GitHub came out with about
+two years ago now, I think.
+
+00:21:07.320 --> 00:21:07.800
+Something like that.
+
+00:21:07.800 --> 00:21:08.520
+Year and a half.
+
+00:21:08.520 --> 00:21:10.260
+And so, all the things
+that we talked about,
+
+00:21:10.260 --> 00:21:12.870
+like the integration and
+the scale improvements,
+
+00:21:12.870 --> 00:21:14.640
+that was all included as well.
+
+00:21:14.640 --> 00:21:17.100
+Now, Dave showed the
+work item integration
+
+00:21:17.100 --> 00:21:20.100
+with the Copilot cloud agent.
+
+00:21:20.100 --> 00:21:21.210
+We did make some
+improvements to that.
+
+00:21:21.210 --> 00:21:23.340
+I just want to show
+those real quick.
+
+00:21:23.340 --> 00:21:26.700
+So obviously, you can
+create your own agent,
+
+00:21:26.700 --> 00:21:28.500
+like Dave showed, and you
+can pick your own agent,
+
+00:21:28.500 --> 00:21:29.280
+which you can kind of see here
+
+00:21:29.280 --> 00:21:31.440
+down at the bottom
+when you pick that.
+
+00:21:31.440 --> 00:21:34.290
+We also have the ability now
+to pick your own model, right?
+
+00:21:34.290 --> 00:21:37.320
+So, certain models work
+better in certain repos,
+
+00:21:37.320 --> 00:21:39.420
+depending on your agent,
+depends on the instructions,
+
+00:21:39.420 --> 00:21:40.830
+depends on how much
+you want to pay.
+
+00:21:40.830 --> 00:21:42.540
+So, now this is actually a
+feature that we're rolling
+
+00:21:42.540 --> 00:21:46.290
+out as we speak, which allows
+you to pick the model to figure
+
+00:21:46.290 --> 00:21:47.100
+out what works for you.
+
+00:21:47.100 --> 00:21:48.180
+And, of course,
+this is all sticky,
+
+00:21:48.180 --> 00:21:49.830
+so once you select it
+once, it'll work again
+
+00:21:49.830 --> 00:21:52.800
+for the next time and the
+next time after that.
+
+00:21:52.800 --> 00:21:53.700
+All right.
+
+00:21:53.700 --> 00:21:55.620
+I'm going super fast.
+
+00:21:55.620 --> 00:21:57.660
+I'm just worried about time.
+
+00:21:57.660 --> 00:21:57.960
+All right.
+
+00:21:57.960 --> 00:22:01.860
+So, the next challenge, then,
+is if you are in Azure,
+
+00:22:01.860 --> 00:22:05.400
+if you are in -- oh, I've
+got to switch the slides.
+
+00:22:05.400 --> 00:22:06.120
+Dave Burnison: Yeah,
+switch slides.
+
+00:22:06.120 --> 00:22:07.680
+Yep, yep. There you go.
+
+00:22:07.680 --> 00:22:09.480
+Dan Hellem: If you move
+your repos over --
+
+00:22:09.480 --> 00:22:11.760
+or if you're about to move your
+repos over to GitHub, right,
+
+00:22:11.760 --> 00:22:13.770
+and you have hundreds, if
+not thousands of repos
+
+00:22:13.770 --> 00:22:18.210
+in Azure repos, your next
+biggest challenge is migrating
+
+00:22:18.210 --> 00:22:18.660
+those, right?
+
+00:22:18.660 --> 00:22:21.270
+And so, we are actually coming
+up with a tool now that is
+
+00:22:21.270 --> 00:22:24.030
+in public preview, and
+we'll show you how
+
+00:22:24.030 --> 00:22:26.040
+to get signed up
+here in a minute.
+
+00:22:26.040 --> 00:22:29.550
+But this basically is what we
+call Enterprise Live Migrator.
+
+00:22:29.550 --> 00:22:33.060
+This is a full fidelity,
+moves your repo,
+
+00:22:33.060 --> 00:22:34.710
+moves everything
+about it over, right?
+
+00:22:34.710 --> 00:22:35.700
+It's bringing all
+the pull requests.
+
+00:22:35.700 --> 00:22:36.450
+It's bringing all the commits.
+
+00:22:36.450 --> 00:22:38.910
+It's bringing the
+entire history over.
+
+00:22:38.910 --> 00:22:40.830
+It's basically a
+seamless cutover.
+
+00:22:40.830 --> 00:22:43.770
+So, what it does is when you go
+ahead and do the migration,
+
+00:22:43.770 --> 00:22:46.080
+you know, there's no
+basically downtime, right?
+
+00:22:46.080 --> 00:22:47.820
+There's like a
+30-minute downtime.
+
+00:22:47.820 --> 00:22:50.910
+We've had some customers that
+have some very, very big repos
+
+00:22:50.910 --> 00:22:52.200
+that they've tried
+to migrate over.
+
+00:22:52.200 --> 00:22:54.870
+They've used the GitHub
+Enterprise Importer.
+
+00:22:54.870 --> 00:22:55.710
+That's what it's called, right?
+
+00:22:55.710 --> 00:22:56.250
+Dave Burnison: Yep, yep.
+
+00:22:56.250 --> 00:22:57.510
+Dan Hellem: And they've
+actually had downtime.
+
+00:22:57.510 --> 00:22:59.610
+They're going to have downtime
+of four to five days, right?
+
+00:22:59.610 --> 00:23:02.640
+And that's obviously not
+acceptable for most customers.
+
+00:23:02.640 --> 00:23:04.860
+So, an Enterprise
+Live Migrator does
+
+00:23:04.860 --> 00:23:07.890
+that whole seamless
+migration, low downtime.
+
+00:23:07.890 --> 00:23:09.240
+It also connects
+up your pipelines.
+
+00:23:09.240 --> 00:23:12.480
+So, when you move the repo over,
+it'll connect your pipeline up.
+
+00:23:12.480 --> 00:23:13.920
+It also connects your
+boards up, right?
+
+00:23:13.920 --> 00:23:17.130
+So, you don't have to do all
+that stuff as extra steps.
+
+00:23:17.130 --> 00:23:20.010
+So, I'm going to show -- I
+got a quick video here.
+
+00:23:20.010 --> 00:23:21.270
+Let's see, now I've got
+to switch again, yeah?
+
+00:23:21.270 --> 00:23:21.690
+Dave Burnison: Yep.
+
+00:23:21.690 --> 00:23:23.040
+Dan Hellem: I keep
+forgetting to do that.
+
+00:23:23.040 --> 00:23:24.090
+On how this works.
+
+00:23:24.090 --> 00:23:27.840
+So, here I have a repo in Azure
+DevOps, and I want to go ahead
+
+00:23:27.840 --> 00:23:29.220
+and migrate this thing over.
+
+00:23:29.220 --> 00:23:31.530
+So, I'm going to go in,
+and I want to migrate it
+
+00:23:31.530 --> 00:23:36.030
+over into a GitHub Enterprise
+Cloud with data residency.
+
+00:23:36.030 --> 00:23:40.170
+And so, I'm going to -- sorry,
+let's get rid of that.
+
+00:23:40.170 --> 00:23:40.830
+There we go.
+
+00:23:40.830 --> 00:23:41.490
+There we go.
+
+00:23:41.490 --> 00:23:44.220
+So, the first thing I'm going to
+go do, so before I start there,
+
+00:23:44.220 --> 00:23:45.360
+actually, right now I'm going
+
+00:23:45.360 --> 00:23:47.430
+to show you how this
+works in the CLI.
+
+00:23:47.430 --> 00:23:49.350
+And the only reason
+it's in the CLI now is
+
+00:23:49.350 --> 00:23:51.420
+because we just didn't have
+time to get the UX all done.
+
+00:23:51.420 --> 00:23:53.460
+But I'll show you some
+screens in the UX.
+
+00:23:53.460 --> 00:23:55.800
+Those will be part
+of the preview
+
+00:23:55.800 --> 00:23:57.900
+as well once we open that up.
+
+00:23:57.900 --> 00:23:59.490
+And also the commands
+that you're seeing here,
+
+00:23:59.490 --> 00:24:01.230
+we also have included
+in our MCP server.
+
+00:24:01.230 --> 00:24:02.640
+So, you can have a kind
+of an agent to help you
+
+00:24:02.640 --> 00:24:04.630
+with that process as well.
+
+00:24:05.880 --> 00:24:10.110
+So, here I have --
+come on, there we go.
+
+00:24:10.110 --> 00:24:10.800
+So, the first thing I need
+
+00:24:10.800 --> 00:24:12.240
+to go do is create
+the migration, right?
+
+00:24:12.240 --> 00:24:14.460
+So, I'm calling the CLI,
+create the migration.
+
+00:24:14.460 --> 00:24:16.140
+I'm going to, you know,
+here's the organization.
+
+00:24:16.140 --> 00:24:17.130
+Here's a repository.
+
+00:24:17.130 --> 00:24:19.110
+Here's where I need it to go.
+
+00:24:19.110 --> 00:24:21.720
+I'm putting in some information
+about myself, the user ID,
+
+00:24:21.720 --> 00:24:23.100
+the agent pool, et cetera.
+
+00:24:23.100 --> 00:24:24.780
+And the first thing it does
+is it queues it up, right?
+
+00:24:24.780 --> 00:24:25.590
+That's what we need to go do.
+
+00:24:25.590 --> 00:24:27.420
+So, it kind of queues it up.
+
+00:24:27.420 --> 00:24:28.980
+And then as soon as
+it gets in the queue,
+
+00:24:28.980 --> 00:24:30.510
+I'm going to use
+a status, right?
+
+00:24:30.510 --> 00:24:31.318
+So, I'm going to check the
+
+00:24:31.342 --> 00:24:32.370
+status on a
+regular basis, right?
+
+00:24:32.370 --> 00:24:34.260
+Because it kind of just
+takes a little bit of time.
+
+00:24:34.260 --> 00:24:35.670
+So, the first thing it
+does is it goes out
+
+00:24:35.670 --> 00:24:37.890
+and does a bunch of validation.
+
+00:24:37.890 --> 00:24:41.280
+Validation is just clearly
+checking for certain file size,
+
+00:24:41.280 --> 00:24:43.950
+push packs, that type of thing,
+just to make sure it's legit
+
+00:24:43.950 --> 00:24:45.030
+and you can go ahead
+and migrate it over.
+
+00:24:45.030 --> 00:24:48.330
+And if it doesn't, it'll let
+you know what the problems are.
+
+00:24:48.330 --> 00:24:51.270
+Once we go through validation,
+which is usually rather quick,
+
+00:24:51.270 --> 00:24:53.760
+you know, we'll do another
+status and we'll go ahead
+
+00:24:53.760 --> 00:24:54.960
+and we do what's
+synchronization.
+
+00:24:54.960 --> 00:24:58.710
+Synchronization is a process of
+copying everything over, right?
+
+00:24:58.710 --> 00:25:00.480
+It's going to copy
+all the files over.
+
+00:25:00.480 --> 00:25:02.610
+It's going to copy the whole
+repo over, the entire history,
+
+00:25:02.610 --> 00:25:03.990
+all that kind of thing.
+
+00:25:03.990 --> 00:25:04.920
+This could take hours.
+
+00:25:04.920 --> 00:25:05.940
+This could take days.
+
+00:25:05.940 --> 00:25:08.610
+But that's fine because
+ADO, you can still, like,
+
+00:25:08.610 --> 00:25:10.590
+do work on the repo and ADO
+
+00:25:10.590 --> 00:25:12.630
+as you're doing the
+synchronization.
+
+00:25:12.630 --> 00:25:14.370
+And so, as I do the
+synchronization,
+
+00:25:14.370 --> 00:25:15.660
+I can continue to work with it.
+
+00:25:15.660 --> 00:25:17.700
+And eventually the
+synchronization is kind
+
+00:25:17.700 --> 00:25:20.100
+of complete and it's kind of,
+like, all caught up, right?
+
+00:25:20.100 --> 00:25:20.730
+And we'll continue
+
+00:25:20.730 --> 00:25:23.010
+to synchronize it
+on a regular basis.
+
+00:25:23.010 --> 00:25:24.120
+I think it's every few hours
+
+00:25:24.120 --> 00:25:26.640
+to make sure it's
+always up to date.
+
+00:25:26.640 --> 00:25:28.440
+And at some point you get
+ready for cutover, right?
+
+00:25:28.440 --> 00:25:30.030
+So, you've migrated it all over.
+
+00:25:30.030 --> 00:25:31.440
+It's all synchronized up.
+
+00:25:31.440 --> 00:25:33.090
+And now I want to
+go say, yep, okay,
+
+00:25:33.090 --> 00:25:34.680
+I'm ready to cut
+this thing over.
+
+00:25:34.680 --> 00:25:36.630
+So, I'll go ahead and
+basically set my cutover.
+
+00:25:36.630 --> 00:25:38.820
+I'm basically saying here's the
+org and here's the repository
+
+00:25:38.820 --> 00:25:40.440
+and here's the date that
+I want to cut this over,
+
+00:25:40.440 --> 00:25:41.790
+kind of scheduling it.
+
+00:25:41.790 --> 00:25:43.050
+It'll go ahead and schedule it.
+
+00:25:43.050 --> 00:25:44.520
+It'll kick in.
+
+00:25:44.520 --> 00:25:46.140
+You can now see the
+status where it's going
+
+00:25:46.140 --> 00:25:47.280
+through the cutover process.
+
+00:25:47.280 --> 00:25:50.280
+At this point is where
+the repo is basically set
+
+00:25:50.280 --> 00:25:51.780
+to read-only mode, right?
+
+00:25:51.780 --> 00:25:53.340
+I'm in read-only mode.
+
+00:25:53.340 --> 00:25:54.750
+You can no longer basically work
+
+00:25:54.750 --> 00:25:56.520
+on the repo inside
+of Azure DevOps.
+
+00:25:56.520 --> 00:25:59.310
+The cutover is, again, roughly,
+like, 20 to 30 minutes.
+
+00:25:59.310 --> 00:26:02.880
+And then it will
+complete the migration.
+
+00:26:02.880 --> 00:26:05.640
+And as it's in cutover
+mode, again, I'm just going
+
+00:26:05.640 --> 00:26:06.390
+to check the status again.
+
+00:26:06.390 --> 00:26:09.060
+And then eventually, once that
+cutover mode is completed,
+
+00:26:09.060 --> 00:26:10.440
+it marks it as migrated.
+
+00:26:10.440 --> 00:26:12.600
+And here I'll just kind of
+show quickly that I'll go
+
+00:26:12.600 --> 00:26:14.550
+into now Azure or inside GitHub.
+
+00:26:14.550 --> 00:26:16.020
+You can see the repo came over.
+
+00:26:16.020 --> 00:26:18.450
+You can see that it has all
+the pull requests in there.
+
+00:26:18.450 --> 00:26:19.920
+It'll have all the
+branches in there.
+
+00:26:19.920 --> 00:26:22.770
+It has the entire history,
+et cetera, et cetera, okay?
+
+00:26:22.770 --> 00:26:25.050
+So again, I'll talk a little
+bit here in a second about how
+
+00:26:25.050 --> 00:26:27.360
+to get access to this.
+
+00:26:27.360 --> 00:26:30.630
+But that's Enterprise
+Live Migrations.
+
+00:26:30.630 --> 00:26:32.370
+Feel free to clap
+if you need to.
+
+00:26:32.370 --> 00:26:34.520
+That's good.
+
+00:26:34.520 --> 00:26:37.670
+[ Applause ]
+
+00:26:37.670 --> 00:26:39.930
+Oh, I'm getting all my
+stuff confused here.
+
+00:26:43.410 --> 00:26:45.960
+I'm talking so fast.
+
+00:26:45.960 --> 00:26:49.470
+Okay. So, now it's
+Enterprise Live Migrations.
+
+00:26:49.470 --> 00:26:51.480
+This isn't working here, Dave.
+
+00:26:51.480 --> 00:26:53.160
+Dave Burnison: Oh.
+
+00:26:53.160 --> 00:26:55.050
+That's because -- there you go.
+
+00:26:55.050 --> 00:26:55.890
+Now you should be good.
+
+00:26:55.890 --> 00:26:56.580
+Dan Hellem: Okay.
+
+00:26:56.580 --> 00:26:58.080
+So, here's some of
+the UX as well.
+
+00:26:58.080 --> 00:26:58.860
+I forgot to mention that.
+
+00:26:58.860 --> 00:27:01.380
+So, pretty
+straightforward, right?
+
+00:27:01.380 --> 00:27:02.730
+There's an extra page
+you can kind of see
+
+00:27:02.730 --> 00:27:05.280
+over on the left side there
+from migrating to GitHub.
+
+00:27:05.280 --> 00:27:06.840
+You can see, you know,
+kind of the status
+
+00:27:06.840 --> 00:27:09.780
+of your different repos that you
+have, what's going on with them,
+
+00:27:09.780 --> 00:27:11.730
+what's been migrated, what's
+in synchronization phase,
+
+00:27:11.730 --> 00:27:13.830
+what's in cutover phase,
+et cetera, et cetera.
+
+00:27:13.830 --> 00:27:16.380
+If there's any errors in
+there, it'll let you know.
+
+00:27:16.380 --> 00:27:18.900
+And then, just like I did in the
+CLI, I could basically queue
+
+00:27:18.900 --> 00:27:21.180
+up some repos that I
+want to migrate over,
+
+00:27:21.180 --> 00:27:22.890
+put in the information that
+I want to put in there,
+
+00:27:22.890 --> 00:27:24.000
+and go ahead and
+start the migration.
+
+00:27:24.000 --> 00:27:27.100
+So, it's a nice UX all
+around that as well.
+
+00:27:28.110 --> 00:27:28.410
+All right.
+
+00:27:28.410 --> 00:27:31.170
+So, for those customers that
+aren't moving their repos over
+
+00:27:31.170 --> 00:27:33.510
+or haven't moved their repos
+over yet or are going to stay
+
+00:27:33.510 --> 00:27:35.670
+in Azure DevOps, there's
+obviously a variety
+
+00:27:35.670 --> 00:27:38.430
+of reasons why people stay
+in Azure DevOps, right?
+
+00:27:38.430 --> 00:27:39.750
+You know, if we take
+a look at the data,
+
+00:27:39.750 --> 00:27:41.430
+we have about 2.8 million repos
+
+00:27:41.430 --> 00:27:43.170
+that are active inside
+of Azure DevOps.
+
+00:27:43.170 --> 00:27:44.490
+Not all these folks are
+going to be able to move
+
+00:27:44.490 --> 00:27:47.880
+in the short term, you know, and
+it's going to take people time.
+
+00:27:47.880 --> 00:27:51.480
+It's going to take people time
+to, whether it's, you know,
+
+00:27:51.480 --> 00:27:54.360
+compliance reasons, whether it's
+just tooling reasons, et cetera,
+
+00:27:54.360 --> 00:27:55.290
+it's going to take people time
+
+00:27:55.290 --> 00:27:57.120
+to basically move
+those things over.
+
+00:27:57.120 --> 00:27:59.280
+And our job is to basically,
+what we want to do is we want
+
+00:27:59.280 --> 00:28:00.360
+to make sure that
+people that are staying
+
+00:28:00.360 --> 00:28:02.400
+in Azure repos are happy, right?
+
+00:28:02.400 --> 00:28:04.860
+And so, the idea is to bring
+some of these Copilot features
+
+00:28:04.860 --> 00:28:07.530
+into Azure DevOps to kind of
+keep people where they're at.
+
+00:28:07.530 --> 00:28:09.360
+The last thing we want you
+to go do is start looking
+
+00:28:09.360 --> 00:28:10.620
+at other tools and that
+kind of thing to get
+
+00:28:10.620 --> 00:28:12.960
+out of the Microsoft
+and GitHub ecosystem.
+
+00:28:12.960 --> 00:28:16.570
+So therefore, we want to bring
+some of these things to you.
+
+00:28:17.790 --> 00:28:20.130
+So now, another nice
+announcement here is we kind
+
+00:28:20.130 --> 00:28:21.660
+of announced this yesterday on
+the blog post, but we're going
+
+00:28:21.660 --> 00:28:24.780
+to bring Copilot code
+reviews for Azure repos.
+
+00:28:24.780 --> 00:28:28.200
+And what this is is it
+brings you the power
+
+00:28:28.200 --> 00:28:30.450
+of GitHub Copilot code
+reviews where you don't need
+
+00:28:30.450 --> 00:28:32.520
+to have a Copilot license.
+
+00:28:32.520 --> 00:28:34.260
+You don't even have to
+have a GitHub account,
+
+00:28:34.260 --> 00:28:35.100
+right, whatsoever, right?
+
+00:28:35.100 --> 00:28:37.890
+It just magically kind of
+works on the back end.
+
+00:28:37.890 --> 00:28:41.130
+And what it does is obviously
+your code needs to be
+
+00:28:41.130 --> 00:28:43.260
+in Azure repos for this.
+
+00:28:43.260 --> 00:28:46.110
+And as you use it,
+you get billed
+
+00:28:46.110 --> 00:28:48.180
+to your Azure
+subscription, okay?
+
+00:28:48.180 --> 00:28:50.910
+And so, I'll go through
+a demo here real quick
+
+00:28:50.910 --> 00:28:51.930
+on how this works,
+and then I'll talk
+
+00:28:51.930 --> 00:28:53.610
+about those last two
+items on the bottom.
+
+00:28:53.610 --> 00:28:55.560
+Dave Burnison: And when you say
+Azure repos, you're talking
+
+00:28:55.560 --> 00:28:57.150
+about Azure Git repos, right?
+
+00:28:57.150 --> 00:28:57.630
+Dan Hellem: That's right.
+
+00:28:57.630 --> 00:28:59.340
+It does not work with TFVC.
+
+00:28:59.340 --> 00:29:02.650
+Yep. So, no plans to
+make it work with TFVC.
+
+00:29:04.290 --> 00:29:04.890
+Am I on the right one?
+
+00:29:04.890 --> 00:29:06.390
+Yep. All right.
+
+00:29:06.390 --> 00:29:11.010
+So, here I have a couple pull
+requests that I want to go --
+
+00:29:11.010 --> 00:29:11.820
+I'm going to play with.
+
+00:29:11.820 --> 00:29:13.620
+I'm going to -- some of these
+things are kind of in the middle
+
+00:29:13.620 --> 00:29:15.090
+of what I'm doing here because
+it does take a little bit
+
+00:29:15.090 --> 00:29:18.090
+of time for the Copilot to
+go run and report back.
+
+00:29:18.090 --> 00:29:20.550
+But here you can see I
+have a -- let's see.
+
+00:29:20.550 --> 00:29:21.060
+Not started.
+
+00:29:21.060 --> 00:29:22.500
+That's the one I want.
+
+00:29:22.500 --> 00:29:24.540
+So, here I have a pull request.
+
+00:29:24.540 --> 00:29:26.670
+It looks like a
+normal pull request.
+
+00:29:26.670 --> 00:29:27.990
+What I'm going to go do
+now is I'm going to turn
+
+00:29:27.990 --> 00:29:29.640
+on the feature, and you can
+kind of see the differences.
+
+00:29:29.640 --> 00:29:37.770
+So, I'm going to go into my
+manage repos, and I'm going
+
+00:29:37.770 --> 00:29:41.280
+to come into this guy here
+and go down to settings.
+
+00:29:41.280 --> 00:29:42.780
+And down here on settings,
+you should be able
+
+00:29:42.780 --> 00:29:44.400
+to see enable
+Copilot code review
+
+00:29:44.400 --> 00:29:46.080
+for pull requests on this repo.
+
+00:29:46.080 --> 00:29:48.780
+Right now, we have basically
+two levels of control.
+
+00:29:48.780 --> 00:29:50.700
+We're likely going to
+put in a third one.
+
+00:29:50.700 --> 00:29:54.090
+First one is at the
+organization level,
+
+00:29:54.090 --> 00:29:56.790
+which basically says people
+inside my organization can use
+
+00:29:56.790 --> 00:29:58.140
+Copilot code reviews.
+
+00:29:58.140 --> 00:30:00.060
+And then we have to flip
+it on at the repo level.
+
+00:30:00.060 --> 00:30:01.950
+Well, what the concern
+here is is, you know,
+
+00:30:01.950 --> 00:30:04.500
+if you're a big organization and
+you have lots and lots of repos,
+
+00:30:04.500 --> 00:30:06.510
+the last thing you want to do
+is turn it on all of them.
+
+00:30:06.510 --> 00:30:07.650
+People start running
+code reviews,
+
+00:30:07.650 --> 00:30:09.870
+and you get a monster bill at
+the end of the month type thing.
+
+00:30:09.870 --> 00:30:11.670
+And so, we're allowing you
+to kind of control this,
+
+00:30:11.670 --> 00:30:13.560
+especially during
+the preview phase.
+
+00:30:13.560 --> 00:30:16.320
+So, here I'm going to go flip
+it on, and then I'm going
+
+00:30:16.320 --> 00:30:18.820
+to go back to my pull requests.
+
+00:30:19.890 --> 00:30:21.780
+And here I'm going to open
+up that pull request.
+
+00:30:21.780 --> 00:30:22.740
+And you should see here now
+
+00:30:22.740 --> 00:30:26.430
+that I have a GitHub Copilot
+code review that I can request.
+
+00:30:26.430 --> 00:30:29.400
+So, you know, it's not a very
+complicated pull request.
+
+00:30:29.400 --> 00:30:32.280
+It's just some, you know,
+some very simple changes,
+
+00:30:32.280 --> 00:30:33.420
+mostly TypeScript type stuff.
+
+00:30:33.420 --> 00:30:37.470
+I'm just adding
+some things to it.
+
+00:30:37.470 --> 00:30:38.820
+Here I'm going to go into
+my overview, and I'm going
+
+00:30:38.820 --> 00:30:40.920
+to go ahead and hit "Request".
+
+00:30:40.920 --> 00:30:44.130
+So, the way the code reviews
+work is it essentially spins
+
+00:30:44.130 --> 00:30:46.140
+up a dynamic pipeline
+in the background.
+
+00:30:46.140 --> 00:30:49.020
+That dynamic pipeline in the
+background does a shallow clone.
+
+00:30:49.020 --> 00:30:52.140
+Once it does a shallow clone, it
+gets also the diffs and sends
+
+00:30:52.140 --> 00:30:54.450
+that basically in a nice little
+type package to Copilot.
+
+00:30:54.450 --> 00:30:57.000
+Copilot then reviews all that
+stuff, comes back with a bunch
+
+00:30:57.000 --> 00:31:01.620
+of suggestions, and we append
+those suggestions to the PR.
+
+00:31:01.620 --> 00:31:04.050
+So, rather than
+watching that work,
+
+00:31:04.050 --> 00:31:07.860
+I'm going to go show real quick
+one that's already been done,
+
+00:31:07.860 --> 00:31:09.090
+this one here.
+
+00:31:09.090 --> 00:31:12.450
+So, here if I open it up, I can
+see that I have multiple changes
+
+00:31:12.450 --> 00:31:13.590
+or multiple suggestions.
+
+00:31:13.590 --> 00:31:15.180
+So, here I have a critical bug.
+
+00:31:15.180 --> 00:31:18.420
+It's giving me basically
+suggestion changes here.
+
+00:31:18.420 --> 00:31:22.560
+Just basically everything you
+would expect for a coding agent
+
+00:31:22.560 --> 00:31:25.020
+to do for a code review.
+
+00:31:25.020 --> 00:31:28.260
+Here I have, again, another
+bug with multiple suggestions.
+
+00:31:28.260 --> 00:31:31.860
+And within the interface, I can
+come in here and apply changes,
+
+00:31:31.860 --> 00:31:33.180
+apply changes, et cetera.
+
+00:31:33.180 --> 00:31:35.970
+So, I can go ahead and make
+these changes, apply them,
+
+00:31:35.970 --> 00:31:39.840
+commit them, do a full commit,
+and then I can come back
+
+00:31:39.840 --> 00:31:40.950
+in here and re-request.
+
+00:31:40.950 --> 00:31:41.130
+Right?
+
+00:31:41.130 --> 00:31:43.350
+And I can kind of go
+through that loop process.
+
+00:31:43.350 --> 00:31:44.820
+So, this brings the power
+
+00:31:44.820 --> 00:31:51.000
+of those Copilot code
+review into Azure repos.
+
+00:31:51.000 --> 00:31:54.150
+Gives you the full flexibility
+of doing the code reviews.
+
+00:31:54.150 --> 00:31:55.860
+There's some things that
+we haven't finished
+
+00:31:55.860 --> 00:31:57.330
+yet that I just want to talk
+
+00:31:57.330 --> 00:31:59.910
+about real quick is
+Copilot instructions.
+
+00:31:59.910 --> 00:32:01.920
+So, this is kind of like a
+generic Copilot, right?
+
+00:32:01.920 --> 00:32:03.270
+Like, it's nothing.
+
+00:32:03.270 --> 00:32:05.550
+It doesn't adhere to
+Copilot instructions.
+
+00:32:05.550 --> 00:32:07.050
+So, if you have a bunch of
+instructions that are sitting
+
+00:32:07.050 --> 00:32:09.090
+in your repo, we don't really
+care about them at the moment.
+
+00:32:09.090 --> 00:32:09.930
+This is going to change.
+
+00:32:09.930 --> 00:32:10.800
+This is one of the
+things that we're going
+
+00:32:10.800 --> 00:32:12.690
+to do before it goes GA.
+
+00:32:12.690 --> 00:32:15.570
+The other thing on the bottom
+there is it doesn't necessarily
+
+00:32:15.570 --> 00:32:17.580
+take into account very well
+of previous suggestions.
+
+00:32:17.580 --> 00:32:21.240
+So, I've ran into interesting
+loops where I made a suggestion,
+
+00:32:21.240 --> 00:32:22.230
+I fixed it, and it comes back
+
+00:32:22.230 --> 00:32:23.550
+and re-suggests
+something different
+
+00:32:23.550 --> 00:32:24.780
+on the same line of code.
+
+00:32:24.780 --> 00:32:28.350
+And so, adding suggestions
+as context from previous,
+
+00:32:28.350 --> 00:32:30.420
+basically, code review
+runs will be added
+
+00:32:30.420 --> 00:32:32.160
+to help make better
+decisions for you.
+
+00:32:32.160 --> 00:32:34.020
+Okay? So, I'm actually curious.
+
+00:32:34.020 --> 00:32:36.480
+Is this interesting to people,
+bringing this into the product?
+
+00:32:36.480 --> 00:32:37.260
+Okay. All right.
+
+00:32:37.260 --> 00:32:37.590
+Good.
+
+00:32:37.590 --> 00:32:38.340
+Dave Burnison: Awesome.
+
+00:32:38.340 --> 00:32:39.210
+Dan Hellem: Good, good.
+
+00:32:39.210 --> 00:32:40.030
+Dave Burnison: Awesome.
+
+00:32:40.030 --> 00:32:40.911
+[ Applause ]
+
+00:32:40.936 --> 00:32:42.630
+Dan Hellem: One thing I just
+would like to show real quick,
+
+00:32:42.630 --> 00:32:49.830
+so this, like I said, is we
+do have agent pools is where,
+
+00:32:49.830 --> 00:32:50.940
+basically, we're
+tracking this at.
+
+00:32:50.940 --> 00:32:53.250
+So, when you are signed up
+for the preview, and, again,
+
+00:32:53.250 --> 00:32:55.710
+I'll show that in a second
+on how to get signed up,
+
+00:32:55.710 --> 00:32:57.570
+and you want to take a look
+at, like, what's happening
+
+00:32:57.570 --> 00:33:00.090
+and what's running or
+something fails, you can come
+
+00:33:00.090 --> 00:33:03.030
+into agent pools,
+Azure Pipelines,
+
+00:33:03.030 --> 00:33:04.380
+and you can see those
+runs that are happening.
+
+00:33:04.380 --> 00:33:07.050
+So, you can see that there's
+one happening right now.
+
+00:33:07.050 --> 00:33:09.540
+Oops, that's a different one.
+
+00:33:09.540 --> 00:33:12.000
+Let's see if I can find one
+real quick from yesterday.
+
+00:33:12.000 --> 00:33:14.460
+These are all the code review.
+
+00:33:14.460 --> 00:33:16.830
+There we go.
+
+00:33:16.830 --> 00:33:18.570
+We are planning on
+improving this kind
+
+00:33:18.570 --> 00:33:20.010
+of interface a little bit to
+make it a little bit easier
+
+00:33:20.010 --> 00:33:21.090
+to kind of find
+these and see these.
+
+00:33:21.090 --> 00:33:22.170
+Obviously, it
+doesn't look pretty.
+
+00:33:22.170 --> 00:33:23.430
+It's just a bunch of JSON.
+
+00:33:23.430 --> 00:33:25.680
+But you can kind of see the
+whole event and the run
+
+00:33:25.680 --> 00:33:27.090
+that it takes to go do that.
+
+00:33:27.090 --> 00:33:29.700
+Okay? All right.
+
+00:33:29.700 --> 00:33:34.290
+So, let's go to -- and
+next thing we want to do.
+
+00:33:34.290 --> 00:33:37.740
+The other thing that
+we're bringing to kind
+
+00:33:37.740 --> 00:33:40.770
+of AI is Copilot autofix for
+GitHub Advanced Security.
+
+00:33:40.770 --> 00:33:45.180
+So, if you're a GHAzDO user,
+we're bringing the ability
+
+00:33:45.180 --> 00:33:46.650
+to just autofix
+issues that pop up.
+
+00:33:46.650 --> 00:33:48.330
+So, I'll show that one
+here real quick as well.
+
+00:33:48.330 --> 00:33:50.970
+So, I'm going to go back.
+
+00:33:50.970 --> 00:33:52.350
+Oh, sorry.
+
+00:33:52.350 --> 00:33:53.340
+I forgot to talk about billing.
+
+00:33:53.340 --> 00:33:54.030
+That's more important.
+
+00:33:54.030 --> 00:33:56.880
+Actually, let's talk
+about it real quick.
+
+00:33:56.880 --> 00:33:57.900
+Dave Burnison: Anybody
+care about billing?
+
+00:33:57.900 --> 00:33:58.650
+Dan Hellem: Yeah.
+
+00:33:58.650 --> 00:34:01.470
+So, this is billed to
+your Azure subscription.
+
+00:34:01.470 --> 00:34:02.640
+Okay? So, that's how this works.
+
+00:34:02.640 --> 00:34:04.890
+And so, if I come
+into my subscription,
+
+00:34:04.890 --> 00:34:08.580
+come down to cost management,
+do cost analysis,
+
+00:34:08.580 --> 00:34:12.420
+I can come in here now and
+see this at the daily rate,
+
+00:34:12.420 --> 00:34:15.330
+basically, of how much it costs
+me per day to run this thing.
+
+00:34:15.330 --> 00:34:16.080
+And you can actually
+break it down.
+
+00:34:16.080 --> 00:34:17.280
+So, here you can see, you know,
+
+00:34:17.280 --> 00:34:20.430
+I had a lot of runs
+running back on the 14th.
+
+00:34:20.430 --> 00:34:22.380
+But you can kind of
+break it down per run.
+
+00:34:22.380 --> 00:34:23.970
+And some of these runs are,
+you know, super cheap.
+
+00:34:23.970 --> 00:34:27.030
+It's literally a couple
+cents per day per run.
+
+00:34:27.030 --> 00:34:28.140
+And sometimes, it's
+a little bit more.
+
+00:34:28.140 --> 00:34:31.380
+It obviously just depends on the
+complexity of your pull request
+
+00:34:31.380 --> 00:34:33.240
+and the size of the pull
+request and what kind
+
+00:34:33.240 --> 00:34:35.880
+of reasoning has
+to happen there.
+
+00:34:35.880 --> 00:34:37.740
+Another thing you can do
+here, too, is I can come down
+
+00:34:37.740 --> 00:34:40.970
+and look at my resources.
+
+00:34:40.970 --> 00:34:46.190
+If I look at resources, I can
+see how it's basically broken
+
+00:34:46.190 --> 00:34:47.600
+down per organization.
+
+00:34:47.600 --> 00:34:49.610
+So, this is my organization.
+
+00:34:49.610 --> 00:34:51.560
+Here, you can see that I
+have basically the meter,
+
+00:34:51.560 --> 00:34:53.730
+which is my AI credit for ASDO.
+
+00:34:53.730 --> 00:34:55.290
+So, here's the product.
+
+00:34:55.290 --> 00:34:56.610
+And then, basically,
+here, how much it costs.
+
+00:34:56.610 --> 00:34:59.640
+This costs me 0.5 cents this
+month, which is not a whole lot.
+
+00:34:59.640 --> 00:35:01.690
+Let's do the last 30 days.
+
+00:35:03.140 --> 00:35:05.270
+Give you a better idea of
+how much it costs, you know,
+
+00:35:05.270 --> 00:35:06.560
+over a period of time.
+
+00:35:06.560 --> 00:35:09.020
+So again, we're suggesting
+that when you start this out,
+
+00:35:09.020 --> 00:35:10.550
+billing will be part
+of the preview,
+
+00:35:10.550 --> 00:35:12.360
+so you don't get these for free.
+
+00:35:12.360 --> 00:35:13.200
+You can start using them.
+
+00:35:13.200 --> 00:35:14.940
+The suggestion is just
+start slow, right?
+
+00:35:14.940 --> 00:35:15.930
+Start with a few repos.
+
+00:35:15.930 --> 00:35:17.820
+See how much cost
+you're querying.
+
+00:35:17.820 --> 00:35:19.230
+See how it works for
+you, that type of thing.
+
+00:35:19.230 --> 00:35:21.420
+Make sure it gives you
+the value that you need
+
+00:35:21.420 --> 00:35:26.820
+and help you better understand
+the pricing limits.
+
+00:35:26.820 --> 00:35:28.930
+We'll save the
+questions for the end.
+
+00:35:29.970 --> 00:35:30.270
+All right.
+
+00:35:30.270 --> 00:35:32.640
+So, that's that one.
+
+00:35:32.640 --> 00:35:35.100
+Now, we'll talk about
+the GHAzDO stuff.
+
+00:35:35.100 --> 00:35:37.710
+I don't know why I did
+that to switch back.
+
+00:35:37.710 --> 00:35:39.330
+Let's go down to
+advanced security.
+
+00:35:39.330 --> 00:35:46.080
+So, in advanced security,
+let's grab the right one.
+
+00:35:46.080 --> 00:35:49.620
+So, here I have CodeQL
+scans basically running
+
+00:35:49.620 --> 00:35:50.910
+on this particular repo.
+
+00:35:50.910 --> 00:35:53.370
+You can see it's found a bunch
+of issues already for me.
+
+00:35:53.370 --> 00:35:55.530
+Here, if I open up one of
+the issues that I found,
+
+00:35:55.530 --> 00:35:57.060
+typically how would
+you fix this, right?
+
+00:35:57.060 --> 00:36:00.630
+It basically right now comes up
+and says, hey, we got a problem.
+
+00:36:00.630 --> 00:36:01.800
+Here's what the severity is.
+
+00:36:01.800 --> 00:36:03.060
+Here's what we think we found.
+
+00:36:03.060 --> 00:36:04.920
+You got some SQL
+injection issues here.
+
+00:36:04.920 --> 00:36:06.540
+Here's a description
+of it, recommendation.
+
+00:36:06.540 --> 00:36:09.840
+I'd have to open this up in VS
+Code, go make my code change,
+
+00:36:09.840 --> 00:36:12.210
+do a pull request,
+that type of thing.
+
+00:36:12.210 --> 00:36:14.070
+So, now what we're going
+to do is we're going
+
+00:36:14.070 --> 00:36:15.510
+to go flip this one on as well.
+
+00:36:15.510 --> 00:36:19.140
+So, we're going to go down
+to manage repositories,
+
+00:36:19.140 --> 00:36:24.120
+and we'll go into our vulnerable
+repo, in our code scanning,
+
+00:36:24.120 --> 00:36:26.850
+our code security plan, and you
+can see here there's another
+
+00:36:26.850 --> 00:36:28.440
+option called autofix.
+
+00:36:28.440 --> 00:36:31.810
+Okay? Autofix, we'll just
+go ahead and enable that,
+
+00:36:33.240 --> 00:36:38.590
+and we'll come back
+to advanced security.
+
+00:36:39.960 --> 00:36:41.940
+And now you can see I
+have a generate fix
+
+00:36:41.940 --> 00:36:43.530
+up on the top right, all right?
+
+00:36:43.530 --> 00:36:46.290
+So, this is very much like
+Copilot code reviews.
+
+00:36:46.290 --> 00:36:50.520
+It'll run, spins up a dynamic
+pipeline in the background,
+
+00:36:50.520 --> 00:36:52.590
+goes ahead and takes the things
+that you want me to go change,
+
+00:36:52.590 --> 00:36:54.810
+goes ahead and changes them,
+creates a PR, et cetera.
+
+00:36:54.810 --> 00:36:57.030
+So, here I'm going to
+go do fix in progress.
+
+00:36:57.030 --> 00:36:58.260
+These ones take a
+little bit longer.
+
+00:36:58.260 --> 00:36:59.220
+It takes like three to four
+
+00:36:59.220 --> 00:37:02.730
+or five minutes sometimes
+to complete the fix.
+
+00:37:02.730 --> 00:37:05.370
+So, I'm going to show
+another one that I used
+
+00:37:05.370 --> 00:37:06.720
+to have or did already.
+
+00:37:06.720 --> 00:37:10.350
+So here, basically, I've gone
+in, made the code change.
+
+00:37:10.350 --> 00:37:12.000
+You can see the
+related pull request.
+
+00:37:12.000 --> 00:37:13.860
+I can open up the pull
+request, take a look at that,
+
+00:37:13.860 --> 00:37:15.960
+see what it is, et cetera.
+
+00:37:15.960 --> 00:37:19.350
+So, that's Copilot code reviews.
+
+00:37:19.350 --> 00:37:23.640
+Let me talk about a couple
+things with that real quick.
+
+00:37:23.640 --> 00:37:24.870
+So obviously, it's
+bringing the power
+
+00:37:24.870 --> 00:37:27.720
+of GitHub Copilot Autofix
+to GHAzDO customers.
+
+00:37:27.720 --> 00:37:30.600
+We're starting with just
+CodeQL alerts right now.
+
+00:37:30.600 --> 00:37:34.470
+The idea is eventually to expand
+all scope getting alerts,
+
+00:37:34.470 --> 00:37:36.900
+especially you can even bring
+your own 3-party tools.
+
+00:37:36.900 --> 00:37:38.340
+And the idea is just to
+make it faster for you
+
+00:37:38.340 --> 00:37:39.390
+to go ahead and do this, right?
+
+00:37:39.390 --> 00:37:41.730
+Faster to fix
+issues that pop up.
+
+00:37:41.730 --> 00:37:44.340
+We're also going to be adding
+Autofix to security campaigns.
+
+00:37:44.340 --> 00:37:45.630
+So, security campaigns
+is something
+
+00:37:45.630 --> 00:37:47.490
+that is part of GHAzDO.
+
+00:37:47.490 --> 00:37:49.470
+We released that just a
+couple of sprints ago.
+
+00:37:49.470 --> 00:37:52.170
+We'll bring that
+ability to do Autofix
+
+00:37:52.170 --> 00:37:55.300
+to security campaigns
+as well, okay?
+
+00:37:57.390 --> 00:37:57.810
+What do we got?
+
+00:37:57.810 --> 00:38:00.180
+Seven minutes left.
+
+00:38:00.180 --> 00:38:00.480
+All right. 
+
+00:38:00.480 --> 00:38:01.890
+So, here's the
+technical preview.
+
+00:38:01.890 --> 00:38:05.460
+So, we have three of these.
+
+00:38:05.460 --> 00:38:08.460
+We did a blog post earlier
+today -- I'm sorry, yesterday.
+
+00:38:08.460 --> 00:38:09.660
+We'll have another blog
+post that will come
+
+00:38:09.660 --> 00:38:12.000
+out on these individual ones,
+so you can certainly sign up.
+
+00:38:12.000 --> 00:38:13.920
+You can see the sign-up
+link on the bottom.
+
+00:38:13.920 --> 00:38:16.710
+The idea is we're just taking
+your organization name.
+
+00:38:16.710 --> 00:38:20.660
+Take your little bit of your
+email, and we'll go ahead
+
+00:38:20.660 --> 00:38:21.290
+and get you signed up.
+
+00:38:21.290 --> 00:38:23.450
+We'll send you an email
+when we're ready.
+
+00:38:23.450 --> 00:38:24.860
+We're expanding or rolling these
+
+00:38:24.860 --> 00:38:26.510
+out over a period
+of time, right?
+
+00:38:26.510 --> 00:38:27.980
+So, we'll have a wave of people.
+
+00:38:27.980 --> 00:38:28.610
+We'll turn it on.
+
+00:38:28.610 --> 00:38:29.630
+We'll kind of see how it goes.
+
+00:38:29.630 --> 00:38:31.980
+We'll add another wave of
+people, et cetera, et cetera.
+
+00:38:31.980 --> 00:38:33.480
+But you'll certainly
+get an email from one
+
+00:38:33.480 --> 00:38:34.950
+of us on the product team.
+
+00:38:34.950 --> 00:38:36.060
+Once you sign up,
+we'll let you know
+
+00:38:36.060 --> 00:38:38.890
+when it's ready to
+take a look at.
+
+00:38:42.360 --> 00:38:42.990
+Let's see.
+
+00:38:42.990 --> 00:38:43.830
+What else do we have?
+
+00:38:43.830 --> 00:38:47.580
+Oh. So, another one
+we'd just kind of like
+
+00:38:47.580 --> 00:38:48.990
+to mention before we
+kind of wrap things
+
+00:38:48.990 --> 00:38:51.840
+up is Microsoft is kind
+
+00:38:51.840 --> 00:38:54.540
+of practicing what we
+preach, so to speak.
+
+00:38:54.540 --> 00:38:58.260
+So, we have a bunch of internal
+teams right now migrating their
+
+00:38:58.260 --> 00:39:00.270
+repos over to GitHub.
+
+00:39:00.270 --> 00:39:02.280
+And we have a bunch of folks
+actually actively working inside
+
+00:39:02.280 --> 00:39:02.580
+of GitHub.
+
+00:39:02.580 --> 00:39:07.350
+So, the migration path was a big
+thing that spurred ELM, right,
+
+00:39:07.350 --> 00:39:08.730
+to be able to make
+it easier for people
+
+00:39:08.730 --> 00:39:11.640
+to migrate their repos
+over into GitHub.
+
+00:39:11.640 --> 00:39:14.790
+So, this is kind of, you know,
+AI is a forcing function
+
+00:39:14.790 --> 00:39:16.770
+for us internally, just like
+it is probably for all of you.
+
+00:39:16.770 --> 00:39:18.750
+It's like getting more
+AI and doing more.
+
+00:39:18.750 --> 00:39:21.840
+So, we have a bunch of,
+again, there's some repos
+
+00:39:21.840 --> 00:39:24.540
+that we can do
+inside of Microsoft
+
+00:39:24.540 --> 00:39:25.530
+that can be easily moved,
+
+00:39:25.530 --> 00:39:27.300
+and there's some that
+are not so much.
+
+00:39:27.300 --> 00:39:29.280
+And so, we're kind of in the
+same boat as everybody else is.
+
+00:39:29.280 --> 00:39:30.420
+Some of these folks are
+going to move over.
+
+00:39:30.420 --> 00:39:31.410
+Some are not going
+to, and they're going
+
+00:39:31.410 --> 00:39:32.730
+to stay in Azure repos.
+
+00:39:32.730 --> 00:39:33.960
+But this gives you
+an idea of, like,
+
+00:39:33.960 --> 00:39:35.430
+we're also dog fooding
+it as well.
+
+00:39:35.430 --> 00:39:36.420
+We're seeing how it works.
+
+00:39:36.420 --> 00:39:38.760
+We're adding tools to make
+it easier for us internally
+
+00:39:38.760 --> 00:39:40.440
+as well for folks externally.
+
+00:39:40.440 --> 00:39:42.210
+Dave Burnison: And this is
+not all of Microsoft, right?
+
+00:39:42.210 --> 00:39:45.480
+This is one slice, just that
+Copilot agents and platform.
+
+00:39:45.480 --> 00:39:47.790
+Dan Hellem: Yeah, this
+is a very small part
+
+00:39:47.790 --> 00:39:48.780
+of the organization
+at the moment.
+
+00:39:48.780 --> 00:39:49.860
+Dave Burnison: So
+yeah, there's others
+
+00:39:49.860 --> 00:39:52.620
+that are making
+the move as well.
+
+00:39:52.620 --> 00:39:54.440
+Dan Hellem: But it's
+just getting started
+
+00:39:54.440 --> 00:39:56.100
+on our side, yep. 
+
+00:39:57.350 --> 00:39:58.640
+All right, Dave, you want
+to talk about this stuff?
+
+00:39:58.640 --> 00:39:59.600
+Or I can talk about this one.
+
+00:39:59.600 --> 00:40:00.380
+Dave Burnison: Yeah, yeah.
+
+00:40:00.380 --> 00:40:03.390
+Dan Hellem: So, this is the
+blog post that we did as well.
+
+00:40:04.670 --> 00:40:05.840
+Basically, it says
+all the things
+
+00:40:05.840 --> 00:40:07.590
+that we just talked about.
+
+00:40:08.790 --> 00:40:12.690
+You know, includes just kind
+of our overall strategy,
+
+00:40:12.690 --> 00:40:15.660
+but also includes sign-up and
+information on how to get hooked
+
+00:40:15.660 --> 00:40:21.090
+up for ELM, how to get hooked
+up for Copilot code reviews,
+
+00:40:21.090 --> 00:40:23.910
+and the GHAzDO autofix stuff.
+
+00:40:23.910 --> 00:40:25.590
+Dave Burnison: And where
+there's links available,
+
+00:40:25.590 --> 00:40:27.870
+the blog post has got
+links to the documentation
+
+00:40:27.870 --> 00:40:30.090
+for the new features
+and things as well.
+
+00:40:30.090 --> 00:40:33.480
+So yeah, you can really dive
+in and learn a lot more there.
+
+00:40:33.480 --> 00:40:35.230
+Dan Hellem: Yep, yep. 
+
+00:40:38.940 --> 00:40:39.780
+I don't know what
+else you want to say.
+
+00:40:39.780 --> 00:40:40.770
+Dave Burnison: Yeah, yeah.
+
+00:40:40.770 --> 00:40:47.490
+So, everybody preparing
+Build, you know,
+
+00:40:47.490 --> 00:40:49.230
+set up these repos and stuff.
+
+00:40:49.230 --> 00:40:53.010
+So yeah, we went out and
+put a lot of resources here
+
+00:40:53.010 --> 00:40:57.270
+at the repo that we created.
+
+00:40:57.270 --> 00:41:03.180
+And so, here you've got a link
+to the blog post with some
+
+00:41:03.180 --> 00:41:05.160
+of the key information there. 
+
+00:41:05.160 --> 00:41:07.080
+You know, we talk about
+the things that we showed,
+
+00:41:07.080 --> 00:41:13.140
+but lots of other resources for
+you to dive in and learn more.
+
+00:41:13.140 --> 00:41:17.220
+Also, reference the big GitHub
+blog post yesterday that talked
+
+00:41:17.220 --> 00:41:20.520
+about the Copilot app,
+sandboxes, you know,
+
+00:41:20.520 --> 00:41:22.380
+and all those other things,
+
+00:41:22.380 --> 00:41:24.720
+direct link to the
+enterprise live migrations.
+
+00:41:24.720 --> 00:41:27.660
+One thing I want to point
+out here, I covered a lot
+
+00:41:27.660 --> 00:41:30.300
+of information in a short time. 
+
+00:41:30.300 --> 00:41:33.740
+But on this repo is a release
+
+00:41:33.740 --> 00:41:36.380
+that contains all
+of my demo videos.
+
+00:41:36.380 --> 00:41:39.230
+And there's even a couple
+there that I didn't cover.
+
+00:41:39.230 --> 00:41:41.460
+Maybe I'll have a minute to go
+
+00:41:41.460 --> 00:41:44.970
+through one or two
+more of those.
+
+00:41:44.970 --> 00:41:47.430
+But, yeah, you can get all
+of the resources here,
+
+00:41:47.430 --> 00:41:52.050
+and the slides will be
+made available as well.
+
+00:41:52.050 --> 00:41:56.580
+Should I go ahead and -- I know
+there's one I can show here.
+
+00:41:56.580 --> 00:41:57.540
+Should I go back to that?
+
+00:41:57.540 --> 00:41:58.500
+Dan Hellem: It's
+up to you, Dave.
+
+00:41:58.500 --> 00:41:59.220
+Dave Burnison: All right.
+
+00:41:59.220 --> 00:42:00.900
+Dan Hellem: I can also show how
+
+00:42:00.900 --> 00:42:03.360
+to add MCP server to Foundry.
+
+00:42:03.360 --> 00:42:03.600
+Dave Burnison: All right.
+
+00:42:03.600 --> 00:42:05.250
+Well, this one will just take --
+
+00:42:05.250 --> 00:42:08.340
+this one will just
+take a minute.
+
+00:42:08.340 --> 00:42:13.260
+So, if I skip ahead here, the
+one I want to show, though,
+
+00:42:13.260 --> 00:42:19.170
+is even using Copilot, you know,
+the AI and Copilot to work
+
+00:42:19.170 --> 00:42:21.390
+on the metadata of our
+team projects, right?
+
+00:42:21.390 --> 00:42:24.690
+Sprint schedule, you know, doing
+that the old-fashioned way.
+
+00:42:24.690 --> 00:42:28.170
+Yeah, you could go through the
+APIs and do that and everything.
+
+00:42:28.170 --> 00:42:32.580
+But I set up first a
+user story so that
+
+00:42:32.580 --> 00:42:37.290
+that was my prompt for Copilot.
+
+00:42:37.290 --> 00:42:42.690
+And then I went over to the
+-- actually, there we go.
+
+00:42:42.690 --> 00:42:47.160
+I go to the GitHub Copilot
+app, and I said, okay, yeah,
+
+00:42:47.160 --> 00:42:49.680
+let's look at what user
+stories are out there.
+
+00:42:49.680 --> 00:42:55.950
+Okay, there's user story number
+three, create sprint schedule.
+
+00:42:55.950 --> 00:43:00.060
+And I just said, hey,
+Copilot, go do the work
+
+00:43:00.060 --> 00:43:03.270
+for user story number three.
+
+00:43:03.270 --> 00:43:06.060
+You know, pretty straightforward
+because I had everything
+
+00:43:06.060 --> 00:43:09.240
+that I wanted for the
+prompt in that user story.
+
+00:43:09.240 --> 00:43:12.810
+So, we went off and did all
+of that work, created all,
+
+00:43:12.810 --> 00:43:15.870
+what was it, 56 sprints
+that I wanted here
+
+00:43:15.870 --> 00:43:18.000
+for the next two fiscal years.
+
+00:43:18.000 --> 00:43:20.400
+And I come back
+into Azure DevOps,
+
+00:43:20.400 --> 00:43:24.390
+into the project configuration,
+and I can see all that that did.
+
+00:43:24.390 --> 00:43:27.000
+And so, I was able to do that
+in just a few minutes rather
+
+00:43:27.000 --> 00:43:29.550
+than point, click, point,
+click, point, click, you know,
+
+00:43:29.550 --> 00:43:32.910
+to repeatedly set
+all of those up.
+
+00:43:32.910 --> 00:43:34.050
+Dan Hellem: We won't
+have time to do mine.
+
+00:43:34.050 --> 00:43:34.051
+Dave Burnison: Okay.
+
+00:43:34.051 --> 00:43:35.610
+Dan Hellem: But I do want to --
+
+00:43:35.610 --> 00:43:37.800
+one more thing that we
+wanted to -- is it this one?
+
+00:43:37.800 --> 00:43:39.010
+Dave Burnison: Yep.
+
+00:43:40.560 --> 00:43:42.210
+Dan Hellem: I don't know much
+about this feature as much
+
+00:43:42.210 --> 00:43:45.450
+as I probably should, but one
+of the new releases that we put
+
+00:43:45.450 --> 00:43:50.280
+in the blog post is the
+ability to do the Apple Macs
+
+00:43:50.280 --> 00:43:54.270
+for pay-per-minute
+billing is also included
+
+00:43:54.270 --> 00:43:55.080
+for sign-up as well.
+
+00:43:55.080 --> 00:43:56.820
+So, we have now the capabilities
+
+00:43:56.820 --> 00:43:58.320
+that customers can
+basically have been waiting
+
+00:43:58.320 --> 00:44:01.650
+for to do Microsoft hosted
+agents in Azure Pipelines
+
+00:44:01.650 --> 00:44:05.070
+that are pay-per-minute
+billing, basically.
+
+00:44:05.070 --> 00:44:05.730
+Cool.
+
+00:44:05.730 --> 00:44:06.900
+Dave Burnison: All right.
+
+00:44:06.900 --> 00:44:08.520
+Thanks, everybody.
+
+00:44:08.520 --> 00:44:12.610
+[ Applause ]
+
+00:44:12.610 --> 00:44:16.830
+We'll be over at Ship and
+Tell in the other pavilion
+
+00:44:16.830 --> 00:44:20.010
+around 3 o'clock, so
+that'll be a great time
+
+00:44:20.010 --> 00:44:22.660
+to stop by and ask questions.

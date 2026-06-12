@@ -6,7 +6,7 @@
 **Speaker:** Pablo Castro (CVP & Distinguished Engineer, AI Platform, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK141]
 
-![Azure AI Search RAG Evolution](images/azure-ai-search-rag-enterprise.png)
+![RAG for Enterprise Agents with Azure AI Search](images/session-banner.png)
 
 ---
 
@@ -555,4 +555,3 @@ Microsoft
 ---
 
 *This session reveals the transformation of enterprise AI from simple RAG implementations to sophisticated, purpose-built knowledge retrieval systems that understand context, process multi-modal content, and enforce enterprise security policies. Pablo Castro demonstrates how Azure AI Search has evolved beyond traditional search into an intelligent knowledge platform that powers the next generation of enterprise AI applications.*
-

@@ -11,6 +11,8 @@
 - Maddy Montaquila (PM, Aspire Team)
 - Devis Lucato (Office of the CTO)
 
+![Elevating Development with .NET Aspire AI](images/session-banner.png)
+
 This session presented the **evolution and advancement of .NET Aspire** over the past year, focusing on its role in modern **development workflows**, **AI integration**, **cloud deployment** strategies, and **developer productivity** enhancements.
 
 ## Executive Summary 

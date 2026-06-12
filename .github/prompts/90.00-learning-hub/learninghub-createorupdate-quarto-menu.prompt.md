@@ -1,8 +1,9 @@
 ---
-name: learnhub-sidebar-menu-v3
+name: learninghub-createorupdate-quarto-menu
 description: "Validate and fix Quarto navigation: detect dangling refs, sync project.render, enforce sorting rules"
 agent: agent
 model: claude-opus-4.6
+domain: "learning-hub"
 tools:
   - read_file
   - list_dir
@@ -41,7 +42,8 @@ You are a **Quarto navigation validator** responsible for detecting and fixing n
 - Before modifying navbar (outside sidebar scope)
 
 ### 🚫 Never Do
-- Trust `quarto preview` alone for dangling detection (it skips missing files silently)
+- Run `quarto preview` in an automated phase (it starts a long-running server that never returns and blocks the agent)
+- Trust `quarto render` alone for dangling detection (it skips missing files silently)
 - Skip path verification step (Step 2.2)
 - Leave dangling references unfixed
 - Modify `navigation.json` (auto-generated)
@@ -106,19 +108,17 @@ Extract `project.render` list (all quoted paths under `render:`).
 
 ### Phase 4: Verification
 
-**Step 4.1:** Build and preview site:
+**Step 4.1:** Build the site (build-only, returns — do NOT use `quarto preview` here):
 ```
-run_in_terminal: quarto preview
+run_in_terminal: quarto render
 ```
-
-This opens browser automatically for visual verification.
 
 **Step 4.2:** Check automated output for:
 - ✅ No YAML syntax errors
 - ✅ Build completes successfully
 
-**Step 4.3:** Prompt user to verify menu visually:
-> "Please verify the sidebar navigation in the browser. Confirm the menu structure is correct, then I'll provide the summary."
+**Step 4.3:** Offer optional visual verification (only if the user wants it). `quarto preview` starts a long-running dev server, so launch it as a background task — never as a blocking command:
+> "Build passed. If you'd like to verify the sidebar visually, I can start `quarto preview` in the background; otherwise I'll provide the summary now."
 
 **Final Output (after user confirmation):**
 ```markdown
@@ -139,7 +139,7 @@ This opens browser automatically for visual verification.
 |----------|----------|
 | Path looks like typo | Show correct path if found, ask user to confirm removal |
 | Many dangling refs | List all with likely causes, confirm before bulk removal |
-| quarto preview fails | Check YAML syntax, show error, fix and re-run |
+| quarto render fails | Check YAML syntax, show error, fix and re-run |
 
 ---
 
@@ -184,7 +184,7 @@ This opens browser automatically for visual verification.
 
 <!--
 prompt_metadata:
-  version: "10.1"
+  version: "10.2"
   created: "2026-01-31T00:00:00Z"
   last_updated: "2026-01-31T00:00:00Z"
   changelog: "learninghub-createorupdate-quarto-menu.prompt.changelog.md"

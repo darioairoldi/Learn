@@ -6,6 +6,8 @@
 **Speakers:** Kayla Cinnamon (Senior Product Manager, Microsoft), Craig Loewen (Senior Product Manager, Microsoft), Larry Osterman (Principal Software Design Engineer, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK226](https://build.microsoft.com)
 
+![Boost Development Productivity](images/session-banner.png)
+
 ---
 
 ## Table of Contents

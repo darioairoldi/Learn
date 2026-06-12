@@ -6,6 +6,8 @@
 **Speakers:** Mads Torgersen (Lead Designer of C#)  
 **Link:** [Recording link](https://build.microsoft.com/en-US/sessions/DEM515)
 
+![Write Better C# Code](images/session-banner.png)
+
 > NOTE: The raw transcript file for this session is empty in the repository. Timeframes below are reconstructed/estimated from the ~15‑minute stated duration and typical pacing of a Build demo talk. Each section clearly indicates the speaker (Mads) and marks estimates with ≈. Replace with precise timestamps if/when an authoritative transcript becomes available.
 
 ---

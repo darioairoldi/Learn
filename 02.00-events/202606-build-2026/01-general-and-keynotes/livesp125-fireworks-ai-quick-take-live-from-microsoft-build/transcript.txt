@@ -1,0 +1,16 @@
+Microsoft Build
+June 2-3, 2026
+Session: LIVESP125
+Speakers: Karuana Gatimu, Vivek Chauhan
+Karuana Gatimu: Welcome back to the Show Floor at Microsoft Build in San Francisco. I'm very excited to be here in the Fireworks AI booth. I'm here with Vivek, and we're going to tell you all about this amazing technology. Vivek, welcome.
+Vivek Chauhan: Thanks for having me.
+Karuana Gatimu: Absolutely. Tell us a little bit about what Fireworks AI actually is.
+Vivek Chauhan: Yeah, so Fireworks AI is a production AI platform for open-weight models. We process more than 30 trillion tokens per day. We serve more than 10,000 enterprise customers globally, including some of the biggest names, such as Cursor, Vercel, and Uber on the platform. These companies leverage this not just for world-class inference, but also for fine-tuning the model on the platform so that they can truly embed the data more into the platform. Cursor's Composer 2, Composer 2.5, leverage our RL platform. Yeah, this is the thing they need to actually scale up their applications.
+Karuana Gatimu: Oh, that is so interesting, so many new things being invented. It's a little hard to keep up, and I'm just loving so much that I'm learning here. What is important about the partnership that exists between Microsoft and Fireworks AI?
+Vivek Chauhan: Yeah, absolutely. We are already providing world-class inference to customers. Now they can access it within Azure Foundry. They have access to the Azure Foundry's governance, security, reliability, no need to worry about billing and stuff, but they can also get access to world-class inference, which we provide on the platform. Then also, we are bringing a much wider array of models into the platform, open-weight models into the platform, and they can train a model on Fireworks and run inference on Azure.
+Karuana Gatimu: All those meaningful features and simplified billing, you had me there. That's fantastic. I know that this is your first Microsoft Build, right?
+Vivek Chauhan: It is, yes.
+Karuana Gatimu: Are you excited to be here?
+Vivek Chauhan: Super excited, I'm excited to meet people at the booth. I'm excited about the talk on Wednesday, which I'll be around with my colleagues, who are giving some talks. That will be a lot of fun.
+Karuana Gatimu: That is great. Listen, you can find demos of Fireworks AI on their Sponsors Showcase page. Plus, you can find links to the sessions that are being given, so everyone in the digital audience can follow along. Thanks for being with us, and we'll see you again soon.
+END

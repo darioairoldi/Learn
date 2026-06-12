@@ -6,7 +6,7 @@
 **Speakers:** Derek Peterson (Principal PM Manager, Microsoft Learn), Ryan Currie (Principal PM Manager, Microsoft Learn)  
 **Link:** [Microsoft Build 2025 Session DEM581](https://build.microsoft.com/en-US/sessions/DEM581)  
 
-![alt text](image.png)
+![Transforming Microsoft Learn with AI](images/session-banner.png)
 
 ## Table of Contents
 
@@ -63,7 +63,6 @@ This data underscores the critical importance of AI education and training in to
 **Microsoft Learn** has traditionally provided comprehensive learning resources including <mark>documentation</mark>, <mark>Q&A platforms</mark>, training modules, and educational shows.<br> However, these resources often require significant upfront work that interrupts the developer's workflow, forcing them to search across multiple websites for answers to their questions.
 
 ### Developer Pain Points
-![alt text](image-1.png)
 **00:02:00** - **00:02:45** (45s)  
 **Speakers:** Derek Peterson
 
@@ -76,12 +75,10 @@ Peterson outlines key developer frustrations with traditional learning approache
 - **Reduced Documentation Time**: Paradoxically, developers want less time in documentation while still accessing comprehensive knowledge
 
 ## Ask Learn Chat: Documentation Assistant
-![alt text](image-2.png)
 ### Azure Copilot Foundation
 
 **00:02:45** - **00:03:30** (45s)  
 **Speakers:** Derek Peterson
-![alt text](image-3.png)
 The Ask Learn initiative builds upon the foundation established by Azure Copilot, launched in October 2023.<br>
 The underlying system leverages Microsoft Learn's extensive knowledge base, incorporating documentation, training materials, and Q&A content to provide comprehensive answers to developer questions.
 
@@ -108,7 +105,6 @@ The system's strength lies in handling complex, multi-faceted questions that wou
 Peterson introduces the Ask Learn Tutor as a private preview VS Code extension that employs Socratic reasoning methodology. This approach allows learners to express their learning goals, and the system responds by building appropriate learning objectives and curriculum structure automatically.
 
 ### Hands-on Learning Experience
-![alt text](image-4.png)
 
 **00:04:50** - **00:05:00** (10s)  
 **Speakers:** Derek Peterson

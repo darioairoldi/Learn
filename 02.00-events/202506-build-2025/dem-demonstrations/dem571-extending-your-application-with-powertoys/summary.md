@@ -6,7 +6,7 @@
 **Speakers:** Mike Griese (Senior Software Engineer, Microsoft), Niels Laute (Senior Software Engineer, Microsoft)  
 **Link:** [Microsoft Build 2025 Session DEM571]
 
-![Command Palette Extensibility](images/command-palette-extension.png)
+![Extending Your Application with PowerToys](images/session-banner.png)
 
 ---
 
@@ -356,4 +356,3 @@ Microsoft
 ---
 
 *This session demonstrates Microsoft's commitment to extensible developer tools, showing how a powerful application launcher can be extended by the community to create rich, integrated development experiences that bring application functionality directly to users' fingertips.*
-

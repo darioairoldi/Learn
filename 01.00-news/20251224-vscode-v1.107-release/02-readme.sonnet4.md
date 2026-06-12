@@ -14,7 +14,7 @@ description: "Deep technical analysis of VS Code v1.107 release livestream cover
 **Recording Link:** [VS Code YouTube Channel](https://www.youtube.com/watch?v=placeholder)  
 **Associated Summary:** [01-summary.md](01-summary.md)
 
-![alt text](<images/001.01a session title.png>)
+![alt text](<images/001.01a-session-title.png>)
 
 ---
 

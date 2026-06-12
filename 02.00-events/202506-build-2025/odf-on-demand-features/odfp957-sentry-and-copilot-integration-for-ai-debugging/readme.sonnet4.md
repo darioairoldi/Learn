@@ -6,6 +6,8 @@
 **Speakers:** Cody De Arkland (Head of Developer Experience, Sentry)  
 **Link:** [Session ODFP957](https://build.microsoft.com/en-US/sessions/ODFP957) 
 
+![Sentry and Copilot Integration for AI Debugging](images/session-banner.png)
+
 ## Table of Contents
 
 1. [Introduction to AI-Powered Debugging Workflow](#introduction-to-ai-powered-debugging-workflow)

@@ -7,7 +7,7 @@
 **Additional Speakers:** Alexander Sklar, Jesse Bishop, Kiran Kumar  
 **Link:** [Microsoft Build 2025 Session BRK229]
 
-![MCP on Windows Platform](images/mcp-windows-agentic-interactions.png)
+![Unlock Agents for Your Apps Using MCP on Windows](images/session-banner.png)
 
 ---
 
@@ -507,4 +507,3 @@ Microsoft
 ---
 
 *This comprehensive session establishes Windows as the premier platform for AI agent development, demonstrating how MCP on Windows solves critical challenges in extensibility, security, and discoverability while providing developers with powerful tools for creating sophisticated agentic applications that seamlessly integrate with the Windows ecosystem.*
-

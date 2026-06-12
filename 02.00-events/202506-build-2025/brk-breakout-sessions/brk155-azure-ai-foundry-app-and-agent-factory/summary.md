@@ -6,13 +6,13 @@
 **Speakers:** Yina Arenas (VP Azure AI Foundry, Microsoft), Scott Hanselman (Vice President Developer Community, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK155]
 
-![Azure AI Foundry Platform](images/azure-ai-foundry-app-agent-factory.png)
+![Azure AI Foundry App and Agent Factory](images/session-banner.png)
 
 ---
 
 ## Executive Summary
 
-This flagship Azure AI Foundry session showcases how Microsoft's comprehensive AI platform transforms real-world workflows through an ambitious live demonstration: automating Scott Hanselman's 20-year podcast production process. Yina Arenas and Scott Hanselman demonstrate the platform's three core pillars—models, agents, and observability—through extensive live coding, revealing how developers can build production-ready AI applications with integrated signals loops that connect model choice, knowledge retrieval, fine-tuning, orchestration, and memory.
+This flagship Azure AI Foundry session showcases how Microsoft's comprehensive AI platform transforms real-world workflows through an ambitious live demonstration: automating Scott Hanselman's 20-year podcast production process. Yina Arenas and Scott Hanselman demonstrate the platform's three core pillarsï¿½models, agents, and observabilityï¿½through extensive live coding, revealing how developers can build production-ready AI applications with integrated signals loops that connect model choice, knowledge retrieval, fine-tuning, orchestration, and memory.
 
 ---
 

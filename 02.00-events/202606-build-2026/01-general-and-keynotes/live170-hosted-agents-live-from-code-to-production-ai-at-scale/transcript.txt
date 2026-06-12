@@ -1,0 +1,920 @@
+WEBVTT
+
+00:00:00.030 --> 00:00:00.570
+LEE STOTT: Hi, everyone.
+
+00:00:00.570 --> 00:00:01.230
+I'm Lee Stott.
+
+00:00:01.230 --> 00:00:02.910
+I'm a Principal Cloud
+Advocate at Microsoft.
+
+00:00:02.910 --> 00:00:04.530
+I'm here today with Jeff Hollan,
+
+00:00:04.530 --> 00:00:07.500
+who's a Partner Director
+for Foundry Agents.
+
+00:00:07.500 --> 00:00:08.720
+So, Jeff, it's great
+to have you here.
+
+00:00:08.720 --> 00:00:10.800
+Do you want to give a bit of an
+introduction about your role
+
+00:00:10.800 --> 00:00:11.880
+and what you're
+doing at Microsoft?
+
+00:00:11.880 --> 00:00:12.510
+JEFF HOLLAN: Sure, yes.
+
+00:00:12.510 --> 00:00:15.240
+It's been so much fun being here
+at Build, being here with all
+
+00:00:15.240 --> 00:00:16.800
+of these different builders.
+
+00:00:16.800 --> 00:00:17.670
+As you mentioned, I'm
+
+00:00:17.670 --> 00:00:20.130
+on the product management
+side working in Foundry.
+
+00:00:20.130 --> 00:00:21.450
+Specifically, what
+my team is working
+
+00:00:21.450 --> 00:00:23.250
+on are all things agents.
+
+00:00:23.250 --> 00:00:26.100
+So how builders can go
+choose the right model,
+
+00:00:26.100 --> 00:00:27.510
+get their agents up and running,
+
+00:00:27.510 --> 00:00:29.670
+all of the different components
+needed for an agent,
+
+00:00:29.670 --> 00:00:31.980
+whether it's the tools
+or the evaluations,
+
+00:00:31.980 --> 00:00:34.320
+or even just how you can get
+it hosted at cloud scale.
+
+00:00:34.320 --> 00:00:36.810
+That's what we're focused on,
+and helping different developers
+
+00:00:36.810 --> 00:00:39.980
+and builders and enterprises
+build that for their teams.
+
+00:00:39.980 --> 00:00:42.320
+LEE STOTT: Yeah, so Hosted
+Agents is a fairly new product.
+
+00:00:42.320 --> 00:00:43.880
+We've just gone to preview.
+
+00:00:43.880 --> 00:00:45.860
+So can you tell us a bit
+about what is Hosted Agents?
+
+00:00:45.860 --> 00:00:47.900
+People are used to
+prompt-based agents.
+
+00:00:47.900 --> 00:00:48.920
+What's the difference?
+
+00:00:48.920 --> 00:00:50.690
+JEFF HOLLAN: Yeah, so
+this is a big update
+
+00:00:50.690 --> 00:00:52.980
+that released a few
+months ago now.
+
+00:00:52.980 --> 00:00:54.870
+The way that I like to think
+of it is so you could go
+
+00:00:54.870 --> 00:00:56.820
+into Foundry -- even today,
+you can go into Foundry,
+
+00:00:56.820 --> 00:00:59.670
+and you can say, "Hey, here's
+the agent that I want to build.
+
+00:00:59.670 --> 00:01:02.310
+Maybe I'm going to give
+it a set of instructions.
+
+00:01:02.310 --> 00:01:04.370
+Here's some tools that
+it can configure."
+
+00:01:04.370 --> 00:01:07.490
+But I'm really leaving a lot
+of it up to the model itself
+
+00:01:07.490 --> 00:01:09.410
+to decide how to
+execute the agent.
+
+00:01:09.410 --> 00:01:10.940
+What Hosted Agents brings
+
+00:01:10.940 --> 00:01:14.840
+in is now I'm bringing my own
+agent code, or, in some cases,
+
+00:01:14.840 --> 00:01:16.520
+my agent harness, if
+you want to use some
+
+00:01:16.520 --> 00:01:18.420
+of the cool terminology.
+
+00:01:18.420 --> 00:01:20.580
+So whether you're using
+something like LangGraph
+
+00:01:20.580 --> 00:01:24.240
+or Microsoft Agent Framework
+or the Anthropic Agent SDK
+
+00:01:24.240 --> 00:01:25.950
+or the GitHub Copilot SDK,
+
+00:01:25.950 --> 00:01:28.620
+there's so many amazing
+code-based tools
+
+00:01:28.620 --> 00:01:30.660
+that you can use to
+define your agent.
+
+00:01:30.660 --> 00:01:33.270
+You can write that code, test
+it all locally, and then,
+
+00:01:33.270 --> 00:01:36.150
+in Hosted Agents, we
+will go run it for you.
+
+00:01:36.150 --> 00:01:38.880
+But beyond just running it
+for you, we will connect it
+
+00:01:38.880 --> 00:01:41.790
+to the right models, give you
+access to tools, observability,
+
+00:01:41.790 --> 00:01:42.510
+a bunch of other pieces.
+
+00:01:42.510 --> 00:01:45.690
+So this lets you write the agent
+the way you want to write it,
+
+00:01:45.690 --> 00:01:48.270
+but then have it be
+wholly hosted at scale,
+
+00:01:48.270 --> 00:01:49.440
+all inside of Foundry.
+
+00:01:49.440 --> 00:01:50.220
+LEE STOTT: So that's
+really interesting.
+
+00:01:50.220 --> 00:01:52.350
+You talked about both
+Microsoft products coming
+
+00:01:52.350 --> 00:01:55.650
+from Microsoft Agent Framework
+or Microsoft Agent Services,
+
+00:01:55.650 --> 00:01:57.390
+and then all the
+open-source things
+
+00:01:57.390 --> 00:01:59.790
+like LangChain,
+LangGraph, CrewAI.
+
+00:01:59.790 --> 00:02:02.880
+So what do you feel like are
+the biggest gaps between taking
+
+00:02:02.880 --> 00:02:04.380
+that prototype, I've
+built an agent,
+
+00:02:04.380 --> 00:02:06.600
+it's a prompt-based
+agent, and now I want
+
+00:02:06.600 --> 00:02:08.460
+to take it to production?
+
+00:02:08.460 --> 00:02:09.750
+What are the steps available
+
+00:02:09.750 --> 00:02:11.700
+in the Hosted Agent
+framework to do that?
+
+00:02:11.700 --> 00:02:13.590
+JEFF HOLLAN: Yeah, I think
+what we see a lot right now,
+
+00:02:13.590 --> 00:02:16.230
+like in the era of coding
+agents that we live in,
+
+00:02:16.230 --> 00:02:19.160
+actually writing that agent
+prototype can actually be done
+
+00:02:19.160 --> 00:02:20.300
+fairly quickly.
+
+00:02:20.300 --> 00:02:23.750
+You could open up GitHub Copilot
+CLI or Visual Studio Code
+
+00:02:23.750 --> 00:02:27.090
+with GitHub Copilot and say,
+"Hey, build me an agent in.NET,
+
+00:02:27.090 --> 00:02:28.800
+in Python, in
+whatever you want,"
+
+00:02:28.800 --> 00:02:30.030
+and it will probably
+have something
+
+00:02:30.030 --> 00:02:32.400
+that you could be running
+within an hour or two.
+
+00:02:32.400 --> 00:02:35.580
+That's actually to the point
+of prototype pretty quick.
+
+00:02:35.580 --> 00:02:38.130
+Oftentimes, what I'm seeing
+in that gap between prototype
+
+00:02:38.130 --> 00:02:40.770
+to production, a lot of
+the big considerations,
+
+00:02:40.770 --> 00:02:43.110
+especially for enterprises,
+comes around quality.
+
+00:02:43.110 --> 00:02:46.050
+It's the "I want to make sure
+as people are interacting
+
+00:02:46.050 --> 00:02:48.210
+with this agent that they're
+getting the right answers."
+
+00:02:48.210 --> 00:02:50.220
+I think a lot of the
+effort that comes
+
+00:02:50.220 --> 00:02:51.990
+into that just comes
+around, actually,
+
+00:02:51.990 --> 00:02:54.330
+for those who are watching, the
+last session we just heard from,
+
+00:02:54.330 --> 00:02:56.520
+around evaluations,
+around observability.
+
+00:02:56.520 --> 00:02:58.770
+It's the how do you make sure
+you have the right pieces
+
+00:02:58.770 --> 00:03:01.500
+so that you're testing and
+confirming and saying, "Hey,
+
+00:03:01.500 --> 00:03:05.790
+if I go give this to my Chief
+Finance Officer and they ask,
+
+00:03:05.790 --> 00:03:08.940
+'How are we tracking towards our
+quarterly guidance?'" You really
+
+00:03:08.940 --> 00:03:10.590
+want to make sure that that
+agent is giving you the
+
+00:03:10.590 --> 00:03:11.640
+right answers.
+
+00:03:11.640 --> 00:03:14.250
+I think the other piece is
+around production grade,
+
+00:03:14.250 --> 00:03:16.890
+two more that come to mind
+quickly would be one is just
+
+00:03:16.890 --> 00:03:18.930
+scale and reliability.
+
+00:03:18.930 --> 00:03:21.090
+I want to make sure,
+even if I'm using some
+
+00:03:21.090 --> 00:03:23.520
+of these advanced agent
+patterns, that I have something
+
+00:03:23.520 --> 00:03:25.920
+that could scale to
+hundreds or thousands
+
+00:03:25.920 --> 00:03:28.170
+or maybe even millions
+of different users.
+
+00:03:28.170 --> 00:03:31.500
+So there's a component of
+scale in there as well.
+
+00:03:31.500 --> 00:03:34.770
+And, yeah, I think those
+are the big ones, actually.
+
+00:03:34.770 --> 00:03:37.020
+Versioning and kind of life
+cycle management would be the
+
+00:03:37.020 --> 00:03:37.800
+only other third way
+that comes to mind.
+
+00:03:37.800 --> 00:03:39.930
+LEE STOTT: So it's that
+whole observability piece.
+
+00:03:39.930 --> 00:03:41.820
+JEFF HOLLAN: It's
+all that, the tried
+
+00:03:41.820 --> 00:03:44.160
+and true DevOps process
+that we love to talk
+
+00:03:44.160 --> 00:03:45.720
+about for about a decade now.
+
+00:03:45.720 --> 00:03:47.310
+It all stays true with agents.
+
+00:03:47.310 --> 00:03:48.180
+We have different tools.
+
+00:03:48.180 --> 00:03:50.040
+There's a few different
+words, but it's the same type
+
+00:03:50.040 --> 00:03:51.690
+of pattern that we've been
+building for a while now.
+
+00:03:51.690 --> 00:03:53.580
+LEE STOTT: So one of the
+biggest challenges lots
+
+00:03:53.580 --> 00:03:56.730
+of developers are talking
+about now is about identity.
+
+00:03:56.730 --> 00:03:59.340
+Agents are now becoming
+to have a real identity,
+
+00:03:59.340 --> 00:04:02.850
+and developers are now becoming
+managers of multiple agents.
+
+00:04:02.850 --> 00:04:06.330
+So how are we thinking about
+that identity, the security,
+
+00:04:06.330 --> 00:04:08.190
+and the isolation
+of these agents
+
+00:04:08.190 --> 00:04:10.560
+on both the developer's
+perspective
+
+00:04:10.560 --> 00:04:12.510
+and on an organizational
+perspective?
+
+00:04:12.510 --> 00:04:14.580
+JEFF HOLLAN: Yeah, this is an
+area I'm actually really proud
+
+00:04:14.580 --> 00:04:15.870
+of what Microsoft has done here.
+
+00:04:15.870 --> 00:04:18.540
+So I only jumped into this
+role about four months ago,
+
+00:04:18.540 --> 00:04:20.310
+and for me, one of
+the biggest learnings
+
+00:04:20.310 --> 00:04:24.200
+that I had was how impressive
+Entra's agent identity is.
+
+00:04:24.200 --> 00:04:26.360
+This really is ahead
+of the curve here
+
+00:04:26.360 --> 00:04:27.650
+and has some great patterns.
+
+00:04:27.650 --> 00:04:30.750
+So with Entra agent identity, we
+have these first-class patterns
+
+00:04:30.750 --> 00:04:33.300
+for you to do the regular
+type of authentication
+
+00:04:33.300 --> 00:04:35.700
+that I think we're used to,
+which is, "Hey, I have something
+
+00:04:35.700 --> 00:04:38.280
+like a managed identity or
+service principal I want
+
+00:04:38.280 --> 00:04:41.970
+to give it access to perform,
+connectivity to this database
+
+00:04:41.970 --> 00:04:43.560
+or to these Azure services."
+
+00:04:43.560 --> 00:04:47.520
+It also does some other pieces
+like on-behalf-of identity.
+
+00:04:47.520 --> 00:04:51.990
+So if I'm talking to the agent
+and it needs to access my inbox,
+
+00:04:51.990 --> 00:04:54.950
+it's able to get my consent
+and use my identity.
+
+00:04:54.950 --> 00:04:56.720
+What's nice about Entra
+agent identity, though,
+
+00:04:56.720 --> 00:04:58.250
+is it does those patterns.
+
+00:04:58.250 --> 00:05:00.680
+It can also have its
+own standalone kind
+
+00:05:00.680 --> 00:05:03.380
+of fully autopilot-type
+identity.
+
+00:05:03.380 --> 00:05:05.540
+But you get good telemetry
+and tracking across.
+
+00:05:05.540 --> 00:05:10.350
+So I know whether Jeff is
+talking to this email,
+
+00:05:10.350 --> 00:05:14.460
+or it is Jeff's identity talking
+to this email through an agent.
+
+00:05:14.460 --> 00:05:16.470
+And that's a really
+important extra piece.
+
+00:05:16.470 --> 00:05:20.130
+So the nice part of Foundry,
+and even these Hosted Agents,
+
+00:05:20.130 --> 00:05:23.510
+is any agent you build, we just
+give you an agent identity
+
+00:05:23.510 --> 00:05:24.140
+out of the box.
+
+00:05:24.140 --> 00:05:26.420
+You don't have to go wire
+this up and configure it.
+
+00:05:26.420 --> 00:05:28.550
+We'll just say, "Hey, we know
+you're building an agent
+
+00:05:28.550 --> 00:05:30.330
+because you're using
+the agent service.
+
+00:05:30.330 --> 00:05:32.700
+Here's your agent identity
+that you can go configure
+
+00:05:32.700 --> 00:05:33.570
+to do some of these patterns."
+
+00:05:33.570 --> 00:05:36.390
+So it's actually really cool
+what's possible between Foundry
+
+00:05:36.390 --> 00:05:37.650
+and Entra agent identity.
+
+00:05:37.650 --> 00:05:37.730
+LEE STOTT: Definitely.
+
+00:05:37.730 --> 00:05:39.030
+And I think another key aspect
+
+00:05:39.030 --> 00:05:40.620
+of that is the new
+role position.
+
+00:05:40.620 --> 00:05:45.570
+So we've gone from AI, Azure
+AI user to now Foundry user,
+
+00:05:45.570 --> 00:05:46.800
+Foundry Project Manager.
+
+00:05:46.800 --> 00:05:51.120
+So, between this change of
+the new security boundaries,
+
+00:05:51.120 --> 00:05:53.760
+how is this really
+balancing that flexibility
+
+00:05:53.760 --> 00:05:56.700
+of developers building
+enterprise governance
+
+00:05:56.700 --> 00:05:58.020
+into their agents?
+
+00:05:58.020 --> 00:05:59.910
+JEFF HOLLAN: Yeah, and this
+is an area you're even going
+
+00:05:59.910 --> 00:06:01.080
+to see continue to iterate.
+
+00:06:01.080 --> 00:06:03.840
+We want to make sure we
+have, I guess, there's a lot
+
+00:06:03.840 --> 00:06:05.070
+of investments happening
+on both sides.
+
+00:06:05.070 --> 00:06:08.490
+The first one is, as you are
+a builder or an operator,
+
+00:06:08.490 --> 00:06:09.900
+how do you make sure you
+have the right roles
+
+00:06:09.900 --> 00:06:12.510
+and access controls, to your
+point around Foundry user,
+
+00:06:12.510 --> 00:06:15.810
+Foundry contributor,
+Foundry observability,
+
+00:06:15.810 --> 00:06:17.820
+so that you are able to do
+the roles that you want
+
+00:06:17.820 --> 00:06:20.070
+in a least-privileged way.
+
+00:06:20.070 --> 00:06:21.570
+And then there's the other
+side of it, which is, well,
+
+00:06:21.570 --> 00:06:23.940
+my agent also needs to be
+able to perform tasks,
+
+00:06:23.940 --> 00:06:25.860
+sometimes fully autonomously.
+
+00:06:25.860 --> 00:06:28.050
+How do I make sure I have the
+right guardrails and controls
+
+00:06:28.050 --> 00:06:30.120
+so that it only does
+what I want it to do?
+
+00:06:30.120 --> 00:06:32.100
+Even down, right now
+there's a lot of effort,
+
+00:06:32.100 --> 00:06:34.740
+maybe a little bit of preview
+things to come, "Hey,
+
+00:06:34.740 --> 00:06:37.860
+this has access to this MCP
+tool, but I only want it
+
+00:06:37.860 --> 00:06:39.690
+to be able to call
+these three tools.
+
+00:06:39.690 --> 00:06:41.850
+The other two things
+that might be described,
+
+00:06:41.850 --> 00:06:42.990
+I need to be able
+to restrict that."
+
+00:06:42.990 --> 00:06:45.900
+We know that people want
+their agent to be flexible,
+
+00:06:45.900 --> 00:06:48.540
+but you want to make sure you're
+doing it in a responsible way.
+
+00:06:48.540 --> 00:06:51.210
+So this is a huge
+effort for the team.
+
+00:06:51.210 --> 00:06:53.700
+Matthew Henderson on the
+team right now is focused
+
+00:06:53.700 --> 00:06:55.230
+on this full-time, just the type
+
+00:06:55.230 --> 00:06:56.520
+of things you've
+been asking about.
+
+00:06:56.520 --> 00:06:58.230
+LEE STOTT: And again,
+this is really going back
+
+00:06:58.230 --> 00:07:00.270
+into that prototype
+to production.
+
+00:07:00.270 --> 00:07:02.640
+So once we have our
+applications in production --
+
+00:07:02.640 --> 00:07:05.790
+our agents in production, what
+do you think are the things
+
+00:07:05.790 --> 00:07:08.910
+that developers are starting
+to underestimate at this time,
+
+00:07:08.910 --> 00:07:10.500
+because agents are
+still really new
+
+00:07:10.500 --> 00:07:12.570
+and Hosted Agents are very new?
+
+00:07:12.570 --> 00:07:14.910
+JEFF HOLLAN: I think,
+honestly, if there's one thing
+
+00:07:14.910 --> 00:07:19.290
+that I think I come across the
+most is underestimating how
+
+00:07:19.290 --> 00:07:22.800
+powerful an agent can be
+if you get out of the way.
+
+00:07:22.800 --> 00:07:25.020
+And I know this is very scary,
+and it's almost contradictory
+
+00:07:25.020 --> 00:07:26.670
+to what I was just saying
+before around governance,
+
+00:07:26.670 --> 00:07:28.710
+and that's why we try to
+have the balance of both.
+
+00:07:28.710 --> 00:07:31.770
+I think as people start to go
+into production, there is a type
+
+00:07:31.770 --> 00:07:34.740
+of agent that you can build,
+which is very, very constrained,
+
+00:07:34.740 --> 00:07:36.420
+almost like a
+deterministic workflow.
+
+00:07:36.420 --> 00:07:37.440
+And there's value to that.
+
+00:07:37.440 --> 00:07:39.690
+I don't want to say there's
+nothing really there.
+
+00:07:39.690 --> 00:07:43.140
+But I think what I look at
+what's inspiring the imagination
+
+00:07:43.140 --> 00:07:46.860
+of both myself and for users
+in the community with things
+
+00:07:46.860 --> 00:07:50.760
+like OpenClaw or Hermes Agent
+or even GitHub Copilot CLI,
+
+00:07:50.760 --> 00:07:55.410
+it's wow, if we can get
+a robust agent harness
+
+00:07:55.410 --> 00:07:59.070
+with a powerful model, I
+actually don't have to predefine
+
+00:07:59.070 --> 00:08:01.950
+in advance all of the things
+that are possible for the agent.
+
+00:08:01.950 --> 00:08:03.570
+So I think the thing that
+actually comes to mind
+
+00:08:03.570 --> 00:08:05.970
+when you talk about
+underestimating is that, "Hey,
+
+00:08:05.970 --> 00:08:09.150
+my agent can actually start to
+add value in a lot more places
+
+00:08:09.150 --> 00:08:11.280
+that I might be appreciating
+from the get-go.
+
+00:08:11.280 --> 00:08:14.520
+So my recommendation to everyone
+here would be doing that type
+
+00:08:14.520 --> 00:08:18.240
+of experimentation, using a good
+harness, whether it's OpenClaw
+
+00:08:18.240 --> 00:08:21.330
+or Microsoft Agent Framework
+or GitHub Copilot SDK,
+
+00:08:21.330 --> 00:08:23.040
+and seeing what's possible
+
+00:08:23.040 --> 00:08:24.360
+as these things move
+into production.
+
+00:08:24.360 --> 00:08:24.660
+LEE STOTT: Brilliant.
+
+00:08:24.660 --> 00:08:27.450
+Sounds like a great first
+thing developers should do
+
+00:08:27.450 --> 00:08:30.480
+from watching Build and being
+with us today, is like --
+
+00:08:30.480 --> 00:08:33.120
+what's the number one thing
+a developer should do?
+
+00:08:33.120 --> 00:08:34.680
+JEFF HOLLAN: I would say
+if there's one thing,
+
+00:08:34.680 --> 00:08:38.460
+it would be heading to the
+Microsoft Foundry documentation,
+
+00:08:38.460 --> 00:08:40.970
+and we have three quickstarts
+you can choose from.
+
+00:08:40.970 --> 00:08:43.340
+But just getting your hands on
+these tools and trying them out.
+
+00:08:43.340 --> 00:08:44.300
+There's some great blogs.
+
+00:08:44.300 --> 00:08:46.310
+In fact, Lee, you've published
+a few in the last (inaudible)
+
+00:08:46.310 --> 00:08:47.630
+LEE STOTT: We've got
+some great labs as well.
+
+00:08:47.630 --> 00:08:49.070
+JEFF HOLLAN: Great
+labs, great Vlogs.
+
+00:08:49.070 --> 00:08:50.570
+There are so many opportunities.
+
+00:08:50.570 --> 00:08:53.330
+This is such a fun time to be
+a developer and a builder.
+
+00:08:53.330 --> 00:08:56.490
+Go explore one of these things,
+try it out, test it out,
+
+00:08:56.490 --> 00:08:57.750
+see what it can do,
+see what it can't do.
+
+00:08:57.750 --> 00:08:59.220
+That would be the number
+one recommendation.
+
+00:08:59.220 --> 00:08:59.580
+LEE STOTT: Great.
+
+00:08:59.580 --> 00:09:00.240
+Thank you, Jeff.
+
+00:09:00.240 --> 00:09:01.380
+It's been great speaking to you,
+
+00:09:01.380 --> 00:09:03.960
+and I hope you've all
+enjoyed Hosted Agents.
+
+00:09:03.960 --> 00:09:05.520
+JEFF HOLLAN: Thanks, Lee.
+
+00:09:05.520 --> 00:09:15.810
+[ Music ]

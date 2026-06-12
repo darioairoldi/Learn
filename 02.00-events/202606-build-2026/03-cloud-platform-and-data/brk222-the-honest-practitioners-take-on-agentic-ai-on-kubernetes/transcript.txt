@@ -1,0 +1,4573 @@
+WEBVTT
+
+00:00:02.093 --> 00:00:03.180
+Lachlan Evenson: Good
+afternoon, everyone.
+
+00:00:03.180 --> 00:00:05.100
+How is everyone doing?
+
+00:00:05.100 --> 00:00:06.990
+Come on give me some energy.
+
+00:00:06.990 --> 00:00:10.440
+It's 5:00 p.m., and I'm the only
+thing that stands between you
+
+00:00:10.440 --> 00:00:11.700
+and the chain smokers tonight.
+
+00:00:11.700 --> 00:00:14.790
+So, trust me, buckle up,
+roll up your sleeves,
+
+00:00:14.790 --> 00:00:16.230
+we're going to have a
+lot of fun together.
+
+00:00:16.230 --> 00:00:18.030
+And I'm going to give you
+the best of my energy.
+
+00:00:18.030 --> 00:00:20.872
+Sound good? As long
+as I get it return, okay.
+
+00:00:20.906 --> 00:00:22.860
+So, I'm Lachlan Evenson,
+
+00:00:22.860 --> 00:00:25.830
+and this is the honest
+practitioner's take
+
+00:00:25.830 --> 00:00:28.020
+on agentic AI on Kubernetes.
+
+00:00:28.020 --> 00:00:29.550
+Say that three times quickly.
+
+00:00:29.550 --> 00:00:33.060
+Now, today, I'll be your
+honest practitioner.
+
+00:00:33.060 --> 00:00:36.960
+I have had the luxury of working
+in Kubernetes for over 10 years.
+
+00:00:36.960 --> 00:00:39.900
+Anybody else using Kubernetes in
+the room, by a show of hands?
+
+00:00:39.900 --> 00:00:41.340
+Excellent, excellent.
+
+00:00:41.340 --> 00:00:43.800
+All right, you're in the right
+place, and it's the right time.
+
+00:00:43.800 --> 00:00:44.970
+Because this session is
+
+00:00:44.970 --> 00:00:47.820
+for people already running
+Kubernetes who are trying
+
+00:00:47.820 --> 00:00:51.690
+to figure out what AI
+workloads actually need
+
+00:00:51.690 --> 00:00:52.740
+on top of Kubernetes.
+
+00:00:52.740 --> 00:00:55.710
+Who's running AI on
+top of Kubernetes?
+
+00:00:55.710 --> 00:00:57.180
+No one yet?
+
+00:00:57.180 --> 00:00:58.440
+Okay, trust me.
+
+00:00:58.440 --> 00:01:00.420
+By the end of the
+session, 45 minutes,
+
+00:01:00.420 --> 00:01:01.793
+come to me if you don't have
+
+00:01:01.826 --> 00:01:04.020
+something to walk
+away with, okay?
+
+00:01:04.020 --> 00:01:07.830
+So, what we're going to cover
+today is what works today,
+
+00:01:07.830 --> 00:01:09.274
+what's harder than it looks,
+
+00:01:09.307 --> 00:01:11.810
+and where the
+ecosystem is going, right?
+
+00:01:11.810 --> 00:01:15.110
+All on your journey to agentic
+AI on top of Kubernetes.
+
+00:01:15.110 --> 00:01:16.460
+Does that sound good?
+
+00:01:16.460 --> 00:01:18.630
+With me? All right, let's do it.
+
+00:01:19.520 --> 00:01:22.800
+Okay, our agenda, we have three
+parts for this agenda today.
+
+00:01:22.800 --> 00:01:25.680
+And trust me, I had a lot of
+fun working on this deck.
+
+00:01:25.680 --> 00:01:27.360
+So, if my excitement
+doesn't come
+
+00:01:27.360 --> 00:01:30.420
+across already,
+I'd be surprised.
+
+00:01:30.420 --> 00:01:33.000
+But I've had a lot of fun over
+the last few months working
+
+00:01:33.000 --> 00:01:35.550
+with agentic systems
+on top of Kubernetes.
+
+00:01:35.550 --> 00:01:38.040
+And I think back to 10
+years ago, when I started
+
+00:01:38.040 --> 00:01:41.100
+in Kubernetes, I had
+a lot of excitement.
+
+00:01:41.100 --> 00:01:43.890
+I had that" a-ha" moment when
+I first ran a container
+
+00:01:43.890 --> 00:01:46.800
+in production, and I scaled
+that out to 100 containers.
+
+00:01:46.800 --> 00:01:49.560
+Anybody have that "a-ha"
+moment with Kubernetes?
+
+00:01:49.560 --> 00:01:50.850
+I had that same feeling
+
+00:01:50.850 --> 00:01:53.820
+with agentic AI systems
+running on Kubernetes.
+
+00:01:53.820 --> 00:01:56.640
+And my kids were watching
+Willy Wonka the other day,
+
+00:01:56.640 --> 00:01:59.700
+and there's this scene where
+Timothee Chalamet sings
+
+00:01:59.700 --> 00:02:02.040
+"In a World of
+Pure Imagination".
+
+00:02:02.040 --> 00:02:03.990
+I feel like for the last
+10 years, I've been trying
+
+00:02:03.990 --> 00:02:07.680
+to build platforms, and now I
+get to go back to the world
+
+00:02:07.680 --> 00:02:11.130
+of pure imagination and create
+really cool systems using
+
+00:02:11.130 --> 00:02:13.260
+agentic systems on
+top of Kubernetes.
+
+00:02:13.260 --> 00:02:15.090
+So, hopefully,
+with this journey,
+
+00:02:15.123 --> 00:02:16.650
+I can impart some wisdom
+
+00:02:16.650 --> 00:02:18.990
+within you all to go
+on your own journey.
+
+00:02:18.990 --> 00:02:20.760
+And I'm going to make
+it very tactile.
+
+00:02:20.760 --> 00:02:23.460
+We're going to see demos,
+customer cases, and you're going
+
+00:02:23.460 --> 00:02:25.860
+to get access to some
+Kubernetes repos
+
+00:02:25.860 --> 00:02:27.480
+that you can take away with you.
+
+00:02:27.480 --> 00:02:30.030
+So, let me go through the
+three parts of this agenda.
+
+00:02:30.030 --> 00:02:32.190
+We're going to go over
+why Kubernetes shows
+
+00:02:32.190 --> 00:02:36.240
+up as a substrate for running
+the biggest AI workloads
+
+00:02:36.240 --> 00:02:40.110
+in production, and what
+managed stacks are great for,
+
+00:02:40.110 --> 00:02:42.330
+and what self-managed
+stacks, like running on top
+
+00:02:42.330 --> 00:02:46.050
+of Kubernetes with your agentic
+system and your AI workloads,
+
+00:02:46.050 --> 00:02:48.660
+are great for some teams.
+
+00:02:48.660 --> 00:02:51.420
+What it actually takes to run
+AI on Kubernetes and AKS,
+
+00:02:51.420 --> 00:02:55.290
+we're going to go layer by
+layer from inference to serving
+
+00:02:55.290 --> 00:02:57.330
+to training to agentic systems.
+
+00:02:57.330 --> 00:02:59.070
+So, we're going to walk
+the stack together.
+
+00:02:59.070 --> 00:03:00.810
+We're going to go
+through the whole lot.
+
+00:03:00.810 --> 00:03:02.670
+Third, we're going to take
+a look at what this looks
+
+00:03:02.670 --> 00:03:06.150
+like in practice with real
+customers and real workloads.
+
+00:03:06.150 --> 00:03:07.674
+So, we're going to
+work you through some
+
+00:03:07.707 --> 00:03:08.970
+sovereign customers,
+
+00:03:08.970 --> 00:03:10.590
+some financial
+service customers,
+
+00:03:10.590 --> 00:03:12.900
+how they're leveraging the
+platforms and tools I'm talking
+
+00:03:12.900 --> 00:03:15.840
+about today to power
+their AI workloads.
+
+00:03:15.840 --> 00:03:18.030
+And as I said, we're
+going to walk away.
+
+00:03:18.030 --> 00:03:20.010
+You're going to have a checklist
+that you're going to be able
+
+00:03:20.010 --> 00:03:21.960
+to take back to your
+team this week.
+
+00:03:21.960 --> 00:03:23.250
+I always say, when you go
+
+00:03:23.250 --> 00:03:25.200
+to a Taylor Swift concert,
+what do you want?
+
+00:03:25.200 --> 00:03:27.090
+You want something
+you can't get on TV.
+
+00:03:27.090 --> 00:03:28.740
+I'm going to give you the
+stuff that you don't get
+
+00:03:28.740 --> 00:03:30.210
+on TV in this audience.
+
+00:03:30.210 --> 00:03:31.590
+Splash zone, beware.
+
+00:03:31.590 --> 00:03:34.270
+So, you're going to get wet in
+those first three rows. Okay?
+
+00:03:34.915 --> 00:03:37.050
+Okay, let's go
+ahead, let's dive in.
+
+00:03:37.050 --> 00:03:38.610
+We need to start with the "why".
+
+00:03:38.610 --> 00:03:40.740
+I can't tell you the "what"
+without giving you the "why".
+
+00:03:40.740 --> 00:03:42.810
+I think the "why"
+is so important
+
+00:03:42.810 --> 00:03:44.550
+as to why we're doing
+these things, right?
+
+00:03:44.550 --> 00:03:46.350
+So, let's start with the
+"why", and then I'll get
+
+00:03:46.350 --> 00:03:48.120
+to the "what" and
+the "how", okay?
+
+00:03:48.120 --> 00:03:50.130
+But it's important to
+be honest up front.
+
+00:03:50.130 --> 00:03:51.570
+This is the honest practitioner.
+
+00:03:51.570 --> 00:03:53.760
+I'm your honest
+practitioner for today.
+
+00:03:53.760 --> 00:03:55.860
+Kubernetes is a big hammer,
+and with a big hammer,
+
+00:03:55.860 --> 00:03:57.330
+everything looks like a nail.
+
+00:03:57.330 --> 00:03:59.640
+Kubernetes isn't
+always the right fit,
+
+00:03:59.640 --> 00:04:01.800
+but in some cases,
+it is the right fit.
+
+00:04:01.800 --> 00:04:05.850
+And in the case of scale, AI
+and scale run hand-in-hand.
+
+00:04:05.850 --> 00:04:09.180
+Kubernetes is a great platform
+to be able to run AI at-scale.
+
+00:04:09.180 --> 00:04:12.450
+And it certainly is one of
+the right answers in that.
+
+00:04:12.450 --> 00:04:14.940
+So, we want to actually go
+through the "why" and why
+
+00:04:14.940 --> 00:04:18.000
+that scales and why it matters.
+
+00:04:18.000 --> 00:04:20.460
+I think it's important to
+start with looking at PaaS
+
+00:04:20.460 --> 00:04:22.410
+when you're on your journey
+you start with PaaS.
+
+00:04:22.410 --> 00:04:25.860
+On the left there, we have
+four managed AI services.
+
+00:04:25.860 --> 00:04:28.890
+The session before this was
+about Microsoft Foundry.
+
+00:04:28.890 --> 00:04:33.150
+That is an example of a fully
+integrated AI platform.
+
+00:04:33.150 --> 00:04:36.660
+And then over on the right, we
+have AKS and Kubernetes. Right?
+
+00:04:36.660 --> 00:04:39.540
+And what we're going to look is
+the left side provides a managed
+
+00:04:39.540 --> 00:04:43.080
+AI platform, which is going
+to be your fastest path
+
+00:04:43.080 --> 00:04:44.850
+to a deployment model, right?
+
+00:04:44.850 --> 00:04:48.540
+It's curated, it's standardized,
+it's vendor-tuned.
+
+00:04:48.540 --> 00:04:50.760
+On the right side, in contrast,
+
+00:04:50.760 --> 00:04:53.580
+Kubernetes is a deeper
+path into the stack.
+
+00:04:53.580 --> 00:04:54.840
+It's composable.
+
+00:04:54.840 --> 00:04:56.730
+It's open, and it's you-tuned.
+
+00:04:56.730 --> 00:04:58.800
+I think the "open"
+is really powerful
+
+00:04:58.800 --> 00:05:00.390
+because if you're
+running in multi-cloud,
+
+00:05:00.390 --> 00:05:02.700
+if you're running on-prem, if
+you're running in sovereign,
+
+00:05:02.700 --> 00:05:05.310
+the open allows you to run
+Kubernetes in those environments
+
+00:05:05.310 --> 00:05:08.640
+as well and have a very
+similar experience, right?
+
+00:05:08.640 --> 00:05:11.550
+But we are composable
+and you-tuned.
+
+00:05:11.550 --> 00:05:13.830
+Neither end of this
+scale is wrong,
+
+00:05:13.830 --> 00:05:17.220
+it's a matter of where
+your team sits, right?
+
+00:05:17.220 --> 00:05:19.440
+There are common patterns
+for speed and deployment.
+
+00:05:19.440 --> 00:05:21.480
+You might want to be
+on the left-side,
+
+00:05:21.480 --> 00:05:23.100
+and Foundry is
+probably your answer
+
+00:05:23.100 --> 00:05:24.690
+to take those common patterns.
+
+00:05:24.690 --> 00:05:28.710
+If you want extreme scale,
+tunable type, cost control,
+
+00:05:28.710 --> 00:05:32.250
+data sovereignty, or building
+something, a managed stack
+
+00:05:32.250 --> 00:05:34.320
+that doesn't allow
+you to quite tune,
+
+00:05:34.320 --> 00:05:36.120
+you might need a
+composable substrate.
+
+00:05:36.120 --> 00:05:39.030
+And AKS and Kubernetes might
+be the right choice for you.
+
+00:05:39.030 --> 00:05:41.700
+So, if you're working with
+Kubernetes, as I saw a few hands
+
+00:05:41.700 --> 00:05:45.810
+in the room, Kubernetes and AKS
+may be a great place to chart
+
+00:05:45.810 --> 00:05:47.970
+or might be the right
+choice for you, okay?
+
+00:05:47.970 --> 00:05:49.950
+But I think it's important
+to see the trade-offs
+
+00:05:49.950 --> 00:05:52.560
+between fully managed
+and integrated paths
+
+00:05:52.560 --> 00:05:54.330
+to composable substrate.
+
+00:05:54.330 --> 00:05:57.700
+And I'm going to pull on that
+a lot throughout this session.
+
+00:05:58.183 --> 00:06:01.766
+All right. I love iron triangle
+of project management.
+
+00:06:01.800 --> 00:06:04.080
+You have the three things: the
+fast, the good, and the cheap.
+
+00:06:04.080 --> 00:06:05.700
+And you get to pick two.
+
+00:06:05.700 --> 00:06:07.380
+Doesn't that feel
+like a trade-off?
+
+00:06:07.380 --> 00:06:09.660
+Well, the iron triangle
+is full of trade-offs.
+
+00:06:09.660 --> 00:06:12.570
+So, AI kind of has
+its own version
+
+00:06:12.570 --> 00:06:15.210
+of this trade-off
+as well, right?
+
+00:06:15.210 --> 00:06:17.580
+So, AI has quality, speed,
+
+00:06:17.580 --> 00:06:20.550
+and cost at each apex
+of the triangle.
+
+00:06:20.550 --> 00:06:24.780
+So, let's take a look at how you
+can leverage those different
+
+00:06:24.780 --> 00:06:27.210
+sides of the triangle with
+these four different controls.
+
+00:06:27.210 --> 00:06:30.360
+So, we have granular control,
+which allows for the quality.
+
+00:06:30.360 --> 00:06:34.050
+You get to choose your
+scheduler, accelerators.
+
+00:06:34.050 --> 00:06:35.910
+You get to choose
+the isolation model
+
+00:06:35.910 --> 00:06:38.310
+for whatever your
+customers need.
+
+00:06:38.310 --> 00:06:40.650
+Open tooling, I think,
+is super important.
+
+00:06:40.650 --> 00:06:43.260
+The open tooling ecosystem
+and the fact that Kubernetes
+
+00:06:43.260 --> 00:06:47.820
+and AKS leverage the open
+ecosystem gives you value
+
+00:06:47.820 --> 00:06:51.960
+of the whole AI open source
+stack without vendor lock-in.
+
+00:06:51.960 --> 00:06:54.060
+As I said, you can
+run this on-prem,
+
+00:06:54.060 --> 00:06:55.980
+you can run this in
+other data centers,
+
+00:06:55.980 --> 00:06:57.300
+you can run it in other clouds
+
+00:06:57.300 --> 00:06:59.130
+and have a very
+similar experience.
+
+00:06:59.130 --> 00:07:00.660
+And that may be
+important to you.
+
+00:07:00.660 --> 00:07:03.540
+Data sovereignty: I think
+this is a big, critical time,
+
+00:07:03.540 --> 00:07:05.400
+talked about a lot
+with our customers.
+
+00:07:05.400 --> 00:07:08.790
+Workloads, data,
+and weights stay
+
+00:07:08.790 --> 00:07:11.100
+where the compliance demands.
+
+00:07:11.100 --> 00:07:13.020
+You don't have to send
+them off premises.
+
+00:07:13.020 --> 00:07:15.300
+You can keep them where
+you're comfortable
+
+00:07:15.300 --> 00:07:18.450
+within your security
+boundaries and confines.
+
+00:07:18.450 --> 00:07:20.670
+And visible unit economics,
+
+00:07:20.670 --> 00:07:23.070
+the talk of the town
+is cost per token.
+
+00:07:23.070 --> 00:07:25.050
+We all worry about
+cost per token.
+
+00:07:25.050 --> 00:07:26.730
+With a self-hosted platform,
+
+00:07:26.730 --> 00:07:28.860
+you can actually tune
+your cost per token,
+
+00:07:28.860 --> 00:07:31.080
+cost per inference,
+cost per tenant.
+
+00:07:31.080 --> 00:07:34.680
+And it's all tunable so you
+have control over the cost.
+
+00:07:34.680 --> 00:07:36.240
+The data stays with you,
+
+00:07:36.240 --> 00:07:38.160
+you're relying on open tooling,
+
+00:07:38.160 --> 00:07:39.870
+and you have granular control.
+
+00:07:39.870 --> 00:07:42.300
+The trade-off of all this -- and
+there's always a trade-off,
+
+00:07:42.300 --> 00:07:45.450
+at the bottom you can
+see -- is complexity.
+
+00:07:45.450 --> 00:07:50.190
+So, you're buying flexibility
+with operational overhead.
+
+00:07:50.190 --> 00:07:52.920
+So, this platform will give
+you ultimate flexibility,
+
+00:07:52.920 --> 00:07:54.030
+but you need to operate it.
+
+00:07:54.030 --> 00:07:57.240
+And don't worry, AI agentic
+systems can help with that too.
+
+00:07:57.274 --> 00:07:59.684
+We'll talk about
+that a little later.
+
+00:08:00.069 --> 00:08:04.616
+Okay, so, if this is you, the
+composability isn't optional,
+
+00:08:04.650 --> 00:08:05.700
+it's required, right?
+
+00:08:05.700 --> 00:08:09.930
+So, here are the profiles
+we see on the left in blue
+
+00:08:09.930 --> 00:08:11.550
+of where self-managing wins
+
+00:08:11.550 --> 00:08:14.640
+and where we see our customers
+selecting self-managing:
+
+00:08:14.640 --> 00:08:17.730
+Teams running AI at-scale
+with cost or sensitivity
+
+00:08:17.730 --> 00:08:22.530
+to where the data is sitting,
+ISVs and cloud-agnostic vendors
+
+00:08:22.530 --> 00:08:25.980
+who are out there building and
+shipping AI platforms to on-prem
+
+00:08:25.980 --> 00:08:27.960
+and edge, and platform owners
+
+00:08:27.960 --> 00:08:32.430
+who want composability
+rather than rent.
+
+00:08:32.430 --> 00:08:34.020
+And then finally, if
+we look on the right,
+
+00:08:34.020 --> 00:08:35.430
+here are the primitives
+doing the work.
+
+00:08:35.430 --> 00:08:38.100
+So, the great thing about
+Kubernetes is it comes with all
+
+00:08:38.100 --> 00:08:40.890
+of these things out of the
+box to manage the substrate.
+
+00:08:40.890 --> 00:08:42.630
+We have declarative
+resource management
+
+00:08:42.630 --> 00:08:47.300
+where we can manage memory,
+GPUs, quotas defined as code.
+
+00:08:47.300 --> 00:08:49.220
+Everything is declarative.
+
+00:08:49.220 --> 00:08:52.250
+We have heterogeneous
+scheduling in a world of a lot
+
+00:08:52.250 --> 00:08:53.630
+of different accelerators.
+
+00:08:53.630 --> 00:08:55.130
+You want to match
+the right workload
+
+00:08:55.130 --> 00:08:57.110
+to the right accelerator
+at the right time.
+
+00:08:57.110 --> 00:09:00.140
+So, we can compose heterogeneous
+clusters with different types
+
+00:09:00.140 --> 00:09:03.270
+of accelerators, networking
+accelerators too.
+
+00:09:03.270 --> 00:09:05.040
+We have namespace isolation,
+
+00:09:05.040 --> 00:09:07.830
+where we can have
+multi-tenant AI not crossing
+
+00:09:07.830 --> 00:09:10.620
+that security boundary
+within Kubernetes or having
+
+00:09:10.620 --> 00:09:12.330
+to rewrite new security tools.
+
+00:09:12.330 --> 00:09:15.060
+And then finally, there's
+a complete ecosystem full
+
+00:09:15.060 --> 00:09:16.980
+of primitives built with this.
+
+00:09:16.980 --> 00:09:18.542
+I see Mark in the
+back -- Dapper, right?
+
+00:09:18.575 --> 00:09:20.940
+Lives on top of --
+he gave me a wave.
+
+00:09:20.940 --> 00:09:22.830
+He works on a project
+called "Dapper"
+
+00:09:22.830 --> 00:09:25.080
+which sits on top of Kubernetes.
+
+00:09:25.080 --> 00:09:27.960
+But these abstractions
+are durable and something
+
+00:09:27.960 --> 00:09:31.080
+that these other platforms can
+build on top of to be able
+
+00:09:31.080 --> 00:09:34.170
+to have great experiences so you
+can build your own platform.
+
+00:09:34.170 --> 00:09:36.840
+So, Kubernetes, obviously,
+handles the complexity,
+
+00:09:36.840 --> 00:09:38.880
+and it's built for
+that complexity,
+
+00:09:38.880 --> 00:09:41.610
+but not in spite of it.
+
+00:09:41.610 --> 00:09:42.750
+So far, so good.
+
+00:09:42.750 --> 00:09:43.860
+I'm going to go grab some water.
+
+00:09:43.860 --> 00:09:46.830
+But as I just framed this
+up so you can take a look,
+
+00:09:46.830 --> 00:09:50.700
+AI comes in three different,
+very distinct workloads.
+
+00:09:50.700 --> 00:09:54.180
+On the left, in red,
+we have inference.
+
+00:09:54.180 --> 00:09:56.520
+In the middle, we have
+training, and on the right,
+
+00:09:56.520 --> 00:09:58.080
+we have agentic systems.
+
+00:09:58.080 --> 00:10:00.390
+The purpose of this slide
+is actually to identify
+
+00:10:00.390 --> 00:10:03.720
+that each workload has
+different conditions,
+
+00:10:03.720 --> 00:10:05.760
+different lifetimes,
+different compute.
+
+00:10:05.760 --> 00:10:08.220
+So, there is an operational
+environment that's required
+
+00:10:08.220 --> 00:10:10.810
+for each of these
+different workloads.
+
+00:10:12.116 --> 00:10:14.396
+So, let's take a look
+at them quickly.
+
+00:10:14.430 --> 00:10:15.478
+But take a look at inference --
+
+00:10:15.511 --> 00:10:17.010
+-- start at inference
+on the left here.
+
+00:10:17.010 --> 00:10:19.890
+So, lifetime, milliseconds
+to seconds per request.
+
+00:10:19.890 --> 00:10:23.490
+We have both GPU and CPU in
+the mix, so heterogeneous.
+
+00:10:23.490 --> 00:10:26.970
+Often single-node, you can run
+inference on a single node.
+
+00:10:26.970 --> 00:10:29.370
+When we talk about training,
+that's not often true.
+
+00:10:29.370 --> 00:10:31.860
+And the failure mode is
+just drop the request.
+
+00:10:31.860 --> 00:10:34.350
+And the cost vector here is
+what you need to optimize
+
+00:10:34.350 --> 00:10:36.240
+on is latency and
+cost per token.
+
+00:10:36.240 --> 00:10:37.560
+And down the bottom,
+what we're going to get
+
+00:10:37.560 --> 00:10:39.450
+to is different open source
+tools and platforms.
+
+00:10:39.450 --> 00:10:42.390
+So, we have KAITO and AI
+Runway there as places
+
+00:10:42.390 --> 00:10:46.050
+that you can leverage inference
+on top of Kubernetes and AKS.
+
+00:10:46.050 --> 00:10:49.950
+Training is throughput-bound,
+right? Hours, weeks.
+
+00:10:49.950 --> 00:10:53.130
+Data scientists get really mad
+when their training jobs break
+
+00:10:53.130 --> 00:10:54.990
+because they have to
+resume from a checkpoint.
+
+00:10:54.990 --> 00:10:58.200
+And when you're utilizing
+extremely expensive hardware,
+
+00:10:58.200 --> 00:10:59.760
+time is money, and every minute
+
+00:10:59.760 --> 00:11:01.830
+on those compute
+platforms is money.
+
+00:11:01.830 --> 00:11:04.530
+So, you want to make sure
+they're absolutely saturated
+
+00:11:04.530 --> 00:11:07.290
+and absolutely utilized
+to the full extent.
+
+00:11:07.290 --> 00:11:09.150
+And you want throughput,
+iteration time.
+
+00:11:09.150 --> 00:11:10.950
+How long does a training
+iteration take?
+
+00:11:10.950 --> 00:11:12.090
+That's the measure.
+
+00:11:12.090 --> 00:11:15.390
+We're going to discuss Ray and
+Anyscale on Azure as solutions
+
+00:11:15.390 --> 00:11:17.850
+to help you with the training,
+which is throughput-bound.
+
+00:11:17.850 --> 00:11:20.340
+And then finally, we're going to
+talk about some agentic systems,
+
+00:11:20.340 --> 00:11:22.440
+but sessions,
+minutes per turn, right?
+
+00:11:22.440 --> 00:11:24.101
+We have autonomous agents --
+
+00:11:24.134 --> 00:11:25.530
+-- Autopilot agents, running
+
+00:11:25.530 --> 00:11:28.140
+on our behalf, ingesting
+data, making decisions,
+
+00:11:28.140 --> 00:11:30.180
+and helping us get
+through our day.
+
+00:11:30.180 --> 00:11:31.680
+They're multi-modal.
+
+00:11:31.680 --> 00:11:36.030
+They take input from images,
+Text, Voice, video streams.
+
+00:11:36.030 --> 00:11:37.890
+They resume on state
+and mid-session,
+
+00:11:37.890 --> 00:11:39.990
+so we need some kind
+of state awareness.
+
+00:11:39.990 --> 00:11:42.360
+And tool-call latency is
+obviously very sensitive,
+
+00:11:42.360 --> 00:11:43.710
+what tools they need to call
+
+00:11:43.710 --> 00:11:46.710
+to ultimately get you the
+response that you need.
+
+00:11:46.710 --> 00:11:49.380
+And down the bottom, we're going
+to talk about Skills, MCP,
+
+00:11:49.380 --> 00:11:50.940
+and a platform called OpenClaw,
+
+00:11:50.940 --> 00:11:53.310
+which I heard has been
+talked about a lot today.
+
+00:11:53.310 --> 00:11:58.110
+So, they all share GPUs, but
+these three discrete workloads
+
+00:11:58.110 --> 00:12:02.320
+for AI do not share the same
+operational assumptions.
+
+00:12:03.810 --> 00:12:05.508
+With me so far?
+
+00:12:05.542 --> 00:12:06.750
+Okay, I'm talking quick.
+
+00:12:06.750 --> 00:12:09.120
+I'm talking quick, but
+hopefully can bring you along.
+
+00:12:09.120 --> 00:12:09.930
+Excellent.
+Thank you.
+
+00:12:09.930 --> 00:12:12.150
+Thanks for the
+nods in agreement.
+
+00:12:12.150 --> 00:12:15.510
+So, Kubernetes gives you
+the foundation, but AI,
+
+00:12:15.510 --> 00:12:18.120
+the era of AI, asks
+for more on top.
+
+00:12:18.120 --> 00:12:20.310
+So, Kubernetes is necessary,
+
+00:12:20.310 --> 00:12:22.230
+but it's not sufficient
+at the moment.
+
+00:12:22.230 --> 00:12:24.840
+You need more on
+top of Kubernetes.
+
+00:12:24.840 --> 00:12:27.420
+And you need to be able
+to build a platform
+
+00:12:27.420 --> 00:12:29.970
+that enables AI workloads
+on top of Kubernetes.
+
+00:12:29.970 --> 00:12:31.182
+So, there are some gaps
+
+00:12:31.215 --> 00:12:32.790
+that Kubernetes
+needs to close, right?
+
+00:12:32.790 --> 00:12:34.500
+And these gaps are
+being worked on.
+
+00:12:34.500 --> 00:12:37.200
+But, for example, we
+took at the top left.
+
+00:12:37.200 --> 00:12:39.810
+Traditionally,
+Kubernetes has workloads
+
+00:12:39.810 --> 00:12:42.270
+that can be scheduled
+one pod at a time.
+
+00:12:42.270 --> 00:12:45.780
+AI workloads want hundreds of
+thousands, tens of thousands
+
+00:12:45.780 --> 00:12:48.030
+of pods to start together.
+
+00:12:48.030 --> 00:12:49.110
+So, you need to use things
+
+00:12:49.110 --> 00:12:51.930
+like gang scheduling
+and advanced queuing.
+
+00:12:51.930 --> 00:12:53.880
+You don't want to use
+the default scheduler.
+
+00:12:53.880 --> 00:12:56.040
+Kubernetes allows
+you to clip that in.
+
+00:12:56.040 --> 00:12:59.670
+Heterogeneous hardware and
+awareness, every new generation
+
+00:12:59.670 --> 00:13:00.810
+of accelerator that comes
+
+00:13:00.810 --> 00:13:04.470
+out doesn't mean you overchange
+your whole platform;
+
+00:13:04.470 --> 00:13:07.770
+it just means you can utilize a
+new platform while utilizing the
+
+00:13:07.770 --> 00:13:10.470
+one that you've already known
+and trusted so you have access
+
+00:13:10.470 --> 00:13:15.480
+to different GPUs, different
+CPUs, AI-aware devices,
+
+00:13:15.480 --> 00:13:19.050
+GPU family awareness,
+accelerator topology,
+
+00:13:19.050 --> 00:13:22.980
+NUMA-aware placement all need
+to become first-class signals
+
+00:13:22.980 --> 00:13:25.410
+on the Kubernetes platform.
+
+00:13:25.410 --> 00:13:29.190
+Scaling: So, we have scaling
+is on the right signal.
+
+00:13:29.190 --> 00:13:32.580
+So, traditionally, Kubernetes
+scaled only on CPU and memory.
+
+00:13:32.580 --> 00:13:35.100
+Obviously, in the AI
+world, that is not enough.
+
+00:13:35.100 --> 00:13:38.880
+We need to scale on things like
+tokens per second, queue depth,
+
+00:13:38.880 --> 00:13:42.810
+GPU utilization, and actually
+release the accelerators
+
+00:13:42.810 --> 00:13:44.910
+when idle.
+
+00:13:44.910 --> 00:13:48.210
+And finally, durable state: So,
+in the agentic world, obviously,
+
+00:13:48.210 --> 00:13:50.040
+we need state and also
+the training world.
+
+00:13:50.040 --> 00:13:53.640
+So, Kubernetes was designed
+for stateless services.
+
+00:13:53.640 --> 00:13:58.440
+So, we have to build in AI
+a set of caching and a set
+
+00:13:58.440 --> 00:14:01.770
+of storage services for
+long-running training jobs,
+
+00:14:01.770 --> 00:14:06.090
+for agentic workloads to
+survive evictions, drains,
+
+00:14:06.090 --> 00:14:09.240
+topology changes, or
+even spot interruption
+
+00:14:09.240 --> 00:14:10.980
+if you're running
+on spot devices.
+
+00:14:10.980 --> 00:14:13.500
+So, Kubernetes gives
+you the foundation.
+
+00:14:13.500 --> 00:14:15.660
+But what we're going
+to build on upon here,
+
+00:14:15.694 --> 00:14:19.604
+the rest of the session, is what
+we layer on top of Kubernetes
+
+00:14:20.104 --> 00:14:22.350
+Okay. So, I gave you the "why".
+
+00:14:22.350 --> 00:14:24.090
+Now we're going to get
+the "what" and the "how".
+
+00:14:24.090 --> 00:14:26.250
+So, let's get concrete here.
+
+00:14:26.250 --> 00:14:28.410
+We're going to walk through
+a four-layer stack and go
+
+00:14:28.410 --> 00:14:29.970
+through each layer of the stack.
+
+00:14:29.970 --> 00:14:33.120
+Each has its own tools that I'm
+going to suggest, trade-offs,
+
+00:14:33.120 --> 00:14:34.440
+and we actually have
+some announcements.
+
+00:14:34.440 --> 00:14:37.480
+So, excited to get
+through them as well.
+
+00:14:38.164 --> 00:14:39.960
+Okay. So, this is the
+
+00:14:39.994 --> 00:14:41.599
+mental model for the
+rest of this session,
+
+00:14:41.640 --> 00:14:43.770
+going from the bottom
+up, Kubernetes up.
+
+00:14:43.770 --> 00:14:47.220
+The bottom, we have Kubernetes,
+where we have the "Substrate"
+
+00:14:47.220 --> 00:14:50.610
+with Kubernetes and AKS,
+Azure Kubernetes Service.
+
+00:14:50.610 --> 00:14:51.980
+On top of that, we're
+going to go through
+
+00:14:52.013 --> 00:14:55.440
+"Inference and serving", which I
+find most customers start with.
+
+00:14:55.440 --> 00:14:57.240
+It's a way to get
+some value out of AI
+
+00:14:57.240 --> 00:14:59.910
+or at least see what AI
+can provide for you.
+
+00:14:59.910 --> 00:15:01.680
+So, we're going to look
+at inference and serving
+
+00:15:01.680 --> 00:15:03.420
+with KAITO and AI Runway.
+
+00:15:03.420 --> 00:15:05.589
+Then we're going to move
+up the stack into the green,
+
+00:15:05.622 --> 00:15:09.210
+"Training and fine-tuning" with
+Ray and Anyscale on Azure.
+
+00:15:09.210 --> 00:15:11.460
+The demo there is really
+cool so I'm excited
+
+00:15:11.460 --> 00:15:13.950
+to show you some really cool
+training and fine-tuning
+
+00:15:13.950 --> 00:15:15.420
+that we can do very quickly.
+
+00:15:15.420 --> 00:15:18.180
+And at the top of the stack, the
+area I'm having a lot of fun
+
+00:15:18.180 --> 00:15:20.430
+with at the moment is the
+"Agentic orchestration".
+
+00:15:20.430 --> 00:15:23.730
+So, we're going to look at
+Skills, MCP, and OpenClaw,
+
+00:15:23.730 --> 00:15:25.350
+and some things we
+can build together.
+
+00:15:25.350 --> 00:15:27.930
+So, we're going to start with
+inference, and then I'm going
+
+00:15:27.930 --> 00:15:30.090
+to go to the top of the
+stack, and then finish
+
+00:15:30.090 --> 00:15:32.594
+with the substrate at
+the bottom at the end.
+
+00:15:32.628 --> 00:15:36.420
+Okay. So, let's take a look at
+"Inference and serving" layer.
+
+00:15:36.420 --> 00:15:38.130
+And as I said, I want
+to start here because,
+
+00:15:38.130 --> 00:15:39.690
+if you haven't
+started your journey,
+
+00:15:39.690 --> 00:15:41.100
+some folks are
+running Kubernetes
+
+00:15:41.100 --> 00:15:43.080
+but not AI on Kubernetes, right?
+
+00:15:43.080 --> 00:15:45.630
+So, I think this is the
+logical starting point.
+
+00:15:45.630 --> 00:15:47.010
+And I'll tell you why that is,
+
+00:15:47.010 --> 00:15:49.410
+because you have a model you
+want to run up, and you want
+
+00:15:49.410 --> 00:15:50.730
+to run it up in production.
+
+00:15:50.730 --> 00:15:52.170
+You want to run it up in dev.
+
+00:15:52.170 --> 00:15:54.630
+You want to get started and
+see the value AI can provide,
+
+00:15:54.630 --> 00:15:56.460
+and have your developers
+start to integrate
+
+00:15:56.460 --> 00:15:58.260
+that model into a workload.
+
+00:15:58.260 --> 00:16:02.140
+So, let's talk about what that
+looks like on Kubernetes.
+
+00:16:02.863 --> 00:16:04.586
+All right. So, what
+we're going to talk
+
+00:16:04.620 --> 00:16:07.290
+about here is two different
+open-source tools.
+
+00:16:07.290 --> 00:16:09.450
+So, you can pick them up,
+they're all on GitHub today.
+
+00:16:09.450 --> 00:16:11.670
+Don't worry, I'll
+get you the links.
+
+00:16:11.670 --> 00:16:16.200
+With one goal -- so, the goal
+here is to get a model,
+
+00:16:16.200 --> 00:16:18.630
+an inference model,
+serving reliably.
+
+00:16:18.630 --> 00:16:20.970
+So, you get an endpoint that
+you can make an inference
+
+00:16:20.970 --> 00:16:22.260
+request to, right?
+
+00:16:22.260 --> 00:16:24.120
+So, let's start on
+the left in the blue;
+
+00:16:24.120 --> 00:16:26.940
+we have the platform
+layer with AI Runway.
+
+00:16:26.940 --> 00:16:31.200
+What AI Runway provides is a
+Kubernetes-native inference
+
+00:16:31.200 --> 00:16:34.260
+platform with a Web UI
+
+00:16:34.260 --> 00:16:36.870
+and a unified model
+deployment controller.
+
+00:16:36.870 --> 00:16:40.590
+So, what this actually means to
+you is you can get a model up
+
+00:16:40.590 --> 00:16:43.020
+and running on
+Kubernetes very quickly
+
+00:16:43.020 --> 00:16:44.430
+with just a few
+clicks of a button.
+
+00:16:44.430 --> 00:16:48.180
+And I will show you in a demo
+in a couple of slides later.
+
+00:16:48.180 --> 00:16:52.710
+And it supports all the major
+engines out there like vLLM,
+
+00:16:52.710 --> 00:16:56.490
+SGLang, TensorRT, llama.cpp,
+
+00:16:56.490 --> 00:16:58.620
+so you can plug your
+own serving engine in.
+
+00:16:58.620 --> 00:17:00.060
+There are many different
+serving engines
+
+00:17:00.060 --> 00:17:01.230
+with different trade-offs.
+
+00:17:01.230 --> 00:17:04.170
+This allows you the flexibility,
+but it has one-click deploy
+
+00:17:04.170 --> 00:17:06.870
+with a nice UI where you can
+run this up this afternoon
+
+00:17:06.870 --> 00:17:09.060
+on any cluster and get started.
+
+00:17:09.060 --> 00:17:10.650
+And then over on the
+right, we're going to look
+
+00:17:10.650 --> 00:17:16.860
+at the Kubernetes AI Toolchain
+Operator, or KAITO for short.
+
+00:17:16.860 --> 00:17:17.970
+It's the operation layer.
+
+00:17:17.970 --> 00:17:20.670
+So, this takes care of all the
+operational burden that you need
+
+00:17:20.670 --> 00:17:23.610
+to run a model and serve
+a model in production.
+
+00:17:23.610 --> 00:17:26.220
+It has optimized presets
+for pipelines, data,
+
+00:17:26.220 --> 00:17:28.710
+and Tensor parallelism.
+
+00:17:28.710 --> 00:17:33.120
+And it has KVCache, so key-value
+cache-aware routing using
+
+00:17:33.120 --> 00:17:36.180
+Kubernetes primitives
+like InferencePool.
+
+00:17:36.180 --> 00:17:37.830
+The important
+relationship here is
+
+00:17:37.830 --> 00:17:41.280
+that AI Runway is the
+platform, and KAITO is one
+
+00:17:41.280 --> 00:17:44.070
+of its providers, alongside
+things like NVIDIA,
+
+00:17:44.070 --> 00:17:47.180
+Dynamo, KubeRay, and LLM-D.
+
+00:17:47.180 --> 00:17:50.630
+And the great thing about this,
+these are all open-source.
+
+00:17:50.630 --> 00:17:52.040
+They're both Kubernetes-native,
+
+00:17:52.040 --> 00:17:53.930
+which means you can run
+them on any platform.
+
+00:17:53.930 --> 00:17:55.370
+You can pick them
+up and run them
+
+00:17:55.370 --> 00:17:58.280
+on any Kubernetes cluster
+that's compliant today.
+
+00:17:58.280 --> 00:18:00.390
+And you can run them anywhere.
+
+00:18:00.901 --> 00:18:02.095
+All right. . .
+
+00:18:02.926 --> 00:18:05.116
+So, I'm going to walk you
+through kind of the experience
+
+00:18:05.150 --> 00:18:06.350
+that you're going to
+see on the next slide,
+
+00:18:06.350 --> 00:18:07.740
+where I go through the demo.
+
+00:18:07.740 --> 00:18:08.910
+This is what you're
+going to go from.
+
+00:18:08.910 --> 00:18:11.970
+So, the promise here is, from
+browsing a model to serving
+
+00:18:11.970 --> 00:18:14.340
+in production in
+just a few clicks, right?
+
+00:18:14.340 --> 00:18:15.750
+And primitives you
+already operate.
+
+00:18:15.750 --> 00:18:17.520
+So, if you're running
+Kubernetes today
+
+00:18:17.520 --> 00:18:18.630
+and you have your workloads
+
+00:18:18.630 --> 00:18:20.850
+or your app workloads
+already running on there,
+
+00:18:20.850 --> 00:18:22.320
+you're using the same tooling.
+
+00:18:22.320 --> 00:18:24.560
+So, we're going to
+browse and deploy.
+
+00:18:24.560 --> 00:18:26.150
+Step 1: We're going to browse.
+
+00:18:26.150 --> 00:18:27.560
+We're going to go to AI Runway.
+
+00:18:27.560 --> 00:18:30.050
+We're going to pick a model
+from the model catalog,
+
+00:18:30.050 --> 00:18:32.480
+which integrates into the
+HuggingFace UI, where you can go
+
+00:18:32.480 --> 00:18:34.460
+to all the latest
+models, open-source,
+
+00:18:34.460 --> 00:18:36.450
+open-weight models as well.
+
+00:18:36.450 --> 00:18:37.950
+You're going to
+check the GPU fit.
+
+00:18:37.950 --> 00:18:39.960
+So, it's actually going to say
+this will fit on your cluster,
+
+00:18:39.960 --> 00:18:42.150
+or it'll trigger some
+auto-scaling on your cluster
+
+00:18:42.150 --> 00:18:46.320
+to make it fit, and then
+create a model deployment.
+
+00:18:46.320 --> 00:18:49.920
+Step 2: We're going to actually
+create a KAITO workspace,
+
+00:18:49.920 --> 00:18:53.370
+which estimates the GPU
+utilization that's required,
+
+00:18:53.370 --> 00:18:57.480
+the auto-scaling, so the nodes
+that you need, and estimates
+
+00:18:57.480 --> 00:19:00.480
+where you'll actually run this
+workload, and takes care of all
+
+00:19:00.480 --> 00:19:02.250
+of that with optimized presets.
+
+00:19:02.250 --> 00:19:04.680
+And boom, it spins up an
+endpoint, which is live.
+
+00:19:04.680 --> 00:19:06.540
+And then finally, you
+just ship that off,
+
+00:19:06.540 --> 00:19:08.820
+and Kubernetes does
+the rest from KEDA,
+
+00:19:08.820 --> 00:19:10.650
+which offers auto-scaling.
+
+00:19:10.650 --> 00:19:13.170
+We integrate with vLLM
+metrics so you can scale
+
+00:19:13.170 --> 00:19:14.870
+on all different metrics.
+
+00:19:14.870 --> 00:19:17.270
+We have canary
+deployments for rollback.
+
+00:19:17.270 --> 00:19:19.460
+We have rollback-aware
+deployments as well.
+
+00:19:19.460 --> 00:19:20.900
+So, every piece
+on the right-side
+
+00:19:20.900 --> 00:19:23.360
+of this slide is a
+Kubernetes primitive
+
+00:19:23.360 --> 00:19:25.130
+that you already know
+how to run and operate.
+
+00:19:25.130 --> 00:19:26.300
+We're not giving
+you anything new,
+
+00:19:26.300 --> 00:19:28.250
+we're just shaping it for AI.
+
+00:19:28.250 --> 00:19:30.800
+So, we have all the primitives
+down at play on the bottom.
+
+00:19:30.800 --> 00:19:35.400
+And I believe the
+next slide is. . . Demo, okay?
+
+00:19:35.400 --> 00:19:38.130
+So, I've got to get this set
+up in the quick drum roll.
+
+00:19:38.130 --> 00:19:40.680
+This was filmed by a colleague
+of mine named Ralph.
+
+00:19:40.680 --> 00:19:43.920
+I like to talk over demos, but
+Ralph has a voice for radio.
+
+00:19:43.920 --> 00:19:46.590
+It's smooth and buttery,
+so you should enjoy it.
+
+00:19:46.590 --> 00:19:47.308
+Let's see, and Ralph is
+
+00:19:47.342 --> 00:19:49.380
+going to take us through
+AI Runway. Enjoy.
+
+00:19:49.380 --> 00:19:52.020
+Ralph: Let's look at the user
+experience of AI Runway.
+
+00:19:52.020 --> 00:19:53.370
+This is the model catalog,
+
+00:19:53.370 --> 00:19:56.370
+the first thing your data
+scientists and developers see.
+
+00:19:56.370 --> 00:19:58.770
+Think of it as your app
+store for AI models.
+
+00:19:58.770 --> 00:20:02.850
+We have a curated set of popular
+models, Qwen, Phi, DeepSeek,
+
+00:20:02.850 --> 00:20:06.000
+Llama, each with a quick
+summary: how big it is,
+
+00:20:06.000 --> 00:20:09.450
+what engines it supports,
+and what it's good at: chat,
+
+00:20:09.450 --> 00:20:12.210
+text generation,
+multi-modal, and so on.
+
+00:20:12.210 --> 00:20:16.380
+But the real magic is this "GPU
+fit" indicator on every card.
+
+00:20:16.380 --> 00:20:19.110
+It tells you instantly whether
+a model will actually run
+
+00:20:19.110 --> 00:20:23.070
+on your cluster, no guesswork,
+no trial and error.
+
+00:20:23.070 --> 00:20:25.590
+Before we deploy something,
+let's also take a quick look
+
+00:20:25.590 --> 00:20:28.470
+at the "Runtime" tab, where you
+see the inference frameworks
+
+00:20:28.470 --> 00:20:30.570
+that run your models
+under the hood.
+
+00:20:30.570 --> 00:20:32.940
+AI Runway supports
+multiple runtimes.
+
+00:20:32.940 --> 00:20:34.470
+And it's entirely extensible
+
+00:20:34.470 --> 00:20:36.690
+so you can choose a different
+runtime when you want.
+
+00:20:36.690 --> 00:20:38.070
+You're never locked in.
+
+00:20:38.070 --> 00:20:41.400
+Let's go to the "HuggingFace
+Gallery" and search for
+
+00:20:41.400 --> 00:20:46.800
+"DeepSeek-R1," 671
+billion parameters.
+
+00:20:46.800 --> 00:20:50.100
+This is not going to
+fit on our single node,
+
+00:20:50.100 --> 00:20:52.830
+which has eight H100s.
+
+00:20:52.830 --> 00:20:55.830
+So I then go into
+"Deploy," and I select
+
+00:20:55.830 --> 00:20:58.590
+"Dynamo" as the runtime.
+
+00:20:58.590 --> 00:21:00.900
+We'll deploy into the
+default namespace
+
+00:21:00.900 --> 00:21:03.730
+and continue down the options.
+
+00:21:06.090 --> 00:21:09.180
+As you can see here, because
+this model is so large
+
+00:21:09.180 --> 00:21:12.870
+and one node was insufficient,
+it is recommending three nodes
+
+00:21:12.870 --> 00:21:16.110
+that will have 24 GPUs in total.
+
+00:21:16.110 --> 00:21:19.020
+And because the auto-scaler
+is enabled on this cluster,
+
+00:21:19.020 --> 00:21:22.230
+when we deploy, we will
+eventually receive the extra
+
+00:21:22.230 --> 00:21:24.150
+nodes that we need.
+
+00:21:24.150 --> 00:21:27.870
+Now, here is where
+storage volumes come in.
+
+00:21:27.870 --> 00:21:30.360
+I'm attaching a
+persistent volume backed
+
+00:21:30.360 --> 00:21:32.670
+by Azure Managed Lustre.
+
+00:21:32.670 --> 00:21:36.600
+This is a high-performance,
+shared file system.
+
+00:21:36.600 --> 00:21:39.900
+The model weights get
+cached here so on restarts
+
+00:21:39.900 --> 00:21:42.510
+or scale-out, the
+new nodes don't have
+
+00:21:42.510 --> 00:21:45.600
+to re-download
+hundreds of gigabytes.
+
+00:21:45.600 --> 00:21:47.190
+It's read-write many
+
+00:21:47.190 --> 00:21:51.220
+so all nodes can access
+it simultaneously.
+
+00:21:56.130 --> 00:21:59.940
+You can also see the cost
+estimate updating in real time.
+
+00:21:59.940 --> 00:22:04.620
+We have a good idea exactly what
+this deployment costs per hour
+
+00:22:04.620 --> 00:22:06.390
+and per month on Azure.
+
+00:22:06.390 --> 00:22:10.230
+This value will, of course,
+depend upon your cloud provider.
+
+00:22:10.230 --> 00:22:11.940
+So, here's where it
+gets interesting.
+
+00:22:11.940 --> 00:22:17.730
+Right now, our cluster only has
+a single H100 node, 8 GPUs.
+
+00:22:17.730 --> 00:22:22.020
+But DeepSeek-R1 needs 24
+GPUs across three nodes,
+
+00:22:22.020 --> 00:22:24.390
+so what happens when
+I hit "Deploy?"
+
+00:22:24.390 --> 00:22:25.620
+We'll skip ahead here
+
+00:22:25.620 --> 00:22:27.900
+since auto-scaling
+takes a few minutes.
+
+00:22:27.900 --> 00:22:31.230
+But once those nodes come
+online, the deployment rolls
+
+00:22:31.230 --> 00:22:34.110
+out across all three nodes
+and goes to running.
+
+00:22:34.110 --> 00:22:37.350
+Now that DeepSeek-R1 is
+running, let's use it.
+
+00:22:37.350 --> 00:22:38.460
+In the "Deployment" page,
+
+00:22:38.460 --> 00:22:41.550
+we can see our storage
+and the mounted disk.
+
+00:22:41.550 --> 00:22:43.980
+And you can see the
+gateway endpoint.
+
+00:22:43.980 --> 00:22:48.540
+AI Runway integrates with the
+gateway API inference extension
+
+00:22:48.540 --> 00:22:50.880
+using Istio in this case.
+
+00:22:50.880 --> 00:22:54.810
+This gives us a single, stable
+endpoint for all our models.
+
+00:22:54.810 --> 00:22:57.090
+There's also a
+ready-to-use "curl" command.
+
+00:22:57.090 --> 00:23:00.570
+It's a standard
+OpenAI-compatible API.
+
+00:23:00.570 --> 00:23:03.630
+Any tool or SDK that
+speaks OpenAI can talk
+
+00:23:03.630 --> 00:23:06.280
+to your models
+without modification.
+
+00:23:09.840 --> 00:23:12.000
+Lachlan Evenson: Excellent,
+do you agree?
+
+00:23:12.000 --> 00:23:13.890
+I think Ralph has a
+career in audiobooks.
+
+00:23:13.890 --> 00:23:15.575
+I can definitely
+listen to his voice,
+
+00:23:15.608 --> 00:23:16.920
+smooth and buttery, right?
+
+00:23:16.920 --> 00:23:19.260
+So, that is the
+power of AI Runway.
+
+00:23:19.260 --> 00:23:20.730
+Ralph went through
+that in three minutes,
+
+00:23:20.730 --> 00:23:23.070
+what used to take me three
+weeks to get up and running.
+
+00:23:23.070 --> 00:23:24.660
+So, the fact that you
+can click through,
+
+00:23:24.660 --> 00:23:27.180
+get everything provisioned using
+an open-source tool that's
+
+00:23:27.180 --> 00:23:31.350
+available on GitHub today,
+is absolutely powerful.
+
+00:23:31.350 --> 00:23:32.610
+Okay, we're going to move
+up the stack now.
+
+00:23:32.610 --> 00:23:34.440
+We're going to go to
+"Training and fine-tuning".
+
+00:23:34.440 --> 00:23:36.540
+You've got your model,
+you've got it up and running,
+
+00:23:36.540 --> 00:23:38.280
+now you want to fine-tune
+it with your own data
+
+00:23:38.280 --> 00:23:39.930
+for your own workload, okay?
+
+00:23:39.930 --> 00:23:45.310
+Let's have a look at Ray
+and Anyscale on Azure.
+
+00:23:46.500 --> 00:23:48.510
+Okay. So, now we want to talk
+
+00:23:48.510 --> 00:23:51.540
+about what Ray actually gives
+you and what it powers.
+
+00:23:51.540 --> 00:23:54.960
+So eventually, all
+the agents need you
+
+00:23:54.960 --> 00:23:57.480
+to have a fine-tuned model
+with your own data behind it.
+
+00:23:57.480 --> 00:24:01.050
+So, Ray is the workload
+that actually powers that.
+
+00:24:01.050 --> 00:24:03.750
+So, AKS on its own provides
+the pod scheduling,
+
+00:24:03.750 --> 00:24:06.900
+the auto-scaling, the node
+lifecycle, networking storage.
+
+00:24:06.900 --> 00:24:08.940
+It provides the substrate,
+as I mentioned.
+
+00:24:08.940 --> 00:24:10.770
+It's hardened for
+production at scale.
+
+00:24:10.770 --> 00:24:15.150
+But production AI also
+needs things AKS doesn't
+
+00:24:15.150 --> 00:24:16.560
+provide natively.
+
+00:24:16.560 --> 00:24:18.091
+So, we need a
+distributed compute
+
+00:24:18.124 --> 00:24:19.620
+and scheduling framework
+
+00:24:19.620 --> 00:24:23.220
+that schedules both the CPUs
+and GPUs in a single job.
+
+00:24:23.220 --> 00:24:25.830
+We also have
+heterogeneous hardware,
+
+00:24:25.830 --> 00:24:28.770
+Ray takes care of that with
+fractional GPU allocation,
+
+00:24:28.770 --> 00:24:30.720
+which is actually really
+important if you want
+
+00:24:30.720 --> 00:24:34.230
+to keep those GPUs at
+100% as long as possible.
+
+00:24:34.230 --> 00:24:38.040
+Multi-node orchestration
+for both training
+
+00:24:38.040 --> 00:24:39.900
+and reinforcement learning.
+
+00:24:39.900 --> 00:24:43.140
+So, this becomes a CI/CD
+pipeline for your models,
+
+00:24:43.140 --> 00:24:44.520
+reinforcement learning.
+
+00:24:44.520 --> 00:24:47.940
+Auto-scaling, so it takes care
+of auto-scaling on your behalf.
+
+00:24:47.940 --> 00:24:49.410
+And the really cool thing
+that I'm going to show
+
+00:24:49.410 --> 00:24:52.560
+in the demo is it's
+one Python-native API
+
+00:24:52.560 --> 00:24:55.650
+across data prep, training,
+tuning, and serving.
+
+00:24:55.650 --> 00:24:56.850
+And that's really cool,
+
+00:24:56.850 --> 00:24:58.620
+it's all hosted in
+their interface.
+
+00:24:58.620 --> 00:25:00.120
+And you can deploy
+from their interface
+
+00:25:00.120 --> 00:25:02.520
+and actually run it
+on an AKS cluster.
+
+00:25:02.520 --> 00:25:04.470
+So, that's the gap
+that Ray fills.
+
+00:25:04.470 --> 00:25:05.850
+AKS is the cluster.
+
+00:25:05.850 --> 00:25:06.930
+Ray is the workload.
+
+00:25:06.930 --> 00:25:08.910
+And we're going to take a
+look at how Ray can help us
+
+00:25:08.910 --> 00:25:12.300
+with training and fine-tuning.
+
+00:25:12.300 --> 00:25:14.490
+So, today I'm announcing
+the public preview
+
+00:25:14.490 --> 00:25:15.660
+of Anyscale on Ray.
+
+00:25:15.660 --> 00:25:20.280
+So, this is "Managed Ray", which
+is an Azure-native integration
+
+00:25:20.280 --> 00:25:22.770
+in collaboration with
+the folks from Anyscale.
+
+00:25:22.770 --> 00:25:24.270
+So it's in public preview.
+
+00:25:24.270 --> 00:25:27.840
+The Anyscale runtime runs
+inside your AKS environment
+
+00:25:27.840 --> 00:25:30.930
+and is integrated into
+your Azure control plane.
+
+00:25:30.930 --> 00:25:33.900
+It's open-source, Ray is the
+distributed compute engine.
+
+00:25:33.900 --> 00:25:36.390
+Anyscale provides a
+managed lifecycle,
+
+00:25:36.390 --> 00:25:39.840
+observability, and 24/7 support.
+
+00:25:39.840 --> 00:25:42.158
+It runs in your subscription
+-- this is super critical,
+
+00:25:42.191 --> 00:25:43.985
+and I'll talk about
+how it's actually
+
+00:25:44.018 --> 00:25:45.450
+configured in your subscription,
+
+00:25:45.450 --> 00:25:48.000
+billed through your Azure
+agreement, which is really cool.
+
+00:25:48.000 --> 00:25:50.760
+Because you don't need to go
+form a new vendor relationship,
+
+00:25:50.760 --> 00:25:52.500
+you just pay us, and
+we make sure we work
+
+00:25:52.500 --> 00:25:54.090
+with Anyscale as well.
+
+00:25:54.090 --> 00:25:56.250
+So, this is how that looks,
+how it's delivered,
+
+00:25:56.250 --> 00:25:59.070
+because I think it's important
+to separate how it actually runs
+
+00:25:59.070 --> 00:26:01.170
+on your architecture when you're
+worried about sovereignty
+
+00:26:01.170 --> 00:26:02.310
+and when your data is.
+
+00:26:02.310 --> 00:26:04.860
+So, there's two boundaries that
+matter in this architecture,
+
+00:26:04.860 --> 00:26:07.230
+we have them boxed; one
+in the orange at the top
+
+00:26:07.230 --> 00:26:08.340
+and the blue at the bottom.
+
+00:26:08.340 --> 00:26:10.980
+So, the Anyscale Control
+Plane is along the top.
+
+00:26:10.980 --> 00:26:13.860
+It runs in the
+Anyscale-managed Azure tenant,
+
+00:26:13.860 --> 00:26:17.220
+which includes Dev tools,
+observability, APIs,
+
+00:26:17.220 --> 00:26:18.720
+controllers, job orchestration,
+
+00:26:18.720 --> 00:26:20.550
+monitoring, and
+many more things.
+
+00:26:20.550 --> 00:26:22.980
+And in your subscription,
+which is the bottom,
+
+00:26:22.980 --> 00:26:24.690
+that's where your
+data and model live.
+
+00:26:24.690 --> 00:26:25.784
+So, this is great,
+you don't have to
+
+00:26:25.817 --> 00:26:27.180
+send them anywhere else.
+
+00:26:27.180 --> 00:26:30.450
+The Anyscale runtime runs
+a Managed Ray operator
+
+00:26:30.450 --> 00:26:33.810
+on your AKS cluster
+with your blob storage
+
+00:26:33.810 --> 00:26:36.060
+and your GPU and CPU nodes.
+
+00:26:36.060 --> 00:26:38.640
+So, the connection between
+them, everything stays
+
+00:26:38.640 --> 00:26:41.190
+within your tenant
+and your realm.
+
+00:26:41.190 --> 00:26:43.050
+So, the three pillars
+worth calling out,
+
+00:26:43.050 --> 00:26:45.180
+which we have along the
+bottom there, provisioning
+
+00:26:45.180 --> 00:26:47.040
+from the Azure
+portal -- one portal.
+
+00:26:47.040 --> 00:26:48.750
+You don't have to go
+to multiple portals.
+
+00:26:48.750 --> 00:26:52.170
+Same workflow for your team
+that you already know and love,
+
+00:26:52.170 --> 00:26:53.880
+unified billing,
+which I mentioned.
+
+00:26:53.880 --> 00:26:56.490
+And the very best part of
+it is enterprise security
+
+00:26:56.490 --> 00:27:00.210
+with Entra ID because not only
+do you get work light identity,
+
+00:27:00.210 --> 00:27:03.660
+you get identity with your
+own credentials: RBAC, audit,
+
+00:27:03.660 --> 00:27:06.120
+and all the trails
+and compliance trails
+
+00:27:06.120 --> 00:27:07.500
+that you already know and love.
+
+00:27:07.500 --> 00:27:09.185
+So, your data and your model
+
+00:27:09.218 --> 00:27:10.890
+never leaves the
+environment here.
+
+00:27:10.890 --> 00:27:13.350
+So, next demo is
+coming up right now.
+
+00:27:13.350 --> 00:27:16.140
+I'm actually going to speak over
+it, but I do have my colleague
+
+00:27:16.140 --> 00:27:17.760
+in the front, Bob, who
+helped me with this demo
+
+00:27:17.760 --> 00:27:19.920
+so you get to feel
+free to critique me.
+
+00:27:19.920 --> 00:27:22.860
+I'm going to move to the
+side as I talk over this.
+
+00:27:22.860 --> 00:27:24.690
+We're going to start in the
+Azure portal, and I'm going
+
+00:27:24.690 --> 00:27:26.190
+to show you the full thing.
+
+00:27:26.190 --> 00:27:28.290
+And we're going to go
+through a complete training
+
+00:27:28.290 --> 00:27:31.890
+and fine-tuning exercise with
+a product catalog search.
+
+00:27:31.890 --> 00:27:33.782
+Buckle up, it's a
+seven-minute demo,
+
+00:27:33.815 --> 00:27:35.220
+and it's going to
+be pretty quick.
+
+00:27:35.220 --> 00:27:36.660
+So we start, as I mentioned,
+
+00:27:36.660 --> 00:27:38.250
+it's all integrated
+in the Azure portal.
+
+00:27:38.250 --> 00:27:39.510
+We're in the Azure portal here.
+
+00:27:39.510 --> 00:27:41.280
+We don't have to
+go anywhere else.
+
+00:27:41.280 --> 00:27:43.710
+And from the Azure portal, we
+can go to the "Search bar"
+
+00:27:43.710 --> 00:27:46.860
+in the top in the middle and
+go ahead and type "Anyscale."
+
+00:27:46.860 --> 00:27:48.720
+Anyscale will appear up here.
+
+00:27:48.720 --> 00:27:52.080
+It's in preview here so it
+should show up "Anyscale Cloud."
+
+00:27:52.080 --> 00:27:54.060
+You can click "Anyscale Cloud."
+
+00:27:54.060 --> 00:27:56.130
+The list of Anyscale
+clouds will come up.
+
+00:27:56.130 --> 00:27:57.960
+Of course, we're going to
+create a new one here,
+
+00:27:57.960 --> 00:28:00.570
+so let's go ahead and go
+through the "Create flow".
+
+00:28:00.570 --> 00:28:02.790
+The "Create flow" is going
+to be very familiar
+
+00:28:02.790 --> 00:28:05.040
+to folks familiar with Azure.
+
+00:28:05.040 --> 00:28:07.620
+So, what subscription
+would you like it in?
+
+00:28:07.620 --> 00:28:10.740
+We're putting it in
+that subscription.
+
+00:28:10.740 --> 00:28:11.760
+What resource group?
+
+00:28:11.760 --> 00:28:12.990
+You can either create a new one.
+
+00:28:12.990 --> 00:28:16.860
+We're going to use "bobstesting"
+for our resource group.
+
+00:28:16.860 --> 00:28:18.150
+And where are we
+going to put it?
+
+00:28:18.150 --> 00:28:21.480
+We're going to go put
+it in South Central US.
+
+00:28:21.480 --> 00:28:22.560
+We give it a cloud name.
+
+00:28:22.560 --> 00:28:24.750
+This is to identify the cloud
+that we're talking with
+
+00:28:24.750 --> 00:28:27.840
+and the connection with the
+Anyscale control plane.
+
+00:28:27.840 --> 00:28:30.030
+And then we can provision
+either a new cluster
+
+00:28:30.030 --> 00:28:31.800
+or a cluster that
+we already have.
+
+00:28:31.800 --> 00:28:34.350
+So if you already have
+Kubernetes clusters up
+
+00:28:34.350 --> 00:28:37.770
+and running on AKS, you can go
+ahead and link them in there.
+
+00:28:37.770 --> 00:28:39.540
+This is the cool part as well,
+
+00:28:39.540 --> 00:28:41.160
+we have managed identity.
+
+00:28:41.160 --> 00:28:43.560
+So this is how all
+the workloads running
+
+00:28:43.560 --> 00:28:46.890
+on the Anyscale cloud identify
+themselves with Azure
+
+00:28:46.890 --> 00:28:49.320
+and the storage accounts,
+which model checkpoints
+
+00:28:49.320 --> 00:28:50.460
+and weights are stored.
+
+00:28:50.460 --> 00:28:53.130
+And finally, we're
+going to be using ACR
+
+00:28:53.130 --> 00:28:54.780
+to store any container images,
+
+00:28:54.780 --> 00:28:59.406
+which support the Ray
+operator, Anyscale operator.
+
+00:28:59.440 --> 00:29:01.530
+Okay, finally, we're going to
+run our checks and balances,
+
+00:29:01.530 --> 00:29:03.870
+run it through the
+template before we submit.
+
+00:29:03.870 --> 00:29:07.110
+So let's just take a little look
+to recap before we go ahead
+
+00:29:07.110 --> 00:29:08.340
+and click "Create" here.
+
+00:29:08.340 --> 00:29:11.040
+So all the details there are
+verifiable, that we set it
+
+00:29:11.040 --> 00:29:14.250
+up with the resource groups
+in the test subscription.
+
+00:29:14.250 --> 00:29:16.470
+And what we can do then is
+go ahead and click "Create."
+
+00:29:16.470 --> 00:29:17.640
+We'll click "Create."
+
+00:29:17.640 --> 00:29:19.800
+And we'll wait for
+the elevator music
+
+00:29:19.800 --> 00:29:21.420
+to start while I grab a drink.
+
+00:29:21.420 --> 00:29:23.220
+And hopefully, with the
+magic of video editing,
+
+00:29:23.220 --> 00:29:25.600
+this thing will create
+pretty quickly.
+
+00:29:26.670 --> 00:29:28.620
+We can see up there in
+the notification window
+
+00:29:28.620 --> 00:29:30.930
+that the submission is
+already taking place.
+
+00:29:30.930 --> 00:29:32.460
+And this thing should
+come up and running
+
+00:29:32.460 --> 00:29:33.930
+in just a matter
+of a few seconds.
+
+00:29:33.930 --> 00:29:35.377
+So, I've gone from
+
+00:29:35.410 --> 00:29:38.970
+no Anyscale to an
+Anyscale on Azure cluster up
+
+00:29:38.970 --> 00:29:40.950
+and running in a matter
+of a few clicks.
+
+00:29:40.950 --> 00:29:42.480
+This is extremely powerful.
+
+00:29:42.480 --> 00:29:45.570
+And I haven't had to leave
+the Azure portal at all
+
+00:29:45.570 --> 00:29:47.070
+to make any of this happen.
+
+00:29:47.070 --> 00:29:49.560
+So, we can see the
+deployment is initializing
+
+00:29:49.560 --> 00:29:50.790
+up there on the right.
+
+00:29:50.790 --> 00:29:52.980
+And now that that
+deployment is running,
+
+00:29:52.980 --> 00:29:55.530
+we should have a
+cloud instance up.
+
+00:29:55.530 --> 00:29:57.840
+And we can navigate to
+"bobstest," which we created,
+
+00:29:57.840 --> 00:29:59.910
+which was the name of the cloud.
+
+00:29:59.910 --> 00:30:01.800
+So, here we see our resources.
+
+00:30:01.800 --> 00:30:03.990
+We see our resource
+blades on the left,
+
+00:30:03.990 --> 00:30:07.050
+familiar for anybody who's
+used the Azure portal.
+
+00:30:07.050 --> 00:30:08.220
+Nothing new here.
+
+00:30:08.220 --> 00:30:09.930
+But this is the instance
+of how it's created
+
+00:30:09.930 --> 00:30:11.790
+within the Azure APIs.
+
+00:30:11.790 --> 00:30:13.020
+We can click "Launch."
+
+00:30:13.020 --> 00:30:16.110
+This launches the Anyscale UI.
+
+00:30:16.110 --> 00:30:18.240
+The really cool thing
+here is you can continue
+
+00:30:18.240 --> 00:30:21.840
+with the same credentials that
+you log into the Azure portal.
+
+00:30:21.840 --> 00:30:24.420
+So, we're going to
+demonstrate how that works.
+
+00:30:24.420 --> 00:30:25.440
+This is really powerful.
+
+00:30:25.440 --> 00:30:28.470
+One identity, multiple
+platforms, all tied in,
+
+00:30:28.470 --> 00:30:31.260
+using the experience that
+starts in the portal.
+
+00:30:31.260 --> 00:30:33.240
+So we've gone ahead
+and authenticated.
+
+00:30:33.240 --> 00:30:36.090
+Now we've launched the portal
+here, and what we're going
+
+00:30:36.090 --> 00:30:37.950
+to do is walk through
+just a few things.
+
+00:30:37.950 --> 00:30:39.570
+This is where it's
+going to get quick,
+
+00:30:39.570 --> 00:30:40.650
+but we're going to get into it.
+
+00:30:40.650 --> 00:30:43.350
+We see some
+dashboards, workloads,
+
+00:30:43.350 --> 00:30:45.630
+Jupyter notebooks,
+or workspaces where --
+
+00:30:45.630 --> 00:30:47.880
+-- sorry, Workspaces are
+Jupyter notebooks
+
+00:30:47.880 --> 00:30:50.970
+where your AI developers or
+your data scientists work.
+
+00:30:50.970 --> 00:30:52.260
+We have jobs and services.
+
+00:30:52.260 --> 00:30:55.590
+Jobs are short-run jobs
+that run to completion.
+
+00:30:55.590 --> 00:30:57.630
+And services are how
+you present these
+
+00:30:57.630 --> 00:30:59.640
+to connect to for inferencing.
+
+00:30:59.640 --> 00:31:01.560
+So we're going to go
+into "Workspaces."
+
+00:31:01.560 --> 00:31:04.020
+The really cool thing
+is you can go from zero
+
+00:31:04.020 --> 00:31:06.120
+to a full running pipeline here
+
+00:31:06.120 --> 00:31:08.580
+in just a minute
+using templates.
+
+00:31:08.580 --> 00:31:11.760
+So there is a bunch of baked-in
+templates to do anything
+
+00:31:11.760 --> 00:31:16.560
+from multi-modal inferencing
+to LLMs to Hero demos.
+
+00:31:16.560 --> 00:31:19.530
+But anything that you can think
+of, there is a template library
+
+00:31:19.530 --> 00:31:22.380
+that Anyscale provides.
+
+00:31:22.380 --> 00:31:25.170
+And you can get access
+to up-and-running models
+
+00:31:25.170 --> 00:31:27.390
+and infrastructure in
+just a matter of clicks.
+
+00:31:27.390 --> 00:31:29.610
+So, now we're going to look
+at one that we've provisioned,
+
+00:31:29.610 --> 00:31:31.320
+and we're going to walk
+through that over here
+
+00:31:31.320 --> 00:31:32.580
+on the right of the screen.
+
+00:31:32.580 --> 00:31:34.080
+You can see that it's picked up,
+
+00:31:34.080 --> 00:31:36.570
+that I have a cluster
+of CPUs only.
+
+00:31:36.570 --> 00:31:38.190
+I have a head node over here.
+
+00:31:38.190 --> 00:31:40.050
+And we can see that it's
+actually running on top
+
+00:31:40.050 --> 00:31:42.300
+of a Kubernetes cluster that
+I've already provisioned,
+
+00:31:42.300 --> 00:31:46.560
+which is the way I set it
+up, an 8-node cluster.
+
+00:31:46.560 --> 00:31:47.496
+And what we're going to do is
+
+00:31:47.530 --> 00:31:48.960
+show you something
+really powerful.
+
+00:31:48.960 --> 00:31:53.040
+So your AI developers or your
+data scientists can just launch
+
+00:31:53.040 --> 00:31:55.530
+the notebook from directly
+within the portal
+
+00:31:55.530 --> 00:31:57.270
+and start executing code.
+
+00:31:57.270 --> 00:32:02.670
+So here, what we have is an
+embedded Visual Studio instance,
+
+00:32:02.670 --> 00:32:04.140
+Visual Studio code instance.
+
+00:32:04.140 --> 00:32:05.670
+And we can start
+looking at the code.
+
+00:32:05.670 --> 00:32:07.476
+So, what we're going
+to do here is, actually,
+
+00:32:07.509 --> 00:32:09.240
+run through a fine-tuning demo
+
+00:32:09.240 --> 00:32:11.550
+where we have a product
+catalog of images.
+
+00:32:11.550 --> 00:32:14.340
+And we're actually going to
+fine-tune that embedded model
+
+00:32:14.340 --> 00:32:19.080
+that we run today with a set
+of new images that we want it
+
+00:32:19.080 --> 00:32:20.640
+to make better recommendations.
+
+00:32:20.640 --> 00:32:23.190
+So, if I type in "shoe," it's
+going to recommend sock.
+
+00:32:23.190 --> 00:32:26.130
+If I search for "headphones,"
+it's going to give me things
+
+00:32:26.130 --> 00:32:28.590
+like speakers and other
+things that are related.
+
+00:32:28.590 --> 00:32:31.650
+So, what you see here
+is all the Python code
+
+00:32:31.650 --> 00:32:33.540
+from within the notebook
+that can be run
+
+00:32:33.540 --> 00:32:34.800
+and executed directly.
+
+00:32:34.800 --> 00:32:36.960
+You don't have to
+leave this interface.
+
+00:32:36.960 --> 00:32:39.690
+You can simply click that "Play"
+button there on the right
+
+00:32:39.690 --> 00:32:41.640
+and execute these
+bits and pieces.
+
+00:32:41.640 --> 00:32:44.640
+And what we're doing is actually
+cleaning the data right now
+
+00:32:44.640 --> 00:32:47.070
+and running a fine-tune.
+
+00:32:47.070 --> 00:32:49.620
+So, you can see that
+little circle whizzing
+
+00:32:49.620 --> 00:32:50.790
+around there on the bottom.
+
+00:32:50.790 --> 00:32:52.885
+What it's actually
+telling us right now is,
+
+00:32:52.918 --> 00:32:54.960
+I've run some fine-tuning,
+
+00:32:54.960 --> 00:32:58.770
+and the model has gone
+from 0.34 accuracy to 0.2
+
+00:32:58.770 --> 00:33:01.140
+because I've given it new
+data to train that model
+
+00:33:01.140 --> 00:33:04.020
+and make it more
+specific to my use case.
+
+00:33:04.020 --> 00:33:06.450
+And this is going to graph
+those results for me
+
+00:33:06.450 --> 00:33:09.570
+so that I can say I've actually
+made the model more accurate
+
+00:33:09.570 --> 00:33:11.610
+through the fine-tuning,
+which means I'm going
+
+00:33:11.610 --> 00:33:12.960
+to get better recommendations.
+
+00:33:12.960 --> 00:33:14.490
+I know this is going quickly.
+
+00:33:14.490 --> 00:33:17.190
+I'm trying to follow along
+here, keep you all up to date.
+
+00:33:17.190 --> 00:33:18.390
+And finally, we
+can actually look
+
+00:33:18.390 --> 00:33:21.060
+at the embedded vectors
+here for relationships.
+
+00:33:21.060 --> 00:33:23.190
+Everything in the green
+there are related items.
+
+00:33:23.190 --> 00:33:25.980
+So we have "Laptop
+Stands," "Smart Watches,"
+
+00:33:25.980 --> 00:33:28.320
+"Portable SSDs," "Webcams."
+
+00:33:28.320 --> 00:33:31.860
+The fine-tuning has actually
+created those relationships.
+
+00:33:31.860 --> 00:33:34.080
+And finally, we can
+see here these clouds.
+
+00:33:34.080 --> 00:33:36.870
+On the left, you see that the
+colors are all over the place.
+
+00:33:36.870 --> 00:33:38.220
+And on the right,
+they're aggregated,
+
+00:33:38.220 --> 00:33:40.650
+meaning that we've put
+all the references
+
+00:33:40.650 --> 00:33:44.130
+that are close together and
+made the model more accurate
+
+00:33:44.130 --> 00:33:45.960
+with the data we've provided.
+
+00:33:45.960 --> 00:33:48.630
+Now, finally, we're going to
+want to "serve" this somewhere.
+
+00:33:48.630 --> 00:33:51.210
+And the great thing
+about Anyscale
+
+00:33:51.210 --> 00:33:53.700
+on Azure is it takes
+care of the routing.
+
+00:33:53.700 --> 00:33:56.880
+We have three endpoints here,
+one for our HTTP ingress,
+
+00:33:56.880 --> 00:33:59.970
+and there's two models, one
+that does image-to-text,
+
+00:33:59.970 --> 00:34:01.950
+and the other one does
+the recommendations
+
+00:34:01.950 --> 00:34:03.360
+that we just fine-tuned.
+
+00:34:03.360 --> 00:34:06.270
+So around this movement
+here, we're actually showing
+
+00:34:06.270 --> 00:34:09.690
+that if I ask it about a
+pair of wireless headphones,
+
+00:34:09.690 --> 00:34:12.120
+it's going to give me
+some different references
+
+00:34:12.120 --> 00:34:13.950
+and the matches or
+the applicability
+
+00:34:13.950 --> 00:34:16.140
+of those references
+to those other items.
+
+00:34:16.140 --> 00:34:18.900
+So what we've done here is go
+from notebook to production
+
+00:34:18.900 --> 00:34:20.370
+with just a few clicks.
+
+00:34:20.370 --> 00:34:22.620
+Finally, I'm going to just
+show the integrated monitoring
+
+00:34:22.620 --> 00:34:25.050
+and observability stack,
+which is super powerful.
+
+00:34:25.050 --> 00:34:27.150
+So you can see all
+the utilization
+
+00:34:27.150 --> 00:34:28.560
+of the nodes in the clusters.
+
+00:34:28.560 --> 00:34:31.320
+You can actually have
+access to what's running
+
+00:34:31.320 --> 00:34:32.910
+and the dependencies,
+which is something
+
+00:34:32.910 --> 00:34:35.760
+that only the Anyscale
+platform running Ray gives you
+
+00:34:35.760 --> 00:34:39.030
+under the hood so you can
+not only see what's running,
+
+00:34:39.030 --> 00:34:40.830
+but you can also troubleshoot
+
+00:34:40.830 --> 00:34:43.380
+and make sure your
+platform is being utilized
+
+00:34:43.380 --> 00:34:44.760
+to the extent that you want it.
+
+00:34:44.760 --> 00:34:48.240
+So super powerful platform,
+and in only seven minutes.
+
+00:34:48.240 --> 00:34:51.750
+That took me three months to
+do, only eight months ago.
+
+00:34:51.750 --> 00:34:53.760
+So it's great to
+see this in action.
+
+00:34:53.760 --> 00:34:56.310
+And I really think you'll all
+love it for your fine-tuning
+
+00:34:56.310 --> 00:34:57.330
+and reinforcement learning.
+
+00:34:57.330 --> 00:34:59.910
+So check out Anyscale
+on Azure with Ray
+
+00:34:59.910 --> 00:35:01.860
+under the hood running on AKS.
+
+00:35:01.860 --> 00:35:04.290
+And thank you, Bob,
+for that demo.
+
+00:35:04.290 --> 00:35:06.360
+All right, we're getting
+into the late stages here.
+
+00:35:06.360 --> 00:35:07.710
+We're going to
+finish on agentic,
+
+00:35:07.710 --> 00:35:09.390
+talk about some
+customers, and I'm going
+
+00:35:09.390 --> 00:35:10.980
+to get you out of here.
+
+00:35:10.980 --> 00:35:12.570
+So, wrapping up,
+this is the area
+
+00:35:12.570 --> 00:35:14.610
+that I'm really excited about.
+
+00:35:14.610 --> 00:35:17.040
+So we've looked at
+inferencing, serving,
+
+00:35:17.040 --> 00:35:18.270
+and we've looked at training.
+
+00:35:18.270 --> 00:35:20.250
+Last question is, "How
+do I serve that all
+
+00:35:20.250 --> 00:35:21.810
+up to my autonomous agents?"
+
+00:35:21.810 --> 00:35:23.430
+Aren't we talking
+about agents here?
+
+00:35:23.430 --> 00:35:25.230
+So I'm going to show
+you how to do that.
+
+00:35:25.230 --> 00:35:27.750
+So this is where agentic
+orchestration comes in.
+
+00:35:27.750 --> 00:35:29.550
+And this area, I will say,
+
+00:35:29.550 --> 00:35:32.580
+is arguably the least
+mature part of the stack.
+
+00:35:32.580 --> 00:35:33.990
+It's changing very rapidly.
+
+00:35:33.990 --> 00:35:36.660
+You hear OpenClaw, Hermes today,
+
+00:35:36.660 --> 00:35:38.190
+but I don't know
+where it's going.
+
+00:35:38.190 --> 00:35:40.230
+But the cool thing is you
+can run it up and start
+
+00:35:40.230 --> 00:35:42.120
+to experiment with it.
+
+00:35:42.120 --> 00:35:43.590
+So what we're going to
+do is just take a look
+
+00:35:43.590 --> 00:35:47.070
+at building an agent on
+Kubernetes with skills, MCP,
+
+00:35:47.070 --> 00:35:48.480
+and primitives that help.
+
+00:35:48.480 --> 00:35:51.180
+So if you've never heard
+the terminology of a skill,
+
+00:35:51.180 --> 00:35:53.760
+it's basically just a
+discrete set of capabilities
+
+00:35:53.760 --> 00:35:54.960
+that an agent can run.
+
+00:35:54.960 --> 00:35:58.410
+The cool thing about skills is
+it's any kind of script that any
+
+00:35:58.410 --> 00:36:00.060
+of your platform team would run.
+
+00:36:00.060 --> 00:36:01.110
+Everything that I had checked
+
+00:36:01.110 --> 00:36:03.030
+into a repo has now
+become a skill,
+
+00:36:03.030 --> 00:36:05.130
+and I have agents
+run it on my behalf.
+
+00:36:05.130 --> 00:36:06.485
+So think about that, hold that
+
+00:36:06.518 --> 00:36:08.400
+in your mind for
+day two operations.
+
+00:36:08.400 --> 00:36:10.560
+You register that in a
+catalog, and you can call it
+
+00:36:10.560 --> 00:36:13.830
+from any agent that has the
+right permissions to call it.
+
+00:36:13.830 --> 00:36:19.140
+MCP is a protocol that allows
+all models, all agents to talk
+
+00:36:19.140 --> 00:36:21.420
+with tools and data
+and other agents.
+
+00:36:21.420 --> 00:36:23.400
+So it allows the
+connectivity there.
+
+00:36:23.400 --> 00:36:27.120
+And one really cool thing is we
+actually exposed the AKS MCP
+
+00:36:27.120 --> 00:36:28.170
+server today.
+
+00:36:28.170 --> 00:36:32.190
+So if you want to run up a set
+of tools and interact with AKS
+
+00:36:32.190 --> 00:36:35.790
+in natural language, you can
+say provision me an AKS cluster
+
+00:36:35.790 --> 00:36:39.030
+in VS Code with the
+AKS MCP server,
+
+00:36:39.030 --> 00:36:41.940
+and the LLM will make
+the call for you
+
+00:36:41.940 --> 00:36:43.320
+and actually provision
+the infrastructure.
+
+00:36:43.320 --> 00:36:45.030
+That's all open-source today.
+
+00:36:45.030 --> 00:36:46.890
+It'll run all your
+tools under the hood,
+
+00:36:46.890 --> 00:36:50.460
+and we run with Workload
+Identity for protection.
+
+00:36:50.460 --> 00:36:52.380
+Then on the right, we
+have Kubernetes fill-in,
+
+00:36:52.380 --> 00:36:53.790
+the primitives
+where we have gaps.
+
+00:36:53.790 --> 00:36:56.820
+So we're using namespaces
+to isolate the agents,
+
+00:36:56.820 --> 00:36:59.250
+RBAC to make sure it has
+the right privileges,
+
+00:36:59.250 --> 00:37:01.860
+and service meshes to make
+sure that we can observe
+
+00:37:01.860 --> 00:37:03.180
+and filter the calls
+
+00:37:03.180 --> 00:37:06.930
+and actually make policy
+changes that we need.
+
+00:37:06.930 --> 00:37:09.300
+So, Kubernetes has all
+the primitives we need
+
+00:37:09.300 --> 00:37:12.100
+under the hood here
+to make this work.
+
+00:37:12.410 --> 00:37:14.700
+Okay. So, this is
+where we're right
+
+00:37:14.700 --> 00:37:16.470
+out on the edge of
+the frontier here.
+
+00:37:16.470 --> 00:37:18.630
+I'm going to give you an
+example of how to do this.
+
+00:37:18.630 --> 00:37:21.170
+So, I talked about
+OpenClaw earlier today
+
+00:37:21.170 --> 00:37:22.490
+in many of these sessions.
+
+00:37:22.490 --> 00:37:24.050
+But it's a reference
+implementation
+
+00:37:24.050 --> 00:37:27.590
+for a multi-channel, multi-tool
+personal AI assistant.
+
+00:37:27.590 --> 00:37:29.910
+I use it to book my
+Pilates lessons.
+
+00:37:29.910 --> 00:37:31.650
+Hold your applause for later.
+
+00:37:31.650 --> 00:37:34.200
+There's no way I'm
+doing Pilates.
+
+00:37:34.200 --> 00:37:35.340
+Not because there's
+anything bad.
+
+00:37:35.340 --> 00:37:37.950
+I just don't know that
+my body will do it.
+
+00:37:37.950 --> 00:37:41.190
+It bridges a chat platform into
+a multi-agent orchestrator.
+
+00:37:41.190 --> 00:37:42.930
+So we're going to show a
+really cool demo on how to do
+
+00:37:42.930 --> 00:37:46.320
+that with approval flows,
+tools, and memory.
+
+00:37:46.320 --> 00:37:47.370
+It takes care of everything.
+
+00:37:47.370 --> 00:37:48.690
+It's a base pattern.
+
+00:37:48.690 --> 00:37:51.120
+And we have a use case that
+I'm going to show in a minute.
+
+00:37:51.120 --> 00:37:53.070
+We've actually codified
+a bunch of skills
+
+00:37:53.070 --> 00:37:55.650
+that our AKS
+engineers use to help
+
+00:37:55.650 --> 00:38:00.030
+with troubleshooting
+environmental issues with AKS.
+
+00:38:00.030 --> 00:38:02.160
+So think about it as
+we can create agents
+
+00:38:02.160 --> 00:38:05.430
+out of our support engineers
+and actually give them access
+
+00:38:05.430 --> 00:38:07.890
+to the right tools at the right
+time so they don't have to go
+
+00:38:07.890 --> 00:38:08.670
+through the monotony of
+
+00:38:08.703 --> 00:38:10.650
+pulling all the logs
+or making decisions.
+
+00:38:10.650 --> 00:38:12.180
+I'm going to talk about
+that in a minute.
+
+00:38:12.180 --> 00:38:14.460
+But we use that right now
+for day-two operations,
+
+00:38:14.460 --> 00:38:15.677
+and that might be
+a great value-add
+
+00:38:15.710 --> 00:38:17.040
+for you if you're starting
+
+00:38:17.040 --> 00:38:20.810
+to experiment with agents.
+
+00:38:20.810 --> 00:38:21.950
+And then finally, on the right,
+
+00:38:21.950 --> 00:38:23.413
+we're actually releasing today
+
+00:38:23.447 --> 00:38:25.250
+an agent reference
+stack for Kubernetes.
+
+00:38:25.250 --> 00:38:27.440
+We call it KARS,
+K-A-R-S for short.
+
+00:38:27.440 --> 00:38:30.410
+But this gives you a vertically
+integrated secure sandbox
+
+00:38:30.410 --> 00:38:34.010
+environment where you can
+actually apply workload identity
+
+00:38:34.010 --> 00:38:37.590
+policies and sandbox
+environments leveraging Azure
+
+00:38:37.590 --> 00:38:40.290
+Linux under the hood,
+which is really cool.
+
+00:38:40.290 --> 00:38:42.630
+So you can rest assured that
+you have the right security
+
+00:38:42.630 --> 00:38:43.800
+primitives in place.
+
+00:38:43.800 --> 00:38:45.450
+And don't let those
+agents run wild
+
+00:38:45.450 --> 00:38:48.920
+because I know security
+is a massive concern.
+
+00:38:48.920 --> 00:38:50.090
+So let's take a look at this.
+
+00:38:50.090 --> 00:38:51.200
+This is a two-minute demo.
+
+00:38:51.200 --> 00:38:53.180
+We're going to take a look
+at the agent reference stack
+
+00:38:53.180 --> 00:38:56.930
+for Kubernetes, which
+is under Azure/KARS.
+
+00:38:56.930 --> 00:38:58.430
+And you can run this up today,
+
+00:38:58.430 --> 00:39:01.080
+and then we're
+going to finish up.
+
+00:39:01.080 --> 00:39:02.850
+So just going through
+the repo here,
+
+00:39:02.850 --> 00:39:06.360
+you can see the agent reference
+stack for Kubernetes.
+
+00:39:06.360 --> 00:39:08.250
+And popping over to
+a terminal here,
+
+00:39:08.250 --> 00:39:11.130
+if you have any Kubernetes
+cluster, even one locally,
+
+00:39:11.130 --> 00:39:12.900
+you can just run it up
+with a single command.
+
+00:39:12.900 --> 00:39:14.250
+It ships with a binary.
+
+00:39:14.250 --> 00:39:15.870
+We can say "kars up."
+
+00:39:15.870 --> 00:39:17.430
+We're provisioning a demo.
+
+00:39:17.430 --> 00:39:19.650
+And what this is doing is
+actually running all the checks
+
+00:39:19.650 --> 00:39:22.500
+to make sure anything that I'm
+missing needs to be installed.
+
+00:39:22.500 --> 00:39:27.300
+But I'm actually running this
+locally against an AKS cluster
+
+00:39:27.300 --> 00:39:29.400
+that I have in my environment.
+
+00:39:29.400 --> 00:39:31.560
+So I ran it up.
+
+00:39:31.560 --> 00:39:33.300
+What we're going to see
+here is, in the portal,
+
+00:39:33.300 --> 00:39:34.830
+we can see the namespaces.
+
+00:39:34.830 --> 00:39:38.880
+We see that we provisioned
+a "kars-system" namespace.
+
+00:39:38.880 --> 00:39:41.430
+That's where all the
+machinery is going
+
+00:39:41.430 --> 00:39:43.590
+to run on your AKS cluster.
+
+00:39:43.590 --> 00:39:45.570
+Right now, what I'm showing
+you is I want to run
+
+00:39:45.570 --> 00:39:47.340
+up an OpenClaw instance
+to start playing
+
+00:39:47.340 --> 00:39:51.200
+with OpenClaw using a custom
+resource in Kubernetes.
+
+00:39:51.200 --> 00:39:54.950
+So I'm saying, please,
+OpenClaw, be a helpful agent.
+
+00:39:54.950 --> 00:39:56.690
+Here's the access you have.
+
+00:39:56.690 --> 00:39:57.890
+Here's the tools you have.
+
+00:39:57.890 --> 00:39:59.280
+Here's what you can call.
+
+00:39:59.280 --> 00:40:01.170
+All declarative in Kubernetes.
+
+00:40:01.170 --> 00:40:03.300
+I'm going to apply that
+to the cluster now.
+
+00:40:03.300 --> 00:40:09.090
+And from here, we're going to be
+able to access the OpenClaw UI.
+
+00:40:09.090 --> 00:40:10.770
+We'll just have a
+look over here.
+
+00:40:10.770 --> 00:40:14.030
+I want to just plug an
+open-source tool called Headlamp
+
+00:40:14.030 --> 00:40:17.630
+that gives you a heads-up
+display for Kubernetes clusters.
+
+00:40:17.630 --> 00:40:18.770
+and it actually has plug-ins.
+
+00:40:18.770 --> 00:40:20.630
+We've built a KARS
+plug-in as well.
+
+00:40:20.630 --> 00:40:23.210
+So you can go to Headlamp,
+which is open-source,
+
+00:40:23.210 --> 00:40:26.250
+run up and introspect what
+your sandbox are running,
+
+00:40:26.250 --> 00:40:27.570
+where your agents are running,
+
+00:40:27.570 --> 00:40:31.020
+what security capabilities they
+have, what policies you have
+
+00:40:31.020 --> 00:40:33.990
+in place, and what
+access they have.
+
+00:40:33.990 --> 00:40:35.760
+We also have a mesh topology
+
+00:40:35.760 --> 00:40:37.350
+so you can actually
+see the mesh graph
+
+00:40:37.350 --> 00:40:39.480
+of where all the calls are
+going, from your agents,
+
+00:40:39.480 --> 00:40:41.310
+to your LLMs, or elsewhere.
+
+00:40:41.310 --> 00:40:43.290
+Finally, we have a
+binary version of that
+
+00:40:43.290 --> 00:40:44.430
+as well that you can run up.
+
+00:40:44.430 --> 00:40:47.000
+If you go to "kars/operator,"
+
+00:40:47.000 --> 00:40:49.700
+you can see all the same
+things you see in the UI
+
+00:40:49.700 --> 00:40:52.490
+at a glance here to see what's
+running on your cluster
+
+00:40:52.490 --> 00:40:54.470
+and the security
+controls it has.
+
+00:40:54.470 --> 00:40:56.090
+So I'm running a KARS list now.
+
+00:40:56.090 --> 00:40:57.650
+You can see the sandboxes.
+
+00:40:57.650 --> 00:40:59.880
+I have a demo that I've
+run up here that's
+
+00:40:59.880 --> 00:41:01.440
+in a sandbox environment.
+
+00:41:01.440 --> 00:41:03.270
+And now I'm going to
+ask to connect to it,
+
+00:41:03.270 --> 00:41:06.630
+and we will get the OpenClaw
+UI, which I can then log into.
+
+00:41:06.630 --> 00:41:10.110
+So this passes back the URL
+with the token embedded.
+
+00:41:10.110 --> 00:41:12.060
+And I can go ahead and log in.
+
+00:41:12.060 --> 00:41:14.310
+And one of the cool
+things is I've run this
+
+00:41:14.310 --> 00:41:15.510
+up in just a couple of minutes.
+
+00:41:15.510 --> 00:41:16.740
+This demo was not edited.
+
+00:41:16.740 --> 00:41:18.240
+It's all just there live.
+
+00:41:18.240 --> 00:41:19.470
+We get our chat interface.
+
+00:41:19.470 --> 00:41:20.730
+We can say "hi."
+
+00:41:20.730 --> 00:41:25.610
+We start getting a response
+back from the agent here,
+
+00:41:25.610 --> 00:41:27.680
+and we're going to ask it
+something very timely.
+
+00:41:27.680 --> 00:41:29.540
+We recorded this yesterday.
+
+00:41:29.540 --> 00:41:31.550
+"Can you tell me what
+announcements Microsoft had
+
+00:41:31.550 --> 00:41:34.310
+with NVIDIA this week?"
+
+00:41:34.310 --> 00:41:35.930
+So it's going to go
+over just to show
+
+00:41:35.930 --> 00:41:38.370
+that it's very fresh
+and very live.
+
+00:41:38.370 --> 00:41:40.440
+This is the constraints
+it's working with.
+
+00:41:40.440 --> 00:41:42.840
+So it's actually going to
+go to the web and consult
+
+00:41:42.840 --> 00:41:46.290
+and give me a well-thought-out
+response based on the media
+
+00:41:46.290 --> 00:41:50.720
+and press analysis yesterday of
+what actually happened at Build
+
+00:41:50.720 --> 00:41:52.940
+between NVIDIA and Microsoft.
+
+00:41:52.940 --> 00:41:55.490
+So you can see we've released
+these different things.
+
+00:41:55.490 --> 00:41:57.800
+And you can see that in a
+couple of minutes and a couple
+
+00:41:57.800 --> 00:42:00.590
+of clicks, I've got something
+I can give me value
+
+00:42:00.590 --> 00:42:04.140
+for my engineers to start
+playing with agents
+
+00:42:04.140 --> 00:42:06.750
+and the power of agents on
+top of AKS or Kubernetes.
+
+00:42:06.750 --> 00:42:10.780
+So that is the agent reference
+stack for Kubernetes.
+
+00:42:12.929 --> 00:42:14.081
+Now we're just going to wrap up
+
+00:42:14.115 --> 00:42:16.230
+and talk about some customers
+that are seeing some value.
+
+00:42:16.230 --> 00:42:21.840
+So, here are the four reasons
+where Kubernetes is wise.
+
+00:42:21.840 --> 00:42:23.190
+Practitioners are
+building on top
+
+00:42:23.190 --> 00:42:25.260
+of Kubernetes for
+the agent layer.
+
+00:42:25.260 --> 00:42:26.700
+We have session state.
+
+00:42:26.700 --> 00:42:29.250
+We have multi-step
+coordination built in,
+
+00:42:29.250 --> 00:42:30.930
+tool-call observability,
+
+00:42:30.930 --> 00:42:32.610
+and then finally, a
+composable stack.
+
+00:42:32.610 --> 00:42:34.500
+I've harped on that
+composable stack,
+
+00:42:34.500 --> 00:42:36.960
+but you can pick up skills.
+
+00:42:36.960 --> 00:42:39.810
+Cloud providers publish
+MCP skills all the time.
+
+00:42:39.810 --> 00:42:44.430
+And you can interact with
+Azure using the AKS MCP server
+
+00:42:44.430 --> 00:42:48.370
+to interact with AKS
+using natural language.
+
+00:42:49.870 --> 00:42:52.587
+Okay. Substrate --
+and I'm getting low
+
+00:42:52.620 --> 00:42:53.786
+on time here, so I'm going to go
+
+00:42:53.820 --> 00:42:55.410
+through these announcements.
+
+00:42:55.410 --> 00:42:56.580
+So we've got a few
+announcements,
+
+00:42:56.580 --> 00:42:59.220
+four announcements today,
+spanning both single cluster,
+
+00:42:59.220 --> 00:43:01.320
+multi-cluster, and Fleet.
+
+00:43:01.320 --> 00:43:03.460
+And we're going to
+walk through them.
+
+00:43:03.822 --> 00:43:07.260
+Okay. Generally available,
+we have AKS Automatic.
+
+00:43:07.260 --> 00:43:09.420
+If you're using Automatic, it's
+the easiest way to get started
+
+00:43:09.420 --> 00:43:10.800
+with Kubernetes and AKS.
+
+00:43:10.800 --> 00:43:14.190
+But what we've done now is give
+you managed system node pools.
+
+00:43:14.190 --> 00:43:15.570
+So all the pods that need
+
+00:43:15.570 --> 00:43:18.390
+to run the Kubernetes components
+themselves, we now take care
+
+00:43:18.390 --> 00:43:20.280
+of managing that
+and scaling that.
+
+00:43:20.280 --> 00:43:22.380
+Why it matters for
+AI is you don't need
+
+00:43:22.380 --> 00:43:25.380
+to run those components on
+your GPU nodes that you want
+
+00:43:25.380 --> 00:43:29.520
+to milk every cycle out of
+to run your AI workload.
+
+00:43:29.520 --> 00:43:33.960
+So, that's AKS Automatic with
+managed system node pools.
+
+00:43:33.960 --> 00:43:38.520
+GA today. Azure Container
+Linux, excited about this one.
+
+00:43:38.520 --> 00:43:41.780
+So we've given you the best of
+Azure and the best of Linux
+
+00:43:41.780 --> 00:43:42.860
+in Azure Container Linux.
+
+00:43:42.860 --> 00:43:44.870
+You get smaller
+attack surface area.
+
+00:43:44.870 --> 00:43:48.170
+We've curated the level of
+packages, smaller CVEs,
+
+00:43:48.170 --> 00:43:51.380
+and predictable fast
+patching cycles.
+
+00:43:51.380 --> 00:43:53.090
+We have transparent
+supply chain,
+
+00:43:53.090 --> 00:43:55.830
+so we package everything up,
+distribute it to the node
+
+00:43:55.830 --> 00:43:58.200
+so that you get predictable
+signed artifacts,
+
+00:43:58.200 --> 00:44:02.700
+predictable upgrade paths
+for regulated workloads.
+
+00:44:02.700 --> 00:44:04.860
+And then consistency
+across hosts.
+
+00:44:04.860 --> 00:44:08.460
+You can start this up for both
+in a container environment,
+
+00:44:08.460 --> 00:44:12.120
+on your VMs, or even in WSL on
+your Windows machine as well.
+
+00:44:12.120 --> 00:44:15.690
+So we believe the OS layer
+in AKS should be invisible,
+
+00:44:15.690 --> 00:44:19.150
+secure by default, and
+consistent and out of your way.
+
+00:44:20.105 --> 00:44:21.584
+Okay. Really excited about
+
+00:44:21.617 --> 00:44:23.790
+the public preview
+of AKS on bare metal.
+
+00:44:23.790 --> 00:44:26.790
+So, this is direct
+hardware access from AKS
+
+00:44:26.790 --> 00:44:28.890
+to manage physical nodes, right?
+
+00:44:28.890 --> 00:44:31.590
+So we can actually install
+AKS on physical hardware
+
+00:44:31.590 --> 00:44:34.620
+with no hypervisor, so
+no virtualization layer
+
+00:44:34.620 --> 00:44:37.440
+for your workload, which is
+important for GPUs, NICs,
+
+00:44:37.440 --> 00:44:39.750
+and all the like
+of the specialized
+
+00:44:39.750 --> 00:44:41.160
+accelerated hardware.
+
+00:44:41.160 --> 00:44:45.420
+Same AKS control plane,
+same operational model.
+
+00:44:45.420 --> 00:44:49.590
+And it matters for AI because
+you can extend AI to on-prem,
+
+00:44:49.590 --> 00:44:51.900
+other clouds, and
+have it inside Azure
+
+00:44:51.900 --> 00:44:54.030
+and not pay the
+virtualization tax
+
+00:44:54.030 --> 00:44:55.560
+for your on-prem environment.
+
+00:44:55.560 --> 00:44:59.370
+So, it allows you to
+scale very quickly.
+
+00:44:59.370 --> 00:45:01.710
+And finally, I'm really
+excited about this one.
+
+00:45:01.710 --> 00:45:04.290
+Clusters get really, really
+big, really quickly
+
+00:45:04.290 --> 00:45:06.240
+so you want to be able
+to be in a position
+
+00:45:06.240 --> 00:45:08.820
+where you can manage
+the fleet of clusters.
+
+00:45:08.820 --> 00:45:10.680
+Fleet for ARC-enabled
+clusters allows you
+
+00:45:10.680 --> 00:45:13.500
+to have progressive
+rollouts across clusters,
+
+00:45:13.500 --> 00:45:16.620
+intelligent workload
+placement for your workloads
+
+00:45:16.620 --> 00:45:19.770
+across different boundaries,
+environments, on-prem
+
+00:45:19.770 --> 00:45:22.620
+and on-edge, consistent
+policy enforcement.
+
+00:45:22.620 --> 00:45:23.970
+So, we're pushing
+the same policies
+
+00:45:23.970 --> 00:45:25.830
+to all environments
+at the same time.
+
+00:45:25.830 --> 00:45:27.870
+And it's Arc-enabled,
+so it's in the Azure.
+
+00:45:27.870 --> 00:45:31.050
+It has an identity in Azure
+using the same control plane.
+
+00:45:31.050 --> 00:45:34.860
+So, all AI workloads outgrow a
+single cluster very quickly,
+
+00:45:34.860 --> 00:45:37.510
+and this is how you
+stay ahead of that.
+
+00:45:38.614 --> 00:45:40.920
+Okay. So, back to
+the full (inaudible).
+
+00:45:40.920 --> 00:45:42.000
+We've run the whole thing.
+
+00:45:42.000 --> 00:45:43.740
+I'm just going to finish
+up with two customers.
+
+00:45:43.740 --> 00:45:45.630
+I need just an extra
+two minutes here.
+
+00:45:45.630 --> 00:45:46.795
+I got too excited.
+So, what
+
+00:45:46.828 --> 00:45:48.480
+this looks like in production.
+
+00:45:48.480 --> 00:45:50.610
+We're going to show you a
+couple of customer use cases.
+
+00:45:50.610 --> 00:45:52.800
+We actually have Royal
+Bank of Canada here
+
+00:45:52.800 --> 00:45:55.500
+who are leveraging
+KAITO in production.
+
+00:45:55.500 --> 00:45:56.820
+Their platform onboarding
+
+00:45:56.820 --> 00:46:00.150
+and deployment operator wraps
+the GPU resource provisioning
+
+00:46:00.150 --> 00:46:03.780
+into a CI/CD workflow that the
+developers run themselves.
+
+00:46:03.780 --> 00:46:05.370
+So it's a self-service
+deployment,
+
+00:46:05.370 --> 00:46:07.650
+and it's secure by default.
+
+00:46:07.650 --> 00:46:10.710
+KAITO is used for the production
+model serving workspace
+
+00:46:10.710 --> 00:46:13.440
+and AI models deployed as pods.
+
+00:46:13.440 --> 00:46:16.950
+And the model images are
+stored in the bank's ACR,
+
+00:46:16.950 --> 00:46:18.840
+which is the Azure
+Container Registry.
+
+00:46:18.840 --> 00:46:20.095
+So, the really
+important thing is
+
+00:46:20.128 --> 00:46:22.110
+we have a compliance perimeter.
+
+00:46:22.110 --> 00:46:23.730
+This is a bank, obviously.
+
+00:46:23.730 --> 00:46:26.910
+And they're utilizing
+things like Entra ID,
+
+00:46:26.910 --> 00:46:28.620
+Key Vault, private ACR.
+
+00:46:28.620 --> 00:46:32.220
+And their models and all their
+data stays inside their secure
+
+00:46:32.220 --> 00:46:35.340
+perimeter, their subscription,
+and their boundary.
+
+00:46:35.340 --> 00:46:37.020
+And this is a really
+great example
+
+00:46:37.020 --> 00:46:41.550
+of how banks are utilizing
+tools like KAITO on top
+
+00:46:41.550 --> 00:46:44.350
+of AKS for model serving.
+
+00:46:45.297 --> 00:46:46.482
+Okay, one more before I
+
+00:46:46.516 --> 00:46:47.970
+finish up. This is really cool.
+
+00:46:47.970 --> 00:46:50.610
+Wayve is rewriting the
+self-driving playbook
+
+00:46:50.610 --> 00:46:52.140
+with end-to-end deep learning,
+
+00:46:52.140 --> 00:46:54.000
+and they're running
+that on AKS with Ray.
+
+00:46:54.000 --> 00:46:56.370
+So their driver, the AI driver,
+
+00:46:56.370 --> 00:46:58.290
+actually demonstrated
+autonomous driving
+
+00:46:58.290 --> 00:47:00.210
+in Tokyo only after four months.
+
+00:47:00.210 --> 00:47:01.920
+I lived in Japan for four years,
+
+00:47:01.920 --> 00:47:04.050
+and I still couldn't
+drive in Tokyo.
+
+00:47:04.050 --> 00:47:05.220
+So that beat me out.
+
+00:47:05.220 --> 00:47:07.200
+So with a brand-new
+Nissan vehicle,
+
+00:47:07.200 --> 00:47:09.810
+they demonstrated
+learning on the go.
+
+00:47:09.810 --> 00:47:11.273
+So that kind of generalization
+
+00:47:11.306 --> 00:47:14.220
+required massive
+infrastructure and clusters.
+
+00:47:14.220 --> 00:47:18.360
+And they used AKS and Anyscale
+on Azure to connect thousands
+
+00:47:18.360 --> 00:47:21.840
+of GPUs into a
+flexible supercomputer
+
+00:47:21.840 --> 00:47:23.580
+for training and validation.
+
+00:47:23.580 --> 00:47:25.890
+And this training layer
+is pushed to its limits.
+
+00:47:25.890 --> 00:47:29.400
+The scale of the infrastructure
+directly determines how quickly
+
+00:47:29.400 --> 00:47:30.870
+they can iterate and
+train the model.
+
+00:47:30.904 --> 00:47:32.884
+So this is really cool.
+Okay.
+
+00:47:34.590 --> 00:47:37.140
+Finally, I wanted to
+talk about AKS Claw.
+
+00:47:37.140 --> 00:47:38.910
+So, I mentioned earlier,
+I've got an example
+
+00:47:38.910 --> 00:47:40.950
+of agentic workloads
+on top of AKS.
+
+00:47:40.950 --> 00:47:42.270
+We have AKS Claw.
+
+00:47:42.270 --> 00:47:46.290
+AKS Claw is our SME, so our
+subject matter expertise,
+
+00:47:46.290 --> 00:47:48.720
+our SREs encoded as an agent.
+
+00:47:48.720 --> 00:47:52.650
+And what this really allows is
+each dedicated engineer gets a
+
+00:47:52.650 --> 00:47:56.850
+dedicated instance with an
+isolated instance of Claw.
+
+00:47:56.850 --> 00:47:59.730
+The AKS Claw gets installed,
+
+00:47:59.730 --> 00:48:03.060
+and every new on-call engineer
+is able to be up and running
+
+00:48:03.060 --> 00:48:05.400
+within minutes with
+very minimal training
+
+00:48:05.400 --> 00:48:07.320
+and get the tools
+they need and access
+
+00:48:07.320 --> 00:48:09.090
+to the environments they
+need to make a decision
+
+00:48:09.090 --> 00:48:10.920
+to get our customers
+back online.
+
+00:48:10.920 --> 00:48:13.830
+So, this is one natural
+language interface,
+
+00:48:13.830 --> 00:48:16.710
+but we can replicate consistent
+operational behavior
+
+00:48:16.710 --> 00:48:19.710
+by encoding it in agents with
+something like AKS Claw.
+
+00:48:19.710 --> 00:48:23.010
+So, very excited to be able to
+build on top of the primitives
+
+00:48:23.010 --> 00:48:24.891
+that I've shared here today.
+
+00:48:24.925 --> 00:48:27.390
+Okay. So now what?
+
+00:48:27.390 --> 00:48:28.950
+This is what you've
+got to take away with.
+
+00:48:28.950 --> 00:48:30.660
+Start with Kubernetes, right?
+
+00:48:30.660 --> 00:48:33.420
+That's a substrate that many of
+you are already using today.
+
+00:48:33.420 --> 00:48:35.610
+Build the agent layer
+with MCP skills
+
+00:48:35.610 --> 00:48:37.680
+and reference stacks
+like OpenClaw.
+
+00:48:37.680 --> 00:48:40.560
+Choose the tooling that
+matches your build versus buy.
+
+00:48:40.560 --> 00:48:43.650
+If you want things like AI
+Runway, KAITO, we have a tool
+
+00:48:43.650 --> 00:48:45.060
+for every layer of the stack.
+
+00:48:45.060 --> 00:48:47.430
+You get to mix and
+match and choose.
+
+00:48:47.430 --> 00:48:50.280
+We've got some tools,
+obviously, for inferencing
+
+00:48:50.280 --> 00:48:53.010
+and serving KAITO and AI Runway.
+
+00:48:53.010 --> 00:48:55.620
+We have Ray with
+Anyscale on Azure.
+
+00:48:55.620 --> 00:48:57.300
+And then we have
+what I just caused,
+
+00:48:57.300 --> 00:49:01.680
+what I announced earlier,
+for runtime specialization
+
+00:49:01.680 --> 00:49:03.480
+for agentic AI workloads.
+
+00:49:03.480 --> 00:49:06.300
+And then finally, Fleet.
+
+00:49:06.300 --> 00:49:09.720
+So invest in Fleet
+early, I'm getting a look,
+
+00:49:09.720 --> 00:49:12.760
+when your workloads
+outgrow a single cluster. Okay.
+
+00:49:14.070 --> 00:49:15.300
+I think that gets us to the end.
+
+00:49:15.300 --> 00:49:17.010
+So, I really
+appreciate your time.
+
+00:49:17.010 --> 00:49:19.110
+If you have any feedback,
+good, bad, or otherwise,
+
+00:49:19.110 --> 00:49:20.490
+I'd appreciate you
+taking the survey.
+
+00:49:20.490 --> 00:49:22.650
+But I'll see you all around.
+
+00:49:22.650 --> 00:49:24.510
+I'll be over here for
+the next day or so.
+
+00:49:24.510 --> 00:49:26.482
+If any of that inspired any
+
+00:49:26.515 --> 00:49:28.740
+curiosity, I'd love to
+chat with you all about it.
+
+00:49:28.740 --> 00:49:30.420
+And I'd love to learn
+from you as well,
+
+00:49:30.420 --> 00:49:31.590
+see what you're building.
+
+00:49:31.590 --> 00:49:33.120
+And hopefully, next
+time you're on stage,
+
+00:49:33.120 --> 00:49:34.410
+telling me what you all built.
+
+00:49:34.410 --> 00:49:35.881
+That brings me a lot
+
+00:49:35.914 --> 00:49:37.260
+of excitement to see
+what you all build.
+
+00:49:37.260 --> 00:49:39.240
+So, thank you.
+Have a great Build.
+
+00:49:39.240 --> 00:49:40.740
+Thanks for giving me an
+extra couple of minutes.
+
+00:49:40.740 --> 00:49:41.520
+Appreciate the time.
+
+00:49:41.554 --> 00:49:42.326
+[ Applause ]
+
+00:49:42.359 --> 00:49:50.574
+[ Music ]

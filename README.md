@@ -141,17 +141,17 @@ Technology intersects with culture and exploration:
 ### 🤖 **AI & Intelligent Development**
 
 #### 🆕 Prompt Engineering
-- **[How GitHub Copilot Uses Markdown and Prompt Folders](03.00-tech/05.02-prompt-engineering/01-overview/01.00-the_github_copilot_customization_stack.md)** ⭐  
+- **[How GitHub Copilot Uses Markdown and Prompt Folders](03.00-tech/05.02-prompt-engineering/01-overview/01.00-the-github-copilot-customization-stack.md)** ⭐  
   *Understanding the .github folder structure and how Copilot discovers custom instructions*
-- **[How to Name and Organize Prompt Files](03.00-tech/05.02-prompt-engineering/02-getting-started/02.00-how_to_name_and_organize_prompt_files.md)**  
+- **[How to Name and Organize Prompt Files](03.00-tech/05.02-prompt-engineering/02-getting-started/02.00-how-to-name-and-organize-prompt-files.md)**  
   *Best practices for structuring your prompt engineering workflow*
-- **[How to Structure Content for Copilot Prompt Files](03.00-tech/05.02-prompt-engineering/04-howto/03.00-how_to_structure_content_for_copilot_prompt_files.md)**  
+- **[How to Structure Content for Copilot Prompt Files](03.00-tech/05.02-prompt-engineering/04-howto/03.00-how-to-structure-content-for-copilot-prompt-files.md)**  
   *Creating effective, maintainable prompt instructions*
-- **[How to Structure Content for Copilot Agent Files](03.00-tech/05.02-prompt-engineering/04-howto/04.00-how_to_structure_content_for_copilot_agent_files.md)**  
+- **[How to Structure Content for Copilot Agent Files](03.00-tech/05.02-prompt-engineering/04-howto/04.00-how-to-structure-content-for-copilot-agent-files.md)**  
   *Building autonomous AI agents with .agent.md files*
-- **[How to Structure Content for Copilot Instruction Files](03.00-tech/05.02-prompt-engineering/04-howto/05.00-how_to_structure_content_for_copilot_instruction_files.md)**  
+- **[How to Structure Content for Copilot Instruction Files](03.00-tech/05.02-prompt-engineering/04-howto/05.00-how-to-structure-content-for-copilot-instruction-files.md)**  
   *Path-specific custom instructions with .instructions.md files*
-- **[Creating Prompts That Interact with Agents](03.00-tech/05.02-prompt-engineering/05-analysis/20-how_to_create_a_prompt_interacting_with_agents.md)** 🆕  
+- **[Creating Prompts That Interact with Agents](03.00-tech/05.02-prompt-engineering/05-analysis/20-how-to-create-a-prompt-interacting-with-agents.md)** 🆕  
   *Advanced techniques for agent-aware prompt design*
 - **[Prompts for Documentation Sites](03.00-tech/05.02-prompt-engineering/05-analysis/22-prompts-and-markdown-structure-for-a-documentation-site.md)** 🆕  
   *Specialized prompts for documentation workflows*
@@ -303,9 +303,9 @@ Each article is a snapshot of learning at a specific point in time. As technolog
 - [VS Code v1.107 Release Analysis](01.00-news/20251224-vscode-v1.107-release/02-readme.sonnet4.md) 🆕
 
 ### 🤖 AI & Prompt Engineering
-- [GitHub Copilot Prompt Files](03.00-tech/05.02-prompt-engineering/01-overview/01.00-the_github_copilot_customization_stack.md)
-- [Organizing Prompt Files](03.00-tech/05.02-prompt-engineering/02-getting-started/02.00-how_to_name_and_organize_prompt_files.md)
-- [Creating Multi-Agent Prompts](03.00-tech/05.02-prompt-engineering/05-analysis/20-how_to_create_a_prompt_interacting_with_agents.md) 🆕
+- [GitHub Copilot Prompt Files](03.00-tech/05.02-prompt-engineering/01-overview/01.00-the-github-copilot-customization-stack.md)
+- [Organizing Prompt Files](03.00-tech/05.02-prompt-engineering/02-getting-started/02.00-how-to-name-and-organize-prompt-files.md)
+- [Creating Multi-Agent Prompts](03.00-tech/05.02-prompt-engineering/05-analysis/20-how-to-create-a-prompt-interacting-with-agents.md) 🆕
 
 ### 💡 Ideas & Projects
 - [IQPilot Overview](06.00-idea/iqpilot/01-iqpilot-overview.md) 🆕

@@ -6,7 +6,7 @@
 **Speakers:** Aaron Bjork (Product Management Director, Microsoft), Abram Jackson (PM for M365 Copilot Extensibility, Microsoft)  
 **Link:** [Microsoft Build 2025 Session BRK165]
 
-![Building M365 Copilot Agents](images/m365-copilot-agents-development.png)
+![Building Agents for Microsoft 365 Copilot](images/session-banner.png)
 
 ---
 
@@ -334,7 +334,7 @@ Professional Developer Control
 - **In-place editing** - Direct document modification with user confirmation
 - **Professional accuracy** - Legal-grade precision and compliance
 
-**Shepardize™ Feature:**
+**Shepardizeï¿½ Feature:**
 
 - **Citation validation** - Automated legal citation checking and verification
 - **Case law analysis** - Determining if precedents are still valid or overturned
@@ -601,4 +601,3 @@ Microsoft
 ---
 
 *This comprehensive session demonstrates Microsoft's commitment to democratizing agent development across all skill levels, providing a complete toolkit from no-code Agent Builder through professional SDK development. The unified vision enables every organization to participate in the agent-centric transformation while maintaining enterprise security, governance, and integration capabilities.*
-

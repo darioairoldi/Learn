@@ -28,73 +28,73 @@ The series follows the [Diátaxis framework](https://diataxis.fr/) with six cont
 
 | Number | Title | Status |
 |--------|-------|--------|
-| 01.00 | [The GitHub Copilot customization stack](./01-overview/01.00-the_github_copilot_customization_stack.md) | ✅ Published |
-| 01.01 | [Appendix: Copilot Spaces](./01-overview/01.01-appendix_copilot_spaces.md) | ✅ Published |
+| 01.00 | [The GitHub Copilot customization stack](./01-overview/01.00-the-github-copilot-customization-stack.md) | ✅ Published |
+| 01.01 | [Appendix: Copilot Spaces](./01-overview/01.01-appendix-copilot-spaces.md) | ✅ Published |
 
 ### 02-getting-started (3 articles)
 
 | Number | Title | Status |
 |--------|-------|--------|
-| 01.00 | [How GitHub Copilot uses markdown and prompt folders](./02-getting-started/01.00-how_github_copilot_uses_markdown_and_prompt_folders.md) | ✅ Published |
-| 01.01 | [Appendix: Getting started reference material](./02-getting-started/01.01-appendix_getting_started_reference.md) | ✅ Published |
-| 02.00 | [How to name and organize prompt files](./02-getting-started/02.00-how_to_name_and_organize_prompt_files.md) | ✅ Published |
+| 01.00 | [How GitHub Copilot uses markdown and prompt folders](./02-getting-started/01.00-how-github-copilot-uses-markdown-and-prompt-folders.md) | ✅ Published |
+| 01.01 | [Appendix: Getting started reference material](./02-getting-started/01.01-appendix-getting-started-reference.md) | ✅ Published |
+| 02.00 | [How to name and organize prompt files](./02-getting-started/02.00-how-to-name-and-organize-prompt-files.md) | ✅ Published |
 
 ### 03-concepts (8 articles)
 
 | Number | Title | Status |
 |--------|-------|--------|
-| 01.02 | [How Copilot assembles and processes prompts](./03-concepts/01.02-how_copilot_assembles_and_processes_prompts.md) | ✅ Published |
-| 01.03 | [Understanding prompt files, instructions, and context layers](./03-concepts/01.03-understanding_prompt_files_instructions_and_context_layers.md) | ✅ Published |
-| 01.04 | [Understanding agents, invocation, handoffs, and subagents](./03-concepts/01.04-understanding_agents_invocation_handoffs_and_subagents.md) | ✅ Published |
-| 01.05 | [Understanding skills, hooks, and lifecycle automation](./03-concepts/01.05-understanding_skills_hooks_and_lifecycle_automation.md) | ✅ Published |
-| 01.06 | [Understanding MCP and the tool ecosystem](./03-concepts/01.06-understanding_mcp_and_the_tool_ecosystem.md) | ✅ Published |
-| 01.07 | [Understanding LLM models and model selection](./03-concepts/01.07-understanding_llm_models_and_model_selection.md) | ✅ Published |
-| 01.08 | [Chat modes, Agent HQ, and execution contexts](./03-concepts/01.08-chat_modes_agent_hq_and_execution_contexts.md) | ✅ Published |
-| 01.09 | [Understanding Copilot Memory and persistent context](./03-concepts/01.09-understanding_copilot_memory_and_persistent_context.md) | ✅ Published |
+| 01.02 | [How Copilot assembles and processes prompts](./03-concepts/01.02-how-copilot-assembles-and-processes-prompts.md) | ✅ Published |
+| 01.03 | [Understanding prompt files, instructions, and context layers](./03-concepts/01.03-understanding-prompt-files-instructions-and-context-layers.md) | ✅ Published |
+| 01.04 | [Understanding agents, invocation, handoffs, and subagents](./03-concepts/01.04-understanding-agents-invocation-handoffs-and-subagents.md) | ✅ Published |
+| 01.05 | [Understanding skills, hooks, and lifecycle automation](./03-concepts/01.05-understanding-skills-hooks-and-lifecycle-automation.md) | ✅ Published |
+| 01.06 | [Understanding MCP and the tool ecosystem](./03-concepts/01.06-understanding-mcp-and-the-tool-ecosystem.md) | ✅ Published |
+| 01.07 | [Understanding LLM models and model selection](./03-concepts/01.07-understanding-llm-models-and-model-selection.md) | ✅ Published |
+| 01.08 | [Chat modes, Agent HQ, and execution contexts](./03-concepts/01.08-chat-modes-agent-hq-and-execution-contexts.md) | ✅ Published |
+| 01.09 | [Understanding Copilot Memory and persistent context](./03-concepts/01.09-understanding-copilot-memory-and-persistent-context.md) | ✅ Published |
 
 ### 04-howto (21 articles)
 
 | Number | Title | Status |
 |--------|-------|--------|
-| 03.00 | [How to structure content for prompt files](./04-howto/03.00-how_to_structure_content_for_copilot_prompt_files.md) | ✅ Published |
-| 03.01 | [Appendix: Prompt file YAML reference](./04-howto/03.01-appendix_prompt_file_yaml_reference.md) | ✅ Published |
-| 04.00 | [How to structure content for agent files](./04-howto/04.00-how_to_structure_content_for_copilot_agent_files.md) | ✅ Published |
-| 04.01 | [Appendix: Unified agent architecture](./04-howto/04.01-appendix_unified_agent_architecture.md) | ✅ Published |
-| 05.00 | [How to structure content for instruction files](./04-howto/05.00-how_to_structure_content_for_copilot_instruction_files.md) | ✅ Published |
-| 06.00 | [How to structure content for skill files](./04-howto/06.00-how_to_structure_content_for_copilot_skills.md) | ✅ Published |
-| 07.00 | [How to create MCP servers for Copilot](./04-howto/07.00-how_to_create_mcp_servers_for_copilot.md) | ✅ Published |
-| 07.01 | [Appendix: MCP implementation examples](./04-howto/07.01-appendix_mcp_implementation_examples.md) | ✅ Published |
-| 07.02 | [Appendix: MCP Apps](./04-howto/07.02-appendix_mcp_apps.md) | ✅ Published |
-| 08.00 | [How to optimize prompts for specific models](./04-howto/08.00-how_to_optimize_prompts_for_specific_models.md) | ✅ Published |
-| 08.01 | [Appendix: OpenAI prompting guide](./04-howto/08.01-appendix_openai_prompting_guide.md) | ✅ Published |
-| 08.02 | [Appendix: Anthropic prompting guide](./04-howto/08.02-appendix_anthropic_prompting_guide.md) | ✅ Published |
-| 08.03 | [Appendix: Google prompting guide](./04-howto/08.03-appendix_google_prompting_guide.md) | ✅ Published |
-| 09.00 | [How to use agent hooks for lifecycle automation](./04-howto/09.00-how_to_use_agent_hooks_for_lifecycle_automation.md) | ✅ Published |
-| 09.50 | [How to leverage tools in prompt orchestrations](./04-howto/09.50-how_to_leverage_tools_in_prompt_orchestrations.md) | ✅ Published |
-| 10.00 | [How to design orchestrator prompts](./04-howto/10.00-how_to_design_orchestrator_prompts.md) | ✅ Published |
-| 11.00 | [How to design subagent orchestrations](./04-howto/11.00-how_to_design_subagent_orchestrations.md) | ✅ Published |
-| 12.00 | [How to manage information flow during prompt orchestrations](./04-howto/12.00-how_to_manage_information_flow_during_prompt_orchestrations.md) | ✅ Published |
-| 13.00 | [How to optimize token consumption during prompt orchestrations](./04-howto/13.00-how_to_optimize_token_consumption_during_prompt_orchestrations.md) | ⚠️ Stub (empty) |
-| 13.01 | [Appendix: Token optimization patterns](./04-howto/13.01-appendix_token_optimization_patterns.md) | ✅ Published |
-| 14.00 | [How to use prompts with the GitHub Copilot SDK](./04-howto/14.00-how_to_use_prompts_with_the_github_copilot_sdk.md) | ✅ Published |
+| 03.00 | [How to structure content for prompt files](./04-howto/03.00-how-to-structure-content-for-copilot-prompt-files.md) | ✅ Published |
+| 03.01 | [Appendix: Prompt file YAML reference](./04-howto/03.01-appendix-prompt-file-yaml-reference.md) | ✅ Published |
+| 04.00 | [How to structure content for agent files](./04-howto/04.00-how-to-structure-content-for-copilot-agent-files.md) | ✅ Published |
+| 04.01 | [Appendix: Unified agent architecture](./04-howto/04.01-appendix-unified-agent-architecture.md) | ✅ Published |
+| 05.00 | [How to structure content for instruction files](./04-howto/05.00-how-to-structure-content-for-copilot-instruction-files.md) | ✅ Published |
+| 06.00 | [How to structure content for skill files](./04-howto/06.00-how-to-structure-content-for-copilot-skills.md) | ✅ Published |
+| 07.00 | [How to create MCP servers for Copilot](./04-howto/07.00-how-to-create-mcp-servers-for-copilot.md) | ✅ Published |
+| 07.01 | [Appendix: MCP implementation examples](./04-howto/07.01-appendix-mcp-implementation-examples.md) | ✅ Published |
+| 07.02 | [Appendix: MCP Apps](./04-howto/07.02-appendix-mcp-apps.md) | ✅ Published |
+| 08.00 | [How to optimize prompts for specific models](./04-howto/08.00-how-to-optimize-prompts-for-specific-models.md) | ✅ Published |
+| 08.01 | [Appendix: OpenAI prompting guide](./04-howto/08.01-appendix-openai-prompting-guide.md) | ✅ Published |
+| 08.02 | [Appendix: Anthropic prompting guide](./04-howto/08.02-appendix-anthropic-prompting-guide.md) | ✅ Published |
+| 08.03 | [Appendix: Google prompting guide](./04-howto/08.03-appendix-google-prompting-guide.md) | ✅ Published |
+| 09.00 | [How to use agent hooks for lifecycle automation](./04-howto/09.00-how-to-use-agent-hooks-for-lifecycle-automation.md) | ✅ Published |
+| 09.50 | [How to leverage tools in prompt orchestrations](./04-howto/09.50-how-to-leverage-tools-in-prompt-orchestrations.md) | ✅ Published |
+| 10.00 | [How to design orchestrator prompts](./04-howto/10.00-how-to-design-orchestrator-prompts.md) | ✅ Published |
+| 11.00 | [How to design subagent orchestrations](./04-howto/11.00-how-to-design-subagent-orchestrations.md) | ✅ Published |
+| 12.00 | [How to manage information flow during prompt orchestrations](./04-howto/12.00-how-to-manage-information-flow-during-prompt-orchestrations.md) | ✅ Published |
+| 13.00 | [How to optimize token consumption during prompt orchestrations](./04-howto/13.00-how-to-optimize-token-consumption-during-prompt-orchestrations.md) | ⚠️ Stub (empty) |
+| 13.01 | [Appendix: Token optimization patterns](./04-howto/13.01-appendix-token-optimization-patterns.md) | ✅ Published |
+| 14.00 | [How to use prompts with the GitHub Copilot SDK](./04-howto/14.00-how-to-use-prompts-with-the-github-copilot-sdk.md) | ✅ Published |
 
 ### 05-analysis (5 articles)
 
 | Number | Title | Status |
 |--------|-------|--------|
-| 20 | [How to create a prompt orchestrating multiple agents](./05-analysis/20-how_to_create_a_prompt_interacting_with_agents.md) | ✅ Published |
-| 20.01 | [Appendix: Orchestration case study details](./05-analysis/20.01-appendix_orchestration_case_study_details.md) | ✅ Published |
-| 21.1 | [Prompt creation multi-agent flow — Implementation plan](./05-analysis/21.1-example_prompt_interacting_with_agents_plan.md) | ✅ Published |
-| 21.2 | [Appendix: Orchestration plan specifications](./05-analysis/21.2-appendix_orchestration_plan_specifications.md) | ✅ Published |
+| 20 | [How to create a prompt orchestrating multiple agents](./05-analysis/20-how-to-create-a-prompt-interacting-with-agents.md) | ✅ Published |
+| 20.01 | [Appendix: Orchestration case study details](./05-analysis/20.01-appendix-orchestration-case-study-details.md) | ✅ Published |
+| 21.1 | [Prompt creation multi-agent flow — Implementation plan](./05-analysis/21.1-example-prompt-interacting-with-agents-plan.md) | ✅ Published |
+| 21.2 | [Appendix: Orchestration plan specifications](./05-analysis/21.2-appendix-orchestration-plan-specifications.md) | ✅ Published |
 | 22 | [Prompts and markdown structure for a documentation site](./05-analysis/22-prompts-and-markdown-structure-for-a-documentation-site.md) | ✅ Published (unlisted) |
 
 ### 06-reference (3 articles)
 
 | Number | Title | Status |
 |--------|-------|--------|
-| 01.09 | [Copilot settings, IDE support, and compatibility reference](./06-reference/01.09-copilot_settings_ide_support_and_compatibility_reference.md) | ✅ Published |
-| 01.10 | [Customization decision framework reference](./06-reference/01.10-customization_decision_framework_reference.md) | ✅ Published |
-| 01.11 | [YAML frontmatter reference](./06-reference/01.11-yaml_frontmatter_reference.md) | ✅ Published |
+| 01.09 | [Copilot settings, IDE support, and compatibility reference](./06-reference/01.09-copilot-settings-ide-support-and-compatibility-reference.md) | ✅ Published |
+| 01.10 | [Customization decision framework reference](./06-reference/01.10-customization-decision-framework-reference.md) | ✅ Published |
+| 01.11 | [YAML frontmatter reference](./06-reference/01.11-yaml-frontmatter-reference.md) | ✅ Published |
 
 ## 🚀 Planned articles
 

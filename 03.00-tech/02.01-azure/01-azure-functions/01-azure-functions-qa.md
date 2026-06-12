@@ -15,9 +15,9 @@ the following article analyzes interesting points about azure functions
 
 ## 💰 Q. What plans are available ?
 
-<img src="images/01.001a functions plans.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
+<img src="images/01.001a-functions-plans.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
 
-<img src="images/01.001 functions plans.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
+<img src="images/01.001-functions-plans.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
 
 - **<mark>Consumption plan**: *<mark>**Pay-as-you-go**</mark>* serverless hosting where instances are dynamically added/removed based on incoming events. You're charged only for compute resources when functions are running (executions, execution time, and memory used).
   - **Pros**: *<mark>**Lowest cost*** for <mark>**sporadic workloads**</mark>, automatic scaling, includes free monthly grant, no infrastructure management
@@ -41,7 +41,7 @@ the following article analyzes interesting points about azure functions
 
 ## 🎯 Q. What triggers are available ?
 
-<img src="images/01.002 Functions vs webjobs.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
+<img src="images/01.002-functions-vs-webjobs.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
 
 - **Timer Trigger**: Executes functions on a predefined schedule using <mark>CRON expressions</mark>, enabling time-based automation for recurring tasks like batch processing, cleanup jobs, or periodic data synchronization.
 
@@ -238,7 +238,7 @@ Azure Functions uses <mark>different scaling mechanisms depending on the hosting
 ---
 
 ### **Comparison Summary**
-<img src="images/03.000 scaling matrix.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
+<img src="images/03.000-scaling-matrix.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
 
 <br>
 <br>
@@ -615,7 +615,7 @@ Azure Functions has various limitations that vary by hosting plan. Key constrain
 
 ### ⚙️ Q. Compare Azure Functions to WebJobs ?
 
-<img src="images/01.002 Functions vs webjobs.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
+<img src="images/01.002-functions-vs-webjobs.png" alt="01a functions plans.png" style="border: 2px solid #065592ff; border-radius: 4px; padding: 10px; background-color: #f8f9fa; display: block; margin: 10px auto; max-width: 90%;" />
 
 ## 📚 References
 

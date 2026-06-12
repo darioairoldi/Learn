@@ -3,6 +3,7 @@ name: learninghub-ensure-kebab-notation
 description: "Enforce full kebab-case naming repo-wide with quarto render validation loop"
 agent: agent
 model: claude-opus-4.6
+domain: "learning-hub"
 tools:
   - read_file
   - list_dir
@@ -60,15 +61,20 @@ You are a **naming convention enforcer** responsible for ensuring ALL folders an
 ### Phase 1: Scan Violations
 
 ```powershell
-# Content folders
+# Content folders (including root-level dated folders like 20250815-diy-*)
 Get-ChildItem -Path "01.00-news", "02.00-events", "03.00-tech", "04.00-howto", "05.00-issues", "06.00-idea", "90.00-travel" -Recurse |
 Where-Object { $_.Name -match '\s|[A-Z]|_' -and $_.Name -notmatch '^(bin|obj|images|\.vs|node_modules)$' } |
 Sort-Object { $_.FullName.Split('\').Count } -Descending |
 Select-Object FullName
 
+# Root-level dated folders (YYYYMMDD-*) that live directly under the repo root
+Get-ChildItem -Path "." -Directory |
+Where-Object { $_.Name -match '^\d{8}' -and $_.Name -match '\s|[A-Z]|_' } |
+Select-Object FullName
+
 # Infrastructure subfolders (prompts, context, etc.)
 Get-ChildItem -Path ".github/prompts", ".github/templates", ".github/skills", ".copilot/context" -Recurse -Directory |
-Where-Object { $_.Name -match '\s|[A-Z]' } |
+Where-Object { $_.Name -match '\s|[A-Z]|_' } |
 Sort-Object { $_.FullName.Split('\').Count } -Descending |
 Select-Object FullName
 ```
@@ -119,11 +125,12 @@ Report: folders renamed, files renamed, reference updates, link fixes, final ren
 | `grep_search` returns no results | Verify folder names, try broader pattern |
 | `replace_string_in_file` fails | Read file to verify content, retry with exact match |
 | `quarto render` hangs | Kill process after 5 min, report partial results |
+| Case-only rename is a no-op | On case-insensitive filesystems (Windows), rename via a temporary name first (`BRK-Sessions` → `brk-sessions-tmp` → `brk-sessions`) so the change is tracked by git |
 
 ## Test Scenarios
 
 1. **Content folder with space:** `01.00-news/20251224 vscode Release/` → `01.00-news/20251224-vscode-release/`
-2. **Infrastructure subfolder:** `.github/prompts/00.00-prompt-engineering/` → `.github/prompts/00.00-prompt-engineering/`
+2. **Infrastructure subfolder:** `.github/prompts/00.00 Prompt Engineering/` → `.github/prompts/00.00-prompt-engineering/`
 3. **Nested uppercase:** `02.00-events/202506-build-2025/BRK - Sessions/` → `02.00-events/202506-build-2025/brk-sessions/`
 4. **Already valid:** `05.02-prompt-engineering/` → No changes
 5. **Reference update:** Update `applyTo` in instruction files after rename

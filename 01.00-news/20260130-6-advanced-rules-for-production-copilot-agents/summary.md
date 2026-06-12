@@ -16,7 +16,7 @@ description: "Summary of Mario Fontana's masterclass on operational excellence f
 **Speakers:** Mario Fontana (Microsoft, 25+ years experience)  
 **Series:** Part 2 of 2 (Masterclass on Copilot Agent Production)
 
-![Session Title Slide](<images/Session title.png>)
+![Session Title Slide](<images/session-title.png>)
 
 ---
 

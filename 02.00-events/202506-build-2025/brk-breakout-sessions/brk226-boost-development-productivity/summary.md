@@ -7,8 +7,7 @@
 
 **Link:** [Microsoft Build 2025 Session BRK226]
 
-![Windows Developer Tools](images/windows-dev-tools.png)
-
+![Boost Development Productivity](images/session-banner.png)
 
 ## Executive Summary
 

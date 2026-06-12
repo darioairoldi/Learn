@@ -9,8 +9,9 @@
 - **Jon Galloway**: Principal Tech PM on DevDiv Community team
 - **Brady Gaster**: Developer and creative technologist
 
-
 **Link:** [Session Recording](https://build.microsoft.com/sessions/BRK104)
+
+![Building the Next Generation of Apps with AI and .NET](images/session-banner.png)
 
 ## Table of Contents
 

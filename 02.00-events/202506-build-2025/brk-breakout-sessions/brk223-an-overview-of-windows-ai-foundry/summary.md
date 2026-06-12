@@ -6,7 +6,7 @@
 **Speakers:** Tucker Burns (GPM, Windows Platform + Developer Team), Dian Hartono (Product Manager Lead, Windows Developer Platform Team)  
 **Link:** [Microsoft Build 2025 Session BRK223]
 
-![Windows AI Foundry Platform](images/windows-ai-foundry-overview.png)
+![An Overview of Windows AI Foundry](images/session-banner.png)
 
 ---
 
@@ -492,4 +492,3 @@ Microsoft
 ---
 
 *This session establishes Windows AI Foundry as Microsoft's comprehensive platform for local AI development, demonstrating how developers can leverage on-device AI capabilities across diverse hardware while maintaining the flexibility to integrate with cloud services. The combination of ready-to-use APIs, custom model support, and open-source ecosystem access positions Windows as the premier platform for hybrid AI application development.*
-

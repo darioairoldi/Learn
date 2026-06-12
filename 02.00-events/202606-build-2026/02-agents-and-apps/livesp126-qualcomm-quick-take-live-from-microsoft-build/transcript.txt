@@ -1,0 +1,13 @@
+Microsoft Build
+June 2-3, 2026
+Session: LIVESP126
+Speakers: Ana Schafer, Karuana Gatimu
+[ Music ]
+Karuana Gatimu: Welcome back to the floor at Microsoft Build in San Francisco. I could not be more excited to be at the Qualcomm space. I'm happy to be with you because we've had so much that has happened in the keynote together, and you're going to tell us more about that, aren't you? But first, tell everyone who you are.
+Ana Schafer: Hi, I'm Ana Schafer. I'm responsible for Qualcomm's Developer and Partner Program, and talk about partnership, amazing partnership that our two companies have had throughout the year, exciting things that we talked about in the keynote together.
+Karuana Gatimu: It is really fantastic. Now, what does this community need to understand about the types of innovations that you're really delivering and how we're doing it together?
+Ana Schafer: This is the age of AI agents and think of these agents that are context aware, that are taking data from across different devices, from a ring to a pendant, all the way up to the data center. This means very new ways that developers can deliver experiences for their customers, as well as different ways that they need to work.
+Karuana Gatimu: It sounds like that's a lot of new workflows and form factors to understand. How are people going to actually dig in with this and learn?
+Ana Schafer: Yeah, well, thankfully, that partnership with Microsoft includes very tight integration with things like Foundry Factory and Windows ML. In our sessions, and our demos in the booth, we're going to be talking about AI agents that help you port your apps natively. We're going to be talking about automation in your workflows for inference, so you save on those tokens and think of that orchestration that is needed as you make those workloads go across these different form factors.
+Karuana Gatimu: That is fantastic. Well, I know we're really excited about this, and you know how you can be even more excited? Go check out their Sponsor Showcase page, demos, links to their website, all of the new information that's available. That's how you can stay up to date on everything that's happening between Microsoft and Qualcomm. Thank you so much, and we'll see all of you again soon.
+END

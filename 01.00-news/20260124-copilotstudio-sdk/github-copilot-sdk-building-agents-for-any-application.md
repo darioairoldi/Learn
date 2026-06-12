@@ -10,7 +10,7 @@ description: "Explore the new GitHub Copilot SDK in technical preview. Learn how
 
 > Embed Copilot's production-tested agentic loop into your own applications—now available in technical preview for Python, TypeScript, Go, and .NET.
 
-![alt text](<images/001.01 title.png>)
+![alt text](<images/001.01-title.png>)
 
 ## Table of contents
 
@@ -250,7 +250,7 @@ The GitHub Copilot SDK represents a significant shift in how developers can buil
 
 ### Related articles in this workspace
 
-- [How GitHub Copilot uses Markdown and prompt folders](../../03.00-tech/05.02-prompt-engineering/01-overview/01.00-the_github_copilot_customization_stack.md)
+- [How GitHub Copilot uses Markdown and prompt folders](../../03.00-tech/05.02-prompt-engineering/01-overview/01.00-the-github-copilot-customization-stack.md)
 - [Understanding MCP on Windows](../../02.00-events/202506-build-2025/brk-breakout-sessions/brk229-unlock-agents-for-your-apps-using-mcp-on-windows/readme.sonnet4.md)
 - [VS Code v1.107 Release Notes Analysis](../20251224-vscode-v1.107-release/02-readme.sonnet4.md)
 
@@ -278,10 +278,10 @@ Explains how billing works for Copilot usage, including premium request quotas t
 **[Awesome Copilot - SDK Instructions](https://github.com/github/awesome-copilot/blob/main/collections/copilot-sdk.md)** 📗 [Verified Community]  
 Curated instructions for using Copilot to accelerate SDK development. Part of GitHub's official awesome-copilot collection.
 
-**[SDK Cookbook](https://github.com/github/copilot-sdk/blob/main/cookbook/README.md)** 📘 [Official]  
+**[SDK Cookbook](https://github.com/github/copilot-sdk/blob/main/cookbook/readme.md)** 📘 [Official]  
 Practical recipes for common tasks across all supported languages. Includes real-world patterns and integration examples.
 
-**[SDK Samples](https://github.com/github/copilot-sdk/blob/main/samples/README.md)** 📘 [Official]  
+**[SDK Samples](https://github.com/github/copilot-sdk/blob/main/samples/readme.md)** 📘 [Official]  
 Video walkthroughs and sample projects demonstrating SDK capabilities. Useful for visual learners and hands-on exploration.
 
 <!-- 

@@ -6,6 +6,8 @@
 **Speakers:** Damian Edwards (Principal Architect, Microsoft)  
 **Link:** [Microsoft Build 2025 Session DEM518](https://mybuild.microsoft.com/sessions/DEM518)
 
+![.NET Run App](images/session-banner.png)
+
 ---
 
 ## Table of Contents

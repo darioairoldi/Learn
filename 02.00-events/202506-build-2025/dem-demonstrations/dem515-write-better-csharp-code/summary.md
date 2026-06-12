@@ -6,7 +6,7 @@
 **Speakers:** Mads Torgersen (Lead Designer of C#, Microsoft)  
 **Link:** [Session Recording - Build 2025 DEM515]
 
-![C# Language Features](images/csharp-features.png)
+![Write Better C# Code](images/session-banner.png)
 
 ---
 

@@ -1,6 +1,6 @@
 # HowTo: Use Azure CLI to Create Azure Container Apps
 
-![alt text](<images/00.000 azure container app.png>)
+![alt text](<images/00.000-azure-container-app.png>)
 
 ## 📑 Table of Contents
 
@@ -44,7 +44,7 @@ First, log in to your Azure account using device code authentication. This metho
 az login -t <your-tenant-id> --use-device-code
 ```
 
-![Azure Login](<images/01.001 az login.png>)
+![Azure Login](<images/01.001-az-login.png>)
 
 ### Step 2: Create a Resource Group
 
@@ -54,7 +54,7 @@ Create a resource group to organize and manage your Azure Container App resource
 az group create --location italynorth --name diginsighttools-testmc-rg-01
 ```
 
-![Create Resource Group](<images/01.002 az group create.png>)
+![Create Resource Group](<images/01.002-az-group-create.png>)
 
 ### Step 3: Install Container App Extension
 
@@ -64,7 +64,7 @@ Add the Container App extension to Azure CLI. The `--upgrade` flag ensures you h
 az extension add --name containerapp --upgrade
 ```
 
-![Add Container App Extension](<images/01.003a az extension add and providers register.png>)
+![Add Container App Extension](<images/01.003a-az-extension-add-and-providers-register.png>)
 
 ### Step 4: Create Container App Environment
 
@@ -74,7 +74,7 @@ Create a Container App environment, which provides a secure boundary around a gr
 az containerapp env create --name diginsighttools-testmc-cae-01 --resource-group diginsighttools-testmc-rg-01 --location italynorth
 ```
 
-![Create Container App Environment](<images/01.004 az containerapp env create.png>)
+![Create Container App Environment](<images/01.004-az-containerapp-env-create.png>)
 
 ### Step 5: Deploy the Container App
 
@@ -84,7 +84,7 @@ Finally, create and deploy your container app using a sample "Hello World" image
 az containerapp create --name diginsighttools-testmc-ca-01 --resource-group diginsighttools-testmc-rg-01 --environment diginsighttools-testmc-cae-01 --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest --target-port 80 --ingress 'external' --query properties.configuration.ingress.fqdn
 ```
 
-![Create Container App](<images/01.005 az containerapp create.png>)
+![Create Container App](<images/01.005-az-containerapp-create.png>)
 
 After successful deployment, you can access your application using the FQDN returned by the command.
 
