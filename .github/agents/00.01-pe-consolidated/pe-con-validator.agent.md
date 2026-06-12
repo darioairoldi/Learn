@@ -11,8 +11,6 @@ handoffs:
   - label: "Fix Issues"
     agent: pe-con-builder
     send: true
-version: "1.0.0"
-last_updated: "2026-04-27"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -161,3 +159,9 @@ If FAIL: offer handoff to `pe-con-builder` for fixes.
 | 1 | Validate a hook JSON file | Load dispatch → `pe-hooks.instructions.md` → check JSON validity → report |
 | 2 | Validate an agent with 9 tools | Load dispatch → CRITICAL: tool count exceeds 7 → FAIL → recommend decomposition |
 | 3 | Validate a context file with circular dep | Load dispatch → check deps → CRITICAL: circular reference → FAIL |
+
+<!--
+agent_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-27"
+-->

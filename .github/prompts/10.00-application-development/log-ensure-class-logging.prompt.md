@@ -748,3 +748,9 @@ public async Task<ServiceResult<string>> ProcessData(string plantId, string plan
 2. **Single point of exit with one SetOutput call for better maintainability**
 3. **Early validation returns can skip SetOutput to avoid excessive nesting**
 4. **Added observability logging with no changes to business logic**
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

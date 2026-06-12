@@ -9,8 +9,6 @@ tools:
   - edit/editFiles
   - usages
   - problems
-version: "1.0.0"
-last_updated: "2026-03-20"
 ---
 
 # Task Researcher Instructions

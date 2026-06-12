@@ -134,3 +134,9 @@ Each action MUST include:
 - **Current text** → **proposed text** (where applicable)
 - **Estimated time** to implement
 - **Priority** classification
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

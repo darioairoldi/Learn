@@ -12,8 +12,6 @@ tools:
   - replace_string_in_file
   - create_file
 argument-hint: '<guidance-file-path> [--mode plan|apply] [bundle=accept] — e.g., ".copilot/context/00.00-prompt-engineering/01.07-critical-rules-priority-matrix.md"'
-version: "2.2.0"
-last_updated: "2026-05-31"
 goal: "Produce an adherence matrix showing which consumers implement which rules from the target guidance file, with gap severity and recommendations"
 scope:
   covers:
@@ -200,3 +198,9 @@ Resolved invocation: --mode=<plan|apply> … | bundle=<accepted-bundle|none> | p
 ## Risk Classification
 
 #file:.github/prompt-snippets/pe-meta-risk-classification.md
+
+<!--
+prompt_metadata:
+  version: "2.2.0"
+  last_updated: "2026-05-31"
+-->

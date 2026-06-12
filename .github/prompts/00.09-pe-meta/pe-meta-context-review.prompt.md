@@ -12,8 +12,6 @@ handoffs:
     agent: pe-con-builder
     send: true
 argument-hint: '<file-path> [--mode plan|apply] [--dim <group|D#|full>] [--deps none|direct|full|<N>] [--scope <type>] [--skip research|external]'
-version: "2.2.0"
-last_updated: "2026-05-31"
 goal: "Ensure a PE-for-PE context file meets the shared quality objective and scope intent (reliability, effectiveness, efficiency) with type-applicable requirements"
 scope:
   covers: ["Shared quality objective and scope intent enforcement (applicability-scoped)", "Dimension-scoped review", "Construction invariant verification (6 properties)", "Construction-quality gate (6 properties — vision v14 R6)", "Consumer adherence spot-check", "Dependency traversal (--deps none|direct|full)", "Context quality lifecycle mode", "Source-mode handling (authoritative/user-augmented/report-only)"]
@@ -124,5 +122,8 @@ Resolved invocation: --mode=<plan|apply> … | plan-file=<path-or-none> | spillo
 - **`--mode plan` (assessment-only):** emit an actionable plan file at the canonical plan-mode path per [pe-meta-plan-file-contract.md](../../prompt-snippets/pe-meta-plan-file-contract.md) and record `plan-file=<path>`. When `--mode apply`, record `plan-file=none`.
 - **`--mode apply` overflow:** if the per-cycle change cap is hit with validated findings remaining, emit a spillover plan at `<run-folder>/<NN>-<kebab-name>-spillover.plan.md` per [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md) and record `spillover=<path>`; otherwise record `spillover=none`.
 
-
-
+<!--
+prompt_metadata:
+  version: "2.2.0"
+  last_updated: "2026-05-31"
+-->

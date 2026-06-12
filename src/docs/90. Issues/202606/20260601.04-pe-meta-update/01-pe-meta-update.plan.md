@@ -5,7 +5,7 @@ domain: prompt-engineering
 version: "1.1.0"
 created: "2026-06-01"
 last_updated: "2026-06-02"
-related_vision: "../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md"
+related_vision: "../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md"
 target_vision_version: "15.1.0"
 goal: "Translate four reflection points from the 2026-06-01 freshness-sweep retrospective into vision-body amendments, use-case impact reviews, and PE-meta artifact updates so that --mode plan and the iteration budget produce first-class actionable plan files, Command families is the headline framing of § Command families and option model, and v13→v14 migration cruft is removed from the vision."
 rationales:
@@ -56,8 +56,8 @@ Per `vision-amendment.instructions.md`, every active item carries `# | item | sc
 
 | # | item | scope tag | principle impact | downstream landing |
 |---|------|-----------|------------------|--------------------|
-| A | `--mode plan` emits an actionable plan file (clear, unambiguous, covers the user-request goal). | `[in-scope: original]` | preserves: `command-family-agnostic`, `minimal-canonical-surface`, `default-full-invocation`, `invocation-shape-agnostic`; touches: `human-governance-autonomous-execution` (P1 justification: formalizes the human-handoff artifact that `--mode plan` implicitly produces, eliminating per-prompt invention of output shape). | `landing: 06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md` (§ Command families and option model, new subsection "Plan-mode output contract") + `landing: .github/prompts/00.09-pe-meta/pe-meta-update.prompt.md` (Phase 8 plan emission) + `landing: .github/prompt-snippets/pe-meta-plan-file-contract.md` (NEW shared snippet). |
-| B | Iteration-budget overflow emits a spillover plan file in the run's current folder, sortable prefix, readable kebab name, actionable, coverage-complete for the unprocessed proposals. | `[in-scope: original]` | preserves: `command-family-agnostic`, `minimal-canonical-surface`, `invocation-shape-agnostic`, `human-governance-autonomous-execution`; touches: none (the principle is not modified — a new behavior that complies with it is added). | `landing: 06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md` (§ Iteration budget rewrite) + `landing: .github/prompts/00.09-pe-meta/pe-meta-update.prompt.md` (Phase 4 / Phase 6 overflow handler) + `landing: .github/prompt-snippets/pe-meta-iteration-budget.md` (NEW shared snippet). |
+| A | `--mode plan` emits an actionable plan file (clear, unambiguous, covers the user-request goal). | `[in-scope: original]` | preserves: `command-family-agnostic`, `minimal-canonical-surface`, `default-full-invocation`, `invocation-shape-agnostic`; touches: `human-governance-autonomous-execution` (P1 justification: formalizes the human-handoff artifact that `--mode plan` implicitly produces, eliminating per-prompt invention of output shape). | `landing: 06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md` (§ Command families and option model, new subsection "Plan-mode output contract") + `landing: .github/prompts/00.09-pe-meta/pe-meta-update.prompt.md` (Phase 8 plan emission) + `landing: .github/prompt-snippets/pe-meta-plan-file-contract.md` (NEW shared snippet). |
+| B | Iteration-budget overflow emits a spillover plan file in the run's current folder, sortable prefix, readable kebab name, actionable, coverage-complete for the unprocessed proposals. | `[in-scope: original]` | preserves: `command-family-agnostic`, `minimal-canonical-surface`, `invocation-shape-agnostic`, `human-governance-autonomous-execution`; touches: none (the principle is not modified — a new behavior that complies with it is added). | `landing: 06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md` (§ Iteration budget rewrite) + `landing: .github/prompts/00.09-pe-meta/pe-meta-update.prompt.md` (Phase 4 / Phase 6 overflow handler) + `landing: .github/prompt-snippets/pe-meta-iteration-budget.md` (NEW shared snippet). |
 | C | Promote § Command families above § Domain-coherent batching inside § Command families and option model; demote Domain-coherent batching to a "Mechanisms that protect batch quality" subsection. | `[vision-only: no-downstream]` | preserves: `command-family-agnostic`, `metadata-first-content-properties`; touches: none (pure reordering — semantics of both subsections are unchanged). | `landing: vision-only`. |
 | D | Retire § Migration notes (v13 → v14) from the vision body; cross-link any still-relevant historical rows from the vision changelog instead. | `[vision-only: no-downstream]` | preserves: all (purely editorial removal of a section that documents a retired flag surface no caller is on). | `landing: vision-only`. |
 
@@ -87,7 +87,7 @@ Gate verdict: **passed** — promoted to `actionable` on 2026-06-02 and executed
 
 ### A.1 — Vision body amendment (✅ done)
 
-**File:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md`
+**File:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md`
 
 **Anchor:** § Command families and option model → § Option taxonomy → row `--mode plan|apply` (currently line ~1506) plus a new sibling subsection.
 
@@ -137,7 +137,7 @@ Gate verdict: **passed** — promoted to `actionable` on 2026-06-02 and executed
 
 ### B.1 — Vision body amendment (✅ done)
 
-**File:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md`
+**File:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md`
 
 **Anchor:** § Iteration budget (currently line ~1358, under § 🏗️ The vision).
 
@@ -195,7 +195,7 @@ Gate verdict: **passed** — promoted to `actionable` on 2026-06-02 and executed
 
 ### C.1 — Vision body reorder (✅ done)
 
-**File:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md`
+**File:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md`
 
 **Anchor:** § Command families and option model (line ~1429) — currently contains `### Default-full invocation contract`, `### Domain-coherent batching` (~1460), `### Command families` (~1480), `### Option taxonomy`, etc.
 
@@ -237,14 +237,14 @@ Gate verdict: **passed** — promoted to `actionable` on 2026-06-02 and executed
 
 ### D.1 — Vision body removal (✅ done)
 
-**File:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md`
+**File:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md`
 
 **Anchor:** § 📦 Migration notes (v13 → v14) — currently line ~2018.
 
 **Change:**
 
 1. Remove the entire `## 📦 Migration notes (v13 → v14)` section (heading + introductory paragraph + table).
-2. Move the table (verbatim) to the vision changelog sibling (`20260531.01-vision.v15.changelog.md`) under a new "Historical: v13 → v14 deprecated flag map" section, so the deprecation record is preserved for posterity but no longer occupies vision body space.
+2. Move the table (verbatim) to the vision changelog sibling (`20260531.01-vision.changelog.md`) under a new "Historical: v13 → v14 deprecated flag map" section, so the deprecation record is preserved for posterity but no longer occupies vision body space.
 3. Update the vision TOC to drop the § Migration notes entry.
 4. Sweep for body cross-references to § Migration notes (e.g. "see § Migration notes for the deprecated flag list") — replace with the changelog link.
 
@@ -268,7 +268,7 @@ After Items A–D have been applied, run the following sweeps to catch downstrea
 | S3 | `.copilot/context/00.00-prompt-engineering/04.05-pe-meta-invocation-gates.md` | Whether the gate file documents `--mode plan` plan-file emission and iteration-budget overflow | Add gate clauses if missing (✅ closed-no-action — gates file documents CF-05 / Phase 0a / Phase 0b invocation gates; the new `plan-file=` and `spillover=` first-line markers belong in Phase 8 reporting (vision Success criterion #12) not in Phase 0 gates. Lint enforcement of the markers is tracked in Park-lot PL3) |
 | S4 | `.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md` and `05.08-pe-meta-type-checklists.md` | References to `--mode plan` output | Update if needed (✅ closed-no-action — catalog files describe `--dim` taxonomy and per-artifact-type checklists; they do not specify `--mode plan` output shape) |
 | S5 | Use-case set under `20260503.02-vision-pe-meta-usecases/` | References to `--mode plan` output, iteration budget, command families, domain-coherent batching, migration notes | Update vision-anchor lines if any cite removed sections; no semantic edits expected (✅ closed-no-action — Item C preserved § Domain-coherent batching anchor verbatim; Item D removed only § Migration notes which no use case cites) |
-| S6 | `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md` | Append a 15.1.0 entry covering Items A–D | Author the changelog entry (✅ done — new § v15.1 — 2026-06-02 entry covering Items A–D and new § Historical: v13 → v14 deprecated flag map with verbatim migrated table) |
+| S6 | `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md` | Append a 15.1.0 entry covering Items A–D | Author the changelog entry (✅ done — new § v15.1 — 2026-06-02 entry covering Items A–D and new § Historical: v13 → v14 deprecated flag map with verbatim migrated table) |
 | S7 | Vision `Most recent changes` blockquote | Word-count cap (2× scope-note word count, per `vision-frontmatter.instructions.md`) | Rewrite for v15.1.0 within the cap (✅ done — single v15.1.0 paragraph (~140 words) replaces prior multi-version stack; older entries fall to changelog per cap discipline) |
 
 **Acceptance criteria (✅ done):**
@@ -309,7 +309,7 @@ The plan is `done` when ALL of the following hold:
 - **📘** [.github/instructions/plan-marking.instructions.md](../../../../.github/instructions/plan-marking.instructions.md) — suffix-only marking format used throughout this plan.
 - **📘** [.github/instructions/vision-amendment.instructions.md](../../../../.github/instructions/vision-amendment.instructions.md) — per-item scope-tag / principle-impact / coverage-promise discipline applied to the § Goal items table.
 - **📘** [.github/instructions/vision-frontmatter.instructions.md](../../../../.github/instructions/vision-frontmatter.instructions.md) — version-bump rules and `Most recent changes` word cap consulted for the v15.1.0 plan.
-- **📒** [06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md](../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) — vision document amended by Items A–D.
+- **📒** [06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md](../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) — vision document amended by Items A–D.
 - **📒** [.github/prompts/00.09-pe-meta/pe-meta-update.prompt.md](../../../../.github/prompts/00.09-pe-meta/pe-meta-update.prompt.md) — orchestrator updated by Items A.2 and B.2.
 - **📒** [.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md](../../../../.copilot/context/00.00-prompt-engineering/05.04-meta-review-log.md) — the file whose placement triggered Park-lot item PL1.
 
@@ -324,7 +324,7 @@ plan_metadata:
   status: "done"
   scope: "vision-amendment + use-case audit + PE-meta artifact sweep"
   trigger: "2026-06-01 freshness-sweep retrospective — user reflection points (4)"
-  target_vision: "06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md"
+  target_vision: "06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md"
   target_vision_version_after_apply: "15.1.0"
   related_run: ".copilot/temp/pe-meta-state/outcomes/freshness-20260601-170130.jsonl"
   changes:

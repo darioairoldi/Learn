@@ -10,7 +10,7 @@ draft: false
 
 # Plan — pe-meta artifact conformance to vision v15.2
 
-> **Authority:** [20260531.01-vision.v15.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) (v15.2.0, 2026-06-03).
+> **Authority:** [20260531.01-vision.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) (v15.2.0, 2026-06-03).
 > **Source analysis:** [overview.md](overview.md) (Findings A–E).
 > **Reference implementation:** [pe-meta-update.prompt.md](../../../../../.github/prompts/00.09-pe-meta/pe-meta-update.prompt.md) already conforms — every step below replicates its established pattern.
 
@@ -134,7 +134,7 @@ The two-axis state model changes how the freshness and trigger-driven use-cases 
 
 ## ⚖️ Decisions resolved (vision v15.2)
 
-Both vision-internal contradictions that previously blocked this plan are now resolved directly in the vision body (see [changelog v15.2](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md)):
+Both vision-internal contradictions that previously blocked this plan are now resolved directly in the vision body (see [changelog v15.2](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md)):
 
 - **D1 — Update accepts `--mode plan`.** Vision v15.2 § Option applicability matrix marks `--mode` ✅ for Update, with `apply` the default when omitted and `--mode plan` the opt-in preview. The stale pre-v15.2 ❌ rows are corrected. The implemented `pe-meta-update.prompt.md` (which already relies on `--mode plan`) is now consistent with the vision.
 - **D2 — Release family removed.** Vision v15.2 removes the Release-diff family entirely. External-platform reconciliation is `/pe-meta-update --source <url>`, and the redundant `pe-meta-release-monitor` prompt is dismissed in Group 4b.

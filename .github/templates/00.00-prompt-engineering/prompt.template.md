@@ -264,7 +264,6 @@ template_metadata:
   consumers:
     - "prompt-create-update"
     - "template-validator"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "prompt.template.changelog.md"
 ---
 -->

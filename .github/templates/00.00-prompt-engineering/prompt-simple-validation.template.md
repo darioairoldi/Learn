@@ -184,7 +184,6 @@ template_metadata:
   consumers:
     - "prompt-builder"
     - "prompt-createorupdate-promptengineering-guidance"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "prompt-simple-validation.template.changelog.md"
 ---
 -->

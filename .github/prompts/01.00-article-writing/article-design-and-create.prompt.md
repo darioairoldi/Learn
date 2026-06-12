@@ -13,7 +13,6 @@ tools:
   - replace_string_in_file  # Content updates if needed
   - multi_replace_string_in_file  # Batch content updates
 argument-hint: 'topic="Your Article Topic" [outline="key points"] [audience="beginner|intermediate|advanced"] [template="article-template"]'
-version: "1.0.0"
 goal: "Create a complete, publication-ready article by combining research, fact-checking, Diátaxis structuring, and reference classification into a single workflow"
 scope:
   covers:
@@ -347,6 +346,5 @@ prompt_metadata:
   created: "2026-01-20"
   last_updated: "2026-07-19"
   version: "1.1.0"
-  changes:
-    - "v1.1.0: Added series-awareness checks to Phase 5.5 — series context (Diátaxis type vs. folder) and scope check (no mixed purposes/audiences). Enhanced failure guidance for series/scope issues. Source: analysis-article-writing-system-architectural-gaps.md Change 5."
+  changelog: "article-design-and-create.prompt.changelog.md"
 -->

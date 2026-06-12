@@ -1,8 +1,6 @@
 ---
 title: "Validation criteria for technical documentation"
 description: "Quality thresholds, validation dimensions, automated checking criteria, and content lifecycle metrics for technical documentation review"
-version: "2.2.1"
-last_updated: "2026-05-27"
 domain: "article-writing"
 goal: "Define measurable pass/fail thresholds and validation dimensions so that article quality review produces consistent, reproducible results — not subjective opinions"
 scope:
@@ -344,3 +342,9 @@ Debt = (Open Issues × 3) + (Failed Validations × 2) + (Broken Links × 1) + (D
 | 2.1.0 | 2026-03-01 | Added comprehension testing section with cloze test, recall test, and task-based testing as optional validation methods (G6). Added Quality Triangle → 6 criteria → 7 dimensions mapping table (G8). Source: Recommendation B from coverage analysis + Art. 09. | System |
 | 2.0.0 | 2026-02-28 | Major rewrite: added Quality Triangle, AI provenance tags ([SPEC]/[INFERRED]/[ASSUMED]), content freshness scoring with weighted formula, documentation debt score, SLA tiers, automated tool stack (Vale, textstat, markdownlint), CRAAP test reference; removed duplication with auto-loaded instructions (jargon/table intro rules, formatting standards); streamlined 7 dimensions. Source: 40.00-technical-writing articles 05, 06, 07, 09, 10 | System |
 | 1.0.0 | 2025-12-26 | Initial version | System |
+
+<!--
+context_metadata:
+  version: "2.2.1"
+  last_updated: "2026-05-27"
+-->

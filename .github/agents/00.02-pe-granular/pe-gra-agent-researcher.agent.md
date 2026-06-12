@@ -12,8 +12,6 @@ handoffs:
   - label: "Build Agent"
     agent: pe-gra-agent-builder
     send: false
-version: "1.0.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -190,13 +188,12 @@ After presenting the report, offer handoff to `agent-builder`.
 <!-- 
 ---
 agent_metadata:
+  last_updated: "2026-03-20"
   created: "2025-12-14T00:00:00Z"
   created_by: "prompt-design"
-  version: "1.1"
-  updated: "2026-03-14T00:00:00Z"
+  version: "1.1.0"
   updated_by: "copilot"
-  changes:
-    - "v1.1: Phase 3 trim — externalized output templates, condensed process phases"
+  changelog: "pe-gra-agent-researcher.agent.changelog.md"
   template: "agent-researcher-template"
 ---
 -->

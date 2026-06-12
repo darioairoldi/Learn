@@ -10,7 +10,6 @@ tools:
   - grep_search      # Workspace file exploration
   - github_repo      # Community pattern analysis
 argument-hint: 'Attach the article to review with #file or specify file path'
-version: "1.0.0"
 goal: "Review a single article for content consistency, factual accuracy, reference validity, knowledge gaps, and adjacent topic opportunities — producing a structured findings report"
 scope:
   covers:
@@ -268,23 +267,9 @@ After approval, provide complete updated article with all content updates, class
 prompt_metadata:
   created: "2025-12-14T00:00:00Z"
   created_by: "manual"
-  last_updated: "2026-03-01T00:00:00Z"
-  version: "2.2"
-  changes:
-    - "v2.2: Added Visual Content dimension to Rule-Dimension Mapping (Rule 20); enhanced Structure dimension with TOC design details (Rule 9). Source: remaining ⚠️ items from coverage analysis."
-    - "v2.1: Added Rule-Dimension Mapping table connecting 7 validation dimensions to authoritative source locations. Source: Recommendation D from coverage analysis."
-    - "v2.0: Major rewrite applying prompt-create-update methodology"
-    - "Externalized Phase 1 verbose input analysis to guidance-input-analysis.template.md"
-    - "Externalized Phase 3 verbose research process to guidance-research-process.template.md"
-    - "Moved templates to dedicated folder: .github/templates/01.00-article-writing/article-review-for-consistency-gaps-and-extensions/"
-    - "Added Response Management section (Production-Ready requirement)"
-    - "Added Error Recovery section with tool failure fallback table (Production-Ready requirement)"
-    - "Added 5 Embedded Test Scenarios (Production-Ready requirement)"
-    - "Removed inline classification rules duplication (reference documentation.instructions.md)"
-    - "Fixed Phase 3.5 misplacement (was inside Phase 2 section)"
-    - "Removed orphan code block fragment in Phase 3"
-    - "Applied imperative language throughout (WILL, MUST, NEVER)"
-    - "Reduced token count from ~2580 to ~1350 (~48% improvement through template externalization)"
+  last_updated: "2026-03-01"
+  version: "2.2.0"
+  changelog: "article-review-for-consistency-gaps-and-extensions.prompt.changelog.md"
   production_ready:
     response_management: true
     error_recovery: true

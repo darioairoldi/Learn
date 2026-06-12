@@ -129,3 +129,9 @@ Report: folders renamed, files renamed, reference updates, link fixes, final ren
 5. **Reference update:** Update `applyTo` in instruction files after rename
 6. **Quarto link recovery:** Parse `WARN: Unable to resolve`, fix path, re-render
 7. **Skip root infrastructure:** `.github/` folder itself → NOT renamed (only subfolders)
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

@@ -1,8 +1,6 @@
 ---
 title: "Sidebar Menu Rules for Quarto Navigation"
 description: "Defines transformation rules for converting folder/file names to sidebar menu items — numeric prefix removal, date-separator normalization, and Title Case application"
-version: "1.0.0"
-last_updated: "2026-05-26"
 domain: "learning-hub"
 goal: "Establish deterministic rules for transforming folder/file names into readable sidebar menu items"
 scope:
@@ -311,3 +309,9 @@ Choose Bootstrap Icons semantically:
 |---------|------|---------|--------|
 | 1.1.0 | 2026-01-31 | Added standard separator format rule for date prefixes (` - `) | System |
 | 1.0.0 | 2026-01-31 | Initial version — separated from 06-folder-organization-and-navigation.md | System |
+
+<!--
+context_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-26"
+-->

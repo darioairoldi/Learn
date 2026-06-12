@@ -1,8 +1,11 @@
 ---
 description: Shared PE artifact rules — context engineering, tool selection, validation caching, production readiness, uncertainty management
 applyTo: '.github/prompts/**/*.md,.github/agents/**/*.agent.md'
-version: "1.7.0"
-last_updated: "2026-05-24"
+domain: "prompt-engineering"
+goal: "Provide the shared prompt-and-agent baseline rules (tool alignment, token budget, production readiness, references, runtime grounding) that type-specific instruction files extend and override on conflict"
+rationales:
+  - "A single shared-baseline file removes duplicated cross-artifact rules from the prompt and agent instruction files"
+  - "Centralizing the shared severity index keeps the type-specific instruction files focused on their type-specific additions"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---
@@ -34,7 +37,7 @@ Shared rules for all prompt and agent files. This is the designated shared-basel
 - **[H8]** Imperative language: MUST/NEVER/ALWAYS
 - **[H12]** Cross-reference integrity: all `📖` links resolve
 - **[H13]** Full-filename references: `📖` refs MUST use the full filename (e.g., `📖 \`02.04-agent-shared-patterns.md\``), NEVER bare numeric prefixes (e.g., `📖 \`02.04\``). Prefixes are fragile — files can be renamed or renumbered.
-- **[H14]** Runtime grounding: agents and prompts MUST include body-level enforcement of YAML `boundaries:` and `scope:`. Agents: three-tier boundaries section aligns with YAML. Prompts: workflow includes scope enforcement step. 📖 See `00.03-metadata-contracts.md` — Runtime grounding protocol.
+- **[H14]** Runtime grounding (metadata precedence): agents and prompts MUST enforce YAML `boundaries:` and `scope:` with precedence over body content (metadata wins on conflict). Agents: a single collective directive grounds the whole `boundaries:` list; three-tier entries are additive and MUST NOT restate a YAML boundary verbatim. Prompts: workflow includes a scope enforcement step. 📖 See `00.03-metadata-contracts.md` — Runtime grounding protocol.
 
 **MEDIUM** — fix when convenient:
 - **[M1]** Template externalization: inline blocks >10 lines → template
@@ -63,7 +66,7 @@ Every PE artifact MUST implement: response management, error recovery, embedded 
 - [ ] Response management and "I don't know" scenarios defined (H4)
 - [ ] 3–5 embedded test scenarios (H6)
 - [ ] All `📖` references resolve (H12)
-- [ ] Runtime grounding: body enforces YAML boundaries/scope (H14)
+- [ ] Runtime grounding: body enforces YAML boundaries/scope with precedence; collective directive present, no verbatim restatement (H14)
 
 ## References
 
@@ -72,3 +75,9 @@ Every PE artifact MUST implement: response management, error recovery, embedded 
 - **📖** [04.01-validation-caching-pattern.md](../../.copilot/context/00.00-prompt-engineering/04.01-validation-caching-pattern.md) — Validation caching
 - **📖** [04.03-production-readiness-patterns.md](../../.copilot/context/00.00-prompt-engineering/04.03-production-readiness-patterns.md) — Production readiness
 - **📖** `.github/templates/` — 26+ reusable templates
+
+<!--
+instruction_metadata:
+  version: "1.9.0"
+  last_updated: "2026-06-12"
+-->

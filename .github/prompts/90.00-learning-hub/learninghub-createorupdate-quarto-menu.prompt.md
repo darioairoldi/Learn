@@ -187,16 +187,7 @@ prompt_metadata:
   version: "10.1"
   created: "2026-01-31T00:00:00Z"
   last_updated: "2026-01-31T00:00:00Z"
-  changes:
-    - "v10.1: Removed --no-browser flag to enable visual menu verification"
-    - "v10.1: Added Step 4.3 user confirmation before final summary"
-    - "v10.0: CRITICAL FIX - Added mandatory path verification step (Phase 2.2)"
-    - "v10.0: Changed role from 'architect' to 'validator' (accuracy over design)"
-    - "v10.0: Added explicit list_dir verification for EACH project.render path"
-    - "v10.0: Added Phase 2 mandatory output format before proceeding"
-    - "v10.0: Updated Test 1 to match actual typo detection scenario"
-    - "v10.0: Added warning: quarto preview doesn't detect dangling refs"
-    - "v10.0: Simplified Phase 3-4 (removed redundant sidebar rules)"
+  changelog: "learninghub-createorupdate-quarto-menu.prompt.changelog.md"
   production_ready:
     response_management: true
     error_recovery: true

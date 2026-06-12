@@ -9,8 +9,6 @@ tools:
   - problems
   - githubRepo
   - todos
-version: "1.0.0"
-last_updated: "2026-03-20"
 ---
 
 # Technical spike research mode

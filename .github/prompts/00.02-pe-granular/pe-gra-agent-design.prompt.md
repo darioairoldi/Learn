@@ -54,8 +54,6 @@ boundaries:
   - "Challenge user requests with use case scenarios BEFORE delegating"
   - "Verify tool count is 3-7 at research phase (ABORT if >7)"
   - "Enforce orchestration depth limit: max 1 level"
-version: "1.1"
-last_updated: "2026-04-28"
 ---
 
 # Agent Design and Create Orchestrator
@@ -314,9 +312,9 @@ prompt_metadata:
   template_type: "multi-agent-orchestration"
   created: "2025-12-14T00:00:00Z"
   created_by: "implementation"
-  last_updated: "2026-03-15T00:00:00Z"
+  last_updated: "2026-04-28"
   updated_by: "copilot"
-  version: "1.1"
+  version: "1.1.0"
   changes:
     - "v1.1: Phase 3 trim — condensed gate checks, removed inline Clarification Protocol verbose version, compressed phase descriptions"
 ---

@@ -38,8 +38,6 @@ boundaries:
   - "Verify tool count is 3-7 and mode/tool alignment before saving"
   - "Enforce single responsibility — one role per agent (researcher OR builder OR validator)"
   - "Never create agents duplicating existing agent responsibilities"
-version: "1.0.0"
-last_updated: "2026-04-30"
 ---
 
 # Create or Update Agent Files
@@ -310,3 +308,9 @@ handoffs:  # OPTIONAL — for orchestration
 1. **Hand off** file path to agent-validator
 2. **If issues returned** — apply fixes and re-validate (max 3 iterations)
 3. **Report completion** — file path, validation status, any remaining notes
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-30"
+-->

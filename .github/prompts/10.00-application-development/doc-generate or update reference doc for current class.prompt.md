@@ -184,3 +184,9 @@ After creating or updating the documentation:
   - For updates: List specific changes made (added methods, corrected examples, etc.)
 - **Validation status**: Confirm the document passes the verification checklist
 - **Next steps**: Suggest any follow-up documentation needs (related classes, tutorials, etc.)
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

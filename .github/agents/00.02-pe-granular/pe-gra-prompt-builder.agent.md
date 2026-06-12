@@ -13,8 +13,6 @@ handoffs:
   - label: "Validate Prompt"
     agent: pe-gra-prompt-validator
     send: true
-version: "1.0.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -238,12 +236,11 @@ Hand off to `prompt-validator` for structure and tool alignment verification.
 <!-- 
 ---
 agent_metadata:
+  last_updated: "2026-03-20"
   created: "2025-12-14T00:00:00Z"
   created_by: "prompt-design"
-  version: "2.0"
-  updated: "2026-03-10T00:00:00Z"
+  version: "2.0.0"
   updated_by: "copilot"
-  changes:
-    - "v2.0: Merged prompt-updater into unified workflow. Single agent handles both create and update. Externalized inline templates to .github/templates/ references."
+  changelog: "pe-gra-prompt-builder.agent.changelog.md"
 ---
 -->

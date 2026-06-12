@@ -51,7 +51,7 @@ Whether a mutating run **regenerates** its plan or **trusts** an existing one is
 |---|---|---|---|---|
 | no | yes | **fresh** | Generate plan from research → write → execute. | skipped (back-to-back) |
 | yes | yes | **reconcile** | Load baseline, merge fresh evidence, preserve human decisions, re-verify coverage + actionability, overwrite → execute. | skipped (research re-validates) |
-| yes | no | **trust** | Execute baseline as-is. | **REQUIRED** (cross-run) |
+| yes | no | **trust** | Execute the baseline's **human decisions** as-is; per § 5, re-emit a fresh per-dimension `evidence_ref` for every applicable PU (an inherited PASS counts as `never`). | **REQUIRED** (cross-run) |
 | no | no | **invalid** | Rejected at `breadth=full`: no baseline to substitute for research. | — |
 
 `--skip research` is legal at `breadth=full` ONLY when a validated baseline plan substitutes for research — a principled exception to `default-full-investigation`, because the plan IS the prior research product.
@@ -59,6 +59,10 @@ Whether a mutating run **regenerates** its plan or **trusts** an existing one is
 ### 5. Reconcile — preserve human-authored decisions
 
 In **reconcile** mode the baseline is a living input. Machine-derived findings (drift signals, source digests, dimension scores) are refreshed, but **human-authored decisions MUST NOT be silently overwritten**: park-lot rulings, consent lines, scope tags, and human-authored rationales are preserved. When fresh evidence contradicts a human-authored decision, the orchestrator **escalates the conflict** for human resolution rather than overwriting it (the `metadata-guarded-changes` guard/reconcile pair applied to the plan artifact itself).
+
+**A baseline substitutes for research, never for per-dimension evidence.** In both **reconcile** and **trust** modes, a prior run's PASS does NOT carry forward as coverage: every applicable processing unit MUST re-emit a fresh `evidence_ref` (per the [evidence-bound coverage contract](pe-meta-evidence-coverage.md)). A PU whose only support is an inherited PASS is treated as `never` and re-exercised. The baseline inherits human *decisions*; it never inherits the *proof* that a dimension was checked.
+
+**Re-running the same command lowers baseline confidence, never raises it.** When the new invocation has the **same `--scope`+`--dim`** as the baseline run, the re-run is itself evidence the prior pass may be incomplete: it MUST re-derive per-dimension evidence (above) AND inherit the baseline's `shallow-sweep=suspected` state if set, clearing it only when the previously silent body groups (content `D9`–`D11`, efficiency `D20`–`D27`, reliability `D28`–`D35`) produce fresh body-level evidence. A same-command re-run can therefore never auto-upgrade a `suspected` baseline to a clean health score.
 
 ### 6. Drift guard (trust mode only)
 

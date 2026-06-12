@@ -286,8 +286,7 @@ prompt_metadata:
   last_updated: "2026-03-16T00:00:00Z"
   updated_by: "phase-3-implementation"
   version: "1.0"
-  changes:
-    - "v1.0: Initial creation — documentation design orchestrator for subject-level documentation planning and creation"
+  changelog: "documentation-design.prompt.changelog.md"
   production_ready:
     response_management: true
     error_recovery: true

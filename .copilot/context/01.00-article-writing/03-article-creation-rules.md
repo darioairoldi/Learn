@@ -1,8 +1,6 @@
 ---
 title: "Article creation and review rules"
 description: "Comprehensive article creation patterns, required elements, deep writing style rules, technical content requirements, and quality checklists — Tier 2 on-demand complement to auto-loaded article-writing.instructions.md"
-version: "1.3.0"
-last_updated: "2026-04-26"
 domain: "article-writing"
 goal: "Provide the deep creation and review rules that article-writing prompts need on-demand — Diátaxis patterns, required article elements, content design principles, technical content rules, and quality checklists"
 scope:
@@ -632,3 +630,9 @@ Introduction pattern templates are available as separate files for easy copy-pas
 | 1.2.0 | 2026-03-01 | Deduplication: replaced readability targets bullet list with summary + pointer to 01-style-guide.md; moved 4 common intro patterns to `.github/templates/pattern-*.md` template files, replaced section with pointer table. Source: Recommendation C from coverage analysis. | System |
 | 1.1.0 | 2026-03-01 | Added "Content design and organization principles" section with 5 subsections: content-first design (G1), topic-based authoring (G2), progressive disclosure 3-layer model (G3), LATCH framework decision table (G4), Wikipedia article pattern template (G5). Source: Recommendation B from coverage analysis + Art. 02. | System |
 | 1.0.0 | 2026-03-01 | Initial version: extracted from `article-writing.instructions.md` v1.2 as Tier 2 (on-demand context). Contains Diátaxis patterns, required article elements, writing style deep rules, technical content requirements, quality checklists, common patterns, reference materials, and validation workflow. Source: Recommendation A from coverage analysis. | System |
+
+<!--
+context_metadata:
+  version: "1.3.0"
+  last_updated: "2026-04-26"
+-->

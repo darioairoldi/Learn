@@ -93,3 +93,9 @@ Options: "Brief summary with outcomes" (default), "Minimal mention", "Detailed s
 **Output Filename:** 20251010-practical-patterns-intelligent-agents.md
 **Focus Level:** Concise — key takeaways only
 **Demo Handling:** Minimal mention
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

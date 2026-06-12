@@ -530,3 +530,9 @@ validations:
 - [ ] Executive summary with health scores produced
 - [ ] Bottom metadata updated in EACH article (no series-level files)
 - [ ] Top YAML blocks left unchanged in all articles
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

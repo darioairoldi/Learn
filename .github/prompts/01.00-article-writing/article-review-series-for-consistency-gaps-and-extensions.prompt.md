@@ -10,7 +10,6 @@ tools:
   - list_dir           # Discover articles in folders
   - fetch_webpage      # Research emerging topics and alternatives
 argument-hint: 'Provide series name, folder path, or list of article files to review'
-version: "1.0.0"
 goal: "Review a multi-article series for cross-article consistency, terminology patterns, Diátaxis compliance, redundancies, coverage gaps, and extension opportunities"
 scope:
   covers:
@@ -325,28 +324,9 @@ Comprehensive series review report containing:
 prompt_metadata:
   created: "2025-12-25T00:00:00Z"
   created_by: "manual"
-  last_updated: "2026-03-01T00:00:00Z"
-  version: "3.1"
-  changes:
-    - "v3.1: Revised Critical Boundaries — separated diagnosis from implementation in Always Do / Ask First. Architectural diagnosis (Diátaxis violations, scope issues, missing categories, folder misalignment) is now Always Do with specific evidence required. Ask First now applies only to implementing structural changes (>50% of articles), deletion, and splitting. Source: analysis-article-writing-system-architectural-gaps.md Change 2."
-    - "v3.0: Added Phase 2.5 Content Architecture Validation with 5 checks (Diátaxis compliance, folder structure, scope/size, category coverage, learning paths). Added Content Architecture to Rule-Dimension Mapping. Updated Goals (8 items), Output Format (9 sections), Test Scenario 6 (architectural problems). Created guidance-architecture-validation.template.md and Phase 2.5 output template. Source: analysis-article-writing-system-architectural-gaps.md Change 1."
-    - "v2.3: Added Visual Content dimension to Rule-Dimension Mapping (Rule 20); enhanced Structure dimension with TOC design details (Rule 9). Source: remaining ⚠️ items from coverage analysis."
-    - "v2.2: Added Rule-Dimension Mapping table connecting 7 validation dimensions to authoritative source locations. Source: Recommendation D from coverage analysis."
-    - "v2.1: Changed agent mode from 'plan' to 'agent' — tools require execution, not planning"
-    - "v2.1: Removed duplicate dual-YAML context file reference in boundaries"
-    - "v2.0: Major rewrite applying prompt-create-update methodology"
-    - "Externalized all inline output formats to output-series-review-phases.template.md"
-    - "Externalized Phase 1-2 verbose discovery/inventory to guidance-discovery-and-inventory.template.md"
-    - "Externalized Phase 4-5 verbose research/extension to guidance-research-and-extensions.template.md"
-    - "Created dedicated template folder: .github/templates/01.00-article-writing/article-review-series-for-consistency-gaps-and-extensions/"
-    - "Added Response Management section (Production-Ready requirement)"
-    - "Added Error Recovery section with tool failure fallback table (Production-Ready requirement)"
-    - "Added 5 Embedded Test Scenarios (Production-Ready requirement)"
-    - "Applied imperative language throughout (WILL, MUST, NEVER)"
-    - "Removed all inline output format blocks (>1000 lines externalized)"
-    - "Removed verbose Azure App Service example content (domain-specific)"
-    - "Fixed broken relative links in References section"
-    - "Reduced from 1284 lines (~7700 tokens) to ~230 lines (~1380 tokens) — 82% reduction"
+  last_updated: "2026-03-01"
+  version: "3.1.0"
+  changelog: "article-review-series-for-consistency-gaps-and-extensions.prompt.changelog.md"
   production_ready:
     response_management: true
     error_recovery: true

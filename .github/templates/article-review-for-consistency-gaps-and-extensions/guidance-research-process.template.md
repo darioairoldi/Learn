@@ -106,3 +106,9 @@ Combine editorial priorities with user priorities:
 - **Final Priority:** max(Editorial Priority, User Priority Boost)
 
 **Key Principle:** User priorities influence *where we invest extra effort*, but editorial judgment determines *what must be fixed for accuracy*.
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

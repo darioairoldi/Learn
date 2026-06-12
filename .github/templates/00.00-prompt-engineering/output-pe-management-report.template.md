@@ -56,7 +56,6 @@ template_metadata:
   created: "2026-03-20"
   consumers:
     - "meta-prompt-engineering-update"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "output-pe-management-report.template.changelog.md"
 ---
 -->

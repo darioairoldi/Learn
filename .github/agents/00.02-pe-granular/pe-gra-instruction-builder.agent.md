@@ -13,8 +13,6 @@ handoffs:
   - label: "Validate Instruction File"
     agent: pe-gra-instruction-validator
     send: true
-version: "1.0.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -349,9 +347,10 @@ Hand off to instruction-validator for structure verification.
 <!-- 
 ---
 agent_metadata:
+  last_updated: "2026-03-20"
   created: "2026-07-22T00:00:00Z"
   created_by: "architectural-refactoring-p5"
-  version: "1.0"
+  version: "1.0.0"
   template: "builder-agent-pattern"
   notes: "Extracted from monolithic instruction-file-create-update.prompt.md"
 ---

@@ -68,8 +68,6 @@ boundaries:
   - "Challenge purposes with use case scenarios before building"
   - "Gate each phase transition with quality checks"
   - "Delegate specialized work to experts — never research, build, or validate yourself"
-version: "2.4"
-last_updated: "2026-04-28"
 ---
 
 # Prompt Design and Create
@@ -410,9 +408,9 @@ Prompt-design-specific scenarios:
 prompt_metadata:
   template_type: "multi-agent-orchestration"
   created: "2025-12-14T00:00:00Z"
-  last_updated: "2026-03-14T00:00:00Z"
+  last_updated: "2026-04-28"
   updated_by: "implementation"
-  version: "2.4"
+  version: "2.4.0"
   changes:
     - "v2.4: Phase 3 trim — consolidated duplicate Phase 3/4/5/6 blocks, condensed examples, externalized architecture decision to template"
     - "v2.3: A1 — Added production-readiness enforcement to all builder handoffs (Phase 4, 4a, 4b, 5)"

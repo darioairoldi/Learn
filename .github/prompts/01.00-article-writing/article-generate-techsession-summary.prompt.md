@@ -5,7 +5,6 @@ agent: agent
 model: claude-opus-4.6
 tools: ['codebase', 'editor', 'filesystem', 'fetch']
 argument-hint: 'Works with files in active folder or specify paths'
-version: "1.0.0"
 goal: "Generate a concise, concept-driven summary article from a technical session recording by consolidating content by concept, omitting tangential discussions, and enriching with verified external references"
 scope:
   covers:
@@ -181,20 +180,9 @@ Enrich output with verified external references.
 prompt_metadata:
   created: "2025-12-14T00:00:00Z"
   created_by: "manual"
-  last_updated: "2026-02-14T00:00:00Z"
-  version: "2.1"
-  changes:
-    - "v2.1: Added `fetch` tool for Phase 3 reference enrichment (was missing)"
-    - "v2.1: Fixed typo — 'enfasis' → 'emphasis'"
-    - "v2.0: Major rewrite — removed redundancies, added full 5-phase workflow"
-    - "v2.0: Moved templates to dedicated folder .github/templates/01.00-article-writing/article-generate-techsession-summary/"
-    - "v2.0: Added Phase 3 (Reference Enrichment) for external reference discovery"
-    - "v2.0: Changed topic structure from timestamp-driven to concept-driven headings"
-    - "v2.0: Added concept consolidation rules for topics discussed at multiple points"
-    - "v2.0: Added Response Management, Error Recovery, and 5 Embedded Test Scenarios"
-    - "v2.0: Removed duplicate Reference Classification section (now in boundaries)"
-    - "v2.0: Removed duplicate Expected Input Content section (delegated to input template)"
-    - "v2.0: Removed duplicate Example Usage section (delegated to input template)"
+  last_updated: "2026-02-14"
+  version: "2.1.0"
+  changelog: "article-generate-techsession-summary.prompt.changelog.md"
   production_ready:
     response_management: true
     error_recovery: true

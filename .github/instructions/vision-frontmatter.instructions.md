@@ -1,8 +1,6 @@
 ---
 description: Schema and discipline for vision documents — prioritized `scope.covers` block, `principles:` block with optional rationale and relies_on, body principle/rationale conventions, and Most recent changes block size cap
 applyTo: '06.00-idea/**/*vision*.md'
-version: "1.3.0"
-last_updated: "2026-06-01"
 domain: "prompt-engineering"
 goal: "Make vision invariants (scope items AND principles) explicit, prioritized, and auditable, and keep vision documents readable by capping prose that tends to grow unbounded across versions"
 rationales:
@@ -14,6 +12,8 @@ rationales:
   - "Rationale IDs referenced by `relies_on:` must be readable in isolation — opaque prefix codes (e.g. `R-L4`) force every reader to cross-reference; readable kebab-case IDs (e.g. `external-knowledge`) carry the semantic in the identifier itself"
   - "The `Most recent changes` block accretes detail every version and quickly becomes unreadable — a hard size cap forces overflow into the canonical changelog where it belongs"
   - "Block presence is SHOULD not MUST — the P0-count rule MUST therefore be conditional on presence, otherwise validators flag a false contradiction on documents that legitimately omit the block"
+  - "Per-version history kept in two places (a changelog file AND a vision-metadata changes: array) drifts out of sync — the array stopped at v15.5 while the vision was at v15.6; a single-source-of-truth rule for the changelog file removes the drift class"
+  - "An unstructured changelog (version-only headings, prose-narrated P0 accounting, no retention rule) is neither deep-linkable nor auditable nor bounded — structured entries, full-SemVer headings, stable anchors, and a retention policy make it machine-readable and growth-bounded"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
 ---
@@ -22,12 +22,13 @@ context_dependencies:
 
 ## Purpose
 
-This file governs four aspects of vision documents:
+This file governs five aspects of vision documents (and, via the `applyTo` glob, the sibling `*.changelog.md` file):
 
 1. **The `scope.covers:` frontmatter block** — names the capabilities the vision commits to, each tagged with priority (P0/P1/P2/aspirational). Per-item priority is the amendment gate's primary signal for which capabilities define the system vs. which are mechanism or aspirational.
 2. **The `principles:` frontmatter block** — names the prescriptive invariants the vision commits to, each tagged with priority and optionally carrying inline `rationale:` and `relies_on:` cross-references. Downstream amendment plans (governed by `vision-amendment.instructions.md`) tag every goal item with its principle impact. The block is currently SHOULD (not MUST); when it is absent the amendment gate is silently skipped — amendments still land, but principle-impact tagging is not enforced. Future promotion of the block to MUST is tracked separately.
 3. **Body rationale identifier convention** — rationale IDs referenced from `relies_on:` and from body cross-references MUST be readable kebab-case identifiers (no opaque prefix codes).
 4. **Body conventions for sections that tend to grow unbounded** — currently the `Most recent changes` block, which accretes detail every version and quickly becomes unreadable if uncapped.
+5. **The sibling `*.changelog.md` file** — the single source of truth for per-version vision history: heading grain, entry shape, SemVer bump rule, `## Unreleased` staging, retention/archival, ordering, and reference integrity (see § Changelog File Rules).
 
 This file does NOT define amendment-plan rules — those live in `vision-amendment.instructions.md`.
 
@@ -127,6 +128,14 @@ The 3-to-7 P0 band assumes the vision has matured enough to express at least thr
 
 Amendment plans matched by `vision-amendment.instructions.md` (`*vision*plan*.md`) read this block to perform per-item principle-impact tagging. The exact format of that tagging lives in `vision-amendment.instructions.md`.
 
+## Tracking-Metadata Placement
+
+A vision document is an article. Its **change-prone tracking metadata** — `version`, `last_updated`, and the optional `changelog:` pointer — lives in the **bottom `article_metadata:` block**, exactly like every other article and like every dual-block PE artifact (per `00.03-metadata-contracts.md`). It MUST NOT be carried in top frontmatter.
+
+- The top YAML frontmatter holds only invariant discovery/config fields (`title`, `author`, `date`, `status`, `domain`, `categories`, `goal`, `description`) plus the governance blocks (`scope.covers:`, `principles:`). These are author/design-owned.
+- `version`/`last_updated` are NOT a vision-specific exception: the same uniform rule applies, so there is no top/bottom duplication to drift. The version-bump rules above still apply — they govern *when* the version changes, not *where* it is stored.
+- The `scope.covers:`/`principles:` blocks stay in top frontmatter because the amendment gate reads them there; tracking fields are not part of that gate.
+
 ## Body Conventions
 
 ### `Most recent changes` block — size cap
@@ -142,6 +151,64 @@ Vision documents typically open with a blockquote summarizing the latest version
 - The block SHOULD be a single paragraph; multi-paragraph form is allowed only if the total word count still respects the cap
 - When the scope note is rewritten and shrinks, any existing changes block that now exceeds the cap MUST be trimmed in the same edit
 - Authors SHOULD prefer noun-phrase bullets over dense subordinate-clause prose when nearing the cap (the cap is a hard ceiling, not a writing-style preference)
+
+## Changelog File Rules
+
+The sibling `*.changelog.md` file (matched by this instruction's `applyTo` glob) is the **single source of truth** for per-version vision history. These rules govern its structure so it stays deep-linkable, auditable, and growth-bounded.
+
+### History lives only in the changelog
+
+- Per-version history lives ONLY in the sibling `*.changelog.md`. The vision document's frontmatter, body, and bottom `article_metadata:` block MUST NOT carry a parallel per-version `changes:` list, release-notes array, or equivalent. (Such a list duplicates the changelog and drifts: the retired `article_metadata.changes:` array stopped at v15.5 while the vision was already at v15.6.)
+- The vision's `Most recent changes` block (capped per § Body Conventions) is the ONLY in-vision change summary — a TLDR pointer to the changelog, never a history.
+
+### Entry heading grain
+
+- Every released entry MUST use a full SemVer + date heading: `## vMAJOR.MINOR.PATCH — YYYY-MM-DD` (e.g. `## v15.6.0 — 2026-06-12`).
+- Two-part (`## v15`) or version-only (`## v14`) headings are NOT permitted — they hide which patch/minor a change belongs to and cannot be deep-linked unambiguously.
+- One heading = one released version. A single heading MUST NOT bucket multiple dated sub-releases; split them into one heading per version.
+
+### Entry shape (structured + machine-readable)
+
+Each released entry MUST open with, in order:
+
+1. A machine-readable HTML comment on one line:
+   `<!-- entry: { version: "X.Y.Z", date: "YYYY-MM-DD", priority_touch: "P0|P1|P2|none", version_bump: "major|minor|patch|none", p0_touched: true|false, companion_plan: "<filename-or-null>" } -->`
+2. A visible status line: `**Priority touch:** <P0|P1|P2|none> · **Version bump:** <major|minor|patch> (X.Y.(Z−1) → X.Y.Z) · **P0 touched:** <yes|no>`
+3. A bold one-sentence headline summarizing the release.
+4. Per-change bullets, each naming the touched principle / `scope.covers` id and its priority touch.
+
+The `priority_touch` / `p0_touched` fields make the version-bump and autonomy rules auditable rather than narrated in closing prose.
+
+### SemVer bump rule
+
+The vision uses semantic versioning. The bump is determined by the highest-impact change in the release:
+
+| Bump | Trigger |
+|---|---|
+| **MAJOR** (`X+1.0.0`) | A breaking change to a P0 invariant — removing/weakening a P0 principle or P0 `scope.covers` item, or a goal/scope/boundary contract change that invalidates downstream artifacts |
+| **MINOR** (`X.Y+1.0`) | An additive or strategic change — a new P1 principle/scope item, a new capability, or a P1 touch that does not break existing consumers |
+| **PATCH** (`X.Y.Z+1`) | Alignment, wording, body-only clarification, or a P2 change that does not alter the contract |
+
+This mirrors the P0/P1/P2 amendment-friction rules above: a P0 touch MUST bump (≥ MINOR, MAJOR if breaking) and carry a consent line; a P1 touch MUST add a changelog entry; P2 changes need no ceremony.
+
+### `## Unreleased` staging section
+
+- The changelog SHOULD keep a `## Unreleased` section immediately below the intro, above the newest released version.
+- In-progress amendment plans accumulate notes there before a version is cut.
+- On release, the `## Unreleased` heading is renamed to the cut `## vX.Y.Z — YYYY-MM-DD` heading and a fresh empty `## Unreleased` (containing `_Nothing staged._`) is left in its place.
+
+### Retention and archival
+
+- Keep full per-entry detail for the **current major** version only.
+- When a new major is cut, prior-major detail MUST be moved to a sibling `*.changelog.archive.md` (one per archived major, or a single growing archive), leaving a one-line pointer in the live changelog.
+- Pre-changelog versions (superseded before the changelog was extracted) are summarized in a single `## Earlier versions` section; they are not expanded.
+- This bounds the changelog's growth the same way the `Most recent changes` word-cap bounds the vision body.
+
+### Ordering and reference integrity
+
+- Entries MUST be ordered newest-first (`## Unreleased`, then descending version).
+- Every provenance link (companion plan, motivating overview) MUST resolve; the changelog MUST be included in the repository link-check pass (`scripts/check-links-enhanced.ps1`).
+- Any cross-artifact reference INTO a changelog section MUST target a stable HTML anchor (`<a id="…"></a>`) placed above the heading, never the heading's auto-generated slug — so a heading reword cannot break downstream deep-links.
 
 ## Quality Checklist
 
@@ -180,9 +247,31 @@ Vision documents typically open with a blockquote summarizing the latest version
 
 - [ ] Word count ≤ cap (2 × scope-note word count, or 80 words if no scope note exists; excluding lead-in and changelog-link tail)
 
+### Tracking-metadata placement
+
+- [ ] `version`/`last_updated` live in the bottom `article_metadata:` block, NOT in top frontmatter (no duplication across blocks)
+
+### Changelog file (`*.changelog.md`)
+
+- [ ] Vision document carries NO parallel per-version `changes:` list (history lives only in the changelog)
+- [ ] Every released entry heading is full SemVer + date (`## vX.Y.Z — YYYY-MM-DD`); no version-only or two-part headings
+- [ ] No heading buckets multiple dated sub-releases
+- [ ] Newest entries carry the machine-readable `<!-- entry: { … } -->` comment and visible `**Priority touch:** … · **Version bump:** … · **P0 touched:** …` status line
+- [ ] Version bump matches the SemVer bump rule (MAJOR=breaking/P0 · MINOR=additive/P1 · PATCH=alignment)
+- [ ] A `## Unreleased` staging section exists below the intro
+- [ ] Entries are ordered newest-first
+- [ ] Cross-artifact references into changelog sections use a stable HTML anchor, not an auto-generated heading slug
+- [ ] Current-major detail is full; prior-major detail is archived per the retention rule
+
 ## References
 
-- **📒** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md` — first vision to carry the block
+- **📒** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md` — first vision to carry the block
 - **📒** `src/docs/90. Issues/202605/20260525.03-staleness-review/05-vision-usecase-plan-rules/01-overview.md` — sub-issue analysis that motivated this rule
 - **📘** `.github/instructions/vision-amendment.instructions.md` — consumer of this block
 - **📘** `.github/instructions/pe-instruction-files.instructions.md` — instruction-file schema authority
+
+<!--
+instruction_metadata:
+  version: "1.5.0"
+  last_updated: "2026-06-12"
+-->

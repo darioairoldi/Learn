@@ -1,8 +1,6 @@
 ---
 title: "Article creation workflow"
 description: "Phase-based workflow for creating articles from concept to publication, referencing actual prompt files and validation tools"
-version: "2.0.0"
-last_updated: "2026-04-26"
 domain: "article-writing"
 goal: "Define the end-to-end article creation workflow (planning → research → drafting → validation → review → publication → maintenance) so that every phase references the correct prompt files, templates, and validation criteria"
 scope:
@@ -201,3 +199,9 @@ Run validations in this order (skip if IQPilot handles automatically):
 |---------|------|---------|--------|
 | 2.0.0 | 2026-02-28 | Complete rewrite: replaced phantom prompt names with actual prompt files; consolidated 491 lines to ~160 lines; added validation dimension table referencing 02-validation-criteria.md; added AI provenance tags; added post-publication maintenance phase with freshness scoring reference. Source: 40.00-technical-writing articles 05, 07, 10 | System |
 | 1.0.0 | 2025-12-26 | Initial version | System |
+
+<!--
+context_metadata:
+  version: "2.0.0"
+  last_updated: "2026-04-26"
+-->

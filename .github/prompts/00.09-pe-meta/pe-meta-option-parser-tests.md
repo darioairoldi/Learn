@@ -1,4 +1,4 @@
-﻿# PE-meta option parser test evidence
+# PE-meta option parser test evidence
 
 Deterministic test scenarios documenting expected parser behavior for all PE-meta commands. Each row defines an input invocation and the expected system response — either acceptance with parsed values or rejection with corrective message.
 
@@ -271,3 +271,8 @@ Resolved invocation: --mode=apply --scope=context --source=- --dim=full --start=
 
 The `bundle=…` field MUST be present on every accepted invocation. Allowed values: `single-domain | cross-domain-deps | multi-domain-gated | accepted-bundle | multi-domain-advisory`. Tests P0b-06, P0b-07, P0b-08, P0b-14 confirm rejections never reach the `Resolved invocation:` log line.
 
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

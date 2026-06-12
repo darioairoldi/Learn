@@ -13,8 +13,6 @@ handoffs:
   - label: "Validate Template"
     agent: pe-gra-template-validator
     send: true
-version: "1.0.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -249,8 +247,9 @@ Hand off to `template-validator` for structure verification.
 <!-- 
 ---
 agent_metadata:
+  last_updated: "2026-03-20"
   created: "2026-03-19T00:00:00Z"
   created_by: "copilot"
-  version: "1.0"
+  version: "1.0.0"
 ---
 -->

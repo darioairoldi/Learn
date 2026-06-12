@@ -1,8 +1,6 @@
 ---
 title: "Series planning workflow"
 description: "Process for planning, creating, and maintaining multi-article series with cross-article consistency"
-version: "2.3.0"
-last_updated: "2026-04-26"
 domain: "article-writing"
 goal: "Define the lifecycle for multi-article series (define → structure → plan metadata → create → validate → publish → maintain) so that cross-article consistency is maintained from planning through maintenance"
 scope:
@@ -349,3 +347,9 @@ Run before publishing any series or after major updates:
 | 2.1.0 | 2026-03-01 | Added to Phase 2: content-first design step, terminology handoff rule with YAML map template, and cross-reference strategy selection table (5 strategies). Source: Recommendation F from coverage analysis. | System |
 | 2.0.0 | 2026-02-28 | Complete rewrite: replaced phantom prompt names with actual prompt files; consolidated 559 lines to ~180 lines; removed verbose REST API examples and detailed templates; added series patterns, dependency rules, metadata consistency table, maintainability guidance. Source: 40.00-technical-writing articles 08, 10 | System |
 | 1.0.0 | 2025-12-26 | Initial version | System |
+
+<!--
+context_metadata:
+  version: "2.3.0"
+  last_updated: "2026-04-26"
+-->

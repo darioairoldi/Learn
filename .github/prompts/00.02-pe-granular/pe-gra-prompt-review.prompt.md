@@ -47,8 +47,6 @@ boundaries:
   - "Prioritize tool alignment validation as CRITICAL check"
   - "Never approve prompts with tool alignment violations"
   - "Gate issue resolution with re-validation"
-version: "2.1"
-last_updated: "2026-04-28"
 ---
 
 # Prompt Review and Validate Orchestrator
@@ -364,17 +362,9 @@ At orchestrator startup, read the target artifact's current metadata and check:
 prompt_metadata:
   template_type: "multi-agent-orchestration"
   created: "2025-12-14T00:00:00Z"
-  last_updated: "2026-07-22T00:00:00Z"
+  last_updated: "2026-07-22"
   updated_by: "implementation"
-  version: "2.1"
-  changes:
-    - "v2.2: B1 — Added Phase 2.5 (Goal & Role Validation) with use case challenge"
-    - "v2.2: B2 — Added production-readiness compliance (6 checks) to Phase 3 validator delegation"
-    - "v2.2: B3 — Added goal alignment checks to all gates"
-    - "v2.2: B4 — Added complexity/depth assessment to Phase 2.5"
-    - "v2.2: B5 — Externalized Final Report to output-prompt-review-report.template.md"
-    - "v2.2: B6 — Added Context Requirements section with 4 mandatory pre-reads"
-    - "v2.1: Removed ~530 lines of orphaned improvement workflow content"
-    - "v2.0: Initial multi-agent orchestration version"
+  version: "2.1.0"
+  changelog: "pe-gra-prompt-review.prompt.changelog.md"
 ---
 -->

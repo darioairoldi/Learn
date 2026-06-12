@@ -5,7 +5,6 @@ agent: agent
 model: claude-opus-4.6
 tools: ['codebase', 'editor', 'filesystem', 'fetch']
 argument-hint: 'Assumes transcript.txt and SUMMARY.md exist in active folder'
-version: "1.0.0"
 goal: "Generate a deep, chronological analysis article from a technical session recording by following the session timeline, enriching with verified external references, and moving demos and tangential content to appendices"
 scope:
   covers:
@@ -231,26 +230,9 @@ After deep analysis, enrich key topics with verified external information to imp
 prompt_metadata:
   created: "2025-12-14T00:00:00Z"
   created_by: "manual"
-  last_updated: "2026-02-14T00:00:00Z"
-  version: "2.2"
-  changes:
-    - "v2.2: Fixed typos — 'a in-dept' → 'an in-depth', 'enfasis' → 'emphasis'"
-    - "v2.1: Added Phase 4 (Content Enrichment) — enriches key concepts with verified background context for readability"
-    - "v2.1: Renumbered Phase 4-7 → Phase 5-8 to accommodate new phase"
-    - "v2.1: Updated boundaries — added enrichment callout rules to Always Do and Never Do"
-    - "v2.1: Updated Phase 7 (Document Assembly) to reference enriched content from Phase 4"
-    - "v2.1: Updated Phase 8 (Quality Check) with enrichment validation steps"
-    - "v2.1: Updated output template with CONTENT ENRICHMENT guidance and callout block example"
-    - "v2.0: Major rewrite — removed all redundancies from v1"
-    - "v2.0: Moved templates to dedicated folder .github/templates/01.00-article-writing/article-generate-techsession-analysis/"
-    - "v2.0: Changed from thematic to CHRONOLOGICAL time-based analysis structure"
-    - "v2.0: Added explicit demo → appendix routing (brief mention in main + appendix for detail)"
-    - "v2.0: Added tangential content → appendix routing"
-    - "v2.0: Added 7-phase workflow covering full analysis lifecycle"
-    - "v2.0: Added Phase 4 (Reference Enrichment) for external reference discovery"
-    - "v2.0: Added Response Management, Error Recovery, and 5 Embedded Test Scenarios"
-    - "v2.0: Removed duplicate System Message / Input Sources / User Input / Goal / Output / Quality sections"
-    - "v2.0: Removed web_search from tools (using fetch for reference verification)"
+  last_updated: "2026-02-14"
+  version: "2.2.0"
+  changelog: "article-generate-techsession-analysis.prompt.changelog.md"
   production_ready:
     response_management: true
     error_recovery: true

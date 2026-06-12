@@ -8,7 +8,7 @@ draft: false
 status: "done"
 last_updated: "2026-05-31"
 severity: "Medium"
-component: "[20260531.01-vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) + `.github/instructions/` (3 new files, 1 extension)"
+component: "[20260531.01-vision.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) + `.github/instructions/` (3 new files, 1 extension)"
 framework: "GitHub Copilot Customization v1.107 (PE-meta vision v15)"
 ---
 
@@ -35,7 +35,7 @@ The PE vision's [candidate `principles:` block (Q4 of overview)](01-overview.md#
 | 2 | Author `.github/instructions/vision-amendment.instructions.md` requiring trigger restatement, per-item scope tag, per-item principle impact, per-item coverage promise on every vision-amendment plan; `applyTo: '*vision*plan*.md'` | `[in-scope: original]` | Preserves: `single-source-of-truth` (rules live in instruction, plans cite). Touches: `default-full-invocation` (P1) — justification: the gate intentionally subtracts from default by quarantining scope expansion | New file (artifact 2) |
 | 3 | Extend `.github/instructions/plan-execution.instructions.md` with the four-state lifecycle (`draft → actionable → in-progress → done`), the 5-check actionability gate, the park-lot rule, and the on-save + on-ask dual trigger from Q3 | `[in-scope: original]` | Preserves: `single-source-of-truth`. Touches: existing pre-execution validation block — non-breaking: today's three checks (goal alignment, actionability, information sufficiency) become checks #1–#2 of the new 5-check gate; no semantics removed | In-place edit (artifact 3) |
 | 4 | Author `.github/instructions/use-case-documents.instructions.md` defining (a) `pN-NN-<slug>.md` filename discipline as priority-bearing, (b) required sections (problem, priority justification, success criteria, vision-item coverage map, anti-patterns), (c) clarity/non-ambiguity test, (d) coverage-closure check between use cases and vision goal items in both directions; `applyTo: '*usecase*.md'` AND `applyTo: '**/usecases/**/*.md'` | `[in-scope: original]` | Preserves: `portable` (rule is about file structure and content, not folder layout). Touches: existing use-case folder layout (`06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/`) — non-breaking: existing `pN-NN-*` filenames already comply with the priority-prefix rule | New file (artifact 4) |
-| 5 | Amend [20260531.01-vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) in-version: (a) add `principles:` block to frontmatter with the candidate P0/P1 set from [overview Q4](01-overview.md#%EF%B8%8F-open-questions-and-decisions), authored by the vision owner; (b) add § Validation infrastructure under § The vision referencing the four instruction files and their roles; (c) record the bootstrap in [20260531.01-vision.v15.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) as a non-version-bumping additive entry | `[in-scope: original]` | Preserves: every existing P0 principle (the bootstrap *declares* them, does not change them). Touches: vision frontmatter schema — additive only; no version bump because no behavior changes | Vision edit (artifact 5) |
+| 5 | Amend [20260531.01-vision.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) in-version: (a) add `principles:` block to frontmatter with the candidate P0/P1 set from [overview Q4](01-overview.md#%EF%B8%8F-open-questions-and-decisions), authored by the vision owner; (b) add § Validation infrastructure under § The vision referencing the four instruction files and their roles; (c) record the bootstrap in [20260531.01-vision.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md) as a non-version-bumping additive entry | `[in-scope: original]` | Preserves: every existing P0 principle (the bootstrap *declares* them, does not change them). Touches: vision frontmatter schema — additive only; no version bump because no behavior changes | Vision edit (artifact 5) |
 | 6 | Bootstrap audit of existing use cases under `20260503.02-vision-pe-meta-usecases/**/*.md` for R4 compliance | `[scope-expansion: needs-own-plan]` | n/a — spawned as `02-usecase-audit-plan.md` | **Parked** — see [§ Park lot](#-park-lot) |
 | 7 | Author a use-case for the `/pe-meta-update --mode apply --scope context` invocation that catches Type B staleness (gap surfaced by sub-issue 02) | `[scope-expansion: needs-own-plan]` | n/a — different sub-issue | **Parked** — see [§ Park lot](#-park-lot) |
 
@@ -65,7 +65,7 @@ Items 6 and 7 are surfaced here only to demonstrate the [park-lot rule](#-park-l
 - **Artifact 2 exists** at `.github/instructions/vision-amendment.instructions.md` with `applyTo: '*vision*plan*.md'`, requiring trigger restatement + per-item scope tag + per-item principle impact + per-item coverage promise on every vision-amendment plan goal section. (✅ done)
 - **Artifact 3 extension landed** in `.github/instructions/plan-execution.instructions.md`: adds the four-state lifecycle, the 5-check actionability gate, the park-lot rule; preserves the existing three-check pre-execution validation block by subsuming checks #1–#2 into the new gate (no semantics removed). Version bumped from `1.1.0` → `1.2.0`. (✅ done)
 - **Artifact 4 exists** at `.github/instructions/use-case-documents.instructions.md` with `applyTo: '**/*usecases/**/*.md'` (consolidated to a single glob that matches the existing folder; covers the `*usecase*.md` filename intent), required sections list, priority-prefix rule (`pN-NN-<slug>.md`), and bidirectional coverage-map requirement via the `Vision anchor` field. (✅ done)
-- **Artifact 5 landed**: [20260531.01-vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) carries a `principles:` block in its frontmatter (4 P0 + 2 P1 entries naming pre-existing implicit principles); new § Validation infrastructure subsection added at the end of § The vision listing the four artifacts and pointing to their `applyTo` glob; [20260531.01-vision.v15.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) records the additive entry. No version bump (additive frontmatter + additive section). (✅ done)
+- **Artifact 5 landed**: [20260531.01-vision.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) carries a `principles:` block in its frontmatter (4 P0 + 2 P1 entries naming pre-existing implicit principles); new § Validation infrastructure subsection added at the end of § The vision listing the four artifacts and pointing to their `applyTo` glob; [20260531.01-vision.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md) records the additive entry. No version bump (additive frontmatter + additive section). (✅ done)
 - **Cross-references resolve**: every new instruction file references the others; the vision § Validation infrastructure points to each instruction file by path and `applyTo` glob. (✅ done)
 - **YAML frontmatter valid** on all four new instruction files per [pe-instruction-files.instructions.md](../../../../../../.github/instructions/pe-instruction-files.instructions.md) — every file carries `description`, `applyTo`, `version`, `last_updated`, `domain`, `goal`, `rationales`, `context_dependencies`. (✅ done)
 - **No regression** in existing plan-execution validation: the legacy three-check block (goal alignment, actionability, information sufficiency) is preserved as checks #1–#2 of the new 5-check gate — no semantics removed; check #5 (principle impact) is conditional on vision-amendment plans only. (✅ done)
@@ -93,7 +93,7 @@ This plan is the first instance subject to the new gate. The self-check below is
 ## 📌 Artifact 1 — `vision-frontmatter.instructions.md`
 
 **Path:** `.github/instructions/vision-frontmatter.instructions.md`
-**`applyTo`:** `'06.00-idea/**/*vision*.md'` (glob covers `20260531.01-vision.v15.md`, `old/20260529.01-vision.v14.md`, future vision versions)
+**`applyTo`:** `'06.00-idea/**/*vision*.md'` (glob covers `20260531.01-vision.md`, `old/20260529.01-vision.v14.md`, future vision versions)
 
 ### Required sections
 
@@ -234,7 +234,7 @@ The existing use-case folder already uses `p0-01-context-quality-lifecycle.md`, 
 
 ## 📌 Artifact 5 — Vision v15 in-version amendment
 
-**Path:** [20260531.01-vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) + [20260531.01-vision.v15.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md)
+**Path:** [20260531.01-vision.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) + [20260531.01-vision.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md)
 
 ### Edits
 
@@ -267,7 +267,7 @@ The existing use-case folder already uses `p0-01-context-quality-lifecycle.md`, 
   - [vision-amendment.instructions.md](../../../../../../.github/instructions/vision-amendment.instructions.md) — per-item principle-impact tagging on amendment plans
   - [plan-execution.instructions.md](../../../../../../.github/instructions/plan-execution.instructions.md) — actionability gate, park-lot, lifecycle
   - [use-case-documents.instructions.md](../../../../../../.github/instructions/use-case-documents.instructions.md) — use-case clarity, priority, coverage
-- **Changelog entry** under [20260531.01-vision.v15.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) — additive: declares the `principles:` block + the new § Validation infrastructure subsection. No version bump (additive frontmatter + additive section, no behavioral change to the vision itself; the *gating* behavior lands in the four instruction files).
+- **Changelog entry** under [20260531.01-vision.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md) — additive: declares the `principles:` block + the new § Validation infrastructure subsection. No version bump (additive frontmatter + additive section, no behavioral change to the vision itself; the *gating* behavior lands in the four instruction files).
 
 ### Why no version bump
 
@@ -320,8 +320,8 @@ Edge cases surfaced during this plan's authoring or execution land here. They MU
 - 📘 [plan-execution.instructions.md](../../../../../../.github/instructions/plan-execution.instructions.md) — target of artifact 3 extension
 - 📘 [plan-marking.instructions.md](../../../../../../.github/instructions/plan-marking.instructions.md) — referenced; unchanged
 - 📘 [pe-instruction-files.instructions.md](../../../../../../.github/instructions/pe-instruction-files.instructions.md) — schema authority for artifacts 1, 2, 4
-- 📗 [20260531.01-vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) — target of artifact 5
-- 📗 [20260531.01-vision.v15.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) — changelog entry from artifact 5
+- 📗 [20260531.01-vision.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) — target of artifact 5
+- 📗 [20260531.01-vision.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md) — changelog entry from artifact 5
 
 **Existing use cases referenced for shape (not modified):**
 - 📒 `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/01-freshness/p0-01-context-quality-lifecycle-usecase.md`

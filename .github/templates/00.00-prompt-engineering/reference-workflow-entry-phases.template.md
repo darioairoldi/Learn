@@ -1,8 +1,6 @@
 ---
 title: "Reference — PE Workflow Entry Phases A–E"
 description: "Phase A (Orchestrator), B (Standalone), C (Validation), D (Direct Agent), and E (Meta-Agents and Meta-Prompts) tables lifted from 05.03-pe-workflow-entry-points.md. Reference tables — load only when the Quick Decision tree directs you to a specific phase."
-version: "1.0.0"
-last_updated: "2026-05-25"
 domain: "prompt-engineering"
 parent_artifact: ".copilot/context/00.00-prompt-engineering/05.03-pe-workflow-entry-points.md"
 goal: "Provide the five per-phase workflow tables as a load-on-demand reference, keeping the parent entry-point guide under the context token budget."
@@ -189,3 +187,9 @@ Three complementary mechanisms cover different triggers:
 ---
 
 **Parent artifact:** [05.03-pe-workflow-entry-points.md](../../../.copilot/context/00.00-prompt-engineering/05.03-pe-workflow-entry-points.md)
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-25"
+-->

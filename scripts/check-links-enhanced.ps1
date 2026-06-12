@@ -1,6 +1,8 @@
 # Enhanced link checker with proper URL decoding
 
-$workspaceRoot = "e:\dev.darioa.live\darioairoldi\Learn"
+# Workspace root derived from the script's location (scripts/ -> repo root) so the
+# checker is portable across clones instead of bound to a hardcoded absolute path.
+$workspaceRoot = Split-Path $PSScriptRoot -Parent
 $brokenLinks = @()
 $validLinks = @()
 
@@ -84,6 +86,48 @@ foreach ($match in $indexMatches) {
             Path = $filePath
         }
     }
+}
+
+Write-Host "`n=== Checking PE vision changelog ===" -ForegroundColor Cyan
+
+# The changelog lives in a subfolder, so its relative links resolve from the
+# changelog's own directory rather than the workspace root.
+$changelogRel = "06.00-idea\self-updating-prompt-engineering\20260531.01-vision.changelog.md"
+$changelogPath = Join-Path $workspaceRoot $changelogRel
+if (Test-Path $changelogPath) {
+    $changelogDir = Split-Path $changelogPath -Parent
+    $changelogContent = Get-Content $changelogPath -Raw
+    $changelogMatches = [regex]::Matches($changelogContent, $markdownLinkPattern)
+
+    foreach ($match in $changelogMatches) {
+        $linkPath = $match.Groups[2].Value
+        $decoded = Decode-UrlPath $linkPath
+
+        # Strip section anchors after a markdown/qmd extension
+        if ($decoded -match '\.md#' -or $decoded -match '\.qmd#') {
+            $decoded = $decoded -replace '#.*$', ''
+        }
+
+        # Skip external URLs and pure anchors
+        if ($decoded -match '^https?://' -or $decoded -match '^#') {
+            $validLinks += $linkPath
+            continue
+        }
+
+        $resolved = Join-Path $changelogDir $decoded
+        if (Test-Path $resolved) {
+            $validLinks += $linkPath
+        } else {
+            Write-Host "BROKEN in changelog : $linkPath" -ForegroundColor Red
+            Write-Host "  Resolved: $resolved" -ForegroundColor Yellow
+            $brokenLinks += [PSCustomObject]@{
+                File = $changelogRel
+                Path = $linkPath
+            }
+        }
+    }
+} else {
+    Write-Host "Changelog not found at $changelogPath" -ForegroundColor Yellow
 }
 
 Write-Host "`n=== Summary ===" -ForegroundColor Cyan

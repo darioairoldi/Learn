@@ -34,8 +34,6 @@ boundaries:
   - "Ensure valid JSON syntax — errors silently break automation"
   - "Use only supported lifecycle events"
   - "Never weaken security-critical hooks without explicit approval"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Create or Update Agent Hooks
@@ -221,3 +219,9 @@ Hand off to `hook-validator` for full validation.
 | 1 | Create new hook configuration (happy path) | Research lifecycle events → build JSON → validate syntax + security → save |
 | 2 | Hook uses unsupported lifecycle event | Validation catches invalid event → recommends supported alternatives |
 | 3 | Hook command is platform-specific | Flags cross-platform issue → suggests portable alternative |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

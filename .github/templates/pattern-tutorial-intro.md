@@ -27,3 +27,9 @@ Learn how to [main goal]. By the end of this tutorial, you'll have [specific out
 ---
 
 **Source:** Diátaxis — tutorials are learning-oriented. See `article-writing.instructions.md` for voice and formatting rules.
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

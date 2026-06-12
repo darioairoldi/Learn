@@ -266,7 +266,6 @@ template_metadata:
     - "instruction-file-design"
     - "prompt-design"
     - "skill-design"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "workflow-design-diagrams.template.changelog.md"
 ---
 -->

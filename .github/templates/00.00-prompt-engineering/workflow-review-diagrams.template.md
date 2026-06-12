@@ -198,7 +198,6 @@ template_metadata:
     - "instruction-file-review"
     - "prompt-review"
     - "skill-review"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "workflow-review-diagrams.template.changelog.md"
 ---
 -->

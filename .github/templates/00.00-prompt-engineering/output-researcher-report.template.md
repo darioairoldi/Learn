@@ -107,7 +107,6 @@ template_metadata:
     - "prompt-researcher"
     - "skill-design"
     - "template-design"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "output-researcher-report.template.changelog.md"
 ---
 -->

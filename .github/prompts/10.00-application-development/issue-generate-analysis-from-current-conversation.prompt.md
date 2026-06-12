@@ -74,4 +74,8 @@ Ensure the generated document:
 - ✅ Provides clear reproduction steps
 - ✅ Documents lessons learned for future prevention
 
-   
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

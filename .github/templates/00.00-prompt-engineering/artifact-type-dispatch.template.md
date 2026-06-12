@@ -1,8 +1,6 @@
 ---
 title: "Artifact-type dispatch reference"
 description: "Lookup table for PE agents — maps each artifact type to its instruction file, templates, validation rules, quality bar, construction invariants, and applicable dimensions"
-version: "2.0.0"
-last_updated: "2026-05-15"
 audience: "pe-con-researcher, pe-con-builder, pe-con-validator, pe-meta-builder, pe-meta-validator"
 ---
 
@@ -35,3 +33,9 @@ audience: "pe-con-researcher, pe-con-builder, pe-con-validator, pe-meta-builder,
 4. **Load the primary template** if creating/updating (`read_file`)
 5. **Load key context files** if the artifact interacts with that domain
 6. **Apply type-specific validation** rules during pre-save checks
+
+<!--
+template_metadata:
+  version: "2.0.0"
+  last_updated: "2026-05-15"
+-->

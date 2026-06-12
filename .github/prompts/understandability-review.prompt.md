@@ -165,3 +165,9 @@ After review, consider:
 2. `logic-analysis` to verify concept flow
 3. Adding examples to `.copilot/context/examples/`
 4. Creating prerequisite articles if needed
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

@@ -1,9 +1,9 @@
 ﻿---
 template_metadata:
   name: "output-dimension-report"
-  description: "Per-dimension finding report format for pe-meta-validator — one section per assessed dimension with status, findings, and metrics"
-  version: "1.0.0"
-  last_updated: "2026-05-15"
+  description: "Per-dimension finding report format for pe-meta-validator — one section per assessed dimension with status, evidence, findings, and metrics"
+  version: "1.1.0"
+  last_updated: "2026-06-07"
   used_by:
     - "pe-meta-validator"
     - "All pe-meta review prompts"
@@ -20,6 +20,7 @@ This template structures per-dimension findings in validation reports. One secti
 ## D[N]: [dimension name]
 
 **Status**: ✅ Pass / ⚠️ Partial / ❌ Fail
+**Evidence**: [REQUIRED — non-empty for EVERY result, passes included. A finding's defect proof, or the one-line proof a PASS was actually derived: file+line, tool output, or quoted body text. An empty Evidence field is invalid output per the evidence-bound coverage contract.]
 **Model used**: deterministic / standard / reasoning
 **Applicable**: Yes / Skipped (not applicable to [type])
 

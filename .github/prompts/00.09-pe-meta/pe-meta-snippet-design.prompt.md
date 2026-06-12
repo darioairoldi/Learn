@@ -9,8 +9,6 @@ handoffs:
   - {label: "Build", agent: pe-meta-builder, send: true}
   - {label: "Validate", agent: pe-meta-validator, send: true}
 argument-hint: '<description> — e.g., "snippet for dimension group definitions"'
-version: "2.2.0"
-last_updated: "2026-05-31"
 goal: "Ensure a PE-for-PE prompt snippet meets the shared quality objective and scope intent (reliability, effectiveness, efficiency) with type-applicable requirements"
 scope:
   covers: ["Shared quality objective and scope intent enforcement (applicability-scoped)", "Requirements gathering", "Reusability optimization", "Naming convention compliance", "Consumer identification"]
@@ -67,3 +65,9 @@ Resolved invocation: --scope=<…> … | spillover=<path-or-none>
 ```
 
 If the per-cycle change cap is hit with validated work remaining, emit a spillover plan at `<run-folder>/<NN>-<kebab-name>-spillover.plan.md` per [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md) and record `spillover=<path>`; otherwise record `spillover=none`. `--mode plan` is NOT offered by this family, so no `plan-file=` marker is emitted.
+
+<!--
+prompt_metadata:
+  version: "2.2.0"
+  last_updated: "2026-05-31"
+-->

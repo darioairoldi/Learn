@@ -242,3 +242,9 @@ After completing all five checks, assign an overall architecture health score:
 | c) Scope/size | 20% | Scope mismatches cause reader fatigue and maintenance burden |
 | d) Category coverage | 20% | Missing types leave gaps in the learning experience |
 | e) Learning paths | 20% | Path problems affect series usability across all reader profiles |
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

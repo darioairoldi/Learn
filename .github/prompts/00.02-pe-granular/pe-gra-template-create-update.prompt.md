@@ -34,8 +34,6 @@ boundaries:
   - "Keep templates under 100 lines — split if larger"
   - "Apply correct category prefix (output/input/guidance/pattern/structure)"
   - "Never create templates duplicating existing template scope"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Create or Update Template Files
@@ -233,3 +231,9 @@ Hand off to `template-validator` for full validation.
 | 1 | Create new template (happy path) | Research audience + consumers → build template → validate → save |
 | 2 | Template exceeds 100 lines | Validation flags as CRITICAL → recommends splitting or compression |
 | 3 | Template scope overlaps existing template | Detects overlap → recommends extending existing or differentiating scope |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

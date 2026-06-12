@@ -1,8 +1,6 @@
-﻿---
+---
 title: "Reference — Dimension Cost Gradient"
 description: "Estimated cost per --dim invocation lifted from 05.07-pe-meta-dimension-catalog.md. Reference table — load only when cost estimation is needed."
-version: "1.0.0"
-last_updated: "2026-05-25"
 domain: "prompt-engineering"
 parent_artifact: ".copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md"
 goal: "Provide the per-invocation cost gradient as a load-on-demand reference, keeping the parent catalog under the context token budget."
@@ -45,3 +43,9 @@ This reference holds the estimated cost per `--dim` invocation. Use it when plan
 | `--dim full --with-deps` | All 35 + dependency chain | Very high (multi-artifact) |
 
 **Parent artifact:** [05.07-pe-meta-dimension-catalog.md](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-25"
+-->

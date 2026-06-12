@@ -12,8 +12,6 @@ handoffs:
   - label: "Build Prompt"
     agent: pe-gra-prompt-builder
     send: false
-version: "1.0.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -207,6 +205,6 @@ After presenting the research report, offer handoff to `prompt-builder`. The bui
 agent_metadata:
   created: "2025-12-14"
   created_by: "copilot"
-  version: "1.0"
+  version: "1.0.0"
   last_updated: "2026-03-20"
 -->

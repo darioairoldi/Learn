@@ -37,8 +37,6 @@ boundaries:
   - "Verify no applyTo conflicts with existing instruction files"
   - "Reference context files instead of embedding content >10 lines"
   - "Ensure non-redundant responsibilities across instruction files"
-version: "1.1"
-last_updated: "2026-04-28"
 ---
 
 ## Your Role
@@ -493,19 +491,8 @@ prompt_metadata:
   filename: "instruction-file-create-update.prompt.md"
   created: "2026-01-24T00:00:00Z"
   created_from: "prompt-createorupdate-prompt-guidance.prompt.md"
-  version: "1.1"
-  changes:
-    - "v1.1: Added source discovery from context files (.copilot/context/{domain}/)"
-    - "v1.1: Added 00.00-context-structure-index.md integration for source patterns"
-    - "v1.1: Added Phase 1.5 Source Prioritization & Selection"
-    - "v1.1: Enhanced Phase 1 with source discovery priority order"
-    - "v1.1: Added source classification (Primary/Secondary/Tertiary/Exclude)"
-    - "v1.1: Added prioritization criteria (Relevance, Authority, Recency, Impact, Efficiency)"
-    - "v1.0: Initial version - focused on instruction file creation/update only"
-    - "v1.0: Extracted from prompt-createorupdate-prompt-guidance.prompt.md"
-    - "v1.0: Added conflict detection workflows for applyTo patterns"
-    - "v1.0: Added duplicate responsibility detection"
-    - "v1.0: Included applyTo pattern guidelines"
-    - "v1.0: Enforces flat structure (no subfolders)"
+  version: "1.1.0"
+  last_updated: "2026-04-28"
+  changelog: "pe-gra-instruction-file-create-update.prompt.changelog.md"
 ---
 -->

@@ -22,8 +22,6 @@ handoffs:
     agent: pe-meta-validator
     send: true
 argument-hint: '<artifact-type> <file-path-or-description> [--plan-file <path>] [bundle=accept] — e.g., "agent .github/agents/00.09-pe-meta/pe-meta-optimizer.agent.md" or "context file for category enforcement patterns"'
-version: "2.3.0"
-last_updated: "2026-06-04"
 goal: "Create or update PE-for-PE artifacts with strategic pre-change guards, category compliance enforcement, and post-change metadata reconciliation"
 scope:
   covers:
@@ -175,3 +173,9 @@ Report reconciliation summary to user.
 | 2 | Update existing file — pre-change guard blocks | Phase 1 reads metadata → proposed change contradicts goal → BLOCK → reports contradiction → asks user for override |
 | 3 | Category regression detected | Update would remove file from a required category → pre-change guard flags category coverage regression → BLOCK |
 | 4 | Non-PE artifact (redirect) | Detects non-PE path → "Use /pe-con-create-update instead" → STOP |
+
+<!--
+prompt_metadata:
+  version: "2.3.0"
+  last_updated: "2026-06-04"
+-->

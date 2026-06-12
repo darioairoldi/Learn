@@ -38,8 +38,6 @@ boundaries:
   - "Prioritize size limit (≤100 lines) and audience design as CRITICAL checks"
   - "Never approve templates exceeding 100 lines"
   - "Never skip audience design check"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Template Review and Validate Orchestrator
@@ -304,3 +302,9 @@ Template-review-specific scenarios:
 | 3 | Wrong category prefix | Validator flags M6 → builder renames → re-validate |
 | 4 | No consumers found | Validator reports orphan → orchestrator asks user about intent |
 | 5 | Layer audit with 50+ templates | Groups by category, validates in batches, produces summary |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

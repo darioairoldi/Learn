@@ -44,8 +44,6 @@ boundaries:
   - "Prioritize applyTo conflict detection as CRITICAL check"
   - "Never approve instruction files with conflicting applyTo overlaps"
   - "Never skip applyTo conflict check"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Instruction File Review and Validate Orchestrator
@@ -411,3 +409,9 @@ For layer audits (6+ files), report after each file's validation:
 | 1 | Review instruction file (happy path) | Loads file → checks applyTo patterns → validates layer boundaries → produces report |
 | 2 | applyTo pattern overlaps with existing file | Flags overlap as CRITICAL → identifies conflicting file → recommends resolution |
 | 3 | Instruction file embeds behavioral rules | Flags as HIGH (instruction-minimization minimization) → recommends moving to context file |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

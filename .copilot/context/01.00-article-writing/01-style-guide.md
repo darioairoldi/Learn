@@ -1,8 +1,6 @@
 ---
 title: "Style guide — quantitative targets and reference tables"
 description: "Quantitative writing metrics, enforcement targets, and quick-reference lookup tables that complement the auto-loaded article-writing.instructions.md"
-version: "2.2.0"
-last_updated: "2026-04-26"
 domain: "article-writing"
 goal: "Provide measurable readability targets, audience calibration rules, and replacement tables so that article quality can be validated quantitatively — not just by subjective judgment"
 scope:
@@ -235,3 +233,9 @@ This section is intentionally a pointer — the detailed procedure rules live in
 | 2.1.0 | 2026-03-01 | Replaced "Procedure Writing Quick Rules" section with pointer to canonical rules in `article-writing.instructions.md` (eliminates duplication). Source: Recommendation C from coverage analysis. | System |
 | 2.0.0 | 2026-02-28 | Complete rewrite: eliminated duplication with auto-loaded article-writing.instructions.md; added quantitative metrics (7 readability formulas, sentence type distribution, active voice targets); added 4 replacement tables (wordy→crisp, UI verbs, phrasal verbs, bias-free terms); added global-readiness checklist, visual documentation guidance, procedure rules. Source: 40.00-technical-writing series (articles 00-12 + MWSG 00-04) | System |
 | 1.0.0 | 2025-12-26 | Initial version | System |
+
+<!--
+context_metadata:
+  version: "2.2.0"
+  last_updated: "2026-04-26"
+-->

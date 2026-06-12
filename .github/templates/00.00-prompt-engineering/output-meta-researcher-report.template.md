@@ -174,7 +174,6 @@ template_metadata:
   created: "2026-03-20"
   consumers:
     - "meta-researcher"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "output-meta-researcher-report.template.changelog.md"
 ---
 -->

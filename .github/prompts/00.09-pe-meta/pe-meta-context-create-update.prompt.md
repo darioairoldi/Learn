@@ -12,8 +12,6 @@ handoffs:
     agent: pe-meta-validator
     send: true
 argument-hint: '<file-path-or-description> [--dim <group>]'
-version: "2.2.0"
-last_updated: "2026-05-31"
 goal: "Create or update PE-for-PE context files with construction invariant enforcement and post-change STRUCTURE-README reconciliation"
 scope:
   covers: ["Direct creation with construction invariants", "Updates with pre-change compatibility gate", "Post-change reconciliation (STRUCTURE-README, version, category)"]
@@ -69,3 +67,9 @@ Resolved invocation: --scope=<…> … | spillover=<path-or-none>
 ```
 
 If the per-cycle change cap is hit with validated work remaining, emit a spillover plan at `<run-folder>/<NN>-<kebab-name>-spillover.plan.md` per [pe-meta-iteration-budget.md](../../prompt-snippets/pe-meta-iteration-budget.md) and record `spillover=<path>`; otherwise record `spillover=none`. `--mode plan` is NOT offered by this family, so no `plan-file=` marker is emitted.
+
+<!--
+prompt_metadata:
+  version: "2.2.0"
+  last_updated: "2026-05-31"
+-->

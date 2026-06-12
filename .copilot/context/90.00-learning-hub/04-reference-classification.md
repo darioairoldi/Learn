@@ -1,8 +1,6 @@
 ---
 title: "Reference Classification System"
 description: "Establishes emoji-based reference classification system (📘 Official, 📗 Verified Community, 📒 Community, 📕 Unverified) for reader trust assessment"
-version: "1.0.0"
-last_updated: "2026-05-26"
 domain: "learning-hub"
 goal: "Enable readers to quickly assess source reliability and authority using standardized emoji classification markers"
 scope:
@@ -442,3 +440,9 @@ Community tutorial providing step-by-step guide to creating custom VS Code exten
 **[Extension Example Repository](https://github.com/user/repo)** `[📒 Community]`  
 Community repository demonstrating extension patterns discussed in the tutorial. Contains working code examples and helpful inline comments explaining implementation details.
 ```
+
+<!--
+context_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-26"
+-->

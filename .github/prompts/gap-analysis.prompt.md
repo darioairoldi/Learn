@@ -150,3 +150,9 @@ After identifying gaps:
 4. Run `fact-checking` on new additions
 5. Update cross-references and links
 6. Run `metadata-update` to record analysis
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

@@ -46,8 +46,6 @@ boundaries:
   - "Confirm category, audience, and consumer list BEFORE delegating to builder"
   - "Never skip research phase — always start with template-researcher"
   - "Never create templates that duplicate existing scope"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Template Design and Create
@@ -344,3 +342,9 @@ Template-design-specific scenarios:
 | 3 | Scope overlap found | Researcher reports overlap → orchestrator presents options to user |
 | 4 | Template exceeds 100 lines | Validator flags C3 violation → builder splits → re-validate |
 | 5 | No consumers identified | Orchestrator challenges: "Is a template the right artifact type?" |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

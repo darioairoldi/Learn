@@ -52,7 +52,6 @@ template_metadata:
     - "prompt-snippet-builder"
     - "skill-builder"
     - "template-builder"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "output-builder-handoff.template.changelog.md"
 ---
 -->

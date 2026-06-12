@@ -152,7 +152,6 @@ template_metadata:
   last_updated: "2026-03-20"
   created: "2026-03-20"
   consumers: []
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "instructions.template.changelog.md"
 ---
 -->

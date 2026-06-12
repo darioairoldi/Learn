@@ -95,7 +95,6 @@ template_metadata:
   consumers:
     - "agent-review"
     - "prompt-review"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "output-prompt-review-report.template.changelog.md"
 ---
 -->

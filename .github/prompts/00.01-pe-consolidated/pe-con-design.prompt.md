@@ -19,7 +19,6 @@ handoffs:
     agent: pe-con-validator
     send: true
 argument-hint: '<artifact-type> <description> — e.g., "agent for reviewing Quarto configuration" or "hook for PreToolUse deny on .env files"'
-version: "1.0.0"
 goal: "Orchestrate multi-phase creation of any PE artifact type with quality gates via consolidated dispatch"
 scope:
   covers:
@@ -62,3 +61,9 @@ Specify the artifact type and description:
 ```
 
 The prompt determines the artifact type from your description and routes through the appropriate research → build → validate pipeline automatically.
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: ""
+-->

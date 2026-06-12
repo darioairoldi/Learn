@@ -177,3 +177,9 @@ After analysis:
 3. Run `understandability-review` after restructuring
 4. Update navigation for article series
 5. Run `metadata-update` to record validation
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

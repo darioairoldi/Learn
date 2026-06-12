@@ -52,8 +52,6 @@ boundaries:
   - "Challenge EVERY skill scope with discovery scenarios before delegating"
   - "Never skip research phase — always start with skill-researcher"
   - "Verify no scope overlap with existing skills"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Skill Design and Create
@@ -370,3 +368,9 @@ Skill-design-specific scenarios:
 | 1 | Design skill with resources (happy path) | Research → validate progressive disclosure → build SKILL.md + resources → validate |
 | 2 | Skill scope overlaps with existing skill | Detects overlap → presents options: extend existing or differentiate scope → waits for user |
 | 3 | Skill description exceeds 1,024 characters | Flags during validation → recommends compression → re-validates after fix |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

@@ -17,7 +17,6 @@ handoffs:
     agent: pe-con-validator
     send: true
 argument-hint: '<artifact-type> <file-path-or-description> — e.g., "agent .github/agents/my-agent.agent.md" or "hook for session logging"'
-version: "1.0.0"
 goal: "Create or update any PE artifact type with structural validation via consolidated dispatch"
 scope:
   covers:
@@ -62,3 +61,9 @@ For **existing artifacts** — specify type and file path:
 ```
 
 The builder loads the dispatch table, selects the correct instruction file and template, and applies type-specific rules automatically.
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: ""
+-->

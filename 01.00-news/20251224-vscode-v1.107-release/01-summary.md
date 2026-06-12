@@ -465,14 +465,11 @@ validations:
     references_added: 8
     gaps_identified: 12
     gaps_addressed: 9
-    change_summary: "Added v1.107.1 updates, Language Models Editor, GitHub MCP Server, Chat improvements section, expanded agent workflow details, updated references with classifications"
 article_metadata:
   filename: 'summary.md'
   created: '2024-12-24'
   session_date: '2024-12-23'
   duration_minutes: 90
   last_updated: "2024-12-24T15:30:00Z"
-  version_history:
-    - date: "2024-12-24"
-      changes: "Comprehensive review and updates: v1.107.1 features, Language Models Editor, GitHub MCP Server, Chat improvements, expanded worktree workflow, classified references"
+  changelog: "01-summary.changelog.md"
 -->

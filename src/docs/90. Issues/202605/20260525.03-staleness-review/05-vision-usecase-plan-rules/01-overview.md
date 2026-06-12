@@ -313,8 +313,8 @@ The list above is a starting point, not a decision. The bootstrap must be author
 - 📘 [pe-prompts.instructions.md](../../../../../../.github/instructions/pe-prompts.instructions.md) — applies to prompt files; complementary to R2
 
 **Vision and the v14 → v15 case study:**
-- 📗 [20260531.01-vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) — current vision; candidate for `principles:` bootstrap (Q4)
-- 📗 [20260531.01-vision.v15.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) — v15 entry; shows the absorbed scope as it landed
+- 📗 [20260531.01-vision.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) — current vision; candidate for `principles:` bootstrap (Q4)
+- 📗 [20260531.01-vision.changelog.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md) — v15 entry; shows the absorbed scope as it landed
 - 📒 [01-vision-update-plan.md](../03-pe-meta-update-applied-to-all-pe-contexts/01-vision-update-plan.md) § Goal items 1–10 — primary evidence of the absorbed scope
 - 📒 [02-usecases-update-plan.md](../03-pe-meta-update-applied-to-all-pe-contexts/02-usecases-update-plan.md) § Exit criteria — downstream bloat evidence
 - 📒 [03-pe-meta-update-plan.md](../03-pe-meta-update-applied-to-all-pe-contexts/03-pe-meta-update-plan.md) § Exit criteria — implementation-tier bloat evidence (33 files, 3 waves, mid-stream architectural refactor)
