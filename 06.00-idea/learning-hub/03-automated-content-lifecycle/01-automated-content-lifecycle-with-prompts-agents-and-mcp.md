@@ -16,6 +16,8 @@ description: "Architecture for automating Learning Hub content creation, validat
 - [Lessons learned: the prompt engineering series](#lessons-learned-the-prompt-engineering-series)
 - [Taxonomy improvements based on real-world experience](#taxonomy-improvements-based-on-real-world-experience)
 - [The automation architecture](#the-automation-architecture)
+- [Repository configuration & external-material resolution](#repository-configuration--external-material-resolution)
+- [Conference & event ingestion](#conference--event-ingestion)
 - [Layer 1: Prompts — single-article operations](#layer-1-prompts--single-article-operations)
 - [Layer 2: Agents — specialized roles](#layer-2-agents--specialized-roles)
 - [Layer 3: Subagent orchestrations — multi-agent workflows](#layer-3-subagent-orchestrations--multi-agent-workflows)
@@ -29,13 +31,13 @@ description: "Architecture for automating Learning Hub content creation, validat
 
 The Learning Hub's documentation taxonomy defines **seven content categories** (Overview, Getting Started, Concepts, How-to, Analysis, Reference, Resources) that together provide comprehensive coverage of any technical subject. However, defining a taxonomy isn't enough—you need automation to **maintain it at scale**.
 
-This document proposes a layered automation architecture that uses GitHub Copilot's customization stack—prompts, agents, subagents, hooks, and MCP servers—to make the taxonomy self-sustaining. It's informed by practical experience reviewing and maintaining a 15-article prompt engineering series, where every category of maintenance problem the taxonomy aims to prevent was encountered and resolved manually.
+This document proposes a layered automation architecture that uses GitHub Copilot's customization stack—prompts, agents, subagents, MCP servers, instruction files, context files, skills, hooks, and scripts—to make the taxonomy self-sustaining. It's informed by practical experience reviewing and maintaining a 15-article prompt engineering series, where every category of maintenance problem the taxonomy aims to prevent was encountered and resolved manually.
 
 ### What you'll find here
 
 - **Analysis of real maintenance problems** discovered during the prompt engineering series review
 - **Taxonomy improvements** addressing gaps revealed by practical experience
-- **A four-layer automation architecture** mapping each maintenance task to the right tool
+- **A layered automation architecture** (four reasoning layers plus supporting instruction, context, skill, hook, and script mechanisms) mapping each maintenance task to the right tool
 - **Concrete agent and prompt specifications** with tool configurations
 - **Implementation roadmap** for incremental delivery
 
@@ -112,7 +114,12 @@ The prompt engineering review revealed several improvements needed in the taxono
 
 **Problem:** There's no machine-readable way to identify what taxonomy category an article belongs to, what it's trying to achieve, or what would make it stale. Without this, revalidation is limited to surface checks (grammar, readability) instead of purpose-driven checks ("does this article still accomplish its goal?").
 
-**Solution:** Add structured metadata to the bottom validation block that describes the article's identity, intent, and dependencies:
+**Solution:** This repository already runs a **dual-YAML metadata system** — a top block and a bottom block per article. The improvement is to make the split *purposeful* rather than to introduce a brand-new block:
+
+- **Top block = stable / identity metadata.** It holds the fields that define what the article *is* and *why*: `title`, `author`, `description`, `categories`, `domain`, `goal`, `scope`, `boundaries`, `rationales`. These are **change-averse**: edits are discouraged and normally require an explicit user request. Autonomous edits are permitted **only when provably additive and non-breaking** — for example, extending `goal`, `scope`, or `rationales` without invalidating prior scenarios. Anything that could break an existing reader expectation must be asked first.
+- **Bottom block = volatile / validation metadata.** It is **generated and refreshed by the deterministic engine** (validation status, scores, timestamps, revalidation cadence). It changes constantly and carries no stable identity — nothing should depend on its exact prior value.
+
+The identity, intent, and dependency fields below describe the *stable* metadata the top block should carry; the `validations:` block is the *volatile* metadata the engine maintains at the bottom.
 
 ```yaml
 article_metadata:
@@ -699,28 +706,76 @@ The validation mapping enables three automation patterns:
 
 ## 🏗️ The automation architecture
 
-The Learning Hub content lifecycle is automated through four layers, each using the appropriate tool for its scope.
+The Learning Hub content lifecycle is automated through the **GitHub Copilot customization stack**. Four layers carry the active reasoning workload (prompts, agents, subagent orchestrations, MCP), and four supporting mechanisms make that reasoning reliable, scoped, and repeatable (instruction files, context files, skills, hooks, and scripts).
 
-The table below describes the four layers and their responsibilities. For each layer:
+The table below describes each mechanism and its responsibility. For each:
 - **Scope** indicates the operational boundary (single file, multi-file, cross-cutting)
 - **Trigger** describes what initiates the operation
 - **Example** shows a typical use case
 
-| Layer | Tool | Scope | Trigger | Example |
+| Mechanism | Tool | Scope | Trigger | Example |
 |-------|------|-------|---------|---------|
-| **1. Prompts** | `.prompt.md` files | Single article | User invokes | Grammar review, readability check |
-| **2. Agents** | `.agent.md` files | Multi-article | User invokes | Series review, taxonomy compliance |
+| **1. Prompts** | `.prompt.md` files | Single article | User invokes (`/command`) | Grammar review, readability check |
+| **2. Agents** | `.agent.md` files | Multi-article | User invokes (`@mention`) | Series review, taxonomy compliance |
 | **3. Subagent orchestrations** | Agent + `runSubagent` | Cross-cutting | User invokes coordinator | Full content lifecycle audit |
 | **4. MCP server** | IQPilot (C#) | Infrastructure | Programmatic | Metadata sync, validation caching, file operations |
+| **5. Instruction files** | `.instructions.md` files | Path-scoped rules | `applyTo` glob (automatic) | Article-writing rules, plan discipline |
+| **6. Context files** | `.copilot/context/**` | Domain knowledge | Semantic search (automatic) | Repository configuration, dual-metadata model |
+| **7. Skills** | `.github/skills/**/SKILL.md` | Reusable expertise | AI-discovered via description | Article review checklist, coherence check |
+| **8. Hooks** | `.github/hooks/**` | Lifecycle automation | Deterministic events | Staleness check, YAML validation, health check |
+| **9. Scripts** | `scripts/*.ps1` | Bulk/maintenance ops | Manual or task | Navigation generation, link checking, encoding fixes |
 
-### Why four layers?
+### Why a layered stack?
 
-Each layer addresses a different automation need:
+Each mechanism addresses a different automation need:
 
 - **Prompts** are lightweight and focused—ideal for single-article quality checks that run in seconds
 - **Agents** have persistent context and tool access—ideal for multi-file analysis that requires reading, comparing, and reasoning
 - **Subagent orchestrations** coordinate multiple specialists—ideal for complex workflows where no single agent has all the expertise
 - **MCP servers** provide deterministic, fast operations—ideal for file I/O, metadata parsing, and caching where AI reasoning isn't needed
+- **Instruction files** inject path-scoped rules automatically via `applyTo`—they keep every edit to a file type consistent without the user having to remember the rules
+- **Context files** supply domain knowledge on demand via semantic search—they ground the AI in repository-specific facts (configuration model, metadata conventions)
+- **Skills** package reusable expertise the AI discovers by description—ideal for checklists and review procedures reused across many tasks
+- **Hooks** run deterministic lifecycle automation on events—ideal for guardrails (staleness, YAML, references) that must fire regardless of who is editing
+- **Scripts** handle bulk and maintenance operations—ideal for one-shot or scheduled repository-wide transformations
+
+> The first four layers (prompts, agents, subagents, MCP) are detailed below. Layers 5–9 are the supporting customization mechanisms that this repository already relies on; they are documented in the prompt-engineering context set.
+
+> **Scope note — the PE meta-system.** This repository also contains a *prompt-engineering meta-system* (`00.09-pe-meta/` agents and prompts, plus PE health/staleness hooks) that maintains the automation artifacts themselves. **It is not a Learning Hub capability** — it is generic tooling for producing and maintaining sound AI logic, and it would apply to any repository using the customization stack. It is mentioned here only so readers do not mistake it for a Hub feature.
+
+---
+
+## 🗂️ Repository configuration & external-material resolution
+
+Before content can be created or validated, the Hub must know **where its material lives** and **how each piece may be exposed**. This is governed by a layered `appsettings.json` configuration model and the `Repository:ExternalRepositories` setting.
+
+During any content operation that needs an asset (transcript, slide deck, recording, notes), the Hub resolves it deterministically:
+
+1. Look in the public folder alongside the article.
+2. Look in each configured external mirror at the **same relative path**.
+3. Walk up the external mirror's parent hierarchy.
+
+First hit wins. Private material is **read in place and never copied into the public repository**, so that public and private content stay cleanly separated while still being analyzable together.
+
+> 📖 Configuration and resolution rules: [00-repository-configuration.md](../../../.copilot/context/90.00-learning-hub/00-repository-configuration.md)
+
+---
+
+## 🎙️ Conference & event ingestion
+
+The Learning Hub is a generalized **analysis-and-elaboration engine over many content types**, and conference/event proceedings are a premier high-quality channel. A dedicated ingestion pipeline turns a public session catalog into structured, browsable knowledge assets:
+
+1. **Catalog discovery** — locate the event's session API/feed/catalog.
+2. **Session manifest** — enumerate sessions with titles, speakers, abstracts.
+3. **Relevance ranking** — sort and flag featured sessions.
+4. **Branded posters** — fetch official session thumbnails (or derive a slide-template poster from the keynote video).
+5. **Transcripts** — acquire public transcripts, or resolve non-shareable transcripts from the external mirror.
+6. **Summaries** — generate per-session summary articles.
+7. **Navigation wiring** — add the new content to the site menu and render.
+
+Non-shareable session material flows through the external-repository resolution described above, so private transcripts and recordings are analyzed without ever entering the public repository.
+
+> 📖 Implemented workflow: [learninghub-analyze-build-conference-sessions.prompt.md](../../../.github/prompts/90.00-learning-hub/learninghub-analyze-build-conference-sessions.prompt.md)
 
 ---
 
@@ -1376,7 +1431,9 @@ maintenance-sweep-coordinator
 
 ## ⚙️ Layer 4: IQPilot MCP server — deterministic infrastructure
 
-The IQPilot MCP server handles operations that should be deterministic, fast, and don't require AI reasoning. It currently provides 16 tools across four categories.
+IQPilot is the **evolution of MetadataWatcher** — the same deterministic engine (metadata synchronization, validation caching, file operations), now exposed through the Model Context Protocol so prompts, agents, and subagents can call it as a tool. Where MetadataWatcher ran as a file-watching background process that refreshed the bottom (volatile) metadata block, IQPilot generalizes that role into an MCP service. The two are **one lineage, not two competing tools**: IQPilot subsumes MetadataWatcher's responsibilities.
+
+IQPilot handles operations that should be deterministic, fast, and don't require AI reasoning. It currently provides 16 tools across four categories.
 
 ### Current IQPilot tools
 
@@ -1543,6 +1600,21 @@ When articles grow too large, drift from their category, or need deeper treatmen
 | Execute decomposition | Agent | `content-restructurer` | New taxonomy-aligned files |
 | Update manifest | MCP | `iqpilot/subject/manifest` | Updated `_subject.yml` |
 | Validate post-restructure | Orchestration | `subject-audit-coordinator` | Full audit of restructured subject |
+
+### Phase 7: Publish — integrate incrementally
+
+Publishing is the **terminal lifecycle stage** and is deliberately **publish-tool-agnostic**: the current implementation renders a static site, but the vision does not mandate any particular generator.
+
+The governing principle is **incremental integration**: integrating new or changed content must build **only what changed**, not the entire corpus. Integration cost should scale with the size of the change, not the size of the Hub.
+
+| Task | Layer | Tool | Output |
+|------|-------|------|--------|
+| Detect changed content | Script/MCP | change detection | Set of new/modified articles since last publish |
+| Build only changed content | Script | incremental build | Rendered output for the changed set |
+| Update navigation | Script | `generate-navigation.ps1` | Refreshed site menu |
+| Integrate into site | Script | publish step | Updated published site |
+
+> **Known limitation.** The current generator requires a **full rebuild on every change**. The vision names this as a constraint to move past \u2014 a future publisher should build incrementally so that adding one article does not re-render the whole site.
 
 ### Visualization: Lifecycle automation flow
 

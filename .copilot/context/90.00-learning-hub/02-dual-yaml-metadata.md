@@ -17,6 +17,7 @@ boundaries:
   - "MUST keep top YAML reserved for static site generator frontmatter"
   - "MUST NOT allow validation prompts to modify top YAML block"
   - "MUST ensure bottom block remains valid HTML comment"
+  - "MUST treat top YAML as stable identity metadata: discourage edits, require explicit user request, allow autonomous edits only when provably additive and non-breaking"
 rationales:
   - "Separating concerns enables safe workflow automation without corrupting rendering"
   - "Embedded metadata travels with articles, eliminating orphaned validation records"
@@ -28,8 +29,13 @@ rationales:
 
 All articles use **two metadata blocks** with clear separation:
 
-1. **Top YAML Block** - Document frontmatter (visible, for rendering and site generation)
-2. **Bottom HTML Comment with YAML** - Article management metadata (hidden from rendering)
+1. **Top YAML Block** — **stable / identity** metadata (visible, for rendering and site generation)
+2. **Bottom HTML Comment with YAML** — **volatile / validation** metadata (hidden from rendering)
+
+The split is by **stability**, not merely by visibility:
+
+- **Top = stable / identity metadata.** It holds the fields that define what the article *is* and *why*: `title`, `author`, `description`, `categories`, `domain`, `goal`, `scope`, `boundaries`, `rationales`. These are **change-averse** — edits are discouraged and normally require an **explicit user request**. Autonomous edits are permitted **only when provably additive and non-breaking** (for example, extending `goal`, `scope`, or `rationales` without invalidating prior scenarios). Anything that could break an existing reader expectation MUST be asked first.
+- **Bottom = volatile / validation metadata.** It is **generated and refreshed by the deterministic engine** (validation status, scores, timestamps). It changes constantly and carries no stable identity — nothing should depend on its exact prior value.
 
 **Key Benefits:**
 - ✅ Static site generators (Quarto, Hugo, Jekyll, etc.) render articles using top YAML

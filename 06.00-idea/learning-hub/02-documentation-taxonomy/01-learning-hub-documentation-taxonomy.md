@@ -1065,6 +1065,12 @@ When documenting a subject comprehensively, use this folder structure:
 - **Files:** Kebab-case for URL-friendliness
 - **Titles:** Sentence case in document headers
 
+### Exposure and visibility
+
+Not every piece of subject material may be published. Source assets carry an **exposure criterion**: freely-publishable content lives in the public subject folder, while non-shareable material (licensed recordings, private transcripts, internal notes) lives in an **external repository mirror** at the same relative path and is resolved — and read — in place. The public folder holds only what may be published; private material is never copied into it.
+
+> 📖 Resolution and configuration: [00-repository-configuration.md](../../../.copilot/context/90.00-learning-hub/00-repository-configuration.md)
+
 ### When to use files vs. folders
 
 | Content Volume | Approach |

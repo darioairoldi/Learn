@@ -3,7 +3,7 @@ title: "Learning Hub Concept"
 author: "Dario Airoldi"
 date: "2025-08-29"
 date-modified: last-modified
-version: "1.0"
+version: "1.1"
 description: "A comprehensive tool for transforming passive information consumption into intelligent, automated knowledge development"
 keywords: 
   - Learning Hub
@@ -69,6 +69,14 @@ The Learning Hub changes learning from:
 - **"Individual learning"** → **"<mark>Collaborative learning</mark>"**
   Learning pieces can be exchanged and developed across learning hub instances and, of course, it can be developed starting from (public) web resources or user provided information.
 
+### Configuration-driven Foundation
+
+The Learning Hub is **configuration-driven**: how it discovers sources, where it stores material, and how each piece of information is exposed are all governed by a layered configuration model rather than hard-coded behavior. Configuration is loaded from a `.NET`-style layered `appsettings.json` chain (committed defaults, environment overlays, non-versioned user overrides, and environment variables), so the same Hub adapts to different users and environments without code changes.
+
+A central element is the **external-repository configuration** (`Repository:ExternalRepositories`), which lets the Hub compose content that lives outside the public repository. This foundation is expected to carry **increasing responsibility over time** — as the Hub grows, more of its behavior (sources, visibility, publishing targets) will be expressed as configuration.
+
+> 📖 Configuration model: [00-repository-configuration.md](../../../.copilot/context/90.00-learning-hub/00-repository-configuration.md)
+
 ### Intelligence Application Areas
 
 Learning Hub applies structured intelligence to:
@@ -82,7 +90,15 @@ Learning Hub applies structured intelligence to:
 
 ## 📚 Knowledge Information Sources
 
-The Learning Hub creates and manages structured knowledge assets from diverse information sources:
+The Learning Hub creates and manages structured knowledge assets from diverse information sources. It is, at its core, a **generalized analysis-and-elaboration engine over many content types** — feeds, papers, transcripts, recordings, and event proceedings are all normalized into the same knowledge-development pipeline.
+
+### Exposure Criteria & Public/Private Sources
+
+Information learned by the Hub is subject to **different exposure criteria**. Some material is freely publishable; some (licensed recordings, private transcripts, internal notes) is not. Rather than forcing a single visibility level, the Hub treats exposure as a **per-piece property**: every piece of information is handled at its suitable visibility.
+
+The **external-repository configuration** is the mechanism that satisfies this: non-shareable material lives in an external mirror (for example an internal repository), while the public repository holds only what may be published. When the Hub needs an asset, it resolves it from the public folder first, then from each configured external mirror at the same relative path. Private material is **read in place and never copied into the public repository**.
+
+> 📖 Resolution rules: [00-repository-configuration.md](../../../.copilot/context/90.00-learning-hub/00-repository-configuration.md)
 
 ### Primary Information Channels
 
@@ -92,7 +108,9 @@ The Learning Hub creates and manages structured knowledge assets from diverse in
 - **<mark>Newsletter subscriptions</mark>** with **intelligent parsing** and **categorization**
 - **<mark>Public site monitoring</mark>** with **change detection** and **analysis**
 - **<mark>Social media intelligence</mark>** from professional networks
-- **<mark>Conference</mark>** and **event proceedings analysis**
+- **<mark>Conference</mark>** and **event proceedings analysis** — a **flagship channel** (see *Content-type specialization* below)
+
+> **Content-type specialization — conference & event ingestion.** Conferences and events are a premier source of high-quality, authoritative content. The Hub provides a dedicated **conference ingestion pipeline** (catalog discovery → session manifest → relevance ranking → branded posters → transcripts → summaries → navigation wiring) that turns a public session catalog into structured, browsable knowledge assets. Non-shareable session material (private transcripts, recordings) is resolved through the external-repository mechanism described above.
 
 **Deep Analysis Sources:**
 
@@ -135,6 +153,12 @@ The Learning Hub creates and manages structured knowledge assets from diverse in
    - **Action item extraction** and **prioritization**
    - **Learning pathway recommendations**
    - **Collaborative sharing** and **discussion facilitation**
+
+### Publishing & Incremental Integration
+
+Publishing is the **final lifecycle stage**, and it is deliberately **publish-tool-agnostic** — the current implementation renders a static site, but the vision does not mandate any specific generator.
+
+The Hub mandates an **incremental build strategy**: integrating new knowledge must build **only the new or changed content**, not the entire corpus. A mandatory full rebuild on every change (the behavior of the current generator) is named here as a **limitation the vision intends to move past** — integration cost should scale with the size of the change, not the size of the Hub.
 
 ---
 
@@ -308,6 +332,12 @@ The Learning Hub framework provides a comprehensive approach to transforming inf
 The framework scales with growing expertise, allowing gradual sophistication increases while maintaining processing efficiency. Regular measurement and optimization ensure continuous improvement in both learning velocity and knowledge quality.
 
 **Next Steps:** Review the companion article "Using Learning Hub for Learning Technologies" for specific implementation strategies and practical applications in technology learning contexts.
+
+---
+
+### Most recent changes
+
+- **v1.1 (2026-06-14)** — Added *Configuration-driven foundation* (layered `appsettings.json`, external repositories), *Exposure criteria & public/private sources* (per-piece visibility resolved via external mirror), *Content-type specialization* (conference/event ingestion as a flagship channel), and *Publishing & incremental integration* (publish-tool-agnostic final stage that builds only changed content).
 
 ---
 
