@@ -11,6 +11,10 @@
 *.sln.docstates
 *.env
 
+# Learning Hub non-versioned user config overrides (see .copilot/context/90.00-learning-hub/00-repository-configuration.md)
+appsettings.user.json
+appsettings.*.user.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

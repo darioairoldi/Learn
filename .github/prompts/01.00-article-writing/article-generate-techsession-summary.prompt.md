@@ -70,7 +70,8 @@ Enrich output with verified external references.
 2. **Active file/selection** — detect content type by structure, not filename
 3. **Attached files** (`#file`) — detect content type by structure
 4. **Workspace context** — files found in active folder (SUMMARY.md, transcript.txt)
-5. **Inferred** — information derived from sources
+5. **External repository mirror** — the same relative folder (or a parent) under `Repository:ExternalRepositories` (e.g. `..\Learn.internal`) for non-public material (transcript, slides, recording). Read **in place**; NEVER copy private assets into the public repo. See `.copilot/context/90.00-learning-hub/00-repository-configuration.md`.
+6. **Inferred** — information derived from sources
 
 **Content Detection (by structure, not filename):**
 - **Summary content**: Session metadata (date, speakers, duration), key topics, title image
@@ -81,7 +82,7 @@ Enrich output with verified external references.
 ### Phase 1: Source Collection
 
 1. Collect information from all sources using priority rules above
-2. If source files not found → list current directory and ask user to provide them
+2. If source files not found in the active folder → check the corresponding folder in each `Repository:ExternalRepositories` mirror (same relative path, then parent hierarchy); only if still not found, list the current directory and ask the user to provide them
 3. Extract session metadata: date, speakers (with roles), duration, venue, recording link
 
 ### Phase 2: Content Analysis
