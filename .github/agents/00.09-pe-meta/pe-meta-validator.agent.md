@@ -1,5 +1,5 @@
 ---
-description: "PE ecosystem validation specialist — validates PE artifacts across 35 quality dimensions with individual, dependency-aware, and guidance-first review modes plus an independent Coverage Audit mode. Fully self-contained — no delegation to pe-gra validators."
+description: "PE ecosystem validation specialist — validates PE artifacts across 35 quality dimensions in individual, dependency-aware, guidance-first, and independent Coverage Audit modes, fully self-contained."
 agent: plan
 tools:
   - read_file
@@ -205,13 +205,14 @@ Apply strict order: A context, B instructions, C agents, D prompts, E templates/
 | 1 | `/pe-meta-context-review 01.04-tool-composition-guide.md --dim structural` | Type dispatch -> context. Run `D1-metadata` through `D3-token-budget` and `D14-craftsmanship` only. Report per-dimension status. |
 | 2 | `/pe-meta-agent-review pe-meta-builder.agent.md --dim full --with-deps` | Run all applicable dims on builder (per the applicability matrix). Then trace deps → context files, run Phase 1-4 on each. Cross-coherence (`D17-cross-coherence`) + adherence (`D16-adherence`). |
 | 3 | `/pe-meta-adherence 01.07-critical-rules-priority-matrix.md` | Guidance-first mode. Extract rules from 01.07. Discover consumers. Check adherence per consumer per rule. Generate matrix. |
+| 4 | `/pe-meta-validator --audit <run-id>.jsonl` | Coverage Audit mode. Run Layer A via `pe-check-evidence-anchors.ps1`; recompute `pu-evidence`/`shallow-sweep` BEFORE reading the orchestrator's markers; emit divergences for the Phase 8 reconciliation linter. |
 
 <!--
 agent_metadata:
   filename: "pe-meta-validator.agent.md"
   created: "2026-03-20"
   type: "agent"
-  version: "2.5.0"
+  version: "2.5.1"
   last_updated: "2026-06-12"
   changelog: "pe-meta-validator.agent.changelog.md"
 -->
