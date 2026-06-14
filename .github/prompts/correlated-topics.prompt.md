@@ -261,3 +261,9 @@ After discovering topics:
 4. Update series or category structure
 5. Run `metadata-update` to record cross-references
 6. Consider running `gap-analysis` on identified topics
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

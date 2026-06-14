@@ -231,6 +231,8 @@ Use these output formats when running the `article-review-for-consistency-gaps-a
 
 ## Phase 7: Bottom Metadata Update Template
 
+The bottom metadata carries only **current state** plus a pointer to the sibling changelog. Per-version history is written to the sibling `*.changelog.md` (see step below) — NEVER embedded here.
+
 ```yaml
 <!-- 
 ---
@@ -248,13 +250,23 @@ validations:
 article_metadata:
   filename: "{{filename}}"
   last_updated: "{{ISO-8601 timestamp}}"
-  change_summary: "{{brief description of changes made}}"
-  version_history:
-    - date: "{{date}}"
-      changes: "{{summary}}"
+  version: "{{bumped semantic version}}"
+  changelog: "{{article-stem}}.changelog.md"
 ---
 -->
 ```
+
+### Phase 7b: Sibling changelog update (authoritative history)
+
+When this review makes a material change, create or update the sibling `{{article-stem}}.changelog.md` (same folder). It is governed by `changelog-files.instructions.md` — NOT by article structure/voice rules, and it is never added to the Quarto `render:` allow-list.
+
+```markdown
+## v{{bumped semantic version}} — {{date}}
+
+{{brief description of changes made — references fixed, gaps addressed, sections changed}}
+```
+
+Prepend the new entry above earlier entries (most-recent-first). If the file does not exist, create it with a top frontmatter block (`title`, `description`, `last_updated`, `status: "living"`) and SHOULD set the OS hidden attribute where supported.
 
 ---
 
@@ -340,5 +352,5 @@ Prior to VS Code 1.106, custom agents were called "chat modes" and used differen
 - [ ] Critical gaps addressed with proper citations
 - [ ] Deprecated content moved to appendices
 - [ ] Bottom metadata updated with review results
-- [ ] Change summary documented in metadata
+- [ ] Changelog entry written to sibling `*.changelog.md` (not embedded in metadata)
 - [ ] Top YAML block unchanged

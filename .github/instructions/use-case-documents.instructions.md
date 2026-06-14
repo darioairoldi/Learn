@@ -1,8 +1,6 @@
 ---
 description: Required structure for use-case documents and their folder overview files — canonical header fields, priority taxonomy, vision anchor, default breadth, related-use-cases linkage, dimension-catalog anchor, dimensions-covered matrix
 applyTo: '**/*usecases/**/*.md'
-version: "1.2.0"
-last_updated: "2026-06-01"
 domain: "prompt-engineering"
 goal: "Ensure every use-case document AND every folder overview carries the metadata needed for prioritization, coverage audits, and vision-traceability against the canonical dimension catalog"
 rationales:
@@ -88,7 +86,7 @@ Optional sections (use as relevant): `## 🚦 Reliability analysis`, `## 💰 Co
 - The order-in-group in the filename MUST match the `Order in group` field value
 - `Vision anchor` MUST resolve to either a declared principle id, a rationale id, or an existing section name in the target vision
 - Required sections MUST be present in the specified order; optional sections MAY appear anywhere after the required set
-- `## � Dimensions covered` entries MUST use the canonical `D#-readable-id` form per [05.07-pe-meta-dimension-catalog.md](../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md). Bare `D#` is forbidden in this section.
+- `## 📐 Dimensions covered` entries MUST use the canonical `D#-readable-id` form per [05.07-pe-meta-dimension-catalog.md](../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md). Bare `D#` is forbidden in this section.
 - `## 🔗 Related use cases` MUST list at least one peer; for a single isolated use case, list `_(none — first of its kind)_`
 - A use-case document MUST NOT contain TODO markers or scope-expansion items — surface those in the relevant plan's § Park lot instead
 - Renaming a use case (changing priority, order, or slug) MUST update the filename, the H1, and the header blockquote together
@@ -154,3 +152,9 @@ The top-level use-case-set overview (sibling of folder overviews) MUST anchor to
 - **📘** `.github/instructions/vision-frontmatter.instructions.md` — declares the principles use cases may anchor against
 - **🔗** `src/docs/90. Issues/202606/20260601.02-dim-readable-ids/02-align-dimids-usecases-pemeta-plan.md` — issue plan introducing the v1.1.0 README and index rules
 - **🔗** `src/docs/90. Issues/202606/20260601.02-dim-readable-ids/04-usecase-suffix-and-overview-sort-plan.md` — v1.2.0 reversal: adopts `-usecase.md` and renames READMEs to `00-overview.md`
+
+<!--
+instruction_metadata:
+  version: "1.2.1"
+  last_updated: "2026-06-06"
+-->

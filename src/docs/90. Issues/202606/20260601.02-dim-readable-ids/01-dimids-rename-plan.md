@@ -6,7 +6,7 @@ scope:
   covers:
     - "Dimension catalog (`.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md`) — declare the `D#-readable-id` combined form as the canonical reference format; keep the numeric column AND the readable column; add a one-paragraph normative spec"
     - "Peer context files that enumerate D# (`05.06-pe-strategic-review-criteria.md`, `05.08-pe-meta-type-checklists.md`, `01.07-critical-rules-priority-matrix.md`)"
-    - "Vision v15 (`06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md`) — applicability matrix, Phase C/D/E descriptions, `--dim` parameter doc, process-to-rationale mapping, legacy-robustness paragraph"
+    - "Vision v15 (`06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md`) — applicability matrix, Phase C/D/E descriptions, `--dim` parameter doc, process-to-rationale mapping, legacy-robustness paragraph"
     - "Use case files under `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/` (5 groups × ~6 files) — `Dimensions covered:` lines, group READMEs, in-prose D# references"
     - "pe-meta agents (`.github/agents/00.09-pe-meta/`) — 5 files, validator carries the highest concentration"
     - "pe-meta prompts (`.github/prompts/00.09-pe-meta/`) — `pe-meta-option-parser-tests.md`, `pe-meta-option-applicability-matrix.md`, `pe-meta-scheduled-review.prompt.md`, `pe-meta-update.prompt.md`"
@@ -170,7 +170,7 @@ Each phase is a coherent unit. Phases run sequentially (a later phase consumes c
 
 ### Phase 4 — Vision document (✅ done)
 
-**Target:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md`
+**Target:** `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md`
 
 - Apply the rewrite rules to the dimension applicability matrix rows (lines ~840–866). (✅ done)
 - Apply to Phase C/D/E descriptions (lines ~671–673). (✅ done)

@@ -18,7 +18,7 @@ Two coupled problems were observed in the PE artifact set under [.copilot/contex
 
 1. **Opaque numeric dimension references.** Across the catalog, peer context files, the vision, agents, templates, prompts, and use cases, review dimensions were referenced by bare numeric IDs (`D1` … `D27`). Readers could not tell what `D6` or `D17` meant without cross-referencing the catalog, and bare `D#` tokens were ambiguous when they appeared adjacent to ordinary numbers in narrative prose. The catalog itself had grown to **35 dimensions** but downstream artifacts still spoke about *"all 27"* dimensions, so the numeric IDs no longer corresponded reliably to a stable dimension count either.
 
-2. **Vision dimension counts drifted from the catalog.** The [self-updating-prompt-engineering/20260531.01-vision.v15.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) *Dimension applicability matrix* and its surrounding prose still described **27 dimensions**, **11 non-applicable** entries for `--dim full` on context files, and exposed only the legacy type-scoped groups (`--dim full / structural / quality / strategic / freshness / efficiency / adherence / model / optimize / context-full / context-health`). The authoritative catalog at v1.4.0 in [.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md](../../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md) had already grown to **35 dimensions** (D28-reproducibility … D35-portability-boundary added as the Tier 2 "reliability" pole) and **12 `--dim` shortcut groups** (adding `reliability`), but those additions were invisible from the vision. The dimension-count drift was first surfaced as **Park lot Q3** inside the rename plan and explicitly deferred so the mechanical rename phases could complete without scope creep.
+2. **Vision dimension counts drifted from the catalog.** The [self-updating-prompt-engineering/20260531.01-vision.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) *Dimension applicability matrix* and its surrounding prose still described **27 dimensions**, **11 non-applicable** entries for `--dim full` on context files, and exposed only the legacy type-scoped groups (`--dim full / structural / quality / strategic / freshness / efficiency / adherence / model / optimize / context-full / context-health`). The authoritative catalog at v1.4.0 in [.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md](../../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md) had already grown to **35 dimensions** (D28-reproducibility … D35-portability-boundary added as the Tier 2 "reliability" pole) and **12 `--dim` shortcut groups** (adding `reliability`), but those additions were invisible from the vision. The dimension-count drift was first surfaced as **Park lot Q3** inside the rename plan and explicitly deferred so the mechanical rename phases could complete without scope creep.
 
 Together these two problems made the dimension model harder to read, harder to invoke (the reliability shortcut was undocumented from the vision), and weakly self-consistent (downstream artifacts disagreed with the catalog on totals).
 
@@ -27,8 +27,8 @@ Together these two problems made the dimension model harder to read, harder to i
 | Field | Value |
 |---|---|
 | **Authoritative catalog** | [05.07-pe-meta-dimension-catalog.md](../../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md) v1.4.0 (35 dimensions, 12 `--dim` groups) |
-| **Primary downstream artifact** | [20260531.01-vision.v15.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) |
-| **Companion changelog** | [20260531.01-vision.v15.changelog.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) |
+| **Primary downstream artifact** | [20260531.01-vision.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) |
+| **Companion changelog** | [20260531.01-vision.changelog.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md) |
 | **Rename plan** | [01-dimids-rename-plan.md](01-dimids-rename-plan.md) (9 phases, suffix-append form) |
 | **Files touched by rename** | ~45 across catalog, peer context, vision, use cases, agents, templates, prompts, implementation-status |
 | **Park lot item closing the count drift** | Q3 — *"Inconsistent dimension counts in the vision"* |
@@ -36,7 +36,7 @@ Together these two problems made the dimension model harder to read, harder to i
 
 **To reproduce (before the fix):**
 
-1. Open the vision at [20260531.01-vision.v15.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) and search for bare tokens matching `\bD[0-9]+\b` (not followed by `-`). Observe 100+ occurrences across the dimension applicability matrix, Phase C/D/E descriptions, the `--dim <group|D#>` parameter row, the process-to-rationale mapping table, and the legacy-robustness paragraph.
+1. Open the vision at [20260531.01-vision.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) and search for bare tokens matching `\bD[0-9]+\b` (not followed by `-`). Observe 100+ occurrences across the dimension applicability matrix, Phase C/D/E descriptions, the `--dim <group|D#>` parameter row, the process-to-rationale mapping table, and the legacy-robustness paragraph.
 2. Compare the *Dimension applicability matrix* in the vision against the same matrix in [.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md](../../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md). Note that the catalog defines D28–D35 while the vision matrix stops at D27.
 3. Search the vision prose for `all 27` and `11 non-applicable`. Both phrasings predate the D28-D35 additions.
 4. In the catalog, count the `--dim` groups in *§ Dimension groups (shortcuts)*: 12 groups including `reliability`. In the vision's *Type-scoped dimension groups* table: only 11 groups, no `reliability` row.
@@ -109,7 +109,7 @@ Final residual scan via [scripts/find-residuals-wide.ps1](../../../../../scripts
 
 ### Step 3 — Surface dimension-count drift in v15.0.1 (✅ done)
 
-During Phase 4, the *Most recent changes* block of [20260531.01-vision.v15.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) was edited to surface the `(all 27)` / `11 non-applicable` / matrix-stops-at-D27 inconsistency vs. catalog v1.4.0, without fixing it. Park lot Q3 was opened with status `🟡 OPEN, non-blocking` and explicitly scoped out of the rename plan.
+During Phase 4, the *Most recent changes* block of [20260531.01-vision.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) was edited to surface the `(all 27)` / `11 non-applicable` / matrix-stops-at-D27 inconsistency vs. catalog v1.4.0, without fixing it. Park lot Q3 was opened with status `🟡 OPEN, non-blocking` and explicitly scoped out of the rename plan.
 
 ### Step 4 — Close Q3 via vision v15.0.2 alignment (✅ done)
 
@@ -123,7 +123,7 @@ A follow-up edit to the vision (no `principles:` change, no amendment plan requi
 | **Group surfacing** | New `--dim reliability` row added to the *Type-scoped dimension groups* table covering D28-D35 for agents and prompts. |
 | **Forward reference** | New 📖 line after the groups table pointing to [.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md § Dimension groups (shortcuts)](../../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md) so all 12 groups are discoverable from the vision. |
 | **Tier classification** | New explanatory paragraph below the matrix names the two tiers: **Tier 1 = quality/strategic** (`D1-metadata` … `D27-model-adherence`), **Tier 2 = reliability** (`D28-reproducibility` … `D35-portability-boundary`). `--dim reliability` is the canonical Tier 2 invocation. |
-| **Version bump** | Vision `version: "15.0.1"` → `"15.0.2"`. Changelog [v15.0.2 entry](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) prepended under `## v15 — 2026-05-31`. |
+| **Version bump** | Vision `version: "15.0.1"` → `"15.0.2"`. Changelog [v15.0.2 entry](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md) prepended under `## v15 — 2026-05-31`. |
 
 ### Step 5 — Close Park lot Q3 + finalize plan (✅ done)
 
@@ -162,10 +162,10 @@ In [01-dimids-rename-plan.md](01-dimids-rename-plan.md):
 - [.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md](../../../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md) 📘 [Repo]<br>
   Authoritative dimension catalog (v1.4.0). Source of truth for the 35 dimensions and the 12 `--dim` shortcut groups. Vision body is aligned to this file.
 
-- [20260531.01-vision.v15.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) 📒 [Repo]<br>
+- [20260531.01-vision.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) 📒 [Repo]<br>
   Primary downstream artifact aligned in v15.0.2 (matrix D1-D35, recomputed totals, `--dim reliability` row, forward reference to catalog groups, Tier 1/Tier 2 paragraph). `principles:` block intentionally untouched.
 
-- [20260531.01-vision.v15.changelog.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.changelog.md) 📒 [Repo]<br>
+- [20260531.01-vision.changelog.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.changelog.md) 📒 [Repo]<br>
   Canonical changelog. Carries the v15.0.2 entry documenting the count-alignment + group-surfacing work that closed Park lot Q3.
 
 - [.github/skills/pe-prompt-engineering-validation/SKILL.md](../../../../../.github/skills/pe-prompt-engineering-validation/SKILL.md) 📘 [Repo]<br>

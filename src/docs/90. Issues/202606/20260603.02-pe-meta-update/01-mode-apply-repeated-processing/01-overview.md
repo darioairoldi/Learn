@@ -33,7 +33,7 @@ Key facts confirmed by reading the prompt + snippets:
 
 ## Where the vision already supports the cost idea
 
-`20260531.01-vision.v15.md` already contains (P1 scope items + rationales):
+`20260531.01-vision.md` already contains (P1 scope items + rationales):
 
 - **`model-routing`** — *"Routing reasoning tasks to reasoning models, execution tasks to standard models … optimizes both cost AND quality."* → *"Research/analysis → reasoning models. Implementation/formatting → standard models."*
 - **`model-specialization`** — *"Reasoning models excel at analysis and planning. Standard models excel at execution. Small models suffice for deterministic-like tasks."*
@@ -132,7 +132,7 @@ The one hard precondition to write into the vision/implementation: **the plan-fi
 
 ### Concrete edits this implies
 
-- **Vision (`20260531.01-vision.v15.md`):** refine § Plan-mode output contract → *Plan output contract* — a plan file is materialized in **both** `plan` and `apply` modes; `apply` additionally executes it. Add an explicit `model-routing` note pinning the reasoning→execute seam to the plan→execute boundary.
+- **Vision (`20260531.01-vision.md`):** refine § Plan-mode output contract → *Plan output contract* — a plan file is materialized in **both** `plan` and `apply` modes; `apply` additionally executes it. Add an explicit `model-routing` note pinning the reasoning→execute seam to the plan→execute boundary.
 - **`pe-meta-plan-file-contract.md`:** (a) state the plan is emitted on every mutating run, not only `--mode plan`; (b) add an **execution-ready precision** clause (literal edit or unambiguous anchor per row).
 - **`pe-meta-update.prompt.md`:** rewrite the `--mode` table so `apply` reads "materialize plan (Phases 1–4) → execute plan (Phases 5–7) → report"; route Phases 1–4 to the reasoning model and Phases 5–7 to a standard model; add same-run-skips-drift-guard / cross-run-requires-it rule.
 

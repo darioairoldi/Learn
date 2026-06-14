@@ -259,3 +259,9 @@ After series validation:
 5. Fill critical gaps
 6. Re-run validation after changes
 7. Update navigation structure
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

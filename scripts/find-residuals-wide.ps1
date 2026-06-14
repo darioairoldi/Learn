@@ -2,7 +2,7 @@ $pattern = '\bD(3[0-5]|[12][0-9]|[1-9])\b(?!-[a-z])'
 # Whitelist of paths/patterns to skip (catalog, vision changelog, plan, legacy)
 $whitelist = @(
     'src\docs\90. Issues\202606\20260601.02-dim-readable-ids',
-    '06.00-idea\self-updating-prompt-engineering\20260531.01-vision.v15.md',
+    '06.00-idea\self-updating-prompt-engineering\20260531.01-vision.md',
     '.copilot\context\00.00-prompt-engineering\05.07-pe-meta-dimension-catalog.md',
     '.github\skills\pe-artifact-coherence-check\SKILL.md',
     'old\',

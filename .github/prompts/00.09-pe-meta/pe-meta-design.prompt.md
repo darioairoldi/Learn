@@ -24,8 +24,6 @@ handoffs:
     agent: pe-meta-validator
     send: true
 argument-hint: '<artifact-type> <description> [--plan-file <path>] [bundle=accept] — e.g., "agent for validating category coverage" or "context file for MCP tool composition patterns"'
-version: "2.3.0"
-last_updated: "2026-06-04"
 goal: "Design and create a PE-for-PE artifact that is both structurally correct and strategically aligned with the PE vision, using the full research → build → validate pipeline with added strategic checks"
 scope:
   covers:
@@ -176,3 +174,9 @@ pe-meta PE-for-PE prompts have shorter pipelines (5 phases) than pe-gra orchestr
 | 2 | Overlap with existing artifact | Phase 2 detects overlap via dependency map → presents options: extend existing or create new → waits for user decision |
 | 3 | Domain artifact request (redirect) | Detects non-PE intent → "Use /pe-con-design instead" → STOP |
 | 4 | Strategic validation fails after build | Phase 4 strategic check finds missing N-1 separation → hands back to pe-con-builder with fix spec → re-validates (max 3 iterations) |
+
+<!--
+prompt_metadata:
+  version: "2.3.0"
+  last_updated: "2026-06-04"
+-->

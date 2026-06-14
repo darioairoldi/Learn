@@ -2311,6 +2311,7 @@ article_metadata:
   created: "2025-12-10T00:00:00Z"
   last_updated: "2025-12-14T00:00:00Z"
   author: "prompt-builder"
+  changelog: "20-how_to_create_a_prompt_interacting_with_agents.changelog.md"
   
 validations:
   structure:
@@ -2330,6 +2331,5 @@ validations:
     references_added: 5
     gaps_identified: 10
     gaps_addressed: 10
-    changes_summary: "Major update integrating real implementation experience from case study (06.1). Added: Use Case Challenge Methodology section with 3/5/7 scenario generation; Tool Composition Validation with agent/tool alignment checks; Agent Dependencies Planning (Phases 5-6) with recursion limits; Pre-Save Validation checklist for builders; Validation Loop Limits (max 3 iterations); Updated phase flow diagrams with approval checkpoints; Real validator output format example; Real Implementation Case Study section with lessons learned. Updated orchestrator YAML with complete boundaries and fix handoff. Renamed case study file to 06.1 for companion reference."
 ---
 -->

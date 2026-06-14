@@ -370,7 +370,5 @@ article_metadata:
   version: "2.0"
   diataxis_type: "how-to"
   purpose: "Explain the dual-solution DebugDependencies pattern for cross-repository source-level debugging in .NET"
-  changes:
-    - "v2.0: Major rewrite — added YAML frontmatter, emoji H2 headings, Mermaid diagrams, references section, generalized examples beyond Telemetry.Samples, improved writing style per article-writing.instructions.md, added validation metadata"
-    - "v1.0: Initial version — Diginsight-specific examples only"
+  changelog: "01-howto-debug-solutions-with-dependencies-as-project-references.changelog.md"
 -->

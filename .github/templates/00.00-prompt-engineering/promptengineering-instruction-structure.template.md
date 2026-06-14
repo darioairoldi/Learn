@@ -61,7 +61,6 @@ template_metadata:
   created: "2026-03-20"
   consumers:
     - "prompt-createorupdate-promptengineering-guidance"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "promptengineering-instruction-structure.template.changelog.md"
 ---
 -->

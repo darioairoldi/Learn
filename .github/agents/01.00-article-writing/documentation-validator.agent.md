@@ -12,8 +12,6 @@ handoffs:
   - label: "Fix Issues"
     agent: documentation-builder
     send: true
-version: "1.2.0"
-last_updated: "2026-03-22"
 context_dependencies:
   - "00.00-prompt-engineering/"
   - "01.00-article-writing/"
@@ -191,14 +189,11 @@ When issues require fixes, offer handoff to `documentation-builder` with the iss
 <!--
 ---
 agent_metadata:
+  last_updated: "2026-03-22"
   created: "2026-03-16T00:00:00Z"
   created_by: "phase-3-implementation"
-  version: "1.0"
-  updated: "2026-03-16T00:00:00Z"
+  version: "1.2.0"
   updated_by: "copilot"
-  changes:
-    - "v1.2: Added article-review skill references — publication-ready.md for Phase 1 structural checks, review-summary.md for Phase 5 report format (A-31)"
-    - "v1.1: Integrated PE shared patterns — escalation protocol (02.05), fix report format template, cross-handoff verification (02.05)"
-    - "v1.0: Initial creation — documentation reviewer for 7-dimension quality validation"
+  changelog: "documentation-validator.agent.changelog.md"
 ---
 -->

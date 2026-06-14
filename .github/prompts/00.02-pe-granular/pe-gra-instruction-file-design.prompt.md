@@ -52,8 +52,6 @@ boundaries:
   - "Verify applyTo pattern has NO conflicts before delegating to builder"
   - "Never skip research phase — always start with instruction-researcher"
   - "Instructions must reference context files instead of embedding content"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Instruction File Design and Create
@@ -383,3 +381,9 @@ Hand off to `@instruction-validator` for scoped validation:
 | 1 | Design instruction file (happy path) | Research → verify no applyTo conflicts → build file → validate → report success |
 | 2 | applyTo pattern conflicts with existing file | Detects conflict in research phase → proposes alternative pattern → waits for approval |
 | 3 | Domain already has instruction file | Detects existing file → offers: update existing or create complementary → waits for user |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

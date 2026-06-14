@@ -310,16 +310,7 @@ prompt_metadata:
   created_by: "manual"
   last_updated: "2026-01-24T00:00:00Z"
   version: "2.2"
-  changes:
-    - "Moved detailed validation examples to .copilot/context/00.00-prompt-engineering/04.02-adaptive-validation-patterns.md"
-    - "Added Response Management section (Production-Ready requirement)"
-    - "Added Error Recovery workflows (Production-Ready requirement)"
-    - "Added Embedded Test Scenarios requirement (minimum 5)"
-    - "Added token budget compliance checks"
-    - "Strengthened imperative language throughout"
-    - "Reduced token count from ~4000 to ~1800 (40% improvement)"
-    - "Applied Principle 8 (Template Externalization) - externalized verbose output formats to .github/templates/00.00-prompt-engineering/output-prompt-validation-phases.template.md"
-    - "Further reduced token count from ~1800 to ~1200 (~33% improvement through template externalization)"
+  changelog: "pe-sim-prompt-create-update.prompt.changelog.md"
   production_ready:
     response_management: true
     error_recovery: true

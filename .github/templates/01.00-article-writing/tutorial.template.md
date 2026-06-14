@@ -259,7 +259,6 @@ template_metadata:
   consumers:
     - "article-design-and-create"
     - "structure-validation"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "tutorial.template.changelog.md"
 ---
 -->

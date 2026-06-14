@@ -37,8 +37,6 @@ boundaries:
   - "No duplication across context files — single source of truth"
   - "Optimal token usage with focused scope and clear boundaries"
   - "Multi-file domains must maintain vocabulary consistency and non-redundancy"
-version: "2.0"
-last_updated: "2026-04-28"
 ---
 
 # Create or Update Context Information
@@ -568,18 +566,8 @@ prompt_metadata:
   filename: "context-information-create-update.prompt.md"
   created: "2026-01-24T00:00:00Z"
   created_from: "prompt-createorupdate-prompt-guidance.prompt.md"
-  version: "2.0"
-  changes:
-    - "v2.0: Renamed from context-file-create-update. Extended with multi-file domain support, structural assessment, authoritative source URLs, context-information naming alignment"
-    - "v1.2: Added Phase 5 to update 00.00-context-structure-index.md with source mapping"
-    - "v1.2: Added source mapping update to Always Do boundaries"
-    - "v1.2: Added test scenario for new domain creation"
-    - "v1.1: Added 00.00-context-structure-index.md integration for source discovery"
-    - "v1.1: Added Phase 1.5 Source Prioritization & Selection"
-    - "v1.1: Enhanced Phase 1 with source discovery priority order"
-    - "v1.1: Added source classification (Primary/Secondary/Tertiary/Exclude)"
-    - "v1.1: Added prioritization criteria (Relevance, Authority, Recency, Impact, Efficiency)"
-    - "v1.0: Initial version - focused on context file creation/update only"
-    - "v1.0: Extracted from prompt-createorupdate-prompt-guidance.prompt.md"
+  version: "2.0.0"
+  last_updated: "2026-04-28"
+  changelog: "pe-gra-context-information-create-update.prompt.changelog.md"
 ---
 -->

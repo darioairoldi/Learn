@@ -989,6 +989,5 @@ article_metadata:
     - "06-citations-and-reference-management.md"
   version: "1.1"
   last_updated: "2026-02-11"
-  changes:
-    - "v1.1: Added Advanced Hallucination Detection section (grounding, RAG, tool-augmented verification). Updated capability matrix with model-specific notes and currency disclaimer."
+  changelog: "07-ai-enhanced-documentation-writing.changelog.md"
 -->

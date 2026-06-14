@@ -1,8 +1,7 @@
 ---
 description: Rules for creating and maintaining agent hook configurations that provide deterministic lifecycle automation
 applyTo: '.github/hooks/**'
-version: "1.4.0"
-last_updated: "2026-04-24"
+domain: "prompt-engineering"
 goal: "Ensure agent hook configurations are valid JSON that provides deterministic lifecycle automation"
 rationales:
   - "Hooks execute code not LLM interpretation, so correctness is non-negotiable"
@@ -65,3 +64,9 @@ Hook configurations provide **deterministic lifecycle automation** — shell com
 
 - **📖** `.copilot/context/00.00-prompt-engineering/03.03-agent-hooks-reference.md` — Hook schema
 - **📖** `.copilot/context/00.00-prompt-engineering/03.04-mcp-server-design-patterns.md` — Hooks vs MCP vs tools
+
+<!--
+instruction_metadata:
+  version: "1.5.0"
+  last_updated: "2026-06-06"
+-->

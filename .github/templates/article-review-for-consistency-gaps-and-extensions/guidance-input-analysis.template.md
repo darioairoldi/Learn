@@ -100,3 +100,9 @@ Result:
 - Otherwise → list markdown files, ask user to select
 - Scope: Comprehensive (no priorities specified)
 ```
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

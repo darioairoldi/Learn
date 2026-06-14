@@ -36,8 +36,6 @@ boundaries:
   - "Enforce ≤1500 words body and ≤1024 chars description"
   - "Apply description formula: [What] + [Tech] + 'Use when' + [Scenarios]"
   - "Verify kebab-case name ≤64 chars and relative paths only"
-version: "1.0.0"
-last_updated: "2026-04-30"
 ---
 
 # Create or Update Skill Files
@@ -308,3 +306,9 @@ description: "[What it provides] + [Technology/domain]. [Use when: scenarios]. [
 1. **Hand off** file path to skill-validator
 2. **If issues returned** — apply fixes and re-validate (max 3 iterations)
 3. **Report completion** — file path, validation status, any remaining notes
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-30"
+-->

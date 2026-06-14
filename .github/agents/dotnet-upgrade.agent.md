@@ -9,8 +9,6 @@ tools:
   - runTests
   - problems
   - fetch
-version: "1.0.0"
-last_updated: "2026-03-20"
 ---
 
 # .NET Upgrade Collection

@@ -45,8 +45,6 @@ boundaries:
   - "Prioritize single-source-of-truth compliance and token budget"
   - "Never approve context files that duplicate content from other context files"
   - "Never skip consumer impact analysis"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Context Information Review and Validate Orchestrator
@@ -400,3 +398,9 @@ The `[agent-name]` specialist is not available.
 | 1 | Review single context file (happy path) | Loads file → validates structure and token budget → produces severity-scored report |
 | 2 | Domain set has duplicated content | Flags redundancy as HIGH → identifies canonical source → recommends dedup |
 | 3 | Context file exceeds 2,500 token budget | Flags as MEDIUM → recommends splitting or compression |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

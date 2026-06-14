@@ -9,8 +9,6 @@ tools:
   - problems
   - githubRepo
   - search
-version: "1.1.0"
-last_updated: "2026-03-20"
 ---
 
 # Task Planner Instructions
@@ -272,7 +270,5 @@ agent_metadata:
   version: "1.1.0"
   source: "microsoft/edge-ai"
   purpose: "Task planning specialist for creating actionable implementation plans"
-  changes:
-    - "v1.1.0: Compressed to fit 2,500-token budget (A-22). Removed duplicate Planning Process section, consolidated template Phase 2 examples, compressed Research Validation and User Input Processing."
-    - "v1.0.0: Initial version from microsoft/edge-ai with ACTION 11 normalization"
+  changelog: "task-planner.agent.changelog.md"
 -->

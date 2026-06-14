@@ -1,4 +1,4 @@
-﻿# PE-meta command option applicability matrix
+# PE-meta command option applicability matrix
 
 This matrix defines the canonical option taxonomy for all PE-meta commands. Options are organized into 7 classes with deterministic applicability rules (vision v14 surface).
 
@@ -266,3 +266,9 @@ Corrective action MUST include one of:
 /pe-meta-update --mode apply --dim optimize --skip research,structure,consistency --scope agents,prompts
 /pe-meta-update --mode plan
 ```
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

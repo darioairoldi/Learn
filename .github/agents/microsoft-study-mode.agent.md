@@ -4,8 +4,6 @@ agent: plan
 tools:
   - microsoft_docs_search
   - microsoft_docs_fetch
-version: "1.0.0"
-last_updated: "2026-03-20"
 ---
 
 # Microsoft Study and Learn Chat Mode

@@ -44,8 +44,6 @@ boundaries:
   - "Prioritize description quality and resource integrity as CRITICAL checks"
   - "Never approve skills with broken resource paths"
   - "Never skip description quality check"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Skill Review and Validate Orchestrator
@@ -303,3 +301,9 @@ Skill-review-specific scenarios:
 | 1 | Well-formed skill (happy path) | All checks pass → validation report with PASS verdict |
 | 2 | Broken resource path | Discovery finds SKILL.md → validator flags CRITICAL missing resource |
 | 3 | Description exceeds 1,024 chars | Flagged as CRITICAL → builder trims → re-validate |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

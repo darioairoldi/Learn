@@ -152,3 +152,9 @@ e.g., "Separate appendix per demo, one for off-topic content", "Group all supple
 **Key Concepts:** Scalability patterns, reliability mechanisms, deployment strategies
 **Speaker Focus:** Full attribution with timeframes
 **Appendix Organization:** Separate appendix per demo + Additional Discussions
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

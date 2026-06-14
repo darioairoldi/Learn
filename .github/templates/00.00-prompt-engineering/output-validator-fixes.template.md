@@ -43,7 +43,6 @@ template_metadata:
     - "prompt-validator"
     - "skill-validator"
     - "template-validator"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "output-validator-fixes.template.changelog.md"
 ---
 -->

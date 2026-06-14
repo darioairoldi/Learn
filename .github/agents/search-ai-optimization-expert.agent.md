@@ -8,8 +8,6 @@ tools:
   - terminalCommand
   - edit/editFiles
   - problems
-version: "1.0.0"
-last_updated: "2026-03-20"
 ---
 
 # Search & AI Optimization Expert

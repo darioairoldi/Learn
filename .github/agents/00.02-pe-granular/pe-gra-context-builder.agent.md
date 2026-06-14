@@ -13,8 +13,6 @@ handoffs:
   - label: "Validate Context File"
     agent: pe-gra-context-validator
     send: true
-version: "1.0.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -273,12 +271,11 @@ Hand off to `context-validator` for structure verification.
 <!-- 
 ---
 agent_metadata:
+  last_updated: "2026-03-20"
   created: "2026-07-22T00:00:00Z"
   created_by: "architectural-refactoring-p5"
-  version: "2.0"
-  updated: "2026-03-10T00:00:00Z"
+  version: "2.0.0"
   updated_by: "copilot"
-  changes:
-    - "v2.0: Merged context-updater into unified workflow. Single agent handles both create and update with shared layout/validation rules and compatibility assessment."
+  changelog: "pe-gra-context-builder.agent.changelog.md"
 ---
 -->

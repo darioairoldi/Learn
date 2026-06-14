@@ -11,8 +11,6 @@ handoffs:
   - label: "Fix Issues"
     agent: pe-gra-agent-builder
     send: true
-version: "1.1.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -92,7 +90,7 @@ You are a **quality assurance specialist** focused on validating agent files for
 | `scope:` field | Present with `covers:` and `excludes:` lists | CRITICAL |
 | `boundaries:` field | Present as list of constraints | HIGH |
 | `rationales:` field | Present as list of design decisions | HIGH |
-| `version:` field | Present, valid SemVer format | CRITICAL |
+| `version:` field | Present in bottom `agent_metadata` block, valid SemVer format (NOT in top frontmatter) | CRITICAL |
 | Scope-content alignment | `scope.covers:` topics match actual agent capabilities | HIGH |
 | Scope non-contradiction | `scope` doesn't contradict instruction file or context file scopes | HIGH |
 ```
@@ -311,12 +309,11 @@ If file path is missing: report `Incomplete handoff — no file path provided` a
 <!-- 
 ---
 agent_metadata:
+  last_updated: "2026-03-20"
   created: "2025-12-14T00:00:00Z"
   created_by: "prompt-design"
-  version: "1.1"
+  version: "1.1.0"
   template: "agent-validator-template"
-  changes:
-    - "v1.1: Externalized inline output templates to output-agent-validation-report.template.md and output-validator-fixes.template.md (A-19). Reduced from ~2,661 to ~1,777 tokens."
-    - "v1.0: Initial creation — agent file validator with tool alignment verification"
+  changelog: "pe-gra-agent-validator.agent.changelog.md"
 ---
 -->

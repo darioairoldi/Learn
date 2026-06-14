@@ -226,7 +226,6 @@ template_metadata:
   created: "2026-03-20"
   consumers:
     - "article-generate-techsession-summary"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "techsession-summary.template.changelog.md"
 ---
 -->

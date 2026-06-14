@@ -1,8 +1,7 @@
 ---
 description: Rules for creating and maintaining reusable prompt-snippet fragments included via #file references
 applyTo: '.github/prompt-snippets/**/*.md'
-version: "1.4.1"
-last_updated: "2026-05-21"
+domain: "prompt-engineering"
 goal: "Ensure prompt snippets remain concise, self-contained, and non-duplicative reusable fragments"
 rationales:
   - "Snippets are not auto-injected or indexed as commands, so they must be self-contained"
@@ -59,3 +58,9 @@ Prompt snippets are **reusable Markdown fragments** included on-demand via `#fil
 
 - **📖** Context engineering: see `validation-rules` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
 - **📖** File type decisions: see `file-type-guide` in `.copilot/context/00.00-prompt-engineering/` (00.00-context-structure-index.md → Functional Categories)
+
+<!--
+instruction_metadata:
+  version: "1.5.0"
+  last_updated: "2026-06-06"
+-->

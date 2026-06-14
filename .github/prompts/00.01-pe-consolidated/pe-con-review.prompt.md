@@ -17,7 +17,6 @@ handoffs:
     agent: pe-con-builder
     send: true
 argument-hint: '<artifact-type> <file-path> — e.g., "agent .github/agents/00.01-pe-consolidated/pe-con-builder.agent.md"'
-version: "1.0.0"
 goal: "Produce an actionable validation report for any PE artifact type via consolidated dispatch"
 scope:
   covers:
@@ -58,3 +57,9 @@ Specify the artifact type and file path:
 ```
 
 The validator loads the dispatch table, selects type-specific validation rules, and produces a structured report with CRITICAL/HIGH/MEDIUM/LOW findings.
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: ""
+-->

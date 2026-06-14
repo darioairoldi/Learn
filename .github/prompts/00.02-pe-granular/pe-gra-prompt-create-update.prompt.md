@@ -38,8 +38,6 @@ boundaries:
   - "Verify mode/tool alignment before saving (plan = read-only, agent = read+write)"
   - "Verify all handoff targets resolve to existing agent files"
   - "Multi-phase prompts MUST include summarization protocol"
-version: "1.0.0"
-last_updated: "2026-04-30"
 ---
 
 # Create or Update Prompt Files
@@ -310,3 +308,9 @@ last_updated: "YYYY-MM-DD"
 1. **Hand off** file path to prompt-validator
 2. **If issues returned** — apply fixes and re-validate (max 3 iterations)
 3. **Report completion** — file path, validation status, any remaining notes
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-30"
+-->

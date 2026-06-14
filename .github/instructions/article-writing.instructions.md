@@ -1,8 +1,7 @@
 ---
 description: Tier 1 (auto-loaded) essentials for article writing — voice, mechanics, formatting, accessibility, and boundaries. Extends documentation.instructions.md. For Diátaxis patterns, required elements, and deep writing style rules, see Tier 2 context file.
 applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md'
-version: "1.3.1"
-last_updated: "2026-05-22"
+domain: "article-writing"
 context_dependencies:
   - ".copilot/context/01.00-article-writing/"
 ---
@@ -15,6 +14,8 @@ context_dependencies:
 > - **Tier 1 (this file)** — Always auto-loaded for `.md` files. Voice principles, mechanical rules, formatting, accessibility, critical boundaries.
 > - **Tier 2** — `.copilot/context/01.00-article-writing/03-article-creation-rules.md` — Diátaxis patterns, required elements, writing style deep rules, technical content, quality checklists, common patterns. Loaded on-demand by creation/review prompts.
 > - **Base layer** — `documentation.instructions.md` — Structure, reference classification, dual metadata
+>
+> **⚠️ Does NOT apply to changelog files (`*.changelog.md`).** Sibling changelog files match this file's `applyTo` glob, but the voice, structure, and formatting rules here do NOT apply to them. Changelog files are machine-oriented history records governed by `changelog-files.instructions.md`.
 
 ## Your Role
 
@@ -471,38 +472,8 @@ Before completing an article, verify: **Structure** (Diátaxis type, required se
 
 **Validation prompts:** `.github/prompts/01.00-article-writing/`
 
----
-
 <!--
-article_metadata:
-  filename: "article-writing.instructions.md"
-  created: "2026-01-20"
-  last_updated: "2026-03-01"
-  version: "2.2"
-  purpose: "Tier 1 (auto-loaded) essentials for article writing — voice, mechanics, formatting, accessibility, boundaries"
-  changes:
-    - "v2.2: Enhanced Required Elements summary — TOC now specifies 5–9 items and parallel construction (Rule 9). Source: remaining ⚠️ items from coverage analysis."
-    - "v2.1: Added information scent rule to Links section (G7) — link text must contain trigger words matching reader intent. Source: Recommendation B from coverage analysis + Art. 09."
-    - "v2.0: Split into two tiers — Tier 1 (this file, ~400 lines auto-loaded) + Tier 2 (03-article-creation-rules.md, ~480 lines on-demand)"
-    - "v2.0: Moved to Tier 2: Diátaxis patterns, required element templates, writing style deep rules, technical content, full quality checklist, common patterns, reference materials, validation workflow"
-    - "v2.0: Kept in Tier 1: Voice principles, mechanical rules, formatting standards (with emoji H2 rule), accessibility, critical boundaries, compact references"
-    - "v2.0: Fixed encoding: restored 🔧 and 🚨 emojis (were garbled U+FFFD)"
-    - "v2.0: Source: Recommendation A from 40.00 technical-writing series coverage analysis"
-    - "v1.2: Added global-ready writing rules (articles, pronouns, phrasal verbs, idioms, ambiguous words)"
-    - "v1.2: Added UI element terminology rules (input-neutral: select/enter/go to)"
-    - "v1.2: Added procedure formatting rules (max 7 steps, one action per step, location before action)"
-    - "v1.2: Added en dash, hyphen, colon, keyboard shortcut punctuation rules"
-    - "v1.2: Added ordinal number rule, acronym capitalization rule, 'We' usage note"
-    - "v1.2: Added 'please' overuse rule and error message 3-part formula"
-    - "v1.2: Added don't-combine-formatting rule"
-    - "v1.2: Added heading depth limit (max H3)"
-    - "v1.2: Expanded problematic terms (sanity check, grandfathered, simply/just, crazy/insane)"
-    - "v1.2: Expanded visual documentation guidance (Mermaid, complementary principle, annotation limits)"
-    - "v1.2: Added readability targets by Diataxis type"
-    - "v1.2: Clarified period rules for mixed lists"
-    - "v1.2: Fixed phantom prompt references in Example Validation Workflow (pointed to actual prompt files)"
-    - "v1.2: Updated Quality Checklist with all new rules"
-    - "v1.2: Updated Critical Boundaries with new Always/Never items"
-    - "v1.2: Source: 40.00-technical-writing series analysis + MWSG 00-04"
-    - "v1.1: Made generic (not LearnHub-specific), merged tech-articles content"
+instruction_metadata:
+  version: "1.5.0"
+  last_updated: "2026-06-12"
 -->

@@ -1,8 +1,6 @@
 ---
 title: "Reference — Dimension Applicability Matrix"
 description: "The 35-dimension × 8-artifact-type applicability matrix lifted from 05.07-pe-meta-dimension-catalog.md. Reference table — load only when applicability data is needed."
-version: "1.0.0"
-last_updated: "2026-05-25"
 domain: "prompt-engineering"
 parent_artifact: ".copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md"
 goal: "Provide the full 35×8 dimension-to-artifact-type applicability matrix as a load-on-demand reference, keeping the parent catalog under the context token budget."
@@ -74,3 +72,9 @@ This reference holds the full applicability matrix that maps each of the 35 revi
 *`D17-cross-coherence` for context files = peer-review mode (checks against peer context files loaded by same consumers)
 
 **Parent artifact:** [05.07-pe-meta-dimension-catalog.md](../../../.copilot/context/00.00-prompt-engineering/05.07-pe-meta-dimension-catalog.md)
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-25"
+-->

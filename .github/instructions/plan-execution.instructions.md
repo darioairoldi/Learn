@@ -1,8 +1,6 @@
 ---
 description: Rules for creating and processing plan files — lifecycle (draft/actionable/in-progress/done), actionability gate, park lot for surfaced edge cases, and on-save/on-ask triggering
 applyTo: '*plan*'
-version: "1.2.0"
-last_updated: "2026-05-31"
 domain: "prompt-engineering"
 goal: "Ensure plans are goal-driven, actionable, scope-disciplined, and validated before execution"
 rationales:
@@ -112,3 +110,9 @@ All marking format rules (suffix notation, section classification, consistency e
 - **📘** `.github/instructions/vision-amendment.instructions.md` — narrower override of `*plan*` for vision-amendment plans (matches `*vision*plan*.md`); defines the per-item tagging consumed by Actionability Gate check #5
 - **📘** `.github/instructions/vision-frontmatter.instructions.md` — declares the `principles:` block consumed by Actionability Gate check #5
 - **📒** `src/docs/90. Issues/202605/20260525.03-staleness-review/05-vision-usecase-plan-rules/01-overview.md` — sub-issue analysis that motivated the lifecycle / park-lot additions in v1.2.0
+
+<!--
+instruction_metadata:
+  version: "1.2.0"
+  last_updated: "2026-05-31"
+-->

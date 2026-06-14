@@ -258,8 +258,6 @@ template_metadata:
   consumers:
     - "pe-meta-validator"
     - "pe-meta review prompts"
-  changes:
-    - "v2.0.0: Added Mode 4 (dimension-based review), Mode 5 (system-wide apply-mode review with Phase A-F ordering), --dim parameter support, cross-dependency coherence section, adherence summary, consumer impact section. Aligned with vision v12."
-    - "v1.0.0: Initial version — design validation, implementation validation, ecosystem audit"
+  changelog: "output-meta-validator-reports.template.changelog.md"
 ---
 -->

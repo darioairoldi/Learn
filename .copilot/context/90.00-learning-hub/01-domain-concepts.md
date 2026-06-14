@@ -1,8 +1,6 @@
 ---
 title: "Domain Concepts for Learning Documentation Site"
 description: "Defines core learning documentation concepts — repository purpose, 7-category taxonomy, content depth model, and quality dimensions for the Learning Hub"
-version: "1.0.0"
-last_updated: "2026-05-26"
 domain: "learning-hub"
 goal: "Establish the shared conceptual foundation and terminology for all Learning Hub content"
 scope:
@@ -299,3 +297,9 @@ Located in `.copilot/scripts/`, these handle programmatic tasks:
 - External reference links
 - Practical applicability
 - Real-world examples
+
+<!--
+context_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-26"
+-->

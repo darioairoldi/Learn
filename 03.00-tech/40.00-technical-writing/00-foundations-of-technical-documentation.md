@@ -589,6 +589,5 @@ article_metadata:
     - "06-citations-and-reference-management.md"
   version: "1.1"
   last_updated: "2026-02-28"
-  changes:
-    - "v1.1: Fixed validation dimension names to match Art. 05 canonical terms. Slimmed style guide comparison section with cross-reference to MS Sub-03. Updated total_articles to 13."
+  changelog: "00-foundations-of-technical-documentation.changelog.md"
 -->

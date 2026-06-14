@@ -1,8 +1,6 @@
 ---
 title: "Folder Organization and Navigation Rules"
 description: "Establishes folder naming conventions (kebab-case with numeric prefixes), date-prefix patterns, glob sorting limitations, and decision framework for explicit vs. glob-based navigation"
-version: "1.0.0"
-last_updated: "2026-05-26"
 domain: "learning-hub"
 goal: "Codify kebab-case naming, numeric prefix patterns, and glob-vs-explicit decision rules that enable consistent folder discovery and ordering"
 scope:
@@ -182,3 +180,9 @@ Menu generation rules are defined separately to allow flexibility when actual fo
 3. **Date prefixes** (`YYYYMMDD-`) — Hyphen separates from name
 4. **Shortest name** — Avoid redundancy with folder context
 5. **Title from metadata** — Prefer YAML title over filename
+
+<!--
+context_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-26"
+-->

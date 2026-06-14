@@ -34,8 +34,6 @@ boundaries:
   - "Keep snippets under 500 words — use context file if larger"
   - "No YAML frontmatter in snippets — raw Markdown fragments only"
   - "Never duplicate content from context or instruction files"
-version: "1.0.0"
-last_updated: "2026-04-28"
 ---
 
 # Create or Update Prompt Snippets
@@ -231,3 +229,9 @@ Hand off to `prompt-snippet-validator` for full validation.
 | 1 | Create new prompt snippet (happy path) | Discover consumers → build snippet → validate conciseness → save |
 | 2 | Snippet content duplicates context file | Detects overlap → recommends using context file reference instead |
 | 3 | Snippet exceeds 500 word limit | Flags as CRITICAL → recommends splitting or promoting to context file |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-28"
+-->

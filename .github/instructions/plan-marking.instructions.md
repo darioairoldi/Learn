@@ -1,8 +1,7 @@
 ---
 description: Status marking rules for plan files — suffix notation, section/item classification, and consistency enforcement
 applyTo: '*plan*'
-version: "1.2.0"
-last_updated: "2026-06-01"
+domain: "prompt-engineering"
 goal: "Single source of truth for plan marking format — referenced by documentation.instructions.md and plan-execution.instructions.md"
 rationales:
   - "Marking rules were duplicated across two instruction files, causing drift and inconsistent enforcement"
@@ -87,3 +86,9 @@ The suffix notation defined here is the canonical format for status marking acro
 **Discovery:** The base `documentation.instructions.md` file (auto-loaded for all `.md`) carries a § `Procedural step markers (executed-work narratives)` subsection that points back here. Agents editing a non-`*plan*` file with executed-work step headings MUST find the rule via that path.
 
 **Out of scope:** Tutorial/how-to procedures authored for the reader. Those describe work the reader will do, not work the author has done — they MUST NOT carry status suffixes.
+
+<!--
+instruction_metadata:
+  version: "1.3.0"
+  last_updated: "2026-06-06"
+-->

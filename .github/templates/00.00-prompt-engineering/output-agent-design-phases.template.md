@@ -111,7 +111,6 @@ template_metadata:
   created: "2026-03-20"
   consumers:
     - "agent-design"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "output-agent-design-phases.template.changelog.md"
 ---
 -->

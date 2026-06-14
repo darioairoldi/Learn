@@ -16,7 +16,7 @@ draft: true
 **Reporter:** Dario Airoldi
 **Status:** Open (analysis complete; remediation not started)
 **Severity:** High
-**Component:** [06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md)
+**Component:** [06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md](../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md)
 **Framework:** PE artifact system v15.1
 
 ---
@@ -43,7 +43,7 @@ A three-layer coverage/gap audit was run to answer whether the pe-meta system **
 
 The audit traced each contract across three layers:
 
-1. **Vision** — `20260531.01-vision.v15.md` (v15.1.0, last updated 2026-06-02)
+1. **Vision** — `20260531.01-vision.md` (v15.1.0, last updated 2026-06-02)
 2. **Use-case catalog** — `20260503.02-vision-pe-meta-usecases/usecase-index.json` (v2.4.0, generated 2026-06-01)
 3. **pe-meta artifacts** — prompts, agents, applicability matrix, parser tests, prompt-snippets
 
@@ -73,7 +73,7 @@ The answer to all three questions is **NO / partial**. The v15.1 changelog added
 | Item | Value |
 |---|---|
 | Repository | `Learn` |
-| Vision file | `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md` |
+| Vision file | `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md` |
 | Vision version | v15.1.0 (last_updated 2026-06-02) |
 | Use-case index | `20260503.02-vision-pe-meta-usecases/usecase-index.json` (v2.4.0, generated 2026-06-01) |
 | pe-meta prompts | `.github/prompts/00.09-pe-meta/` |
@@ -117,8 +117,8 @@ The parser test encodes a pre-v15 "review is read-only" assumption; everything e
 
 ### Finding B — Vision body internally contradicts the v15.1 Plan-mode contract
 
-- `20260531.01-vision.v15.md` line ~1536: "`--mode` is **NOT applicable to Update**/Release-diff ... `apply` is their natural and only mode."
-- `20260531.01-vision.v15.md` line ~1546: repeats "Not applicable to ... Update".
+- `20260531.01-vision.md` line ~1536: "`--mode` is **NOT applicable to Update**/Release-diff ... `apply` is their natural and only mode."
+- `20260531.01-vision.md` line ~1546: repeats "Not applicable to ... Update".
 
 These statements were not reconciled when v15.1 added the **Plan-mode output contract**, whose canonical command is `/pe-meta-update --mode plan`. The vision is therefore self-inconsistent after the v15.1 edit. **Highest-priority defect** because the vision is the top authority.
 
@@ -160,8 +160,8 @@ None reference `pe-meta-plan-file-contract.md` or `pe-meta-iteration-budget.md`.
 ## 🔄 Reproduction steps
 
 1. Open the vision changelog and confirm v15.1 (2026-06-02) added the **Plan-mode output contract** and rewrote **Iteration budget**.
-2. Open `20260531.01-vision.v15.md` ~lines 1536/1546 — observe "`--mode` not applicable to Update" (contradicts Finding B).
-3. Open `20260531.01-vision.v15.md` ~line 1478 — observe command named `pe-meta-release-diff` (Finding E).
+2. Open `20260531.01-vision.md` ~lines 1536/1546 — observe "`--mode` not applicable to Update" (contradicts Finding B).
+3. Open `20260531.01-vision.md` ~line 1478 — observe command named `pe-meta-release-diff` (Finding E).
 4. Open `pe-meta-option-parser-tests.md` R-01 — observe `pe-meta-review --mode apply` is rejected as "read-only" (Finding A) while `pe-meta-review.prompt.md` and the applicability matrix mark `--mode` supported.
 5. Grep the per-type `*-review`, `pe-meta-adherence`, `pe-meta-release-monitor` prompts for `pe-meta-plan-file-contract` / `pe-meta-iteration-budget` — observe no references (Finding C).
 6. Open `usecase-index.json` — confirm `version: 2.4.0`, `generated_at: 2026-06-01`, and no plan-mode / iteration-budget use case (Finding D).
@@ -170,7 +170,7 @@ None reference `pe-meta-plan-file-contract.md` or `pe-meta-iteration-budget.md`.
 
 | File | Location | Finding |
 |---|---|---|
-| `20260531.01-vision.v15.md` | ~L1478, ~L1536, ~L1546 | B, E |
+| `20260531.01-vision.md` | ~L1478, ~L1536, ~L1546 | B, E |
 | `pe-meta-option-parser-tests.md` | R-01 | A |
 | `pe-meta-option-applicability-matrix.md` | `--mode` row | A |
 | `pe-meta-review.prompt.md` | frontmatter / mode table | A |
@@ -260,7 +260,7 @@ No remediation has been applied yet — this issue captures analysis only.
 
 | Artifact | Path |
 |---|---|
-| Vision (v15.1) | `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md` |
+| Vision (v15.1) | `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md` |
 | Use-case index (v2.4.0) | `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/usecase-index.json` |
 | Use-case overview | `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md` |
 | Option applicability matrix | `.github/prompts/00.09-pe-meta/pe-meta-option-applicability-matrix.md` |

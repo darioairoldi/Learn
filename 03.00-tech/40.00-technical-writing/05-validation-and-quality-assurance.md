@@ -977,7 +977,5 @@ article_metadata:
     - "07-ai-enhanced-documentation-writing.md"
   version: "1.2"
   last_updated: "2026-02-28"
-  changes:
-    - "v1.2: Added Documentation Tooling Ecosystem section (docs-as-code philosophy, SSG comparison, end-to-end workflow, collaborative authoring patterns). Updated conclusion with docs-as-code takeaway."
-    - "v1.1: Added Quality Triangle reconciliation with Art. 00 quality criteria. Updated conclusion to reflect framework hierarchy."
+  changelog: "05-validation-and-quality-assurance.changelog.md"
 -->

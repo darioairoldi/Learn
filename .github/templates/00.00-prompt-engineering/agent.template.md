@@ -145,7 +145,6 @@ template_metadata:
   consumers:
     - "agent-create-update"
     - "template-validator"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "agent.template.changelog.md"
 ---
 -->

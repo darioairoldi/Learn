@@ -1,8 +1,6 @@
 ---
 title: "Learning Hub Validation Criteria"
 description: "Defines validation criteria, quality thresholds, and content lifecycle standards specific to the Learning Hub — extending general article validation with repository-specific rules"
-version: "1.0.0"
-last_updated: "2026-05-26"
 domain: "learning-hub"
 goal: "Establish validation standards and quality gates that ensure articles meet Learning Hub publication requirements"
 scope:
@@ -304,3 +302,9 @@ When IQPilot MCP server is enabled:
 - Cross-reference validation automated
 
 See `getting-started.md` for IQPilot configuration.
+
+<!--
+context_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-26"
+-->

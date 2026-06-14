@@ -12,8 +12,6 @@ handoffs:
   - label: "Build Snippet"
     agent: pe-gra-prompt-snippet-builder
     send: true
-version: "1.0.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -158,8 +156,9 @@ If research goal is missing: report `Incomplete handoff — no research goal pro
 <!-- 
 ---
 agent_metadata:
+  last_updated: "2026-03-20"
   created: "2026-03-10T00:00:00Z"
   created_by: "copilot"
-  version: "1.0"
+  version: "1.0.0"
 ---
 -->

@@ -25,8 +25,6 @@ handoffs:
     agent: pe-meta-optimizer
     send: true
 argument-hint: '<file-path> [--mode plan|apply] [--plan-file <path>] [bundle=accept] — e.g., ".github/agents/00.09-pe-meta/pe-meta-validator.agent.md" or ".copilot/context/00.00-prompt-engineering/01.04-tool-composition-guide.md"'
-version: "2.3.0"
-last_updated: "2026-06-04"
 goal: "Produce a strategic + structural validation report for any PE-for-PE artifact, covering vision alignment, category compliance, quality bar, and self-update readiness"
 scope:
   covers:
@@ -211,3 +209,9 @@ pe-meta review prompts have a compact 4-phase pipeline and delegate structural v
 | 2 | Review non-PE artifact (redirect) | Phase 0 detects non-PE path → "Use /pe-con-review instead" → STOP |
 | 3 | Strategic FAIL but structural PASS | Structural validation passes → strategic check finds missing L1.5 refs → combined verdict: PASS with improvements → offers pe-con-builder handoff |
 | 4 | High-dependency artifact (6+ dependents) | Asks user to confirm ecosystem coherence scope → delegates to pe-meta-validator → includes blast radius in report |
+
+<!--
+prompt_metadata:
+  version: "2.3.0"
+  last_updated: "2026-06-04"
+-->

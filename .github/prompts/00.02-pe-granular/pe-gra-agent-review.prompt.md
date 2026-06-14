@@ -47,8 +47,6 @@ boundaries:
   - "Prioritize tool alignment validation as CRITICAL check"
   - "Gate issue resolution with re-validation"
   - "Never approve agents with tool alignment violations"
-version: "1.0"
-last_updated: "2026-04-28"
 ---
 
 # Agent Review and Validate Orchestrator
@@ -364,9 +362,10 @@ Agent-review-specific scenarios:
 <!-- 
 ---
 prompt_metadata:
+  last_updated: "2026-04-28"
   template_type: "multi-agent-orchestration"
   created: "2025-12-14T00:00:00Z"
   created_by: "implementation"
-  version: "1.0"
+  version: "1.0.0"
 ---
 -->

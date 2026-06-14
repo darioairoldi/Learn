@@ -1,8 +1,6 @@
 ---
 title: "Dual Metadata Block Structure for Articles"
 description: "Defines two-block YAML architecture for articles — top block for rendering, bottom HTML-comment block for validation tracking — with I/O protocols and use cases"
-version: "1.0.0"
-last_updated: "2026-05-26"
 domain: "learning-hub"
 goal: "Establish the canonical two-block metadata structure that decouples document rendering from internal validation tracking"
 scope:
@@ -275,7 +273,12 @@ article_metadata:
   word_count: 2500                 # Integer (updated by prompts)
   reading_time_minutes: 10         # Calculated: word_count / 250
   primary_topic: "Topic Name"      # Main subject
+  changelog: "article-name.changelog.md"  # OPTIONAL — sibling changelog file (see below).
+                                   #   When omitted, the convention sibling
+                                   #   "<article-stem>.changelog.md" is assumed if it exists.
 ```
+
+> **Per-article history lives ONLY in the sibling changelog.** The bottom block MUST NOT embed an accumulating history (no `version_history:` array, no `change_summary:` prose log). `article_metadata` carries only the *current* state (`version`, `last_updated`); the full per-change history belongs in the sibling `*.changelog.md`. See § Article changelog file below.
 
 **Content Type Values:**
 - `overview` — First-touch orientation ("What is this?")
@@ -299,6 +302,18 @@ cross_references:
   prerequisites:                   # Array of prerequisite article filenames
     - "prereq-1.md"
 ```
+
+#### Article changelog file (`*.changelog.md`)
+
+Per-article change history is externalized to a **sibling changelog file**, mirroring the vision↔changelog pairing used for vision documents.
+
+- **Naming.** The changelog file uses the `<article-stem>.changelog.md` suffix convention (e.g. `mkdocs-overview.md` → `mkdocs-overview.changelog.md`), kept in the same folder as the article.
+- **Reference + fallback.** `article_metadata.changelog:` MAY name the file explicitly. When the field is absent, tooling assumes the convention sibling `<article-stem>.changelog.md` **if a file with that name exists**; otherwise the article has no changelog yet.
+- **Single source of truth.** The sibling file is the ONLY place per-version history is recorded. The article's bottom metadata MUST NOT carry a parallel history.
+- **Not a normal article.** Changelog files are NOT subject to article structure/voice rules (TOC, introduction/conclusion, Microsoft voice, reference classification). They are governed by `changelog-files.instructions.md`.
+- **Not published.** Changelog files are excluded from the static-site render set (the Quarto `render:` allow-list never lists them), so they never appear on the published site.
+- **Hidden (best-effort).** Changelog files SHOULD carry the filesystem hidden attribute where the host supports it; this is a local Explorer convenience only (not versioned) — the durable "not published" guarantee comes from the render allow-list.
+- **Maintained by the review process.** The article-review process is the authoritative writer of changelog entries; see `documentation.instructions.md` § Article change history.
 
 ### ✅ Rules for Validation Prompts
 
@@ -520,3 +535,9 @@ The MetadataWatcher service automatically updates the `filename` field when arti
 - [HTML Comments](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#html_comments)
 - Article templates: `.github/templates/*.md`
 - Validation prompts: `.github/prompts/*.prompt.md`
+
+<!--
+context_metadata:
+  version: "1.1.0"
+  last_updated: "2026-06-12"
+-->

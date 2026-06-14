@@ -1,8 +1,6 @@
 ---
 title: "Article review workflow"
 description: "Process for reviewing and updating existing articles to maintain accuracy, currency, and quality"
-version: "2.1.0"
-last_updated: "2026-04-26"
 domain: "article-writing"
 goal: "Define when and how to review existing articles so that content stays accurate, current, and aligned with quality standards — including scheduled cycles, triggered reviews, and common review scenarios"
 scope:
@@ -194,3 +192,9 @@ Update bottom validation metadata with new timestamps and outcomes.
 | 2.1.0 | 2026-03-01 | Expanded 4 common review scenarios from one-line summaries to step-by-step procedures with triggers and SLA references. Source: Gap 2 from context file audit. | System |
 | 2.0.0 | 2026-02-28 | Complete rewrite: replaced phantom prompt names with actual prompt files; consolidated 405 lines to ~150 lines; added content stability guide; added freshness scoring reference; streamlined common scenarios. Source: 40.00-technical-writing articles 05, 10 | System |
 | 1.0.0 | 2025-12-26 | Initial version | System |
+
+<!--
+context_metadata:
+  version: "2.1.0"
+  last_updated: "2026-04-26"
+-->

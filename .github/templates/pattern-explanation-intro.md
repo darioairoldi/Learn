@@ -25,3 +25,9 @@ This article explores:
 ---
 
 **Source:** Diátaxis — explanations are understanding-oriented. See `article-writing.instructions.md` for voice and formatting rules.
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

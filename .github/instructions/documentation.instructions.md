@@ -1,8 +1,7 @@
 ---
 description: Base instructions for all Markdown files—essential structure, formatting, and validation rules. See article-writing.instructions.md for comprehensive writing guidance.
 applyTo: '*.md,[0-9]*/**/*.md,_*/**/*.md,docs/**/*.md,src/docs/**/*.md'
-version: "1.9.0"
-last_updated: "2026-06-01"
+domain: "article-writing"
 context_dependencies:
   - ".copilot/context/00.00-prompt-engineering/"
   - ".copilot/context/01.00-article-writing/"
@@ -16,6 +15,8 @@ context_dependencies:
 > 📖 **For comprehensive writing guidance** (voice, tone, Diátaxis patterns, accessibility): See `article-writing.instructions.md`
 >
 > **Scope:** All Markdown files in content areas (excludes folders starting with `.` like `.github/`, `.copilot/`)
+>
+> **⚠️ Carve-out for changelog files (`*.changelog.md`).** Sibling changelog files match this file's `applyTo` glob, but the article rules below (structure, reference classification, voice, formatting-for-readers) do **NOT** apply to them. Changelog files are machine-oriented history records governed by `changelog-files.instructions.md`. When editing a `*.changelog.md` file, follow that file instead of the rules here.
 
 ---
 
@@ -99,6 +100,19 @@ article_metadata:
 4. **Never touch top YAML from validation prompts**
 
 📖 **Complete metadata guidelines:** `.copilot/context/90.00-learning-hub/02-dual-yaml-metadata.md`
+
+---
+
+## Article change history
+
+Per-article change history lives in a **sibling changelog file**, never inside the bottom metadata block.
+
+- **Where history goes.** A sibling `<article-stem>.changelog.md` (e.g. `using-mkdocs.md` → `using-mkdocs.changelog.md`), referenced by the optional `article_metadata.changelog:` field. When the field is absent, the convention sibling is assumed if it exists.
+- **What the bottom block carries.** Only current state — `version`, `last_updated`. The bottom block MUST NOT embed an accumulating history: **no `version_history:` array and no `change_summary:` history log.**
+- **Who writes it (authoritative).** The article-review process (`article-review-for-consistency-gaps-and-extensions.prompt.md`) MUST create or update the sibling changelog whenever it makes a material change to an article. Other editors SHOULD append an entry on material changes, best-effort.
+- **What a changelog file is.** A machine-oriented history record — NOT a normal article. It is exempt from article structure/voice rules and is governed by `changelog-files.instructions.md`. It is never added to the Quarto `render:` allow-list, so it never publishes.
+
+📖 **Changelog file rules:** `.github/instructions/changelog-files.instructions.md`
 
 ---
 
@@ -204,7 +218,14 @@ Before considering an article complete:
 | File | Purpose | When to Use |
 |------|---------|-------------|
 | `article-writing.instructions.md` | Comprehensive writing guidance | Creating/editing articles |
-| `prompts.instructions.md` | Prompt file creation | Creating `.prompt.md` files |
-| `agents.instructions.md` | Agent file creation | Creating `.agent.md` files |
-| `context-files.instructions.md` | Context file creation | Creating context documentation |
-| `skills.instructions.md` | Skill file creation | Creating `SKILL.md` files |
+| `changelog-files.instructions.md` | Sibling changelog file rules | Editing `*.changelog.md` files |
+| `pe-prompts.instructions.md` | Prompt file creation | Creating `.prompt.md` files |
+| `pe-agents.instructions.md` | Agent file creation | Creating `.agent.md` files |
+| `pe-context-files.instructions.md` | Context file creation | Creating context documentation |
+| `pe-skills.instructions.md` | Skill file creation | Creating `SKILL.md` files |
+
+<!--
+instruction_metadata:
+  version: "1.11.0"
+  last_updated: "2026-06-12"
+-->

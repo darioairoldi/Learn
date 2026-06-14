@@ -12,8 +12,6 @@ handoffs:
   - label: "Build Artifact"
     agent: pe-con-builder
     send: true
-version: "1.0.0"
-last_updated: "2026-04-27"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -159,3 +157,9 @@ After presenting, offer handoff to `pe-con-builder`.
 | 1 | "Research requirements for a new hook" | Load dispatch → `pe-hooks.instructions.md` → challenge with 3 scenarios → report |
 | 2 | "Research an agent for article-writing" | Load dispatch → `pe-agents.instructions.md` + article-writing context → cross-domain report |
 | 3 | "Ambiguous request without artifact type" | Ask user to clarify type before proceeding |
+
+<!--
+agent_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-27"
+-->

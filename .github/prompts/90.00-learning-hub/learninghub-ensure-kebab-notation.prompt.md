@@ -136,21 +136,9 @@ Report: folders renamed, files renamed, reference updates, link fixes, final ren
 5. **Reference update:** Update `applyTo` in instruction files after rename
 6. **Quarto link recovery:** Parse `WARN: Unable to resolve`, fix path, re-render
 7. **Skip root infrastructure:** `.github/` folder itself → NOT renamed (only subfolders)
-8. **Root dated folder:** `20250815 DIY Battery Pack/` → `20250815-diy-battery-pack/`
 
 <!--
 prompt_metadata:
-  version: "1.1"
-  created: "2026-01-31T00:00:00Z"
-  last_updated: "2026-06-12T00:00:00Z"
-  changes:
-    - "v1.1: Added required 'domain' field"
-    - "v1.1: CORRECTNESS FIX - Phase 1 scan now includes root-level dated folders (YYYYMMDD-*)"
-    - "v1.1: Infrastructure scan filter now matches underscores ('\\s|[A-Z]|_')"
-    - "v1.1: Fixed no-op Test Scenario 2 to show a real transformation"
-    - "v1.1: Added case-only-rename recovery (two-step rename on case-insensitive filesystems)"
-  production_ready:
-    response_management: true
-    error_recovery: true
-    embedded_tests: 8
+  version: "1.0.0"
+  last_updated: "2026-06-12"
 -->

@@ -224,7 +224,6 @@ template_metadata:
   created: "2026-03-20"
   consumers:
     - "prompt-builder"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "prompt-multi-agent-orchestration.template.changelog.md"
 ---
 -->

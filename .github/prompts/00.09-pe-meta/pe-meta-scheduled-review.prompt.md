@@ -1,4 +1,4 @@
-﻿---
+---
 name: pe-meta-scheduled-review
 description: "Lightweight periodic PE health check — detects stale artifacts, runs a scoped health review, proposes fixes, and updates the review log. Designed for weekly use with minimal cognitive load."
 agent: agent
@@ -19,8 +19,6 @@ handoffs:
 agents: ['*']
 argument-hint: 'Optional: "--scope context|agents|prompts|instructions|skills|hooks|snippets|templates [bundle=accept]" to limit review. Default: auto-detect stale areas.'
 goal: "Detect stale PE artifacts and run scoped health reviews with minimal cognitive load"
-version: "2.3.0"
-last_updated: "2026-06-04"
 scope:
   covers:
     - "Staleness detection via last_updated dates and review log"
@@ -290,3 +288,9 @@ Scheduled-review-specific scenarios:
 | 4 | Pending override follow-ups | Phase 1.3 finds unresolved overrides → evaluates each → updates Follow-up result in review log |
 | 5 | Override issue manifested | Phase 1.3 detects override caused problem → adds to Phase 2 findings for remediation |
 | 6 | Stale or missing template metadata | Phase 1 flags templates with old `last_updated` or missing bottom metadata → included in Phase 2 scope → fix proposals generated |
+
+<!--
+prompt_metadata:
+  version: "2.3.0"
+  last_updated: "2026-06-04"
+-->

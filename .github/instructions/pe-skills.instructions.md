@@ -1,8 +1,7 @@
 ---
 description: Instructions for creating Agent Skills (SKILL.md files)
 applyTo: '.github/skills/**/SKILL.md,.github/templates/skill-*.md'
-version: "1.5.1"
-last_updated: "2026-05-21"
+domain: "prompt-engineering"
 goal: "Govern creation of AI-discoverable agent skills that package domain-specific capabilities"
 rationales:
   - "Skills are discovered by description matching, so description quality is critical"
@@ -93,4 +92,10 @@ Optimize `description` for discovery accuracy — it determines whether Level 2/
 
 - [VS Code: Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
 - [agentskills.io](https://agentskills.io/) — Open standard
-- **📖** [01.03-file-type-decision-guide.md](.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md) — Skills vs prompts vs agents
+- **📖** [01.03-file-type-decision-guide.md](../../.copilot/context/00.00-prompt-engineering/01.03-file-type-decision-guide.md) — Skills vs prompts vs agents
+
+<!--
+instruction_metadata:
+  version: "1.6.1"
+  last_updated: "2026-06-06"
+-->

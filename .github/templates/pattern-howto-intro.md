@@ -22,3 +22,9 @@ This guide shows you how to [specific task]. Use this approach when [context/whe
 ---
 
 **Source:** Diátaxis — how-to guides are task-oriented. See `article-writing.instructions.md` for voice and formatting rules.
+
+<!--
+template_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

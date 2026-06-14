@@ -13,8 +13,6 @@ handoffs:
   - label: "Review Documentation"
     agent: documentation-validator
     send: true
-version: "1.1.0"
-last_updated: "2026-03-20"
 context_dependencies:
   - "00.00-prompt-engineering/"
   - "01.00-article-writing/"
@@ -187,13 +185,11 @@ Hand off to `documentation-validator` for quality validation across all 7 dimens
 <!--
 ---
 agent_metadata:
+  last_updated: "2026-03-20"
   created: "2026-03-16T00:00:00Z"
   created_by: "phase-3-implementation"
-  version: "1.0"
-  updated: "2026-03-16T00:00:00Z"
+  version: "1.1.0"
   updated_by: "copilot"
-  changes:
-    - "v1.1: Integrated PE shared patterns — escalation protocol (02.05), domain expertise activation (02.05), output schema compliance (02.05), handoff output format template"
-    - "v1.0: Initial creation — documentation builder for article creation and updates"
+  changelog: "documentation-builder.agent.changelog.md"
 ---
 -->

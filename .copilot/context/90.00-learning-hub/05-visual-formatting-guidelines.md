@@ -1,8 +1,6 @@
 ---
 title: "Visual Formatting Guidelines for Learning Hub"
 description: "Defines criteria-based rules for when and how to use visual formatting — `<mark>` tags, emojis, and table of contents — to enhance readability without overuse"
-version: "1.0.0"
-last_updated: "2026-05-26"
 domain: "learning-hub"
 goal: "Provide evidence-based guidance for visual formatting that improves readability while preventing decoration overuse"
 scope:
@@ -354,3 +352,9 @@ The `readability-review.prompt` should consider:
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0.0 | 2026-01-24 | Initial version | System |
+
+<!--
+context_metadata:
+  version: "1.0.0"
+  last_updated: "2026-05-26"
+-->

@@ -147,7 +147,6 @@ template_metadata:
   created: "2026-03-20"
   consumers:
     - "article-review-series-for-consistency-gaps-and-extensions"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "guidance-research-and-extensions.template.changelog.md"
 ---
 -->

@@ -12,8 +12,6 @@ handoffs:
   - label: "Validate Artifact"
     agent: pe-con-validator
     send: true
-version: "1.0.0"
-last_updated: "2026-04-27"
 context_dependencies:
   - "00.00-prompt-engineering/"
 domain: "prompt-engineering"
@@ -148,3 +146,9 @@ Run the shared checklist + type-specific checks from dispatch table:
 | 1 | "Create a new hook for PreToolUse" | Load dispatch → `pe-hooks.instructions.md` → build JSON → validate → save |
 | 2 | "Update existing context file" | Read file → pre-change guard → apply changes → reconcile metadata → handoff |
 | 3 | "Build agent from research report" | Load dispatch → `agent.template.md` → verify tool count → build → save |
+
+<!--
+agent_metadata:
+  version: "1.0.0"
+  last_updated: "2026-04-27"
+-->

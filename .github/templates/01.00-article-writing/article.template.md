@@ -156,7 +156,6 @@ template_metadata:
     - "article-design-and-create"
     - "article-review-series-for-consistency-gaps-and-extensions"
     - "structure-validation"
-  changes:
-    - "v1.0.0: Initial version tracking (A-24)"
+  changelog: "article.template.changelog.md"
 ---
 -->

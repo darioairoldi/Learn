@@ -16,7 +16,7 @@ draft: true
 **Reporter:** Dario Airoldi
 **Status:** Resolved (foundation complete; 2 separate follow-ups tracked)
 **Severity:** High
-**Component:** [06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md)
+**Component:** [06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md)
 **Framework:** PE artifact system v15
 
 ---
@@ -39,7 +39,7 @@ draft: true
 
 ### Brief description
 
-The vision document `20260531.01-vision.v15.md` had grown two intertwined problems that blocked safe invariant evolution and made the document hard to read for new builders/reviewers:
+The vision document `20260531.01-vision.md` had grown two intertwined problems that blocked safe invariant evolution and made the document hard to read for new builders/reviewers:
 
 1. **Structural confusion in the vision document itself**
    - Three parallel principle taxonomies (frontmatter `principles:`, frontmatter `rationales:`, body section *The rationale*) with no canonical owner.
@@ -69,7 +69,7 @@ The vision document `20260531.01-vision.v15.md` had grown two intertwined proble
 | Item | Value |
 |---|---|
 | Repository | `Learn` |
-| Vision file | `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md` |
+| Vision file | `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md` |
 | Vision size | ~1 821 lines |
 | Schema authority | `.github/instructions/vision-frontmatter.instructions.md` |
 | Use-case catalog | `06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md` |
@@ -80,7 +80,7 @@ The vision document `20260531.01-vision.v15.md` had grown two intertwined proble
 | File | Change kind |
 |---|---|
 | [vision-frontmatter.instructions.md](../../../../../../.github/instructions/vision-frontmatter.instructions.md) | Schema authority updated to v1.3.0 |
-| [20260531.01-vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) | Frontmatter restructured + body R-code rename |
+| [20260531.01-vision.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) | Frontmatter restructured + body R-code rename |
 | use-cases README | Pending (todo #9 — receives goal-trio↔use-case mapping) |
 
 ### Symptoms observed
@@ -124,7 +124,7 @@ The vision document is the **single load-bearing artifact** for the PE self-upda
 
 ## 🔄 Reproduction steps
 
-1. Open `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md`.
+1. Open `06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md`.
 2. Read the YAML frontmatter — observe three blocks: `principles:`, `rationales:`, and the body § *The rationale* tables.
 3. Search the body for `R-S1` — must scroll to body § *The rationale* table to learn it means *Metadata-driven automation*.
 4. Inspect `scope.covers:` — observe that *Progressive learning via structured outcome logs* sits next to *Self-update architecture* with no priority distinction.
@@ -171,7 +171,7 @@ The frontmatter `rationales:` block was retired (its content was duplicating the
 - Retired the top-level `rationales:` block.
 - Added full Quality Checklist sections per block.
 
-#### 2. Vision frontmatter restructure — `20260531.01-vision.v15.md`
+#### 2. Vision frontmatter restructure — `20260531.01-vision.md`
 
 - `last_updated: "2026-06-01"`.
 - `description:` tightened from ~500 to ~120 words; lifted high-level design principles (metadata-first 3-tier domain resolution, seed-vs-dependency footprint distinction, autonomy gradient and risk-calibrated governance, supported command patterns) above implementation details.
@@ -389,7 +389,7 @@ Suggested table layout:
 
 ```powershell
 # Confirm zero R-X# references in vision body
-$path = 'c:\dev\darioairoldi\Learn\06.00-idea\self-updating-prompt-engineering\20260531.01-vision.v15.md'
+$path = 'c:\dev\darioairoldi\Learn\06.00-idea\self-updating-prompt-engineering\20260531.01-vision.md'
 ([regex]::Matches((Get-Content $path -Raw), 'R-[LPSG]\d+')).Count
 
 # List frontmatter scope.covers priorities
@@ -403,7 +403,7 @@ $path = 'c:\dev\darioairoldi\Learn\06.00-idea\self-updating-prompt-engineering\2
 
 - [vision-frontmatter.instructions.md](../../../../../../.github/instructions/vision-frontmatter.instructions.md) — schema authority.
 - [vision-amendment.instructions.md](../../../../../../.github/instructions/vision-amendment.instructions.md) — discipline that now consumes `scope.covers[*].priority`.
-- [vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.v15.md) — the document under repair.
+- [vision.v15.md](../../../../../../06.00-idea/self-updating-prompt-engineering/20260531.01-vision.md) — the document under repair.
 - [use-cases README](../../../../../../06.00-idea/self-updating-prompt-engineering/20260503.02-vision-pe-meta-usecases/00-overview.md) — pending recipient of the goal-trio↔use-case mapping.
 - [overview.md](overview.md) — the original issue write-up.
 

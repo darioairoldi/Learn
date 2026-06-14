@@ -149,3 +149,9 @@ Skill-create-update-specific scenarios:
 | 1 | Create new skill (happy path) | Phases 1-4 → SKILL.md + resources created, verification passed |
 | 2 | Update existing skill | Reads current → checks consumers → applies changes → re-verifies |
 | 3 | Scope overlap detected | Phase 1 check finds overlap → presents merge/narrow options |
+
+<!--
+prompt_metadata:
+  version: "1.0.0"
+  last_updated: "2026-06-12"
+-->

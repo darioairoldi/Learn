@@ -53,8 +53,6 @@ boundaries:
   - "Verify knowledge gap exists BEFORE delegating to builder"
   - "Challenge with single-source-of-truth analysis before any creation"
   - "Never skip research phase — always start with context-researcher"
-version: "1.5"
-last_updated: "2026-04-28"
 ---
 
 # Context Information Design and Create Orchestrator
@@ -377,22 +375,10 @@ Context-file-specific scenarios:
 prompt_metadata:
   template_type: "multi-agent-orchestration"
   created: "2026-03-13T00:00:00Z"
-  last_updated: "2026-03-13T00:00:00Z"
+  last_updated: "2026-04-28"
   updated_by: "implementation"
-  version: "1.5"
-  changes:
-    - "v1.5: A7 — Added content-type-specific token budget table to Phase 3"
-    - "v1.4: A4 — Added structured output formats to Phases 3, 4 (data contracts between phases)"
-    - "v1.4: A5 — Added YAML frontmatter to Phase 3 required structure list"
-    - "v1.3: A3 — Added Out of Scope section with redirects to sibling prompts"
-    - "v1.2: A2 — Added fetch_webpage to tool list for URL-based source material"
-    - "v1.1: A1 — Added source prioritization guidance (Primary/Secondary/Tertiary/Exclude) to Phase 2 researcher handoff"
-    - "v1.1: A1 — Added structured Phase 2 output format (research summary template)"
-    - "v1.1: A6 — Added contradiction detection to Gate 2 (not just duplication)"
-    - "v1.1: A6 — Added source classification gate check"
-    - "v1.0: Initial version — 6-phase orchestrator following instruction-file-design pattern"
-    - "v1.0: Includes all production-readiness requirements: response management, error recovery, embedded test scenarios, context rot prevention, goal alignment checks, concrete gate criteria"
-    - "v1.0: Context-specific focus: single-source-of-truth validation, consumer impact analysis, token budget splitting"
+  version: "1.5.0"
+  changelog: "pe-gra-context-information-design.prompt.changelog.md"
   production_ready:
     response_management: true
     error_recovery: true
