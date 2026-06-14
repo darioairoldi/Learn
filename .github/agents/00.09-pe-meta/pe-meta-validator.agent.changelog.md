@@ -7,6 +7,10 @@ status: "living"
 
 # Change history — pe-meta-validator.agent
 
+## v2.5.1 — 2026-06-12
+
+Body-level refinements from a `/pe-meta-update --mode apply --deps full` single-file run. **D1/D14:** trimmed `description` to a single sentence under 200 chars (was ~256 chars, two sentences, and the cohort outlier) — the "fully self-contained" qualifier is preserved in `goal`. **D6-consistency:** added Test Scenario row 4 covering the `--audit` Coverage Audit mode (the v2.3.0 second-actor mode was documented in modes/capabilities/body but had no test scenario). No rule, capability, or boundary changed; non-breaking. Bottom-block `version`/`last_updated` synced (no top-frontmatter version on agent files). Cohort capability count (4–8 across pe-meta agents vs the instruction's "3–5") parked as out-of-scope for a single-file run.
+
 ## v2.5.0 — 2026-06-12
 
 Adopted metadata-precedence runtime grounding (vision v15.6.0). Added a single collective grounding directive to CRITICAL BOUNDARIES and removed the body entries that restated YAML boundaries verbatim — this **reverses the v2.4.0 F2 change**, which had added four Always/Never body twins to satisfy the now-retired H14 bijection. Removed restatements: route-CRITICAL-escalation, exemplary-PE-for-PE bar, --dim/--with-deps parsing, coverage-marker recompute, finding-to-dimension mapping, Phase A-F ordering, lifecycle stage outputs, never-modify-files, never-approve-capability-break, never-delegate-structural, never-skip-applicable-dimension, never-inherit-orchestrator-markers. Three-tier entries are now additive only (deterministic-first, evidenced rows, D30 citation, never-approve-rationale-violations, D16 ordering). Retired per-boundary bijection (H14).
